@@ -1,10 +1,11 @@
 package com.faceunity.wrapper;
-/* loaded from: classes.dex */
+/* loaded from: classes11.dex */
 public class faceunity {
-    private static boolean aSB = false;
-    static int[] knl = new int[2];
-    static int[] knm = new int[1];
+    private static boolean isDebug = false;
+    static int[] lTs = new int[2];
+    static int[] lTt = new int[1];
 
+    @Deprecated
     public static native int fuAvatarBindItems(int i, int[] iArr, int[] iArr2);
 
     public static native int fuAvatarToImage(float[] fArr, float[] fArr2, float[] fArr3, float[] fArr4, int i, int i2, int i3, int i4, int[] iArr, int i5, int i6, int i7, byte[] bArr);
@@ -13,6 +14,7 @@ public class faceunity {
 
     public static native int fuAvatarToTextureWithTrans(float[] fArr, float[] fArr2, float[] fArr3, float[] fArr4, float[] fArr5, int i, int i2, int i3, int i4, int[] iArr, int i5);
 
+    @Deprecated
     public static native int fuAvatarUnbindItems(int i, int[] iArr);
 
     public static native int fuBeautifyImage(int i, int i2, int i3, int i4, int i5, int[] iArr);
@@ -26,6 +28,10 @@ public class faceunity {
     public static native void fuCreateEGLContext();
 
     public static native int fuCreateItemFromPackage(byte[] bArr);
+
+    public static native int fuCreateTexForItem(int i, String str, byte[] bArr, int i2, int i3);
+
+    public static native int fuDeleteTexForItem(int i, String str);
 
     public static native void fuDestroyAllItems();
 
@@ -75,6 +81,8 @@ public class faceunity {
 
     public static native int fuLoadExtendedARData(byte[] bArr);
 
+    public static native int fuLoadTongueModel(byte[] bArr);
+
     public static native void fuOnCameraChange();
 
     public static native void fuOnDeviceLost();
@@ -123,6 +131,8 @@ public class faceunity {
 
     public static native int fuRenderToYUVImage(byte[] bArr, byte[] bArr2, byte[] bArr3, int i, int i2, int i3, int i4, int i5, int i6, int[] iArr, int i7);
 
+    public static native int fuSetAsyncTrackFace(int i);
+
     public static native int fuSetDefaultOrientation(int i);
 
     public static native void fuSetDefaultRotationMode(int i);
@@ -140,6 +150,8 @@ public class faceunity {
     public static native int fuSetup(byte[] bArr, byte[] bArr2, byte[] bArr3);
 
     public static native void fuTrackFace(byte[] bArr, int i, int i2, int i3);
+
+    public static native int fuUnBindItems(int i, int[] iArr);
 
     public static native int fuUnbindAllItems(int i);
 

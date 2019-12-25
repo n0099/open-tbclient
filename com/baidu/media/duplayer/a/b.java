@@ -14,8 +14,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class b {
     private static final Object b = new Object();
-    a azf;
-    private c azg;
+    a aGR;
+    private c aGS;
     private ArrayList<com.baidu.media.duplayer.a.a> c;
     private ArrayList<com.baidu.media.duplayer.a.a> d;
 
@@ -32,7 +32,7 @@ public class b {
             this.c = 5;
         }
 
-        public com.baidu.media.duplayer.a.a zl() {
+        public com.baidu.media.duplayer.a.a AY() {
             com.baidu.media.duplayer.a.a aVar = new com.baidu.media.duplayer.a.a(this.b + this.a.getAndIncrement());
             aVar.setPriority(this.c);
             return aVar;
@@ -42,8 +42,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.media.duplayer.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0102b {
-        private static b azh = new b();
+    public static class C0115b {
+        private static b aGT = new b();
     }
 
     /* loaded from: classes.dex */
@@ -56,10 +56,10 @@ public class b {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 100:
-                    b.zi().c();
+                    b.AV().c();
                     return;
                 case 101:
-                    b.zi().f();
+                    b.AV().f();
                     return;
                 default:
                     return;
@@ -70,8 +70,18 @@ public class b {
     private b() {
         this.c = new ArrayList<>();
         this.d = new ArrayList<>();
-        this.azf = new a("duplayer-t");
-        this.azg = new c(Looper.getMainLooper());
+        this.aGR = new a("duplayer-t");
+        this.aGS = new c(Looper.getMainLooper());
+    }
+
+    public static b AV() {
+        return C0115b.aGT;
+    }
+
+    private com.baidu.media.duplayer.a.a AW() {
+        com.baidu.media.duplayer.a.a AY = this.aGR.AY();
+        AY.start();
+        return AY;
     }
 
     private void b(com.baidu.media.duplayer.a.a aVar) {
@@ -119,14 +129,32 @@ public class b {
         }
     }
 
-    public static b zi() {
-        return C0102b.azh;
-    }
-
-    private com.baidu.media.duplayer.a.a zj() {
-        com.baidu.media.duplayer.a.a zl = this.azf.zl();
-        zl.start();
-        return zl;
+    public com.baidu.media.duplayer.a.a AX() {
+        com.baidu.media.duplayer.a.a aVar;
+        synchronized (b) {
+            if (this.c.size() == 0) {
+                aVar = AW();
+            } else {
+                int size = this.c.size() - 1;
+                aVar = this.c.get(size);
+                this.c.remove(size);
+                if (aVar == null) {
+                    aVar = AW();
+                }
+            }
+            aVar.a(1);
+            aVar.a(-1L);
+            this.d.add(aVar);
+            if (this.c.size() <= 0) {
+                this.aGS.removeMessages(100);
+            }
+            if (this.c.size() <= 3) {
+                this.aGS.removeMessages(101);
+            }
+            CyberLog.d("DuplayerHandlerThreadPool", " obtain handlerThread:" + aVar);
+            d();
+        }
+        return aVar;
     }
 
     public void a(com.baidu.media.duplayer.a.a aVar) {
@@ -140,10 +168,10 @@ public class b {
             this.d.remove(aVar);
             this.c.add(aVar);
             if (this.c.size() > 0) {
-                this.azg.sendEmptyMessageDelayed(100, 900000L);
+                this.aGS.sendEmptyMessageDelayed(100, 900000L);
             }
             if (this.c.size() > 3) {
-                this.azg.sendEmptyMessageDelayed(101, 120000L);
+                this.aGS.sendEmptyMessageDelayed(101, 120000L);
             }
             d();
         }
@@ -187,33 +215,5 @@ public class b {
                 CyberLog.d("DuplayerHandlerThreadPool", "-- mBusyPool i:" + i2 + HanziToPinyin.Token.SEPARATOR + this.d.get(i2) + " --");
             }
         }
-    }
-
-    public com.baidu.media.duplayer.a.a zk() {
-        com.baidu.media.duplayer.a.a aVar;
-        synchronized (b) {
-            if (this.c.size() == 0) {
-                aVar = zj();
-            } else {
-                int size = this.c.size() - 1;
-                aVar = this.c.get(size);
-                this.c.remove(size);
-                if (aVar == null) {
-                    aVar = zj();
-                }
-            }
-            aVar.a(1);
-            aVar.a(-1L);
-            this.d.add(aVar);
-            if (this.c.size() <= 0) {
-                this.azg.removeMessages(100);
-            }
-            if (this.c.size() <= 3) {
-                this.azg.removeMessages(101);
-            }
-            CyberLog.d("DuplayerHandlerThreadPool", " obtain handlerThread:" + aVar);
-            d();
-        }
-        return aVar;
     }
 }

@@ -1,6 +1,5 @@
 package android.support.v7.widget;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -8,6 +7,7 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.v7.appcompat.R;
 import android.text.Layout;
@@ -15,6 +15,7 @@ import android.text.StaticLayout;
 import android.text.TextDirectionHeuristic;
 import android.text.TextDirectionHeuristics;
 import android.text.TextPaint;
+import android.text.method.TransformationMethod;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -24,9 +25,9 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Hashtable;
+import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AppCompatTextViewAutoSizeHelper {
     private static final int DEFAULT_AUTO_SIZE_GRANULARITY_IN_PX = 1;
     private static final int DEFAULT_AUTO_SIZE_MAX_TEXT_SIZE_IN_SP = 112;
@@ -38,12 +39,12 @@ public class AppCompatTextViewAutoSizeHelper {
     private TextPaint mTempTextPaint;
     private final TextView mTextView;
     private static final RectF TEMP_RECTF = new RectF();
-    private static Hashtable<String, Method> sTextViewMethodByNameCache = new Hashtable<>();
+    private static ConcurrentHashMap<String, Method> sTextViewMethodByNameCache = new ConcurrentHashMap<>();
     private int mAutoSizeTextType = 0;
     private boolean mNeedsAutoSizeText = false;
-    private float mAutoSizeStepGranularityInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
-    private float mAutoSizeMinTextSizeInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
-    private float mAutoSizeMaxTextSizeInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
+    private float mAutoSizeStepGranularityInPx = -1.0f;
+    private float mAutoSizeMinTextSizeInPx = -1.0f;
+    private float mAutoSizeMaxTextSizeInPx = -1.0f;
     private int[] mAutoSizeTextSizesInPx = new int[0];
     private boolean mHasPresetAutoSizeValues = false;
 
@@ -60,9 +61,9 @@ public class AppCompatTextViewAutoSizeHelper {
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeTextType)) {
             this.mAutoSizeTextType = obtainStyledAttributes.getInt(R.styleable.AppCompatTextView_autoSizeTextType, 0);
         }
-        float dimension = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeStepGranularity) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeStepGranularity, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
-        float dimension2 = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeMinTextSize) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeMinTextSize, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
-        float dimension3 = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeMaxTextSize) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeMaxTextSize, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
+        float dimension = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeStepGranularity) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeStepGranularity, -1.0f) : -1.0f;
+        float dimension2 = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeMinTextSize) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeMinTextSize, -1.0f) : -1.0f;
+        float dimension3 = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeMaxTextSize) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeMaxTextSize, -1.0f) : -1.0f;
         if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizePresetSizes) && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextView_autoSizePresetSizes, 0)) > 0) {
             TypedArray obtainTypedArray = obtainStyledAttributes.getResources().obtainTypedArray(resourceId);
             setupAutoSizeUniformPresetSizes(obtainTypedArray);
@@ -73,13 +74,13 @@ public class AppCompatTextViewAutoSizeHelper {
             if (this.mAutoSizeTextType == 1) {
                 if (!this.mHasPresetAutoSizeValues) {
                     DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
-                    if (dimension2 == UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) {
+                    if (dimension2 == -1.0f) {
                         dimension2 = TypedValue.applyDimension(2, 12.0f, displayMetrics);
                     }
-                    if (dimension3 == UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) {
+                    if (dimension3 == -1.0f) {
                         dimension3 = TypedValue.applyDimension(2, 112.0f, displayMetrics);
                     }
-                    if (dimension == UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) {
+                    if (dimension == -1.0f) {
                         dimension = 1.0f;
                     }
                     validateAndSetAutoSizeTextTypeUniformConfiguration(dimension2, dimension3, dimension);
@@ -203,7 +204,7 @@ public class AppCompatTextViewAutoSizeHelper {
             this.mAutoSizeTextType = 1;
             this.mAutoSizeMinTextSizeInPx = this.mAutoSizeTextSizesInPx[0];
             this.mAutoSizeMaxTextSizeInPx = this.mAutoSizeTextSizesInPx[length - 1];
-            this.mAutoSizeStepGranularityInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
+            this.mAutoSizeStepGranularityInPx = -1.0f;
         }
         return this.mHasPresetAutoSizeValues;
     }
@@ -301,9 +302,9 @@ public class AppCompatTextViewAutoSizeHelper {
 
     private void clearAutoSizeConfiguration() {
         this.mAutoSizeTextType = 0;
-        this.mAutoSizeMinTextSizeInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
-        this.mAutoSizeMaxTextSizeInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
-        this.mAutoSizeStepGranularityInPx = UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE;
+        this.mAutoSizeMinTextSizeInPx = -1.0f;
+        this.mAutoSizeMaxTextSizeInPx = -1.0f;
+        this.mAutoSizeStepGranularityInPx = -1.0f;
         this.mAutoSizeTextSizesInPx = new int[0];
         this.mNeedsAutoSizeText = false;
     }
@@ -368,7 +369,12 @@ public class AppCompatTextViewAutoSizeHelper {
 
     private boolean suggestedSizeFitsInSpace(int i, RectF rectF) {
         StaticLayout createStaticLayoutForMeasuringPre23;
+        CharSequence transformation;
         CharSequence text = this.mTextView.getText();
+        TransformationMethod transformationMethod = this.mTextView.getTransformationMethod();
+        if (transformationMethod != null && (transformation = transformationMethod.getTransformation(text, this.mTextView)) != null) {
+            text = transformation;
+        }
         int maxLines = Build.VERSION.SDK_INT >= 16 ? this.mTextView.getMaxLines() : -1;
         if (this.mTempTextPaint == null) {
             this.mTempTextPaint = new TextPaint();
@@ -389,7 +395,7 @@ public class AppCompatTextViewAutoSizeHelper {
         return false;
     }
 
-    @TargetApi(23)
+    @RequiresApi(23)
     private StaticLayout createStaticLayoutForMeasuring(CharSequence charSequence, Layout.Alignment alignment, int i, int i2) {
         TextDirectionHeuristic textDirectionHeuristic = (TextDirectionHeuristic) invokeAndReturnWithDefault(this.mTextView, "getTextDirectionHeuristic", TextDirectionHeuristics.FIRSTSTRONG_LTR);
         StaticLayout.Builder hyphenationFrequency = StaticLayout.Builder.obtain(charSequence, 0, charSequence.length(), this.mTempTextPaint, i).setAlignment(alignment).setLineSpacing(this.mTextView.getLineSpacingExtra(), this.mTextView.getLineSpacingMultiplier()).setIncludePad(this.mTextView.getIncludeFontPadding()).setBreakStrategy(this.mTextView.getBreakStrategy()).setHyphenationFrequency(this.mTextView.getHyphenationFrequency());
@@ -399,7 +405,6 @@ public class AppCompatTextViewAutoSizeHelper {
         return hyphenationFrequency.setMaxLines(i2).setTextDirection(textDirectionHeuristic).build();
     }
 
-    @TargetApi(14)
     private StaticLayout createStaticLayoutForMeasuringPre23(CharSequence charSequence, Layout.Alignment alignment, int i) {
         float floatValue;
         float floatValue2;

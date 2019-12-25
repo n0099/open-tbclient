@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.a.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
@@ -23,7 +25,6 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String ASSIST_URLS = "assist_urls";
     public static final String DATA_NOT_VALID = "data_not_valid";
     public static final String DATA_VALID = "data_valid";
-    public static final String FIXED_COUNT_IN_TITLE = "fixed_count_in_title";
     public static final String FORUM_ID = "fid";
     public static final String FORUM_NAME = "fname";
     public static final String FROM_CONCERN = "concern";
@@ -33,17 +34,19 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String FROM_HOME = "index";
     public static final String FROM_OTHER = "other";
     public static final String FROM_PB = "pb";
-    public static final String IMAGE_DATA_LIST = "image_data_list";
+    public static final String FROM_VIDEO_TAB = "video_tab";
     public static final String INDEX = "index";
+    public static final String IS_BJH = "is_bjh";
     public static final String IS_CAN_DRAG = "is_can_drag";
     public static final String IS_DATA_VALID = "is_data_valid";
+    public static final String IS_DYNAMIC_CARD = "is_dynamic_card";
     public static final String IS_FROM_AI_APP = "is_from_ai_app";
     public static final String IS_GODREPLY_IMAGE = "is_godreply_image";
-    public static final String IS_HOT_SORT = "is_hot_sort";
     public static final String IS_IDENTIFY_IMAGE = "is_identify_image";
     public static final String IS_LOGIN = "is_login";
     public static final String IS_PV = "is_pv";
     public static final String IS_SHOW_AD = "is_show_ad";
+    public static final String IS_SHOW_BOTTOM_CONTAINER = "is_show_bottom_container";
     public static final String IS_SHOW_HOST = "is_show_host";
     public static final String LAST_ID = "last_id";
     public static final String NEED_BROADCAST = "need_broadcast";
@@ -62,22 +65,10 @@ public class ImageViewerConfig extends IntentConfig {
         super(context);
     }
 
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
-        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, false);
-    }
-
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3) {
-        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, z3, false, true);
-    }
-
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5) {
-        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, z3, z4, z5, -1, false);
-    }
-
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5, int i2, boolean z6) {
         ImageUrlData imageUrlData;
         Intent intent = getIntent();
-        intent.putExtra("abtest", b.mb("picpage_content_clear"));
+        intent.putExtra("abtest", b.rp("picpage_content_clear"));
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
@@ -95,14 +86,9 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(IS_SHOW_AD, z3);
             intent.putExtra(NEED_BROADCAST, z4);
             intent.putExtra(SEE_HOST, z5);
-            intent.putExtra(IS_FROM_AI_APP, z6);
-            if (i2 >= 0) {
-                intent.putExtra("thread_type", i2);
-            }
-            ArrayList arrayList2 = new ArrayList();
             int size = arrayList.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                String str5 = arrayList.get(i3);
+            for (int i2 = 0; i2 < size; i2++) {
+                String str5 = arrayList.get(i2);
                 if (!StringUtils.isNull(str5)) {
                     ImageUrlData imageUrlData2 = null;
                     if (concurrentHashMap != null) {
@@ -115,11 +101,9 @@ public class ImageViewerConfig extends IntentConfig {
                     } else {
                         imageUrlData = imageUrlData2;
                     }
-                    imageUrlData.overAllIndex = i3 + 1;
-                    arrayList2.add(imageUrlData);
+                    imageUrlData.overAllIndex = i2 + 1;
                 }
             }
-            intent.putExtra(IMAGE_DATA_LIST, arrayList2);
             TbadkCoreApplication.getInst();
             intent.putExtra(IS_LOGIN, TbadkCoreApplication.isLogin());
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
@@ -135,13 +119,12 @@ public class ImageViewerConfig extends IntentConfig {
         return this;
     }
 
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2) {
-        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, null);
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3) {
+        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, concurrentHashMap, z3, false, true);
     }
 
-    public ImageViewerConfig setFixCountInTitle(int i) {
-        getIntent().putExtra(FIXED_COUNT_IN_TITLE, i);
-        return this;
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2) {
+        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, null, false, false, true);
     }
 
     public ImageViewerConfig setIsCanDrag(boolean z) {
@@ -149,13 +132,15 @@ public class ImageViewerConfig extends IntentConfig {
         return this;
     }
 
-    public ImageViewerConfig setIsHotSort(boolean z) {
-        getIntent().putExtra(IS_HOT_SORT, z);
+    public ImageViewerConfig setIsShowHost(boolean z) {
+        getIntent().putExtra(IS_SHOW_HOST, z);
         return this;
     }
 
-    public ImageViewerConfig setIsShowHost(boolean z) {
-        getIntent().putExtra(IS_SHOW_HOST, z);
+    public ImageViewerConfig makeDynamicCard() {
+        getIntent().putExtra(IS_DYNAMIC_CARD, true);
+        getIntent().putExtra(IS_SHOW_BOTTOM_CONTAINER, false);
+        getIntent().putExtra(IS_SHOW_HOST, false);
         return this;
     }
 
@@ -187,6 +172,36 @@ public class ImageViewerConfig extends IntentConfig {
 
     public ImageViewerConfig setIsIdentifyImage(boolean z) {
         getIntent().putExtra(IS_IDENTIFY_IMAGE, z);
+        return this;
+    }
+
+    public ImageViewerConfig setIsFromAiApp(boolean z) {
+        getIntent().putExtra(IS_FROM_AI_APP, z);
+        return this;
+    }
+
+    public ImageViewerConfig setThreadType(int i) {
+        if (i >= 0) {
+            getIntent().putExtra("thread_type", i);
+        }
+        return this;
+    }
+
+    public ImageViewerConfig setThreadData(bj bjVar) {
+        Intent intent = getIntent();
+        if (bjVar != null && intent != null) {
+            intent.putExtra(IS_BJH, bjVar.aBC());
+            if (bjVar.aBC()) {
+                intent.putExtra(PARAM_IS_CDN, true);
+            }
+        }
+        return this;
+    }
+
+    public ImageViewerConfig setPostId(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            getIntent().putExtra("post_id", str);
+        }
         return this;
     }
 }

@@ -1,16 +1,16 @@
 package com.baidu.sapi2;
 
 import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractService implements c {
     private static final String a = "3";
     protected SapiConfiguration configuration;
@@ -51,10 +51,10 @@ public abstract class AbstractService implements c {
     /* JADX INFO: Access modifiers changed from: protected */
     public String getErrorMsg(String str) {
         try {
-            return new JSONObject(str).optString("errmsg");
+            return new JSONObject(str).optString(BaseJsonData.TAG_ERRMSG);
         } catch (Exception e) {
             Log.e(e);
-            return SapiResult.ERROR_MSG_UNKNOWN;
+            return "网络连接失败，请检查网络设置";
         }
     }
 

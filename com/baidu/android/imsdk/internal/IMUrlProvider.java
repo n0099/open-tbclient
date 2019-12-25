@@ -11,19 +11,19 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.dns.DnsHelper;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMUrlProvider {
     private static final String TAG = "IMUrlProvider";
     private static Context mContext;
     private static int mCurrentPolicy = Constants.SOCKET_DEFAULT_POLICY;
     private static int mLastPolicy = mCurrentPolicy;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface IGetUrlAsyncListener extends IMListener {
         void onGetUrlAsncResult(int i, String str, String str2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface IMUrlProviderInternal {
         void getUrlAsync(IGetUrlAsyncListener iGetUrlAsyncListener);
 
@@ -46,7 +46,7 @@ public class IMUrlProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class DefaultUrlProvider implements IMUrlProviderInternal {
         private static DefaultUrlProvider mInstance;
 
@@ -79,7 +79,7 @@ public class IMUrlProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class BDHttpDNSUrlProvider implements IMUrlProviderInternal {
         private static BDHttpDNSUrlProvider mInstance;
 
@@ -106,10 +106,10 @@ public class IMUrlProvider {
                     @Override // java.lang.Runnable
                     public void run() {
                         LogUtils.d(IMUrlProvider.TAG, "bddns > getUrlAsync in...");
-                        List ipListForceHttp = new DnsHelper(IMUrlProvider.mContext).getIpListForceHttp(Constants.URL_SOCKET_SERVER);
+                        List<String> ipListForceHttp = new DnsHelper(IMUrlProvider.mContext).getIpListForceHttp(Constants.URL_SOCKET_SERVER);
                         if (ipListForceHttp != null && !ipListForceHttp.isEmpty()) {
                             LogUtils.d(IMUrlProvider.TAG, "bddns > bdDnsIps = " + ipListForceHttp);
-                            String str = (String) ipListForceHttp.get(new Random().nextInt(ipListForceHttp.size()));
+                            String str = ipListForceHttp.get(new Random().nextInt(ipListForceHttp.size()));
                             iGetUrlAsyncListener.onGetUrlAsncResult(0, Constants.ERROR_MSG_SUCCESS, str);
                             LogUtils.d(IMUrlProvider.TAG, "bddns > return ip = " + str);
                             return;
@@ -131,7 +131,7 @@ public class IMUrlProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class HttpDNSUrlProvider implements IMUrlProviderInternal {
         static final String LAST_CONNECTED_IP_KEY = "last_connected_ip_key";
         private static HttpDNSUrlProvider mInstance;

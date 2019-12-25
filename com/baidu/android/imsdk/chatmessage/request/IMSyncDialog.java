@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMSyncDialog extends Message {
     public static final String TAG = IMDelMsg.class.getSimpleName();
     private Context mContext;

@@ -1,7 +1,7 @@
 package org.java_websocket.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface i extends c, h {
-    void Hj(String str);
+    void Rp(String str);
 
-    void h(short s);
+    void j(short s);
 }

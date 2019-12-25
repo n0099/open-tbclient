@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ax {
     private static String a(byte b) {
         int i = (b & Byte.MAX_VALUE) + (b < 0 ? 128 : 0);

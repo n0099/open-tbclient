@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hk;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class i implements hf {
     private final XMPushService a;
 
@@ -18,7 +18,7 @@ public class i implements hf {
 
     @Override // com.xiaomi.push.hf
     public void a(List<hk> list, String str, String str2) {
-        com.xiaomi.channel.commonutils.logger.b.m30a("TinyData LongConnUploader.upload items size:" + list.size() + "  ts:" + System.currentTimeMillis());
+        com.xiaomi.channel.commonutils.logger.b.m33a("TinyData LongConnUploader.upload items size:" + list.size() + "  ts:" + System.currentTimeMillis());
         this.a.a(new j(this, 4, str, list, str2));
     }
 }

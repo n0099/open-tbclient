@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c cIV = new c();
+    private static c dwF = new c();
     private final HashMap<String, Class<? extends b>> imageActions = new HashMap<>();
 
-    public static c avu() {
-        return cIV;
+    public static c aNb() {
+        return dwF;
     }
 
     private c() {
@@ -128,23 +128,23 @@ public class c {
     }
 
     protected b a(ImageOperation imageOperation) {
-        b m;
+        b t;
         Class<? extends b> cls = this.imageActions.get(imageOperation.actionName);
-        if (cls != null && (m = m(cls)) != null) {
-            m.setParams(imageOperation.actionParam);
-            return m;
+        if (cls != null && (t = t(cls)) != null) {
+            t.setParams(imageOperation.actionParam);
+            return t;
         }
         return null;
     }
 
     private void registerImageAction(Class<? extends b> cls) {
-        b m = m(cls);
-        if (m != null) {
-            this.imageActions.put(m.getActionName(), cls);
+        b t = t(cls);
+        if (t != null) {
+            this.imageActions.put(t.getActionName(), cls);
         }
     }
 
-    private b m(Class<? extends b> cls) {
+    private b t(Class<? extends b> cls) {
         try {
             return cls.newInstance();
         } catch (IllegalAccessException e) {

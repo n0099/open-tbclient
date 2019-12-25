@@ -6,11 +6,11 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tieba.imMessageCenter.RequestCommitInviteMessage;
 import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private RequestCommitInviteMessage gTC;
-    private long gTD;
-    private long gyY;
+    private RequestCommitInviteMessage hHF;
+    private long hHG;
+    private long hng;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -23,29 +23,29 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.gyY = intent.getLongExtra("gid", -1L);
-            this.gTD = intent.getLongExtra("groupid", -1L);
+            this.hng = intent.getLongExtra("gid", -1L);
+            this.hHG = intent.getLongExtra("groupid", -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.gyY = bundle.getLong("gid", -1L);
-            this.gTD = bundle.getLong("groupid", -1L);
+            this.hng = bundle.getLong("gid", -1L);
+            this.hHG = bundle.getLong("groupid", -1L);
         }
     }
 
-    public void X(Bundle bundle) {
-        bundle.putLong("gid", this.gyY);
-        bundle.putLong("groupid", this.gTD);
+    public void aq(Bundle bundle) {
+        bundle.putLong("gid", this.hng);
+        bundle.putLong("groupid", this.hHG);
     }
 
-    public void yx(String str) {
-        this.gTC = b(this.gyY, this.gTD, str);
-        super.sendMessage(this.gTC);
+    public void Dg(String str) {
+        this.hHF = c(this.hng, this.hHG, str);
+        super.sendMessage(this.hHF);
     }
 
-    private RequestCommitInviteMessage b(long j, long j2, String str) {
+    private RequestCommitInviteMessage c(long j, long j2, String str) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.groupId = Long.valueOf(j);
         builder.msgType = 5;

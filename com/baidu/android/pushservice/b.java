@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.i.l;
 import java.lang.Thread;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class b implements Thread.UncaughtExceptionHandler {
     private final Context a;
     private final Thread.UncaughtExceptionHandler b;

@@ -37,7 +37,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
         engineCommonConfig.mNoExistSensor = !com.baidu.platform.comapi.walknavi.b.a().e();
         this.a = new JNIEngineManager();
         new a(j, engineCommonConfig).start();
-        new C0114b(context).start();
+        new C0130b(context).start();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
@@ -118,10 +118,10 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0114b extends Thread {
+    public class C0130b extends Thread {
         private Context b;
 
-        public C0114b(Context context) {
+        public C0130b(Context context) {
             this.b = context;
         }
 

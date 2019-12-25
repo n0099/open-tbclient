@@ -7,34 +7,34 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.an.z;
-/* loaded from: classes5.dex */
+import com.baidu.swan.apps.as.af;
+/* loaded from: classes9.dex */
 public class f extends RecyclerView.ItemDecoration {
-    private static final int MARGIN = z.S(15.0f);
-    private ColorDrawable bHx;
-    private boolean bHy;
+    private static final int MARGIN = af.T(15.0f);
+    private ColorDrawable csN;
+    private boolean csO;
 
     public f(Context context) {
         this(context, false);
     }
 
     public f(Context context, boolean z) {
-        this.bHy = true;
-        this.bHx = new ColorDrawable(context.getResources().getColor(a.c.aiapps_location_item_bg_pressed));
-        this.bHy = z;
+        this.csO = true;
+        this.csN = new ColorDrawable(context.getResources().getColor(a.c.aiapps_location_item_bg_pressed));
+        this.csO = z;
     }
 
     private void drawVertical(Canvas canvas, RecyclerView recyclerView) {
         int paddingLeft = recyclerView.getPaddingLeft() + MARGIN;
         int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - MARGIN;
         int childCount = recyclerView.getChildCount();
-        int i = this.bHy ? childCount : childCount - 1;
+        int i = this.csO ? childCount : childCount - 1;
         for (int i2 = 0; i2 < i; i2++) {
             View childAt = recyclerView.getChildAt(i2);
             if (childAt != null) {
                 int bottom = ((RecyclerView.LayoutParams) childAt.getLayoutParams()).bottomMargin + childAt.getBottom();
-                this.bHx.setBounds(paddingLeft, bottom, width, bottom + 1);
-                this.bHx.draw(canvas);
+                this.csN.setBounds(paddingLeft, bottom, width, bottom + 1);
+                this.csN.draw(canvas);
             }
         }
     }

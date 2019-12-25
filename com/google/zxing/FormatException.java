@@ -1,5 +1,5 @@
 package com.google.zxing;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class FormatException extends ReaderException {
     private static final FormatException INSTANCE;
 

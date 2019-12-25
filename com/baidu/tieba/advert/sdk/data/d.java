@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static String getImei(Context context) {
         String str;
@@ -30,19 +30,19 @@ public class d {
         return Build.MODEL;
     }
 
-    public static String aEH() {
+    public static String aWz() {
         return Build.VERSION.RELEASE;
     }
 
-    public static Integer cM(Context context) {
+    public static Integer er(Context context) {
         return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
     }
 
-    public static Integer cN(Context context) {
+    public static Integer es(Context context) {
         return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
     }
 
-    public static Integer cO(Context context) {
+    public static Integer et(Context context) {
         int value;
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
@@ -53,7 +53,7 @@ public class d {
             }
             if (typeName.equalsIgnoreCase("MOBILE")) {
                 if (TextUtils.isEmpty(Proxy.getDefaultHost())) {
-                    value = cP(context) ? WirelessNetworkType.MOBILE_3G.getValue() : WirelessNetworkType.MOBILE_2G.getValue();
+                    value = isFastMobileNetwork(context) ? WirelessNetworkType.MOBILE_3G.getValue() : WirelessNetworkType.MOBILE_2G.getValue();
                 } else {
                     value = WirelessNetworkType.NETWORKTYPE_WAP.getValue();
                 }
@@ -64,7 +64,7 @@ public class d {
         return Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
     }
 
-    private static boolean cP(Context context) {
+    private static boolean isFastMobileNetwork(Context context) {
         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
             case 0:
                 return false;

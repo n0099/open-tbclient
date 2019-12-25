@@ -15,46 +15,47 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import com.baidu.adp.lib.g.g;
+import com.baidu.adp.lib.f.g;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.v;
+import com.baidu.tieba.frs.w;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends PopupWindow {
-    private ViewGroup aqK;
-    private LinearLayout dDG;
-    private View.OnClickListener dkf;
-    private a fEA;
-    private boolean fEB;
-    private List<v> fEy;
-    private int fEz;
+    private ViewGroup ayy;
+    private View.OnClickListener dXO;
+    private LinearLayout eoF;
+    private List<w> gsR;
+    private int gsS;
+    private a gsT;
+    private boolean gsU;
     private Context mContext;
     private final View.OnClickListener mOnClickListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void a(v vVar);
+        void a(w wVar);
     }
 
     public c(Context context) {
         super(context);
-        this.dkf = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.c.1
+        this.dXO = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.fEy != null) {
-                    v vVar = (v) c.this.fEy.get(view.getId());
-                    if (c.this.fEA != null && vVar != null) {
-                        c.this.fEA.a(vVar);
+                if (c.this.gsR != null) {
+                    w wVar = (w) c.this.gsR.get(view.getId());
+                    if (c.this.gsT != null && wVar != null) {
+                        c.this.gsT.a(wVar);
                     }
-                    c.this.wm();
+                    c.this.yk();
                 }
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.wm();
+                c.this.yk();
             }
         };
         this.mContext = context;
@@ -67,56 +68,56 @@ public class c extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View bfo() {
-        bfp();
+    private View bwJ() {
+        bwK();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
-        this.aqK = frameLayout2;
+        this.ayy = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.dDG);
-        this.aqK.setOnClickListener(this.mOnClickListener);
-        am.setBackgroundResource(this.dDG, R.drawable.frs_tab_sort_select_bg);
+        frameLayout.addView(this.eoF);
+        this.ayy.setOnClickListener(this.mOnClickListener);
+        am.setBackgroundResource(this.eoF, R.drawable.frs_tab_sort_select_bg);
         return frameLayout;
     }
 
-    private void bfp() {
+    private void bwK() {
     }
 
-    public void g(List<v> list, int i) {
-        if (!com.baidu.tbadk.core.util.v.isEmpty(list)) {
-            this.dDG = new LinearLayout(this.mContext);
-            this.dDG.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.dDG.setClipChildren(true);
-            this.dDG.setOrientation(1);
+    public void g(List<w> list, int i) {
+        if (!v.isEmpty(list)) {
+            this.eoF = new LinearLayout(this.mContext);
+            this.eoF.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.eoF.setClipChildren(true);
+            this.eoF.setOrientation(1);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds280), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds88));
             for (int i2 = 0; i2 < list.size(); i2++) {
-                v vVar = list.get(i2);
-                if (i == vVar.fyi) {
-                    this.dDG.addView(c(vVar.name, i2, true), layoutParams);
+                w wVar = list.get(i2);
+                if (i == wVar.gmF) {
+                    this.eoF.addView(d(wVar.name, i2, true), layoutParams);
                 } else {
-                    this.dDG.addView(c(vVar.name, i2, false), layoutParams);
+                    this.eoF.addView(d(wVar.name, i2, false), layoutParams);
                 }
                 if (i2 != list.size() - 1) {
                     View view = new View(this.mContext);
                     view.setLayoutParams(new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(R.dimen.ds1)));
                     am.setBackgroundResource(view, R.color.cp_bg_line_c);
-                    this.dDG.addView(view);
+                    this.eoF.addView(view);
                 }
             }
         }
     }
 
-    public void bno() {
+    public void bEM() {
         int i;
-        am.setBackgroundResource(this.dDG, R.drawable.frs_tab_sort_select_bg);
-        int childCount = this.dDG.getChildCount();
+        am.setBackgroundResource(this.eoF, R.drawable.frs_tab_sort_select_bg);
+        int childCount = this.eoF.getChildCount();
         int i2 = 0;
         int i3 = 0;
-        while (i3 < this.fEy.size() && i2 < childCount) {
-            v vVar = this.fEy.get(i3);
-            View childAt = this.dDG.getChildAt(i2);
+        while (i3 < this.gsR.size() && i2 < childCount) {
+            w wVar = this.gsR.get(i3);
+            View childAt = this.eoF.getChildAt(i2);
             if (childAt instanceof TextView) {
-                if (this.fEz == vVar.fyi) {
+                if (this.gsS == wVar.gmF) {
                     am.setViewTextColor((TextView) childAt, (int) R.color.cp_link_tip_a);
                 } else {
                     am.setViewTextColor((TextView) childAt, (int) R.color.cp_cont_j);
@@ -131,7 +132,7 @@ public class c extends PopupWindow {
         }
     }
 
-    private TextView c(String str, int i, boolean z) {
+    private TextView d(String str, int i, boolean z) {
         TextView textView = new TextView(this.mContext);
         textView.setTextSize(0, this.mContext.getResources().getDimension(R.dimen.tbds36));
         textView.setText(str);
@@ -143,31 +144,31 @@ public class c extends PopupWindow {
         } else {
             am.setViewTextColor(textView, (int) R.color.cp_cont_j);
         }
-        textView.setOnClickListener(this.dkf);
+        textView.setOnClickListener(this.dXO);
         return textView;
     }
 
-    public void setData(List<v> list, int i) {
+    public void setData(List<w> list, int i) {
         if (list != null) {
-            this.fEy = list;
-            this.fEz = i;
+            this.gsR = list;
+            this.gsS = i;
             g(list, i);
-            setContentView(bfo());
+            setContentView(bwJ());
         }
     }
 
     public void a(a aVar) {
-        this.fEA = aVar;
+        this.gsT = aVar;
     }
 
-    public void O(View view) {
+    public void P(View view) {
         if (view != null) {
             if (Build.VERSION.SDK_INT < 24) {
                 if (g.showPopupWindowAsDropDown(this, view)) {
                     int[] iArr = new int[2];
                     view.getLocationInWindow(iArr);
                     update(iArr[0] - this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds41), (iArr[1] + view.getHeight()) - 18, getWidth(), getHeight());
-                    wo();
+                    ym();
                     return;
                 }
                 return;
@@ -175,38 +176,38 @@ public class c extends PopupWindow {
             int[] iArr2 = new int[2];
             view.getLocationInWindow(iArr2);
             if (g.showPopupWindowAtLocation(this, view, 0, iArr2[0] - this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds44), iArr2[1] + view.getHeight() + this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds20))) {
-                wo();
+                ym();
             }
         }
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        wm();
+        yk();
     }
 
-    public void wm() {
-        wp();
+    public void yk() {
+        yn();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wn() {
+    public void yl() {
         super.dismiss();
     }
 
-    private void wo() {
+    private void ym() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.dDG.startAnimation(translateAnimation);
-        this.aqK.startAnimation(alphaAnimation);
+        this.eoF.startAnimation(translateAnimation);
+        this.ayy.startAnimation(alphaAnimation);
     }
 
-    private void wp() {
-        if (!this.fEB) {
+    private void yn() {
+        if (!this.gsU) {
             TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
             translateAnimation.setDuration(350L);
             translateAnimation.setFillAfter(true);
@@ -225,13 +226,13 @@ public class c extends PopupWindow {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    c.this.fEB = false;
-                    c.this.wn();
+                    c.this.gsU = false;
+                    c.this.yl();
                 }
             });
-            this.fEB = true;
-            this.dDG.startAnimation(translateAnimation);
-            this.aqK.startAnimation(alphaAnimation);
+            this.gsU = true;
+            this.eoF.startAnimation(translateAnimation);
+            this.ayy.startAnimation(alphaAnimation);
         }
     }
 }

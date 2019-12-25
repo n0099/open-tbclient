@@ -1,68 +1,86 @@
 package com.baidu.swan.games.r;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class b {
-    private static volatile b bDB;
-    private int abf;
-    private volatile ArrayList<a> bDC = new ArrayList<>(20);
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.apps.process.messaging.service.e;
+import com.facebook.common.internal.i;
+import java.util.Collections;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import rx.d;
+import rx.schedulers.Schedulers;
+/* loaded from: classes9.dex */
+public class b extends com.baidu.swan.apps.process.a.a.a implements com.baidu.swan.apps.process.messaging.service.a {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static final Set<String> cmJ = i.K("event_puppet_unload_app", "event_puppet_offline");
+    private static long cmK = TimeUnit.SECONDS.toMillis(10);
+    private int cmL = SwanAppProcessInfo.UNKNOWN.index;
 
-    private b() {
-    }
-
-    public static b XY() {
-        if (bDB == null) {
-            synchronized (b.class) {
-                if (bDB == null) {
-                    bDB = new b();
+    @Override // com.baidu.swan.apps.process.a.a.a
+    public void y(@NonNull final Bundle bundle) {
+        this.cmL = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
+        final boolean checkProcessId = SwanAppProcessInfo.checkProcessId(this.cmL);
+        if (DEBUG) {
+            Log.i("SwanGameReloadDelegate", "execCall: target = " + this.cmL);
+            Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
+        }
+        d.bS("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.games.r.b.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // rx.functions.b
+            public void call(String str) {
+                if (checkProcessId) {
+                    if (b.DEBUG) {
+                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + b.cmK);
+                    }
+                    e.YH().a(b.this, b.cmK);
+                }
+                com.baidu.swan.apps.env.c OS = com.baidu.swan.apps.env.e.OR().OS();
+                if (OS != null) {
+                    OS.g(Collections.singletonList(bundle.getString("appId")), true);
+                }
+                if (b.DEBUG) {
+                    Log.i("SwanGameReloadDelegate", "execCall: addCallback purge finish = " + OS);
+                }
+                if (!checkProcessId) {
+                    b.this.invoke();
                 }
             }
-        }
-        return bDB;
+        });
     }
 
-    public synchronized void a(a aVar) {
-        if (aVar != null) {
-            if (this.bDC.size() < 20) {
-                this.bDC.add(aVar);
-            } else {
-                this.abf++;
+    @Override // com.baidu.swan.apps.process.messaging.service.a
+    public void b(String str, com.baidu.swan.apps.process.messaging.service.c cVar) {
+        if (cVar.bEI.index == this.cmL && cmJ.contains(str)) {
+            e.YH().a(this);
+            if (DEBUG) {
+                Log.i("SwanGameReloadDelegate", "onEvent: event = " + str);
             }
+            invoke();
         }
     }
 
-    public synchronized JSONObject XZ() {
-        JSONObject jSONObject;
-        int size;
-        JSONArray jSONArray;
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            size = this.bDC.size();
-            jSONObject2.put("dropcnt", this.abf);
-            jSONObject2.put("errorcnt", size);
-            jSONArray = new JSONArray();
-            jSONObject2.put("errors", jSONArray);
-        } catch (JSONException e) {
+    @Override // com.baidu.swan.apps.process.messaging.service.a
+    public void SC() {
+        if (DEBUG) {
+            Log.i("SwanGameReloadDelegate", "timeout");
         }
-        if (size == 0) {
-            jSONObject = jSONObject2;
-        } else {
-            Iterator<a> it = this.bDC.iterator();
-            while (it.hasNext()) {
-                jSONArray.put(it.next().toJSON());
-            }
-            this.bDC.clear();
-            jSONObject = jSONObject2;
-        }
-        return jSONObject;
+        invoke();
     }
 
-    public synchronized void clear() {
-        this.bDC.clear();
-        this.abf = 0;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void invoke() {
+        String string = this.bDZ.getString(SuspensionBallEntity.KEY_SCHEME);
+        if (DEBUG) {
+            Log.i("SwanGameReloadDelegate", "invoke: scheme = " + string);
+        }
+        if (!TextUtils.isEmpty(string)) {
+            SchemeRouter.invoke(AppRuntime.getAppContext(), string);
+        }
     }
 }

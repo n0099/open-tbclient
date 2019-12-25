@@ -9,17 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForumRecommend.DataRes;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private List<com.baidu.tieba.enterForum.multiConcern.b> eZM;
-    private HotSearchInfoData eZP;
+    private List<com.baidu.tieba.enterForum.multiConcern.b> fOt;
+    private HotSearchInfoData fOw;
     private boolean isSucc;
     private int sortType;
     private int time = 0;
-    private g eZK = new g();
-    private j eZL = new j();
-    private ForumCreateInfoData eZN = new ForumCreateInfoData();
-    private PrivateForumPopInfoData eZO = new PrivateForumPopInfoData();
+    private g fOr = new g();
+    private j fOs = new j();
+    private ForumCreateInfoData fOu = new ForumCreateInfoData();
+    private PrivateForumPopInfoData fOv = new PrivateForumPopInfoData();
 
     public c() {
         this.isSucc = true;
@@ -31,7 +31,7 @@ public class c {
     }
 
     public HotSearchInfoData getHotSearchInfoData() {
-        return this.eZP;
+        return this.fOw;
     }
 
     public void a(DataRes dataRes) {
@@ -47,26 +47,26 @@ public class c {
                 setTime(dataRes.time.intValue());
                 this.sortType = dataRes.sort_type.intValue() != 0 ? dataRes.sort_type.intValue() : 1;
                 if (dataRes.like_forum != null) {
-                    this.eZK.bP(dataRes.like_forum);
+                    this.fOr.bL(dataRes.like_forum);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.eZL.bQ(dataRes.recommend_forum_info);
+                    this.fOs.bM(dataRes.recommend_forum_info);
                 }
                 if (dataRes.forum_create_info != null) {
-                    this.eZN.a(dataRes.forum_create_info);
+                    this.fOu.a(dataRes.forum_create_info);
                 }
                 if (dataRes.private_forum_popinfo != null) {
-                    this.eZO.a(dataRes.private_forum_popinfo);
+                    this.fOv.a(dataRes.private_forum_popinfo);
                 }
                 if (dataRes.hot_search != null) {
-                    this.eZP = new HotSearchInfoData();
-                    this.eZP.a(dataRes.hot_search);
+                    this.fOw = new HotSearchInfoData();
+                    this.fOw.a(dataRes.hot_search);
                 }
                 if (!v.isEmpty(dataRes.tag_recommend_forum)) {
-                    if (this.eZM == null) {
-                        this.eZM = new ArrayList();
+                    if (this.fOt == null) {
+                        this.fOt = new ArrayList();
                     } else {
-                        this.eZM.clear();
+                        this.fOt.clear();
                     }
                     int i2 = 0;
                     for (RecommendForumInfo recommendForumInfo : dataRes.tag_recommend_forum) {
@@ -81,7 +81,7 @@ public class c {
                                 bVar.followNum = recommendForumInfo.member_count.intValue();
                                 bVar.threadNum = recommendForumInfo.thread_count.intValue();
                                 bVar.isSelected = true;
-                                this.eZM.add(bVar);
+                                this.fOt.add(bVar);
                                 i = i2 + 1;
                             }
                             i2 = i;
@@ -91,47 +91,47 @@ public class c {
                     }
                     return;
                 }
-                this.eZM = null;
+                this.fOt = null;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public g bdD() {
-        return this.eZK;
+    public g buZ() {
+        return this.fOr;
     }
 
     public void a(g gVar) {
-        this.eZK = gVar;
+        this.fOr = gVar;
     }
 
     public void a(j jVar) {
-        this.eZL = jVar;
+        this.fOs = jVar;
     }
 
-    public List<com.baidu.tieba.enterForum.multiConcern.b> bdE() {
-        return this.eZM;
+    public List<com.baidu.tieba.enterForum.multiConcern.b> bva() {
+        return this.fOt;
     }
 
-    public void bO(List<com.baidu.tieba.enterForum.multiConcern.b> list) {
-        this.eZM = list;
+    public void bK(List<com.baidu.tieba.enterForum.multiConcern.b> list) {
+        this.fOt = list;
     }
 
     public void a(ForumCreateInfoData forumCreateInfoData) {
-        this.eZN = forumCreateInfoData;
+        this.fOu = forumCreateInfoData;
     }
 
-    public ForumCreateInfoData bdF() {
-        return this.eZN;
+    public ForumCreateInfoData bvb() {
+        return this.fOu;
     }
 
     public void a(PrivateForumPopInfoData privateForumPopInfoData) {
-        this.eZO = privateForumPopInfoData;
+        this.fOv = privateForumPopInfoData;
     }
 
-    public PrivateForumPopInfoData bdG() {
-        return this.eZO;
+    public PrivateForumPopInfoData bvc() {
+        return this.fOv;
     }
 
     public void setIsSuccess(boolean z) {
@@ -142,12 +142,12 @@ public class c {
         return this.isSucc;
     }
 
-    public boolean adZ() {
+    public boolean auS() {
         return System.currentTimeMillis() / com.baidu.tbadk.data.d.NEARBY_GUIDE_TIME.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.NEARBY_GUIDE_TIME.longValue();
     }
 
     public void a(HotSearchInfoData hotSearchInfoData) {
-        this.eZP = hotSearchInfoData;
+        this.fOw = hotSearchInfoData;
     }
 
     public int getSortType() {

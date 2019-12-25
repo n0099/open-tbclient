@@ -1,171 +1,136 @@
 package com.baidu.tbadk.core.view;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bh;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
-    private bh Fs;
-    private PraiseView clu;
-    private DisPraiseView clv;
-    private final View.OnClickListener clw = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.a.1
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            a.this.updateUI();
-        }
-    };
-    private CustomMessageListener clx = new CustomMessageListener(2016528) { // from class: com.baidu.tbadk.core.view.a.2
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            bh bhVar;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j) && a.this.Fs != null && !TextUtils.isEmpty(a.this.Fs.getTid()) && (bhVar = ((com.baidu.tbadk.data.j) customResponsedMessage.getData()).cDm) != null && a.this.Fs.getTid().equals(bhVar.getTid())) {
-                a.this.Fs.hQ(bhVar.ajZ());
-                a.this.Fs.hO(bhVar.ajY());
-                a.this.Fs.aK(bhVar.ajW());
-                a.this.Fs.aL(bhVar.ajX());
-                a.this.updateUI();
-            }
-        }
-    };
-    private CustomMessageListener cly = new CustomMessageListener(2156670) { // from class: com.baidu.tbadk.core.view.a.3
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && ((String) customResponsedMessage.getData()).equals("zan_or_cai_smallflow")) {
-                a.this.anq();
-                a.this.updateUI();
-            }
-        }
-    };
+    private TbPageContext<?> cQU;
+    private boolean isAutoSetCancelable;
+    private Activity mActivity;
+    private DialogInterface.OnCancelListener mOnCancelListner;
+    private TextView mTipView;
+    private AlertDialog mWaitingDialog;
+    private String tipString;
 
-    public a(PraiseView praiseView, DisPraiseView disPraiseView) {
-        this.clu = praiseView;
-        this.clv = disPraiseView;
+    public a(TbPageContext<?> tbPageContext) {
+        this.cQU = null;
+        this.mActivity = null;
+        this.tipString = null;
+        this.mTipView = null;
+        this.isAutoSetCancelable = true;
+        this.cQU = tbPageContext;
+        if (this.cQU != null && this.cQU.getPageActivity() != null) {
+            this.mActivity = this.cQU.getPageActivity();
+        }
     }
 
-    public void anq() {
-        if (com.baidu.tbadk.util.a.axn().aoN()) {
-            if (this.clu != null) {
-                this.clu.textResId = R.string.action_like;
-                this.clu.cmm = R.color.cp_cont_j;
-                this.clu.cmn = R.color.cp_cont_h;
-                this.clu.drawableResId = R.drawable.icon_card_like_n;
-                this.clu.cml = R.drawable.icon_card_like_s;
-                this.clu.setAfterClickListener(this.clw);
-                this.clu.setVisibility(0);
+    public a(Activity activity) {
+        this.cQU = null;
+        this.mActivity = null;
+        this.tipString = null;
+        this.mTipView = null;
+        this.isAutoSetCancelable = true;
+        this.mActivity = activity;
+    }
+
+    private a e(DialogInterface.OnCancelListener onCancelListener) {
+        if (this.mActivity != null) {
+            this.mWaitingDialog = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.f.g.showDialog(this.mWaitingDialog, this.mActivity);
+            View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
+            this.mTipView = (TextView) inflate.findViewById(R.id.custom_loading_text);
+            if (!StringUtils.isNull(this.tipString) && this.mTipView != null) {
+                this.mTipView.setText(this.tipString);
             }
-            if (this.clv != null) {
-                this.clv.textResId = R.string.action_dislike;
-                this.clv.cmm = R.color.cp_cont_j;
-                this.clv.cmn = R.color.cp_link_tip_a;
-                this.clv.drawableResId = R.drawable.icon_card_dislike_n;
-                this.clv.cml = R.drawable.icon_card_dislike_s;
-                this.clv.setAfterClickListener(this.clw);
-                this.clv.setVisibility(0);
+            if (this.mWaitingDialog != null && this.mWaitingDialog.getWindow() != null) {
+                this.mWaitingDialog.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.mWaitingDialog.setCancelable(true);
+                    this.mWaitingDialog.setCanceledOnTouchOutside(true);
+                    this.mWaitingDialog.setOnCancelListener(onCancelListener);
+                } else {
+                    this.mWaitingDialog.setCanceledOnTouchOutside(false);
+                    this.mWaitingDialog.setCancelable(false);
+                }
+            }
+        }
+        return this;
+    }
+
+    private a f(DialogInterface.OnCancelListener onCancelListener) {
+        if (this.mActivity != null) {
+            this.mWaitingDialog = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.f.g.showDialog(this.mWaitingDialog, this.mActivity);
+            View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
+            this.mTipView = (TextView) inflate.findViewById(R.id.custom_loading_text);
+            if (!StringUtils.isNull(this.tipString) && this.mTipView != null) {
+                this.mTipView.setText(this.tipString);
+            }
+            if (this.mWaitingDialog != null && this.mWaitingDialog.getWindow() != null) {
+                this.mWaitingDialog.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.mWaitingDialog.setOnCancelListener(onCancelListener);
+                }
+            }
+        }
+        return this;
+    }
+
+    public void setDialogVisiable(boolean z) {
+        if (z) {
+            if (this.isAutoSetCancelable) {
+                e(this.mOnCancelListner);
+                return;
+            } else {
+                f(this.mOnCancelListner);
                 return;
             }
-            return;
         }
-        if (this.clu != null) {
-            this.clu.textResId = R.string.action_praise_default;
-            this.clu.cmm = R.color.cp_cont_j;
-            this.clu.cmn = R.color.cp_cont_h;
-            this.clu.drawableResId = anr() ? R.drawable.icon_home_card_like_n_xmas : R.drawable.icon_home_card_like_n;
-            this.clu.cml = anr() ? R.drawable.icon_home_card_like_s_xmas : R.drawable.icon_home_card_like_s;
-            this.clu.setVisibility(0);
-            this.clu.setAfterClickListener(this.clw);
-        }
-        if (this.clv != null) {
-            this.clv.setAfterClickListener(this.clw);
-            this.clv.setVisibility(8);
+        com.baidu.adp.lib.f.g.dismissDialog(this.mWaitingDialog, this.mActivity);
+    }
+
+    public void setTipString(int i) {
+        if (this.mActivity != null) {
+            this.tipString = this.mActivity.getString(i);
         }
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.clu != null) {
-            this.clu.onChangeSkinType(i);
-        }
-        if (this.clv != null) {
-            this.clv.onChangeSkinType(i);
+    public void setTipString(String str) {
+        this.tipString = str;
+        if (this.mTipView != null) {
+            this.mTipView.setText(str);
         }
     }
 
-    private boolean anr() {
-        com.baidu.tbadk.coreExtra.data.c activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
-        return activitySwitch != null && activitySwitch.aoP();
+    public void setCancelListener(DialogInterface.OnCancelListener onCancelListener) {
+        this.mOnCancelListner = onCancelListener;
     }
 
-    public void setFrom(int i) {
-        if (this.clu != null) {
-            this.clu.setFrom(i);
-        }
-        if (this.clv != null) {
-            this.clv.setFrom(i);
-        }
+    public boolean isShowing() {
+        return this.mWaitingDialog != null && this.mWaitingDialog.isShowing();
     }
 
-    public void setDisPraiseFrom(int i) {
-        if (this.clu != null) {
-            this.clu.setFrom(i);
-        }
-        if (this.clv != null) {
-            this.clv.setFrom(i);
+    public void setAutoSetCancelable(boolean z) {
+        this.isAutoSetCancelable = z;
+    }
+
+    public void setCancelable(boolean z) {
+        if (this.mWaitingDialog != null) {
+            this.mWaitingDialog.setCancelable(z);
         }
     }
 
-    public void setForumId(String str) {
-        if (this.clu != null) {
-            this.clu.setForumId(str);
+    public void setCanceledOnTouchOutside(boolean z) {
+        if (this.mWaitingDialog != null) {
+            this.mWaitingDialog.setCanceledOnTouchOutside(z);
         }
-        if (this.clv != null) {
-            this.clv.setForumId(str);
-        }
-    }
-
-    public void setClickable(boolean z) {
-        if (this.clu != null) {
-            this.clu.setViewEnabled(z);
-        }
-        if (this.clv != null) {
-            this.clv.setViewEnabled(z);
-        }
-    }
-
-    public void p(bh bhVar) {
-        this.Fs = bhVar;
-        if (this.clu != null) {
-            this.clu.p(bhVar);
-        }
-        if (this.clv != null) {
-            this.clv.p(bhVar);
-        }
-    }
-
-    public void updateUI() {
-        if (this.clu != null) {
-            this.clu.updateUI();
-        }
-        if (this.clv != null) {
-            this.clv.updateUI();
-        }
-    }
-
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.clx);
-        MessageManager.getInstance().unRegisterListener(this.cly);
-    }
-
-    public void j(BdUniqueId bdUniqueId) {
-        this.clx.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.clx);
-        this.cly.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.cly);
     }
 }

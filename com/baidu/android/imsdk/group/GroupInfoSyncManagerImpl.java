@@ -6,14 +6,13 @@ import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GroupInfoSyncManagerImpl {
     public static final String TAG_GROUPLIST_STATE = "get_all_grouplist_state";
     public static HashMap<String, ArrayList<String>> sUpdateGroupMembers = new HashMap<>();
@@ -33,7 +32,7 @@ public class GroupInfoSyncManagerImpl {
                         LogUtils.d("", "SYNCGROUP star begin..." + starGroupList.toString());
                         GroupInfoSyncManagerImpl.handleGetGroupinfos(context, starGroupList);
                     }
-                }, StatisticConfig.MIN_UPLOAD_INTERVAL);
+                }, 30000L);
             }
         }
     }

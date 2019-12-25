@@ -8,39 +8,41 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected float cJA;
-    protected float cJB;
-    protected int cJC;
-    protected int cJD;
+    protected float dxm;
+    protected float dxn;
+    protected int dxo;
+    protected int dxp;
     protected boolean mIsContentSelectBold;
+    protected ThemeColorInfo mThemeColorInfo;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
         this.mIsContentSelectBold = false;
-        this.cJA = 0.0f;
-        this.cJB = 0.0f;
-        this.cJC = 0;
-        this.cJD = 0;
+        this.dxm = 0.0f;
+        this.dxn = 0.0f;
+        this.dxo = 0;
+        this.dxp = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mIsContentSelectBold = false;
-        this.cJA = 0.0f;
-        this.cJB = 0.0f;
-        this.cJC = 0;
-        this.cJD = 0;
+        this.dxm = 0.0f;
+        this.dxn = 0.0f;
+        this.dxo = 0;
+        this.dxp = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mIsContentSelectBold = false;
-        this.cJA = 0.0f;
-        this.cJB = 0.0f;
-        this.cJC = 0;
-        this.cJD = 0;
+        this.dxm = 0.0f;
+        this.dxn = 0.0f;
+        this.dxo = 0;
+        this.dxp = 0;
     }
 
     public void onChangeSkin(int i) {
@@ -65,7 +67,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a qa(String str) {
+    public a vd(String str) {
         return null;
     }
 
@@ -102,7 +104,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void avy() {
+    public void aNg() {
     }
 
     public void setAnimationResId(int i) {
@@ -113,25 +115,29 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     }
 
     public void setContentSelectTextSize(float f) {
-        this.cJA = f;
+        this.dxm = f;
     }
 
     public void setContentDefaultTextSize(float f) {
-        this.cJB = f;
+        this.dxn = f;
     }
 
     public void setContentSelectTextColor(int i) {
-        this.cJC = i;
+        this.dxo = i;
     }
 
     public void setContentDefaultTextColor(int i) {
-        this.cJD = i;
+        this.dxp = i;
+    }
+
+    public void setThemeColorInfo(ThemeColorInfo themeColorInfo) {
+        this.mThemeColorInfo = themeColorInfo;
     }
 
     /* loaded from: classes.dex */
     public static class a {
         public int bgDayRes;
-        public TbFragmentTabIndicator cJE;
+        public TbFragmentTabIndicator dxq;
         public int offsetX;
         public View view;
         public boolean isRight = true;
@@ -167,7 +173,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
             if ("   ".equals(charSequence)) {
                 return 100;
             }
-            return com.baidu.adp.lib.g.b.toInt(charSequence, -1);
+            return com.baidu.adp.lib.f.b.toInt(charSequence, -1);
         }
     }
 }

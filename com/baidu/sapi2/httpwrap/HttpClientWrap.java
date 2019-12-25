@@ -11,7 +11,6 @@ import com.baidu.pass.http.PassHttpParamDTO;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.r;
 import java.net.HttpCookie;
@@ -19,7 +18,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class HttpClientWrap {
     private PassHttpClient a = new PassHttpClient();
     private Context b;
@@ -147,13 +146,13 @@ public class HttpClientWrap {
     private boolean a(HttpHandlerWrap httpHandlerWrap) {
         Context context = this.b;
         if (context == null) {
-            httpHandlerWrap.onFailure(null, SapiResult.ERROR_CODE_SDK_NOT_INIT, "服务异常，请稍后再试");
+            httpHandlerWrap.onFailure(null, -801, "服务异常，请稍后再试");
             httpHandlerWrap.onFinish();
             return false;
         } else if (SapiUtils.hasActiveNetwork(context)) {
             return true;
         } else {
-            httpHandlerWrap.onFailure(null, -201, SapiResult.ERROR_MSG_NETWORK_UNAVAILABLE);
+            httpHandlerWrap.onFailure(null, -201, "网络连接不可用，请检查网络设置");
             httpHandlerWrap.onFinish();
             return false;
         }

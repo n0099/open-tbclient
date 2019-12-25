@@ -2,12 +2,13 @@ package android.support.v4.graphics;
 
 import android.graphics.Bitmap;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class BitmapCompat {
     static final BitmapCompatBaseImpl IMPL;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class BitmapCompatBaseImpl {
         BitmapCompatBaseImpl() {
         }
@@ -25,7 +26,7 @@ public final class BitmapCompat {
     }
 
     @RequiresApi(18)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class BitmapCompatApi18Impl extends BitmapCompatBaseImpl {
         BitmapCompatApi18Impl() {
         }
@@ -42,7 +43,7 @@ public final class BitmapCompat {
     }
 
     @RequiresApi(19)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class BitmapCompatApi19Impl extends BitmapCompatApi18Impl {
         BitmapCompatApi19Impl() {
         }
@@ -63,15 +64,15 @@ public final class BitmapCompat {
         }
     }
 
-    public static boolean hasMipMap(Bitmap bitmap) {
+    public static boolean hasMipMap(@NonNull Bitmap bitmap) {
         return IMPL.hasMipMap(bitmap);
     }
 
-    public static void setHasMipMap(Bitmap bitmap, boolean z) {
+    public static void setHasMipMap(@NonNull Bitmap bitmap, boolean z) {
         IMPL.setHasMipMap(bitmap, z);
     }
 
-    public static int getAllocationByteCount(Bitmap bitmap) {
+    public static int getAllocationByteCount(@NonNull Bitmap bitmap) {
         return IMPL.getAllocationByteCount(bitmap);
     }
 

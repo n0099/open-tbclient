@@ -1,12 +1,11 @@
 package com.baidu.tieba.livesdk.e;
 
-import com.baidu.adp.lib.f.c;
+import com.baidu.adp.lib.e.c;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader;
 import com.baidu.live.adp.lib.image.loader.interfaces.IImageLoaderListener;
-import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLDecoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b implements IImageLoader {
     @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader
     public void loadImage(final String str, final IImageLoaderListener iImageLoaderListener) {
@@ -20,15 +19,15 @@ public class b implements IImageLoader {
         } else {
             decode = split[0];
             String[] split2 = split[1].split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            i2 = com.baidu.adp.lib.g.b.toInt(split2[0].replace("{w:", ""), 0);
-            i = com.baidu.adp.lib.g.b.toInt(split2[1].replace("h:", "").replace("}", ""), 0);
+            i2 = com.baidu.adp.lib.f.b.toInt(split2[0].replace("{w:", ""), 0);
+            i = com.baidu.adp.lib.f.b.toInt(split2[1].replace("h:", "").replace("}", ""), 0);
         }
         if (decode != null) {
-            if (decode.toLowerCase().startsWith(SkiaImageDecoder.FILE_PREFIX)) {
-                c.fT().a(decode.substring(7), 43, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.1
+            if (decode.toLowerCase().startsWith("file://")) {
+                c.gs().a(decode.substring(7), 43, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
-                    @Override // com.baidu.adp.lib.f.b
+                    @Override // com.baidu.adp.lib.e.b
                     public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str2, int i3) {
                         if (aVar != null && aVar.getRawBitmap() != null && iImageLoaderListener != null) {
                             iImageLoaderListener.onLoadComplete(str, aVar.getRawBitmap());
@@ -36,10 +35,10 @@ public class b implements IImageLoader {
                     }
                 }, i2, i, null, new Object[0]);
             } else {
-                c.fT().a(decode, 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.2
+                c.gs().a(decode, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.2
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
-                    @Override // com.baidu.adp.lib.f.b
+                    @Override // com.baidu.adp.lib.e.b
                     public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str2, int i3) {
                         if (aVar != null && aVar.getRawBitmap() != null && iImageLoaderListener != null) {
                             iImageLoaderListener.onLoadComplete(str, aVar.getRawBitmap());
@@ -52,10 +51,10 @@ public class b implements IImageLoader {
 
     @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader
     public void loadBlurImage(final String str, String str2, final IImageLoaderListener iImageLoaderListener) {
-        c.fT().a(str, 39, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.3
+        c.gs().a(str, 39, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.livesdk.e.b.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.f.b
+            @Override // com.baidu.adp.lib.e.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str3, int i) {
                 if (aVar != null && aVar.getRawBitmap() != null && iImageLoaderListener != null) {
                     iImageLoaderListener.onLoadComplete(str, aVar.getRawBitmap());
@@ -67,12 +66,12 @@ public class b implements IImageLoader {
     @Override // com.baidu.live.adp.lib.image.loader.interfaces.IImageLoader
     public void cancelLoad(String str) {
         if (str != null) {
-            if (str.toLowerCase().startsWith(SkiaImageDecoder.FILE_PREFIX)) {
-                c.fT().d(str, 36);
+            if (str.toLowerCase().startsWith("file://")) {
+                c.gs().g(str, 36);
                 return;
             }
-            c.fT().d(str, 10);
-            c.fT().d(str, 39);
+            c.gs().g(str, 10);
+            c.gs().g(str, 39);
         }
     }
 }

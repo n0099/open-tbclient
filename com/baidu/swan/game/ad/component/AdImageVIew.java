@@ -6,12 +6,12 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import com.facebook.common.b.f;
+import com.facebook.common.b.i;
 import com.facebook.common.references.a;
 import com.facebook.drawee.a.a.c;
 import com.facebook.imagepipeline.e.b;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class AdImageVIew extends AppCompatImageView {
     public AdImageVIew(Context context) {
         super(context);
@@ -26,17 +26,17 @@ public class AdImageVIew extends AppCompatImageView {
     }
 
     public void setImageUrl(String str) {
-        c.cDB().e(ImageRequestBuilder.R(Uri.parse(str)).cJG(), getContext()).a(new b() { // from class: com.baidu.swan.game.ad.component.AdImageVIew.1
+        c.dji().e(ImageRequestBuilder.X(Uri.parse(str)).dpZ(), getContext()).a(new b() { // from class: com.baidu.swan.game.ad.component.AdImageVIew.1
             @Override // com.facebook.imagepipeline.e.b
-            protected void h(@Nullable Bitmap bitmap) {
+            protected void onNewResultImpl(@Nullable Bitmap bitmap) {
                 if (bitmap != null) {
                     AdImageVIew.this.setImageBitmap(bitmap);
                 }
             }
 
             @Override // com.facebook.datasource.a
-            protected void a(com.facebook.datasource.b<a<com.facebook.imagepipeline.f.b>> bVar) {
+            protected void onFailureImpl(com.facebook.datasource.b<a<com.facebook.imagepipeline.g.c>> bVar) {
             }
-        }, f.cCG());
+        }, i.din());
     }
 }

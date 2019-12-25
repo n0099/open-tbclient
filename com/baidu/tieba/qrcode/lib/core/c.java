@@ -4,26 +4,26 @@ import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c extends AsyncTask<Void, Void, String> {
-    private a iEh;
+    private a jyB;
     private Camera mCamera;
     private byte[] mData;
     private int orientation;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        String b(byte[] bArr, int i, int i2, boolean z);
+        String c(byte[] bArr, int i, int i2, boolean z);
     }
 
     public c(Camera camera, byte[] bArr, a aVar, int i) {
         this.mCamera = camera;
         this.mData = bArr;
-        this.iEh = aVar;
+        this.jyB = aVar;
         this.orientation = i;
     }
 
-    public c ceU() {
+    public c cza() {
         if (Build.VERSION.SDK_INT >= 11) {
             executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         } else {
@@ -41,7 +41,7 @@ public class c extends AsyncTask<Void, Void, String> {
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        this.iEh = null;
+        this.jyB = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,13 +75,13 @@ public class c extends AsyncTask<Void, Void, String> {
                 i = i2;
             }
             try {
-                if (this.iEh != null) {
-                    return this.iEh.b(bArr, i2, i, false);
+                if (this.jyB != null) {
+                    return this.jyB.c(bArr, i2, i, false);
                 }
                 return null;
             } catch (Exception e2) {
                 try {
-                    return this.iEh.b(bArr, i2, i, true);
+                    return this.jyB.c(bArr, i2, i, true);
                 } catch (Exception e3) {
                     return null;
                 }

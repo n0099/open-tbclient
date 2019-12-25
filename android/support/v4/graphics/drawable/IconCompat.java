@@ -1,6 +1,6 @@
 package android.support.v4.graphics.drawable;
 
-import android.annotation.TargetApi;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,14 +9,20 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Shader;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.VisibleForTesting;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
-/* loaded from: classes2.dex */
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+/* loaded from: classes4.dex */
 public class IconCompat {
     private static final float ADAPTIVE_ICON_INSET_FACTOR = 0.25f;
     private static final int AMBIENT_SHADOW_ALPHA = 30;
@@ -94,8 +100,7 @@ public class IconCompat {
         this.mType = i;
     }
 
-    @TargetApi(26)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RequiresApi(23)
     public Icon toIcon() {
         switch (this.mType) {
             case 1:
@@ -110,46 +115,79 @@ public class IconCompat {
                 if (Build.VERSION.SDK_INT >= 26) {
                     return Icon.createWithAdaptiveBitmap((Bitmap) this.mObj1);
                 }
-                return Icon.createWithBitmap(createLegacyIconFromAdaptiveIcon((Bitmap) this.mObj1));
+                return Icon.createWithBitmap(createLegacyIconFromAdaptiveIcon((Bitmap) this.mObj1, false));
             default:
                 throw new IllegalArgumentException("Unknown type");
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void addToShortcutIntent(Intent intent) {
+    @Deprecated
+    public void addToShortcutIntent(@NonNull Intent intent) {
+        addToShortcutIntent(intent, null);
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void addToShortcutIntent(@NonNull Intent intent, @Nullable Drawable drawable) {
+        Bitmap createBitmap;
         switch (this.mType) {
             case 1:
-                intent.putExtra("android.intent.extra.shortcut.ICON", (Bitmap) this.mObj1);
-                return;
+                createBitmap = (Bitmap) this.mObj1;
+                if (drawable != null) {
+                    createBitmap = createBitmap.copy(createBitmap.getConfig(), true);
+                    break;
+                }
+                break;
             case 2:
-                intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext((Context) this.mObj1, this.mInt1));
-                return;
+                if (drawable == null) {
+                    intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext((Context) this.mObj1, this.mInt1));
+                    return;
+                }
+                Context context = (Context) this.mObj1;
+                Drawable drawable2 = ContextCompat.getDrawable(context, this.mInt1);
+                if (drawable2.getIntrinsicWidth() <= 0 || drawable2.getIntrinsicHeight() <= 0) {
+                    int launcherLargeIconSize = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getLauncherLargeIconSize();
+                    createBitmap = Bitmap.createBitmap(launcherLargeIconSize, launcherLargeIconSize, Bitmap.Config.ARGB_8888);
+                } else {
+                    createBitmap = Bitmap.createBitmap(drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+                }
+                drawable2.setBounds(0, 0, createBitmap.getWidth(), createBitmap.getHeight());
+                drawable2.draw(new Canvas(createBitmap));
+                break;
             case 3:
             case 4:
             default:
                 throw new IllegalArgumentException("Icon type not supported for intent shortcuts");
             case 5:
-                intent.putExtra("android.intent.extra.shortcut.ICON", createLegacyIconFromAdaptiveIcon((Bitmap) this.mObj1));
-                return;
+                createBitmap = createLegacyIconFromAdaptiveIcon((Bitmap) this.mObj1, true);
+                break;
         }
+        if (drawable != null) {
+            int width = createBitmap.getWidth();
+            int height = createBitmap.getHeight();
+            drawable.setBounds(width / 2, height / 2, width, height);
+            drawable.draw(new Canvas(createBitmap));
+        }
+        intent.putExtra("android.intent.extra.shortcut.ICON", createBitmap);
     }
 
     @VisibleForTesting
-    static Bitmap createLegacyIconFromAdaptiveIcon(Bitmap bitmap) {
+    static Bitmap createLegacyIconFromAdaptiveIcon(Bitmap bitmap, boolean z) {
         int min = (int) (DEFAULT_VIEW_PORT_SCALE * Math.min(bitmap.getWidth(), bitmap.getHeight()));
         Bitmap createBitmap = Bitmap.createBitmap(min, min, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         Paint paint = new Paint(3);
         float f = min * 0.5f;
         float f2 = ICON_DIAMETER_FACTOR * f;
-        float f3 = BLUR_FACTOR * min;
-        paint.setColor(0);
-        paint.setShadowLayer(f3, 0.0f, KEY_SHADOW_OFFSET_FACTOR * min, 1023410176);
-        canvas.drawCircle(f, f, f2, paint);
-        paint.setShadowLayer(f3, 0.0f, 0.0f, 503316480);
-        canvas.drawCircle(f, f, f2, paint);
-        paint.clearShadowLayer();
+        if (z) {
+            float f3 = BLUR_FACTOR * min;
+            paint.setColor(0);
+            paint.setShadowLayer(f3, 0.0f, KEY_SHADOW_OFFSET_FACTOR * min, 1023410176);
+            canvas.drawCircle(f, f, f2, paint);
+            paint.setShadowLayer(f3, 0.0f, 0.0f, 503316480);
+            canvas.drawCircle(f, f, f2, paint);
+            paint.clearShadowLayer();
+        }
         paint.setColor(ViewCompat.MEASURED_STATE_MASK);
         BitmapShader bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         Matrix matrix = new Matrix();

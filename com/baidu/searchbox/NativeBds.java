@@ -1,6 +1,9 @@
 package com.baidu.searchbox;
-/* loaded from: classes6.dex */
-public final class NativeBds {
+
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+/* loaded from: classes11.dex */
+public final class NativeBds implements NoProGuard {
     private static native byte[] ae0(String str, String str2);
 
     private static native byte[] ae1(String str, byte[] bArr);
@@ -23,6 +26,6 @@ public final class NativeBds {
     }
 
     static {
-        System.loadLibrary("AesArithmetic_V1_1");
+        SoLoader.load(AppRuntime.getAppContext(), "libAesArithmetic_V1_1.so");
     }
 }

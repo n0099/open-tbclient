@@ -11,8 +11,10 @@ import android.support.v4.view.TintableBackgroundView;
 import android.support.v7.appcompat.R;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputConnection;
 import android.widget.MultiAutoCompleteTextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextView implements TintableBackgroundView {
     private static final int[] TINT_ATTRS = {16843126};
     private final AppCompatBackgroundHelper mBackgroundTintHelper;
@@ -114,5 +116,10 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
         if (this.mTextHelper != null) {
             this.mTextHelper.onSetTextAppearance(context, i);
         }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
+        return AppCompatHintHelper.onCreateInputConnection(super.onCreateInputConnection(editorInfo), editorInfo, this);
     }
 }

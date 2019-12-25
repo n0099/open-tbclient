@@ -13,233 +13,233 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
-    private b.a gya;
-    private GroupSettingActivity gym;
-    private RelativeLayout gyn;
-    private com.baidu.tbadk.core.dialog.b gyo;
-    private com.baidu.tbadk.core.dialog.a gyp;
-    private SettingTextSwitchView gyq;
-    private SettingTextSwitchView gyr;
-    private TbSettingTextTipView gys;
-    private TbSettingTextTipView gyt;
-    private TbSettingTextTipView gyu;
-    private Button gyv;
-    private Button gyw;
-    private com.baidu.tbadk.core.dialog.a gyx;
-    private View gyy;
+    private TbSettingTextTipView hmA;
+    private TbSettingTextTipView hmB;
+    private TbSettingTextTipView hmC;
+    private Button hmD;
+    private Button hmE;
+    private com.baidu.tbadk.core.dialog.a hmF;
+    private View hmG;
+    private b.a hmj;
+    private GroupSettingActivity hmu;
+    private RelativeLayout hmv;
+    private com.baidu.tbadk.core.dialog.b hmw;
+    private com.baidu.tbadk.core.dialog.a hmx;
+    private SettingTextSwitchView hmy;
+    private SettingTextSwitchView hmz;
     private NavigationBar mNavigationBar;
 
     public void a(b.a aVar) {
-        this.gya = aVar;
+        this.hmj = aVar;
     }
 
     public b(GroupSettingActivity groupSettingActivity) {
         super(groupSettingActivity.getPageContext());
-        this.gym = null;
-        this.gyn = null;
-        this.gyo = null;
-        this.gyq = null;
-        this.gyr = null;
-        this.gys = null;
-        this.gyt = null;
-        this.gyu = null;
-        this.gya = null;
-        this.gym = groupSettingActivity;
+        this.hmu = null;
+        this.hmv = null;
+        this.hmw = null;
+        this.hmy = null;
+        this.hmz = null;
+        this.hmA = null;
+        this.hmB = null;
+        this.hmC = null;
+        this.hmj = null;
+        this.hmu = groupSettingActivity;
         initView();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        this.gyq.jz(i);
-        this.gyr.jz(i);
-        this.gym.getLayoutMode().setNightMode(i == 1);
-        this.gym.getLayoutMode().onModeChanged(this.gyn);
-        this.mNavigationBar.onChangeSkinType(this.gym.getPageContext(), i);
-        am.setBackgroundResource(this.gyv, R.drawable.big_red_button);
-        am.setBackgroundResource(this.gyw, R.drawable.big_red_button);
+        this.hmy.lM(i);
+        this.hmz.lM(i);
+        this.hmu.getLayoutMode().setNightMode(i == 1);
+        this.hmu.getLayoutMode().onModeChanged(this.hmv);
+        this.mNavigationBar.onChangeSkinType(this.hmu.getPageContext(), i);
+        am.setBackgroundResource(this.hmD, R.drawable.big_red_button);
+        am.setBackgroundResource(this.hmE, R.drawable.big_red_button);
     }
 
-    public View bxM() {
-        return this.gyy;
+    public View bPd() {
+        return this.hmG;
     }
 
     public void setGroupName(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.gys.setText(str);
+            this.hmA.setText(str);
         }
     }
 
     private void initView() {
-        this.gym.setContentView(R.layout.group_setting_activity);
-        this.gyq = (SettingTextSwitchView) this.gym.findViewById(R.id.sv_group_msg_notify);
-        this.gyr = (SettingTextSwitchView) this.gym.findViewById(R.id.sv_group_add_group);
-        this.gys = (TbSettingTextTipView) this.gym.findViewById(R.id.tv_change_name);
-        this.gyt = (TbSettingTextTipView) this.gym.findViewById(R.id.sv_report);
-        this.gyu = (TbSettingTextTipView) this.gym.findViewById(R.id.sv_delete_msg);
-        this.gyv = (Button) this.gym.findViewById(R.id.btn_dismiss);
-        this.gyw = (Button) this.gym.findViewById(R.id.btn_quit);
-        this.gyn = (RelativeLayout) this.gym.findViewById(R.id.parent);
-        this.mNavigationBar = (NavigationBar) this.gym.findViewById(R.id.view_navigation_bar);
-        this.gyy = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.hmu.setContentView(R.layout.group_setting_activity);
+        this.hmy = (SettingTextSwitchView) this.hmu.findViewById(R.id.sv_group_msg_notify);
+        this.hmz = (SettingTextSwitchView) this.hmu.findViewById(R.id.sv_group_add_group);
+        this.hmA = (TbSettingTextTipView) this.hmu.findViewById(R.id.tv_change_name);
+        this.hmB = (TbSettingTextTipView) this.hmu.findViewById(R.id.sv_report);
+        this.hmC = (TbSettingTextTipView) this.hmu.findViewById(R.id.sv_delete_msg);
+        this.hmD = (Button) this.hmu.findViewById(R.id.btn_dismiss);
+        this.hmE = (Button) this.hmu.findViewById(R.id.btn_quit);
+        this.hmv = (RelativeLayout) this.hmu.findViewById(R.id.parent);
+        this.mNavigationBar = (NavigationBar) this.hmu.findViewById(R.id.view_navigation_bar);
+        this.hmG = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.group_setting);
     }
 
     public void initListener() {
-        this.gyq.setSwitchStateChangeListener(this.gym);
-        this.gyr.setSwitchStateChangeListener(this.gym);
-        this.gys.setOnClickListener(this.gym);
-        this.gyt.setOnClickListener(this.gym);
-        this.gyv.setOnClickListener(this.gym);
-        this.gyw.setOnClickListener(this.gym);
-        this.gyu.setOnClickListener(this.gym);
+        this.hmy.setSwitchStateChangeListener(this.hmu);
+        this.hmz.setSwitchStateChangeListener(this.hmu);
+        this.hmA.setOnClickListener(this.hmu);
+        this.hmB.setOnClickListener(this.hmu);
+        this.hmD.setOnClickListener(this.hmu);
+        this.hmE.setOnClickListener(this.hmu);
+        this.hmC.setOnClickListener(this.hmu);
     }
 
-    public TbSettingTextTipView bxN() {
-        return this.gys;
+    public TbSettingTextTipView bPe() {
+        return this.hmA;
     }
 
-    public Button bxO() {
-        return this.gyw;
+    public Button bPf() {
+        return this.hmE;
     }
 
-    public Button bxP() {
-        return this.gyv;
+    public Button bPg() {
+        return this.hmD;
     }
 
-    public TbSettingTextTipView bxQ() {
-        return this.gyt;
+    public TbSettingTextTipView bPh() {
+        return this.hmB;
     }
 
-    public TbSettingTextTipView bxR() {
-        return this.gyu;
+    public TbSettingTextTipView bPi() {
+        return this.hmC;
     }
 
-    public void bxS() {
-        if (this.gyp == null) {
-            this.gyp = new com.baidu.tbadk.core.dialog.a(this.gym.getPageContext().getPageActivity());
-            this.gyp.hS(R.string.inform);
-            this.gyp.hT(R.string.group_quit_alert);
-            this.gyp.eg(false);
-            this.gyp.a(R.string.alert_yes_button, this.gym);
-            this.gyp.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.1
+    public void bPj() {
+        if (this.hmx == null) {
+            this.hmx = new com.baidu.tbadk.core.dialog.a(this.hmu.getPageContext().getPageActivity());
+            this.hmx.jE(R.string.inform);
+            this.hmx.jF(R.string.group_quit_alert);
+            this.hmx.fu(false);
+            this.hmx.a(R.string.alert_yes_button, this.hmu);
+            this.hmx.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.gyp.b(this.gym.getPageContext());
-            this.gyp.eh(true);
+            this.hmx.b(this.hmu.getPageContext());
+            this.hmx.fv(true);
         }
-        this.gyp.akM();
+        this.hmx.aBW();
     }
 
-    public com.baidu.tbadk.core.dialog.a bxT() {
-        return this.gyp;
+    public com.baidu.tbadk.core.dialog.a bPk() {
+        return this.hmx;
     }
 
-    public void aoa() {
-        if (this.gyo == null) {
-            this.gyo = new com.baidu.tbadk.core.dialog.b(this.gym.getPageContext().getPageActivity());
-            this.gyo.hX(R.string.group_report);
-            this.gyo.a(new CharSequence[]{new SpannableString(this.gym.getPageContext().getString(R.string.group_report_ad)), new SpannableString(this.gym.getPageContext().getString(R.string.group_report_sex)), new SpannableString(this.gym.getPageContext().getString(R.string.group_report_lllegal))}, this.gya);
-            this.gyo.d(this.gym.getPageContext());
+    public void bPl() {
+        if (this.hmw == null) {
+            this.hmw = new com.baidu.tbadk.core.dialog.b(this.hmu.getPageContext().getPageActivity());
+            this.hmw.jJ(R.string.group_report);
+            this.hmw.a(new CharSequence[]{new SpannableString(this.hmu.getPageContext().getString(R.string.group_report_ad)), new SpannableString(this.hmu.getPageContext().getString(R.string.group_report_sex)), new SpannableString(this.hmu.getPageContext().getString(R.string.group_report_lllegal))}, this.hmj);
+            this.hmw.d(this.hmu.getPageContext());
         }
-        this.gyo.akN();
+        this.hmw.aBX();
     }
 
-    public void bxU() {
-        if (this.gyw != null) {
-            this.gyw.setVisibility(8);
-        }
-    }
-
-    public void bxV() {
-        if (this.gyv != null) {
-            this.gyv.setVisibility(8);
+    public void bPm() {
+        if (this.hmE != null) {
+            this.hmE.setVisibility(8);
         }
     }
 
-    public void ly(boolean z) {
-        if (this.gyr != null) {
-            this.gyr.setVisibility(z ? 0 : 8);
+    public void bPn() {
+        if (this.hmD != null) {
+            this.hmD.setVisibility(8);
         }
     }
 
-    public void lz(boolean z) {
+    public void mM(boolean z) {
+        if (this.hmz != null) {
+            this.hmz.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void mN(boolean z) {
         if (z) {
-            this.gyr.turnOn();
+            this.hmz.turnOn();
         } else {
-            this.gyr.turnOff();
+            this.hmz.turnOff();
         }
     }
 
-    public void bxW() {
-        if (this.gyw != null) {
-            this.gyw.setVisibility(0);
+    public void bPo() {
+        if (this.hmE != null) {
+            this.hmE.setVisibility(0);
         }
     }
 
-    public void bxX() {
-        if (this.gyv != null) {
-            this.gyv.setVisibility(0);
+    public void bPp() {
+        if (this.hmD != null) {
+            this.hmD.setVisibility(0);
         }
     }
 
-    public void aXx() {
-        if (this.gyt != null) {
-            this.gyt.setVisibility(0);
+    public void bpw() {
+        if (this.hmB != null) {
+            this.hmB.setVisibility(0);
         }
     }
 
-    public void bxY() {
-        if (this.gyt != null) {
-            this.gyt.setVisibility(8);
+    public void bPq() {
+        if (this.hmB != null) {
+            this.hmB.setVisibility(8);
         }
     }
 
-    public BdSwitchView bxZ() {
-        return this.gyr.getSwitchView();
+    public BdSwitchView bPr() {
+        return this.hmz.getSwitchView();
     }
 
-    public BdSwitchView bya() {
-        return this.gyq.getSwitchView();
+    public BdSwitchView bPs() {
+        return this.hmy.getSwitchView();
     }
 
-    public void byb() {
-        if (this.gyx == null) {
-            this.gyx = new com.baidu.tbadk.core.dialog.a(this.gym.getPageContext().getPageActivity());
-            this.gyx.hT(R.string.group_dismiss_alert);
-            this.gyx.eg(false);
-            this.gyx.a(R.string.alert_yes_button, this.gym);
-            this.gyx.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.2
+    public void bPt() {
+        if (this.hmF == null) {
+            this.hmF = new com.baidu.tbadk.core.dialog.a(this.hmu.getPageContext().getPageActivity());
+            this.hmF.jF(R.string.group_dismiss_alert);
+            this.hmF.fu(false);
+            this.hmF.a(R.string.alert_yes_button, this.hmu);
+            this.hmF.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.gyx.b(this.gym.getPageContext());
+            this.hmF.b(this.hmu.getPageContext());
         }
-        this.gyx.akM();
+        this.hmF.aBW();
     }
 
-    public com.baidu.tbadk.core.dialog.a byc() {
-        return this.gyx;
+    public com.baidu.tbadk.core.dialog.a bPu() {
+        return this.hmF;
     }
 
-    public void byd() {
-        if (this.gyx != null) {
-            this.gyx.dismiss();
-            this.gyx = null;
+    public void bPv() {
+        if (this.hmF != null) {
+            this.hmF.dismiss();
+            this.hmF = null;
         }
-        if (this.gyo != null) {
-            this.gyo.dismiss();
-            this.gyo = null;
+        if (this.hmw != null) {
+            this.hmw.dismiss();
+            this.hmw = null;
         }
-        if (this.gyp != null) {
-            this.gyp.dismiss();
-            this.gyp = null;
+        if (this.hmx != null) {
+            this.hmx.dismiss();
+            this.hmx = null;
         }
     }
 }

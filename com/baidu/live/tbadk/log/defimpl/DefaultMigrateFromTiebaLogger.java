@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.log.defimpl;
 
 import com.baidu.live.tbadk.log.IMigrateFromTiebaLogger;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DefaultMigrateFromTiebaLogger implements IMigrateFromTiebaLogger {
     @Override // com.baidu.live.tbadk.log.IMigrateFromTiebaLogger
     public void doDisplayAttentionLog() {

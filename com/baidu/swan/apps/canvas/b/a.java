@@ -1,30 +1,33 @@
 package com.baidu.swan.apps.canvas.b;
 
 import android.text.TextUtils;
-import com.baidu.swan.apps.b.c.c;
-import com.baidu.swan.apps.canvas.c.g;
-import com.baidu.swan.apps.canvas.view.CanvasView;
-import com.baidu.swan.apps.w.e;
-/* loaded from: classes2.dex */
-public abstract class a {
-    public g a(com.baidu.swan.apps.canvas.c.a aVar) {
-        if (aVar == null) {
-            return null;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class a extends com.baidu.swan.apps.component.b.b {
+    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public boolean bck;
+
+    public a(String str) {
+        super("canvas", "canvasId");
+        this.bck = false;
+        try {
+            parseFromJson(new JSONObject(str));
+        } catch (JSONException e) {
+            com.baidu.swan.apps.console.c.e("Canvas", "parsing CanvasBasicthis occurs exception", e);
         }
-        String str = aVar.aXp;
-        String str2 = aVar.id;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        c cVar = (c) e.LE().eH(aVar.aXp);
-        return cVar != null ? cVar.dO(aVar.id) : null;
     }
 
-    public CanvasView b(com.baidu.swan.apps.canvas.c.a aVar) {
-        g a = a(aVar);
-        if (a == null) {
-            return null;
-        }
-        return a.aGN;
+    @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
+    public void parseFromJson(JSONObject jSONObject) throws JSONException {
+        super.parseFromJson(jSONObject);
+        this.hidden = TextUtils.equals(jSONObject.optString("hide"), "1") || jSONObject.optBoolean("hide");
+        this.bck = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
+        this.bdk = TextUtils.equals(jSONObject.optString("gesture"), "0") ? false : true;
+    }
+
+    @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
+    public boolean isValid() {
+        return (TextUtils.isEmpty(this.bdh) || TextUtils.isEmpty(this.bdi)) ? false : true;
     }
 }

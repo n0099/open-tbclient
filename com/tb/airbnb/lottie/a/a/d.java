@@ -5,7 +5,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface d extends b {
     void a(Canvas canvas, Matrix matrix, int i);
 

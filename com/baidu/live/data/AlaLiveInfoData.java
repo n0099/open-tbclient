@@ -1,19 +1,21 @@
 package com.baidu.live.data;
 
-import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.h;
+import com.baidu.live.data.j;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
-import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveInfoData implements Serializable {
+    public static boolean DEBUG = false;
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
     public static final int LIVE_SCREEN_DIRECTION_PORTRAIT = 1;
     public static final int LIVE_STATUS_END = 2;
@@ -48,6 +50,7 @@ public class AlaLiveInfoData implements Serializable {
     public String game_id;
     public String game_label;
     public long group_id;
+    public String guardPortrait;
     public boolean hasRead;
     public String[] imEffect;
     public int isAudioOnPrivate;
@@ -70,6 +73,7 @@ public class AlaLiveInfoData implements Serializable {
     public int play_count;
     public String qrcodeDownloadUrl;
     public String qrcodeUrl;
+    public RedPacketCharmInfo redpacketCharmInfo;
     public int rewardUserCount;
     public long room_id;
     public int screen_direction;
@@ -83,7 +87,7 @@ public class AlaLiveInfoData implements Serializable {
     public String user_name;
     public String user_nickname;
     public int zan_count;
-    public h.a mCastIds = null;
+    public j.a mCastIds = null;
     public int session_default = 0;
     public long broadGiftMsgId = 0;
     public AlaLiveCloseData mLiveCloseData = new AlaLiveCloseData();
@@ -153,7 +157,7 @@ public class AlaLiveInfoData implements Serializable {
             this.user_nickname = jSONObject.optString("user_nickname");
             this.group_id = jSONObject.optLong("group_id");
             this.last_msg_id = jSONObject.optLong("last_msg_id");
-            this.session_id = jSONObject.optString(LogConfig.LOG_SESSION_ID);
+            this.session_id = jSONObject.optString("session_id");
             this.description = jSONObject.optString("description");
             this.cover = jSONObject.optString("cover");
             this.join_count = jSONObject.optInt("join_count");
@@ -171,8 +175,8 @@ public class AlaLiveInfoData implements Serializable {
             this.anchorTitle = jSONObject.optString("anchor_title");
             this.start_time = jSONObject.optInt("start_time");
             this.end_time = jSONObject.optInt("end_time");
-            this.location = jSONObject.optString(Headers.LOCATION);
-            this.channel_id = jSONObject.optLong("channel_id");
+            this.location = jSONObject.optString("location");
+            this.channel_id = jSONObject.optLong(SharedPrefConfig.CHANNEL_ID);
             this.channel_name = jSONObject.optString("channel_name");
             this.live_status = jSONObject.optInt("live_status");
             this.close_type = jSONObject.optInt("close_type");
@@ -197,7 +201,7 @@ public class AlaLiveInfoData implements Serializable {
                     this.session_info.rtmpUrl = optString;
                     this.session_info.flvUrl = jSONObject.optString("flv_url");
                     this.session_info.hlsUrl = jSONObject.optString("hls_url");
-                    this.session_info.mSessionId = jSONObject.optString(LogConfig.LOG_SESSION_ID);
+                    this.session_info.mSessionId = jSONObject.optString("session_id");
                 }
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("session_info_backup");
@@ -208,6 +212,14 @@ public class AlaLiveInfoData implements Serializable {
             this.thread_id = jSONObject.optLong("thread_id");
             this.comment_count = jSONObject.optInt("comment_count");
             this.screen_direction = jSONObject.optInt("screen_direction");
+            if (DEBUG) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("debug_force_landscape", false);
+                Map<String, Object> process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap);
+                if (process.containsKey("debug_force_landscape") ? ((Boolean) process.get("debug_force_landscape")).booleanValue() : false) {
+                    this.screen_direction = 2;
+                }
+            }
             this.live_type = jSONObject.optInt("live_type", 1);
             if (this.live_type != 2) {
                 this.live_type = 1;
@@ -245,7 +257,7 @@ public class AlaLiveInfoData implements Serializable {
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("mcast_ids");
             if (optJSONObject4 != null) {
-                this.mCastIds = new h.a();
+                this.mCastIds = new j.a();
                 this.mCastIds.parseJson(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("switch");
@@ -254,14 +266,18 @@ public class AlaLiveInfoData implements Serializable {
                 this.mAlaLiveSwitchData.parserJson(optJSONObject5);
                 TbadkCoreApplication.sAlaLiveSwitchData = this.mAlaLiveSwitchData;
             }
-            AlaLiveSwitchData.isHotLive = jSONObject.optInt(HttpRequest.SDK_LIVE_IS_HOT);
             JSONObject optJSONObject6 = jSONObject.optJSONObject("close_data");
             if (optJSONObject6 != null) {
                 this.mLiveCloseData = new AlaLiveCloseData();
                 this.mLiveCloseData.parserJson(optJSONObject6);
-                return;
+            } else {
+                this.mLiveCloseData = null;
             }
-            this.mLiveCloseData = null;
+            JSONObject optJSONObject7 = jSONObject.optJSONObject("live_redpacket");
+            if (optJSONObject7 != null) {
+                this.redpacketCharmInfo = new RedPacketCharmInfo(optJSONObject7);
+            }
+            this.guardPortrait = jSONObject.optString("guard_portrait");
         }
     }
 
@@ -310,7 +326,7 @@ public class AlaLiveInfoData implements Serializable {
             jSONObject.put("user_nickname", this.user_nickname);
             jSONObject.put("group_id", this.group_id);
             jSONObject.put("last_msg_id", this.last_msg_id);
-            jSONObject.put(LogConfig.LOG_SESSION_ID, this.session_id);
+            jSONObject.put("session_id", this.session_id);
             jSONObject.put("description", this.description);
             jSONObject.put("cover", this.cover);
             jSONObject.put("join_count", this.join_count);
@@ -328,8 +344,8 @@ public class AlaLiveInfoData implements Serializable {
             jSONObject.put("flower_count", this.flower_count);
             jSONObject.put("start_time", this.start_time);
             jSONObject.put("end_time", this.end_time);
-            jSONObject.put(Headers.LOCATION, this.location);
-            jSONObject.put("channel_id", this.channel_id);
+            jSONObject.put("location", this.location);
+            jSONObject.put(SharedPrefConfig.CHANNEL_ID, this.channel_id);
             jSONObject.put("channel_name", this.channel_name);
             jSONObject.put("live_status", this.live_status);
             jSONObject.put("close_type", this.close_type);
@@ -370,6 +386,7 @@ public class AlaLiveInfoData implements Serializable {
             if (this.mLiveCloseData != null) {
                 jSONObject.put("close_data", AlaLiveCloseData.toJson(this.mLiveCloseData));
             }
+            jSONObject.put("guard_portrait", this.guardPortrait);
         } catch (JSONException e) {
             e.printStackTrace();
         }

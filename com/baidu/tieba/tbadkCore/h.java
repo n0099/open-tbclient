@@ -3,14 +3,15 @@ package com.baidu.tieba.tbadkCore;
 import java.util.LinkedList;
 import java.util.List;
 import tbclient.FrsPage.BusinessPromot;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class h {
     private long id;
     private String img;
     private String img_popup;
-    private int jfs;
-    private List<i> jft;
+    private int jZF;
+    private List<i> jZG;
     private String thread_id;
+    private int thread_type;
     private String title;
     private int type;
     private String url;
@@ -23,25 +24,25 @@ public class h {
             this.type = businessPromot.type.intValue();
             this.thread_id = businessPromot.thread_id;
             this.url = businessPromot.url;
-            this.jfs = businessPromot.join_num.intValue();
+            this.jZF = businessPromot.join_num.intValue();
             this.id = businessPromot.id.longValue();
             if (businessPromot.comment_list != null) {
-                this.jft = new LinkedList();
+                this.jZG = new LinkedList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 < businessPromot.comment_list.size()) {
-                        if (businessPromot.comment_list.get(i2) != null) {
-                            i iVar = new i();
-                            iVar.a(businessPromot.comment_list.get(i2));
-                            this.jft.add(iVar);
-                        }
-                        i = i2 + 1;
-                    } else {
-                        return;
+                    if (i2 >= businessPromot.comment_list.size()) {
+                        break;
                     }
+                    if (businessPromot.comment_list.get(i2) != null) {
+                        i iVar = new i();
+                        iVar.a(businessPromot.comment_list.get(i2));
+                        this.jZG.add(iVar);
+                    }
+                    i = i2 + 1;
                 }
             }
+            this.thread_type = businessPromot.thread_type.intValue();
         }
     }
 
@@ -49,11 +50,11 @@ public class h {
         return this.title;
     }
 
-    public String aep() {
+    public String avi() {
         return this.img;
     }
 
-    public String cnl() {
+    public String cHr() {
         return this.img_popup;
     }
 
@@ -61,19 +62,27 @@ public class h {
         return this.type;
     }
 
+    public String getThreadId() {
+        return this.thread_id;
+    }
+
     public String getUrl() {
         return this.url;
     }
 
-    public int cnm() {
-        return this.jfs;
+    public int cHs() {
+        return this.jZF;
     }
 
     public long getId() {
         return this.id;
     }
 
-    public List<i> cnn() {
-        return this.jft;
+    public List<i> cHt() {
+        return this.jZG;
+    }
+
+    public int getThreadType() {
+        return this.thread_type;
     }
 }

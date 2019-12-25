@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.websocket;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class IWebSocketDataGenerator implements WebSocketSendListener {
     private volatile byte[] mData = null;
     private volatile boolean mHaveGenData = false;

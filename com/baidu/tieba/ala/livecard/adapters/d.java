@@ -4,25 +4,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.z;
+import com.baidu.tieba.card.x;
 import com.baidu.tieba.frs.h;
 import com.baidu.tieba.tbadkCore.g;
-/* loaded from: classes6.dex */
-public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements z {
-    private com.baidu.tieba.ala.livecard.b.d dSn;
+/* loaded from: classes2.dex */
+public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements x {
+    private com.baidu.tieba.ala.livecard.b.d eHU;
     private String mForumName;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
     }
 
-    @Override // com.baidu.tieba.card.z
+    @Override // com.baidu.tieba.card.x
     public void setForumName(String str) {
         this.mForumName = str;
     }
 
-    @Override // com.baidu.tieba.card.z
-    public void mW(int i) {
+    @Override // com.baidu.tieba.card.x
+    public void pm(int i) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,9 +33,9 @@ public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements z {
         if (this.mPageContext == null) {
             return null;
         }
-        this.dSn = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
-        this.dSn.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.c(this.dSn);
+        this.eHU = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
+        this.eHU.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.c(this.eHU);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,12 +45,12 @@ public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements z {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (g) cVar);
         if (gVar != null) {
             int i2 = 0;
-            if (this.fua != null) {
-                i2 = this.fua.getTopThreadSize();
+            if (this.giA != null) {
+                i2 = this.giA.getTopThreadSize();
             }
-            cVar.dSx.cdI = (i + 1) - i2;
-            cVar.dSx.setForumName(this.mForumName);
-            cVar.dSx.a(gVar);
+            cVar.eIe.cLr = (i + 1) - i2;
+            cVar.eIe.setForumName(this.mForumName);
+            cVar.eIe.a(gVar);
         }
         return view;
     }

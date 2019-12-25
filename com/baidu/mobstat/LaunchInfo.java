@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LaunchInfo {
     private String a;
     private String b;
@@ -72,7 +72,7 @@ public class LaunchInfo {
                 if (str2 == null) {
                     str2 = "";
                 }
-                jSONObject.put(Config.LAUNCH_INFO, str2);
+                jSONObject.put("info", str2);
                 jSONObject.put("content", "");
                 return jSONObject;
             } catch (Exception e) {

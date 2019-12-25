@@ -2,64 +2,59 @@ package com.baidu.swan.apps.canvas.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.widget.AbsoluteLayout;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.as.m;
 import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class c extends a {
-    @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ AbsoluteLayout a(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        return super.a(unitedSchemeEntity, str);
-    }
-
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
         super.a(unitedSchemeEntity, callbackHandler, z);
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject cM(int i) {
-        return super.cM(i);
+    public /* bridge */ /* synthetic */ JSONObject dK(int i) {
+        return super.dK(i);
     }
 
     public c(j jVar) {
-        super(jVar, "/swan/canvas/getImageData");
+        super(jVar, "/swanAPI/canvas/getImageData");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.core.d.d Fs;
-        final com.baidu.swan.apps.canvas.c.c c = c(unitedSchemeEntity);
-        if (c == null) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        com.baidu.swan.apps.core.d.d LC;
+        final com.baidu.swan.apps.canvas.b.c d = d(unitedSchemeEntity);
+        if (d == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasGetImageData action parse model is null");
-            unitedSchemeEntity.result = cM(201);
+            unitedSchemeEntity.result = dK(201);
             return false;
         }
-        if (TextUtils.isEmpty(c.aXp) && (Fs = com.baidu.swan.apps.w.e.LE().Fs()) != null) {
-            c.aXp = Fs.Fc();
+        if (TextUtils.isEmpty(d.bdi) && (LC = com.baidu.swan.apps.y.f.Uf().LC()) != null) {
+            d.bdi = LC.Ln();
         }
-        if (TextUtils.isEmpty(c.aXp) || TextUtils.isEmpty(c.id)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasGetImageData slave id = " + c.aXp + " ; canvas id = " + c.id);
-            unitedSchemeEntity.result = cM(201);
+        if (TextUtils.isEmpty(d.bdi) || TextUtils.isEmpty(d.bdh)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasGetImageData slave id = " + d.bdi + " ; canvas id = " + d.bdh);
+            unitedSchemeEntity.result = dK(201);
             return false;
         }
-        final CanvasView b = com.baidu.swan.apps.canvas.a.CP().b(c);
-        if (b == null) {
+        final CanvasView a = com.baidu.swan.apps.component.components.d.a.a.a(d);
+        if (a == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasGetImageData canvas view is null");
-            unitedSchemeEntity.result = cM(201);
+            unitedSchemeEntity.result = dK(201);
             return false;
         }
-        com.baidu.swan.apps.an.j.a(new Runnable() { // from class: com.baidu.swan.apps.canvas.a.c.1
+        m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.canvas.a.c.1
             @Override // java.lang.Runnable
             public void run() {
-                JSONObject V = c.V(b);
-                String str = c.callback;
+                JSONObject ab = d.ab(a);
+                String str = d.callback;
                 if (!TextUtils.isEmpty(str)) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(V, 0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(ab, 0).toString());
                 }
             }
         }, "CanvasGetImageDataAction");
@@ -69,12 +64,12 @@ public class c extends a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.canvas.a.a
-    /* renamed from: e */
-    public com.baidu.swan.apps.canvas.c.c c(UnitedSchemeEntity unitedSchemeEntity) {
+    /* renamed from: f */
+    public com.baidu.swan.apps.canvas.b.c d(UnitedSchemeEntity unitedSchemeEntity) {
         String str = unitedSchemeEntity.getParams().get("params");
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return new com.baidu.swan.apps.canvas.c.c(str);
+        return new com.baidu.swan.apps.canvas.b.c(str);
     }
 }

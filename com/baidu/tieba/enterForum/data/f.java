@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import tbclient.ForumRecommend.LikeForum;
 import tbclient.PrivateForumInfo;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f extends d implements com.baidu.tbadk.mvc.b.a {
-    private int arz;
-    private PrivateForumInfo bZE;
-    private int eSp;
-    private int eZX;
-    private String eZY;
-    private int eZZ;
-    private int faa;
-    private int fab;
-    private ThemeColorInfo fac;
-    private boolean fad;
-    private long fae;
+    private int azk;
+    private PrivateForumInfo cLW;
+    private String eqU;
+    private int fOE;
+    private int fOF;
+    private int fOG;
+    private int fOH;
+    private int fOI;
+    private ThemeColorInfo fOJ;
+    private boolean fOK;
+    private long fOL;
     private String mContent;
     private String mId;
     private String mName;
@@ -28,12 +28,12 @@ public class f extends d implements com.baidu.tbadk.mvc.b.a {
         setType(1);
     }
 
-    public String bdM() {
+    public String bvi() {
         return this.mContent;
     }
 
-    public int bdN() {
-        return this.eSp;
+    public int bvj() {
+        return this.fOI;
     }
 
     public String getId() {
@@ -44,56 +44,58 @@ public class f extends d implements com.baidu.tbadk.mvc.b.a {
         return this.mName;
     }
 
-    public void pu(int i) {
-        this.eZX = i;
+    public void rA(int i) {
+        this.fOE = i;
     }
 
-    public int bdO() {
-        return this.eZX;
+    public int bvk() {
+        return this.fOE;
     }
 
-    public int bdP() {
-        return this.faa;
+    public int bvl() {
+        return this.fOG;
     }
 
     public int isPrivateForum() {
-        return this.fab;
+        return this.fOH;
     }
 
-    public int bdQ() {
-        return this.eZZ;
+    public int bvm() {
+        return this.fOF;
     }
 
     public void setLevel(int i) {
-        this.arz = i;
+        this.azk = i;
     }
 
     public int getLevel() {
-        return this.arz;
+        return this.azk;
     }
 
     public String getAvatar() {
-        return this.eZY;
+        return this.eqU;
     }
 
-    public ThemeColorInfo bdR() {
-        return this.fac;
+    public ThemeColorInfo bvn() {
+        return this.fOJ;
     }
 
-    public ArrayList<Integer> bdS() {
-        if (this.fac == null || this.fac.day == null || this.fac.night == null) {
+    public ArrayList<Integer> bvo() {
+        if (this.fOJ == null || this.fOJ.day == null || this.fOJ.night == null || this.fOJ.dark == null) {
             return null;
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.bR(this.fac.day.light_color)));
-        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.bR(this.fac.day.dark_color)));
-        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.bR(this.fac.night.light_color)));
-        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.bR(this.fac.night.dark_color)));
+        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.cy(this.fOJ.day.light_color)));
+        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.cy(this.fOJ.day.dark_color)));
+        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.cy(this.fOJ.night.light_color)));
+        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.cy(this.fOJ.night.dark_color)));
+        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.cy(this.fOJ.dark.light_color)));
+        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.cy(this.fOJ.dark.dark_color)));
         return arrayList;
     }
 
-    public boolean atK() {
-        return this.fad;
+    public boolean aLp() {
+        return this.fOK;
     }
 
     public void a(LikeForum likeForum) {
@@ -102,12 +104,12 @@ public class f extends d implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public boolean bdT() {
-        return this.faa == 1 && this.fab == 1 && this.bZE != null && this.bZE.private_forum_status.intValue() == 1;
+    public boolean bvp() {
+        return this.fOG == 1 && this.fOH == 1 && this.cLW != null && this.cLW.private_forum_status.intValue() == 1;
     }
 
-    public boolean bdU() {
-        return this.faa == 1 && this.fab == 1 && this.bZE != null && this.bZE.private_forum_status.intValue() == 1 && this.bZE.private_forum_audit_status.intValue() == 2;
+    public boolean bvq() {
+        return this.fOG == 1 && this.fOH == 1 && this.cLW != null && this.cLW.private_forum_status.intValue() == 1 && this.cLW.private_forum_audit_status.intValue() == 2;
     }
 
     public void a(LikeForum likeForum, Context context) {
@@ -115,30 +117,30 @@ public class f extends d implements com.baidu.tbadk.mvc.b.a {
             try {
                 this.mId = String.valueOf(likeForum.forum_id);
                 this.mName = likeForum.forum_name;
-                this.eZX = likeForum.is_sign.intValue();
-                this.arz = likeForum.level_id.intValue();
-                this.eZY = likeForum.avatar;
-                this.faa = likeForum.is_manager.intValue();
-                this.fab = likeForum.is_private_forum.intValue();
-                this.bZE = likeForum.private_forum_info;
-                this.eZZ = likeForum.is_brand_forum.intValue();
+                this.fOE = likeForum.is_sign.intValue();
+                this.azk = likeForum.level_id.intValue();
+                this.eqU = likeForum.avatar;
+                this.fOG = likeForum.is_manager.intValue();
+                this.fOH = likeForum.is_private_forum.intValue();
+                this.cLW = likeForum.private_forum_info;
+                this.fOF = likeForum.is_brand_forum.intValue();
                 this.mContent = likeForum.content;
-                this.eSp = likeForum.is_top.intValue();
+                this.fOI = likeForum.is_top.intValue();
                 this.sortType = likeForum.sort_type.intValue();
-                this.fac = likeForum.theme_color;
-                this.fad = likeForum.need_trans.booleanValue();
-                this.fae = likeForum.hot_thread_id.longValue();
+                this.fOJ = likeForum.theme_color;
+                this.fOK = likeForum.need_trans.booleanValue();
+                this.fOL = likeForum.hot_thread_id.longValue();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public long bdV() {
-        return this.fae;
+    public long bvr() {
+        return this.fOL;
     }
 
-    public void cB(long j) {
-        this.fae = j;
+    public void dh(long j) {
+        this.fOL = j;
     }
 }

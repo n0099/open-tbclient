@@ -1,5 +1,5 @@
 package com.baidu.ala.ndk;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaNDKPlayerAdapter {
     private volatile long mNativeObject = 0;
 

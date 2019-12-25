@@ -1,9 +1,14 @@
 package com.baidu.tieba.personCenter.data;
-/* loaded from: classes4.dex */
+
+import android.graphics.drawable.Drawable;
+/* loaded from: classes6.dex */
 public class i {
-    public boolean ilj;
-    public String ill;
-    public boolean ilm;
     public boolean isShowRedTip = false;
-    public long ilk = -1;
+    public String jde;
+    public Drawable jdf;
+    public Drawable jdg;
+    public Drawable jdh;
+    public boolean jdi;
+    public String linkUrl;
+    public String text;
 }

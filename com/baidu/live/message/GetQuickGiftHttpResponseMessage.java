@@ -1,26 +1,26 @@
 package com.baidu.live.message;
 
-import com.baidu.live.gift.l;
+import com.baidu.live.gift.n;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GetQuickGiftHttpResponseMessage extends JsonHttpResponsedMessage {
-    private l ajQ;
+    private n arO;
 
     public GetQuickGiftHttpResponseMessage() {
         super(1021124);
     }
 
-    public l us() {
-        return this.ajQ;
+    public n wn() {
+        return this.arO;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.ajQ = new l();
-            this.ajQ.parseJson(jSONObject);
+            this.arO = new n();
+            this.arO.parseJson(jSONObject);
         }
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.SendMenuMsg.SendMenuMsgResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class ResponseSendOfficialBarMenuMessage extends SocketResponsedMessage {
     public ResponseSendOfficialBarMenuMessage() {
         super(CmdConfigSocket.CMD_SEND_OFFICIAL_BAR_MENU);

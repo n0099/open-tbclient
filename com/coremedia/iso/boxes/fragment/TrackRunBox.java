@@ -1,6 +1,6 @@
 package com.coremedia.iso.boxes.fragment;
 
-import android.support.v7.widget.helper.ItemTouchHelper;
+import com.baidu.fsg.base.activity.BaseActivity;
 import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -12,29 +12,29 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TrackRunBox extends AbstractFullBox {
     public static final String TYPE = "trun";
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_9 = null;
     private int dataOffset;
     private List<Entry> entries;
     private SampleFlags firstSampleFlags;
@@ -58,9 +58,9 @@ public class TrackRunBox extends AbstractFullBox {
         ajc$tjp_18 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", FieldUtil.TYPE_STRING), 331);
         ajc$tjp_19 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.coremedia.iso.boxes.fragment.TrackRunBox", "java.util.List", "entries", "", "void"), 346);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getSampleCompositionTimeOffsets", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "[J"), 129);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getSampleCount", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "long"), 242);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "getSampleCount", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "long"), BaseActivity.DIALOG_LOADING);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "isDataOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 246);
-        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "isFirstSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), ItemTouchHelper.Callback.DEFAULT_SWIPE_ANIMATION_DURATION);
+        ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "isFirstSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 250);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "isSampleSizePresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 255);
         ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "isSampleDurationPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 259);
         ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "isSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 263);
@@ -72,7 +72,7 @@ public class TrackRunBox extends AbstractFullBox {
         return this.entries;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Entry {
         private long sampleCompositionTimeOffset;
         private long sampleDuration;
@@ -127,7 +127,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setDataOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Dk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.MS(i)));
         if (i == -1) {
             setFlags(getFlags() & 16777214);
         } else {
@@ -284,7 +284,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setDataOffsetPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.sA(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.we(z)));
         if (z) {
             setFlags(getFlags() | 1);
         } else {
@@ -293,7 +293,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleSizePresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.sA(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.we(z)));
         if (z) {
             setFlags(getFlags() | 512);
         } else {
@@ -302,7 +302,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleDurationPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.sA(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.we(z)));
         if (z) {
             setFlags(getFlags() | 256);
         } else {
@@ -311,7 +311,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleFlagsPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.sA(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.we(z)));
         if (z) {
             setFlags(getFlags() | 1024);
         } else {
@@ -320,7 +320,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleCompositionTimeOffsetPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.sA(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.we(z)));
         if (z) {
             setFlags(getFlags() | 2048);
         } else {

@@ -26,15 +26,15 @@ import com.baidu.android.bbalbs.common.util.CommonParam;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
-import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c {
     private static Class<?> i = null;
     String a;
@@ -48,30 +48,32 @@ public class c {
     private String n;
     private String o;
     private boolean p;
-    private com.baidu.location.e.a f = new com.baidu.location.e.a();
-    private C0083c h = null;
+    private com.baidu.location.b.a f = new com.baidu.location.b.a();
+    private C0100c h = null;
     private String m = null;
     b c = new b();
     private long q = 0;
     private boolean r = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void onReceiveLocation(BDLocation bDLocation);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public class b extends com.baidu.location.g.e {
+    /* loaded from: classes5.dex */
+    class b extends com.baidu.location.d.e {
         String a = null;
 
         b() {
             this.k = new HashMap();
         }
 
-        @Override // com.baidu.location.g.e
+        @Override // com.baidu.location.d.e
         public void a() {
-            this.h = com.baidu.location.g.g.c();
+            this.h = com.baidu.location.d.j.c();
+            if (c.this.n != null && c.this.o != null) {
+                this.a += String.format(Locale.CHINA, "&ki=%s&sn=%s", c.this.n, c.this.o);
+            }
             String encodeTp4 = Jni.encodeTp4(this.a);
             this.a = null;
             this.k.put(BaseLocationBox.TYPE, encodeTp4);
@@ -80,10 +82,10 @@ public class c {
 
         public void a(String str) {
             this.a = str;
-            b(com.baidu.location.g.g.f);
+            b(com.baidu.location.d.j.f);
         }
 
-        @Override // com.baidu.location.g.e
+        @Override // com.baidu.location.d.e
         public void a(boolean z) {
             BDLocation bDLocation;
             if (z && this.j != null) {
@@ -111,12 +113,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.location.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0083c {
+    /* loaded from: classes5.dex */
+    public class C0100c {
         public List<ScanResult> a;
         private long c;
 
-        public C0083c(List<ScanResult> list) {
+        public C0100c(List<ScanResult> list) {
             this.a = null;
             this.c = 0L;
             this.a = list;
@@ -242,7 +244,7 @@ public class c {
                             int i8 = i2 + 1;
                             if (z) {
                                 try {
-                                    j = (j2 - this.a.get(i4).timestamp) / 1000000;
+                                    j = (j2 - this.a.get(i4).timestamp) / TimeUtils.NANOS_PER_MS;
                                 } catch (Throwable th) {
                                     j = 0;
                                 }
@@ -354,19 +356,19 @@ public class c {
                 } catch (Exception e) {
                     str = str2;
                     str2 = str;
-                    this.b = CommonParam.getCUID(this.d);
+                    this.b = CommonParam.a(this.d);
                     if (this.b == null) {
                     }
                     StringBuffer stringBuffer = new StringBuffer(256);
                     stringBuffer.append("&fw=");
-                    stringBuffer.append("7.8");
+                    stringBuffer.append("7.63");
                     stringBuffer.append("&sdk=");
-                    stringBuffer.append("7.8");
+                    stringBuffer.append("7.63");
                     stringBuffer.append("&lt=1");
                     stringBuffer.append("&mb=");
                     stringBuffer.append(Build.MODEL);
                     stringBuffer.append("&resid=");
-                    stringBuffer.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
+                    stringBuffer.append("12");
                     if (locationClientOption.getAddrType() == null) {
                     }
                     if (locationClientOption.getAddrType() != null) {
@@ -381,8 +383,8 @@ public class c {
                     }
                     if (locationClientOption.isNeedAptagd) {
                     }
-                    this.n = i.b(this.d);
-                    this.o = i.c(this.d);
+                    this.n = j.b(this.d);
+                    this.o = j.c(this.d);
                     stringBuffer.append("&first=1");
                     stringBuffer.append("&os=A");
                     stringBuffer.append(Build.VERSION.SDK);
@@ -399,31 +401,31 @@ public class c {
                 str = null;
             }
             try {
-                this.b = CommonParam.getCUID(this.d);
+                this.b = CommonParam.a(this.d);
             } catch (Throwable th) {
                 this.b = null;
                 this.e = null;
                 this.g = null;
             }
             if (this.b == null) {
-                com.baidu.location.g.g.o = "" + this.b;
+                com.baidu.location.d.j.o = "" + this.b;
                 this.j = "&prod=" + this.k.prodName + ":" + this.a + "|&cu=" + this.b + "&coor=" + locationClientOption.getCoorType();
             } else {
                 this.j = "&prod=" + this.k.prodName + ":" + this.a + "|&im=" + str2 + "&coor=" + locationClientOption.getCoorType();
             }
             StringBuffer stringBuffer2 = new StringBuffer(256);
             stringBuffer2.append("&fw=");
-            stringBuffer2.append("7.8");
+            stringBuffer2.append("7.63");
             stringBuffer2.append("&sdk=");
-            stringBuffer2.append("7.8");
+            stringBuffer2.append("7.63");
             stringBuffer2.append("&lt=1");
             stringBuffer2.append("&mb=");
             stringBuffer2.append(Build.MODEL);
             stringBuffer2.append("&resid=");
-            stringBuffer2.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
+            stringBuffer2.append("12");
             if (locationClientOption.getAddrType() == null) {
             }
-            if (locationClientOption.getAddrType() != null && locationClientOption.getAddrType().equals("all")) {
+            if (locationClientOption.getAddrType() != null && locationClientOption.getAddrType().equals(SchemeCollecter.CLASSIFY_ALL)) {
                 this.j += "&addr=allj";
             }
             if (locationClientOption.isNeedNewVersionRgc) {
@@ -437,8 +439,8 @@ public class c {
                 if (locationClientOption.isNeedAptagd) {
                     this.j += "aptagd|";
                 }
-                this.n = i.b(this.d);
-                this.o = i.c(this.d);
+                this.n = j.b(this.d);
+                this.o = j.c(this.d);
             }
             stringBuffer2.append("&first=1");
             stringBuffer2.append("&os=A");
@@ -461,14 +463,14 @@ public class c {
     }
 
     @SuppressLint({"NewApi"})
-    private com.baidu.location.e.a a(CellInfo cellInfo) {
+    private com.baidu.location.b.a a(CellInfo cellInfo) {
         boolean z = false;
         int i2 = -1;
         int intValue = Integer.valueOf(Build.VERSION.SDK_INT).intValue();
         if (intValue < 17) {
             return null;
         }
-        com.baidu.location.e.a aVar = new com.baidu.location.e.a();
+        com.baidu.location.b.a aVar = new com.baidu.location.b.a();
         if (cellInfo instanceof CellInfoGsm) {
             CellIdentityGsm cellIdentity = ((CellInfoGsm) cellInfo).getCellIdentity();
             aVar.c = a(cellIdentity.getMcc());
@@ -531,7 +533,7 @@ public class c {
             }
         }
         try {
-            aVar.g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
+            aVar.g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / TimeUtils.NANOS_PER_MS);
         } catch (Error e3) {
             aVar.g = System.currentTimeMillis();
         }
@@ -543,7 +545,7 @@ public class c {
         if (cellLocation == null || this.e == null) {
             return;
         }
-        com.baidu.location.e.a aVar = new com.baidu.location.e.a();
+        com.baidu.location.b.a aVar = new com.baidu.location.b.a();
         String networkOperator = this.e.getNetworkOperator();
         if (networkOperator != null && networkOperator.length() > 0) {
             try {
@@ -615,13 +617,13 @@ public class c {
         String str;
         String str2;
         try {
-            com.baidu.location.e.a d = d();
+            com.baidu.location.b.a d = d();
             if (d == null || !d.b()) {
                 a(this.e.getCellLocation());
             } else {
                 this.f = d;
             }
-            str = (this.f == null || !this.f.b()) ? null : this.f.h();
+            str = (this.f == null || !this.f.b()) ? null : this.f.g();
             try {
                 if (!TextUtils.isEmpty(str) && this.f.j != null) {
                     str = str + this.f.j;
@@ -633,7 +635,7 @@ public class c {
         }
         try {
             this.h = null;
-            this.h = new C0083c(this.g.getScanResults());
+            this.h = new C0100c(this.g.getScanResults());
             str2 = this.h.a(i2);
         } catch (Exception e) {
             str2 = null;
@@ -662,8 +664,8 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private com.baidu.location.e.a d() {
-        com.baidu.location.e.a aVar;
+    private com.baidu.location.b.a d() {
+        com.baidu.location.b.a aVar;
         if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return null;
         }
@@ -672,7 +674,7 @@ public class c {
             if (allCellInfo == null || allCellInfo.size() <= 0) {
                 return null;
             }
-            com.baidu.location.e.a aVar2 = null;
+            com.baidu.location.b.a aVar2 = null;
             for (CellInfo cellInfo : allCellInfo) {
                 if (cellInfo.isRegistered()) {
                     boolean z = aVar2 != null;
@@ -682,7 +684,7 @@ public class c {
                     } else if (!aVar.b()) {
                         aVar = null;
                     } else if (z) {
-                        aVar2.j = aVar.i();
+                        aVar2.j = aVar.h();
                         return aVar2;
                     }
                 }
@@ -718,37 +720,7 @@ public class c {
     }
 
     public void c() {
-        BDLocation bDLocation = null;
-        if (this.m == null || !this.p || com.baidu.location.g.g.a(this.d, "android.permission.ACCESS_FINE_LOCATION") == 0) {
-            return;
-        }
-        if (this.g != null && this.k.scanSpan >= 1000 && !this.k.getAddrType().equals("all") && !this.k.isNeedAptag && !this.k.isNeedAptagd) {
-            try {
-                BDLocation a2 = com.baidu.location.d.a.a().a(this.f != null ? this.f.g() : null, this.g.getScanResults(), false);
-                if (a2 == null || a2.getLocType() != 66) {
-                }
-                if (a2 == null || a2.getLocType() != 66) {
-                }
-                if (!this.k.coorType.equals(CoordinateType.GCJ02) && a2 != null && a2.getLocType() == 66) {
-                    double longitude = a2.getLongitude();
-                    double latitude = a2.getLatitude();
-                    if (longitude != Double.MIN_VALUE && latitude != Double.MIN_VALUE) {
-                        double[] coorEncrypt = Jni.coorEncrypt(longitude, latitude, this.k.coorType);
-                        a2.setLongitude(coorEncrypt[0]);
-                        a2.setLatitude(coorEncrypt[1]);
-                        a2.setCoorType(this.k.coorType);
-                    }
-                }
-                if (a2 == null || a2.getLocType() != 66) {
-                    a2 = null;
-                } else if (!this.r) {
-                    this.l.onReceiveLocation(a2);
-                }
-                bDLocation = a2;
-            } catch (Exception e) {
-            }
-        }
-        if (bDLocation == null) {
+        if (this.m != null && this.p && 0 == 0) {
             this.c.a(this.m);
         }
     }

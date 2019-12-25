@@ -4,7 +4,7 @@ import android.graphics.Outline;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class ActionBarBackgroundDrawableV21 extends ActionBarBackgroundDrawable {
     public ActionBarBackgroundDrawableV21(ActionBarContainer actionBarContainer) {
         super(actionBarContainer);

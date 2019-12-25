@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.i;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
 /* loaded from: classes.dex */
@@ -146,13 +146,13 @@ public class ProfileRequestMessage extends NetMessage {
             double equipmentDensity = l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp());
             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-            int viewImageQuality = i.ago().getViewImageQuality();
+            int viewImageQuality = i.axf().getViewImageQuality();
             builder.scr_w = Integer.valueOf(equipmentWidth);
             builder.scr_h = Integer.valueOf(equipmentHeight);
             builder.scr_dip = Double.valueOf(equipmentDensity);
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
-                r.a(builder, true);
+                t.a(builder, true);
             }
             ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
             builder2.data = builder.build(false);

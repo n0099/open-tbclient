@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.fragment;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface ILazyLoadFragmentController {
     void onDestoryView();
 

@@ -4,7 +4,7 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ah {
     public static boolean a(Context context) {
         try {

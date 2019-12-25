@@ -3,8 +3,8 @@ package com.baidu.cyberplayer.sdk.config;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.cyberplayer.sdk.Keep;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CfgItemParser {
@@ -41,7 +41,7 @@ public class CfgItemParser {
                 this.a = a(str, str3);
             } else {
                 if (str2.endsWith("|")) {
-                    str2 = "\\|";
+                    str2 = EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR;
                 }
                 String[] split = str.split(str2);
                 if (split.length == 2) {
@@ -59,7 +59,7 @@ public class CfgItemParser {
                     String[] split = str.split(str2);
                     int length = split.length;
                     for (int i = 0; i < length; i++) {
-                        if (TextUtils.isEmpty(split[i]) || split[i].equals(DefaultConfig.TOKEN_SEPARATOR)) {
+                        if (TextUtils.isEmpty(split[i]) || split[i].equals(".")) {
                             split[i] = null;
                         }
                     }
@@ -92,7 +92,7 @@ public class CfgItemParser {
                     if (this.e == 0 && a(str, this.a[i], "\\.", "*")) {
                         return true;
                     }
-                    if (this.e == 1 && str.contains(DefaultConfig.TOKEN_SEPARATOR + this.a[i])) {
+                    if (this.e == 1 && str.contains("." + this.a[i])) {
                         return true;
                     }
                 }

@@ -13,7 +13,7 @@ public class r {
     }
 
     public void setMaxCache(String str) {
-        this.maxCache = com.baidu.adp.lib.g.b.toInt(str, 0);
+        this.maxCache = com.baidu.adp.lib.f.b.toInt(str, 0);
     }
 
     public int getFrsMaxCache() {
@@ -21,7 +21,7 @@ public class r {
     }
 
     public void setFrsMaxCache(String str) {
-        this.FrsMaxCache = com.baidu.adp.lib.g.b.toInt(str, 0);
+        this.FrsMaxCache = com.baidu.adp.lib.f.b.toInt(str, 0);
     }
 
     public int getFrsPn() {
@@ -29,6 +29,6 @@ public class r {
     }
 
     public void setFrsPn(String str) {
-        this.FrsPn = com.baidu.adp.lib.g.b.toInt(str, 0);
+        this.FrsPn = com.baidu.adp.lib.f.b.toInt(str, 0);
     }
 }

@@ -5,21 +5,21 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import com.baidu.mobstat.MtjConfig;
 import com.baidu.mobstat.StatService;
-import com.baidu.tieba.r.c;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.s.c;
+/* loaded from: classes8.dex */
 public class a implements c.a {
-    @Override // com.baidu.tieba.r.c.a
+    @Override // com.baidu.tieba.s.c.a
     public void autoTrace(Context context) {
         StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
         StatService.autoTrace(context);
     }
 
-    @Override // com.baidu.tieba.r.c.a
+    @Override // com.baidu.tieba.s.c.a
     public void setAppChannel(Context context, String str, boolean z) {
         StatService.setAppChannel(context, str, z);
     }
 
-    @Override // com.baidu.tieba.r.c.a
+    @Override // com.baidu.tieba.s.c.a
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
         StatService.trackWebView(context, webView, webChromeClient);
     }

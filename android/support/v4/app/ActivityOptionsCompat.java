@@ -8,36 +8,43 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.util.Pair;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ActivityOptionsCompat {
     public static final String EXTRA_USAGE_TIME_REPORT = "android.activity.usage_time";
     public static final String EXTRA_USAGE_TIME_REPORT_PACKAGES = "android.usage_time_packages";
 
-    public static ActivityOptionsCompat makeCustomAnimation(Context context, int i, int i2) {
+    @NonNull
+    public static ActivityOptionsCompat makeCustomAnimation(@NonNull Context context, int i, int i2) {
         return Build.VERSION.SDK_INT >= 16 ? createImpl(ActivityOptions.makeCustomAnimation(context, i, i2)) : new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeScaleUpAnimation(View view, int i, int i2, int i3, int i4) {
+    @NonNull
+    public static ActivityOptionsCompat makeScaleUpAnimation(@NonNull View view, int i, int i2, int i3, int i4) {
         return Build.VERSION.SDK_INT >= 16 ? createImpl(ActivityOptions.makeScaleUpAnimation(view, i, i2, i3, i4)) : new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeClipRevealAnimation(View view, int i, int i2, int i3, int i4) {
+    @NonNull
+    public static ActivityOptionsCompat makeClipRevealAnimation(@NonNull View view, int i, int i2, int i3, int i4) {
         return Build.VERSION.SDK_INT >= 23 ? createImpl(ActivityOptions.makeClipRevealAnimation(view, i, i2, i3, i4)) : new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(View view, Bitmap bitmap, int i, int i2) {
+    @NonNull
+    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(@NonNull View view, @NonNull Bitmap bitmap, int i, int i2) {
         return Build.VERSION.SDK_INT >= 16 ? createImpl(ActivityOptions.makeThumbnailScaleUpAnimation(view, bitmap, i, i2)) : new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeSceneTransitionAnimation(Activity activity, View view, String str) {
+    @NonNull
+    public static ActivityOptionsCompat makeSceneTransitionAnimation(@NonNull Activity activity, @NonNull View view, @NonNull String str) {
         return Build.VERSION.SDK_INT >= 21 ? createImpl(ActivityOptions.makeSceneTransitionAnimation(activity, view, str)) : new ActivityOptionsCompat();
     }
 
-    public static ActivityOptionsCompat makeSceneTransitionAnimation(Activity activity, Pair<View, String>... pairArr) {
+    @NonNull
+    public static ActivityOptionsCompat makeSceneTransitionAnimation(@NonNull Activity activity, Pair<View, String>... pairArr) {
         if (Build.VERSION.SDK_INT >= 21) {
             android.util.Pair[] pairArr2 = null;
             if (pairArr != null) {
@@ -52,10 +59,12 @@ public class ActivityOptionsCompat {
         return new ActivityOptionsCompat();
     }
 
+    @NonNull
     public static ActivityOptionsCompat makeTaskLaunchBehind() {
         return Build.VERSION.SDK_INT >= 21 ? createImpl(ActivityOptions.makeTaskLaunchBehind()) : new ActivityOptionsCompat();
     }
 
+    @NonNull
     public static ActivityOptionsCompat makeBasic() {
         return Build.VERSION.SDK_INT >= 23 ? createImpl(ActivityOptions.makeBasic()) : new ActivityOptionsCompat();
     }
@@ -73,7 +82,7 @@ public class ActivityOptionsCompat {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(16)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ActivityOptionsCompatApi16Impl extends ActivityOptionsCompat {
         protected final ActivityOptions mActivityOptions;
 
@@ -96,7 +105,7 @@ public class ActivityOptionsCompat {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(23)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ActivityOptionsCompatApi23Impl extends ActivityOptionsCompatApi16Impl {
         ActivityOptionsCompatApi23Impl(ActivityOptions activityOptions) {
             super(activityOptions);
@@ -110,7 +119,7 @@ public class ActivityOptionsCompat {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(24)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ActivityOptionsCompatApi24Impl extends ActivityOptionsCompatApi23Impl {
         ActivityOptionsCompatApi24Impl(ActivityOptions activityOptions) {
             super(activityOptions);
@@ -130,8 +139,9 @@ public class ActivityOptionsCompat {
     protected ActivityOptionsCompat() {
     }
 
+    @NonNull
     public ActivityOptionsCompat setLaunchBounds(@Nullable Rect rect) {
-        return null;
+        return this;
     }
 
     @Nullable
@@ -139,13 +149,14 @@ public class ActivityOptionsCompat {
         return null;
     }
 
+    @Nullable
     public Bundle toBundle() {
         return null;
     }
 
-    public void update(ActivityOptionsCompat activityOptionsCompat) {
+    public void update(@NonNull ActivityOptionsCompat activityOptionsCompat) {
     }
 
-    public void requestUsageTimeReport(PendingIntent pendingIntent) {
+    public void requestUsageTimeReport(@NonNull PendingIntent pendingIntent) {
     }
 }

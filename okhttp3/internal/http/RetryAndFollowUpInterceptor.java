@@ -1,6 +1,6 @@
 package okhttp3.internal.http;
 
-import com.baidu.searchbox.http.response.ResponseException;
+import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.HttpRetryException;
@@ -26,10 +26,8 @@ import okhttp3.internal.Util;
 import okhttp3.internal.connection.RouteException;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.http2.ConnectionShutdownException;
-import org.apache.http.auth.AUTH;
 import org.apache.http.client.methods.HttpHead;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class RetryAndFollowUpInterceptor implements Interceptor {
     private static final int MAX_FOLLOW_UPS = 20;
     private Object callStackTrace;
@@ -136,7 +134,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
             }
         }
         streamAllocation3.release();
-        throw new IOException(ResponseException.CANCELED);
+        throw new IOException("Canceled");
     }
 
     private Address createAddress(HttpUrl httpUrl) {
@@ -193,7 +191,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
             case 303:
                 break;
             case 307:
-            case StatusLine.HTTP_PERM_REDIRECT /* 308 */:
+            case 308:
                 if (!method.equals("GET") && !method.equals(HttpHead.METHOD_NAME)) {
                     return null;
                 }
@@ -226,7 +224,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
             default:
                 return null;
         }
-        if (!this.client.followRedirects() || (header = response.header("Location")) == null || (resolve = response.request().url().resolve(header)) == null) {
+        if (!this.client.followRedirects() || (header = response.header(Headers.LOCATION)) == null || (resolve = response.request().url().resolve(header)) == null) {
             return null;
         }
         if (resolve.scheme().equals(response.request().url().scheme()) || this.client.followSslRedirects()) {
@@ -239,13 +237,13 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
                     newBuilder.method(method, redirectsWithBody ? response.request().body() : null);
                 }
                 if (!redirectsWithBody) {
-                    newBuilder.removeHeader(HTTP.TRANSFER_ENCODING);
-                    newBuilder.removeHeader(HTTP.CONTENT_LEN);
+                    newBuilder.removeHeader("Transfer-Encoding");
+                    newBuilder.removeHeader("Content-Length");
                     newBuilder.removeHeader("Content-Type");
                 }
             }
             if (!sameConnection(response, resolve)) {
-                newBuilder.removeHeader(AUTH.WWW_AUTH_RESP);
+                newBuilder.removeHeader("Authorization");
             }
             return newBuilder.url(resolve).build();
         }

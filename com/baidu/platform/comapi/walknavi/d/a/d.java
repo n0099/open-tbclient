@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.ar.npc.ArBridge;
 import com.baidu.ar.npc.BaiduArView;
+import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class d implements ArBridge.d {
@@ -189,13 +190,13 @@ public class d implements ArBridge.d {
                 this.c.a(7, hashMap);
                 return;
             case 1901:
-                if ("animation_end".equalsIgnoreCase(hashMap.get("action_type").toString())) {
+                if ("animation_end".equalsIgnoreCase(hashMap.get(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE).toString())) {
                     this.c.a(2, hashMap);
                     return;
-                } else if ("click".equalsIgnoreCase(hashMap.get("action_type").toString())) {
+                } else if ("click".equalsIgnoreCase(hashMap.get(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE).toString())) {
                     this.c.a(3, hashMap);
                     return;
-                } else if ("animation_failed".equalsIgnoreCase(hashMap.get("action_type").toString())) {
+                } else if ("animation_failed".equalsIgnoreCase(hashMap.get(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE).toString())) {
                     this.c.a(8, hashMap);
                     return;
                 } else {

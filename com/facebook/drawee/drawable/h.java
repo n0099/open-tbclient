@@ -4,30 +4,23 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class h extends g {
-    private int kdu;
-    private int kdv;
+    private int lHU;
+    private int lHV;
     private Matrix mDrawMatrix;
     private Matrix mMatrix;
 
-    public h(Drawable drawable, Matrix matrix) {
-        super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.kdu = 0;
-        this.kdv = 0;
-        this.mMatrix = matrix;
-    }
-
     @Override // com.facebook.drawee.drawable.g
-    public Drawable i(Drawable drawable) {
-        Drawable i = super.i(drawable);
-        cEv();
-        return i;
+    public Drawable setCurrent(Drawable drawable) {
+        Drawable current = super.setCurrent(drawable);
+        configureBounds();
+        return current;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        cEu();
+        dkh();
         if (this.mDrawMatrix != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -43,22 +36,22 @@ public class h extends g {
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        cEv();
+        configureBounds();
     }
 
-    private void cEu() {
-        if (this.kdu != getCurrent().getIntrinsicWidth() || this.kdv != getCurrent().getIntrinsicHeight()) {
-            cEv();
+    private void dkh() {
+        if (this.lHU != getCurrent().getIntrinsicWidth() || this.lHV != getCurrent().getIntrinsicHeight()) {
+            configureBounds();
         }
     }
 
-    private void cEv() {
+    private void configureBounds() {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.kdu = intrinsicWidth;
+        this.lHU = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.kdv = intrinsicHeight;
+        this.lHV = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;
@@ -68,9 +61,9 @@ public class h extends g {
         this.mDrawMatrix = this.mMatrix;
     }
 
-    @Override // com.facebook.drawee.drawable.g, com.facebook.drawee.drawable.p
-    public void d(Matrix matrix) {
-        super.d(matrix);
+    @Override // com.facebook.drawee.drawable.g, com.facebook.drawee.drawable.r
+    public void getTransform(Matrix matrix) {
+        super.getTransform(matrix);
         if (this.mDrawMatrix != null) {
             matrix.preConcat(this.mDrawMatrix);
         }

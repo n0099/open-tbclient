@@ -3,13 +3,15 @@ package android.support.v4.content;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.content.Loader;
 import android.support.v4.os.CancellationSignal;
 import android.support.v4.os.OperationCanceledException;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CursorLoader extends AsyncTaskLoader<Cursor> {
     CancellationSignal mCancellationSignal;
     Cursor mCursor;
@@ -84,12 +86,12 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         }
     }
 
-    public CursorLoader(Context context) {
+    public CursorLoader(@NonNull Context context) {
         super(context);
         this.mObserver = new Loader.ForceLoadContentObserver();
     }
 
-    public CursorLoader(Context context, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+    public CursorLoader(@NonNull Context context, @NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         super(context);
         this.mObserver = new Loader.ForceLoadContentObserver();
         this.mUri = uri;
@@ -133,43 +135,48 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         this.mCursor = null;
     }
 
+    @NonNull
     public Uri getUri() {
         return this.mUri;
     }
 
-    public void setUri(Uri uri) {
+    public void setUri(@NonNull Uri uri) {
         this.mUri = uri;
     }
 
+    @Nullable
     public String[] getProjection() {
         return this.mProjection;
     }
 
-    public void setProjection(String[] strArr) {
+    public void setProjection(@Nullable String[] strArr) {
         this.mProjection = strArr;
     }
 
+    @Nullable
     public String getSelection() {
         return this.mSelection;
     }
 
-    public void setSelection(String str) {
+    public void setSelection(@Nullable String str) {
         this.mSelection = str;
     }
 
+    @Nullable
     public String[] getSelectionArgs() {
         return this.mSelectionArgs;
     }
 
-    public void setSelectionArgs(String[] strArr) {
+    public void setSelectionArgs(@Nullable String[] strArr) {
         this.mSelectionArgs = strArr;
     }
 
+    @Nullable
     public String getSortOrder() {
         return this.mSortOrder;
     }
 
-    public void setSortOrder(String str) {
+    public void setSortOrder(@Nullable String str) {
         this.mSortOrder = str;
     }
 

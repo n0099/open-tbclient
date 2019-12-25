@@ -2,7 +2,7 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class y extends a {
     private int mFontSize;
 
@@ -10,7 +10,7 @@ public class y extends a {
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 0) {
-                this.mFontSize = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(0));
+                this.mFontSize = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(0));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -22,7 +22,7 @@ public class y extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (this.mFontSize > 0) {
-            bVar.aFB.setTextSize(this.mFontSize);
+            bVar.bbm.setTextSize(this.mFontSize);
         }
     }
 }

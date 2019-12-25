@@ -3,14 +3,14 @@ package com.baidu.tieba.enterForum.home;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.data.VisitedForumData;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.ForumRecommend.DataReq;
 import tbclient.ForumRecommend.ForumRecommendReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class forumRecommendRequestMessage extends NetMessage {
     private Integer like_forum;
     private LinkedList<VisitedForumData> mForumData;
@@ -81,14 +81,14 @@ public class forumRecommendRequestMessage extends NetMessage {
                 while (it.hasNext()) {
                     VisitedForumData next = it.next();
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("forum_id", com.baidu.adp.lib.g.b.toLong(next.getForumId(), 0L));
-                    jSONObject.put("visit_time", next.atI());
+                    jSONObject.put("forum_id", com.baidu.adp.lib.f.b.toLong(next.getForumId(), 0L));
+                    jSONObject.put("visit_time", next.aLn());
                     jSONArray.put(jSONObject);
                 }
             }
             builder.visit_history = jSONArray.toString();
             if (z) {
-                r.a(builder, true);
+                t.a(builder, true);
             }
             ForumRecommendReqIdl.Builder builder2 = new ForumRecommendReqIdl.Builder();
             builder2.data = builder.build(false);

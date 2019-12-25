@@ -48,6 +48,6 @@ public class ac implements c.d {
             iWNPCLoadAndInitListener2.onFail();
         }
         view = this.b.N;
-        ((ImageView) view).setImageBitmap(BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_location_selected));
+        ((ImageView) view).setImageBitmap(BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_game_keyboard_sendbutton_disabled));
     }
 }

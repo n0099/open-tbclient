@@ -1,27 +1,53 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes4.dex */
-public class ad extends PostData {
-    public static final BdUniqueId hSA = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.ap hSB;
-    public com.baidu.tbadk.core.data.ap hSC;
-    public com.baidu.tbadk.core.data.ap hSD;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.baidu.tieba.view.NavigationBarCoverTip;
+/* loaded from: classes6.dex */
+public class ad {
+    private NavigationBarCoverTip gIb;
+    private int gIc;
+    private com.baidu.adp.base.e mContext;
+    private TextView mTipView;
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return hSA;
+    public ad(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
+        this.mContext = eVar;
+        this.gIb = navigationBarCoverTip;
+        init();
     }
 
-    public boolean hasData() {
-        if (this.hSB == null || StringUtils.isNull(this.hSB.summary)) {
-            if (this.hSC == null || StringUtils.isNull(this.hSC.summary)) {
-                return (this.hSD == null || StringUtils.isNull(this.hSD.summary)) ? false : true;
+    private void init() {
+        this.mTipView = new TextView(this.mContext.getPageActivity());
+        this.mTipView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.mTipView.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
+        this.mTipView.setPadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.mContext.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+        this.mTipView.setGravity(19);
+        this.mTipView.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
+        this.mTipView.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
+    }
+
+    public void FB(String str) {
+        if (this.gIb != null) {
+            if (com.baidu.tbadk.core.util.aq.isEmpty(str) || this.gIc > 0) {
+                onDestory();
+                this.gIb.setVisibility(8);
+                return;
             }
-            return true;
+            this.gIb.setVisibility(0);
+            this.gIc++;
+            this.mTipView.setText(str);
+            com.baidu.tbadk.core.util.am.setViewTextColor(this.mTipView, (int) R.color.cp_cont_a);
+            this.gIb.removeAllViews();
+            this.gIb.addView(this.mTipView);
+            this.gIb.h(this.mContext.getPageActivity(), 5000);
         }
-        return true;
+    }
+
+    public void onDestory() {
+        if (this.gIb != null) {
+            this.gIb.onDestroy();
+        }
     }
 }

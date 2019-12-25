@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.a {
-    private BdListView fPa = null;
-    private a iVT = null;
+    private BdListView gDn = null;
+    private a jQp = null;
     private ArrayList<OfficialAccountPushInfo> list;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
@@ -36,34 +36,34 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.official_account_push_activity);
-        aLd();
-        aDe();
-        aDd();
+        bco();
+        aUX();
+        aUW();
     }
 
-    private void aDd() {
+    private void aUW() {
         if (!j.isNetWorkAvailable() && v.isEmpty(this.list)) {
-            ckw();
+            cEC();
         } else if (v.isEmpty(this.list)) {
-            boP();
-        } else if (this.iVT == null) {
-            this.iVT = new a(getPageContext());
-            this.iVT.setData(this.list);
-            this.fPa.setAdapter((ListAdapter) this.iVT);
-            this.iVT.setSwitchStateChangeListener(this);
+            bGl();
+        } else if (this.jQp == null) {
+            this.jQp = new a(getPageContext());
+            this.jQp.setData(this.list);
+            this.gDn.setAdapter((ListAdapter) this.jQp);
+            this.jQp.setSwitchStateChangeListener(this);
         } else {
-            this.iVT.setData(this.list);
-            this.iVT.notifyDataSetChanged();
+            this.jQp.setData(this.list);
+            this.jQp.notifyDataSetChanged();
         }
     }
 
-    private void aDe() {
+    private void aUX() {
         this.mRootView = (ViewGroup) findViewById(R.id.official_account_push_container);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.offical_account_push_msg));
-        this.fPa = (BdListView) findViewById(R.id.list);
-        this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.d.iK(R.string.no_data_text), null);
+        this.gDn = (BdListView) findViewById(R.id.list);
+        this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.d.kQ(R.string.no_data_text), null);
         this.mNoDataView.setVisibility(0);
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.no_network);
     }
@@ -77,24 +77,24 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.mNetworkView.onChangeSkinType(getPageContext(), i);
     }
 
-    private void aLd() {
+    private void bco() {
         Intent intent = getIntent();
         if (intent != null) {
             this.list = intent.getParcelableArrayListExtra(OfficialAccountPushActivityConfig.OFFICIAL_LIST);
         }
     }
 
-    public void boP() {
-        this.fPa.setVisibility(8);
+    public void bGl() {
+        this.gDn.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.iK(R.string.no_data_text));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.kQ(R.string.no_data_text));
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
     }
 
-    public void ckw() {
-        this.fPa.setVisibility(8);
+    public void cEC() {
+        this.gDn.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.iK(R.string.refresh_view_title_text));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.kQ(R.string.refresh_view_title_text));
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
     }
 
@@ -103,11 +103,11 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         boolean z = BdSwitchView.SwitchState.ON == switchState;
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) view.getTag();
         if (officialAccountPushInfo != null) {
-            c(z, officialAccountPushInfo.uid);
+            d(z, officialAccountPushInfo.uid);
         }
     }
 
-    public void c(boolean z, long j) {
+    public void d(boolean z, long j) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         requestUpdateMaskInfoMessage.setMaskType(6);
         requestUpdateMaskInfoMessage.setG_id(j);
@@ -118,25 +118,25 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         }
         requestUpdateMaskInfoMessage.setCallFrom(5);
         MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
-        d(z, j);
+        e(z, j);
     }
 
-    private void d(boolean z, long j) {
-        if (this.list != null && this.iVT != null) {
+    private void e(boolean z, long j) {
+        if (this.list != null && this.jQp != null) {
             if (!j.isNetWorkAvailable()) {
-                this.iVT.notifyDataSetChanged();
+                this.jQp.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
                 if (this.list.get(i).uid == j) {
                     if (z) {
-                        this.list.get(i).iVX = 1;
+                        this.list.get(i).is_on = 1;
                     } else {
-                        this.list.get(i).iVX = 0;
+                        this.list.get(i).is_on = 0;
                     }
                 }
             }
-            this.iVT.notifyDataSetChanged();
+            this.jQp.notifyDataSetChanged();
         }
     }
 

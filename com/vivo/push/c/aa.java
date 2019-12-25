@@ -4,8 +4,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.security.PublicKey;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class aa extends com.vivo.push.v {
     protected PushMessageCallback b;
 
@@ -32,7 +31,7 @@ public abstract class aa extends com.vivo.push.v {
         } else if (!TextUtils.isEmpty(str2)) {
             try {
                 com.vivo.push.util.p.d("OnVerifyCallBackCommand", str.hashCode() + " = " + str2);
-                if (com.vivo.push.util.t.a(str.getBytes(HTTP.UTF_8), publicKey, Base64.decode(str2, 2))) {
+                if (com.vivo.push.util.t.a(str.getBytes("UTF-8"), publicKey, Base64.decode(str2, 2))) {
                     com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify id is success");
                 } else {
                     com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify fail srcDigest is " + str);

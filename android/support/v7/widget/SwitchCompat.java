@@ -12,7 +12,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
@@ -31,8 +30,7 @@ import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.CompoundButton;
-@RequiresApi(14)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SwitchCompat extends CompoundButton {
     private static final String ACCESSIBILITY_EVENT_CLASS_NAME = "android.widget.Switch";
     private static final int MONOSPACE = 3;
@@ -878,18 +876,16 @@ public class SwitchCompat extends CompoundButton {
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
     public void jumpDrawablesToCurrentState() {
-        if (Build.VERSION.SDK_INT >= 14) {
-            super.jumpDrawablesToCurrentState();
-            if (this.mThumbDrawable != null) {
-                this.mThumbDrawable.jumpToCurrentState();
-            }
-            if (this.mTrackDrawable != null) {
-                this.mTrackDrawable.jumpToCurrentState();
-            }
-            if (this.mPositionAnimator != null && this.mPositionAnimator.isStarted()) {
-                this.mPositionAnimator.end();
-                this.mPositionAnimator = null;
-            }
+        super.jumpDrawablesToCurrentState();
+        if (this.mThumbDrawable != null) {
+            this.mThumbDrawable.jumpToCurrentState();
+        }
+        if (this.mTrackDrawable != null) {
+            this.mTrackDrawable.jumpToCurrentState();
+        }
+        if (this.mPositionAnimator != null && this.mPositionAnimator.isStarted()) {
+            this.mPositionAnimator.end();
+            this.mPositionAnimator = null;
         }
     }
 
@@ -901,20 +897,18 @@ public class SwitchCompat extends CompoundButton {
 
     @Override // android.view.View
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
-        if (Build.VERSION.SDK_INT >= 14) {
-            super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
-            accessibilityNodeInfo.setClassName(ACCESSIBILITY_EVENT_CLASS_NAME);
-            CharSequence charSequence = isChecked() ? this.mTextOn : this.mTextOff;
-            if (!TextUtils.isEmpty(charSequence)) {
-                CharSequence text = accessibilityNodeInfo.getText();
-                if (TextUtils.isEmpty(text)) {
-                    accessibilityNodeInfo.setText(charSequence);
-                    return;
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append(text).append(' ').append(charSequence);
-                accessibilityNodeInfo.setText(sb);
+        super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
+        accessibilityNodeInfo.setClassName(ACCESSIBILITY_EVENT_CLASS_NAME);
+        CharSequence charSequence = isChecked() ? this.mTextOn : this.mTextOff;
+        if (!TextUtils.isEmpty(charSequence)) {
+            CharSequence text = accessibilityNodeInfo.getText();
+            if (TextUtils.isEmpty(text)) {
+                accessibilityNodeInfo.setText(charSequence);
+                return;
             }
+            StringBuilder sb = new StringBuilder();
+            sb.append(text).append(' ').append(charSequence);
+            accessibilityNodeInfo.setText(sb);
         }
     }
 

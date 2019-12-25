@@ -1,5 +1,5 @@
 package com.airbnb.lottie;
-/* loaded from: classes2.dex */
+@Deprecated
+/* loaded from: classes4.dex */
 public interface a {
-    void cancel();
 }

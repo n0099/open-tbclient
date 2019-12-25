@@ -6,14 +6,14 @@ import android.os.Build;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static String a = b.class.getSimpleName();
     private HashMap<String, String> b;
     private HashMap<String, Object> c;
     private HashMap<String, String> d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         private Context a = null;
 

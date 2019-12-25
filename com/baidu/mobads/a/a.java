@@ -1,5 +1,7 @@
 package com.baidu.mobads.a;
-/* loaded from: classes5.dex */
+
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
+/* loaded from: classes7.dex */
 public final class a {
     public static final boolean a = b.a.booleanValue();
     public static final int b;
@@ -25,7 +27,7 @@ public final class a {
     static {
         b = a ? 2 : 4;
         c = "0.0";
-        d = "android";
+        d = PraiseDataPassUtil.KEY_FROM_OS;
         e = "androidlunpan";
         f = "androidinter";
         g = "androidintin";

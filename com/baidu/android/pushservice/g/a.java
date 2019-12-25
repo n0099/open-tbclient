@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a extends j {
     public String a;
     public String b;

@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.LogStat.LogStatResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class ResponseSendPVTJMessage extends TbSocketReponsedMessage {
     public ResponseSendPVTJMessage() {
         super(CmdConfigSocket.CMD_SEND_PV_TJ);

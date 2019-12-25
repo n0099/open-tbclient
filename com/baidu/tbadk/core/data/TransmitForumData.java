@@ -5,24 +5,26 @@ import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListView.m {
+    public static final int TYPE_RECOMMEND = 1;
+    public static final int TYPE_SELF_SELECT = 0;
     public String avatar;
-    public boolean cea;
     public boolean checked;
     public long forumId;
     public String forumName;
+    public boolean isCurForum;
     public int type;
-    public static final BdUniqueId cdZ = BdUniqueId.gen();
+    public static final BdUniqueId ID_TRANSMIT_SELECT_DATA = BdUniqueId.gen();
     public static final Parcelable.Creator<TransmitForumData> CREATOR = new Parcelable.Creator<TransmitForumData>() { // from class: com.baidu.tbadk.core.data.TransmitForumData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: H */
+        /* renamed from: R */
         public TransmitForumData createFromParcel(Parcel parcel) {
             return new TransmitForumData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: hR */
+        /* renamed from: jD */
         public TransmitForumData[] newArray(int i) {
             return new TransmitForumData[i];
         }
@@ -33,7 +35,7 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
     }
 
     public TransmitForumData(long j, String str, boolean z, int i, String str2) {
-        this.cea = false;
+        this.isCurForum = false;
         this.forumName = str;
         this.checked = z;
         this.forumId = j;
@@ -43,7 +45,7 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cdZ;
+        return ID_TRANSMIT_SELECT_DATA;
     }
 
     @Override // android.os.Parcelable
@@ -58,16 +60,16 @@ public class TransmitForumData implements Parcelable, com.baidu.adp.widget.ListV
         parcel.writeByte(this.checked ? (byte) 1 : (byte) 0);
         parcel.writeInt(this.type);
         parcel.writeString(this.avatar);
-        parcel.writeByte(this.cea ? (byte) 1 : (byte) 0);
+        parcel.writeByte(this.isCurForum ? (byte) 1 : (byte) 0);
     }
 
     protected TransmitForumData(Parcel parcel) {
-        this.cea = false;
+        this.isCurForum = false;
         this.forumName = parcel.readString();
         this.forumId = parcel.readLong();
         this.checked = parcel.readByte() != 0;
         this.type = parcel.readInt();
         this.avatar = parcel.readString();
-        this.cea = parcel.readByte() != 0;
+        this.isCurForum = parcel.readByte() != 0;
     }
 }

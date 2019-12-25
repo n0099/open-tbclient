@@ -14,75 +14,81 @@ import com.baidu.tieba.enterForum.data.k;
 import com.baidu.tieba.enterForum.view.a;
 import com.baidu.tieba.enterForum.view.f;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private f eYX;
-    private com.baidu.tieba.enterForum.view.a fbl;
-    private a fbm;
+    private f fNF;
+    private com.baidu.tieba.enterForum.view.a fPP;
+    private a fPQ;
     private Context mContext;
     private int mSortType;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private boolean fbn = false;
-    private a.InterfaceC0397a fbo = new a.InterfaceC0397a() { // from class: com.baidu.tieba.enterForum.home.b.1
-        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0397a
-        public void lK(int i) {
+    private boolean fPR = false;
+    private a.InterfaceC0485a fPS = new a.InterfaceC0485a() { // from class: com.baidu.tieba.enterForum.home.b.1
+        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0485a
+        public void onItemClick(int i) {
             b.this.mSortType = i;
-            TiebaStatic.log(new an("c13369").O("obj_type", i == 1 ? 2 : 1));
-            b.this.ber();
-            if (b.this.fbm != null) {
-                b.this.fbm.pt(b.this.mSortType);
+            TiebaStatic.log(new an("c13369").Z("obj_type", i == 1 ? 2 : 1));
+            b.this.bvM();
+            if (b.this.fPQ != null) {
+                b.this.fPQ.rz(b.this.mSortType);
             }
         }
     };
-    private View.OnClickListener cot = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
+    private View.OnClickListener dbH = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!b.this.eYX.bfH()) {
+            if (!b.this.fNF.bxc()) {
                 if (view == b.this.mTitle) {
-                    if (b.this.fbl == null) {
-                        b.this.fbl = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
-                        b.this.fbl.setOnDismissListener(b.this.mOnDismissListener);
-                        b.this.fbl.a(b.this.fbo);
-                        b.this.fbl.pH(b.this.mStatusBarHeight);
+                    if (b.this.fPP == null) {
+                        b.this.fPP = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
+                        b.this.fPP.setOnDismissListener(b.this.mOnDismissListener);
+                        b.this.fPP.a(b.this.fPS);
+                        b.this.fPP.rN(b.this.mStatusBarHeight);
                     }
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(new k(b.this.mContext.getString(R.string.level_sort), 1));
                     arrayList.add(new k(b.this.mContext.getString(R.string.update_sort), 2));
-                    b.this.fbl.setData(arrayList, b.this.mSortType);
-                    b.this.fbl.O(b.this.mTitle);
+                    b.this.fPP.setData(arrayList, b.this.mSortType);
+                    b.this.fPP.P(b.this.mTitle);
                 }
-                b.this.fbn = true;
-                b.this.jf(b.this.fbn);
+                b.this.fPR = true;
+                b.this.kr(b.this.fPR);
             }
         }
     };
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.enterForum.home.b.3
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            b.this.fbn = false;
-            b.this.jf(b.this.fbn);
+            b.this.fPR = false;
+            b.this.kr(b.this.fPR);
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void pt(int i);
+        void rz(int i);
     }
 
     public b(Context context, int i, int i2, f fVar) {
         this.mContext = context;
         this.mSortType = i;
         this.mStatusBarHeight = i2;
-        this.eYX = fVar;
+        this.fNF = fVar;
     }
 
-    public void f(TextView textView) {
+    public void e(TextView textView) {
         this.mTitle = textView;
     }
 
-    public void ber() {
-        if (bes() && this.mTitle != null) {
+    public void yk() {
+        if (this.fPP != null) {
+            this.fPP.yk();
+        }
+    }
+
+    public void bvM() {
+        if (bvN() && this.mTitle != null) {
             switch (this.mSortType) {
                 case 1:
                     this.mTitle.setText(R.string.level_sort);
@@ -91,53 +97,53 @@ public class b {
                     this.mTitle.setText(R.string.update_sort);
                     break;
             }
-            this.mTitle.setOnClickListener(this.cot);
-            jf(this.fbn);
+            this.mTitle.setOnClickListener(this.dbH);
+            kr(this.fPR);
         }
     }
 
-    public boolean bes() {
+    public boolean bvN() {
         return this.mSortType == 1 || this.mSortType == 2;
     }
 
     public void setSortType(int i) {
-        if (bes()) {
+        if (bvN()) {
             this.mSortType = i;
-            ber();
+            bvM();
         }
     }
 
     public void a(a aVar) {
-        this.fbm = aVar;
+        this.fPQ = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (bes()) {
+        if (bvN()) {
             am.setViewTextColor(this.mTitle, R.color.cp_cont_b, i);
             if (this.mTitle != null) {
-                jf(this.fbn);
+                kr(this.fPR);
             }
         }
-        if (this.fbl != null && this.fbn) {
-            this.fbl.onChangeSkinType();
+        if (this.fPP != null && this.fPR) {
+            this.fPP.onChangeSkinType();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jf(boolean z) {
-        int i = z ? R.drawable.icon_pure_list_arrow12_up_n_svg : R.drawable.icon_pure_list_arrow12_down_n_svg;
-        com.baidu.tieba.enterForum.data.b bfN = this.eYX != null ? this.eYX.bfN() : null;
-        if (bfN != null && bfN.eZG) {
-            if (this.eYX != null && this.eYX.isShow()) {
+    public void kr(boolean z) {
+        int i = z ? R.drawable.icon_pure_fold12_svg : R.drawable.icon_pure_unfold12_svg;
+        com.baidu.tieba.enterForum.data.b bxi = this.fNF != null ? this.fNF.bxi() : null;
+        if (bxi != null && bxi.fOn) {
+            if (this.fNF != null && this.fNF.isShow()) {
                 am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_j);
-                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.amL().a(i, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aDW().a(i, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null), (Drawable) null);
                 return;
             }
             am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_j);
-            this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.amL().a(i, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+            this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aDW().a(i, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null), (Drawable) null);
             return;
         }
         am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_j);
-        this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.amL().a(i, R.color.cp_cont_j, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+        this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aDW().a(i, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null), (Drawable) null);
     }
 }

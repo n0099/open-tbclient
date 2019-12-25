@@ -10,15 +10,15 @@ import android.view.ViewTreeObserver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 class n {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        public View bNs;
+        public View czk;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         View getView();
     }
@@ -59,16 +59,16 @@ class n {
     }
 
     public static void setEpicenter(Object obj, View view) {
-        final Rect aJ = aJ(view);
+        final Rect aH = aH(view);
         ((Transition) obj).setEpicenterCallback(new Transition.EpicenterCallback() { // from class: com.baidu.swan.support.v4.app.n.1
             @Override // android.transition.Transition.EpicenterCallback
             public Rect onGetEpicenter(Transition transition) {
-                return aJ;
+                return aH;
             }
         });
     }
 
-    public static Object X(Object obj) {
+    public static Object Z(Object obj) {
         Transition transition;
         if (obj == null || (transition = (Transition) obj) == null) {
             return null;
@@ -210,21 +210,21 @@ class n {
     private static void a(Transition transition, final a aVar) {
         if (transition != null) {
             transition.setEpicenterCallback(new Transition.EpicenterCallback() { // from class: com.baidu.swan.support.v4.app.n.3
-                private Rect bNm;
+                private Rect cze;
 
                 @Override // android.transition.Transition.EpicenterCallback
                 public Rect onGetEpicenter(Transition transition2) {
-                    if (this.bNm == null && a.this.bNs != null) {
-                        this.bNm = n.aJ(a.this.bNs);
+                    if (this.cze == null && a.this.czk != null) {
+                        this.cze = n.aH(a.this.czk);
                     }
-                    return this.bNm;
+                    return this.cze;
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static Rect aJ(View view) {
+    public static Rect aH(View view) {
         Rect rect = new Rect();
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);

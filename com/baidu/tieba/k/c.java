@@ -1,5 +1,5 @@
 package com.baidu.tieba.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c {
     public final int type;
     public final int value;

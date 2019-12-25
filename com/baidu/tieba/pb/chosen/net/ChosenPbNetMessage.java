@@ -2,10 +2,10 @@ package com.baidu.tieba.pb.chosen.net;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import tbclient.ExcPbPage.DataReq;
 import tbclient.ExcPbPage.ExcPbPageReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ChosenPbNetMessage extends NetMessage {
     public static final int QUALITY_HIGH = 80;
     public static final int QUALITY_LOW = 45;
@@ -59,7 +59,7 @@ public class ChosenPbNetMessage extends NetMessage {
         builder.scr_dip = Long.valueOf(this.scr_dip);
         builder.tag_code = Long.valueOf(this.tagCode);
         builder.thread_id = Long.valueOf(this.threadId);
-        r.a(builder, true);
+        t.a(builder, true);
         ExcPbPageReqIdl.Builder builder2 = new ExcPbPageReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

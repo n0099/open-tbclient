@@ -15,13 +15,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tbadk.widget.VCenterTextSpan;
 import com.baidu.tieba.live.tbean.BuyTBeanStringUlti;
 import com.baidu.tieba.live.tbean.data.CustomData;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class WalletPayResultView extends LinearLayout {
     private Context mContext;
     private TextView mIconInfoTv;
@@ -61,6 +62,9 @@ public class WalletPayResultView extends LinearLayout {
         this.mPayResultInfo = (TextView) findViewById(a.g.pay_result_info);
         this.mPayResultIcon = (ImageView) findViewById(a.g.pay_result_icon);
         this.mLookRecordToastTv = (TextView) findViewById(a.g.look_record_toast_tv);
+        if (TbadkCoreApplication.getInst().isMobileBaidu()) {
+            this.mLookRecordToastTv.setText(a.i.sdk_tbn_look_consumption_records_shoubai);
+        }
         this.mIconIv = (TbImageView) findViewById(a.g.icon_iv);
         this.mIconInfoTv = (TextView) findViewById(a.g.icon_info_tv);
     }

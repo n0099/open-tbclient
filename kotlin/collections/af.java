@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.RandomAccess;
 import kotlin.TypeCastException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class af<T> extends d<T> implements RandomAccess {
-    private int aqP;
+    private int ayD;
     private final int capacity;
-    private final Object[] kuP;
+    private final Object[] mYL;
     private int size;
 
     public af(int i) {
@@ -16,7 +16,7 @@ final class af<T> extends d<T> implements RandomAccess {
         if (!(this.capacity >= 0)) {
             throw new IllegalArgumentException(("ring buffer capacity should not be negative but it is " + this.capacity).toString());
         }
-        this.kuP = new Object[this.capacity];
+        this.mYL = new Object[this.capacity];
     }
 
     public final int getCapacity() {
@@ -34,15 +34,15 @@ final class af<T> extends d<T> implements RandomAccess {
 
     @Override // kotlin.collections.d, java.util.List
     public T get(int i) {
-        d.kuH.cH(i, size());
-        return (T) this.kuP[(this.aqP + i) % getCapacity()];
+        d.mYD.ej(i, size());
+        return (T) this.mYL[(this.ayD + i) % getCapacity()];
     }
 
     public final boolean isFull() {
         return size() == this.capacity;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a extends b<T> {
         private int count;
         private int index;
@@ -50,15 +50,15 @@ final class af<T> extends d<T> implements RandomAccess {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
             this.count = af.this.size();
-            this.index = af.this.aqP;
+            this.index = af.this.ayD;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.collections.af$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlin.collections.b
-        protected void cMA() {
+        protected void dEy() {
             if (this.count != 0) {
-                bc(af.this.kuP[this.index]);
+                bM(af.this.mYL[this.index]);
                 this.index = (this.index + 1) % af.this.getCapacity();
                 this.count--;
                 return;
@@ -78,21 +78,21 @@ final class af<T> extends d<T> implements RandomAccess {
     @Override // kotlin.collections.a, java.util.Collection
     public <T> T[] toArray(T[] tArr) {
         int i = 0;
-        kotlin.jvm.internal.p.i(tArr, "array");
+        kotlin.jvm.internal.p.j(tArr, "array");
         if (tArr.length < size()) {
             tArr = (T[]) Arrays.copyOf(tArr, size());
-            kotlin.jvm.internal.p.h(tArr, "java.util.Arrays.copyOf(this, newSize)");
+            kotlin.jvm.internal.p.i(tArr, "java.util.Arrays.copyOf(this, newSize)");
         }
         int size = size();
-        int i2 = this.aqP;
+        int i2 = this.ayD;
         int i3 = 0;
         while (i3 < size && i2 < this.capacity) {
-            tArr[i3] = this.kuP[i2];
+            tArr[i3] = this.mYL[i2];
             i2++;
             i3++;
         }
         while (i3 < size) {
-            tArr[i3] = this.kuP[i];
+            tArr[i3] = this.mYL[i];
             i3++;
             i++;
         }
@@ -117,13 +117,13 @@ final class af<T> extends d<T> implements RandomAccess {
         if (isFull()) {
             throw new IllegalStateException("ring buffer is full");
         }
-        this.kuP[(this.aqP + size()) % getCapacity()] = t;
+        this.mYL[(this.ayD + size()) % getCapacity()] = t;
         setSize(size() + 1);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: kotlin.collections.af<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public final void Df(int i) {
+    public final void MP(int i) {
         if (!(i >= 0)) {
             throw new IllegalArgumentException(("n shouldn't be negative but it is " + i).toString());
         }
@@ -131,15 +131,15 @@ final class af<T> extends d<T> implements RandomAccess {
             throw new IllegalArgumentException(("n shouldn't be greater than the buffer size: n = " + i + ", size = " + size()).toString());
         }
         if (i > 0) {
-            int i2 = this.aqP;
+            int i2 = this.ayD;
             int capacity = (i2 + i) % getCapacity();
             if (i2 > capacity) {
-                a(this.kuP, null, i2, this.capacity);
-                a(this.kuP, null, 0, capacity);
+                a(this.mYL, null, i2, this.capacity);
+                a(this.mYL, null, 0, capacity);
             } else {
-                a(this.kuP, null, i2, capacity);
+                a(this.mYL, null, i2, capacity);
             }
-            this.aqP = capacity;
+            this.ayD = capacity;
             setSize(size() - i);
         }
     }

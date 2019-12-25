@@ -7,36 +7,36 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class k extends v.a {
-    public View bgU;
-    public ImageView fqe;
-    public TextView fqf;
-    public TextView frg;
-    public TextView frh;
-    public LinearLayout fri;
-    public TextView frj;
-    public NoPressedLinearLayout frk;
-    public View frl;
-    public TextView frm;
-    public ImageView frn;
-    public ImageView fro;
+    public ImageView geB;
+    public TextView geC;
+    public TextView gfD;
+    public TextView gfE;
+    public LinearLayout gfF;
+    public TextView gfG;
+    public NoPressedLinearLayout gfH;
+    public View gfI;
+    public TextView gfJ;
+    public ImageView gfK;
+    public ImageView gfL;
+    public View mDivider;
 
     public k(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.frg = (TextView) view.findViewById(R.id.like_btn);
-        this.frh = (TextView) view.findViewById(R.id.lever_tip_view);
-        this.fqe = (ImageView) view.findViewById(R.id.header_level_img);
-        this.fqf = (TextView) view.findViewById(R.id.user_level_name);
-        this.bgU = view.findViewById(R.id.header_divider_line2);
-        this.fri = (LinearLayout) view.findViewById(R.id.view_experience_score);
-        this.frj = (TextView) view.findViewById(R.id.tip_experience_score);
-        this.frk = (NoPressedLinearLayout) view.findViewById(R.id.root_forum_member_header);
-        this.frl = view.findViewById(R.id.header_divider_line3);
-        this.frm = (TextView) view.findViewById(R.id.tip_experience);
-        this.frn = (ImageView) view.findViewById(R.id.love_level_top);
-        this.fro = (ImageView) view.findViewById(R.id.love_level_bg);
-        this.frg.setOnClickListener(onClickListener);
-        this.fqf.setOnClickListener(onClickListener);
+        this.gfD = (TextView) view.findViewById(R.id.like_btn);
+        this.gfE = (TextView) view.findViewById(R.id.lever_tip_view);
+        this.geB = (ImageView) view.findViewById(R.id.header_level_img);
+        this.geC = (TextView) view.findViewById(R.id.user_level_name);
+        this.mDivider = view.findViewById(R.id.header_divider_line2);
+        this.gfF = (LinearLayout) view.findViewById(R.id.view_experience_score);
+        this.gfG = (TextView) view.findViewById(R.id.tip_experience_score);
+        this.gfH = (NoPressedLinearLayout) view.findViewById(R.id.root_forum_member_header);
+        this.gfI = view.findViewById(R.id.header_divider_line3);
+        this.gfJ = (TextView) view.findViewById(R.id.tip_experience);
+        this.gfK = (ImageView) view.findViewById(R.id.love_level_top);
+        this.gfL = (ImageView) view.findViewById(R.id.love_level_bg);
+        this.gfD.setOnClickListener(onClickListener);
+        this.geC.setOnClickListener(onClickListener);
     }
 }

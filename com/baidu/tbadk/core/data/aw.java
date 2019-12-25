@@ -1,17 +1,39 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.RecomPostTopic;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.FrsPage.PrivateForumShareinfo;
+import tbclient.FrsPage.PrivateForumTotalInfo;
+import tbclient.PrivateForumInfo;
+import tbclient.PrivatePopInfo;
 /* loaded from: classes.dex */
 public class aw {
-    public long bZP;
-    public String recom_title;
-    public String recom_topic;
+    private PrivateForumShareinfo cLU = null;
+    private PrivatePopInfo cLV = null;
+    private PrivateForumInfo cLW = null;
+    private Integer cLX = null;
 
-    public void a(RecomPostTopic recomPostTopic) {
-        if (recomPostTopic != null) {
-            this.recom_title = recomPostTopic.recom_title;
-            this.recom_topic = recomPostTopic.recom_topic;
-            this.bZP = recomPostTopic.uniq_topicid.longValue();
+    public PrivatePopInfo getPrivatePopInfo() {
+        return this.cLV;
+    }
+
+    public PrivateForumInfo ayF() {
+        return this.cLW;
+    }
+
+    public Integer ayG() {
+        return this.cLX;
+    }
+
+    public void a(PrivateForumTotalInfo privateForumTotalInfo) {
+        if (privateForumTotalInfo != null) {
+            try {
+                this.cLU = privateForumTotalInfo.private_forum_shareinfo;
+                this.cLW = privateForumTotalInfo.private_forum_info;
+                this.cLX = privateForumTotalInfo.private_forum_taskpercent;
+                this.cLV = privateForumTotalInfo.private_forum_popinfo;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
     }
 }

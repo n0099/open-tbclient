@@ -5,7 +5,7 @@ import com.xiaomi.push.ek;
 import com.xiaomi.push.hl;
 import com.xiaomi.push.service.ag;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class r extends ag.a {
     final /* synthetic */ Context a;
 

@@ -7,7 +7,6 @@ import android.util.Log;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.db.DBManager;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
@@ -17,7 +16,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMDelMsg extends Message {
     public static final String TAG = IMDelMsg.class.getSimpleName();
     private int mCategory;
@@ -89,7 +88,7 @@ public class IMDelMsg extends Message {
                 jArr[i] = optJSONArray.getLong(i);
             }
         }
-        boolean z = jSONObject.optInt(TableDefine.PaSubscribeColumns.COLUMN_TPL) == Constants.getTplZhida(context);
+        boolean z = jSONObject.optInt("tpl") == Constants.getTplZhida(context);
         if (!IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid()) {
             j = -1;
         } else {
@@ -122,7 +121,7 @@ public class IMDelMsg extends Message {
                 jSONObject.put(Constants.EXTRA_CLIENT_MAX_MSGID, this.mClientMaxMsgid);
             }
             if (this.mIsZhida) {
-                jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, Constants.getTplZhida(this.mContext));
+                jSONObject.put("tpl", Constants.getTplZhida(this.mContext));
             }
             if (IMConfigInternal.getInstance().getIMConfig(this.mContext).isNeedPaid()) {
                 jSONObject.put("pa_uid", this.mPaid);

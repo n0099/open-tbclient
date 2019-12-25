@@ -16,9 +16,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live.b.b, com.baidu.tieba.ala.alasquare.b.a> {
-    private IAlaSquareTabController duD;
+    private IAlaSquareTabController efF;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -28,7 +28,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: t */
+    /* renamed from: s */
     public com.baidu.tieba.ala.alasquare.b.a b(ViewGroup viewGroup) {
         return new com.baidu.tieba.ala.alasquare.b.a(LayoutInflater.from(this.mContext).inflate(R.layout.square_live_category_layout, viewGroup, false));
     }
@@ -55,10 +55,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.duD != null) {
-                    int tabIndex = a.this.duD.getTabIndex(bVar.tabId);
+                if (a.this.efF != null) {
+                    int tabIndex = a.this.efF.getTabIndex(bVar.tabId);
                     if (tabIndex >= 0) {
-                        a.this.duD.goToTab(tabIndex);
+                        a.this.efF.goToTab(tabIndex);
                         return;
                     } else {
                         a.this.a(bVar);
@@ -73,10 +73,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.alasquare.live.b.b bVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.Os, bVar.entryName, bVar.labelName, (bVar.duQ == null || !(bVar.duQ instanceof ArrayList)) ? null : (ArrayList) bVar.duQ)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.bitmapRatio, bVar.entryName, bVar.labelName, (bVar.efS == null || !(bVar.efS instanceof ArrayList)) ? null : (ArrayList) bVar.efS)));
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.duD = iAlaSquareTabController;
+        this.efF = iAlaSquareTabController;
     }
 }

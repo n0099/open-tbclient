@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import tbclient.PayMemberInfo;
 /* loaded from: classes.dex */
 public class PayMemberInfoData extends OrmObject {
-    private int bVO;
+    private int cIb;
     private String expire_remind;
     private int props_id;
     private String url;
@@ -13,7 +13,7 @@ public class PayMemberInfoData extends OrmObject {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.props_id = jSONObject.optInt("props_id");
-            this.bVO = jSONObject.optInt("end_time", 0);
+            this.cIb = jSONObject.optInt("end_time", 0);
             this.url = jSONObject.optString(this.url, "");
             this.expire_remind = jSONObject.optString("expire_remind");
         }
@@ -25,30 +25,30 @@ public class PayMemberInfoData extends OrmObject {
                 this.props_id = payMemberInfo.props_id.intValue();
             }
             if (payMemberInfo.end_time != null) {
-                this.bVO = payMemberInfo.end_time.intValue();
+                this.cIb = payMemberInfo.end_time.intValue();
             }
             this.url = payMemberInfo.url;
             this.expire_remind = payMemberInfo.expire_remind;
         }
     }
 
-    public int atu() {
+    public int aKV() {
         return this.props_id;
     }
 
-    public int agM() {
-        return this.bVO;
+    public int axD() {
+        return this.cIb;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public String atv() {
+    public String aKW() {
         return this.expire_remind;
     }
 
-    public void pp(String str) {
+    public void uu(String str) {
         this.expire_remind = str;
     }
 }

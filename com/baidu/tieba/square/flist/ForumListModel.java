@@ -13,9 +13,10 @@ import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.square.data.ForumInfoData;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
-    private static boolean fcr = false;
+    private static final String KEY = "_list";
+    private static boolean isOk = false;
     private static String menu_name = null;
     private static final long serialVersionUID = -5006585496963439439L;
     public long ctime;
@@ -27,14 +28,14 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     public List recommend_list_right;
     public long time;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class List extends OrmObject implements Serializable {
         private static final long serialVersionUID = -3206282936395220632L;
         public ForumInfoData[] forum_list;
         public int has_more = 0;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class RequestParams extends OrmObject implements Serializable {
         private static final long serialVersionUID = -8487620337266534315L;
         public int rn = 6;
@@ -72,12 +73,12 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     }
 
     public boolean isOk() {
-        return fcr;
+        return isOk;
     }
 
     public static ForumListModel new_fetch(RequestParams requestParams) {
         int i;
-        l<String> nl;
+        l<String> sx;
         if (requestParams.menu_id == 0) {
             i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
         } else {
@@ -91,10 +92,10 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         xVar.addPostData("menu_name", requestParams.menu_name);
         xVar.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, String.valueOf(i));
         String postNetData = xVar.postNetData();
-        fcr = xVar.isNetSuccess();
+        isOk = xVar.isNetSuccess();
         ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
-        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (nl = com.baidu.tbadk.core.d.a.akL().nl("tb.my_posts")) != null)) {
-            nl.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + menu_name + "_list", postNetData, 86400000L);
+        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (sx = com.baidu.tbadk.core.c.a.aBV().sx("tb.my_posts")) != null)) {
+            sx.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + menu_name + KEY, postNetData, 86400000L);
         }
         return forumListModel;
     }

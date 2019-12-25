@@ -2,64 +2,163 @@ package com.baidu.swan.apps.aa;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import java.util.Map;
-/* loaded from: classes2.dex */
-public class b {
-    private static volatile b aZi;
-    private static final String TAG = b.class.getSimpleName();
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+import android.view.View;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.console.c;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.j;
+import com.baidu.swan.apps.setting.oauth.a.b;
+import com.baidu.swan.apps.setting.oauth.h;
+import com.baidu.swan.apps.view.SwanAppActionBar;
+import com.baidu.swan.apps.y.f;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class b extends ab {
+    public b(j jVar) {
+        super(jVar, "/swanAPI/menu");
+    }
 
-    public static synchronized b Nj() {
-        b bVar;
-        synchronized (b.class) {
-            if (aZi == null) {
-                synchronized (b.class) {
-                    if (aZi == null) {
-                        aZi = new b();
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str, e eVar) {
+        if (context == null || eVar == null) {
+            c.e("menu", "parameters dismissed");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        final JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+        if (optParamsAsJo == null) {
+            c.e("menu", "parameters are illegal");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        }
+        final String optString = optParamsAsJo.optString("cb");
+        if (TextUtils.isEmpty(optString)) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+            return false;
+        }
+        f Uf = f.Uf();
+        if (Uf == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        com.baidu.swan.apps.core.d.e DP = Uf.DP();
+        if (DP == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        com.baidu.swan.apps.core.d.b LB = DP.LB();
+        if (LB == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        final SwanAppActionBar KR = LB.KR();
+        if (KR == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        eVar.aac().b(context, "mapp_change_menu_appearance", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.aa.b.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.as.d.b
+            /* renamed from: a */
+            public void B(h<b.d> hVar) {
+                if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
+                    if (b.this.a(KR, optParamsAsJo, str)) {
+                        callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                        return;
+                    } else {
+                        callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                        return;
                     }
                 }
+                com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString);
             }
-            bVar = aZi;
-        }
-        return bVar;
-    }
-
-    private b() {
-    }
-
-    public boolean a(Context context, String str, com.baidu.swan.apps.aa.a.b bVar) {
-        com.baidu.swan.apps.ae.b Ra;
-        if (DEBUG) {
-            Log.d(TAG, "doBaiFuBaoPay orderInfo: " + str);
-        }
-        if (TextUtils.isEmpty(str) || (Ra = com.baidu.swan.apps.ae.b.Ra()) == null) {
-            return false;
-        }
-        com.baidu.swan.apps.u.a.Jz().a(Ra, str, bVar);
+        });
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
-    public boolean a(Context context, String str, com.baidu.swan.apps.aa.a.a aVar) {
-        com.baidu.swan.apps.ae.b Ra;
-        if (DEBUG) {
-            Log.d(TAG, "doAliPay orderInfo: " + str);
-        }
-        if (TextUtils.isEmpty(str) || (Ra = com.baidu.swan.apps.ae.b.Ra()) == null) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean a(SwanAppActionBar swanAppActionBar, JSONObject jSONObject, String str) {
+        if (TextUtils.isEmpty(str)) {
             return false;
         }
-        com.baidu.swan.apps.u.a.Jz().a(Ra, str, aVar);
+        char c = 65535;
+        switch (str.hashCode()) {
+            case -2126297380:
+                if (str.equals("/swanAPI/menu/hideMenu")) {
+                    c = 0;
+                    break;
+                }
+                break;
+            case -691212521:
+                if (str.equals("/swanAPI/menu/showMenu")) {
+                    c = 2;
+                    break;
+                }
+                break;
+            case 203492549:
+                if (str.equals("/swanAPI/menu/setMenuOpacity")) {
+                    c = 1;
+                    break;
+                }
+                break;
+        }
+        switch (c) {
+            case 0:
+                return a(swanAppActionBar);
+            case 1:
+                return a(swanAppActionBar, jSONObject);
+            case 2:
+                return b(swanAppActionBar);
+            default:
+                return false;
+        }
+    }
+
+    private boolean a(SwanAppActionBar swanAppActionBar) {
+        View rightMenu = swanAppActionBar.getRightMenu();
+        if (rightMenu == null) {
+            return false;
+        }
+        rightMenu.setVisibility(4);
         return true;
     }
 
-    public boolean b(Context context, Map<String, String> map, com.baidu.swan.apps.aa.a.d dVar) {
-        if (DEBUG) {
-            Log.d(TAG, "doWeChatPay payInfo: " + map);
-        }
-        if (map == null) {
+    private boolean a(SwanAppActionBar swanAppActionBar, JSONObject jSONObject) {
+        if (swanAppActionBar == null) {
             return false;
         }
-        com.baidu.swan.apps.u.a.Jz().a(context, map, dVar);
+        float optDouble = (float) jSONObject.optDouble("alpha", 1.0d);
+        if (optDouble > 1.0f || optDouble < 0.1f) {
+            c.e("menu", "The range of alpha should be in [0.1,1]");
+            return false;
+        }
+        View rightMenu = swanAppActionBar.getRightMenu();
+        if (rightMenu != null) {
+            rightMenu.setVisibility(0);
+            swanAppActionBar.setRightMenuAlpha(optDouble);
+            swanAppActionBar.setRightMenuEnable(true);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean b(SwanAppActionBar swanAppActionBar) {
+        View rightMenu;
+        if (swanAppActionBar == null || (rightMenu = swanAppActionBar.getRightMenu()) == null) {
+            return false;
+        }
+        rightMenu.setVisibility(0);
+        swanAppActionBar.setRightMenuAlpha(1.0f);
+        swanAppActionBar.setRightMenuEnable(true);
         return true;
     }
 }

@@ -6,8 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.PassportSDK;
@@ -28,6 +27,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
 import com.baidu.sapi2.views.LoadingDialog;
 import com.baidu.sapi2.views.ViewUtility;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class OauthActivity extends BaseActivity {
     private static final String A = "2.0.0";
     private static final int B = -201;
@@ -293,7 +293,7 @@ public class OauthActivity extends BaseActivity {
             public void onSuccess(SsoHashResult ssoHashResult) {
                 String str;
                 HashMap hashMap = new HashMap();
-                hashMap.put("client", "android");
+                hashMap.put("client", PraiseDataPassUtil.KEY_FROM_OS);
                 hashMap.put("clientfrom", "native");
                 hashMap.put("suppcheck", "1");
                 if (OauthActivity.this.O == 0) {
@@ -377,7 +377,7 @@ public class OauthActivity extends BaseActivity {
         }
         Uri parse = Uri.parse(str);
         parse.getHost();
-        for (String str2 : new String[]{Uri.decode(parse.getQueryParameter("sign")), Uri.decode(parse.getQueryParameter("client_id")), Uri.decode(parse.getQueryParameter("cmd")), Uri.decode(parse.getQueryParameter(TableDefine.PaSubscribeColumns.COLUMN_TPL))}) {
+        for (String str2 : new String[]{Uri.decode(parse.getQueryParameter("sign")), Uri.decode(parse.getQueryParameter("client_id")), Uri.decode(parse.getQueryParameter("cmd")), Uri.decode(parse.getQueryParameter("tpl"))}) {
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }

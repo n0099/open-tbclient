@@ -1,53 +1,50 @@
 package com.facebook.d;
 
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 class d {
-    private static final Class<?> jYW = d.class;
+    private static final Class<?> lCO = d.class;
 
     d() {
     }
 
-    public static int CT(int i) {
+    public static int ID(int i) {
         switch (i) {
             case 0:
             case 1:
-                return 0;
             case 2:
             case 4:
             case 5:
             case 7:
             default:
-                com.facebook.common.c.a.d(jYW, "Unsupported orientation");
                 return 0;
             case 3:
-                return SubsamplingScaleImageView.ORIENTATION_180;
+                return 180;
             case 6:
                 return 90;
             case 8:
-                return SubsamplingScaleImageView.ORIENTATION_270;
+                return 270;
         }
     }
 
-    public static int h(InputStream inputStream, int i) throws IOException {
+    public static int i(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.kmy - 8;
+        int i2 = aVar.lSR - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.kmw, 274), aVar.kmw);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.lSP, 274), aVar.lSP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        boolean kmw;
-        int kmx;
-        int kmy;
+        boolean lSP;
+        int lSQ;
+        int lSR;
 
         private a() {
         }
@@ -57,17 +54,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.kmx = c.a(inputStream, 4, false);
+        aVar.lSQ = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.kmx != 1229531648 && aVar.kmx != 1296891946) {
-            com.facebook.common.c.a.f(jYW, "Invalid TIFF header");
+        if (aVar.lSQ != 1229531648 && aVar.lSQ != 1296891946) {
+            com.facebook.common.c.a.h(lCO, "Invalid TIFF header");
             return 0;
         }
-        aVar.kmw = aVar.kmx == 1229531648;
-        aVar.kmy = c.a(inputStream, 4, aVar.kmw);
+        aVar.lSP = aVar.lSQ == 1229531648;
+        aVar.lSR = c.a(inputStream, 4, aVar.lSP);
         int i3 = i2 - 4;
-        if (aVar.kmy < 8 || aVar.kmy - 8 > i3) {
-            com.facebook.common.c.a.f(jYW, "Invalid offset");
+        if (aVar.lSR < 8 || aVar.lSR - 8 > i3) {
+            com.facebook.common.c.a.h(lCO, "Invalid offset");
             return 0;
         }
         return i3;

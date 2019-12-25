@@ -1,15 +1,15 @@
 package com.baidu.tieba.pb.pb;
 
 import com.baidu.tbadk.TbPageContextSupport;
-/* loaded from: classes4.dex */
-public interface a<T> extends TbPageContextSupport<T> {
-    boolean AE(String str);
+/* loaded from: classes6.dex */
+public interface a<T> extends TbPageContextSupport {
+    boolean Fl(String str);
 
-    com.baidu.tieba.pb.pb.main.b.a bRs();
+    com.baidu.tieba.pb.pb.main.b.a ciI();
 
-    boolean bRt();
+    boolean ciJ();
 
-    String bRu();
+    String ciK();
 
-    int bRv();
+    int ciL();
 }

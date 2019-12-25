@@ -1,24 +1,24 @@
 package com.baidu.live;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private static b MT;
-    private boolean MU;
+    private static b TP;
+    private boolean TQ;
 
     private b() {
     }
 
-    public static b no() {
-        if (MT == null) {
+    public static b oH() {
+        if (TP == null) {
             synchronized (c.class) {
-                if (MT == null) {
-                    MT = new b();
+                if (TP == null) {
+                    TP = new b();
                 }
             }
         }
-        return MT;
+        return TP;
     }
 
-    public void aa(boolean z) {
-        this.MU = z;
+    public void aj(boolean z) {
+        this.TQ = z;
     }
 }

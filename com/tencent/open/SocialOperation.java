@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.widget.Toast;
+import com.baidu.webkit.internal.ETAG;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -14,7 +15,7 @@ import com.tencent.open.a.f;
 import com.tencent.open.b.d;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class SocialOperation extends BaseApi {
     public static final String GAME_FRIEND_ADD_MESSAGE = "add_msg";
     public static final String GAME_FRIEND_LABEL = "friend_label";
@@ -32,13 +33,13 @@ public class SocialOperation extends BaseApi {
         f.c("openSDK_LOG.GameAppOperation", "-->makeFriend()  -- start");
         if (bundle == null) {
             f.e("openSDK_LOG.GameAppOperation", "-->makeFriend params is null");
-            d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_MAKE_FRIEND, Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "18", "1");
+            d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
             return;
         }
         String string = bundle.getString(GAME_FRIEND_OPENID);
         if (TextUtils.isEmpty(string)) {
             f.e("openSDK_LOG.GameAppOperation", "-->make friend, fOpenid is empty.");
-            d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_MAKE_FRIEND, Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "18", "1");
+            d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
             return;
         }
         String string2 = bundle.getString(GAME_FRIEND_LABEL);
@@ -71,16 +72,16 @@ public class SocialOperation extends BaseApi {
             f.c("openSDK_LOG.GameAppOperation", "-->makeFriend target activity found, qqver greater than 5.1.0");
             try {
                 activity.startActivity(intent);
-                d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_MAKE_FRIEND, Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "18", "0");
+                d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "0");
             } catch (Exception e) {
                 f.b("openSDK_LOG.GameAppOperation", "-->make friend, start activity exception.", e);
                 a(activity);
-                d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_MAKE_FRIEND, Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "18", "1");
+                d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
             }
         } else {
             f.d("openSDK_LOG.GameAppOperation", "-->make friend, there is no activity.");
             a(activity);
-            d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_MAKE_FRIEND, Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "18", "1");
+            d.a().a(this.b.getOpenId(), this.b.getAppId(), Constants.VIA_MAKE_FRIEND, "14", "18", "1");
         }
         f.c("openSDK_LOG.GameAppOperation", "-->makeFriend()  -- end");
     }
@@ -139,7 +140,7 @@ public class SocialOperation extends BaseApi {
                 for (String str : b.keySet()) {
                     b.putString(str, Base64.encodeToString(j.i(b.getString(str)), 2));
                 }
-                stringBuffer.append("&" + HttpUtils.encodeUrl(b));
+                stringBuffer.append(ETAG.ITEM_SEPARATOR + HttpUtils.encodeUrl(b));
                 f.a("openSDK_LOG.GameAppOperation", "-->bindQQGroup, url: " + stringBuffer.toString());
                 Intent intent = new Intent("android.intent.action.VIEW");
                 intent.setData(Uri.parse(stringBuffer.toString()));

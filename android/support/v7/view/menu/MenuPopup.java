@@ -13,7 +13,7 @@ import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class MenuPopup implements MenuPresenter, ShowableListMenu, AdapterView.OnItemClickListener {
     private Rect mEpicenterBounds;
 

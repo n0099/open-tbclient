@@ -2,27 +2,27 @@ package com.facebook.imagepipeline.producers;
 
 import android.util.Pair;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes2.dex */
-public class g extends ad<Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel>, com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> {
-    private final com.facebook.imagepipeline.c.f kgN;
+/* loaded from: classes9.dex */
+public class g extends ad<Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel>, com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> {
+    private final com.facebook.imagepipeline.c.f lNA;
 
-    public g(com.facebook.imagepipeline.c.f fVar, ai aiVar) {
-        super(aiVar);
-        this.kgN = fVar;
+    public g(com.facebook.imagepipeline.c.f fVar, aj ajVar) {
+        super(ajVar);
+        this.lNA = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.producers.ad
     /* renamed from: a */
-    public Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel> b(aj ajVar) {
-        return Pair.create(this.kgN.a(ajVar.cIF(), ajVar.cDZ()), ajVar.cIH());
+    public Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel> b(ak akVar) {
+        return Pair.create(this.lNA.a(akVar.doX(), akVar.djN()), akVar.doZ());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.ad
     /* renamed from: b */
-    public com.facebook.common.references.a<com.facebook.imagepipeline.f.b> e(com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aVar) {
-        return com.facebook.common.references.a.b(aVar);
+    public com.facebook.common.references.a<com.facebook.imagepipeline.g.c> d(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
+        return com.facebook.common.references.a.b((com.facebook.common.references.a) aVar);
     }
 }

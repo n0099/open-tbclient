@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.d.a.a.a.a;
+import com.baidu.i.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.ThirdPartyService;
@@ -21,7 +21,7 @@ import com.baidu.sapi2.views.LoadingDialog;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class WXLoginActivity extends BaseSSOLoginActivity {
     public static final String KEY_BASE_RESP_CODE = "code";
     public static final String KEY_BASE_RESP_ERROR_CODE = "error_code";
@@ -47,8 +47,8 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
 
     private void initView() {
         setupViews();
-        setTitleText(a.b.sapi_sdk_title_login_wx);
-        RelativeLayout relativeLayout = this.ebP;
+        setTitleText(a.c.sapi_sdk_title_login_wx);
+        RelativeLayout relativeLayout = this.rootView;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(4);
         }

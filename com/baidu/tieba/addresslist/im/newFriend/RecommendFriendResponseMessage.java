@@ -1,11 +1,12 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
     private List<com.baidu.tieba.im.data.a> mDatas;
     private int mErrCode;
@@ -37,7 +38,7 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("errno");
-            this.mErrMsg = jSONObject.optString("errmsg");
+            this.mErrMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("recommend_list")) != null) {
                 this.mDatas = new ArrayList();
@@ -53,7 +54,7 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                     } else {
                         aVar.setStatus(1);
                     }
-                    aVar.tV(1);
+                    aVar.vX(1);
                     this.mDatas.add(aVar);
                 }
             }

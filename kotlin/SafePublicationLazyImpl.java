@@ -5,30 +5,31 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
-public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<T> {
+/* loaded from: classes4.dex */
+public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> kuB = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> mYy = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
-    private final Object f951final;
+    private final Object f956final;
     private volatile kotlin.jvm.a.a<? extends T> initializer;
 
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
-        p.i(aVar, "initializer");
+        p.j(aVar, "initializer");
         this.initializer = aVar;
-        this._value = d.kuC;
-        this.f951final = d.kuC;
+        this._value = f.mYz;
+        this.f956final = f.mYz;
     }
 
+    @Override // kotlin.c
     public T getValue() {
         T t = (T) this._value;
-        if (t == d.kuC) {
+        if (t == f.mYz) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (Companion.cMy().compareAndSet(this, d.kuC, invoke)) {
+                if (Companion.dEw().compareAndSet(this, f.mYz, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -39,7 +40,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
     }
 
     public boolean isInitialized() {
-        return this._value != d.kuC;
+        return this._value != f.mYz;
     }
 
     public String toString() {
@@ -50,7 +51,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
         return new InitializedLazyImpl(getValue());
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         private a() {
         }
@@ -60,8 +61,8 @@ public final class SafePublicationLazyImpl<T> implements Serializable, kotlin.a<
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> cMy() {
-            return SafePublicationLazyImpl.kuB;
+        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> dEw() {
+            return SafePublicationLazyImpl.mYy;
         }
     }
 }

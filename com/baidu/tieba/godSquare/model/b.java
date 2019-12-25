@@ -12,7 +12,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.data.f;
+import com.baidu.tieba.card.data.h;
+import com.baidu.tieba.card.divider.e;
 import com.baidu.tieba.godSquare.model.req.GodSquareCacheRequestMsg;
 import com.baidu.tieba.godSquare.model.req.GodSquareRequestMsg;
 import com.baidu.tieba.godSquare.model.res.GodSquareCacheResponsedMsg;
@@ -22,76 +23,76 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetHotGod.DataRes;
 import tbclient.User;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private a gbC;
-    private boolean gbD;
-    private LongSparseArray<MetaData> gbF;
+    private a gPG;
+    private boolean gPH;
+    private LongSparseArray<MetaData> gPJ;
     private BaseActivity mActivity;
     private int pn = 0;
-    public List<m> fqS = new ArrayList();
-    public int gbE = 1;
-    private com.baidu.adp.framework.listener.a fcu = new com.baidu.adp.framework.listener.a(1003099, CmdConfigSocket.CMD_GET_HOT_GOD) { // from class: com.baidu.tieba.godSquare.model.b.1
+    public List<m> gfp = new ArrayList();
+    public int gPI = 1;
+    private com.baidu.adp.framework.listener.a fQX = new com.baidu.adp.framework.listener.a(1003099, CmdConfigSocket.CMD_GET_HOT_GOD) { // from class: com.baidu.tieba.godSquare.model.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (b.this.gbC != null) {
+            if (b.this.gPG != null) {
                 if (responsedMessage instanceof GodSquareHttpResponsedMsg) {
                     GodSquareHttpResponsedMsg godSquareHttpResponsedMsg = (GodSquareHttpResponsedMsg) responsedMessage;
-                    b.this.gbC.a(b.this.a(godSquareHttpResponsedMsg.getResult()), b.this.gbD, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
+                    b.this.gPG.a(b.this.a(godSquareHttpResponsedMsg.getResult()), b.this.gPH, godSquareHttpResponsedMsg.getHasMore(), godSquareHttpResponsedMsg.getErrorString());
                 } else if (responsedMessage instanceof GodSquareSocketResponsedMsg) {
                     GodSquareSocketResponsedMsg godSquareSocketResponsedMsg = (GodSquareSocketResponsedMsg) responsedMessage;
-                    b.this.gbC.a(b.this.a(godSquareSocketResponsedMsg.getResult()), b.this.gbD, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
+                    b.this.gPG.a(b.this.a(godSquareSocketResponsedMsg.getResult()), b.this.gPH, godSquareSocketResponsedMsg.getHasMore(), godSquareSocketResponsedMsg.getErrorString());
                 }
             }
         }
     };
-    private CustomMessageListener fqp = new CustomMessageListener(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE) { // from class: com.baidu.tieba.godSquare.model.b.2
+    private CustomMessageListener geM = new CustomMessageListener(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE) { // from class: com.baidu.tieba.godSquare.model.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.gbC != null) {
+            if (b.this.gPG != null) {
                 if (!(customResponsedMessage instanceof GodSquareCacheResponsedMsg)) {
-                    b.this.sB(1);
+                    b.this.uH(1);
                     return;
                 }
                 GodSquareCacheResponsedMsg godSquareCacheResponsedMsg = (GodSquareCacheResponsedMsg) customResponsedMessage;
                 if (godSquareCacheResponsedMsg.getResult() == null || v.isEmpty(godSquareCacheResponsedMsg.getResult().user_list)) {
-                    b.this.sB(1);
+                    b.this.uH(1);
                 } else {
-                    b.this.gbC.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.gbD, true, godSquareCacheResponsedMsg.getErrorString());
+                    b.this.gPG.a(b.this.a(godSquareCacheResponsedMsg.getResult()), b.this.gPH, true, godSquareCacheResponsedMsg.getErrorString());
                 }
             }
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(List<m> list, boolean z, boolean z2, String str);
     }
 
     public b(a aVar, BaseActivity baseActivity) {
-        this.gbC = aVar;
+        this.gPG = aVar;
         this.mActivity = baseActivity;
         registerListener();
     }
 
     public void update() {
-        this.gbE = 1;
-        this.gbD = true;
+        this.gPI = 1;
+        this.gPH = true;
         if (j.isNetworkAvailableForImmediately()) {
-            sB(1);
+            uH(1);
         } else {
-            sC(1);
+            uI(1);
         }
     }
 
-    public void aIU() {
-        this.gbD = false;
-        sB(this.pn + 1);
+    public void aZs() {
+        this.gPH = false;
+        uH(this.pn + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sB(int i) {
+    public void uH(int i) {
         if (this.mActivity != null) {
             this.pn = i;
             GodSquareRequestMsg godSquareRequestMsg = new GodSquareRequestMsg();
@@ -100,7 +101,7 @@ public class b {
         }
     }
 
-    private void sC(int i) {
+    private void uI(int i) {
         if (this.mActivity != null) {
             GodSquareCacheRequestMsg godSquareCacheRequestMsg = new GodSquareCacheRequestMsg();
             godSquareCacheRequestMsg.cacheKey = i + "";
@@ -110,8 +111,8 @@ public class b {
 
     private void registerListener() {
         if (this.mActivity != null) {
-            this.mActivity.registerListener(this.fqp);
-            this.mActivity.registerListener(this.fcu);
+            this.mActivity.registerListener(this.geM);
+            this.mActivity.registerListener(this.fQX);
         }
     }
 
@@ -123,65 +124,65 @@ public class b {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        cL(dataRes.user_list);
+        cE(dataRes.user_list);
         ArrayList arrayList2 = new ArrayList();
         ArrayList arrayList3 = new ArrayList();
-        if (!v.isEmpty(dataRes.recommend_uid_list) && this.gbD) {
+        if (!v.isEmpty(dataRes.recommend_uid_list) && this.gPH) {
             for (Long l : dataRes.recommend_uid_list) {
-                if (l != null && (metaData2 = this.gbF.get(l.longValue())) != null) {
-                    f fVar = new f();
-                    fVar.cbv = metaData2;
-                    fVar.type = 1;
-                    arrayList2.add(fVar);
+                if (l != null && (metaData2 = this.gPJ.get(l.longValue())) != null) {
+                    h hVar = new h();
+                    hVar.cNZ = metaData2;
+                    hVar.type = 1;
+                    arrayList2.add(hVar);
                 }
             }
             if (this.mActivity != null && !v.isEmpty(arrayList2)) {
-                com.baidu.tieba.card.divider.b bVar = new com.baidu.tieba.card.divider.b();
-                bVar.title = this.mActivity.getResources().getString(R.string.special_recommend);
-                bVar.needTopMargin = false;
-                arrayList2.add(0, bVar);
+                e eVar = new e();
+                eVar.title = this.mActivity.getResources().getString(R.string.special_recommend);
+                eVar.needTopMargin = false;
+                arrayList2.add(0, eVar);
             }
             arrayList.addAll(arrayList2);
         }
         if (!v.isEmpty(dataRes.hot_uid_list)) {
             for (Long l2 : dataRes.hot_uid_list) {
-                if (l2 != null && (metaData = this.gbF.get(l2.longValue())) != null) {
-                    f fVar2 = new f();
-                    fVar2.cbv = metaData;
-                    fVar2.type = 0;
-                    fVar2.rank = this.gbE;
-                    arrayList3.add(fVar2);
-                    this.gbE++;
+                if (l2 != null && (metaData = this.gPJ.get(l2.longValue())) != null) {
+                    h hVar2 = new h();
+                    hVar2.cNZ = metaData;
+                    hVar2.type = 0;
+                    hVar2.rank = this.gPI;
+                    arrayList3.add(hVar2);
+                    this.gPI++;
                 }
             }
-            if (this.mActivity != null && !v.isEmpty(arrayList3) && this.gbD) {
-                com.baidu.tieba.card.divider.b bVar2 = new com.baidu.tieba.card.divider.b();
-                bVar2.title = this.mActivity.getResources().getString(R.string.hot_god);
+            if (this.mActivity != null && !v.isEmpty(arrayList3) && this.gPH) {
+                e eVar2 = new e();
+                eVar2.title = this.mActivity.getResources().getString(R.string.hot_god);
                 if (v.isEmpty(arrayList2)) {
-                    bVar2.needTopMargin = false;
+                    eVar2.needTopMargin = false;
                 } else {
-                    bVar2.needTopMargin = true;
+                    eVar2.needTopMargin = true;
                 }
-                arrayList3.add(0, bVar2);
+                arrayList3.add(0, eVar2);
             }
             arrayList.addAll(arrayList3);
         }
         return arrayList;
     }
 
-    private void cL(List<User> list) {
-        if (this.gbF == null) {
-            this.gbF = new LongSparseArray<>();
+    private void cE(List<User> list) {
+        if (this.gPJ == null) {
+            this.gPJ = new LongSparseArray<>();
         }
         for (User user : list) {
-            f fVar = new f();
-            fVar.cbv = new MetaData();
-            fVar.cbv.parserProtobuf(user);
-            this.gbF.put(user.id.longValue(), fVar.cbv);
+            h hVar = new h();
+            hVar.cNZ = new MetaData();
+            hVar.cNZ.parserProtobuf(user);
+            this.gPJ.put(user.id.longValue(), hVar.cNZ);
         }
     }
 
-    public boolean cQ(long j) {
-        return (this.gbF == null || this.gbF.get(j) == null) ? false : true;
+    public boolean dw(long j) {
+        return (this.gPJ == null || this.gPJ.get(j) == null) ? false : true;
     }
 }

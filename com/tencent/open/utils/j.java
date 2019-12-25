@@ -12,7 +12,6 @@ import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.net.http.Headers;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -20,6 +19,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -32,10 +32,9 @@ import java.net.URLDecoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class j {
     private static String f;
     private static String a = "";
@@ -49,8 +48,8 @@ public class j {
         Bundle bundle = new Bundle();
         if (str != null) {
             try {
-                for (String str2 : str.split("&")) {
-                    String[] split = str2.split("=");
+                for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                    String[] split = str2.split(ETAG.EQUAL);
                     if (split.length == 2) {
                         bundle.putString(URLDecoder.decode(split[0]), URLDecoder.decode(split[1]));
                     }
@@ -68,8 +67,8 @@ public class j {
             jSONObject = new JSONObject();
         }
         if (str != null) {
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
+            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                String[] split = str2.split(ETAG.EQUAL);
                 if (split.length == 2) {
                     try {
                         split[0] = URLDecoder.decode(split[0]);
@@ -109,7 +108,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public String a;
         public long b;
@@ -316,7 +315,7 @@ public class j {
             return "";
         }
         if (TextUtils.isEmpty(str2)) {
-            str2 = HTTP.UTF_8;
+            str2 = "UTF-8";
         }
         try {
             if (str.getBytes(str2).length > i) {
@@ -413,7 +412,7 @@ public class j {
             return "";
         }
         try {
-            LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
+            LocationManager locationManager = (LocationManager) context.getSystemService("location");
             Criteria criteria = new Criteria();
             criteria.setCostAllowed(false);
             criteria.setAccuracy(2);
@@ -471,7 +470,7 @@ public class j {
 
     public static byte[] i(String str) {
         try {
-            return str.getBytes(HTTP.UTF_8);
+            return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e2) {
             return null;
         }

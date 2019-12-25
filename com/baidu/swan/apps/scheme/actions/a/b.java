@@ -7,18 +7,20 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.core.d.e;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
+import com.baidu.swan.apps.y.f;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class b extends z {
+/* loaded from: classes9.dex */
+public class b extends ab {
     public b(j jVar) {
-        super(jVar, "/swan/setBackgroundTextStyle");
+        super(jVar, "/swanAPI/setBackgroundTextStyle");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
             c.e("setBackgroundTextStyle", "paramsJson is null");
@@ -28,8 +30,8 @@ public class b extends z {
         if (DEBUG) {
             Log.d("setBackgroundTextStyle", optParamsAsJo.toString());
         }
-        e AI = com.baidu.swan.apps.w.e.LE().AI();
-        if (AI == null) {
+        com.baidu.swan.apps.core.d.e DP = f.Uf().DP();
+        if (DP == null) {
             c.e("setBackgroundTextStyle", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -39,7 +41,7 @@ public class b extends z {
             c.e("setBackgroundTextStyle", "text style is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (!AI.Fs().Fh().cK(com.baidu.swan.apps.ae.a.c.bR(optString))) {
+        } else if (!DP.LC().Lr().dF(SwanAppConfigData.cy(optString))) {
             c.e("setBackgroundTextStyle", "set window background fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

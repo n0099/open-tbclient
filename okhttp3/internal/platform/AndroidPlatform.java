@@ -24,7 +24,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AndroidPlatform extends Platform {
     private static final int MAX_LOG_LENGTH = 4000;
     private final CloseGuard closeGuard = CloseGuard.get();
@@ -237,7 +237,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class AndroidCertificateChainCleaner extends CertificateChainCleaner {
         private final Method checkServerTrusted;
         private final Object x509TrustManagerExtensions;
@@ -269,7 +269,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class CloseGuard {
         private final Method getMethod;
         private final Method openMethod;
@@ -322,7 +322,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class AndroidTrustRootIndex implements TrustRootIndex {
         private final Method findByIssuerAndSignatureMethod;
         private final X509TrustManager trustManager;

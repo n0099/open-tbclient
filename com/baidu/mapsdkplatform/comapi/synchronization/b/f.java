@@ -3,7 +3,6 @@ package com.baidu.mapsdkplatform.comapi.synchronization.b;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceQueryOptions;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
@@ -33,7 +32,7 @@ public class f {
         if (CoordType.BD09LL == SDKInitializer.getCoordType()) {
             this.b.a("coord_type", "bd09ll");
         } else if (CoordType.GCJ02 == SDKInitializer.getCoordType()) {
-            this.b.a("coord_type", CoordinateType.GCJ02);
+            this.b.a("coord_type", "gcj02");
         } else {
             this.b.a("coord_type", "bd09ll");
         }

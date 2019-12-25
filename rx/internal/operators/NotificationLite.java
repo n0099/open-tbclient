@@ -1,16 +1,16 @@
 package rx.internal.operators;
 
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class NotificationLite {
-    private static final Object kyu = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
+    private static final Object ndX = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
         private static final long serialVersionUID = 1;
 
         public String toString() {
             return "Notification=>Completed";
         }
     };
-    private static final Object kyv = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+    private static final Object ndY = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
         private static final long serialVersionUID = 2;
 
         public String toString() {
@@ -18,7 +18,7 @@ public final class NotificationLite {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class OnErrorSentinel implements Serializable {
         private static final long serialVersionUID = 3;
         final Throwable e;
@@ -32,26 +32,26 @@ public final class NotificationLite {
         }
     }
 
-    public static <T> Object bl(T t) {
+    public static <T> Object next(T t) {
         if (t == null) {
-            return kyv;
+            return ndY;
         }
         return t;
     }
 
-    public static Object cOx() {
-        return kyu;
+    public static Object dGr() {
+        return ndX;
     }
 
-    public static Object N(Throwable th) {
+    public static Object error(Throwable th) {
         return new OnErrorSentinel(th);
     }
 
     public static <T> boolean a(rx.e<? super T> eVar, Object obj) {
-        if (obj == kyu) {
+        if (obj == ndX) {
             eVar.onCompleted();
             return true;
-        } else if (obj == kyv) {
+        } else if (obj == ndY) {
             eVar.onNext(null);
             return false;
         } else if (obj != null) {
@@ -66,24 +66,24 @@ public final class NotificationLite {
         }
     }
 
-    public static boolean bm(Object obj) {
-        return obj == kyu;
+    public static boolean bV(Object obj) {
+        return obj == ndX;
     }
 
-    public static boolean bn(Object obj) {
+    public static boolean isError(Object obj) {
         return obj instanceof OnErrorSentinel;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> T bo(Object obj) {
-        if (obj == kyv) {
+    public static <T> T getValue(Object obj) {
+        if (obj == ndY) {
             return null;
         }
         return obj;
     }
 
-    public static Throwable bp(Object obj) {
+    public static Throwable getError(Object obj) {
         return ((OnErrorSentinel) obj).e;
     }
 }

@@ -1,21 +1,51 @@
 package com.baidu.swan.apps.swancore.e;
 
-import com.baidu.swan.apps.swancore.e.c;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes2.dex */
-public class b extends com.baidu.a.a.a.a.a.a {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c bqd;
-    private Map<String, String> bqe;
+import android.support.annotation.Nullable;
+import com.baidu.swan.apps.x.b.c;
+/* loaded from: classes9.dex */
+public class b {
+    public boolean bRw;
+    public boolean bRx;
+    @Nullable
+    public c bRy;
+    public String bRz;
 
-    public b(c cVar) {
-        this(cVar, null);
+    private b() {
+        this.bRw = false;
+        this.bRx = false;
+        this.bRy = null;
+        this.bRz = "";
     }
 
-    public b(c cVar, List<String> list) {
-        super("33", "swan_core", list);
-        this.bqe = null;
-        this.bqd = cVar == null ? c.a.Tg().Ti() : cVar;
+    /* loaded from: classes9.dex */
+    public static class a {
+        private boolean bRw = false;
+        private boolean bRx = false;
+        @Nullable
+        private c bRy = null;
+        private String bRz = "";
+
+        public static a acS() {
+            return new a();
+        }
+
+        public a dL(boolean z) {
+            this.bRw = z;
+            return this;
+        }
+
+        public a lZ(String str) {
+            this.bRz = str;
+            return this;
+        }
+
+        public b acT() {
+            b bVar = new b();
+            bVar.bRw = this.bRw;
+            bVar.bRx = this.bRx;
+            bVar.bRy = this.bRy;
+            bVar.bRz = this.bRz;
+            return bVar;
+        }
     }
 }

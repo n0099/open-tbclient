@@ -2,7 +2,7 @@ package protobuf.QueryGroupDetail;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_FROM = "";
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
@@ -67,7 +67,7 @@ public final class DataReq extends Message {
         this.from = builder.from;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer bigHeight;
         public Integer bigWidth;

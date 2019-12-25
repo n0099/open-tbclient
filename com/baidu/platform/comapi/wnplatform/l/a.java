@@ -3,6 +3,7 @@ package com.baidu.platform.comapi.wnplatform.l;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import com.baidu.platform.comapi.wnplatform.o.c;
@@ -20,7 +21,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     private static final Long j = -1L;
     private boolean e = false;
     private int f = 0;
-    private C0124a g = null;
+    private C0140a g = null;
     private com.baidu.platform.comapi.wnplatform.c.b h = null;
     private Object i = new Object();
     private boolean k = true;
@@ -52,7 +53,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0124a extends Thread {
+    public class C0140a extends Thread {
         final /* synthetic */ a a;
         private volatile boolean b;
 
@@ -113,7 +114,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
                     if (file.isFile()) {
                         String name = file.getName();
                         com.baidu.platform.comapi.wnplatform.d.a.a(a, "GPS Data fileName = " + name);
-                        if (!TextUtils.isEmpty(name) && name.endsWith(".txt")) {
+                        if (!TextUtils.isEmpty(name) && name.endsWith(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION)) {
                             this.d = new BufferedReader(new FileReader(file));
                         }
                     }

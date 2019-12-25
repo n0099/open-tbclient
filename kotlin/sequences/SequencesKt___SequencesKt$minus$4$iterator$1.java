@@ -2,7 +2,7 @@ package kotlin.sequences;
 
 import java.util.HashSet;
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class SequencesKt___SequencesKt$minus$4$iterator$1 extends Lambda implements kotlin.jvm.a.b<T, Boolean> {
     final /* synthetic */ HashSet $other;
 

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.net.Proxy;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidubce.http.Headers;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -34,10 +35,8 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-import org.apache.http.client.utils.URLEncodedUtils;
-import org.apache.http.protocol.HTTP;
 @SuppressLint({"NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class m {
     private static SSLSocketFactory h;
     Context a;
@@ -119,11 +118,11 @@ public final class m {
         httpURLConnection.setInstanceFollowRedirects(true);
         httpURLConnection.setConnectTimeout(this.e);
         httpURLConnection.setReadTimeout(this.f);
-        httpURLConnection.setRequestProperty(HTTP.USER_AGENT, "eos/" + d.g(this.a)[0] + "/" + w.a(this.a) + "/3.3.9.8.2");
+        httpURLConnection.setRequestProperty("User-Agent", "eos/" + d.g(this.a)[0] + "/" + w.a(this.a) + "/3.3.9.8.2");
         httpURLConnection.setRequestProperty("Pragma", "no-cache");
         httpURLConnection.setRequestProperty("Accept", "*/*");
-        httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
-        httpURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
+        httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+        httpURLConnection.setRequestProperty(Headers.ACCEPT_ENCODING, "gzip,deflate");
         httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry());
         httpURLConnection.setRequestProperty("x-device-id", o.a(g.b(this.a)));
         return httpURLConnection;
@@ -415,7 +414,7 @@ public final class m {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class a implements X509TrustManager {
         private X509TrustManager b;
 

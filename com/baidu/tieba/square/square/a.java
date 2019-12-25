@@ -1,161 +1,249 @@
 package com.baidu.tieba.square.square;
 
 import android.app.Activity;
-import android.view.LayoutInflater;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.data.Config;
+import com.baidu.tbadk.ProxyAdkBaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
-public class a extends BaseAdapter {
-    private Activity ceC;
-    private ArrayList<d> jde;
-    View.OnClickListener jdf = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.a.1
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            d dVar;
-            Object tag = view.getTag();
-            if ((tag instanceof C0512a) && (dVar = ((C0512a) tag).jdj) != null) {
-                if (dVar.jba == null) {
-                    BarFolderFirstDirActivity.e(a.this.cmR(), null);
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(a.this.cmR(), dVar.jaZ, dVar.jba, dVar.jbb)));
-                }
-            }
-        }
-    };
+/* loaded from: classes7.dex */
+public class a extends ProxyAdkBaseActivity<a> {
+    public static String jXp = "st_type";
+    private ProgressBar jXl;
+    private b jXm;
+    private C0596a jXn;
+    protected ViewGroup jXo;
+    private NavigationBar mNavigationBar;
+    protected ListView mList = null;
+    private String stType = null;
 
-    public a(Activity activity, b bVar, boolean z) {
-        this.ceC = activity;
-        this.jde = bVar.cmQ();
-    }
-
-    public ArrayList<d> cmQ() {
-        return this.jde;
+    public static void e(Activity activity, String str) {
+        Intent intent = new Intent(activity, a.class);
+        intent.putExtra(jXp, str);
+        activity.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: com.baidu.tieba.square.square.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0512a {
-        public TextView bFm;
-        public BarImageView jdh;
-        public BestStringsFitTextView jdi;
-        public d jdj;
-
-        protected C0512a() {
-        }
+    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.bar_folder_dir_activity);
+        initUI();
+        aA(bundle);
+        cGW();
+        TiebaStatic.eventStat(getPageContext().getContext(), "category_1", "enter");
     }
 
-    public void aH(ArrayList<d> arrayList) {
-        this.jde = arrayList;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    public void onResume() {
+        super.onResume();
+        this.jXm.notifyDataSetChanged();
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.jde == null) {
-            return 0;
-        }
-        return (this.jde.size() * 2) + 1;
+    protected void initUI() {
+        this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar.setTitleText(getResources().getString(R.string.bar_first_dir_name));
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mList = (ListView) findViewById(R.id.list);
+        this.jXm = new b(getPageContext().getPageActivity(), new c(), true);
+        TextView textView = new TextView(getActivity());
+        textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(getActivity(), R.dimen.ds76)));
+        this.mList.addHeaderView(textView);
+        this.mList.setAdapter((ListAdapter) this.jXm);
+        this.jXl = (ProgressBar) findViewById(R.id.progress);
+        this.jXo = (ViewGroup) findViewById(R.id.body_container);
+        bc.prepareNewView(this.jXo);
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int itemViewType = getItemViewType(i);
-        if (view == null) {
-            view = v(viewGroup, itemViewType);
-            bc.prepareNewView(view);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.jXn != null) {
+            this.jXn.cancel();
         }
-        bc.processCurrentSkin(view);
-        if (itemViewType != 3) {
-            TbadkCoreApplication.getInst().getSkinType();
-            View findViewById = view.findViewById(R.id.container);
-            am.setBackgroundResource(findViewById, R.drawable.addresslist_item_bg);
-            if (itemViewType == 2) {
-                if (getCount() > 1) {
-                    findViewById.setVisibility(0);
+        a(null, true);
+    }
+
+    protected void cGW() {
+        this.mList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.square.square.a.1
+            @Override // android.widget.AdapterView.OnItemClickListener
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+                e eVar;
+                ArrayList<e> cGX = a.this.jXm.cGX();
+                if (cGX != null && i < cGX.size() && (eVar = cGX.get(i)) != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(a.this.getPageContext().getPageActivity(), eVar.jVw, eVar.jVx, eVar.jVy)));
                 }
-            } else if (itemViewType == 1) {
-                a(viewGroup, (C0512a) view.getTag(), i);
             }
-        }
-        return view;
+        });
     }
 
-    private View v(ViewGroup viewGroup, int i) {
-        if (i == 3) {
-            return LayoutInflater.from(this.ceC).inflate(R.layout.bar_home_list_line, viewGroup, false);
-        }
-        if (i == 2) {
-            return LayoutInflater.from(this.ceC).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
-        }
-        View inflate = LayoutInflater.from(this.ceC).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.jdf);
-        C0512a c0512a = new C0512a();
-        c0512a.jdh = (BarImageView) inflate.findViewById(R.id.portrait);
-        c0512a.bFm = (TextView) inflate.findViewById(R.id.name);
-        c0512a.jdi = (BestStringsFitTextView) inflate.findViewById(R.id.description);
-        inflate.setTag(c0512a);
-        return inflate;
-    }
-
-    private void a(ViewGroup viewGroup, C0512a c0512a, int i) {
-        d dVar = this.jde.get(i / 2);
-        c0512a.jdj = dVar;
-        c0512a.bFm.setText(dVar.jaZ);
-        if (dVar.jdm != null) {
-            c0512a.jdi.setVisibility(0);
-            String[] strArr = new String[dVar.jdm.size()];
-            for (int i2 = 0; i2 < dVar.jdm.size(); i2++) {
-                strArr[i2] = dVar.jdm.get(i2).jaZ;
-            }
-            c0512a.jdi.setTextArray(strArr);
+    protected void aA(Bundle bundle) {
+        if (bundle != null) {
+            this.stType = bundle.getString(jXp);
         } else {
-            c0512a.jdi.setVisibility(8);
+            this.stType = getIntent().getStringExtra(jXp);
         }
-        if (dVar.logoUrl != null) {
-            int dip2px = l.dip2px(this.ceC, 45.0f);
-            c0512a.jdh.setTag(dVar.logoUrl);
-            c0512a.jdh.a(dVar.logoUrl, 10, dip2px, dip2px, false);
+        this.jXl.setVisibility(0);
+        this.mList.setEnabled(false);
+        if (this.jXn != null) {
+            this.jXn.cancel();
+        }
+        this.jXn = new C0596a();
+        this.jXn.setPriority(3);
+        this.jXn.execute("");
+    }
+
+    protected void a(c cVar, boolean z) {
+        this.jXl.setVisibility(8);
+        this.mList.setEnabled(true);
+        this.jXn = null;
+        if (!z) {
+            if (cVar.isFailed()) {
+                showToast(cVar.getErrorMsg());
+                return;
+            }
+            this.jXm.aR(cVar.cGX());
+            this.mList.setVisibility(4);
+            this.jXm.notifyDataSetChanged();
+            this.mList.setVisibility(0);
         }
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 4;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        if (getCount() <= 0 || i != getCount() - 1) {
-            return Math.abs(i) % 2 == 1 ? 3 : 1;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.ProxyAdkBaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        if (this.mList != null) {
+            this.mList.invalidateViews();
         }
-        return 2;
+        if (this.jXo != null) {
+            bc.processSkin(this.jXo, i);
+        }
+        am.setFrsPBBgColor(findViewById(R.id.root_view), i);
     }
 
-    protected Activity cmR() {
-        return this.ceC;
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: com.baidu.tieba.square.square.a$a  reason: collision with other inner class name */
+    /* loaded from: classes7.dex */
+    public class C0596a extends BdAsyncTask<Object, c, c> {
+        private x mNetwork;
+
+        private C0596a() {
+            this.mNetwork = null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: a */
+        public void onProgressUpdate(c... cVarArr) {
+            super.onProgressUpdate(cVarArr);
+            a.this.a(cVarArr[0], false);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        /* JADX WARN: Can't wrap try/catch for region: R(11:1|(3:22|23|(9:25|4|5|6|(1:8)|9|(2:11|(1:(1:14))(1:18))(1:19)|16|17))|3|4|5|6|(0)|9|(0)(0)|16|17) */
+        /* JADX WARN: Code restructure failed: missing block: B:22:0x00cd, code lost:
+            r0 = move-exception;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x00ce, code lost:
+            r3.setErrorMsg(r0.getMessage());
+            com.baidu.adp.lib.util.BdLog.e(r0.getMessage());
+         */
+        /* JADX WARN: Removed duplicated region for block: B:10:0x0058 A[Catch: Exception -> 0x00cd, TryCatch #0 {Exception -> 0x00cd, blocks: (B:8:0x0033, B:10:0x0058, B:11:0x0065, B:13:0x007b, B:18:0x00b8, B:20:0x00c3), top: B:27:0x0033 }] */
+        /* JADX WARN: Removed duplicated region for block: B:13:0x007b A[Catch: Exception -> 0x00cd, TryCatch #0 {Exception -> 0x00cd, blocks: (B:8:0x0033, B:10:0x0058, B:11:0x0065, B:13:0x007b, B:18:0x00b8, B:20:0x00c3), top: B:27:0x0033 }] */
+        /* JADX WARN: Removed duplicated region for block: B:20:0x00c3 A[Catch: Exception -> 0x00cd, TRY_LEAVE, TryCatch #0 {Exception -> 0x00cd, blocks: (B:8:0x0033, B:10:0x0058, B:11:0x0065, B:13:0x007b, B:18:0x00b8, B:20:0x00c3), top: B:27:0x0033 }] */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: E */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public c doInBackground(Object... objArr) {
+            boolean z = true;
+            boolean z2 = false;
+            c cVar = new c();
+            com.baidu.adp.lib.cache.l<String> sx = com.baidu.tbadk.core.c.a.aBV().sx("tb.first_dir");
+            String str = sx.get("first_dir_cache_key");
+            if (str != null) {
+                if (!str.equals("")) {
+                    cVar.parserJson(str);
+                    publishProgress(cVar);
+                    z2 = z;
+                    this.mNetwork = new x(TbConfig.SERVER_ADDRESS + Config.FORUM_FIRST_DIR);
+                    if (a.this.stType != null) {
+                        this.mNetwork.addPostData(a.jXp, a.this.stType);
+                    }
+                    String postNetData = this.mNetwork.postNetData();
+                    if (!this.mNetwork.aDB().aEc().isRequestSuccess()) {
+                        cVar.parserJson(postNetData);
+                        if ((postNetData + "").trim().equals((str + "").trim())) {
+                            if (z2) {
+                                return null;
+                            }
+                        } else {
+                            sx.set("first_dir_cache_key", postNetData, 86400000L);
+                        }
+                    } else {
+                        cVar.setErrorMsg(this.mNetwork.getErrorString());
+                    }
+                    return cVar;
+                }
+            }
+            z = false;
+            z2 = z;
+            this.mNetwork = new x(TbConfig.SERVER_ADDRESS + Config.FORUM_FIRST_DIR);
+            if (a.this.stType != null) {
+            }
+            String postNetData2 = this.mNetwork.postNetData();
+            if (!this.mNetwork.aDB().aEc().isRequestSuccess()) {
+            }
+            return cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: a */
+        public void onPostExecute(c cVar) {
+            if (cVar != null) {
+                a.this.a(cVar, false);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            super.cancel(true);
+            if (this.mNetwork != null) {
+                this.mNetwork.cancelNetConnect();
+                this.mNetwork = null;
+            }
+            a.this.a(null, true);
+        }
     }
 }

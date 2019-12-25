@@ -1,12 +1,5 @@
 package com.baidu.tieba.card;
-
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface y {
-    void a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
-
-    String baw();
-
-    void setFrom(String str);
+    void ke(boolean z);
 }

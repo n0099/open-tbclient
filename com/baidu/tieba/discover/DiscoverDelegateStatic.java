@@ -15,12 +15,12 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DiscoverDelegateStatic extends b {
-    private static boolean isAdded = false;
+    private static boolean fKO = false;
 
     static {
-        if (!isAdded) {
+        if (!fKO) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_REFRESH_TABS));
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, new CustomMessageTask.CustomRunnable<BaseFragment>() { // from class: com.baidu.tieba.discover.DiscoverDelegateStatic.1
@@ -40,7 +40,7 @@ public class DiscoverDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c avw() {
+    public c aNe() {
         c cVar = new c();
         cVar.frag = new DiscoverFragment();
         cVar.type = 10;
@@ -50,19 +50,19 @@ public class DiscoverDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator cB(Context context) {
-        this.cJk = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+    public TbFragmentTabIndicator dW(Context context) {
+        this.dwU = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.cJE = this.cJk;
+        aVar.dxq = this.dwU;
         aVar.offsetX = l.dip2px(context, 3.0f);
         aVar.bgDayRes = R.drawable.icon_news_down_bar_one;
-        this.cJk.a("emotion", aVar);
-        return this.cJk;
+        this.dwU.a("emotion", aVar);
+        return this.dwU;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        isAdded = true;
+        fKO = true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

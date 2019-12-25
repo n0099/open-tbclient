@@ -1,5 +1,5 @@
 package com.baidu.tbadk.coreExtra.view;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface a {
-    boolean asq();
+    boolean aJP();
 }

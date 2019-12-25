@@ -11,10 +11,8 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
-import com.baidu.android.imsdk.internal.DefaultConfig;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FileUtils {
     private static final String IMAGE_FILE_START = "image/";
     private static final String VIDEO_FILE_START = "video/";
@@ -51,7 +49,7 @@ public class FileUtils {
                 return uri.getLastPathSegment();
             }
             return getDataColumn(context, uri, null, null);
-        } else if (BdStatsConstant.OpSubType.FILE.equalsIgnoreCase(uri.getScheme())) {
+        } else if ("file".equalsIgnoreCase(uri.getScheme())) {
             return uri.getPath();
         } else {
             return null;
@@ -128,7 +126,7 @@ public class FileUtils {
 
     private static String getMIMEType(File file) {
         String name = file.getName();
-        int lastIndexOf = name.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR);
+        int lastIndexOf = name.lastIndexOf(".");
         if (lastIndexOf < 0) {
             return "*/*";
         }

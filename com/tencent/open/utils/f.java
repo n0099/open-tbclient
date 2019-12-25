@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.mobstat.Config;
 import com.tencent.connect.common.Constants;
 import java.io.BufferedReader;
@@ -17,10 +16,9 @@ import java.nio.charset.Charset;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class f {
     private static Map<String, f> a = Collections.synchronizedMap(new HashMap());
     private static String b = null;
@@ -76,7 +74,7 @@ public class f {
     private String c(String str) {
         InputStream open;
         try {
-            open = this.c.openFileInput(this.d != null ? str + DefaultConfig.TOKEN_SEPARATOR + this.d : str);
+            open = this.c.openFileInput(this.d != null ? str + "." + this.d : str);
         } catch (FileNotFoundException e) {
             try {
                 open = this.c.getAssets().open(str);
@@ -85,7 +83,7 @@ public class f {
                 return "";
             }
         }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(open, Charset.forName(HTTP.UTF_8)));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(open, Charset.forName("UTF-8")));
         StringBuffer stringBuffer = new StringBuffer();
         while (true) {
             try {
@@ -126,9 +124,9 @@ public class f {
     private void a(String str, String str2) {
         try {
             if (this.d != null) {
-                str = str + DefaultConfig.TOKEN_SEPARATOR + this.d;
+                str = str + "." + this.d;
             }
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.c.openFileOutput(str, 0), Charset.forName(HTTP.UTF_8));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.c.openFileOutput(str, 0), Charset.forName("UTF-8"));
             outputStreamWriter.write(str2);
             outputStreamWriter.flush();
             outputStreamWriter.close();

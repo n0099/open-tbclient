@@ -3,11 +3,14 @@ package com.baidu.live.data;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveMarkData implements Serializable {
     public static final String DEFAULT_ANCHOR_USER_ID = "0";
     public static final int TYPE_FAN = 6;
+    public static final int TYPE_USER_ACHIEVE = 103;
+    public static final int TYPE_USER_ADMIN = 2;
     public static final int TYPE_USER_GUARD_CLUB = 102;
+    public static final int TYPE_USER_HORNOR = 104;
     public static final int TYPE_USER_LABEL = 3;
     public static final int TYPE_USER_LEVEL = 1;
     public static final int TYPE_USER_TB_ACTIVITY = 4;

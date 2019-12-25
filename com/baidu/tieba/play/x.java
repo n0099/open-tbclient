@@ -1,70 +1,61 @@
 package com.baidu.tieba.play;
 
-import android.animation.ObjectAnimator;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.play.VideoLoadingProgressView;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class x {
-    private ViewGroup ixJ;
-    private ImageView ixK;
-    private VideoLoadingProgressView ixL;
-    ObjectAnimator ixM;
-    ObjectAnimator ixN;
-    ObjectAnimator ixO;
-
-    public x(ViewGroup viewGroup) {
-        this.ixJ = viewGroup;
-        this.ixK = (ImageView) viewGroup.findViewById(R.id.auto_video_loading_image);
-        this.ixL = (VideoLoadingProgressView) viewGroup.findViewById(R.id.auto_video_loading_progress);
-        init();
-    }
-
-    private void init() {
-        this.ixM = ObjectAnimator.ofFloat(this.ixK, "alpha", 1.0f, 0.5f);
-        this.ixN = ObjectAnimator.ofFloat(this.ixK, "alpha", 0.5f, 0.0f);
-        this.ixO = ObjectAnimator.ofFloat(this.ixL, "alpha", 1.0f, 0.0f);
-        this.ixM.setDuration(50L);
-        this.ixN.setDuration(50L);
-        this.ixO.setDuration(50L);
-    }
-
-    public void startLoading() {
-        ccO();
-        this.ixK.setAlpha(1.0f);
-        this.ixL.setAlpha(1.0f);
-        this.ixJ.setVisibility(0);
-        this.ixL.startLoading();
-        this.ixM.start();
-    }
-
-    public void ccL() {
-        ccO();
-        this.ixL.ccL();
-    }
-
-    public void ccM() {
-        ccO();
-        this.ixN.start();
-        this.ixO.start();
-    }
-
-    public void ccN() {
-        ccO();
-        this.ixJ.setVisibility(8);
-        this.ixL.ccN();
-    }
-
-    private void ccO() {
-        this.ixM.cancel();
-        this.ixN.cancel();
-        this.ixO.cancel();
-    }
-
-    public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
-        if (this.ixL != null) {
-            this.ixL.setLoadingAnimationListener(aVar);
+    private static x jsf = null;
+    private LinkedHashMap<String, Integer> jsg = new LinkedHashMap<>(150, 0.75f, true);
+    private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.play.x.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null) {
+                x.this.jsg.clear();
+            }
         }
+    };
+
+    private x() {
+        MessageManager.getInstance().registerListener(this.mAccountChangedListener);
+    }
+
+    public static x cwN() {
+        if (jsf == null) {
+            synchronized (x.class) {
+                if (jsf == null) {
+                    jsf = new x();
+                }
+            }
+        }
+        return jsf;
+    }
+
+    public void bm(String str, int i) {
+        if (i != 0 || !this.jsg.containsKey(str)) {
+            this.jsg.put(str, Integer.valueOf(i));
+        }
+    }
+
+    public void remove(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            this.jsg.remove(str);
+        }
+    }
+
+    public int GF(String str) {
+        Integer num = this.jsg.get(str);
+        if (num != null) {
+            return num.intValue();
+        }
+        return 0;
+    }
+
+    public void clear() {
+        this.jsg.clear();
     }
 }

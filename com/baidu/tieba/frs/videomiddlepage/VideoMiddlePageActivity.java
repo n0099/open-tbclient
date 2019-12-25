@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
@@ -12,13 +13,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment fUm;
+    private VideoMiddlePageFragment gIM;
     private String mFrom;
     private String mId;
+    private String mNid;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -32,23 +35,34 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Intent intent = getIntent();
         this.mId = intent.getStringExtra("PARAM_FID");
         this.mFrom = intent.getStringExtra("PARAM_FROM");
-        vK();
+        this.mNid = intent.getStringExtra("key_nid");
+        xI();
+        bIQ();
+    }
+
+    private void bIQ() {
         an anVar = new an("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
-            anVar.bS("obj_source", this.mFrom);
+            anVar.cp("obj_source", this.mFrom);
+        }
+        if (TextUtils.isEmpty(this.mNid)) {
+            anVar.cp("obj_type", "1");
+        } else {
+            anVar.cp("obj_type", "2");
+            anVar.cp("obj_id", this.mNid);
         }
         TiebaStatic.log(anVar);
     }
 
-    private void vK() {
+    private void xI() {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         if (supportFragmentManager != null && !supportFragmentManager.isDestroyed()) {
             VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
             if (videoMiddlePageFragment == null) {
-                videoMiddlePageFragment = VideoMiddlePageFragment.cR(this.mFrom, this.mId);
+                videoMiddlePageFragment = VideoMiddlePageFragment.dk(this.mFrom, this.mId);
                 supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
             }
-            this.fUm = videoMiddlePageFragment;
+            this.gIM = videoMiddlePageFragment;
         }
     }
 
@@ -57,7 +71,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public void onResume() {
         super.onResume();
         if (!aq.isEmpty(this.mId)) {
-            com.baidu.tbadk.BdToken.c.adX().i(com.baidu.tbadk.BdToken.b.bQh, com.baidu.adp.lib.g.b.toLong(this.mId, 0L));
+            com.baidu.tbadk.BdToken.c.auQ().o(com.baidu.tbadk.BdToken.b.cCI, com.baidu.adp.lib.f.b.toLong(this.mId, 0L));
         }
     }
 
@@ -65,7 +79,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.tbadk.BdToken.c.adX().aec();
+        com.baidu.tbadk.BdToken.c.auQ().auV();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,23 +113,23 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.fUm == null) {
+        if (keyEvent == null || this.gIM == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.fUm.qO(i)) {
+        if (this.gIM.sU(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.o.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.m.a
     public String getCurrentPageKey() {
         return PageStayDurationConstants.PageName.VIDEO_LIST;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public com.baidu.tbadk.o.d getPageStayDurationItem() {
-        com.baidu.tbadk.o.d pageStayDurationItem = super.getPageStayDurationItem();
+    public com.baidu.tbadk.m.d getPageStayDurationItem() {
+        com.baidu.tbadk.m.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null && !StringUtils.isNull(this.mFrom)) {
             ArrayList arrayList = new ArrayList();
             if ("index".equals(this.mFrom)) {
@@ -129,6 +143,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             }
             pageStayDurationItem.setSorceKeyList(arrayList);
             pageStayDurationItem.isVertical = "0";
+            pageStayDurationItem.dyM = TextUtils.isEmpty(this.mNid) ? "0" : "1";
         }
         return pageStayDurationItem;
     }
@@ -138,6 +153,13 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         if (aq.isEmpty(this.mId)) {
             return 0L;
         }
-        return com.baidu.adp.lib.g.b.toLong(this.mId, 0L);
+        return com.baidu.adp.lib.f.b.toLong(this.mId, 0L);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public TbPageTag getTbPageTag() {
+        TbPageTag tbPageTag = super.getTbPageTag();
+        tbPageTag.locatePage = getCurrentPageKey();
+        return tbPageTag;
     }
 }

@@ -10,7 +10,7 @@ import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.Callback;
@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static String a = "";
     public static String b = "";
@@ -55,7 +55,7 @@ public class e {
                                         intent.addCategory("android.intent.category.DEFAULT");
                                         Bundle bundle = new Bundle();
                                         bundle.putStringArray("appkey", new String[]{str, str2});
-                                        bundle.putIntArray(TiebaInitialize.Params.KEY, iArr);
+                                        bundle.putIntArray("key", iArr);
                                         bundle.putInt("delay", i);
                                         intent.putExtra("bundle", bundle);
                                         context.startService(intent);
@@ -371,7 +371,7 @@ public class e {
         }
         String b2 = com.baidu.sofire.i.g.b(context);
         if (!TextUtils.isEmpty(b2)) {
-            String[] split = b2.split("\\|");
+            String[] split = b2.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
             if (split == null || split.length != 2 || TextUtils.isEmpty(split[0]) || TextUtils.isEmpty(split[1])) {
                 a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
                 return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";

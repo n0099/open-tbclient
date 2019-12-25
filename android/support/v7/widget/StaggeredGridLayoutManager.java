@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
     static final boolean DEBUG = false;
     @Deprecated
@@ -68,7 +68,6 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         setOrientation(properties.orientation);
         setSpanCount(properties.spanCount);
         setReverseLayout(properties.reverseLayout);
-        setAutoMeasureEnabled(this.mGapStrategy != 0);
         this.mLayoutState = new LayoutState();
         createOrientationHelpers();
     }
@@ -76,9 +75,13 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     public StaggeredGridLayoutManager(int i, int i2) {
         this.mOrientation = i2;
         setSpanCount(i);
-        setAutoMeasureEnabled(this.mGapStrategy != 0);
         this.mLayoutState = new LayoutState();
         createOrientationHelpers();
+    }
+
+    @Override // android.support.v7.widget.RecyclerView.LayoutManager
+    public boolean isAutoMeasureEnabled() {
+        return this.mGapStrategy != 0;
     }
 
     private void createOrientationHelpers() {
@@ -135,6 +138,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
     public void onDetachedFromWindow(RecyclerView recyclerView, RecyclerView.Recycler recycler) {
+        super.onDetachedFromWindow(recyclerView, recycler);
         removeCallbacks(this.mCheckForGapsRunnable);
         for (int i = 0; i < this.mSpanCount; i++) {
             this.mSpans[i].clear();
@@ -270,7 +274,6 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
                 throw new IllegalArgumentException("invalid gap strategy. Must be GAP_HANDLING_NONE or GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS");
             }
             this.mGapStrategy = i;
-            setAutoMeasureEnabled(this.mGapStrategy != 0);
             requestLayout();
         }
     }
@@ -714,14 +717,14 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     private void measureChildWithDecorationsAndMargin(View view, LayoutParams layoutParams, boolean z) {
         if (layoutParams.mFullSpan) {
             if (this.mOrientation == 1) {
-                measureChildWithDecorationsAndMargin(view, this.mFullSizeSpec, getChildMeasureSpec(getHeight(), getHeightMode(), 0, layoutParams.height, true), z);
+                measureChildWithDecorationsAndMargin(view, this.mFullSizeSpec, getChildMeasureSpec(getHeight(), getHeightMode(), getPaddingTop() + getPaddingBottom(), layoutParams.height, true), z);
             } else {
-                measureChildWithDecorationsAndMargin(view, getChildMeasureSpec(getWidth(), getWidthMode(), 0, layoutParams.width, true), this.mFullSizeSpec, z);
+                measureChildWithDecorationsAndMargin(view, getChildMeasureSpec(getWidth(), getWidthMode(), getPaddingLeft() + getPaddingRight(), layoutParams.width, true), this.mFullSizeSpec, z);
             }
         } else if (this.mOrientation == 1) {
-            measureChildWithDecorationsAndMargin(view, getChildMeasureSpec(this.mSizePerSpan, getWidthMode(), 0, layoutParams.width, false), getChildMeasureSpec(getHeight(), getHeightMode(), 0, layoutParams.height, true), z);
+            measureChildWithDecorationsAndMargin(view, getChildMeasureSpec(this.mSizePerSpan, getWidthMode(), 0, layoutParams.width, false), getChildMeasureSpec(getHeight(), getHeightMode(), getPaddingTop() + getPaddingBottom(), layoutParams.height, true), z);
         } else {
-            measureChildWithDecorationsAndMargin(view, getChildMeasureSpec(getWidth(), getWidthMode(), 0, layoutParams.width, true), getChildMeasureSpec(this.mSizePerSpan, getHeightMode(), 0, layoutParams.height, false), z);
+            measureChildWithDecorationsAndMargin(view, getChildMeasureSpec(getWidth(), getWidthMode(), getPaddingLeft() + getPaddingRight(), layoutParams.width, true), getChildMeasureSpec(this.mSizePerSpan, getHeightMode(), 0, layoutParams.height, false), z);
         }
     }
 
@@ -1513,6 +1516,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     @Override // android.support.v7.widget.RecyclerView.LayoutManager
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void collectAdjacentPrefetchPositions(int i, int i2, RecyclerView.State state, RecyclerView.LayoutManager.LayoutPrefetchRegistry layoutPrefetchRegistry) {
         int endLine;
         if (this.mOrientation != 0) {
@@ -1748,7 +1752,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends RecyclerView.LayoutParams {
         public static final int INVALID_SPAN_ID = -1;
         boolean mFullSpan;
@@ -1791,7 +1795,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class Span {
         static final int INVALID_LINE = Integer.MIN_VALUE;
         final int mIndex;
@@ -2087,7 +2091,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LazySpanLookup {
         private static final int MIN_SIZE = 10;
         int[] mData;
@@ -2285,7 +2289,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static class FullSpanItem implements Parcelable {
             public static final Parcelable.Creator<FullSpanItem> CREATOR = new Parcelable.Creator<FullSpanItem>() { // from class: android.support.v7.widget.StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -2353,7 +2357,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v7.widget.StaggeredGridLayoutManager.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -2456,7 +2460,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class AnchorInfo {
         boolean mInvalidateOffsets;
         boolean mLayoutFromEnd;

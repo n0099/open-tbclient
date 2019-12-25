@@ -5,39 +5,39 @@ import com.baidu.adp.widget.ListView.r;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> agy;
-    private r fcN;
-    private c gmO;
-    private a gmP;
-    private com.baidu.tieba.homepage.topic.topictab.a.c gmQ;
+    private List<com.baidu.adp.widget.ListView.a> aoz;
+    private r fRq;
+    private c hap;
+    private a haq;
+    private com.baidu.tieba.homepage.topic.topictab.a.c har;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.fcN = rVar;
-        sY();
-        this.fcN.addAdapters(this.agy);
+        this.fRq = rVar;
+        uR();
+        this.fRq.addAdapters(this.aoz);
     }
 
-    private void sY() {
-        this.agy = new ArrayList();
-        this.gmO = new c(this.mPageContext);
-        this.gmP = new a(this.mPageContext);
-        this.gmQ = new com.baidu.tieba.homepage.topic.topictab.a.c(this.mPageContext);
-        this.agy.add(this.gmO);
-        this.agy.add(this.gmP);
-        this.agy.add(this.gmQ);
+    private void uR() {
+        this.aoz = new ArrayList();
+        this.hap = new c(this.mPageContext);
+        this.haq = new a(this.mPageContext);
+        this.har = new com.baidu.tieba.homepage.topic.topictab.a.c(this.mPageContext);
+        this.aoz.add(this.hap);
+        this.aoz.add(this.haq);
+        this.aoz.add(this.har);
     }
 
     public void notifyDataSetChanged() {
-        if (this.fcN != null) {
-            this.fcN.getListAdapter().notifyDataSetChanged();
+        if (this.fRq != null) {
+            this.fRq.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.fcN.setData(list);
+        this.fRq.setData(list);
     }
 }

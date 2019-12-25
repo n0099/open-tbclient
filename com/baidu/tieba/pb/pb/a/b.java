@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.pb.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface b extends a {
-    boolean bRw();
+    boolean ciN();
 
     void pause();
 

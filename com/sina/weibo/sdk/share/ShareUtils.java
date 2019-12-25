@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.sina.weibo.sdk.WeiboAppManager;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.BufferedInputStream;
@@ -15,7 +14,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.Calendar;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class ShareUtils {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [65=4] */
     /* JADX INFO: Access modifiers changed from: protected */
@@ -52,7 +51,7 @@ public final class ShareUtils {
                 new File(Environment.getExternalStorageDirectory().getAbsolutePath() + str).mkdirs();
                 Calendar calendar = Calendar.getInstance();
                 try {
-                    if (uri.getScheme().equals(BdStatsConstant.OpSubType.FILE)) {
+                    if (uri.getScheme().equals("file")) {
                         str2 = calendar.getTimeInMillis() + uri.getLastPathSegment();
                         cursor = null;
                     } else {

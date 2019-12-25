@@ -1,6 +1,7 @@
 package com.baidu.mapapi.cloud;
 
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes5.dex */
 public abstract class BaseSearchInfo {
     String a;
@@ -17,17 +18,17 @@ public abstract class BaseSearchInfo {
             return null;
         }
         sb.append("ak");
-        sb.append("=");
+        sb.append(ETAG.EQUAL);
         sb.append(this.ak);
         if (this.geoTableId != 0) {
-            sb.append("&");
+            sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("geotable_id");
-            sb.append("=");
+            sb.append(ETAG.EQUAL);
             sb.append(this.geoTableId);
             if (this.sn != null && !this.sn.equals("") && this.sn.length() <= 50) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(IXAdRequestInfo.SN);
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
                 sb.append(this.sn);
             }
             return sb.toString();

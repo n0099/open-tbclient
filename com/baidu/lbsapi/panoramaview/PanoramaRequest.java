@@ -9,6 +9,7 @@ import com.baidu.pano.platform.c.c;
 import com.baidu.pano.platform.c.f;
 import com.baidu.pano.platform.c.i;
 import com.baidu.pano.platform.comjni.JNITool;
+import com.baidu.webkit.internal.ETAG;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
@@ -34,21 +35,21 @@ public class PanoramaRequest {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("The parameter iid can't be null or empty string!");
         }
-        return c(c.a(this.a).b(i.a + "&iid=" + str + "&" + f.a(this.a).toString()));
+        return c(c.a(this.a).b(i.a + "&iid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.a).toString()));
     }
 
     public String getPanoramaRecommendInfo(String str) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("The parameter pid can't be null or empty string!");
         }
-        return c.a(this.a).b(i.b + "&sid=" + str + "&" + f.a(this.a).toString());
+        return c.a(this.a).b(i.b + "&sid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.a).toString());
     }
 
     public String getPoiInfoByUidWithJson(String str) {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("The parameter uid can't be null or empty string!");
         }
-        return c.a(this.a).b(i.e + "&action=1&uid=" + str + "&" + f.a(this.a).toString());
+        return c.a(this.a).b(i.e + "&action=1&uid=" + str + ETAG.ITEM_SEPARATOR + f.a(this.a).toString());
     }
 
     public BaiduPanoData getPanoramaInfoByLatLon(double d, double d2) {

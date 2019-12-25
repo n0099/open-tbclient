@@ -1,15 +1,16 @@
 package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private int iYt = -1;
+    private int jSP = -1;
     private String errorMsg = null;
     private String userMsg = null;
 
     public int getErrorNumber() {
-        return this.iYt;
+        return this.jSP;
     }
 
     public String getUserMsg() {
@@ -19,8 +20,8 @@ public class a {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.iYt = jSONObject.optInt("errno");
-                this.errorMsg = jSONObject.optString("errmsg");
+                this.jSP = jSONObject.optInt("errno");
+                this.errorMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 this.userMsg = jSONObject.optString("usermsg");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

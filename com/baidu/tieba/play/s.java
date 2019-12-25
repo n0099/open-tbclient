@@ -1,34 +1,91 @@
 package com.baidu.tieba.play;
+
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.tbadk.switchs.VCacheSwitch;
 /* loaded from: classes.dex */
 public class s {
-    private int hDq = 0;
-    private int ixC = 0;
-    private boolean fCr = false;
-    private boolean ixD = true;
+    private static i jrE = null;
+    private static boolean jrF = true;
+    private static boolean jrG = true;
 
-    public int ccD() {
-        return this.hDq;
+    private static i cwE() {
+        if (jrE == null) {
+            jrF = com.baidu.tbadk.core.sharedPref.b.aCY().getBoolean(SharedPrefConfig.PREFS_SAVE_PALED_VIDEO, true);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, i.class);
+            if (runTask != null) {
+                jrE = (i) runTask.getData();
+            }
+        }
+        return jrE;
     }
 
-    public int ccE() {
-        return this.ixC;
+    public static String aw(String str, boolean z) {
+        if (z) {
+            if (jrG && cwE() != null) {
+                return cwE().W(str, true);
+            }
+            return str;
+        } else if (jrG && jrF && cwE() != null) {
+            return cwE().wg(str);
+        } else {
+            return str;
+        }
     }
 
-    public boolean ccF() {
-        return this.fCr;
+    public static String wh(String str) {
+        if (cwE() != null) {
+            return cwE().wh(str);
+        }
+        return null;
     }
 
-    public boolean ccG() {
-        return this.ixD;
+    public static void d(Context context, String str, int i) {
+        if (cwE() != null) {
+            cwE().d(context, str, i);
+        }
     }
 
-    public void l(int i, int i2, boolean z) {
-        this.hDq = i;
-        this.ixC = i2;
-        this.fCr = z;
+    public static void aG(Context context, String str) {
+        if (cwE() != null) {
+            cwE().aG(context, str);
+        }
     }
 
-    public void mW(boolean z) {
-        this.ixD = z;
+    public static void aH(Context context, String str) {
+        if (jrG && jrF && cwE() != null) {
+            cwE().aH(context, str);
+        }
+    }
+
+    public static void wi(String str) {
+        if (jrG && jrF && cwE() != null) {
+            cwE().wi(str);
+        }
+    }
+
+    public static void clearCache(Context context) {
+        if (cwE() != null) {
+            cwE().clearCache(context);
+        }
+    }
+
+    public static String wj(String str) {
+        if (cwE() != null) {
+            return cwE().wj(str);
+        }
+        return null;
+    }
+
+    public static void rz(boolean z) {
+        jrF = z;
+    }
+
+    public static void cwF() {
+        jrG = SwitchManager.getInstance().findType(VCacheSwitch.CACHE_SWITCH) == 1;
     }
 }

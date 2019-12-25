@@ -1,0 +1,130 @@
+package com.baidu.swan.apps.storage.c;
+
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
+import java.util.Map;
+import java.util.Set;
+/* loaded from: classes9.dex */
+public class g implements SharedPreferences {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private final String mName;
+    private SharedPreferences mSp;
+
+    public g(String str) {
+        this.mName = TextUtils.isEmpty(str) ? DefaultSharedPrefsWrapper.SP_FILE_DEFAULT : str;
+        if (DefaultSharedPrefsWrapper.SP_FILE_DEFAULT.equals(this.mName)) {
+            this.mSp = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
+        } else {
+            this.mSp = com.baidu.swan.apps.w.a.Rk().getSharedPreferences(str, 0);
+        }
+    }
+
+    public String getName() {
+        return this.mName;
+    }
+
+    @Override // android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        return this.mSp.getAll();
+    }
+
+    @Override // android.content.SharedPreferences
+    public String getString(String str, String str2) {
+        return this.mSp.getString(str, str2);
+    }
+
+    @Override // android.content.SharedPreferences
+    public Set<String> getStringSet(String str, Set<String> set) {
+        return this.mSp.getStringSet(str, set);
+    }
+
+    @Override // android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        return this.mSp.getInt(str, i);
+    }
+
+    @Override // android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        return this.mSp.getLong(str, j);
+    }
+
+    @Override // android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        return this.mSp.getFloat(str, f);
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        return this.mSp.getBoolean(str, z);
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
+        return this.mSp.contains(str);
+    }
+
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
+        return this.mSp.edit();
+    }
+
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        this.mSp.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+    }
+
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        this.mSp.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+    }
+
+    public void putString(String str, String str2) {
+        verifyLength(str, str2);
+        this.mSp.edit().putString(str, str2).apply();
+    }
+
+    public void putStringSet(String str, Set<String> set) {
+        verifyAllLength(str, set);
+        this.mSp.edit().putStringSet(str, set).apply();
+    }
+
+    public void putInt(String str, int i) {
+        this.mSp.edit().putInt(str, i).apply();
+    }
+
+    public void putLong(String str, long j) {
+        this.mSp.edit().putLong(str, j).apply();
+    }
+
+    public void putFloat(String str, float f) {
+        this.mSp.edit().putFloat(str, f).apply();
+    }
+
+    public void putBoolean(String str, boolean z) {
+        this.mSp.edit().putBoolean(str, z).apply();
+    }
+
+    public void remove(String str) {
+        this.mSp.edit().remove(str).apply();
+    }
+
+    public void clear() {
+        this.mSp.edit().clear().apply();
+    }
+
+    private void verifyLength(String str, String str2) {
+        if (str2 == null || str2.length() <= 256) {
+        }
+    }
+
+    private void verifyAllLength(String str, Set<String> set) {
+        if (set != null) {
+            for (String str2 : set) {
+                verifyLength(str, str2);
+            }
+        }
+    }
+}

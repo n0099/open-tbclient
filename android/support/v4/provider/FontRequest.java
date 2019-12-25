@@ -8,7 +8,7 @@ import android.support.v4.util.Preconditions;
 import android.util.Base64;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class FontRequest {
     private final List<List<byte[]>> mCertificates;
     private final int mCertificatesArray;
@@ -36,14 +36,17 @@ public final class FontRequest {
         this.mIdentifier = this.mProviderAuthority + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mProviderPackage + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mQuery;
     }
 
+    @NonNull
     public String getProviderAuthority() {
         return this.mProviderAuthority;
     }
 
+    @NonNull
     public String getProviderPackage() {
         return this.mProviderPackage;
     }
 
+    @NonNull
     public String getQuery() {
         return this.mQuery;
     }

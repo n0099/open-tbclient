@@ -5,12 +5,14 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-/* loaded from: classes6.dex */
+import tbclient.User;
+/* loaded from: classes8.dex */
 public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
     private int from;
     private boolean isHost;
     private int page;
     private PersonPostModel personPostModel;
+    private User threadUser;
 
     public UserPostPageSocketResponsedMessage() {
         super(CmdConfigSocket.CMD_USER_POST_PAGE);
@@ -24,6 +26,7 @@ public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
             this.isHost = userPostPageRequestMessage.isHost();
             this.page = userPostPageRequestMessage.getPn();
             this.from = userPostPageRequestMessage.getFrom();
+            this.threadUser = userPostPageRequestMessage.getThreadUser();
         }
     }
 
@@ -31,7 +34,7 @@ public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
     @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         this.personPostModel = new PersonPostModel(null, null, this.isHost, this.from);
-        UserPostResIdl parseProtobuf = this.personPostModel.parseProtobuf(bArr, this.page);
+        UserPostResIdl parseProtobuf = this.personPostModel.parseProtobuf(bArr, this.page, this.threadUser);
         setError(parseProtobuf.error.errorno.intValue());
         setErrorString(parseProtobuf.error.usermsg);
         this.personPostModel.setErrorCode(parseProtobuf.error.errorno.intValue());

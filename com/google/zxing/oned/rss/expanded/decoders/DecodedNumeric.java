@@ -1,7 +1,7 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
 import com.google.zxing.FormatException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class DecodedNumeric extends DecodedObject {
     static final int FNC1 = 10;
     private final int firstDigit;

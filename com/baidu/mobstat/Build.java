@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Build {
     public static final int SDK_CHANNEL_VALUE = 14;
     public static final boolean SDK_ENABLE_DEVICE = false;

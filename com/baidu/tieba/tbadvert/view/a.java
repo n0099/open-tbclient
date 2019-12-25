@@ -1,5 +1,6 @@
 package com.baidu.tieba.tbadvert.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v4.view.ViewCompat;
@@ -7,59 +8,61 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadvert.view.CountDownTextView;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private FrameLayout bEf;
-    private ImageView jlT;
-    private InterfaceC0519a jlU;
+    private FrameLayout coJ;
+    private ImageView kgh;
+    private InterfaceC0603a kgi;
     private Context mContext;
 
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0519a {
-        void cpN();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0603a {
+        void cJR();
 
-        void cpO();
+        void cJS();
     }
 
-    public a(Context context, InterfaceC0519a interfaceC0519a) {
-        this.jlU = interfaceC0519a;
+    public a(Context context, InterfaceC0603a interfaceC0603a) {
+        this.kgi = interfaceC0603a;
         this.mContext = context;
-        this.bEf = new FrameLayout(context);
+        this.coJ = new FrameLayout(context);
     }
 
     public View getView() {
-        return this.bEf;
+        return this.coJ;
     }
 
     public void e(Object obj, int i) {
         if (obj instanceof com.baidu.adp.widget.ImageView.a) {
             k((com.baidu.adp.widget.ImageView.a) obj);
         }
-        cpU();
-        Af(i);
+        cJY();
+        CA(i);
     }
 
     private void k(com.baidu.adp.widget.ImageView.a aVar) {
-        this.jlT = new ImageView(this.mContext);
-        this.jlT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.kgh = new ImageView(this.mContext);
+        this.kgh.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.jlT.setImageBitmap(aVar.getRawBitmap());
+            this.kgh.setImageBitmap(aVar.getRawBitmap());
         }
-        this.jlT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
+        this.kgh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.jlU != null) {
-                    a.this.jlU.cpN();
+                if (a.this.kgi != null) {
+                    a.this.kgi.cJR();
                 }
             }
         });
-        this.bEf.addView(this.jlT);
+        this.coJ.addView(this.kgh);
     }
 
-    private void cpU() {
+    private void cJY() {
         TextView textView = new TextView(this.mContext);
         textView.setText(R.string.tb_ad_label);
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds28);
@@ -75,13 +78,16 @@ public class a {
         textView.setBackgroundDrawable(gradientDrawable);
         layoutParams.gravity = 83;
         layoutParams.setMargins(dimension, 0, 0, (int) this.mContext.getResources().getDimension(R.dimen.ds28));
-        this.bEf.addView(textView, layoutParams);
+        this.coJ.addView(textView, layoutParams);
     }
 
-    private void Af(int i) {
+    private void CA(int i) {
         CountDownTextView countDownTextView = new CountDownTextView(this.mContext);
+        int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds22);
+        int dimension2 = (int) this.mContext.getResources().getDimension(R.dimen.ds36);
+        int statusBarHeight = ((this.mContext instanceof Activity) && (UtilHelper.isNotchScreen((Activity) this.mContext) || UtilHelper.isCutoutScreen((Activity) this.mContext))) ? l.getStatusBarHeight((Activity) this.mContext) + dimension2 : dimension2;
         String string = this.mContext.getResources().getString(R.string.skip);
-        countDownTextView.setTextSize(0, (int) this.mContext.getResources().getDimension(R.dimen.ds22));
+        countDownTextView.setTextSize(0, dimension);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) this.mContext.getResources().getDimension(R.dimen.ds106), (int) this.mContext.getResources().getDimension(R.dimen.ds52));
         countDownTextView.setTextColor(-1);
         countDownTextView.setGravity(17);
@@ -91,23 +97,23 @@ public class a {
         gradientDrawable.setCornerRadius(this.mContext.getResources().getDimension(R.dimen.ds4));
         gradientDrawable.setStroke(1, ViewCompat.MEASURED_STATE_MASK);
         countDownTextView.setBackgroundDrawable(gradientDrawable);
-        countDownTextView.aa(string, i);
+        countDownTextView.am(string, i);
         layoutParams.gravity = 53;
-        layoutParams.setMargins(0, (int) this.mContext.getResources().getDimension(R.dimen.ds36), (int) this.mContext.getResources().getDimension(R.dimen.ds32), 0);
-        this.bEf.addView(countDownTextView, layoutParams);
+        layoutParams.setMargins(0, statusBarHeight, (int) this.mContext.getResources().getDimension(R.dimen.ds32), 0);
+        this.coJ.addView(countDownTextView, layoutParams);
         countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.jlU != null) {
-                    a.this.jlU.cpO();
+                if (a.this.kgi != null) {
+                    a.this.kgi.cJS();
                 }
             }
         });
         countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.tbadvert.view.a.3
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
-            public void bp(View view) {
-                if (a.this.jlU != null) {
-                    a.this.jlU.cpO();
+            public void bm(View view) {
+                if (a.this.kgi != null) {
+                    a.this.kgi.cJS();
                 }
             }
         });

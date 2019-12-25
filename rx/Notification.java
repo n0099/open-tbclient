@@ -1,38 +1,38 @@
 package rx;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Notification<T> {
-    private static final Notification<Void> kxF = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind kxD;
-    private final Throwable kxE;
+    private static final Notification<Void> ndp = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind ndo;
+    private final Throwable throwable;
     private final T value;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public enum Kind {
         OnNext,
         OnError,
         OnCompleted
     }
 
-    public static <T> Notification<T> bg(T t) {
+    public static <T> Notification<T> bR(T t) {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
-    public static <T> Notification<T> H(Throwable th) {
+    public static <T> Notification<T> P(Throwable th) {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> cNZ() {
-        return (Notification<T>) kxF;
+    public static <T> Notification<T> dFV() {
+        return (Notification<T>) ndp;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.kxE = th;
-        this.kxD = kind;
+        this.throwable = th;
+        this.ndo = kind;
     }
 
-    public Throwable cOa() {
-        return this.kxE;
+    public Throwable getThrowable() {
+        return this.throwable;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return cOf() && this.value != null;
+        return dFZ() && this.value != null;
     }
 
-    public boolean cOb() {
-        return cOd() && this.kxE != null;
+    public boolean dFW() {
+        return dDM() && this.throwable != null;
     }
 
-    public Kind cOc() {
-        return this.kxD;
+    public Kind dFX() {
+        return this.ndo;
     }
 
-    public boolean cOd() {
-        return cOc() == Kind.OnError;
+    public boolean dDM() {
+        return dFX() == Kind.OnError;
     }
 
-    public boolean cOe() {
-        return cOc() == Kind.OnCompleted;
+    public boolean dFY() {
+        return dFX() == Kind.OnCompleted;
     }
 
-    public boolean cOf() {
-        return cOc() == Kind.OnNext;
+    public boolean dFZ() {
+        return dFX() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cOc());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(dFX());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (cOb()) {
-            append.append(' ').append(cOa().getMessage());
+        if (dFW()) {
+            append.append(' ').append(getThrowable().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = cOc().hashCode();
+        int hashCode = dFX().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (cOb()) {
-            return (hashCode * 31) + cOa().hashCode();
+        if (dFW()) {
+            return (hashCode * 31) + getThrowable().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.cOc() != cOc() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.kxE != notification.kxE && (this.kxE == null || !this.kxE.equals(notification.kxE))))) {
+            if (notification.dFX() != dFX() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.throwable != notification.throwable && (this.throwable == null || !this.throwable.equals(notification.throwable))))) {
                 z = false;
             }
             return z;

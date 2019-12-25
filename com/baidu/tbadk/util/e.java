@@ -1,69 +1,69 @@
 package com.baidu.tbadk.util;
 
-import android.graphics.Color;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.R;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
-    private static LinkedList<Integer> uT;
-
-    public static int Vj() {
-        return aH(null);
-    }
-
-    public static int aH(List<Integer> list) {
-        if (uT == null) {
-            axt();
+    public static String[] aPj() {
+        String string = com.baidu.tbadk.core.sharedPref.b.aCY().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+        if (StringUtils.isNull(string)) {
+            return new String[0];
         }
-        Integer aI = aI(list);
-        return aI != null ? aI.intValue() : R.color.cp_atp_a;
-    }
-
-    public static int km(int i) {
-        Color.colorToHSV(am.getColor(i), r0);
-        float[] fArr = {0.0f, 0.83f, 0.66f};
-        return Color.HSVToColor(fArr);
-    }
-
-    private static void axt() {
-        uT = new LinkedList<>();
-        uT.offer(Integer.valueOf((int) R.color.cp_atp_a));
-        uT.offer(Integer.valueOf((int) R.color.cp_atp_b));
-        uT.offer(Integer.valueOf((int) R.color.cp_atp_c));
-        uT.offer(Integer.valueOf((int) R.color.cp_atp_d));
-        uT.offer(Integer.valueOf((int) R.color.cp_atp_e));
-    }
-
-    private static Integer aI(List<Integer> list) {
-        Integer peek = uT.peek();
-        if (list == null || list.size() == 0) {
-            uT.offer(uT.poll());
-            return peek;
-        } else if (list.size() > 4) {
-            uT.offer(uT.poll());
-            return peek;
-        } else {
-            int i = 0;
-            while (true) {
-                if (i >= uT.size()) {
-                    i = 0;
-                    break;
+        String[] split = string.split("\\^");
+        if (split != null && split.length > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (String str : split) {
+                a vq = a.vq(str);
+                if (vq != null && !StringUtils.isNull(vq.forumName)) {
+                    arrayList.add(vq.forumName);
                 }
-                Integer num = uT.get(i);
-                boolean z = false;
-                for (Integer num2 : list) {
-                    z = num2.intValue() == num.intValue() ? true : z;
-                }
-                if (!z) {
-                    break;
-                }
-                i++;
             }
-            Integer remove = uT.remove(i);
-            uT.offer(remove);
-            return remove;
+            return (String[]) arrayList.toArray(new String[arrayList.size()]);
+        }
+        return null;
+    }
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public String forumName;
+        public int level;
+
+        public a() {
+        }
+
+        public a(String str, int i) {
+            this.forumName = str;
+            this.level = i;
+        }
+
+        public String toString() {
+            if (StringUtils.isNull(this.forumName)) {
+                return null;
+            }
+            return this.forumName + "#" + this.level;
+        }
+
+        public static a vq(String str) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            a aVar = new a();
+            if (str.contains("#")) {
+                String[] split = str.split("#");
+                if (split.length == 1) {
+                    aVar.forumName = split[0];
+                    return aVar;
+                } else if (split.length == 2) {
+                    aVar.forumName = split[0];
+                    aVar.level = com.baidu.adp.lib.f.b.toInt(split[1], -1);
+                    return aVar;
+                } else {
+                    return aVar;
+                }
+            }
+            aVar.forumName = str;
+            return aVar;
         }
     }
 }

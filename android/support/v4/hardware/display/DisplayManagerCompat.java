@@ -3,26 +3,32 @@ package android.support.v4.hardware.display;
 import android.content.Context;
 import android.hardware.display.DisplayManager;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.live.tbadk.log.LogConfig;
 import java.util.WeakHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class DisplayManagerCompat {
     public static final String DISPLAY_CATEGORY_PRESENTATION = "android.hardware.display.category.PRESENTATION";
     private static final WeakHashMap<Context, DisplayManagerCompat> sInstances = new WeakHashMap<>();
 
+    @Nullable
     public abstract Display getDisplay(int i);
 
+    @NonNull
     public abstract Display[] getDisplays();
 
+    @NonNull
     public abstract Display[] getDisplays(String str);
 
     DisplayManagerCompat() {
     }
 
-    public static DisplayManagerCompat getInstance(Context context) {
+    @NonNull
+    public static DisplayManagerCompat getInstance(@NonNull Context context) {
         DisplayManagerCompat displayManagerCompat;
         synchronized (sInstances) {
             displayManagerCompat = sInstances.get(context);
@@ -38,7 +44,7 @@ public abstract class DisplayManagerCompat {
         return displayManagerCompat;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class DisplayManagerCompatApi14Impl extends DisplayManagerCompat {
         private final WindowManager mWindowManager;
 
@@ -67,7 +73,7 @@ public abstract class DisplayManagerCompat {
     }
 
     @RequiresApi(17)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class DisplayManagerCompatApi17Impl extends DisplayManagerCompat {
         private final DisplayManager mDisplayManager;
 

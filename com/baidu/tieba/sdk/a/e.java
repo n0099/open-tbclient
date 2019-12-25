@@ -2,7 +2,7 @@ package com.baidu.tieba.sdk.a;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface e {
-    void f(Context context, Intent intent);
+    void e(Context context, Intent intent);
 }

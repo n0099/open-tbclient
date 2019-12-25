@@ -1,34 +1,48 @@
 package com.baidu.live.view.web.a;
 
+import android.util.Log;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.util.ViewHelper;
-import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.tbadk.extraparams.ResultCallback;
-import com.baidu.live.tbadk.scheme.SchemeCallback;
+import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class d extends com.baidu.live.view.web.a {
-    private SchemeCallback atB;
-
-    public d(SchemeCallback schemeCallback) {
-        this.atB = schemeCallback;
-    }
+    private boolean isHost;
 
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "loginBridge";
+        return "liveBridge";
     }
 
     @Override // com.baidu.live.view.web.a
-    public void cZ(final String str) {
-        if (this.atB != null) {
-            ExtraParamsManager.addLoginCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.d.1
-                @Override // com.baidu.live.tbadk.extraparams.ResultCallback
-                public void onCallback(JSONObject jSONObject) {
-                    d.this.atB.doJsCallback(jSONObject.optBoolean("status") ? 1 : 0, "", null, str);
+    public void dT(String str) {
+        if (!this.isHost) {
+            Log.d("JsInterface", "@@ JsInterface-impl LiveBridgeJsInterface params = " + str);
+            try {
+                long parseLong = Long.parseLong(str);
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_EXTRA_RECOMMEND_TYPE, 0);
+                    jSONObject.put(AlaLiveRoomActivityConfig.LIVE_SHOW_GITE_PANEL, 0);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            });
+                String jSONObject2 = jSONObject.toString();
+                AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(TbadkCoreApplication.getInst());
+                alaLiveRoomActivityConfig.addExtraByLiveId(parseLong, jSONObject2);
+                alaLiveRoomActivityConfig.setNeedStopImWhenClose(true);
+                alaLiveRoomActivityConfig.getIntent().addFlags(268435456);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, alaLiveRoomActivityConfig));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
         }
-        ViewHelper.skipToLoginActivity(TbadkCoreApplication.getInst());
+    }
+
+    public void setHost(boolean z) {
+        this.isHost = z;
     }
 }

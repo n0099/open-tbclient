@@ -1,69 +1,65 @@
 package rx.internal.operators;
 
 import rx.d;
-import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes2.dex */
-public class i<T, R> implements d.b<R, T> {
-    final Class<R> kzO;
+import rx.internal.producers.SingleDelayedProducer;
+/* loaded from: classes4.dex */
+public final class i<T> implements d.b<Boolean, T> {
+    final rx.functions.f<? super T, Boolean> nep;
+    final boolean nfl;
 
+    public i(rx.functions.f<? super T, Boolean> fVar, boolean z) {
+        this.nep = fVar;
+        this.nfl = z;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.f
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((rx.j) ((rx.j) obj));
-    }
+    public rx.j<? super T> call(final rx.j<? super Boolean> jVar) {
+        final SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
+        rx.j jVar2 = (rx.j<T>) new rx.j<T>() { // from class: rx.internal.operators.i.1
+            boolean done;
+            boolean nfm;
 
-    public i(Class<R> cls) {
-        this.kzO = cls;
-    }
-
-    public rx.j<? super T> call(rx.j<? super R> jVar) {
-        a aVar = new a(jVar, this.kzO);
-        jVar.add(aVar);
-        return aVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static final class a<T, R> extends rx.j<T> {
-        final rx.j<? super R> actual;
-        boolean done;
-        final Class<R> kzO;
-
-        public a(rx.j<? super R> jVar, Class<R> cls) {
-            this.actual = jVar;
-            this.kzO = cls;
-        }
-
-        @Override // rx.e
-        public void onNext(T t) {
-            try {
-                this.actual.onNext(this.kzO.cast(t));
-            } catch (Throwable th) {
-                rx.exceptions.a.K(th);
-                unsubscribe();
-                onError(OnErrorThrowable.addValueAsLastCause(th, t));
+            @Override // rx.e
+            public void onNext(T t) {
+                if (!this.done) {
+                    this.nfm = true;
+                    try {
+                        if (i.this.nep.call(t).booleanValue()) {
+                            this.done = true;
+                            singleDelayedProducer.setValue(Boolean.valueOf(!i.this.nfl));
+                            unsubscribe();
+                        }
+                    } catch (Throwable th) {
+                        rx.exceptions.a.a(th, this, t);
+                    }
+                }
             }
-        }
 
-        @Override // rx.e
-        public void onError(Throwable th) {
-            if (this.done) {
+            @Override // rx.e
+            public void onError(Throwable th) {
+                if (!this.done) {
+                    this.done = true;
+                    jVar.onError(th);
+                    return;
+                }
                 rx.c.c.onError(th);
-                return;
             }
-            this.done = true;
-            this.actual.onError(th);
-        }
 
-        @Override // rx.e
-        public void onCompleted() {
-            if (!this.done) {
-                this.actual.onCompleted();
+            @Override // rx.e
+            public void onCompleted() {
+                if (!this.done) {
+                    this.done = true;
+                    if (this.nfm) {
+                        singleDelayedProducer.setValue(false);
+                    } else {
+                        singleDelayedProducer.setValue(Boolean.valueOf(i.this.nfl));
+                    }
+                }
             }
-        }
-
-        @Override // rx.j
-        public void setProducer(rx.f fVar) {
-            this.actual.setProducer(fVar);
-        }
+        };
+        jVar.add(jVar2);
+        jVar.setProducer(singleDelayedProducer);
+        return jVar2;
     }
 }

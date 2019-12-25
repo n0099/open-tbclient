@@ -3,6 +3,7 @@ package android.support.v4.graphics;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Process;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.util.Log;
@@ -17,7 +18,7 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TypefaceCompatUtil {
     private static final String CACHE_FILE_PREFIX = ".font";
     private static final String TAG = "TypefaceCompatUtil";
@@ -25,6 +26,7 @@ public class TypefaceCompatUtil {
     private TypefaceCompatUtil() {
     }
 
+    @Nullable
     public static File getTempFile(Context context) {
         String str = CACHE_FILE_PREFIX + Process.myPid() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Process.myTid() + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         int i = 0;
@@ -43,8 +45,9 @@ public class TypefaceCompatUtil {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [82=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [85=4] */
     @RequiresApi(19)
+    @Nullable
     private static ByteBuffer mmap(File file) {
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
@@ -71,106 +74,123 @@ public class TypefaceCompatUtil {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [98=5, 93=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [105=5, 106=7] */
     @android.support.annotation.RequiresApi(19)
+    @android.support.annotation.Nullable
     public static java.nio.ByteBuffer mmap(android.content.Context r12, android.os.CancellationSignal r13, android.net.Uri r14) {
         /*
             r6 = 0
             android.content.ContentResolver r0 = r12.getContentResolver()
             java.lang.String r1 = "r"
-            android.os.ParcelFileDescriptor r7 = r0.openFileDescriptor(r14, r1, r13)     // Catch: java.io.IOException -> L49
+            android.os.ParcelFileDescriptor r7 = r0.openFileDescriptor(r14, r1, r13)     // Catch: java.io.IOException -> L1d
             r8 = 0
-            java.io.FileInputStream r9 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L3b
-            java.io.FileDescriptor r0 = r7.getFileDescriptor()     // Catch: java.lang.Throwable -> L3b
-            r9.<init>(r0)     // Catch: java.lang.Throwable -> L3b
-            r10 = 0
-            java.nio.channels.FileChannel r0 = r9.getChannel()     // Catch: java.lang.Throwable -> L5c
-            long r4 = r0.size()     // Catch: java.lang.Throwable -> L5c
-            java.nio.channels.FileChannel$MapMode r1 = java.nio.channels.FileChannel.MapMode.READ_ONLY     // Catch: java.lang.Throwable -> L5c
-            r2 = 0
-            java.nio.MappedByteBuffer r0 = r0.map(r1, r2, r4)     // Catch: java.lang.Throwable -> L5c
-            if (r9 == 0) goto L2e
-            if (r6 == 0) goto L4c
-            r9.close()     // Catch: java.lang.Throwable -> L36
-        L2e:
-            if (r7 == 0) goto L35
-            if (r6 == 0) goto L58
-            r7.close()     // Catch: java.lang.Throwable -> L53
-        L35:
+            if (r7 != 0) goto L24
+            if (r7 == 0) goto L16
+            if (r6 == 0) goto L20
+            r7.close()     // Catch: java.lang.Throwable -> L18
+        L16:
+            r0 = r6
+        L17:
             return r0
-        L36:
-            r1 = move-exception
-            r10.addSuppressed(r1)     // Catch: java.lang.Throwable -> L3b
-            goto L2e
-        L3b:
+        L18:
             r0 = move-exception
-            throw r0     // Catch: java.lang.Throwable -> L3d
-        L3d:
-            r1 = move-exception
-            r11 = r1
-            r1 = r0
-            r0 = r11
-        L41:
-            if (r7 == 0) goto L48
-            if (r1 == 0) goto L78
-            r7.close()     // Catch: java.lang.Throwable -> L73
-        L48:
-            throw r0     // Catch: java.io.IOException -> L49
-        L49:
+            r8.addSuppressed(r0)     // Catch: java.io.IOException -> L1d
+            goto L16
+        L1d:
             r0 = move-exception
             r0 = r6
-            goto L35
-        L4c:
-            r9.close()     // Catch: java.lang.Throwable -> L3b
-            goto L2e
-        L50:
-            r0 = move-exception
-            r1 = r6
-            goto L41
-        L53:
+            goto L17
+        L20:
+            r7.close()     // Catch: java.io.IOException -> L1d
+            goto L16
+        L24:
+            java.io.FileInputStream r9 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L57
+            java.io.FileDescriptor r0 = r7.getFileDescriptor()     // Catch: java.lang.Throwable -> L57
+            r9.<init>(r0)     // Catch: java.lang.Throwable -> L57
+            r10 = 0
+            java.nio.channels.FileChannel r0 = r9.getChannel()     // Catch: java.lang.Throwable -> L70
+            long r4 = r0.size()     // Catch: java.lang.Throwable -> L70
+            java.nio.channels.FileChannel$MapMode r1 = java.nio.channels.FileChannel.MapMode.READ_ONLY     // Catch: java.lang.Throwable -> L70
+            r2 = 0
+            java.nio.MappedByteBuffer r0 = r0.map(r1, r2, r4)     // Catch: java.lang.Throwable -> L70
+            if (r9 == 0) goto L45
+            if (r6 == 0) goto L65
+            r9.close()     // Catch: java.lang.Throwable -> L52
+        L45:
+            if (r7 == 0) goto L17
+            if (r6 == 0) goto L6c
+            r7.close()     // Catch: java.lang.Throwable -> L4d
+            goto L17
+        L4d:
             r1 = move-exception
-            r8.addSuppressed(r1)     // Catch: java.io.IOException -> L49
-            goto L35
-        L58:
-            r7.close()     // Catch: java.io.IOException -> L49
-            goto L35
-        L5c:
+            r8.addSuppressed(r1)     // Catch: java.io.IOException -> L1d
+            goto L17
+        L52:
+            r1 = move-exception
+            r10.addSuppressed(r1)     // Catch: java.lang.Throwable -> L57
+            goto L45
+        L57:
             r0 = move-exception
-            throw r0     // Catch: java.lang.Throwable -> L5e
-        L5e:
+            throw r0     // Catch: java.lang.Throwable -> L59
+        L59:
             r1 = move-exception
             r11 = r1
             r1 = r0
             r0 = r11
-        L62:
-            if (r9 == 0) goto L69
-            if (r1 == 0) goto L6f
-            r9.close()     // Catch: java.lang.Throwable -> L6a
+        L5d:
+            if (r7 == 0) goto L64
+            if (r1 == 0) goto L8c
+            r7.close()     // Catch: java.lang.Throwable -> L87
+        L64:
+            throw r0     // Catch: java.io.IOException -> L1d
+        L65:
+            r9.close()     // Catch: java.lang.Throwable -> L57
+            goto L45
         L69:
-            throw r0     // Catch: java.lang.Throwable -> L3b
-        L6a:
-            r2 = move-exception
-            r1.addSuppressed(r2)     // Catch: java.lang.Throwable -> L3b
-            goto L69
-        L6f:
-            r9.close()     // Catch: java.lang.Throwable -> L3b
-            goto L69
-        L73:
-            r2 = move-exception
-            r1.addSuppressed(r2)     // Catch: java.io.IOException -> L49
-            goto L48
-        L78:
-            r7.close()     // Catch: java.io.IOException -> L49
-            goto L48
-        L7c:
             r0 = move-exception
             r1 = r6
-            goto L62
+            goto L5d
+        L6c:
+            r7.close()     // Catch: java.io.IOException -> L1d
+            goto L17
+        L70:
+            r0 = move-exception
+            throw r0     // Catch: java.lang.Throwable -> L72
+        L72:
+            r1 = move-exception
+            r11 = r1
+            r1 = r0
+            r0 = r11
+        L76:
+            if (r9 == 0) goto L7d
+            if (r1 == 0) goto L83
+            r9.close()     // Catch: java.lang.Throwable -> L7e
+        L7d:
+            throw r0     // Catch: java.lang.Throwable -> L57
+        L7e:
+            r2 = move-exception
+            r1.addSuppressed(r2)     // Catch: java.lang.Throwable -> L57
+            goto L7d
+        L83:
+            r9.close()     // Catch: java.lang.Throwable -> L57
+            goto L7d
+        L87:
+            r2 = move-exception
+            r1.addSuppressed(r2)     // Catch: java.io.IOException -> L1d
+            goto L64
+        L8c:
+            r7.close()     // Catch: java.io.IOException -> L1d
+            goto L64
+        L90:
+            r0 = move-exception
+            r1 = r6
+            goto L76
         */
         throw new UnsupportedOperationException("Method not decompiled: android.support.v4.graphics.TypefaceCompatUtil.mmap(android.content.Context, android.os.CancellationSignal, android.net.Uri):java.nio.ByteBuffer");
     }
 
     @RequiresApi(19)
+    @Nullable
     public static ByteBuffer copyToDirectBuffer(Context context, Resources resources, int i) {
         ByteBuffer byteBuffer = null;
         File tempFile = getTempFile(context);

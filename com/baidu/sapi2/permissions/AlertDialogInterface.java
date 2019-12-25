@@ -1,7 +1,7 @@
 package com.baidu.sapi2.permissions;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface AlertDialogInterface {
     void setCancel(boolean z);
 

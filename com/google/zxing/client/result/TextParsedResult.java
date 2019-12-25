@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class TextParsedResult extends ParsedResult {
     private final String language;
     private final String text;

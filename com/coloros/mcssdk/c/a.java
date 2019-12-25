@@ -7,7 +7,7 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static final String a = "AES/CBC/PKCS5Padding";
     public static final String b = "AES";

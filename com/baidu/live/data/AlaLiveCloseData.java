@@ -3,7 +3,7 @@ package com.baidu.live.data;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveCloseData implements Serializable {
     public String actionScheme;
     public String actionText;

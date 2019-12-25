@@ -1,13 +1,13 @@
 package com.baidu.sapi2.views;
 
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.callback.GetDynamicPwdCallback;
 import com.baidu.sapi2.result.GetDynamicPwdResult;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.views.SmsLoginView;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class l extends GetDynamicPwdCallback {
     final /* synthetic */ SmsLoginView.c a;
 

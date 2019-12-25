@@ -14,11 +14,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.zip.GZIPOutputStream;
-import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static final String a = b.class.getSimpleName();
     private static final Object b = new Object();
@@ -176,10 +175,10 @@ public class b {
                 httpURLConnection.setConnectTimeout(30000);
                 httpURLConnection.setReadTimeout(30000);
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-                httpURLConnection.setRequestProperty("Charset", HTTP.UTF_8);
-                httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
+                httpURLConnection.setRequestProperty("Charset", "UTF-8");
+                httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 String str4 = "gzip";
-                httpURLConnection.setRequestProperty(HTTP.CONTENT_ENCODING, "gzip");
+                httpURLConnection.setRequestProperty("Content-Encoding", "gzip");
                 ?? r2 = str4;
                 try {
                     if (map != null) {

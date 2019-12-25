@@ -3,8 +3,10 @@ package com.baidu.tieba.tbadkCore.d;
 import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
@@ -14,40 +16,40 @@ public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String cma;
-        public int eOW;
+        public String OC;
+        public int fGK;
         public String mPid;
     }
 
-    public static C0515a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        C0515a c0515a = new C0515a(str, str2, str3, str4, str5);
-        c0515a.l(str6, str7, str8, str9, str10);
-        return c0515a;
+    public static C0599a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        C0599a c0599a = new C0599a(str, str2, str3, str4, str5);
+        c0599a.l(str6, str7, str8, str9, str10);
+        return c0599a;
     }
 
-    public static C0515a d(String str, String str2, String str3, String str4, String str5, String str6) {
-        C0515a c0515a = new C0515a("ad_tpoint", "PT", str, str2, "tpoint");
-        c0515a.l(null, null, str3, str4, str5);
+    public static C0599a d(String str, String str2, String str3, String str4, String str5, String str6) {
+        C0599a c0599a = new C0599a("ad_tpoint", "PT", str, str2, "tpoint");
+        c0599a.l(null, null, str3, str4, str5);
         if (!aq.isEmpty(str6)) {
-            c0515a.ea("obj_ref", str6);
+            c0599a.et("obj_ref", str6);
         }
-        return c0515a;
+        return c0599a;
     }
 
     @Deprecated
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        C0515a c0515a = new C0515a("ad_tpoint", "PT", str, "c0122", "ad_plat");
-        c0515a.l(str2, str7, str3, str4, str5);
-        c0515a.ea(TiebaInitialize.Params.OBJ_URL, str6);
-        c0515a.save();
+        C0599a c0599a = new C0599a("ad_tpoint", "PT", str, "c0122", "ad_plat");
+        c0599a.l(str2, str7, str3, str4, str5);
+        c0599a.et(TiebaInitialize.Params.OBJ_URL, str6);
+        c0599a.save();
     }
 
     @Deprecated
-    public static void dZ(String str, String str2) {
+    public static void es(String str, String str2) {
         if (!aq.isEmpty(str)) {
             an anVar = new an(str);
             if (str2 != null) {
-                anVar = anVar.bS("obj_type", str2);
+                anVar = anVar.cp("obj_type", str2);
             }
             TiebaStatic.log(anVar);
         }
@@ -55,38 +57,38 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0515a {
-        private final boolean bYO;
-        private final an hcy;
-        private final String jiS;
-        private final String jiT;
-        private final String jiU;
+    public static class C0599a {
+        private final boolean cKZ;
+        private final an hQH;
+        private final String kdf;
+        private final String kdg;
+        private final String kdh;
         private final String key;
         private final String page;
 
-        private C0515a(String str, String str2, String str3, String str4, String str5) {
+        private C0599a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.jiS = str2;
+            this.kdf = str2;
             this.page = str3;
-            this.jiT = str4;
-            this.jiU = str5;
-            this.bYO = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.hcy = coG();
+            this.kdg = str4;
+            this.kdh = str5;
+            this.cKZ = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.hQH = cIM();
         }
 
-        private an coG() {
+        private an cIM() {
             an anVar = new an(this.key);
-            if (!StringUtils.isNull(this.jiS)) {
-                anVar = anVar.bS("line", this.jiS);
+            if (!StringUtils.isNull(this.kdf)) {
+                anVar = anVar.cp("line", this.kdf);
             }
             if (!StringUtils.isNull(this.page)) {
-                anVar = anVar.bS("page", this.page);
+                anVar = anVar.cp("page", this.page);
             }
-            if (!StringUtils.isNull(this.jiT)) {
-                anVar = anVar.bS("locate", this.jiT);
+            if (!StringUtils.isNull(this.kdg)) {
+                anVar = anVar.cp("locate", this.kdg);
             }
-            if (!StringUtils.isNull(this.jiU)) {
-                return anVar.bS("task", this.jiU);
+            if (!StringUtils.isNull(this.kdh)) {
+                return anVar.cp("task", this.kdh);
             }
             return anVar;
         }
@@ -94,34 +96,34 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public an l(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.hcy.bS("action_type", str);
+                this.hQH.cp(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.hcy.bS("obj_id", str2);
+                this.hQH.cp("obj_id", str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.hcy.bS("fid", str3);
+                this.hQH.cp("fid", str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.hcy.bS("fname", str4);
+                this.hQH.cp("fname", str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.hcy.bS("tid", str5);
+                this.hQH.cp("tid", str5);
             }
-            this.hcy.O("obj_cpid", 0).O("obj_good_id", 0).bS("obj_throw_type", "BY_POST").bS("client_type", "MOBILE_APP").bS("user_timestamp", String.valueOf(System.currentTimeMillis())).bS("os", "android").bS(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE).bS("log_ver", "1.1");
-            return this.hcy;
+            this.hQH.Z("obj_cpid", 0).Z("obj_good_id", 0).cp("obj_throw_type", "BY_POST").cp("client_type", "MOBILE_APP").cp("user_timestamp", String.valueOf(System.currentTimeMillis())).cp("os", PraiseDataPassUtil.KEY_FROM_OS).cp(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE).cp("log_ver", "1.1");
+            return this.hQH;
         }
 
-        public C0515a ea(String str, String str2) {
+        public C0599a et(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.hcy.bS(str, str2);
+                this.hQH.cp(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.hcy);
-            if (!this.bYO) {
+            TiebaStatic.log(this.hQH);
+            if (!this.cKZ) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
@@ -130,7 +132,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.hcy.delete(str);
+            this.hQH.delete(str);
         }
     }
 }

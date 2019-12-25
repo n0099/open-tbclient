@@ -733,7 +733,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Handler handler) {
-        MessageCenter.registMessage(UIMsg.m_AppUI.MSG_APP_SAVESCREEN, handler);
+        MessageCenter.registMessage(4000, handler);
         MessageCenter.registMessage(39, handler);
         MessageCenter.registMessage(41, handler);
         MessageCenter.registMessage(49, handler);
@@ -1210,7 +1210,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(Handler handler) {
-        MessageCenter.unregistMessage(UIMsg.m_AppUI.MSG_APP_SAVESCREEN, handler);
+        MessageCenter.unregistMessage(4000, handler);
         MessageCenter.unregistMessage(41, handler);
         MessageCenter.unregistMessage(49, handler);
         MessageCenter.unregistMessage(39, handler);

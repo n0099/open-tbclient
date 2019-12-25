@@ -7,7 +7,7 @@ import com.baidu.sapi2.dto.IqiyiLoginDTO;
 import com.baidu.sapi2.result.GetUserInfoResult;
 import com.baidu.sapi2.result.IqiyiLoginResult;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class F extends GetUserInfoCallback {
     final /* synthetic */ IqiyiLoginCallback a;
     final /* synthetic */ IqiyiLoginDTO b;

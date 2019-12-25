@@ -1,35 +1,31 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class i {
-    private boolean cDj;
-    private boolean cDk;
-    private String method;
+    private int activityId;
+    private String activityNum;
+    private int drh;
 
-    public boolean atA() {
-        return this.cDj;
+    public int getActivityId() {
+        return this.activityId;
     }
 
-    public void eV(boolean z) {
-        this.cDj = z;
+    public void setActivityId(int i) {
+        this.activityId = i;
     }
 
-    public void atB() {
-        this.cDj = false;
+    public int aLd() {
+        return this.drh;
     }
 
-    public boolean isOpen() {
-        return this.cDk;
+    public void lP(int i) {
+        this.drh = i;
     }
 
-    public void eW(boolean z) {
-        this.cDk = z;
+    public String aLe() {
+        return this.activityNum;
     }
 
-    public String getMethod() {
-        return this.method;
-    }
-
-    public void setMethod(String str) {
-        this.method = str;
+    public void uw(String str) {
+        this.activityNum = str;
     }
 }

@@ -1,5 +1,8 @@
 package com.baidu.swan.games.c;
-/* loaded from: classes2.dex */
-public interface b {
-    void de(boolean z);
+
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+/* loaded from: classes9.dex */
+public class b {
+    @V8JavascriptField
+    public String errMsg;
 }

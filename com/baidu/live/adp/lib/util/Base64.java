@@ -21,7 +21,7 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class Base64 {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final int DECODE = 0;
@@ -936,7 +936,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class InputStream extends FilterInputStream {
         private boolean breakLines;
         private byte[] buffer;
@@ -1052,7 +1052,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class OutputStream extends FilterOutputStream {
         private byte[] b4;
         private boolean breakLines;

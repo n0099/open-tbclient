@@ -8,13 +8,13 @@ import android.os.Build;
 import android.os.Bundle;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ActivityLifeObserver {
     private static final ActivityLifeObserver b = new ActivityLifeObserver();
     private boolean a;
     private Set<IActivityLifeCallback> c = new LinkedHashSet();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface IActivityLifeCallback {
         void onActivityCreated(Activity activity, Bundle bundle);
 

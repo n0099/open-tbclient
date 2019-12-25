@@ -1,60 +1,63 @@
 package com.baidu.live.view.web;
 
-import android.content.Context;
+import android.app.Activity;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
-/* loaded from: classes6.dex */
+import com.baidu.live.view.web.a.h;
+import com.baidu.live.view.web.a.i;
+import com.baidu.live.view.web.a.j;
+/* loaded from: classes2.dex */
 public class f {
-    private SchemeCallback atB;
-    private e atC;
-    private g atD;
-    private Context context;
+    private SchemeCallback aBx;
+    private e aBy;
+    private g aBz;
+    private Activity context;
     private boolean isHost = false;
     private long userId;
     private String userName;
 
-    public a[] wP() {
-        r0[0].a(this.atD);
-        com.baidu.live.view.web.a.c cVar = new com.baidu.live.view.web.a.c();
-        cVar.setHost(this.isHost);
-        com.baidu.live.view.web.a.g gVar = new com.baidu.live.view.web.a.g();
-        gVar.setUserId(this.userId);
-        gVar.setUserName(this.userName);
-        a[] aVarArr = {new com.baidu.live.view.web.a.h(this.context, this.atB), cVar, new com.baidu.live.view.web.a.f(), new com.baidu.live.view.web.a.e(this.atB), gVar, new com.baidu.live.view.web.a.d(this.atB), new com.baidu.live.view.web.a.b(), new com.baidu.live.view.web.a.a(this.atC)};
+    public a[] yO() {
+        r0[0].a(this.aBz);
+        com.baidu.live.view.web.a.d dVar = new com.baidu.live.view.web.a.d();
+        dVar.setHost(this.isHost);
+        h hVar = new h();
+        hVar.setUserId(this.userId);
+        hVar.setUserName(this.userName);
+        a[] aVarArr = {new i(this.context, this.aBx), dVar, new com.baidu.live.view.web.a.g(this.context), new com.baidu.live.view.web.a.f(this.aBx), hVar, new com.baidu.live.view.web.a.e(this.aBx), new com.baidu.live.view.web.a.c(), new com.baidu.live.view.web.a.a(this.aBy), new com.baidu.live.view.web.a.b(this.aBx), new j(this.aBx)};
         return aVarArr;
     }
 
-    public f az(Context context) {
-        this.context = context;
+    public f x(Activity activity) {
+        this.context = activity;
         return this;
     }
 
     public f a(SchemeCallback schemeCallback) {
-        this.atB = schemeCallback;
+        this.aBx = schemeCallback;
         return this;
     }
 
     public f a(e eVar) {
-        this.atC = eVar;
+        this.aBy = eVar;
         return this;
     }
 
-    public f I(long j) {
+    public f K(long j) {
         this.userId = j;
         return this;
     }
 
-    public f de(String str) {
+    public f dY(String str) {
         this.userName = str;
         return this;
     }
 
-    public f aV(boolean z) {
+    public f bm(boolean z) {
         this.isHost = z;
         return this;
     }
 
     public f b(g gVar) {
-        this.atD = gVar;
+        this.aBz = gVar;
         return this;
     }
 }

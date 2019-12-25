@@ -1,6 +1,7 @@
 package com.baidu.sapi2;
 
 import android.content.Context;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.sapi2.bio.BiometricsManager;
 import com.baidu.sapi2.callback.ExtendSysWebViewMethodCallback;
@@ -9,7 +10,7 @@ import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class d extends GetTplStokenCallback {
     final /* synthetic */ String a;
     final /* synthetic */ Map b;
@@ -43,7 +44,7 @@ public class d extends GetTplStokenCallback {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     public void onFailure(GetTplStokenResult getTplStokenResult) {
-        this.f.params.put("retCode", Integer.valueOf(getTplStokenResult.getResultCode()));
+        this.f.params.put(BaiduRimConstants.RETCODE_KEY, Integer.valueOf(getTplStokenResult.getResultCode()));
         this.f.params.put("retMsg", getTplStokenResult.getResultMsg());
         this.g.onFinish(this.f);
     }

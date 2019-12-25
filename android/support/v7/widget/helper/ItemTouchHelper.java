@@ -22,7 +22,7 @@ import android.view.ViewParent;
 import android.view.animation.Interpolator;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ItemTouchHelper extends RecyclerView.ItemDecoration implements RecyclerView.OnChildAttachStateChangeListener {
     static final int ACTION_MODE_DRAG_MASK = 16711680;
     private static final int ACTION_MODE_IDLE_MASK = 255;
@@ -52,6 +52,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     GestureDetectorCompat mGestureDetector;
     float mInitialTouchX;
     float mInitialTouchY;
+    private ItemTouchHelperGestureListener mItemTouchHelperGestureListener;
     float mMaxSwipeVelocity;
     RecyclerView mRecyclerView;
     int mSelectedFlags;
@@ -178,7 +179,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface ViewDropHandler {
         void prepareForDrop(View view, View view2, int i, int i2);
     }
@@ -197,7 +198,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
                 destroyCallbacks();
             }
             this.mRecyclerView = recyclerView;
-            if (this.mRecyclerView != null) {
+            if (recyclerView != null) {
                 Resources resources = recyclerView.getResources();
                 this.mSwipeEscapeVelocity = resources.getDimension(R.dimen.item_touch_helper_swipe_escape_velocity);
                 this.mMaxSwipeVelocity = resources.getDimension(R.dimen.item_touch_helper_swipe_escape_max_velocity);
@@ -211,7 +212,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         this.mRecyclerView.addItemDecoration(this);
         this.mRecyclerView.addOnItemTouchListener(this.mOnItemTouchListener);
         this.mRecyclerView.addOnChildAttachStateChangeListener(this);
-        initGestureDetector();
+        startGestureDetection();
     }
 
     private void destroyCallbacks() {
@@ -225,11 +226,21 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         this.mOverdrawChild = null;
         this.mOverdrawChildPosition = -1;
         releaseVelocityTracker();
+        stopGestureDetection();
     }
 
-    private void initGestureDetector() {
-        if (this.mGestureDetector == null) {
-            this.mGestureDetector = new GestureDetectorCompat(this.mRecyclerView.getContext(), new ItemTouchHelperGestureListener());
+    private void startGestureDetection() {
+        this.mItemTouchHelperGestureListener = new ItemTouchHelperGestureListener();
+        this.mGestureDetector = new GestureDetectorCompat(this.mRecyclerView.getContext(), this.mItemTouchHelperGestureListener);
+    }
+
+    private void stopGestureDetection() {
+        if (this.mItemTouchHelperGestureListener != null) {
+            this.mItemTouchHelperGestureListener.doNotReactToLongPress();
+            this.mItemTouchHelperGestureListener = null;
+        }
+        if (this.mGestureDetector != null) {
+            this.mGestureDetector = null;
         }
     }
 
@@ -819,7 +830,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Callback {
         private static final int ABS_HORIZONTAL_DIR_FLAGS = 789516;
         public static final int DEFAULT_DRAG_ANIMATION_DURATION = 200;
@@ -1101,7 +1112,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class SimpleCallback extends Callback {
         private int mDefaultDragDirs;
         private int mDefaultSwipeDirs;
@@ -1134,9 +1145,15 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class ItemTouchHelperGestureListener extends GestureDetector.SimpleOnGestureListener {
+        private boolean mShouldReactToLongPress = true;
+
         ItemTouchHelperGestureListener() {
+        }
+
+        void doNotReactToLongPress() {
+            this.mShouldReactToLongPress = false;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -1146,9 +1163,9 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public void onLongPress(MotionEvent motionEvent) {
+            View findChildView;
             RecyclerView.ViewHolder childViewHolder;
-            View findChildView = ItemTouchHelper.this.findChildView(motionEvent);
-            if (findChildView != null && (childViewHolder = ItemTouchHelper.this.mRecyclerView.getChildViewHolder(findChildView)) != null && ItemTouchHelper.this.mCallback.hasDragFlag(ItemTouchHelper.this.mRecyclerView, childViewHolder) && motionEvent.getPointerId(0) == ItemTouchHelper.this.mActivePointerId) {
+            if (this.mShouldReactToLongPress && (findChildView = ItemTouchHelper.this.findChildView(motionEvent)) != null && (childViewHolder = ItemTouchHelper.this.mRecyclerView.getChildViewHolder(findChildView)) != null && ItemTouchHelper.this.mCallback.hasDragFlag(ItemTouchHelper.this.mRecyclerView, childViewHolder) && motionEvent.getPointerId(0) == ItemTouchHelper.this.mActivePointerId) {
                 int findPointerIndex = motionEvent.findPointerIndex(ItemTouchHelper.this.mActivePointerId);
                 float x = motionEvent.getX(findPointerIndex);
                 float y = motionEvent.getY(findPointerIndex);
@@ -1165,7 +1182,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class RecoverAnimation implements Animator.AnimatorListener {
         final int mActionState;
         final int mAnimationType;

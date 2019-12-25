@@ -3,19 +3,19 @@ package org.java_websocket.c;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.TreeMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class g implements c {
     private byte[] content;
-    private TreeMap<String, String> kxn = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+    private TreeMap<String, String> ncP = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
     @Override // org.java_websocket.c.f
-    public Iterator<String> cNT() {
-        return Collections.unmodifiableSet(this.kxn.keySet()).iterator();
+    public Iterator<String> dFO() {
+        return Collections.unmodifiableSet(this.ncP.keySet()).iterator();
     }
 
     @Override // org.java_websocket.c.f
-    public String Hk(String str) {
-        String str2 = this.kxn.get(str);
+    public String Rq(String str) {
+        String str2 = this.ncP.get(str);
         if (str2 == null) {
             return "";
         }
@@ -29,11 +29,11 @@ public class g implements c {
 
     @Override // org.java_websocket.c.c
     public void put(String str, String str2) {
-        this.kxn.put(str, str2);
+        this.ncP.put(str, str2);
     }
 
     @Override // org.java_websocket.c.f
-    public boolean Hl(String str) {
-        return this.kxn.containsKey(str);
+    public boolean Rr(String str) {
+        return this.ncP.containsKey(str);
     }
 }

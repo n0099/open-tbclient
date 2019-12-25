@@ -1,33 +1,32 @@
 package com.baidu.tieba.ala.person.d;
 
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaLocationData;
 import com.baidu.live.data.AlaRelationData;
 import com.baidu.live.data.PersonUserData;
-import com.baidu.live.data.s;
+import com.baidu.live.data.u;
 import com.baidu.tieba.ala.person.a.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static PersonUserData a(b bVar) {
         PersonUserData personUserData = new PersonUserData();
-        personUserData.user_info = new s();
+        personUserData.user_info = new u();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.Sn = bVar.metaKey;
+        personUserData.user_info.Zc = bVar.metaKey;
         personUserData.user_info.user_id = bVar.id;
         personUserData.user_info.user_name = bVar.name;
         personUserData.user_info.user_nickname = bVar.name_show;
         personUserData.user_info.description = bVar.intro;
         personUserData.user_info.portrait = bVar.portrait;
-        personUserData.relation_info.follow_status = bVar.dQP;
+        personUserData.relation_info.follow_status = bVar.eGw;
         return personUserData;
     }
 
-    public static String ad(int i, String str) {
+    public static String at(int i, String str) {
         String str2;
         String str3;
         String str4 = null;
@@ -60,7 +59,7 @@ public class a {
         return null;
     }
 
-    public static String uj(String str) {
+    public static String zc(String str) {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -76,13 +75,13 @@ public class a {
         return null;
     }
 
-    public static String co(long j) {
-        return j / 10000 > 0 ? i(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
+    public static String cW(long j) {
+        return j / 10000 > 0 ? j(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 
-    public static String i(double d) {
+    public static String j(double d) {
         String valueOf = String.valueOf(d);
-        int indexOf = valueOf.indexOf(DefaultConfig.TOKEN_SEPARATOR);
+        int indexOf = valueOf.indexOf(".");
         String substring = valueOf.substring(indexOf + 1, valueOf.length());
         if (substring.length() == 1) {
             if (Integer.parseInt(substring) == 0) {

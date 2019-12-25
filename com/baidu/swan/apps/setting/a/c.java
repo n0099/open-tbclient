@@ -6,21 +6,21 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class c extends z {
+/* loaded from: classes9.dex */
+public class c extends ab {
     public c(j jVar) {
-        super(jVar, "/swan/getPhoneNumber");
+        super(jVar, "/swanAPI/getPhoneNumber");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (bVar == null) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
-        } else if (TextUtils.isEmpty(bVar.getAppKey())) {
+        } else if (TextUtils.isEmpty(eVar.getAppKey())) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty clientId");
             return false;
         } else {
@@ -37,19 +37,17 @@ public class c extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                com.baidu.swan.apps.setting.b.a.a((Activity) context, "mobile", "0", new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.c.1
+                com.baidu.swan.apps.setting.b.a.a((Activity) context, "mobile", null, false, new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.c.1
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.swan.apps.an.d.a
+                    @Override // com.baidu.swan.apps.as.d.b
                     /* renamed from: a */
                     public void B(com.baidu.swan.apps.setting.b.a aVar) {
-                        JSONObject wrapCallbackParams;
                         com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                        if (aVar.Sw()) {
-                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(aVar.boD, 0);
+                        if (!aVar.abR()) {
+                            com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, optString);
                         } else {
-                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied;\n err by -> " + aVar.boE.toString(-200));
+                            callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.bOM, 0).toString());
                         }
-                        callbackHandler.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
                     }
                 });
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

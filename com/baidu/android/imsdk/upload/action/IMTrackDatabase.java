@@ -20,7 +20,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMTrackDatabase {
     private static final String DB_NAME = "im_track.db";
     private static final int DB_VERSION = 1;
@@ -32,9 +32,8 @@ public class IMTrackDatabase {
     private static DbOpenHelper dbOpenHelper = null;
     public static final Object myLock = new Object();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public enum AckEnum {
+    /* loaded from: classes2.dex */
+    enum AckEnum {
         ackId,
         type,
         value,
@@ -45,9 +44,8 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "ack";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public enum ConnectionEnum {
+    /* loaded from: classes2.dex */
+    enum ConnectionEnum {
         connectionId,
         startTime,
         stopTime,
@@ -60,9 +58,8 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "connection";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public enum CrashEnum {
+    /* loaded from: classes2.dex */
+    enum CrashEnum {
         crashId,
         exception,
         timestamp,
@@ -72,9 +69,8 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "crash";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public enum DbEnum {
+    /* loaded from: classes2.dex */
+    enum DbEnum {
         dbId,
         tableName,
         className,
@@ -89,9 +85,8 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "db";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public enum MsgEnum {
+    /* loaded from: classes2.dex */
+    enum MsgEnum {
         msgId,
         msgCount,
         roomId,
@@ -104,9 +99,8 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "msg";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public enum RequestEnum {
+    /* loaded from: classes2.dex */
+    enum RequestEnum {
         id,
         method,
         requestId,
@@ -119,9 +113,8 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "request";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public enum UiEnum {
+    /* loaded from: classes2.dex */
+    enum UiEnum {
         uiId,
         category,
         page,
@@ -811,7 +804,7 @@ public class IMTrackDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         private Context context;
         private static final String SQL_TABLE_CREATE_UI = "CREATE TABLE ui (" + UiEnum.uiId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + UiEnum.category.name() + " TEXT, " + UiEnum.page.name() + " TEXT, " + UiEnum.startTime.name() + " LONG, " + UiEnum.endTime.name() + " LONG, " + UiEnum.duration.name() + " LONG, " + UiEnum.ext.name() + " TEXT, " + UiEnum.aliasId.name() + " LONG NOT NULL );";

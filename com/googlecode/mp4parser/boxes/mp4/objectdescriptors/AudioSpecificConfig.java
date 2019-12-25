@@ -1,6 +1,6 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
-import com.baidu.ala.livePlayer.StreamConfig;
+import com.baidu.ala.player.StreamConfig;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoTypeWriter;
@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 @Descriptor(objectTypeIndication = 64, tags = {5})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
     int aacScalefactorDataResilienceFlag;
     int aacSectionDataResilienceFlag;
@@ -67,7 +67,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
         samplingFrequencyIndexMap.put(5, Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K));
         samplingFrequencyIndexMap.put(6, 24000);
         samplingFrequencyIndexMap.put(7, 22050);
-        samplingFrequencyIndexMap.put(8, Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_16K));
+        samplingFrequencyIndexMap.put(8, 16000);
         samplingFrequencyIndexMap.put(9, 12000);
         samplingFrequencyIndexMap.put(10, Integer.valueOf((int) RequestResponseCode.REQUEST_LOGIN_PB_AT));
         samplingFrequencyIndexMap.put(11, 8000);

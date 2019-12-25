@@ -5,8 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -15,7 +14,7 @@ import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class SwanAppNetworkUtils {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -51,14 +50,14 @@ public class SwanAppNetworkUtils {
     public static void a(Context context, CallbackHandler callbackHandler, String str) {
         if (context != null && !TextUtils.isEmpty(str) && callbackHandler != null) {
             boolean isNetworkConnected = isNetworkConnected(context);
-            String MP = MP();
+            String networkClass = getNetworkClass();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("isConnected", isNetworkConnected);
-                if (TextUtils.equals(MP, "no")) {
-                    MP = IXAdSystemUtils.NT_NONE;
+                if (TextUtils.equals(networkClass, NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED)) {
+                    networkClass = "none";
                 }
-                jSONObject.put("networkType", MP);
+                jSONObject.put("networkType", networkClass);
                 if (DEBUG) {
                     Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
                 }
@@ -74,7 +73,7 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    public static String s(int i, String str) {
+    public static String getMobileNetworkType(int i, String str) {
         if (DEBUG) {
             Log.d("NetWorkUtils", "——> getNetworkType: netType " + i + " subTypeName " + str);
         }
@@ -85,7 +84,7 @@ public class SwanAppNetworkUtils {
             case 7:
             case 11:
             case 16:
-                return BdNetTypeUtil.NET_TYPENAME_2G;
+                return "2g";
             case 3:
             case 5:
             case 6:
@@ -96,14 +95,14 @@ public class SwanAppNetworkUtils {
             case 14:
             case 15:
             case 17:
-                return BdNetTypeUtil.NET_TYPENAME_3G;
+                return "3g";
             case 13:
             case 18:
             case 19:
-                return BdNetTypeUtil.NET_TYPENAME_4G;
+                return "4g";
             default:
                 if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
-                    return BdNetTypeUtil.NET_TYPENAME_4G;
+                    return "4g";
                 }
                 return "unknown";
         }
@@ -128,56 +127,56 @@ public class SwanAppNetworkUtils {
         return null;
     }
 
-    public static String MP() {
+    public static String getNetworkClass() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(AppRuntime.getAppContext());
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return "no";
+            return NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
         }
         if (activeNetworkInfo.getType() == 1) {
             return "wifi";
         }
         if (activeNetworkInfo.getType() == 0) {
-            return s(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
+            return getMobileNetworkType(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
         }
         return "unknown";
     }
 
-    public static NetType MQ() {
-        String MP = MP();
+    public static NetType Wm() {
+        String networkClass = getNetworkClass();
         char c = 65535;
-        switch (MP.hashCode()) {
+        switch (networkClass.hashCode()) {
             case -840472412:
-                if (MP.equals("unknow")) {
+                if (networkClass.equals("unknow")) {
                     c = 5;
                     break;
                 }
                 break;
             case 1653:
-                if (MP.equals(BdNetTypeUtil.NET_TYPENAME_2G)) {
+                if (networkClass.equals("2g")) {
                     c = 0;
                     break;
                 }
                 break;
             case 1684:
-                if (MP.equals(BdNetTypeUtil.NET_TYPENAME_3G)) {
+                if (networkClass.equals("3g")) {
                     c = 1;
                     break;
                 }
                 break;
             case 1715:
-                if (MP.equals(BdNetTypeUtil.NET_TYPENAME_4G)) {
+                if (networkClass.equals("4g")) {
                     c = 2;
                     break;
                 }
                 break;
             case 3521:
-                if (MP.equals("no")) {
+                if (networkClass.equals(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED)) {
                     c = 4;
                     break;
                 }
                 break;
             case 3649301:
-                if (MP.equals("wifi")) {
+                if (networkClass.equals("wifi")) {
                     c = 3;
                     break;
                 }
@@ -199,13 +198,13 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public enum NetType {
-        NONE("no"),
+        NONE(NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED),
         WIFI("wifi"),
-        _2G(BdNetTypeUtil.NET_TYPENAME_2G),
-        _3G(BdNetTypeUtil.NET_TYPENAME_3G),
-        _4G(BdNetTypeUtil.NET_TYPENAME_4G),
+        _2G("2g"),
+        _3G("3g"),
+        _4G("4g"),
         UNKOWN("unknow");
         
         public final String type;

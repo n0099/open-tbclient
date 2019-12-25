@@ -3,7 +3,7 @@ package com.baidu.live.adp.framework.client.socket;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SequenceManager {
     private static final String MODULE_NAME = "SequenceManager";
     private static SequenceManager sInstance = null;

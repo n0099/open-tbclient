@@ -21,7 +21,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     private static final String DEFAULT_CLASS_NAME = "android.view.View";
     public static final int HOST_ID = -1;
@@ -62,11 +62,11 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
 
     protected abstract void getVisibleVirtualViews(List<Integer> list);
 
-    protected abstract boolean onPerformActionForVirtualView(int i, int i2, Bundle bundle);
+    protected abstract boolean onPerformActionForVirtualView(int i, int i2, @Nullable Bundle bundle);
 
-    protected abstract void onPopulateNodeForVirtualView(int i, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat);
+    protected abstract void onPopulateNodeForVirtualView(int i, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat);
 
-    public ExploreByTouchHelper(View view) {
+    public ExploreByTouchHelper(@NonNull View view) {
         if (view == null) {
             throw new IllegalArgumentException("View may not be null");
         }
@@ -518,16 +518,16 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return true;
     }
 
-    protected void onPopulateEventForVirtualView(int i, AccessibilityEvent accessibilityEvent) {
+    protected void onPopulateEventForVirtualView(int i, @NonNull AccessibilityEvent accessibilityEvent) {
     }
 
-    protected void onPopulateEventForHost(AccessibilityEvent accessibilityEvent) {
+    protected void onPopulateEventForHost(@NonNull AccessibilityEvent accessibilityEvent) {
     }
 
-    protected void onPopulateNodeForHost(AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+    protected void onPopulateNodeForHost(@NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private class MyNodeProvider extends AccessibilityNodeProviderCompat {
         MyNodeProvider() {
         }

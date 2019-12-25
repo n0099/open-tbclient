@@ -3,25 +3,25 @@ package com.baidu.tieba.barselect.data;
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class f {
-    private BdUniqueId GX;
-    private e eFR;
-    private d eFS;
-    private List<d> eFT;
+    private BdUniqueId Mh;
     private long fid;
+    private e fxP;
+    private d fxQ;
+    private List<d> fxR;
     private boolean hasMore;
 
-    public List<d> aZu() {
-        return this.eFT;
+    public List<d> bry() {
+        return this.fxR;
     }
 
-    public d aZv() {
-        return this.eFS;
+    public d brz() {
+        return this.fxQ;
     }
 
-    public e aZw() {
-        return this.eFR;
+    public e brA() {
+        return this.fxP;
     }
 
     public boolean getHasMore() {
@@ -33,19 +33,19 @@ public class f {
     }
 
     public BdUniqueId getUniqueId() {
-        return this.GX;
+        return this.Mh;
     }
 
-    public void Q(ArrayList<d> arrayList) {
-        this.eFT = arrayList;
+    public void ab(ArrayList<d> arrayList) {
+        this.fxR = arrayList;
     }
 
     public void a(e eVar) {
-        this.eFR = eVar;
+        this.fxP = eVar;
     }
 
     public void a(d dVar) {
-        this.eFS = dVar;
+        this.fxQ = dVar;
     }
 
     public void setHasMore(boolean z) {
@@ -57,6 +57,6 @@ public class f {
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.GX = bdUniqueId;
+        this.Mh = bdUniqueId;
     }
 }

@@ -19,13 +19,13 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GroupInfoDAOImpl {
     private static final String TAG = "GroupInfoDAOImpl";
     private static GroupInfoParse sGroupInfoParse = new GroupInfoParse();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class GroupInfoParse implements IResultParse<GroupInfo> {
         private GroupInfoParse() {
         }

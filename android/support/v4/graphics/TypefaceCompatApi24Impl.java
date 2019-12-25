@@ -21,7 +21,7 @@ import java.nio.ByteBuffer;
 import java.util.List;
 @RequiresApi(24)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
     private static final String ADD_FONT_WEIGHT_STYLE_METHOD = "addFontWeightStyle";
     private static final String CREATE_FROM_FAMILIES_WITH_DEFAULT_METHOD = "createFromFamiliesWithDefault";
@@ -105,7 +105,7 @@ class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
                 return null;
             }
         }
-        return createFromFamiliesWithDefault(newFamily);
+        return Typeface.create(createFromFamiliesWithDefault(newFamily), i);
     }
 
     @Override // android.support.v4.graphics.TypefaceCompatBaseImpl, android.support.v4.graphics.TypefaceCompat.TypefaceCompatImpl
@@ -113,7 +113,8 @@ class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
         FontResourcesParserCompat.FontFileResourceEntry[] entries;
         Object newFamily = newFamily();
         for (FontResourcesParserCompat.FontFileResourceEntry fontFileResourceEntry : fontFamilyFilesResourceEntry.getEntries()) {
-            if (!addFontWeightStyle(newFamily, TypefaceCompatUtil.copyToDirectBuffer(context, resources, fontFileResourceEntry.getResourceId()), 0, fontFileResourceEntry.getWeight(), fontFileResourceEntry.isItalic())) {
+            ByteBuffer copyToDirectBuffer = TypefaceCompatUtil.copyToDirectBuffer(context, resources, fontFileResourceEntry.getResourceId());
+            if (copyToDirectBuffer == null || !addFontWeightStyle(newFamily, copyToDirectBuffer, 0, fontFileResourceEntry.getWeight(), fontFileResourceEntry.isItalic())) {
                 return null;
             }
         }

@@ -1,7 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import com.xiaomi.push.hg;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 /* synthetic */ class ax {
     static final /* synthetic */ int[] a = new int[hg.values().length];
 

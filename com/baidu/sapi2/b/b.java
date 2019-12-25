@@ -1,9 +1,10 @@
 package com.baidu.sapi2.b;
 
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.result.SapiResult;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class b extends SapiResult {
     public static final int a = -603;
     public static final int b = -604;
@@ -19,7 +20,7 @@ public class b extends SapiResult {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("errno", getResultCode());
-            jSONObject.put("errmsg", getResultMsg());
+            jSONObject.put(BaseJsonData.TAG_ERRMSG, getResultMsg());
         } catch (JSONException e) {
         }
         return jSONObject.toString();

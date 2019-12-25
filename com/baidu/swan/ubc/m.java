@@ -5,26 +5,27 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class m {
-    private static volatile m bON;
-    private ExecutorService bOO;
-    private com.baidu.swan.ubc.c bOP;
-    private int bOQ;
-    private boolean bOR = false;
-    private com.baidu.swan.ubc.d bOl;
-    private ExecutorService btb;
+    private static volatile m cAI;
+    private ExecutorService cAJ;
+    private com.baidu.swan.ubc.c cAK;
+    private int cAL;
+    private boolean cAM = false;
+    private com.baidu.swan.ubc.d cAh;
     private Context mContext;
+    private ExecutorService mExecutorService;
 
     static /* synthetic */ int d(m mVar) {
-        int i = mVar.bOQ;
-        mVar.bOQ = i + 1;
+        int i = mVar.cAL;
+        mVar.cAL = i + 1;
         return i;
     }
 
@@ -32,15 +33,15 @@ public class m {
         init(s.getContext());
     }
 
-    public static m acQ() {
-        if (bON == null) {
+    public static m asW() {
+        if (cAI == null) {
             synchronized (m.class) {
-                if (bON == null) {
-                    bON = new m();
+                if (cAI == null) {
+                    cAI = new m();
                 }
             }
         }
-        return bON;
+        return cAI;
     }
 
     private void init(Context context) {
@@ -50,85 +51,85 @@ public class m {
             } else {
                 this.mContext = context.getApplicationContext();
             }
-            this.bOQ = com.baidu.swan.a.a.Vv().getInt("ubc_key_flow_handle", 0);
-            if (this.bOQ > 1073741823) {
-                this.bOQ -= 1073741823;
+            this.cAL = com.baidu.swan.config.b.agm().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
+            if (this.cAL > 1073741823) {
+                this.cAL -= 1073741823;
             } else {
-                this.bOQ = 1073741823 + this.bOQ;
+                this.cAL = 1073741823 + this.cAL;
             }
-            if (s.adf() == null || s.adf().BF() == null) {
-                this.btb = Executors.newSingleThreadExecutor();
+            if (s.atk() == null || s.atk().Fb() == null) {
+                this.mExecutorService = Executors.newSingleThreadExecutor();
             } else {
-                this.btb = s.adf().BF();
+                this.mExecutorService = s.atk().Fb();
             }
-            this.btb.execute(new g());
-            this.bOO = Executors.newSingleThreadExecutor();
+            this.mExecutorService.execute(new g());
+            this.cAJ = Executors.newSingleThreadExecutor();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, JSONObject jSONObject, int i) {
-        if (!K(str, i)) {
+        if (!U(str, i)) {
             b bVar = new b(str, jSONObject, i);
-            if (this.bOl != null && this.bOl.lw(str)) {
-                bVar.dI(true);
+            if (this.cAh != null && this.cAh.qC(str)) {
+                bVar.eS(true);
             }
-            this.btb.execute(bVar);
+            this.mExecutorService.execute(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void f(String str, String str2, int i) {
-        if (!K(str, i)) {
+    public void j(String str, String str2, int i) {
+        if (!U(str, i)) {
             b bVar = new b(str, str2, i);
-            if (this.bOl != null && this.bOl.lw(str)) {
-                bVar.dI(true);
+            if (this.cAh != null && this.cAh.qC(str)) {
+                bVar.eS(true);
             }
-            this.btb.execute(bVar);
+            this.mExecutorService.execute(bVar);
         }
     }
 
-    boolean K(String str, int i) {
+    boolean U(String str, int i) {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, String str2, int i, String str3, int i2) {
-        this.btb.execute(new b(str, str2, i, str3, i2));
+        this.mExecutorService.execute(new b(str, str2, i, str3, i2));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, String str2, int i, String str3, long j, int i2) {
-        this.btb.execute(new b(str, str2, i, str3, j, i2));
+        this.mExecutorService.execute(new b(str, str2, i, str3, j, i2));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized Flow g(String str, String str2, int i) {
-        Flow L;
-        L = L(str, i);
-        if (L != null && L.getValid()) {
-            d dVar = new d(L, str2);
-            if (this.bOl != null && this.bOl.lw(str)) {
-                dVar.dI(true);
+    public synchronized Flow k(String str, String str2, int i) {
+        Flow V;
+        V = V(str, i);
+        if (V != null && V.getValid()) {
+            d dVar = new d(V, str2);
+            if (this.cAh != null && this.cAh.qC(str)) {
+                dVar.eS(true);
             }
-            this.btb.execute(dVar);
+            this.mExecutorService.execute(dVar);
         }
-        return L;
+        return V;
     }
 
-    Flow L(String str, int i) {
-        Flow flow = new Flow(str, this.bOQ, i);
-        if (this.bOl != null && !this.bOl.J(str, i)) {
+    Flow V(String str, int i) {
+        Flow flow = new Flow(str, this.cAL, i);
+        if (this.cAh != null && !this.cAh.T(str, i)) {
             flow.setValid(false);
-        } else if ((i & 16) != 0 && !s.adf().gv(str)) {
+        } else if ((i & 16) != 0 && !s.atk().jr(str)) {
             flow.setValid(false);
         } else {
-            if (this.bOl != null && this.bOl.lu(str) > 0) {
-                if (new Random().nextInt(100) >= this.bOl.lu(str)) {
-                    flow.setValid(false);
+            if (this.cAh != null && this.cAh.qA(str) > 0) {
+                if (new Random().nextInt(100) >= this.cAh.qA(str)) {
+                    flow.eT(true);
                 }
             }
-            if (this.bOl != null && this.bOl.lv(str)) {
+            if (this.cAh != null && this.cAh.qB(str)) {
                 flow.setValid(false);
             }
         }
@@ -137,28 +138,28 @@ public class m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void e(String str, int i, String str2) {
-        this.btb.execute(new f(str, i, str2));
+        this.mExecutorService.execute(new f(str, i, str2));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, int i, JSONArray jSONArray) {
-        this.btb.execute(new e(str, i, jSONArray));
+        this.mExecutorService.execute(new e(str, i, jSONArray));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void t(String str, int i) {
-        this.btb.execute(new c(str, i));
+    public void w(String str, int i) {
+        this.mExecutorService.execute(new c(str, i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void acR() {
-        if (!this.bOR) {
-            this.bOR = true;
-            this.btb.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.1
+    public void upload() {
+        if (!this.cAM) {
+            this.cAM = true;
+            this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (m.this.bOP != null) {
-                        m.this.bOP.aco();
+                    if (m.this.cAK != null) {
+                        m.this.cAK.asu();
                     }
                 }
             });
@@ -166,17 +167,17 @@ public class m {
     }
 
     public void a(p pVar) {
-        this.btb.execute(new a(pVar));
+        this.mExecutorService.execute(new a(pVar));
     }
 
     public void initConfig() {
-        acS();
-        if (!com.baidu.swan.a.a.Vv().getBoolean("init_done", false)) {
-            String ac = com.baidu.swan.c.a.ac(AppRuntime.getAppContext(), "ubc_config.json");
-            if (!TextUtils.isEmpty(ac)) {
+        asX();
+        if (!com.baidu.swan.config.b.agm().getBoolean("init_done", false)) {
+            String readAssetData = com.baidu.swan.d.c.readAssetData(AppRuntime.getAppContext(), "ubc_config.json");
+            if (!TextUtils.isEmpty(readAssetData)) {
                 try {
-                    p pVar = new p("0", new JSONObject(ac));
-                    pVar.ada();
+                    p pVar = new p("0", new JSONObject(readAssetData));
+                    pVar.atf();
                     a(pVar);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -185,60 +186,60 @@ public class m {
         }
     }
 
-    private void acS() {
-        o acT = o.acT();
-        acT.acR();
-        acT.acU();
+    private void asX() {
+        o asY = o.asY();
+        asY.upload();
+        asY.asZ();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(final JSONArray jSONArray, final String str) {
-        r.B(jSONArray);
-        this.bOO.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.2
+    public void c(final JSONArray jSONArray, final String str) {
+        r.H(jSONArray);
+        this.cAJ.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.2
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.bOP != null) {
-                    m.this.bOP.b(jSONArray, str);
+                if (m.this.cAK != null) {
+                    m.this.cAK.c(jSONArray, str);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void z(final JSONArray jSONArray) {
-        r.B(jSONArray);
-        this.bOO.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.3
+    public void G(final JSONArray jSONArray) {
+        r.H(jSONArray);
+        this.cAJ.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.3
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.bOP != null) {
-                    m.this.bOP.z(jSONArray);
+                if (m.this.cAK != null) {
+                    m.this.cAK.G(jSONArray);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void acr() {
-        this.btb.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.4
+    public void asx() {
+        this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.4
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.bOP != null) {
-                    m.this.bOP.acr();
+                if (m.this.cAK != null) {
+                    m.this.cAK.asx();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void M(final String str, final boolean z) {
-        this.btb.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.5
+    public void R(final String str, final boolean z) {
+        this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.m.5
             @Override // java.lang.Runnable
             public void run() {
-                if (m.this.bOP != null) {
+                if (m.this.cAK != null) {
                     if (z) {
-                        m.this.bOP.lo(str);
+                        m.this.cAK.qu(str);
                     } else {
-                        m.this.bOP.lp(str);
+                        m.this.cAK.qv(str);
                     }
                 }
             }
@@ -246,7 +247,7 @@ public class m {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public class g implements Runnable {
         private g() {
         }
@@ -254,160 +255,160 @@ public class m {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            m.this.bOl = com.baidu.swan.ubc.d.act();
-            m.this.bOP = new com.baidu.swan.ubc.c(m.this.mContext);
-            m.this.bOP.acs();
+            m.this.cAh = com.baidu.swan.ubc.d.asz();
+            m.this.cAK = new com.baidu.swan.ubc.c(m.this.mContext);
+            m.this.cAK.asy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public class b implements Runnable {
-        private h bOW;
+        private h cAQ;
 
         b(String str, String str2, int i) {
-            this.bOW = new h(str, str2, i);
+            this.cAQ = new h(str, str2, i);
         }
 
         b(String str, JSONObject jSONObject, int i) {
-            this.bOW = new h(str, jSONObject, i);
+            this.cAQ = new h(str, jSONObject, i);
         }
 
         b(String str, String str2, int i, String str3, int i2) {
-            this.bOW = new h(str, str2, i, str3, i2);
+            this.cAQ = new h(str, str2, i, str3, i2);
         }
 
         b(String str, String str2, int i, String str3, long j, int i2) {
-            this.bOW = new h(str, str2, i, str3, j, i2);
+            this.cAQ = new h(str, str2, i, str3, j, i2);
         }
 
-        public void dI(boolean z) {
-            if (this.bOW != null) {
-                this.bOW.dI(z);
+        public void eS(boolean z) {
+            if (this.cAQ != null) {
+                this.cAQ.eS(z);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.bOP != null) {
-                this.bOW.acL();
-                if (!TextUtils.isEmpty(m.this.bOl.lt(this.bOW.getId()))) {
-                    this.bOW.setCategory(m.this.bOl.lt(this.bOW.getId()));
+            if (m.this.cAK != null) {
+                this.cAQ.asQ();
+                if (!TextUtils.isEmpty(m.this.cAh.qz(this.cAQ.getId()))) {
+                    this.cAQ.setCategory(m.this.cAh.qz(this.cAQ.getId()));
                 }
-                if ((this.bOW.getOption() & 8) != 0) {
-                    m.this.bOP.b(this.bOW);
+                if ((this.cAQ.getOption() & 8) != 0) {
+                    m.this.cAK.b(this.cAQ);
                 } else {
-                    m.this.bOP.a(this.bOW);
+                    m.this.cAK.a(this.cAQ);
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     private class d implements Runnable {
-        private j bOX;
+        private j cAR;
 
         d(Flow flow, String str) {
-            this.bOX = new j(flow.getId(), flow.getHandle(), str, flow.getOption());
-            this.bOX.aA(flow.getStartTime());
-            this.bOX.lz("1");
+            this.cAR = new j(flow.getId(), flow.getHandle(), str, flow.getOption(), flow.asS());
+            this.cAR.bf(flow.getStartTime());
+            this.cAR.qF("1");
             m.d(m.this);
         }
 
-        public void dI(boolean z) {
-            if (this.bOX != null) {
-                this.bOX.dI(z);
+        public void eS(boolean z) {
+            if (this.cAR != null) {
+                this.cAR.eS(z);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.bOP != null) {
-                this.bOX.acL();
-                if (!TextUtils.isEmpty(m.this.bOl.lt(this.bOX.getId()))) {
-                    this.bOX.setCategory(m.this.bOl.lt(this.bOX.getId()));
+            if (m.this.cAK != null) {
+                this.cAR.asQ();
+                if (!TextUtils.isEmpty(m.this.cAh.qz(this.cAR.getId()))) {
+                    this.cAR.setCategory(m.this.cAh.qz(this.cAR.getId()));
                 }
-                m.this.bOP.b(this.bOX);
+                m.this.cAK.b(this.cAR);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public class f implements Runnable {
-        private String aZt;
-        private int bOG;
+        private String bCy;
+        private int cAC;
         private String mValue;
 
         f(String str, int i, String str2) {
-            this.aZt = str;
-            this.bOG = i;
+            this.bCy = str;
+            this.cAC = i;
             this.mValue = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.bOP != null) {
-                m.this.bOP.e(this.aZt, this.bOG, this.mValue);
+            if (m.this.cAK != null) {
+                m.this.cAK.e(this.bCy, this.cAC, this.mValue);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public class e implements Runnable {
-        private String aZt;
-        private int bOG;
-        private JSONArray bOM;
-        private long ban = System.currentTimeMillis();
+        private String bCy;
+        private long bDa = System.currentTimeMillis();
+        private int cAC;
+        private JSONArray cAH;
 
         e(String str, int i, JSONArray jSONArray) {
-            this.aZt = str;
-            this.bOG = i;
-            this.bOM = jSONArray;
+            this.bCy = str;
+            this.cAC = i;
+            this.cAH = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.bOP != null) {
-                m.this.bOP.a(this.aZt, this.bOG, this.ban, this.bOM);
+            if (m.this.cAK != null) {
+                m.this.cAK.a(this.bCy, this.cAC, this.bDa, this.cAH);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public class c implements Runnable {
-        private String aZt;
-        private int bOG;
+        private String bCy;
+        private int cAC;
 
         c(String str, int i) {
-            this.aZt = str;
-            this.bOG = i;
+            this.bCy = str;
+            this.cAC = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.bOP != null) {
-                m.this.bOP.t(this.aZt, this.bOG);
+            if (m.this.cAK != null) {
+                m.this.cAK.w(this.bCy, this.cAC);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
-        private p bOV;
+        private p cAP;
 
         a(p pVar) {
-            this.bOV = pVar;
+            this.cAP = pVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (m.this.bOP != null) {
-                m.this.bOP.a(this.bOV);
-                com.baidu.swan.a.a.Vv().putBoolean("init_done", true);
+            if (m.this.cAK != null) {
+                m.this.cAK.a(this.cAP);
+                com.baidu.swan.config.b.agm().putBoolean("init_done", true);
             }
         }
     }

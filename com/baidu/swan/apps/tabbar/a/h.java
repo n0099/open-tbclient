@@ -5,55 +5,42 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class h extends z {
+/* loaded from: classes9.dex */
+public class h extends a {
     public h(j jVar) {
-        super(jVar, "/swan/setTabBarStyle");
+        super(jVar, "/swanAPI/setTabBarItem");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (DEBUG) {
-            Log.d("SetTabBarStyleAction", "handle entity: " + unitedSchemeEntity.toString());
+            Log.d("SetTabBarItemAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        com.baidu.swan.apps.w.e LE = com.baidu.swan.apps.w.e.LE();
         if (optParamsAsJo == null) {
-            com.baidu.swan.apps.console.c.e("setTabBarStyle", "paramsJson is null");
+            com.baidu.swan.apps.console.c.e("setTabBarItem", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        }
-        com.baidu.swan.apps.core.d.e AI = LE.AI();
-        if (AI == null) {
-            com.baidu.swan.apps.console.c.e("setTabBarStyle", "fragmentManager is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        }
-        com.baidu.swan.apps.core.d.d Fs = AI.Fs();
-        String optString = optParamsAsJo.optString("color");
-        String optString2 = optParamsAsJo.optString("selectedColor");
-        String optString3 = optParamsAsJo.optString("backgroundColor");
-        String optString4 = optParamsAsJo.optString("borderStyle");
-        if (Fs == null) {
-            com.baidu.swan.apps.console.c.e("setTabBarStyle", "swanAppFragment is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        }
-        com.baidu.swan.apps.tabbar.b.a Fe = Fs.Fe();
-        if (Fe == null) {
-            com.baidu.swan.apps.console.c.e("setTabBarStyle", "bottomBarViewController is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        } else if (!Fe.n(optString, optString2, optString3, optString4)) {
-            com.baidu.swan.apps.console.c.e("setTabBarStyle", "set bottom bar style fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        } else if (Hb()) {
+            com.baidu.swan.apps.console.c.e("SetTabBarItemAction", "fail not TabBar page");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         } else {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
+            com.baidu.swan.apps.tabbar.b.a Ha = Ha();
+            if (Ha == null) {
+                com.baidu.swan.apps.console.c.e("SetTabBarItemAction", "tabBarViewController is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!Ha.b(optParamsAsJo.optInt("index"), optParamsAsJo.optString("text"), optParamsAsJo.optString("iconPath"), optParamsAsJo.optString("selectedIconPath"))) {
+                com.baidu.swan.apps.console.c.e("setTabBarItem", "set tab bar item fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes.sampleentry;
 
-import android.support.v4.internal.view.SupportMenu;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -10,8 +9,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class VisualSampleEntry extends AbstractSampleEntry implements Container {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE1 = "mp4v";
@@ -183,7 +181,7 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
             allocate.put((byte) 0);
         }
         IsoTypeWriter.writeUInt16(allocate, getDepth());
-        IsoTypeWriter.writeUInt16(allocate, SupportMenu.USER_MASK);
+        IsoTypeWriter.writeUInt16(allocate, 65535);
         writableByteChannel.write((ByteBuffer) allocate.rewind());
         writeContainer(writableByteChannel);
     }
@@ -191,6 +189,6 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || (containerSize + 78) + 8 >= IjkMediaMeta.AV_CH_WIDE_RIGHT) ? 16 : 8) + containerSize + 78;
+        return ((this.largeBox || (containerSize + 78) + 8 >= 4294967296L) ? 16 : 8) + containerSize + 78;
     }
 }

@@ -1,48 +1,50 @@
 package com.baidu.swan.games.network;
 
 import com.baidu.searchbox.http.HttpManager;
-import com.baidu.swan.apps.network.a.c;
+import com.baidu.swan.apps.runtime.e;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import okhttp3.Callback;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class b extends HttpManager {
-    private static volatile b bBS;
+    private static volatile b clT;
 
     private b() {
-        super(com.baidu.swan.apps.u.a.Jj());
+        super(com.baidu.swan.apps.w.a.Rk());
     }
 
-    public static b Xu() {
+    public static b amj() {
         b bVar = new b();
-        bVar.setHttpDnsEnable(Xv().getHttpDnsEnable());
+        bVar.setHttpDnsEnable(amk().getHttpDnsEnable());
         return bVar;
     }
 
-    public static b Xv() {
-        if (bBS == null) {
+    public static b amk() {
+        if (clT == null) {
             synchronized (b.class) {
-                if (bBS == null) {
-                    bBS = new b();
+                if (clT == null) {
+                    clT = new b();
                 }
             }
         }
-        return bBS;
+        return clT;
     }
 
     @Override // com.baidu.searchbox.http.AbstractHttpManager
     protected OkHttpClient initClient() {
-        if (com.baidu.swan.apps.ae.b.Ra() == null) {
+        if (e.ZS() == null) {
             return super.initClient();
         }
-        com.baidu.swan.games.p.a.a Rd = com.baidu.swan.apps.ae.b.Ra().Rd();
+        com.baidu.swan.games.s.a.a ZZ = e.ZS().ZZ();
         OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
         int i = 60000;
-        if (Rd != null && Rd.bCv != null) {
-            i = Rd.bCv.bkd;
-            newBuilder.connectTimeout(Rd.bCv.bke, TimeUnit.MILLISECONDS);
-            newBuilder.addNetworkInterceptor(new c());
+        if (ZZ != null && ZZ.cmR != null) {
+            i = ZZ.cmR.bKI;
+            newBuilder.connectTimeout(ZZ.cmR.bKJ, TimeUnit.MILLISECONDS);
+            newBuilder.addNetworkInterceptor(new com.baidu.swan.apps.network.a.c());
         }
         newBuilder.readTimeout(i, TimeUnit.MILLISECONDS);
         newBuilder.writeTimeout(i, TimeUnit.MILLISECONDS);
@@ -54,6 +56,20 @@ public class b extends HttpManager {
     public void a(Request request, Callback callback) {
         if (request != null) {
             getOkHttpClient().newCall(request).enqueue(callback);
+        }
+    }
+
+    public void a(Request request, List<Interceptor> list, Callback callback) {
+        if (request != null) {
+            OkHttpClient.Builder newBuilder = getOkHttpClient().newBuilder();
+            if (list != null && !list.isEmpty()) {
+                for (Interceptor interceptor : list) {
+                    if (interceptor != null) {
+                        newBuilder.addInterceptor(interceptor);
+                    }
+                }
+            }
+            newBuilder.build().newCall(request).enqueue(callback);
         }
     }
 }

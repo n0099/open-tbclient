@@ -7,10 +7,10 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.EventTarget;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.swan.games.e.a {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         @V8JavascriptField
         public String basePath;
@@ -24,9 +24,9 @@ public class c extends com.baidu.swan.games.e.a {
 
     @Override // com.baidu.swan.games.e.a
     @NonNull
-    public EventTarget Wt() {
-        b bVar = new b(this, this.byH.Gc());
-        bVar.env.config = com.baidu.swan.apps.swancore.b.a.SZ();
+    public EventTarget akG() {
+        b bVar = new b(this, this.cia.getInitBasePath());
+        bVar.env.config = com.baidu.swan.apps.swancore.b.a.acL();
         return bVar;
     }
 
@@ -35,8 +35,9 @@ public class c extends com.baidu.swan.games.e.a {
         return 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class b extends EventTargetImpl {
+        private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
         @V8JavascriptField
         public a env;
 
@@ -48,7 +49,12 @@ public class c extends com.baidu.swan.games.e.a {
 
         @JavascriptInterface
         public String getEnvVariables() {
-            return com.baidu.swan.apps.jsbridge.a.a.getEnvVariables();
+            return com.baidu.swan.apps.jsbridge.a.b.getEnvVariables();
+        }
+
+        @JavascriptInterface
+        public String getAPIs(int i) {
+            return DEBUG ? com.baidu.swan.apps.ah.a.a.XS() ? com.baidu.swan.apps.as.g.t(i, true) : "" : (com.baidu.swan.apps.as.g.adS() && com.baidu.swan.apps.w.a.Rn().Es()) ? com.baidu.swan.apps.as.g.t(i, true) : "";
         }
     }
 }

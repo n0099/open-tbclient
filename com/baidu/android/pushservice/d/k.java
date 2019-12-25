@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.d;
 import android.content.Context;
 import java.util.HashMap;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class k extends c {
     private String[] d;
 

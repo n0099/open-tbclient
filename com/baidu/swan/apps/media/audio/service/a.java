@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.media.audio.service;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface a {
     void onGetCurrentSong(String str);
 

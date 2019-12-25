@@ -2,78 +2,103 @@ package com.baidu.searchbox.v8engine;
 
 import android.content.ComponentCallbacks2;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
+import android.os.Build;
+import android.os.Debug;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.util.Pair;
-import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.searchbox.v8engine.thread.V8DefaultThreadPolicy;
 import com.baidu.searchbox.v8engine.thread.V8ExecuteCallback;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.smallgame.sdk.b.a;
+import com.baidu.smallgame.sdk.c.a;
 import java.io.File;
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Vector;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class V8Engine implements JSRuntime {
+    public static final String ACTION_CONSTRUCTOR_DONE = "v8_constructor_done";
+    public static final String ACTION_NATIVE_INIT = "v8_native_init";
+    public static final String ACTION_READY = "v8_ready";
+    public static final String ACTION_START_ENGINE_BEGIN = "v8_start_engine_begin";
+    public static final String ACTION_START_ENGINE_END = "v8_start_engine_end";
+    public static final String ACTION_V8_CREATE_MAIN_CONTEXT_START = "v8_create_main_context";
+    public static final String ACTION_V8_REQUIRE_BASE_JS_START = "v8_require_base_js";
+    public static final String ACTION_WORKER_INIT = "v8_worker_init";
     private static final String ALTERNATIVE_ADD_ASSET_PATH_METHOD = "addAssetPath";
     private static final String ALTERNATIVE_CACHE_PATH = "webview_baidu";
     private static final String ALTERNATIVE_SO = "libcom.baidu.zeus.so";
+    private static boolean APP_DEBUG = false;
     private static final long CLOCKS_PER_SEC = 1000;
+    public static final float DEFAULT_FRAMES = 16.666666f;
     private static final String MARIO_CACHE_PATH = "mario";
     private static final String TAG = "V8Engine";
-    private static AssetManager mAltAssetManager = null;
-    private static int mSurfaceViewHeight = 0;
-    private static int mSurfaceViewWidth = 0;
-    private static Context sAppContext = null;
-    private static final long sEngineDestroyed = -1;
-    private static HashMap<Long, V8Engine> sEngines = new HashMap<>();
+    public static final String TYPE_V8 = "v8";
+    private static int mSurfaceViewHeight;
+    private static int mSurfaceViewWidth;
+    private static Context sAppContext;
+    private static final long sEngineDestroyed = 0;
+    private static int sWorkerID;
     private AssetManager mAssetManager;
+    private V8EngineConfiguration.CacheInfo mCacheInfo;
     private V8EngineConfiguration.CodeCacheSetting mCodeCacheSetting;
-    private final ComponentCallbacks2 mComponentCallbacks2;
+    private ComponentCallbacks2 mComponentCallbacks2;
     private JavaScriptExceptionDelegate mExceptionDelegate;
     private V8FileSystemDelegatePolicy mFileSystemDelegatePolicy;
-    private V8EngineConfiguration.CacheInfo mInfo;
     private String mInitBasePath;
     private String mInitJsPath;
     private InspectorNativeClient mInspectorNativeClient;
     private V8EngineConfiguration.JSCacheCallback mJSCacheCallback;
+    private JavaBoundObjectManager mJavaBoundObjectManager;
     private Object mMainGlobalObject;
     private long mNativeV8Engine;
     private Object mOpenGlobalObject;
+    private PerformanceJsonBean mPerformanceJsonBean;
     private boolean mReady;
     private V8ThreadDelegatePolicy mThreadDelegatePolicy;
     private V8Timer mTimer;
     private String mUserAgent;
+    private AssetManager mV8BinAssetManager;
+    private V8ExceptionInfo mV8ExceptionInfo;
+    private static HashMap<Long, V8Engine> sEngines = new HashMap<>();
+    private static Method sSetCrashKeyValueMethod = null;
+    private static Method sClearCrashKeyMethod = null;
+    private String mExternalV8BinPath = null;
+    private String mBuildInV8BinPath = null;
+    private AtomicBoolean mIsDestroyed = new AtomicBoolean(true);
     private ArrayList<V8StatusListener> mHandlers = null;
     private ArrayList<V8EngineConsole> mConsoles = null;
-    private final Map<String, Pair<Object, Class>> mJavaScriptInterfaces = new HashMap();
     private String mDecodeBdfile = "";
     private String mMainPackageBasePath = "";
     private volatile boolean mPaused = false;
     private Vector<Runnable> mSuspendableTasks = null;
     private long mV8ThreadId = 0;
-    private float mFramesInterval = 0.0f;
+    private float mFramesInterval = 16.666666f;
+    private String mThreadName = "V8JavaScriptContext";
+    private WorkerFactory mWorkerFactoryDelegate = null;
+    private boolean mIsWorker = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface JavaScriptExceptionDelegate {
-        void onV8ExceptionCallBack(String str, String str2);
+        void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface V8EngineConsole {
         void onDebugConsole(String str);
 
@@ -88,7 +113,7 @@ public class V8Engine implements JSRuntime {
         void onWarnConsole(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface V8StatusListener {
         void onPause();
 
@@ -97,7 +122,15 @@ public class V8Engine implements JSRuntime {
         void onResume();
     }
 
+    /* loaded from: classes9.dex */
+    public interface WorkerFactory {
+        V8Engine onCreateWorker();
+    }
+
     private native void addJavascriptInterfaceImpl(long j, Object obj, String str, Class cls, boolean z);
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static native void nativeDeleteJsReleaser(long j, long j2, boolean z);
 
     private native JsSerializeValue nativeDeserialize(long j, byte[] bArr, int i, boolean z);
 
@@ -106,17 +139,11 @@ public class V8Engine implements JSRuntime {
 
     private static native long nativeGetChannelFunctionTable();
 
-    private static native int nativeGetPreferredFramesPerSecond();
-
     private static native int nativeGetVersionCode();
 
     private static native String nativeGetVersionName();
 
-    public static native void nativeInitFonts(Map<String, String> map, Object[] objArr);
-
-    public static native void nativeNotifyGCMemoryAllocate(int i);
-
-    public static native void nativeNotifyGCMemoryFree(int i);
+    private native void nativeOnReady(long j);
 
     private native byte[] nativeSerialize(long j, JsSerializeValue jsSerializeValue, boolean z);
 
@@ -124,11 +151,7 @@ public class V8Engine implements JSRuntime {
 
     private native void nativeSetCodeCacheSetting(long j, String str, String str2, int i, String[] strArr, int i2);
 
-    public static native void nativeSetDisplayMetrics(float f, float f2, float f3, float f4, float f5);
-
     private native void nativeSetMainPackageBasePath(long j, String str);
-
-    public static native void nativeSetSize(float f, float f2);
 
     private native void nativeSetUserAgent(long j, String str);
 
@@ -147,7 +170,7 @@ public class V8Engine implements JSRuntime {
     public native void removeJavascriptInterfaceImpl(long j, String str, boolean z);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void require(long j, String str, String str2, boolean z);
+    public native void require(long j, String str, String str2, boolean z, boolean z2);
 
     private native String runScript(long j, String str, String str2, boolean z);
 
@@ -156,17 +179,36 @@ public class V8Engine implements JSRuntime {
 
     private native long v8EngineInit();
 
-    public native int nativeInitPreferredFramesPerSecond(short s);
-
     static {
-        V8SoLoader.load();
         regiestMessageChannelForT7();
+        sWorkerID = 0;
+        APP_DEBUG = false;
         mSurfaceViewWidth = 0;
         mSurfaceViewHeight = 0;
     }
 
+    public boolean isWorker() {
+        return this.mIsWorker;
+    }
+
+    public void setIsWorker(boolean z) {
+        this.mIsWorker = z;
+    }
+
+    public long nativePtr() {
+        return this.mNativeV8Engine;
+    }
+
     public V8FileSystemDelegatePolicy getFileSystemDelegatePolicy() {
         return this.mFileSystemDelegatePolicy;
+    }
+
+    public String threadName() {
+        return this.mThreadName;
+    }
+
+    public void setThreadName(String str) {
+        this.mThreadName = str;
     }
 
     private String getTrimPath(String str) {
@@ -194,7 +236,7 @@ public class V8Engine implements JSRuntime {
         this.mCodeCacheSetting = codeCacheSetting;
         if (this.mCodeCacheSetting.id != null && this.mCodeCacheSetting.pathList != null) {
             File dir = getAppContext().getDir(ALTERNATIVE_CACHE_PATH, 0);
-            if (!a.existsFile(getAlternativeFilePath())) {
+            if (!a.existsFile(getBuildInV8BinPath())) {
                 dir = getAppContext().getDir(MARIO_CACHE_PATH, 0);
                 dir.mkdirs();
             }
@@ -206,15 +248,23 @@ public class V8Engine implements JSRuntime {
         }
     }
 
+    public JSONArray getPerformanceJson() {
+        return this.mPerformanceJsonBean == null ? new JSONArray() : this.mPerformanceJsonBean.toJSONArray();
+    }
+
+    public PerformanceJsonBean getPerformanceJsonBean() {
+        return this.mPerformanceJsonBean;
+    }
+
     public void setJSCacheCallback(V8EngineConfiguration.JSCacheCallback jSCacheCallback) {
         this.mJSCacheCallback = jSCacheCallback;
     }
 
     private void onJsCacheCallback(String str, boolean z) {
         if (this.mJSCacheCallback != null) {
-            this.mInfo.jsPath = str;
-            this.mInfo.cached = z;
-            this.mJSCacheCallback.onCacheResult(this.mInfo);
+            this.mCacheInfo.jsPath = str;
+            this.mCacheInfo.cached = z;
+            this.mJSCacheCallback.onCacheResult(this.mCacheInfo);
         }
     }
 
@@ -241,13 +291,26 @@ public class V8Engine implements JSRuntime {
     }
 
     public V8Engine(Context context, String str, String str2, V8ThreadDelegatePolicy v8ThreadDelegatePolicy, Object obj, Object obj2) {
+        initialize(context, str, str2, v8ThreadDelegatePolicy, obj, obj2);
+    }
+
+    private void initialize(Context context, String str, String str2, V8ThreadDelegatePolicy v8ThreadDelegatePolicy, Object obj, Object obj2) {
+        ApplicationInfo applicationInfo;
         sAppContext = context.getApplicationContext();
+        if (sAppContext != null && (applicationInfo = sAppContext.getApplicationInfo()) != null) {
+            APP_DEBUG = (applicationInfo.flags & 2) != 0;
+        }
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             this.mInitBasePath = str;
             this.mInitJsPath = str2;
+            this.mV8ExceptionInfo = new V8ExceptionInfo();
+            this.mJavaBoundObjectManager = new JavaBoundObjectManager();
             this.mTimer = new V8Timer();
             this.mAssetManager = context.getAssets();
+            this.mPerformanceJsonBean = new PerformanceJsonBean();
             this.mNativeV8Engine = v8EngineInit();
+            this.mIsDestroyed.set(false);
+            addJavascriptInterface(new BindingBenchmark(this), "jBenchmark");
             this.mComponentCallbacks2 = new ComponentCallbacks2() { // from class: com.baidu.searchbox.v8engine.V8Engine.1
                 @Override // android.content.ComponentCallbacks2
                 public void onTrimMemory(final int i) {
@@ -271,10 +334,13 @@ public class V8Engine implements JSRuntime {
             synchronized (sEngines) {
                 sEngines.put(Long.valueOf(this.mNativeV8Engine), this);
             }
-            this.mThreadDelegatePolicy = v8ThreadDelegatePolicy == null ? new V8DefaultThreadPolicy(this) : v8ThreadDelegatePolicy;
+            if (v8ThreadDelegatePolicy == null) {
+                v8ThreadDelegatePolicy = new V8DefaultThreadPolicy(this);
+            }
+            this.mThreadDelegatePolicy = v8ThreadDelegatePolicy;
             this.mMainGlobalObject = obj;
             this.mOpenGlobalObject = obj2;
-            this.mInfo = new V8EngineConfiguration.CacheInfo(null, false);
+            this.mCacheInfo = new V8EngineConfiguration.CacheInfo(null, false);
             return;
         }
         throw new RuntimeException("basePath and path must not be null.");
@@ -290,7 +356,7 @@ public class V8Engine implements JSRuntime {
         if (j2 != 0 && j2 != id) {
             throw new IllegalStateException("javascript or v8 methods must run on v8 thread, current thread id = " + id + ", expect thread id = " + j2);
         }
-        if (j == -1) {
+        if (j == 0) {
             throw new IllegalStateException("v8 engine has been destroyed!");
         }
     }
@@ -308,15 +374,15 @@ public class V8Engine implements JSRuntime {
     public static V8Engine getInstance(long j) {
         synchronized (sEngines) {
             V8Engine v8Engine = sEngines.get(Long.valueOf(j));
-            if (v8Engine == null || v8Engine.isDestroyed()) {
+            if (v8Engine == null || v8Engine.mIsDestroyed.get()) {
                 return null;
             }
             return v8Engine;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x002e, code lost:
-        if (r0.isDestroyed() == false) goto L15;
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0030, code lost:
+        if (r0.mIsDestroyed.get() == false) goto L15;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -339,10 +405,6 @@ public class V8Engine implements JSRuntime {
         return v8Engine;
     }
 
-    public static int getPreferredFramesPerSecond() {
-        return nativeGetPreferredFramesPerSecond();
-    }
-
     public AssetManager getAssetManager() {
         return this.mAssetManager;
     }
@@ -351,79 +413,73 @@ public class V8Engine implements JSRuntime {
         return sAppContext;
     }
 
+    public static boolean isDebug() {
+        return APP_DEBUG;
+    }
+
     public synchronized void startEngine() {
         this.mThreadDelegatePolicy.startV8Engine(this);
     }
 
     public void startEngineInternal() {
+        Log.i(TAG, "[V8Dispose][mario] java version = 1.0.0.1, nativeVersion = " + nativeGetVersionName());
         try {
             if (!checkVersion()) {
-                throw new Exception("[mario] java version and native version dismatch  version: 1.1.1.92 nativeVersion: " + nativeGetVersionName());
+                throw new Exception("[mario] java version and native version dismatch  version: 1.0.0.1 nativeVersion: " + nativeGetVersionName());
             }
         } catch (Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));
         }
         this.mTimer.initialize(this, new Handler(Looper.getMainLooper()));
         initializeV8();
-        require(this.mNativeV8Engine, this.mInitBasePath, this.mInitJsPath, true);
+        require(this.mNativeV8Engine, this.mInitBasePath, this.mInitJsPath, true, true);
+        nativeOnReady(this.mNativeV8Engine);
         onReady();
     }
 
     public void initializeV8() {
         Log.i(TAG, "[V8Dispose] Initializing V8Engine");
         this.mV8ThreadId = Thread.currentThread().getId();
-        V8NativeInit.initialize(this.mNativeV8Engine, this.mAssetManager, getAlternativeAssetManager(), this.mTimer, this.mMainGlobalObject, this.mV8ThreadId);
-        initDisplayMetrics();
+        V8NativeInit.initialize(this.mNativeV8Engine, this.mAssetManager, getV8BinAssetManager(), this.mTimer, this.mMainGlobalObject, this.mV8ThreadId);
     }
 
-    private static String getAlternativeFilePath() {
-        if (getAppContext() != null) {
-            return getAppContext().getApplicationInfo().nativeLibraryDir + File.separator + ALTERNATIVE_SO;
+    public void setExternalV8BinFilesPath(String str) {
+        if (str == null) {
+            this.mExternalV8BinPath = null;
+            return;
         }
-        return null;
+        String trim = str.trim();
+        this.mExternalV8BinPath = TextUtils.isEmpty(trim) ? null : trim;
     }
 
-    private static AssetManager getAlternativeAssetManager() {
-        if (mAltAssetManager == null) {
+    private String getBuildInV8BinPath() {
+        if (this.mBuildInV8BinPath == null) {
+            this.mBuildInV8BinPath = getAppContext().getApplicationInfo().nativeLibraryDir + File.separator + "libcom.baidu.zeus.so";
+        }
+        return this.mBuildInV8BinPath;
+    }
+
+    private AssetManager getV8BinAssetManager() {
+        if (this.mV8BinAssetManager == null) {
             try {
-                String alternativeFilePath = getAlternativeFilePath();
-                if (a.existsFile(alternativeFilePath)) {
-                    mAltAssetManager = (AssetManager) AssetManager.class.newInstance();
-                    AssetManager.class.getDeclaredMethod(ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class).invoke(mAltAssetManager, alternativeFilePath);
+                String str = this.mExternalV8BinPath;
+                String buildInV8BinPath = str == null ? getBuildInV8BinPath() : str;
+                if (buildInV8BinPath == null || !a.existsFile(buildInV8BinPath)) {
+                    Log.i(TAG, "can't find v8bin'AssetManager, path = " + buildInV8BinPath);
+                    return null;
                 }
+                this.mV8BinAssetManager = (AssetManager) AssetManager.class.newInstance();
+                AssetManager.class.getDeclaredMethod(ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class).invoke(this.mV8BinAssetManager, buildInV8BinPath);
             } catch (Throwable th) {
                 Log.w(TAG, "can not find T7 assetManager, use appContext assetManager to find bin file");
             }
         }
-        return mAltAssetManager;
-    }
-
-    public static void updateSurfaceViewSize(int i, int i2) {
-        Log.w(TAG, "[V8Dispose] updateSurfaceViewSize, width=" + i + ", height=" + i2);
-        mSurfaceViewWidth = i;
-        mSurfaceViewHeight = i2;
-        nativeSetSize(i, i2);
+        return this.mV8BinAssetManager;
     }
 
     private boolean checkVersion() {
-        Log.w(TAG, "[mario] version: 1.1.1.92 nativeVersion: " + nativeGetVersionName());
-        return "1.1.1.92".equals(nativeGetVersionName()) && 92 == nativeGetVersionCode();
-    }
-
-    private void initDisplayMetrics() {
-        Context context = sAppContext;
-        Context context2 = sAppContext;
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-        float f = displayMetrics.widthPixels;
-        float f2 = displayMetrics.heightPixels;
-        if (mSurfaceViewWidth != 0) {
-            f = mSurfaceViewWidth;
-        }
-        if (mSurfaceViewHeight != 0) {
-            f2 = mSurfaceViewHeight;
-        }
-        nativeSetDisplayMetrics(f, f2, displayMetrics.xdpi, displayMetrics.ydpi, displayMetrics.density);
+        Log.w(TAG, "[mario] version: 1.0.0.1 nativeVersion: " + nativeGetVersionName());
+        return "1.0.0.1".equals(nativeGetVersionName()) && 1 == nativeGetVersionCode();
     }
 
     public synchronized boolean isPaused() {
@@ -474,10 +530,14 @@ public class V8Engine implements JSRuntime {
     }
 
     public void destroyEngine(final V8ExecuteCallback v8ExecuteCallback) {
-        runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.2
+        Log.e("V8", "v8engine.java::destroyEngine");
+        runOnJSThreadDirectly(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.2
             @Override // java.lang.Runnable
             public void run() {
+                Log.e("V8", "v8engine.java::destroyEngine run");
+                V8Engine.this.removeJavascriptInterface("jBenchmark");
                 V8Engine.this.mTimer.destroy();
+                V8Engine.this.mJavaBoundObjectManager.clear();
                 synchronized (V8Engine.sEngines) {
                     V8Engine.sEngines.remove(Long.valueOf(V8Engine.this.mNativeV8Engine));
                 }
@@ -488,9 +548,12 @@ public class V8Engine implements JSRuntime {
                 if (V8Engine.sAppContext != null) {
                     V8Engine.sAppContext.unregisterComponentCallbacks(V8Engine.this.mComponentCallbacks2);
                 }
+                V8Engine.this.mNativeV8Engine = 0L;
+                V8Engine.this.mIsDestroyed.set(true);
                 V8Engine.this.mThreadDelegatePolicy.shutdown();
-                V8Engine.this.mNativeV8Engine = -1L;
-                V8Engine.this.mFileSystemDelegatePolicy.destroy();
+                if (V8Engine.this.mFileSystemDelegatePolicy != null) {
+                    V8Engine.this.mFileSystemDelegatePolicy.destroy();
+                }
                 int unused = V8Engine.mSurfaceViewWidth = 0;
                 int unused2 = V8Engine.mSurfaceViewHeight = 0;
                 if (v8ExecuteCallback != null) {
@@ -500,13 +563,19 @@ public class V8Engine implements JSRuntime {
         });
     }
 
-    private void delegateRunnable(Runnable runnable) {
+    private void delegateRunnable(Runnable runnable, boolean z) {
         if (this.mThreadDelegatePolicy.getThread() == Thread.currentThread()) {
             checkValid(this.mNativeV8Engine, this.mV8ThreadId);
-            runnable.run();
-            return;
+            try {
+                runnable.run();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (z) {
+            this.mThreadDelegatePolicy.doDelegateRunnableDirectly(runnable);
+        } else {
+            this.mThreadDelegatePolicy.doDelegateRunnable(runnable);
         }
-        this.mThreadDelegatePolicy.doDelegateRunnable(runnable);
     }
 
     private void delegateRunnableAsync(Runnable runnable) {
@@ -523,7 +592,10 @@ public class V8Engine implements JSRuntime {
             postOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    V8Engine.this.pumpNativeMessageLoop(V8Engine.this.mNativeV8Engine, 0L);
+                    if (!V8Engine.this.mIsDestroyed.get()) {
+                        V8Engine.checkValid(V8Engine.this.mNativeV8Engine, V8Engine.this.mV8ThreadId);
+                        V8Engine.this.pumpNativeMessageLoop(V8Engine.this.mNativeV8Engine, 0L);
+                    }
                 }
             });
         } catch (Throwable th) {
@@ -538,7 +610,10 @@ public class V8Engine implements JSRuntime {
                 postOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        V8Engine.this.pumpNativeMessageLoop(V8Engine.this.mNativeV8Engine, j);
+                        if (!V8Engine.this.mIsDestroyed.get()) {
+                            V8Engine.checkValid(V8Engine.this.mNativeV8Engine, V8Engine.this.mV8ThreadId);
+                            V8Engine.this.pumpNativeMessageLoop(V8Engine.this.mNativeV8Engine, j);
+                        }
                     }
                 }, j2);
             } catch (Throwable th) {
@@ -576,8 +651,15 @@ public class V8Engine implements JSRuntime {
 
     @Override // com.baidu.searchbox.v8engine.JSRuntime
     public void runOnJSThread(Runnable runnable) {
-        if (!isDestroyed()) {
-            delegateRunnable(runnable);
+        if (!this.mIsDestroyed.get()) {
+            delegateRunnable(runnable, false);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    public void runOnJSThreadDirectly(Runnable runnable) {
+        if (!this.mIsDestroyed.get()) {
+            delegateRunnable(runnable, true);
         }
     }
 
@@ -590,24 +672,20 @@ public class V8Engine implements JSRuntime {
 
     @Override // com.baidu.searchbox.v8engine.JSRuntime
     public void postOnJSThread(Runnable runnable) {
-        if (!isDestroyed()) {
+        if (!this.mIsDestroyed.get()) {
             delegateRunnableAsync(runnable);
         }
     }
 
     @Override // com.baidu.searchbox.v8engine.JSRuntime
     public void postOnJSThread(Runnable runnable, long j) {
-        if (!isDestroyed()) {
+        if (!this.mIsDestroyed.get()) {
             delegateRunnableAsync(runnable, j);
         }
     }
 
-    public boolean isDestroyed() {
-        return this.mNativeV8Engine == 0 || this.mNativeV8Engine == -1;
-    }
-
     public void postSuspendableTaskOnJSThread(Runnable runnable) {
-        if (!isDestroyed()) {
+        if (!this.mIsDestroyed.get()) {
             synchronized (this) {
                 if (this.mPaused) {
                     if (this.mSuspendableTasks == null) {
@@ -622,7 +700,7 @@ public class V8Engine implements JSRuntime {
     }
 
     private synchronized void postSuspendableTasks() {
-        if (this.mSuspendableTasks != null && !this.mSuspendableTasks.isEmpty()) {
+        if (this.mSuspendableTasks != null && !this.mSuspendableTasks.isEmpty() && !this.mIsDestroyed.get()) {
             Iterator<Runnable> it = this.mSuspendableTasks.iterator();
             while (it.hasNext()) {
                 delegateRunnableAsync(it.next());
@@ -639,6 +717,10 @@ public class V8Engine implements JSRuntime {
                 V8Engine.this.nativeThrowJSException(V8Engine.this.mNativeV8Engine, jSExceptionType.ordinal(), str, false);
             }
         });
+    }
+
+    public String getInitBasePath() {
+        return this.mInitBasePath;
     }
 
     public synchronized void addV8EngineConsole(V8EngineConsole v8EngineConsole) {
@@ -726,14 +808,39 @@ public class V8Engine implements JSRuntime {
         }
     }
 
+    public void setWorkerFactoryDelegate(WorkerFactory workerFactory) {
+        this.mWorkerFactoryDelegate = workerFactory;
+    }
+
+    public long createWorkerV8Engine(long j) {
+        Log.e("V8", "!!!!!createWorkerV8Engine, mWorkerFactoryDelegate =  " + this.mWorkerFactoryDelegate);
+        if (this.mWorkerFactoryDelegate != null) {
+            V8Engine onCreateWorker = this.mWorkerFactoryDelegate.onCreateWorker();
+            onCreateWorker.setIsWorker(true);
+            StringBuilder append = new StringBuilder().append("MarioWT");
+            int i = sWorkerID;
+            sWorkerID = i + 1;
+            onCreateWorker.setThreadName(append.append(i).toString());
+            onCreateWorker.startEngine();
+            return onCreateWorker.nativePtr();
+        }
+        Log.e("V8", "ERROR!!!!! no mWorkerFactoryDelegate");
+        return 0L;
+    }
+
+    public void destroyWorkerV8Engine() {
+        destroyEngine(null);
+    }
+
     public void setJavaScriptExceptionDelegate(JavaScriptExceptionDelegate javaScriptExceptionDelegate) {
         this.mExceptionDelegate = javaScriptExceptionDelegate;
     }
 
     @NotProguard
-    public void onV8ExceptionCallBack(String str, String str2) {
+    public void onV8ExceptionCallBack(String str, String str2, String str3, String str4) {
         if (this.mExceptionDelegate != null) {
-            this.mExceptionDelegate.onV8ExceptionCallBack(str, str2);
+            this.mV8ExceptionInfo.reset(System.currentTimeMillis(), str, str2, str3, str4);
+            this.mExceptionDelegate.onV8ExceptionCallBack(this.mV8ExceptionInfo);
         }
     }
 
@@ -747,9 +854,8 @@ public class V8Engine implements JSRuntime {
 
     private void addPossiblyUnsafeJavascriptInterface(Object obj, String str, Class<? extends Annotation> cls, boolean z) {
         if (obj != null && this.mNativeV8Engine != 0) {
-            this.mJavaScriptInterfaces.put(str, new Pair<>(obj, cls));
-            if (!isDestroyed()) {
-                addJavascriptInterfaceImpl(this.mNativeV8Engine, obj, str, cls, z);
+            if (!this.mIsDestroyed.get()) {
+                addJavascriptInterfaceImpl(this.mNativeV8Engine, obj, str, null, z);
                 return;
             }
             return;
@@ -761,8 +867,7 @@ public class V8Engine implements JSRuntime {
         runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.7
             @Override // java.lang.Runnable
             public void run() {
-                V8Engine.this.mJavaScriptInterfaces.remove(str);
-                if (!V8Engine.this.isDestroyed()) {
+                if (!V8Engine.this.mIsDestroyed.get()) {
                     V8Engine.this.removeJavascriptInterfaceImpl(V8Engine.this.mNativeV8Engine, str, true);
                 }
             }
@@ -773,8 +878,7 @@ public class V8Engine implements JSRuntime {
         runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.8
             @Override // java.lang.Runnable
             public void run() {
-                V8Engine.this.mJavaScriptInterfaces.remove(str);
-                if (!V8Engine.this.isDestroyed()) {
+                if (!V8Engine.this.mIsDestroyed.get()) {
                     V8Engine.this.removeJavascriptInterfaceImpl(V8Engine.this.mNativeV8Engine, str, false);
                 }
             }
@@ -785,8 +889,8 @@ public class V8Engine implements JSRuntime {
         runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.9
             @Override // java.lang.Runnable
             public void run() {
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !V8Engine.this.isDestroyed()) {
-                    V8Engine.this.require(V8Engine.this.mNativeV8Engine, str, str2, true);
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !V8Engine.this.mIsDestroyed.get()) {
+                    V8Engine.this.require(V8Engine.this.mNativeV8Engine, str, str2, true, false);
                 }
             }
         });
@@ -796,8 +900,8 @@ public class V8Engine implements JSRuntime {
         runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.10
             @Override // java.lang.Runnable
             public void run() {
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !V8Engine.this.isDestroyed()) {
-                    V8Engine.this.require(V8Engine.this.mNativeV8Engine, str, str2, false);
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !V8Engine.this.mIsDestroyed.get()) {
+                    V8Engine.this.require(V8Engine.this.mNativeV8Engine, str, str2, false, false);
                 }
             }
         });
@@ -807,7 +911,7 @@ public class V8Engine implements JSRuntime {
         runOnJSThread(new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.11
             @Override // java.lang.Runnable
             public void run() {
-                if (!V8Engine.this.isDestroyed()) {
+                if (!V8Engine.this.mIsDestroyed.get()) {
                     V8Engine.this.nativeDestroyOpenDataContext(V8Engine.this.mNativeV8Engine);
                 }
             }
@@ -844,7 +948,7 @@ public class V8Engine implements JSRuntime {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void evaluateJavascriptImpl(String str, ValueCallback<String> valueCallback, String str2, boolean z) {
-        if (!isDestroyed()) {
+        if (!this.mIsDestroyed.get()) {
             checkValid(this.mNativeV8Engine, this.mV8ThreadId);
             String runScript = runScript(this.mNativeV8Engine, str, str2, z);
             if (valueCallback != null) {
@@ -862,30 +966,8 @@ public class V8Engine implements JSRuntime {
         return this.mInspectorNativeClient;
     }
 
-    public static void notifyGCAllocate(long j, final int i) {
-        if (i != 0) {
-            runOnJSThread(j, new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.14
-                @Override // java.lang.Runnable
-                public void run() {
-                    V8Engine.nativeNotifyGCMemoryAllocate(i);
-                }
-            });
-        }
-    }
-
-    public static void notifyGCFree(long j, final int i) {
-        if (i != 0) {
-            runOnJSThread(j, new Runnable() { // from class: com.baidu.searchbox.v8engine.V8Engine.15
-                @Override // java.lang.Runnable
-                public void run() {
-                    V8Engine.nativeNotifyGCMemoryFree(i);
-                }
-            });
-        }
-    }
-
     public byte[] serialize(JsSerializeValue jsSerializeValue, boolean z) {
-        if (isDestroyed()) {
+        if (this.mIsDestroyed.get()) {
             return null;
         }
         checkValid(this.mNativeV8Engine, this.mV8ThreadId);
@@ -893,11 +975,98 @@ public class V8Engine implements JSRuntime {
     }
 
     public JsSerializeValue deserialize(byte[] bArr, boolean z) {
-        if (bArr == null || bArr.length == 0 || isDestroyed()) {
+        if (bArr == null || bArr.length == 0 || this.mIsDestroyed.get()) {
             return null;
         }
         checkValid(this.mNativeV8Engine, this.mV8ThreadId);
         return nativeDeserialize(this.mNativeV8Engine, bArr, bArr.length, z);
+    }
+
+    @NotProguard
+    /* loaded from: classes9.dex */
+    static class MemoryInfo {
+        @V8JavascriptField
+        public int dalvikPrivateDirty;
+        @V8JavascriptField
+        public int dalvikPss;
+        @V8JavascriptField
+        public int nativePrivateDirty;
+        @V8JavascriptField
+        public int nativePss;
+        @V8JavascriptField
+        public int otherPrivateDirty;
+        @V8JavascriptField
+        public int otherPss;
+        @V8JavascriptField
+        public int summaryGraphics;
+        @V8JavascriptField
+        public int summaryJavaHeap;
+        @V8JavascriptField
+        public int summaryNativeHeap;
+        @V8JavascriptField
+        public int summaryPrivateOther;
+        @V8JavascriptField
+        public int summaryStack;
+        @V8JavascriptField
+        public int summaryTotalPss;
+        @V8JavascriptField
+        public int summaryTotalSwap;
+        @V8JavascriptField
+        public int totalPrivateDirty;
+        @V8JavascriptField
+        public int totalPss;
+
+        MemoryInfo() {
+        }
+    }
+
+    private final MemoryInfo getMemoryInfo() {
+        Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
+        Debug.getMemoryInfo(memoryInfo);
+        MemoryInfo memoryInfo2 = new MemoryInfo();
+        memoryInfo2.nativePss = memoryInfo.nativePss;
+        memoryInfo2.nativePrivateDirty = memoryInfo.nativePrivateDirty;
+        memoryInfo2.dalvikPss = memoryInfo.dalvikPss;
+        memoryInfo2.dalvikPrivateDirty = memoryInfo.dalvikPrivateDirty;
+        memoryInfo2.totalPss = memoryInfo.getTotalPss();
+        memoryInfo2.totalPrivateDirty = memoryInfo.getTotalPrivateDirty();
+        memoryInfo2.otherPss = memoryInfo.otherPss;
+        memoryInfo2.otherPrivateDirty = memoryInfo.otherPrivateDirty;
+        if (Build.VERSION.SDK_INT > 23) {
+            try {
+                memoryInfo2.summaryJavaHeap = Integer.parseInt(memoryInfo.getMemoryStat("summary.java-heap"));
+                memoryInfo2.summaryNativeHeap = Integer.parseInt(memoryInfo.getMemoryStat("summary.native-heap"));
+                memoryInfo2.summaryStack = Integer.parseInt(memoryInfo.getMemoryStat("summary.stack"));
+                memoryInfo2.summaryGraphics = Integer.parseInt(memoryInfo.getMemoryStat("summary.graphics"));
+                memoryInfo2.summaryPrivateOther = Integer.parseInt(memoryInfo.getMemoryStat("summary.private-other"));
+                memoryInfo2.summaryTotalPss = Integer.parseInt(memoryInfo.getMemoryStat("summary.total-pss"));
+                memoryInfo2.summaryTotalSwap = Integer.parseInt(memoryInfo.getMemoryStat("summary.total-swap"));
+            } catch (Throwable th) {
+            }
+        }
+        return memoryInfo2;
+    }
+
+    public static void setCrashKeyValue(String str, String str2) {
+        try {
+            if (sSetCrashKeyValueMethod == null) {
+                sSetCrashKeyValueMethod = Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("setCrashKeyValue", String.class, String.class);
+            }
+            sSetCrashKeyValueMethod.invoke(null, str, str2);
+        } catch (Throwable th) {
+            Log.e(TAG, th.getMessage());
+        }
+    }
+
+    public static void clearCrashKey(String str) {
+        try {
+            if (sClearCrashKeyMethod == null) {
+                sClearCrashKeyMethod = Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("clearCrashKey", String.class);
+            }
+            sClearCrashKeyMethod.invoke(null, str);
+        } catch (Throwable th) {
+            Log.e(TAG, th.getMessage());
+        }
     }
 
     private static void regiestMessageChannelForT7() {

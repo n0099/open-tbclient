@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 @RequiresApi(21)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class ViewUtilsLollipop {
     private static final int[] STATE_LIST_ANIM_ATTRS = {16843848};
 

@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.liveroom.g;
 
 import android.view.View;
-import com.baidu.ala.liveRecorder.AlaLiveRecorder;
+import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.d eeB;
+    private com.baidu.tieba.ala.liveroom.views.d eUw;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,18 +17,18 @@ public class d {
     }
 
     private void init() {
-        this.eeB = new com.baidu.tieba.ala.liveroom.views.d(this.mPageContext);
-        this.mRootView = this.eeB.getView();
+        this.eUw = new com.baidu.tieba.ala.liveroom.views.d(this.mPageContext);
+        this.mRootView = this.eUw.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.eeB != null) {
-            this.eeB.a(iShareCallback);
+        if (this.eUw != null) {
+            this.eUw.a(iShareCallback);
         }
     }
 
-    private void aRy() {
-        this.eeB.aRy();
+    private void biZ() {
+        this.eUw.biZ();
     }
 
     public View getView() {
@@ -36,40 +36,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.eeB.a(alaLiveRecorder);
-        aRy();
+        this.eUw.a(alaLiveRecorder);
+        biZ();
     }
 
-    public boolean aRz() {
-        return this.eeB.aRz();
+    public boolean bja() {
+        return this.eUw.bja();
     }
 
-    public boolean aRA() {
-        return this.eeB.aRA();
+    public boolean bjb() {
+        return this.eUw.bjb();
     }
 
     public String getLiveTitle() {
-        return this.eeB.getLiveTitle();
+        return this.eUw.getLiveTitle();
     }
 
-    public boolean aRB() {
-        return this.eeB.aRB();
+    public boolean bjc() {
+        return this.eUw.bjc();
     }
 
-    public boolean aRC() {
-        return this.eeB.aRC();
+    public boolean bjd() {
+        return this.eUw.bjd();
     }
 
-    public void hL(boolean z) {
-        this.eeB.hL(z);
+    public void ja(boolean z) {
+        this.eUw.ja(z);
     }
 
-    public void aRD() {
-        this.eeB.eoV = false;
+    public void bje() {
+        this.eUw.ffp = false;
     }
 
-    public String aRE() {
-        return this.eeB.aRE();
+    public String bjf() {
+        return this.eUw.bjf();
     }
 
     public void setVisibility(int i) {
@@ -81,56 +81,56 @@ public class d {
     }
 
     public void a(f.b bVar) {
-        this.eeB.a(bVar);
+        this.eUw.a(bVar);
     }
 
     public void C(boolean z, boolean z2) {
         if (z) {
-            this.eeB.onKeyboardVisibilityChanged(false);
+            this.eUw.onKeyboardVisibilityChanged(false);
         } else {
-            this.eeB.onKeyboardVisibilityChanged(z2);
+            this.eUw.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(f.a aVar) {
-        this.eeB.a(aVar);
+        this.eUw.a(aVar);
     }
 
-    public void tH(String str) {
-        this.eeB.tH(str);
+    public void yw(String str) {
+        this.eUw.yw(str);
     }
 
     public void onResume() {
-        this.eeB.onResume();
+        this.eUw.onResume();
     }
 
     public void onRefresh() {
-        this.eeB.onRefresh();
+        this.eUw.onRefresh();
     }
 
-    public boolean aRF() {
-        return this.eeB.aRF();
+    public boolean bjg() {
+        return this.eUw.bjg();
     }
 
-    public void aRG() {
-        this.eeB.aRG();
+    public void bjh() {
+        this.eUw.bjh();
     }
 
     public void release() {
-        this.eeB.release();
+        this.eUw.release();
     }
 
     public void destroy() {
-        this.eeB.destroy();
+        this.eUw.destroy();
     }
 
-    public void hM(boolean z) {
-        this.eeB.hM(z);
+    public void jb(boolean z) {
+        this.eUw.jb(z);
     }
 
-    public void aRH() {
-        if (this.eeB != null) {
-            this.eeB.aRH();
+    public void bji() {
+        if (this.eUw != null) {
+            this.eUw.bji();
         }
     }
 }

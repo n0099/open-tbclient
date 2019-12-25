@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.guardclub.model;
 
 import com.baidu.tieba.ala.guardclub.model.r;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class b implements r.a {
     @Override // com.baidu.tieba.ala.guardclub.model.r.a
     public void a(boolean z, String str, long j, String str2, String str3) {

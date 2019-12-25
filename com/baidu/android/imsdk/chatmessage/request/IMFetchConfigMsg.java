@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMFetchConfigMsg extends Message {
     private static final int MAX_COUNT = 50;
     public static final String TAG = IMFetchConfigMsg.class.getSimpleName();
@@ -36,14 +36,14 @@ public class IMFetchConfigMsg extends Message {
         this.mCursor = j;
         this.mLimit = j2;
         setNeedReplay(true);
-        setType(Constants.METHOD_IM_FETCH_CONFIG_MSG);
+        setType(193);
     }
 
     @Override // com.baidu.android.imsdk.request.Message
     protected void buildBody() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("method", Constants.METHOD_IM_FETCH_CONFIG_MSG);
+            jSONObject.put("method", 193);
             jSONObject.put("uk", this.mUk);
             jSONObject.put("appid", this.mAppid);
             long readLongData = Utility.readLongData(this.mContext, Constants.KEY_CONFIG_MAXCURSOR, 0L);
@@ -75,7 +75,7 @@ public class IMFetchConfigMsg extends Message {
         TaskManager.getInstance(this.mContext).submitForNetWork(new FetchConfigTask(context, jSONObject, i, str));
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private class FetchConfigTask extends TaskManager.Task {
         private Context mContext;
         private int mErrorCode;

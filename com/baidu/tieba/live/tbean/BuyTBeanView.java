@@ -1,6 +1,7 @@
 package com.baidu.tieba.live.tbean;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.text.Editable;
@@ -27,7 +28,8 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.imageview.BdRoundedImageView;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
+import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.ListUtils;
@@ -43,13 +45,16 @@ import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.data.UserDefineTbeanWrapperData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
 import com.baidu.tieba.live.tbean.view.WalletPayResultView;
+import com.baidu.webkit.internal.ETAG;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
+/* loaded from: classes2.dex */
+public class BuyTBeanView extends BdBaseView {
+    private Activity activity;
     private LinearLayout buyBeanCustomLayout;
+    private BuyTBeanController buyTBeanController;
     private TBeanEditText editCustomPrice;
     private String exchangeHomePageUrl;
     private boolean isFromLive;
@@ -58,7 +63,6 @@ public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
     private boolean isTranslucent;
     private LinearLayout layoutExchange;
     private RelativeLayout mActivitiyRootRl;
-    private BuyTBeanActivity mActivity;
     private BuyTBeanGridAdapter mBuyTBeanAdapter;
     private LinearLayout mBuyTBeanRootLayout;
     private RelativeLayout mContainer;
@@ -69,19 +73,20 @@ public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
     private WalletPayResultView mResultView;
     private TextWatcher mTextWatcher;
     private BdGridView mTypeListview;
+    private TbPageContext tbPageContext;
     private TextView tvCustomBeanNum;
     private TextView tvCustomSubmit;
     private TextView tvCustomSubmitHint;
     private TextView tvExchangeContent;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnPayClickListener {
         void onClick(IAdapterData iAdapterData, UserInfoData userInfoData);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public BuyTBeanView(BuyTBeanActivity buyTBeanActivity, boolean z, boolean z2, boolean z3) {
-        super(buyTBeanActivity.getPageContext());
+    public BuyTBeanView(TbPageContext<?> tbPageContext, BuyTBeanController buyTBeanController, boolean z, boolean z2, boolean z3) {
+        super(tbPageContext);
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.live.tbean.BuyTBeanView.10
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -131,7 +136,9 @@ public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
                 }
             }
         };
-        this.mActivity = buyTBeanActivity;
+        this.tbPageContext = tbPageContext;
+        this.activity = tbPageContext.getPageActivity();
+        this.buyTBeanController = buyTBeanController;
         this.isFromLive = z;
         this.isTranslucent = z2;
         this.isTBeanNotEnough = z3;
@@ -145,26 +152,26 @@ public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
     @SuppressLint({"ClickableViewAccessibility"})
     private void initUI() {
         String str;
-        this.mActivity.setContentView(a.h.sdk_tbn_buy_tbean_activity);
-        this.mActivitiyRootRl = (RelativeLayout) this.mActivity.findViewById(a.g.buy_tbean_activity_root);
-        this.mBuyTBeanRootLayout = (LinearLayout) this.mActivity.findViewById(a.g.buy_tbean_root_ll);
-        FrameLayout frameLayout = (FrameLayout) this.mActivity.findViewById(a.g.tbean_dialog_wrapper_container);
-        View findViewById = this.mActivity.findViewById(a.g.empty_stub_view);
+        this.activity.setContentView(a.h.sdk_tbn_buy_tbean_activity);
+        this.mActivitiyRootRl = (RelativeLayout) this.activity.findViewById(a.g.buy_tbean_activity_root);
+        this.mBuyTBeanRootLayout = (LinearLayout) this.activity.findViewById(a.g.buy_tbean_root_ll);
+        FrameLayout frameLayout = (FrameLayout) this.activity.findViewById(a.g.tbean_dialog_wrapper_container);
+        View findViewById = this.activity.findViewById(a.g.empty_stub_view);
         if (this.isTranslucent) {
-            findViewById.setBackgroundColor(this.mActivity.getResources().getColor(a.d.sdk_black_alpha40));
+            findViewById.setBackgroundColor(this.activity.getResources().getColor(a.d.sdk_black_alpha40));
         } else {
-            findViewById.setBackgroundColor(this.mActivity.getResources().getColor(a.d.sdk_black_alpha0));
+            findViewById.setBackgroundColor(this.activity.getResources().getColor(a.d.sdk_black_alpha0));
         }
-        findViewById.setOnClickListener(this.mActivity);
-        this.mContainer = (RelativeLayout) this.mActivity.findViewById(a.g.container);
-        this.mTypeListview = (BdGridView) this.mActivity.findViewById(a.g.listview);
-        this.mResultView = (WalletPayResultView) this.mActivity.findViewById(a.g.pay_result_root);
-        final BdRoundedImageView bdRoundedImageView = (BdRoundedImageView) this.mActivity.findViewById(a.g.tbean_ad);
-        this.editCustomPrice = (TBeanEditText) this.mActivity.findViewById(a.g.edit_custom_bean_price);
-        this.tvCustomBeanNum = (TextView) this.mActivity.findViewById(a.g.tv_custome_bean_num);
-        this.mCustomBeanSubmitRoot = (RelativeLayout) this.mActivity.findViewById(a.g.confirm_btn_root);
-        this.tvCustomSubmit = (TextView) this.mActivity.findViewById(a.g.tv_user_define_confirm_submit);
-        this.tvCustomSubmitHint = (TextView) this.mActivity.findViewById(a.g.tv_user_define_hint);
+        findViewById.setOnClickListener(this.buyTBeanController);
+        this.mContainer = (RelativeLayout) this.activity.findViewById(a.g.container);
+        this.mTypeListview = (BdGridView) this.activity.findViewById(a.g.listview);
+        this.mResultView = (WalletPayResultView) this.activity.findViewById(a.g.pay_result_root);
+        final BdRoundedImageView bdRoundedImageView = (BdRoundedImageView) this.activity.findViewById(a.g.tbean_ad);
+        this.editCustomPrice = (TBeanEditText) this.activity.findViewById(a.g.edit_custom_bean_price);
+        this.tvCustomBeanNum = (TextView) this.activity.findViewById(a.g.tv_custome_bean_num);
+        this.mCustomBeanSubmitRoot = (RelativeLayout) this.activity.findViewById(a.g.confirm_btn_root);
+        this.tvCustomSubmit = (TextView) this.activity.findViewById(a.g.tv_user_define_confirm_submit);
+        this.tvCustomSubmitHint = (TextView) this.activity.findViewById(a.g.tv_user_define_hint);
         this.buyBeanCustomLayout = (LinearLayout) this.mActivitiyRootRl.findViewById(a.g.buy_bean_custom_layout);
         this.layoutExchange = (LinearLayout) this.mBuyTBeanRootLayout.findViewById(a.g.exchange_bean);
         this.tvExchangeContent = (TextView) this.mBuyTBeanRootLayout.findViewById(a.g.tv_exchange_bean);
@@ -172,7 +179,7 @@ public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (BuyTBeanView.this.isInputShowing) {
-                    BdUtilHelper.hideSoftKeyPad(BuyTBeanView.this.mActivity, BuyTBeanView.this.editCustomPrice);
+                    BdUtilHelper.hideSoftKeyPad(BuyTBeanView.this.activity, BuyTBeanView.this.editCustomPrice);
                     return false;
                 }
                 return false;
@@ -204,11 +211,9 @@ public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
                         }
                     });
                     bdRoundedImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanView.4
-                        /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.live.tbean.BuyTBeanActivity */
-                        /* JADX WARN: Multi-variable type inference failed */
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            UrlManager.getInstance().dealOneLink(BuyTBeanView.this.mActivity.getPageContext(), new String[]{optString2});
+                            UrlManager.getInstance().dealOneLink(BuyTBeanView.this.tbPageContext, new String[]{optString2});
                             LogManager.getCommonLogger().doClickBuyTBeanResourceLog(null, BuyTBeanView.this.mOtherParams, null);
                         }
                     });
@@ -224,13 +229,11 @@ public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
                     } else {
                         str = TbadkCoreApplication.APP_ID_HAOKAN;
                     }
-                    final String str2 = optString3 + (optString3.contains("?") ? "&" : "?") + "_client_type=2&subapp_type=" + str + "&from=" + (this.isFromLive ? "live" : "other");
+                    final String str2 = optString3 + (optString3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "_client_type=2&subapp_type=" + str + "&from=" + (this.isFromLive ? "live" : "other");
                     this.layoutExchange.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanView.5
-                        /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.live.tbean.BuyTBeanActivity */
-                        /* JADX WARN: Multi-variable type inference failed */
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            UrlManager.getInstance().dealOneLink(BuyTBeanView.this.mActivity.getPageContext(), new String[]{str2});
+                            UrlManager.getInstance().dealOneLink(BuyTBeanView.this.tbPageContext, new String[]{str2});
                         }
                     });
                     this.exchangeHomePageUrl = optString3;
@@ -241,7 +244,7 @@ public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
                     public void run() {
                         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bdRoundedImageView.getLayoutParams();
                         if (layoutParams != null) {
-                            layoutParams.height = (int) (((BuyTBeanView.this.mActivity.getResources().getDisplayMetrics().widthPixels - layoutParams.leftMargin) - layoutParams.rightMargin) * 0.18666666666666668d);
+                            layoutParams.height = (int) (((BuyTBeanView.this.activity.getResources().getDisplayMetrics().widthPixels - layoutParams.leftMargin) - layoutParams.rightMargin) * 0.18666666666666668d);
                             bdRoundedImageView.setLayoutParams(layoutParams);
                         }
                     }
@@ -256,14 +259,14 @@ public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
             public void onClick(View view) {
                 if (view.getTag() instanceof Boolean) {
                     if (((Boolean) view.getTag()).booleanValue()) {
-                        BuyTBeanView.this.mActivity.processClose();
+                        BuyTBeanView.this.buyTBeanController.processClose();
                     } else {
                         BuyTBeanView.this.hidePayResultView();
                     }
                 }
             }
         });
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.mActivity).inflate(a.h.sdk_tbn_buy_tbean_floating_window_top_bar, (ViewGroup) frameLayout, false);
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.activity).inflate(a.h.sdk_tbn_buy_tbean_floating_window_top_bar, (ViewGroup) frameLayout, false);
         frameLayout.addView(relativeLayout);
         TextView textView = (TextView) relativeLayout.findViewById(a.g.tbean_dialog_title);
         if (this.isTBeanNotEnough) {
@@ -271,9 +274,9 @@ public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
         } else {
             textView.setText(getPageContext().getPageActivity().getString(a.i.sdk_tbn_get_tdou));
         }
-        ((TextView) relativeLayout.findViewById(a.g.tbean_get_introduce)).setOnClickListener(this.mActivity);
-        ((ImageView) relativeLayout.findViewById(a.g.tbean_dialog_close_btn)).setOnClickListener(this.mActivity);
-        this.mBuyTBeanAdapter = new BuyTBeanGridAdapter(this.mActivity.getPageContext(), this.mActivity);
+        ((TextView) relativeLayout.findViewById(a.g.tbean_get_introduce)).setOnClickListener(this.buyTBeanController);
+        ((ImageView) relativeLayout.findViewById(a.g.tbean_dialog_close_btn)).setOnClickListener(this.buyTBeanController);
+        this.mBuyTBeanAdapter = new BuyTBeanGridAdapter(this.tbPageContext, this.activity);
         this.mTypeListview.setAdapter((ListAdapter) this.mBuyTBeanAdapter);
         initListener();
     }
@@ -328,16 +331,16 @@ public class BuyTBeanView extends BdBaseView<BuyTBeanActivity> {
             this.tvCustomSubmit.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanView.9
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (BuyTBeanView.this.mActivity != null) {
+                    if (BuyTBeanView.this.buyTBeanController != null) {
                         int i = JavaTypesHelper.toInt(BuyTBeanView.this.editCustomPrice.getText().toString(), 0);
                         if (i != 0) {
-                            BuyTBeanView.this.mActivity.payForTbean(userDefineTbeanWrapperData.mData.productId, userDefineTbeanWrapperData.mData.icon_id, i, i, TBeanUtil.getTBeanNum(userDefineTbeanWrapperData.userInfo, i * 1000, userDefineTbeanWrapperData.mSetting) * 1, userDefineTbeanWrapperData.mData.pic_url, userDefineTbeanWrapperData.mData.duration, userDefineTbeanWrapperData.mData.name);
+                            BuyTBeanView.this.buyTBeanController.payForTbean(userDefineTbeanWrapperData.mData.productId, userDefineTbeanWrapperData.mData.icon_id, i, i, TBeanUtil.getTBeanNum(userDefineTbeanWrapperData.userInfo, i * 1000, userDefineTbeanWrapperData.mSetting) * 1, userDefineTbeanWrapperData.mData.pic_url, userDefineTbeanWrapperData.mData.duration, userDefineTbeanWrapperData.mData.name);
                         } else {
                             return;
                         }
                     }
                     TiebaInitialize.log(TbeanStatisticKey.BUY_BIG_TBEAN_PAY_BUTTON);
-                    BdUtilHelper.hideSoftKeyPad(BuyTBeanView.this.mActivity, BuyTBeanView.this.editCustomPrice);
+                    BdUtilHelper.hideSoftKeyPad(BuyTBeanView.this.activity, BuyTBeanView.this.editCustomPrice);
                 }
             });
         }

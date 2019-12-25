@@ -8,18 +8,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class f implements Thread.UncaughtExceptionHandler {
-    public static boolean Kn = false;
-    private static final String Ko = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.o.G() + File.separator + "oom" + File.separator;
-    private static f Kp = new f();
-    private Thread.UncaughtExceptionHandler Kq = null;
-    private Context Kr = null;
+    public static boolean QS = false;
+    private static final String QT = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.o.G() + File.separator + "oom" + File.separator;
+    private static f QU = new f();
+    private Thread.UncaughtExceptionHandler QV = null;
+    private Context QW = null;
 
     private f() {
     }
 
-    private static boolean h(Throwable th) {
+    private static boolean k(Throwable th) {
         while (!"java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
             th = th.getCause();
             if (th == null) {
@@ -29,17 +29,17 @@ public final class f implements Thread.UncaughtExceptionHandler {
         return true;
     }
 
-    public static f mx() {
-        return Kp;
+    public static f nG() {
+        return QU;
     }
 
     public final void e(Context context) {
-        if (this.Kq == null) {
-            this.Kq = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.QV == null) {
+            this.QV = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.Kr == null) {
-            this.Kr = context.getApplicationContext();
+        if (this.QW == null) {
+            this.QW = context.getApplicationContext();
         }
     }
 
@@ -76,9 +76,9 @@ public final class f implements Thread.UncaughtExceptionHandler {
             com.baidu.crabsdk.c.a.f("pw", e2);
         }
         if (obj != null && !str.trim().equals("")) {
-            if (com.baidu.crabsdk.a.n && h(th)) {
+            if (com.baidu.crabsdk.a.n && k(th)) {
                 try {
-                    String str2 = Ko;
+                    String str2 = QT;
                     File file = new File(str2);
                     if (!file.exists()) {
                         if (file.mkdirs()) {
@@ -94,20 +94,20 @@ public final class f implements Thread.UncaughtExceptionHandler {
                     com.baidu.crabsdk.c.a.w("oom save fail" + th3.getMessage());
                 }
             }
-            if (h.mz() && h.mB() && h.i(th)) {
-                Kn = false;
-                if (this.Kr != null && thread != null && th != null) {
-                    i.c(this.Kr, i.g(g.a(this.Kr, th, false)));
+            if (h.nI() && h.nK() && h.l(th)) {
+                QS = false;
+                if (this.QW != null && thread != null && th != null) {
+                    i.c(this.QW, i.g(g.a(this.QW, th, false)));
                     h.c(th);
-                    h.j(th);
+                    h.m(th);
                     h.aa();
-                    k.a(false, this.Kr);
+                    k.a(false, this.QW);
                 }
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     while (true) {
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (!Kn) {
+                        if (!QS) {
                             if (currentTimeMillis2 - currentTimeMillis > 2500) {
                                 com.baidu.crabsdk.c.a.v("T^T upload timeout!");
                                 break;
@@ -122,9 +122,9 @@ public final class f implements Thread.UncaughtExceptionHandler {
                 }
             }
         }
-        if (this.Kq.equals(this)) {
+        if (this.QV.equals(this)) {
             return;
         }
-        this.Kq.uncaughtException(thread, th);
+        this.QV.uncaughtException(thread, th);
     }
 }

@@ -11,15 +11,16 @@ import android.net.wifi.WifiManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c {
     private Set<String> a;
     private Set<String> b;
@@ -103,7 +104,7 @@ public class c {
         a("cuid", cuid);
         a(Config.EXCEPTION_CRASH_TYPE, Integer.valueOf(a.a(this.g)));
         a("oi", Integer.valueOf(j()));
-        a("src", 1);
+        a(UserAccountActionItem.KEY_SRC, 1);
         a("h", Integer.valueOf(height));
         a("w", Integer.valueOf(width));
         a("apm", a);
@@ -115,7 +116,7 @@ public class c {
     private void a(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(str);
-        stringBuffer.append("=");
+        stringBuffer.append(ETAG.EQUAL);
         stringBuffer.append(obj);
         stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         try {
@@ -185,7 +186,7 @@ public class c {
             PackageInfo packageInfo = this.g.getPackageManager().getPackageInfo(this.g.getPackageName(), 0);
             String str2 = packageInfo == null ? null : packageInfo.versionName;
             if (str2 != null) {
-                str = str2.replace(DefaultConfig.TOKEN_SEPARATOR, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                str = str2.replace(".", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 return str;
             }
             return null;

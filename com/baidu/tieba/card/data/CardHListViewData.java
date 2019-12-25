@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GuessLikeThreadInfo;
 import tbclient.PbPage.GuessLikeStruct;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class CardHListViewData extends b implements Serializable {
+    private static final int MAX_COUNT = 9;
+    private static final int MIN_COUNT = 3;
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     private static final long serialVersionUID = 6577771607010727691L;
     public String threadId;

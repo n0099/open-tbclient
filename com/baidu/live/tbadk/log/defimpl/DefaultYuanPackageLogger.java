@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.log.defimpl;
 
 import com.baidu.live.tbadk.log.IYuanPackageLogger;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DefaultYuanPackageLogger implements IYuanPackageLogger {
     @Override // com.baidu.live.tbadk.log.IYuanPackageLogger
     public void doDisplayOneGiftBagLog(String str, String str2, String str3, String str4, long j) {

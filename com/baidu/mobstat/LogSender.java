@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mobstat.bm;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.io.BufferedReader;
@@ -25,7 +24,7 @@ import java.util.TimerTask;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LogSender {
     private static LogSender a = new LogSender();
     private boolean b = false;
@@ -404,7 +403,7 @@ public class LogSender {
         d.setRequestProperty("Content-Type", "gzip");
         byte[] a2 = bm.a.a();
         byte[] b = bm.a.b();
-        d.setRequestProperty(TiebaInitialize.Params.KEY, bv.a(a2));
+        d.setRequestProperty("key", bv.a(a2));
         d.setRequestProperty("iv", bv.a(b));
         byte[] a3 = bm.a.a(a2, b, str2.getBytes("utf-8"));
         d.connect();

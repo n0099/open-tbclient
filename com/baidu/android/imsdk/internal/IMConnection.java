@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class IMConnection {
     public static final int ERROR_LOGIN_FAIL = 7;
     private static final int MAX_RETRY_TIMES = 10;
@@ -99,7 +99,7 @@ public final class IMConnection {
         return iMConnection;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     class MyHandler extends Handler {
         public MyHandler(Looper looper) {
             super(looper);
@@ -138,7 +138,7 @@ public final class IMConnection {
         connectImpl(true);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private class ConnectTimeOutTask implements Runnable {
         Integer mConnectTaskId;
         boolean mTaskStoped = false;
@@ -191,7 +191,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     final class ConnectTask implements Runnable {
         Integer mConnectTaskId;
         String mIp;
@@ -323,7 +323,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     class ReadThread extends Thread {
         ReadThread() {
             setName("IM-IMConnection-readThread");
@@ -370,7 +370,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     class SendThread extends Thread {
         SendThread() {
             setName("IM-IMConnection-SendThread");

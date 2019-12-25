@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FrsGameStrategyActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -25,7 +25,7 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
         beginTransaction.commit();
     }
 
-    public static void r(Context context, String str, String str2) {
+    public static void s(Context context, String str, String str2) {
         Intent intent = new Intent(context, FrsGameStrategyActivity.class);
         intent.putExtra("fid", str);
         intent.putExtra("name", str2);

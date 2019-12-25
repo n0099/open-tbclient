@@ -2,6 +2,7 @@ package com.baidu.mobads.production.g;
 
 import android.content.Context;
 import android.os.Build;
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
@@ -9,7 +10,7 @@ import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.m;
 import dalvik.system.DexClassLoader;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e extends com.baidu.mobads.vo.d {
     h a;
 
@@ -28,9 +29,9 @@ public class e extends com.baidu.mobads.vo.d {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(IXAdRequestInfo.FET, "ANTI,HTML,MSSP,VIDEO,RSPLASHHTML");
         if (c()) {
-            hashMap.put("mimetype", "video/mp4,image/jpg,image/gif,image/png,rm/3d,rm/vr");
+            hashMap.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "video/mp4,image/jpg,image/gif,image/png,rm/3d,rm/vr");
         } else {
-            hashMap.put("mimetype", "video/mp4,image/jpg,image/gif,image/png,rm/3d");
+            hashMap.put(DownloadDataConstants.Columns.COLUMN_MIME_TYPE, "video/mp4,image/jpg,image/gif,image/png,rm/3d");
         }
         return hashMap;
     }

@@ -1,49 +1,49 @@
 package com.baidu.tieba.ala.liveroom.master.panel;
 
 import android.content.Context;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
 public class AlaMasterOperationSwitchItemView extends AlaMasterOperationBaseItemView {
-    private short ekh;
-    private int eki;
-    private int ekj;
+    private short faw;
+    private int fax;
+    private int fay;
 
     public AlaMasterOperationSwitchItemView(Context context, int i) {
         super(context, i);
-        this.ekh = (short) 1;
+        this.faw = (short) 1;
     }
 
     public void setTextResIdAndOnIconIdAndOffIconId(int i, int i2, int i3) {
         setTextResId(i);
-        this.eki = i2;
-        this.ekj = i3;
-        aUr();
+        this.fax = i2;
+        this.fay = i3;
+        bmi();
     }
 
-    public void e(short s) {
-        this.ekh = s;
-        aUr();
-        aUs();
+    public void f(short s) {
+        this.faw = s;
+        bmi();
+        bmj();
     }
 
-    private void aUr() {
-        if (this.ekh == 1) {
-            setIconResId(this.eki);
+    private void bmi() {
+        if (this.faw == 1) {
+            setIconResId(this.fax);
             setEnabled(true);
-        } else if (this.ekh == 2) {
-            setIconResId(this.ekj);
+        } else if (this.faw == 2) {
+            setIconResId(this.fay);
             setEnabled(true);
         } else {
-            setIconResId(this.eki);
+            setIconResId(this.fax);
             setEnabled(false);
         }
     }
 
-    private void aUs() {
+    private void bmj() {
         if (this.mId == 3) {
-            if (this.ekh == 1) {
+            if (this.faw == 1) {
                 setTextResId(a.i.ala_operation_panel_text_mirror_on);
-            } else if (this.ekh == 2) {
+            } else if (this.faw == 2) {
                 setTextResId(a.i.ala_operation_panel_text_mirror_off);
             }
         }

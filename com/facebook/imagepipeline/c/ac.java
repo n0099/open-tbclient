@@ -1,5 +1,0 @@
-package com.facebook.imagepipeline.c;
-/* loaded from: classes2.dex */
-public interface ac<V> {
-    int aM(V v);
-}

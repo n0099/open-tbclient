@@ -1,7 +1,7 @@
 package com.baidu.tbadk.widget.timepicker.a.d;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface a {
-    void bb(View view);
+    void aY(View view);
 }

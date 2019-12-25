@@ -1,78 +1,69 @@
 package com.baidu.tieba.ad.browser;
 
-import android.os.Build;
-import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.hybrid.l;
-import com.baidu.tbadk.core.hybrid.n;
-import com.baidu.tbadk.core.hybrid.o;
-import com.xiaomi.mipush.sdk.Constants;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-class b extends n {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public b(l lVar) {
-        super(lVar);
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
+import com.baidu.adp.lib.f.g;
+/* loaded from: classes5.dex */
+class b extends WebChromeClient {
+    private com.baidu.tieba.tbadkCore.e.c callback;
+    private AdTbWebViewActivity dUv;
+
+    public b(AdTbWebViewActivity adTbWebViewActivity) {
+        this.dUv = adTbWebViewActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.hybrid.n
-    public String afT() {
-        return "TBHY_COMMON_Utils";
+    public void setOnJsPromptCallback(com.baidu.tieba.tbadkCore.e.c cVar) {
+        this.callback = cVar;
     }
 
-    @o(alB = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            BdToast.b(getContext(), jSONObject.optString("message")).akR();
-        }
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+        quotaUpdater.updateQuota(2 * j2);
     }
 
-    @o(alB = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
-        JSONObject jSONObject = new JSONObject();
-        int i = 0;
-        String str = "NotReachable";
-        if (j.isWifiNet()) {
-            i = 1;
-            str = "WIFI";
-        } else if (j.is2GNet()) {
-            i = 3;
-            str = "2G";
-        } else if (j.is3GNet()) {
-            i = 4;
-            str = "3G";
-        } else if (j.is4GNet()) {
-            i = 5;
-            str = "4G";
-        }
-        try {
-            jSONObject.put("netStatus", i);
-            jSONObject.put("netDesc", str);
-        } catch (JSONException e) {
-        }
-        return jSONObject;
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
+        FrameLayout frameLayout = new FrameLayout(this.dUv.getPageContext().getPageActivity());
+        frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        return frameLayout;
     }
 
-    @o(alB = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
-        JSONObject jSONObject = new JSONObject();
-        String cuid = TbadkCoreApplication.getInst().getCuid();
-        String str = Build.VERSION.RELEASE;
-        String str2 = Build.MODEL;
-        String str3 = String.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(getContext()));
-        String versionName = TbadkCoreApplication.getInst().getVersionName();
-        try {
-            jSONObject.put("systemName", "android");
-            jSONObject.put("systemVersion", str);
-            jSONObject.put("model", str2);
-            jSONObject.put("cuid", cuid);
-            jSONObject.put("resolution", str3);
-            jSONObject.put("appVersion", versionName);
-        } catch (JSONException e) {
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        if (this.dUv == null || !g.a(this.dUv.getPageContext())) {
+            return true;
         }
-        return jSONObject;
+        return super.onJsAlert(webView, str, str2, jsResult);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        if (this.dUv == null || !g.a(this.dUv.getPageContext())) {
+            return true;
+        }
+        return super.onJsBeforeUnload(webView, str, str2, jsResult);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        if (this.dUv == null || !g.a(this.dUv.getPageContext())) {
+            return true;
+        }
+        return super.onJsConfirm(webView, str, str2, jsResult);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        if ((this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) && this.dUv != null && g.a(this.dUv.getPageContext())) {
+            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+        }
+        return true;
     }
 }

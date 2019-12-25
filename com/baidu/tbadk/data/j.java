@@ -1,9 +1,24 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class j {
-    public int cDl;
-    public bh cDm;
-    public String forumId;
+    private String link;
+    private TbPageContext pageContext;
+
+    public j() {
+    }
+
+    public j(TbPageContext tbPageContext, String str) {
+        this.pageContext = tbPageContext;
+        this.link = str;
+    }
+
+    public TbPageContext getPageContext() {
+        return this.pageContext;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
 }

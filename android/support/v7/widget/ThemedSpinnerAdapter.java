@@ -7,14 +7,14 @@ import android.support.annotation.Nullable;
 import android.support.v7.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.widget.SpinnerAdapter;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface ThemedSpinnerAdapter extends SpinnerAdapter {
     @Nullable
     Resources.Theme getDropDownViewTheme();
 
     void setDropDownViewTheme(@Nullable Resources.Theme theme);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Helper {
         private final Context mContext;
         private LayoutInflater mDropDownInflater;

@@ -35,13 +35,13 @@ import java.util.WeakHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class AppCompatDrawableManager {
     private static final boolean DEBUG = false;
     private static AppCompatDrawableManager INSTANCE = null;
     private static final String PLATFORM_VD_CLAZZ = "android.graphics.drawable.VectorDrawable";
     private static final String SKIP_DRAWABLE_TAG = "appcompat_skip_skip";
-    private static final String TAG = "AppCompatDrawableManager";
+    private static final String TAG = "AppCompatDrawableManag";
     private ArrayMap<String, InflateDelegate> mDelegates;
     private final Object mDrawableCacheLock = new Object();
     private final WeakHashMap<Context, LongSparseArray<WeakReference<Drawable.ConstantState>>> mDrawableCaches = new WeakHashMap<>(0);
@@ -59,7 +59,7 @@ public final class AppCompatDrawableManager {
     private static final int[] TINT_CHECKABLE_BUTTON_LIST = {R.drawable.abc_btn_check_material, R.drawable.abc_btn_radio_material};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface InflateDelegate {
         Drawable createFromXmlInner(@NonNull Context context, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme);
     }
@@ -75,9 +75,7 @@ public final class AppCompatDrawableManager {
     private static void installDefaultInflateDelegates(@NonNull AppCompatDrawableManager appCompatDrawableManager) {
         if (Build.VERSION.SDK_INT < 24) {
             appCompatDrawableManager.addDelegate("vector", new VdcInflateDelegate());
-            if (Build.VERSION.SDK_INT >= 11) {
-                appCompatDrawableManager.addDelegate("animated-vector", new AvdcInflateDelegate());
-            }
+            appCompatDrawableManager.addDelegate("animated-vector", new AvdcInflateDelegate());
         }
     }
 
@@ -462,7 +460,7 @@ public final class AppCompatDrawableManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ColorFilterLruCache extends LruCache<Integer, PorterDuffColorFilter> {
         public ColorFilterLruCache(int i) {
             super(i);
@@ -540,7 +538,7 @@ public final class AppCompatDrawableManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class VdcInflateDelegate implements InflateDelegate {
         VdcInflateDelegate() {
         }
@@ -558,7 +556,7 @@ public final class AppCompatDrawableManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(11)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class AvdcInflateDelegate implements InflateDelegate {
         AvdcInflateDelegate() {
         }

@@ -4,8 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
-import android.net.http.Headers;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdGPSHelper {
     Context mContext;
 
@@ -18,7 +17,7 @@ public class BdGPSHelper {
     }
 
     public boolean getGPSIsOpen() {
-        return ((LocationManager) this.mContext.getSystemService(Headers.LOCATION)).isProviderEnabled("gps");
+        return ((LocationManager) this.mContext.getSystemService("location")).isProviderEnabled("gps");
     }
 
     public void openGPSSetting() {

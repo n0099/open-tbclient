@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.os.Parcel;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class NotifyMsg extends ChatMsg {
     public NotifyMsg() {
         setCategory(2);

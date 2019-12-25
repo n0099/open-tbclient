@@ -1,0 +1,44 @@
+package io.reactivex.internal.operators.single;
+
+import io.reactivex.aa;
+import io.reactivex.b.h;
+import io.reactivex.q;
+import java.util.NoSuchElementException;
+import java.util.concurrent.Callable;
+import org.a.b;
+/* loaded from: classes4.dex */
+public final class SingleInternalHelper {
+
+    /* loaded from: classes4.dex */
+    enum NoSuchElementCallable implements Callable<NoSuchElementException> {
+        INSTANCE;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        public NoSuchElementException call() throws Exception {
+            return new NoSuchElementException();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    enum ToFlowable implements h<aa, b> {
+        INSTANCE;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // io.reactivex.b.h
+        public b apply(aa aaVar) {
+            return new SingleToFlowable(aaVar);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    enum ToObservable implements h<aa, q> {
+        INSTANCE;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // io.reactivex.b.h
+        public q apply(aa aaVar) {
+            return new SingleToObservable(aaVar);
+        }
+    }
+}

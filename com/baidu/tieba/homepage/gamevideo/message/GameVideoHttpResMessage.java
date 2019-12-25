@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.RecomVertical.DataRes;
 import tbclient.RecomVertical.RecomVerticalResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GameVideoHttpResMessage extends HttpResponsedMessage {
     public DataRes mResultData;
 

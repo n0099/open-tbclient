@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
     private boolean hasMore;
     private int totalCount;
     private List<b> userList = new ArrayList();
 
-    public void bM(JSONObject jSONObject) {
+    public void cC(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("users");
             int optInt = jSONObject.optInt("has_more");
@@ -21,7 +21,7 @@ public class a {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     b bVar = new b();
-                    bVar.bM(optJSONObject);
+                    bVar.cC(optJSONObject);
                     this.userList.add(bVar);
                 }
             }

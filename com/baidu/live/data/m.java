@@ -1,8 +1,8 @@
 package com.baidu.live.data;
-/* loaded from: classes6.dex */
+
+import com.baidu.live.tbadk.TbPageContext;
+/* loaded from: classes2.dex */
 public class m {
-    public int Ps;
-    public int Pt;
-    public int Pu;
-    public i Pv;
+    public TbPageContext pageContext;
+    public String userId;
 }

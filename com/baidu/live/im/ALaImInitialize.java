@@ -10,9 +10,9 @@ import com.baidu.live.im.view.ALALiveTextView;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ALaImInitialize {
-    public static Map<String, com.baidu.live.view.c> afg = new HashMap();
+    public static Map<String, com.baidu.live.view.c> ani = new HashMap();
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913003, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.live.im.ALaImInitialize.1
@@ -37,8 +37,8 @@ public class ALaImInitialize {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.c.a) {
                     com.baidu.live.liveroom.c.a aVar = (com.baidu.live.liveroom.c.a) customResponsedMessage.getData();
-                    if (aVar.ajm != null) {
-                        aVar.a(new e(aVar.ajm.context, aVar.ajm.ajo));
+                    if (aVar.arj != null) {
+                        aVar.a(new e(aVar.arj.context, aVar.arj.arl));
                     }
                 }
             }
@@ -47,7 +47,7 @@ public class ALaImInitialize {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ALaImInitialize.afg.clear();
+                ALaImInitialize.ani.clear();
             }
         });
     }

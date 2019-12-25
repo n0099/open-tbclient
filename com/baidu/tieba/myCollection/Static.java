@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.message.HistoryMessage;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.history.PbHistoryActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Static {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PbHistoryActivityConfig.class, PbHistoryActivity.class);
@@ -44,16 +44,16 @@ public class Static {
                         com.baidu.tieba.myCollection.baseHistory.a aVar = new com.baidu.tieba.myCollection.baseHistory.a();
                         aVar.setThreadId(historyMessage.threadId);
                         aVar.setForumName(historyMessage.forumName);
-                        aVar.Ah(historyMessage.threadName);
-                        aVar.Ai(historyMessage.postID);
-                        aVar.nz(historyMessage.isHostOnly);
-                        aVar.nA(historyMessage.isSquence);
+                        aVar.setThreadName(historyMessage.threadName);
+                        aVar.EP(historyMessage.postID);
+                        aVar.oO(historyMessage.isHostOnly);
+                        aVar.oP(historyMessage.isSquence);
                         aVar.setThreadType(historyMessage.threadType);
                         aVar.setCartoonId(historyMessage.cartoonId);
                         aVar.setChapterId(historyMessage.chapterId);
                         aVar.setIsShareThread(historyMessage.isShareThread);
                         aVar.setManga(historyMessage.isManga);
-                        aVar.cK(historyMessage.liveId);
+                        aVar.dB(historyMessage.liveId);
                         aVar.setUserName(historyMessage.userName);
                         aVar.setDescription(historyMessage.description);
                         pbHistoryCacheModel.a((PbHistoryCacheModel) aVar);
@@ -95,11 +95,11 @@ public class Static {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        com.baidu.tieba.myCollection.a.a.bNT().destroy();
+                        com.baidu.tieba.myCollection.a.a.cff().destroy();
                     } else if (TbadkCoreApplication.isLogin()) {
-                        com.baidu.tieba.myCollection.a.a.bNT().start();
+                        com.baidu.tieba.myCollection.a.a.cff().start();
                     } else {
-                        com.baidu.tieba.myCollection.a.a.bNT().destroy();
+                        com.baidu.tieba.myCollection.a.a.cff().destroy();
                     }
                 }
             }
@@ -109,9 +109,9 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    com.baidu.tieba.myCollection.a.a.bNT().restart();
+                    com.baidu.tieba.myCollection.a.a.cff().restart();
                 } else {
-                    com.baidu.tieba.myCollection.a.a.bNT().destroy();
+                    com.baidu.tieba.myCollection.a.a.cff().destroy();
                 }
             }
         });
@@ -120,8 +120,8 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                    b.bNu().bNx();
-                    b.bNu().nt(true);
+                    b.ceG().ceJ();
+                    b.ceG().oI(true);
                 }
             }
         });

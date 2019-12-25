@@ -10,14 +10,13 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.mobstat.Config;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     private Context mContext;
     private String mKey;
@@ -49,7 +48,7 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                 } else {
                     treeMap2 = new TreeMap();
                     try {
-                        JSONObject jSONObject3 = jSONObject2.getJSONObject(Config.LAUNCH_INFO);
+                        JSONObject jSONObject3 = jSONObject2.getJSONObject("info");
                         for (long j : this.mUks) {
                             treeMap2.put(Long.valueOf(j), Long.valueOf(jSONObject3.optLong("" + j, -1L)));
                         }

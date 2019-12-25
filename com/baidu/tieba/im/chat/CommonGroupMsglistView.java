@@ -1,5 +1,5 @@
 package com.baidu.tieba.im.chat;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class CommonGroupMsglistView extends AbsMsglistView {
     public CommonGroupMsglistView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);

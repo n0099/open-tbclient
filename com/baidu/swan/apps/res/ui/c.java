@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.res.ui;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
@@ -15,7 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.util.Log;
 import android.widget.ImageView;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class c extends Drawable {
     private final int mBitmapHeight;
     private final Paint mBitmapPaint;
@@ -66,6 +67,7 @@ public class c extends Drawable {
         return null;
     }
 
+    @SuppressLint({"SwanDebugLog"})
     public static Drawable a(Drawable drawable, ImageView.ScaleType scaleType, float f, int i, int i2) {
         if (drawable != null) {
             if (drawable instanceof TransitionDrawable) {
@@ -112,11 +114,11 @@ public class c extends Drawable {
         }
         if (this.mScaleType != scaleType) {
             this.mScaleType = scaleType;
-            OZ();
+            YY();
         }
     }
 
-    private void OZ() {
+    private void YY() {
         float min;
         float width;
         float f;
@@ -192,7 +194,7 @@ public class c extends Drawable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.res.ui.c$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 
@@ -232,7 +234,7 @@ public class c extends Drawable {
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
         this.mBounds.set(rect);
-        OZ();
+        YY();
     }
 
     @Override // android.graphics.drawable.Drawable

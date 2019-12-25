@@ -1,7 +1,7 @@
 package com.tencent.open.a;
 
 import com.tencent.open.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class i {
     private volatile int a;
     private volatile boolean b;

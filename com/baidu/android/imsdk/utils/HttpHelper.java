@@ -23,7 +23,7 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
 @SuppressLint({"TrulyRandom"})
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HttpHelper {
     public static final int ERROR_EXCEPTION = -10;
     private static final int GET = 1;
@@ -32,7 +32,7 @@ public class HttpHelper {
     public static final String TAG = HttpHelper.class.getSimpleName();
     private static Context mContext;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface Request {
         Map<String, String> getHeaders();
 
@@ -45,14 +45,14 @@ public class HttpHelper {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface ResponseHandler {
         void onFailure(int i, byte[] bArr, Throwable th);
 
         void onSuccess(int i, byte[] bArr);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     protected class Result {
         int errorCode;
         InputStream inputStream = null;

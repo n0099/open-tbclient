@@ -1,6 +1,8 @@
 package android.support.v4.widget;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -11,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.OverScroller;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ViewDragHelper {
     private static final int BASE_SETTLE_DURATION = 256;
     public static final int DIRECTION_ALL = 3;
@@ -64,20 +66,20 @@ public class ViewDragHelper {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Callback {
-        public abstract boolean tryCaptureView(View view, int i);
+        public abstract boolean tryCaptureView(@NonNull View view, int i);
 
         public void onViewDragStateChanged(int i) {
         }
 
-        public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
+        public void onViewPositionChanged(@NonNull View view, int i, int i2, int i3, int i4) {
         }
 
-        public void onViewCaptured(View view, int i) {
+        public void onViewCaptured(@NonNull View view, int i) {
         }
 
-        public void onViewReleased(View view, float f, float f2) {
+        public void onViewReleased(@NonNull View view, float f, float f2) {
         }
 
         public void onEdgeTouched(int i, int i2) {
@@ -94,34 +96,34 @@ public class ViewDragHelper {
             return i;
         }
 
-        public int getViewHorizontalDragRange(View view) {
+        public int getViewHorizontalDragRange(@NonNull View view) {
             return 0;
         }
 
-        public int getViewVerticalDragRange(View view) {
+        public int getViewVerticalDragRange(@NonNull View view) {
             return 0;
         }
 
-        public int clampViewPositionHorizontal(View view, int i, int i2) {
+        public int clampViewPositionHorizontal(@NonNull View view, int i, int i2) {
             return 0;
         }
 
-        public int clampViewPositionVertical(View view, int i, int i2) {
+        public int clampViewPositionVertical(@NonNull View view, int i, int i2) {
             return 0;
         }
     }
 
-    public static ViewDragHelper create(ViewGroup viewGroup, Callback callback) {
+    public static ViewDragHelper create(@NonNull ViewGroup viewGroup, @NonNull Callback callback) {
         return new ViewDragHelper(viewGroup.getContext(), viewGroup, callback);
     }
 
-    public static ViewDragHelper create(ViewGroup viewGroup, float f, Callback callback) {
+    public static ViewDragHelper create(@NonNull ViewGroup viewGroup, float f, @NonNull Callback callback) {
         ViewDragHelper create = create(viewGroup, callback);
         create.mTouchSlop = (int) (create.mTouchSlop * (1.0f / f));
         return create;
     }
 
-    private ViewDragHelper(Context context, ViewGroup viewGroup, Callback callback) {
+    private ViewDragHelper(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull Callback callback) {
         if (viewGroup == null) {
             throw new IllegalArgumentException("Parent view may not be null");
         }
@@ -158,7 +160,7 @@ public class ViewDragHelper {
         return this.mEdgeSize;
     }
 
-    public void captureChildView(View view, int i) {
+    public void captureChildView(@NonNull View view, int i) {
         if (view.getParent() != this.mParentView) {
             throw new IllegalArgumentException("captureChildView: parameter must be a descendant of the ViewDragHelper's tracked parent view (" + this.mParentView + ")");
         }
@@ -168,6 +170,7 @@ public class ViewDragHelper {
         setDragState(1);
     }
 
+    @Nullable
     public View getCapturedView() {
         return this.mCapturedView;
     }
@@ -202,7 +205,7 @@ public class ViewDragHelper {
         setDragState(0);
     }
 
-    public boolean smoothSlideViewTo(View view, int i, int i2) {
+    public boolean smoothSlideViewTo(@NonNull View view, int i, int i2) {
         this.mCapturedView = view;
         this.mActivePointerId = -1;
         boolean forceSettleCapturedViewAt = forceSettleCapturedViewAt(i, i2, 0, 0);
@@ -261,7 +264,7 @@ public class ViewDragHelper {
         } else {
             abs = (int) (((Math.abs(i) / i3) + 1.0f) * 256.0f);
         }
-        return Math.min(abs, (int) MAX_SETTLE_DURATION);
+        return Math.min(abs, 600);
     }
 
     private int clampMag(int i, int i2, int i3) {
@@ -441,7 +444,7 @@ public class ViewDragHelper {
         return false;
     }
 
-    protected boolean canScroll(View view, boolean z, int i, int i2, int i3, int i4) {
+    protected boolean canScroll(@NonNull View view, boolean z, int i, int i2, int i3, int i4) {
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             int scrollX = view.getScrollX();
@@ -462,7 +465,7 @@ public class ViewDragHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean shouldInterceptTouchEvent(MotionEvent motionEvent) {
+    public boolean shouldInterceptTouchEvent(@NonNull MotionEvent motionEvent) {
         View findTopChildUnder;
         int actionMasked = motionEvent.getActionMasked();
         int actionIndex = motionEvent.getActionIndex();
@@ -557,7 +560,7 @@ public class ViewDragHelper {
         return this.mDragState == 1;
     }
 
-    public void processTouchEvent(MotionEvent motionEvent) {
+    public void processTouchEvent(@NonNull MotionEvent motionEvent) {
         int i;
         int i2 = 0;
         int actionMasked = motionEvent.getActionMasked();
@@ -788,10 +791,11 @@ public class ViewDragHelper {
         return isViewUnder(this.mCapturedView, i, i2);
     }
 
-    public boolean isViewUnder(View view, int i, int i2) {
+    public boolean isViewUnder(@Nullable View view, int i, int i2) {
         return view != null && i >= view.getLeft() && i < view.getRight() && i2 >= view.getTop() && i2 < view.getBottom();
     }
 
+    @Nullable
     public View findTopChildUnder(int i, int i2) {
         for (int childCount = this.mParentView.getChildCount() - 1; childCount >= 0; childCount--) {
             View childAt = this.mParentView.getChildAt(this.mCallback.getOrderedChildIndex(childCount));

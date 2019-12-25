@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.UpgradeMemberGroup.UpgradeMemberGroupResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ResponseUpgradeMemberGroupMessage extends SocketResponsedMessage {
     public ResponseUpgradeMemberGroupMessage() {
         super(CmdConfigSocket.CMD_UPGRADE_MEMBER_GROUP);

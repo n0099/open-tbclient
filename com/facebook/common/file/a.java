@@ -1,21 +1,37 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class a {
+    public static String lDZ = null;
+
     public static void a(File file, b bVar) {
-        bVar.J(file);
-        File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
+        File[] b;
+        bVar.Z(file);
+        try {
+            b = file.listFiles();
+        } catch (OutOfMemoryError e) {
+            System.gc();
+            b = b(file, file.list());
+        }
+        if (b != null) {
+            for (File file2 : b) {
                 if (file2.isDirectory()) {
                     a(file2, bVar);
                 } else {
-                    bVar.K(file2);
+                    bVar.aa(file2);
+                    String path = file2.getPath();
+                    if (path != null) {
+                        if (lDZ == null) {
+                            lDZ = path;
+                        } else if (path.length() > lDZ.length()) {
+                            lDZ = path;
+                        }
+                    }
                 }
             }
         }
-        bVar.L(file);
+        bVar.ab(file);
     }
 
     public static boolean deleteContents(File file) {
@@ -25,18 +41,61 @@ public class a {
             int length = listFiles.length;
             int i = 0;
             while (i < length) {
-                boolean R = R(listFiles[i]) & z;
+                boolean ai = ai(listFiles[i]) & z;
                 i++;
-                z = R;
+                z = ai;
             }
         }
         return z;
     }
 
-    public static boolean R(File file) {
+    public static boolean ai(File file) {
         if (file.isDirectory()) {
             deleteContents(file);
         }
         return file.delete();
+    }
+
+    private static File[] b(File file, String[] strArr) {
+        if (file == null || strArr == null || strArr.length == 0) {
+            return null;
+        }
+        return c(file, strArr);
+    }
+
+    private static File[] c(File file, String[] strArr) {
+        String path = file.getPath();
+        int length = strArr.length;
+        File[] fileArr = new File[length];
+        for (int i = 0; i < length; i++) {
+            fileArr[i] = new File(eY(path, strArr[i]));
+        }
+        return fileArr;
+    }
+
+    private static String eY(String str, String str2) {
+        if (str.isEmpty()) {
+            return str2;
+        }
+        return str2.isEmpty() ? str : eZ(str, str2);
+    }
+
+    private static String eZ(String str, String str2) {
+        boolean z = true;
+        int length = str.length();
+        boolean z2 = length > 0 && str.charAt(length + (-1)) == File.separatorChar;
+        if (z2) {
+            z = z2;
+        } else if (str2.length() <= 0 || str2.charAt(0) != File.separatorChar) {
+            z = false;
+        }
+        if (z) {
+            StringBuilder sb = new StringBuilder(str.length() + str2.length());
+            sb.append(str).append(str2);
+            return sb.toString();
+        }
+        StringBuilder sb2 = new StringBuilder(str.length() + str2.length() + 1);
+        sb2.append(str).append(File.separatorChar).append(str2);
+        return sb2.toString();
     }
 }

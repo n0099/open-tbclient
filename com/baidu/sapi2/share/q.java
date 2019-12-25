@@ -1,5 +1,5 @@
 package com.baidu.sapi2.share;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 /* synthetic */ class q {
     static final /* synthetic */ int[] a = new int[ShareEvent.values().length];
 

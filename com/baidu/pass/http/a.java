@@ -3,6 +3,7 @@ package com.baidu.pass.http;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.pass.http.MultipartHashMap;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -16,9 +17,8 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a implements Runnable {
     private static final String a = "PassHttpClientRequest";
     private static final String b = "Set-Cookie";
@@ -180,8 +180,8 @@ public class a implements Runnable {
         for (int i = 0; i < size; i++) {
             String headerFieldKey = httpURLConnection.getHeaderFieldKey(i);
             String headerField = httpURLConnection.getHeaderField(i);
-            if ("Set-Cookie".equals(headerFieldKey) && !TextUtils.isEmpty(headerField) && headerField.contains("=")) {
-                headerFieldKey = headerField.substring(0, headerField.indexOf("="));
+            if ("Set-Cookie".equals(headerFieldKey) && !TextUtils.isEmpty(headerField) && headerField.contains(ETAG.EQUAL)) {
+                headerFieldKey = headerField.substring(0, headerField.indexOf(ETAG.EQUAL));
             }
             hashMap.put(headerFieldKey, headerField);
         }
@@ -256,8 +256,8 @@ public class a implements Runnable {
             for (Map.Entry entry : httpHashMap.getMap().entrySet()) {
                 if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
                     try {
-                        sb.append(URLEncoder.encode((String) entry.getKey(), HTTP.UTF_8)).append("=").append(URLEncoder.encode((String) entry.getValue(), HTTP.UTF_8));
-                        sb.append("&");
+                        sb.append(URLEncoder.encode((String) entry.getKey(), "UTF-8")).append(ETAG.EQUAL).append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
+                        sb.append(ETAG.ITEM_SEPARATOR);
                     } catch (UnsupportedEncodingException e) {
                         c.a(e.getMessage());
                     }
@@ -305,7 +305,7 @@ public class a implements Runnable {
             if (passHttpParamDTO.paramsMap != null) {
                 for (Map.Entry entry : passHttpParamDTO.paramsMap.getMap().entrySet()) {
                     if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
-                        a(byteArrayOutputStream, URLEncoder.encode((String) entry.getKey(), HTTP.UTF_8), URLEncoder.encode((String) entry.getValue(), HTTP.UTF_8));
+                        a(byteArrayOutputStream, URLEncoder.encode((String) entry.getKey(), "UTF-8"), URLEncoder.encode((String) entry.getValue(), "UTF-8"));
                     }
                 }
             }
@@ -314,7 +314,7 @@ public class a implements Runnable {
             a(byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         } else if (passHttpParamDTO.paramsMap instanceof HttpHashMap) {
-            return a(passHttpParamDTO.paramsMap).getBytes(HTTP.UTF_8);
+            return a(passHttpParamDTO.paramsMap).getBytes("UTF-8");
         } else {
             return null;
         }

@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.atom;
 
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GuardClubRankActivityConfig extends IntentConfig implements GuardClubActivityConfig {
     public GuardClubRankActivityConfig(Context context, long j, long j2, boolean z, String str) {
         super(context);

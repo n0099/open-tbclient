@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.db;
 
 import android.database.Cursor;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface CursorParse {
     Object getResult();
 

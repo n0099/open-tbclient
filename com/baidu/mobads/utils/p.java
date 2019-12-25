@@ -10,7 +10,6 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.http.Headers;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -27,6 +26,7 @@ import android.text.format.Formatter;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
+import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -45,7 +45,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class p implements IXAdSystemUtils {
     private String d;
     private String e;
@@ -161,7 +161,7 @@ public class p implements IXAdSystemUtils {
         }
         if (XAdSDKFoundationFacade.getInstance().getCommonUtils().hasPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
             try {
-                lastKnownLocation = ((LocationManager) context.getSystemService(Headers.LOCATION)).getLastKnownLocation("gps");
+                lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
             } catch (Exception e2) {
                 dArr = null;
             }
@@ -189,7 +189,7 @@ public class p implements IXAdSystemUtils {
                 e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
                 this.e = context.getSharedPreferences("__x_adsdk_agent_header__", 0).getString("guid", "");
                 if (this.e == null || this.e.length() <= 0) {
-                    this.e = commonUtils.md5(getMacAddress(context) + "&" + getIMEI(context) + "&&");
+                    this.e = commonUtils.md5(getMacAddress(context) + ETAG.ITEM_SEPARATOR + getIMEI(context) + "&&");
                     if (this.e == null || this.e.length() <= 0) {
                         return "";
                     }
@@ -504,7 +504,7 @@ public class p implements IXAdSystemUtils {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo == null || !activeNetworkInfo.isConnectedOrConnecting()) {
-                return IXAdSystemUtils.NT_NONE;
+                return "none";
             }
             if (activeNetworkInfo.getType() == 1) {
                 return "wifi";
@@ -517,7 +517,7 @@ public class p implements IXAdSystemUtils {
             } catch (Exception e2) {
                 e = e2;
                 XAdSDKFoundationFacade.getInstance().getAdLogger().i(e);
-                return IXAdSystemUtils.NT_NONE;
+                return "none";
             }
         } catch (Exception e3) {
             e = e3;

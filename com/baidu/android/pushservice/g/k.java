@@ -10,7 +10,9 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.PushSettings;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.data.Config;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -18,7 +20,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class k {
     public static String a = "";
     private Context b;
@@ -39,7 +41,7 @@ public final class k {
             HashMap hashMap = new HashMap();
             hashMap.put("stats", str2);
             hashMap.put("pbVer", str3);
-            hashMap.put("os", "android");
+            hashMap.put("os", PraiseDataPassUtil.KEY_FROM_OS);
             InputStream inputStream2 = null;
             long j = 1000;
             int i = 0;
@@ -123,7 +125,7 @@ public final class k {
         try {
             jSONObject.put("user_device", com.baidu.android.pushservice.g.a.b.e(this.b));
             jSONObject.put("user_network", com.baidu.android.pushservice.g.a.b.d(this.b));
-            jSONObject2.put("channel_id", PushSettings.a(this.b));
+            jSONObject2.put(SharedPrefConfig.CHANNEL_ID, PushSettings.a(this.b));
             jSONObject2.put("push_running_version", (int) com.baidu.android.pushservice.a.a());
             jSONObject.put("push_channel", jSONObject2);
         } catch (JSONException e) {

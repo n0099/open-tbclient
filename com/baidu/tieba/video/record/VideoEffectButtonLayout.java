@@ -9,28 +9,28 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.record.i;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, i.a {
-    private LinearLayout jFA;
-    private LinearLayout jFB;
-    private a jFC;
-    private View jFD;
-    private ImageView jFu;
-    private ImageView jFv;
-    private ImageView jFw;
-    private ImageView jFx;
-    private LinearLayout jFy;
-    private LinearLayout jFz;
+    private ImageView kzd;
+    private ImageView kze;
+    private ImageView kzf;
+    private ImageView kzg;
+    private LinearLayout kzh;
+    private LinearLayout kzi;
+    private LinearLayout kzj;
+    private LinearLayout kzk;
+    private a kzl;
+    private View kzm;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void cvv();
+        void cPm();
 
-        void cvw();
+        void cPn();
 
-        void cvx();
+        void cPo();
 
-        void cvy();
+        void cPp();
     }
 
     public VideoEffectButtonLayout(Context context) {
@@ -50,37 +50,37 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     private void initView() {
         inflate(getContext(), R.layout.layout_video_effect_button, this);
-        this.jFy = (LinearLayout) findViewById(R.id.layout_music);
-        this.jFz = (LinearLayout) findViewById(R.id.layout_sticker);
-        this.jFA = (LinearLayout) findViewById(R.id.layout_beauty);
-        this.jFB = (LinearLayout) findViewById(R.id.layout_filter);
-        this.jFu = (ImageView) findViewById(R.id.img_music);
-        this.jFv = (ImageView) findViewById(R.id.img_sticker);
-        this.jFw = (ImageView) findViewById(R.id.img_beauty);
-        this.jFx = (ImageView) findViewById(R.id.img_filter);
-        this.jFu.setOnClickListener(this);
-        this.jFv.setOnClickListener(this);
-        this.jFw.setOnClickListener(this);
-        this.jFx.setOnClickListener(this);
+        this.kzh = (LinearLayout) findViewById(R.id.layout_music);
+        this.kzi = (LinearLayout) findViewById(R.id.layout_sticker);
+        this.kzj = (LinearLayout) findViewById(R.id.layout_beauty);
+        this.kzk = (LinearLayout) findViewById(R.id.layout_filter);
+        this.kzd = (ImageView) findViewById(R.id.img_music);
+        this.kze = (ImageView) findViewById(R.id.img_sticker);
+        this.kzf = (ImageView) findViewById(R.id.img_beauty);
+        this.kzg = (ImageView) findViewById(R.id.img_filter);
+        this.kzd.setOnClickListener(this);
+        this.kze.setOnClickListener(this);
+        this.kzf.setOnClickListener(this);
+        this.kzg.setOnClickListener(this);
     }
 
     public void reset() {
-        this.jFD = null;
+        this.kzm = null;
     }
 
     public void setViewVisibility(int i, int i2) {
         switch (i) {
             case 0:
-                this.jFy.setVisibility(i2);
+                this.kzh.setVisibility(i2);
                 return;
             case 1:
-                this.jFz.setVisibility(i2);
+                this.kzi.setVisibility(i2);
                 return;
             case 2:
-                this.jFA.setVisibility(i2);
+                this.kzj.setVisibility(i2);
                 return;
             case 3:
-                this.jFB.setVisibility(i2);
+                this.kzk.setVisibility(i2);
                 return;
             default:
                 return;
@@ -90,16 +90,16 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     public void setViewChoosed(int i, boolean z) {
         switch (i) {
             case 0:
-                this.jFu.setSelected(z);
+                this.kzd.setSelected(z);
                 return;
             case 1:
-                this.jFv.setSelected(z);
+                this.kze.setSelected(z);
                 return;
             case 2:
-                this.jFw.setSelected(z);
+                this.kzf.setSelected(z);
                 return;
             case 3:
-                this.jFx.setSelected(z);
+                this.kzg.setSelected(z);
                 return;
             default:
                 return;
@@ -108,37 +108,37 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jFC != null) {
+        if (this.kzl != null) {
             int id = view.getId();
-            this.jFD = view;
+            this.kzm = view;
             an anVar = new an("c12495");
             if (id == R.id.img_music) {
-                this.jFC.cvv();
-                anVar.O("obj_type", 6);
+                this.kzl.cPm();
+                anVar.Z("obj_type", 6);
             } else if (id == R.id.img_sticker) {
-                this.jFC.cvw();
-                anVar.O("obj_type", 4);
+                this.kzl.cPn();
+                anVar.Z("obj_type", 4);
             } else if (id == R.id.img_beauty) {
-                this.jFC.cvx();
-                anVar.O("obj_type", 3);
+                this.kzl.cPo();
+                anVar.Z("obj_type", 3);
             } else if (id == R.id.img_filter) {
-                this.jFC.cvy();
-                anVar.O("obj_type", 2);
+                this.kzl.cPp();
+                anVar.Z("obj_type", 2);
             }
             TiebaStatic.log(anVar);
         }
     }
 
     public void setListener(a aVar) {
-        this.jFC = aVar;
+        this.kzl = aVar;
     }
 
     @Override // com.baidu.tieba.video.record.i.a
-    public void Bb(int i) {
+    public void Dw(int i) {
         if (i == 1) {
-            this.jFu.setImageResource(R.drawable.icon_video_music);
+            this.kzd.setImageResource(R.drawable.icon_video_music);
         } else {
-            this.jFu.setImageResource(R.drawable.icon_video_music_disable);
+            this.kzd.setImageResource(R.drawable.icon_video_music_disable);
         }
     }
 }

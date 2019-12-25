@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.network.http.interfaces;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface DownLoadCallback {
     void onFileDownloaded(Object obj, int i);
 

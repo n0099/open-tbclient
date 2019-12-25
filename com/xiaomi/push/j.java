@@ -8,23 +8,22 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Looper;
 import android.os.Parcel;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 final class j {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class a {
         private final String a;
 
         /* renamed from: a  reason: collision with other field name */
-        private final boolean f789a;
+        private final boolean f794a;
 
         a(String str, boolean z) {
             this.a = str;
-            this.f789a = z;
+            this.f794a = z;
         }
 
         public String a() {
@@ -32,24 +31,24 @@ final class j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     private static final class b implements ServiceConnection {
         private final LinkedBlockingQueue<IBinder> a;
 
         /* renamed from: a  reason: collision with other field name */
-        boolean f790a;
+        boolean f795a;
 
         private b() {
-            this.f790a = false;
+            this.f795a = false;
             this.a = new LinkedBlockingQueue<>(1);
         }
 
         public IBinder a() {
-            if (this.f790a) {
+            if (this.f795a) {
                 throw new IllegalStateException();
             }
-            this.f790a = true;
-            return this.a.poll(StatisticConfig.MIN_UPLOAD_INTERVAL, TimeUnit.MILLISECONDS);
+            this.f795a = true;
+            return this.a.poll(30000L, TimeUnit.MILLISECONDS);
         }
 
         @Override // android.content.ServiceConnection
@@ -65,7 +64,7 @@ final class j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     private static final class c implements IInterface {
         private IBinder a;
 

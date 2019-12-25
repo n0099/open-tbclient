@@ -1,13 +1,13 @@
 package com.tb.airbnb.lottie;
 
 import android.graphics.Typeface;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b {
-    public Typeface B(String str) {
+    public Typeface D(String str) {
         return null;
     }
 
-    public String C(String str) {
+    public String E(String str) {
         return null;
     }
 }

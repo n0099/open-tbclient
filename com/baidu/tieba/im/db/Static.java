@@ -4,8 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.util.y;
-import com.baidu.tbadk.util.z;
+import com.baidu.tbadk.util.ab;
+import com.baidu.tbadk.util.ac;
 /* loaded from: classes.dex */
 public class Static {
     static {
@@ -14,20 +14,20 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(final CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015 && customResponsedMessage.getData() != null) {
-                    z.b(new y<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
+                    ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tbadk.util.y
-                        /* renamed from: aEe */
+                        @Override // com.baidu.tbadk.util.ab
+                        /* renamed from: aVX */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                g.xN((String) customResponsedMessage.getData());
+                                g.Cw((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;
                         }
-                    }, new com.baidu.tbadk.util.j<Void>() { // from class: com.baidu.tieba.im.db.Static.1.2
+                    }, new com.baidu.tbadk.util.l<Void>() { // from class: com.baidu.tieba.im.db.Static.1.2
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tbadk.util.j
+                        @Override // com.baidu.tbadk.util.l
                         /* renamed from: a */
                         public void onReturnDataInUI(Void r4) {
                             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_CLEAR_MSG));

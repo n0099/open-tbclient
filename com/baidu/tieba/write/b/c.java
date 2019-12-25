@@ -10,40 +10,40 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.b.b;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private b jPE;
-    private a jPF;
-    private int jxI;
+    private b kKr;
+    private a kKs;
+    private int krE;
     private Context mContext;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private b.a jPG = new b.a() { // from class: com.baidu.tieba.write.b.c.1
+    private b.a kKt = new b.a() { // from class: com.baidu.tieba.write.b.c.1
         @Override // com.baidu.tieba.write.b.b.a
-        public void lK(int i) {
-            c.this.jxI = i;
-            c.this.ber();
-            if (c.this.jPF != null) {
-                c.this.jPF.BB(c.this.jxI);
+        public void onItemClick(int i) {
+            c.this.krE = i;
+            c.this.bvM();
+            if (c.this.kKs != null) {
+                c.this.kKs.DY(c.this.krE);
             }
         }
     };
-    private View.OnClickListener cot = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.c.2
+    private View.OnClickListener dbH = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == c.this.mTitle) {
-                if (c.this.jPE == null) {
-                    c.this.jPE = new b(c.this.mContext);
-                    c.this.jPE.setOnDismissListener(c.this.mOnDismissListener);
-                    c.this.jPE.a(c.this.jPG);
-                    c.this.jPE.pH(c.this.mStatusBarHeight);
+                if (c.this.kKr == null) {
+                    c.this.kKr = new b(c.this.mContext);
+                    c.this.kKr.setOnDismissListener(c.this.mOnDismissListener);
+                    c.this.kKr.a(c.this.kKt);
+                    c.this.kKr.rN(c.this.mStatusBarHeight);
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(R.string.write_zone_text_profession), 1));
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(R.string.write_zone_text_all), 0));
-                c.this.jPE.setData(arrayList, c.this.jxI);
-                c.this.jPE.O(c.this.mTitle);
-                c.this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.amL().a(R.drawable.icon_pure_list_arrow12_up_n_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+                c.this.kKr.setData(arrayList, c.this.krE);
+                c.this.kKr.P(c.this.mTitle);
+                c.this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aDW().a(R.drawable.icon_pure_fold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null), (Drawable) null);
             }
         }
     };
@@ -51,7 +51,7 @@ public class c {
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             if (c.this.mTitle != null) {
-                Drawable a2 = SvgManager.amL().a(R.drawable.icon_pure_list_arrow12_down_n_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+                Drawable a2 = SvgManager.aDW().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
                 if (a2 != null) {
                     a2.setBounds(0, 0, a2.getMinimumWidth(), a2.getMinimumHeight());
                 }
@@ -60,21 +60,21 @@ public class c {
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void BB(int i);
+        void DY(int i);
     }
 
     public c(Context context, TextView textView, int i, int i2) {
         this.mContext = context;
         this.mTitle = textView;
-        this.jxI = i;
+        this.krE = i;
         this.mStatusBarHeight = i2;
     }
 
-    public void ber() {
-        if (cyx()) {
-            switch (this.jxI) {
+    public void bvM() {
+        if (cSz()) {
+            switch (this.krE) {
                 case 0:
                     this.mTitle.setText(R.string.write_zone_all);
                     break;
@@ -82,23 +82,23 @@ public class c {
                     this.mTitle.setText(R.string.write_zone_profession);
                     break;
             }
-            this.mTitle.setOnClickListener(this.cot);
+            this.mTitle.setOnClickListener(this.dbH);
         }
     }
 
-    public boolean cyx() {
-        return this.jxI == 0 || this.jxI == 1;
+    public boolean cSz() {
+        return this.krE == 0 || this.krE == 1;
     }
 
     public void a(a aVar) {
-        this.jPF = aVar;
+        this.kKs = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (cyx()) {
+        if (cSz()) {
             am.setViewTextColor(this.mTitle, R.color.cp_cont_b, i);
             if (this.mTitle != null) {
-                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.amL().a(R.drawable.icon_pure_list_arrow12_down_n_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aDW().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null), (Drawable) null);
             }
         }
     }

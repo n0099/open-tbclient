@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BSBeanUtils {
     private BSBeanUtils() {
     }
@@ -26,7 +26,7 @@ public class BSBeanUtils {
             } catch (NoSuchFieldException e) {
             }
         }
-        throw new NoSuchFieldException("No such field: " + cls.getName() + BdFileHelper.EXTENSION_SEPARATOR + str);
+        throw new NoSuchFieldException("No such field: " + cls.getName() + '.' + str);
     }
 
     public static Object forceGetProperty(Object obj, String str) throws NoSuchFieldException {

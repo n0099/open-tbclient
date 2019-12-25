@@ -19,7 +19,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FaceLoginService {
     private static final String a = "FaceLoginService";
     private static final String b = "face_login_model_v2";

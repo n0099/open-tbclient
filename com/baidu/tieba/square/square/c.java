@@ -1,26 +1,32 @@
 package com.baidu.tieba.square.square;
 
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c extends com.baidu.tieba.square.data.a {
-    private d jdl;
+    private ArrayList<e> jXx = new ArrayList<>();
 
-    public d cmS() {
-        return this.jdl;
+    public ArrayList<e> cGX() {
+        return this.jXx;
     }
 
-    public void b(d dVar) {
-        this.jdl = dVar;
+    public void aR(ArrayList<e> arrayList) {
+        this.jXx = arrayList;
         setErrorMsg(null);
     }
 
     @Override // com.baidu.tieba.square.data.a
-    protected void cq(JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject = jSONObject.optJSONObject("forum_dir");
-        if (optJSONObject != null) {
-            d dVar = new d();
-            dVar.parserJson(optJSONObject);
-            b(dVar);
+    protected void dg(JSONObject jSONObject) throws Exception {
+        ArrayList<e> arrayList = new ArrayList<>();
+        JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                e eVar = new e();
+                eVar.parserJson(optJSONArray.getJSONObject(i));
+                arrayList.add(eVar);
+            }
         }
+        aR(arrayList);
     }
 }

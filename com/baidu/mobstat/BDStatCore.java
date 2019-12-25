@@ -8,12 +8,12 @@ import android.os.HandlerThread;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BDStatCore {
     public static final int INVOKE_ACT = 1;
     public static final int INVOKE_API = 0;
@@ -363,7 +363,7 @@ public class BDStatCore {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         for (int i = 0; stackTrace != null && i < stackTrace.length; i++) {
             String className = stackTrace[i].getClassName();
-            if (!TextUtils.isEmpty(className) && "onResume".equals(stackTrace[i].getMethodName())) {
+            if (!TextUtils.isEmpty(className) && MissionEvent.MESSAGE_RESUME.equals(stackTrace[i].getMethodName())) {
                 try {
                     cls3 = Class.forName(className);
                 } catch (Throwable th) {
@@ -584,7 +584,7 @@ public class BDStatCore {
                     DataCore.instance().init(context);
                     BDStatCore.this.e.onEvent(context, currentTimeMillis, str2, str3, 1, currentTimeMillis, null, null, false);
                     DataCore.instance().saveLogData(context, true, false, currentTimeMillis, false);
-                    if (currentTimeMillis - BDStatCore.this.g > StatisticConfig.MIN_UPLOAD_INTERVAL && bw.q(context)) {
+                    if (currentTimeMillis - BDStatCore.this.g > 30000 && bw.q(context)) {
                         LogSender.instance().onSend(context);
                         BDStatCore.this.g = currentTimeMillis;
                     }

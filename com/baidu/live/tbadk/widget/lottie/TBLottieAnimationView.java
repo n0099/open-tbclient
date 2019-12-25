@@ -3,7 +3,6 @@ package com.baidu.live.tbadk.widget.lottie;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.live.adp.lib.util.BdStringHelper;
@@ -21,7 +20,7 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TBLottieAnimationView extends LottieAnimationView {
     private static final String DIR_ANIMATION = "animation";
     public static final String JSON_FILE = "data.json";
@@ -101,7 +100,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         try {
             return file.mkdirs();
         } catch (Exception e) {
-            TiebaInitialize.file(e, BdStringHelper.join("FileHelper", DefaultConfig.TOKEN_SEPARATOR, "CheckTempDir", HanziToPinyin.Token.SEPARATOR, str));
+            TiebaInitialize.file(e, BdStringHelper.join("FileHelper", ".", "CheckTempDir", HanziToPinyin.Token.SEPARATOR, str));
             return false;
         }
     }
@@ -193,7 +192,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
     }
 
     private boolean checkPermission() {
-        return com.baidu.e.a.a.L(getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
+        return com.baidu.k.a.a.checkPermissionGranted(getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
     }
 
     @Override // com.tb.airbnb.lottie.LottieAnimationView

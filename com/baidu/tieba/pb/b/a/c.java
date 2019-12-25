@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.b.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface c extends d {
-    CharSequence bXJ();
+    CharSequence cpF();
 
-    boolean bXK();
+    boolean cpG();
 }

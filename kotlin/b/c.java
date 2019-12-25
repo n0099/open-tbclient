@@ -1,20 +1,21 @@
 package kotlin.b;
 
+import com.baidu.android.common.others.IStringUtil;
 import kotlin.jvm.internal.o;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class c extends kotlin.b.a {
-    public static final a kvt = new a(null);
-    private static final c kvs = new c(1, 0);
+    public static final a mZo = new a(null);
+    private static final c mZn = new c(1, 0);
 
     public c(int i, int i2) {
         super(i, i2, 1);
     }
 
-    public Integer cNc() {
+    public Integer dEX() {
         return Integer.valueOf(getFirst());
     }
 
-    public Integer cNd() {
+    public Integer dEY() {
         return Integer.valueOf(getLast());
     }
 
@@ -38,10 +39,10 @@ public final class c extends kotlin.b.a {
 
     @Override // kotlin.b.a
     public String toString() {
-        return "" + getFirst() + ".." + getLast();
+        return "" + getFirst() + IStringUtil.TOP_PATH + getLast();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         private a() {
         }
@@ -50,8 +51,8 @@ public final class c extends kotlin.b.a {
             this();
         }
 
-        public final c cNf() {
-            return c.kvs;
+        public final c dFa() {
+            return c.mZn;
         }
     }
 }

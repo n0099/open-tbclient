@@ -34,7 +34,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.live.tbadk.log.LogConfig;
-import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -57,7 +57,7 @@ import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class AuthAgent extends BaseApi {
     public static final String SECURE_LIB_ARM64_FILE_NAME = "libwbsafeedit_64";
     public static final String SECURE_LIB_ARM_FILE_NAME = "libwbsafeedit";
@@ -74,12 +74,12 @@ public class AuthAgent extends BaseApi {
         SECURE_LIB_NAME = SECURE_LIB_FILE_NAME + PluginInstallerService.APK_LIB_SUFFIX;
         String str = Build.CPU_ABI;
         if (str != null && !str.equals("")) {
-            if (str.equalsIgnoreCase(PassBiometricUtil.CPU_TYPE_ARM64_V8A)) {
+            if (str.equalsIgnoreCase("arm64-v8a")) {
                 SECURE_LIB_FILE_NAME = SECURE_LIB_ARM64_FILE_NAME;
                 SECURE_LIB_NAME = SECURE_LIB_FILE_NAME + PluginInstallerService.APK_LIB_SUFFIX;
                 f.c("openSDK_LOG.AuthAgent", "is arm64-v8a architecture");
                 return;
-            } else if (str.equalsIgnoreCase(PassBiometricUtil.CPU_TYPE_X86)) {
+            } else if (str.equalsIgnoreCase("x86")) {
                 SECURE_LIB_FILE_NAME = SECURE_LIB_X86_FILE_NAME;
                 SECURE_LIB_NAME = SECURE_LIB_FILE_NAME + PluginInstallerService.APK_LIB_SUFFIX;
                 f.c("openSDK_LOG.AuthAgent", "is x86 architecture");
@@ -106,7 +106,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class c implements IUiListener {
         private final IUiListener b;
         private final boolean c;
@@ -202,7 +202,7 @@ public class AuthAgent extends BaseApi {
         a2.putString("scope", this.d);
         a2.putString("client_id", this.b.getAppId());
         if (isOEM) {
-            a2.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+            a2.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + PraiseDataPassUtil.KEY_FROM_OS + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
         } else {
             a2.putString("pf", Constants.DEFAULT_PF);
         }
@@ -261,7 +261,7 @@ public class AuthAgent extends BaseApi {
             a2.putString("scope", this.d);
             a2.putString("client_id", this.b.getAppId());
             if (isOEM) {
-                a2.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+                a2.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + PraiseDataPassUtil.KEY_FROM_OS + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
             } else {
                 a2.putString("pf", Constants.DEFAULT_PF);
             }
@@ -318,7 +318,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements IUiListener {
         IUiListener a;
 
@@ -361,7 +361,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class b implements IUiListener {
         IUiListener a;
         private final String c = "sendinstall";
@@ -396,7 +396,7 @@ public class AuthAgent extends BaseApi {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes5.dex */
         private abstract class a implements View.OnClickListener {
             Dialog d;
 

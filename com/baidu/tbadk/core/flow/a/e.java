@@ -11,7 +11,7 @@ public class e {
         this.height = i;
     }
 
-    public void a(ViewPager viewPager) {
+    public void b(ViewPager viewPager) {
         if (viewPager != null) {
             ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
             if (layoutParams == null) {

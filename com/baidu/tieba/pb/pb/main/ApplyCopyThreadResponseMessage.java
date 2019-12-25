@@ -1,9 +1,10 @@
 package com.baidu.tieba.pb.pb.main;
 
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ApplyCopyThreadResponseMessage extends JsonHttpResponsedMessage {
     private int errorCode;
     private String errorMessage;
@@ -46,7 +47,7 @@ public class ApplyCopyThreadResponseMessage extends JsonHttpResponsedMessage {
             }
             if (optJSONObject != null) {
                 this.errorCode = optJSONObject.optInt("errorno");
-                this.errorMessage = optJSONObject.optString("errmsg");
+                this.errorMessage = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
             }
         }
     }

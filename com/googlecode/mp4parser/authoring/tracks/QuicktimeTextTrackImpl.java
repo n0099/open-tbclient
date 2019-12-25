@@ -21,8 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class QuicktimeTextTrackImpl extends AbstractTrack {
     TrackMetaData trackMetaData = new TrackMetaData();
     List<Line> subs = new LinkedList();
@@ -55,8 +54,8 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
             try {
-                dataOutputStream.writeShort(line.text.getBytes(HTTP.UTF_8).length);
-                dataOutputStream.write(line.text.getBytes(HTTP.UTF_8));
+                dataOutputStream.writeShort(line.text.getBytes("UTF-8").length);
+                dataOutputStream.write(line.text.getBytes("UTF-8"));
                 dataOutputStream.close();
                 linkedList.add(new SampleImpl(ByteBuffer.wrap(byteArrayOutputStream.toByteArray())));
                 j = line.to;
@@ -120,7 +119,7 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
         return "text";
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Line {
         long from;
         String text;

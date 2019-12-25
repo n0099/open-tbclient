@@ -33,8 +33,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AppCompatViewInflater {
     private static final String LOG_TAG = "AppCompatViewInflater";
     private final Object[] mConstructorArgs = new Object[2];
@@ -43,7 +42,9 @@ public class AppCompatViewInflater {
     private static final String[] sClassPrefixList = {"android.widget.", "android.view.", "android.webkit."};
     private static final Map<String, Constructor<? extends View>> sConstructorMap = new ArrayMap();
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public final View createView(View view, String str, @NonNull Context context, @NonNull AttributeSet attributeSet, boolean z, boolean z2, boolean z3, boolean z4) {
+        View createSeekBar;
         Context context2 = (!z || view == null) ? context : view.getContext();
         if (z2 || z3) {
             context2 = themifyContext(context2, attributeSet, z2, z3);
@@ -51,7 +52,6 @@ public class AppCompatViewInflater {
         if (z4) {
             context2 = TintContextWrapper.wrap(context2);
         }
-        View view2 = null;
         char c = 65535;
         switch (str.hashCode()) {
             case -1946472170:
@@ -135,53 +135,145 @@ public class AppCompatViewInflater {
         }
         switch (c) {
             case 0:
-                view2 = new AppCompatTextView(context2, attributeSet);
+                createSeekBar = createTextView(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case 1:
-                view2 = new AppCompatImageView(context2, attributeSet);
+                createSeekBar = createImageView(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case 2:
-                view2 = new AppCompatButton(context2, attributeSet);
+                createSeekBar = createButton(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case 3:
-                view2 = new AppCompatEditText(context2, attributeSet);
+                createSeekBar = createEditText(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case 4:
-                view2 = new AppCompatSpinner(context2, attributeSet);
+                createSeekBar = createSpinner(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case 5:
-                view2 = new AppCompatImageButton(context2, attributeSet);
+                createSeekBar = createImageButton(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case 6:
-                view2 = new AppCompatCheckBox(context2, attributeSet);
+                createSeekBar = createCheckBox(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case 7:
-                view2 = new AppCompatRadioButton(context2, attributeSet);
+                createSeekBar = createRadioButton(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case '\b':
-                view2 = new AppCompatCheckedTextView(context2, attributeSet);
+                createSeekBar = createCheckedTextView(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case '\t':
-                view2 = new AppCompatAutoCompleteTextView(context2, attributeSet);
+                createSeekBar = createAutoCompleteTextView(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case '\n':
-                view2 = new AppCompatMultiAutoCompleteTextView(context2, attributeSet);
+                createSeekBar = createMultiAutoCompleteTextView(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case 11:
-                view2 = new AppCompatRatingBar(context2, attributeSet);
+                createSeekBar = createRatingBar(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
                 break;
             case '\f':
-                view2 = new AppCompatSeekBar(context2, attributeSet);
+                createSeekBar = createSeekBar(context2, attributeSet);
+                verifyNotNull(createSeekBar, str);
+                break;
+            default:
+                createSeekBar = createView(context2, str, attributeSet);
                 break;
         }
-        View createViewFromTag = (view2 != null || context == context2) ? view2 : createViewFromTag(context2, str, attributeSet);
+        View createViewFromTag = (createSeekBar != null || context == context2) ? createSeekBar : createViewFromTag(context2, str, attributeSet);
         if (createViewFromTag != null) {
             checkOnClickListener(createViewFromTag, attributeSet);
         }
         return createViewFromTag;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [183=5, 184=5] */
+    @NonNull
+    protected AppCompatTextView createTextView(Context context, AttributeSet attributeSet) {
+        return new AppCompatTextView(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatImageView createImageView(Context context, AttributeSet attributeSet) {
+        return new AppCompatImageView(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatButton createButton(Context context, AttributeSet attributeSet) {
+        return new AppCompatButton(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatEditText createEditText(Context context, AttributeSet attributeSet) {
+        return new AppCompatEditText(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatSpinner createSpinner(Context context, AttributeSet attributeSet) {
+        return new AppCompatSpinner(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatImageButton createImageButton(Context context, AttributeSet attributeSet) {
+        return new AppCompatImageButton(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatCheckBox createCheckBox(Context context, AttributeSet attributeSet) {
+        return new AppCompatCheckBox(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatRadioButton createRadioButton(Context context, AttributeSet attributeSet) {
+        return new AppCompatRadioButton(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatCheckedTextView createCheckedTextView(Context context, AttributeSet attributeSet) {
+        return new AppCompatCheckedTextView(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatAutoCompleteTextView createAutoCompleteTextView(Context context, AttributeSet attributeSet) {
+        return new AppCompatAutoCompleteTextView(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatMultiAutoCompleteTextView createMultiAutoCompleteTextView(Context context, AttributeSet attributeSet) {
+        return new AppCompatMultiAutoCompleteTextView(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatRatingBar createRatingBar(Context context, AttributeSet attributeSet) {
+        return new AppCompatRatingBar(context, attributeSet);
+    }
+
+    @NonNull
+    protected AppCompatSeekBar createSeekBar(Context context, AttributeSet attributeSet) {
+        return new AppCompatSeekBar(context, attributeSet);
+    }
+
+    private void verifyNotNull(View view, String str) {
+        if (view == null) {
+            throw new IllegalStateException(getClass().getName() + " asked to inflate view for <" + str + ">, but returned null");
+        }
+    }
+
+    @Nullable
+    protected View createView(Context context, String str, AttributeSet attributeSet) {
+        return null;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [279=5, 280=5] */
     private View createViewFromTag(Context context, String str, AttributeSet attributeSet) {
         if (str.equals("view")) {
             str = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
@@ -191,14 +283,14 @@ public class AppCompatViewInflater {
             this.mConstructorArgs[1] = attributeSet;
             if (-1 == str.indexOf(46)) {
                 for (int i = 0; i < sClassPrefixList.length; i++) {
-                    View createView = createView(context, str, sClassPrefixList[i]);
-                    if (createView != null) {
-                        return createView;
+                    View createViewByPrefix = createViewByPrefix(context, str, sClassPrefixList[i]);
+                    if (createViewByPrefix != null) {
+                        return createViewByPrefix;
                     }
                 }
                 return null;
             }
-            return createView(context, str, null);
+            return createViewByPrefix(context, str, null);
         } catch (Exception e) {
             return null;
         } finally {
@@ -221,7 +313,7 @@ public class AppCompatViewInflater {
         }
     }
 
-    private View createView(Context context, String str, String str2) throws ClassNotFoundException, InflateException {
+    private View createViewByPrefix(Context context, String str, String str2) throws ClassNotFoundException, InflateException {
         Constructor<? extends View> constructor = sConstructorMap.get(str);
         if (constructor == null) {
             try {
@@ -253,7 +345,7 @@ public class AppCompatViewInflater {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class DeclaredOnClickListener implements View.OnClickListener {
         private final View mHostView;
         private final String mMethodName;

@@ -1,6 +1,5 @@
 package com.baidu.platform.core.b;
 
-import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
@@ -19,7 +18,7 @@ public class f extends com.baidu.platform.base.e {
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng = CoordTrans.gcjToBaidu(latLng);
             }
-            this.a.a(Headers.LOCATION, latLng.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + latLng.longitude);
+            this.a.a("location", latLng.latitude + Constants.ACCEPT_TIME_SEPARATOR_SP + latLng.longitude);
         }
         this.a.a("coordtype", "bd09ll");
         this.a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));

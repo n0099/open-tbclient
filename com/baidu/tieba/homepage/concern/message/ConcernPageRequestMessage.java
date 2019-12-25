@@ -4,10 +4,10 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     private String pageTag;
 
@@ -20,9 +20,9 @@ public class ConcernPageRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.page_tag = this.pageTag;
-            builder.last_req_unix = Long.valueOf(b.alP().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
+            builder.last_req_unix = Long.valueOf(b.aCY().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
             if (z) {
-                r.a(builder, true);
+                t.a(builder, true);
             }
             UserlikeReqIdl.Builder builder2 = new UserlikeReqIdl.Builder();
             builder2.data = builder.build(false);

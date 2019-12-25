@@ -1,80 +1,91 @@
 package com.baidu.live.gift;
 
-import com.baidu.live.adp.base.BdPageContext;
-/* loaded from: classes6.dex */
-public abstract class q {
-    private static q Xf;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.gift.g;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes2.dex */
+public class q {
+    private Map<String, p> aeN;
+    private Map<String, Integer> aeO;
+    private List<i> mDatas;
 
-    protected abstract void a(BdPageContext bdPageContext);
+    public static q rk() {
+        return a.aeP;
+    }
 
-    protected abstract void a(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11);
+    public void s(List<i> list) {
+        if (this.mDatas == null) {
+            this.mDatas = new ArrayList();
+        }
+        this.mDatas.clear();
+        if (list != null) {
+            this.mDatas.addAll(list);
+        }
+        rn();
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913122));
+    }
 
-    protected abstract void a(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, boolean z2, boolean z3, boolean z4);
+    public List<i> getDatas() {
+        return this.mDatas;
+    }
 
-    protected abstract g ch(String str);
+    public Map<String, p> rl() {
+        return this.aeN;
+    }
 
-    protected abstract boolean ci(String str);
+    public Map<String, Integer> rm() {
+        return this.aeO;
+    }
 
-    protected abstract boolean cj(String str);
-
-    protected abstract boolean ck(String str);
-
-    protected abstract void onDestroy();
-
-    public static final void b(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11) {
-        if (Xf != null) {
-            Xf.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11);
+    public void release() {
+        if (this.mDatas != null) {
+            this.mDatas.clear();
+        }
+        if (this.aeN != null) {
+            this.aeN.clear();
+        }
+        if (this.aeO != null) {
+            this.aeO.clear();
         }
     }
 
-    public static void b(String str, long j, String str2, String str3, String str4, String str5, String str6, String str7, String str8, boolean z, String str9, String str10, String str11, boolean z2, boolean z3, boolean z4) {
-        if (Xf != null) {
-            Xf.a(str, j, str2, str3, str4, str5, str6, str7, str8, z, str9, str10, str11, z2, z3, z4);
+    private void rn() {
+        g.a.C0079a c0079a;
+        if (this.aeN == null) {
+            this.aeN = new HashMap();
+        }
+        this.aeN.clear();
+        if (this.aeO == null) {
+            this.aeO = new HashMap();
+        }
+        this.aeO.clear();
+        if (this.mDatas != null && this.mDatas.size() > 0) {
+            for (i iVar : this.mDatas) {
+                List<g> qQ = iVar.qQ();
+                if (qQ != null && !qQ.isEmpty()) {
+                    for (g gVar : qQ) {
+                        if (gVar.adR != null && (c0079a = gVar.adR.aeb) != null && c0079a.key == 10 && c0079a.aed != null) {
+                            String optString = c0079a.aed.optString("id");
+                            if (this.aeN.get(optString) == null) {
+                                this.aeN.put(optString, new p(gVar.qx(), gVar.adR.adX, gVar.adK));
+                                this.aeO.put(optString, Integer.valueOf(gVar.adR.adY));
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
-    public static final g cl(String str) {
-        if (Xf != null) {
-            return Xf.ch(str);
-        }
-        return null;
+    private q() {
     }
 
-    public static final void b(BdPageContext bdPageContext) {
-        if (Xf != null) {
-            Xf.a(bdPageContext);
-        }
-    }
-
-    public static final void pO() {
-        if (Xf != null) {
-            Xf.onDestroy();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public static final void a(q qVar) {
-        Xf = qVar;
-    }
-
-    public static boolean cm(String str) {
-        if (Xf != null) {
-            return Xf.ci(str);
-        }
-        return false;
-    }
-
-    public static boolean cn(String str) {
-        if (Xf != null) {
-            return Xf.cj(str);
-        }
-        return false;
-    }
-
-    public static boolean co(String str) {
-        if (Xf != null) {
-            return Xf.ck(str);
-        }
-        return false;
+    /* loaded from: classes2.dex */
+    private static class a {
+        private static final q aeP = new q();
     }
 }

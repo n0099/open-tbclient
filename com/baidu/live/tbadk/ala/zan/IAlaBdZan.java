@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.ala.zan;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface IAlaBdZan {
     void addHeart(int i);
 

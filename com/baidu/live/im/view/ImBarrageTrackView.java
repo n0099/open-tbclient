@@ -10,21 +10,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
-import com.baidu.live.data.ao;
+import com.baidu.live.data.av;
 import com.baidu.live.im.view.ImBarrageItemView;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
 public class ImBarrageTrackView extends FrameLayout {
-    private a aiN;
-    private int aiO;
-    private int aiP;
-    private boolean aiQ;
+    private a aqL;
+    private int aqM;
+    private int aqN;
+    private boolean aqO;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void d(com.baidu.live.data.a aVar);
 
-        void tU();
+        void onNext();
     }
 
     public ImBarrageTrackView(@NonNull Context context) {
@@ -33,40 +33,40 @@ public class ImBarrageTrackView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.aiN = aVar;
+        this.aqL = aVar;
     }
 
-    public boolean tS() {
-        return this.aiQ;
+    public boolean vO() {
+        return this.aqO;
     }
 
     public void setCanAddNext() {
-        this.aiQ = true;
+        this.aqO = true;
     }
 
-    public void a(ao aoVar, com.baidu.live.data.a aVar, String str, String str2) {
-        this.aiQ = false;
-        aD(false);
-        View b = b(aoVar, aVar, str, str2);
+    public void a(av avVar, com.baidu.live.data.a aVar, String str, String str2) {
+        this.aqO = false;
+        aU(false);
+        View b = b(avVar, aVar, str, str2);
         b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         addView(b, new ViewGroup.LayoutParams(b.getMeasuredWidth(), -1));
-        Animator L = L(b);
-        b.setTag(a.g.ala_im_barrage_item_anim, L);
-        L.start();
+        Animator M = M(b);
+        b.setTag(a.g.ala_im_barrage_item_anim, M);
+        M.start();
     }
 
     public void release() {
-        aD(true);
+        aU(true);
         removeAllViews();
     }
 
     private void init() {
         setBackgroundColor(0);
-        this.aiO = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
-        this.aiP = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
+        this.aqM = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
+        this.aqN = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
     }
 
-    private void aD(boolean z) {
+    private void aU(boolean z) {
         if (getChildCount() > 0) {
             int i = 0;
             while (true) {
@@ -91,15 +91,15 @@ public class ImBarrageTrackView extends FrameLayout {
         }
     }
 
-    private View b(ao aoVar, com.baidu.live.data.a aVar, String str, String str2) {
+    private View b(av avVar, com.baidu.live.data.a aVar, String str, String str2) {
         ImBarrageItemView imBarrageItemView = new ImBarrageItemView(getContext());
         imBarrageItemView.setDisplayInfo(aVar, str2, str);
-        imBarrageItemView.setUIInfo(aoVar, false);
+        imBarrageItemView.setUIInfo(avVar, false);
         imBarrageItemView.setCallback(new ImBarrageItemView.a() { // from class: com.baidu.live.im.view.ImBarrageTrackView.1
             @Override // com.baidu.live.im.view.ImBarrageItemView.a
             public void d(com.baidu.live.data.a aVar2) {
-                if (ImBarrageTrackView.this.aiN != null) {
-                    ImBarrageTrackView.this.aiN.d(aVar2);
+                if (ImBarrageTrackView.this.aqL != null) {
+                    ImBarrageTrackView.this.aqL.d(aVar2);
                 }
             }
         });
@@ -107,9 +107,9 @@ public class ImBarrageTrackView extends FrameLayout {
         return imBarrageItemView;
     }
 
-    private Animator L(final View view) {
+    private Animator M(final View view) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", getWidth(), -view.getMeasuredWidth());
-        ofFloat.setDuration((((getWidth() + view.getMeasuredWidth()) * 1.0f) / this.aiO) * 1000.0f);
+        ofFloat.setDuration((((getWidth() + view.getMeasuredWidth()) * 1.0f) / this.aqM) * 1000.0f);
         ofFloat.setInterpolator(new LinearInterpolator());
         ofFloat.setRepeatCount(0);
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.im.view.ImBarrageTrackView.2
@@ -117,7 +117,7 @@ public class ImBarrageTrackView extends FrameLayout {
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1) {
-                    ImBarrageTrackView.this.tT();
+                    ImBarrageTrackView.this.vP();
                 }
                 ImBarrageTrackView.this.removeView(view);
             }
@@ -125,8 +125,8 @@ public class ImBarrageTrackView extends FrameLayout {
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.im.view.ImBarrageTrackView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1 && ImBarrageTrackView.this.getWidth() - view.getTranslationX() > view.getMeasuredWidth() + ImBarrageTrackView.this.aiP) {
-                    ImBarrageTrackView.this.tT();
+                if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1 && ImBarrageTrackView.this.getWidth() - view.getTranslationX() > view.getMeasuredWidth() + ImBarrageTrackView.this.aqN) {
+                    ImBarrageTrackView.this.vP();
                 }
             }
         });
@@ -134,11 +134,11 @@ public class ImBarrageTrackView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tT() {
-        if (!this.aiQ) {
-            this.aiQ = true;
-            if (this.aiN != null) {
-                this.aiN.tU();
+    public void vP() {
+        if (!this.aqO) {
+            this.aqO = true;
+            if (this.aqL != null) {
+                this.aqL.onNext();
             }
         }
     }

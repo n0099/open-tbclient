@@ -2,7 +2,7 @@ package com.baidu.sapi2.share;
 
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class k {
     private static k a;
 

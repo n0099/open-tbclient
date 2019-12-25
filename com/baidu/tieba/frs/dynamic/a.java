@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.mvc.b.c;
 import com.squareup.wire.Message;
@@ -15,7 +15,7 @@ import tbclient.StarTrends.DataRes;
 import tbclient.StarTrends.StarTrendsResIdl;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements c {
     public static final Wire WIRE = new Wire(new Class[0]);
     public boolean hasMore;
@@ -23,7 +23,7 @@ public class a implements c {
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public int mErrorNo = 0;
 
-    public StarTrendsResIdl C(byte[] bArr) {
+    public StarTrendsResIdl P(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -57,13 +57,12 @@ public class a implements c {
             if (!v.isEmpty(dataRes.thread_list)) {
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
-                        bh bhVar = new bh();
-                        bhVar.setUserMap(this.userMap);
-                        bhVar.a(threadInfo);
-                        bhVar.setCurrentPage(3);
-                        bhVar.aju();
-                        if (bhVar.getType() == bh.caD || bhVar.getType() == bh.caQ || bhVar.getType() == bh.caV || bhVar.getType() == bh.caR || bhVar.getType() == bh.caW || bhVar.getType() == bh.caX) {
-                            this.threadList.add(bhVar);
+                        bj bjVar = new bj();
+                        bjVar.setUserMap(this.userMap);
+                        bjVar.a(threadInfo);
+                        bjVar.aAA();
+                        if (bjVar.getType() == bj.cMV || bjVar.getType() == bj.cNk || bjVar.getType() == bj.cNp || bjVar.getType() == bj.cNl || bjVar.getType() == bj.cNt || bjVar.getType() == bj.cNu) {
+                            this.threadList.add(bjVar);
                         }
                     }
                 }

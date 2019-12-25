@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
-    private Set<String> mN;
-    private Message mQ;
+    private Set<String> pj;
+    private Message pp;
 
     public g(Message message) {
-        this.mQ = message;
+        this.pp = message;
         List<Field> findFields = com.baidu.adp.lib.OrmObject.a.a.findFields(message.getClass());
-        this.mN = new HashSet();
+        this.pj = new HashSet();
         if (findFields != null && findFields.size() > 0) {
             for (Field field : findFields) {
                 if (field != null) {
-                    this.mN.add(field.getName());
+                    this.pj.add(field.getName());
                 }
             }
         }
@@ -26,29 +26,29 @@ public class g implements c {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        return this.mN;
+        return this.pj;
     }
 
-    public Object U(String str) {
-        return com.baidu.adp.lib.OrmObject.a.a.getValueForField(this.mQ, str);
+    public Object Z(String str) {
+        return com.baidu.adp.lib.OrmObject.a.a.getValueForField(this.pp, str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void e(String str, Object obj) {
-        com.baidu.adp.lib.OrmObject.a.a.setValueForField(this.mQ, str, obj);
+        com.baidu.adp.lib.OrmObject.a.a.setValueForField(this.pp, str, obj);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Object b(String str, Type type) {
-        Object U = U(str);
-        if (U != null) {
+        Object Z = Z(str);
+        if (Z != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h q = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.q(U);
-            if (q != null) {
-                return q.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h r = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.r(Z);
+            if (r != null) {
+                return r.g(cVar);
             }
-            return U;
+            return Z;
         }
-        return U;
+        return Z;
     }
 }

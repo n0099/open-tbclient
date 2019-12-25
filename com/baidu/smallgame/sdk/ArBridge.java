@@ -9,47 +9,52 @@ import android.os.Message;
 import android.view.OrientationEventListener;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.V8SoLoader;
+import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class ArBridge {
+    private static final boolean DEBUG = false;
     private static final int INVALID_MESSAGE_ID = -1;
     private static final int MSG_MESSAGE_FROM_ENGINE = 1;
     static final String TAG = "EngineLogger";
     private com.baidu.smallgame.sdk.a.a mDataStore;
     private EGLContext mEglContext;
     private FirstFrameListener mFirstFrameListener;
-    private com.baidu.mario.b.a mGameRecorder;
+    private com.baidu.mario.a.b mGameRecorder;
     private Handler mHandler;
     private List<a> mMsgHandlers;
+    private long mNativeARBridge;
     private OrientationEventListener mOrientationEventListener;
     private int mScreenHeight;
     private int mScreenWidth;
+    private com.baidu.smallgame.sdk.b.c mStuckScreenHandler;
     private e mVideoCallback;
     private List<Runnable> mPendingRunnables = new LinkedList();
     private boolean mIsInitNative = false;
-    private boolean mDestroyed = false;
+    private boolean mDestroyed = true;
     private int mScreenTextureId = -1;
+    public boolean mFirstFrameFinished = false;
     private long mCurrentGLThreadID = -1;
     private int mDeviceOrientation = -1;
     private TouchOrientation mTouchOrientation = TouchOrientation.SCREEN_ORIENTATION_NOT_DEFINED;
-    private int mFPS = 0;
     private boolean mHasResumeByUser = false;
     private int mImuType = 0;
+    private final PerformanceJsonBean mPerformanceJsonBean = new PerformanceJsonBean();
     private HandlerThread mThread = new HandlerThread("msg_callback_thread");
 
     @NotProguard
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface FirstFrameListener {
         void onFirstFrameFinished();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public enum TouchOrientation {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -58,17 +63,17 @@ public class ArBridge {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void g(Bitmap bitmap);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface d {
-        void b(int i, int i2, HashMap<String, Object> hashMap);
+        void handleMessage(int i, int i2, HashMap<String, Object> hashMap);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface e {
         void d(String str, int i, String str2);
     }
@@ -77,7 +82,13 @@ public class ArBridge {
 
     private native void nativeFinalize();
 
+    private native long nativeInitializeAR();
+
     private native void nativeInterruptLoading();
+
+    private native void nativeSetDisplayMetrics(long j, float f, float f2, float f3, float f4, float f5);
+
+    private native void nativeSetSize(long j, float f, float f2);
 
     private native void nativeSetup(Object obj);
 
@@ -97,6 +108,8 @@ public class ArBridge {
 
     native boolean nativeIsFlipYNeeded();
 
+    native boolean nativeIsRenderCallbackQueueEmpty();
+
     native void nativeOnPause();
 
     native void nativeOnPauseByUser();
@@ -113,17 +126,17 @@ public class ArBridge {
 
     native void nativeSetFrustum(float f, float f2);
 
-    native void nativeSetSize(int i, int i2);
-
     native void nativeSetSlamRelocationType(int i);
 
     native void nativeSetTargetInfo(HashMap<String, Object> hashMap);
 
-    native void nativeSmallGameDestroy();
+    native void nativeSmallGameDestroy(long j);
 
-    native int nativeSmallGameGetFPS();
+    native void nativeSmallGameOnInit(long j);
 
     native void nativeSmallGameOnPause();
+
+    native void nativeSmallGameOnPauseOnGLThread();
 
     native void nativeSmallGameOnResume();
 
@@ -148,12 +161,36 @@ public class ArBridge {
 
     native boolean updateFrameBuffers(int[] iArr);
 
-    static {
-        V8SoLoader.load();
+    public long nativePtr() {
+        return this.mNativeARBridge;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setOnStuckScreenListener(com.baidu.smallgame.sdk.b.a aVar) {
+        this.mStuckScreenHandler.a(aVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setStuckScreenLimitTime(long j) {
+        this.mStuckScreenHandler.setStuckScreenLimitTime(j);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public com.baidu.smallgame.sdk.b.c getStuckScreenHandler() {
+        return this.mStuckScreenHandler;
+    }
+
+    public PerformanceJsonBean getPerformanceJsonBean() {
+        return this.mPerformanceJsonBean;
+    }
+
+    public JSONArray getPerformanceJson() {
+        return this.mPerformanceJsonBean.toJSONArray();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ArBridge() {
+        this.mNativeARBridge = 0L;
         this.mThread.start();
         this.mHandler = new Handler(this.mThread.getLooper(), new Handler.Callback() { // from class: com.baidu.smallgame.sdk.ArBridge.1
             @Override // android.os.Handler.Callback
@@ -168,7 +205,10 @@ public class ArBridge {
             }
         });
         this.mMsgHandlers = new LinkedList();
-        this.mGameRecorder = new com.baidu.mario.b.a(V8Engine.getAppContext());
+        this.mGameRecorder = new com.baidu.mario.a.b(V8Engine.getAppContext());
+        this.mNativeARBridge = nativeInitializeAR();
+        Log.e(TAG, "initialize ar bridge. nativePtr: " + this.mNativeARBridge);
+        this.mStuckScreenHandler = new com.baidu.smallgame.sdk.b();
     }
 
     public int getScreenTextureId() {
@@ -193,8 +233,12 @@ public class ArBridge {
 
     public void notifyFrameUpdated() {
         if (this.mGameRecorder != null) {
-            this.mGameRecorder.cx(getScreenTextureId());
+            this.mGameRecorder.cM(getScreenTextureId());
         }
+    }
+
+    private static void exceptionCallback(String str) {
+        Log.e(TAG, str, new Throwable());
     }
 
     public void setEglContextToRecorder(EGLContext eGLContext, int i, int i2) {
@@ -214,6 +258,7 @@ public class ArBridge {
         if (this.mFirstFrameListener != null) {
             this.mFirstFrameListener.onFirstFrameFinished();
             this.mFirstFrameListener = null;
+            this.mFirstFrameFinished = true;
         }
     }
 
@@ -244,7 +289,7 @@ public class ArBridge {
                 if (ArBridge.this.mMsgHandlers != null) {
                     Iterator it = ArBridge.this.mMsgHandlers.iterator();
                     while (it.hasNext()) {
-                        if (((a) it.next()).aDr == dVar) {
+                        if (((a) it.next()).aTJ == dVar) {
                             it.remove();
                         }
                     }
@@ -272,40 +317,40 @@ public class ArBridge {
     public void processIncomingMessage(b bVar) {
         for (a aVar : this.mMsgHandlers) {
             if (aVar.mMessageType == 0 || bVar.mMessageType == aVar.mMessageType) {
-                if (-1 == aVar.aDq || bVar.aDu == aVar.aDq) {
-                    aVar.aDr.b(bVar.mMessageType, bVar.aDs, bVar.aDt);
+                if (-1 == aVar.mMessageId || bVar.mResMessageID == aVar.mMessageId) {
+                    aVar.aTJ.handleMessage(bVar.mMessageType, bVar.mMessageID, bVar.mData);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class b {
-        public int aDs;
-        public HashMap<String, Object> aDt;
-        public int aDu;
+        public HashMap<String, Object> mData;
+        public int mMessageID;
         public int mMessageType;
+        public int mResMessageID;
 
         public b(int i, int i2, HashMap<String, Object> hashMap, int i3) {
             this.mMessageType = i;
-            this.aDs = i2;
-            this.aDt = hashMap;
-            this.aDu = i3;
+            this.mMessageID = i2;
+            this.mData = hashMap;
+            this.mResMessageID = i3;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        public int aDq;
-        public d aDr;
+        public d aTJ;
+        public int mMessageId;
         public int mMessageType;
 
         public a(int i, int i2, d dVar) {
             this.mMessageType = i;
-            this.aDq = i2;
-            this.aDr = dVar;
+            this.mMessageId = i2;
+            this.aTJ = dVar;
         }
     }
 
@@ -428,13 +473,18 @@ public class ArBridge {
         nativeSmallGameOnPause();
     }
 
-    public com.baidu.mario.b.a getGameRecorder() {
+    public void smallGameOnPauseOnGLThrad() {
+        Log.w(TAG, "[V8Dispose][ArBridge] MiniGameOnPauseOnGLThrad.");
+        nativeSmallGameOnPauseOnGLThread();
+    }
+
+    public com.baidu.mario.a.b getGameRecorder() {
         return this.mGameRecorder;
     }
 
-    public void setGameRecordCallback(com.baidu.mario.b.b bVar) {
+    public void setGameRecordCallback(com.baidu.mario.a.c cVar) {
         if (this.mGameRecorder != null) {
-            this.mGameRecorder.setGameRecordCallback(bVar);
+            this.mGameRecorder.setGameRecordCallback(cVar);
         }
     }
 
@@ -451,17 +501,37 @@ public class ArBridge {
         return nativeSmallGameShouldSwapBuffer();
     }
 
-    public int smallGameGetFPS() {
-        return nativeSmallGameGetFPS();
+    public boolean isRenderCallbackQueueEmpty() {
+        return nativeIsRenderCallbackQueueEmpty();
+    }
+
+    public void setScreenShotStatus(boolean z) {
     }
 
     public void smallGameDestroy() {
-        Log.w(TAG, "[V8Dispose][ArBridge] MiniGameDestroy, destroyed=" + this.mDestroyed);
+        Log.e(TAG, "[V8Dispose][ArBridge] MiniGameDestroy, destroyed=" + this.mDestroyed);
         if (!this.mDestroyed) {
-            nativeSmallGameDestroy();
+            nativeSmallGameDestroy(this.mNativeARBridge);
         }
+        this.mNativeARBridge = 0L;
         this.mGameRecorder.stopRecord();
         this.mGameRecorder.release();
         this.mDestroyed = true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void smallGameOnInit() {
+        nativeSmallGameOnInit(this.mNativeARBridge);
+        this.mDestroyed = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setSize(float f, float f2) {
+        nativeSetSize(this.mNativeARBridge, f, f2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setDisplayMetrics(float f, float f2, float f3, float f4, float f5) {
+        nativeSetDisplayMetrics(this.mNativeARBridge, f, f2, f3, f4, f5);
     }
 }

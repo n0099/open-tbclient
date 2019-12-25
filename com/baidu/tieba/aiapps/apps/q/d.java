@@ -1,10 +1,16 @@
 package com.baidu.tieba.aiapps.apps.q;
-
-import com.baidu.ubc.UBC;
 /* loaded from: classes4.dex */
-public class d implements com.baidu.pyramid.runtime.multiprocess.d {
-    @Override // com.baidu.pyramid.runtime.multiprocess.d
-    public void dK(String str) {
-        UBC.onMutilProcessEvent("765", str, com.baidu.pyramid.runtime.multiprocess.a.getProcessName());
+public class d {
+    private static volatile c ece;
+
+    public static synchronized c aYG() {
+        c cVar;
+        synchronized (d.class) {
+            if (ece == null) {
+                ece = new c();
+            }
+            cVar = ece;
+        }
+        return cVar;
     }
 }

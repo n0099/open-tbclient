@@ -10,8 +10,7 @@ import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlarmReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -27,7 +26,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             }
             String str2 = "";
             try {
-                str2 = URLEncoder.encode(context.getString(R.string.sport_ai_app_name), HTTP.UTF_8);
+                str2 = URLEncoder.encode(context.getString(R.string.sport_ai_app_name), "UTF-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

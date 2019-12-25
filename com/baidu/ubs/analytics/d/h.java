@@ -1,5 +1,6 @@
 package com.baidu.ubs.analytics.d;
 
+import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import com.baidu.ubs.analytics.a.l;
 import com.baidu.ubs.analytics.a.n;
 import com.coloros.mcssdk.mode.CommandMessage;
@@ -7,7 +8,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class h {
     public static String a(com.baidu.ubs.analytics.b bVar) {
         JSONObject jSONObject = new JSONObject();
@@ -21,7 +22,7 @@ public final class h {
             jSONObject2.put("imei", bVar.n().getImei());
             jSONObject2.put("osVersion", bVar.n().getOsVersion());
             jSONObject2.put("brandName", bVar.n().r());
-            jSONObject2.put("deviceType", bVar.n().s());
+            jSONObject2.put(CashierData.DEVICE_TYPE, bVar.n().s());
             jSONObject2.put("mac", bVar.n().t());
             jSONObject2.put(CommandMessage.SDK_VERSION, bVar.n().u());
             jSONObject2.put("testEnable", bVar.n().v());

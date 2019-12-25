@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.TbImageHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TbImgSetting {
     private static TbImgSetting instance;
     private int mIsDisplayPhoto = 1;

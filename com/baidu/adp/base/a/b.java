@@ -18,15 +18,15 @@ import java.sql.SQLException;
 /* loaded from: classes.dex */
 public class b {
     private SQLiteDatabase database = null;
-    private a.InterfaceC0012a kE = null;
-    private a kF;
+    private a.InterfaceC0013a na = null;
+    private a nb;
 
     public b(a aVar) {
-        this.kF = aVar;
+        this.nb = aVar;
     }
 
-    public void a(a.InterfaceC0012a interfaceC0012a) {
-        this.kE = interfaceC0012a;
+    public void a(a.InterfaceC0013a interfaceC0013a) {
+        this.na = interfaceC0013a;
     }
 
     public SQLiteDatabase getOpenedDatabase() {
@@ -42,8 +42,8 @@ public class b {
         synchronized (b.class) {
             if (this.database == null || !this.database.isOpen()) {
                 try {
-                    this.kF.a(this.kE);
-                    this.database = this.kF.getWritableDatabase();
+                    this.nb.a(this.na);
+                    this.database = this.nb.getWritableDatabase();
                 } catch (RuntimeException e) {
                     if (z) {
                         notifySQLException(e, "ensureDatabaseReady");
@@ -107,7 +107,7 @@ public class b {
         synchronized (b.class) {
             closeDatabase();
             try {
-                dropDatabase = this.kF.dropDatabase(BdBaseApplication.getInst().getContext());
+                dropDatabase = this.nb.dropDatabase(BdBaseApplication.getInst().getContext());
             } catch (Exception e) {
                 BdLog.e("deleteDatabase：" + e.getMessage());
                 this.database = null;

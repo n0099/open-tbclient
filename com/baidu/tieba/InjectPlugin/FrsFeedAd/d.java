@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.v;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.InjectPlugin.a.c> {
     v.a a(ViewGroup viewGroup, Object obj);
 
@@ -14,13 +14,13 @@ public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.Inje
 
     void a(List<c> list, List<c> list2, boolean z, int i);
 
-    List<Integer> aAY();
+    List<Integer> aSM();
 
-    void aM(List<Object> list);
-
-    void c(List<c> list, int i);
+    void aT(List<Object> list);
 
     void changeSkinType(int i);
+
+    void d(List<c> list, int i);
 
     View getView(int i, View view, ViewGroup viewGroup, Object obj);
 }

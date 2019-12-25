@@ -6,29 +6,29 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.b.f;
-import com.baidu.live.d.c;
+import com.baidu.live.c.j;
+import com.baidu.live.f.c;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.UrlManager;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveRoomActivityInitialize {
     static {
-        aMQ();
-        aMR();
-        aMU();
-        aMT();
-        aMV();
-        aMS();
+        bev();
+        bew();
+        bez();
+        bey();
+        beA();
+        bex();
     }
 
-    private static void aMQ() {
+    private static void bev() {
     }
 
-    public static void aMR() {
+    public static void bew() {
         UrlManager.getInstance().addListener(new UrlManager.UrlDealListener() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.1
             /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
                 if (com.baidu.live.adp.lib.util.StringUtils.isNull(r0) == false) goto L21;
@@ -60,7 +60,7 @@ public class AlaLiveRoomActivityInitialize {
         });
     }
 
-    private static void aMS() {
+    private static void bex() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913078, new CustomMessageTask.CustomRunnable<c>() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<c> run(CustomMessage<c> customMessage) {
@@ -71,27 +71,27 @@ public class AlaLiveRoomActivityInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aMT() {
+    private static void bey() {
     }
 
-    private static void aMU() {
-        TbadkCoreApplication.getInst().RegisterIntent(f.class, AlaLiveFloatWindowActivity.class);
+    private static void bez() {
+        TbadkCoreApplication.getInst().RegisterIntent(j.class, AlaLiveFloatWindowActivity.class);
     }
 
-    private static void aMV() {
+    private static void beA() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_PERSON_ALA_ENTRANCE_LIVE_ID) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                    long j = com.baidu.live.c.np().getLong("ala_live_room_last_live_id", -1L);
+                    long j = com.baidu.live.c.oI().getLong("ala_live_room_last_live_id", -1L);
                     if (j > 0 && longValue > 0 && j == longValue) {
-                        com.baidu.live.c.np().putBoolean("ala_person_ala_entrance_same_live_room", true);
+                        com.baidu.live.c.oI().putBoolean("ala_person_ala_entrance_same_live_room", true);
                     } else {
-                        com.baidu.live.c.np().putBoolean("ala_person_ala_entrance_same_live_room", false);
+                        com.baidu.live.c.oI().putBoolean("ala_person_ala_entrance_same_live_room", false);
                     }
-                    com.baidu.live.c.np().remove("ala_live_room_last_live_id");
+                    com.baidu.live.c.oI().remove("ala_live_room_last_live_id");
                 }
             }
         });

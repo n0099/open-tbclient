@@ -10,7 +10,7 @@ public class f {
         return z ? new b(i) : new a(i);
     }
 
-    public static e fc() {
+    public static e fx() {
         return new c();
     }
 

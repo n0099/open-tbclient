@@ -1,18 +1,11 @@
 package com.facebook.imagepipeline.producers;
-
-import java.util.Map;
-import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface al {
-    boolean GH(String str);
+    void dlt();
 
-    void a(String str, String str2, Throwable th, @Nullable Map<String, String> map);
+    void dpe();
 
-    void a(String str, String str2, @Nullable Map<String, String> map);
+    void dpf();
 
-    void ai(String str, String str2, String str3);
-
-    void b(String str, String str2, @Nullable Map<String, String> map);
-
-    void en(String str, String str2);
+    void dpg();
 }

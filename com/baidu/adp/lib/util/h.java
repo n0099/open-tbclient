@@ -6,8 +6,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.baidu.android.util.devices.IDevices;
 import com.baidu.live.adp.lib.util.BdErrorInfo;
-import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -21,20 +21,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h rc = null;
+    private static h tT = null;
 
-    public static h gX() {
+    public static h hu() {
         h hVar;
-        if (rc == null) {
+        if (tT == null) {
             synchronized (h.class) {
-                if (rc == null) {
-                    rc = new h();
+                if (tT == null) {
+                    tT = new h();
                 }
-                hVar = rc;
+                hVar = tT;
             }
             return hVar;
         }
-        return rc;
+        return tT;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -168,7 +168,7 @@ public class h {
     }
 
     private String getNewLibFile(String str) {
-        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + "lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
+        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.g + File.separator + "lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [269=5, 282=4] */
@@ -182,9 +182,9 @@ public class h {
         zipInputStream2 = null;
         boolean z = false;
         ArrayList arrayList = new ArrayList();
-        arrayList.add("lib" + File.separator + PassBiometricUtil.CPU_TYPE_X86 + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
-        arrayList.add("lib" + File.separator + "mips" + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
-        arrayList.add("lib" + File.separator + PassBiometricUtil.CPU_TYPE_ARMEABI + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
+        arrayList.add("lib" + File.separator + "x86" + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
+        arrayList.add("lib" + File.separator + IDevices.ABI_MIPS + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
+        arrayList.add("lib" + File.separator + "armeabi" + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
         File file = new File(str);
         try {
             if (file.exists()) {
@@ -210,11 +210,11 @@ public class h {
                                         }
                                         byteArrayOutputStream.write(bArr, 0, read);
                                     } catch (Exception e2) {
-                                        com.baidu.adp.lib.g.a.close((OutputStream) byteArrayOutputStream);
+                                        com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
                                     } catch (Throwable th) {
                                         byteArrayOutputStream2 = byteArrayOutputStream;
                                         th = th;
-                                        com.baidu.adp.lib.g.a.close((OutputStream) byteArrayOutputStream2);
+                                        com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream2);
                                         throw th;
                                     }
                                 }
@@ -224,10 +224,10 @@ public class h {
                                 if (loadSoLibrary(newLibFile, sb)) {
                                     sb.append("-Succ5-");
                                     z = true;
-                                    com.baidu.adp.lib.g.a.close((OutputStream) byteArrayOutputStream);
+                                    com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
                                     break;
                                 }
-                                com.baidu.adp.lib.g.a.close((OutputStream) byteArrayOutputStream);
+                                com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
                             } catch (Exception e3) {
                                 byteArrayOutputStream = null;
                             } catch (Throwable th2) {
@@ -235,19 +235,19 @@ public class h {
                             }
                         }
                     }
-                    com.baidu.adp.lib.g.a.close((InputStream) zipInputStream);
+                    com.baidu.adp.lib.f.a.close((InputStream) zipInputStream);
                 } catch (IOException e4) {
                     e = e4;
                     zipInputStream2 = zipInputStream;
                     sb.append("-Error5:");
                     sb.append(e.getClass().getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                    com.baidu.adp.lib.g.a.close((InputStream) zipInputStream2);
+                    com.baidu.adp.lib.f.a.close((InputStream) zipInputStream2);
                     return z;
                 } catch (Throwable th3) {
                     th = th3;
                     zipInputStream2 = zipInputStream;
-                    com.baidu.adp.lib.g.a.close((InputStream) zipInputStream2);
+                    com.baidu.adp.lib.f.a.close((InputStream) zipInputStream2);
                     throw th;
                 }
             }
@@ -265,17 +265,17 @@ public class h {
                 fileOutputStream = new FileOutputStream(new File(str));
                 try {
                     fileOutputStream.write(bArr);
-                    com.baidu.adp.lib.g.a.close((OutputStream) fileOutputStream);
+                    com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
                 } catch (Exception e) {
                     e = e;
                     sb.append("-Error4:");
                     sb.append(e.getClass().getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                    com.baidu.adp.lib.g.a.close((OutputStream) fileOutputStream);
+                    com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.g.a.close((OutputStream) fileOutputStream);
+                com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
                 throw th;
             }
         } catch (Exception e2) {
@@ -284,7 +284,7 @@ public class h {
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
-            com.baidu.adp.lib.g.a.close((OutputStream) fileOutputStream);
+            com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
             throw th;
         }
     }
@@ -295,13 +295,13 @@ public class h {
         boolean mLoadSuccess = false;
         StringBuilder mLogContent;
         String mNewFileName;
-        i rd;
+        i tU;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
             this.mLibName = str;
             this.mNewFileName = str2;
             this.mLogContent = sb;
-            this.rd = iVar;
+            this.tU = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -320,8 +320,8 @@ public class h {
             if (this.mLogContent.length() > 0) {
                 BdStatisticsManager.getInstance().error("so", "load_" + this.mLibName + PluginInstallerService.APK_LIB_SUFFIX, "", BdErrorInfo.ERR_SO_LOAD, this.mLogContent.toString(), new Object[0]);
             }
-            if (this.rd != null) {
-                this.rd.callback(this.mLoadSuccess);
+            if (this.tU != null) {
+                this.tU.callback(this.mLoadSuccess);
             }
         }
     }

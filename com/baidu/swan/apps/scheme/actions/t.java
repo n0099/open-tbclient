@@ -1,33 +1,47 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes2.dex */
-public class t extends z {
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class t extends ab {
     public t(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/postMessage");
+        super(jVar, "/swanAPI/performancePanel");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.performance.e.au("postMessage", "PostMsgAction handle");
-        String str = unitedSchemeEntity.getParams().get("params");
-        if (TextUtils.isEmpty(str)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (eVar == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        com.baidu.swan.apps.m.a.d ff = com.baidu.swan.apps.m.a.d.ff(str);
-        if (ff == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+        if (optParamsAsJo == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        com.baidu.swan.apps.performance.e.au("postMessage", "PostEvent start");
-        com.baidu.swan.apps.w.e.LE().a(ff, true);
-        com.baidu.swan.apps.performance.e.au("postMessage", "PostEvent end.");
+        JSONArray optJSONArray = optParamsAsJo.optJSONArray("data");
+        if (optJSONArray == null || optJSONArray.length() <= 0) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty data");
+            return false;
+        }
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("slaveId");
+                String optString2 = optJSONObject.optString("actionName");
+                long optLong = optJSONObject.optLong("timestamp", -1L);
+                if (DEBUG) {
+                    Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
+                }
+                com.baidu.swan.apps.performance.b.d.Xo().b(optString, optString2, optLong);
+            }
+        }
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 }

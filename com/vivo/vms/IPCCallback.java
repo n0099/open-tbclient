@@ -6,11 +6,11 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface IPCCallback extends IInterface {
     void call(Bundle bundle) throws RemoteException;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends Binder implements IPCCallback {
         private static final String DESCRIPTOR = "com.vivo.vms.IPCCallback";
         static final int TRANSACTION_call = 1;
@@ -54,7 +54,7 @@ public interface IPCCallback extends IInterface {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes5.dex */
         private static class Proxy implements IPCCallback {
             private IBinder mRemote;
 

@@ -1,27 +1,27 @@
 package com.tencent.open.a;
 
+import android.support.media.ExifInterface;
 import android.text.format.Time;
 import android.util.Log;
-import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class h {
     public static final h a = new h();
 
     public final String a(int i) {
         switch (i) {
             case 1:
-                return "V";
+                return ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
             case 2:
                 return "D";
             case 4:
                 return "I";
             case 8:
-                return "W";
+                return ExifInterface.LONGITUDE_WEST;
             case 16:
-                return "E";
+                return ExifInterface.LONGITUDE_EAST;
             case 32:
-                return "A";
+                return ExifInterface.GPS_MEASUREMENT_IN_PROGRESS;
             default:
                 return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         }
@@ -32,7 +32,7 @@ public final class h {
         Time time = new Time();
         time.set(j);
         StringBuilder sb = new StringBuilder();
-        sb.append(a(i)).append('/').append(time.format("%Y-%m-%d %H:%M:%S")).append(BdFileHelper.EXTENSION_SEPARATOR);
+        sb.append(a(i)).append('/').append(time.format("%Y-%m-%d %H:%M:%S")).append('.');
         if (j2 < 10) {
             sb.append("00");
         } else if (j2 < 100) {

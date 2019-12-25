@@ -4,42 +4,31 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresPermission;
 import android.support.annotation.RestrictTo;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class ConnectivityManagerCompat {
-    private static final ConnectivityManagerCompatImpl IMPL;
     public static final int RESTRICT_BACKGROUND_STATUS_DISABLED = 1;
     public static final int RESTRICT_BACKGROUND_STATUS_ENABLED = 3;
     public static final int RESTRICT_BACKGROUND_STATUS_WHITELISTED = 2;
 
-    /* loaded from: classes2.dex */
-    interface ConnectivityManagerCompatImpl {
-        int getRestrictBackgroundStatus(ConnectivityManager connectivityManager);
-
-        boolean isActiveNetworkMetered(ConnectivityManager connectivityManager);
-    }
-
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface RestrictBackgroundStatus {
     }
 
-    /* loaded from: classes2.dex */
-    static class ConnectivityManagerCompatBaseImpl implements ConnectivityManagerCompatImpl {
-        ConnectivityManagerCompatBaseImpl() {
+    @RequiresPermission("android.permission.ACCESS_NETWORK_STATE")
+    public static boolean isActiveNetworkMetered(@NonNull ConnectivityManager connectivityManager) {
+        if (Build.VERSION.SDK_INT >= 16) {
+            return connectivityManager.isActiveNetworkMetered();
         }
-
-        @Override // android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatImpl
-        public boolean isActiveNetworkMetered(ConnectivityManager connectivityManager) {
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo == null) {
-                return true;
-            }
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetworkInfo != null) {
             switch (activeNetworkInfo.getType()) {
                 case 0:
                 case 2:
@@ -56,53 +45,12 @@ public final class ConnectivityManagerCompat {
                     return false;
             }
         }
-
-        @Override // android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatImpl
-        public int getRestrictBackgroundStatus(ConnectivityManager connectivityManager) {
-            return 3;
-        }
+        return true;
     }
 
-    @RequiresApi(16)
-    /* loaded from: classes2.dex */
-    static class ConnectivityManagerCompatApi16Impl extends ConnectivityManagerCompatBaseImpl {
-        ConnectivityManagerCompatApi16Impl() {
-        }
-
-        @Override // android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatBaseImpl, android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatImpl
-        public boolean isActiveNetworkMetered(ConnectivityManager connectivityManager) {
-            return connectivityManager.isActiveNetworkMetered();
-        }
-    }
-
-    @RequiresApi(24)
-    /* loaded from: classes2.dex */
-    static class ConnectivityManagerCompatApi24Impl extends ConnectivityManagerCompatApi16Impl {
-        ConnectivityManagerCompatApi24Impl() {
-        }
-
-        @Override // android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatBaseImpl, android.support.v4.net.ConnectivityManagerCompat.ConnectivityManagerCompatImpl
-        public int getRestrictBackgroundStatus(ConnectivityManager connectivityManager) {
-            return connectivityManager.getRestrictBackgroundStatus();
-        }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 24) {
-            IMPL = new ConnectivityManagerCompatApi24Impl();
-        } else if (Build.VERSION.SDK_INT >= 16) {
-            IMPL = new ConnectivityManagerCompatApi16Impl();
-        } else {
-            IMPL = new ConnectivityManagerCompatBaseImpl();
-        }
-    }
-
+    @Nullable
     @RequiresPermission("android.permission.ACCESS_NETWORK_STATE")
-    public static boolean isActiveNetworkMetered(ConnectivityManager connectivityManager) {
-        return IMPL.isActiveNetworkMetered(connectivityManager);
-    }
-
-    public static NetworkInfo getNetworkInfoFromBroadcast(ConnectivityManager connectivityManager, Intent intent) {
+    public static NetworkInfo getNetworkInfoFromBroadcast(@NonNull ConnectivityManager connectivityManager, @NonNull Intent intent) {
         NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra("networkInfo");
         if (networkInfo != null) {
             return connectivityManager.getNetworkInfo(networkInfo.getType());
@@ -110,8 +58,11 @@ public final class ConnectivityManagerCompat {
         return null;
     }
 
-    public static int getRestrictBackgroundStatus(ConnectivityManager connectivityManager) {
-        return IMPL.getRestrictBackgroundStatus(connectivityManager);
+    public static int getRestrictBackgroundStatus(@NonNull ConnectivityManager connectivityManager) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            return connectivityManager.getRestrictBackgroundStatus();
+        }
+        return 3;
     }
 
     private ConnectivityManagerCompat() {

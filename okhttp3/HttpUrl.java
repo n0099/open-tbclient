@@ -1,6 +1,6 @@
 package okhttp3;
 
-import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -17,7 +17,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import okio.Buffer;
 import org.apache.http.HttpHost;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class HttpUrl {
     static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     static final String FRAGMENT_ENCODE_SET = "";
@@ -368,7 +368,7 @@ public final class HttpUrl {
         return PublicSuffixDatabase.get().getEffectiveTldPlusOne(this.host);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         static final String INVALID_HOST = "Invalid URL host";
         @Nullable
@@ -542,29 +542,16 @@ public final class HttpUrl {
         }
 
         public Builder query(@Nullable String str) {
-            List<String> list;
-            if (str != null) {
-                list = HttpUrl.queryStringToNamesAndValues(HttpUrl.canonicalize(str, HttpUrl.QUERY_ENCODE_SET, false, false, true, true));
-            } else {
-                list = null;
-            }
-            this.encodedQueryNamesAndValues = list;
+            this.encodedQueryNamesAndValues = str != null ? HttpUrl.queryStringToNamesAndValues(HttpUrl.canonicalize(str, HttpUrl.QUERY_ENCODE_SET, false, false, true, true)) : null;
             return this;
         }
 
         public Builder encodedQuery(@Nullable String str) {
-            List<String> list;
-            if (str != null) {
-                list = HttpUrl.queryStringToNamesAndValues(HttpUrl.canonicalize(str, HttpUrl.QUERY_ENCODE_SET, true, false, true, true));
-            } else {
-                list = null;
-            }
-            this.encodedQueryNamesAndValues = list;
+            this.encodedQueryNamesAndValues = str != null ? HttpUrl.queryStringToNamesAndValues(HttpUrl.canonicalize(str, HttpUrl.QUERY_ENCODE_SET, true, false, true, true)) : null;
             return this;
         }
 
         public Builder addQueryParameter(String str, @Nullable String str2) {
-            String str3;
             if (str == null) {
                 throw new NullPointerException("name == null");
             }
@@ -572,18 +559,11 @@ public final class HttpUrl {
                 this.encodedQueryNamesAndValues = new ArrayList();
             }
             this.encodedQueryNamesAndValues.add(HttpUrl.canonicalize(str, HttpUrl.QUERY_COMPONENT_ENCODE_SET, false, false, true, true));
-            List<String> list = this.encodedQueryNamesAndValues;
-            if (str2 != null) {
-                str3 = HttpUrl.canonicalize(str2, HttpUrl.QUERY_COMPONENT_ENCODE_SET, false, false, true, true);
-            } else {
-                str3 = null;
-            }
-            list.add(str3);
+            this.encodedQueryNamesAndValues.add(str2 != null ? HttpUrl.canonicalize(str2, HttpUrl.QUERY_COMPONENT_ENCODE_SET, false, false, true, true) : null);
             return this;
         }
 
         public Builder addEncodedQueryParameter(String str, @Nullable String str2) {
-            String str3;
             if (str == null) {
                 throw new NullPointerException("encodedName == null");
             }
@@ -591,13 +571,7 @@ public final class HttpUrl {
                 this.encodedQueryNamesAndValues = new ArrayList();
             }
             this.encodedQueryNamesAndValues.add(HttpUrl.canonicalize(str, HttpUrl.QUERY_COMPONENT_REENCODE_SET, true, false, true, true));
-            List<String> list = this.encodedQueryNamesAndValues;
-            if (str2 != null) {
-                str3 = HttpUrl.canonicalize(str2, HttpUrl.QUERY_COMPONENT_REENCODE_SET, true, false, true, true);
-            } else {
-                str3 = null;
-            }
-            list.add(str3);
+            this.encodedQueryNamesAndValues.add(str2 != null ? HttpUrl.canonicalize(str2, HttpUrl.QUERY_COMPONENT_REENCODE_SET, true, false, true, true) : null);
             return this;
         }
 
@@ -647,24 +621,12 @@ public final class HttpUrl {
         }
 
         public Builder fragment(@Nullable String str) {
-            String str2;
-            if (str != null) {
-                str2 = HttpUrl.canonicalize(str, "", false, false, false, false);
-            } else {
-                str2 = null;
-            }
-            this.encodedFragment = str2;
+            this.encodedFragment = str != null ? HttpUrl.canonicalize(str, "", false, false, false, false) : null;
             return this;
         }
 
         public Builder encodedFragment(@Nullable String str) {
-            String str2;
-            if (str != null) {
-                str2 = HttpUrl.canonicalize(str, "", true, false, false, false);
-            } else {
-                str2 = null;
-            }
-            this.encodedFragment = str2;
+            this.encodedFragment = str != null ? HttpUrl.canonicalize(str, "", true, false, false, false) : null;
             return this;
         }
 
@@ -736,7 +698,6 @@ public final class HttpUrl {
 
         Builder parse(@Nullable HttpUrl httpUrl, String str) {
             int schemeDelimiterOffset;
-            char c;
             int i;
             int skipLeadingAsciiWhitespace = Util.skipLeadingAsciiWhitespace(str, 0, str.length());
             int skipTrailingAsciiWhitespace = Util.skipTrailingAsciiWhitespace(str, skipLeadingAsciiWhitespace, str.length());
@@ -765,12 +726,7 @@ public final class HttpUrl {
                     boolean z4 = z;
                     int i3 = i2;
                     int delimiterOffset = Util.delimiterOffset(str, i3, skipTrailingAsciiWhitespace, "@/\\?#");
-                    if (delimiterOffset != skipTrailingAsciiWhitespace) {
-                        c = str.charAt(delimiterOffset);
-                    } else {
-                        c = 65535;
-                    }
-                    switch (c) {
+                    switch (delimiterOffset != skipTrailingAsciiWhitespace ? str.charAt(delimiterOffset) : (char) 65535) {
                         case 65535:
                         case '#':
                         case '/':
@@ -886,11 +842,11 @@ public final class HttpUrl {
         }
 
         private boolean isDot(String str) {
-            return str.equals(DefaultConfig.TOKEN_SEPARATOR) || str.equalsIgnoreCase("%2e");
+            return str.equals(".") || str.equalsIgnoreCase("%2e");
         }
 
         private boolean isDotDot(String str) {
-            return str.equals("..") || str.equalsIgnoreCase("%2e.") || str.equalsIgnoreCase(".%2e") || str.equalsIgnoreCase("%2e%2e");
+            return str.equals(IStringUtil.TOP_PATH) || str.equalsIgnoreCase("%2e.") || str.equalsIgnoreCase(".%2e") || str.equalsIgnoreCase("%2e%2e");
         }
 
         private void pop() {

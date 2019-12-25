@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.InputDeviceCompat;
@@ -17,7 +16,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LinearLayoutCompat extends ViewGroup {
     public static final int HORIZONTAL = 0;
     private static final int INDEX_BOTTOM = 2;
@@ -48,13 +47,13 @@ public class LinearLayoutCompat extends ViewGroup {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface DividerMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface OrientationMode {
     }
 
@@ -308,6 +307,7 @@ public class LinearLayoutCompat extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean hasDividerBeforeChildAt(int i) {
         if (i == 0) {
             return (this.mShowDividers & 1) != 0;
@@ -358,7 +358,7 @@ public class LinearLayoutCompat extends ViewGroup {
         boolean z7 = false;
         int i19 = this.mBaselineAlignedChildIndex;
         boolean z8 = this.mUseLargestChild;
-        int i20 = Integer.MIN_VALUE;
+        int i20 = 0;
         int i21 = 0;
         while (i21 < virtualChildCount) {
             View virtualChildAt = getVirtualChildAt(i21);
@@ -643,7 +643,7 @@ public class LinearLayoutCompat extends ViewGroup {
         boolean z8 = this.mBaselineAligned;
         boolean z9 = this.mUseLargestChild;
         boolean z10 = mode == 1073741824;
-        int i19 = Integer.MIN_VALUE;
+        int i19 = 0;
         int i20 = 0;
         while (i20 < virtualChildCount) {
             View virtualChildAt = getVirtualChildAt(i20);
@@ -1181,21 +1181,17 @@ public class LinearLayoutCompat extends ViewGroup {
 
     @Override // android.view.View
     public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        if (Build.VERSION.SDK_INT >= 14) {
-            super.onInitializeAccessibilityEvent(accessibilityEvent);
-            accessibilityEvent.setClassName(LinearLayoutCompat.class.getName());
-        }
+        super.onInitializeAccessibilityEvent(accessibilityEvent);
+        accessibilityEvent.setClassName(LinearLayoutCompat.class.getName());
     }
 
     @Override // android.view.View
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
-        if (Build.VERSION.SDK_INT >= 14) {
-            super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
-            accessibilityNodeInfo.setClassName(LinearLayoutCompat.class.getName());
-        }
+        super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
+        accessibilityNodeInfo.setClassName(LinearLayoutCompat.class.getName());
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public int gravity;
         public float weight;

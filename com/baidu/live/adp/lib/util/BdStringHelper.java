@@ -2,10 +2,8 @@ package com.baidu.live.adp.lib.util;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.tbadk.core.util.StringHelper;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.lang.Character;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -16,7 +14,7 @@ import java.util.GregorianCalendar;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdStringHelper {
     protected static SimpleDateFormat FORMATE_DATE_ALL = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     protected static SimpleDateFormat FORMATE_DATE_YEAR = new SimpleDateFormat("yyyy年");
@@ -241,8 +239,8 @@ public class BdStringHelper {
         Date date2 = new Date();
         int day = date2.getDay() - date.getDay();
         long time = date2.getTime() - date.getTime();
-        if (time >= StatisticConfig.MIN_UPLOAD_INTERVAL) {
-            long j = StatisticConfig.MIN_UPLOAD_INTERVAL * 2;
+        if (time >= 30000) {
+            long j = 30000 * 2;
             if (time < j) {
                 return "半分钟前";
             }
@@ -382,7 +380,7 @@ public class BdStringHelper {
     public static String getNameFromUrl(String str) {
         try {
             int lastIndexOf = str.lastIndexOf("/");
-            int lastIndexOf2 = str.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR);
+            int lastIndexOf2 = str.lastIndexOf(".");
             if (lastIndexOf != -1) {
                 if (lastIndexOf < lastIndexOf2) {
                     str = str.substring(lastIndexOf, lastIndexOf2);
@@ -423,7 +421,7 @@ public class BdStringHelper {
     private static long[] parseVersion(String str) {
         long[] jArr = new long[3];
         if (str != null) {
-            String[] split = str.replace(DefaultConfig.TOKEN_SEPARATOR, "#").split("#");
+            String[] split = str.replace(".", "#").split("#");
             jArr[0] = Long.parseLong(split[0]);
             jArr[1] = Long.parseLong(split[1]);
             jArr[2] = Long.parseLong(split[2]);

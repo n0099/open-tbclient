@@ -10,9 +10,8 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-import okhttp3.internal.http.StatusLine;
 import org.apache.http.HttpStatus;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Code93Reader extends OneDReader {
     private static final int ASTERISK_ENCODING;
     static final int[] CHARACTER_ENCODINGS;
@@ -22,7 +21,7 @@ public final class Code93Reader extends OneDReader {
     private final int[] counters = new int[6];
 
     static {
-        int[] iArr = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, 418, 404, 402, 394, 360, 356, 354, StatusLine.HTTP_PERM_REDIRECT, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, 294, 474, 470, 306, 350};
+        int[] iArr = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, 418, 404, 402, 394, 360, 356, 354, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, 294, 474, 470, 306, 350};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[47];
     }

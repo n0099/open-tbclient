@@ -1,27 +1,29 @@
 package com.facebook.imagepipeline.c;
+/* loaded from: classes9.dex */
+public interface n {
+    void a(h<?, ?> hVar);
 
-import com.facebook.common.memory.PooledByteBuffer;
-/* loaded from: classes2.dex */
-public class n {
-    public static t<com.facebook.cache.common.b, PooledByteBuffer> a(h<com.facebook.cache.common.b, PooledByteBuffer> hVar, final o oVar) {
-        oVar.b(hVar);
-        return new p(hVar, new v<com.facebook.cache.common.b>() { // from class: com.facebook.imagepipeline.c.n.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.facebook.imagepipeline.c.v
-            /* renamed from: h */
-            public void aN(com.facebook.cache.common.b bVar) {
-                o.this.o(bVar);
-            }
+    void b(h<?, ?> hVar);
 
-            @Override // com.facebook.imagepipeline.c.v
-            public void cFn() {
-                o.this.cFD();
-            }
+    void dlE();
 
-            @Override // com.facebook.imagepipeline.c.v
-            public void cFo() {
-                o.this.cFC();
-            }
-        });
-    }
+    void dlF();
+
+    void dlG();
+
+    void dlH();
+
+    void dlI();
+
+    void dlJ();
+
+    void dlK();
+
+    void dlL();
+
+    void p(com.facebook.cache.common.b bVar);
+
+    void q(com.facebook.cache.common.b bVar);
+
+    void r(com.facebook.cache.common.b bVar);
 }

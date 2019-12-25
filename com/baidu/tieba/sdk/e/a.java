@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.scheme.SchemeCallback;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Map<String, String> map, SchemeCallback schemeCallback) {
@@ -57,11 +57,11 @@ public class a implements ILiveScheme {
             e.printStackTrace();
         }
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.tieba.sdk.a.chv().a(TbadkCoreApplication.getInst(), str, "1".equals(str4), str7, jSONObject);
+            com.baidu.tieba.sdk.a.cBx().a(TbadkCoreApplication.getInst(), str, "1".equals(str4), str7, jSONObject);
         } else if (!TextUtils.isEmpty(str2)) {
-            com.baidu.tieba.sdk.a.chv().a(TbadkCoreApplication.getInst(), Long.parseLong(str2), "1".equals(str4), str7, jSONObject);
+            com.baidu.tieba.sdk.a.cBx().a(TbadkCoreApplication.getInst(), Long.parseLong(str2), "1".equals(str4), str7, jSONObject);
         } else if (!TextUtils.isEmpty(str3)) {
-            com.baidu.tieba.sdk.a.chv().b(TbadkCoreApplication.getInst(), str3, "1".equals(str4), str7, jSONObject);
+            com.baidu.tieba.sdk.a.cBx().b(TbadkCoreApplication.getInst(), str3, "1".equals(str4), str7, jSONObject);
         }
     }
 }

@@ -3,22 +3,22 @@ package com.facebook.common.internal;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class f {
     @CheckReturnValue
     public static boolean equal(@Nullable Object obj, @Nullable Object obj2) {
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    public static int I(@Nullable Object... objArr) {
+    public static int J(@Nullable Object... objArr) {
         return Arrays.hashCode(objArr);
     }
 
-    public static a ax(Object obj) {
-        return new a(r(obj.getClass()));
+    public static a aQ(Object obj) {
+        return new a(B(obj.getClass()));
     }
 
-    private static String r(Class<?> cls) {
+    private static String B(Class<?> cls) {
         String replaceAll = cls.getName().replaceAll("\\$[0-9]+", "\\$");
         int lastIndexOf = replaceAll.lastIndexOf(36);
         if (lastIndexOf == -1) {
@@ -27,72 +27,74 @@ public final class f {
         return replaceAll.substring(lastIndexOf + 1);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class a {
         private final String className;
-        private C0550a kab;
-        private C0550a kac;
-        private boolean kad;
+        private C0640a lEa;
+        private C0640a lEb;
+        private boolean lEc;
 
         private a(String str) {
-            this.kab = new C0550a();
-            this.kac = this.kab;
-            this.kad = false;
+            this.lEa = new C0640a();
+            this.lEb = this.lEa;
+            this.lEc = false;
             this.className = (String) g.checkNotNull(str);
         }
 
-        public a q(String str, @Nullable Object obj) {
-            return r(str, obj);
+        public a x(String str, @Nullable Object obj) {
+            return y(str, obj);
         }
 
-        public a az(String str, boolean z) {
-            return r(str, String.valueOf(z));
+        public a aK(String str, boolean z) {
+            return y(str, String.valueOf(z));
         }
 
-        public a bt(String str, int i) {
-            return r(str, String.valueOf(i));
+        public a bH(String str, int i) {
+            return y(str, String.valueOf(i));
         }
 
         public String toString() {
-            boolean z = this.kad;
+            boolean z = this.lEc;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0550a c0550a = this.kab.kae; c0550a != null; c0550a = c0550a.kae) {
-                if (!z || c0550a.value != null) {
+            for (C0640a c0640a = this.lEa.lEd; c0640a != null; c0640a = c0640a.lEd) {
+                if (!z || c0640a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0550a.name != null) {
-                        append.append(c0550a.name).append('=');
+                    if (c0640a.name != null) {
+                        append.append(c0640a.name).append('=');
                     }
-                    append.append(c0550a.value);
+                    append.append(c0640a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0550a cCH() {
-            C0550a c0550a = new C0550a();
-            this.kac.kae = c0550a;
-            this.kac = c0550a;
-            return c0550a;
+        private C0640a dio() {
+            C0640a c0640a = new C0640a();
+            this.lEb.lEd = c0640a;
+            this.lEb = c0640a;
+            return c0640a;
         }
 
-        private a r(String str, @Nullable Object obj) {
-            C0550a cCH = cCH();
-            cCH.value = obj;
-            cCH.name = (String) g.checkNotNull(str);
+        private a y(String str, @Nullable Object obj) {
+            C0640a dio = dio();
+            dio.value = obj;
+            dio.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static final class C0550a {
-            C0550a kae;
+        /* loaded from: classes11.dex */
+        public static final class C0640a {
+            C0640a lEd;
+            @Nullable
             String name;
+            @Nullable
             Object value;
 
-            private C0550a() {
+            private C0640a() {
             }
         }
     }

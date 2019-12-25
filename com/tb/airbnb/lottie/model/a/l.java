@@ -10,59 +10,59 @@ import com.tb.airbnb.lottie.model.a.d;
 import com.tb.airbnb.lottie.model.a.g;
 import java.util.Collections;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e ktk;
-    private final m<PointF, PointF> ktl;
-    private final g ktm;
-    private final b ktn;
-    private final d kto;
+    private final e mOc;
+    private final m<PointF, PointF> mOd;
+    private final g mOe;
+    private final b mOf;
+    private final d mOg;
     @Nullable
-    private final b ktp;
+    private final b mOh;
     @Nullable
-    private final b ktq;
+    private final b mOi;
 
     private l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.ktk = eVar;
-        this.ktl = mVar;
-        this.ktm = gVar;
-        this.ktn = bVar;
-        this.kto = dVar;
-        this.ktp = bVar2;
-        this.ktq = bVar3;
+        this.mOc = eVar;
+        this.mOd = mVar;
+        this.mOe = gVar;
+        this.mOf = bVar;
+        this.mOg = dVar;
+        this.mOh = bVar2;
+        this.mOi = bVar3;
     }
 
-    public e cLt() {
-        return this.ktk;
+    public e dBB() {
+        return this.mOc;
     }
 
-    public m<PointF, PointF> cLu() {
-        return this.ktl;
+    public m<PointF, PointF> dBC() {
+        return this.mOd;
     }
 
-    public g cLv() {
-        return this.ktm;
+    public g dBD() {
+        return this.mOe;
     }
 
-    public b cLw() {
-        return this.ktn;
+    public b dBE() {
+        return this.mOf;
     }
 
-    public d cLx() {
-        return this.kto;
-    }
-
-    @Nullable
-    public b cLy() {
-        return this.ktp;
+    public d dBF() {
+        return this.mOg;
     }
 
     @Nullable
-    public b cLz() {
-        return this.ktq;
+    public b dBG() {
+        return this.mOh;
     }
 
-    public p cLA() {
+    @Nullable
+    public b dBH() {
+        return this.mOi;
+    }
+
+    public p dBI() {
         return new p(this);
     }
 
@@ -72,10 +72,10 @@ public class l implements com.tb.airbnb.lottie.model.content.b {
         return null;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a {
-        public static l cLB() {
-            return new l(new e(), new e(), g.a.cLq(), b.a.cLm(), d.a.cLn(), b.a.cLm(), b.a.cLm());
+        public static l dBJ() {
+            return new l(new e(), new e(), g.a.dBy(), b.a.dBt(), d.a.dBv(), b.a.dBt(), b.a.dBt());
         }
 
         public static l n(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {
@@ -95,7 +95,7 @@ public class l implements com.tb.airbnb.lottie.model.content.b {
             if (optJSONObject2 != null) {
                 mVar = e.h(optJSONObject2, eVar);
             } else {
-                M("position");
+                QB("position");
                 mVar = null;
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("s");
@@ -111,7 +111,7 @@ public class l implements com.tb.airbnb.lottie.model.content.b {
             if (optJSONObject4 != null) {
                 bVar = b.a.a(optJSONObject4, eVar, false);
             } else {
-                M("rotation");
+                QB("rotation");
                 bVar = null;
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject(Config.OS);
@@ -126,7 +126,7 @@ public class l implements com.tb.airbnb.lottie.model.content.b {
             return new l(eVar2, mVar, gVar, bVar, dVar, a, optJSONObject7 != null ? b.a.a(optJSONObject7, eVar, false) : null);
         }
 
-        private static void M(String str) {
+        private static void QB(String str) {
             throw new IllegalArgumentException("Missing transform for " + str);
         }
     }

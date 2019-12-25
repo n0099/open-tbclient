@@ -1,13 +1,22 @@
 package com.baidu.swan.games.e.d;
-/* loaded from: classes2.dex */
+
+import android.support.annotation.Nullable;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+/* loaded from: classes9.dex */
 public abstract class a implements b {
     @Override // com.baidu.swan.games.e.d.b
-    public String Gc() {
+    public String getInitBasePath() {
         return null;
     }
 
     @Override // com.baidu.swan.games.e.d.b
-    public String Gd() {
+    public String Mt() {
+        return null;
+    }
+
+    @Override // com.baidu.swan.games.e.d.b
+    @Nullable
+    public V8EngineConfiguration.CodeCacheSetting Ms() {
         return null;
     }
 

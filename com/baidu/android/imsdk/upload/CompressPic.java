@@ -14,7 +14,7 @@ import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CompressPic {
     private static final boolean HAS_OPTIONS_IN_MUTABLE;
 

@@ -7,24 +7,24 @@ import com.baidu.tbadk.core.util.ae;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e implements ae, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> icA;
-    public String icB;
+    private ArrayList<PreLoadImageInfo> iRM;
+    public String iRN;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.icA = new ArrayList<>(1);
+            this.iRM = new ArrayList<>(1);
             this.src = excContent.src;
-            this.icB = excContent.bsize;
-            if (this.icB != null) {
+            this.iRN = excContent.bsize;
+            if (this.iRN != null) {
                 try {
-                    String[] split = this.icB.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.width = com.baidu.adp.lib.g.b.toInt(split[0], 0);
-                    this.height = com.baidu.adp.lib.g.b.toInt(split[1], 0);
+                    String[] split = this.iRN.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    this.width = com.baidu.adp.lib.f.b.toInt(split[0], 0);
+                    this.height = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -45,7 +45,7 @@ public class e implements ae, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.icA.add(preLoadImageInfo);
+            this.iRM.add(preLoadImageInfo);
         }
     }
 
@@ -53,7 +53,7 @@ public class e implements ae, d {
         return this.src;
     }
 
-    public int xa(int i) {
+    public int zg(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -67,6 +67,6 @@ public class e implements ae, d {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.icA;
+        return this.iRM;
     }
 }

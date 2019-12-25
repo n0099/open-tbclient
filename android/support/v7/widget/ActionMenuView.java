@@ -20,7 +20,7 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.ItemInvoker, MenuView {
     static final int GENERATED_ITEM_PADDING = 4;
     static final int MIN_CELL_SIZE = 56;
@@ -39,14 +39,14 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     private boolean mReserveOverflow;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface ActionMenuChildView {
         boolean needsDividerAfter();
 
         boolean needsDividerBefore();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnMenuItemClickListener {
         boolean onMenuItemClick(MenuItem menuItem);
     }
@@ -128,9 +128,9 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         super.onMeasure(i, i2);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:111:0x0276  */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x01cf  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x01de  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x0274  */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x01cd  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x01dc  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -685,7 +685,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class MenuBuilderCallback implements MenuBuilder.Callback {
         MenuBuilderCallback() {
         }
@@ -704,7 +704,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ActionMenuPresenterCallback implements MenuPresenter.Callback {
         ActionMenuPresenterCallback() {
         }
@@ -719,7 +719,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends LinearLayoutCompat.LayoutParams {
         @ViewDebug.ExportedProperty
         public int cellsUsed;

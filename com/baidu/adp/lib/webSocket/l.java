@@ -1,79 +1,80 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private String rR;
-    private int sI;
-    private int sJ;
-    private boolean sK;
-    private boolean sL;
-    private int sM;
-    private int sN;
-    private boolean sO;
-    private boolean sP;
+    private String uM;
+    private boolean vA;
+    private boolean vB;
+    private int vu;
+    private int vv;
+    private boolean vw;
+    private boolean vx;
+    private int vy;
+    private int vz;
 
     public l() {
-        this.rR = null;
-        this.sI = 32768;
-        this.sJ = 131072;
-        this.sK = false;
-        this.sL = true;
-        this.sM = 30000;
-        this.sN = 30000;
-        this.sO = true;
-        this.sP = true;
-        this.rR = null;
+        this.uM = null;
+        this.vu = 32768;
+        this.vv = 131072;
+        this.vw = false;
+        this.vx = true;
+        this.vy = 30000;
+        this.vz = 30000;
+        this.vA = true;
+        this.vB = true;
+        this.uM = null;
     }
 
     public l(l lVar) {
-        this.rR = null;
-        this.sI = lVar.sI;
-        this.sJ = lVar.sJ;
-        this.sK = lVar.sK;
-        this.sL = lVar.sL;
-        this.sM = lVar.sM;
-        this.sN = lVar.sN;
-        this.sO = lVar.sO;
-        this.sP = lVar.sP;
-        this.rR = lVar.rR;
+        this.uM = null;
+        this.vu = lVar.vu;
+        this.vv = lVar.vv;
+        this.vw = lVar.vw;
+        this.vx = lVar.vx;
+        this.vy = lVar.vy;
+        this.vz = lVar.vz;
+        this.vA = lVar.vA;
+        this.vB = lVar.vB;
+        this.uM = lVar.uM;
     }
 
-    public boolean hF() {
-        return this.sK;
+    public boolean ia() {
+        return this.vw;
     }
 
-    public int hG() {
-        return this.sI;
+    public int ib() {
+        return this.vu;
     }
 
-    public int hH() {
-        return this.sJ;
+    public int ic() {
+        return this.vv;
     }
 
-    public boolean hI() {
-        return this.sL;
+    public boolean getTcpNoDelay() {
+        return this.vx;
     }
 
-    public int hJ() {
-        return this.sM;
+    public int id() {
+        return this.vy;
     }
 
-    public int hK() {
-        return this.sN;
+    public int ie() {
+        return this.vz;
     }
 
-    public boolean hL() {
-        return this.sO;
+    /* renamed from: if  reason: not valid java name */
+    public boolean m9if() {
+        return this.vA;
     }
 
-    public boolean hM() {
-        return this.sP;
+    public boolean ig() {
+        return this.vB;
     }
 
-    public String hN() {
-        return this.rR;
+    public String ih() {
+        return this.uM;
     }
 
-    public void ay(String str) {
-        this.rR = str;
+    public void aK(String str) {
+        this.uM = str;
     }
 }

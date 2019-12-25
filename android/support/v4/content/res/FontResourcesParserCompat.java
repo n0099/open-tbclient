@@ -19,7 +19,7 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FontResourcesParserCompat {
     private static final int DEFAULT_TIMEOUT_MILLIS = 500;
     public static final int FETCH_STRATEGY_ASYNC = 1;
@@ -28,16 +28,16 @@ public class FontResourcesParserCompat {
     private static final int ITALIC = 1;
     private static final int NORMAL_WEIGHT = 400;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface FamilyResourceEntry {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface FetchStrategy {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class ProviderResourceEntry implements FamilyResourceEntry {
         @NonNull
         private final FontRequest mRequest;
@@ -64,7 +64,7 @@ public class FontResourcesParserCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class FontFileResourceEntry {
         @NonNull
         private final String mFileName;
@@ -97,7 +97,7 @@ public class FontResourcesParserCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class FontFamilyFilesResourceEntry implements FamilyResourceEntry {
         @NonNull
         private final FontFileResourceEntry[] mEntries;
@@ -200,10 +200,11 @@ public class FontResourcesParserCompat {
 
     private static FontFileResourceEntry readFont(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.FontFamilyFont);
-        int i = obtainAttributes.getInt(R.styleable.FontFamilyFont_fontWeight, 400);
-        boolean z = 1 == obtainAttributes.getInt(R.styleable.FontFamilyFont_fontStyle, 0);
-        int resourceId = obtainAttributes.getResourceId(R.styleable.FontFamilyFont_font, 0);
-        String string = obtainAttributes.getString(R.styleable.FontFamilyFont_font);
+        int i = obtainAttributes.getInt(obtainAttributes.hasValue(R.styleable.FontFamilyFont_fontWeight) ? R.styleable.FontFamilyFont_fontWeight : R.styleable.FontFamilyFont_android_fontWeight, 400);
+        boolean z = 1 == obtainAttributes.getInt(obtainAttributes.hasValue(R.styleable.FontFamilyFont_fontStyle) ? R.styleable.FontFamilyFont_fontStyle : R.styleable.FontFamilyFont_android_fontStyle, 0);
+        int i2 = obtainAttributes.hasValue(R.styleable.FontFamilyFont_font) ? R.styleable.FontFamilyFont_font : R.styleable.FontFamilyFont_android_font;
+        int resourceId = obtainAttributes.getResourceId(i2, 0);
+        String string = obtainAttributes.getString(i2);
         obtainAttributes.recycle();
         while (xmlPullParser.next() != 3) {
             skip(xmlPullParser);

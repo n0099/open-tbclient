@@ -1,72 +1,81 @@
 package com.baidu.tieba.ala.live.personcenter.exp;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
-public class d {
-    private TextView dQI;
-    private TextView dQJ;
-    private TextView dQK;
-    private View dQL;
-    private LinearLayout dQM;
-    private LinearLayout dQN;
-    protected Context mContext;
-    private View mRootView;
+import com.baidu.live.adp.base.BdBaseModel;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.data.AlaLivePersonData;
+import com.baidu.live.message.AlaGetUserInfoHttpResponseMessage;
+import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.task.TbHttpMessageTask;
+/* loaded from: classes2.dex */
+public class d extends BdBaseModel {
+    private a eGs;
+    private HttpMessageListener eGt = new HttpMessageListener(1021039) { // from class: com.baidu.tieba.ala.live.personcenter.exp.d.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetUserInfoHttpResponseMessage) && d.this.eGs != null) {
+                if (httpResponsedMessage.getError() != 0 || !httpResponsedMessage.isSuccess()) {
+                    d.this.eGs.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    return;
+                }
+                AlaLivePersonData wg = ((AlaGetUserInfoHttpResponseMessage) httpResponsedMessage).wg();
+                if (wg == null || wg.mUserData == null) {
+                    d.this.eGs.onFail(901, "");
+                } else {
+                    d.this.eGs.a(wg);
+                }
+            }
+        }
+    };
+    private TbPageContext mPageContext;
 
-    public d(Context context) {
-        this.mContext = context;
-        W(aMv());
+    /* loaded from: classes2.dex */
+    public interface a {
+        void a(AlaLivePersonData alaLivePersonData);
+
+        void onFail(int i, String str);
     }
 
-    public View aMv() {
-        if (this.mRootView == null) {
-            this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_top_header, (ViewGroup) null);
-        }
-        return this.mRootView;
+    public d(TbPageContext tbPageContext, a aVar) {
+        this.mPageContext = tbPageContext;
+        this.eGs = aVar;
+        bdZ();
+        registerListener(this.eGt);
     }
 
-    public void W(View view) {
-        this.dQN = (LinearLayout) view.findViewById(a.g.ala_person_center_current_exp_panel);
-        this.dQI = (TextView) view.findViewById(a.g.ala_person_center_current_exp_txt);
-        this.dQJ = (TextView) view.findViewById(a.g.ala_person_center_current_level);
-        this.dQK = (TextView) view.findViewById(a.g.ala_person_center_next_level);
-        this.dQM = (LinearLayout) view.findViewById(a.g.ala_person_center_next_level_bg);
-        this.dQL = view.findViewById(a.g.ala_person_center_current_level_bg);
+    private void bdZ() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021039, TbConfig.SERVER_ADDRESS + "ala/user/getUserInfoSDK");
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(AlaGetUserInfoHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void i(long j, int i) {
-        long j2 = com.baidu.tieba.ala.live.personcenter.a.dPW[i - 1];
-        int i2 = i + 1;
-        this.dQI.setText(this.mContext.getResources().getString(a.i.sdk_prc_current_exp, String.valueOf(j + "/" + j2)));
-        this.dQJ.setText(this.mContext.getResources().getString(a.i.sdk_prc_current_level, String.valueOf(i)));
-        if (i2 > 40) {
-            this.dQK.setText("");
-        } else {
-            this.dQK.setText(this.mContext.getResources().getString(a.i.sdk_prc_next_level, String.valueOf(i2)));
-        }
-        if (j2 != 0) {
-            ViewGroup.LayoutParams layoutParams = this.dQL.getLayoutParams();
-            layoutParams.width = (int) ((this.dQM.getLayoutParams().width * j) / j2);
-            this.dQL.setLayoutParams(layoutParams);
-        }
+    public void bea() {
+        HttpMessage httpMessage = new HttpMessage(1021039);
+        httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
+        httpMessage.addParam("meta_key", "");
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void a(AlaPersonCenterExpActivity alaPersonCenterExpActivity, int i) {
-        alaPersonCenterExpActivity.getLayoutMode().onModeChanged(this.dQN);
-        if (i == 1) {
-            this.dQI.setAlpha(0.7f);
-            this.dQI.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
-            this.dQJ.setAlpha(0.7f);
-            this.dQJ.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
-            this.dQK.setAlpha(0.7f);
-            this.dQK.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
-            this.dQL.setAlpha(0.7f);
-            this.dQL.setBackgroundDrawable(this.mContext.getResources().getDrawable(a.f.sdk_prc_current_level_bg));
-        }
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    protected boolean loadData() {
+        return false;
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterTask(1021039);
+        MessageManager.getInstance().unRegisterListener(this.eGt);
     }
 }

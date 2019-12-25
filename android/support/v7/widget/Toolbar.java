@@ -38,12 +38,13 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class Toolbar extends ViewGroup {
     private static final String TAG = "Toolbar";
     private MenuPresenter.Callback mActionMenuPresenterCallback;
@@ -88,7 +89,7 @@ public class Toolbar extends ViewGroup {
     private TextView mTitleTextView;
     private ToolbarWidgetWrapper mWrapper;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnMenuItemClickListener {
         boolean onMenuItemClick(MenuItem menuItem);
     }
@@ -1389,7 +1390,7 @@ public class Toolbar extends ViewGroup {
         return this.mPopupContext;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ActionBar.LayoutParams {
         static final int CUSTOM = 0;
         static final int EXPANDED = 2;
@@ -1447,7 +1448,7 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.v7.widget.Toolbar.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1495,7 +1496,7 @@ public class Toolbar extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class ExpandedActionViewMenuPresenter implements MenuPresenter {
         MenuItemImpl mCurrentExpandedItem;
         MenuBuilder mMenu;
@@ -1561,12 +1562,20 @@ public class Toolbar extends ViewGroup {
         @Override // android.support.v7.view.menu.MenuPresenter
         public boolean expandItemActionView(MenuBuilder menuBuilder, MenuItemImpl menuItemImpl) {
             Toolbar.this.ensureCollapseButtonView();
-            if (Toolbar.this.mCollapseButtonView.getParent() != Toolbar.this) {
+            ViewParent parent = Toolbar.this.mCollapseButtonView.getParent();
+            if (parent != Toolbar.this) {
+                if (parent instanceof ViewGroup) {
+                    ((ViewGroup) parent).removeView(Toolbar.this.mCollapseButtonView);
+                }
                 Toolbar.this.addView(Toolbar.this.mCollapseButtonView);
             }
             Toolbar.this.mExpandedActionView = menuItemImpl.getActionView();
             this.mCurrentExpandedItem = menuItemImpl;
-            if (Toolbar.this.mExpandedActionView.getParent() != Toolbar.this) {
+            ViewParent parent2 = Toolbar.this.mExpandedActionView.getParent();
+            if (parent2 != Toolbar.this) {
+                if (parent2 instanceof ViewGroup) {
+                    ((ViewGroup) parent2).removeView(Toolbar.this.mExpandedActionView);
+                }
                 LayoutParams generateDefaultLayoutParams = Toolbar.this.generateDefaultLayoutParams();
                 generateDefaultLayoutParams.gravity = 8388611 | (Toolbar.this.mButtonGravity & 112);
                 generateDefaultLayoutParams.mViewType = 2;

@@ -10,35 +10,35 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static final Map<String, b> uQ = new HashMap();
-    private static final Object uR = new Object();
-    private static DateFormat uS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
+    private static final Map<String, b> xt = new HashMap();
+    private static final Object xu = new Object();
+    private static DateFormat xv = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
     private long startTime;
     private String type;
-    private LinkedList<a> uT = new LinkedList<>();
+    private LinkedList<a> xw = new LinkedList<>();
 
-    private static b aJ(String str) {
+    private static b aV(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "Default";
         }
-        if (!uQ.containsKey(str)) {
-            synchronized (uR) {
-                if (!uQ.containsKey(str)) {
+        if (!xt.containsKey(str)) {
+            synchronized (xu) {
+                if (!xt.containsKey(str)) {
                     b bVar = new b(str);
-                    uQ.put(str, bVar);
+                    xt.put(str, bVar);
                     return bVar;
                 }
             }
         }
-        return uQ.get(str);
+        return xt.get(str);
     }
 
-    public static b iy() {
-        return aJ("plugin_load");
+    public static b iR() {
+        return aV("plugin_load");
     }
 
-    public static void r(String str, String str2) {
-        iy().trace(str, str2);
+    public static void y(String str, String str2) {
+        iR().trace(str, str2);
     }
 
     b(String str) {
@@ -46,30 +46,30 @@ public class b {
     }
 
     public void trace(String str, String str2) {
-        iz();
-        iA();
-        this.uT.add(new a(str, str2));
+        iS();
+        iT();
+        this.xw.add(new a(str, str2));
     }
 
-    private void iz() {
+    private void iS() {
         if (this.startTime == 0) {
             this.startTime = System.currentTimeMillis();
         }
     }
 
-    private void iA() {
-        while (this.uT.size() >= 70) {
-            this.uT.poll();
+    private void iT() {
+        while (this.xw.size() >= 70) {
+            this.xw.poll();
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("trace_" + this.type + "{begin@" + uS.format(new Date(this.startTime)) + "->");
-        for (int i = 0; i < this.uT.size(); i++) {
-            a aVar = this.uT.get(i);
-            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.uU, uS.format(new Date(aVar.time))));
-            if (i < this.uT.size() - 1) {
+        sb.append("trace_" + this.type + "{begin@" + xv.format(new Date(this.startTime)) + "->");
+        for (int i = 0; i < this.xw.size(); i++) {
+            a aVar = this.xw.get(i);
+            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.xx, xv.format(new Date(aVar.time))));
+            if (i < this.xw.size() - 1) {
                 sb.append("->");
             }
         }
@@ -82,11 +82,11 @@ public class b {
     public static class a {
         private String method;
         private long time;
-        private String uU;
+        private String xx;
 
         a(String str, String str2, long j) {
             this.method = str;
-            this.uU = str2;
+            this.xx = str2;
             this.time = j;
         }
 

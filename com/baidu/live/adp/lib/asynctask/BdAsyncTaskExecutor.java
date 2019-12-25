@@ -19,7 +19,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdAsyncTaskExecutor implements Executor {
     private static final int CORE_POOL_SIZE = 7;
     private static final int KEEP_ALIVE = 30;
@@ -461,7 +461,7 @@ public class BdAsyncTaskExecutor implements Executor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static abstract class BdAsyncTaskRunnable implements Runnable {
         private BdAsyncTaskFuture<?> mBdAsyncTaskFuture;
 

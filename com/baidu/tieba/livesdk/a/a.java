@@ -1,42 +1,42 @@
 package com.baidu.tieba.livesdk.a;
 
 import android.app.Application;
-import com.baidu.c.a.a.c;
-/* loaded from: classes6.dex */
+import com.baidu.g.a.a.c;
+/* loaded from: classes2.dex */
 public class a implements com.baidu.tieba.sdk.a.a {
-    private com.baidu.c.a.a.a avE;
-    private c hjM = new c() { // from class: com.baidu.tieba.livesdk.a.a.1
-        @Override // com.baidu.c.a.a.c
-        public void h(boolean z, boolean z2) {
-            com.baidu.tieba.sdk.a.chv().chw();
+    private com.baidu.g.a.a.a aDw;
+    private c hXM = new c() { // from class: com.baidu.tieba.livesdk.a.a.1
+        @Override // com.baidu.g.a.a.c
+        public void onLoginStatusChanged(boolean z, boolean z2) {
+            com.baidu.tieba.sdk.a.cBx().cBy();
         }
     };
 
     public a(Application application) {
-        this.avE = com.baidu.c.b.a.aB(application).xe();
-        this.avE.a(this.hjM);
+        this.aDw = com.baidu.g.b.a.aL(application).zc();
+        this.aDw.a(this.hXM);
     }
 
     @Override // com.baidu.tieba.sdk.a.a
-    public com.baidu.tieba.sdk.b.a bJB() {
-        com.baidu.c.a.a.b wV;
-        if (this.avE.isLogin() && (wV = this.avE.wV()) != null) {
-            return a(wV);
+    public com.baidu.tieba.sdk.b.a caO() {
+        com.baidu.g.a.a.b yU;
+        if (this.aDw.isLogin() && (yU = this.aDw.yU()) != null) {
+            return a(yU);
         }
         return null;
     }
 
     @Override // com.baidu.tieba.sdk.a.a
-    public void bJC() {
-        this.avE.login();
+    public void caP() {
+        this.aDw.login();
     }
 
-    private com.baidu.tieba.sdk.b.a a(com.baidu.c.a.a.b bVar) {
+    private com.baidu.tieba.sdk.b.a a(com.baidu.g.a.a.b bVar) {
         com.baidu.tieba.sdk.b.a aVar = new com.baidu.tieba.sdk.b.a();
         aVar.userId = bVar.getUid();
-        aVar.userName = bVar.wW();
-        aVar.nickName = bVar.wW();
-        aVar.portrait = bVar.wX();
+        aVar.userName = bVar.getDisplayname();
+        aVar.nickName = bVar.getDisplayname();
+        aVar.portrait = bVar.yV();
         aVar.bduss = bVar.getBduss();
         return aVar;
     }

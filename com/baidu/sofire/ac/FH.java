@@ -1,10 +1,10 @@
 package com.baidu.sofire.ac;
 
 import android.content.Context;
+import android.support.media.ExifInterface;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.e;
 import com.baidu.sofire.core.g;
@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FH {
     public static final int INVOKE_METHOD_ERROR_DEFULT = -1;
     public static final int INVOKE_METHOD_ERROR_ILLGEAL_METHOD_NAME = -3;
@@ -136,7 +136,7 @@ public class FH {
         int i;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString(BdStatsConstant.StatsKey.FROM);
+            String optString = jSONObject.optString("f");
             if (TextUtils.isEmpty(optString) || "init".equals(optString) || "initDelay".equals(optString) || NotificationCompat.CATEGORY_CALL.equals(optString)) {
                 return new Pair<>(-3, "");
             }
@@ -321,7 +321,7 @@ public class FH {
     }
 
     private static boolean parseBoolean(String str) throws IllegalArgumentException {
-        if ("T".equals(str)) {
+        if (ExifInterface.GPS_DIRECTION_TRUE.equals(str)) {
             return true;
         }
         if ("F".equals(str)) {

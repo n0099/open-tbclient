@@ -15,12 +15,12 @@ public class c {
     }
 
     /* loaded from: classes5.dex */
-    public interface b extends a, InterfaceC0116c {
+    public interface b extends a, InterfaceC0132c {
     }
 
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.d.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0116c {
+    public interface InterfaceC0132c {
         void a(long j, long j2);
     }
 
@@ -46,18 +46,18 @@ public class c {
         }
     }
 
-    public static void a(InputStream inputStream, File file, long j, InterfaceC0116c interfaceC0116c) throws IOException {
+    public static void a(InputStream inputStream, File file, long j, InterfaceC0132c interfaceC0132c) throws IOException {
         FileOutputStream fileOutputStream = null;
         try {
             fileOutputStream = com.baidu.platform.comapi.walknavi.d.a.d.a.a.d(file);
-            a(inputStream, fileOutputStream, j, interfaceC0116c);
+            a(inputStream, fileOutputStream, j, interfaceC0132c);
         } finally {
             a(fileOutputStream);
         }
     }
 
-    public static void a(InputStream inputStream, OutputStream outputStream, long j, InterfaceC0116c interfaceC0116c) throws IOException {
-        a(inputStream, outputStream, j, (b) new d(interfaceC0116c));
+    public static void a(InputStream inputStream, OutputStream outputStream, long j, InterfaceC0132c interfaceC0132c) throws IOException {
+        a(inputStream, outputStream, j, (b) new d(interfaceC0132c));
     }
 
     public static void a(InputStream inputStream, OutputStream outputStream, long j, b bVar) throws IOException {

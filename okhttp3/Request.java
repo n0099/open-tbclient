@@ -13,13 +13,14 @@ import okhttp3.internal.http.HttpMethod;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Request {
     @Nullable
     final RequestBody body;
     private volatile CacheControl cacheControl;
     final Headers headers;
     final String method;
+    final Headers proxyHeaders;
     final Map<Class<?>, Object> tags;
     final HttpUrl url;
 
@@ -27,6 +28,7 @@ public final class Request {
         this.url = builder.url;
         this.method = builder.method;
         this.headers = builder.headers.build();
+        this.proxyHeaders = builder.proxyHeaders.build();
         this.body = builder.body;
         this.tags = Util.immutableMap(builder.tags);
     }
@@ -43,6 +45,10 @@ public final class Request {
         return this.headers;
     }
 
+    public Headers proxyHeaders() {
+        return this.proxyHeaders;
+    }
+
     @Nullable
     public String header(String str) {
         return this.headers.get(str);
@@ -50,6 +56,14 @@ public final class Request {
 
     public List<String> headers(String str) {
         return this.headers.values(str);
+    }
+
+    public String proxyHeader(String str) {
+        return this.proxyHeaders.get(str);
+    }
+
+    public List<String> proxyHeaders(String str) {
+        return this.proxyHeaders.values(str);
     }
 
     @Nullable
@@ -89,11 +103,12 @@ public final class Request {
         return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + '}';
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         RequestBody body;
         Headers.Builder headers;
         String method;
+        Headers.Builder proxyHeaders;
         Map<Class<?>, Object> tags;
         HttpUrl url;
 
@@ -101,21 +116,17 @@ public final class Request {
             this.tags = Collections.emptyMap();
             this.method = "GET";
             this.headers = new Headers.Builder();
+            this.proxyHeaders = new Headers.Builder();
         }
 
         Builder(Request request) {
-            Map<Class<?>, Object> linkedHashMap;
             this.tags = Collections.emptyMap();
             this.url = request.url;
             this.method = request.method;
             this.body = request.body;
-            if (request.tags.isEmpty()) {
-                linkedHashMap = Collections.emptyMap();
-            } else {
-                linkedHashMap = new LinkedHashMap<>(request.tags);
-            }
-            this.tags = linkedHashMap;
+            this.tags = request.tags.isEmpty() ? Collections.emptyMap() : new LinkedHashMap<>(request.tags);
             this.headers = request.headers.newBuilder();
+            this.proxyHeaders = request.proxyHeaders.newBuilder();
         }
 
         public Builder url(HttpUrl httpUrl) {
@@ -150,8 +161,18 @@ public final class Request {
             return this;
         }
 
+        public Builder proxyHeader(String str, String str2) {
+            this.proxyHeaders.set(str, str2);
+            return this;
+        }
+
         public Builder addHeader(String str, String str2) {
             this.headers.add(str, str2);
+            return this;
+        }
+
+        public Builder addProxyHeader(String str, String str2) {
+            this.proxyHeaders.add(str, str2);
             return this;
         }
 
@@ -160,14 +181,24 @@ public final class Request {
             return this;
         }
 
+        public Builder removeProxyHeader(String str) {
+            this.proxyHeaders.removeAll(str);
+            return this;
+        }
+
         public Builder headers(Headers headers) {
             this.headers = headers.newBuilder();
             return this;
         }
 
+        public Builder proxyHeaders(Headers headers) {
+            this.proxyHeaders = headers.newBuilder();
+            return this;
+        }
+
         public Builder cacheControl(CacheControl cacheControl) {
             String cacheControl2 = cacheControl.toString();
-            return cacheControl2.isEmpty() ? removeHeader("Cache-Control") : header("Cache-Control", cacheControl2);
+            return cacheControl2.isEmpty() ? removeHeader(com.baidubce.http.Headers.CACHE_CONTROL) : header(com.baidubce.http.Headers.CACHE_CONTROL, cacheControl2);
         }
 
         public Builder get() {

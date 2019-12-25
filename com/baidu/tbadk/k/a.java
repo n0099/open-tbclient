@@ -1,31 +1,53 @@
 package com.baidu.tbadk.k;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.TbPageContext;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public class a implements b {
-    private b cIh;
+public class a {
+    protected View attachedView;
+    private boolean isAttached;
+    private boolean isWrapStyle = false;
 
-    public a(TbPageContext<?> tbPageContext) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOD_RECOMMEND_CONTROLLER, b.class, tbPageContext);
-        if (runTask != null && runTask.getData() != null) {
-            this.cIh = (b) runTask.getData();
+    public a(View view) {
+        this.attachedView = view;
+    }
+
+    public boolean isViewAttached() {
+        return this.isAttached;
+    }
+
+    public void attachView(View view, boolean z) {
+        if (view != null && this.attachedView != null && this.attachedView.getParent() == null) {
+            this.isAttached = true;
+            e.d(view, this.isWrapStyle).attachView(view, this.attachedView, z);
+            onViewAttached();
         }
     }
 
-    @Override // com.baidu.tbadk.k.b
-    public void pT(String str) {
-        if (this.cIh != null) {
-            this.cIh.pT(str);
+    public void dettachView(View view) {
+        if (view != null && this.attachedView != null && this.attachedView.getParent() != null && (view instanceof ViewGroup)) {
+            try {
+                onViewDettached();
+                ((ViewGroup) view).removeView(this.attachedView);
+                this.isAttached = false;
+            } catch (Exception e) {
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.k.b
-    public void destory() {
-        if (this.cIh != null) {
-            this.cIh.destory();
-        }
+    public void attachView(View view) {
+        attachView(view, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onViewAttached() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onViewDettached() {
+    }
+
+    public void setWrapStyle(boolean z) {
+        this.isWrapStyle = z;
     }
 }

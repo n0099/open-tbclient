@@ -1,6 +1,5 @@
 package okhttp3.internal.http2;
 
-import android.support.v4.internal.view.SupportMenu;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -29,7 +28,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Http2Connection implements Closeable {
     static final /* synthetic */ boolean $assertionsDisabled;
     static final int OKHTTP_CLIENT_WINDOW_SIZE = 16777216;
@@ -77,7 +76,7 @@ public final class Http2Connection implements Closeable {
             this.writerExecutor.scheduleAtFixedRate(new PingRunnable(false, 0, 0), builder.pingIntervalMillis, builder.pingIntervalMillis, TimeUnit.MILLISECONDS);
         }
         this.pushExecutor = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Util.threadFactory(Util.format("OkHttp %s Push Observer", this.hostname), true));
-        this.peerSettings.set(7, SupportMenu.USER_MASK);
+        this.peerSettings.set(7, 65535);
         this.peerSettings.set(5, 16384);
         this.bytesLeftInWriteWindow = this.peerSettings.getInitialWindowSize();
         this.socket = builder.socket;
@@ -237,7 +236,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     final class PingRunnable extends NamedRunnable {
         final int payload1;
         final int payload2;
@@ -377,7 +376,7 @@ public final class Http2Connection implements Closeable {
             this.writer.settings(this.okHttpSettings);
             int initialWindowSize = this.okHttpSettings.getInitialWindowSize();
             if (initialWindowSize != 65535) {
-                this.writer.windowUpdate(0, initialWindowSize - SupportMenu.USER_MASK);
+                this.writer.windowUpdate(0, initialWindowSize - 65535);
             }
         }
         new Thread(this.readerRunnable).start();
@@ -399,7 +398,7 @@ public final class Http2Connection implements Closeable {
         return this.shutdown;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         boolean client;
         String hostname;
@@ -447,7 +446,7 @@ public final class Http2Connection implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class ReaderRunnable extends NamedRunnable implements Http2Reader.Handler {
         final Http2Reader reader;
 
@@ -817,7 +816,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Listener {
         public static final Listener REFUSE_INCOMING_STREAMS = new Listener() { // from class: okhttp3.internal.http2.Http2Connection.Listener.1
             @Override // okhttp3.internal.http2.Http2Connection.Listener

@@ -9,9 +9,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ButtonBarLayout extends LinearLayout {
-    private static final int ALLOW_STACKING_MIN_HEIGHT_DP = 320;
     private static final int PEEK_BUTTON_DP = 16;
     private boolean mAllowStacking;
     private int mLastWidthSize;
@@ -21,9 +20,8 @@ public class ButtonBarLayout extends LinearLayout {
         super(context, attributeSet);
         this.mLastWidthSize = -1;
         this.mMinimumHeight = 0;
-        boolean z = getResources().getConfiguration().screenHeightDp >= ALLOW_STACKING_MIN_HEIGHT_DP;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ButtonBarLayout);
-        this.mAllowStacking = obtainStyledAttributes.getBoolean(R.styleable.ButtonBarLayout_allowStacking, z);
+        this.mAllowStacking = obtainStyledAttributes.getBoolean(R.styleable.ButtonBarLayout_allowStacking, true);
         obtainStyledAttributes.recycle();
     }
 

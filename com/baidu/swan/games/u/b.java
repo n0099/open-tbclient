@@ -1,48 +1,66 @@
 package com.baidu.swan.games.u;
 
-import com.baidu.searchbox.v8engine.JsFunction;
-/* loaded from: classes2.dex */
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
 public class b {
-    private JsFunction bDZ;
-    private JsFunction bEa;
-    private JsFunction bEb;
+    private static volatile b cnY;
+    private int ajh;
+    private volatile ArrayList<a> cnZ = new ArrayList<>(20);
 
-    public static b i(com.baidu.swan.games.binding.model.c cVar) {
-        if (cVar == null) {
-            return null;
-        }
-        b bVar = new b();
-        bVar.bDZ = cVar.jD("onCheckForUpdate");
-        if (bVar.bDZ != null) {
-            bVar.bDZ.setReleaseMode(false);
-        }
-        bVar.bEa = cVar.jD("onUpdateReady");
-        if (bVar.bEa != null) {
-            bVar.bEa.setReleaseMode(false);
-        }
-        bVar.bEb = cVar.jD("onUpdateFailed");
-        if (bVar.bEb != null) {
-            bVar.bEb.setReleaseMode(false);
-            return bVar;
-        }
-        return bVar;
+    private b() {
     }
 
-    public void b(c cVar) {
-        if (this.bDZ != null) {
-            this.bDZ.call(cVar);
+    public static b amU() {
+        if (cnY == null) {
+            synchronized (b.class) {
+                if (cnY == null) {
+                    cnY = new b();
+                }
+            }
+        }
+        return cnY;
+    }
+
+    public synchronized void a(a aVar) {
+        if (aVar != null) {
+            if (this.cnZ.size() < 20) {
+                this.cnZ.add(aVar);
+            } else {
+                this.ajh++;
+            }
         }
     }
 
-    public void Yn() {
-        if (this.bEa != null) {
-            this.bEa.call();
+    public synchronized JSONObject amV() {
+        JSONObject jSONObject;
+        int size = this.cnZ.size();
+        if (size == 0) {
+            jSONObject = null;
+        } else {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("dropcnt", this.ajh);
+                jSONObject2.put("errorcnt", size);
+                JSONArray jSONArray = new JSONArray();
+                jSONObject2.put("errors", jSONArray);
+                Iterator<a> it = this.cnZ.iterator();
+                while (it.hasNext()) {
+                    jSONArray.put(it.next().toJSON());
+                }
+            } catch (JSONException e) {
+            }
+            this.cnZ.clear();
+            jSONObject = jSONObject2;
         }
+        return jSONObject;
     }
 
-    public void Yo() {
-        if (this.bEb != null) {
-            this.bEb.call();
-        }
+    public synchronized void clear() {
+        this.cnZ.clear();
+        this.ajh = 0;
     }
 }

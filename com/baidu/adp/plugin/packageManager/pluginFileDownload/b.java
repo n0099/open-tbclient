@@ -5,9 +5,9 @@ import java.util.List;
 public abstract class b {
     public abstract void a(BdFileDownloadData bdFileDownloadData, int i);
 
-    public abstract void aW(String str);
-
     public abstract void b(BdFileDownloadData bdFileDownloadData, int i);
+
+    public abstract void bi(String str);
 
     public abstract List<BdFileDownloadData> getDownloadList();
 

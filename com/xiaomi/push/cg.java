@@ -1,19 +1,19 @@
 package com.xiaomi.push;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class cg {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f180a;
+    public long f185a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f181a;
+    public String f186a;
 
     public cg() {
     }
 
     public cg(ce ceVar) {
-        this.f180a = ceVar.f177a;
+        this.f185a = ceVar.f182a;
         this.a = ceVar.a;
     }
 }

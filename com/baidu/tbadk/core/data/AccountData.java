@@ -10,6 +10,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class AccountData implements Serializable {
     private static final long serialVersionUID = 4126203103788833116L;
+    private String bjhAvatar;
     private boolean isBigV;
     private int liveLevel;
     private String mDisplayName;
@@ -238,5 +239,13 @@ public class AccountData implements Serializable {
             return this.mAccount;
         }
         return TbadkCoreApplication.getInst().getString(R.string.account_default_text);
+    }
+
+    public String getAvatar() {
+        return !TextUtils.isEmpty(this.bjhAvatar) ? this.bjhAvatar : this.portrait;
+    }
+
+    public void setBjhAvatar(String str) {
+        this.bjhAvatar = str;
     }
 }

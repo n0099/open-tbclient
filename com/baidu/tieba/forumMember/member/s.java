@@ -2,43 +2,43 @@ package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class s implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId frR = BdUniqueId.gen();
-    private String frL;
-    private int frJ = -1;
-    private int frS = -1;
+    public static final BdUniqueId ggn = BdUniqueId.gen();
+    private String ggh;
+    private int ggf = -1;
+    private int ggo = -1;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return frR;
+        return ggn;
     }
 
-    public int biA() {
-        return this.frS;
+    public int bzV() {
+        return this.ggo;
     }
 
-    public void qe(int i) {
-        this.frS = i;
+    public void sk(int i) {
+        this.ggo = i;
     }
 
-    public int biy() {
-        return this.frJ;
+    public int bzT() {
+        return this.ggf;
     }
 
-    public void qd(int i) {
-        this.frJ = i;
+    public void sj(int i) {
+        this.ggf = i;
     }
 
-    public String biz() {
-        return this.frL;
+    public String bzU() {
+        return this.ggh;
     }
 
-    public void vF(String str) {
-        this.frL = str;
+    public void Ax(String str) {
+        this.ggh = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.frL) || this.frJ < 0;
+        return StringUtils.isNull(this.ggh) || this.ggf < 0;
     }
 }

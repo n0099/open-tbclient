@@ -1,13 +1,14 @@
 package com.tencent.open.a;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.google.android.exoplayer2.Format;
 import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private static SimpleDateFormat a = d.C0580d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat a = d.C0700d.a("yy.MM.dd.HH");
     private File g;
     private String b = "Tracer.File";
     private int c = Integer.MAX_VALUE;
@@ -16,7 +17,7 @@ public class b {
     private long f = 10000;
     private int h = 10;
     private String i = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
-    private long j = Long.MAX_VALUE;
+    private long j = Format.OFFSET_SAMPLE_RELATIVE;
 
     public b(File file, int i, int i2, int i3, String str, long j, int i4, String str2, long j2) {
         a(file);

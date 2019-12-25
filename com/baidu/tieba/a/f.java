@@ -1,5 +1,5 @@
 package com.baidu.tieba.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface f {
-    void rh(String str);
+    void wq(String str);
 }

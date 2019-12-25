@@ -18,7 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     private final Delegate mActivityImpl;
     private final int mCloseDrawerContentDescRes;
@@ -32,7 +32,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     View.OnClickListener mToolbarNavigationClickListener;
     private boolean mWarnedForDisplayHomeAsUp;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface Delegate {
         Context getActionBarThemedContext();
 
@@ -45,7 +45,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         void setActionBarUpIndicator(Drawable drawable, @StringRes int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface DelegateProvider {
         @Nullable
         Delegate getDrawerToggleDelegate();
@@ -79,12 +79,8 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
             this.mActivityImpl = ((DelegateProvider) activity).getDrawerToggleDelegate();
         } else if (Build.VERSION.SDK_INT >= 18) {
             this.mActivityImpl = new JellybeanMr2Delegate(activity);
-        } else if (Build.VERSION.SDK_INT >= 14) {
-            this.mActivityImpl = new IcsDelegate(activity);
-        } else if (Build.VERSION.SDK_INT >= 11) {
-            this.mActivityImpl = new HoneycombDelegate(activity);
         } else {
-            this.mActivityImpl = new DummyDelegate(activity);
+            this.mActivityImpl = new IcsDelegate(activity);
         }
         this.mDrawerLayout = drawerLayout;
         this.mOpenDrawerContentDescRes = i;
@@ -251,13 +247,12 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         this.mSlider.setProgress(f);
     }
 
-    @RequiresApi(11)
-    /* loaded from: classes2.dex */
-    private static class HoneycombDelegate implements Delegate {
+    /* loaded from: classes4.dex */
+    private static class IcsDelegate implements Delegate {
         final Activity mActivity;
         ActionBarDrawerToggleHoneycomb.SetIndicatorInfo mSetIndicatorInfo;
 
-        HoneycombDelegate(Activity activity) {
+        IcsDelegate(Activity activity) {
             this.mActivity = activity;
         }
 
@@ -268,6 +263,10 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
 
         @Override // android.support.v7.app.ActionBarDrawerToggle.Delegate
         public Context getActionBarThemedContext() {
+            android.app.ActionBar actionBar = this.mActivity.getActionBar();
+            if (actionBar != null) {
+                return actionBar.getThemedContext();
+            }
             return this.mActivity;
         }
 
@@ -293,25 +292,8 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    @RequiresApi(14)
-    /* loaded from: classes2.dex */
-    private static class IcsDelegate extends HoneycombDelegate {
-        IcsDelegate(Activity activity) {
-            super(activity);
-        }
-
-        @Override // android.support.v7.app.ActionBarDrawerToggle.HoneycombDelegate, android.support.v7.app.ActionBarDrawerToggle.Delegate
-        public Context getActionBarThemedContext() {
-            android.app.ActionBar actionBar = this.mActivity.getActionBar();
-            if (actionBar != null) {
-                return actionBar.getThemedContext();
-            }
-            return this.mActivity;
-        }
-    }
-
     @RequiresApi(18)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class JellybeanMr2Delegate implements Delegate {
         final Activity mActivity;
 
@@ -360,7 +342,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class ToolbarCompatDelegate implements Delegate {
         final CharSequence mDefaultContentDescription;
         final Drawable mDefaultUpIndicator;
@@ -395,38 +377,6 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         @Override // android.support.v7.app.ActionBarDrawerToggle.Delegate
         public Context getActionBarThemedContext() {
             return this.mToolbar.getContext();
-        }
-
-        @Override // android.support.v7.app.ActionBarDrawerToggle.Delegate
-        public boolean isNavigationVisible() {
-            return true;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class DummyDelegate implements Delegate {
-        final Activity mActivity;
-
-        DummyDelegate(Activity activity) {
-            this.mActivity = activity;
-        }
-
-        @Override // android.support.v7.app.ActionBarDrawerToggle.Delegate
-        public void setActionBarUpIndicator(Drawable drawable, @StringRes int i) {
-        }
-
-        @Override // android.support.v7.app.ActionBarDrawerToggle.Delegate
-        public void setActionBarDescription(@StringRes int i) {
-        }
-
-        @Override // android.support.v7.app.ActionBarDrawerToggle.Delegate
-        public Drawable getThemeUpIndicator() {
-            return null;
-        }
-
-        @Override // android.support.v7.app.ActionBarDrawerToggle.Delegate
-        public Context getActionBarThemedContext() {
-            return this.mActivity;
         }
 
         @Override // android.support.v7.app.ActionBarDrawerToggle.Delegate

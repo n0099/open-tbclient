@@ -4,7 +4,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes2.dex */
+import com.baidu.android.util.devices.RomUtils;
+/* loaded from: classes4.dex */
 public final class NetworkUtils {
     public static final int NETWORK_2G = 2;
     public static final int NETWORK_3G = 3;
@@ -77,9 +78,9 @@ public final class NetworkUtils {
                 case 13:
                     return "4G";
                 default:
-                    return "UNKNOWN";
+                    return RomUtils.UNKNOWN;
             }
         }
-        return "UNKNOWN";
+        return RomUtils.UNKNOWN;
     }
 }

@@ -7,7 +7,7 @@ public class RGStateBrowseMap extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
         b.a().Q().l();
-        b.a().Q().c(R.drawable.aiapps_favorite_guide_checkbox_selected);
+        b.a().Q().c(R.drawable.aiapps_checkbox_checked_disable);
         if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
             if (b.a().J() != 4) {
                 b.a().Q().a(false);

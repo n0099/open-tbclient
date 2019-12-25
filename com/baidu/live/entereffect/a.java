@@ -9,50 +9,50 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private boolean Vi;
-    private com.baidu.live.entereffect.c.a Vj;
-    private List<com.baidu.live.entereffect.a.a> Vk;
+    private boolean acJ;
+    private com.baidu.live.entereffect.c.a acK;
+    private List<com.baidu.live.entereffect.a.a> acL;
 
-    public static a oF() {
-        return C0061a.Vm;
+    public static a pZ() {
+        return C0076a.acN;
     }
 
-    public void oG() {
-        if (!this.Vi || this.Vk == null || this.Vk.isEmpty()) {
+    public void qa() {
+        if (!this.acJ || this.acL == null || this.acL.isEmpty()) {
             release();
-            this.Vi = true;
-            if (this.Vj == null) {
-                this.Vj = new com.baidu.live.entereffect.c.a();
-                this.Vj.a(new b.a() { // from class: com.baidu.live.entereffect.a.1
+            this.acJ = true;
+            if (this.acK == null) {
+                this.acK = new com.baidu.live.entereffect.c.a();
+                this.acK.a(new b.a() { // from class: com.baidu.live.entereffect.a.1
                     @Override // com.baidu.live.entereffect.c.b.a
                     public void a(boolean z, List<com.baidu.live.entereffect.a.a> list) {
                         if (z) {
-                            c.oK().q(list);
+                            c.qe().p(list);
                         }
                     }
                 });
             }
-            this.Vj.oG();
+            this.acK.qa();
         }
     }
 
-    public void o(List<com.baidu.live.entereffect.a.a> list) {
+    public void n(List<com.baidu.live.entereffect.a.a> list) {
         if (list != null && !list.isEmpty()) {
-            if (this.Vk == null) {
-                this.Vk = new ArrayList();
+            if (this.acL == null) {
+                this.acL = new ArrayList();
             }
-            this.Vk.clear();
-            this.Vk.addAll(list);
-        } else if (this.Vk != null) {
-            this.Vk.clear();
+            this.acL.clear();
+            this.acL.addAll(list);
+        } else if (this.acL != null) {
+            this.acL.clear();
         }
     }
 
     public boolean a(com.baidu.live.im.data.a aVar) {
         JSONObject jSONObject;
-        if (aVar == null || aVar.ti()) {
+        if (aVar == null || aVar.vc()) {
             return false;
         }
         try {
@@ -76,15 +76,15 @@ public class a {
         }
     }
 
-    public com.baidu.live.entereffect.a.a bY(String str) {
-        return c.oK().bY(str);
+    public com.baidu.live.entereffect.a.a cP(String str) {
+        return c.qe().cP(str);
     }
 
-    public void bZ(String str) {
-        if (this.Vk != null && !this.Vk.isEmpty() && !TextUtils.isEmpty(str)) {
-            for (com.baidu.live.entereffect.a.a aVar : this.Vk) {
+    public void cQ(String str) {
+        if (this.acL != null && !this.acL.isEmpty() && !TextUtils.isEmpty(str)) {
+            for (com.baidu.live.entereffect.a.a aVar : this.acL) {
                 if (aVar.id.equals(str)) {
-                    c.oK().a(aVar);
+                    c.qe().a(aVar);
                     return;
                 }
             }
@@ -97,9 +97,9 @@ public class a {
         }
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
-            com.baidu.live.entereffect.a.a t = com.baidu.live.entereffect.b.a.t(jSONArray.optJSONObject(i));
-            if (t != null) {
-                arrayList.add(t);
+            com.baidu.live.entereffect.a.a p = com.baidu.live.entereffect.b.a.p(jSONArray.optJSONObject(i));
+            if (p != null) {
+                arrayList.add(p);
             }
         }
         return arrayList;
@@ -116,7 +116,7 @@ public class a {
             } else {
                 jSONObject = new JSONObject(aVar.getContent());
             }
-            return com.baidu.live.entereffect.b.a.ca(jSONObject.optString("rmb_live_enter_effect"));
+            return com.baidu.live.entereffect.b.a.cR(jSONObject.optString("rmb_live_enter_effect"));
         } catch (JSONException e) {
             BdLog.e(e);
             return null;
@@ -124,13 +124,13 @@ public class a {
     }
 
     private void release() {
-        this.Vi = false;
-        c.oK().release();
-        if (this.Vj != null) {
-            this.Vj.release();
+        this.acJ = false;
+        c.qe().release();
+        if (this.acK != null) {
+            this.acK.release();
         }
-        if (this.Vk != null) {
-            this.Vk.clear();
+        if (this.acL != null) {
+            this.acL.clear();
         }
     }
 
@@ -139,8 +139,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.entereffect.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0061a {
-        private static a Vm = new a();
+    /* loaded from: classes2.dex */
+    public static class C0076a {
+        private static a acN = new a();
     }
 }

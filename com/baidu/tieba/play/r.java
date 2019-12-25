@@ -1,48 +1,34 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class r {
-    private boolean ixx;
-    private boolean ixy;
-    private Runnable ixz = new Runnable() { // from class: com.baidu.tieba.play.r.1
-        @Override // java.lang.Runnable
-        public void run() {
-            r.this.ixx = false;
-        }
-    };
-    private Runnable ixA = new Runnable() { // from class: com.baidu.tieba.play.r.2
-        @Override // java.lang.Runnable
-        public void run() {
-            r.this.ixy = false;
-        }
-    };
+    private int irt = 0;
+    private int jrC = 0;
+    private boolean gqC = false;
+    private boolean jrD = true;
 
-    public void onPrepared() {
-        this.ixy = true;
-        com.baidu.adp.lib.g.e.fZ().postDelayed(this.ixA, 500L);
+    public int cwA() {
+        return this.irt;
     }
 
-    public void ccA() {
-        this.ixx = true;
+    public int cwB() {
+        return this.jrC;
     }
 
-    public void ccB() {
-        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.ixz);
-        com.baidu.adp.lib.g.e.fZ().postDelayed(this.ixz, 500L);
+    public boolean cwC() {
+        return this.gqC;
     }
 
-    public void a(int i, int i2, com.baidu.tieba.j.i iVar) {
-        if ((i == 701 || i2 == 701) && iVar != null && !this.ixx && !this.ixy) {
-            iVar.bMG();
-        } else if ((i == 702 || i2 == 702) && iVar != null && !this.ixx && !this.ixy) {
-            iVar.bMH();
-            this.ixx = false;
-            this.ixy = false;
-            ccC();
-        }
+    public boolean cwD() {
+        return this.jrD;
     }
 
-    public void ccC() {
-        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.ixz);
-        com.baidu.adp.lib.g.e.fZ().removeCallbacks(this.ixA);
+    public void n(int i, int i2, boolean z) {
+        this.irt = i;
+        this.jrC = i2;
+        this.gqC = z;
+    }
+
+    public void ol(boolean z) {
+        this.jrD = z;
     }
 }

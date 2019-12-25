@@ -2,7 +2,6 @@ package com.baidu.mapsdkplatform.comapi.favrite;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.model.inner.Point;
@@ -30,8 +29,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0094a implements Comparator<String> {
-        C0094a() {
+    public class C0108a implements Comparator<String> {
+        C0108a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -340,7 +339,7 @@ public class a {
                     }
                     if (this.f.size() > 0) {
                         try {
-                            Collections.sort(this.f, new C0094a());
+                            Collections.sort(this.f, new C0108a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -380,7 +379,7 @@ public class a {
                     }
                     if (this.e.size() > 0) {
                         try {
-                            Collections.sort(this.e, new C0094a());
+                            Collections.sort(this.e, new C0108a());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -422,7 +421,7 @@ public class a {
                             i = i2;
                         } else {
                             JSONObject optJSONObject = new JSONObject(b2).optJSONObject("Fav_Sync");
-                            optJSONObject.put(TiebaInitialize.Params.KEY, next);
+                            optJSONObject.put("key", next);
                             jSONArray.put(i2, optJSONObject);
                             i = i2 + 1;
                         }

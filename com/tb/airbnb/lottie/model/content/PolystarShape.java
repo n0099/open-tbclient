@@ -5,19 +5,19 @@ import com.tb.airbnb.lottie.a.a.l;
 import com.tb.airbnb.lottie.model.a.b;
 import com.tb.airbnb.lottie.model.a.m;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PolystarShape implements b {
-    private final Type ksp;
-    private final com.tb.airbnb.lottie.model.a.b ktG;
-    private final com.tb.airbnb.lottie.model.a.b ktH;
-    private final com.tb.airbnb.lottie.model.a.b ktI;
-    private final com.tb.airbnb.lottie.model.a.b ktJ;
-    private final com.tb.airbnb.lottie.model.a.b ktK;
-    private final m<PointF, PointF> ktl;
-    private final com.tb.airbnb.lottie.model.a.b ktn;
+    private final Type mNd;
+    private final com.tb.airbnb.lottie.model.a.b mOA;
+    private final com.tb.airbnb.lottie.model.a.b mOB;
+    private final com.tb.airbnb.lottie.model.a.b mOC;
+    private final com.tb.airbnb.lottie.model.a.b mOD;
+    private final m<PointF, PointF> mOd;
+    private final com.tb.airbnb.lottie.model.a.b mOf;
+    private final com.tb.airbnb.lottie.model.a.b mOz;
     private final String name;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum Type {
         Star(1),
         Polygon(2);
@@ -41,50 +41,50 @@ public class PolystarShape implements b {
 
     private PolystarShape(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3, com.tb.airbnb.lottie.model.a.b bVar4, com.tb.airbnb.lottie.model.a.b bVar5, com.tb.airbnb.lottie.model.a.b bVar6) {
         this.name = str;
-        this.ksp = type;
-        this.ktG = bVar;
-        this.ktl = mVar;
-        this.ktn = bVar2;
-        this.ktH = bVar3;
-        this.ktI = bVar4;
-        this.ktJ = bVar5;
-        this.ktK = bVar6;
+        this.mNd = type;
+        this.mOz = bVar;
+        this.mOd = mVar;
+        this.mOf = bVar2;
+        this.mOA = bVar3;
+        this.mOB = bVar4;
+        this.mOC = bVar5;
+        this.mOD = bVar6;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type cLP() {
-        return this.ksp;
+    public Type dBY() {
+        return this.mNd;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLQ() {
-        return this.ktG;
+    public com.tb.airbnb.lottie.model.a.b dBZ() {
+        return this.mOz;
     }
 
-    public m<PointF, PointF> cLu() {
-        return this.ktl;
+    public m<PointF, PointF> dBC() {
+        return this.mOd;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLw() {
-        return this.ktn;
+    public com.tb.airbnb.lottie.model.a.b dBE() {
+        return this.mOf;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLR() {
-        return this.ktH;
+    public com.tb.airbnb.lottie.model.a.b dCa() {
+        return this.mOA;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLS() {
-        return this.ktI;
+    public com.tb.airbnb.lottie.model.a.b dCb() {
+        return this.mOB;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLT() {
-        return this.ktJ;
+    public com.tb.airbnb.lottie.model.a.b dCc() {
+        return this.mOC;
     }
 
-    public com.tb.airbnb.lottie.model.a.b cLU() {
-        return this.ktK;
+    public com.tb.airbnb.lottie.model.a.b dCd() {
+        return this.mOD;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -93,7 +93,7 @@ public class PolystarShape implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static PolystarShape s(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {

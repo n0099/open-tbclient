@@ -2,52 +2,52 @@ package rx.c;
 
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class g {
-    private static final g kER = new g();
+    private static final g njK = new g();
 
-    public static rx.g cPF() {
-        return a(new RxThreadFactory("RxComputationScheduler-"));
-    }
-
-    public static rx.g a(ThreadFactory threadFactory) {
-        if (threadFactory == null) {
-            throw new NullPointerException("threadFactory == null");
-        }
-        return new rx.internal.schedulers.b(threadFactory);
-    }
-
-    public static rx.g cPG() {
-        return b(new RxThreadFactory("RxIoScheduler-"));
-    }
-
-    public static rx.g b(ThreadFactory threadFactory) {
-        if (threadFactory == null) {
-            throw new NullPointerException("threadFactory == null");
-        }
-        return new rx.internal.schedulers.a(threadFactory);
-    }
-
-    public static rx.g cPH() {
-        return c(new RxThreadFactory("RxNewThreadScheduler-"));
+    public static rx.g dHm() {
+        return c(new RxThreadFactory("RxComputationScheduler-"));
     }
 
     public static rx.g c(ThreadFactory threadFactory) {
         if (threadFactory == null) {
             throw new NullPointerException("threadFactory == null");
         }
+        return new rx.internal.schedulers.b(threadFactory);
+    }
+
+    public static rx.g dHn() {
+        return d(new RxThreadFactory("RxIoScheduler-"));
+    }
+
+    public static rx.g d(ThreadFactory threadFactory) {
+        if (threadFactory == null) {
+            throw new NullPointerException("threadFactory == null");
+        }
+        return new rx.internal.schedulers.a(threadFactory);
+    }
+
+    public static rx.g dHo() {
+        return e(new RxThreadFactory("RxNewThreadScheduler-"));
+    }
+
+    public static rx.g e(ThreadFactory threadFactory) {
+        if (threadFactory == null) {
+            throw new NullPointerException("threadFactory == null");
+        }
         return new rx.internal.schedulers.f(threadFactory);
     }
 
-    public rx.g cPI() {
+    public rx.g dHp() {
         return null;
     }
 
-    public rx.g cPJ() {
+    public rx.g dHq() {
         return null;
     }
 
-    public rx.g cPK() {
+    public rx.g dHr() {
         return null;
     }
 
@@ -56,7 +56,7 @@ public class g {
         return aVar;
     }
 
-    public static g cPL() {
-        return kER;
+    public static g dHs() {
+        return njK;
     }
 }

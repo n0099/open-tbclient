@@ -15,6 +15,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidubce.http.Headers;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -32,7 +33,7 @@ import java.util.UUID;
 import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     private static final String CHARSET = "utf-8";
     private static final String CONTENT_TYPE = "multipart/form-data";
@@ -205,7 +206,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                     IMAudioTransRequest.FORM_BOUNDARY += UUID.randomUUID().toString();
                     httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + IMAudioTransRequest.FORM_BOUNDARY);
                     httpURLConnection.setRequestProperty("Accept", "*/*");
-                    httpURLConnection.setRequestProperty("Accept-Encoding", "gzip, deflate");
+                    httpURLConnection.setRequestProperty(Headers.ACCEPT_ENCODING, "gzip, deflate");
                     String bduss = IMConfigInternal.getInstance().getIMConfig(IMAudioTransRequest.this.mContext).getBduss(IMAudioTransRequest.this.mContext);
                     CookieManager cookieManager = CookieManager.getInstance();
                     cookieManager.setCookie("baidu.com", "BDUSS=" + bduss);

@@ -2,10 +2,10 @@ package com.baidu.tieba.ala.alasquare.special_forum.b;
 
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class e {
-    public a dCG;
-    private int dCH = -1;
+    public a enG;
+    private int enH = -1;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -14,95 +14,95 @@ public class e {
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar, boolean z) {
         if (aVar == null) {
-            this.dCH = -1;
-            this.dCG = new b(this.mTbPageContext);
+            this.enH = -1;
+            this.enG = new b(this.mTbPageContext);
         } else if (z) {
-            this.dCH = aVar.dBe;
-            switch (aVar.dBe) {
+            this.enH = aVar.emc;
+            switch (aVar.emc) {
                 case 1:
-                    this.dCG = new d(this.mTbPageContext);
+                    this.enG = new d(this.mTbPageContext);
                     break;
                 case 2:
-                    this.dCG = new f(this.mTbPageContext);
+                    this.enG = new f(this.mTbPageContext);
                     break;
                 case 3:
-                    this.dCG = new c(this.mTbPageContext);
+                    this.enG = new c(this.mTbPageContext);
                     break;
                 default:
-                    this.dCG = new b(this.mTbPageContext);
+                    this.enG = new b(this.mTbPageContext);
                     break;
             }
         }
-        if (this.dCG.b(aVar)) {
+        if (this.enG.b(aVar)) {
             if (z) {
-                this.dCG.init();
+                this.enG.init();
             }
-            this.dCG.a(aVar);
+            this.enG.a(aVar);
             return;
         }
-        this.dCH = -1;
-        this.dCG = new b(this.mTbPageContext);
+        this.enH = -1;
+        this.enG = new b(this.mTbPageContext);
         if (z) {
-            this.dCG.init();
+            this.enG.init();
         }
-        this.dCG.a(aVar);
+        this.enG.a(aVar);
     }
 
     public boolean c(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return aVar == null || this.dCH != aVar.dBe;
+        return aVar == null || this.enH != aVar.emc;
     }
 
     public void pause() {
-        if (this.dCG != null) {
-            this.dCG.pause();
+        if (this.enG != null) {
+            this.enG.pause();
         }
     }
 
     public void resume() {
-        if (this.dCG != null) {
-            this.dCG.resume();
+        if (this.enG != null) {
+            this.enG.resume();
         }
     }
 
-    public void gA(boolean z) {
-        if (this.dCG != null) {
-            this.dCG.gA(z);
+    public void hF(boolean z) {
+        if (this.enG != null) {
+            this.enG.hF(z);
         }
     }
 
-    public void J(ViewGroup viewGroup) {
-        if (this.dCG != null) {
-            this.dCG.J(viewGroup);
+    public void I(ViewGroup viewGroup) {
+        if (this.enG != null) {
+            this.enG.I(viewGroup);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dCG != null) {
-            this.dCG.onChangeSkinType(i);
+        if (this.enG != null) {
+            this.enG.onChangeSkinType(i);
         }
     }
 
     public void startPlay() {
-        if (this.dCG != null) {
-            this.dCG.startPlay();
+        if (this.enG != null) {
+            this.enG.startPlay();
         }
     }
 
     public void stopPlay() {
-        if (this.dCG != null) {
-            this.dCG.stopPlay();
+        if (this.enG != null) {
+            this.enG.stopPlay();
         }
     }
 
-    public void aKk() {
-        if (this.dCG != null) {
-            this.dCG.aKk();
+    public void baJ() {
+        if (this.enG != null) {
+            this.enG.baJ();
         }
     }
 
     public void onDestroy() {
-        if (this.dCG != null) {
-            this.dCG.onDestroy();
+        if (this.enG != null) {
+            this.enG.onDestroy();
         }
     }
 }

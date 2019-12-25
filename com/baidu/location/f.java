@@ -1,16 +1,16 @@
 package com.baidu.location;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import com.baidu.location.f.a;
-import com.baidu.location.g.g;
+import com.baidu.location.d.j;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class f extends Service {
     LLSInterface a = null;
     LLSInterface b = null;
@@ -24,7 +24,7 @@ public class f extends Service {
         int readInt;
         boolean z = false;
         try {
-            File file2 = new File(g.h() + "/grtcfrsa.dat");
+            File file2 = new File(j.h() + "/grtcfrsa.dat");
             if (file2.exists()) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
                 randomAccessFile.seek(200L);
@@ -32,8 +32,8 @@ public class f extends Service {
                     byte[] bArr = new byte[readInt];
                     randomAccessFile.read(bArr, 0, readInt);
                     String str = new String(bArr);
-                    String a = g.a(file, "SHA-256");
-                    if (str != null && a != null && g.b(a, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
+                    String a = j.a(file, "SHA-256");
+                    if (str != null && a != null && j.b(a, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
                         z = true;
                     }
                 }
@@ -45,7 +45,7 @@ public class f extends Service {
     }
 
     public static float getFrameVersion() {
-        return 7.8f;
+        return 7.63f;
     }
 
     public static String getJarFileName() {
@@ -66,18 +66,18 @@ public class f extends Service {
     public void onCreate() {
         mC = getApplicationContext();
         System.currentTimeMillis();
-        this.b = new a();
+        this.b = new com.baidu.location.c.a();
         try {
-            File file = new File(g.h() + File.separator + replaceFileName);
-            File file2 = new File(g.h() + File.separator + "app.jar");
+            File file = new File(j.h() + File.separator + replaceFileName);
+            File file2 = new File(j.h() + File.separator + "app.jar");
             if (file.exists()) {
                 if (file2.exists()) {
                     file2.delete();
                 }
                 file.renameTo(file2);
             }
-            if (file2.exists() && a(new File(g.h() + File.separator + "app.jar"))) {
-                this.a = (LLSInterface) new DexClassLoader(g.h() + File.separator + "app.jar", g.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+            if (file2.exists() && a(new File(j.h() + File.separator + "app.jar"))) {
+                this.a = (LLSInterface) new DexClassLoader(j.h() + File.separator + "app.jar", j.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
             }
         } catch (Exception e) {
             this.a = null;
@@ -104,6 +104,20 @@ public class f extends Service {
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
+        if (intent != null) {
+            try {
+                int intExtra = intent.getIntExtra("command", 0);
+                if (intExtra == 1) {
+                    startForeground(intent.getIntExtra("id", 0), (Notification) intent.getParcelableExtra("notification"));
+                    isStartedServing = true;
+                } else if (intExtra == 2) {
+                    stopForeground(intent.getBooleanExtra("removenotify", true));
+                    isStartedServing = false;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return this.c.onStartCommand(intent, i, i2);
     }
 

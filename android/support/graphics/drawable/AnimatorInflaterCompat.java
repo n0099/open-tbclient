@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AnimatorInflaterCompat {
     private static final boolean DBG_ANIMATOR_INFLATER = false;
     private static final int MAX_NUM_POINTS = 100;
@@ -77,7 +77,7 @@ public class AnimatorInflaterCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class PathDataEvaluator implements TypeEvaluator<PathParser.PathDataNode[]> {
         private PathParser.PathDataNode[] mNodeArray;
 
@@ -274,7 +274,6 @@ public class AnimatorInflaterCompat {
         int i3 = 0;
         float f4 = 0.0f;
         while (i3 < min) {
-            pathMeasure2.getPosTan(f4, fArr3, null);
             pathMeasure2.getPosTan(f4, fArr3, null);
             fArr[i3] = fArr3[0];
             fArr2[i3] = fArr3[1];

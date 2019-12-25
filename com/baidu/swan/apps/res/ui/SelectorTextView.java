@@ -5,27 +5,28 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class SelectorTextView extends TextView {
-    private boolean bdh;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private boolean isPhoto;
 
     public SelectorTextView(Context context) {
         super(context);
-        this.bdh = false;
+        this.isPhoto = false;
     }
 
     public SelectorTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bdh = false;
+        this.isPhoto = false;
     }
 
     public SelectorTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bdh = false;
+        this.isPhoto = false;
     }
 
     public void setMode(boolean z) {
-        this.bdh = z;
+        this.isPhoto = z;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -33,8 +34,10 @@ public class SelectorTextView extends TextView {
         if (isEnabled()) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    Log.d("ACTION_DOWN", "ACTION_DOWN");
-                    if (this.bdh) {
+                    if (DEBUG) {
+                        Log.d("ACTION_DOWN", "ACTION_DOWN");
+                    }
+                    if (this.isPhoto) {
                         setAlpha(0.5f);
                         break;
                     } else {
@@ -43,7 +46,9 @@ public class SelectorTextView extends TextView {
                     }
                 case 1:
                 case 3:
-                    Log.d("ACTION_UP", "ACTION_UP");
+                    if (DEBUG) {
+                        Log.d("ACTION_UP", "ACTION_UP");
+                    }
                     setAlpha(1.0f);
                     break;
             }

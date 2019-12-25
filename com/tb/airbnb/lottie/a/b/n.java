@@ -3,13 +3,13 @@ package com.tb.airbnb.lottie.a.b;
 import android.support.annotation.FloatRange;
 import com.tb.airbnb.lottie.a.b.a;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class n<K, A> extends a<K, A> {
-    private final A fg;
+    private final A mNB;
 
     public n(A a) {
         super(Collections.emptyList());
-        this.fg = a;
+        this.mNB = a;
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a
@@ -17,16 +17,16 @@ public class n<K, A> extends a<K, A> {
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a
-    public void b(a.InterfaceC0572a interfaceC0572a) {
+    public void b(a.InterfaceC0687a interfaceC0687a) {
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a
     public A getValue() {
-        return this.fg;
+        return this.mNB;
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a
     public A a(com.tb.airbnb.lottie.a.a<K> aVar, float f) {
-        return this.fg;
+        return this.mNB;
     }
 }

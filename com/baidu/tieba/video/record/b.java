@@ -2,11 +2,11 @@ package com.baidu.tieba.video.record;
 
 import android.hardware.Camera;
 import android.view.MotionEvent;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 class b {
-    private float jCr;
-    private int jCs;
-    private i jCt;
+    private float kwg;
+    private int kwh;
+    private i kwi;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.jCt = iVar;
+        this.kwi = iVar;
     }
 
-    public boolean j(MotionEvent motionEvent) {
-        if (this.jCt == null || !this.jCt.aoA()) {
+    public boolean handleTouchEvent(MotionEvent motionEvent) {
+        if (this.kwi == null || !this.kwi.isRecording()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.jCr) / 10.0f);
+                        int i = (int) ((spacing - this.kwg) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.jCs;
+                            int i2 = i + this.kwh;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.jCr = spacing;
+                            this.kwg = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.jCr = spacing(motionEvent);
+                    this.kwg = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.jCs = i;
+                this.kwh = i;
             }
         }
     }

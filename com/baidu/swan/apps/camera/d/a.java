@@ -3,14 +3,14 @@ package com.baidu.swan.apps.camera.d;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class a extends com.baidu.swan.apps.model.a.a.a {
-    private String aFa;
-    private String aFb;
-    public String aFc;
+/* loaded from: classes9.dex */
+public class a extends com.baidu.swan.apps.component.b.b {
+    private String baR;
+    public String baS;
+    private String devicePosition;
 
     public a(String str) {
-        super("cameraId", "camera");
+        super("camera", "cameraId");
         try {
             parseFromJson(new JSONObject(str));
         } catch (JSONException e) {
@@ -18,34 +18,40 @@ public class a extends com.baidu.swan.apps.model.a.a.a {
         }
     }
 
-    @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
+    @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.aFa = jSONObject.optString("devicePosition", "back");
-        this.aFb = jSONObject.optString("flash", "auto");
-        this.aFc = jSONObject.optString("cameraId");
+        this.devicePosition = jSONObject.optString("devicePosition", "back");
+        this.baR = jSONObject.optString("flash", "auto");
+        this.baS = jSONObject.optString("cameraId");
     }
 
     public boolean isFrontCamera() {
-        return TextUtils.equals(this.aFa, "front");
+        return TextUtils.equals(this.devicePosition, "front");
     }
 
-    public String CJ() {
-        return C0160a.dW(this.aFb);
+    public String Hw() {
+        return C0218a.fT(this.baR);
     }
 
     public int getWidth() {
-        return this.aXr.getWidth();
+        if (this.bdl == null) {
+            return 0;
+        }
+        return this.bdl.getWidth();
     }
 
     public int getHeight() {
-        return this.aXr.getHeight();
+        if (this.bdl == null) {
+            return 0;
+        }
+        return this.bdl.getHeight();
     }
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    private static class C0160a {
-        static String dW(String str) {
+    /* loaded from: classes9.dex */
+    private static class C0218a {
+        static String fT(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 3551:

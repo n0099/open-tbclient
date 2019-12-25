@@ -9,50 +9,50 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class gy {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f441a;
+    private long f446a;
 
     /* renamed from: a  reason: collision with other field name */
-    private gx f443a;
+    private gx f448a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f444a;
+    private String f449a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f445a = false;
+    private boolean f450a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private au f442a = au.a();
+    private au f447a = au.a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         static final gy a = new gy();
     }
 
     private fc a(au.a aVar) {
-        if (aVar.f130a == 0) {
-            if (aVar.f131a instanceof fc) {
-                return (fc) aVar.f131a;
+        if (aVar.f135a == 0) {
+            if (aVar.f136a instanceof fc) {
+                return (fc) aVar.f136a;
             }
             return null;
         }
-        fc m308a = m308a();
-        m308a.a(fb.CHANNEL_STATS_COUNTER.a());
-        m308a.c(aVar.f130a);
-        m308a.c(aVar.f132a);
-        return m308a;
+        fc m311a = m311a();
+        m311a.a(fb.CHANNEL_STATS_COUNTER.a());
+        m311a.c(aVar.f135a);
+        m311a.c(aVar.f137a);
+        return m311a;
     }
 
     private fd a(int i) {
         ArrayList arrayList = new ArrayList();
-        fd fdVar = new fd(this.f444a, arrayList);
-        if (!as.d(this.f443a.f438a)) {
-            fdVar.a(i.m(this.f443a.f438a));
+        fd fdVar = new fd(this.f449a, arrayList);
+        if (!as.d(this.f448a.f443a)) {
+            fdVar.a(i.m(this.f448a.f443a));
         }
         jk jkVar = new jk(i);
         jc a2 = new ji.a().a(jkVar);
@@ -60,10 +60,10 @@ public class gy {
             fdVar.b(a2);
         } catch (iw e) {
         }
-        LinkedList<au.a> m122a = this.f442a.m122a();
-        while (m122a.size() > 0) {
+        LinkedList<au.a> m125a = this.f447a.m125a();
+        while (m125a.size() > 0) {
             try {
-                fc a3 = a(m122a.getLast());
+                fc a3 = a(m125a.getLast());
                 if (a3 != null) {
                     a3.b(a2);
                 }
@@ -73,7 +73,7 @@ public class gy {
                 if (a3 != null) {
                     arrayList.add(a3);
                 }
-                m122a.removeLast();
+                m125a.removeLast();
             } catch (iw e2) {
             } catch (NoSuchElementException e3) {
             }
@@ -84,45 +84,45 @@ public class gy {
     public static gx a() {
         gx gxVar;
         synchronized (a.a) {
-            gxVar = a.a.f443a;
+            gxVar = a.a.f448a;
         }
         return gxVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gy m306a() {
+    public static gy m309a() {
         return a.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m307a() {
-        if (!this.f445a || System.currentTimeMillis() - this.f441a <= this.a) {
+    private void m310a() {
+        if (!this.f450a || System.currentTimeMillis() - this.f446a <= this.a) {
             return;
         }
-        this.f445a = false;
-        this.f441a = 0L;
+        this.f450a = false;
+        this.f446a = 0L;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fc m308a() {
+    public synchronized fc m311a() {
         fc fcVar;
         fcVar = new fc();
-        fcVar.a(as.m115a((Context) this.f443a.f438a));
-        fcVar.f336a = (byte) 0;
-        fcVar.f340b = 1;
+        fcVar.a(as.m118a((Context) this.f448a.f443a));
+        fcVar.f341a = (byte) 0;
+        fcVar.f345b = 1;
         fcVar.d((int) (System.currentTimeMillis() / 1000));
         return fcVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fd m309a() {
+    public synchronized fd m312a() {
         fd fdVar;
         fdVar = null;
         if (b()) {
             int i = FormCard.WIDTH_DEFAULT_SIZE;
-            if (!as.d(this.f443a.f438a)) {
+            if (!as.d(this.f448a.f443a)) {
                 i = 375;
             }
             fdVar = a(i);
@@ -131,41 +131,41 @@ public class gy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m310a(int i) {
+    public void m313a(int i) {
         int i2 = PersonListModel.CACHETIME;
         if (i > 0) {
             int i3 = i * 1000;
             if (i3 <= 604800000) {
                 i2 = i3;
             }
-            if (this.a == i2 && this.f445a) {
+            if (this.a == i2 && this.f450a) {
                 return;
             }
-            this.f445a = true;
-            this.f441a = System.currentTimeMillis();
+            this.f450a = true;
+            this.f446a = System.currentTimeMillis();
             this.a = i2;
-            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f441a);
+            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f446a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(fc fcVar) {
-        this.f442a.a(fcVar);
+        this.f447a.a(fcVar);
     }
 
     public synchronized void a(XMPushService xMPushService) {
-        this.f443a = new gx(xMPushService);
-        this.f444a = "";
+        this.f448a = new gx(xMPushService);
+        this.f449a = "";
         com.xiaomi.push.service.ba.a().a(new gz(this));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m311a() {
-        return this.f445a;
+    public boolean m314a() {
+        return this.f450a;
     }
 
     boolean b() {
-        m307a();
-        return this.f445a && this.f442a.m121a() > 0;
+        m310a();
+        return this.f450a && this.f447a.m124a() > 0;
     }
 }

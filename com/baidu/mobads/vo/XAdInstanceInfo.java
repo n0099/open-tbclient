@@ -9,7 +9,8 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
+import com.baidu.searchbox.ugc.model.QuestionResponseModel;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -19,7 +20,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable {
     public static final Parcelable.Creator<XAdInstanceInfo> CREATOR = new a();
     public static final String TAG = "XAdInstanceInfo";
@@ -237,7 +238,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
     public Boolean isValid() {
-        return Boolean.valueOf(!LivenessStat.TYPE_STRING_DEFAULT.equalsIgnoreCase(getAdId()));
+        return Boolean.valueOf(!"-1".equalsIgnoreCase(getAdId()));
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdInstanceInfo
@@ -647,7 +648,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
 
     @SuppressLint({"DefaultLocale"})
     public XAdInstanceInfo(JSONObject jSONObject) {
-        this.b = LivenessStat.TYPE_STRING_DEFAULT;
+        this.b = "-1";
         this.q = "";
         this.r = "";
         this.s = 0;
@@ -674,9 +675,9 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         try {
             this.Z = System.currentTimeMillis();
             this.N = jSONObject.optInt("act");
-            this.z = jSONObject.optString("html", null);
-            this.b = jSONObject.optString("id", LivenessStat.TYPE_STRING_DEFAULT);
-            this.c = jSONObject.optString("src", "");
+            this.z = jSONObject.optString(QuestionResponseModel.TEXT, null);
+            this.b = jSONObject.optString("id", "-1");
+            this.c = jSONObject.optString(UserAccountActionItem.KEY_SRC, "");
             this.d = jSONObject.optString("tit", "");
             this.e = jSONObject.optString("desc", "");
             this.f = jSONObject.optString("surl", "");
@@ -1016,7 +1017,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
     }
 
     private XAdInstanceInfo(Parcel parcel) {
-        this.b = LivenessStat.TYPE_STRING_DEFAULT;
+        this.b = "-1";
         this.q = "";
         this.r = "";
         this.s = 0;

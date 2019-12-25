@@ -1,5 +1,5 @@
 package com.vivo.push.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class u extends v {
     private long a;
     private int b;

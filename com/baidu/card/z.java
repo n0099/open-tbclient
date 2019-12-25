@@ -1,97 +1,84 @@
 package com.baidu.card;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.data.a;
-/* loaded from: classes3.dex */
-public class z<T extends com.baidu.tbadk.core.data.a> extends v.a {
-    private com.baidu.tieba.card.ab<T> GA;
-    private m GB;
-    private w GC;
-    private x<T> Gy;
-    private s Gz;
-    private BdUniqueId mId;
+import com.baidu.card.a.a;
+import com.baidu.card.b;
+import com.baidu.card.view.RichTextLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tieba.R;
+/* loaded from: classes5.dex */
+public class z extends h {
+    private com.baidu.tbadk.core.data.a JB;
+    private RichTextLayout KG;
+    private String mFrom;
+    private int mSkinType;
 
-    public z(x<T> xVar) {
-        super(xVar.getView());
-        this.GA = null;
-        this.Gy = xVar;
+    public z(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
+        this.mSkinType = 3;
+        this.KG = new RichTextLayout(tbPageContext.getPageActivity());
+        this.KG.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
     }
 
-    @Override // com.baidu.adp.widget.ListView.v.a
+    @Override // com.baidu.card.b
     public View getView() {
-        return this.Gy.getView();
+        return this.KG;
     }
 
-    public x<T> lV() {
-        return this.Gy;
+    public void setFrom(String str) {
+        this.mFrom = str;
     }
 
-    public s lW() {
-        if (this.Gz == null) {
-            this.Gz = new s(((TbPageContextSupport) this.Gy.getView().getContext()).getPageContext());
-            this.Gz.FI.setUniqueId(this.mId);
-        }
-        this.Gy.a(this.Gz);
-        return this.Gz;
-    }
-
-    public m lX() {
-        return Y(true);
-    }
-
-    public m Y(boolean z) {
-        if (this.GB == null) {
-            this.GB = new m(this.Gy.getContext());
-        }
-        this.GB.g(this.mId);
-        this.GB.W(z);
-        this.Gy.a(this.GB);
-        return this.GB;
-    }
-
-    public w lY() {
-        if (this.GC == null) {
-            this.GC = new w(((TbPageContextSupport) this.Gy.getView().getContext()).getPageContext());
-            this.GC.setPageId(this.mId);
-        }
-        this.Gy.a(this.GC);
-        return this.GC;
-    }
-
-    public void a(T t) {
-        boolean z = false;
-        if (t == null) {
-            this.Gy.getView().setVisibility(8);
-            return;
-        }
-        this.Gy.getView().setVisibility(0);
-        if (this.Gz != null && this.Gz.FI != null) {
-            if (!t.isSelf() && t.agI() != null) {
-                this.Gz.z(t.agI());
-                this.Gz.FI.setVisibility(0);
-                z = true;
-            } else if (this.Gz != null && this.Gz.FI != null) {
-                this.Gz.FI.setVisibility(8);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.card.m
+    /* renamed from: b */
+    public void A(com.baidu.tbadk.core.data.a aVar) {
+        this.JB = aVar;
+        this.KG.setTransmit(mF().booleanValue());
+        this.KG.A(aVar);
+        this.KG.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.z.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (z.this.Jz != null) {
+                    z.this.Jz.a(z.this.JB);
+                }
             }
-        }
-        this.Gy.b((x<T>) t);
-        if (this.GC != null) {
-            this.GC.X(z);
-            this.GC.z(t.agG());
-        }
-        if (this.GB != null) {
-            this.GB.z(t.agG());
-        }
+        });
     }
 
-    public void setPageId(BdUniqueId bdUniqueId) {
-        this.mId = bdUniqueId;
+    public void e(int i, int i2, int i3, int i4) {
+        this.KG.setPadding(i, i2, i3, i4);
     }
 
-    public void c(com.baidu.tieba.card.ab<T> abVar) {
-        this.Gy.b(abVar);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.b
+    public void mD() {
+        a(1, new a.b() { // from class: com.baidu.card.z.2
+            @Override // com.baidu.card.a.a.b
+            public boolean a(a.C0050a c0050a) {
+                if (z.this.JB != null && z.this.JB.axx() != null && !z.this.mF().booleanValue()) {
+                    bj axx = z.this.JB.axx();
+                    com.baidu.tieba.card.l.zs(axx.getId());
+                    com.baidu.tieba.card.l.a(z.this.KG.mTitle, axx.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                    com.baidu.tieba.card.l.a(z.this.KG.JZ, axx.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                }
+                return false;
+            }
+        });
+    }
+
+    @Override // com.baidu.card.n
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        if (this.mSkinType != i && mF().booleanValue()) {
+            am.setBackgroundColor(this.KG, R.color.cp_bg_line_g);
+        }
+        this.mSkinType = i;
+    }
+
+    public void a(b.a aVar) {
+        this.Jz = aVar;
     }
 }

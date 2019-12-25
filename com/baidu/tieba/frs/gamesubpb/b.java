@@ -8,32 +8,32 @@ import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private final List<com.baidu.adp.widget.ListView.a> agy = new ArrayList();
-    private e ceS;
-    private BdTypeListView duK;
-    private a fJF;
+    private final List<com.baidu.adp.widget.ListView.a> aoz = new ArrayList();
+    private e cRq;
+    private BdTypeListView efM;
+    private a gxU;
 
     public b(e eVar, BdTypeListView bdTypeListView) {
-        this.ceS = eVar;
-        this.duK = bdTypeListView;
-        sY();
+        this.cRq = eVar;
+        this.efM = bdTypeListView;
+        uR();
     }
 
-    private void sY() {
-        this.fJF = new a((TbPageContext) this.ceS, d.fKb);
-        this.agy.add(this.fJF);
-        this.duK.addAdapters(this.agy);
+    private void uR() {
+        this.gxU = new a((TbPageContext) this.cRq, d.gyq);
+        this.aoz.add(this.gxU);
+        this.efM.addAdapters(this.aoz);
     }
 
     public void setData(List<m> list) {
-        if (this.duK != null) {
-            this.duK.setData(list);
+        if (this.efM != null) {
+            this.efM.setData(list);
         }
     }
 
-    public void setClickListener(a.InterfaceC0409a interfaceC0409a) {
-        this.fJF.setClickListener(interfaceC0409a);
+    public void setClickListener(a.InterfaceC0497a interfaceC0497a) {
+        this.gxU.setClickListener(interfaceC0497a);
     }
 }

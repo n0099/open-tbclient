@@ -1,33 +1,36 @@
 package com.baidu.swan.apps.r;
 
-import android.content.Context;
-import android.widget.EditText;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
-import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes2.dex */
-public class a extends z {
-    public a(j jVar) {
-        super(jVar, "/swan/closeInput");
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.swan.apps.r.d;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.xiaomi.mipush.sdk.Constants;
+/* loaded from: classes9.dex */
+public abstract class a<W extends d> {
+    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+
+    @NonNull
+    public abstract String QG();
+
+    public abstract void a(@NonNull ZeusPlugin.Command command, @NonNull W w);
+
+    public void a(@NonNull ZeusPlugin.Command command) {
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        EditText IU = c.IT().IU();
-        if (IU == null) {
-            com.baidu.swan.apps.console.c.e("closeInput", "input组件不存在");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
-            return false;
-        } else if (com.baidu.swan.apps.w.e.LE().AI() == null) {
-            com.baidu.swan.apps.console.c.e("closeInput", "fragmentManager is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        } else {
-            IU.clearFocus();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
+        if (DEBUG) {
+            String str3 = ("【" + w.QI() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + w.hashCode() + "】\t") + "【" + str + "】";
+            if (!TextUtils.isEmpty(str2)) {
+                str3 = str3 + "\t【" + str2 + "】";
+            }
+            if (z) {
+                Log.d("【InlineCommand】", str3);
+            } else {
+                Log.v("【InlineCommand】", str3);
+            }
         }
     }
 }

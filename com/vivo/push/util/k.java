@@ -2,12 +2,13 @@ package com.vivo.push.util;
 
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.android.util.devices.NetWorkUtils;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class k {
-    public static final boolean a = z.b("ro.vivo.product.overseas", "no").equals("yes");
+    public static final boolean a = z.b("ro.vivo.product.overseas", NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).equals("yes");
     public static final String b;
     public static final boolean c;
     public static final boolean d;

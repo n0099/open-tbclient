@@ -1,29 +1,28 @@
 package kotlin.coroutines.experimental;
 
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import kotlin.TypeCastException;
 import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class a implements d {
-    private final d kuR;
-    private final d.b kuS;
+    private final d mYN;
+    private final d.b mYO;
 
     public a(d dVar, d.b bVar) {
-        p.i(dVar, "left");
-        p.i(bVar, "element");
-        this.kuR = dVar;
-        this.kuS = bVar;
+        p.j(dVar, "left");
+        p.j(bVar, "element");
+        this.mYN = dVar;
+        this.mYO = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <E extends d.b> E a(d.c<E> cVar) {
-        p.i(cVar, TiebaInitialize.Params.KEY);
+        p.j(cVar, "key");
         a aVar = this;
         while (true) {
-            E e = (E) aVar.kuS.a(cVar);
+            E e = (E) aVar.mYO.a(cVar);
             if (e == null) {
-                d dVar = aVar.kuR;
+                d dVar = aVar.mYN;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -37,34 +36,34 @@ public final class a implements d {
 
     @Override // kotlin.coroutines.experimental.d
     public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
-        p.i(cVar, "operation");
-        return cVar.invoke((Object) this.kuR.a(r, cVar), this.kuS);
+        p.j(cVar, "operation");
+        return cVar.invoke((Object) this.mYN.a(r, cVar), this.mYO);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
-        p.i(cVar, TiebaInitialize.Params.KEY);
-        if (this.kuS.a(cVar) != null) {
-            return this.kuR;
+        p.j(cVar, "key");
+        if (this.mYO.a(cVar) != null) {
+            return this.mYN;
         }
-        d b = this.kuR.b(cVar);
-        return b == this.kuR ? this : b == e.kuV ? this.kuS : new a(b, this.kuS);
+        d b = this.mYN.b(cVar);
+        return b == this.mYN ? this : b == e.mYR ? this.mYO : new a(b, this.mYO);
     }
 
     private final int size() {
-        if (this.kuR instanceof a) {
-            return ((a) this.kuR).size() + 1;
+        if (this.mYN instanceof a) {
+            return ((a) this.mYN).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return p.f(a((d.c<d.b>) bVar.cMS()), bVar);
+        return p.h(a((d.c<d.b>) bVar.dEM()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.kuS)) {
-            d dVar = aVar.kuR;
+        while (a(aVar.mYO)) {
+            d dVar = aVar.mYN;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -81,7 +80,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.kuR.hashCode() + this.kuS.hashCode();
+        return this.mYN.hashCode() + this.mYO.hashCode();
     }
 
     public String toString() {

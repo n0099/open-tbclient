@@ -8,6 +8,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ImMessageCenterShowItemData extends AbstractImageProvider implements Serializable, Cloneable {
     private static final long serialVersionUID = 3133087680118197014L;
+    protected String friendBjhAvatar;
     protected String friendId;
     protected String friendName;
     protected String friendNameShow;
@@ -111,6 +112,14 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         this.friendNameShow = str;
     }
 
+    public String getFriendBjhAvatar() {
+        return this.friendBjhAvatar;
+    }
+
+    public void setFriendBjhAvatar(String str) {
+        this.friendBjhAvatar = str;
+    }
+
     public ChatSetting getGroupSetting() {
         return this.groupSetting;
     }
@@ -152,7 +161,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m21clone() {
+    public ImMessageCenterShowItemData m23clone() {
         try {
             return (ImMessageCenterShowItemData) super.clone();
         } catch (CloneNotSupportedException e) {

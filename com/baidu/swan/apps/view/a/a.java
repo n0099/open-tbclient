@@ -1,69 +1,78 @@
 package com.baidu.swan.apps.view.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int btK;
-    public int btL;
-    public boolean btM;
-    public boolean btN;
-    public boolean btO;
-    public boolean btP;
+    public int bVf;
+    public boolean bVg;
+    public boolean bVh;
+    public boolean bVi;
+    public boolean bVj;
+    public boolean isShowNavBar;
+    public int statusBarColor;
 
     private a() {
+        this.bVj = true;
     }
 
     /* renamed from: com.baidu.swan.apps.view.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0226a {
-        private int btK;
-        private int btQ;
-        private boolean btM = true;
-        private boolean btR = true;
-        private boolean btS = true;
-        private boolean btP = false;
+    /* loaded from: classes9.dex */
+    public static class C0292a {
+        private int customStatBarViewBg;
+        private int statusBarColor;
+        private boolean isShowNavBar = true;
+        private boolean useLightStatBar = true;
+        private boolean isShowStatBar = true;
+        private boolean bVi = false;
+        private boolean bVj = true;
 
-        public static C0226a UN() {
-            return new C0226a();
+        public static C0292a aeJ() {
+            return new C0292a();
         }
 
-        public C0226a fz(int i) {
-            this.btK = i;
+        public C0292a gQ(int i) {
+            this.statusBarColor = i;
             return this;
         }
 
-        public C0226a fA(int i) {
-            this.btQ = i;
+        public C0292a gR(int i) {
+            this.customStatBarViewBg = i;
             return this;
         }
 
-        public C0226a cX(boolean z) {
-            this.btM = z;
+        public C0292a dR(boolean z) {
+            this.isShowNavBar = z;
             return this;
         }
 
-        public C0226a cY(boolean z) {
-            this.btR = z;
+        public C0292a dS(boolean z) {
+            this.useLightStatBar = z;
             return this;
         }
 
-        public C0226a cZ(boolean z) {
-            this.btS = z;
+        public C0292a dT(boolean z) {
+            this.isShowStatBar = z;
             return this;
         }
 
-        public C0226a da(boolean z) {
-            this.btP = z;
+        public C0292a dU(boolean z) {
+            this.bVi = z;
             return this;
         }
 
-        public a UO() {
+        public C0292a dV(boolean z) {
+            this.bVj = z;
+            return this;
+        }
+
+        public a aeK() {
             a aVar = new a();
-            aVar.btL = this.btQ;
-            aVar.btM = this.btM;
-            aVar.btO = this.btS;
-            aVar.btN = this.btR;
-            aVar.btK = this.btK;
-            aVar.btP = this.btP;
+            aVar.bVf = this.customStatBarViewBg;
+            aVar.isShowNavBar = this.isShowNavBar;
+            aVar.bVh = this.isShowStatBar;
+            aVar.bVg = this.useLightStatBar;
+            aVar.statusBarColor = this.statusBarColor;
+            aVar.bVi = this.bVi;
+            aVar.bVj = this.bVj;
             return aVar;
         }
     }

@@ -1,31 +1,30 @@
 package com.baidu.tieba.aiapps.apps.q;
 
-import java.io.ByteArrayOutputStream;
-import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
-public final class c {
-    public static byte[] x(byte[] bArr) {
-        byte[] bArr2;
-        Exception e;
-        ByteArrayOutputStream byteArrayOutputStream;
-        try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-            gZIPOutputStream.write(bArr);
-            gZIPOutputStream.finish();
-            gZIPOutputStream.close();
-            bArr2 = byteArrayOutputStream.toByteArray();
-        } catch (Exception e2) {
-            bArr2 = null;
-            e = e2;
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.adaptation.a.m;
+/* loaded from: classes9.dex */
+public class c implements m {
+    @Override // com.baidu.swan.apps.adaptation.a.m
+    public void a(Activity activity, Bundle bundle, final com.baidu.swan.apps.media.chooser.c.d dVar) {
+        if (ProcessUtils.isMainProcess()) {
+            com.baidu.swan.apps.as.m.postOnIO(new b(activity, bundle, dVar), "main process compress files");
+        } else {
+            DelegateUtils.callOnMainWithActivity(activity, PluginDelegateActivity.class, a.class, bundle, new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.q.c.1
+                @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+                public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+                    Bundle bundle2 = delegateResult.mResult;
+                    if (dVar != null) {
+                        dVar.onResult(true, null, bundle2.getParcelableArrayList("mediaModels"));
+                    }
+                }
+            });
         }
-        try {
-            byteArrayOutputStream.close();
-        } catch (Exception e3) {
-            e = e3;
-            e.printStackTrace();
-            return bArr2;
-        }
-        return bArr2;
     }
 }

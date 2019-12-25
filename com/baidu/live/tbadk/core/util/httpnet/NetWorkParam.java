@@ -3,12 +3,11 @@ package com.baidu.live.tbadk.core.util.httpnet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class NetWorkParam {
     public boolean mIsJson;
     public boolean mIsBaiduServer = true;
-    public String charSet = HTTP.UTF_8;
+    public String charSet = "UTF-8";
     public String mUrl = null;
     public ArrayList<BasicNameValuePair> mPostData = null;
     public boolean mRequestGzip = true;

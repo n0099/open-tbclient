@@ -2,7 +2,7 @@ package com.baidu.crius;
 
 import com.baidu.crius.proguard.annotations.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class CriusConfig {
     long mNativePointer = jni_CSConfigNew();
 

@@ -12,7 +12,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"WrongCall"})
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TbListTextView extends TextView {
     private boolean checkSelection;
 
@@ -139,7 +139,7 @@ public class TbListTextView extends TextView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class FixingResult {
         public final boolean fixed;
         public final List<Object> spansWithSpacesAfter;

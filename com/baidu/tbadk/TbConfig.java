@@ -5,8 +5,8 @@ import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.l;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -59,6 +59,10 @@ public class TbConfig {
     public static final String CARD_BOX_MEMBER_PAY = "c/e/packet/andmember";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";
+    public static final String CHANNEL_ID_BJH_ARTICLE = "33833";
+    public static final String CHANNEL_ID_BJH_DYNAMIC = "33842";
+    public static final String CHANNEL_ID_BJH_VIDEO = "33840";
+    public static final String CHANNEL_ID_PREFIX = "&channelid=";
     public static final String CHECK_OFFICIAL_SWITCH_URL = "c/u/user/getOfficialSwitch";
     public static final String CHECK_USER_BOOKMARK = "c/e/tbread/checkUserBookMark";
     public static final String CLEAR_LOCATION_INFO = "c/u/recent/hide_position";
@@ -83,9 +87,11 @@ public class TbConfig {
     public static final String COMMIT_TOP_ADDRESS = "c/c/bawu/committop";
     public static final String COMMON_PRAISE_URL = "c/c/zan/like";
     public static final String COMPLETE_TASK_URL = "c/s/completeTask";
+    public static final String CONCERN_RECOMMEND_FEEDBACK = "c/c/excellent/submitConcernDislike";
     public static final String CREATE_BOOK_PAY_ORDER = "c/c/encourage/tbread/createPayOrder";
     public static final String DAILYRECOMMEND_ADDRESS = "c/f/forum/threadrecommend";
     public static final int DATABASE_SD_VERSION = 9;
+    public static final String DEBUG_UPLOAD = "c/s/debugupload";
     public static final String DECRYPT_CODE_URL = "c/s/decryptCode";
     public static final int DEFAULT_SDRAM_PHOTO_NUM = 60;
     public static final String DELETE_EMOTION_PACKAGE = "c/e/meme/delPackage";
@@ -121,6 +127,7 @@ public class TbConfig {
     public static final String FINISH_MEMBER_TASK = "c/c/encourage/point/finishmembertask";
     public static final String FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS = "c/c/voice/voice_fin_chunk_upload";
     public static final String FOLLOW_ADDRESS = "c/c/user/follow";
+    public static final String FOLLOW_ERR_URL = "c/c/user/correctFollowError";
     public static final int FONT_SIZE_BIG = 1;
     public static final int FONT_SIZE_MID = 2;
     public static final int FONT_SIZE_SMALL = 3;
@@ -167,6 +174,7 @@ public class TbConfig {
     public static final String GET_GIFT_LIST_BY_CATEGORY = "c/e/present/getGiftListByCategoryId";
     public static final String GET_HOT_FORUM_URL = "c/f/forum/hotforum";
     public static final String GET_HOT_GAME = "c/u/game/getHotGameList";
+    public static final String GET_IMAGE_WATERMARK_TYPE = "c/u/user/getWatermark";
     public static final String GET_IP_LIST = "c/s/getipinfo";
     public static final String GET_LEVEL_INFO_URL = "c/f/forum/getLevelInfo";
     public static final String GET_LOCAL_PUSH_THREAD_INFO = "c/u/user/getRecThreadInfo";
@@ -314,6 +322,8 @@ public class TbConfig {
     public static final int NOTIFY_YUN_PUSH = 2500;
     public static final long ONE_DAY_TIME = 86400000;
     public static final String OP_BOOKRACK = "c/c/encourage/tbread/opBookrack";
+    public static final int PB_BJH_REPLY_MUTI_IMAGE_MAX_COUNT = 1;
+    public static final String PB_CARD_GIFT_GET_URL = "tbmall/businessCard/getCardForGame";
     public static final String PB_CHANGE_FLOOR_AGREE_URL = "c/c/agree/modifyAgree";
     public static final int PB_DEFAULT_CONTENT_TEXT_SIZE = 18;
     public static final int PB_DEFAULT_NAME_TEXT_SIZE = 11;
@@ -333,6 +343,7 @@ public class TbConfig {
     public static final String PERSONAL_BACKGROUND_GROUP_PAGE = "c/e/theme/getBgByCategory";
     public static final String PERSONAL_BACKGROUND_LIST_PAGE = "c/e/theme/getBgList";
     public static final String PERSONAL_BACKGROUND_SET = "c/e/theme/setBackground";
+    public static final String PERSON_CENTER_DYNAMIC_TAB_URL = "c/u/user/getShoubaiThreadList";
     public static final String PERSON_HEAD_FILE = "tieba_head_image";
     public static final String PERSON_USER_PIC_TEMP_FILE = "tieba_user_pic_temp_image";
     public static final String PHONE_DATEBASE_NAME = "baidu_tieba.db";
@@ -380,6 +391,7 @@ public class TbConfig {
     public static final String SETTINGFILE = "settings";
     public static final String SET_COMMON_FORUM_STATE = "c/c/forum/setCommonForumState";
     public static final String SET_HOTSELECT = "c/f/recommend/getSugTopic";
+    public static final String SET_IMAGE_WATERMARK_TYPE = "c/c/user/setWatermark";
     public static final String SET_MEMBER_CLOSE_AD = "c/c/encourage/member/closeAd";
     public static final String SET_PENDANT = "c/c/encourage/theme/setPendant";
     public static final String SET_PERSONAL_CARD = "c/c/encourage/theme/setCard";
@@ -440,6 +452,7 @@ public class TbConfig {
     public static final String URL_ADD_EXPERIENCED = "c/c/forum/share";
     public static final String URL_APPLY_COPY_THREAD = "c/c/livegroup/applycopythread";
     public static final String URL_BAIDU_SINGKIL = "https://eopa.baidu.com/page/HomePage-YW54iXYf?channel=7";
+    public static final String URL_BJH_REPORT = "https://ufosdk.baidu.com/?m=Client&a=commonreport&appid=234410&nid=%1$s&platid=%2$s&remark=bjh";
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
     public static final String URL_CANDIDATE_SEARCH = "c/f/bawu/search";
     public static final String URL_CHECK_BIG_V = "c/u/user/getvuserinfo";
@@ -506,6 +519,7 @@ public class TbConfig {
     public static final String URL_USER_REPORT = "c/c/user/complaint";
     public static final String URL_VIDEO_HOLY_CARD = "c/s/dashengVideo";
     public static final String URL_VIDEO_MONITOR_REPORT = "c/c/video/vlog";
+    public static final String URL_VIDEO_TAB = "c/f/excellent/recomVideo";
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
     public static final String USER_MUTE_CHECK = "c/u/user/userMuteCheck";
     public static final String USER_MUTE_DEL = "c/c/user/userMuteDel";
@@ -542,6 +556,7 @@ public class TbConfig {
     public static long MILLS_7DAYS = 604800000;
     public static int BUILD_NUMBER = 0;
     public static boolean USE_OLD_LOGIN = false;
+    public static boolean ENABLE_VISIT_PREVIEW_SERVER_DIALOG = false;
     public static String LOGIN_FULL_ADDRESS = SERVER_ADDRESS + "c/s/login";
     public static String SERVER_ADDRESS_WEB_VIEW = "http://tieba.baidu.com/";
     public static int ALPHA_80 = 80;
@@ -578,6 +593,7 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
+    public static boolean FORCE_UPDATE = false;
     public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds54);
     public static final int VALUE_COMMON_FONT_SIZE_BIG = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds50);
     public static final int VALUE_COMMON_FONT_SIZE_MID = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44);
@@ -641,7 +657,7 @@ public class TbConfig {
 
     public static String getFullVersion() {
         String version = getVersion();
-        return version + DefaultConfig.TOKEN_SEPARATOR + getSubVersion();
+        return version + "." + getSubVersion();
     }
 
     public static String getLegoLibVersion() {
@@ -731,7 +747,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.avs().setPhotoMaxNum(i);
+            c.aMZ().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -910,7 +926,7 @@ public class TbConfig {
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }
-            if (Runtime.getRuntime().maxMemory() <= 16777216) {
+            if (Runtime.getRuntime().maxMemory() <= AccountConstants.TYPE_MODIFY_ADDRESSLIST_SWITCH) {
                 THREAD_IMAGE_MAX_WIDTH = (int) (THREAD_IMAGE_MAX_WIDTH * 0.8d);
             }
         }

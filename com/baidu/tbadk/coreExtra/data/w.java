@@ -1,24 +1,24 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class w {
-    private String cuG;
-    private ArrayList<Object> cuH;
+    private String dip;
+    private ArrayList<Object> diq;
 
     public w() {
-        x(new ArrayList<>());
+        A(new ArrayList<>());
     }
 
-    public String apo() {
-        return this.cuG;
+    public String aGN() {
+        return this.dip;
     }
 
-    public ArrayList<Object> app() {
-        return this.cuH;
+    public ArrayList<Object> aGO() {
+        return this.diq;
     }
 
-    public void x(ArrayList<Object> arrayList) {
-        this.cuH = arrayList;
+    public void A(ArrayList<Object> arrayList) {
+        this.diq = arrayList;
     }
 }

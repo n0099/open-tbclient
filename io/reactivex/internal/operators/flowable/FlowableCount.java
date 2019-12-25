@@ -1,0 +1,55 @@
+package io.reactivex.internal.operators.flowable;
+
+import com.google.android.exoplayer2.Format;
+import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
+import io.reactivex.internal.subscriptions.SubscriptionHelper;
+import io.reactivex.j;
+import org.a.d;
+/* loaded from: classes4.dex */
+public final class FlowableCount<T> extends a<T, Long> {
+    @Override // io.reactivex.g
+    protected void a(org.a.c<? super Long> cVar) {
+        this.mTG.a((j) new CountSubscriber(cVar));
+    }
+
+    /* loaded from: classes4.dex */
+    static final class CountSubscriber extends DeferredScalarSubscription<Long> implements j<Object> {
+        private static final long serialVersionUID = 4973004223787171406L;
+        long count;
+        d s;
+
+        CountSubscriber(org.a.c<? super Long> cVar) {
+            super(cVar);
+        }
+
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(d dVar) {
+            if (SubscriptionHelper.validate(this.s, dVar)) {
+                this.s = dVar;
+                this.actual.onSubscribe(this);
+                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+            }
+        }
+
+        @Override // org.a.c
+        public void onNext(Object obj) {
+            this.count++;
+        }
+
+        @Override // org.a.c
+        public void onError(Throwable th) {
+            this.actual.onError(th);
+        }
+
+        @Override // org.a.c
+        public void onComplete() {
+            complete(Long.valueOf(this.count));
+        }
+
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
+        public void cancel() {
+            super.cancel();
+            this.s.cancel();
+        }
+    }
+}

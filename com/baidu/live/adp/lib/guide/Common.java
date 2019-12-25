@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import android.view.LayoutInflater;
 import android.view.View;
 import com.baidu.live.adp.lib.guide.MaskView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 class Common {
     Common() {
     }

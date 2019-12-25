@@ -1,11 +1,12 @@
 package com.baidu.mobads.production.i;
 
 import android.content.Context;
+import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.AdSize;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.production.c.c;
 import com.baidu.mobads.vo.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends c {
     private com.baidu.mobads.production.h.a w;
 
@@ -21,9 +22,9 @@ public class a extends c {
     }
 
     @Override // com.baidu.mobads.production.c.c
-    public void a(com.baidu.mobad.feeds.a aVar) {
-        int width = aVar.getWidth();
-        int height = aVar.getHeight();
+    public void a(RequestParameters requestParameters) {
+        int width = requestParameters.getWidth();
+        int height = requestParameters.getHeight();
         if (width > 0 && height > 0) {
             this.w.d(width);
             this.w.e(height);

@@ -1,7 +1,12 @@
 package com.facebook.imagepipeline.f;
 
-import android.graphics.Bitmap;
-/* loaded from: classes2.dex */
-public abstract class a extends b {
-    public abstract Bitmap cHH();
+import android.graphics.drawable.Drawable;
+import com.facebook.imagepipeline.g.c;
+import javax.annotation.Nullable;
+/* loaded from: classes11.dex */
+public interface a {
+    boolean a(c cVar);
+
+    @Nullable
+    Drawable b(c cVar);
 }

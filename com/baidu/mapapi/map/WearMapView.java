@@ -32,6 +32,8 @@ import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapsdkplatform.comapi.map.ak;
+import com.baidu.searchbox.picture.component.BaseBrowseView;
+import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
@@ -139,7 +141,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         w.append(6, 200000);
         w.append(7, 100000);
         w.append(8, Integer.valueOf((int) IMConstants.ERROR_BASE));
-        w.append(9, 25000);
+        w.append(9, Integer.valueOf((int) BdNetTask.TIMEOUT_READ));
         w.append(10, Integer.valueOf((int) MessageConfig.SOCKET_TIME_OUT_MS_2G));
         w.append(11, 10000);
         w.append(12, 5000);
@@ -390,7 +392,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         layoutParams2.width = -2;
         layoutParams2.height = -2;
         layoutParams2.addRule(14);
-        this.p.setTextColor(Color.parseColor("#000000"));
+        this.p.setTextColor(Color.parseColor(BaseBrowseView.ROOT_VIEW_COLOR));
         this.p.setTextSize(2, 11.0f);
         this.p.setLayoutParams(layoutParams2);
         this.m.addView(this.p);

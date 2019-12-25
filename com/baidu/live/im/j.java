@@ -1,27 +1,27 @@
 package com.baidu.live.im;
 
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface j {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void sM();
+        void uE();
     }
 
-    void a(com.baidu.live.data.i iVar, boolean z);
+    void a(com.baidu.live.data.k kVar);
+
+    void a(com.baidu.live.data.k kVar, boolean z);
 
     void a(a aVar);
 
-    void b(com.baidu.live.data.i iVar);
-
     void release();
-
-    View sK();
-
-    void sL();
 
     void setOtherParams(String str);
 
-    void sk();
+    View uC();
+
+    void uD();
+
+    void ub();
 }

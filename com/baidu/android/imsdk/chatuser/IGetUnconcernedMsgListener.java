@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.chatuser;
 
 import com.baidu.android.imsdk.IMListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface IGetUnconcernedMsgListener extends IMListener {
     void onResult(int i, int i2);
 }

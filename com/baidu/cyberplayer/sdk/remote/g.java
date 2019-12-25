@@ -122,7 +122,7 @@ public class g extends PlayerProvider implements f.b {
     }
 
     public static g a(int i, CyberPlayerManager.HttpDNS httpDNS) {
-        a a = a.AbstractBinderC0049a.a(f.a().a(i));
+        a a = a.AbstractBinderC0055a.a(f.a().a(i));
         if (a != null) {
             return new g(a, httpDNS);
         }

@@ -9,7 +9,6 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.io.FileDescriptor;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
@@ -157,13 +156,13 @@ public class CyberPlayer {
             if (map == null) {
                 map = new HashMap<>();
             }
-            String str = map.get(HTTP.USER_AGENT);
+            String str = map.get("User-Agent");
             if (TextUtils.isEmpty(str)) {
                 str = "dumedia/6.14.2.2";
             } else if (str.indexOf("dumedia") == -1) {
                 str = str + " dumedia/" + SDKVersion.VERSION;
             }
-            map.put(HTTP.USER_AGENT, str);
+            map.put("User-Agent", str);
             this.a.setDataSource(context, uri, map);
         }
     }

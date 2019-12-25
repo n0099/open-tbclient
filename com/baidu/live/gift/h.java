@@ -1,38 +1,11 @@
 package com.baidu.live.gift;
 
-import java.util.List;
-/* loaded from: classes6.dex */
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+/* loaded from: classes2.dex */
 public class h {
-    private boolean WA;
-    private List<g> WB;
-    private String Wz;
-    private int categoryId;
+    public static long aef = 604800000;
 
-    public int getCategoryId() {
-        return this.categoryId;
-    }
-
-    public void setCategoryId(int i) {
-        this.categoryId = i;
-    }
-
-    public void setCategoryName(String str) {
-        this.Wz = str;
-    }
-
-    public List<g> pt() {
-        return this.WB;
-    }
-
-    public void s(List<g> list) {
-        this.WB = list;
-    }
-
-    public boolean pu() {
-        return this.WA;
-    }
-
-    public void ah(boolean z) {
-        this.WA = z;
+    public static String f(String str, long j) {
+        return "cache_key_gift_list_json_array" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j;
     }
 }

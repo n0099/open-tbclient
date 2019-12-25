@@ -18,23 +18,23 @@ import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a<T> {
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
     private final e composition;
+    public final float ed;
     @Nullable
-    public final T dK;
+    public final T kn;
     @Nullable
-    public final T dL;
+    public final T ko;
     @Nullable
-    public final Interpolator dM;
-    public final float dN;
+    public final Interpolator kp;
     @Nullable
-    public Float dO;
-    private float dP = Float.MIN_VALUE;
-    private float dQ = Float.MIN_VALUE;
+    public Float kq;
+    private float kr = Float.MIN_VALUE;
+    private float ks = Float.MIN_VALUE;
 
-    public static void f(List<? extends a<?>> list) {
+    public static void g(List<? extends a<?>> list) {
         int size = list.size();
         int i = 0;
         while (true) {
@@ -42,86 +42,86 @@ public class a<T> {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).dO = Float.valueOf(list.get(i2 + 1).dN);
+            list.get(i2).kq = Float.valueOf(list.get(i2 + 1).ed);
             i = i2 + 1;
         }
         a<?> aVar = list.get(size - 1);
-        if (aVar.dK == null) {
+        if (aVar.kn == null) {
             list.remove(aVar);
         }
     }
 
     public a(e eVar, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
         this.composition = eVar;
-        this.dK = t;
-        this.dL = t2;
-        this.dM = interpolator;
-        this.dN = f;
-        this.dO = f2;
+        this.kn = t;
+        this.ko = t2;
+        this.kp = interpolator;
+        this.ed = f;
+        this.kq = f2;
     }
 
-    public float bo() {
-        if (this.dP == Float.MIN_VALUE) {
-            this.dP = (this.dN - ((float) this.composition.aU())) / this.composition.ba();
+    public float di() {
+        if (this.kr == Float.MIN_VALUE) {
+            this.kr = (this.ed - ((float) this.composition.dAX())) / this.composition.bn();
         }
-        return this.dP;
+        return this.kr;
     }
 
-    public float bp() {
-        if (this.dQ == Float.MIN_VALUE) {
-            if (this.dO == null) {
-                this.dQ = 1.0f;
+    public float bV() {
+        if (this.ks == Float.MIN_VALUE) {
+            if (this.kq == null) {
+                this.ks = 1.0f;
             } else {
-                this.dQ = bo() + ((this.dO.floatValue() - this.dN) / this.composition.ba());
+                this.ks = di() + ((this.kq.floatValue() - this.ed) / this.composition.bn());
             }
         }
-        return this.dQ;
+        return this.ks;
     }
 
-    public boolean bq() {
-        return this.dM == null;
+    public boolean dL() {
+        return this.kp == null;
     }
 
-    public boolean g(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return f >= bo() && f < bp();
+    public boolean n(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+        return f >= di() && f < bV();
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.dK + ", endValue=" + this.dL + ", startFrame=" + this.dN + ", endFrame=" + this.dO + ", interpolator=" + this.dM + '}';
+        return "Keyframe{startValue=" + this.kn + ", endValue=" + this.ko + ", startFrame=" + this.ed + ", endFrame=" + this.kq + ", interpolator=" + this.kp + '}';
     }
 
     /* renamed from: com.tb.airbnb.lottie.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0570a {
-        private static SparseArrayCompat<WeakReference<Interpolator>> dR;
+    /* loaded from: classes2.dex */
+    public static class C0685a {
+        private static SparseArrayCompat<WeakReference<Interpolator>> jV;
 
-        private static SparseArrayCompat<WeakReference<Interpolator>> bs() {
-            if (dR == null) {
-                dR = new SparseArrayCompat<>();
+        private static SparseArrayCompat<WeakReference<Interpolator>> dA() {
+            if (jV == null) {
+                jV = new SparseArrayCompat<>();
             }
-            return dR;
+            return jV;
         }
 
         @Nullable
-        private static WeakReference<Interpolator> k(int i) {
+        private static WeakReference<Interpolator> l(int i) {
             WeakReference<Interpolator> weakReference;
-            synchronized (C0570a.class) {
-                weakReference = bs().get(i);
+            synchronized (C0685a.class) {
+                weakReference = dA().get(i);
             }
             return weakReference;
         }
 
         private static void a(int i, WeakReference<Interpolator> weakReference) {
-            synchronized (C0570a.class) {
-                dR.put(i, weakReference);
+            synchronized (C0685a.class) {
+                jV.put(i, weakReference);
             }
         }
 
-        private C0570a() {
+        private C0685a() {
         }
 
         public static <T> a<T> a(JSONObject jSONObject, e eVar, float f, m.a<T> aVar) {
-            T b;
+            T c;
             Interpolator interpolator;
             T t;
             PointF pointF;
@@ -131,9 +131,9 @@ public class a<T> {
             if (jSONObject.has("t")) {
                 f2 = (float) jSONObject.optDouble("t", 0.0d);
                 Object opt = jSONObject.opt("s");
-                T b2 = opt != null ? aVar.b(opt, f) : null;
+                T c2 = opt != null ? aVar.c(opt, f) : null;
                 Object opt2 = jSONObject.opt("e");
-                T b3 = opt2 != null ? aVar.b(opt2, f) : null;
+                T c3 = opt2 != null ? aVar.c(opt2, f) : null;
                 JSONObject optJSONObject = jSONObject.optJSONObject(Config.OS);
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("i");
                 if (optJSONObject == null || optJSONObject2 == null) {
@@ -147,7 +147,7 @@ public class a<T> {
                 }
                 if (jSONObject.optInt("h", 0) == 1) {
                     interpolator2 = a.LINEAR_INTERPOLATOR;
-                    b3 = b2;
+                    c3 = c2;
                 } else if (pointF2 == null) {
                     interpolator2 = a.LINEAR_INTERPOLATOR;
                 } else {
@@ -155,26 +155,26 @@ public class a<T> {
                     pointF2.y = com.tb.airbnb.lottie.c.e.clamp(pointF2.y, -100.0f, 100.0f);
                     pointF.x = com.tb.airbnb.lottie.c.e.clamp(pointF.x, -f, f);
                     pointF.y = com.tb.airbnb.lottie.c.e.clamp(pointF.y, -100.0f, 100.0f);
-                    int c = f.c(pointF2.x, pointF2.y, pointF.x, pointF.y);
-                    WeakReference<Interpolator> k = k(c);
-                    interpolator2 = k != null ? k.get() : null;
-                    if (k == null || interpolator2 == null) {
+                    int c4 = f.c(pointF2.x, pointF2.y, pointF.x, pointF.y);
+                    WeakReference<Interpolator> l = l(c4);
+                    interpolator2 = l != null ? l.get() : null;
+                    if (l == null || interpolator2 == null) {
                         interpolator2 = PathInterpolatorCompat.create(pointF2.x / f, pointF2.y / f, pointF.x / f, pointF.y / f);
                         try {
-                            a(c, new WeakReference(interpolator2));
+                            a(c4, new WeakReference(interpolator2));
                         } catch (ArrayIndexOutOfBoundsException e) {
                         }
                     }
                 }
                 interpolator = interpolator2;
-                b = b3;
-                t = b2;
+                c = c3;
+                t = c2;
             } else {
-                b = aVar.b(jSONObject, f);
+                c = aVar.c(jSONObject, f);
                 interpolator = null;
-                t = b;
+                t = c;
             }
-            return new a<>(eVar, t, b, interpolator, f2, null);
+            return new a<>(eVar, t, c, interpolator, f2, null);
         }
 
         public static <T> List<a<T>> a(JSONArray jSONArray, e eVar, float f, m.a<T> aVar) {
@@ -186,7 +186,7 @@ public class a<T> {
             for (int i = 0; i < length; i++) {
                 arrayList.add(a(jSONArray.optJSONObject(i), eVar, f, aVar));
             }
-            a.f(arrayList);
+            a.g(arrayList);
             return arrayList;
         }
     }

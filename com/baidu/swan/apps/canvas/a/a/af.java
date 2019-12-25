@@ -2,19 +2,19 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class af extends a {
-    private ak aFE;
+    private ak bbp;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
-        this.aFE = new ak(jSONArray);
+        this.bbp = new ak(jSONArray);
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.aFE != null && this.aFE.isValid()) {
-            bVar.aFE = this.aFE;
+        if (this.bbp != null && this.bbp.isValid()) {
+            bVar.bbp = this.bbp;
         }
     }
 }

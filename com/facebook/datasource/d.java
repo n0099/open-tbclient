@@ -1,11 +1,11 @@
 package com.facebook.datasource;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public interface d<T> {
-    void b(b<T> bVar);
+    void onCancellation(b<T> bVar);
 
-    void d(b<T> bVar);
+    void onFailure(b<T> bVar);
 
-    void e(b<T> bVar);
+    void onNewResult(b<T> bVar);
 
-    void f(b<T> bVar);
+    void onProgressUpdate(b<T> bVar);
 }

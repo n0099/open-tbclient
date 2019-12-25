@@ -13,8 +13,7 @@ import com.googlecode.mp4parser.util.Path;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractBox implements Box {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static Logger LOG;
@@ -216,11 +215,11 @@ public abstract class AbstractBox implements Box {
             i = 24;
         }
         if (!this.isRead) {
-            return this.memMapSize + ((long) i) < IjkMediaMeta.AV_CH_WIDE_RIGHT;
+            return this.memMapSize + ((long) i) < 4294967296L;
         } else if (this.isParsed) {
-            return (getContentSize() + ((long) (this.deadBytes != null ? this.deadBytes.limit() : 0))) + ((long) i) < IjkMediaMeta.AV_CH_WIDE_RIGHT;
+            return (getContentSize() + ((long) (this.deadBytes != null ? this.deadBytes.limit() : 0))) + ((long) i) < 4294967296L;
         } else {
-            return ((long) (i + this.content.limit())) < IjkMediaMeta.AV_CH_WIDE_RIGHT;
+            return ((long) (i + this.content.limit())) < 4294967296L;
         }
     }
 

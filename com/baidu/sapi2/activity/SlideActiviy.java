@@ -20,13 +20,13 @@ import com.baidu.searchbox.widget.SlideUtil;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SlideActiviy extends BaseActivity {
     public static final String ADDRESS_PAGE_NAME = "address";
     public static final String INVOICE_PAGE_NAME = "invoice";
     private static final boolean r = true;
     private static final String s = "SlideActivity";
-    public SlideHelper aKm;
+    public SlideHelper mSlideHelper;
     private boolean t = false;
     private boolean u = false;
     private boolean v = false;
@@ -45,12 +45,12 @@ public class SlideActiviy extends BaseActivity {
             }
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             final int i = displayMetrics != null ? displayMetrics.widthPixels : 0;
-            this.aKm = new SlideHelper();
-            this.aKm.attachSlideActivity(this);
-            this.aKm.setCanSlide(z);
-            this.aKm.forceActivityTransparent(this.v);
-            this.aKm.setSlideInterceptor(this.w);
-            this.aKm.setSlideListener(new SlidingPaneLayout.PanelSlideListener() { // from class: com.baidu.sapi2.activity.SlideActiviy.3
+            this.mSlideHelper = new SlideHelper();
+            this.mSlideHelper.attachSlideActivity(this);
+            this.mSlideHelper.setCanSlide(z);
+            this.mSlideHelper.forceActivityTransparent(this.v);
+            this.mSlideHelper.setSlideInterceptor(this.w);
+            this.mSlideHelper.setSlideListener(new SlidingPaneLayout.PanelSlideListener() { // from class: com.baidu.sapi2.activity.SlideActiviy.3
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelClosed(View view) {
                     if (SlideActiviy.this.x != null) {
@@ -65,14 +65,14 @@ public class SlideActiviy extends BaseActivity {
                         SlideActiviy.this.x.onPanelOpened(view);
                     }
                     SlideActiviy.this.a(0.0f);
-                    SlideActiviy.this.aKm.setShadowDrawable(null);
+                    SlideActiviy.this.mSlideHelper.setShadowDrawable(null);
                     SlideActiviy.this.finishActivityAfterSlideOver();
                     SlideActiviy.this.overridePendingTransition(0, 0);
                 }
 
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelSlide(View view, float f) {
-                    View maskView = SlideActiviy.this.aKm.getMaskView();
+                    View maskView = SlideActiviy.this.mSlideHelper.getMaskView();
                     if (maskView != null) {
                         float f2 = 1.0f - f;
                         maskView.setAlpha(f2 >= 0.0f ? f2 : 0.0f);
@@ -110,7 +110,7 @@ public class SlideActiviy extends BaseActivity {
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
         Log.d(s, "onConfigurationChanged: ");
-        SlideHelper slideHelper = this.aKm;
+        SlideHelper slideHelper = this.mSlideHelper;
         if (slideHelper != null) {
             slideHelper.setCanSlide(configuration.orientation != 2);
         }
@@ -164,6 +164,7 @@ public class SlideActiviy extends BaseActivity {
 
     public void setCurrentActivityNoTransparent() {
         SlideUtil.convertFromTranslucent(this, new OnTranslucentListener() { // from class: com.baidu.sapi2.activity.SlideActiviy.2
+            @Override // com.baidu.searchbox.widget.OnTranslucentListener
             public void onTranslucent(boolean z) {
             }
         });

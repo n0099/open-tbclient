@@ -3,9 +3,10 @@ package android.support.v4.app;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.os.Build;
-/* loaded from: classes2.dex */
+import android.support.annotation.NonNull;
+/* loaded from: classes4.dex */
 public final class AlarmManagerCompat {
-    public static void setAlarmClock(AlarmManager alarmManager, long j, PendingIntent pendingIntent, PendingIntent pendingIntent2) {
+    public static void setAlarmClock(@NonNull AlarmManager alarmManager, long j, @NonNull PendingIntent pendingIntent, @NonNull PendingIntent pendingIntent2) {
         if (Build.VERSION.SDK_INT >= 21) {
             alarmManager.setAlarmClock(new AlarmManager.AlarmClockInfo(j, pendingIntent), pendingIntent2);
         } else {
@@ -13,7 +14,7 @@ public final class AlarmManagerCompat {
         }
     }
 
-    public static void setAndAllowWhileIdle(AlarmManager alarmManager, int i, long j, PendingIntent pendingIntent) {
+    public static void setAndAllowWhileIdle(@NonNull AlarmManager alarmManager, int i, long j, @NonNull PendingIntent pendingIntent) {
         if (Build.VERSION.SDK_INT >= 23) {
             alarmManager.setAndAllowWhileIdle(i, j, pendingIntent);
         } else {
@@ -21,7 +22,7 @@ public final class AlarmManagerCompat {
         }
     }
 
-    public static void setExact(AlarmManager alarmManager, int i, long j, PendingIntent pendingIntent) {
+    public static void setExact(@NonNull AlarmManager alarmManager, int i, long j, @NonNull PendingIntent pendingIntent) {
         if (Build.VERSION.SDK_INT >= 19) {
             alarmManager.setExact(i, j, pendingIntent);
         } else {
@@ -29,7 +30,7 @@ public final class AlarmManagerCompat {
         }
     }
 
-    public static void setExactAndAllowWhileIdle(AlarmManager alarmManager, int i, long j, PendingIntent pendingIntent) {
+    public static void setExactAndAllowWhileIdle(@NonNull AlarmManager alarmManager, int i, long j, @NonNull PendingIntent pendingIntent) {
         if (Build.VERSION.SDK_INT >= 23) {
             alarmManager.setExactAndAllowWhileIdle(i, j, pendingIntent);
         } else {

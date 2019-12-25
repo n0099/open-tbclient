@@ -3,16 +3,16 @@ package kotlin;
 import java.io.Serializable;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
-final class SynchronizedLazyImpl<T> implements Serializable, a<T> {
+/* loaded from: classes4.dex */
+final class SynchronizedLazyImpl<T> implements Serializable, c<T> {
     private volatile Object _value;
     private kotlin.jvm.a.a<? extends T> initializer;
     private final Object lock;
 
     public SynchronizedLazyImpl(kotlin.jvm.a.a<? extends T> aVar, Object obj) {
-        p.i(aVar, "initializer");
+        p.j(aVar, "initializer");
         this.initializer = aVar;
-        this._value = d.kuC;
+        this._value = f.mYz;
         this.lock = obj == null ? this : obj;
     }
 
@@ -20,15 +20,16 @@ final class SynchronizedLazyImpl<T> implements Serializable, a<T> {
         this(aVar, (i & 2) != 0 ? null : obj);
     }
 
+    @Override // kotlin.c
     public T getValue() {
         T t = (T) this._value;
-        if (t == d.kuC) {
+        if (t == f.mYz) {
             synchronized (this.lock) {
                 t = this._value;
-                if (t == d.kuC) {
+                if (t == f.mYz) {
                     kotlin.jvm.a.a<? extends T> aVar = this.initializer;
                     if (aVar == null) {
-                        p.cMW();
+                        p.dER();
                     }
                     T invoke = aVar.invoke();
                     this._value = invoke;
@@ -41,7 +42,7 @@ final class SynchronizedLazyImpl<T> implements Serializable, a<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != d.kuC;
+        return this._value != f.mYz;
     }
 
     public String toString() {

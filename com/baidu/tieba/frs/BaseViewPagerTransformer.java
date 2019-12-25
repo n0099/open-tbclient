@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseViewPagerTransformer implements ViewPager.PageTransformer {
     protected abstract void n(View view, float f);
 
@@ -13,11 +13,11 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         p(view, f);
     }
 
-    protected boolean bjc() {
+    protected boolean bAx() {
         return true;
     }
 
-    protected boolean bjd() {
+    protected boolean bAy() {
         return false;
     }
 
@@ -32,8 +32,8 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         view.setPivotX(0.0f);
         view.setPivotY(0.0f);
         view.setTranslationY(0.0f);
-        view.setTranslationX(bjd() ? 0.0f : (-width) * f);
-        if (bjc()) {
+        view.setTranslationX(bAy() ? 0.0f : (-width) * f);
+        if (bAx()) {
             if (f > -1.0f && f < 1.0f) {
                 f2 = 1.0f;
             }

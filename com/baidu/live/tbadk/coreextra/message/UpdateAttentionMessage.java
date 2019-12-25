@@ -6,15 +6,20 @@ import com.baidu.live.tbadk.core.data.BlockPopInfoData;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.httpnet.HttpResponse;
-import com.baidu.mobstat.Config;
+import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttentionData> {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class UpdateAttentionData {
+        public static final int AUTO_OPEN_FALSE = 2;
+        public static final int AUTO_OPEN_FIRSTTIME = 3;
+        public static final int AUTO_OPEN_TRUE = 1;
         public static final int EACH_ATTENTION = 2;
         public static final int NOT_ATTENTION = 0;
+        public static final int SHOW_POP_FALSE = 2;
+        public static final int SHOW_POP_TRUE = 1;
         public static final int SINGLE_ATTENTION = 1;
         public BlockPopInfoData blockData;
         public String blockUrl;
@@ -29,22 +34,24 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<UpdateAttenti
         public boolean isGod = false;
         public boolean isShowMessage = false;
         public int status = 0;
+        public int autoOpenStatus = 1;
+        public boolean showPop = false;
 
         public void parserJson(String str, boolean z) {
-            boolean z2 = true;
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     this.resultJson = jSONObject;
-                    JSONObject optJSONObject = jSONObject.optJSONObject(Config.LAUNCH_INFO);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("info");
                     if (optJSONObject != null) {
                         this.status = jSONObject.optInt("status");
-                        boolean z3 = optJSONObject.optInt("is_toast", 0) == 1;
-                        if (!z || !z3) {
-                            z2 = false;
-                        }
-                        this.isShowMessage = z2;
+                        this.isShowMessage = z && (optJSONObject.optInt("is_toast", 0) == 1);
                         this.showMsg = optJSONObject.optString("toast_text");
+                        JSONObject optJSONObject2 = jSONObject.optJSONObject(LogConfig.KEY_NOTICE);
+                        if (optJSONObject2 != null) {
+                            this.showPop = optJSONObject2.optInt("is_pop") == 1;
+                            this.autoOpenStatus = optJSONObject2.optInt("automatic_open");
+                        }
                         parseBlockAnti(optJSONObject);
                     }
                 } catch (Exception e) {

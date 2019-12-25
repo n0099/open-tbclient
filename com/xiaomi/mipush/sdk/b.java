@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.xiaomi.push.hl;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static StackTraceElement[] a;
 
@@ -37,7 +37,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m67b(Context context) {
+    public static boolean m70b(Context context) {
         com.xiaomi.push.service.ag a2 = com.xiaomi.push.service.ag.a(context);
         if (a2.a(hl.AggregationSdkMonitorSwitch.a(), false)) {
             return Math.abs(System.currentTimeMillis() - context.getSharedPreferences("mipush_extra", 0).getLong("last_upload_call_stack_timestamp", 0L)) >= ((long) Math.max(60, a2.a(hl.AggregationSdkMonitorFrequency.a(), 86400)));

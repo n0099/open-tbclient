@@ -1,9 +1,9 @@
 package rx.internal.util.a;
 
 import rx.internal.util.atomic.LinkedQueueNode;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 abstract class b<E> extends d<E> {
-    protected static final long kDV = ae.i(b.class, "consumerNode");
+    protected static final long niO = ae.l(b.class, "consumerNode");
     protected LinkedQueueNode<E> consumerNode;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -12,7 +12,7 @@ abstract class b<E> extends d<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> cPj() {
-        return (LinkedQueueNode) ae.kEi.getObjectVolatile(this, kDV);
+    public final LinkedQueueNode<E> dGU() {
+        return (LinkedQueueNode) ae.njb.c(this, niO);
     }
 }

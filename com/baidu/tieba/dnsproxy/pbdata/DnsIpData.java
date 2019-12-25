@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class DnsIpData extends Message {
     public static final String DEFAULT_ADDRESS = "";
     public static final List<Integer> DEFAULT_DATA = Collections.emptyList();
@@ -33,7 +33,7 @@ public final class DnsIpData extends Message {
         this.data = immutableCopyOf(builder.data);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder extends Message.Builder<DnsIpData> {
         public String address;
         public List<Integer> data;

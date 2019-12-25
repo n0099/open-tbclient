@@ -4,28 +4,28 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.r;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.j;
-import com.baidu.tbadk.util.y;
-import com.baidu.tbadk.util.z;
+import com.baidu.tbadk.util.ab;
+import com.baidu.tbadk.util.ac;
+import com.baidu.tbadk.util.l;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> gPO = new HashMap<>();
+    protected HashMap<String, ChatSetting> hDS = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
-    public abstract void a(ChatSetting chatSetting, j<Void> jVar);
+    public abstract void a(ChatSetting chatSetting, l<Void> lVar);
 
-    protected abstract l<String> bEa();
+    protected abstract com.baidu.adp.lib.cache.l<String> bVm();
 
-    public abstract ChatSetting db(String str, String str2);
+    public abstract ChatSetting du(String str, String str2);
 
-    public void q(Class<? extends ChatSetting> cls) {
+    public void x(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.gPO) {
-            this.gPO.clear();
+        synchronized (this.hDS) {
+            this.hDS.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -33,14 +33,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + "@";
-            synchronized (this.gPO) {
-                l<String> bEa = bEa();
-                List<l.b<String>> b = r.b(bEa);
+            synchronized (this.hDS) {
+                com.baidu.adp.lib.cache.l<String> bVm = bVm();
+                List<l.b<String>> b = r.b(bVm);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = bEa.get(str4)) != null) {
-                            this.gPO.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = bVm.get(str4)) != null) {
+                            this.hDS.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -49,41 +49,41 @@ public abstract class a {
     }
 
     public void x(String str, String str2, boolean z) {
-        ChatSetting db = db(str, str2);
-        if (db != null) {
-            db.setAcceptNotify(z);
-            a(db);
+        ChatSetting du = du(str, str2);
+        if (du != null) {
+            du.setAcceptNotify(z);
+            a(du);
         }
     }
 
-    public void a(String str, String str2, boolean z, j<Void> jVar) {
-        ChatSetting db = db(str, str2);
-        if (db != null) {
-            db.setAcceptNotify(z);
-            a(db, jVar);
+    public void a(String str, String str2, boolean z, com.baidu.tbadk.util.l<Void> lVar) {
+        ChatSetting du = du(str, str2);
+        if (du != null) {
+            du.setAcceptNotify(z);
+            a(du, lVar);
         }
     }
 
-    public boolean dc(String str, String str2) {
-        ChatSetting db = db(str, str2);
-        if (db == null) {
+    public boolean dv(String str, String str2) {
+        ChatSetting du = du(str, str2);
+        if (du == null) {
             return false;
         }
-        return db.isAcceptNotify();
+        return du.isAcceptNotify();
     }
 
-    public void a(final String str, final String str2, j<Boolean> jVar) {
-        z.b(new y<Boolean>() { // from class: com.baidu.tieba.im.settingcache.a.1
+    public void a(final String str, final String str2, com.baidu.tbadk.util.l<Boolean> lVar) {
+        ac.b(new ab<Boolean>() { // from class: com.baidu.tieba.im.settingcache.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tbadk.util.y
+            @Override // com.baidu.tbadk.util.ab
             public Boolean doInBackground() {
-                ChatSetting db = a.this.db(str, str2);
-                if (db == null) {
+                ChatSetting du = a.this.du(str, str2);
+                if (du == null) {
                     return false;
                 }
-                return Boolean.valueOf(db.isAcceptNotify());
+                return Boolean.valueOf(du.isAcceptNotify());
             }
-        }, jVar);
+        }, lVar);
     }
 }

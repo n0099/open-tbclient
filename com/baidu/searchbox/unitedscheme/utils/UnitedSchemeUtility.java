@@ -6,6 +6,8 @@ import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.Log;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.NullableCallbackHandler;
@@ -13,17 +15,19 @@ import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.core.R;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
+import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public final class UnitedSchemeUtility {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = SchemeConfig.DEBUG;
     private static final String PARAMS_KEY = "params";
     private static final String TAG = "UnitedSchemeUtility";
 
@@ -39,6 +43,18 @@ public final class UnitedSchemeUtility {
             return false;
         }
         return TextUtils.equals(UnitedSchemeConstants.UNITED_SCHEME, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
+    }
+
+    public static boolean hasVersion(Uri uri) {
+        if (uri == null) {
+            return false;
+        }
+        String host = uri.getHost();
+        return !TextUtils.isEmpty(host) && host.startsWith("v") && isContainNumber(host);
+    }
+
+    public static boolean isContainNumber(String str) {
+        return Pattern.compile("[0-9]").matcher(str).find();
     }
 
     public static int getVersion(Uri uri) {
@@ -57,16 +73,25 @@ public final class UnitedSchemeUtility {
             return Integer.parseInt(lowerCase.substring(1));
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            return -1;
+            if (!UnitedSchemeConstants.DEBUG) {
+                return -1;
+            }
+            throw e;
         }
     }
 
     public static String[] getPaths(Uri uri) {
-        List<String> pathSegments;
-        if (uri == null || (pathSegments = uri.getPathSegments()) == null || pathSegments.size() <= 0) {
+        if (uri == null) {
             return null;
         }
-        return (String[]) pathSegments.toArray(new String[0]);
+        ArrayList arrayList = new ArrayList(uri.getPathSegments());
+        if (!hasVersion(uri)) {
+            arrayList.add(0, uri.getHost());
+        }
+        if (arrayList == null || arrayList.size() <= 0) {
+            return null;
+        }
+        return (String[]) arrayList.toArray(new String[0]);
     }
 
     public static String[] getModules(Uri uri) {
@@ -102,16 +127,19 @@ public final class UnitedSchemeUtility {
         } else {
             substring = str.substring(indexOf + 1, indexOf2);
         }
-        String[] split = substring.split("&");
+        String[] split = substring.split(ETAG.ITEM_SEPARATOR);
         if (split == null) {
             return hashMap;
         }
         for (String str2 : split) {
-            int indexOf3 = str2.indexOf("=");
+            int indexOf3 = str2.indexOf(ETAG.EQUAL);
             if (indexOf3 > 0) {
                 try {
                     hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
                 } catch (IllegalArgumentException e) {
+                    if (DEBUG) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -142,7 +170,7 @@ public final class UnitedSchemeUtility {
         JSONObject wrapCallbackParams = wrapCallbackParams(i, str);
         if (jSONObject != null) {
             try {
-                wrapCallbackParams.put("data", Uri.encode(jSONObject.toString(), HTTP.UTF_8));
+                wrapCallbackParams.put("data", Uri.encode(jSONObject.toString(), "UTF-8"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -158,7 +186,7 @@ public final class UnitedSchemeUtility {
         JSONObject wrapCallbackParams = wrapCallbackParams(i, str2);
         if (str != null) {
             try {
-                wrapCallbackParams.put("data", Base64.encodeToString(str.getBytes(HTTP.UTF_8), 2));
+                wrapCallbackParams.put("data", Base64.encodeToString(str.getBytes("UTF-8"), 2));
             } catch (UnsupportedEncodingException | JSONException e) {
                 e.printStackTrace();
             }
@@ -217,13 +245,22 @@ public final class UnitedSchemeUtility {
     }
 
     public static JSONObject callCallback(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        return (callbackHandler == null || TextUtils.isEmpty(str) || jSONObject == null) ? jSONObject : callCallback(callbackHandler, new UnitedSchemeEntity(Uri.parse(str)), jSONObject);
+        if (callbackHandler == null || TextUtils.isEmpty(str) || jSONObject == null) {
+            if (DEBUG) {
+                throw new IllegalArgumentException("argument can not be null");
+            }
+            return jSONObject;
+        }
+        return callCallback(callbackHandler, new UnitedSchemeEntity(Uri.parse(str)), jSONObject);
     }
 
     public static JSONObject callCallback(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
         String path;
         if (callbackHandler != null && unitedSchemeEntity != null && jSONObject != null && (jSONObject.optInt("status") <= 0 || ((path = unitedSchemeEntity.getUri().getPath()) != null && !path.toLowerCase().startsWith("/feed/iswebp")))) {
             String param = unitedSchemeEntity.getParam(BuyTBeanActivityConfig.CALLBACK);
+            if (DEBUG) {
+                Log.d(TAG, unitedSchemeEntity.getUri().toString() + " callCallback " + param + HanziToPinyin.Token.SEPARATOR + jSONObject.toString());
+            }
             if ((!TextUtils.isEmpty(param) || (callbackHandler instanceof NullableCallbackHandler)) && !unitedSchemeEntity.isCallbackInvoked()) {
                 safeCallback(callbackHandler, unitedSchemeEntity, jSONObject.toString(), param);
                 unitedSchemeEntity.markCallbackInvoked();
@@ -237,6 +274,9 @@ public final class UnitedSchemeUtility {
     }
 
     public static void safeCallback(final CallbackHandler callbackHandler, final UnitedSchemeEntity unitedSchemeEntity, final String str, final String str2) {
+        if (DEBUG) {
+            Log.i(TAG, "safeCallback handler:" + callbackHandler + "; params:" + str + ";callback:" + str2);
+        }
         if (Looper.myLooper() == Looper.getMainLooper()) {
             safeCallbackOnUiThread(callbackHandler, unitedSchemeEntity, str, str2);
         } else {
@@ -251,11 +291,17 @@ public final class UnitedSchemeUtility {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void safeCallbackOnUiThread(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2) {
+        if (DEBUG) {
+            Log.i(TAG, "safeCallback callback:" + str2);
+        }
         if ((callbackHandler instanceof NullableCallbackHandler) || (callbackHandler != null && !TextUtils.isEmpty(str2))) {
             if (unitedSchemeEntity != null) {
                 if (!TextUtils.equals(getSameOriginUri(unitedSchemeEntity.getReferUrl()), getSameOriginUri(callbackHandler.getCurrentPageUrl()))) {
                     return;
                 }
+            }
+            if (DEBUG) {
+                Log.i(TAG, "safeCallback check success");
             }
             callbackHandler.handleSchemeDispatchCallback(str2, str);
         }
@@ -282,6 +328,10 @@ public final class UnitedSchemeUtility {
         try {
             return new JSONObject(param);
         } catch (JSONException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+                return null;
+            }
             return null;
         }
     }

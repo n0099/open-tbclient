@@ -4,15 +4,15 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class cp {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f193a;
+    private long f198a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f194a;
+    private String f199a;
     private long b;
     private long c;
 
@@ -22,11 +22,11 @@ public class cp {
 
     public cp(int i, long j, long j2, Exception exc) {
         this.a = i;
-        this.f193a = j;
+        this.f198a = j;
         this.c = j2;
         this.b = System.currentTimeMillis();
         if (exc != null) {
-            this.f194a = exc.getClass().getSimpleName();
+            this.f199a = exc.getClass().getSimpleName();
         }
     }
 
@@ -35,22 +35,22 @@ public class cp {
     }
 
     public cp a(JSONObject jSONObject) {
-        this.f193a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
+        this.f198a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
         this.c = jSONObject.getLong(TiebaInitialize.LogFields.SIZE);
         this.b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
         this.a = jSONObject.getInt("wt");
-        this.f194a = jSONObject.optString("expt");
+        this.f199a = jSONObject.optString("expt");
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m179a() {
+    public JSONObject m182a() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f193a);
+        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f198a);
         jSONObject.put(TiebaInitialize.LogFields.SIZE, this.c);
         jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.b);
         jSONObject.put("wt", this.a);
-        jSONObject.put("expt", this.f194a);
+        jSONObject.put("expt", this.f199a);
         return jSONObject;
     }
 }

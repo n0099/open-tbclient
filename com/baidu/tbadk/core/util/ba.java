@@ -3,10 +3,14 @@ package com.baidu.tbadk.core.util;
 import android.content.Context;
 import android.text.SpannableString;
 import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -17,10 +21,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ba {
-    private static ba cjD = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
+    private static ba cWo = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
     };
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private c cjE;
+    private c cWp;
     private final ConcurrentHashMap<String, b> mHandlers;
     private final List<a> mListeners;
 
@@ -46,10 +50,10 @@ public class ba {
     private ba() {
         this.mListeners = new LinkedList();
         this.mHandlers = new ConcurrentHashMap<>();
-        this.cjE = null;
+        this.cWp = null;
     }
 
-    public static SpannableString af(Context context, String str) {
+    public static SpannableString ay(Context context, String str) {
         int start;
         Matcher matcher = pattern.matcher(str);
         SpannableString spannableString = new SpannableString(str);
@@ -60,20 +64,20 @@ public class ba {
                 group2 = group2 + HanziToPinyin.Token.SEPARATOR;
             }
             int length = group2.length();
-            spannableString.setSpan(new com.baidu.tbadk.widget.richText.c(2, group), matcher.start(), (length + start) - 1, 33);
+            spannableString.setSpan(new com.baidu.tbadk.widget.richText.f(2, group), matcher.start(), (length + start) - 1, 33);
         }
         return spannableString;
     }
 
-    public static ba amO() {
-        return cjD;
+    public static ba aEa() {
+        return cWo;
     }
 
     public void a(final a aVar) {
         if (com.baidu.adp.lib.util.l.isMainThread()) {
             b(aVar);
         } else {
-            com.baidu.adp.lib.g.e.fZ().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ba.2
+            com.baidu.adp.lib.f.e.gy().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ba.2
                 @Override // java.lang.Runnable
                 public void run() {
                     ba.this.b(aVar);
@@ -90,7 +94,7 @@ public class ba {
     }
 
     public void a(c cVar) {
-        this.cjE = cVar;
+        this.cWp = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -140,12 +144,18 @@ public class ba {
                 break;
             }
         }
-        if (!z3 && this.cjE != null) {
+        if (!z3 && this.cWp != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
-                return z4;
+            } else if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && "yun_push_tag".equals(strArr[1])) {
+                MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(tbPageContext.getPageActivity());
+                mainTabActivityConfig.setTargetScheme(strArr[0]);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
+                z4 = z3;
+            } else {
+                b(tbPageContext, str, strArr[0], z, dVar, z2);
             }
-            b(tbPageContext, str, strArr[0], z, dVar, z2);
+            return z4;
         }
         z4 = z3;
         return z4;
@@ -246,7 +256,7 @@ public class ba {
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
         if (pattern.matcher(str2).find()) {
-            this.cjE.a(tbPageContext, str, str2, z, dVar, z2);
+            this.cWp.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 

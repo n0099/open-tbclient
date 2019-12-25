@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class s {
     public static com.vivo.push.model.b a(Context context) {
         com.vivo.push.model.b bVar;

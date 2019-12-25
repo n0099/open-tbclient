@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class HWPushHelper {
     private static boolean a = false;
 
@@ -14,7 +14,7 @@ public class HWPushHelper {
     }
 
     public static boolean hasNetwork(Context context) {
-        return j.m88a(context);
+        return j.m91a(context);
     }
 
     public static boolean isHmsTokenSynced(Context context) {

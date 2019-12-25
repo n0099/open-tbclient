@@ -1,69 +1,78 @@
 package com.baidu.swan.apps.core.pms.a;
 
-import android.util.Log;
-import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.core.a.b.a;
+import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.core.pms.d;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import java.util.HashSet;
-/* loaded from: classes2.dex */
-public class a extends d {
-    private static final boolean DEBUG = b.DEBUG;
-    private a.InterfaceC0168a aJz;
+import com.baidu.swan.apps.core.pms.f;
+/* loaded from: classes9.dex */
+public class a extends f {
+    private InterfaceC0237a blx;
 
-    public a(String str, a.InterfaceC0168a interfaceC0168a) {
+    /* renamed from: com.baidu.swan.apps.core.pms.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0237a {
+        void MT();
+
+        void onError();
+
+        void onSuccess();
+    }
+
+    public a(String str, InterfaceC0237a interfaceC0237a) {
         super(str);
-        this.aJz = interfaceC0168a;
+        this.blx = interfaceC0237a;
     }
 
-    @Override // com.baidu.swan.pms.a.f
-    public void Gj() {
-        super.Gj();
-        if (this.aMu != null) {
-            Gv();
-        }
+    @Override // com.baidu.swan.pms.a.g
+    public void Mw() {
+        super.Mw();
+        er(0);
     }
 
-    @Override // com.baidu.swan.apps.core.pms.d, com.baidu.swan.pms.a.f
+    @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
     public void a(com.baidu.swan.pms.model.a aVar) {
         super.a(aVar);
-        if (DEBUG) {
-            Log.e("SwanAppPkgPreDownloadCallback", "onFetchError: " + aVar.toString());
-        }
-        if (this.aJz != null) {
-            this.aJz.cW(0);
-        }
-        dn(aVar.errorNo);
+        er(-1);
     }
 
-    @Override // com.baidu.swan.apps.core.pms.d
-    protected void Gk() {
-        this.aJg.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ak.a Gu = Gu();
-        this.aJg.add(new UbcFlowEvent("na_end_update_db"));
-        if (Gu == null) {
-            if (this.aJz != null) {
-                this.aJz.El();
+    @Override // com.baidu.swan.apps.core.pms.f
+    protected void MC() {
+        if (ML() == null) {
+            er(1);
+        } else {
+            er(-1);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.core.pms.f
+    protected PMSDownloadType MD() {
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.core.pms.f
+    protected void n(Throwable th) {
+        er(-1);
+    }
+
+    private void er(final int i) {
+        ai.l(new Runnable() { // from class: com.baidu.swan.apps.core.pms.a.a.1
+            @Override // java.lang.Runnable
+            public void run() {
+                if (a.this.blx != null) {
+                    switch (i) {
+                        case -1:
+                            a.this.blx.onError();
+                            return;
+                        case 0:
+                            a.this.blx.MT();
+                            return;
+                        case 1:
+                            a.this.blx.onSuccess();
+                            return;
+                        default:
+                            return;
+                    }
+                }
             }
-        } else if (this.aJz != null) {
-            this.aJz.cW(5);
-        }
-        ai("main_pre_download", this.aJv);
-        HashSet hashSet = new HashSet();
-        hashSet.add(this.mAppId);
-        com.baidu.swan.apps.env.d.HO().HQ().c(hashSet);
-    }
-
-    @Override // com.baidu.swan.apps.core.pms.d
-    protected void k(Throwable th) {
-        if (this.aJz != null) {
-            this.aJz.cW(0);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.pms.d
-    protected PMSDownloadType Gl() {
-        return PMSDownloadType.PRE;
+        });
     }
 }

@@ -1,12 +1,13 @@
 package com.baidu.sapi2;
 
 import android.os.Looper;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.result.CheckUserFaceIdResult;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class r extends HttpHandlerWrap {
     final /* synthetic */ SapiCallback a;
     final /* synthetic */ CheckUserFaceIdResult b;
@@ -47,7 +48,7 @@ public class r extends HttpHandlerWrap {
             JSONObject jSONObject = new JSONObject(str);
             int parseInt = Integer.parseInt(jSONObject.optString("errno"));
             this.b.setResultCode(parseInt);
-            this.b.setResultMsg(jSONObject.optString("errmsg"));
+            this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
             if (parseInt == 0) {
                 this.b.status = jSONObject.optInt("status");
                 this.b.livingUname = jSONObject.optString("livinguname");

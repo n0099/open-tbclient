@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.x;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean sE(int i) {
+    public static boolean uK(int i) {
         switch (i) {
             case CmdConfigSocket.CMD_GROUP_CHAT_MSG /* 202001 */:
             case CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG /* 205001 */:
@@ -21,32 +21,32 @@ public class a {
         }
     }
 
-    public static boolean a(x xVar) {
+    public static boolean b(x xVar) {
         if (xVar == null) {
             return false;
         }
         if ((xVar.isNetSuccess() ? xVar.getServerErrorCode() : xVar.getNetErrorCode()) == 1990055) {
-            bsz();
+            bJU();
             return true;
         }
         return false;
     }
 
-    public static void bsz() {
+    public static void bJU() {
         if (!l.isMainThread()) {
             TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.i.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.bsA();
+                    a.bJV();
                 }
             });
         } else {
-            bsA();
+            bJV();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void bsA() {
+    public static final void bJV() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder(UrlSchemaHelper.REAL_NAME_AUTH_URL);
         sb.append("&u=").append(URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW));

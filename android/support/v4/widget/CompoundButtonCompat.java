@@ -10,7 +10,7 @@ import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.widget.CompoundButton;
 import java.lang.reflect.Field;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class CompoundButtonCompat {
     private static final CompoundButtonCompatBaseImpl IMPL;
 
@@ -24,7 +24,7 @@ public final class CompoundButtonCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class CompoundButtonCompatBaseImpl {
         private static final String TAG = "CompoundButtonCompat";
         private static Field sButtonDrawableField;
@@ -82,7 +82,7 @@ public final class CompoundButtonCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class CompoundButtonCompatApi21Impl extends CompoundButtonCompatBaseImpl {
         CompoundButtonCompatApi21Impl() {
         }
@@ -109,7 +109,7 @@ public final class CompoundButtonCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class CompoundButtonCompatApi23Impl extends CompoundButtonCompatApi21Impl {
         CompoundButtonCompatApi23Impl() {
         }

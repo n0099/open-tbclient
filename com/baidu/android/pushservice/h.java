@@ -22,7 +22,7 @@ import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.coloros.mcssdk.mode.CommandMessage;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class h {
     private static h c;
     private Context a;
@@ -112,7 +112,7 @@ public class h {
 
     private boolean f(Intent intent) {
         com.baidu.android.pushservice.a.f c2;
-        String stringExtra = intent.getStringExtra(Constants.PACKAGE_NAME);
+        String stringExtra = intent.getStringExtra("package_name");
         String stringExtra2 = intent.getStringExtra(Constants.APP_ID);
         if (TextUtils.isEmpty(stringExtra2) && (c2 = com.baidu.android.pushservice.a.b.a(this.a).c(stringExtra)) != null) {
             stringExtra2 = c2.a();

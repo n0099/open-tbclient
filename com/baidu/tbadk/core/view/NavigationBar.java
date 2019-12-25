@@ -49,6 +49,8 @@ public class NavigationBar extends RelativeLayout {
     private FrameLayout mContentLayout;
     private Activity mCurrentActivity;
     private int mFixedNavHeight;
+    private boolean mIsClose;
+    private boolean mIsCorner;
     private LinearLayout mLeftBox;
     private View.OnClickListener mLoginListener;
     private TextView mLoginView;
@@ -377,6 +379,14 @@ public class NavigationBar extends RelativeLayout {
         return this.mCenterText;
     }
 
+    public void setIsClose(boolean z) {
+        this.mIsClose = z;
+    }
+
+    public void setIsCorner(boolean z) {
+        this.mIsCorner = z;
+    }
+
     public TextView setTitleText(String str) {
         if (this.mTextTitle == null) {
             this.mTextTitle = (TextView) getViewFromLayoutFile(R.layout.widget_nb_item_title);
@@ -592,13 +602,21 @@ public class NavigationBar extends RelativeLayout {
         this.mBottomLine.setVisibility(8);
     }
 
+    public void isShowBottomLine(boolean z) {
+        this.mBottomLine.setVisibility(z ? 0 : 8);
+    }
+
     private View getViewFromLayoutFile(int i) {
         return LayoutInflater.from(this.mCurrentActivity).inflate(i, (ViewGroup) this, false);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(com.baidu.adp.base.e<?> eVar, int i) {
-        am.setBackgroundColor(this, R.color.cp_bg_line_h, i);
+        if (this.mIsCorner) {
+            am.setBackgroundResource(this, R.drawable.nav_bg_corner_shape, i);
+        } else {
+            am.setBackgroundColor(this, R.color.cp_bg_line_h, i);
+        }
         am.setBackgroundColor(this.mBottomLine, this.mBottomLineColor, i);
         onBackBtnOnChangeSkin(i);
         am.setNavbarTitleColor(this.mTextTitle, R.color.cp_cont_b, R.color.s_navbar_title_color);
@@ -626,8 +644,10 @@ public class NavigationBar extends RelativeLayout {
         }
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             am.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
+        } else if (this.mIsClose) {
+            SvgManager.aDW().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
-            SvgManager.amL().a(this.mBackImageView, R.drawable.icon_pure_topbar_return_n_svg, R.color.cp_cont_b, null);
+            SvgManager.aDW().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -637,8 +657,10 @@ public class NavigationBar extends RelativeLayout {
         }
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             am.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
+        } else if (this.mIsClose) {
+            SvgManager.aDW().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, (SvgManager.SvgResourceStateType) null);
         } else {
-            SvgManager.amL().a(this.mBackImageView, R.drawable.icon_pure_topbar_return_n_svg, i2, null);
+            SvgManager.aDW().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, i2, (SvgManager.SvgResourceStateType) null);
         }
     }
 

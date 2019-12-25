@@ -5,19 +5,20 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.live.k.a;
+import com.baidu.live.data.e;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.liveroom.activeview.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
-    private b.a dUr;
-    private List<com.baidu.live.data.c> mOriginDatas;
-    private List<com.baidu.live.data.c> mDatas = new ArrayList();
-    private SimpleArrayMap<Integer, a> dUz = new SimpleArrayMap<>();
+    private b.a eJR;
+    private List<e> mOriginDatas;
+    private List<e> mDatas = new ArrayList();
+    private SimpleArrayMap<Integer, a> eJZ = new SimpleArrayMap<>();
 
-    public void setData(List<com.baidu.live.data.c> list) {
+    public void setData(List<e> list) {
         this.mOriginDatas = list;
         this.mDatas = new ArrayList();
         ListUtils.addAll(this.mDatas, 0, list);
@@ -27,7 +28,7 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
         }
     }
 
-    public List<com.baidu.live.data.c> aNK() {
+    public List<e> bfg() {
         return this.mOriginDatas;
     }
 
@@ -52,37 +53,37 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(final ViewGroup viewGroup, int i) {
-        a aVar = this.dUz.get(Integer.valueOf(i));
+        a aVar = this.eJZ.get(Integer.valueOf(i));
         if (aVar == null) {
             View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.ala_active_view_item, (ViewGroup) null);
             aVar = new a(inflate, i);
-            this.dUz.put(Integer.valueOf(i), aVar);
+            this.eJZ.put(Integer.valueOf(i), aVar);
             inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPagerAdapter.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (AlaActiveBannerViewPagerAdapter.this.dUr != null) {
-                        AlaActiveBannerViewPagerAdapter.this.dUr.a(viewGroup, view.getTag(a.g.ala_active_view_data), ((Integer) view.getTag(a.g.ala_active_view_position)).intValue());
+                    if (AlaActiveBannerViewPagerAdapter.this.eJR != null) {
+                        AlaActiveBannerViewPagerAdapter.this.eJR.a(viewGroup, view.getTag(a.g.ala_active_view_data), ((Integer) view.getTag(a.g.ala_active_view_position)).intValue());
                     }
                 }
             });
             viewGroup.addView(aVar.getRootView(), 0);
         }
-        ni(i);
+        pz(i);
         return aVar.getRootView();
     }
 
-    public void ni(int i) {
-        com.baidu.live.data.c cVar = this.mDatas.get(i);
-        if (this.dUr != null && cVar.Ot && this.dUr.np(cVar.OC)) {
-            cVar.Ot = false;
+    public void pz(int i) {
+        e eVar = this.mDatas.get(i);
+        if (this.eJR != null && eVar.Vt && this.eJR.pF(eVar.VC)) {
+            eVar.Vt = false;
         }
-        a aVar = this.dUz.get(Integer.valueOf(i));
+        a aVar = this.eJZ.get(Integer.valueOf(i));
         if (aVar != null) {
-            aVar.a(cVar);
+            aVar.a(eVar);
         }
     }
 
-    public com.baidu.live.data.c nj(int i) {
+    public e pA(int i) {
         if (this.mDatas == null || this.mDatas.size() <= i) {
             return null;
         }
@@ -90,6 +91,6 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
     }
 
     public void a(b.a aVar) {
-        this.dUr = aVar;
+        this.eJR = aVar;
     }
 }

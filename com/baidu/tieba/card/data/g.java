@@ -1,41 +1,33 @@
 package com.baidu.tieba.card.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class g extends a {
-    public static final BdUniqueId ePf = BdUniqueId.gen();
-    private String eLv;
-    private List<com.baidu.tieba.horizonalList.widget.c> mList = new ArrayList();
-    private String stType;
+import com.xiaomi.mipush.sdk.Constants;
+/* loaded from: classes5.dex */
+public class g implements com.baidu.tieba.horizonalList.widget.c {
+    public String forumAvatar;
+    public long forumId;
+    public String forumName;
+    public boolean isLiked;
+    public int rank;
 
-    @Override // com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return ePf;
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof com.baidu.tbadk.widget.horizonalScrollListView.a) {
+            com.baidu.tbadk.widget.horizonalScrollListView.a aVar = (com.baidu.tbadk.widget.horizonalScrollListView.a) obj;
+            return aVar.forumId == this.forumId && aVar.forumName.equals(this.forumName) && aVar.forumAvatar.equals(this.forumAvatar) && aVar.isLiked == this.isLiked && aVar.rank == this.rank;
+        }
+        return false;
     }
 
-    public void b(com.baidu.tieba.horizonalList.widget.c cVar) {
-        this.mList.add(cVar);
-    }
-
-    public List<com.baidu.tieba.horizonalList.widget.c> getDataList() {
-        return this.mList;
-    }
-
-    public String getStType() {
-        return this.stType;
-    }
-
-    public void setStType(String str) {
-        this.stType = str;
-    }
-
-    public String baM() {
-        return this.eLv;
-    }
-
-    public void setYuelaouLocate(String str) {
-        this.eLv = str;
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[HotForumInfoData:");
+        sb.append("rank=").append(this.rank).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("forumAvatar=").append(this.forumAvatar).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("forumName=").append(this.forumName).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("forumId=").append(this.forumId).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("isLiked=").append(this.isLiked).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("]");
+        return sb.toString();
     }
 }

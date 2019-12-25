@@ -10,7 +10,7 @@ import com.baidu.tieba.pbextra.a.a;
 import com.baidu.tieba.pbextra.emotion.EmotionEditActivity;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.tbadkCore.data.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PbExtraStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(EmotionEditActivityConfig.class, EmotionEditActivity.class);
@@ -19,10 +19,10 @@ public class PbExtraStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof d)) {
-                    ((d) customResponsedMessage.getData()).cnO().add(new a(null, PostData.jhy));
+                    ((d) customResponsedMessage.getData()).cHU().add(new a(null, PostData.kbL));
                 }
             }
         });
-        PostData.jhD = true;
+        PostData.kbQ = true;
     }
 }

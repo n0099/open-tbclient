@@ -1,16 +1,14 @@
 package com.tb.airbnb.lottie.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class d {
-
-    /* renamed from: if  reason: not valid java name */
-    private float f3if;
+    private float kj;
     private int n;
 
-    public void o(float f) {
-        this.f3if += f;
+    public void add(float f) {
+        this.kj += f;
         this.n++;
         if (this.n == Integer.MAX_VALUE) {
-            this.f3if /= 2.0f;
+            this.kj /= 2.0f;
             this.n /= 2;
         }
     }

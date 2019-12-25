@@ -5,51 +5,51 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.NetMessageListener;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.ResponsedMessage;
-import com.baidu.live.data.e;
+import com.baidu.live.data.g;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.charm.ALaCharmCardActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends BdBaseModel<ALaCharmCardActivity> {
-    private e dFo;
-    private a dFp;
-    private NetMessageListener dFq;
+    private g ers;
+    private a ert;
+    private NetMessageListener eru;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void R(int i, String str);
+        void aa(int i, String str);
 
-        void a(e eVar);
+        void b(g gVar);
     }
 
     public b(TbPageContext<ALaCharmCardActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.dFq = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
+        this.eru = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
             @Override // com.baidu.live.adp.framework.listener.NetMessageListener
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && (responsedMessage instanceof OnlineListHttpResponseMessage)) {
                     int error = responsedMessage.getError();
-                    e eVar = null;
+                    g gVar = null;
                     if (responsedMessage instanceof OnlineListHttpResponseMessage) {
-                        eVar = ((OnlineListHttpResponseMessage) responsedMessage).aKw();
+                        gVar = ((OnlineListHttpResponseMessage) responsedMessage).bbm();
                     }
                     if (error == 0) {
-                        b.this.dFo = eVar;
-                        if (b.this.dFp != null) {
-                            b.this.dFp.a(b.this.dFo);
+                        b.this.ers = gVar;
+                        if (b.this.ert != null) {
+                            b.this.ert.b(b.this.ers);
                         }
-                    } else if (b.this.dFp != null) {
-                        b.this.dFp.R(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (b.this.ert != null) {
+                        b.this.ert.aa(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.dFp = aVar;
-        MessageManager.getInstance().registerListener(this.dFq);
+        this.ert = aVar;
+        MessageManager.getInstance().registerListener(this.eru);
         com.baidu.live.tieba.f.a.a.a(1021008, "ala/live/getAudienceInfo", OnlineListHttpResponseMessage.class, false, true, true, true);
     }
 
-    public void q(String str, int i, int i2) {
+    public void s(String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(1021008);
         httpMessage.addParam("live_id", str);
         httpMessage.addParam(Config.PACKAGE_NAME, i);
@@ -57,7 +57,7 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void r(String str, int i, int i2) {
+    public void t(String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(1021008);
         httpMessage.addParam("live_id", str);
         httpMessage.addParam(Config.PACKAGE_NAME, i);
@@ -66,7 +66,7 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dFq);
+        MessageManager.getInstance().unRegisterListener(this.eru);
         MessageManager.getInstance().unRegisterTask(1021008);
         cancelMessage();
     }

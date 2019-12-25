@@ -2,25 +2,25 @@ package com.baidu.tieba.square.a;
 
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends d {
-    private static final String jaQ = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
+    private static final String jVn = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
 
-    public String cmv() {
-        setUrl(jaQ);
+    public String cGE() {
+        setUrl(jVn);
         return getResult();
     }
 
-    public long cmw() {
-        if (this.bUY != null) {
-            return this.bUY.amp().amR().cjO.ov;
+    public long cGF() {
+        if (this.cHo != null) {
+            return this.cHo.aDB().aEd().cWz.qO;
         }
         return 0L;
     }
 
-    public long cmx() {
-        if (this.bUY != null) {
-            return this.bUY.amp().amR().cjO.connectTime;
+    public long cGG() {
+        if (this.cHo != null) {
+            return this.cHo.aDB().aEd().cWz.connectTime;
         }
         return 0L;
     }

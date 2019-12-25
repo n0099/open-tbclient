@@ -47,7 +47,7 @@ import android.widget.SpinnerAdapter;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayLayout.ActionBarVisibilityCallback {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final long FADE_IN_DURATION_MS = 200;
@@ -769,9 +769,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         if (shouldAnimateContextView()) {
             if (z) {
                 viewPropertyAnimatorCompat2 = this.mDecorToolbar.setupAnimatorToVisibility(4, FADE_OUT_DURATION_MS);
-                viewPropertyAnimatorCompat = this.mContextView.setupAnimatorToVisibility(0, FADE_IN_DURATION_MS);
+                viewPropertyAnimatorCompat = this.mContextView.setupAnimatorToVisibility(0, 200L);
             } else {
-                viewPropertyAnimatorCompat = this.mDecorToolbar.setupAnimatorToVisibility(0, FADE_IN_DURATION_MS);
+                viewPropertyAnimatorCompat = this.mDecorToolbar.setupAnimatorToVisibility(0, 200L);
                 viewPropertyAnimatorCompat2 = this.mContextView.setupAnimatorToVisibility(8, FADE_OUT_DURATION_MS);
             }
             ViewPropertyAnimatorCompatSet viewPropertyAnimatorCompatSet = new ViewPropertyAnimatorCompatSet();
@@ -852,7 +852,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class ActionModeImpl extends ActionMode implements MenuBuilder.Callback {
         private final Context mActionModeContext;
         private ActionMode.Callback mCallback;
@@ -1005,7 +1005,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class TabImpl extends ActionBar.Tab {
         private ActionBar.TabListener mCallback;
         private CharSequence mContentDesc;

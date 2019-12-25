@@ -9,9 +9,7 @@ import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-import org.apache.http.entity.mime.MIME;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class MultipartBody extends RequestBody {
     private final ByteString boundary;
     private long contentLength = -1;
@@ -154,7 +152,7 @@ public final class MultipartBody extends RequestBody {
         return sb;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Part {
         final RequestBody body;
         @Nullable
@@ -171,7 +169,7 @@ public final class MultipartBody extends RequestBody {
             if (headers != null && headers.get("Content-Type") != null) {
                 throw new IllegalArgumentException("Unexpected header: Content-Type");
             }
-            if (headers != null && headers.get(HTTP.CONTENT_LEN) != null) {
+            if (headers != null && headers.get("Content-Length") != null) {
                 throw new IllegalArgumentException("Unexpected header: Content-Length");
             }
             return new Part(headers, requestBody);
@@ -191,7 +189,7 @@ public final class MultipartBody extends RequestBody {
                 sb.append("; filename=");
                 MultipartBody.appendQuotedString(sb, str2);
             }
-            return create(Headers.of(MIME.CONTENT_DISPOSITION, sb.toString()), requestBody);
+            return create(Headers.of("Content-Disposition", sb.toString()), requestBody);
         }
 
         private Part(@Nullable Headers headers, RequestBody requestBody) {
@@ -209,7 +207,7 @@ public final class MultipartBody extends RequestBody {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         private final ByteString boundary;
         private final List<Part> parts;

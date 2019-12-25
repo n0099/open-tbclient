@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.client.socket.link;
 
 import com.baidu.live.adp.framework.client.socket.SenderData;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdSocketLinkService {
     public static boolean isOpen() {
         return false;

@@ -4,8 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.SchemeRuntime;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.ioc.ISchemeIoc;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class SchemeSecurity {
     public static boolean needShowConfirmWindow(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         ISchemeIoc schemeIoc = SchemeRuntime.getSchemeIoc();

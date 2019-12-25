@@ -10,11 +10,11 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 import com.baidu.swan.impl.map.location.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FlipperFrameLayout extends FrameLayout implements h.a {
-    private h bHf;
-    private boolean bHn;
-    private float mLastY;
+    private float Bi;
+    private boolean csD;
+    private h csv;
 
     public FlipperFrameLayout(@NonNull Context context) {
         super(context);
@@ -29,31 +29,31 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
     }
 
     public void setViewFlipper(h hVar) {
-        this.bHf = hVar;
+        this.csv = hVar;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.bHn || this.bHf == null) {
-            this.mLastY = motionEvent.getRawY();
+        if (this.csD || this.csv == null) {
+            this.Bi = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
         switch (motionEvent.getAction()) {
             case 0:
-                this.mLastY = motionEvent.getRawY();
+                this.Bi = motionEvent.getRawY();
                 break;
             case 1:
             case 3:
-                this.mLastY = motionEvent.getRawY();
+                this.Bi = motionEvent.getRawY();
                 break;
             case 2:
-                float rawY = motionEvent.getRawY() - this.mLastY;
+                float rawY = motionEvent.getRawY() - this.Bi;
                 boolean z = rawY <= 0.0f;
-                if (z && !this.bHf.ZT() && aa(rawY)) {
-                    this.bHf.du(true);
+                if (z && !this.csv.isFlipped() && af(rawY)) {
+                    this.csv.eE(true);
                     return true;
-                } else if (!z && ZP() && this.bHf.ZT() && aa(rawY)) {
-                    this.bHf.du(false);
+                } else if (!z && apz() && this.csv.isFlipped() && af(rawY)) {
+                    this.csv.eE(false);
                     return true;
                 }
                 break;
@@ -61,7 +61,7 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    private boolean ZP() {
+    private boolean apz() {
         if (getChildCount() <= 0) {
             return true;
         }
@@ -69,17 +69,17 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
         return ((childAt instanceof ScrollingView) && childAt.canScrollVertically(-1)) ? false : true;
     }
 
-    private boolean aa(float f) {
+    private boolean af(float f) {
         return Math.abs(f) >= ((float) ViewConfiguration.getTouchSlop());
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
-    public void dr(boolean z) {
-        this.bHn = false;
+    public void eC(boolean z) {
+        this.csD = false;
     }
 
     @Override // com.baidu.swan.impl.map.location.h.a
-    public void ds(boolean z) {
-        this.bHn = true;
+    public void eD(boolean z) {
+        this.csD = true;
     }
 }

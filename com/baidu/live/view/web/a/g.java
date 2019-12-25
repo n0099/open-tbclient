@@ -1,50 +1,41 @@
 package com.baidu.live.view.web.a;
 
+import android.app.Activity;
 import android.util.Log;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.data.ShareEntity;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.atomdata.AlaPersonCardActivityConfig;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.extrajump.ExtraJumpManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class g extends com.baidu.live.view.web.a {
-    private long userId;
-    private String userName = "";
+    private Activity context;
+
+    public g(Activity activity) {
+        this.context = activity;
+    }
 
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "shareBridge";
+        return "personalCenterBridge";
     }
 
     @Override // com.baidu.live.view.web.a
-    public void cZ(String str) {
-        Log.d("JsInterface", "@@ JsInterface-impl ShareBridgeJsInterface params = " + str);
+    public void dT(String str) {
+        Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString("title");
-            String optString2 = jSONObject.optString("content");
-            String optString3 = jSONObject.optString("imageUrl");
-            String optString4 = jSONObject.optString("linkUrl");
-            int optInt = jSONObject.optInt("type");
-            ShareEntity shareEntity = new ShareEntity();
-            shareEntity.title = optString;
-            shareEntity.content = optString2;
-            shareEntity.imageUrl = optString3;
-            shareEntity.linkUrl = optString4;
-            shareEntity.shareType = optInt;
-            shareEntity.userId = this.userId;
-            shareEntity.userName = this.userName;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2913077, shareEntity));
+            String optString = jSONObject.optString("uid");
+            if (jSONObject.optBoolean("isCard")) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), optString)));
+            } else {
+                ExtraJumpManager.getInstance().buildJumpExtra().jumpToPersonalCenter(this.context, optString);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
-
-    public void setUserId(long j) {
-        this.userId = j;
-    }
-
-    public void setUserName(String str) {
-        this.userName = str;
     }
 }

@@ -7,7 +7,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class Utils {
     public static final int MEDIA_TYPE_AUDIO = 2;
     public static final int MEDIA_TYPE_IMAGE = 1;

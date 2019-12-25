@@ -1,20 +1,10 @@
 package kotlin.io;
 
-import java.io.File;
-import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
+import kotlin.jvm.internal.PropertyReference0Impl;
+import kotlin.jvm.internal.s;
+import kotlin.reflect.j;
+/* loaded from: classes4.dex */
 public final class b {
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final String b(File file, File file2, String str) {
-        StringBuilder sb = new StringBuilder(file.toString());
-        if (file2 != null) {
-            sb.append(" -> " + file2);
-        }
-        if (str != null) {
-            sb.append(": " + str);
-        }
-        String sb2 = sb.toString();
-        p.h(sb2, "sb.toString()");
-        return sb2;
-    }
+    static final /* synthetic */ j[] clD = {s.a(new PropertyReference0Impl(s.j(b.class, "kotlin-stdlib"), "stdin", "getStdin()Ljava/io/BufferedReader;"))};
+    private static final kotlin.c mYU = kotlin.d.b(ConsoleKt$stdin$2.INSTANCE);
 }

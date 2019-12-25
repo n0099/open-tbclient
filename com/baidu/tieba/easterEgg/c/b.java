@@ -10,35 +10,37 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.easterEgg.d;
+import com.baidu.webkit.internal.ETAG;
+import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b extends k {
-    private d eXC;
-    private HashMap<String, String> eXD;
-    private com.google.gson.d eXE;
-    private SparseArray<String> eXF;
+    private d fMk;
+    private HashMap<String, String> fMl;
+    private Gson fMm;
+    private SparseArray<String> fMn;
 
     public b(int i) {
         super(i);
-        this.eXE = new com.google.gson.d();
-        bdg();
+        this.fMm = new Gson();
+        buC();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
     public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.eXF.get(socketMessage.getCmd());
-        if (str != null && this.eXD != null && this.eXD.get(str) != null && this.eXC != null) {
-            this.eXC.V(str, this.eXE.toJson(this.eXD.get(str)), this.eXE.toJson(this.eXE.toJson(socketMessage.getData())));
+        String str = this.fMn.get(socketMessage.getCmd());
+        if (str != null && this.fMl != null && this.fMl.get(str) != null && this.fMk != null) {
+            this.fMk.aj(str, this.fMm.toJson(this.fMl.get(str)), this.fMm.toJson(this.fMm.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void bdg() {
+    private void buC() {
         int i;
-        this.eXF = new SparseArray<>();
+        this.fMn = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!v.isEmpty(findHttpTasks)) {
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
@@ -47,19 +49,19 @@ public class b extends k {
                     String[] split = url.split("[?]");
                     String str = split[1];
                     String str2 = split[0];
-                    if (!aq.isEmpty(str) && str.contains("=") && (i = com.baidu.adp.lib.g.b.toInt(str.split("[=]")[1], 0)) != 0) {
-                        this.eXF.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                    if (!aq.isEmpty(str) && str.contains(ETAG.EQUAL) && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
+                        this.fMn.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
         }
     }
 
-    public void r(HashMap<String, String> hashMap) {
-        this.eXD = hashMap;
+    public void q(HashMap<String, String> hashMap) {
+        this.fMl = hashMap;
     }
 
     public void a(d dVar) {
-        this.eXC = dVar;
+        this.fMk = dVar;
     }
 }

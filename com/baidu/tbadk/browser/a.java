@@ -20,7 +20,6 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -28,10 +27,11 @@ import com.baidu.tbadk.core.util.ag;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.util.Base64Encoder;
+import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static String bTL;
+    public static String cGi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String parseWebViewUrl(String str, String str2) {
@@ -47,8 +47,8 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void mh(String str) {
-        bTL = str;
+    public static void rt(String str) {
+        cGi = str;
     }
 
     public static void startWebActivity(Context context, String str) {
@@ -80,7 +80,7 @@ public class a {
     }
 
     public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        afF();
+        awx();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -95,7 +95,7 @@ public class a {
     }
 
     public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        afF();
+        awx();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -134,9 +134,9 @@ public class a {
             }
             for (Pair<String, String> pair : list) {
                 if (pair != null && !TextUtils.isEmpty((CharSequence) pair.first)) {
-                    sb.append("&");
+                    sb.append(ETAG.ITEM_SEPARATOR);
                     sb.append((String) pair.first);
-                    sb.append("=");
+                    sb.append(ETAG.EQUAL);
                     sb.append((String) pair.second);
                 }
             }
@@ -150,7 +150,7 @@ public class a {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             } else {
                 sb.append("?");
             }
@@ -183,7 +183,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.agp().mJ(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.axg().rX(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -212,9 +212,7 @@ public class a {
             }
             cookieManager.setCookie(".baidu.com", "BAIDUCUID=" + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             cookieManager.setCookie(".baidu.com", "TBBRAND=" + Build.MODEL + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-            if (TbSingleton.getInstance().hasAgreeSecretProtocol()) {
-                cookieManager.setCookie(".baidu.com", "BAIDUZID=" + FH.gz(TbadkCoreApplication.getInst()) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-            }
+            cookieManager.setCookie(".baidu.com", "BAIDUZID=" + FH.gz(TbadkCoreApplication.getInst()) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             cookieManager.setCookie(".baidu.com", "cuid_galaxy2=" + cuidGalaxy2 + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             cookieManager.setCookie(".baidu.com", "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             try {
@@ -234,7 +232,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void afF() {
+    private static void awx() {
         new ag("open_webview", true).start();
     }
 }

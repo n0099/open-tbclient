@@ -1,8 +1,10 @@
 package com.google.zxing.client.result;
 
+import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class VEventResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
@@ -29,7 +31,7 @@ public final class VEventResultParser extends ResultParser {
             }
         }
         String matchSingleVCardPrefixedField6 = matchSingleVCardPrefixedField("DESCRIPTION", massagedText, true);
-        String matchSingleVCardPrefixedField7 = matchSingleVCardPrefixedField("GEO", massagedText, true);
+        String matchSingleVCardPrefixedField7 = matchSingleVCardPrefixedField(BdSailorConfig.SAILOR_BASE_GEO, massagedText, true);
         if (matchSingleVCardPrefixedField7 == null) {
             parseDouble = Double.NaN;
             parseDouble2 = Double.NaN;
@@ -75,7 +77,7 @@ public final class VEventResultParser extends ResultParser {
 
     private static String stripMailto(String str) {
         if (str != null) {
-            if (str.startsWith("mailto:") || str.startsWith("MAILTO:")) {
+            if (str.startsWith(WebView.SCHEME_MAILTO) || str.startsWith("MAILTO:")) {
                 return str.substring(7);
             }
             return str;

@@ -1,7 +1,7 @@
 package com.tb.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class o extends f<com.tb.airbnb.lottie.model.d> {
     public o(List<? extends com.tb.airbnb.lottie.a.a<com.tb.airbnb.lottie.model.d>> list) {
         super(list);
@@ -12,6 +12,6 @@ public class o extends f<com.tb.airbnb.lottie.model.d> {
     @Override // com.tb.airbnb.lottie.a.b.a
     /* renamed from: h */
     public com.tb.airbnb.lottie.model.d a(com.tb.airbnb.lottie.a.a<com.tb.airbnb.lottie.model.d> aVar, float f) {
-        return aVar.dK;
+        return aVar.kn;
     }
 }

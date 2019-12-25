@@ -5,7 +5,6 @@ import java.io.UnsupportedEncodingException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class Encryption {
     private static SecretKeySpec createKey(String str) {
@@ -22,7 +21,7 @@ public class Encryption {
             stringBuffer.setLength(16);
         }
         try {
-            bArr = stringBuffer.toString().getBytes(HTTP.UTF_8);
+            bArr = stringBuffer.toString().getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

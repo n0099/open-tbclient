@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
@@ -18,13 +18,12 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.result.Web2NativeLoginResult;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AccountCenterActivity extends BaseActivity {
     public static final String EXTRA_LOAD_WEIXIN = "extra_load_weixin";
     public static final String EXTRA_WEIIXIN_BIND_URL = "extra_weixin_bind_url";
@@ -98,7 +97,7 @@ public class AccountCenterActivity extends BaseActivity {
         AccountCenterDTO accountCenterDTO = PassportSDK.getInstance().getAccountCenterDTO();
         if (accountCenterDTO == null) {
             this.u.setResultCode(-204);
-            this.u.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
+            this.u.setResultMsg("参数错误，请稍后再试");
             a(this.u);
             return;
         }
@@ -130,7 +129,7 @@ public class AccountCenterActivity extends BaseActivity {
     public void onClose() {
         super.onClose();
         this.u.setResultCode(-301);
-        this.u.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        this.u.setResultMsg("您已取消操作");
         a(this.u);
     }
 
@@ -144,7 +143,7 @@ public class AccountCenterActivity extends BaseActivity {
         } catch (Throwable th) {
             reportWebviewError(th);
             this.u.setResultCode(-202);
-            this.u.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
+            this.u.setResultMsg("网络连接失败，请检查网络设置");
             a(this.u);
         }
     }
@@ -329,7 +328,7 @@ public class AccountCenterActivity extends BaseActivity {
             return;
         }
         this.u.setResultCode(-204);
-        this.u.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
+        this.u.setResultMsg("参数错误，请稍后再试");
         a(this.u);
     }
 

@@ -2,13 +2,14 @@ package com.baidu.tieba.ala.alasquare.special_forum.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.alasquare.special_forum.data.d;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     public List<d> followList;
     public boolean hasMore;
@@ -29,7 +30,7 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             this.hasMore = jSONObject.optInt("has_more") == 1;
             this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
-            this.totalFollowCount = jSONObject.optInt("total_follow_num");
+            this.totalFollowCount = jSONObject.optInt(PersonListActivityConfig.TOTLEFOLLOWNUM);
             JSONArray optJSONArray = jSONObject.optJSONArray("follow_list");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {

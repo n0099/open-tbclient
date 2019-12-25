@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.push.hl;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class c implements Runnable {
     final /* synthetic */ Context a;
 
@@ -15,10 +15,10 @@ public final class c implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        boolean m67b;
+        boolean m70b;
         String b;
-        m67b = b.m67b(this.a);
-        if (m67b) {
+        m70b = b.m70b(this.a);
+        if (m70b) {
             b = b.b(com.xiaomi.push.service.ag.a(this.a).a(hl.AggregationSdkMonitorDepth.a(), 4));
             if (TextUtils.isEmpty(b)) {
                 return;

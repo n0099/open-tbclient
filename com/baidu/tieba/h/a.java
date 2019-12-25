@@ -3,60 +3,60 @@ package com.baidu.tieba.h;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String arG;
-    private String dgp;
-    private String fXA;
-    private String fXB;
-    private String fXC;
-    private String fXD;
+    private String azq;
+    private String dUb;
+    private String gLY;
+    private String gLZ;
+    private String gMa;
+    private String gMb;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.fXA = String.valueOf(esportRank.rank);
-            this.fXB = esportRank.text;
-            this.dgp = esportRank.url;
+            this.gLY = String.valueOf(esportRank.rank);
+            this.gLZ = esportRank.text;
+            this.dUb = esportRank.url;
             if (esportRank.user != null) {
-                this.fXC = esportRank.user.steam_name;
-                this.fXD = esportRank.user.steam_portrait;
+                this.gMa = esportRank.user.steam_name;
+                this.gMb = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String brI() {
+    public String bJj() {
         return this.mTitle;
     }
 
-    public String brJ() {
-        return this.fXA;
+    public String bJk() {
+        return this.gLY;
     }
 
-    public String brK() {
-        return this.fXB;
+    public String bJl() {
+        return this.gLZ;
     }
 
-    public String brL() {
-        return this.fXC;
+    public String bJm() {
+        return this.gMa;
     }
 
-    public String brM() {
-        return this.fXD;
+    public String bJn() {
+        return this.gMb;
     }
 
-    public String brN() {
-        return this.arG;
+    public String bJo() {
+        return this.azq;
     }
 
-    public void wF(String str) {
-        this.arG = str;
+    public void Bu(String str) {
+        this.azq = str;
     }
 
-    public String brO() {
-        return this.dgp;
+    public String bJp() {
+        return this.dUb;
     }
 
-    public void wG(String str) {
-        this.dgp = str;
+    public void Bv(String str) {
+        this.dUb = str;
     }
 }

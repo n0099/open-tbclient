@@ -32,7 +32,7 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void duplayerEncrypt(byte[] bArr, int i, byte[] bArr2) {
-        Utils.b(bArr, i, bArr2);
+        Utils.a(bArr, i, bArr2);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider

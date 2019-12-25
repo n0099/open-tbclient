@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class StayTimeBean {
     public long endTime;
     public long liveId;

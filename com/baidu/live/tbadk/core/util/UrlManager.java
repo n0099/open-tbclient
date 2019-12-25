@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class UrlManager {
     public static final String DEFAULT_PARAM = "default_param";
     public static final int MATCH = 0;
@@ -26,22 +26,22 @@ public class UrlManager {
     private static final String patternText = "(http://|ftp://|https://|www){1,1}[^一-龥\\s]*";
     private static final Pattern pattern = Pattern.compile(patternText, 2);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface UrlDealListener {
         int deal(TbPageContext<?> tbPageContext, String[] strArr);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface UrlSchemaHandler {
         void deal(TbPageContext<?> tbPageContext, Map<String, String> map);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface UrlWebDealListener {
         void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface UrlWebDialogCancelListener {
         void onCancel();
     }

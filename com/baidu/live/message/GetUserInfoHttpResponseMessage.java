@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GetUserInfoHttpResponseMessage extends JsonHttpResponsedMessage {
     public GetUserInfoHttpResponseMessage() {
         super(1021125);

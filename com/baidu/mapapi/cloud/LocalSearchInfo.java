@@ -1,9 +1,9 @@
 package com.baidu.mapapi.cloud;
 
 import com.baidu.mapapi.http.HttpClient;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public class LocalSearchInfo extends BaseCloudSearchInfo {
     public String region;
@@ -25,11 +25,11 @@ public class LocalSearchInfo extends BaseCloudSearchInfo {
             if (this.region == null || this.region.equals("") || this.region.length() > 25) {
                 return null;
             }
-            sb.append("&");
+            sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("region");
-            sb.append("=");
+            sb.append(ETAG.EQUAL);
             try {
-                sb.append(URLEncoder.encode(this.region, HTTP.UTF_8));
+                sb.append(URLEncoder.encode(this.region, "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

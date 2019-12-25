@@ -14,6 +14,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.account.utils.SocialEncodeUtils;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMGetMemberListRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     private static final int MAX_BUID_TO_NICK_COUNT = 200;
     public static final String TAG = "IMGetMemberListRequest";
@@ -152,7 +153,7 @@ public class IMGetMemberListRequest implements HttpHelper.Request, HttpHelper.Re
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(i2);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append("android");
+        stringBuffer.append(PraiseDataPassUtil.KEY_FROM_OS);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(AccountManagerImpl.getInstance(this.mContext).getAppVersion());
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);

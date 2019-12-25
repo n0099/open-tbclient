@@ -5,19 +5,19 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.imagemanager.TbImageMemoryCache;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class StickerAction extends ImageAction {
     public static final String ACTION_NAME = "sticker";
     public String mStickerPath = "";
 
     @Override // com.baidu.live.tbadk.img.effect.ImageAction
     public String getActionName() {
-        return ACTION_NAME;
+        return "sticker";
     }
 
     public static ImageOperation newOperation() {
         ImageOperation imageOperation = new ImageOperation();
-        imageOperation.actionName = ACTION_NAME;
+        imageOperation.actionName = "sticker";
         return imageOperation;
     }
 

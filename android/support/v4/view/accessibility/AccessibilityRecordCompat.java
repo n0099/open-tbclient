@@ -3,87 +3,12 @@ package android.support.v4.view.accessibility;
 import android.os.Build;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.accessibility.AccessibilityRecord;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AccessibilityRecordCompat {
-    private static final AccessibilityRecordCompatBaseImpl IMPL;
     private final AccessibilityRecord mRecord;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static class AccessibilityRecordCompatBaseImpl {
-        AccessibilityRecordCompatBaseImpl() {
-        }
-
-        public int getMaxScrollX(AccessibilityRecord accessibilityRecord) {
-            return 0;
-        }
-
-        public int getMaxScrollY(AccessibilityRecord accessibilityRecord) {
-            return 0;
-        }
-
-        public void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i) {
-        }
-
-        public void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i) {
-        }
-
-        public void setSource(AccessibilityRecord accessibilityRecord, View view, int i) {
-        }
-    }
-
-    @RequiresApi(15)
-    /* loaded from: classes2.dex */
-    static class AccessibilityRecordCompatApi15Impl extends AccessibilityRecordCompatBaseImpl {
-        AccessibilityRecordCompatApi15Impl() {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordCompatBaseImpl
-        public int getMaxScrollX(AccessibilityRecord accessibilityRecord) {
-            return accessibilityRecord.getMaxScrollX();
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordCompatBaseImpl
-        public int getMaxScrollY(AccessibilityRecord accessibilityRecord) {
-            return accessibilityRecord.getMaxScrollY();
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordCompatBaseImpl
-        public void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i) {
-            accessibilityRecord.setMaxScrollX(i);
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordCompatBaseImpl
-        public void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i) {
-            accessibilityRecord.setMaxScrollY(i);
-        }
-    }
-
-    @RequiresApi(16)
-    /* loaded from: classes2.dex */
-    static class AccessibilityRecordCompatApi16Impl extends AccessibilityRecordCompatApi15Impl {
-        AccessibilityRecordCompatApi16Impl() {
-        }
-
-        @Override // android.support.v4.view.accessibility.AccessibilityRecordCompat.AccessibilityRecordCompatBaseImpl
-        public void setSource(AccessibilityRecord accessibilityRecord, View view, int i) {
-            accessibilityRecord.setSource(view, i);
-        }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 16) {
-            IMPL = new AccessibilityRecordCompatApi16Impl();
-        } else if (Build.VERSION.SDK_INT >= 15) {
-            IMPL = new AccessibilityRecordCompatApi15Impl();
-        } else {
-            IMPL = new AccessibilityRecordCompatBaseImpl();
-        }
-    }
 
     @Deprecated
     public AccessibilityRecordCompat(Object obj) {
@@ -116,7 +41,9 @@ public class AccessibilityRecordCompat {
     }
 
     public static void setSource(@NonNull AccessibilityRecord accessibilityRecord, View view, int i) {
-        IMPL.setSource(accessibilityRecord, view, i);
+        if (Build.VERSION.SDK_INT >= 16) {
+            accessibilityRecord.setSource(view, i);
+        }
     }
 
     @Deprecated
@@ -245,7 +172,10 @@ public class AccessibilityRecordCompat {
     }
 
     public static int getMaxScrollX(AccessibilityRecord accessibilityRecord) {
-        return IMPL.getMaxScrollX(accessibilityRecord);
+        if (Build.VERSION.SDK_INT >= 15) {
+            return accessibilityRecord.getMaxScrollX();
+        }
+        return 0;
     }
 
     @Deprecated
@@ -254,7 +184,9 @@ public class AccessibilityRecordCompat {
     }
 
     public static void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i) {
-        IMPL.setMaxScrollX(accessibilityRecord, i);
+        if (Build.VERSION.SDK_INT >= 15) {
+            accessibilityRecord.setMaxScrollX(i);
+        }
     }
 
     @Deprecated
@@ -263,7 +195,10 @@ public class AccessibilityRecordCompat {
     }
 
     public static int getMaxScrollY(AccessibilityRecord accessibilityRecord) {
-        return IMPL.getMaxScrollY(accessibilityRecord);
+        if (Build.VERSION.SDK_INT >= 15) {
+            return accessibilityRecord.getMaxScrollY();
+        }
+        return 0;
     }
 
     @Deprecated
@@ -272,7 +207,9 @@ public class AccessibilityRecordCompat {
     }
 
     public static void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i) {
-        IMPL.setMaxScrollY(accessibilityRecord, i);
+        if (Build.VERSION.SDK_INT >= 15) {
+            accessibilityRecord.setMaxScrollY(i);
+        }
     }
 
     @Deprecated

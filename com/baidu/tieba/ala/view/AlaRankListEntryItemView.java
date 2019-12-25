@@ -6,11 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
-public class AlaRankListEntryItemView extends LinearLayout implements com.baidu.live.h.b {
-    private TextView eDa;
-    private TextView eDb;
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
+public class AlaRankListEntryItemView extends LinearLayout implements com.baidu.live.l.b {
+    private TextView fuF;
+    private TextView fuG;
 
     public AlaRankListEntryItemView(Context context) {
         super(context);
@@ -29,33 +29,33 @@ public class AlaRankListEntryItemView extends LinearLayout implements com.baidu.
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_rank_list_entry_item_layout, this);
-        this.eDa = (TextView) findViewById(a.g.ala_rank_list_type);
-        this.eDb = (TextView) findViewById(a.g.ala_rank_list_level);
+        this.fuF = (TextView) findViewById(a.g.ala_rank_list_type);
+        this.fuG = (TextView) findViewById(a.g.ala_rank_list_level);
     }
 
     public void setRankListName(String str) {
-        this.eDa.setText(str);
+        this.fuF.setText(str);
     }
 
     public void setRankListLevel(String str) {
-        this.eDb.setText(str);
+        this.fuG.setText(str);
     }
 
     public void setRankListLevelVisible(boolean z) {
-        this.eDb.setVisibility(z ? 0 : 8);
+        this.fuG.setVisibility(z ? 0 : 8);
     }
 
-    @Override // com.baidu.live.h.b
+    @Override // com.baidu.live.l.b
     public TextView getRankNameView() {
-        return this.eDa;
+        return this.fuF;
     }
 
-    @Override // com.baidu.live.h.b
+    @Override // com.baidu.live.l.b
     public TextView getRankLevelView() {
-        return this.eDb;
+        return this.fuG;
     }
 
-    @Override // com.baidu.live.h.b
+    @Override // com.baidu.live.l.b
     public View getRankItemRootView() {
         return this;
     }

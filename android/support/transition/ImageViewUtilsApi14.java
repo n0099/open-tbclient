@@ -6,7 +6,7 @@ import android.graphics.Matrix;
 import android.support.annotation.RequiresApi;
 import android.widget.ImageView;
 @RequiresApi(14)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class ImageViewUtilsApi14 implements ImageViewUtilsImpl {
     @Override // android.support.transition.ImageViewUtilsImpl
     public void startAnimateTransform(ImageView imageView) {

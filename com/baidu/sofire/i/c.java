@@ -12,7 +12,7 @@ import java.security.cert.CertificateFactory;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class c {
     private static Certificate[] a(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
         try {

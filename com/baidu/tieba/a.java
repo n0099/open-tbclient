@@ -4,32 +4,32 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static final a dar = new a();
-    private AtomicBoolean das = new AtomicBoolean(false);
-    private int dat = 0;
-    private int dau;
+    private static final a dOn = new a();
+    private AtomicBoolean dOo = new AtomicBoolean(false);
+    private int dOp = 0;
+    private int dOq;
 
     private a() {
     }
 
-    public static a aAM() {
-        return dar;
+    public static a aSA() {
+        return dOn;
     }
 
     public void parse(JSONObject jSONObject) {
-        boolean z = this.das.get();
+        boolean z = this.dOo.get();
         if (jSONObject != null && !z) {
-            this.das.set(true);
-            this.dat = jSONObject.optInt("tieba_landing_page_type_switch", -1);
-            this.dau = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+            this.dOo.set(true);
+            this.dOp = jSONObject.optInt("tieba_landing_page_type_switch", -1);
+            this.dOq = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
         }
     }
 
-    public int aAN() {
-        return this.dat;
+    public int aSB() {
+        return this.dOp;
     }
 
-    public boolean aAO() {
-        return this.dau == 1;
+    public boolean aSC() {
+        return this.dOq == 1;
     }
 }

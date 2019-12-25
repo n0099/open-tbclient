@@ -11,18 +11,18 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
 public class GradientEnableTextView extends TextView {
-    private int aoA;
-    private int aoB;
-    private int aoC;
-    private int aoD;
-    private String aoE;
-    private boolean aoF;
-    private boolean aoG;
-    private int aoH;
-    private int aoI;
+    private boolean amm;
+    private int awA;
+    private String awB;
+    private boolean awC;
+    private int awD;
+    private int awE;
+    private int awx;
+    private int awy;
+    private int awz;
 
     public GradientEnableTextView(Context context) {
         this(context, null);
@@ -35,61 +35,61 @@ public class GradientEnableTextView extends TextView {
     public GradientEnableTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.k.sdk_GradientEnableTextView);
-        this.aoA = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_startColorEnable, -1);
-        this.aoB = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_endColorEnable, -1);
-        this.aoC = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_startColorDisableEnable, -1);
-        this.aoD = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_endColorDisableEnable, -1);
+        this.awx = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_startColorEnable, -1);
+        this.awy = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_endColorEnable, -1);
+        this.awz = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_startColorDisableEnable, -1);
+        this.awA = obtainStyledAttributes.getColor(a.k.sdk_GradientEnableTextView_endColorDisableEnable, -1);
         obtainStyledAttributes.recycle();
-        this.aoG = true;
+        this.awC = true;
     }
 
     @Override // android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (isClickable()) {
             if (motionEvent.getAction() == 0) {
-                this.aoF = true;
+                this.amm = true;
             } else if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-                this.aoF = false;
+                this.amm = false;
             }
         } else {
-            this.aoF = false;
+            this.amm = false;
         }
-        if (isClickable() && !this.aoF) {
-            this.aoH = this.aoA;
-            this.aoI = this.aoB;
+        if (isClickable() && !this.amm) {
+            this.awD = this.awx;
+            this.awE = this.awy;
         } else {
-            this.aoH = this.aoC;
-            this.aoI = this.aoD;
+            this.awD = this.awz;
+            this.awE = this.awA;
         }
         invalidate();
         return super.onTouchEvent(motionEvent);
     }
 
     public void setCheckStrEquals(boolean z) {
-        this.aoG = z;
+        this.awC = z;
     }
 
     public void setGradientTextColor(int i, int i2) {
-        this.aoA = i;
-        this.aoB = i2;
+        this.awx = i;
+        this.awy = i2;
         invalidate();
     }
 
     public void setGradientDisableTextColor(int i, int i2) {
-        this.aoC = i;
-        this.aoD = i2;
+        this.awz = i;
+        this.awA = i2;
         invalidate();
     }
 
     @Override // android.view.View
     public void setClickable(boolean z) {
         super.setClickable(z);
-        if (z && !this.aoF) {
-            this.aoH = this.aoA;
-            this.aoI = this.aoB;
+        if (z && !this.amm) {
+            this.awD = this.awx;
+            this.awE = this.awy;
         } else {
-            this.aoH = this.aoC;
-            this.aoI = this.aoD;
+            this.awD = this.awz;
+            this.awE = this.awA;
         }
         invalidate();
     }
@@ -98,15 +98,15 @@ public class GradientEnableTextView extends TextView {
     @SuppressLint({"DrawAllocation"})
     protected void onDraw(Canvas canvas) {
         String charSequence = getText().toString();
-        if (this.aoH == -1 || this.aoI == -1) {
-            this.aoH = this.aoA;
-            this.aoI = this.aoB;
+        if (this.awD == -1 || this.awE == -1) {
+            this.awD = this.awx;
+            this.awE = this.awy;
         }
-        if (!TextUtils.isEmpty(charSequence) && this.aoH != -1 && this.aoI != -1 && (!this.aoG || !charSequence.equals(this.aoE))) {
-            this.aoE = charSequence;
+        if (!TextUtils.isEmpty(charSequence) && this.awD != -1 && this.awE != -1 && (!this.awC || !charSequence.equals(this.awB))) {
+            this.awB = charSequence;
             float measureText = getPaint().measureText(charSequence);
             float width = (getWidth() - measureText) / 2.0f;
-            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.aoH, this.aoI, Shader.TileMode.CLAMP));
+            getPaint().setShader(new LinearGradient(width, 0.0f, width + measureText, 0.0f, this.awD, this.awE, Shader.TileMode.CLAMP));
         }
         super.onDraw(canvas);
     }

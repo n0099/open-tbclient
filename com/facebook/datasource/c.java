@@ -1,21 +1,21 @@
 package com.facebook.datasource;
 
-import com.facebook.common.internal.i;
-/* loaded from: classes2.dex */
+import com.facebook.common.internal.j;
+/* loaded from: classes11.dex */
 public class c {
-    public static <T> b<T> v(Throwable th) {
-        g cDu = g.cDu();
-        cDu.t(th);
-        return cDu;
+    public static <T> b<T> y(Throwable th) {
+        g diZ = g.diZ();
+        diZ.v(th);
+        return diZ;
     }
 
-    public static <T> i<b<T>> x(final Throwable th) {
-        return new i<b<T>>() { // from class: com.facebook.datasource.c.1
+    public static <T> j<b<T>> z(final Throwable th) {
+        return new j<b<T>>() { // from class: com.facebook.datasource.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.facebook.common.internal.i
-            /* renamed from: cDq */
+            @Override // com.facebook.common.internal.j
+            /* renamed from: diT */
             public b<T> get() {
-                return c.v(th);
+                return c.y(th);
             }
         };
     }

@@ -1,17 +1,18 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes3.dex */
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+/* loaded from: classes6.dex */
 public interface ae {
-    void aJn();
+    com.baidu.adp.widget.ListView.a<? extends bj, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z);
 
-    void aJo();
+    com.baidu.adp.widget.ListView.a<? extends bi, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z);
 
-    void anM();
+    h<ICardInfo, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
 
-    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.w wVar);
-
-    void setVideoThreadId(String str);
-
-    void showFloatingView();
-
-    void vV();
+    com.baidu.adp.widget.ListView.a<? extends bj, ? extends v.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
 }

@@ -18,23 +18,21 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.regex.Pattern;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class l {
     private static float displayMetricsDensity;
     static int displayMetricsHeightPixels;
     static int displayMetricsWidthPixels;
-    private static String rj;
+    private static String ub;
     public static boolean deviceDataInited = false;
     private static Toast mToast = null;
-    private static a ri = null;
+    private static a tZ = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
@@ -97,14 +95,14 @@ public class l {
     }
 
     public static void showToast(Context context, String str, int i) {
-        if (!TextUtils.isEmpty(str)) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
             if (mToast == null || Build.VERSION.SDK_INT >= 28) {
-                if (ri == null || ri.getToastContentView() == null) {
+                if (tZ == null || tZ.getToastContentView() == null) {
                     if (i == 3500) {
-                        mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 1);
+                        mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
                     } else {
-                        mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
+                        mToast = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                     }
                     mToast.setText(str);
                 } else {
@@ -114,16 +112,16 @@ public class l {
                     } else {
                         mToast.setDuration(0);
                     }
-                    ri.setToastString(str);
-                    mToast.setView(ri.getToastContentView());
+                    tZ.setToastString(str);
+                    mToast.setView(tZ.getToastContentView());
                 }
                 mToast.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (!str.equals(rj)) {
-                    if (ri == null || ri.getToastContentView() == null) {
+                if (!str.equals(ub)) {
+                    if (tZ == null || tZ.getToastContentView() == null) {
                         mToast.setText(str);
                     } else {
-                        ri.setToastString(str);
+                        tZ.setToastString(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -137,7 +135,7 @@ public class l {
                 }
                 mToast.setGravity(17, 0, dip2px);
             }
-            rj = str;
+            ub = str;
             mHandler.postDelayed(mRunnable, i);
             mToast.show();
         }
@@ -248,7 +246,7 @@ public class l {
             return false;
         }
         try {
-            String str = new String(bArr, 0, 16, HTTP.UTF_8);
+            String str = new String(bArr, 0, 16, "UTF-8");
             if (str == null || str.indexOf("RIFF") != 0) {
                 return false;
             }
@@ -362,7 +360,7 @@ public class l {
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
                     sb.append(stackTrace[i].getClassName());
-                    sb.append(DefaultConfig.TOKEN_SEPARATOR);
+                    sb.append(".");
                     sb.append(stackTrace[i].getMethodName());
                     sb.append("  lines = ");
                     sb.append(stackTrace[i].getLineNumber());
@@ -472,8 +470,8 @@ public class l {
         String numFromStr;
         String str = Build.DISPLAY;
         if (str != null && str.contains("Flyme") && (numFromStr = getNumFromStr(str)) != null && numFromStr.length() >= 3) {
-            int i = com.baidu.adp.lib.g.b.toInt(getNumFromStr(numFromStr.substring(0, 1)), 0);
-            int i2 = com.baidu.adp.lib.g.b.toInt(getNumFromStr(numFromStr.substring(1, 2)), 0);
+            int i = com.baidu.adp.lib.f.b.toInt(getNumFromStr(numFromStr.substring(0, 1)), 0);
+            int i2 = com.baidu.adp.lib.f.b.toInt(getNumFromStr(numFromStr.substring(1, 2)), 0);
             if (i > 3) {
                 return true;
             }
@@ -491,11 +489,11 @@ public class l {
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a hc() {
-        return ri;
+    public static a hz() {
+        return tZ;
     }
 
     public static void a(a aVar) {
-        ri = aVar;
+        tZ = aVar;
     }
 }

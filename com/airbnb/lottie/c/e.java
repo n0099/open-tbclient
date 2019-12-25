@@ -1,72 +1,69 @@
 package com.airbnb.lottie.c;
 
-import android.graphics.Path;
 import android.graphics.PointF;
-import android.support.annotation.FloatRange;
-import com.airbnb.lottie.model.content.h;
-/* loaded from: classes2.dex */
+import android.util.JsonReader;
+import java.io.IOException;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes4.dex */
 public class e {
-    public static PointF b(PointF pointF, PointF pointF2) {
-        return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
-    }
-
-    public static void a(h hVar, Path path) {
-        path.reset();
-        PointF cT = hVar.cT();
-        path.moveTo(cT.x, cT.y);
-        PointF pointF = new PointF(cT.x, cT.y);
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= hVar.cU().size()) {
-                break;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static com.airbnb.lottie.model.content.a b(JsonReader jsonReader, com.airbnb.lottie.e eVar, int i) throws IOException {
+        com.airbnb.lottie.model.a.f fVar = null;
+        boolean z = i == 3;
+        com.airbnb.lottie.model.a.m<PointF, PointF> mVar = null;
+        String str = null;
+        while (jsonReader.hasNext()) {
+            String nextName = jsonReader.nextName();
+            char c = 65535;
+            switch (nextName.hashCode()) {
+                case 100:
+                    if (nextName.equals("d")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 112:
+                    if (nextName.equals("p")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 115:
+                    if (nextName.equals("s")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3519:
+                    if (nextName.equals("nm")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
             }
-            com.airbnb.lottie.model.c cVar = hVar.cU().get(i2);
-            PointF bS = cVar.bS();
-            PointF bT = cVar.bT();
-            PointF bU = cVar.bU();
-            if (bS.equals(pointF) && bT.equals(bU)) {
-                path.lineTo(bU.x, bU.y);
-            } else {
-                path.cubicTo(bS.x, bS.y, bT.x, bT.y, bU.x, bU.y);
+            switch (c) {
+                case 0:
+                    str = jsonReader.nextString();
+                    break;
+                case 1:
+                    mVar = a.b(jsonReader, eVar);
+                    break;
+                case 2:
+                    fVar = d.h(jsonReader, eVar);
+                    break;
+                case 3:
+                    if (jsonReader.nextInt() != 3) {
+                        z = false;
+                        break;
+                    } else {
+                        z = true;
+                        break;
+                    }
+                default:
+                    jsonReader.skipValue();
+                    break;
             }
-            pointF.set(bU.x, bU.y);
-            i = i2 + 1;
         }
-        if (hVar.isClosed()) {
-            path.close();
-        }
-    }
-
-    public static float lerp(float f, float f2, @FloatRange(from = 0.0d, to = 1.0d) float f3) {
-        return ((f2 - f) * f3) + f;
-    }
-
-    public static double b(double d, double d2, @FloatRange(from = 0.0d, to = 1.0d) double d3) {
-        return ((d2 - d) * d3) + d;
-    }
-
-    public static int lerp(int i, int i2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return (int) (i + ((i2 - i) * f));
-    }
-
-    public static int k(float f, float f2) {
-        return d((int) f, (int) f2);
-    }
-
-    public static int d(int i, int i2) {
-        return i - (e(i, i2) * i2);
-    }
-
-    private static int e(int i, int i2) {
-        int i3 = i / i2;
-        if ((i ^ i2) < 0 && i3 * i2 != i) {
-            return i3 - 1;
-        }
-        return i3;
-    }
-
-    public static float clamp(float f, float f2, float f3) {
-        return Math.max(f2, Math.min(f3, f));
+        return new com.airbnb.lottie.model.content.a(str, mVar, fVar, z);
     }
 }

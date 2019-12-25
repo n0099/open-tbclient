@@ -1,40 +1,40 @@
 package com.baidu.live.data;
 
-import org.json.JSONArray;
+import com.coremedia.iso.boxes.TrackReferenceTypeBox;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class al {
-    public ao[] Uo;
-    public ak Up;
-    public an Uq;
-    public am Ur;
-    public aq Us;
+    public int aaT;
+    public int aaU;
+    public int aaV;
+    public int aaW;
+    public int aaX;
+    public String app_version;
+    public String appendix_link;
+    public String appendix_text;
+    public String changelogs;
+    public String hint;
+    public String n_btn_link;
+    public String n_btn_text;
+    public String y_btn_link;
+    public String y_btn_text;
 
-    public al(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        JSONObject optJSONObject2;
-        JSONObject optJSONObject3;
-        JSONObject optJSONObject4;
-        JSONArray optJSONArray;
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (jSONObject.has("pay_barrage") && (optJSONArray = jSONObject.optJSONArray("pay_barrage")) != null) {
-                this.Uo = new ao[optJSONArray.length()];
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.Uo[i] = new ao(optJSONArray.optJSONObject(i));
-                }
-            }
-            if (jSONObject.has("cash_gift") && (optJSONObject4 = jSONObject.optJSONObject("cash_gift")) != null) {
-                this.Up = new ak(optJSONObject4);
-            }
-            if (jSONObject.has("flower_guide") && (optJSONObject3 = jSONObject.optJSONObject("flower_guide")) != null) {
-                this.Uq = new an(optJSONObject3);
-            }
-            if (jSONObject.has("first_recharge") && (optJSONObject2 = jSONObject.optJSONObject("first_recharge")) != null) {
-                this.Ur = new am(optJSONObject2);
-            }
-            if (jSONObject.has("rotary_table") && (optJSONObject = jSONObject.optJSONObject("rotary_table")) != null) {
-                this.Us = new aq(optJSONObject);
-            }
+            this.aaT = jSONObject.optInt("popup_id");
+            this.aaU = jSONObject.optInt("popup_times");
+            this.aaV = jSONObject.optInt("popup_type");
+            this.hint = jSONObject.optString(TrackReferenceTypeBox.TYPE1);
+            this.app_version = jSONObject.optString("app_version");
+            this.aaW = jSONObject.optInt("app_size");
+            this.changelogs = jSONObject.optString("changelogs");
+            this.appendix_text = jSONObject.optString("appendix_text");
+            this.appendix_link = jSONObject.optString("appendix_link");
+            this.aaX = jSONObject.optInt("appendix_optional");
+            this.y_btn_text = jSONObject.optString("y_btn_text");
+            this.y_btn_link = jSONObject.optString("y_btn_link");
+            this.n_btn_text = jSONObject.optString("n_btn_text");
+            this.n_btn_link = jSONObject.optString("n_btn_link");
         }
     }
 }

@@ -29,7 +29,7 @@ public class CoordinateConverter {
     }
 
     private static LatLng b(LatLng latLng) {
-        return a(latLng, CoordinateType.GCJ02);
+        return a(latLng, "gcj02");
     }
 
     private static LatLng c(LatLng latLng) {

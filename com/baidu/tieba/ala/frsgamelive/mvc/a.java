@@ -6,15 +6,15 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.mainTab.b {
-    private boolean dIa;
-    private AlaFrsLiveFragment dIj = new AlaFrsLiveFragment();
+    private boolean ewm;
+    private AlaFrsLiveFragment eww = new AlaFrsLiveFragment();
 
     public a(boolean z) {
-        this.dIa = z;
-        this.dIj.gZ(z);
-        avx().frag = this.dIj;
+        this.ewm = z;
+        this.eww.ig(z);
+        aNf().frag = this.eww;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -23,7 +23,7 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c avw() {
+    public com.baidu.tbadk.mainTab.c aNe() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 2;
         cVar.textResId = R.string.ala_live;
@@ -32,39 +32,39 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator cB(Context context) {
-        this.cJk = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.cJk.setTextSize(2.0f);
-        return this.cJk;
+    public TbFragmentTabIndicator dW(Context context) {
+        this.dwU = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.dwU.setTextSize(2.0f);
+        return this.dwU;
     }
 
     public void setForumId(String str) {
-        if (this.dIj != null) {
-            this.dIj.setForumId(str);
+        if (this.eww != null) {
+            this.eww.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.dIj != null) {
-            this.dIj.setForumName(str);
+        if (this.eww != null) {
+            this.eww.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.dIj != null) {
-            this.dIj.setForumGameLabel(str);
+        if (this.eww != null) {
+            this.eww.setForumGameLabel(str);
         }
     }
 
     public void setFromType(int i) {
-        if (this.dIj != null) {
-            this.dIj.setFromType(i);
+        if (this.eww != null) {
+            this.eww.setFromType(i);
         }
     }
 
-    public void ha(boolean z) {
-        if (this.dIj != null) {
-            this.dIj.ha(z);
+    public void ih(boolean z) {
+        if (this.eww != null) {
+            this.eww.ih(z);
         }
     }
 }

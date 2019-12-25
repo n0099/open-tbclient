@@ -1,43 +1,41 @@
 package com.facebook.drawee.a.a;
 
 import android.content.Context;
-import com.facebook.common.internal.i;
-import com.facebook.imagepipeline.d.j;
+import com.facebook.common.b.i;
+import com.facebook.common.internal.j;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
-public class f implements i<e> {
-    private final g kbF;
-    private final com.facebook.imagepipeline.d.g kbQ;
-    private final Set<com.facebook.drawee.controller.c> kbS;
+/* loaded from: classes11.dex */
+public class f implements j<e> {
+    private final com.facebook.imagepipeline.d.g lFO;
+    private final Set<com.facebook.drawee.controller.c> lFR;
+    private final g lFz;
     private final Context mContext;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, j.cGQ(), bVar);
+        this(context, com.facebook.imagepipeline.d.j.dmZ(), bVar);
     }
 
-    public f(Context context, j jVar, @Nullable b bVar) {
+    public f(Context context, com.facebook.imagepipeline.d.j jVar, @Nullable b bVar) {
         this(context, jVar, null, bVar);
     }
 
-    public f(Context context, j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
+    public f(Context context, com.facebook.imagepipeline.d.j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.kbQ = jVar.cDB();
-        com.facebook.imagepipeline.a.a.b cGR = jVar.cGR();
-        com.facebook.imagepipeline.a.a.a et = cGR != null ? cGR.et(context) : null;
-        if (bVar != null && bVar.cDx() != null) {
-            this.kbF = bVar.cDx();
+        this.lFO = jVar.dji();
+        if (bVar != null && bVar.djc() != null) {
+            this.lFz = bVar.djc();
         } else {
-            this.kbF = new g();
+            this.lFz = new g();
         }
-        this.kbF.a(context.getResources(), com.facebook.drawee.components.a.cDL(), et, com.facebook.common.b.f.cCG(), this.kbQ.cGi(), bVar != null ? bVar.cDw() : null, bVar != null ? bVar.cDy() : null);
-        this.kbS = set;
+        this.lFz.a(context.getResources(), com.facebook.drawee.components.a.djA(), jVar.gm(context), i.din(), this.lFO.dmn(), bVar != null ? bVar.djb() : null, bVar != null ? bVar.dje() : null);
+        this.lFR = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.common.internal.i
-    /* renamed from: cDK */
+    @Override // com.facebook.common.internal.j
+    /* renamed from: djt */
     public e get() {
-        return new e(this.mContext, this.kbF, this.kbQ, this.kbS);
+        return new e(this.mContext, this.lFz, this.lFO, this.lFR);
     }
 }

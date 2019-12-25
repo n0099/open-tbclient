@@ -6,19 +6,18 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import org.apache.http.protocol.HTTP;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class gk {
     private static gk a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Object> f418a = new ConcurrentHashMap();
+    private Map<String, Object> f423a = new ConcurrentHashMap();
     private Map<String, Object> b = new ConcurrentHashMap();
 
     private gk() {
-        m294a();
+        m297a();
     }
 
     public static synchronized gk a() {
@@ -42,7 +41,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m292a() {
+    private ClassLoader[] m295a() {
         ClassLoader[] classLoaderArr = {gk.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {
@@ -54,20 +53,20 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m293a(String str, String str2) {
-        return this.f418a.get(a(str, str2));
+    public Object m296a(String str, String str2) {
+        return this.f423a.get(a(str, str2));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    protected void m294a() {
+    protected void m297a() {
         try {
-            for (ClassLoader classLoader : m292a()) {
+            for (ClassLoader classLoader : m295a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                 while (resources.hasMoreElements()) {
                     InputStream openStream = resources.nextElement().openStream();
                     XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
                     newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
-                    newPullParser.setInput(openStream, HTTP.UTF_8);
+                    newPullParser.setInput(openStream, "UTF-8");
                     int eventType = newPullParser.getEventType();
                     do {
                         if (eventType == 2) {
@@ -105,13 +104,13 @@ public class gk {
                                 newPullParser.next();
                                 String nextText6 = newPullParser.nextText();
                                 String a3 = a(nextText4, nextText5);
-                                if (!this.f418a.containsKey(a3)) {
+                                if (!this.f423a.containsKey(a3)) {
                                     try {
                                         Class<?> cls2 = Class.forName(nextText6);
                                         if (gj.class.isAssignableFrom(cls2)) {
-                                            this.f418a.put(a3, cls2.newInstance());
+                                            this.f423a.put(a3, cls2.newInstance());
                                         } else if (ge.class.isAssignableFrom(cls2)) {
-                                            this.f418a.put(a3, cls2);
+                                            this.f423a.put(a3, cls2);
                                         }
                                     } catch (ClassNotFoundException e2) {
                                         e2.printStackTrace();
@@ -136,6 +135,6 @@ public class gk {
         if (!(obj instanceof gj) && !(obj instanceof Class)) {
             throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
         }
-        this.f418a.put(a(str, str2), obj);
+        this.f423a.put(a(str, str2), obj);
     }
 }

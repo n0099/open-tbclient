@@ -1,10 +1,12 @@
 package com.baidu.tbadk.core.a;
 
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.switchs.StokenEnableSwitch;
 import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -18,7 +20,7 @@ public class d {
     }
 
     public static boolean isVerification() {
-        return com.baidu.adp.lib.b.d.ft().af("android_stoken_new") == 1;
+        return SwitchManager.getInstance().findType(StokenEnableSwitch.KEY) == 1;
     }
 
     public static String c(AccountData accountData) {

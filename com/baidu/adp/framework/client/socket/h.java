@@ -3,8 +3,7 @@ package com.baidu.adp.framework.client.socket;
 import android.app.Application;
 import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
-import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
@@ -28,13 +27,13 @@ public class h {
     public static final int CODEC_UNPACK_EMPTY = BASE_ERROR_NO - 236;
     public static final int QUEUE_TIME_OUT = BASE_ERROR_NO - 301;
     public static final int QUEUE_SEND_ERROR = BASE_ERROR_NO - 302;
-    public static final int QUEUE_SEND_ERROR_CLEAR = BASE_ERROR_NO + PassFaceRecogResult.ERROR_CODE_FACE_SDK_INIT_FAIL;
-    public static final int QUEUE_SEND_ERROR_SERVER = BASE_ERROR_NO + GetTplStokenResult.ERROR_CODE_PARSE_DATA_FAIL;
+    public static final int QUEUE_SEND_ERROR_CLEAR = BASE_ERROR_NO - 303;
+    public static final int QUEUE_SEND_ERROR_SERVER = BASE_ERROR_NO - 304;
     public static final int QUEUE_SEND_ERROR_SEQUENCE_CMD = BASE_ERROR_NO - 305;
     public static final int QUEUE_SEND_ERROR_MANUAL_BLOCK = BASE_ERROR_NO - 306;
-    public static final int QUEUE_SEND_ERROR_DUPLICATE = BASE_ERROR_NO + PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION;
-    public static final int QUEUE_SEND_CURRENTSOCKETCLOSE = BASE_ERROR_NO - 308;
-    public static final int QUEUE_SEND_REALEASE_BLOCK = BASE_ERROR_NO - 309;
+    public static final int QUEUE_SEND_ERROR_DUPLICATE = BASE_ERROR_NO - 307;
+    public static final int QUEUE_SEND_CURRENTSOCKETCLOSE = BASE_ERROR_NO + LivenessRecogResult.ERROR_CODE_MAY_BE_NO_RECORD_AUDIO_PERMISSION;
+    public static final int QUEUE_SEND_REALEASE_BLOCK = BASE_ERROR_NO + LivenessRecogResult.ERROR_CODE_VIDEO_IS_REVIEWING;
     public static final int QUEUE_SEND_TIME_OUT = BASE_ERROR_NO - 310;
     public static final int QUEUE_SEND_HAVE_RETRY_MESSAGE = BASE_ERROR_NO - 311;
     public static final int QUEUE_SEND_FIND_ORIGINAL_DATA = BASE_ERROR_NO - 312;

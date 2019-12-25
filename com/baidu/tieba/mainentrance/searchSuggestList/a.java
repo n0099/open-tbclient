@@ -22,53 +22,53 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.SearchSug.ForumInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a extends BaseAdapter {
-    private String bHr;
-    private List<ForumInfo> hmo;
-    private ArrayList<Object> hmp;
+    private String csH;
+    private List<ForumInfo> iao;
+    private ArrayList<Object> iap;
     private final Context mContext;
-    private final boolean hkZ = true;
-    private LikeModel crO = new LikeModel(null);
+    private final boolean hZa = true;
+    private LikeModel dfB = new LikeModel(null);
 
     public a(Context context, ArrayList<ForumInfo> arrayList) {
         this.mContext = context;
-        this.hmo = arrayList;
+        this.iao = arrayList;
     }
 
-    public void dE(List<ForumInfo> list) {
-        this.hmo = list;
-        this.hmp = new ArrayList<>();
+    public void dt(List<ForumInfo> list) {
+        this.iao = list;
+        this.iap = new ArrayList<>();
         int i = 0;
         while (true) {
-            if (i >= this.hmo.size()) {
+            if (i >= this.iao.size()) {
                 i = 0;
                 break;
-            } else if (this.hmo.get(i).has_concerned.intValue() == 0) {
+            } else if (this.iao.get(i).has_concerned.intValue() == 0) {
                 break;
             } else {
                 i++;
             }
         }
-        this.hmp.addAll(this.hmo);
+        this.iap.addAll(this.iao);
         if (i > 0) {
-            this.hmp.add(i, "divider");
+            this.iap.add(i, "divider");
         }
-        if (this.hmo != null) {
+        if (this.iao != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void ze(String str) {
-        this.bHr = str;
+    public void DM(String str) {
+        this.csH = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hmp == null || TextUtils.isEmpty(this.bHr)) {
+        if (this.iap == null || TextUtils.isEmpty(this.csH)) {
             return 0;
         }
-        return this.hmp.size();
+        return this.iap.size();
     }
 
     @Override // android.widget.Adapter
@@ -77,7 +77,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.hmp.get(i);
+        return this.iap.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -87,68 +87,68 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        final C0462a c0462a;
+        final C0548a c0548a;
         String str;
         Object item = getItem(i);
         if (item instanceof ForumInfo) {
             final ForumInfo forumInfo = (ForumInfo) item;
             if (view == null) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.forum_search_sug_item, (ViewGroup) null);
-                c0462a = new C0462a();
-                c0462a.hlc = (BarImageView) view.findViewById(R.id.forum_avatar);
-                c0462a.hlc.setGifIconSupport(false);
-                c0462a.cqt = (TextView) view.findViewById(R.id.name);
-                c0462a.hld = (TextView) view.findViewById(R.id.forum_member_count);
-                c0462a.hle = (TextView) view.findViewById(R.id.forum_thread_count);
-                c0462a.afu = (TextView) view.findViewById(R.id.follow_text_view);
-                view.setTag(c0462a);
+                c0548a = new C0548a();
+                c0548a.hZd = (BarImageView) view.findViewById(R.id.forum_avatar);
+                c0548a.hZd.setGifIconSupport(false);
+                c0548a.ddN = (TextView) view.findViewById(R.id.name);
+                c0548a.hZe = (TextView) view.findViewById(R.id.forum_member_count);
+                c0548a.hZf = (TextView) view.findViewById(R.id.forum_thread_count);
+                c0548a.anw = (TextView) view.findViewById(R.id.follow_text_view);
+                view.setTag(c0548a);
             } else {
-                c0462a = (C0462a) view.getTag();
+                c0548a = (C0548a) view.getTag();
             }
             if (forumInfo != null) {
                 String str2 = forumInfo.avatar;
-                c0462a.hlc.setTag(str2);
-                c0462a.hlc.startLoad(str2, 15, false);
-                c0462a.hlc.invalidate();
-                if (this.hkZ) {
+                c0548a.hZd.setTag(str2);
+                c0548a.hZd.startLoad(str2, 15, false);
+                c0548a.hZd.invalidate();
+                if (this.hZa) {
                     str = this.mContext.getString(R.string.chosen_pb_original_bar, forumInfo.forum_name);
                 } else {
                     str = forumInfo.forum_name;
                 }
-                b(c0462a.cqt, str);
-                c0462a.hlc.setTag(forumInfo.avatar);
-                c0462a.hld.setText(this.mContext.getString(R.string.attention) + HanziToPinyin.Token.SEPARATOR + forumInfo.concern_num);
-                c0462a.hle.setText(this.mContext.getString(R.string.text_post) + HanziToPinyin.Token.SEPARATOR + forumInfo.post_num);
-                am.setViewTextColor(c0462a.hld, (int) R.color.cp_cont_d);
-                am.setViewTextColor(c0462a.hle, (int) R.color.cp_cont_d);
-                am.setViewTextColor(c0462a.cqt, (int) R.color.cp_cont_b);
+                c(c0548a.ddN, str);
+                c0548a.hZd.setTag(forumInfo.avatar);
+                c0548a.hZe.setText(this.mContext.getString(R.string.attention) + HanziToPinyin.Token.SEPARATOR + forumInfo.concern_num);
+                c0548a.hZf.setText(this.mContext.getString(R.string.text_post) + HanziToPinyin.Token.SEPARATOR + forumInfo.post_num);
+                am.setViewTextColor(c0548a.hZe, (int) R.color.cp_cont_d);
+                am.setViewTextColor(c0548a.hZf, (int) R.color.cp_cont_d);
+                am.setViewTextColor(c0548a.ddN, (int) R.color.cp_cont_b);
                 if (forumInfo.has_concerned.intValue() > 0) {
-                    c0462a.afu.setText(R.string.followed);
-                    am.setBackgroundResource(c0462a.afu, 0);
-                    am.setViewTextColor(c0462a.afu, (int) R.color.cp_cont_d);
-                    c0462a.afu.setOnClickListener(null);
+                    c0548a.anw.setText(R.string.followed);
+                    am.setBackgroundResource(c0548a.anw, 0);
+                    am.setViewTextColor(c0548a.anw, (int) R.color.cp_cont_d);
+                    c0548a.anw.setOnClickListener(null);
                     return view;
                 }
-                c0462a.afu.setText(R.string.attention);
-                am.setBackgroundResource(c0462a.afu, R.drawable.search_like_btn_bg);
-                am.setViewTextColor(c0462a.afu, (int) R.color.cp_link_tip_a);
-                c0462a.afu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.searchSuggestList.a.1
+                c0548a.anw.setText(R.string.attention);
+                am.setBackgroundResource(c0548a.anw, R.drawable.search_like_btn_bg);
+                am.setViewTextColor(c0548a.anw, (int) R.color.cp_link_tip_a);
+                c0548a.anw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.searchSuggestList.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        TiebaStatic.log(new an("c13371").bS("obj_type", "3").O("fid", forumInfo.forum_id.intValue()).p("uid", TbadkApplication.getCurrentAccountId()));
-                        a.this.crO.dY(forumInfo.forum_name, String.valueOf(forumInfo.forum_id));
-                        a.this.crO.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.mainentrance.searchSuggestList.a.1.1
+                        TiebaStatic.log(new an("c13371").cp("obj_type", "3").Z("fid", forumInfo.forum_id.intValue()).s("uid", TbadkApplication.getCurrentAccountId()));
+                        a.this.dfB.er(forumInfo.forum_name, String.valueOf(forumInfo.forum_id));
+                        a.this.dfB.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.mainentrance.searchSuggestList.a.1.1
                             @Override // com.baidu.adp.base.d
                             public void callback(Object obj) {
-                                if (a.this.crO.getErrorCode() != 0) {
+                                if (a.this.dfB.getErrorCode() != 0) {
                                     l.showToast(a.this.mContext, (int) R.string.attention_fail);
                                     return;
                                 }
-                                c0462a.afu.setText(R.string.followed);
+                                c0548a.anw.setText(R.string.followed);
                                 l.showToast(a.this.mContext, (int) R.string.attention_success);
-                                c0462a.afu.setBackgroundDrawable(null);
-                                am.setViewTextColor(c0462a.afu, (int) R.color.cp_cont_d);
-                                c0462a.afu.setOnClickListener(null);
+                                c0548a.anw.setBackgroundDrawable(null);
+                                am.setViewTextColor(c0548a.anw, (int) R.color.cp_cont_d);
+                                c0548a.anw.setOnClickListener(null);
                             }
                         });
                     }
@@ -165,10 +165,10 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void b(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.bHr)) {
+    public void c(TextView textView, String str) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.csH)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.bHr.toLowerCase();
+            String lowerCase2 = this.csH.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
@@ -176,21 +176,21 @@ public class a extends BaseAdapter {
             int indexOf = lowerCase.indexOf(lowerCase2);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(am.getColor(R.color.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.bHr.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.csH.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }
 
     /* renamed from: com.baidu.tieba.mainentrance.searchSuggestList.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    private class C0462a {
-        TextView afu;
-        TextView cqt;
-        BarImageView hlc;
-        TextView hld;
-        TextView hle;
+    /* loaded from: classes8.dex */
+    private class C0548a {
+        TextView anw;
+        TextView ddN;
+        BarImageView hZd;
+        TextView hZe;
+        TextView hZf;
 
-        private C0462a() {
+        private C0548a() {
         }
     }
 }

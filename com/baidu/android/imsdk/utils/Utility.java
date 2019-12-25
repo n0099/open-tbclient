@@ -35,7 +35,7 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class Utility {
     private static final String API_KEY = "BD_IM_API_KEY";
     private static final String APPID = "BD_IM_APPID";
@@ -44,7 +44,7 @@ public final class Utility {
     private static int mDisableRestapi = 0;
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface DeleteItem {
         void deleteItem(Context context, Long l);
     }

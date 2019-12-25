@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static final String IS_SHOW_RIGHT_ICON = "is_show_right_icon";
     public static final String TAG_COOKIE = "tag_cookie";

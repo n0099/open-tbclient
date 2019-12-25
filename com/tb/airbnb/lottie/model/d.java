@@ -2,23 +2,22 @@ package com.tb.airbnb.lottie.model;
 
 import android.graphics.Color;
 import android.support.annotation.ColorInt;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class d {
     @ColorInt
     public int color;
-    int fF;
-    public int fG;
-    double fH;
-    public double fI;
-    @ColorInt
-    public int fJ;
-    public boolean fK;
     public String fontName;
+    int hp;
+    public int hq;
+    double hr;
+    public double hs;
+    @ColorInt
+    public int ht;
+    public boolean hv;
     public int size;
     public int strokeWidth;
     public String text;
@@ -27,21 +26,21 @@ public class d {
         this.text = str;
         this.fontName = str2;
         this.size = i;
-        this.fF = i2;
-        this.fG = i3;
-        this.fH = d;
-        this.fI = d2;
+        this.hp = i2;
+        this.hq = i3;
+        this.hr = d;
+        this.hs = d2;
         this.color = i4;
-        this.fJ = i5;
+        this.ht = i5;
         this.strokeWidth = i6;
-        this.fK = z;
+        this.hv = z;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
-        public static d cv(JSONObject jSONObject) {
+        public static d dC(JSONObject jSONObject) {
             String optString = jSONObject.optString("t");
-            String optString2 = jSONObject.optString(BdStatsConstant.StatsKey.FROM);
+            String optString2 = jSONObject.optString("f");
             int optInt = jSONObject.optInt("s");
             int optInt2 = jSONObject.optInt("j");
             int optInt3 = jSONObject.optInt("tr");
@@ -59,7 +58,7 @@ public class d {
     }
 
     public int hashCode() {
-        long doubleToLongBits = Double.doubleToLongBits(this.fH);
-        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.fF) * 31) + this.fG) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
+        long doubleToLongBits = Double.doubleToLongBits(this.hr);
+        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.hp) * 31) + this.hq) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
     }
 }

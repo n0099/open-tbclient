@@ -5,13 +5,13 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.mobstat.bt;
+import com.baidu.webkit.internal.ETAG;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class bg {
     private static volatile boolean a;
     private static volatile boolean b;
@@ -174,12 +174,12 @@ public class bg {
         StringBuilder sb = new StringBuilder();
         for (Pair pair : arrayList) {
             try {
-                String encode = URLEncoder.encode(((String) pair.first).toString(), HTTP.UTF_8);
-                String encode2 = URLEncoder.encode(((String) pair.second).toString(), HTTP.UTF_8);
+                String encode = URLEncoder.encode(((String) pair.first).toString(), "UTF-8");
+                String encode2 = URLEncoder.encode(((String) pair.second).toString(), "UTF-8");
                 if (TextUtils.isEmpty(sb.toString())) {
-                    sb.append(encode + "=" + encode2);
+                    sb.append(encode + ETAG.EQUAL + encode2);
                 } else {
-                    sb.append("&" + encode + "=" + encode2);
+                    sb.append(ETAG.ITEM_SEPARATOR + encode + ETAG.EQUAL + encode2);
                 }
             } catch (Exception e) {
             }
@@ -203,12 +203,12 @@ public class bg {
         StringBuilder sb = new StringBuilder();
         for (Pair pair : arrayList) {
             try {
-                String encode = URLEncoder.encode(((String) pair.first).toString(), HTTP.UTF_8);
-                String encode2 = URLEncoder.encode(((String) pair.second).toString(), HTTP.UTF_8);
+                String encode = URLEncoder.encode(((String) pair.first).toString(), "UTF-8");
+                String encode2 = URLEncoder.encode(((String) pair.second).toString(), "UTF-8");
                 if (TextUtils.isEmpty(sb.toString())) {
-                    sb.append(encode + "=" + encode2);
+                    sb.append(encode + ETAG.EQUAL + encode2);
                 } else {
-                    sb.append("&" + encode + "=" + encode2);
+                    sb.append(ETAG.ITEM_SEPARATOR + encode + ETAG.EQUAL + encode2);
                 }
             } catch (Exception e) {
             }

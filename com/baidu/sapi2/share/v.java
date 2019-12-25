@@ -3,7 +3,7 @@ package com.baidu.sapi2.share;
 import android.content.Intent;
 import java.util.Comparator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class v implements Comparator<Map.Entry<Intent, Integer>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator

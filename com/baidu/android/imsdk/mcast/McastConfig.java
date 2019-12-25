@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.mcast;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class McastConfig {
     public static final String ACTION_NETWORK_STATE_CHANGED = "android.net.wifi.STATE_CHANGE";
     public static final String ACTION_WIFI_STATE_CHANGED = "android.net.wifi.WIFI_STATE_CHANGED";

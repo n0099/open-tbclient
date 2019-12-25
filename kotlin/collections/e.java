@@ -1,14 +1,15 @@
 package kotlin.collections;
 
 import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.webkit.internal.ETAG;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import kotlin.TypeCastException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class e<K, V> implements Map<K, V> {
-    public static final a kuM = new a(null);
+    public static final a mYI = new a(null);
 
     public abstract Set getEntries();
 
@@ -25,7 +26,7 @@ public abstract class e<K, V> implements Map<K, V> {
         return getSize();
     }
 
-    public final boolean a(Map.Entry<?, ?> entry) {
+    public final boolean b(Map.Entry<?, ?> entry) {
         if (entry instanceof Map.Entry) {
             Object key = entry.getKey();
             Object value = entry.getValue();
@@ -33,7 +34,7 @@ public abstract class e<K, V> implements Map<K, V> {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<K, V>");
             }
             V v = get(key);
-            if (!kotlin.jvm.internal.p.f(value, v)) {
+            if (!kotlin.jvm.internal.p.h(value, v)) {
                 return false;
             }
             if (v == null) {
@@ -63,7 +64,7 @@ public abstract class e<K, V> implements Map<K, V> {
                     if (!it.hasNext()) {
                         z = true;
                         break;
-                    } else if (!a((Map.Entry) it.next())) {
+                    } else if (!b((Map.Entry) it.next())) {
                         z = false;
                         break;
                     }
@@ -92,15 +93,15 @@ public abstract class e<K, V> implements Map<K, V> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final String b(Map.Entry<? extends K, ? extends V> entry) {
-        return toString(entry.getKey()) + "=" + toString(entry.getValue());
+    public final String c(Map.Entry<? extends K, ? extends V> entry) {
+        return toString(entry.getKey()) + ETAG.EQUAL + toString(entry.getValue());
     }
 
     private final String toString(Object obj) {
         return obj == this ? "(this Map)" : String.valueOf(obj);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         private a() {
         }

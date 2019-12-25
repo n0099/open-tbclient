@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class Constants {
     public static final String ACTION_METHOD = "com.baidu.android.imsdk.action.METHOD";
     public static final String ACTION_SERVICE = "com.baidu.android.imsdk.action.IM_SERVICE";

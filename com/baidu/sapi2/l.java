@@ -3,6 +3,7 @@ package com.baidu.sapi2;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import com.baidu.sapi2.callback.ExtendSysWebViewMethodCallback;
 import com.baidu.sapi2.callback.SapiCallback;
@@ -12,7 +13,7 @@ import com.baidu.sapi2.utils.SapiDeviceInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class l implements SapiCallback<SapiResult> {
     final /* synthetic */ int a;
     final /* synthetic */ ExtendSysWebViewMethodCallback b;
@@ -76,12 +77,12 @@ class l implements SapiCallback<SapiResult> {
                     }
                 }
                 String diCookieInfo = SapiDeviceInfo.getDiCookieInfo(arrayList, false);
-                this.d.params.put("retCode", "0");
+                this.d.params.put(BaiduRimConstants.RETCODE_KEY, "0");
                 this.d.params.put("result", diCookieInfo);
                 this.b.onFinish(this.d);
                 return;
             default:
-                this.d.params.put("retCode", "-301");
+                this.d.params.put(BaiduRimConstants.RETCODE_KEY, "-301");
                 this.d.params.put("retMsg", "action :" + this.a + " is not support");
                 this.b.onFinish(this.d);
                 return;

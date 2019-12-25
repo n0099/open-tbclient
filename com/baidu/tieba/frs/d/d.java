@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface d {
-    public static final b fDi = new b();
+    public static final b gre = new b();
 
-    b bmV();
+    b bEr();
 }

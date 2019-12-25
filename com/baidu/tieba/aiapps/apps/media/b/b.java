@@ -1,25 +1,39 @@
 package com.baidu.tieba.aiapps.apps.media.b;
 
-import android.text.TextUtils;
-import android.util.Log;
-import java.util.HashMap;
-/* loaded from: classes4.dex */
-public class b {
+import android.util.SparseArray;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static final SparseArray<Integer> dZL = new SparseArray<>(32);
+    private static final SparseArray<String> dZM = new SparseArray<>();
 
-    public static void O(String str, String str2, String str3) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            if (DEBUG) {
-                Log.e("LiveStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str + " ,liveId: " + str2);
-                return;
+    static {
+        dZM.put(-2022, "MEDIA_ERR_NETWORK");
+        dZM.put(CyberPlayerManager.MEDIA_ERROR_OPEN_VIDEO_FAIL, "MEDIA_ERR_NETWORK");
+        dZM.put(3005, "MEDIA_ERR_NETWORK");
+    }
+
+    private static JSONObject r(String str, Object obj) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            if (obj instanceof Integer) {
+                jSONObject.put(str, ((Integer) obj).intValue());
+            } else if (obj instanceof String) {
+                jSONObject.put(str, obj);
             }
-            return;
+        } catch (JSONException e) {
         }
-        HashMap hashMap = new HashMap();
-        hashMap.put("lType", "netstatus");
-        hashMap.put("liveId", str2);
-        hashMap.put("data", str3);
-        hashMap.put("wvID", str);
-        com.baidu.swan.apps.w.e.LE().a(new com.baidu.swan.apps.m.a.b("live", hashMap));
+        return jSONObject;
+    }
+
+    public static JSONObject nZ(int i) {
+        return r("errMsg", oa(i));
+    }
+
+    private static String oa(int i) {
+        return dZM.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
     }
 }

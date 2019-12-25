@@ -19,14 +19,14 @@ public class i {
             if (this.mUrl == null || this.mUrl.length() <= 0) {
                 showToast(this.mActivity.getPageContext().getString(R.string.save_fail));
             }
-            com.baidu.adp.lib.f.c.fT().a(this.mUrl, 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.chat.i.1
+            com.baidu.adp.lib.e.c.gs().a(this.mUrl, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.chat.i.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.f.b
+                @Override // com.baidu.adp.lib.e.b
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str, i);
                     if (aVar != null) {
-                        i.this.showToast(i.this.j(i.this.mUrl, aVar.getImageByte()));
+                        i.this.showToast(i.this.m(i.this.mUrl, aVar.getImageByte()));
                     } else {
                         i.this.showToast(i.this.mActivity.getPageContext().getString(R.string.save_fail));
                     }
@@ -38,7 +38,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String j(String str, byte[] bArr) {
+    public String m(String str, byte[] bArr) {
         switch (m.saveImageFileByUser(str, bArr, this.mActivity.getPageContext().getPageActivity())) {
             case -2:
                 return m.getSdErrorString();

@@ -1,13 +1,22 @@
 package com.facebook.imagepipeline.nativecode;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-/* loaded from: classes2.dex */
-public interface b {
-    void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException;
+import android.os.Build;
+/* loaded from: classes11.dex */
+public class b {
+    private static boolean lCK;
 
-    boolean d(com.facebook.c.c cVar);
-
-    void f(InputStream inputStream, OutputStream outputStream) throws IOException;
+    public static synchronized void dhz() {
+        synchronized (b.class) {
+            if (!lCK) {
+                if (Build.VERSION.SDK_INT <= 16) {
+                    try {
+                        com.facebook.common.e.a.loadLibrary("fb_jpegturbo");
+                    } catch (UnsatisfiedLinkError e) {
+                    }
+                }
+                com.facebook.common.e.a.loadLibrary("static-webp");
+                lCK = true;
+            }
+        }
+    }
 }

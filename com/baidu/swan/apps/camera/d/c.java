@@ -2,13 +2,13 @@ package com.baidu.swan.apps.camera.d;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class c extends com.baidu.swan.apps.model.a.a.a {
-    public String aFc;
-    public String aFd;
+/* loaded from: classes9.dex */
+public class c extends com.baidu.swan.apps.component.b.b {
+    public String baS;
+    public String baT;
 
     public c(String str) {
-        super("cameraId", "camera");
+        super("camera", "cameraId");
         try {
             parseFromJson(new JSONObject(str));
         } catch (JSONException e) {
@@ -16,10 +16,10 @@ public class c extends com.baidu.swan.apps.model.a.a.a {
         }
     }
 
-    @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
+    @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.aFc = jSONObject.optString("cameraId");
-        this.aFd = jSONObject.optString("quality");
+        this.baS = jSONObject.optString("cameraId");
+        this.baT = jSONObject.optString("quality");
     }
 }

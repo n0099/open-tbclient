@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
+import com.baidubce.http.Headers;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,14 +14,12 @@ import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.apache.http.HttpResponse;
-import org.apache.http.auth.AUTH;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.params.HttpClientParams;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
     private static final int RESPONSE_TIMEOUT = 6000;
     public static final String TAG = AsyncUploadTask.class.getSimpleName();
@@ -78,9 +76,9 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                 DefaultHttpClient defaultHttpClient = new DefaultHttpClient(basicHttpParams);
                 final HttpPut httpPut = new HttpPut(this.mUrl);
                 httpPut.addHeader("Content-type", this.mContentType);
-                httpPut.addHeader(AUTH.WWW_AUTH_RESP, this.mAuthorization);
-                httpPut.addHeader("x-bce-date", this.mXbcs);
-                IMUpLoadFileEntity iMUpLoadFileEntity = new IMUpLoadFileEntity(file, HTTP.UTF_8);
+                httpPut.addHeader("Authorization", this.mAuthorization);
+                httpPut.addHeader(Headers.BCE_DATE, this.mXbcs);
+                IMUpLoadFileEntity iMUpLoadFileEntity = new IMUpLoadFileEntity(file, "UTF-8");
                 iMUpLoadFileEntity.setTransferListener(this.mAsycChatTask);
                 httpPut.setEntity(iMUpLoadFileEntity);
                 Timer timer = new Timer();
@@ -89,7 +87,7 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                     public void run() {
                         httpPut.abort();
                     }
-                }, StatisticConfig.MIN_UPLOAD_INTERVAL);
+                }, 30000L);
                 HttpResponse execute = defaultHttpClient.execute(httpPut);
                 timer.cancel();
                 if (execute.getStatusLine().getStatusCode() == 200 || execute.getStatusLine().getStatusCode() == 201) {

@@ -19,18 +19,19 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.provider.Settings;
 import android.support.annotation.GuardedBy;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.INotificationSideChannel;
 import android.util.Log;
-import com.coloros.mcssdk.PushManager;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class NotificationManagerCompat {
     public static final String ACTION_BIND_SIDE_CHANNEL = "android.support.BIND_NOTIFICATION_SIDE_CHANNEL";
     private static final String CHECK_OP_NO_THROW = "checkOpNoThrow";
@@ -60,25 +61,26 @@ public final class NotificationManagerCompat {
     private static final Object sLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface Task {
         void send(INotificationSideChannel iNotificationSideChannel) throws RemoteException;
     }
 
-    public static NotificationManagerCompat from(Context context) {
+    @NonNull
+    public static NotificationManagerCompat from(@NonNull Context context) {
         return new NotificationManagerCompat(context);
     }
 
     private NotificationManagerCompat(Context context) {
         this.mContext = context;
-        this.mNotificationManager = (NotificationManager) this.mContext.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+        this.mNotificationManager = (NotificationManager) this.mContext.getSystemService("notification");
     }
 
     public void cancel(int i) {
         cancel(null, i);
     }
 
-    public void cancel(String str, int i) {
+    public void cancel(@Nullable String str, int i) {
         this.mNotificationManager.cancel(str, i);
         if (Build.VERSION.SDK_INT <= 19) {
             pushSideChannelQueue(new CancelTask(this.mContext.getPackageName(), i, str));
@@ -92,11 +94,11 @@ public final class NotificationManagerCompat {
         }
     }
 
-    public void notify(int i, Notification notification) {
+    public void notify(int i, @NonNull Notification notification) {
         notify(null, i, notification);
     }
 
-    public void notify(String str, int i, Notification notification) {
+    public void notify(@Nullable String str, int i, @NonNull Notification notification) {
         if (useSideChannelForNotification(notification)) {
             pushSideChannelQueue(new NotifyTask(this.mContext.getPackageName(), i, str, notification));
             this.mNotificationManager.cancel(str, i);
@@ -141,7 +143,8 @@ public final class NotificationManagerCompat {
         return -1000;
     }
 
-    public static Set<String> getEnabledListenerPackages(Context context) {
+    @NonNull
+    public static Set<String> getEnabledListenerPackages(@NonNull Context context) {
         Set<String> set;
         String string = Settings.Secure.getString(context.getContentResolver(), SETTING_ENABLED_NOTIFICATION_LISTENERS);
         synchronized (sEnabledNotificationListenersLock) {
@@ -179,7 +182,7 @@ public final class NotificationManagerCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SideChannelManager implements ServiceConnection, Handler.Callback {
         private static final int MSG_QUEUE_TASK = 0;
         private static final int MSG_RETRY_LISTENER_QUEUE = 3;
@@ -191,7 +194,7 @@ public final class NotificationManagerCompat {
         private Set<String> mCachedEnabledPackages = new HashSet();
         private final HandlerThread mHandlerThread = new HandlerThread("NotificationManagerCompat");
 
-        public SideChannelManager(Context context) {
+        SideChannelManager(Context context) {
             this.mContext = context;
             this.mHandlerThread.start();
             this.mHandler = new Handler(this.mHandlerThread.getLooper(), this);
@@ -380,21 +383,21 @@ public final class NotificationManagerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static class ListenerRecord {
-            public final ComponentName componentName;
-            public INotificationSideChannel service;
-            public boolean bound = false;
-            public LinkedList<Task> taskQueue = new LinkedList<>();
-            public int retryCount = 0;
+            final ComponentName componentName;
+            INotificationSideChannel service;
+            boolean bound = false;
+            ArrayDeque<Task> taskQueue = new ArrayDeque<>();
+            int retryCount = 0;
 
-            public ListenerRecord(ComponentName componentName) {
+            ListenerRecord(ComponentName componentName) {
                 this.componentName = componentName;
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class ServiceConnectedEvent {
         final ComponentName componentName;
         final IBinder iBinder;
@@ -406,7 +409,7 @@ public final class NotificationManagerCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class NotifyTask implements Task {
         final int id;
         final Notification notif;
@@ -436,7 +439,7 @@ public final class NotificationManagerCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class CancelTask implements Task {
         final boolean all;
         final int id;

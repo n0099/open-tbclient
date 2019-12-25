@@ -2,8 +2,9 @@ package com.baidu.tieba.ala.liveroom.challenge.rewarddialog;
 
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaChallengeRewardData implements IBaseDialogData {
     public static final int CHALLENGE_FAIL = 0;
     public static final int CHALLENGE_SUCCESS = 2;
@@ -47,7 +48,7 @@ public class AlaChallengeRewardData implements IBaseDialogData {
             this.giftNum = optJSONObject.optLong("gift_num");
             this.streakSuccessNum = optJSONObject.optString("win_streak");
             this.successRateNum = optJSONObject.optString("win_rate");
-            this.challengeLevel = optJSONObject.optInt("level");
+            this.challengeLevel = optJSONObject.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
             this.challengeLevelName = optJSONObject.optString("level_name");
             this.challengeLevelScore = optJSONObject.optLong("current_score");
             this.challengeLevelNextScore = optJSONObject.optLong("next_level_score");

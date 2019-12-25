@@ -8,7 +8,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class CommandMessage extends Message {
     public static final String APP_KEY = "appKey";
     public static final String APP_SECRET = "appSecret";
@@ -55,7 +55,7 @@ public class CommandMessage extends Message {
 
     public static List<String> parseToList(String str) {
         String[] split;
-        if (TextUtils.isEmpty(str) || (split = str.split(SPLITER)) == null || split.length <= 0) {
+        if (TextUtils.isEmpty(str) || (split = str.split("&")) == null || split.length <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
@@ -71,7 +71,7 @@ public class CommandMessage extends Message {
         StringBuilder sb = new StringBuilder();
         Iterator<T> it = list.iterator();
         while (it.hasNext()) {
-            sb.append(it.next() + SPLITER);
+            sb.append(it.next() + "&");
         }
         return sb.toString();
     }

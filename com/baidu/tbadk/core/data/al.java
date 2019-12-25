@@ -1,53 +1,82 @@
 package com.baidu.tbadk.core.data;
+
+import android.util.SparseArray;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class al {
-    private String content;
-    private String link;
-    private long messageID;
-    private String stat;
-    private long taskId;
-    private String toId;
+    private long cLm;
+    public int cLo;
+    public JSONArray cLp;
+    public String cLq;
+    public int cLr;
+    public int cardType;
+    public String extra;
+    private String fid;
+    public String source;
+    public int threadType;
+    private String tid;
+    private String type;
+    public String weight;
+    public SparseArray<String> feedBackReasonMap = null;
+    public SparseArray<String> cLn = null;
 
-    public al() {
-        this.messageID = -1L;
-        this.link = null;
-        this.content = null;
-        this.toId = null;
-        this.stat = "";
-        this.taskId = -1L;
+    public String getTid() {
+        return this.tid;
     }
 
-    public al(long j, long j2, String str, String str2, String str3) {
-        this.messageID = -1L;
-        this.link = null;
-        this.content = null;
-        this.toId = null;
-        this.stat = "";
-        this.taskId = -1L;
-        this.messageID = j;
-        this.taskId = j2;
-        this.link = str;
-        this.content = str2;
-        this.stat = str3;
+    public void setTid(String str) {
+        this.tid = str;
     }
 
-    public String getStat() {
-        return this.stat;
+    public String getFid() {
+        return this.fid;
     }
 
-    public long getMessageID() {
-        return this.messageID;
+    public void setFid(String str) {
+        this.fid = str;
     }
 
-    public long getTaskId() {
-        return this.taskId;
+    public void setFid(long j) {
+        this.fid = String.valueOf(j);
     }
 
-    public String getLink() {
-        return this.link;
+    public String getType() {
+        return this.type;
     }
 
-    public String getContent() {
-        return this.content;
+    public void setType(String str) {
+        this.type = str;
+    }
+
+    public SparseArray<String> getFeedBackReasonMap() {
+        return this.feedBackReasonMap;
+    }
+
+    public void setFeedBackReasonMap(SparseArray<String> sparseArray) {
+        this.feedBackReasonMap = sparseArray;
+    }
+
+    public void jg(int i) {
+        this.cLo = i;
+    }
+
+    public int ayj() {
+        return this.cLo;
+    }
+
+    public void L(JSONArray jSONArray) {
+        this.cLp = jSONArray;
+    }
+
+    public JSONArray ayk() {
+        return this.cLp;
+    }
+
+    public long ayl() {
+        return this.cLm;
+    }
+
+    public void bm(long j) {
+        this.cLm = j;
     }
 }

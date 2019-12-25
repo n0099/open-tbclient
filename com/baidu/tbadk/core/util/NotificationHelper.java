@@ -15,16 +15,16 @@ import android.support.v4.content.ContextCompat;
 import android.widget.RemoteViews;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.coloros.mcssdk.PushManager;
 /* loaded from: classes.dex */
 public class NotificationHelper {
     private static NotificationCompat.Builder PROGRESS_BUILDER;
     private static NotificationCompat.Builder PROGRESS_BUILDER_2;
     private static int lastProgressNotifiyId = 0;
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;
-    private static String PRIMARY_CHANNEL = "default";
+    private static String PRIMARY_CHANNEL = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
     private static String PRIMARY_CHANNEL_2 = "default_2";
     private static String PRIMARY_CHANNEL_3 = "default_3";
 
@@ -33,7 +33,7 @@ public class NotificationHelper {
             return false;
         }
         try {
-            ((NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI)).cancel(context.getPackageName(), i);
+            ((NotificationManager) context.getSystemService("notification")).cancel(context.getPackageName(), i);
             return true;
         } catch (Exception e) {
             return false;
@@ -45,7 +45,7 @@ public class NotificationHelper {
             return false;
         }
         try {
-            ((NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI)).cancel(context.getPackageName(), i);
+            ((NotificationManager) context.getSystemService("notification")).cancel(context.getPackageName(), i);
             return true;
         } catch (Exception e) {
             return false;
@@ -55,7 +55,7 @@ public class NotificationHelper {
     public static void cancelAllNotification(Context context) {
         if (context != null) {
             try {
-                ((NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI)).cancelAll();
+                ((NotificationManager) context.getSystemService("notification")).cancelAll();
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -109,7 +109,7 @@ public class NotificationHelper {
                     PROGRESS_BUILDER.setWhen(System.currentTimeMillis());
                 }
                 lastProgressNotifiyId = i;
-                PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon)).getBitmap());
+                PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.tb_launcher_icon)).getBitmap());
                 PROGRESS_BUILDER.setContent(remoteViews);
                 Notification build = PROGRESS_BUILDER.build();
                 build.contentIntent = pendingIntent;
@@ -122,7 +122,7 @@ public class NotificationHelper {
                 PROGRESS_BUILDER_2.setWhen(System.currentTimeMillis());
             }
             lastProgressNotifiyId = i;
-            PROGRESS_BUILDER_2.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon)).getBitmap());
+            PROGRESS_BUILDER_2.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.tb_launcher_icon)).getBitmap());
             PROGRESS_BUILDER_2.setContent(remoteViews);
             Notification build2 = PROGRESS_BUILDER_2.build();
             build2.contentIntent = pendingIntent;
@@ -157,7 +157,7 @@ public class NotificationHelper {
             if (Build.VERSION.SDK_INT < 26) {
                 builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
             } else {
-                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), switchData.ciF ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2);
+                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), switchData.cVp ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2);
             }
             builder.setContentTitle(str).setContentText(str2).setTicker(str3);
             processNotificationIcon(builder);
@@ -172,11 +172,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.ciG) {
+            if (!switchData.cVq) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.ciF) {
+            if (!switchData.cVp) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -184,7 +184,7 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.ciH) {
+            if (switchData.cVr) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = 400;
@@ -198,7 +198,7 @@ public class NotificationHelper {
 
     private static void processNotificationIcon(NotificationCompat.Builder builder) {
         if (builder != null) {
-            if (com.baidu.tbadk.util.t.isEMUI()) {
+            if (com.baidu.tbadk.util.v.isEMUI()) {
                 builder.setSmallIcon(R.drawable.icon_notify_blue);
             } else {
                 builder.setSmallIcon(R.drawable.icon_notify);
@@ -217,32 +217,32 @@ public class NotificationHelper {
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.b.aqt() && com.baidu.tbadk.coreExtra.messageCenter.b.aqs()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.b.aHR() && com.baidu.tbadk.coreExtra.messageCenter.b.aHQ()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.aqY().arh()) {
-                    aVar.ciF = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.d.aIw().aIF()) {
+                    aVar.cVp = true;
                     if (z || z2) {
-                        aVar.ciF = false;
+                        aVar.cVp = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.aqY().ark()) {
-                    aVar.ciG = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.d.aIw().aII()) {
+                    aVar.cVq = true;
                     if (z) {
-                        aVar.ciG = false;
+                        aVar.cVq = false;
                     }
                     if (z2) {
-                        aVar.ciG = true;
+                        aVar.cVq = true;
                     }
                 }
                 TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.aqY().ari()) {
-            aVar.ciH = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIw().aIG()) {
+            aVar.cVr = true;
         }
         return aVar;
     }
@@ -255,7 +255,7 @@ public class NotificationHelper {
 
     private static boolean processNotification(Context context, int i, Notification notification) {
         try {
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
             if (Build.VERSION.SDK_INT >= 26) {
                 NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(R.string.notify_channel_primary), 3);
                 notificationChannel.setLightColor(-16776961);
@@ -277,16 +277,16 @@ public class NotificationHelper {
 
     private static boolean processNotificationWithSoundAndVibration(Context context, int i, Notification notification, a aVar) {
         try {
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService(PushManager.MESSAGE_TYPE_NOTI);
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
             if (Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(aVar.ciF ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(R.string.notify_channel_primary), 3);
+                NotificationChannel notificationChannel = new NotificationChannel(aVar.cVp ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(R.string.notify_channel_primary), 3);
                 notificationChannel.setLightColor(-16776961);
                 notificationChannel.setLockscreenVisibility(0);
-                notificationChannel.enableVibration(aVar.ciG);
-                if (!aVar.ciF) {
+                notificationChannel.enableVibration(aVar.cVq);
+                if (!aVar.cVp) {
                     notificationChannel.setSound(null, null);
                 }
-                notificationChannel.enableLights(aVar.ciH);
+                notificationChannel.enableLights(aVar.cVr);
                 notificationManager.createNotificationChannel(notificationChannel);
             }
             if (notification == null || notificationManager == null) {
@@ -307,9 +307,9 @@ public class NotificationHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        boolean ciF = false;
-        boolean ciG = false;
-        boolean ciH = false;
+        boolean cVp = false;
+        boolean cVq = false;
+        boolean cVr = false;
 
         a() {
         }

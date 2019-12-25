@@ -7,16 +7,16 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.lib.cache.BdCacheSQLiteHelper;
 /* loaded from: classes.dex */
 public class p {
-    private final com.baidu.adp.base.a.b nn;
+    private final com.baidu.adp.base.a.b pN;
 
     public p(Context context, com.baidu.adp.base.a.b bVar) {
-        this.nn = bVar;
+        this.pN = bVar;
     }
 
-    public h Z(String str) {
+    public h ae(String str) {
         Cursor cursor;
         try {
-            cursor = this.nn.getOpenedDatabase().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+            cursor = this.pN.getOpenedDatabase().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
             th = th;
             cursor = null;
@@ -25,11 +25,11 @@ public class p {
         } catch (Throwable th2) {
             th = th2;
             try {
-                this.nn.notifySQLException(th, "get");
-                com.baidu.adp.lib.g.a.close(cursor);
+                this.pN.notifySQLException(th, "get");
+                com.baidu.adp.lib.f.a.close(cursor);
                 return null;
             } finally {
-                com.baidu.adp.lib.g.a.close(cursor);
+                com.baidu.adp.lib.f.a.close(cursor);
             }
         }
         if (cursor.moveToNext()) {
@@ -54,23 +54,23 @@ public class p {
             contentValues.put("cacheVersion", Integer.valueOf(hVar.cacheVersion));
             contentValues.put("cacheType", hVar.cacheType);
             contentValues.put("lastActiveTime", Long.valueOf(hVar.lastActiveTime));
-            SQLiteDatabase openedDatabase = this.nn.getOpenedDatabase();
+            SQLiteDatabase openedDatabase = this.pN.getOpenedDatabase();
             if (openedDatabase != null && openedDatabase.update(BdCacheSQLiteHelper.TABLE_CACHE_META_INFO, contentValues, "nameSpace = ?", new String[]{hVar.nameSpace}) == 0) {
                 openedDatabase.insert(BdCacheSQLiteHelper.TABLE_CACHE_META_INFO, null, contentValues);
             }
         } catch (Throwable th) {
-            this.nn.notifySQLException(th, "addOrUpdate");
+            this.pN.notifySQLException(th, "addOrUpdate");
         }
     }
 
     public int delete(String str) {
         try {
-            if (Z(str) == null) {
+            if (ae(str) == null) {
                 return 0;
             }
-            return this.nn.getOpenedDatabase().delete(BdCacheSQLiteHelper.TABLE_CACHE_META_INFO, "nameSpace = ?", new String[]{str});
+            return this.pN.getOpenedDatabase().delete(BdCacheSQLiteHelper.TABLE_CACHE_META_INFO, "nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
-            this.nn.notifySQLException(th, "delete");
+            this.pN.notifySQLException(th, "delete");
             return 0;
         }
     }

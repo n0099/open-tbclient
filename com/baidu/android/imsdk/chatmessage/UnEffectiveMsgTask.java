@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class UnEffectiveMsgTask implements Runnable {
     private Context mContext;
 

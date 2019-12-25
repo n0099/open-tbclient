@@ -1,47 +1,30 @@
 package com.baidu.swan.games.glsurface;
 
-import android.content.Context;
 import android.util.Log;
-import com.baidu.swan.apps.b;
-import java.util.ArrayDeque;
-import java.util.Queue;
-/* loaded from: classes2.dex */
-public class a {
-    private static final boolean DEBUG = b.DEBUG;
-    private static volatile a bAq;
-    private Queue<DuMixGameSurfaceView> bAr = new ArrayDeque();
+import com.baidu.searchbox.v8engine.console.DebugConsole;
+import com.baidu.swan.games.u.d;
+/* loaded from: classes9.dex */
+public class a implements DebugConsole {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private long ckc;
 
-    public static a Xc() {
-        if (bAq == null) {
-            synchronized (a.class) {
-                if (bAq == null) {
-                    bAq = new a();
-                }
+    @Override // com.baidu.searchbox.v8engine.console.DebugConsole
+    public void onReceiveInfo(int i, String str) {
+        if (DEBUG && !d.amW()) {
+            switch (i) {
+                case 0:
+                    Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
+                    return;
+                case 1:
+                    this.ckc = System.currentTimeMillis();
+                    Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
+                    return;
+                case 2:
+                    Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.ckc), str));
+                    return;
+                default:
+                    return;
             }
         }
-        return bAq;
-    }
-
-    public DuMixGameSurfaceView bZ(Context context) {
-        if (this.bAr.isEmpty()) {
-            if (DEBUG) {
-                Log.d("SwanGameSurfaceView", "obtainSurfaceView crateNew.");
-            }
-            return ca(context);
-        }
-        if (DEBUG) {
-            Log.d("SwanGameSurfaceView", "obtainSurfaceView take from pool.");
-        }
-        return this.bAr.remove();
-    }
-
-    public void f(DuMixGameSurfaceView duMixGameSurfaceView) {
-        if (!this.bAr.contains(duMixGameSurfaceView)) {
-            this.bAr.add(duMixGameSurfaceView);
-        }
-    }
-
-    public DuMixGameSurfaceView ca(Context context) {
-        return new DuMixGameSurfaceView(context);
     }
 }

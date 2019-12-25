@@ -8,7 +8,7 @@ import com.baidu.mobads.interfaces.utils.IXAdIOUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class l implements IXAdIOUtils {
     public static String a(Context context) {
         String str;
@@ -125,7 +125,6 @@ public class l implements IXAdIOUtils {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [175=4] */
     @Override // com.baidu.mobads.interfaces.utils.IXAdIOUtils
     public void copyFileInputStream(InputStream inputStream, String str) {
         FileOutputStream fileOutputStream;

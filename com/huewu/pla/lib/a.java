@@ -1,10 +1,10 @@
 package com.huewu.pla.lib;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public static void GR(String str) {
+    public static void Qt(String str) {
     }
 
-    public static void GS(String str) {
+    public static void Qu(String str) {
     }
 
     public static void i(String str) {

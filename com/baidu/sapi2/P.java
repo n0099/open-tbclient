@@ -7,6 +7,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.sapi2.S;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
@@ -29,7 +30,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class P {
     private static final Map<String, SoftReference<String>> a = new ConcurrentHashMap();
     private final List<String> b = new ArrayList();
@@ -37,11 +38,11 @@ public final class P {
     private Context d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void a(S.a.C0134a c0134a);
+        void a(S.a.C0161a c0161a);
 
-        void a(S.a.C0134a c0134a, String str);
+        void a(S.a.C0161a c0161a, String str);
     }
 
     String c(String str) {
@@ -69,7 +70,7 @@ public final class P {
     /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(4)
     public String d(Context context, String str) throws IOException {
-        return com.baidu.sapi2.utils.a.b(context.getApplicationInfo().dataDir + File.separator + "files" + File.separator + str);
+        return com.baidu.sapi2.utils.a.b(context.getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.g + File.separator + str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -82,7 +83,7 @@ public final class P {
         if (SapiContext.getInstance().getSapiOptions().e().c()) {
             String c = c(str);
             if (TextUtils.isEmpty(c)) {
-                S.a.C0134a c2 = c(context, str);
+                S.a.C0161a c2 = c(context, str);
                 if (c2 != null) {
                     a(c2, new J(this, context));
                 }
@@ -106,10 +107,10 @@ public final class P {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public S.a.C0134a c(Context context, String str) {
-        for (S.a.C0134a c0134a : SapiContext.getInstance().getSapiOptions().e().a()) {
-            if (c0134a.a.equals(str)) {
-                return c0134a;
+    public S.a.C0161a c(Context context, String str) {
+        for (S.a.C0161a c0161a : SapiContext.getInstance().getSapiOptions().e().a()) {
+            if (c0161a.a.equals(str)) {
+                return c0161a;
             }
         }
         return null;
@@ -148,33 +149,33 @@ public final class P {
     void a(S s) {
         S.a e = s.e();
         if (e.c()) {
-            for (S.a.C0134a c0134a : e.a()) {
-                this.b.add(c0134a.a);
+            for (S.a.C0161a c0161a : e.a()) {
+                this.b.add(c0161a.a);
             }
             this.c.addAll(this.b);
-            for (S.a.C0134a c0134a2 : e.a()) {
-                a(c0134a2, new K(this));
+            for (S.a.C0161a c0161a2 : e.a()) {
+                a(c0161a2, new K(this));
             }
         }
     }
 
-    void a(S.a.C0134a c0134a, a aVar) {
+    void a(S.a.C0161a c0161a, a aVar) {
         if (aVar != null) {
-            String b = S.a.C0134a.b(c0134a.a);
+            String b = S.a.C0161a.b(c0161a.a);
             try {
                 if ("mounted".equals(Environment.getExternalStorageState()) && new File(Environment.getExternalStorageDirectory(), b).exists()) {
                     String b2 = b(b);
-                    if (MD5Util.toMd5(b2.getBytes(), false).equals(c0134a.c)) {
-                        aVar.a(c0134a, b2);
+                    if (MD5Util.toMd5(b2.getBytes(), false).equals(c0161a.c)) {
+                        aVar.a(c0161a, b2);
                     } else {
-                        aVar.a(c0134a);
+                        aVar.a(c0161a);
                     }
                 } else {
-                    aVar.a(c0134a);
+                    aVar.a(c0161a);
                 }
                 return;
             } catch (Throwable th) {
-                aVar.a(c0134a);
+                aVar.a(c0161a);
                 return;
             }
         }
@@ -182,11 +183,11 @@ public final class P {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(Context context, S.a.C0134a c0134a) {
-        String c = S.a.C0134a.c(c0134a.a);
+    public void a(Context context, S.a.C0161a c0161a) {
+        String c = S.a.C0161a.c(c0161a.a);
         if (new File(context.getFilesDir(), c).exists()) {
             try {
-                a(c0134a.a, d(context, c));
+                a(c0161a.a, d(context, c));
             } catch (Throwable th) {
                 Log.e(th);
             }
@@ -197,12 +198,12 @@ public final class P {
     public String a(String str) {
         Uri parse;
         String str2 = parse.getHost() + (Uri.parse(str).getPort() == -1 ? "" : ":" + parse.getPort()) + parse.getPath();
-        return !str2.endsWith(".html") ? str2 + ".html" : str2;
+        return !str2.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION) ? str2 + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION : str2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, S s) {
-        S.a.C0134a c0134a;
+        S.a.C0161a c0161a;
         try {
             JSONObject jSONObject = new JSONObject(str);
             S a2 = S.a(jSONObject);
@@ -213,27 +214,27 @@ public final class P {
             c(a2);
             this.c.clear();
             if (e.c()) {
-                for (S.a.C0134a c0134a2 : e.a()) {
-                    this.c.add(c0134a2.a);
+                for (S.a.C0161a c0161a2 : e.a()) {
+                    this.c.add(c0161a2.a);
                 }
-                for (S.a.C0134a c0134a3 : e.a()) {
-                    S.a.C0134a c0134a4 = null;
-                    Iterator<S.a.C0134a> it = e2.a().iterator();
+                for (S.a.C0161a c0161a3 : e.a()) {
+                    S.a.C0161a c0161a4 = null;
+                    Iterator<S.a.C0161a> it = e2.a().iterator();
                     while (true) {
-                        c0134a = c0134a4;
+                        c0161a = c0161a4;
                         if (!it.hasNext()) {
                             break;
                         }
-                        c0134a4 = it.next();
-                        if (!c0134a4.a.equals(c0134a3.a)) {
-                            c0134a4 = c0134a;
+                        c0161a4 = it.next();
+                        if (!c0161a4.a.equals(c0161a3.a)) {
+                            c0161a4 = c0161a;
                         }
                     }
-                    if (a(c0134a3, c0134a)) {
-                        a(c0134a3, new N(this, c0134a3, a2, e2));
+                    if (a(c0161a3, c0161a)) {
+                        a(c0161a3, new N(this, c0161a3, a2, e2));
                     } else {
                         SapiContext.getInstance().put(SapiContext.KEY_LOGIN_PAGE_IS_CACHED, true);
-                        a(c0134a3, new O(this));
+                        a(c0161a3, new O(this));
                     }
                 }
             }
@@ -242,14 +243,14 @@ public final class P {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(String str, S.a.C0134a c0134a) {
-        if (TextUtils.isEmpty(c0134a.a) || TextUtils.isEmpty(str) || !c0134a.c.equals(MD5Util.toMd5(str.getBytes(), false))) {
+    public void a(String str, S.a.C0161a c0161a) {
+        if (TextUtils.isEmpty(c0161a.a) || TextUtils.isEmpty(str) || !c0161a.c.equals(MD5Util.toMd5(str.getBytes(), false))) {
             return;
         }
-        a(c0134a.a, str);
-        a(this.d, S.a.C0134a.c(c0134a.a), str.getBytes());
+        a(c0161a.a, str);
+        a(this.d, S.a.C0161a.c(c0161a.a), str.getBytes());
         if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.d)) {
-            a(S.a.C0134a.b(c0134a.a), str.getBytes());
+            a(S.a.C0161a.b(c0161a.a), str.getBytes());
         }
     }
 
@@ -310,8 +311,8 @@ public final class P {
         }
     }
 
-    boolean a(S.a.C0134a c0134a, S.a.C0134a c0134a2) {
-        return !TextUtils.isEmpty(c0134a.c) && (c0134a2 == null || !c0134a.c.equals(c0134a2.c));
+    boolean a(S.a.C0161a c0161a, S.a.C0161a c0161a2) {
+        return !TextUtils.isEmpty(c0161a.c) && (c0161a2 == null || !c0161a.c.equals(c0161a2.c));
     }
 
     void a() {

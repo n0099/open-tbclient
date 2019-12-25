@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMGetUsersProfileByBaiduUidBatch extends Message {
     private ArrayList<Long> mBuidsArrayList;
     private Context mContext;

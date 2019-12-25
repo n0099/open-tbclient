@@ -4,13 +4,14 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdStatsItem {
     public String childType;
     public long logID;
@@ -57,10 +58,10 @@ public class BdStatsItem {
                 this.mKvLists = new ArrayList<>();
             }
             this.mKvLists.clear();
-            String[] split2 = str.split("&");
+            String[] split2 = str.split(ETAG.ITEM_SEPARATOR);
             if (split2 != null && split2.length != 0) {
                 for (String str2 : split2) {
-                    if (!TextUtils.isEmpty(str2) && (split = str2.split("=")) != null && split.length == 2) {
+                    if (!TextUtils.isEmpty(str2) && (split = str2.split(ETAG.EQUAL)) != null && split.length == 2) {
                         try {
                             this.mKvLists.add(new BasicNameValuePair(split[0], URLDecoder.decode(split[1], "utf-8")));
                         } catch (UnsupportedEncodingException e) {
@@ -133,7 +134,7 @@ public class BdStatsItem {
                 this.mStringBuilder.append('&');
             }
             this.mStringBuilder.append(str);
-            this.mStringBuilder.append("=");
+            this.mStringBuilder.append(ETAG.EQUAL);
             try {
                 this.mStringBuilder.append(URLEncoder.encode(valueEscapeSpace(str2), "utf-8"));
             } catch (Throwable th) {
@@ -180,6 +181,6 @@ public class BdStatsItem {
     }
 
     public static String valueEscapeSpace(String str) {
-        return str.replace(HanziToPinyin.Token.SEPARATOR, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("[", "(").replace("]", ")").replace("&", "|");
+        return str.replace(HanziToPinyin.Token.SEPARATOR, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("[", "(").replace("]", ")").replace(ETAG.ITEM_SEPARATOR, "|");
     }
 }

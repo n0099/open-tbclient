@@ -3,7 +3,7 @@ package com.vivo.push.c;
 import android.content.Context;
 import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.sdk.PushMessageCallback;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 final class p implements Runnable {
     final /* synthetic */ UnvarnishedMessage a;
     final /* synthetic */ o b;

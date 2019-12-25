@@ -1,6 +1,7 @@
 package com.baidu.tieba.recapp.download.http;
 
 import com.baidu.adp.lib.util.k;
+import com.baidu.webkit.internal.ETAG;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -9,13 +10,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class h {
     private String url = "";
-    protected Map<String, String> oM = new HashMap();
-    protected LinkedList<BasicNameValuePair> oN = new LinkedList<>();
-    protected HashMap<String, byte[]> oO = new HashMap<>();
+    protected Map<String, String> rj = new HashMap();
+    protected LinkedList<BasicNameValuePair> rk = new LinkedList<>();
+    protected HashMap<String, byte[]> rl = new HashMap<>();
 
     public String getUrl() {
         return this.url;
@@ -29,14 +29,14 @@ public class h {
         }
     }
 
-    public boolean fN() {
-        return this.oO != null && this.oO.size() > 0;
+    public boolean gd() {
+        return this.rl != null && this.rl.size() > 0;
     }
 
     public String c(e eVar) {
-        if (this.oN.size() == 0) {
+        if (this.rk.size() == 0) {
             if (eVar != null) {
-                eVar.ou = this.url.length();
+                eVar.qN = this.url.length();
             }
             return this.url;
         }
@@ -44,32 +44,32 @@ public class h {
         sb.append(this.url);
         if (this.url.indexOf("?") < 0) {
             sb.append("?");
-        } else if (!this.url.endsWith("?") && !this.url.endsWith("&")) {
-            sb.append("&");
+        } else if (!this.url.endsWith("?") && !this.url.endsWith(ETAG.ITEM_SEPARATOR)) {
+            sb.append(ETAG.ITEM_SEPARATOR);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.oN.size()) {
+            if (i2 >= this.rk.size()) {
                 break;
             }
             if (i2 != 0) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             }
-            sb.append(this.oN.get(i2).getName());
-            sb.append("=");
-            sb.append(k.getUrlEncode(this.oN.get(i2).getValue()));
+            sb.append(this.rk.get(i2).getName());
+            sb.append(ETAG.EQUAL);
+            sb.append(k.getUrlEncode(this.rk.get(i2).getValue()));
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.ou = sb.length();
+            eVar.qN = sb.length();
         }
         return sb.toString();
     }
 
-    public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.oM != null) {
-            for (Map.Entry<String, String> entry : this.oM.entrySet()) {
+    public void f(HttpURLConnection httpURLConnection) {
+        if (httpURLConnection != null && this.rj != null) {
+            for (Map.Entry<String, String> entry : this.rj.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -77,13 +77,13 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(HttpURLConnection httpURLConnection, String str, e eVar) throws Exception {
-        fP();
+        gf();
         int i = 0;
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.oN != null) {
-                    Iterator<BasicNameValuePair> it = this.oN.iterator();
+                if (this.rk != null) {
+                    Iterator<BasicNameValuePair> it = this.rk.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -91,7 +91,7 @@ public class h {
                             String value = next.getValue();
                             if (value != null && name != null) {
                                 dataOutputStream.writeBytes("--" + str + "\r\n");
-                                byte[] bytes = value.getBytes(HTTP.UTF_8);
+                                byte[] bytes = value.getBytes("UTF-8");
                                 dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"\r\n");
                                 dataOutputStream.writeBytes("\r\n");
                                 dataOutputStream.write(bytes);
@@ -100,8 +100,8 @@ public class h {
                         }
                     }
                 }
-                if (this.oO != null) {
-                    for (Map.Entry<String, byte[]> entry : this.oO.entrySet()) {
+                if (this.rl != null) {
+                    for (Map.Entry<String, byte[]> entry : this.rl.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -117,38 +117,38 @@ public class h {
                 dataOutputStream.flush();
                 i = dataOutputStream.size();
             } finally {
-                com.baidu.adp.lib.g.a.close((OutputStream) dataOutputStream);
+                com.baidu.adp.lib.f.a.close((OutputStream) dataOutputStream);
             }
         }
         if (eVar != null) {
-            eVar.ou = i;
+            eVar.qN = i;
         }
     }
 
     public void a(HttpURLConnection httpURLConnection, e eVar) throws Exception {
         int i = 0;
         if (httpURLConnection != null) {
-            String sb = fO().toString();
+            String sb = ge().toString();
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
                 dataOutputStream.writeBytes(sb);
                 dataOutputStream.flush();
-                com.baidu.adp.lib.g.a.close((OutputStream) dataOutputStream);
+                com.baidu.adp.lib.f.a.close((OutputStream) dataOutputStream);
                 i = sb.length();
             } catch (Throwable th) {
-                com.baidu.adp.lib.g.a.close((OutputStream) dataOutputStream);
+                com.baidu.adp.lib.f.a.close((OutputStream) dataOutputStream);
                 throw th;
             }
         }
         if (eVar != null) {
-            eVar.ou = i;
+            eVar.qN = i;
         }
     }
 
-    private StringBuilder fO() {
+    private StringBuilder ge() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.oN != null) {
-            Iterator<BasicNameValuePair> it = this.oN.iterator();
+        if (this.rk != null) {
+            Iterator<BasicNameValuePair> it = this.rk.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -156,9 +156,9 @@ public class h {
                     String name = next.getName();
                     String value = next.getValue();
                     if (i != 0) {
-                        sb.append("&");
+                        sb.append(ETAG.ITEM_SEPARATOR);
                     }
-                    sb.append(name + "=");
+                    sb.append(name + ETAG.EQUAL);
                     sb.append(k.getUrlEncode(value));
                     i++;
                 }
@@ -167,23 +167,23 @@ public class h {
         return sb;
     }
 
-    protected void fP() {
+    protected void gf() {
     }
 
-    public String ah(String str) {
-        if (this.oM != null) {
-            return this.oM.get(str);
+    public String al(String str) {
+        if (this.rj != null) {
+            return this.rj.get(str);
         }
         return null;
     }
 
     public void addPostData(BasicNameValuePair basicNameValuePair) {
-        this.oN.add(basicNameValuePair);
+        this.rk.add(basicNameValuePair);
     }
 
-    public void l(String str, String str2) {
-        if (this.oM != null) {
-            this.oM.put(str, str2);
+    public void m(String str, String str2) {
+        if (this.rj != null) {
+            this.rj.put(str, str2);
         }
     }
 }

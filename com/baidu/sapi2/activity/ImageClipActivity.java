@@ -19,8 +19,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import com.baidu.d.a.a;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.ZoomImageView;
@@ -28,7 +27,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ImageClipActivity extends Activity {
     public static final int BUSSINESS_FROM_INVOICE_BUILD = 1;
     public static final int BUSSINESS_SET_PORTRAIT = 0;
@@ -169,7 +168,7 @@ public class ImageClipActivity extends Activity {
             clipBoxView.aa = ClipBoxView.a;
             clipBoxView.ba = false;
         }
-        setPendingTransition(a.C0053a.sapi_sdk_slide_right_in, a.C0053a.sapi_sdk_slide_left_out, a.C0053a.sapi_sdk_slide_left_in, a.C0053a.sapi_sdk_slide_right_out);
+        setPendingTransition(a.C0069a.sapi_sdk_slide_right_in, a.C0069a.sapi_sdk_slide_left_out, a.C0069a.sapi_sdk_slide_left_in, a.C0069a.sapi_sdk_slide_right_out);
         Button button = (Button) findViewById(a.e.sure_clip_btn);
         Button button2 = (Button) findViewById(a.e.cancel_clip_btn);
         if (Build.VERSION.SDK_INT >= 19) {
@@ -263,7 +262,7 @@ public class ImageClipActivity extends Activity {
             }
         } else if ("content".equalsIgnoreCase(data.getScheme())) {
             str = a(data, (String) null);
-        } else if (BdStatsConstant.OpSubType.FILE.equalsIgnoreCase(data.getScheme())) {
+        } else if ("file".equalsIgnoreCase(data.getScheme())) {
             str = data.getPath();
         }
         b(str);

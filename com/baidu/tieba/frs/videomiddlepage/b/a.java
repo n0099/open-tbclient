@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.view.SpannableClickTextView;
-/* loaded from: classes4.dex */
+import com.baidu.tieba.view.expandable.SpannableClickTextView;
+/* loaded from: classes6.dex */
 public class a {
-    private static final int fVa = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+    private static final int gJA = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
         int dimens;
@@ -47,13 +47,13 @@ public class a {
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str4);
             SpannableString spannableString = new SpannableString(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-            spannableString.setSpan(new C0415a(context, R.drawable.icon_video_middle_ad_link), 0, 1, 17);
+            spannableString.setSpan(new C0503a(context, R.drawable.icon_video_middle_ad_link), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.frs.videomiddlepage.b.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
                     if (!StringUtils.isNull(str2)) {
                         an anVar = new an("c13313");
-                        anVar.bS("tid", str3);
+                        anVar.cp("tid", str3);
                         TiebaStatic.log(anVar);
                         com.baidu.tbadk.browser.a.startWebActivity(TbadkCoreApplication.getInst().getApplicationContext(), false, str2);
                     }
@@ -61,7 +61,7 @@ public class a {
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(fVa, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(gJA, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
@@ -71,7 +71,7 @@ public class a {
                 textView.setMovementMethod(LinkMovementMethod.getInstance());
             }
             an anVar = new an("c13312");
-            anVar.bS("tid", str3);
+            anVar.cp("tid", str3);
             TiebaStatic.log(anVar);
         }
     }
@@ -85,14 +85,14 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b extends ReplacementSpan {
-        private int fVd;
-        private int fVe;
+        private int gJD;
+        private int gJE;
 
         public b(int i, int i2) {
-            this.fVd = i;
-            this.fVe = i2;
+            this.gJD = i;
+            this.gJE = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -110,17 +110,17 @@ public class a {
 
         private TextPaint b(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.fVd);
-            textPaint.setColor(this.fVe);
+            textPaint.setTextSize(this.gJD);
+            textPaint.setColor(this.gJE);
             return textPaint;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.videomiddlepage.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0415a extends ImageSpan {
-        public C0415a(Context context, int i) {
+    /* loaded from: classes6.dex */
+    public static class C0503a extends ImageSpan {
+        public C0503a(Context context, int i) {
             super(context, i);
         }
 

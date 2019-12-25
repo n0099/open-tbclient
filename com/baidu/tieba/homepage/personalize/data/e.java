@@ -2,25 +2,25 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import java.util.List;
 import tbclient.UnreadTip.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
-    public int glO;
-    public List<String> glP;
-    public long glQ;
-    public String glR;
-    public int glS;
+    public int gZs;
+    public List<String> gZt;
+    public long gZu;
+    public String gZv;
+    public int mThreadCount;
 
-    public boolean bvf() {
-        return this.glO > 0;
+    public boolean bMt() {
+        return this.gZs > 0;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.glO = dataRes.user_count.intValue();
-            this.glP = dataRes.portrait_list;
-            this.glQ = dataRes.hide_unix.longValue() * 1000;
-            this.glR = dataRes.show_tip;
-            this.glS = dataRes.thread_count.intValue();
+            this.gZs = dataRes.user_count.intValue();
+            this.gZt = dataRes.portrait_list;
+            this.gZu = dataRes.hide_unix.longValue() * 1000;
+            this.gZv = dataRes.show_tip;
+            this.mThreadCount = dataRes.thread_count.intValue();
         }
     }
 }

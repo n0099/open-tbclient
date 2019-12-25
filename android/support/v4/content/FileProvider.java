@@ -8,9 +8,12 @@ import android.content.res.XmlResourceParser;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.support.annotation.GuardedBy;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import java.io.File;
@@ -19,7 +22,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FileProvider extends ContentProvider {
     private static final String ATTR_NAME = "name";
     private static final String ATTR_PATH = "path";
@@ -28,6 +31,7 @@ public class FileProvider extends ContentProvider {
     private static final String TAG_EXTERNAL = "external-path";
     private static final String TAG_EXTERNAL_CACHE = "external-cache-path";
     private static final String TAG_EXTERNAL_FILES = "external-files-path";
+    private static final String TAG_EXTERNAL_MEDIA = "external-media-path";
     private static final String TAG_FILES_PATH = "files-path";
     private static final String TAG_ROOT_PATH = "root-path";
     private PathStrategy mStrategy;
@@ -37,7 +41,7 @@ public class FileProvider extends ContentProvider {
     private static HashMap<String, PathStrategy> sCache = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface PathStrategy {
         File getFileForUri(Uri uri);
 
@@ -50,7 +54,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public void attachInfo(Context context, ProviderInfo providerInfo) {
+    public void attachInfo(@NonNull Context context, @NonNull ProviderInfo providerInfo) {
         super.attachInfo(context, providerInfo);
         if (providerInfo.exported) {
             throw new SecurityException("Provider must not be exported");
@@ -61,12 +65,12 @@ public class FileProvider extends ContentProvider {
         this.mStrategy = getPathStrategy(context, providerInfo.authority);
     }
 
-    public static Uri getUriForFile(Context context, String str, File file) {
+    public static Uri getUriForFile(@NonNull Context context, @NonNull String str, @NonNull File file) {
         return getPathStrategy(context, str).getUriForFile(file);
     }
 
     @Override // android.content.ContentProvider
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         int i;
         File fileForUri = this.mStrategy.getFileForUri(uri);
         if (strArr == null) {
@@ -101,7 +105,7 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         File fileForUri = this.mStrategy.getFileForUri(uri);
         int lastIndexOf = fileForUri.getName().lastIndexOf(46);
         if (lastIndexOf >= 0) {
@@ -114,22 +118,22 @@ public class FileProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Uri insert(Uri uri, ContentValues contentValues) {
+    public Uri insert(@NonNull Uri uri, ContentValues contentValues) {
         throw new UnsupportedOperationException("No external inserts");
     }
 
     @Override // android.content.ContentProvider
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
+    public int update(@NonNull Uri uri, ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         throw new UnsupportedOperationException("No external updates");
     }
 
     @Override // android.content.ContentProvider
-    public int delete(Uri uri, String str, String[] strArr) {
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         return this.mStrategy.getFileForUri(uri).delete() ? 1 : 0;
     }
 
     @Override // android.content.ContentProvider
-    public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
+    public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String str) throws FileNotFoundException {
         return ParcelFileDescriptor.open(this.mStrategy.getFileForUri(uri), modeToMode(str));
     }
 
@@ -181,11 +185,17 @@ public class FileProvider extends ContentProvider {
                             file = externalFilesDirs[0];
                         }
                         file = null;
+                    } else if (TAG_EXTERNAL_CACHE.equals(name)) {
+                        File[] externalCacheDirs = ContextCompat.getExternalCacheDirs(context);
+                        if (externalCacheDirs.length > 0) {
+                            file = externalCacheDirs[0];
+                        }
+                        file = null;
                     } else {
-                        if (TAG_EXTERNAL_CACHE.equals(name)) {
-                            File[] externalCacheDirs = ContextCompat.getExternalCacheDirs(context);
-                            if (externalCacheDirs.length > 0) {
-                                file = externalCacheDirs[0];
+                        if (Build.VERSION.SDK_INT >= 21 && TAG_EXTERNAL_MEDIA.equals(name)) {
+                            File[] externalMediaDirs = context.getExternalMediaDirs();
+                            if (externalMediaDirs.length > 0) {
+                                file = externalMediaDirs[0];
                             }
                         }
                         file = null;
@@ -201,16 +211,16 @@ public class FileProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SimplePathStrategy implements PathStrategy {
         private final String mAuthority;
         private final HashMap<String, File> mRoots = new HashMap<>();
 
-        public SimplePathStrategy(String str) {
+        SimplePathStrategy(String str) {
             this.mAuthority = str;
         }
 
-        public void addRoot(String str, File file) {
+        void addRoot(String str, File file) {
             if (TextUtils.isEmpty(str)) {
                 throw new IllegalArgumentException("Name must not be empty");
             }

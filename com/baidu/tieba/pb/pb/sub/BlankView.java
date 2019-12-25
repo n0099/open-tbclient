@@ -1,22 +1,23 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Scroller;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BlankView extends View {
-    private a iag;
+    private a iPw;
     private Scroller mScroller;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void bob();
+        void bFy();
     }
 
     public void setScrollCallBack(a aVar) {
-        this.iag = aVar;
+        this.iPw = aVar;
     }
 
     public BlankView(Context context) {
@@ -31,15 +32,9 @@ public class BlankView extends View {
         super(context, attributeSet, i);
     }
 
-    public void bof() {
-        if (this.mScroller == null) {
-            this.mScroller = new Scroller(getContext());
-        }
-        ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        if (layoutParams != null) {
-            this.mScroller.startScroll(0, layoutParams.height, 0, 0 - layoutParams.height);
-            invalidate();
-        }
+    @Override // android.view.View
+    protected void onDraw(Canvas canvas) {
+        canvas.drawColor(0);
     }
 
     @Override // android.view.View
@@ -53,8 +48,8 @@ public class BlankView extends View {
                     layoutParams.height = currY;
                     setLayoutParams(layoutParams);
                 }
-            } else if (this.iag != null) {
-                this.iag.bob();
+            } else if (this.iPw != null) {
+                this.iPw.bFy();
             }
         }
     }

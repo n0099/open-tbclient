@@ -2,11 +2,7 @@ package com.baidu.searchbox.v8engine;
 
 import android.util.Xml;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.smallgame.sdk.Log;
 import com.coloros.mcssdk.mode.CommandMessage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -17,7 +13,7 @@ import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class FontParser {
     static final String DEFAULT_FALLBACK = "/system/fonts/DroidSansFallback.ttf";
     static final String DEFAULT_FONTS = "/system/fonts/DroidSans.ttf";
@@ -37,14 +33,14 @@ public class FontParser {
     private static final Pattern TAG_PATTERN = Pattern.compile("[\\x00-\\xFF]{4}");
     private static final Pattern STYLE_VALUE_PATTERN = Pattern.compile("-?(([0-9]+(\\.[0-9]+)?)|(\\.[0-9]+))");
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class Alias {
         public String name;
         public String toName;
         public int weight;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class Config {
         public List<Family> families = new ArrayList();
         public List<Alias> aliases = new ArrayList();
@@ -53,7 +49,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class Axis {
         public final float styleValue;
         public final int tag;
@@ -64,7 +60,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class Font {
         public final List<Axis> axes;
         public String fontName;
@@ -81,7 +77,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class Family {
         public List<Font> fonts;
         public String lang;
@@ -93,38 +89,6 @@ public class FontParser {
             this.fonts = list;
             this.lang = str2;
             this.variant = str3;
-        }
-    }
-
-    private static void init() {
-        File file;
-        File file2 = new File(FONTS_CONFIG);
-        if (file2.exists() && file2.isFile()) {
-            file = file2;
-        } else {
-            File file3 = new File(FONTS_PAD_FONTS_XML);
-            mIsAndroidPad = true;
-            file = file3;
-        }
-        try {
-            parse(new FileInputStream(file));
-            if (mIsAndroidPad && sSystemFontMap.size() == 0) {
-                sSystemFontMap.put(DEFAULT_FONTS_KEY1, DEFAULT_FONTS);
-                sSystemFontMap.put(DEFAULT_FONTS_KEY2, DEFAULT_FALLBACK);
-            }
-            if (mIsAndroidPad && sFallbackFonts.size() == 0) {
-                sFallbackFonts.add(DEFAULT_FALLBACK);
-            }
-            Log.i(TAG, "sSystemFontMap.size=" + sSystemFontMap.size() + ",sFallbackFonts.size=" + sFallbackFonts.size());
-            V8Engine.nativeInitFonts(sSystemFontMap, sFallbackFonts.toArray());
-        } catch (FileNotFoundException e) {
-            Log.e(TAG, "Error opening " + file, e);
-        } catch (IOException e2) {
-            Log.e(TAG, "Error reading " + file, e2);
-        } catch (RuntimeException e3) {
-            Log.w(TAG, "Didn't create default family (most likely, non-Minikin build)", e3);
-        } catch (XmlPullParserException e4) {
-            Log.e(TAG, "XML parse exception for " + file, e4);
         }
     }
 

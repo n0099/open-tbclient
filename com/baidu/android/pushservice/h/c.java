@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.h;
 
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class c implements Runnable {
     private String a;
     private short b;

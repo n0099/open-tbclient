@@ -2,7 +2,7 @@ package com.baidu.sapi2.c;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class c implements View.OnClickListener {
     final /* synthetic */ g a;
 

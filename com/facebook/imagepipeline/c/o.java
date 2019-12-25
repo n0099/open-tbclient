@@ -1,29 +1,38 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes2.dex */
-public interface o {
-    void a(h<?, ?> hVar);
+/* loaded from: classes9.dex */
+public class o<K, V> implements p<K, V> {
+    private final p<K, V> lML;
+    private final r lMM;
 
-    void b(h<?, ?> hVar);
+    public o(p<K, V> pVar, r rVar) {
+        this.lML = pVar;
+        this.lMM = rVar;
+    }
 
-    void cFA();
+    @Override // com.facebook.imagepipeline.c.p
+    public com.facebook.common.references.a<V> bk(K k) {
+        com.facebook.common.references.a<V> bk = this.lML.bk(k);
+        if (bk == null) {
+            this.lMM.dlv();
+        } else {
+            this.lMM.bh(k);
+        }
+        return bk;
+    }
 
-    void cFB();
+    @Override // com.facebook.imagepipeline.c.p
+    public com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar) {
+        this.lMM.dlw();
+        return this.lML.a(k, aVar);
+    }
 
-    void cFC();
+    @Override // com.facebook.imagepipeline.c.p
+    public int c(com.facebook.common.internal.h<K> hVar) {
+        return this.lML.c(hVar);
+    }
 
-    void cFD();
-
-    void cFE();
-
-    void cFF();
-
-    void cFG();
-
-    void cFH();
-
-    void n(com.facebook.cache.common.b bVar);
-
-    void o(com.facebook.cache.common.b bVar);
-
-    void p(com.facebook.cache.common.b bVar);
+    @Override // com.facebook.imagepipeline.c.p
+    public boolean d(com.facebook.common.internal.h<K> hVar) {
+        return this.lML.d(hVar);
+    }
 }

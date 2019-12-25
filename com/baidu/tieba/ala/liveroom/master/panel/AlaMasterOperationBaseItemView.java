@@ -1,14 +1,17 @@
 package com.baidu.tieba.ala.liveroom.master.panel;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+import com.baidu.live.utils.d;
+/* loaded from: classes2.dex */
 public class AlaMasterOperationBaseItemView extends LinearLayout {
-    private TextView aLN;
+    private TextView bkp;
     private ImageView mIconView;
     public int mId;
 
@@ -19,7 +22,7 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
         setGravity(49);
         setPadding(0, context.getResources().getDimensionPixelSize(a.e.sdk_ds16), 0, 0);
         LayoutInflater.from(context).inflate(a.h.ala_gridview_item, this);
-        this.aLN = (TextView) findViewById(a.g.contentTv);
+        this.bkp = (TextView) findViewById(a.g.contentTv);
         this.mIconView = (ImageView) findViewById(a.g.icon_img);
     }
 
@@ -30,26 +33,31 @@ public class AlaMasterOperationBaseItemView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void setTextResId(int i) {
         if (i > 0) {
-            this.aLN.setText(i);
+            this.bkp.setText(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setIconResId(int i) {
         if (i > 0) {
-            this.mIconView.setImageResource(i);
+            Drawable drawable = getContext().getResources().getDrawable(i);
+            if (drawable instanceof StateListDrawable) {
+                this.mIconView.setImageDrawable(drawable);
+            } else {
+                this.mIconView.setImageDrawable(d.a(getResources(), i));
+            }
         }
     }
 
     protected void setTextColorResId(int i) {
-        this.aLN.setTextColor(getResources().getColor(i));
-        this.aLN.setAlpha(0.7f);
+        this.bkp.setTextColor(getResources().getColor(i));
+        this.bkp.setAlpha(0.7f);
     }
 
     @Override // android.view.View
     public void setEnabled(boolean z) {
         super.setEnabled(z);
-        this.aLN.setEnabled(z);
+        this.bkp.setEnabled(z);
         this.mIconView.setEnabled(z);
     }
 }

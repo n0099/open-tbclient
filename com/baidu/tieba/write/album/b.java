@@ -16,23 +16,23 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class b extends BaseAdapter {
-    private String apC;
-    private int apD;
-    private AlbumActivity jNL;
+    private String axs;
+    private int axt;
+    private AlbumActivity kIz;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.jNL = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.jNL.getPageContext().getPageActivity());
-        this.apD = l.getEquipmentWidth(this.jNL.getPageContext().getPageActivity()) / 2;
+        this.kIz = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.kIz.getPageContext().getPageActivity());
+        this.axt = l.getEquipmentWidth(this.kIz.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<com.baidu.tbadk.album.a> list, String str) {
         this.mList = list;
-        this.apC = str;
+        this.axs = str;
     }
 
     @Override // android.widget.Adapter
@@ -42,7 +42,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pT */
+    /* renamed from: rZ */
     public com.baidu.tbadk.album.a getItem(int i) {
         return (com.baidu.tbadk.album.a) v.getItem(this.mList, i);
     }
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(R.layout.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.jNQ = (TbImageView) view.findViewById(R.id.item_head);
-            aVar.apF = (TextView) view.findViewById(R.id.item_name);
-            aVar.apG = (ImageView) view.findViewById(R.id.item_arrow);
-            aVar.jNQ.setGifIconSupport(false);
-            aVar.jNQ.setLongIconSupport(false);
+            aVar.kIE = (TbImageView) view.findViewById(R.id.item_head);
+            aVar.axv = (TextView) view.findViewById(R.id.item_name);
+            aVar.axw = (ImageView) view.findViewById(R.id.item_arrow);
+            aVar.kIE.setGifIconSupport(false);
+            aVar.kIE.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -73,34 +73,34 @@ public class b extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.apF.setText(l.getTextOmit(aVar.apF.getPaint(), item.getName(), this.apD) + "(" + item.getCount() + ")");
+                aVar.axv.setText(l.getTextOmit(aVar.axv.getPaint(), item.getName(), this.axt) + "(" + item.getCount() + ")");
             } else {
-                aVar.apF.setText("");
+                aVar.axv.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.apC)) {
-                am.setImageResource(aVar.apG, R.drawable.icon_list_select_ok_n);
-                aVar.apG.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.axs)) {
+                am.setImageResource(aVar.axw, R.drawable.icon_list_select_ok_n);
+                aVar.axw.setVisibility(0);
             } else {
-                aVar.apG.setVisibility(8);
+                aVar.axw.setVisibility(8);
             }
-            MediaFileInfo afd = item.afd();
-            if (afd instanceof VideoFileInfo) {
-                aVar.jNQ.startLoad(((VideoFileInfo) afd).videoPath, 37, false);
-            } else if (afd instanceof ImageFileInfo) {
-                aVar.jNQ.startLoad(((ImageFileInfo) afd).getFilePath(), 35, false);
+            MediaFileInfo avW = item.avW();
+            if (avW instanceof VideoFileInfo) {
+                aVar.kIE.startLoad(((VideoFileInfo) avW).videoPath, 37, false);
+            } else if (avW instanceof ImageFileInfo) {
+                aVar.kIE.startLoad(((ImageFileInfo) avW).getFilePath(), 35, false);
             }
-            am.setViewTextColor(aVar.apF, (int) R.color.cp_cont_b);
+            am.setViewTextColor(aVar.axv, (int) R.color.cp_cont_b);
             am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
         }
         return view;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     private class a {
-        TextView apF;
-        ImageView apG;
-        TbImageView jNQ;
+        TextView axv;
+        ImageView axw;
+        TbImageView kIE;
 
         private a() {
         }

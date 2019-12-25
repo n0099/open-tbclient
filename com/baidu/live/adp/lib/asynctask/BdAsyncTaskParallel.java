@@ -2,13 +2,13 @@ package com.baidu.live.adp.lib.asynctask;
 
 import com.baidu.live.adp.BdUniqueId;
 import java.security.InvalidParameterException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdAsyncTaskParallel {
     private BdUniqueId mBdAsyncTaskParallelTag;
     private BdAsyncTaskParallelType mBdAsyncTaskParallelType;
     private int mExecuteNum;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum BdAsyncTaskParallelType {
         SERIAL,
         TWO_PARALLEL,
@@ -56,7 +56,7 @@ public class BdAsyncTaskParallel {
         return this.mBdAsyncTaskParallelType;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class BdAsyncTaskParallelTag {
         private static final int MAX_BASE_TAG = 1000;
         private static int mBaseTag = 1000;

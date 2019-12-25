@@ -18,7 +18,7 @@ import okhttp3.Response;
 import okhttp3.internal.Util;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class HttpHeaders {
     private static final Pattern PARAMETER = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
     private static final String QUOTED_STRING = "\"([^\"]*)\"";
@@ -32,7 +32,7 @@ public final class HttpHeaders {
     }
 
     public static long contentLength(Headers headers) {
-        return stringToLong(headers.get(HTTP.CONTENT_LEN));
+        return stringToLong(headers.get("Content-Length"));
     }
 
     private static long stringToLong(String str) {
@@ -142,7 +142,7 @@ public final class HttpHeaders {
                 if (str3 != null) {
                     Challenge challenge = new Challenge(substring, str3);
                     if (str2 != null) {
-                        if (str2.equalsIgnoreCase(HTTP.UTF_8)) {
+                        if (str2.equalsIgnoreCase("UTF-8")) {
                             challenge = challenge.withCharset(Util.UTF_8);
                         }
                     }
@@ -168,7 +168,7 @@ public final class HttpHeaders {
         }
         int code = response.code();
         if ((code >= 100 && code < 200) || code == 204 || code == 304) {
-            return contentLength(response) != -1 || HTTP.CHUNK_CODING.equalsIgnoreCase(response.header(HTTP.TRANSFER_ENCODING));
+            return contentLength(response) != -1 || HTTP.CHUNK_CODING.equalsIgnoreCase(response.header("Transfer-Encoding"));
         }
         return true;
     }

@@ -1,20 +1,21 @@
 package com.baidu.tieba.enterForum.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.b.d;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.x;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.switchs.HttpsConnSwitch;
+/* loaded from: classes6.dex */
 public class b {
-    public static boolean beR() {
+    public static boolean bwl() {
         if (j.isNetWorkAvailable()) {
-            return d.ft().af("is_call_test_https") == 1;
+            return SwitchManager.getInstance().findType(HttpsConnSwitch.KEY) == 1;
         }
         return false;
     }
 
-    public static void beS() {
+    public static void bwm() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.enterForum.model.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,10 +28,10 @@ public class NativeLoader {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public enum a {
-        ARMEABI(PassBiometricUtil.CPU_TYPE_ARMEABI),
-        ARMV7(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A),
-        ARM64(PassBiometricUtil.CPU_TYPE_ARM64_V8A),
-        X86(PassBiometricUtil.CPU_TYPE_X86),
+        ARMEABI("armeabi"),
+        ARMV7("armeabi-v7a"),
+        ARM64("arm64-v8a"),
+        X86("x86"),
         X86_64("x86_64");
         
         private String f;
@@ -255,7 +254,7 @@ public class NativeLoader {
         if (str.contains("arm") && str.contains("64")) {
             f = a.ARM64;
         }
-        if (str.contains(PassBiometricUtil.CPU_TYPE_X86)) {
+        if (str.contains("x86")) {
             if (str.contains("64")) {
                 f = a.X86_64;
             } else {

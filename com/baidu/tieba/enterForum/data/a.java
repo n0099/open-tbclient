@@ -2,27 +2,27 @@ package com.baidu.tieba.enterForum.data;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
-    public String bVl;
-    public int eZC;
-    public int eZD;
-    public String eZE;
-    public String eZF;
+    public String cHB;
+    public int fOj;
+    public int fOk;
+    public String fOl;
+    public String fOm;
     public String picUrl;
 
-    public void bQ(JSONObject jSONObject) {
+    public void cG(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.picUrl = jSONObject.optString("pic");
-            this.bVl = jSONObject.optString("url");
-            this.eZC = jSONObject.optInt("server_time");
-            this.eZD = jSONObject.optInt("adid");
-            this.eZE = jSONObject.optString("big_pic");
-            this.eZF = jSONObject.optString("small_pic");
+            this.cHB = jSONObject.optString("url");
+            this.fOj = jSONObject.optInt("server_time");
+            this.fOk = jSONObject.optInt("adid");
+            this.fOl = jSONObject.optString("big_pic");
+            this.fOm = jSONObject.optString("small_pic");
         }
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.eZE);
+        return !TextUtils.isEmpty(this.fOl);
     }
 }

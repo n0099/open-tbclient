@@ -4,15 +4,15 @@ import java.util.AbstractQueue;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import rx.internal.util.a.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 abstract class a<E> extends AbstractQueue<E> {
-    protected final AtomicReferenceArray<E> kDI;
     protected final int mask;
+    protected final AtomicReferenceArray<E> niN;
 
     public a(int i) {
-        int Dx = h.Dx(i);
-        this.mask = Dx - 1;
-        this.kDI = new AtomicReferenceArray<>(Dx);
+        int MK = h.MK(i);
+        this.mask = MK - 1;
+        this.niN = new AtomicReferenceArray<>(MK);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -30,17 +30,17 @@ abstract class a<E> extends AbstractQueue<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int x(long j, int i) {
+    public final int calcElementOffset(long j, int i) {
         return ((int) j) & i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int et(long j) {
+    public final int calcElementOffset(long j) {
         return ((int) j) & this.mask;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final E a(AtomicReferenceArray<E> atomicReferenceArray, int i) {
+    public final E b(AtomicReferenceArray<E> atomicReferenceArray, int i) {
         return atomicReferenceArray.get(i);
     }
 
@@ -50,7 +50,7 @@ abstract class a<E> extends AbstractQueue<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final E Du(int i) {
-        return a(this.kDI, i);
+    public final E lvElement(int i) {
+        return b(this.niN, i);
     }
 }

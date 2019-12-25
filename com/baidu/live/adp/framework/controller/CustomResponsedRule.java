@@ -3,7 +3,7 @@ package com.baidu.live.adp.framework.controller;
 import com.baidu.live.adp.framework.FrameHelper;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import java.security.InvalidParameterException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class CustomResponsedRule extends ResponsedMessageRule<CustomResponsedMessage<?>> {
     public CustomResponsedRule(int i) {
         super(i);

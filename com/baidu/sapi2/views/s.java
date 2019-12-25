@@ -3,7 +3,7 @@ package com.baidu.sapi2.views;
 import android.os.Build;
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class s implements View.OnTouchListener {
     final /* synthetic */ float a;
 

@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.os.SystemClock;
-import com.facebook.common.internal.k;
+import com.facebook.common.internal.l;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
@@ -14,32 +14,32 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class StatFsHelper {
-    private static StatFsHelper kaK;
-    private static final long kaL = TimeUnit.MINUTES.toMillis(2);
-    private volatile File kaN;
-    private volatile File kaP;
+    private static StatFsHelper lEB;
+    private static final long lEC = TimeUnit.MINUTES.toMillis(2);
+    private volatile File lEE;
+    private volatile File lEG;
     @GuardedBy("lock")
-    private long kaQ;
-    private volatile StatFs kaM = null;
-    private volatile StatFs kaO = null;
+    private long lEH;
+    private volatile StatFs lED = null;
+    private volatile StatFs lEF = null;
     private volatile boolean mInitialized = false;
-    private final Lock kaR = new ReentrantLock();
+    private final Lock lock = new ReentrantLock();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public enum StorageType {
         INTERNAL,
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper cDd() {
+    public static synchronized StatFsHelper diH() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (kaK == null) {
-                kaK = new StatFsHelper();
+            if (lEB == null) {
+                lEB = new StatFsHelper();
             }
-            statFsHelper = kaK;
+            statFsHelper = lEB;
         }
         return statFsHelper;
     }
@@ -49,16 +49,16 @@ public class StatFsHelper {
 
     private void ensureInitialized() {
         if (!this.mInitialized) {
-            this.kaR.lock();
+            this.lock.lock();
             try {
                 if (!this.mInitialized) {
-                    this.kaN = Environment.getDataDirectory();
-                    this.kaP = Environment.getExternalStorageDirectory();
-                    cDf();
+                    this.lEE = Environment.getDataDirectory();
+                    this.lEG = Environment.getExternalStorageDirectory();
+                    diJ();
                     this.mInitialized = true;
                 }
             } finally {
-                this.kaR.unlock();
+                this.lock.unlock();
             }
         }
     }
@@ -74,8 +74,8 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        cDe();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.kaM : this.kaO;
+        diI();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.lED : this.lEF;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,23 +89,23 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void cDe() {
-        if (this.kaR.tryLock()) {
+    private void diI() {
+        if (this.lock.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.kaQ > kaL) {
-                    cDf();
+                if (SystemClock.uptimeMillis() - this.lEH > lEC) {
+                    diJ();
                 }
             } finally {
-                this.kaR.unlock();
+                this.lock.unlock();
             }
         }
     }
 
     @GuardedBy("lock")
-    private void cDf() {
-        this.kaM = a(this.kaM, this.kaN);
-        this.kaO = a(this.kaO, this.kaP);
-        this.kaQ = SystemClock.uptimeMillis();
+    private void diJ() {
+        this.lED = a(this.lED, this.lEE);
+        this.lEF = a(this.lEF, this.lEG);
+        this.lEH = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {
@@ -114,7 +114,7 @@ public class StatFsHelper {
         }
         try {
             if (statFs == null) {
-                statFs = GB(file.getAbsolutePath());
+                statFs = Ow(file.getAbsolutePath());
             } else {
                 statFs.restat(file.getAbsolutePath());
             }
@@ -122,11 +122,11 @@ public class StatFsHelper {
         } catch (IllegalArgumentException e) {
             return null;
         } catch (Throwable th) {
-            throw k.r(th);
+            throw l.u(th);
         }
     }
 
-    protected static StatFs GB(String str) {
+    protected static StatFs Ow(String str) {
         return new StatFs(str);
     }
 }

@@ -9,17 +9,17 @@ import com.xiaomi.push.ht;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class bf implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ boolean f57a;
+    final /* synthetic */ boolean f62a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(Context context, boolean z) {
         this.a = context;
-        this.f57a = z;
+        this.f62a = z;
     }
 
     @Override // java.lang.Runnable
@@ -30,18 +30,18 @@ public final class bf implements Runnable {
         String c;
         String c2;
         String c3;
-        com.xiaomi.channel.commonutils.logger.b.m30a("do sync info");
+        com.xiaomi.channel.commonutils.logger.b.m33a("do sync info");
         Cif cif = new Cif(com.xiaomi.push.service.aj.a(), false);
-        d m68a = d.m68a(this.a);
-        cif.c(hq.SyncInfo.f489a);
-        cif.b(m68a.m69a());
+        d m71a = d.m71a(this.a);
+        cif.c(hq.SyncInfo.f494a);
+        cif.b(m71a.m72a());
         cif.d(this.a.getPackageName());
-        cif.f629a = new HashMap();
-        com.xiaomi.push.n.a(cif.f629a, "app_version", com.xiaomi.push.g.m279a(this.a, this.a.getPackageName()));
-        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(this.a, this.a.getPackageName())));
-        com.xiaomi.push.n.a(cif.f629a, "push_sdk_vn", "3_6_19");
-        com.xiaomi.push.n.a(cif.f629a, "push_sdk_vc", Integer.toString(30619));
-        com.xiaomi.push.n.a(cif.f629a, "token", m68a.b());
+        cif.f634a = new HashMap();
+        com.xiaomi.push.n.a(cif.f634a, "app_version", com.xiaomi.push.g.m282a(this.a, this.a.getPackageName()));
+        com.xiaomi.push.n.a(cif.f634a, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(this.a, this.a.getPackageName())));
+        com.xiaomi.push.n.a(cif.f634a, "push_sdk_vn", "3_6_19");
+        com.xiaomi.push.n.a(cif.f634a, "push_sdk_vc", Integer.toString(30619));
+        com.xiaomi.push.n.a(cif.f634a, "token", m71a.b());
         if (!com.xiaomi.push.l.d()) {
             String a = com.xiaomi.push.ay.a(com.xiaomi.push.i.f(this.a));
             String h = com.xiaomi.push.i.h(this.a);
@@ -49,30 +49,30 @@ public final class bf implements Runnable {
                 a = a + Constants.ACCEPT_TIME_SEPARATOR_SP + h;
             }
             if (!TextUtils.isEmpty(a)) {
-                com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_IMEI_MD5, a);
+                com.xiaomi.push.n.a(cif.f634a, Constants.EXTRA_KEY_IMEI_MD5, a);
             }
         }
-        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_REG_ID, m68a.m76c());
-        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_REG_SECRET, m68a.d());
-        com.xiaomi.push.n.a(cif.f629a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(Constants.ACCEPT_TIME_SEPARATOR_SP, Constants.ACCEPT_TIME_SEPARATOR_SERVER));
-        if (this.f57a) {
-            Map<String, String> map = cif.f629a;
+        com.xiaomi.push.n.a(cif.f634a, Constants.EXTRA_KEY_REG_ID, m71a.m79c());
+        com.xiaomi.push.n.a(cif.f634a, Constants.EXTRA_KEY_REG_SECRET, m71a.d());
+        com.xiaomi.push.n.a(cif.f634a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(Constants.ACCEPT_TIME_SEPARATOR_SP, Constants.ACCEPT_TIME_SEPARATOR_SERVER));
+        if (this.f62a) {
+            Map<String, String> map = cif.f634a;
             c = be.c(MiPushClient.getAllAlias(this.a));
             com.xiaomi.push.n.a(map, Constants.EXTRA_KEY_ALIASES_MD5, c);
-            Map<String, String> map2 = cif.f629a;
+            Map<String, String> map2 = cif.f634a;
             c2 = be.c(MiPushClient.getAllTopic(this.a));
             com.xiaomi.push.n.a(map2, Constants.EXTRA_KEY_TOPICS_MD5, c2);
-            Map<String, String> map3 = cif.f629a;
+            Map<String, String> map3 = cif.f634a;
             c3 = be.c(MiPushClient.getAllUserAccount(this.a));
             com.xiaomi.push.n.a(map3, Constants.EXTRA_KEY_ACCOUNTS_MD5, c3);
         } else {
-            Map<String, String> map4 = cif.f629a;
+            Map<String, String> map4 = cif.f634a;
             d = be.d(MiPushClient.getAllAlias(this.a));
             com.xiaomi.push.n.a(map4, Constants.EXTRA_KEY_ALIASES, d);
-            Map<String, String> map5 = cif.f629a;
+            Map<String, String> map5 = cif.f634a;
             d2 = be.d(MiPushClient.getAllTopic(this.a));
-            com.xiaomi.push.n.a(map5, Constants.EXTRA_KEY_TOPICS, d2);
-            Map<String, String> map6 = cif.f629a;
+            com.xiaomi.push.n.a(map5, "topics", d2);
+            Map<String, String> map6 = cif.f634a;
             d3 = be.d(MiPushClient.getAllUserAccount(this.a));
             com.xiaomi.push.n.a(map6, Constants.EXTRA_KEY_ACCOUNTS, d3);
         }

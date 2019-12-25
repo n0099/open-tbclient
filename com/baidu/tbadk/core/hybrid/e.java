@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b cfR = new a();
-    private static final b cfS = new c();
-    private static final boolean cfT;
+    private static final b cSq = new a();
+    private static final b cSr = new c();
+    private static final boolean cSs;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface b {
-        void H(String str, String str2, String str3);
+        void R(String str, String str2, String str3);
     }
 
     /* loaded from: classes.dex */
@@ -24,7 +24,7 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void H(String str, String str2, String str3) {
+        public void R(String str, String str2, String str3) {
             if (str2 != null) {
                 str3 = "code:" + str2 + " message:" + str3;
             }
@@ -38,35 +38,35 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void H(String str, String str2, String str3) {
+        public void R(String str, String str2, String str3) {
             an anVar = new an("c10729");
-            anVar.bS("obj_param1", str);
-            anVar.bS(TiebaInitialize.Params.OBJ_PARAM2, str2);
-            anVar.bS(TiebaInitialize.Params.OBJ_PARAM3, str3);
+            anVar.cp("obj_param1", str);
+            anVar.cp(TiebaInitialize.Params.OBJ_PARAM2, str2);
+            anVar.cp(TiebaInitialize.Params.OBJ_PARAM3, str3);
             if (BdBaseApplication.getInst() != null) {
                 TiebaStatic.log(anVar);
             }
         }
     }
 
-    public static void H(String str, String str2, String str3) {
-        if (cfT) {
-            cfR.H(str, str2, str3);
+    public static void R(String str, String str2, String str3) {
+        if (cSs) {
+            cSq.R(str, str2, str3);
         }
-        cfS.H(str, str2, str3);
+        cSr.R(str, str2, str3);
     }
 
-    public static void ns(String str) {
-        if (cfT) {
-            cfR.H(null, null, str);
+    public static void debug(String str) {
+        if (cSs) {
+            cSq.R(null, null, str);
         }
     }
 
-    public static void I(String str, String str2, String str3) {
-        ns(str3);
+    public static void S(String str, String str2, String str3) {
+        debug(str3);
     }
 
     static {
-        cfT = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        cSs = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends k {
     @Override // com.baidu.tieba.imMessageCenter.mention.k, com.baidu.tbadk.mvc.b.e
-    public String avI() {
+    public String aNs() {
         return "tb_user_atme";
     }
 
@@ -12,7 +12,7 @@ public class b extends k {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.k, com.baidu.tbadk.mvc.b.e
-    public boolean avJ() {
+    public boolean aNt() {
         return false;
     }
 }

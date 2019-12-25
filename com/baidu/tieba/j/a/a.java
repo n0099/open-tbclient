@@ -5,13 +5,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tieba.j.c;
-import com.baidu.tieba.play.c.b;
+import com.baidu.tieba.play.b.b;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
-public abstract class a<T extends com.baidu.tieba.play.c.b> implements c<T> {
+/* loaded from: classes7.dex */
+public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
     protected List<T> list = new ArrayList();
     protected final String uuid;
 
@@ -30,11 +30,11 @@ public abstract class a<T extends com.baidu.tieba.play.c.b> implements c<T> {
         return this.list.size();
     }
 
-    public String bMX() {
+    public String cej() {
         if (StringUtils.isNull(this.uuid) || !m.checkSD() || StringUtils.isNull(getKey())) {
             return null;
         }
-        String str = c.a.hwh + bMY();
+        String str = c.a.ikj + cek();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -48,17 +48,17 @@ public abstract class a<T extends com.baidu.tieba.play.c.b> implements c<T> {
         }
     }
 
-    protected String bMY() {
+    protected String cek() {
         return PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.uuid + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + getKey();
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public e bMZ() {
-        return new e(getKey(), bMX());
+    public e cel() {
+        return new e(getKey(), cej());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dK(List<T> list) {
+    public void dz(List<T> list) {
         new BdAsyncTask<List<T>, Void, Void>() { // from class: com.baidu.tieba.j.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -66,9 +66,9 @@ public abstract class a<T extends com.baidu.tieba.play.c.b> implements c<T> {
             /* renamed from: b */
             public Void doInBackground(List<T>[] listArr) {
                 if (listArr != null && listArr.length == 1) {
-                    String bMX = a.this.bMX();
-                    if (!StringUtils.isNull(bMX)) {
-                        a.this.l(bMX, listArr[0]);
+                    String cej = a.this.cej();
+                    if (!StringUtils.isNull(cej)) {
+                        a.this.k(cej, listArr[0]);
                     }
                 }
                 return null;
@@ -77,12 +77,12 @@ public abstract class a<T extends com.baidu.tieba.play.c.b> implements c<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void l(String str, List<T> list) {
+    public synchronized void k(String str, List<T> list) {
         int size = list.size();
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(list.get(i).cdn());
+            jSONArray.put(list.get(i).cxi());
         }
-        com.baidu.tieba.j.d.c(new File(str), jSONArray.toString() + "\n");
+        com.baidu.tieba.j.d.e(new File(str), jSONArray.toString() + "\n");
     }
 }

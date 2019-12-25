@@ -24,11 +24,12 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ScrollingTabContainerView extends HorizontalScrollView implements AdapterView.OnItemSelectedListener {
     private static final int FADE_DURATION = 200;
     private static final String TAG = "ScrollingTabContainerView";
@@ -312,8 +313,8 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public class TabView extends LinearLayoutCompat {
+    /* loaded from: classes4.dex */
+    public class TabView extends LinearLayout {
         private final int[] BG_ATTRS;
         private View mCustomView;
         private ImageView mIconView;
@@ -349,19 +350,19 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             }
         }
 
-        @Override // android.support.v7.widget.LinearLayoutCompat, android.view.View
+        @Override // android.view.View
         public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
             super.onInitializeAccessibilityEvent(accessibilityEvent);
             accessibilityEvent.setClassName(ActionBar.Tab.class.getName());
         }
 
-        @Override // android.support.v7.widget.LinearLayoutCompat, android.view.View
+        @Override // android.view.View
         public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
             super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
             accessibilityNodeInfo.setClassName(ActionBar.Tab.class.getName());
         }
 
-        @Override // android.support.v7.widget.LinearLayoutCompat, android.view.View
+        @Override // android.widget.LinearLayout, android.view.View
         public void onMeasure(int i, int i2) {
             super.onMeasure(i, i2);
             if (ScrollingTabContainerView.this.mMaxTabWidth > 0 && getMeasuredWidth() > ScrollingTabContainerView.this.mMaxTabWidth) {
@@ -400,7 +401,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             if (icon != null) {
                 if (this.mIconView == null) {
                     AppCompatImageView appCompatImageView = new AppCompatImageView(getContext());
-                    LinearLayoutCompat.LayoutParams layoutParams = new LinearLayoutCompat.LayoutParams(-2, -2);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams.gravity = 16;
                     appCompatImageView.setLayoutParams(layoutParams);
                     addView(appCompatImageView, 0);
@@ -417,7 +418,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
                 if (this.mTextView == null) {
                     AppCompatTextView appCompatTextView = new AppCompatTextView(getContext(), null, R.attr.actionBarTabTextStyle);
                     appCompatTextView.setEllipsize(TextUtils.TruncateAt.END);
-                    LinearLayoutCompat.LayoutParams layoutParams2 = new LinearLayoutCompat.LayoutParams(-2, -2);
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams2.gravity = 16;
                     appCompatTextView.setLayoutParams(layoutParams2);
                     addView(appCompatTextView);
@@ -441,7 +442,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class TabAdapter extends BaseAdapter {
         TabAdapter() {
         }
@@ -472,7 +473,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class TabClickListener implements View.OnClickListener {
         TabClickListener() {
         }
@@ -488,7 +489,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     protected class VisibilityAnimListener extends AnimatorListenerAdapter {
         private boolean mCanceled = false;
         private int mFinalVisibility;

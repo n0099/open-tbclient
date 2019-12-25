@@ -1,35 +1,57 @@
 package com.baidu.swan.apps.storage.b;
-
-import android.os.Bundle;
-/* loaded from: classes2.dex */
-public class a {
-    final int bpJ;
-    final String bpK;
-    final String bpL;
-
-    a(int i, String str, String str2) {
-        this.bpJ = i;
-        this.bpK = str;
-        this.bpL = str2;
+/* loaded from: classes9.dex */
+public class a implements c {
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String lO(String str) {
+        return str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static a y(Bundle bundle) {
-        if (bundle.isEmpty()) {
-            return null;
-        }
-        return new a(bundle.getInt("bundle_data_type_key"), bundle.getString("bundle_prefs_key"), bundle.getString("bundle_data_value_key"));
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String lP(String str) {
+        return null;
     }
 
-    public static Bundle f(int i, String str, String str2) {
-        Bundle bundle = new Bundle();
-        bundle.putString("bundle_prefs_key", str);
-        bundle.putInt("bundle_data_type_key", i);
-        bundle.putString("bundle_data_value_key", str2);
-        return bundle;
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String lQ(String str) {
+        return null;
     }
 
-    public String toString() {
-        return "SpMethodInfo{mDataType=" + this.bpJ + ", mPrefName='" + this.bpK + "', mDataValue='" + this.bpL + "'}";
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String lR(String str) {
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String lS(String str) {
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String lT(String str) {
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String acC() {
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public String lH(String str) {
+        return null;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public boolean lC(String str) {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public boolean aw(long j) {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.storage.b.c
+    public void ax(long j) {
     }
 }

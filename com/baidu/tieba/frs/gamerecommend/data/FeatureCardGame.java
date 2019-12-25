@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.gamerecommend.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.util.v;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FeatureCardGame extends OrmObject {
     public Integer floor;
     public List<FeatureCardGameSubNode> sub_nodes;

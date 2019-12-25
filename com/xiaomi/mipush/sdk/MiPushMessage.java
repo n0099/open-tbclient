@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class MiPushMessage implements PushMessageHandler.a {
     private static final String KEY_ALIAS = "alias";
     private static final String KEY_CATEGORY = "category";
@@ -49,7 +49,7 @@ public class MiPushMessage implements PushMessageHandler.a {
         miPushMessage.passThrough = bundle.getInt(KEY_PASS_THROUGH);
         miPushMessage.alias = bundle.getString("alias");
         miPushMessage.userAccount = bundle.getString(KEY_USER_ACCOUNT);
-        miPushMessage.topic = bundle.getString(KEY_TOPIC);
+        miPushMessage.topic = bundle.getString("topic");
         miPushMessage.content = bundle.getString("content");
         miPushMessage.description = bundle.getString("description");
         miPushMessage.title = bundle.getString("title");
@@ -196,7 +196,7 @@ public class MiPushMessage implements PushMessageHandler.a {
             bundle.putString(KEY_USER_ACCOUNT, this.userAccount);
         }
         if (!TextUtils.isEmpty(this.topic)) {
-            bundle.putString(KEY_TOPIC, this.topic);
+            bundle.putString("topic", this.topic);
         }
         bundle.putString("content", this.content);
         if (!TextUtils.isEmpty(this.description)) {

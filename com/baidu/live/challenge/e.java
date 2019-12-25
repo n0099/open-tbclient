@@ -1,19 +1,19 @@
 package com.baidu.live.challenge;
 
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface e {
-    void I(View view);
+    void J(View view);
 
-    void aR(int i);
+    void ap(boolean z);
 
-    void ae(boolean z);
+    void bc(int i);
 
     void hide();
 
     boolean isShowing();
 
-    boolean nD();
+    boolean oV();
 
     void setClickListener(View.OnClickListener onClickListener);
 }

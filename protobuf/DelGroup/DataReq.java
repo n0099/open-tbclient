@@ -2,7 +2,7 @@ package protobuf.DelGroup;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class DataReq extends Message {
     public static final Long DEFAULT_GROUPID = 0L;
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
@@ -22,7 +22,7 @@ public final class DataReq extends Message {
         this.groupId = builder.groupId;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long groupId;
 

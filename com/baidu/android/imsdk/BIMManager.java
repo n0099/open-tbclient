@@ -42,11 +42,11 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BIMManager extends BaseManager implements NoProGuard {
     private static Context sContext = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum CATEGORY {
         ALL(-1),
         SINGLEPERSON(0),

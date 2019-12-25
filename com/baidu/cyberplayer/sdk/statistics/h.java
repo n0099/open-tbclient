@@ -22,7 +22,7 @@ public class h {
                 jSONObject.put(DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_MONITOR);
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(this.a.a());
-                jSONObject.put(DpStatConstants.KEY_ITEMS, jSONArray);
+                jSONObject.put("items", jSONArray);
                 str = jSONObject.toString();
             } catch (JSONException e) {
                 e.printStackTrace();

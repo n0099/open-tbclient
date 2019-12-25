@@ -12,7 +12,7 @@ public class FrameHelper {
         CUSTOM
     }
 
-    public static TYPE y(int i) {
+    public static TYPE z(int i) {
         if (i >= 0 && i < 1000000) {
             return TYPE.SOCKET;
         }
@@ -51,5 +51,8 @@ public class FrameHelper {
         if (t != null && !linkedList.contains(t)) {
             linkedList.add(getInsertIndex(linkedList, t.getPriority()), t);
         }
+    }
+
+    public static void A(int i) {
     }
 }

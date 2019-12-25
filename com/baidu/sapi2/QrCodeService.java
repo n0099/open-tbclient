@@ -2,7 +2,9 @@ package com.baidu.sapi2;
 
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.QrLoginStatusCheckCallback;
@@ -15,14 +17,13 @@ import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
 import com.baidu.sapi2.result.GetQrCodeImageResult;
 import com.baidu.sapi2.result.QrAppLoginResult;
 import com.baidu.sapi2.result.QrLoginStatusCheckResult;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class QrCodeService extends AbstractService {
     private static QrCodeService a;
     private HttpClientWrap b;
@@ -86,7 +87,7 @@ public class QrCodeService extends AbstractService {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     int parseInt = Integer.parseInt(jSONObject.optString("errno"));
-                    String optString = jSONObject.optString("errmsg");
+                    String optString = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                     getQrCodeImageResult.setResultCode(parseInt);
                     getQrCodeImageResult.setResultMsg(optString);
                     if (parseInt != 0) {
@@ -143,7 +144,7 @@ public class QrCodeService extends AbstractService {
                 try {
                     JSONObject jSONObject = new JSONObject(str4);
                     int parseInt = Integer.parseInt(jSONObject.optString("errno"));
-                    String optString = jSONObject.optString("errmsg");
+                    String optString = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                     qrLoginStatusCheckResult.setResultCode(parseInt);
                     qrLoginStatusCheckResult.setResultMsg(optString);
                     if (parseInt != 0 && parseInt != 110000) {
@@ -236,7 +237,7 @@ public class QrCodeService extends AbstractService {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("apiver", "v3");
         httpHashMapWrap.put(BuyTBeanActivityConfig.CALLBACK, "cb");
-        httpHashMapWrap.put("channel_id", qrLoginStstusCheckDTO.channelId);
+        httpHashMapWrap.put(SharedPrefConfig.CHANNEL_ID, qrLoginStstusCheckDTO.channelId);
         httpHashMapWrap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
         this.b = new HttpClientWrap();
         this.b.get(com.baidu.sapi2.utils.f.k, httpHashMapWrap, null, getUaInfo(), 40000, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.2
@@ -267,7 +268,7 @@ public class QrCodeService extends AbstractService {
                 try {
                     JSONObject jSONObject = new JSONObject(str.substring(3, str.length() - 2));
                     int parseInt = Integer.parseInt(jSONObject.optString("errno"));
-                    String optString = jSONObject.optString("errmsg");
+                    String optString = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                     qrLoginStatusCheckResult.setResultCode(parseInt);
                     qrLoginStatusCheckResult.setResultMsg(optString);
                     if (parseInt == 0) {
@@ -281,7 +282,7 @@ public class QrCodeService extends AbstractService {
                             QrCodeService.this.getQrLoginResult(qrLoginStatusCheckCallback, qrLoginStatusCheckResult, jSONObject2.optString("v"), qrLoginStstusCheckDTO.hostDeviceId, qrLoginStstusCheckDTO.isJoinCodeLogin);
                         } else if (optInt == 2) {
                             qrLoginStatusCheckResult.setResultCode(optInt);
-                            qrLoginStatusCheckResult.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+                            qrLoginStatusCheckResult.setResultMsg("您已取消操作");
                             qrLoginStatusCheckCallback.onFailure(qrLoginStatusCheckResult);
                             qrLoginStatusCheckCallback.onFinish();
                         } else {

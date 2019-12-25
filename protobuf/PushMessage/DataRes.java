@@ -2,7 +2,7 @@ package protobuf.PushMessage;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class DataRes extends Message {
     public static final Long DEFAULT_PUSHTIME = 0L;
     @ProtoField(tag = 2)
@@ -25,7 +25,7 @@ public final class DataRes extends Message {
         this.msgs = builder.msgs;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public PushMsg msgs;
         public Long pushTime;

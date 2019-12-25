@@ -1,18 +1,56 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.data.bh;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-/* loaded from: classes4.dex */
-public interface ad {
-    com.baidu.adp.widget.ListView.a<? extends bh, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z);
+import android.content.Context;
+import java.util.LinkedList;
+import java.util.List;
+/* loaded from: classes.dex */
+public class ad {
+    private String forumGameLabel;
+    private String forumId;
+    private String forumName;
+    private final List<com.baidu.tbadk.mainTab.b> gio = new LinkedList();
+    private Context mContext;
 
-    com.baidu.adp.widget.ListView.a<? extends bg, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z);
+    public ad(Context context) {
+        this.mContext = context;
+    }
 
-    h<ICardInfo, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
+    public void b(com.baidu.tbadk.mainTab.b bVar) {
+        if (bVar != null && bVar.aNf() != null) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.gio) {
+                if (bVar2 != null && bVar2.aNf() != null && bVar2.aNf().type == bVar.aNf().type) {
+                    return;
+                }
+            }
+            this.gio.add(bVar);
+        }
+    }
 
-    com.baidu.adp.widget.ListView.a<? extends bh, ? extends v.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
+    public List<com.baidu.tbadk.mainTab.b> bAO() {
+        return this.gio;
+    }
+
+    public void setForumName(String str) {
+        this.forumName = str;
+    }
+
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = str;
+    }
+
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public void setForumGameLabel(String str) {
+        this.forumGameLabel = str;
+    }
+
+    public String getForumGameLabel() {
+        return this.forumGameLabel;
+    }
 }

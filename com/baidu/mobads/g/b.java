@@ -19,8 +19,7 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends File {
     private static DexClassLoader f = null;
     private e a;
@@ -94,7 +93,7 @@ public class b extends File {
             try {
                 Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                 cipher.init(2, this.d);
-                return new String(cipher.doFinal(decode), HTTP.UTF_8).trim();
+                return new String(cipher.doFinal(decode), "UTF-8").trim();
             } catch (Exception e) {
                 this.e.e("ErrorWhileVerifySigNature", e);
             }

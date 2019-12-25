@@ -1,72 +1,70 @@
 package com.baidu.swan.menu;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.swan.menu.f;
-/* loaded from: classes2.dex */
-class k extends RelativeLayout {
-    private int bJb;
-    private Context mContext;
-    private ImageView mIconView;
-    private TextView mTitleView;
+import android.util.SparseArray;
+import com.baidu.swan.menu.g;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes9.dex */
+public class k {
+    private static SparseArray<i> cvs = new SparseArray<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(Context context) {
-        super(context);
-        this.mContext = context;
-        init();
-    }
-
-    private void init() {
-        setGravity(49);
-        LayoutInflater.from(this.mContext).inflate(f.e.aiapp_menu_item_view_layout, this);
-        this.mIconView = (ImageView) findViewById(f.d.aiapp_menu_item_icon);
-        this.mTitleView = (TextView) findViewById(f.d.aiapp_menu_item_title);
-        setBackgroundResource(0);
+    static {
+        cvs.put(5, new i(5, g.f.aiapp_menu_text_night_mode, g.c.aiapp_menu_item_nightmode, true));
+        cvs.put(35, new i(35, g.f.aiapp_menu_add_launcher, g.c.aiapp_menu_item_ai_apps_add_to_launcher_selector, true));
+        cvs.put(39, new i(39, g.f.aiapp_menu_restart, g.c.aiapp_menu_item_restart_selector, true));
+        cvs.put(36, new i(36, g.f.aiapp_menu_about, g.c.aiapp_menu_item_ai_apps_about_selector, true));
+        cvs.put(4, new i(4, g.f.aiapp_menu_text_share, g.c.aiapp_menu_item_share_arrow_selector, true));
+        cvs.put(37, new i(37, g.f.aiapp_menu_authority_management, g.c.aiapp_menu_item_ai_apps_authority_management_selector, true));
+        cvs.put(38, new i(38, g.f.aiapp_menu_text_favorite, g.c.aiapp_menu_item_add_fav_selector, true));
+        cvs.put(40, new i(40, g.f.aiapp_menu_swan_center, g.c.aiapp_menu_item_swan_center_selector, true));
+        cvs.put(42, new i(42, g.f.aiapp_menu_game_restart, g.c.aiapp_menu_item_restart_selector, true));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void e(j jVar) {
-        if (jVar != null) {
-            f(jVar);
+    /* renamed from: if  reason: not valid java name */
+    public static List<i> m22if(int i) {
+        ArrayList arrayList = new ArrayList();
+        switch (i) {
+            case 0:
+                arrayList.add(i.f(cvs.get(38)));
+                arrayList.add(i.f(cvs.get(5)));
+                arrayList.add(i.f(cvs.get(4)));
+                arrayList.add(i.f(cvs.get(35)));
+                arrayList.add(i.f(cvs.get(42)));
+                arrayList.add(i.f(cvs.get(36)));
+                break;
+            case 12:
+            case 15:
+                arrayList.add(i.f(cvs.get(38)));
+                arrayList.add(i.f(cvs.get(4)));
+                arrayList.add(i.f(cvs.get(39)));
+                arrayList.add(i.f(cvs.get(35)));
+                arrayList.add(i.f(cvs.get(5)));
+                arrayList.add(i.f(cvs.get(40)));
+                arrayList.add(i.f(cvs.get(36)));
+                break;
+            case 13:
+                arrayList.add(i.f(cvs.get(35)));
+                arrayList.add(i.f(cvs.get(37)));
+                break;
+            case 16:
+                arrayList.add(i.f(cvs.get(5)));
+                break;
+            case 17:
+            case 18:
+                arrayList.add(i.f(cvs.get(38)));
+                arrayList.add(i.f(cvs.get(4)));
+                arrayList.add(i.f(cvs.get(39)));
+                arrayList.add(i.f(cvs.get(35)));
+                arrayList.add(i.f(cvs.get(5)));
+                arrayList.add(i.f(cvs.get(36)));
+                break;
         }
+        return arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setMenuStyle(int i) {
-        this.bJb = i;
-    }
-
-    private void f(j jVar) {
-        this.mTitleView.setEllipsize(TextUtils.TruncateAt.END);
-        if (jVar.isEnable()) {
-            this.mTitleView.setAlpha(1.0f);
-        } else {
-            this.mTitleView.setAlpha(0.3f);
-        }
-        this.mIconView.setEnabled(jVar.isEnable());
-        this.mIconView.setScaleType(ImageView.ScaleType.CENTER);
-        this.mIconView.setVisibility(0);
-        g(jVar);
-    }
-
-    private void g(j jVar) {
-        setAlpha(1.0f);
-        this.mTitleView.setText(jVar.cb(this.mContext));
-        Drawable h = h(jVar);
-        if (h != null) {
-            this.mIconView.setImageDrawable(h);
-            this.mIconView.setImageLevel(jVar.aaC());
-        }
-        this.mTitleView.setTextColor(getResources().getColor(f.a.aiapp_menu_item_text));
-    }
-
-    private Drawable h(j jVar) {
-        return jVar.cc(this.mContext);
+    public static i ig(int i) {
+        return i.f(cvs.get(i));
     }
 }

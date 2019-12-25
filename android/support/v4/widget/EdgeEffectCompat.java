@@ -3,9 +3,10 @@ package android.support.v4.widget;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.widget.EdgeEffect;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class EdgeEffectCompat {
     private static final EdgeEffectBaseImpl IMPL;
     private EdgeEffect mEdgeEffect;
@@ -18,7 +19,7 @@ public final class EdgeEffectCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class EdgeEffectBaseImpl {
         EdgeEffectBaseImpl() {
         }
@@ -29,7 +30,7 @@ public final class EdgeEffectCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class EdgeEffectApi21Impl extends EdgeEffectBaseImpl {
         EdgeEffectApi21Impl() {
         }
@@ -72,7 +73,7 @@ public final class EdgeEffectCompat {
         return true;
     }
 
-    public static void onPull(EdgeEffect edgeEffect, float f, float f2) {
+    public static void onPull(@NonNull EdgeEffect edgeEffect, float f, float f2) {
         IMPL.onPull(edgeEffect, f, f2);
     }
 

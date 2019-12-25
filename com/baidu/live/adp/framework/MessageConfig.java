@@ -1,5 +1,7 @@
 package com.baidu.live.adp.framework;
-/* loaded from: classes6.dex */
+
+import com.baidu.down.utils.Constants;
+/* loaded from: classes2.dex */
 public interface MessageConfig {
     public static final int BASE_CMD_START = 1000;
     public static final int BASE_COMMON_ERROR = -1000;
@@ -42,5 +44,5 @@ public interface MessageConfig {
     public static final int SOCKET_TIME_OUT_MS_2G = 20000;
     public static final int SOCKET_TIME_OUT_MS_3G = 10000;
     public static final int SOCKET_TIME_OUT_MS_WIFI = 5000;
-    public static final int[] reconStrategy = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
+    public static final int[] reconStrategy = {30, 60, 300, Constants.HTTP_DNS_INAVAILABLE_TIME, 1800, 3600, 7200, 14400};
 }

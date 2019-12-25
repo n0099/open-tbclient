@@ -3,9 +3,9 @@ package com.baidu.tbadk.editortools.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.editortools.l;
+import com.baidu.tbadk.editortools.m;
 /* loaded from: classes.dex */
-public abstract class ICommonTabHost extends LinearLayout implements l {
+public abstract class ICommonTabHost extends LinearLayout implements m {
     public ICommonTabHost(Context context) {
         super(context);
     }

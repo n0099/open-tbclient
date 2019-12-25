@@ -1,0 +1,156 @@
+package com.baidu.swan.games.bdtls;
+
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.swan.bdtls.AES;
+import com.baidu.swan.games.bdtls.model.Bdtls;
+import com.baidu.swan.games.bdtls.model.g;
+import com.baidu.swan.games.bdtls.model.h;
+import com.baidu.swan.games.bdtls.model.i;
+import com.baidu.swan.games.bdtls.model.j;
+import com.xiaomi.mipush.sdk.Constants;
+/* loaded from: classes9.dex */
+public class d {
+    private static volatile d cgr;
+
+    public static d aiZ() {
+        if (cgr == null) {
+            synchronized (d.class) {
+                if (cgr == null) {
+                    cgr = new d();
+                }
+            }
+        }
+        return cgr;
+    }
+
+    private d() {
+    }
+
+    public byte[] a(j jVar) {
+        if (jVar == null) {
+            return null;
+        }
+        try {
+            byte[] a = com.baidu.swan.games.bdtls.a.a.a(jVar, new g());
+            if (a != null) {
+                h ajX = h.cgL.ajX();
+                ajX.b((byte) 22);
+                ajX.b((short) a.length);
+                ajX.D(a);
+                return com.baidu.swan.games.bdtls.a.b.a(ajX);
+            }
+            return null;
+        } catch (Exception e) {
+            if (a.DEBUG) {
+                e.printStackTrace();
+                Log.d("BDTLS", "exception=" + e.getMessage());
+                return null;
+            }
+            return null;
+        }
+    }
+
+    public byte[] a(j jVar, String str) {
+        if (jVar == null) {
+            return null;
+        }
+        try {
+            h ajX = h.cgL.ajX();
+            ajX.b((byte) 23);
+            byte[] akj = jVar.akj();
+            if (akj != null && akj.length > 0 && akj.length <= 32767) {
+                ajX.b((short) akj.length);
+                ajX.D(akj);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                byte[] f = AES.f(str, jVar.aki());
+                ajX.hv(f.length);
+                ajX.setContent(f);
+            }
+            return com.baidu.swan.games.bdtls.a.b.a(ajX);
+        } catch (Exception e) {
+            if (a.DEBUG) {
+                e.printStackTrace();
+                Log.d("BDTLS", "exception=" + e.getMessage());
+                return null;
+            }
+            return null;
+        }
+    }
+
+    public i a(j jVar, byte[] bArr) {
+        i iVar = new i();
+        try {
+            h H = com.baidu.swan.games.bdtls.a.b.H(bArr);
+            switch (H.ajS()) {
+                case 21:
+                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(H.ajW());
+                    if (parseFrom != null) {
+                        if (a.DEBUG) {
+                            Log.d("BDTLS", "bdtls ubc application alert");
+                        }
+                        f.a(jVar, parseFrom);
+                        if (1 == parseFrom.getLevel()) {
+                            iVar.b(-2);
+                        } else {
+                            iVar.b(-1);
+                        }
+                        if (a.DEBUG) {
+                            if (parseFrom.getDescription() != null) {
+                                String str = new String(parseFrom.getDescription().toByteArray());
+                                if (a.DEBUG) {
+                                    Log.d("BDTLS", "BdtlsPostRequest response alert message=" + str);
+                                    break;
+                                }
+                            } else if (a.DEBUG) {
+                                Log.d("BDTLS", "BdtlsPostRequest response alert messag=null");
+                                break;
+                            }
+                        }
+                    } else {
+                        iVar.b(-1);
+                        break;
+                    }
+                    break;
+                case 23:
+                    iVar.oc(new String(AES.c(H.getContent(), jVar.aki())));
+                    iVar.b(1);
+                    break;
+            }
+        } catch (Exception e) {
+            if (a.DEBUG) {
+                e.printStackTrace();
+                Log.d("BDTLS", "exception=" + e.getMessage());
+            }
+            iVar.b(-1);
+        }
+        return iVar;
+    }
+
+    public static byte[] hp(int i) {
+        return new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)};
+    }
+
+    public static int z(byte[] bArr) {
+        if (bArr != null) {
+            int i = 0;
+            for (byte b : bArr) {
+                i = (i << 8) | (b & 255);
+            }
+            return i;
+        }
+        return 0;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: char */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static String A(byte[] bArr) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < bArr.length; i++) {
+            sb.append(bArr[i] > 0 ? bArr[i] : bArr[i] & 255);
+            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        }
+        return sb.toString();
+    }
+}

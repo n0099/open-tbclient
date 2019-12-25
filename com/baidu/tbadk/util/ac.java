@@ -1,62 +1,73 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.media.AudioManager;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.lang.ref.WeakReference;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TiebaIMConfig;
 /* loaded from: classes.dex */
 public class ac {
-    private static boolean cOD = false;
+    private static final BdUniqueId dCA = BdUniqueId.gen();
+    private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, dCA);
 
-    public static boolean a(WeakReference<Context> weakReference, boolean z) {
-        if (weakReference == null || weakReference.get() == null) {
-            return false;
-        }
-        AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
-        if (z) {
-            return audioManager.requestAudioFocus(null, 3, 2) == 1;
-        }
-        return audioManager.abandonAudioFocus(null) == 1;
-    }
-
-    public static void c(WeakReference<Context> weakReference) {
-        if (weakReference != null && weakReference.get() != null) {
-            cOD = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
+    public static <T> void a(ab<T> abVar, l<T> lVar) {
+        if (abVar != null) {
+            a aVar = new a(abVar, lVar);
+            aVar.setParallel(sBdAsyncTaskParallel);
+            aVar.setTag(dCA);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
         }
     }
 
-    public static boolean axS() {
-        return cOD;
+    public static <T> void b(ab<T> abVar, l<T> lVar) {
+        if (abVar != null) {
+            a aVar = new a(abVar, lVar);
+            aVar.setParallel(TiebaIMConfig.getParallel());
+            aVar.setTag(dCA);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
+        }
     }
 
-    public static boolean kn(int i) {
-        boolean z = true;
-        switch (i) {
-            case 3:
-            case 4:
-                return com.baidu.adp.lib.util.j.isWifiNet();
-            case 5:
-                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.t.z.axi() && com.baidu.adp.lib.util.j.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
-            default:
-                if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
-                    return (com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.j.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a<T> extends BdAsyncTask<String, Object, T> {
+        private ab<T> dCB;
+        private l<T> dCC;
+
+        public a(ab<T> abVar, l<T> lVar) {
+            this.dCB = null;
+            this.dCC = null;
+            this.dCB = abVar;
+            this.dCC = lVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public T doInBackground(String... strArr) {
+            try {
+                if (this.dCB == null) {
+                    return null;
                 }
-                if (!(com.baidu.tbadk.core.sharedPref.b.alP().getInt(SharedPrefConfig.AUTO_PLAY_VIDEO_HOMEPAGE, 0) == 1) || !com.baidu.adp.lib.util.j.isWifiNet()) {
-                    z = false;
-                }
-                return z;
+                return this.dCB.doInBackground();
+            } catch (Throwable th) {
+                BdLog.detailException(th);
+                return null;
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(T t) {
+            if (this.dCC != null) {
+                this.dCC.onReturnDataInUI(t);
+            }
         }
     }
 
-    public static boolean M(int i, String str) {
-        return kn(i);
-    }
-
-    public static boolean axT() {
-        if (!com.baidu.adp.lib.util.j.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
-            return com.baidu.adp.lib.util.j.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
-        }
-        return true;
+    public static void clearQueue() {
+        BdAsyncTask.removeAllTask(dCA);
     }
 }

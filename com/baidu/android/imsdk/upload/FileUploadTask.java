@@ -7,15 +7,15 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidubce.http.Headers;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import org.apache.http.auth.AUTH;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
     private static final int DOWNLOAD_BYTES_SIZE = 8192;
     public static final String TAG = FileUploadTask.class.getSimpleName();
@@ -70,8 +70,8 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             httpURLConnection.setRequestProperty("Charset", "utf-8");
             httpURLConnection.setRequestProperty("Content-type", this.mContentType);
-            httpURLConnection.setRequestProperty(AUTH.WWW_AUTH_RESP, this.mAuthorization);
-            httpURLConnection.setRequestProperty("x-bce-date", this.mXbcs);
+            httpURLConnection.setRequestProperty("Authorization", this.mAuthorization);
+            httpURLConnection.setRequestProperty(Headers.BCE_DATE, this.mXbcs);
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             FileInputStream fileInputStream = new FileInputStream(this.mFilePath);
             byte[] bArr = new byte[8192];

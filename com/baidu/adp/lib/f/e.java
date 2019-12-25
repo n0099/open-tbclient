@@ -1,20 +1,16 @@
 package com.baidu.adp.lib.f;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import android.os.Handler;
+import android.os.Looper;
 /* loaded from: classes.dex */
-public interface e<T> {
-    T a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, a aVar, Object... objArr);
+public class e extends Handler {
+    private static final e su = new e();
 
-    T a(String str, String str2, int i, int i2, a aVar, Object... objArr);
+    private e() {
+        super(Looper.getMainLooper());
+    }
 
-    T a(String str, String str2, int i, int i2, Object... objArr);
-
-    void a(String str, Object obj, int i, int i2, Object... objArr);
-
-    boolean fW();
-
-    BdAsyncTaskParallel fX();
-
-    int fY();
+    public static final e gy() {
+        return su;
+    }
 }

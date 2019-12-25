@@ -2,8 +2,7 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiContext;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c extends com.vivo.push.y {
     private String a;
     private String b;
@@ -44,7 +43,7 @@ public class c extends com.vivo.push.y {
     @Override // com.vivo.push.y
     public void c(com.vivo.push.a aVar) {
         aVar.a("req_id", this.a);
-        aVar.a(Constants.PACKAGE_NAME, this.b);
+        aVar.a("package_name", this.b);
         aVar.a(SapiContext.KEY_SDK_VERSION, 280L);
         aVar.a("PUSH_APP_STATUS", this.d);
         if (!TextUtils.isEmpty(this.f)) {
@@ -56,7 +55,7 @@ public class c extends com.vivo.push.y {
     @Override // com.vivo.push.y
     public void d(com.vivo.push.a aVar) {
         this.a = aVar.a("req_id");
-        this.b = aVar.a(Constants.PACKAGE_NAME);
+        this.b = aVar.a("package_name");
         this.c = aVar.b(SapiContext.KEY_SDK_VERSION, 0L);
         this.d = aVar.b("PUSH_APP_STATUS", 0);
         this.f = aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION");

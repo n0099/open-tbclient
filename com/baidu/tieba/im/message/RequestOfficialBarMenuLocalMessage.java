@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import tbclient.ForumMenu.DataReq;
 import tbclient.ForumMenu.ForumMenuReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class RequestOfficialBarMenuLocalMessage extends CustomMessage<Object> {
     private String forum_id;
     private long timestamp;
@@ -31,7 +31,7 @@ public class RequestOfficialBarMenuLocalMessage extends CustomMessage<Object> {
 
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.forum_id = Integer.valueOf(com.baidu.adp.lib.g.b.toInt(getForum_id(), 0));
+        builder.forum_id = Integer.valueOf(com.baidu.adp.lib.f.b.toInt(getForum_id(), 0));
         builder.update_time = Integer.valueOf((int) getTimestamp());
         ForumMenuReqIdl.Builder builder2 = new ForumMenuReqIdl.Builder();
         builder2.data = builder.build(false);

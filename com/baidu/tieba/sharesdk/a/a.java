@@ -12,14 +12,15 @@ import com.baidu.adp.base.i;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.mutiprocess.g;
+import com.baidu.tbadk.mutiprocess.share.ShareEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     Context context;
     BdUniqueId pageId;
@@ -29,14 +30,14 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         this.context = context;
     }
 
-    public void u(BdUniqueId bdUniqueId) {
+    public void v(BdUniqueId bdUniqueId) {
         this.pageId = bdUniqueId;
     }
 
     public void onDestroy() {
     }
 
-    public void ai(Intent intent) {
+    public void aa(Intent intent) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,51 +50,51 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         return bdUniqueId;
     }
 
-    protected void Do(String str) {
-        bk(str, R.drawable.icon_toast_game_error);
+    protected void Ib(String str) {
+        bt(str, R.drawable.icon_toast_game_error);
     }
 
-    protected void Dp(String str) {
-        bk(str, R.drawable.icon_toast_game_ok);
+    protected void Ic(String str) {
+        bt(str, R.drawable.icon_toast_game_ok);
     }
 
-    protected void bk(String str, int i) {
-        BdToast.b(getAppContext(), str, i, false).akR();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void ze(int i) {
-        aE(i, null);
+    protected void bt(String str, int i) {
+        BdToast.a(getAppContext(), (CharSequence) str, i, false).aCb();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aE(int i, String str) {
+    public void BA(int i) {
+        aU(i, null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void aU(int i, String str) {
         if (i == 1) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_success, new Object[0]);
             }
-            Dp(str);
+            Ic(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_cancel, new Object[0]);
             }
-            Do(str);
+            Ib(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_failed, new Object[0]);
             }
-            Do(str);
+            Ib(str);
         }
         if (!TextUtils.isEmpty(this.tid)) {
-            zf(i);
+            BB(i);
         }
     }
 
-    public void zf(int i) {
-        Bundle bundle = new Bundle();
-        bundle.putInt("status", i);
-        bundle.putString(IntentConfig.SHARE_THREAD_ID, this.tid);
-        com.baidu.tbadk.n.b.a("broadcast_type_share_toast_status", bundle);
+    public void BB(int i) {
+        ShareEvent shareEvent = new ShareEvent();
+        shareEvent.status = i;
+        shareEvent.tid = this.tid;
+        g.publishEvent(shareEvent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -106,27 +107,27 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap ckG() {
-        return BitmapHelper.getCashBitmap(R.drawable.icon);
+    public Bitmap cEO() {
+        return BitmapHelper.getCashBitmap(R.drawable.tb_launcher_icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap zg(int i) {
+    public Bitmap BC(int i) {
         return BitmapHelper.getCashBitmap(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap Dq(String str) {
+    public Bitmap Id(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap s(Uri uri) {
+    public Bitmap u(Uri uri) {
         return BitmapHelper.loadBitmap(uri.getPath());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean t(Uri uri) {
+    public boolean v(Uri uri) {
         if (uri == null) {
             return false;
         }
@@ -141,7 +142,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean oY(String str) {
+    public boolean uc(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -149,7 +150,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         return file.isFile() && file.exists();
     }
 
-    public Bitmap e(Bitmap bitmap, int i) {
+    public Bitmap f(Bitmap bitmap, int i) {
         return BitmapHelper.resizeBitmap(bitmap, i, i, false);
     }
 
@@ -158,10 +159,10 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     public com.baidu.adp.widget.ImageView.a a(ShareEntity shareEntity) {
-        if (shareEntity == null || shareEntity.cxQ == null) {
+        if (shareEntity == null || shareEntity.diskPicOperate == null) {
             return null;
         }
-        Bundle bundle = shareEntity.cxQ;
+        Bundle bundle = shareEntity.diskPicOperate;
         String string = bundle.getString("path");
         String string2 = bundle.getString("name");
         if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {
@@ -177,7 +178,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         cVar.setIsFormatData(z4);
         cVar.setSdCard(z2);
         cVar.setSavedCache(z3);
-        if (com.baidu.adp.lib.Disk.d.eP().b(cVar) && cVar.isSuccess()) {
+        if (com.baidu.adp.lib.Disk.d.fj().b(cVar) && cVar.isSuccess()) {
             cVar.formatData(cVar.getData());
             Bitmap bitmap = cVar.getBitmap();
             if (bitmap != null) {

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.cache.l;
 import com.squareup.wire.Wire;
 import tbclient.Bigvip.BigvipResIdl;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class RecommendDetailHttpResponseMessage extends HttpResponsedMessage {
     private UserInfoBigVip mDetailInfo;
 
@@ -31,9 +31,9 @@ public class RecommendDetailHttpResponseMessage extends HttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> nk = com.baidu.tbadk.core.d.a.akL().nk("tb.im_recommend_detail");
-        if (nk != null && bArr != null && this.mDetailInfo != null && this.mDetailInfo.user_id != null) {
-            nk.setForever(this.mDetailInfo.user_id + "", bArr);
+        l<byte[]> sw = com.baidu.tbadk.core.c.a.aBV().sw("tb.im_recommend_detail");
+        if (sw != null && bArr != null && this.mDetailInfo != null && this.mDetailInfo.user_id != null) {
+            sw.setForever(this.mDetailInfo.user_id + "", bArr);
         }
     }
 }

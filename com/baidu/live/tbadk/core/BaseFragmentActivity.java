@@ -37,7 +37,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.SwipeBackLayout;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.live.tbadk.MainAPKFragmentActivityPageContext;
 import com.baidu.live.tbadk.TbPageContext;
@@ -63,7 +63,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFragmentActivity> implements TbPageContextSupport<BaseFragmentActivity>, IPageStayDuration {
     private static Class<? extends TbPageContext<BaseFragmentActivity>> mClazz4GetPageContext = MainAPKFragmentActivityPageContext.class;
     private List<Animatable> animatableList;
@@ -382,7 +382,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     protected void onKeyboardHeightChanged(int i) {
     }
 
-    protected void onKeyboardVisibilityChanged(boolean z) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onKeyboardVisibilityChanged(boolean z) {
     }
 
     @Override // com.baidu.live.adp.base.BdBaseFragmentActivity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -882,7 +883,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class DelayRunnable implements Runnable {
         private View mView;
 

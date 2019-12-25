@@ -2,10 +2,10 @@ package rx.internal.operators;
 
 import rx.d;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class d<T> implements d.a<T> {
-    final rx.functions.f<? super T, Boolean> kyN;
-    final rx.d<T> kyh;
+    final rx.d<T> ndN;
+    final rx.functions.f<? super T, Boolean> nep;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,39 +13,39 @@ public final class d<T> implements d.a<T> {
     }
 
     public d(rx.d<T> dVar, rx.functions.f<? super T, Boolean> fVar) {
-        this.kyh = dVar;
-        this.kyN = fVar;
+        this.ndN = dVar;
+        this.nep = fVar;
     }
 
     public void call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.kyN);
+        a aVar = new a(jVar, this.nep);
         jVar.add(aVar);
-        this.kyh.a((rx.j) aVar);
+        this.ndN.a((rx.j) aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> extends rx.j<T> {
         final rx.j<? super T> actual;
         boolean done;
-        final rx.functions.f<? super T, Boolean> kyN;
+        final rx.functions.f<? super T, Boolean> nep;
 
         public a(rx.j<? super T> jVar, rx.functions.f<? super T, Boolean> fVar) {
             this.actual = jVar;
-            this.kyN = fVar;
+            this.nep = fVar;
             request(0L);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             try {
-                if (this.kyN.call(t).booleanValue()) {
+                if (this.nep.call(t).booleanValue()) {
                     this.actual.onNext(t);
                 } else {
                     request(1L);
                 }
             } catch (Throwable th) {
-                rx.exceptions.a.K(th);
+                rx.exceptions.a.I(th);
                 unsubscribe();
                 onError(OnErrorThrowable.addValueAsLastCause(th, t));
             }

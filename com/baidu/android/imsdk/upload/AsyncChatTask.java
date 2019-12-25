@@ -11,14 +11,14 @@ import com.baidu.android.imsdk.chatmessage.messages.DuzhanUpMsgCreator;
 import com.baidu.android.imsdk.chatmessage.messages.ImageMsg;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.Base64;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.util.media.MimeType;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferListener {
     public static final int FORMAT_AAC = 2;
     public static final int FORMAT_AMR = 1;
@@ -56,17 +56,17 @@ public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferL
         final int chatType = this.mMsg.getChatType();
         if (file != null && file.exists()) {
             if (this.mType == 1) {
-                this.mContentType = "image/jpeg";
+                this.mContentType = MimeType.Image.JPEG;
                 String str = "";
                 try {
-                    str = this.mFilePath.substring(this.mFilePath.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR) + 1);
+                    str = this.mFilePath.substring(this.mFilePath.lastIndexOf(".") + 1);
                 } catch (Exception e) {
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     LogUtils.e(TAG, e.getMessage());
                 }
                 ChatMsgManager.genBosObjectUrl(this.mContext, this.mFilePath, this.mContentType, str, DuzhanUpMsgCreator.getReqType(chatType), 0, 0, this);
             } else if (this.mType == 2) {
-                this.mContentType = "audio/amr";
+                this.mContentType = MimeType.Audio.AMR;
                 ChatMsgManager.audioTrans(this.mContext, this.mFilePath, this.mContentType, "amr", DuzhanUpMsgCreator.getReqType(chatType), new BIMValueCallBack() { // from class: com.baidu.android.imsdk.upload.AsyncChatTask.1
                     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [112=6, 113=6] */
                     /* JADX WARN: Removed duplicated region for block: B:44:0x00e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */

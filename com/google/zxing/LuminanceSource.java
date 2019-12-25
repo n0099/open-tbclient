@@ -1,7 +1,5 @@
 package com.google.zxing;
-
-import com.baidu.live.adp.lib.util.BdFileHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class LuminanceSource {
     private final int height;
     private final int width;
@@ -61,7 +59,7 @@ public abstract class LuminanceSource {
                 } else if (i3 < 128) {
                     c = '+';
                 } else if (i3 < 192) {
-                    c = BdFileHelper.EXTENSION_SEPARATOR;
+                    c = '.';
                 } else {
                     c = ' ';
                 }

@@ -1,6 +1,7 @@
 package com.baidu.sapi2;
 
 import android.os.Looper;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.result.SapiResult;
@@ -8,7 +9,7 @@ import com.baidu.sapi2.utils.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class w extends HttpHandlerWrap {
     final /* synthetic */ SapiCallback a;
     final /* synthetic */ SapiResult b;
@@ -49,7 +50,7 @@ public class w extends HttpHandlerWrap {
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.b.setResultCode(jSONObject.optInt("errno"));
-            this.b.setResultMsg(jSONObject.optString("errmsg"));
+            this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
         } catch (JSONException e) {
             Log.e(e);
         }

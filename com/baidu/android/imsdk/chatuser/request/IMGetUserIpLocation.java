@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.chatuser.request;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.http.Headers;
 import android.util.Log;
 import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
 import com.baidu.android.imsdk.chatuser.IpInfo;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMGetUserIpLocation extends Message {
     private static final String TAG = "IMGetUserIpLocation";
     private Context mContext;
@@ -100,9 +99,9 @@ public class IMGetUserIpLocation extends Message {
                 setNeedReSend(false);
             }
         }
-        if (i == 0 && jSONObject.has(Headers.LOCATION)) {
+        if (i == 0 && jSONObject.has("location")) {
             arrayList = new ArrayList<>();
-            JSONArray jSONArray = (JSONArray) jSONObject.opt(Headers.LOCATION);
+            JSONArray jSONArray = (JSONArray) jSONObject.opt("location");
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                 IpInfo ipInfo = new IpInfo();

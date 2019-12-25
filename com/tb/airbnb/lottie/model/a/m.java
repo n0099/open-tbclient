@@ -1,11 +1,11 @@
 package com.tb.airbnb.lottie.model.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface m<K, A> {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface a<V> {
-        V b(Object obj, float f);
+        V c(Object obj, float f);
     }
 
-    com.tb.airbnb.lottie.a.b.a<K, A> cLl();
+    com.tb.airbnb.lottie.a.b.a<K, A> dBq();
 }

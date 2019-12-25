@@ -4,17 +4,17 @@ import com.xiaomi.push.ha;
 import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ad implements Runnable {
     final /* synthetic */ List a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ boolean f843a;
+    final /* synthetic */ boolean f848a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(List list, boolean z) {
         this.a = list;
-        this.f843a = z;
+        this.f848a = z;
     }
 
     @Override // java.lang.Runnable
@@ -34,7 +34,7 @@ public final class ad implements Runnable {
                 b2 = ac.b(str);
                 if (!b2) {
                     b = false;
-                    if (!b && !this.f843a) {
+                    if (!b && !this.f848a) {
                         break;
                     }
                 }

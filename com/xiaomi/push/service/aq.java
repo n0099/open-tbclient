@@ -20,15 +20,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class aq extends ba.a implements cu.a {
     private long a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f869a;
+    private XMPushService f874a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a implements cu.b {
         a() {
         }
@@ -46,7 +46,7 @@ public class aq extends ba.a implements cu.a {
             int port = url.getPort() == -1 ? 80 : url.getPort();
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                String a = com.xiaomi.push.as.a(com.xiaomi.push.t.m544a(), url);
+                String a = com.xiaomi.push.as.a(com.xiaomi.push.t.m547a(), url);
                 ha.a(url.getHost() + ":" + port, (int) (System.currentTimeMillis() - currentTimeMillis), null);
                 return a;
             } catch (IOException e) {
@@ -56,7 +56,7 @@ public class aq extends ba.a implements cu.a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static class b extends cu {
         protected b(Context context, ct ctVar, cu.b bVar, String str) {
             super(context, ctVar, bVar, str);
@@ -66,8 +66,8 @@ public class aq extends ba.a implements cu.a {
         @Override // com.xiaomi.push.cu
         public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
             try {
-                if (gy.m306a().m311a()) {
-                    str2 = ba.m509a();
+                if (gy.m309a().m314a()) {
+                    str2 = ba.m512a();
                 }
                 return super.a(arrayList, str, str2, z);
             } catch (IOException e) {
@@ -78,7 +78,7 @@ public class aq extends ba.a implements cu.a {
     }
 
     aq(XMPushService xMPushService) {
-        this.f869a = xMPushService;
+        this.f874a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -104,32 +104,32 @@ public class aq extends ba.a implements cu.a {
         cq b2;
         boolean z;
         if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.a > BdKVCache.MILLS_1Hour) {
-            com.xiaomi.channel.commonutils.logger.b.m30a("fetch bucket :" + bVar.a());
+            com.xiaomi.channel.commonutils.logger.b.m33a("fetch bucket :" + bVar.a());
             this.a = System.currentTimeMillis();
             cu a2 = cu.a();
-            a2.m192a();
-            a2.m195b();
-            fm m482a = this.f869a.m482a();
-            if (m482a == null || (b2 = a2.b(m482a.m265a().c())) == null) {
+            a2.m195a();
+            a2.m198b();
+            fm m485a = this.f874a.m485a();
+            if (m485a == null || (b2 = a2.b(m485a.m268a().c())) == null) {
                 return;
             }
-            ArrayList<String> m180a = b2.m180a();
-            Iterator<String> it = m180a.iterator();
+            ArrayList<String> m183a = b2.m183a();
+            Iterator<String> it = m183a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
                     break;
-                } else if (it.next().equals(m482a.m266a())) {
+                } else if (it.next().equals(m485a.m269a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m180a.isEmpty()) {
+            if (!z || m183a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m30a("bucket changed, force reconnect");
-            this.f869a.a(0, (Exception) null);
-            this.f869a.a(false);
+            com.xiaomi.channel.commonutils.logger.b.m33a("bucket changed, force reconnect");
+            this.f874a.a(0, (Exception) null);
+            this.f874a.a(false);
         }
     }
 }

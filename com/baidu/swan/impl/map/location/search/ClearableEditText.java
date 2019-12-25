@@ -6,12 +6,12 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import com.baidu.swan.apps.an.z;
+import com.baidu.swan.apps.as.af;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ClearableEditText extends AppCompatEditText {
-    private static final int bHY = z.S(10.0f);
-    private Drawable bHX;
+    private static final int cto = af.T(10.0f);
+    private Drawable ctn;
 
     public ClearableEditText(Context context) {
         super(context);
@@ -29,7 +29,7 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void init() {
-        this.bHX = getResources().getDrawable(R.drawable.aiapps_location_search_del);
+        this.ctn = getResources().getDrawable(R.drawable.aiapps_location_search_del);
     }
 
     @Override // android.widget.TextView
@@ -49,7 +49,7 @@ public class ClearableEditText extends AppCompatEditText {
         switch (motionEvent.getAction()) {
             case 1:
                 Drawable drawable = getCompoundDrawables()[2];
-                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + bHY && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - bHY) {
+                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + cto && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - cto) {
                     setText("");
                     break;
                 }
@@ -59,6 +59,6 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void setClearIconVisible(boolean z) {
-        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.bHX : null, getCompoundDrawables()[3]);
+        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.ctn : null, getCompoundDrawables()[3]);
     }
 }

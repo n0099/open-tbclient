@@ -3,7 +3,7 @@ package com.vivo.push.b;
 import com.baidu.android.pushservice.PushConstants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class t extends s {
     private ArrayList<String> a;
     private ArrayList<String> b;

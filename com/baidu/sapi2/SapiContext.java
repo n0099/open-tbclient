@@ -19,11 +19,10 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class SapiContext implements c {
     public static final String CHINA_TELECOM_EXPIRED_TIME = "china_telecom_expired_time";
     public static final String CHINA_UNICOM_EXPIRED_TIME = "china_telecom_expired_time";
@@ -103,11 +102,6 @@ public final class SapiContext implements c {
             }
         }
         return z;
-    }
-
-    public String aGn() {
-        List<String> o2 = getSapiOptions().o();
-        return (o2.size() == 1 && o2.get(0).equals(AppIconSetting.DEFAULT_LARGE_ICON)) ? SapiDeviceInfo.getDeviceInfo("/static/appsapi/conf/android-conf.txt") : SapiDeviceInfo.getDiCookieInfo(o2);
     }
 
     public void addTouchidLoginRecord(String str) {
@@ -221,6 +215,11 @@ public final class SapiContext implements c {
             return new String[0];
         }
         return string.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    }
+
+    public String getDeviceInfo() {
+        List<String> o2 = getSapiOptions().o();
+        return (o2.size() == 1 && o2.get(0).equals(AppIconSetting.DEFAULT_LARGE_ICON)) ? SapiDeviceInfo.getDeviceInfo("/static/appsapi/conf/android-conf.txt") : SapiDeviceInfo.getDiCookieInfo(o2);
     }
 
     public long getDeviceInfoReadTimes() {
@@ -644,7 +643,7 @@ public final class SapiContext implements c {
     private String a() {
         if (TextUtils.isEmpty(y)) {
             try {
-                y = MD5Util.toMd5((this.B.getPackageName() + SapiUtils.getPackageSign(this.B, this.B.getPackageName())).getBytes(HTTP.UTF_8), false).substring(0, 16);
+                y = MD5Util.toMd5((this.B.getPackageName() + SapiUtils.getPackageSign(this.B, this.B.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }

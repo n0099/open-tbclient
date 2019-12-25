@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends c<StrangerListActivity> {
-    private NoNetworkView dvR;
-    private BdListView gBx;
-    private StrangerListActivity gUi;
-    private StrangerListAdapter gUo;
-    private ImageView gUp;
+    private NoNetworkView egT;
+    private StrangerListActivity hIl;
+    private StrangerListAdapter hIq;
+    private ImageView hIr;
+    private BdListView hpC;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
 
     public b(StrangerListActivity strangerListActivity) {
         super(strangerListActivity.getPageContext());
         strangerListActivity.setContentView(R.layout.officialbar_msg_activity);
-        this.gUi = strangerListActivity;
+        this.hIl = strangerListActivity;
         l(strangerListActivity);
         m(strangerListActivity);
     }
@@ -33,34 +33,34 @@ public class b extends c<StrangerListActivity> {
         this.mNavigationBar.setCenterTextTitle(strangerListActivity.getPageContext().getString(R.string.stranger_list_activity_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.gUp = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.gUi);
-        SvgManager.amL().a(this.gUp, R.drawable.icon_pure_topbar_delete_n_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.hIr = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.hIl);
+        SvgManager.aDW().a(this.hIr, R.drawable.icon_pure_topbar_delete44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.mRootView = (ViewGroup) strangerListActivity.findViewById(R.id.root_view);
-        this.dvR = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
+        this.egT = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
     }
 
     public void onChangeSkinType(int i) {
-        this.gUi.getLayoutMode().setNightMode(i == 1);
-        this.gUi.getLayoutMode().onModeChanged(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.gUi.getPageContext(), i);
-        this.dvR.onChangeSkinType(this.gUi.getPageContext(), i);
-        this.gUo.notifyDataSetChanged();
-        SvgManager.amL().a(this.gUp, R.drawable.icon_pure_topbar_delete_n_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.hIl.getLayoutMode().setNightMode(i == 1);
+        this.hIl.getLayoutMode().onModeChanged(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.hIl.getPageContext(), i);
+        this.egT.onChangeSkinType(this.hIl.getPageContext(), i);
+        this.hIq.notifyDataSetChanged();
+        SvgManager.aDW().a(this.hIr, R.drawable.icon_pure_topbar_delete44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private void m(StrangerListActivity strangerListActivity) {
-        this.gBx = (BdListView) strangerListActivity.findViewById(R.id.msg_list);
-        this.gBx.setOnItemClickListener(strangerListActivity);
-        this.gBx.setOnItemLongClickListener(strangerListActivity);
-        this.gUo = new StrangerListAdapter(strangerListActivity);
-        this.gBx.setAdapter((ListAdapter) this.gUo);
+        this.hpC = (BdListView) strangerListActivity.findViewById(R.id.msg_list);
+        this.hpC.setOnItemClickListener(strangerListActivity);
+        this.hpC.setOnItemLongClickListener(strangerListActivity);
+        this.hIq = new StrangerListAdapter(strangerListActivity);
+        this.hpC.setAdapter((ListAdapter) this.hIq);
     }
 
-    public StrangerListAdapter bFq() {
-        return this.gUo;
+    public StrangerListAdapter bWC() {
+        return this.hIq;
     }
 
-    public View bFr() {
-        return this.gUp;
+    public View bWD() {
+        return this.hIr;
     }
 }

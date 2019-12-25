@@ -2,8 +2,7 @@ package com.baidu.live.adp.lib.disk.ops;
 
 import com.baidu.live.adp.lib.disk.ops.DiskFileOperate;
 import com.baidu.live.adp.lib.util.BdLog;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DiskStringOperate extends DiskFileOperate {
     private String mCharsetName;
     private String mContent;
@@ -11,7 +10,7 @@ public class DiskStringOperate extends DiskFileOperate {
     public DiskStringOperate(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mContent = null;
-        this.mCharsetName = HTTP.UTF_8;
+        this.mCharsetName = "UTF-8";
     }
 
     public String getCharsetName() {

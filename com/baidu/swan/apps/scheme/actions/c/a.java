@@ -2,116 +2,93 @@ package com.baidu.swan.apps.scheme.actions.c;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.an.ac;
-import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.res.ui.FloatButton;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.as.s;
+import com.baidu.swan.apps.console.c;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.j;
+import com.baidu.swan.apps.setting.oauth.a.b;
+import com.baidu.swan.apps.setting.oauth.h;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class a {
-    private static final boolean DEBUG = b.DEBUG;
-    private static volatile a bmn;
-    private FloatButton bmo;
-    private JSONObject bmq;
-    private String bmr = "";
-    private Activity mActivity;
-    private String mText;
+/* loaded from: classes9.dex */
+public class a extends ab {
+    public static final String bMJ = SchemeConfig.getSchemeHead() + "://v19/swan/launch?params={\"appid\":\"";
+    public static final String bMK = SchemeConfig.getSchemeHead() + "://swangame/%s";
 
-    public static a RP() {
-        if (bmn == null) {
-            synchronized (a.class) {
-                if (bmn == null) {
-                    bmn = new a();
-                }
-            }
-        }
-        return bmn;
+    /* renamed from: com.baidu.swan.apps.scheme.actions.c.a$a  reason: collision with other inner class name */
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0274a {
+        void aK(JSONObject jSONObject);
     }
 
-    private a() {
+    public a(j jVar) {
+        super(jVar, "/swanAPI/getHistory");
     }
 
-    public void a(Activity activity, JSONObject jSONObject) {
-        if (jSONObject != null) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, e eVar) {
+        if (eVar == null) {
+            c.e("history", "none swanApp");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
             if (DEBUG) {
-                Log.i("FloatButtonGuideManager", jSONObject.toString());
+                Log.d("SwanAppAction", "getSwanHistory --- illegal swanApp");
+                return false;
             }
-            this.mActivity = activity;
-            this.bmr = jSONObject.optString("name");
-            this.mText = ac.isAppInstalled(activity, this.bmr) ? activity.getString(a.h.swan_app_hover_button_open) : activity.getString(a.h.swan_app_hover_button_download);
-            this.bmq = jSONObject.optJSONObject("style");
+            return false;
         }
-    }
-
-    public FloatButton RQ() {
-        if (!(this.mActivity instanceof SwanAppActivity)) {
-            return null;
-        }
-        if (this.bmo == null) {
-            this.bmo = e(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
-        }
-        this.bmo.setFloatButtonText(this.mText);
-        this.bmo.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
-        this.bmo.setFloatButtonDefaultPosition();
-        this.bmo.setFloatButtonStyle(this.bmq);
-        this.bmo.setVisibility(0);
-        return this.bmo;
-    }
-
-    private FloatButton e(Context context, ViewGroup viewGroup) {
-        if (context == null || viewGroup == null) {
-            return null;
-        }
-        FloatButton bB = bB(context);
-        viewGroup.addView(bB);
-        return bB;
-    }
-
-    private FloatButton bB(Context context) {
-        if (context == null) {
-            return null;
-        }
-        return (FloatButton) LayoutInflater.from(context.getApplicationContext()).inflate(a.g.swan_app_float_button, (ViewGroup) null);
-    }
-
-    public void R(Intent intent) {
-        if (intent != null && this.bmo != null) {
-            String dataString = intent.getDataString();
-            if (!TextUtils.isEmpty(dataString)) {
-                String substring = dataString.substring(8);
-                if (!TextUtils.isEmpty(substring) && substring.equals(this.bmr)) {
-                    if (TextUtils.equals("android.intent.action.PACKAGE_ADDED", intent.getAction())) {
-                        this.mText = this.mActivity.getResources().getString(a.h.swan_app_hover_button_open);
-                    } else if (TextUtils.equals("android.intent.action.PACKAGE_REMOVED", intent.getAction())) {
-                        this.mText = this.mActivity.getResources().getString(a.h.swan_app_hover_button_download);
+        final String optString = s.parseString(unitedSchemeEntity.getParam("params")).optString("cb");
+        if (TextUtils.isEmpty(optString)) {
+            c.e("history", "none cb");
+            if (DEBUG) {
+                Log.d("SwanAppAction", "getSwanHistory --- cb is empty");
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        } else if (!(context instanceof Activity)) {
+            c.e("history", "error context");
+            if (DEBUG) {
+                Log.d("SwanAppAction", "getSwanHistory --- the context is not an activity");
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "the context is not an activity");
+            return false;
+        } else {
+            eVar.aac().b(context, "mapp_i_get_history", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.c.a.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.swan.apps.as.d.b
+                /* renamed from: a */
+                public void B(h<b.d> hVar) {
+                    if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
+                        a.this.b(unitedSchemeEntity, callbackHandler, optString);
+                    } else {
+                        com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString);
                     }
-                    this.bmo.setFloatButtonText(this.mText);
                 }
+            });
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
+        c.i("history", "start get history");
+        com.baidu.swan.apps.database.a.b.a(new InterfaceC0274a() { // from class: com.baidu.swan.apps.scheme.actions.c.a.2
+            @Override // com.baidu.swan.apps.scheme.actions.c.a.InterfaceC0274a
+            public void aK(JSONObject jSONObject) {
+                if (jSONObject == null || jSONObject.length() == 0) {
+                    c.i("history", "none history");
+                    UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(null, 0).toString(), str);
+                    return;
+                }
+                c.i("history", "get history :" + jSONObject.toString());
+                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), str);
             }
-        }
-    }
-
-    public FloatButton RR() {
-        return this.bmo;
-    }
-
-    public void a(FloatButton floatButton) {
-        this.bmo = floatButton;
-    }
-
-    public void hK(String str) {
-        this.bmr = str;
-    }
-
-    public static void release() {
-        if (bmn != null) {
-            bmn = null;
-        }
+        });
     }
 }

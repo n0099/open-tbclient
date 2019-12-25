@@ -3,7 +3,6 @@ package com.baidu.live.adp.lib.util;
 import android.os.Environment;
 import android.os.StatFs;
 import com.baidu.android.imsdk.BuildConfig;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.live.adp.lib.safe.BdCloseHelper;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
@@ -16,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.channels.FileChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdFileHelper {
     public static final int ERR_FILE_IO_SD = 3;
     public static final int ERR_FILE_NO_SD = 1;
@@ -1003,7 +1002,7 @@ public class BdFileHelper {
                 cleanDirectory(file);
             }
             if (!file.delete()) {
-                throw new IOException("Unable to delete directory " + file + DefaultConfig.TOKEN_SEPARATOR);
+                throw new IOException("Unable to delete directory " + file + ".");
             }
         }
     }

@@ -5,7 +5,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.data.FeedForumData;
 import java.util.ArrayList;
@@ -23,8 +22,8 @@ public class t {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> jgt = new ArrayList();
-    private int jgs = 0;
+    private List<FeedForumData> kaG = new ArrayList();
+    private int kaF = 0;
     private int like_num = 0;
     private int user_level = 0;
 
@@ -43,11 +42,11 @@ public class t {
         this.fid = str;
     }
 
-    public int clO() {
+    public int cFY() {
         return this.user_level;
     }
 
-    public void zy(int i) {
+    public void BU(int i) {
         if (i >= 0) {
             this.user_level = i;
         }
@@ -56,8 +55,8 @@ public class t {
     public void parserJson(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            parserJson(jSONObject.optJSONObject(Config.LAUNCH_INFO));
-            R(jSONObject.optJSONArray("feed_forum"));
+            parserJson(jSONObject.optJSONObject("info"));
+            V(jSONObject.optJSONArray("feed_forum"));
             this.errorCode = jSONObject.optInt("error_code");
             this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
         } catch (Exception e) {
@@ -68,7 +67,7 @@ public class t {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.jgs = jSONObject.optInt("is_black", 0);
+                this.kaF = jSONObject.optInt("is_black", 0);
                 this.like_num = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
@@ -96,7 +95,7 @@ public class t {
         }
     }
 
-    public void R(JSONArray jSONArray) {
+    public void V(JSONArray jSONArray) {
         int i = 0;
         while (true) {
             try {
@@ -112,7 +111,7 @@ public class t {
                     feedForumData.setReason(jSONObject.optString(TiebaInitialize.LogFields.REASON));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.jgt.add(feedForumData);
+                    this.kaG.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -156,8 +155,8 @@ public class t {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> cnv() {
-        return this.jgt;
+    public List<FeedForumData> cHB() {
+        return this.kaG;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -168,7 +167,7 @@ public class t {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String cnF() {
+    public String cHK() {
         return this.blockUrl;
     }
 

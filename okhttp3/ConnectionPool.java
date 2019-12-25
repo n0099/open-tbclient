@@ -1,5 +1,6 @@
 package okhttp3;
 
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.lang.ref.Reference;
 import java.net.Socket;
 import java.util.ArrayDeque;
@@ -17,7 +18,7 @@ import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.RouteDatabase;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class ConnectionPool {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final Executor executor;
@@ -47,8 +48,8 @@ public final class ConnectionPool {
                         return;
                     }
                     if (cleanup > 0) {
-                        long j2 = cleanup / 1000000;
-                        long j3 = cleanup - (j2 * 1000000);
+                        long j2 = cleanup / TimeUtils.NANOS_PER_MS;
+                        long j3 = cleanup - (j2 * TimeUtils.NANOS_PER_MS);
                         synchronized (ConnectionPool.this) {
                             try {
                                 ConnectionPool.this.wait(j2, (int) j3);

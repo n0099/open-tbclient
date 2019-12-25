@@ -3,7 +3,6 @@ package com.baidu.mapapi.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 /* loaded from: classes5.dex */
 public class OpenClientUtil {
     public static int getBaiduMapVersion(Context context) {
@@ -15,7 +14,7 @@ public class OpenClientUtil {
             if (str == null || str.length() <= 0) {
                 return 0;
             }
-            return Integer.valueOf(str.trim().replace(DefaultConfig.TOKEN_SEPARATOR, "").trim()).intValue();
+            return Integer.valueOf(str.trim().replace(".", "").trim()).intValue();
         } catch (Exception e) {
             return 0;
         }

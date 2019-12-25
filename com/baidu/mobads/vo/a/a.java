@@ -8,13 +8,13 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
+import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLEncoder;
 import java.util.HashMap;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class a {
     public long a;
     public String b;
@@ -30,20 +30,20 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0107a o;
+    private C0123a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0107a {
+    /* loaded from: classes7.dex */
+    public static class C0123a {
         String a;
         String b;
         String c;
         String d;
         String e;
 
-        public C0107a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+        public C0123a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
             this.a = "";
             this.b = "";
             this.c = "";
@@ -61,14 +61,14 @@ public abstract class a {
         }
     }
 
-    public a(C0107a c0107a) {
-        this(c0107a.a, c0107a.b, c0107a.c);
-        this.o = c0107a;
+    public a(C0123a c0123a) {
+        this(c0123a.a, c0123a.b, c0123a.c);
+        this.o = c0123a;
     }
 
     @Deprecated
     public a(String str, String str2, String str3) {
-        this.b = LivenessStat.TYPE_STRING_DEFAULT;
+        this.b = "-1";
         this.c = "";
         this.d = "";
         this.e = "";
@@ -90,7 +90,7 @@ public abstract class a {
         }
         this.f = this.m.getAppId(this.l);
         this.h = this.n.getEncodedSN(this.l);
-        this.i = "android";
+        this.i = PraiseDataPassUtil.KEY_FROM_OS;
         this.g = "android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30";
         this.j = str3;
         this.k = XAdSDKFoundationFacade.getInstance().getSystemUtils().getCUID(this.l);
@@ -109,7 +109,7 @@ public abstract class a {
         hashMap.put("os", this.i);
         hashMap.put("prod", this.j);
         hashMap.put("cuid", this.k);
-        hashMap.put(IXAdRequestInfo.P_VER, "8.8079");
+        hashMap.put(IXAdRequestInfo.P_VER, "8.8146");
         if (this.o != null) {
             hashMap.put("adt", this.o.d);
             hashMap.put("apid", this.o.e);
@@ -140,12 +140,12 @@ public abstract class a {
                 if (str != null && str2 != null) {
                     String a = a(str);
                     String a2 = a(str2);
-                    sb.append(a + "=" + a2 + "&");
+                    sb.append(a + ETAG.EQUAL + a2 + ETAG.ITEM_SEPARATOR);
                     sb2.append(a2 + Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
             }
             sb2.append("mobads,");
-            sb.append("vd=" + commonUtils.getMD5(sb2.toString()) + "&");
+            sb.append("vd=" + commonUtils.getMD5(sb2.toString()) + ETAG.ITEM_SEPARATOR);
             return sb.toString();
         } catch (Exception e) {
             return "";
@@ -154,7 +154,7 @@ public abstract class a {
 
     protected String a(String str) {
         try {
-            return URLEncoder.encode(str, HTTP.UTF_8).replaceAll("\\+", "%20").replaceAll("\\%21", "!").replaceAll("\\%27", "'").replaceAll("\\%28", "(").replaceAll("\\%29", ")").replaceAll("\\%7E", Constants.WAVE_SEPARATOR);
+            return URLEncoder.encode(str, "UTF-8").replaceAll("\\+", "%20").replaceAll("\\%21", "!").replaceAll("\\%27", "'").replaceAll("\\%28", "(").replaceAll("\\%29", ")").replaceAll("\\%7E", Constants.WAVE_SEPARATOR);
         } catch (Exception e) {
             return str;
         }

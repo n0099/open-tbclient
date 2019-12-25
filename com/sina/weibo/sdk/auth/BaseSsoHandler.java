@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.WeiboAppManager;
 import com.sina.weibo.sdk.constant.WBConstants;
@@ -23,7 +24,7 @@ import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.AuthWebViewRequestParam;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BaseSsoHandler {
     public static final String OAUTH2_BASE_URL = "https://open.weibo.cn/oauth2/authorize?";
     private static final String TAG = "BaseSsoHandler";
@@ -34,7 +35,7 @@ public class BaseSsoHandler {
     protected int ssoRequestType = 3;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public enum AuthType {
         ALL,
         SsoOnly,
@@ -144,7 +145,7 @@ public class BaseSsoHandler {
         weiboParameters.put("key_hash", authInfo.getKeyHash());
         String str = OAUTH2_BASE_URL + weiboParameters.encodeUrl();
         if (!NetworkHelper.hasInternetPermission(this.mAuthActivity)) {
-            UIUtils.showAlert(this.mAuthActivity, "Error", "Application requires permission to access the Internet");
+            UIUtils.showAlert(this.mAuthActivity, V8ExceptionInfo.V8_EXCEPTION_ERROR, "Application requires permission to access the Internet");
             return;
         }
         String str2 = null;

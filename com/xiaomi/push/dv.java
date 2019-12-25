@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class dv extends dx {
     public dv(Context context, int i) {
         super(context, i);
@@ -17,7 +17,7 @@ public class dv extends dx {
         Bundle extras;
         StringBuilder sb = new StringBuilder();
         try {
-            Intent registerReceiver = this.f245a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            Intent registerReceiver = this.f250a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             if (registerReceiver != null && (extras = registerReceiver.getExtras()) != null) {
                 Set<String> keySet = extras.keySet();
                 JSONObject jSONObject = new JSONObject();
@@ -40,19 +40,19 @@ public class dv extends dx {
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo140a() {
+    public int mo143a() {
         return 20;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hi mo140a() {
+    public hi mo143a() {
         return hi.Battery;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo140a() {
+    public String mo143a() {
         return b();
     }
 }

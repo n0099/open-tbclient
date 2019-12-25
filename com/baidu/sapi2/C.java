@@ -2,6 +2,7 @@ package com.baidu.sapi2;
 
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class C extends HttpHandlerWrap {
     final /* synthetic */ GetTplStokenCallback a;
     final /* synthetic */ GetTplStokenResult b;
@@ -93,7 +94,7 @@ public class C extends HttpHandlerWrap {
                 this.a.onFailure(this.b);
             } else if (parseInt != 8) {
                 if (!TextUtils.isEmpty(this.f)) {
-                    this.b.setResultMsg(jSONObject.optString("errmsg"));
+                    this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                     this.a.onFailure(this.b);
                 }
             } else if (!TextUtils.isEmpty(this.f)) {
@@ -107,7 +108,7 @@ public class C extends HttpHandlerWrap {
                 } else if (parseInt2 == GetTplStokenResult.FailureType.BDUSS_EXPIRED.ordinal()) {
                     this.b.failureType = GetTplStokenResult.FailureType.BDUSS_EXPIRED;
                 }
-                this.b.setResultMsg(jSONObject.optString("errmsg"));
+                this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                 this.a.onFailure(this.b);
             }
         } catch (Exception e) {

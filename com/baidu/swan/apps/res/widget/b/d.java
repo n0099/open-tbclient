@@ -8,91 +8,91 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.an.z;
-/* loaded from: classes2.dex */
+import com.baidu.swan.apps.as.af;
+/* loaded from: classes9.dex */
 public class d {
-    private static boolean aSN = com.baidu.swan.apps.b.DEBUG;
-    private CharSequence bjo;
-    private CharSequence bjp;
-    private Drawable bjq;
-    private Uri bjr;
-    private int bjs;
-    private a bjt;
-    private boolean bjx;
+    private static boolean mIsDebug = com.baidu.swan.apps.b.DEBUG;
+    private a bJP;
+    private CharSequence mBtnText;
     private Context mContext;
+    private Drawable mHighlightIcon;
+    private Uri mLeftGifUri;
+    private int mMaxLines;
+    private boolean mShowMask;
     private CharSequence mTitleText;
-    private int bju = 2;
-    private int bjv = 1;
-    private int bjw = 1;
+    private CharSequence mToastText;
+    private int mButtonStyle = 2;
+    private int mBottomShowAnimationType = 1;
+    private int mBottomIconStyle = 1;
     private int mDuration = 2;
     private int mTextSize = 14;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void QU();
+        void onToastClick();
     }
 
     private d(Context context) {
         this.mContext = context;
     }
 
-    public static d bx(@NonNull Context context) {
+    public static d co(@NonNull Context context) {
         return new d(context);
     }
 
     public static d a(@NonNull Context context, @NonNull CharSequence charSequence) {
         d dVar = new d(context);
-        dVar.bjo = charSequence;
+        dVar.mToastText = charSequence;
         return dVar;
     }
 
-    public static d i(@NonNull Context context, @StringRes int i) {
+    public static d q(@NonNull Context context, @StringRes int i) {
         d dVar = new d(context);
-        dVar.bjo = context.getText(i);
+        dVar.mToastText = context.getText(i);
         return dVar;
     }
 
-    public d eB(@NonNull int i) {
-        this.bjs = i;
+    public d fM(@NonNull int i) {
+        this.mMaxLines = i;
         return this;
     }
 
-    public d cF(boolean z) {
-        this.bjx = z;
-        return this;
-    }
-
-    public d e(@NonNull CharSequence charSequence) {
-        this.mTitleText = charSequence;
+    public d dz(boolean z) {
+        this.mShowMask = z;
         return this;
     }
 
     public d f(@NonNull CharSequence charSequence) {
-        this.bjo = charSequence;
-        return this;
-    }
-
-    public d eC(int i) {
-        this.bju = i;
-        return this;
-    }
-
-    public d eD(int i) {
-        this.bjv = i;
-        return this;
-    }
-
-    public d eE(int i) {
-        this.bjw = i;
+        this.mTitleText = charSequence;
         return this;
     }
 
     public d g(@NonNull CharSequence charSequence) {
-        this.bjp = charSequence;
+        this.mToastText = charSequence;
         return this;
     }
 
-    public d eF(int i) {
+    public d fN(int i) {
+        this.mButtonStyle = i;
+        return this;
+    }
+
+    public d fO(int i) {
+        this.mBottomShowAnimationType = i;
+        return this;
+    }
+
+    public d fP(int i) {
+        this.mBottomIconStyle = i;
+        return this;
+    }
+
+    public d h(@NonNull CharSequence charSequence) {
+        this.mBtnText = charSequence;
+        return this;
+    }
+
+    public d fQ(int i) {
         if (i < 1 || i > 10) {
             this.mDuration = 2;
         } else {
@@ -102,35 +102,35 @@ public class d {
     }
 
     public d b(a aVar) {
-        this.bjt = aVar;
+        this.bJP = aVar;
         return this;
     }
 
-    public d c(@NonNull Drawable drawable) {
-        this.bjq = drawable;
+    public d d(@NonNull Drawable drawable) {
+        this.mHighlightIcon = drawable;
         return this;
     }
 
-    public d eG(@DrawableRes int i) {
+    public d fR(@DrawableRes int i) {
         if (this.mContext != null && this.mContext.getResources() != null) {
-            this.bjq = this.mContext.getResources().getDrawable(i);
+            this.mHighlightIcon = this.mContext.getResources().getDrawable(i);
         }
         return this;
     }
 
-    public d d(@NonNull Uri uri) {
-        this.bjr = uri;
+    public d c(@NonNull Uri uri) {
+        this.mLeftGifUri = uri;
         return this;
     }
 
-    private boolean QN() {
+    private boolean checkToastParams() {
         if (this.mContext == null) {
-            if (aSN) {
+            if (mIsDebug) {
                 throw new IllegalArgumentException("UniversalToast mContext is null!!!");
             }
             return false;
-        } else if (this.bjo == null) {
-            if (aSN) {
+        } else if (this.mToastText == null) {
+            if (mIsDebug) {
                 throw new IllegalArgumentException("UniversalToast toast text is null!!!");
             }
             return false;
@@ -139,92 +139,107 @@ public class d {
         }
     }
 
-    public void QO() {
-        cG(false);
+    public void showToast() {
+        showToast(false);
     }
 
-    public void QP() {
-        if (QN()) {
+    public void showMultiToast() {
+        if (checkToastParams()) {
             cancelToast();
-            com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration, false, this.bjs, this.bjx);
+            com.baidu.swan.apps.res.widget.b.a.show(this.mContext, this.mToastText, this.mDuration, false, this.mMaxLines, this.mShowMask);
         }
     }
 
-    public void cG(boolean z) {
-        if (QN()) {
+    public void showToast(boolean z) {
+        if (checkToastParams()) {
             cancelToast();
             if (!z && (this.mContext instanceof Activity)) {
-                e.a((Activity) this.mContext, this.bjo, this.mDuration, this.bjs, this.bjx);
+                e.showToast((Activity) this.mContext, this.mToastText, this.mDuration, this.mMaxLines, this.mShowMask);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration, true, this.bjs, this.bjx);
+                com.baidu.swan.apps.res.widget.b.a.show(this.mContext, this.mToastText, this.mDuration, true, this.mMaxLines, this.mShowMask);
             }
         }
     }
 
-    public void QQ() {
-        cH(false);
+    public void showToastBottom() {
+        showToastBottom(false);
     }
 
-    public void cH(boolean z) {
-        if (QN()) {
+    public void showToastBottom(boolean z) {
+        if (checkToastParams()) {
             cancelToast();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration);
+                com.baidu.swan.apps.res.widget.b.a.showToastBottom(this.mContext, this.mToastText, this.mDuration);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.bjo, this.mDuration);
+                e.showToastBottom((Activity) this.mContext, this.mToastText, this.mDuration);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration);
+                com.baidu.swan.apps.res.widget.b.a.showToastBottom(this.mContext, this.mToastText, this.mDuration);
             }
         }
     }
 
-    public void QR() {
-        cI(false);
+    public void showHighlightToast() {
+        showHighlightToast(false);
     }
 
-    public void cI(boolean z) {
-        if (QN()) {
+    public void showHighlightToast(boolean z) {
+        if (checkToastParams()) {
             cancelToast();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.bjq, this.mDuration, this.bjx);
+                com.baidu.swan.apps.res.widget.b.a.showHighlight(this.mContext, this.mToastText, this.mHighlightIcon, this.mDuration, this.mShowMask);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.bjo, this.bjq, this.mDuration, this.bjx);
+                e.showHighlight((Activity) this.mContext, this.mToastText, this.mHighlightIcon, this.mDuration, this.mShowMask);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.bjq, this.mDuration, this.bjx);
+                com.baidu.swan.apps.res.widget.b.a.showHighlight(this.mContext, this.mToastText, this.mHighlightIcon, this.mDuration, this.mShowMask);
             }
         }
     }
 
-    public void QS() {
-        cJ(false);
+    public void showHighLoadingToast() {
+        showHighLoadingToast(false);
     }
 
-    public void cJ(boolean z) {
-        if (QN()) {
+    public void showHighLoadingToast(boolean z) {
+        if (checkToastParams()) {
             cancelToast();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration, this.bjx);
+                com.baidu.swan.apps.res.widget.b.a.showHighLoadingToast(this.mContext, this.mToastText, this.mDuration, this.mShowMask);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.bjo, this.mDuration, this.bjx);
+                e.showHighLoadingToast((Activity) this.mContext, this.mToastText, this.mDuration, this.mShowMask);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjo, this.mDuration, this.bjx);
+                com.baidu.swan.apps.res.widget.b.a.showHighLoadingToast(this.mContext, this.mToastText, this.mDuration, this.mShowMask);
             }
         }
     }
 
-    public void QT() {
-        cK(false);
+    public void showClickableToast() {
+        dA(false);
     }
 
-    public void cK(boolean z) {
-        if (QN()) {
+    public void dA(boolean z) {
+        if (checkToastParams()) {
+            cancelToast();
+            if (!z && (this.mContext instanceof Activity)) {
+                e.a((Activity) this.mContext, this.mToastText, this.mTextSize, this.mBtnText, this.mDuration, this.bJP);
+            } else {
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.mToastText, this.mTextSize, this.mBtnText, this.mDuration, this.bJP);
+            }
+        }
+    }
+
+    public void showIconTitleMsgBtnToast() {
+        showIconTitleMsgBtnToast(false);
+    }
+
+    public void showIconTitleMsgBtnToast(boolean z) {
+        if (checkToastParams()) {
             cancelToast();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjr, this.bjw, this.mTitleText, this.bjo, this.bjp, this.bju, this.mDuration, this.bjt);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mDuration, this.bJP);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.bjr, this.bjw, this.mTitleText, this.bjo, this.bjp, this.bju, this.bjv, this.mDuration, this.bjt);
+                e.a((Activity) this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mBottomShowAnimationType, this.mDuration, this.bJP);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.bjr, this.bjw, this.mTitleText, this.bjo, this.bjp, this.bju, this.mDuration, this.bjt);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mDuration, this.bJP);
             }
         }
     }
@@ -234,7 +249,7 @@ public class d {
         e.cancel();
     }
 
-    public static int by(Context context) {
-        return z.getStatusBarHeight() + ((int) context.getResources().getDimension(a.d.aiapps_normal_base_action_bar_height));
+    public static int getSwanAppStatusBarAndActionBarHeight(Context context) {
+        return af.getStatusBarHeight() + ((int) context.getResources().getDimension(a.d.aiapps_normal_base_action_bar_height));
     }
 }

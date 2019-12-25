@@ -22,8 +22,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import com.baidu.down.manage.DownloadConstants;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.utils.IBase64;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
@@ -31,6 +31,7 @@ import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.activity.SlideActiviy;
+import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
@@ -47,11 +48,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicLong;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e implements IXAdCommonUtils {
     private static String a;
     private static String b;
@@ -211,7 +211,7 @@ public class e implements IXAdCommonUtils {
     public void makeCall(Context context, String str) {
         try {
             if (TextUtils.isEmpty(str)) {
-                Intent intent = new Intent("android.intent.action.CALL", Uri.parse((UrlSchemaHelper.SCHEMA_TYPE_PONE + str).toString()));
+                Intent intent = new Intent("android.intent.action.CALL", Uri.parse(("tel:" + str).toString()));
                 intent.addFlags(268435456);
                 a(context, intent);
             }
@@ -401,7 +401,7 @@ public class e implements IXAdCommonUtils {
             return "";
         }
         try {
-            return URLEncoder.encode(str, HTTP.UTF_8);
+            return URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             return str;
         } catch (NullPointerException e2) {
@@ -444,7 +444,7 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String encodeURIComponent(String str) {
         try {
-            return URLEncoder.encode(str, HTTP.UTF_8).replaceAll("\\+", "%20").replaceAll("\\%21", "!").replaceAll("\\%27", "'").replaceAll("\\%28", "(").replaceAll("\\%29", ")").replaceAll("\\%7E", Constants.WAVE_SEPARATOR);
+            return URLEncoder.encode(str, "UTF-8").replaceAll("\\+", "%20").replaceAll("\\%21", "!").replaceAll("\\%27", "'").replaceAll("\\%28", "(").replaceAll("\\%29", ")").replaceAll("\\%7E", Constants.WAVE_SEPARATOR);
         } catch (Exception e) {
             return str;
         }
@@ -456,7 +456,7 @@ public class e implements IXAdCommonUtils {
             return null;
         }
         try {
-            return URLDecoder.decode(str, HTTP.UTF_8);
+            return URLDecoder.decode(str, "UTF-8");
         } catch (Exception e) {
             return str;
         }
@@ -466,16 +466,16 @@ public class e implements IXAdCommonUtils {
     public String vdUrl(String str, int i) {
         XAdSDKFoundationFacade.getInstance().getURIUitls();
         JSONObject jSONObject = new JSONObject();
-        for (String str2 : str.substring(str.indexOf("?") + 1).split("&")) {
+        for (String str2 : str.substring(str.indexOf("?") + 1).split(ETAG.ITEM_SEPARATOR)) {
             try {
-                String[] split = str2.split("=");
+                String[] split = str2.split(ETAG.EQUAL);
                 if (split.length > 1 && !split[0].equals("type")) {
                     jSONObject.putOpt(split[0], split[1]);
                 }
             } catch (Exception e) {
             }
         }
-        StringBuilder sb = new StringBuilder("type=" + i + "&");
+        StringBuilder sb = new StringBuilder("type=" + i + ETAG.ITEM_SEPARATOR);
         TreeMap treeMap = new TreeMap();
         StringBuilder sb2 = new StringBuilder();
         try {
@@ -499,12 +499,12 @@ public class e implements IXAdCommonUtils {
                     str3 = encodeURIComponent(str3);
                     str4 = encodeURIComponent(str4);
                 }
-                sb.append(str3 + "=" + str4 + "&");
+                sb.append(str3 + ETAG.EQUAL + str4 + ETAG.ITEM_SEPARATOR);
                 sb2.append(str4 + Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
         }
         sb2.append("mobads,");
-        sb.append("vd=" + getMD5(sb2.toString()) + "&");
+        sb.append("vd=" + getMD5(sb2.toString()) + ETAG.ITEM_SEPARATOR);
         return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();
     }
 
@@ -614,7 +614,7 @@ public class e implements IXAdCommonUtils {
             return supportedBrowsers[i];
         }
         Intent intent = new Intent("android.intent.action.VIEW");
-        intent.setData(Uri.parse("http://m.baidu.com"));
+        intent.setData(Uri.parse(DownloadConstants.REFER));
         List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 64);
         if (queryIntentActivities != null) {
             for (String str2 : supportedBrowsers) {
@@ -637,7 +637,7 @@ public class e implements IXAdCommonUtils {
     public void browserOutside(Context context, String str) {
         Intent intent;
         if (str.startsWith("wtai://wp/mc;")) {
-            str = UrlSchemaHelper.SCHEMA_TYPE_PONE + str.substring("wtai://wp/mc;".length());
+            str = "tel:" + str.substring("wtai://wp/mc;".length());
         }
         try {
             Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(str));
@@ -684,7 +684,7 @@ public class e implements IXAdCommonUtils {
     }
 
     public String b() {
-        return "android_8.8079_4.0.0";
+        return "android_8.8146_4.0.0";
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:28:0x00a9, code lost:

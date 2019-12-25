@@ -2,17 +2,17 @@ package kotlin.b;
 
 import java.util.NoSuchElementException;
 import kotlin.collections.y;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class b extends y {
-    private final int kvq;
-    private boolean kvr;
+    private boolean hasNext;
+    private final int mZm;
     private int next;
     private final int step;
 
     public b(int i, int i2, int i3) {
         boolean z = true;
         this.step = i3;
-        this.kvq = i2;
+        this.mZm = i2;
         if (this.step > 0) {
             if (i > i2) {
                 z = false;
@@ -20,23 +20,23 @@ public final class b extends y {
         } else if (i < i2) {
             z = false;
         }
-        this.kvr = z;
-        this.next = this.kvr ? i : this.kvq;
+        this.hasNext = z;
+        this.next = this.hasNext ? i : this.mZm;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.kvr;
+        return this.hasNext;
     }
 
     @Override // kotlin.collections.y
-    public int cMN() {
+    public int dyJ() {
         int i = this.next;
-        if (i == this.kvq) {
-            if (!this.kvr) {
+        if (i == this.mZm) {
+            if (!this.hasNext) {
                 throw new NoSuchElementException();
             }
-            this.kvr = false;
+            this.hasNext = false;
         } else {
             this.next += this.step;
         }

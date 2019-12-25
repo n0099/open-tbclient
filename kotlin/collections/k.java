@@ -1,9 +1,9 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class k implements Iterator<Boolean> {
-    public abstract boolean cMC();
+    public abstract boolean dyF();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,8 +12,8 @@ public abstract class k implements Iterator<Boolean> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: cMB */
+    /* renamed from: dEz */
     public final Boolean next() {
-        return Boolean.valueOf(cMC());
+        return Boolean.valueOf(dyF());
     }
 }

@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.liveroom.turntable.lucky;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c {
-    public long OO;
-    public int eoG;
-    public long eoH;
-    public a eoI;
+    public long VM;
+    public int ffa;
+    public long ffb;
+    public a ffc;
 
     public c(JSONObject jSONObject) {
         parseJson(jSONObject);
@@ -14,22 +14,22 @@ public class c {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.eoG = jSONObject.optInt("is_lucky_moment");
-            this.OO = jSONObject.optLong("current_time");
-            this.eoH = jSONObject.optLong("expired_time");
-            this.eoI = new a(jSONObject.optJSONObject("lucky_gift_info"));
+            this.ffa = jSONObject.optInt("is_lucky_moment");
+            this.VM = jSONObject.optLong("current_time");
+            this.ffb = jSONObject.optLong("expired_time");
+            this.ffc = new a(jSONObject.optJSONObject("lucky_gift_info"));
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class a {
-        public String eoJ;
+        public String ffd;
         public String giftName;
 
         public a(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.giftName = jSONObject.optString("gift_name");
-                this.eoJ = jSONObject.optString("pro_up_ratio");
+                this.ffd = jSONObject.optString("pro_up_ratio");
             }
         }
     }

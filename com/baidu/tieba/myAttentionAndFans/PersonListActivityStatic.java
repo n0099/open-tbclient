@@ -12,27 +12,27 @@ import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PersonListActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MyForbiddenFansActivityConfig.class, MyForbiddenFansActivity.class);
-        bjp();
+        bAJ();
     }
 
-    public static void bjp() {
-        com.baidu.tbadk.ala.b.afa().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
+    public static void bAJ() {
+        com.baidu.tbadk.ala.b.avT().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
-                TextView ck = com.baidu.tbadk.ala.c.ck(context);
-                if (ck != null) {
+                TextView dE = com.baidu.tbadk.ala.c.dE(context);
+                if (dE != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    am.setViewTextColor(ck, (int) R.color.cp_link_tip_a);
+                    am.setViewTextColor(dE, (int) R.color.cp_link_tip_a);
                     layoutParams.setMargins(l.getDimens(context, R.dimen.ds8), 0, l.getDimens(context, R.dimen.ds8), 0);
                     layoutParams.gravity = 16;
-                    ck.setLayoutParams(layoutParams);
+                    dE.setLayoutParams(layoutParams);
                 }
-                return ck;
+                return dE;
             }
         });
     }

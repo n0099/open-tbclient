@@ -41,8 +41,8 @@ import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -68,6 +68,9 @@ import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.account.contants.LoginConstants;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
+import com.baidu.webkit.internal.ETAG;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.ByteArrayInputStream;
@@ -88,7 +91,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class SapiWebView extends WebView {
     private static final String A = "立即设置时间";
     public static final String ACCOUNT_CENTER = "account_center";
@@ -172,32 +175,32 @@ public final class SapiWebView extends WebView {
     public static final PassNameValuePair EXTRA_SUPPORT_DIRECT_LOGIN = new PassNameValuePair("direct", "1");
     public static final PassNameValuePair EXTRA_SUPPORT_PHONE = new PassNameValuePair("supportPhone", "1");
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface AccountChangeCallback {
         void onAccountChange();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class AccountDestoryCallback {
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static class AccountDestoryResult {
         }
 
         public abstract void onAccountDestory(AccountDestoryResult accountDestoryResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class AccountFreezeCallback {
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static class AccountFreezeResult {
         }
 
         public abstract void onAccountFreeze(AccountFreezeResult accountFreezeResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public enum ActivityLifeCycle {
         ON_RESUME("webViewWillAppear"),
         ON_PAUSE("webViewWillDisappear");
@@ -209,22 +212,22 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface BdussChangeCallback {
         void onBdussChange();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface BindWidgetCallback {
         void onPhoneNumberExist(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface BioScanFaceCallback {
         public static final int BIO_SCAN_FACE_LOGIN = 2;
         public static final int BIO_SCAN_FACE_REG = 1;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static abstract class BioScanFaceResult {
             public int showGuidePage;
             public String subpro;
@@ -239,7 +242,7 @@ public final class SapiWebView extends WebView {
         void onBioScanFace(BioScanFaceResult bioScanFaceResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface BiometricsIdentifyCallback {
         public static final int LIVENESS_RECOG = 1;
         public static final int RECORD_VIDEO = 1;
@@ -247,7 +250,7 @@ public final class SapiWebView extends WebView {
         void onBiometricsIdentify(BiometricsIdentifyResult biometricsIdentifyResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class BiometricsIdentifyResult {
         public static final int ERROR_CODE_GET_STOKEN_FAILED = -402;
         public static final String ERROR_MSG_GET_STOKEN_FAILED = "服务异常，请稍后再试";
@@ -267,12 +270,12 @@ public final class SapiWebView extends WebView {
         public abstract void setIdentifyToken(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface ChangePwdCallback {
         void onSuccess();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class Command {
         private String a;
         private List<String> b = new ArrayList();
@@ -313,17 +316,17 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface CoverWebBdussCallback {
         void onCoverBduss(String str, CoverWebBdussResult coverWebBdussResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class CoverWebBdussResult {
         public abstract void setWebBduss(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class DefaultAuthorizationListener extends AuthorizationListener {
         public DefaultAuthorizationListener() {
         }
@@ -339,7 +342,7 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class DefaultWeixinHandler implements WeixinHandler {
         public DefaultWeixinHandler() {
         }
@@ -362,22 +365,22 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     interface ErrorCode {
         public static final int WEIXIN_NOT_INTALL = -404;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface FileChooserCallback {
         void onFileChooser(ValueCallback<Uri> valueCallback);
 
         void onFileChooserForOSVersion5(ValueCallback<Uri[]> valueCallback);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface InvokeScAppCallback {
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static abstract class InvokeScAppResult {
             public abstract void setInvokeResult(String str);
         }
@@ -385,7 +388,7 @@ public final class SapiWebView extends WebView {
         void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, InvokeScAppResult invokeScAppResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface LeftBtnVisibleCallback {
         public static final int LEFT_BTN_INVISIBLE = 0;
         public static final int LEFT_BTN_VISIBLE = 1;
@@ -393,55 +396,55 @@ public final class SapiWebView extends WebView {
         void onLeftBtnVisible(int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface LoadExternalWebViewCallback {
         void loadExternalWebview(LoadExternalWebViewResult loadExternalWebViewResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LoadExternalWebViewResult {
         public String defaultTitle;
         public String externalUrl;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface LoadSlideWebViewCallback {
         void loadSlideWebview(LoadSlideWebViewResult loadSlideWebViewResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class LoadSlideWebViewResult {
         public String page;
         public String placeholderTitle;
         public String url;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface LocalConfigCallback {
         List<FastLoginFeature> getFastLoginFeatureList();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnBackCallback {
         void onBack();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnFinishCallback {
         void onFinish();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnNewBackCallback {
         boolean onBack();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnSlidePageFinishCallback {
         void onFinish(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface PickPhotoCallback {
         public static final int PICK_IMAGE_ALBUM = 2;
         public static final int PICK_IMAGE_PHOTO = 1;
@@ -449,16 +452,16 @@ public final class SapiWebView extends WebView {
         void onPickImage(int i, int i2, int i3, PickPhotoResult pickPhotoResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class PickPhotoResult {
         public void setImageData(String str) {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class PreFillUserNameCallback {
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static class PreFillUserNameResult {
             public String userName;
         }
@@ -466,24 +469,24 @@ public final class SapiWebView extends WebView {
         public abstract void onPreFillUserName(PreFillUserNameResult preFillUserNameResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface QrLoginCallback {
         void loginStatusChange(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface QuickLoginHandler {
         void handleOtherLogin();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface RealnameAuthenticateCallback {
         void onFailure();
 
         void onSuccess();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private class ReloadConfig {
         String a;
         boolean b;
@@ -502,13 +505,13 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface ShareAccountClickCallback {
         void onClick(String str, String str2, String str3, String str4);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class SmsHandler extends Handler {
         String a;
         String b;
@@ -530,10 +533,10 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class SwitchAccountCallback {
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static class Result {
             public String displayName;
             public String encryptedUid;
@@ -545,10 +548,10 @@ public final class SapiWebView extends WebView {
         public abstract void onAccountSwitch(Result result);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class SystemUpwardSmsCallback {
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static abstract class Result {
             public String content;
             public String destination;
@@ -559,7 +562,7 @@ public final class SapiWebView extends WebView {
         public abstract void onResult(Result result);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private class TimeoutTask implements Runnable {
         private String a;
 
@@ -582,18 +585,18 @@ public final class SapiWebView extends WebView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface UniteVerifyCallback {
         void onSuccess(String str, String str2, SapiAccount sapiAccount);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface UpwardSmsCallback {
         void onResult(boolean z, boolean z2, boolean z3);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface WebChromeClientCallback {
         boolean isSubClassHandleMessage(String str);
 
@@ -602,12 +605,12 @@ public final class SapiWebView extends WebView {
         boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface WebViewTitleCallback {
         void onTitleChange(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface WebviewClientCallback {
         void onPageFinished(WebView webView, String str);
 
@@ -616,7 +619,7 @@ public final class SapiWebView extends WebView {
         void shouldOverrideUrlLoading(WebView webView, String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface WeixinHandler {
         void handleNotInstall();
 
@@ -650,10 +653,6 @@ public final class SapiWebView extends WebView {
             return;
         }
         loadUrl(b(activityLifeCycle.b));
-    }
-
-    String bPe() {
-        return SapiAccountManager.getInstance().getAccountService().e() + "&" + SapiUtils.createRequestParams(b());
     }
 
     public void back() {
@@ -714,11 +713,11 @@ public final class SapiWebView extends WebView {
     }
 
     String getAddressManageUrl() {
-        return SapiAccountManager.getInstance().getAccountService().a() + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().a() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     String getForgetPwdUrl() {
-        return SapiAccountManager.getInstance().getAccountService().b() + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().b() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     public String getHuaWeiSSOLoginUrl(String str, List<PassNameValuePair> list) {
@@ -732,7 +731,7 @@ public final class SapiWebView extends WebView {
     }
 
     String getInvoiceBuildUrl() {
-        return SapiAccountManager.getInstance().getAccountService().c() + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().c() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -758,12 +757,16 @@ public final class SapiWebView extends WebView {
         return a(str3, list);
     }
 
+    String getModifyPwdUrl() {
+        return SapiAccountManager.getInstance().getAccountService().e() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
+    }
+
     public String getQQSSOLoginUrl(List<PassNameValuePair> list, String str, String str2, String str3) {
         return a(a(str, str2, str3), list);
     }
 
     String getRealnameAuthenticateUrl() {
-        return SapiAccountManager.getInstance().getAccountService().f() + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().f() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     public String getSinaSSOLoginUrl(List<PassNameValuePair> list, String str, String str2) {
@@ -780,15 +783,15 @@ public final class SapiWebView extends WebView {
     }
 
     String getUniteVerifyUrl() {
-        return SapiAccountManager.getInstance().getAccountService().h() + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().h() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     String getUrlFillStart() {
-        return SapiAccountManager.getInstance().getAccountService().k() + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().k() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     String getWapOpRecordUrl() {
-        return SapiAccountManager.getInstance().getAccountService().n() + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().n() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     public String getWeiXinSSOLoginUrl(String str, String str2, boolean z2, List<PassNameValuePair> list) {
@@ -885,7 +888,7 @@ public final class SapiWebView extends WebView {
             Log.e(e2);
         }
         if (!TextUtils.isEmpty(str2)) {
-            loadUrl(getLoginUrl() + "&" + str2 + m);
+            loadUrl(getLoginUrl() + ETAG.ITEM_SEPARATOR + str2 + m);
         } else {
             loadLogin();
         }
@@ -941,7 +944,7 @@ public final class SapiWebView extends WebView {
                         arrayList2.add(new PassNameValuePair("bduss", str));
                         arrayList2.add(new PassNameValuePair("stoken", getTplStokenResult.tplStokenMap.get("pp")));
                         arrayList2.add(new PassNameValuePair("bdstoken", SapiWebView.this.D.realnameAuthenticateStoken));
-                        SapiWebView.this.loadUrl(realnameAuthenticateUrl + "&" + SapiUtils.createRequestParams(arrayList2) + "#idcardverify");
+                        SapiWebView.this.loadUrl(realnameAuthenticateUrl + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList2) + "#idcardverify");
                     }
                 }, str, arrayList);
                 return;
@@ -990,7 +993,7 @@ public final class SapiWebView extends WebView {
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
-            loadUrl(getUniteVerifyUrl() + "&" + SapiUtils.createRequestParams(arrayList));
+            loadUrl(getUniteVerifyUrl() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList));
             return;
         }
         throw new IllegalArgumentException("Invalid Params: verifyToken can't be empty");
@@ -1608,7 +1611,7 @@ public final class SapiWebView extends WebView {
                 list = new ArrayList<>();
             }
             list.add(new PassNameValuePair("clientfrom", "native"));
-            list.add(new PassNameValuePair("client", "android"));
+            list.add(new PassNameValuePair("client", PraiseDataPassUtil.KEY_FROM_OS));
             list.add(new PassNameValuePair("deliverParams", "1"));
             if (this.D.supportFaceLogin) {
                 list.add(new PassNameValuePair("scanface", "1"));
@@ -1618,7 +1621,7 @@ public final class SapiWebView extends WebView {
             }
             int indexOf = str.indexOf("?");
             if (indexOf > 0) {
-                str2 = str.substring(0, indexOf + 1) + SapiUtils.createRequestParams(list) + "&" + str.substring(i2, str.length());
+                str2 = str.substring(0, indexOf + 1) + SapiUtils.createRequestParams(list) + ETAG.ITEM_SEPARATOR + str.substring(i2, str.length());
             } else {
                 str2 = str + "?" + SapiUtils.createRequestParams(list);
             }
@@ -1635,7 +1638,7 @@ public final class SapiWebView extends WebView {
     public void loadForgetPwd(String str) {
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(com.baidu.sapi2.utils.h.a(com.baidu.sapi2.utils.h.s) + "?" + f + "=" + g, "UTF-8")));
+            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(com.baidu.sapi2.utils.h.a(com.baidu.sapi2.utils.h.s) + "?" + f + ETAG.EQUAL + g, "UTF-8")));
             if (!TextUtils.isEmpty(str)) {
                 arrayList.add(new PassNameValuePair("skin", str));
             }
@@ -1644,7 +1647,7 @@ public final class SapiWebView extends WebView {
         }
         String forgetPwdUrl = getForgetPwdUrl();
         if (arrayList.size() > 0) {
-            forgetPwdUrl = forgetPwdUrl + "&" + SapiUtils.createRequestParams(arrayList);
+            forgetPwdUrl = forgetPwdUrl + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
         }
         loadUrl(forgetPwdUrl);
     }
@@ -1658,21 +1661,21 @@ public final class SapiWebView extends WebView {
             a(getContext(), str);
             ArrayList arrayList = new ArrayList();
             try {
-                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(com.baidu.sapi2.utils.h.a(com.baidu.sapi2.utils.h.s) + "?" + f + "=" + h, "UTF-8")));
+                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(com.baidu.sapi2.utils.h.a(com.baidu.sapi2.utils.h.s) + "?" + f + ETAG.EQUAL + h, "UTF-8")));
                 if (!TextUtils.isEmpty(str2)) {
                     arrayList.add(new PassNameValuePair("skin", str2));
                 }
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
-            String bPe = bPe();
+            String modifyPwdUrl = getModifyPwdUrl();
             if (arrayList.size() > 0) {
-                bPe = bPe + "&" + SapiUtils.createRequestParams(arrayList);
+                modifyPwdUrl = modifyPwdUrl + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
             }
             String a2 = a();
             ArrayList arrayList2 = new ArrayList();
             arrayList2.add(new PassNameValuePair(this.D.environment.getWap(), a2));
-            loadUrl(bPe, arrayList2);
+            loadUrl(modifyPwdUrl, arrayList2);
             return;
         }
         throw new IllegalArgumentException("bduss can't be empty");
@@ -1687,7 +1690,7 @@ public final class SapiWebView extends WebView {
             }
             String wapOpRecordUrl = getWapOpRecordUrl();
             if (arrayList.size() > 0) {
-                wapOpRecordUrl = wapOpRecordUrl + "&" + SapiUtils.createRequestParams(arrayList);
+                wapOpRecordUrl = wapOpRecordUrl + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
             }
             loadUrl(wapOpRecordUrl);
             return;
@@ -1798,7 +1801,7 @@ public final class SapiWebView extends WebView {
             }
             String urlFillStart = getUrlFillStart();
             if (arrayList.size() > 0) {
-                urlFillStart = urlFillStart + "&" + SapiUtils.createRequestParams(arrayList);
+                urlFillStart = urlFillStart + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
             }
             loadUrl(urlFillStart);
             return;
@@ -1845,7 +1848,7 @@ public final class SapiWebView extends WebView {
                 }
                 String a2 = a(bindWidgetAction);
                 if (arrayList.size() > 0) {
-                    a2 = a2 + "&" + SapiUtils.createRequestParams(arrayList);
+                    a2 = a2 + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
                 }
                 String a3 = a(a2, list);
                 String a4 = a();
@@ -1879,7 +1882,7 @@ public final class SapiWebView extends WebView {
                 String string = SapiContext.getInstance().getString(SapiContext.KEY_PRE_LOGIN_TYPE);
                 if ("password".equals(string)) {
                     i2 = 0;
-                } else if ("sms".equals(string)) {
+                } else if (LoginConstants.SMS_LOGIN.equals(string)) {
                     i2 = 1;
                 }
             }
@@ -1926,7 +1929,7 @@ public final class SapiWebView extends WebView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.SapiWebView$2  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass2 extends WebViewClient {
         AnonymousClass2() {
         }
@@ -2173,7 +2176,7 @@ public final class SapiWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             if (str != null) {
-                if (!str.startsWith("sms") && !str.startsWith("tel") && !str.startsWith("bdscenter")) {
+                if (!str.startsWith(LoginConstants.SMS_LOGIN) && !str.startsWith("tel") && !str.startsWith("bdscenter")) {
                     if (str.startsWith("wtloginmqq")) {
                         return true;
                     }
@@ -2330,7 +2333,7 @@ public final class SapiWebView extends WebView {
                     }
                 }
             }
-            return !arrayList.isEmpty() ? str + "&" + SapiUtils.createRequestParams(arrayList) : str;
+            return !arrayList.isEmpty() ? str + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList) : str;
         }
         return str;
     }
@@ -2550,7 +2553,7 @@ public final class SapiWebView extends WebView {
                                     sapiAccountResponse2.errorCode = Integer.parseInt(newPullParser.nextText());
                                 } else if (name.equalsIgnoreCase(BdStatsConstant.StatsKey.UNAME)) {
                                     sapiAccountResponse2.username = newPullParser.nextText();
-                                } else if (name.equalsIgnoreCase("errmsg")) {
+                                } else if (name.equalsIgnoreCase(BaseJsonData.TAG_ERRMSG)) {
                                     sapiAccountResponse2.errorMsg = newPullParser.nextText();
                                 } else if (name.equalsIgnoreCase("bduss")) {
                                     sapiAccountResponse2.bduss = newPullParser.nextText();
@@ -2652,7 +2655,7 @@ public final class SapiWebView extends WebView {
             sapiAccount.addSocialInfo(sapiAccountResponse.socialType, sapiAccountResponse.socialPortraitUrl);
             sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
         }
-        sapiAccount.putExtra(TableDefine.PaSubscribeColumns.COLUMN_TPL, this.D.tpl);
+        sapiAccount.putExtra("tpl", this.D.tpl);
         if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
             sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
         }
@@ -2790,7 +2793,7 @@ public final class SapiWebView extends WebView {
     }
 
     String b(SocialType socialType) {
-        return SapiAccountManager.getInstance().getAccountService().b(socialType) + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().b(socialType) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -2843,26 +2846,26 @@ public final class SapiWebView extends WebView {
     }
 
     String a(BindWidgetAction bindWidgetAction) {
-        return SapiAccountManager.getInstance().getAccountService().a(bindWidgetAction) + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().a(bindWidgetAction) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     String a(SocialType socialType) {
-        return SapiAccountManager.getInstance().getAccountService().a(socialType) + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().a(socialType) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     String a(String str) {
-        return SapiAccountManager.getInstance().getAccountService().a(str) + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().a(str) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     String a(SocialType socialType, String str, String str2, String str3) {
-        return SapiAccountManager.getInstance().getAccountService().a(socialType, str, str2, str3) + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().a(socialType, str, str2, str3) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     String a(String str, String str2, String str3) {
-        return SapiAccountManager.getInstance().getAccountService().a(str, str2, str3) + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().a(str, str2, str3) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 
     String a(String str, String str2, boolean z2) {
-        return SapiAccountManager.getInstance().getAccountService().a(str, str2, z2) + "&" + SapiUtils.createRequestParams(b());
+        return SapiAccountManager.getInstance().getAccountService().a(str, str2, z2) + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(b());
     }
 }

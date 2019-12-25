@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static byte[] a(int i, int i2, Bitmap bitmap) {
         try {
@@ -88,11 +88,11 @@ public class c {
         }
     }
 
-    public static byte[] H(Bitmap bitmap) {
+    public static byte[] I(Bitmap bitmap) {
         return a(bitmap.getWidth(), bitmap.getHeight(), bitmap);
     }
 
-    public static Bitmap h(byte[] bArr, int i, int i2) {
+    public static Bitmap j(byte[] bArr, int i, int i2) {
         Throwable th;
         Bitmap bitmap;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -123,7 +123,7 @@ public class c {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static void aU(Context context, String str) {
+    public static void bl(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
             intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
@@ -134,7 +134,7 @@ public class c {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.util.ArrayList<com.baidu.tieba.video.editvideo.b.c$a> */
     /* JADX WARN: Multi-variable type inference failed */
-    public static ArrayList<a> I(Bitmap bitmap) {
+    public static ArrayList<a> J(Bitmap bitmap) {
         if (bitmap == null || bitmap.isRecycled()) {
             return new ArrayList<>();
         }
@@ -186,7 +186,7 @@ public class c {
         return true;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public int color;
         public int x;

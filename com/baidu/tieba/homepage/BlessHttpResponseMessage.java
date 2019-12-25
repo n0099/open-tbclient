@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.UserPk.UserPkResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class BlessHttpResponseMessage extends HttpResponsedMessage {
     public long pkID;
     public long userPkId;

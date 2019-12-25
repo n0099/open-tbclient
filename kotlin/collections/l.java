@@ -1,7 +1,7 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class l implements Iterator<Byte> {
     public abstract byte nextByte();
 

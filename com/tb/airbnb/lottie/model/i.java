@@ -3,7 +3,7 @@ package com.tb.airbnb.lottie.model;
 import android.support.annotation.Nullable;
 import android.support.v4.util.Pair;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class i<T> {
     @Nullable
     T first;

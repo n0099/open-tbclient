@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.android.imsdk.IMConstants;
+import com.baidu.webkit.internal.ETAG;
+import com.baidu.webkit.net.BdNetEngine;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -20,7 +22,6 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public class g {
     private Context a;
@@ -85,7 +86,7 @@ public class g {
                 outputStream2 = httpsURLConnection.getOutputStream();
                 try {
                     try {
-                        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream2, HTTP.UTF_8));
+                        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream2, "UTF-8"));
                         bufferedWriter.write(b(this.c));
                         a.a(b(this.c));
                         bufferedWriter.flush();
@@ -97,7 +98,7 @@ public class g {
                                 int responseCode = httpsURLConnection.getResponseCode();
                                 if (200 == responseCode) {
                                     try {
-                                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream, HTTP.UTF_8));
+                                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
                                     } catch (IOException e) {
                                         e = e;
                                         i = responseCode;
@@ -359,12 +360,12 @@ public class g {
             if (z2) {
                 z = false;
             } else {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
                 z = z2;
             }
-            sb.append(URLEncoder.encode(entry.getKey(), HTTP.UTF_8));
-            sb.append("=");
-            sb.append(URLEncoder.encode(entry.getValue(), HTTP.UTF_8));
+            sb.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+            sb.append(ETAG.EQUAL);
+            sb.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
             z2 = z;
         }
         return sb.toString();
@@ -381,7 +382,7 @@ public class g {
                 return null;
             }
             a.a("checkNetwork = " + a);
-            HttpsURLConnection httpsURLConnection = a.equals("cmwap") ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80))) : a.equals("ctwap") ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : (HttpsURLConnection) url.openConnection();
+            HttpsURLConnection httpsURLConnection = a.equals("cmwap") ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(BdNetEngine.URI_PROXY_CMWAP, 80))) : a.equals("ctwap") ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(BdNetEngine.URI_PROXY_CTWAP, 80))) : (HttpsURLConnection) url.openConnection();
             httpsURLConnection.setHostnameVerifier(new h(this));
             httpsURLConnection.setDoInput(true);
             httpsURLConnection.setDoOutput(true);

@@ -9,14 +9,15 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.tbadk.widget.TbImageView;
 import java.lang.reflect.Method;
 import org.apache.http.HttpHost;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaUtilHelper {
     private static boolean hasNavBar(Context context) {
         Resources resources = context.getResources();
-        int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+        int identifier = resources.getIdentifier("config_showNavigationBar", "bool", PraiseDataPassUtil.KEY_FROM_OS);
         if (identifier != 0) {
             boolean z = resources.getBoolean(identifier);
             String navBarOverride = getNavBarOverride();
@@ -44,7 +45,7 @@ public class AlaUtilHelper {
     public static int getNavigationBarHeight(Context context) {
         Resources resources;
         int identifier;
-        if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier("navigation_bar_height", "dimen", "android")) <= 0) {
+        if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier("navigation_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS)) <= 0) {
             return 0;
         }
         return resources.getDimensionPixelSize(identifier);

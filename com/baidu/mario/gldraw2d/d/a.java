@@ -1,7 +1,7 @@
 package com.baidu.mario.gldraw2d.d;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class a {
     protected int mCoordsPerVertex;
     protected FloatBuffer mTexCoordArray;

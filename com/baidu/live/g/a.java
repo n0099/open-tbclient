@@ -1,14 +1,14 @@
 package com.baidu.live.g;
 
-import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes6.dex */
-public class a extends HttpMessage {
-    private int mType;
+import android.view.View;
+import com.baidu.live.data.k;
+/* loaded from: classes2.dex */
+public interface a {
+    void a(k kVar);
 
-    public a(int i) {
-        super(1021031);
-        this.mType = 1;
-        this.mType = i;
-        addParam("block_type", i);
-    }
+    void bJ(int i);
+
+    View getView();
+
+    void setIsHost(boolean z);
 }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.sapi2.activity.AccountCenterActivity;
 import com.baidu.sapi2.activity.AccountRealNameActivity;
@@ -67,7 +68,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class PassportSDK {
     private static PassportSDK a;
     private static LoginStatusChangeCallback b;
@@ -134,12 +135,12 @@ public final class PassportSDK {
                 SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new l(this, optInt, extendSysWebViewMethodCallback, optJSONObject, extendSysWebViewMethodResult, context), optString, optString2);
                 return;
             }
-            extendSysWebViewMethodResult.params.put("retCode", "-310");
+            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-310");
             extendSysWebViewMethodResult.params.put("retMsg", "因安全原因，操作失败");
             extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
         } catch (JSONException e) {
             Log.e(e);
-            extendSysWebViewMethodResult.params.put("retCode", "-3");
+            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-3");
             extendSysWebViewMethodResult.params.put("retMsg", "params is not json");
             extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
         }
@@ -668,7 +669,7 @@ public final class PassportSDK {
     private void a(ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, BiometricsManager.a aVar, ExtendSysWebViewMethodResult extendSysWebViewMethodResult, PassFaceRecogCallback passFaceRecogCallback, String str, Map<String, String> map, String str2) {
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         if (currentAccount == null) {
-            extendSysWebViewMethodResult.params.put("retCode", "-302");
+            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-302");
             extendSysWebViewMethodResult.params.put("retMsg", "please login first");
             extendSysWebViewMethodCallback.onFinish(extendSysWebViewMethodResult);
             return;

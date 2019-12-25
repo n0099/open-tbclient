@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public enum Language {
     CHINESE(0, "chinese"),
     ENGLISH(1, "english");

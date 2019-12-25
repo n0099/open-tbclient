@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PaInfoDBManager extends DBBase {
     private static final String TAG = PaInfoDBManager.class.getSimpleName();
     private static PaInfoDBManager mInstance = null;
@@ -44,7 +44,7 @@ public class PaInfoDBManager extends DBBase {
         contentValues.put("acceptpush", Integer.valueOf(paInfo.isAcceptPush() ? 1 : 0));
         contentValues.put("timestamp", Long.valueOf(System.currentTimeMillis()));
         contentValues.put("detail", paInfo.getDetail());
-        contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, Long.valueOf(paInfo.getTPL()));
+        contentValues.put("tpl", Long.valueOf(paInfo.getTPL()));
         contentValues.put("disturb", Integer.valueOf(paInfo.getDisturb()));
         contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_SUBTYPE, Integer.valueOf(paInfo.getSubtype()));
         contentValues.put("classtype", Integer.valueOf(paInfo.getClassType()));
@@ -132,7 +132,7 @@ public class PaInfoDBManager extends DBBase {
         return result;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     class PaInfoParse implements CursorParse {
         PaInfo info = null;
 
@@ -156,7 +156,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class PaInfoListParse implements CursorParse {
         List<PaInfo> paList = null;
 
@@ -181,7 +181,7 @@ public class PaInfoDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class PaidParse implements CursorParse {
         ArrayList<Long> paList = null;
 
@@ -215,7 +215,7 @@ public class PaInfoDBManager extends DBBase {
         String string4 = cursor.getString(cursor.getColumnIndex("url"));
         long j2 = cursor.getLong(cursor.getColumnIndex("timestamp"));
         String string5 = cursor.getString(cursor.getColumnIndex("detail"));
-        long j3 = cursor.getLong(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_TPL));
+        long j3 = cursor.getLong(cursor.getColumnIndex("tpl"));
         int i2 = cursor.getInt(cursor.getColumnIndex("disturb"));
         int i3 = cursor.getInt(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_SUBTYPE));
         int i4 = cursor.getInt(cursor.getColumnIndex("classtype"));

@@ -3,33 +3,34 @@ package com.baidu.tieba.godSquare.a;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.adp.widget.ListView.e;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.divider.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> agy = new ArrayList();
-    private BdTypeListView duK;
-    private com.baidu.tieba.card.divider.a gbt;
-    private c gbu;
-    private b gbv;
+    private List<com.baidu.adp.widget.ListView.a> aoz = new ArrayList();
+    private BdTypeListView efM;
+    private d gPx;
+    private c gPy;
+    private b gPz;
 
-    public List<com.baidu.adp.widget.ListView.a> aJq() {
-        return this.agy;
+    public List<com.baidu.adp.widget.ListView.a> aZO() {
+        return this.aoz;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.duK = bdTypeListView;
-        this.gbt = new com.baidu.tieba.card.divider.a(tbPageContext);
-        this.gbu = new c(tbPageContext);
-        this.gbv = new b(tbPageContext);
-        this.agy.add(this.gbt);
-        this.agy.add(this.gbu);
-        this.agy.add(this.gbv);
+        this.efM = bdTypeListView;
+        this.gPx = new d(tbPageContext);
+        this.gPy = new c(tbPageContext);
+        this.gPz = new b(tbPageContext);
+        this.aoz.add(this.gPx);
+        this.aoz.add(this.gPy);
+        this.aoz.add(this.gPz);
     }
 
     public void notifyDataSetChanged() {
-        if (this.duK != null && (this.duK.getAdapter() instanceof e)) {
-            this.duK.getAdapter().notifyDataSetChanged();
+        if (this.efM != null && (this.efM.getAdapter() instanceof e)) {
+            this.efM.getAdapter().notifyDataSetChanged();
         }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
+import com.baidubce.http.Headers;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.exception.WeiboHttpException;
@@ -19,8 +20,7 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.util.Set;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class HttpManager {
     private static final String BOUNDARY;
     private static final String END_MP_BOUNDARY;
@@ -64,7 +64,7 @@ public class HttpManager {
                         dataOutputStream.close();
                     } else {
                         DataOutputStream dataOutputStream2 = new DataOutputStream(createConnect.getOutputStream());
-                        dataOutputStream2.write(weiboParameters.encodeUrl().getBytes(HTTP.UTF_8));
+                        dataOutputStream2.write(weiboParameters.encodeUrl().getBytes("UTF-8"));
                         dataOutputStream2.flush();
                         dataOutputStream2.close();
                     }
@@ -153,7 +153,7 @@ public class HttpManager {
                             throw th;
                         }
                     }
-                    str = new String(byteArrayOutputStream2.toByteArray(), HTTP.UTF_8);
+                    str = new String(byteArrayOutputStream2.toByteArray(), "UTF-8");
                 }
                 if (inputStream != null) {
                     try {
@@ -232,7 +232,7 @@ public class HttpManager {
             createConnect.connect();
             int responseCode = createConnect.getResponseCode();
             if (responseCode == 302 || responseCode == 301) {
-                return createConnect.getHeaderField("Location");
+                return createConnect.getHeaderField(Headers.LOCATION);
             }
             if (responseCode != 200) {
                 return "";

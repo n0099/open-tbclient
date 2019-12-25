@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.Size;
+import com.baidu.fsg.base.statistics.h;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
 import java.util.Collection;
@@ -16,7 +17,7 @@ import java.util.Iterator;
 import java.util.Locale;
 @RequiresApi(14)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class LocaleListHelper {
     private static final int NUM_PSEUDO_LOCALES = 2;
     private static final String STRING_AR_XB = "ar-XB";
@@ -26,7 +27,7 @@ final class LocaleListHelper {
     private final String mStringRepresentation;
     private static final Locale[] sEmptyList = new Locale[0];
     private static final LocaleListHelper sEmptyLocaleList = new LocaleListHelper(new Locale[0]);
-    private static final Locale LOCALE_EN_XA = new Locale("en", "XA");
+    private static final Locale LOCALE_EN_XA = new Locale(h.a, "XA");
     private static final Locale LOCALE_AR_XB = new Locale("ar", "XB");
     private static final Locale EN_LATN = LocaleHelper.forLanguageTag("en-Latn");
     private static final Object sLock = new Object();

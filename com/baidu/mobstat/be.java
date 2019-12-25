@@ -5,14 +5,13 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.text.TextUtils;
 import android.view.View;
-import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.mobstat.bk;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class be implements bk.b {
     @Override // com.baidu.mobstat.bk.b
     public void a(View view, boolean z, Activity activity) {
@@ -66,7 +65,7 @@ public class be implements bk.b {
         try {
             DecimalFormat decimalFormat = new DecimalFormat("0.0");
             DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
-            decimalFormatSymbols.setDecimalSeparator(BdFileHelper.EXTENSION_SEPARATOR);
+            decimalFormatSymbols.setDecimalSeparator('.');
             decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
             jSONObject.put(Config.EVENT_HEAT_X, decimalFormat.format(b));
             jSONObject.put("y", decimalFormat.format(b2));

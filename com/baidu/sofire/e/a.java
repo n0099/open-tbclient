@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Base64;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.mobstat.Config;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.b;
@@ -14,18 +14,18 @@ import com.baidu.sofire.e;
 import com.baidu.sofire.i.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static long a = 0;
     private static a b;
-    private C0143a c;
+    private C0180a c;
     private e d;
     private SQLiteDatabase e;
     private Context f;
 
     private a(Context context) {
         this.f = context;
-        this.c = new C0143a(context);
+        this.c = new C0180a(context);
         this.d = new e(context);
         try {
             this.e = this.c.getWritableDatabase();
@@ -52,7 +52,7 @@ public final class a {
         contentValues.put("d", Long.valueOf(aVar.e));
         contentValues.put("e", Integer.valueOf(aVar.g));
         contentValues.put("g", Integer.valueOf(aVar.f));
-        contentValues.put(BdStatsConstant.StatsKey.FROM, Integer.valueOf(aVar.h));
+        contentValues.put("f", Integer.valueOf(aVar.h));
         contentValues.put("i", Integer.valueOf(aVar.i));
         contentValues.put("j", aVar.j);
         String str = aVar.d;
@@ -278,7 +278,7 @@ public final class a {
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
                             aVar.f = cursor.getInt(cursor.getColumnIndex("g"));
                             aVar.g = cursor.getInt(cursor.getColumnIndex("e"));
-                            aVar.h = cursor.getInt(cursor.getColumnIndex(BdStatsConstant.StatsKey.FROM));
+                            aVar.h = cursor.getInt(cursor.getColumnIndex("f"));
                             aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
@@ -356,7 +356,7 @@ public final class a {
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
                             aVar.f = cursor.getInt(cursor.getColumnIndex("g"));
                             aVar.g = cursor.getInt(cursor.getColumnIndex("e"));
-                            aVar.h = cursor.getInt(cursor.getColumnIndex(BdStatsConstant.StatsKey.FROM));
+                            aVar.h = cursor.getInt(cursor.getColumnIndex("f"));
                             aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
@@ -443,7 +443,7 @@ public final class a {
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
                             aVar.f = cursor.getInt(cursor.getColumnIndex("g"));
                             aVar.g = cursor.getInt(cursor.getColumnIndex("e"));
-                            aVar.h = cursor.getInt(cursor.getColumnIndex(BdStatsConstant.StatsKey.FROM));
+                            aVar.h = cursor.getInt(cursor.getColumnIndex("f"));
                             aVar.i = cursor.getInt(cursor.getColumnIndex("i"));
                             aVar.j = cursor.getString(cursor.getColumnIndex("j"));
                             String string = cursor.getString(cursor.getColumnIndex("h"));
@@ -569,7 +569,7 @@ public final class a {
         e eVar = new e(this.f);
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            return this.e.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (eVar.e.getInt("re_net_over", 7) * 86400000))});
+            return this.e.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (eVar.e.getInt("re_net_over", 7) * DateTimeUtil.TIME_DAY_MILLISECOND))});
         } catch (Exception e) {
             d.a();
             return -1;
@@ -577,9 +577,9 @@ public final class a {
     }
 
     /* renamed from: com.baidu.sofire.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    class C0143a extends SQLiteOpenHelper {
-        public C0143a(Context context) {
+    /* loaded from: classes4.dex */
+    class C0180a extends SQLiteOpenHelper {
+        public C0180a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

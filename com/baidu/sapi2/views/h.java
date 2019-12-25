@@ -2,7 +2,7 @@ package com.baidu.sapi2.views;
 
 import android.view.inputmethod.InputMethodManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class h implements Runnable {
     final /* synthetic */ SmsLoginView a;
 

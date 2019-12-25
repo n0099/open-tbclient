@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.util.Log;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LoadSo {
     static final String[] SO_NAME_ARRAY = {"bd_idl_pass_token", "idl_license", "FaceSDK"};
     static final String ZIP_VERSION = "3.0.0";
@@ -85,7 +84,7 @@ public class LoadSo {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class StatService {
         private static final String EXCEPTION_INFO = "exception_info";
         private static final String EXCEPTION_ZIP_VERSION = "execption_zip_version";
@@ -127,9 +126,9 @@ public class LoadSo {
             HashMap hashMap = new HashMap();
             hashMap.put("host_version", this.hostVersion);
             hashMap.put("zip_version", this.zipVersion);
-            hashMap.put(LOAD_DEFAULT_SO, this.loadDefaultSo ? "1" : LivenessStat.TYPE_STRING_DEFAULT);
-            hashMap.put(LOAD_SO_SUCCESS, this.loadSoSuccess ? "1" : LivenessStat.TYPE_STRING_DEFAULT);
-            hashMap.put(LOAD_DOWNLOAD_SO_SUC, this.loadDownloadSoSuc ? "1" : LivenessStat.TYPE_STRING_DEFAULT);
+            hashMap.put(LOAD_DEFAULT_SO, this.loadDefaultSo ? "1" : "-1");
+            hashMap.put(LOAD_SO_SUCCESS, this.loadSoSuccess ? "1" : "-1");
+            hashMap.put(LOAD_DOWNLOAD_SO_SUC, this.loadDownloadSoSuc ? "1" : "-1");
             hashMap.put(EXCEPTION_INFO, this.exceptionInfo);
             hashMap.put(EXCEPTION_ZIP_VERSION, this.execptionZipVersion);
             hashMap.put(LIVENESS_PROCESS_ID, this.uuid);

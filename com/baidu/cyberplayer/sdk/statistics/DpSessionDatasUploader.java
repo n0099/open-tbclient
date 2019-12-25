@@ -7,6 +7,7 @@ import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.k;
+import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -81,7 +82,7 @@ public final class DpSessionDatasUploader {
                     httpURLConnection3.setDoOutput(true);
                     httpURLConnection3.setRequestMethod("POST");
                     httpURLConnection3.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                    httpURLConnection3.setRequestProperty("Cache-Control", "no-cache");
+                    httpURLConnection3.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
                     if (z) {
                         httpURLConnection3.setRequestProperty("Content-Type", "application/x-gzip");
                     }

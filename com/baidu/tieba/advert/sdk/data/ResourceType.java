@@ -1,5 +1,5 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public enum ResourceType {
     ID("id"),
     ARRAY("array"),

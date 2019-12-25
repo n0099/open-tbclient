@@ -22,8 +22,7 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.NetworkInterface;
 import java.util.Collections;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class i {
     private static String A;
     private static String B;
@@ -100,9 +99,9 @@ public final class i {
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {
-                String cBs = cBs();
-                if (cBs != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(cBs);
+                String cVk = cVk();
+                if (cVk != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(cVk);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
@@ -118,7 +117,7 @@ public final class i {
         }
     }
 
-    private static String cBs() {
+    private static String cVk() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -172,7 +171,7 @@ public final class i {
         StringWriter stringWriter = new StringWriter();
         char[] cArr = new char[2048];
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, HTTP.UTF_8));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
             while (true) {
                 int read = bufferedReader.read(cArr);
                 if (read != -1) {
@@ -212,26 +211,26 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            an(com.baidu.ubs.analytics.d.cBb().getContext());
+            au(com.baidu.ubs.analytics.d.cUT().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            an(com.baidu.ubs.analytics.d.cBb().getContext());
+            au(com.baidu.ubs.analytics.d.cUT().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            an(com.baidu.ubs.analytics.d.cBb().getContext());
+            au(com.baidu.ubs.analytics.d.cUT().getContext());
         }
         return B;
     }
 
-    private static void an(Context context) {
+    private static void au(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         z = String.valueOf(displayMetrics.widthPixels);

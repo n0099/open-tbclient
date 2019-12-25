@@ -1,12 +1,13 @@
 package com.baidu.live.gift;
+/* loaded from: classes2.dex */
+public class p {
+    public String adX;
+    public int aeM;
+    public String itemId;
 
-import android.view.View;
-import com.baidu.live.data.AlaLiveInfoData;
-/* loaded from: classes6.dex */
-public interface p {
-    void a(AlaLiveInfoData alaLiveInfoData);
-
-    void onDestroy();
-
-    View pN();
+    public p(String str, String str2, int i) {
+        this.itemId = str;
+        this.adX = str2;
+        this.aeM = i;
+    }
 }

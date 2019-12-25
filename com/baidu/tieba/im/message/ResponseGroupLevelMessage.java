@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import protobuf.GradeInfo;
 import protobuf.QueryGroupGrade.QueryGroupGradeResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ResponseGroupLevelMessage extends SocketResponsedMessage {
     private GroupLevelInfo groupLevelInfo;
 

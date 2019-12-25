@@ -9,13 +9,14 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.util.io.BaseJsonData;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMUnBindPushRequest extends BaseHttpRequest {
     private Long mAppid;
     private String mBduss;
@@ -41,7 +42,7 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
         LogUtils.d("IMUnBindPushRequest", str2);
         try {
             jSONObject = new JSONObject(str2);
-            j = jSONObject.optLong("requestid");
+            j = jSONObject.optLong(BaseJsonData.TAG_REQUESTID);
         } catch (JSONException e) {
             jSONException = e;
             j = 0;

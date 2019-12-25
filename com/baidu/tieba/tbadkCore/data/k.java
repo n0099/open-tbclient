@@ -6,36 +6,36 @@ import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
     private int height;
-    private String jhj;
-    private String jhk;
-    private String jhl;
-    private String jhm;
+    private String kbw;
+    private String kbx;
+    private String kby;
+    private String kbz;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public k(Timgs timgs) {
-        this.jhj = null;
+        this.kbw = null;
         this.urlFlag = 0;
-        this.jhk = null;
-        this.jhl = null;
-        this.jhm = null;
+        this.kbx = null;
+        this.kby = null;
+        this.kbz = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.jhj = timgs.img_url;
+            this.kbw = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.jhk = timgs.url;
-            this.jhl = timgs.big_cdn_url;
-            this.jhm = timgs.des_main;
+            this.kbx = timgs.url;
+            this.kby = timgs.big_cdn_url;
+            this.kbz = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
                 try {
                     String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                    this.width = com.baidu.adp.lib.g.b.toInt(split[0], 1);
-                    this.height = com.baidu.adp.lib.g.b.toInt(split[1], 1);
+                    this.width = com.baidu.adp.lib.f.b.toInt(split[0], 1);
+                    this.height = com.baidu.adp.lib.f.b.toInt(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -51,19 +51,19 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.jhj;
+        return this.kbw;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String agY() {
-        return this.jhk;
+    public String axS() {
+        return this.kbx;
     }
 
-    public String cnV() {
-        return this.jhj;
+    public String cIb() {
+        return this.kbw;
     }
 
-    public String cnW() {
-        return this.jhl;
+    public String cIc() {
+        return this.kby;
     }
 }

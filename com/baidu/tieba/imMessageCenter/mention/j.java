@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.an;
+import com.baidu.tbadk.core.data.ap;
 import com.baidu.tbadk.core.util.v;
 import com.squareup.wire.Message;
 import java.util.ArrayList;
@@ -11,18 +11,18 @@ import org.json.JSONObject;
 import tbclient.ReplyMe.DataRes;
 import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean isSucc;
-    protected ArrayList<FeedData> gVz = new ArrayList<>();
-    protected an page = new an();
-    protected h gVA = new h();
+    protected ArrayList<FeedData> hJC = new ArrayList<>();
+    protected ap page = new ap();
+    protected h hJD = new h();
 
-    public ArrayList<FeedData> bFM() {
-        return this.gVz;
+    public ArrayList<FeedData> bWY() {
+        return this.hJC;
     }
 
-    public an getPage() {
+    public ap getPage() {
         return this.page;
     }
 
@@ -35,13 +35,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.gVz.add(feedData);
+                    this.hJC.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.getCount(feedData.getPraiseList()) == 0) {
-                        this.gVz.remove(feedData);
+                        this.hJC.remove(feedData);
                     }
                 }
             }
-            this.gVA.parserJson(jSONObject.optJSONObject("message"));
+            this.hJD.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
             this.isSucc = true;
         } catch (Exception e) {
@@ -60,9 +60,9 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.gVz.add(feedData);
+                        this.hJC.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.getCount(feedData.getPraiseList()) == 0) {
-                            this.gVz.remove(feedData);
+                            this.hJC.remove(feedData);
                         }
                     }
                 }

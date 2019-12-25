@@ -13,7 +13,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.Map;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public abstract class n<T> implements Comparable<n<T>> {
     private static long p;
@@ -202,7 +201,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     protected String o() {
-        return HTTP.UTF_8;
+        return "UTF-8";
     }
 
     public String p() {

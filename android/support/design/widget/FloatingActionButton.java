@@ -18,6 +18,7 @@ import android.support.design.R;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButtonImpl;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.ViewGroupUtils;
 import android.support.v7.widget.AppCompatImageHelper;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -28,10 +29,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 @CoordinatorLayout.DefaultBehavior(Behavior.class)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FloatingActionButton extends VisibilityAwareImageButton {
     private static final int AUTO_MINI_LARGEST_SCREEN_WIDTH = 470;
     private static final String LOG_TAG = "FloatingActionButton";
+    public static final int NO_CUSTOM_SIZE = 0;
     public static final int SIZE_AUTO = -1;
     public static final int SIZE_MINI = 1;
     public static final int SIZE_NORMAL = 0;
@@ -39,6 +41,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
     private PorterDuff.Mode mBackgroundTintMode;
     private int mBorderWidth;
     boolean mCompatPadding;
+    private int mCustomSize;
     private AppCompatImageHelper mImageHelper;
     int mImagePadding;
     private FloatingActionButtonImpl mImpl;
@@ -50,7 +53,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface Size {
     }
 
@@ -59,7 +62,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
         super.setVisibility(i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class OnVisibilityChangedListener {
         public void onShown(FloatingActionButton floatingActionButton) {
         }
@@ -86,6 +89,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
         this.mBackgroundTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(R.styleable.FloatingActionButton_backgroundTintMode, -1), null);
         this.mRippleColor = obtainStyledAttributes.getColor(R.styleable.FloatingActionButton_rippleColor, 0);
         this.mSize = obtainStyledAttributes.getInt(R.styleable.FloatingActionButton_fabSize, -1);
+        this.mCustomSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.FloatingActionButton_fabCustomSize, 0);
         this.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.FloatingActionButton_borderWidth, 0);
         float dimension = obtainStyledAttributes.getDimension(R.styleable.FloatingActionButton_elevation, 0.0f);
         float dimension2 = obtainStyledAttributes.getDimension(R.styleable.FloatingActionButton_pressedTranslationZ, 0.0f);
@@ -232,12 +236,26 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
         };
     }
 
+    public void setCustomSize(int i) {
+        if (i < 0) {
+            throw new IllegalArgumentException("Custom size should be non-negative.");
+        }
+        this.mCustomSize = i;
+    }
+
+    public int getCustomSize() {
+        return this.mCustomSize;
+    }
+
     int getSizeDimension() {
         return getSizeDimension(this.mSize);
     }
 
     private int getSizeDimension(int i) {
         Resources resources = getResources();
+        if (this.mCustomSize != 0) {
+            return this.mCustomSize;
+        }
         switch (i) {
             case -1:
                 if (Math.max(resources.getConfiguration().screenWidthDp, resources.getConfiguration().screenHeightDp) < AUTO_MINI_LARGEST_SCREEN_WIDTH) {
@@ -319,7 +337,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
         return super.onTouchEvent(motionEvent);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Behavior extends CoordinatorLayout.Behavior<FloatingActionButton> {
         private static final boolean AUTO_HIDE_DEFAULT = true;
         private boolean mAutoHideEnabled;
@@ -488,7 +506,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class ShadowDelegateImpl implements ShadowViewDelegate {
         ShadowDelegateImpl() {
         }

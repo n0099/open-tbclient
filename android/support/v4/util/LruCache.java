@@ -1,9 +1,10 @@
 package android.support.v4.util;
 
+import com.baidu.webkit.internal.ETAG;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LruCache<K, V> {
     private int createCount;
     private int evictionCount;
@@ -131,8 +132,7 @@ public class LruCache<K, V> {
         return remove;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void entryRemoved(boolean z, K k, V v, V v2) {
+    protected void entryRemoved(boolean z, K k, V v, V v2) {
     }
 
     protected V create(K k) {
@@ -142,7 +142,7 @@ public class LruCache<K, V> {
     private int safeSizeOf(K k, V v) {
         int sizeOf = sizeOf(k, v);
         if (sizeOf < 0) {
-            throw new IllegalStateException("Negative size: " + k + "=" + v);
+            throw new IllegalStateException("Negative size: " + k + ETAG.EQUAL + v);
         }
         return sizeOf;
     }

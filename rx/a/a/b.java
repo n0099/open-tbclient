@@ -1,15 +1,15 @@
 package rx.a.a;
 
 import rx.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private static final b kxU = new b();
+    private static final b ndC = new b();
 
-    public static b cOo() {
-        return kxU;
+    public static b dGi() {
+        return ndC;
     }
 
-    public g cOp() {
+    public g dGj() {
         return null;
     }
 

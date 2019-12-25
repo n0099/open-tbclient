@@ -2,7 +2,7 @@ package com.baidu.mobad.a;
 
 import com.baidu.mobads.interfaces.IXAdEvent4PDK;
 import com.baidu.mobads.interfaces.IXAdProd;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d extends com.baidu.mobads.openad.c.b implements IXAdEvent4PDK {
     private IXAdProd a;
 

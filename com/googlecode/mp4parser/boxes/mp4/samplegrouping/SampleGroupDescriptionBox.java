@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.mp4.samplegrouping;
 
+import com.baidu.down.manage.DownloadConstants;
 import com.baidu.live.adp.lib.util.FieldUtil;
 import com.baidu.mobstat.Config;
 import com.coremedia.iso.IsoTypeReader;
@@ -13,18 +14,18 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SampleGroupDescriptionBox extends AbstractFullBox {
     public static final String TYPE = "sgpd";
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_8 = null;
     private int defaultLength;
     private int descriptionLength;
     private List<GroupEntry> groupEntries;
@@ -44,7 +45,7 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setGroupEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "java.util.List", "groupEntries", "", "void"), 155);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "equals", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "java.lang.Object", Config.OS, "", "boolean"), 160);
         ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "hashCode", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "int"), 184);
-        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", FieldUtil.TYPE_STRING), 192);
+        ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", FieldUtil.TYPE_STRING), DownloadConstants.STATUS_RUNNING);
     }
 
     public SampleGroupDescriptionBox() {
@@ -160,7 +161,7 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
     }
 
     public void setDefaultLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Dk(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.MS(i)));
         this.defaultLength = i;
     }
 

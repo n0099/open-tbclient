@@ -2,7 +2,7 @@ package protobuf.AddGroupActivity;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class AddGroupActivityReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
@@ -16,7 +16,7 @@ public final class AddGroupActivityReqIdl extends Message {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<AddGroupActivityReqIdl> {
         public DataReq data;
 

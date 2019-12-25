@@ -10,7 +10,7 @@ import com.baidu.tieba.recapp.c.a;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert, b, a {
     public PostAdBaseData.a adData;
     public PostAdBaseData.b feedData;
@@ -25,20 +25,20 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
         JSONObject jSONObject3 = null;
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        this.goodsStyle = com.baidu.adp.lib.g.b.toInt(jSONObject.optString("goods_style"), -1);
+        this.goodsStyle = com.baidu.adp.lib.f.b.toInt(jSONObject.optString("goods_style"), -1);
         try {
             jSONObject2 = jSONObject.getJSONObject("feed_content");
         } catch (JSONException e) {
             e.printStackTrace();
             jSONObject2 = null;
         }
-        this.feedData = PostAdBaseData.b.cp(jSONObject2);
+        this.feedData = PostAdBaseData.b.df(jSONObject2);
         try {
             jSONObject3 = jSONObject.getJSONObject("ad_content");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.adData = PostAdBaseData.a.co(jSONObject3);
+        this.adData = PostAdBaseData.a.de(jSONObject3);
         try {
             this.preloadLegoCardStr = jSONObject.getString(LegoListActivityConfig.PRE_LOAD);
         } catch (JSONException e3) {
@@ -60,7 +60,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
         this.appInfo = advertAppInfo;
         this.feedData.updataThreadData(this.appInfo);
-        this.adData.i(this.appInfo);
+        this.adData.h(this.appInfo);
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
@@ -79,7 +79,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return 21;
         }
         if (this.adData.type == 2) {
-            return this.adData.yk(i);
+            return this.adData.AG(i);
         }
         return 0;
     }

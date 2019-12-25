@@ -3,28 +3,28 @@ package com.baidu.tieba.aiapps.apps.share;
 import android.content.Context;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static final String TAG = c.class.getSimpleName();
-    private static volatile c drY;
-    private IWXAPI drZ;
+    private static volatile c ebO;
+    private IWXAPI ebP;
 
-    public static c aIo() {
-        if (drY == null) {
+    public static c aYx() {
+        if (ebO == null) {
             synchronized (c.class) {
-                if (drY == null) {
-                    drY = new c();
+                if (ebO == null) {
+                    ebO = new c();
                 }
             }
         }
-        return drY;
+        return ebO;
     }
 
     private c() {
     }
 
-    public void di(Context context) {
-        this.drZ = WXAPIFactory.createWXAPI(context, "wx7088ea0f777314d2", true);
-        this.drZ.registerApp("wx7088ea0f777314d2");
+    public void eB(Context context) {
+        this.ebP = WXAPIFactory.createWXAPI(context, "wx7088ea0f777314d2", true);
+        this.ebP.registerApp("wx7088ea0f777314d2");
     }
 }

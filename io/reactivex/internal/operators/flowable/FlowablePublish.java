@@ -1,0 +1,372 @@
+package io.reactivex.internal.operators.flowable;
+
+import com.google.android.exoplayer2.Format;
+import io.reactivex.exceptions.MissingBackpressureException;
+import io.reactivex.g;
+import io.reactivex.internal.a.f;
+import io.reactivex.internal.queue.SpscArrayQueue;
+import io.reactivex.internal.subscriptions.SubscriptionHelper;
+import io.reactivex.internal.util.ExceptionHelper;
+import io.reactivex.internal.util.NotificationLite;
+import io.reactivex.j;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReference;
+import org.a.d;
+/* loaded from: classes4.dex */
+public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
+    final int bufferSize;
+    final AtomicReference<PublishSubscriber<T>> current;
+    final g<T> mTG;
+    final org.a.b<T> mUc;
+
+    @Override // io.reactivex.g
+    protected void a(org.a.c<? super T> cVar) {
+        this.mUc.subscribe(cVar);
+    }
+
+    @Override // io.reactivex.a.a
+    public void a(io.reactivex.b.g<? super io.reactivex.disposables.b> gVar) {
+        PublishSubscriber<T> publishSubscriber;
+        while (true) {
+            publishSubscriber = this.current.get();
+            if (publishSubscriber != null && !publishSubscriber.isDisposed()) {
+                break;
+            }
+            PublishSubscriber<T> publishSubscriber2 = new PublishSubscriber<>(this.current, this.bufferSize);
+            if (this.current.compareAndSet(publishSubscriber, publishSubscriber2)) {
+                publishSubscriber = publishSubscriber2;
+                break;
+            }
+        }
+        boolean z = !publishSubscriber.shouldConnect.get() && publishSubscriber.shouldConnect.compareAndSet(false, true);
+        try {
+            gVar.accept(publishSubscriber);
+            if (z) {
+                this.mTG.a((j) publishSubscriber);
+            }
+        } catch (Throwable th) {
+            io.reactivex.exceptions.a.I(th);
+            throw ExceptionHelper.K(th);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    static final class PublishSubscriber<T> extends AtomicInteger implements io.reactivex.disposables.b, j<T> {
+        static final InnerSubscriber[] EMPTY = new InnerSubscriber[0];
+        static final InnerSubscriber[] TERMINATED = new InnerSubscriber[0];
+        private static final long serialVersionUID = -202316842419149694L;
+        final int bufferSize;
+        final AtomicReference<PublishSubscriber<T>> current;
+        volatile f<T> queue;
+        int sourceMode;
+        volatile Object terminalEvent;
+        final AtomicReference<d> s = new AtomicReference<>();
+        final AtomicReference<InnerSubscriber<T>[]> subscribers = new AtomicReference<>(EMPTY);
+        final AtomicBoolean shouldConnect = new AtomicBoolean();
+
+        PublishSubscriber(AtomicReference<PublishSubscriber<T>> atomicReference, int i) {
+            this.current = atomicReference;
+            this.bufferSize = i;
+        }
+
+        @Override // io.reactivex.disposables.b
+        public void dispose() {
+            if (this.subscribers.get() != TERMINATED && this.subscribers.getAndSet(TERMINATED) != TERMINATED) {
+                this.current.compareAndSet(this, null);
+                SubscriptionHelper.cancel(this.s);
+            }
+        }
+
+        @Override // io.reactivex.disposables.b
+        public boolean isDisposed() {
+            return this.subscribers.get() == TERMINATED;
+        }
+
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(d dVar) {
+            if (SubscriptionHelper.setOnce(this.s, dVar)) {
+                if (dVar instanceof io.reactivex.internal.a.d) {
+                    io.reactivex.internal.a.d dVar2 = (io.reactivex.internal.a.d) dVar;
+                    int requestFusion = dVar2.requestFusion(3);
+                    if (requestFusion == 1) {
+                        this.sourceMode = requestFusion;
+                        this.queue = dVar2;
+                        this.terminalEvent = NotificationLite.complete();
+                        dispatch();
+                        return;
+                    } else if (requestFusion == 2) {
+                        this.sourceMode = requestFusion;
+                        this.queue = dVar2;
+                        dVar.request(this.bufferSize);
+                        return;
+                    }
+                }
+                this.queue = new SpscArrayQueue(this.bufferSize);
+                dVar.request(this.bufferSize);
+            }
+        }
+
+        @Override // org.a.c
+        public void onNext(T t) {
+            if (this.sourceMode == 0 && !this.queue.offer(t)) {
+                onError(new MissingBackpressureException("Prefetch queue is full?!"));
+            } else {
+                dispatch();
+            }
+        }
+
+        @Override // org.a.c
+        public void onError(Throwable th) {
+            if (this.terminalEvent == null) {
+                this.terminalEvent = NotificationLite.error(th);
+                dispatch();
+                return;
+            }
+            io.reactivex.d.a.onError(th);
+        }
+
+        @Override // org.a.c
+        public void onComplete() {
+            if (this.terminalEvent == null) {
+                this.terminalEvent = NotificationLite.complete();
+                dispatch();
+            }
+        }
+
+        boolean add(InnerSubscriber<T> innerSubscriber) {
+            InnerSubscriber<T>[] innerSubscriberArr;
+            InnerSubscriber<T>[] innerSubscriberArr2;
+            do {
+                innerSubscriberArr = this.subscribers.get();
+                if (innerSubscriberArr == TERMINATED) {
+                    return false;
+                }
+                int length = innerSubscriberArr.length;
+                innerSubscriberArr2 = new InnerSubscriber[length + 1];
+                System.arraycopy(innerSubscriberArr, 0, innerSubscriberArr2, 0, length);
+                innerSubscriberArr2[length] = innerSubscriber;
+            } while (!this.subscribers.compareAndSet(innerSubscriberArr, innerSubscriberArr2));
+            return true;
+        }
+
+        void remove(InnerSubscriber<T> innerSubscriber) {
+            InnerSubscriber<T>[] innerSubscriberArr;
+            InnerSubscriber<T>[] innerSubscriberArr2;
+            do {
+                innerSubscriberArr = this.subscribers.get();
+                int length = innerSubscriberArr.length;
+                if (length != 0) {
+                    int i = -1;
+                    int i2 = 0;
+                    while (true) {
+                        if (i2 >= length) {
+                            break;
+                        } else if (innerSubscriberArr[i2].equals(innerSubscriber)) {
+                            i = i2;
+                            break;
+                        } else {
+                            i2++;
+                        }
+                    }
+                    if (i >= 0) {
+                        if (length == 1) {
+                            innerSubscriberArr2 = EMPTY;
+                        } else {
+                            innerSubscriberArr2 = new InnerSubscriber[length - 1];
+                            System.arraycopy(innerSubscriberArr, 0, innerSubscriberArr2, 0, i);
+                            System.arraycopy(innerSubscriberArr, i + 1, innerSubscriberArr2, i, (length - i) - 1);
+                        }
+                    } else {
+                        return;
+                    }
+                } else {
+                    return;
+                }
+            } while (!this.subscribers.compareAndSet(innerSubscriberArr, innerSubscriberArr2));
+        }
+
+        boolean checkTerminated(Object obj, boolean z) {
+            int i = 0;
+            if (obj != null) {
+                if (NotificationLite.isComplete(obj)) {
+                    if (z) {
+                        this.current.compareAndSet(this, null);
+                        InnerSubscriber<T>[] andSet = this.subscribers.getAndSet(TERMINATED);
+                        int length = andSet.length;
+                        while (i < length) {
+                            andSet[i].child.onComplete();
+                            i++;
+                        }
+                        return true;
+                    }
+                } else {
+                    Throwable error = NotificationLite.getError(obj);
+                    this.current.compareAndSet(this, null);
+                    InnerSubscriber<T>[] andSet2 = this.subscribers.getAndSet(TERMINATED);
+                    if (andSet2.length != 0) {
+                        int length2 = andSet2.length;
+                        while (i < length2) {
+                            andSet2[i].child.onError(error);
+                            i++;
+                        }
+                    } else {
+                        io.reactivex.d.a.onError(error);
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        void dispatch() {
+            T t;
+            T t2;
+            Object obj;
+            boolean z;
+            if (getAndIncrement() == 0) {
+                AtomicReference<InnerSubscriber<T>[]> atomicReference = this.subscribers;
+                int i = 1;
+                InnerSubscriber<T>[] innerSubscriberArr = atomicReference.get();
+                while (true) {
+                    Object obj2 = this.terminalEvent;
+                    f<T> fVar = this.queue;
+                    boolean z2 = fVar == null || fVar.isEmpty();
+                    if (!checkTerminated(obj2, z2)) {
+                        if (!z2) {
+                            int length = innerSubscriberArr.length;
+                            int i2 = 0;
+                            long j = Long.MAX_VALUE;
+                            for (InnerSubscriber<T> innerSubscriber : innerSubscriberArr) {
+                                long j2 = innerSubscriber.get();
+                                if (j2 != Long.MIN_VALUE) {
+                                    j = Math.min(j, j2 - innerSubscriber.emitted);
+                                } else {
+                                    i2++;
+                                }
+                            }
+                            if (length == i2) {
+                                Object obj3 = this.terminalEvent;
+                                try {
+                                    t = fVar.poll();
+                                } catch (Throwable th) {
+                                    io.reactivex.exceptions.a.I(th);
+                                    this.s.get().cancel();
+                                    obj3 = NotificationLite.error(th);
+                                    this.terminalEvent = obj3;
+                                    t = null;
+                                }
+                                if (!checkTerminated(obj3, t == null)) {
+                                    if (this.sourceMode != 1) {
+                                        this.s.get().request(1L);
+                                    }
+                                } else {
+                                    return;
+                                }
+                            } else {
+                                int i3 = 0;
+                                boolean z3 = z2;
+                                while (i3 < j) {
+                                    Object obj4 = this.terminalEvent;
+                                    try {
+                                        t2 = fVar.poll();
+                                        obj = obj4;
+                                    } catch (Throwable th2) {
+                                        io.reactivex.exceptions.a.I(th2);
+                                        this.s.get().cancel();
+                                        Object error = NotificationLite.error(th2);
+                                        this.terminalEvent = error;
+                                        t2 = null;
+                                        obj = error;
+                                    }
+                                    z3 = t2 == null;
+                                    if (!checkTerminated(obj, z3)) {
+                                        if (!z3) {
+                                            Object value = NotificationLite.getValue(t2);
+                                            boolean z4 = false;
+                                            int length2 = innerSubscriberArr.length;
+                                            int i4 = 0;
+                                            while (i4 < length2) {
+                                                InnerSubscriber<T> innerSubscriber2 = innerSubscriberArr[i4];
+                                                long j3 = innerSubscriber2.get();
+                                                if (j3 != Long.MIN_VALUE) {
+                                                    if (j3 != Format.OFFSET_SAMPLE_RELATIVE) {
+                                                        innerSubscriber2.emitted++;
+                                                    }
+                                                    innerSubscriber2.child.onNext(value);
+                                                    z = z4;
+                                                } else {
+                                                    z = true;
+                                                }
+                                                i4++;
+                                                z4 = z;
+                                            }
+                                            i3++;
+                                            InnerSubscriber<T>[] innerSubscriberArr2 = atomicReference.get();
+                                            if (!z4) {
+                                                if (innerSubscriberArr2 != innerSubscriberArr) {
+                                                }
+                                            }
+                                            innerSubscriberArr = innerSubscriberArr2;
+                                            break;
+                                        }
+                                        break;
+                                    }
+                                    return;
+                                }
+                                if (i3 > 0 && this.sourceMode != 1) {
+                                    this.s.get().request(i3);
+                                }
+                                if (j != 0 && !z3) {
+                                }
+                            }
+                        }
+                        int addAndGet = addAndGet(-i);
+                        if (addAndGet != 0) {
+                            i = addAndGet;
+                            innerSubscriberArr = atomicReference.get();
+                        } else {
+                            return;
+                        }
+                    } else {
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes4.dex */
+    public static final class InnerSubscriber<T> extends AtomicLong implements d {
+        private static final long serialVersionUID = -4453897557930727610L;
+        final org.a.c<? super T> child;
+        long emitted;
+        volatile PublishSubscriber<T> parent;
+
+        InnerSubscriber(org.a.c<? super T> cVar) {
+            this.child = cVar;
+        }
+
+        @Override // org.a.d
+        public void request(long j) {
+            if (SubscriptionHelper.validate(j)) {
+                io.reactivex.internal.util.b.b(this, j);
+                PublishSubscriber<T> publishSubscriber = this.parent;
+                if (publishSubscriber != null) {
+                    publishSubscriber.dispatch();
+                }
+            }
+        }
+
+        @Override // org.a.d
+        public void cancel() {
+            PublishSubscriber<T> publishSubscriber;
+            if (get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE && (publishSubscriber = this.parent) != null) {
+                publishSubscriber.remove(this);
+                publishSubscriber.dispatch();
+            }
+        }
+    }
+}

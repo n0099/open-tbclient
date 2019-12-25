@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMGetUserProfileBaiduUidMsg extends Message {
     private static final String TAG = "IMGetUserProfileBaiduUidMsg";
     private long mBuid;

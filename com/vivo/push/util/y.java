@@ -2,7 +2,7 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class y implements c {
     private static final HashMap<String, Integer> a = new HashMap<>();
     private static final HashMap<String, Long> b = new HashMap<>();

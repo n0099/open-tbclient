@@ -1,15 +1,15 @@
 package com.facebook.imagepipeline.b;
 
 import android.graphics.Bitmap;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class g implements com.facebook.common.references.c<Bitmap> {
-    private static g kfI;
+    private static g lLY;
 
-    public static g cFm() {
-        if (kfI == null) {
-            kfI = new g();
+    public static g dlu() {
+        if (lLY == null) {
+            lLY = new g();
         }
-        return kfI;
+        return lLY;
     }
 
     private g() {
@@ -17,7 +17,6 @@ public class g implements com.facebook.common.references.c<Bitmap> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.references.c
-    /* renamed from: Q */
     public void release(Bitmap bitmap) {
         bitmap.recycle();
     }

@@ -4,7 +4,7 @@ import kotlin.jvm.a.b;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 final class WebSocketRequest$Companion$fromJSON$1$2 extends Lambda implements b<Integer, String> {
     final /* synthetic */ Ref.ObjectRef $protocolsArray;
 

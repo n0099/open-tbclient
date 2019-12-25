@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.log.ILiveIMLogger;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HaokanLiveIMLogger implements ILiveIMLogger {
     @Override // com.baidu.live.tbadk.log.ILiveIMLogger
     public void doIMLongLinkLog(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9, String str10, String str11) {
@@ -23,7 +23,7 @@ public class HaokanLiveIMLogger implements ILiveIMLogger {
             jSONObject.put("mcast_id", str8);
             jSONObject.put("code", i);
             jSONObject.put("message", str9);
-            jSONObject.put(LogConfig.LOG_SESSION_ID, System.currentTimeMillis());
+            jSONObject.put("session_id", System.currentTimeMillis());
             jSONObject.put(LogConfig.LOG_EXT_LOG, str11);
         } catch (JSONException e) {
             e.printStackTrace();

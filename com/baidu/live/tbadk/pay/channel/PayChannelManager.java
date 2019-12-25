@@ -2,39 +2,39 @@ package com.baidu.live.tbadk.pay.channel;
 
 import com.baidu.live.tbadk.pay.channel.interfaces.IPayChannel;
 import com.baidu.live.tbadk.pay.channel.interfaces.IPayChannelBuilder;
-/* loaded from: classes6.dex */
+import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
+import java.util.HashMap;
+/* loaded from: classes2.dex */
 public class PayChannelManager {
-    private IPayChannel mPayChannel;
-    private IPayChannelBuilder mPayChannelBuilder;
+    private HashMap<PayChannelType, IPayChannelBuilder> mPayChannelBuilders;
 
     public static PayChannelManager getInstance() {
         return InstanceHolder.sInst;
     }
 
     private PayChannelManager() {
+        this.mPayChannelBuilders = new HashMap<>();
     }
 
-    public void init(IPayChannelBuilder iPayChannelBuilder) {
-        this.mPayChannelBuilder = iPayChannelBuilder;
-        build();
-    }
-
-    public IPayChannel buildPayChannel() {
-        if (this.mPayChannel != null) {
-            return this.mPayChannel;
+    public void addPayChannelBuilder(PayChannelType payChannelType, IPayChannelBuilder iPayChannelBuilder) {
+        if (payChannelType != null && iPayChannelBuilder != null) {
+            this.mPayChannelBuilders.put(payChannelType, iPayChannelBuilder);
         }
-        build();
-        return this.mPayChannel;
     }
 
-    private void build() {
-        if (this.mPayChannelBuilder == null) {
-            throw new RuntimeException("PayChannelBuilder must not be null! should invoke PayChannelManager.init() first~");
+    public boolean isPayChannelAvaliable(PayChannelType payChannelType) {
+        return this.mPayChannelBuilders.containsKey(payChannelType);
+    }
+
+    public IPayChannel buildPayChannel(PayChannelType payChannelType) {
+        IPayChannelBuilder iPayChannelBuilder;
+        if (payChannelType != null && (iPayChannelBuilder = this.mPayChannelBuilders.get(payChannelType)) != null) {
+            return iPayChannelBuilder.build();
         }
-        this.mPayChannel = this.mPayChannelBuilder.build();
+        return null;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class InstanceHolder {
         private static final PayChannelManager sInst = new PayChannelManager();
     }

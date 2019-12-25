@@ -1,7 +1,7 @@
 package android.support.v4.view;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ViewPropertyAnimatorListenerAdapter implements ViewPropertyAnimatorListener {
     @Override // android.support.v4.view.ViewPropertyAnimatorListener
     public void onAnimationStart(View view) {

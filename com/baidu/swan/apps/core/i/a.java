@@ -1,62 +1,47 @@
 package com.baidu.swan.apps.core.i;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.swan.apps.b.c.g;
-import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
-import com.facebook.common.internal.h;
-import java.net.URISyntaxException;
-import java.util.Set;
-/* loaded from: classes2.dex */
-public class a implements g {
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.IOException;
+/* loaded from: classes9.dex */
+class a extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> aMU = h.J("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX, SkiaImageDecoder.FILE_PREFIX);
+    private static final String blX = "swan_preset" + File.separator + "preset_list.json";
 
-    @Override // com.baidu.swan.apps.b.c.g
-    public boolean O(@NonNull Context context, String str) {
-        return !eF(str) && S(context, str);
+    @Override // com.baidu.swan.apps.core.i.b
+    protected String Ng() {
+        return com.baidu.swan.apps.as.e.loadAssetsFile(com.baidu.swan.apps.w.a.Rk(), blX);
     }
 
-    private static boolean S(Context context, String str) {
-        try {
-            Intent parseUri = Intent.parseUri(str, 1);
-            parseUri.addCategory("android.intent.category.BROWSABLE");
-            parseUri.setComponent(null);
-            parseUri.setSelector(null);
+    @Override // com.baidu.swan.apps.core.i.b
+    protected String gX(String str) {
+        return com.baidu.swan.apps.as.e.loadAssetsFile(com.baidu.swan.apps.w.a.Rk(), "swan_preset" + File.separator + str + File.separator + "app_info.json");
+    }
+
+    @Override // com.baidu.swan.apps.core.i.b
+    protected boolean a(c cVar) {
+        boolean z = false;
+        if (cVar != null) {
+            Context appContext = AppRuntime.getAppContext();
+            String str = "swan_preset" + File.separator + cVar.cwO + File.separator + cVar.bmb;
             try {
-                if (context instanceof Activity) {
-                    if (((Activity) context).startActivityIfNeeded(parseUri, -1)) {
-                        return true;
+                File d = d(cVar.category, cVar.cwO, cVar.versionCode);
+                if (d == null) {
+                    if (DEBUG) {
+                        Log.e("AssetPresetController", "获取解压路径失败");
                     }
+                } else {
+                    z = a(new BufferedInputStream(appContext.getAssets().open(str)), d);
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 if (DEBUG) {
-                    Log.d("SchemeUrlHandler", Log.getStackTraceString(e));
+                    e.printStackTrace();
                 }
             }
-            return false;
-        } catch (URISyntaxException e2) {
-            if (DEBUG) {
-                Log.d("SchemeUrlHandler", "Bad URI " + str + ": " + e2.getMessage());
-            }
-            return false;
         }
-    }
-
-    private static boolean eF(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        for (String str2 : aMU) {
-            if (str.startsWith(str2)) {
-                return true;
-            }
-        }
-        return false;
+        return z;
     }
 }

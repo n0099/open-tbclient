@@ -1,7 +1,6 @@
 package okhttp3;
 
 import android.support.v4.app.NotificationCompat;
-import com.baidu.searchbox.http.response.ResponseException;
 import java.io.IOException;
 import java.util.ArrayList;
 import okhttp3.internal.NamedRunnable;
@@ -14,7 +13,7 @@ import okhttp3.internal.http.RealInterceptorChain;
 import okhttp3.internal.http.RetryAndFollowUpInterceptor;
 import okhttp3.internal.platform.Platform;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class RealCall implements Call {
     final OkHttpClient client;
     private EventListener eventListener;
@@ -57,7 +56,7 @@ public final class RealCall implements Call {
                 this.client.dispatcher().executed(this);
                 Response responseWithInterceptorChain = getResponseWithInterceptorChain();
                 if (responseWithInterceptorChain == null) {
-                    throw new IOException(ResponseException.CANCELED);
+                    throw new IOException("Canceled");
                 }
                 return responseWithInterceptorChain;
             } catch (IOException e) {
@@ -113,7 +112,7 @@ public final class RealCall implements Call {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public final class AsyncCall extends NamedRunnable {
         private final Callback responseCallback;
 
@@ -144,7 +143,7 @@ public final class RealCall implements Call {
                     Response responseWithInterceptorChain = RealCall.this.getResponseWithInterceptorChain();
                     try {
                         if (RealCall.this.retryAndFollowUpInterceptor.isCanceled()) {
-                            this.responseCallback.onFailure(RealCall.this, new IOException(ResponseException.CANCELED));
+                            this.responseCallback.onFailure(RealCall.this, new IOException("Canceled"));
                         } else {
                             this.responseCallback.onResponse(RealCall.this, responseWithInterceptorChain);
                         }

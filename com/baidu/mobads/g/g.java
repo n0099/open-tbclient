@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.lang.Thread;
 import java.util.jar.JarFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class g {
     protected static Thread.UncaughtExceptionHandler a;
     protected static volatile com.baidu.mobads.g.a b = null;
@@ -37,7 +37,7 @@ public class g {
     @SuppressLint({"HandlerLeak"})
     protected final Handler h = new i(this, Looper.getMainLooper());
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void a(boolean z);
     }
@@ -63,7 +63,7 @@ public class g {
     }
 
     public final String a() {
-        return "8.8079";
+        return "8.8146";
     }
 
     public g(Context context) {
@@ -102,7 +102,7 @@ public class g {
     public void a(String str) {
         if (b != null) {
             SharedPreferences.Editor edit = l().edit();
-            edit.putFloat("__badApkVersion__8.8079", (float) b.a);
+            edit.putFloat("__badApkVersion__8.8146", (float) b.a);
             if (Build.VERSION.SDK_INT >= 9) {
                 edit.apply();
             } else {
@@ -152,7 +152,7 @@ public class g {
         synchronized (g.class) {
             try {
                 String c2 = c();
-                if (Double.valueOf("8.8079").doubleValue() > a(context, c2)) {
+                if (Double.valueOf("8.8146").doubleValue() > a(context, c2)) {
                     com.baidu.mobads.g.b bVar = new com.baidu.mobads.g.b(c2, context);
                     if (bVar.exists()) {
                         bVar.delete();
@@ -290,7 +290,7 @@ public class g {
                 synchronized (this) {
                     Log.i("XAdApkLoader", "loadDownloadedOrBuiltInApk len=" + bVar.length() + ", path=" + bVar.getAbsolutePath());
                     b(bVar);
-                    double d2 = l().getFloat("__badApkVersion__8.8079", -1.0f);
+                    double d2 = l().getFloat("__badApkVersion__8.8146", -1.0f);
                     this.m.d("XAdApkLoader", "downloadedApkFile.getApkVersion(): " + bVar.c() + ", badApkVersion: " + d2);
                     if (bVar.c() == d2) {
                         throw new a("downloaded file marked bad, drop it and use built-in");
@@ -365,7 +365,7 @@ public class g {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends Exception {
         public a(String str) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(str);
@@ -373,7 +373,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class b extends Exception {
         public b(String str) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(str);
@@ -385,7 +385,7 @@ public class g {
             c(context);
             double a2 = a(context, f());
             String d2 = d();
-            if (Double.valueOf("8.8079").doubleValue() > a(context, d2)) {
+            if (Double.valueOf("8.8146").doubleValue() > a(context, d2)) {
                 com.baidu.mobads.g.b bVar = new com.baidu.mobads.g.b(d2, context);
                 if (bVar.exists()) {
                     bVar.delete();

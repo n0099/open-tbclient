@@ -6,23 +6,23 @@ import android.media.MediaMuxer;
 import android.util.Log;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private final MediaMuxer ayw;
-    private int jyt = 2;
-    private int kmG = 0;
+    private int kso = 2;
+    private int lTa = 0;
     private boolean mIsStarted = false;
+    private final MediaMuxer mMediaMuxer;
 
     public c(String str) throws IOException {
-        this.ayw = new MediaMuxer(str, 0);
+        this.mMediaMuxer = new MediaMuxer(str, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         Log.v("MediaMuxerWrapper", "start:");
-        this.kmG++;
-        if (this.jyt > 0 && this.kmG == this.jyt) {
-            this.ayw.start();
+        this.lTa++;
+        if (this.kso > 0 && this.lTa == this.kso) {
+            this.mMediaMuxer.start();
             this.mIsStarted = true;
             notifyAll();
             Log.v("MediaMuxerWrapper", "MediaMuxer started:");
@@ -32,31 +32,31 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.kmG);
-        this.kmG--;
-        if (this.jyt > 0 && this.kmG <= 0) {
-            this.ayw.stop();
-            this.ayw.release();
+        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.lTa);
+        this.lTa--;
+        if (this.kso > 0 && this.lTa <= 0) {
+            this.mMediaMuxer.stop();
+            this.mMediaMuxer.release();
             this.mIsStarted = false;
             Log.v("MediaMuxerWrapper", "MediaMuxer stopped:");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized int f(MediaFormat mediaFormat) {
+    public synchronized int i(MediaFormat mediaFormat) {
         int addTrack;
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        addTrack = this.ayw.addTrack(mediaFormat);
-        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.jyt + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+        addTrack = this.mMediaMuxer.addTrack(mediaFormat);
+        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.kso + ",trackIx=" + addTrack + ",format=" + mediaFormat);
         return addTrack;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void c(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        if (this.kmG > 0) {
-            this.ayw.writeSampleData(i, byteBuffer, bufferInfo);
+    public synchronized void d(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+        if (this.lTa > 0) {
+            this.mMediaMuxer.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

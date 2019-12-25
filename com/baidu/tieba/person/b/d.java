@@ -14,34 +14,34 @@ import com.baidu.tieba.person.a.e;
 import com.baidu.tieba.person.a.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d extends v.a {
-    public TextView bUf;
-    public int csg;
-    public View ijU;
-    public HTypeListView ijV;
-    public e ijW;
+    public int MA;
+    public TextView cGB;
+    public View jbL;
+    public HTypeListView jbM;
+    public e jbN;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.csg = 3;
+        this.MA = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.ijU = view.findViewById(R.id.divider_view_under_photo_album);
-        this.bUf = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.ijV = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.ijW = new e(this.mPageContext, this.ijV);
+        this.jbL = view.findViewById(R.id.divider_view_under_photo_album);
+        this.cGB = (TextView) view.findViewById(R.id.text_view_photo_album);
+        this.jbM = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.jbN = new e(this.mPageContext, this.jbM);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.ijW.setDatas(ea(fVar.getPhotoAlbum()));
+            this.jbN.setDatas(dP(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<m> ea(List<m> list) {
+    private List<m> dP(List<m> list) {
         if (com.baidu.tbadk.core.util.v.getCount(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
             com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds32), l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds120));
@@ -52,13 +52,13 @@ public class d extends v.a {
         return list;
     }
 
-    public void avq() {
-        if (this.csg != TbadkCoreApplication.getInst().getSkinType()) {
-            this.csg = TbadkCoreApplication.getInst().getSkinType();
+    public void csw() {
+        if (this.MA != TbadkCoreApplication.getInst().getSkinType()) {
+            this.MA = TbadkCoreApplication.getInst().getSkinType();
             am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-            am.setBackgroundColor(this.ijU, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.bUf, R.color.cp_cont_d, 1);
-            this.ijW.notifyDataSetChanged();
+            am.setBackgroundColor(this.jbL, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.cGB, R.color.cp_cont_d, 1);
+            this.jbN.notifyDataSetChanged();
         }
     }
 }

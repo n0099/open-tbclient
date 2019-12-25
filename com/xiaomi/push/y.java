@@ -1,6 +1,9 @@
 package com.xiaomi.push;
 
 import android.text.TextUtils;
+import com.baidu.android.util.media.WebpUtils;
+import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.searchbox.picture.component.BaseBrowseView;
 import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -18,9 +21,9 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class y {
-    public static final String[] a = {"jpg", "png", "bmp", "gif", "webp"};
+    public static final String[] a = {"jpg", "png", "bmp", BaseBrowseView.IMG_TYPE_GIF, WebpUtils.TYPE_IMG_WEBP};
 
     public static String a(File file) {
         InputStreamReader inputStreamReader;
@@ -78,7 +81,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m550a(File file) {
+    public static void m553a(File file) {
         if (!file.isDirectory()) {
             if (file.exists()) {
                 file.delete();
@@ -87,7 +90,7 @@ public class y {
             return;
         }
         for (File file2 : file.listFiles()) {
-            m550a(file2);
+            m553a(file2);
         }
         file.delete();
     }
@@ -115,7 +118,7 @@ public class y {
         } catch (IOException e4) {
             zipOutputStream2 = zipOutputStream;
             e = e4;
-            com.xiaomi.channel.commonutils.logger.b.m30a("zip file failure + " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m33a("zip file failure + " + e.getMessage());
             a(zipOutputStream2);
         } catch (Throwable th2) {
             zipOutputStream2 = zipOutputStream;
@@ -182,7 +185,7 @@ public class y {
                     fileInputStream = null;
                 } else {
                     if (TextUtils.isEmpty(str)) {
-                        zipOutputStream.putNextEntry(new ZipEntry(String.valueOf(new Date().getTime()) + ".txt"));
+                        zipOutputStream.putNextEntry(new ZipEntry(String.valueOf(new Date().getTime()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION));
                     } else {
                         zipOutputStream.putNextEntry(new ZipEntry(str));
                     }
@@ -219,7 +222,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m551a(File file) {
+    public static boolean m554a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;

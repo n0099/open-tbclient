@@ -11,11 +11,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.b;
@@ -30,6 +30,7 @@ import com.baidu.sofire.i.m;
 import com.baidu.sofire.i.o;
 import com.baidu.sofire.jni.Asc;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
+import com.baidu.webkit.internal.ABTestConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class U extends Thread {
     public static final int FROM_DAILY_ALARM = 6;
     public static final int FROM_DEFAULT = 0;
@@ -104,7 +105,7 @@ public class U extends Thread {
     private static boolean sSetRetrmAlarm = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class UpgradeResult {
         int networkId;
         int resultId;
@@ -361,7 +362,7 @@ public class U extends Thread {
                                 packageInfo.versionName = optString;
                                 ApplicationInfo applicationInfo = new ApplicationInfo();
                                 applicationInfo.className = optJSONObject2.optString("n");
-                                if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
+                                if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
                                     applicationInfo.className = next + applicationInfo.className;
                                 }
                                 applicationInfo.theme = optJSONObject2.optInt("t");
@@ -374,7 +375,7 @@ public class U extends Thread {
                                         if (jSONObject != null) {
                                             ActivityInfo activityInfo = new ActivityInfo();
                                             activityInfo.name = jSONObject.optString("n");
-                                            if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(DefaultConfig.TOKEN_SEPARATOR)) {
+                                            if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(".")) {
                                                 activityInfo.name = next + activityInfo.name;
                                             }
                                             activityInfo.packageName = next;
@@ -621,17 +622,17 @@ public class U extends Thread {
                     }
                     jSONObject.put(String.valueOf(intValue), jSONObject2);
                 }
-                hashMap.put(com.tencent.connect.common.Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, jSONObject);
+                hashMap.put("8", jSONObject);
             }
             Map<Integer, String> b = this.loadedPluginDB.b();
-            hashMap.put("9", b.keySet());
-            hashMap.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, b.values());
-            hashMap.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, Integer.valueOf(this.mEndReason));
+            hashMap.put(PublishType.TYPE_VIDEO_SHARE, b.keySet());
+            hashMap.put("10", b.values());
+            hashMap.put("11", Integer.valueOf(this.mEndReason));
             if (!TextUtils.isEmpty(str)) {
-                hashMap.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SET_AVATAR, str.replace("\n", "").replace("\t", "").replace("\r", ""));
+                hashMap.put("12", str.replace("\n", "").replace("\t", "").replace("\r", ""));
             }
             hashMap.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_JOININ_GROUP, Integer.valueOf(this.mStartNetwork));
-            hashMap.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_MAKE_FRIEND, Integer.valueOf(com.baidu.sofire.i.d.k(this.context)));
+            hashMap.put("14", Integer.valueOf(com.baidu.sofire.i.d.k(this.context)));
             com.baidu.sofire.i.d.a(this.context, "1003129", hashMap);
         } catch (Throwable th2) {
             com.baidu.sofire.i.d.a();
@@ -716,7 +717,7 @@ public class U extends Thread {
         boolean a2 = this.forHostAPP.a(apkInfo, str);
         new StringBuilder().append(apkInfo.packageName).append(" s=").append(a2);
         b.a();
-        this.loadedPluginDB.a(apkInfo.key + 10000000, apkInfo.versionName);
+        this.loadedPluginDB.a(apkInfo.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, apkInfo.versionName);
         if (!a2) {
             if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
                 this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(i, 5));
@@ -751,7 +752,7 @@ public class U extends Thread {
                     }
                     Asc asc = new Asc();
                     byte[] bytes = apkInfo.signMD5.substring(0, apkInfo.signMD5.length() / 2).getBytes("utf-8");
-                    com.baidu.sofire.i.d.e(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SET_AVATAR);
+                    com.baidu.sofire.i.d.e("12");
                     if (com.baidu.sofire.i.a.a(file, file2, bytes) != 0) {
                         b.a();
                         if (file2.exists()) {
@@ -759,7 +760,7 @@ public class U extends Thread {
                         }
                         com.baidu.sofire.i.d.e(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_JOININ_GROUP);
                         if (asc.df(file.getAbsolutePath(), file2.getAbsolutePath(), bytes) != 0) {
-                            com.baidu.sofire.i.d.e(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_MAKE_FRIEND);
+                            com.baidu.sofire.i.d.e("14");
                             b.a();
                             if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
                                 this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(i, 7));
@@ -868,7 +869,7 @@ public class U extends Thread {
             if (!this.tmpDir.exists()) {
                 this.tmpDir.mkdir();
             }
-            ApkInfo a = this.loadedPluginDB.a(apkInfo.key + 10000000);
+            ApkInfo a = this.loadedPluginDB.a(apkInfo.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT);
             final File file2 = new File(this.tmpDir, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".tmp");
             final File file3 = new File(this.tmpDir, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".zip");
             if (file3.exists()) {
@@ -904,7 +905,7 @@ public class U extends Thread {
                             }
                             apkInfo.pkgPath = file3.getAbsolutePath();
                             ApkInfo apkInfo2 = new ApkInfo(apkInfo);
-                            apkInfo2.key += 10000000;
+                            apkInfo2.key += ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
                             if (!TextUtils.isEmpty(apkInfo2.packageName)) {
                                 apkInfo2.packageName = new StringBuilder(apkInfo2.packageName).reverse().toString();
                             }
@@ -923,7 +924,7 @@ public class U extends Thread {
                 b.a();
                 boolean z8 = !handlePluginDownload;
                 if (a != null) {
-                    this.loadedPluginDB.h(a.key + 10000000);
+                    this.loadedPluginDB.h(a.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT);
                     if (!TextUtils.isEmpty(a.pkgPath)) {
                         File file4 = new File(a.pkgPath);
                         if (file4.exists()) {
@@ -949,7 +950,7 @@ public class U extends Thread {
                             z6 = false;
                             if (TextUtils.isEmpty(a.versionName) && a.versionName.equals(apkInfo.versionName)) {
                                 b.a();
-                                this.loadedPluginDB.a(a.key + 10000000, a.versionName);
+                                this.loadedPluginDB.a(a.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, a.versionName);
                                 z7 = false;
                             } else {
                                 z7 = z6;
@@ -960,7 +961,7 @@ public class U extends Thread {
                             }
                             if (file == null && file.exists() && z7) {
                                 if (a.apkMD5.equals(o.a(file))) {
-                                    a.key -= 10000000;
+                                    a.key -= ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
                                     if (!TextUtils.isEmpty(a.packageName)) {
                                         a.packageName = new StringBuilder(a.packageName).reverse().toString();
                                     }
@@ -969,7 +970,7 @@ public class U extends Thread {
                                     pluginUpdate(file, a, k);
                                     z5 = true;
                                 } else {
-                                    this.loadedPluginDB.a(a.key + 10000000, a.versionName);
+                                    this.loadedPluginDB.a(a.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, a.versionName);
                                     file.delete();
                                     z5 = false;
                                 }

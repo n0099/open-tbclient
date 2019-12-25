@@ -162,6 +162,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
 
     /* loaded from: classes.dex */
     public static class Permission extends OrmObject implements Serializable {
+        private static final int TRUE = 1;
         private static final long serialVersionUID = -661968182172681650L;
         private int isGroupManager;
         private int isGroupOwner;

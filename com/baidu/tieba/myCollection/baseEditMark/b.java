@@ -4,57 +4,57 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel hzE;
+    private MarkModel inI;
 
     public b(BaseActivity baseActivity) {
-        this.hzE = null;
-        this.hzE = new MarkModel(baseActivity);
+        this.inI = null;
+        this.inI = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.hzE = null;
-        this.hzE = new MarkModel(baseFragmentActivity);
+        this.inI = null;
+        this.inI = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void dO(boolean z) {
-        this.hzE.dO(z);
+    public void fa(boolean z) {
+        this.inI.fa(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String afj() {
-        return this.hzE.afj();
+    public String awc() {
+        return this.inI.awc();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0274a interfaceC0274a) {
-        this.hzE.a(interfaceC0274a);
+    public void a(a.InterfaceC0362a interfaceC0362a) {
+        this.inI.a(interfaceC0362a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void afl() {
-        this.hzE.afl();
+    public void awe() {
+        this.inI.awe();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void afm() {
-        this.hzE.afm();
+    public void awf() {
+        this.inI.awf();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData afn() {
-        return this.hzE.afn();
+    public MarkData awg() {
+        return this.inI.awg();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.hzE.a(markData);
+        this.inI.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean afk() {
-        return this.hzE.afk();
+    public boolean awd() {
+        return this.inI.awd();
     }
 }

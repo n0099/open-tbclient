@@ -2,6 +2,7 @@ package com.baidu.mobads.command.c;
 
 import android.content.Intent;
 import com.baidu.mobads.AppActivity;
+import com.baidu.mobads.AppActivityImp;
 import com.baidu.mobads.command.XAdCommandExtraInfo;
 import com.baidu.mobads.command.XAdLandingPageExtraInfo;
 import com.baidu.mobads.command.b;
@@ -13,7 +14,7 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
 import com.baidu.mobads.utils.m;
 import com.baidu.mobads.vo.XAdInstanceInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends b {
     public String f;
     private String g;
@@ -42,20 +43,20 @@ public class a extends b {
             xAdLandingPageExtraInfo.appsec = commonUtils.getAppSec(this.a);
             xAdLandingPageExtraInfo.title = this.c.getTitle();
             xAdLandingPageExtraInfo.lpShoubaiStyle = this.f;
-            Intent intent = new Intent(this.a, AppActivity.zr());
+            Intent intent = new Intent(this.a, AppActivity.getActivityClass());
             if (this.b.getActivity() != null) {
                 xAdLandingPageExtraInfo.isFullScreen = activityUtils.isFullScreen(this.b.getActivity()).booleanValue();
             }
             xAdLandingPageExtraInfo.orientation = this.a.getResources().getConfiguration().orientation;
-            if (AppActivity.zq()) {
-                intent.putExtra("EXTRA_DATA_STRING", com.baidu.mobads.b.a(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo));
-                intent.putExtra("EXTRA_DATA_STRING_COM", com.baidu.mobads.b.a(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo));
-                intent.putExtra("EXTRA_DATA_STRING_AD", com.baidu.mobads.b.a(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo()));
+            if (AppActivity.isAnti()) {
+                intent.putExtra(AppActivityImp.EXTRA_LANDINGPAGE_EXTRA_INFO, AppActivityImp.classToString(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo));
+                intent.putExtra(AppActivityImp.EXTRA_COMMAND_EXTRA_INFO, AppActivityImp.classToString(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo));
+                intent.putExtra(AppActivityImp.EXTRA_AD_INSTANCE_INFO, AppActivityImp.classToString(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo()));
             } else {
-                intent.putExtra("EXTRA_DATA", xAdLandingPageExtraInfo);
+                intent.putExtra(AppActivityImp.EXTRA_DATA, xAdLandingPageExtraInfo);
             }
             intent.addFlags(268435456);
-            if (!com.baidu.mobads.b.zs()) {
+            if (!AppActivityImp.isAppActivityOpening()) {
                 this.a.startActivity(intent);
             }
         } catch (Exception e) {

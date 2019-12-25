@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.http.util.ByteArrayBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class HttpMultipart {
     private final String boundary;
     private final Charset charset;
@@ -117,7 +117,7 @@ public class HttpMultipart {
                     }
                     break;
                 case BROWSER_COMPATIBLE:
-                    writeField(formBodyPart.getHeader().getField(MIME.CONTENT_DISPOSITION), this.charset, outputStream);
+                    writeField(formBodyPart.getHeader().getField("Content-Disposition"), this.charset, outputStream);
                     if (formBodyPart.getBody().getFilename() != null) {
                         writeField(formBodyPart.getHeader().getField("Content-Type"), this.charset, outputStream);
                         break;

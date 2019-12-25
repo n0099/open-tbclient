@@ -2,42 +2,42 @@ package com.baidu.tieba.ala.liveroom.e;
 
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
-import com.baidu.live.data.i;
-/* loaded from: classes6.dex */
+import com.baidu.live.data.k;
+/* loaded from: classes2.dex */
 public class b {
-    private i aaj;
-    CustomMessageListener dEz;
-    protected a eee;
-    CustomMessageListener eef;
+    private k aio;
+    protected a eTY;
+    CustomMessageListener eTZ;
+    CustomMessageListener eqn;
 
-    public void h(i iVar) {
-        if (iVar != null) {
-            this.aaj = iVar;
-            if (this.eee != null && this.aaj.OR != null) {
-                this.eee.ci(this.aaj.OR.charmCount);
+    public void j(k kVar) {
+        if (kVar != null) {
+            this.aio = kVar;
+            if (this.eTY != null && this.aio.VP != null) {
+                this.eTY.cO(this.aio.VP.charmCount);
             }
         }
     }
 
-    public void aRq() {
-        if (this.eee != null) {
-            this.eee.aRq();
+    public void biR() {
+        if (this.eTY != null) {
+            this.eTY.biR();
         }
     }
 
-    public void bw(int i) {
+    public void bN(int i) {
         if (i != 2 && i == 1) {
         }
     }
 
     public void setVisible(int i) {
-        if (this.eee != null) {
-            this.eee.getView().setVisibility(i);
+        if (this.eTY != null) {
+            this.eTY.getView().setVisibility(i);
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eef);
-        MessageManager.getInstance().unRegisterListener(this.dEz);
+        MessageManager.getInstance().unRegisterListener(this.eTZ);
+        MessageManager.getInstance().unRegisterListener(this.eqn);
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.util;
 
 import android.content.pm.PackageInfo;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,7 +14,7 @@ public class as {
         long j = 0;
         String signMd5 = getSignMd5(packageInfo);
         if (signMd5 == null || signMd5.length() < 32) {
-            return LivenessStat.TYPE_STRING_DEFAULT;
+            return "-1";
         }
         String substring = signMd5.substring(8, 24);
         long j2 = 0;

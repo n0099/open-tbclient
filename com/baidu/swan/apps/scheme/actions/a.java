@@ -1,79 +1,69 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.upload.action.IMTrack;
+import android.widget.Toast;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import org.json.JSONException;
+import com.baidu.swan.apps.a;
+import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public abstract class a extends z {
-    public abstract boolean b(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar);
-
-    public abstract boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar);
-
-    public abstract boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar);
-
-    public abstract boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar);
-
-    @NonNull
-    public abstract String getModuleName();
-
-    public a(com.baidu.swan.apps.scheme.j jVar, String str) {
-        super(jVar, str);
+/* loaded from: classes9.dex */
+public class a extends ab {
+    public a(com.baidu.swan.apps.scheme.j jVar) {
+        super(jVar, "/swanAPI/abTestConfig");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (DEBUG) {
+            JSONObject b = b(unitedSchemeEntity, "params");
+            if (b == null || context == null) {
+                Toast.makeText(context, a.h.swanapp_debug_abtest_config_params_empty, 1).show();
+                return false;
+            }
+            JSONObject optJSONObject = b.optJSONObject("abtest");
+            if (optJSONObject != null) {
+                Toast.makeText(context, aJ(optJSONObject) ? a.h.swanapp_debug_abtest_config_success : a.h.swanapp_debug_abtest_config_fail, 1).show();
+            } else {
+                aaX();
+                Toast.makeText(context, a.h.swanapp_delete_debug_abtest_config, 1).show();
+            }
+            return true;
+        }
         return false;
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar) {
-        boolean e;
-        String hH = hH("insert");
-        String hH2 = hH(IMTrack.DbBuilder.ACTION_UPDATE);
-        String hH3 = hH("remove");
-        if (TextUtils.equals(hH, str)) {
-            e = b(context, unitedSchemeEntity, callbackHandler, str, bVar);
-        } else if (TextUtils.equals(hH2, str)) {
-            e = c(context, unitedSchemeEntity, callbackHandler, str, bVar);
-        } else if (TextUtils.equals(hH3, str)) {
-            e = d(context, unitedSchemeEntity, callbackHandler, str, bVar);
-        } else {
-            e = e(context, unitedSchemeEntity, callbackHandler, str, bVar);
+    private boolean aJ(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return false;
         }
-        com.baidu.swan.apps.console.c.i("AbsSwanAppWidget", "subAction = " + str + " ; handle result = " + e);
-        return e || super.a(context, unitedSchemeEntity, callbackHandler, str, bVar);
+        String aaY = aaY();
+        if (TextUtils.isEmpty(aaY)) {
+            return false;
+        }
+        return com.baidu.swan.apps.v.a.j(aaY, jSONObject.toString(), false);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject j(UnitedSchemeEntity unitedSchemeEntity) {
-        JSONObject jSONObject;
-        if (unitedSchemeEntity == null) {
-            com.baidu.swan.apps.console.c.e("AbsSwanAppWidget", "getParamsJSONObject entity is null");
-            return null;
-        }
-        String param = unitedSchemeEntity.getParam("params");
-        if (TextUtils.isEmpty(param)) {
-            com.baidu.swan.apps.console.c.e("AbsSwanAppWidget", "getParamsJSONObject paramsJson is empty");
-            return null;
-        }
-        try {
-            jSONObject = new JSONObject(param);
-        } catch (JSONException e) {
-            com.baidu.swan.apps.console.c.e("AbsSwanAppWidget", "getParamsJSONObject exception = " + e.getMessage());
-            if (DEBUG) {
-                e.printStackTrace();
+    private void aaX() {
+        String aaY = aaY();
+        if (!TextUtils.isEmpty(aaY)) {
+            File file = new File(aaY);
+            if (file.exists()) {
+                file.delete();
             }
-            jSONObject = null;
         }
-        return jSONObject;
     }
 
-    private String hH(String str) {
-        return getModuleName() + "/" + str;
+    public static String aaY() {
+        File adZ = com.baidu.swan.apps.as.i.adZ();
+        if (adZ == null) {
+            return null;
+        }
+        String path = adZ.getPath();
+        if (TextUtils.isEmpty(path)) {
+            return null;
+        }
+        return path + "/debug_abtest_config.json";
     }
 }

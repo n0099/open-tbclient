@@ -1,7 +1,7 @@
 package rx.internal.util.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 abstract class s<E> extends u<E> {
-    protected static final long kEb = ae.i(s.class, "consumerIndex");
+    protected static final long niU = ae.l(s.class, "consumerIndex");
     protected long consumerIndex;
 
     public s(int i) {

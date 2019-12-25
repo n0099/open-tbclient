@@ -31,25 +31,25 @@ public class an {
         this.key = str;
     }
 
-    public an bS(String str, String str2) {
+    public an cp(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
     }
 
-    public an O(String str, int i) {
+    public an Z(String str, int i) {
         this.params.add(str);
         this.params.add(Integer.valueOf(i));
         return this;
     }
 
-    public an p(String str, long j) {
+    public an s(String str, long j) {
         this.params.add(str);
         this.params.add(Long.valueOf(j));
         return this;
     }
 
-    private void av(List<Object> list) {
+    private void aC(List<Object> list) {
         this.params = list;
     }
 
@@ -61,13 +61,17 @@ public class an {
         }
     }
 
-    public an amH() {
+    public an aDS() {
         an anVar = new an(getKey());
-        anVar.av(getParams());
+        anVar.aC(getParams());
         return anVar;
     }
 
-    public void amI() {
+    public void aDT() {
         TiebaStatic.log(this);
+    }
+
+    public static an tb(String str) {
+        return new an(str);
     }
 }

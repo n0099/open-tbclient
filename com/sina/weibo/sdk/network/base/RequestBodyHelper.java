@@ -1,6 +1,7 @@
 package com.sina.weibo.sdk.network.base;
 
 import android.os.Bundle;
+import com.baidu.webkit.internal.ETAG;
 import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.network.impl.RequestParam;
 import java.io.ByteArrayOutputStream;
@@ -13,7 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RequestBodyHelper {
     private static final String DEFAULT_CHARSET = "UTF-8";
     private static final String OCTET_STREAM = "application/octet-stream";
@@ -38,10 +39,10 @@ public class RequestBodyHelper {
                 if (z) {
                     z = false;
                 } else {
-                    sb.append("&");
+                    sb.append(ETAG.ITEM_SEPARATOR);
                 }
                 try {
-                    sb.append(URLEncoder.encode(str2, "UTF-8")).append("=").append(URLEncoder.encode(String.valueOf(postBundle.get(str2)), "UTF-8"));
+                    sb.append(URLEncoder.encode(str2, "UTF-8")).append(ETAG.EQUAL).append(URLEncoder.encode(String.valueOf(postBundle.get(str2)), "UTF-8"));
                 } catch (Exception e) {
                 }
             }

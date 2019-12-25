@@ -8,6 +8,8 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.n;
+import com.baidu.adp.lib.util.s;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
@@ -16,6 +18,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.security.MessageDigest;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public final class Util {
@@ -27,7 +31,14 @@ public final class Util {
         GREATER
     }
 
-    public static boolean jy() {
+    /* loaded from: classes.dex */
+    public static class a {
+        public boolean isSuccess = false;
+        public String error = null;
+        public int step = 0;
+    }
+
+    public static boolean jQ() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -37,6 +48,32 @@ public final class Util {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public static String a(InputStream inputStream, byte[] bArr) {
+        String str = null;
+        if (inputStream != null) {
+            try {
+                byte[] bArr2 = new byte[1024];
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                if (bArr != null && bArr.length > 0) {
+                    messageDigest.update(bArr, 0, bArr.length);
+                }
+                while (true) {
+                    int read = inputStream.read(bArr2);
+                    if (read <= 0) {
+                        break;
+                    }
+                    messageDigest.update(bArr2, 0, read);
+                }
+                str = s.toHexString(messageDigest.digest());
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            } finally {
+                n.close(inputStream);
+            }
+        }
+        return str;
     }
 
     public static f g(InputStream inputStream) throws IOException {
@@ -50,7 +87,7 @@ public final class Util {
         int d = d(bArr, 6);
         int d2 = d(bArr, 8);
         f fVar = new f();
-        fVar.c(((d2 >> 9) & 127) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
+        fVar.d(((d2 >> 9) & 127) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
         return fVar;
     }
 
@@ -61,86 +98,67 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean n(long j) {
-        long jA = jA();
+    public static final boolean p(long j) {
+        long jS = jS();
         if (j <= 0) {
-            return jA <= 0 || jA >= 31457280;
+            return jS <= 0 || jS >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < jA;
+        return (j2 <= 31457280 ? j2 : 31457280L) < jS;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [160=4, 162=4, 163=4, 164=4, 165=4, 167=4, 170=4] */
-    public static String b(InputStream inputStream, File file) {
+    public static a b(InputStream inputStream, File file) {
+        FileOutputStream fileOutputStream;
+        a aVar = new a();
         if (inputStream == null || file == null) {
-            return "illegal_param";
-        }
-        try {
+            aVar.error = "illegal_param";
+        } else {
+            if (file.exists()) {
+                com.baidu.adp.lib.util.f.deleteQuietly(file);
+            }
             try {
-                if (file.exists()) {
-                    file.delete();
-                }
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                fileOutputStream = new FileOutputStream(file);
                 try {
                     try {
-                        byte[] bArr = new byte[4096];
+                        byte[] bArr = new byte[1024];
                         while (true) {
                             int read = inputStream.read(bArr);
-                            if (read < 0) {
-                                fileOutputStream.flush();
-                                try {
-                                    fileOutputStream.getFD().sync();
-                                    fileOutputStream.close();
-                                    return null;
-                                } catch (IOException e) {
-                                    return (e == null || TextUtils.isEmpty(e.getMessage())) ? "unknown_error" : e.getMessage();
-                                }
+                            if (read <= 0) {
+                                break;
                             }
                             fileOutputStream.write(bArr, 0, read);
                         }
-                    } catch (Throwable th) {
                         fileOutputStream.flush();
-                        try {
-                            fileOutputStream.getFD().sync();
-                            fileOutputStream.close();
-                            throw th;
-                        } catch (IOException e2) {
-                            return (e2 == null || TextUtils.isEmpty(e2.getMessage())) ? "unknown_error" : e2.getMessage();
-                        }
-                    }
-                } catch (Exception e3) {
-                    if (e3 == null || TextUtils.isEmpty(e3.getMessage())) {
-                        fileOutputStream.flush();
-                        try {
-                            fileOutputStream.getFD().sync();
-                            fileOutputStream.close();
-                            return "unknown_error";
-                        } catch (IOException e4) {
-                            return (e4 == null || TextUtils.isEmpty(e4.getMessage())) ? "unknown_error" : e4.getMessage();
-                        }
-                    }
-                    String message = e3.getMessage();
-                    fileOutputStream.flush();
-                    try {
-                        fileOutputStream.getFD().sync();
                         fileOutputStream.close();
-                        return message;
-                    } catch (IOException e5) {
-                        return (e5 == null || TextUtils.isEmpty(e5.getMessage())) ? "unknown_error" : e5.getMessage();
+                        aVar.isSuccess = true;
+                        com.baidu.adp.lib.f.a.close((OutputStream) null);
+                    } catch (Exception e) {
+                        e = e;
+                        aVar.isSuccess = false;
+                        aVar.error = e.toString();
+                        com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
+                        return aVar;
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
+                    throw th;
                 }
-            } catch (IOException e6) {
-                BdLog.e(e6);
-                return (e6 == null || TextUtils.isEmpty(e6.getMessage())) ? "unknown_error" : e6.getMessage();
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream = null;
+                com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
+                throw th;
             }
-        } catch (Exception e7) {
-            return (e7 == null || TextUtils.isEmpty(e7.getMessage())) ? "unknown_error" : e7.getMessage();
         }
+        return aVar;
     }
 
     public static void deleteDirectory(File file) {
@@ -205,15 +223,15 @@ public final class Util {
         }
     }
 
-    public static File bk(String str) {
-        PluginSetting aN = PluginPackageManager.iL().aN(str);
-        if (aN == null || aN.apkPath == null || aN.apkPath.length() <= ".apk".length()) {
+    public static File bt(String str) {
+        PluginSetting aZ = PluginPackageManager.je().aZ(str);
+        if (aZ == null || aZ.apkPath == null || aZ.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(aN.apkPath.substring(0, aN.apkPath.length() - ".apk".length()));
+        return new File(aZ.apkPath.substring(0, aZ.apkPath.length() - ".apk".length()));
     }
 
-    public static File jz() {
+    public static File jR() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -295,7 +313,7 @@ public final class Util {
         return applicationInfo.metaData.getString("replace_method_classes", null);
     }
 
-    public static VersionCompare A(String str, String str2) {
+    public static VersionCompare E(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -311,8 +329,8 @@ public final class Util {
         int length2 = split2.length;
         int i = length < length2 ? length : length2;
         for (int i2 = 0; i2 < i; i2++) {
-            int i3 = com.baidu.adp.lib.g.b.toInt(split[i2], 0);
-            int i4 = com.baidu.adp.lib.g.b.toInt(split2[i2], 0);
+            int i3 = com.baidu.adp.lib.f.b.toInt(split[i2], 0);
+            int i4 = com.baidu.adp.lib.f.b.toInt(split2[i2], 0);
             if (i3 > i4) {
                 return VersionCompare.GREATER;
             }
@@ -336,7 +354,7 @@ public final class Util {
         return pluginSetting.packageName + ".apk" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + pluginSetting.tempVersionCode;
     }
 
-    public static String bl(String str) {
+    public static String bu(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -347,10 +365,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return jz() + File.separator + e(pluginSetting);
+        return jR() + File.separator + e(pluginSetting);
     }
 
-    public static long jA() {
+    public static long jS() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();
@@ -360,7 +378,7 @@ public final class Util {
         }
     }
 
-    public static boolean jB() {
+    public static boolean isPreview() {
         try {
             return Build.VERSION.class.getField("PREVIEW_SDK_INT").getInt(null) > 0;
         } catch (Exception e) {

@@ -7,25 +7,25 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.l;
+import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.c;
 /* loaded from: classes.dex */
-public class SendView extends TextView implements l {
-    private EditorTools CJ;
-    private int CK;
-    private boolean[] cGA;
-    private int[] cGB;
-    private int csg;
+public class SendView extends TextView implements m {
+    private EditorTools Fq;
+    private int Fr;
+    private int MA;
+    private boolean[] duu;
+    private int[] duv;
     private int mType;
-    public static int cGC = 1;
+    public static int duw = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.cGA = new boolean[]{false, false, false, false, false};
-        this.cGB = new int[]{0, 0};
-        this.csg = 0;
+        this.duu = new boolean[]{false, false, false, false, false};
+        this.duv = new int[]{0, 0};
+        this.MA = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
         setGravity(17);
@@ -48,127 +48,127 @@ public class SendView extends TextView implements l {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.cGA[0] = false;
+                        this.duu[0] = false;
                         break;
                     } else {
-                        this.cGA[0] = true;
+                        this.duu[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.cGA[0] = false;
-                    this.cGA[1] = false;
-                    this.cGA[2] = false;
-                    this.cGA[3] = false;
-                    this.cGA[4] = false;
-                    this.cGB[0] = 0;
-                    this.cGB[1] = 0;
+                    this.duu[0] = false;
+                    this.duu[1] = false;
+                    this.duu[2] = false;
+                    this.duu[3] = false;
+                    this.duu[4] = false;
+                    this.duv[0] = 0;
+                    this.duv[1] = 0;
                     break;
                 case 10:
-                    this.cGA[2] = true;
+                    this.duu[2] = true;
                     break;
                 case 11:
-                    this.cGA[2] = false;
+                    this.duu[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.cFo != null) {
-                            if (aVar2.cFo.getChosedFiles() != null) {
-                                this.cGB[0] = aVar2.cFo.getChosedFiles().size();
+                        if (aVar2.dti != null) {
+                            if (aVar2.dti.getChosedFiles() != null) {
+                                this.duv[0] = aVar2.dti.getChosedFiles().size();
                             } else {
-                                this.cGB[0] = 0;
+                                this.duv[0] = 0;
                             }
                         }
-                        if (this.cGB[0] > 0) {
-                            this.cGA[1] = true;
+                        if (this.duv[0] > 0) {
+                            this.duu[1] = true;
                             break;
                         } else {
-                            this.cGA[1] = false;
+                            this.duu[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.cGB;
+                    int[] iArr = this.duv;
                     iArr[0] = iArr[0] - 1;
-                    if (this.cGB[0] > 0) {
-                        this.cGA[1] = true;
+                    if (this.duv[0] > 0) {
+                        this.duu[1] = true;
                         break;
                     } else {
-                        this.cGA[1] = false;
+                        this.duu[1] = false;
                         break;
                     }
                 case 28:
                 case 39:
-                    this.cGA[3] = true;
+                    this.duu[3] = true;
                     break;
                 case 29:
-                    this.cGA[3] = false;
+                    this.duu[3] = false;
                     break;
             }
-            jS(this.mType);
+            mf(this.mType);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.l
+    @Override // com.baidu.tbadk.editortools.m
     public void setEditorTools(EditorTools editorTools) {
-        this.CJ = editorTools;
+        this.Fq = editorTools;
     }
 
-    @Override // com.baidu.tbadk.editortools.l
+    @Override // com.baidu.tbadk.editortools.m
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.CJ != null) {
-            this.CJ.b(aVar);
+        if (this.Fq != null) {
+            this.Fq.b(aVar);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.l
+    @Override // com.baidu.tbadk.editortools.m
     public void setToolId(int i) {
-        this.CK = i;
+        this.Fr = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.l
+    @Override // com.baidu.tbadk.editortools.m
     public int getToolId() {
-        return this.CK;
+        return this.Fr;
     }
 
-    @Override // com.baidu.tbadk.editortools.l
+    @Override // com.baidu.tbadk.editortools.m
     public void init() {
         setClickable(false);
     }
 
-    @Override // com.baidu.tbadk.editortools.l
-    public void le() {
+    @Override // com.baidu.tbadk.editortools.m
+    public void lw() {
         setVisibility(0);
     }
 
-    @Override // com.baidu.tbadk.editortools.l
+    @Override // com.baidu.tbadk.editortools.m
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // com.baidu.tbadk.editortools.l
+    @Override // com.baidu.tbadk.editortools.m
     public void onChangeSkinType(int i) {
-        this.csg = i;
+        this.MA = i;
         int color = am.getColor(R.color.cp_link_tip_a);
-        setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.k(color, 0.3f), c.k(color, 0.5f), color}));
+        setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.n(color, 0.3f), c.n(color, 0.5f), color}));
     }
 
     public void setType(int i) {
         this.mType = i;
     }
 
-    public void jS(int i) {
+    public void mf(int i) {
         if (i == ALL) {
-            if (this.cGA[0] || this.cGA[1] || this.cGA[2] || this.cGA[3] || this.cGA[4]) {
+            if (this.duu[0] || this.duu[1] || this.duu[2] || this.duu[3] || this.duu[4]) {
                 setEnabled(true);
             } else {
                 setEnabled(false);
             }
-        } else if (i == cGC) {
-            if (this.cGA[1]) {
+        } else if (i == duw) {
+            if (this.duu[1]) {
                 setEnabled(true);
             } else {
                 setEnabled(false);

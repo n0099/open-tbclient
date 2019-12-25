@@ -2,13 +2,11 @@ package com.baidu.tieba.ala.liveroom.config;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.ala.liveRecorder.video.AlaLiveVideoConfig;
-import com.baidu.ala.liveRecorder.video.DynamicBitRateConfig;
-import com.baidu.live.l.a;
+import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
+import com.baidu.ala.recorder.video.DynamicBitRateConfig;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
 import com.baidu.tbadk.TbConfig;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,15 +15,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveRecordConfigHelper {
-    private static AlaLiveRecordConfigHelper een;
+    private static AlaLiveRecordConfigHelper eUi;
 
-    public VideoResolution hJ(boolean z) {
-        return x(a.uB().ajF.Qn, z);
+    public VideoResolution iY(boolean z) {
+        return z(a.wA().arE.Xc, z);
     }
 
-    public VideoResolution x(int i, boolean z) {
+    public VideoResolution z(int i, boolean z) {
         if (z) {
             return VideoResolution.RTC;
         }
@@ -44,34 +42,34 @@ public class AlaLiveRecordConfigHelper {
         return VideoResolution.P540;
     }
 
-    public static AlaLiveRecordConfigHelper aRu() {
-        if (een == null) {
+    public static AlaLiveRecordConfigHelper biV() {
+        if (eUi == null) {
             synchronized (AlaLiveRecordConfigHelper.class) {
-                if (een == null) {
-                    een = new AlaLiveRecordConfigHelper();
+                if (eUi == null) {
+                    eUi = new AlaLiveRecordConfigHelper();
                 }
             }
         }
-        return een;
+        return eUi;
     }
 
-    public AlaLiveVideoConfig i(int i, int i2, boolean z) {
+    public AlaLiveVideoConfig k(int i, int i2, boolean z) {
         VideoResolution videoResolution = null;
         if (i2 == 1) {
-            videoResolution = hJ(false);
+            videoResolution = iY(false);
         }
         if (videoResolution == null) {
-            videoResolution = x(i, false);
+            videoResolution = z(i, false);
         }
-        if (i2 == 1 && !a.uB().ajF.Qo) {
+        if (i2 == 1 && !a.wA().arE.Xd) {
             videoResolution = VideoResolution.P360;
         }
-        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(tE(a.uB().ajF.Qq), tE(a.uB().ajF.Qr), a.uB().ajF.increaseThreshold, a.uB().ajF.decreaseThreshold, a.uB().ajF.increaseCount, a.uB().ajF.Qo, a.uB().ajF.Qp, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
+        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(yt(a.wA().arE.Xf), yt(a.wA().arE.Xg), a.wA().arE.increaseThreshold, a.wA().arE.decreaseThreshold, a.wA().arE.increaseCount, a.wA().arE.Xd, a.wA().arE.Xe, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
         if (i2 == 1) {
             isLandscape.setPreviewWidth(720);
             isLandscape.setPreviewHeight(1280);
-            if (a.uB().ajF != null) {
-                isLandscape.setSupportFaceStyle(a.uB().ajF.Qu);
+            if (a.wA().arE != null) {
+                isLandscape.setSupportFaceStyle(a.wA().arE.Xk);
             }
             return isLandscape;
         } else if (i2 == 2) {
@@ -83,7 +81,7 @@ public class AlaLiveRecordConfigHelper {
         }
     }
 
-    private List<DynamicBitRateConfig.DynamicBitRateItem> tE(String str) {
+    private List<DynamicBitRateConfig.DynamicBitRateItem> yt(String str) {
         JSONArray jSONArray;
         int length;
         int i;
@@ -137,13 +135,13 @@ public class AlaLiveRecordConfigHelper {
         return arrayList;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum VideoResolution {
         P720(1, 1280, 720),
         P576(2, 1024, 576),
         P540(3, TbConfig.HEAD_IMG_SIZE, 540),
         P360(4, 640, 360),
-        RTC(0, CameraInterface.DEFAULT_PREVIEW_HEIGHT, SubsamplingScaleImageView.ORIENTATION_270);
+        RTC(0, 480, 270);
         
         private int height;
         private int type;

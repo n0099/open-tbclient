@@ -1,6 +1,7 @@
 package com.baidu.tieba.ala.liveroom.m;
 
 import android.os.Build;
+import com.baidu.fsg.base.statistics.j;
 import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.HttpMessage;
@@ -17,7 +18,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends BdBaseModel {
     public b() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021048, TbConfig.SERVER_ADDRESS + "ala/sys/gatherData");
@@ -43,7 +44,7 @@ public class b extends BdBaseModel {
                 jSONObject2.put("pt", alaLiveRecorderPerfData.prepareTime);
                 jSONObject2.put("ut", alaLiveRecorderPerfData.updateTime);
                 jSONObject2.put("lt", alaLiveRecorderPerfData.linkTime);
-                jSONObject2.put("lc", alaLiveRecorderPerfData.linkCount);
+                jSONObject2.put(j.g, alaLiveRecorderPerfData.linkCount);
                 jSONObject2.put("wt", alaLiveRecorderPerfData.waitTime);
                 jSONObject2.put("st", alaLiveRecorderPerfData.showTime);
                 jSONObject2.put("et", alaLiveRecorderPerfData.endViewShowTime);
@@ -61,8 +62,8 @@ public class b extends BdBaseModel {
                 jSONObject3.putOpt("dropa", Long.valueOf(alaLiveRecorderPerfData.dropACount));
                 jSONObject.putOpt("stability", jSONObject3);
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.putOpt("mem", bF(alaLiveRecorderPerfData.memoryArray));
-                jSONObject4.putOpt("cpu", bF(alaLiveRecorderPerfData.cpuArray));
+                jSONObject4.putOpt("mem", bE(alaLiveRecorderPerfData.memoryArray));
+                jSONObject4.putOpt(com.baidu.fsg.face.base.b.c.i, bE(alaLiveRecorderPerfData.cpuArray));
                 jSONObject4.putOpt("bat", String.format("%.2f", Float.valueOf(alaLiveRecorderPerfData.energyUsage)));
                 jSONObject4.putOpt("charge", Boolean.valueOf(alaLiveRecorderPerfData.isCharging));
                 jSONObject.putOpt(PerformerBox.TYPE, jSONObject4);
@@ -96,7 +97,7 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().unRegisterTask(1021049);
     }
 
-    private String bF(List list) {
+    private String bE(List list) {
         if (list == null || list.size() == 0) {
             return "";
         }

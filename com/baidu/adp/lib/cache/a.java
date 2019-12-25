@@ -14,8 +14,8 @@ public class a extends c<byte[]> {
 
     @Override // com.baidu.adp.lib.cache.c
     public String onNewNameSpaceCreated(String str) {
-        this.nn.execSQLNoException("CREATE TABLE IF NOT EXISTS " + this.sharedTableName + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
-        this.nn.execSQLNoException("CREATE INDEX if not exists idx_mi_ns ON " + this.sharedTableName + "(m_ns)");
+        this.pN.execSQLNoException("CREATE TABLE IF NOT EXISTS " + this.sharedTableName + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.pN.execSQLNoException("CREATE INDEX if not exists idx_mi_ns ON " + this.sharedTableName + "(m_ns)");
         return this.sharedTableName;
     }
 
@@ -28,7 +28,7 @@ public class a extends c<byte[]> {
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r2v17, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r2v17, types: [byte[], T] */
     @Override // com.baidu.adp.lib.cache.c
     protected g<byte[]> b(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor;
@@ -49,14 +49,14 @@ public class a extends c<byte[]> {
                 gVar.lastHitTime = cursor.getLong(3);
                 gVar.timeToExpire = cursor.getLong(4);
                 gVar.value = cursor.getBlob(5);
-                com.baidu.adp.lib.g.a.close(cursor);
+                com.baidu.adp.lib.f.a.close(cursor);
             } else {
-                com.baidu.adp.lib.g.a.close(cursor);
+                com.baidu.adp.lib.f.a.close(cursor);
             }
             return gVar;
         } catch (Throwable th3) {
             th = th3;
-            com.baidu.adp.lib.g.a.close(cursor);
+            com.baidu.adp.lib.f.a.close(cursor);
             throw th;
         }
     }
@@ -81,10 +81,10 @@ public class a extends c<byte[]> {
     @Override // com.baidu.adp.lib.cache.c
     protected boolean clearData(String str) {
         try {
-            this.nn.getOpenedDatabase().delete(this.tableName, "m_ns = ?", new String[]{str});
+            this.pN.getOpenedDatabase().delete(this.tableName, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.nn.notifySQLException(th, "failed to clear from " + str);
+            this.pN.notifySQLException(th, "failed to clear from " + str);
             return false;
         }
     }

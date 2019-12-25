@@ -1,20 +1,13 @@
 package com.facebook.imagepipeline.nativecode;
-/* loaded from: classes2.dex */
-public class c {
-    private static b kka;
-    public static boolean kkb;
 
-    static {
-        kkb = false;
-        try {
-            kka = (b) Class.forName("com.facebook.imagepipeline.nativecode.WebpTranscoderImpl").newInstance();
-            kkb = true;
-        } catch (Throwable th) {
-            kkb = false;
-        }
-    }
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+/* loaded from: classes11.dex */
+public interface c {
+    void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException;
 
-    public static b cID() {
-        return kka;
-    }
+    boolean d(com.facebook.c.c cVar);
+
+    void f(InputStream inputStream, OutputStream outputStream) throws IOException;
 }

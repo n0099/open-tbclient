@@ -1,7 +1,10 @@
 package com.baidu.tieba.model;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.switchs.LoginPassV6Switch;
+import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -25,12 +28,12 @@ public class c {
                         if (jSONObject2 != null) {
                             String optString = jSONObject2.optString("name");
                             Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
-                            if ("switch_login_passv6".equals(optString)) {
-                                com.baidu.adp.lib.b.d.ft().c(optString, valueOf.intValue());
+                            if (LoginPassV6Switch.KEY.equals(optString)) {
+                                SwitchManager.getInstance().turn(optString, valueOf.intValue());
                                 com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
                             }
-                            if (TextUtils.equals("switch_low_version_login_passv6", optString)) {
-                                com.baidu.adp.lib.b.d.ft().c(optString, valueOf.intValue());
+                            if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
+                                SwitchManager.getInstance().turn(optString, valueOf.intValue());
                                 com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
                             }
                         }

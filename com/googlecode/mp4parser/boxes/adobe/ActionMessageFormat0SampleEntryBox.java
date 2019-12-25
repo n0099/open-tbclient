@@ -8,8 +8,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ActionMessageFormat0SampleEntryBox extends AbstractSampleEntry {
     public static final String TYPE = "amf0";
 
@@ -39,6 +38,6 @@ public class ActionMessageFormat0SampleEntryBox extends AbstractSampleEntry {
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || containerSize + 8 >= IjkMediaMeta.AV_CH_WIDE_RIGHT) ? 16 : 8) + containerSize + 8;
+        return ((this.largeBox || containerSize + 8 >= 4294967296L) ? 16 : 8) + containerSize + 8;
     }
 }

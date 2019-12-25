@@ -11,7 +11,7 @@ import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
     private ManagerApplyInfo applyInfo;
     private BzApplySwitch bzApplySwitch;

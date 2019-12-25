@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class CodedOutputStream {
     public static final int DEFAULT_BUFFER_SIZE = 4096;
     public static final int LITTLE_ENDIAN_32_SIZE = 4;
@@ -200,7 +199,7 @@ public final class CodedOutputStream {
     }
 
     public void writeStringNoTag(String str) throws IOException {
-        byte[] bytes = str.getBytes(HTTP.UTF_8);
+        byte[] bytes = str.getBytes("UTF-8");
         writeRawVarint32(bytes.length);
         writeRawBytes(bytes);
     }
@@ -378,7 +377,7 @@ public final class CodedOutputStream {
 
     public static int computeStringSizeNoTag(String str) {
         try {
-            byte[] bytes = str.getBytes(HTTP.UTF_8);
+            byte[] bytes = str.getBytes("UTF-8");
             return bytes.length + computeRawVarint32Size(bytes.length);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("UTF-8 not supported.", e);
@@ -459,7 +458,7 @@ public final class CodedOutputStream {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class OutOfSpaceException extends IOException {
         private static final long serialVersionUID = -6947486886997889499L;
 

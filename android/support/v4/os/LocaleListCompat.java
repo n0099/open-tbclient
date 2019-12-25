@@ -9,7 +9,7 @@ import android.support.annotation.RequiresApi;
 import android.support.annotation.Size;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class LocaleListCompat {
     static final LocaleListInterface IMPL;
     private static final LocaleListCompat sEmptyLocaleList = new LocaleListCompat();
@@ -22,7 +22,7 @@ public final class LocaleListCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class LocaleListCompatBaseImpl implements LocaleListInterface {
         private LocaleListHelper mLocaleList = new LocaleListHelper(new Locale[0]);
 
@@ -92,7 +92,7 @@ public final class LocaleListCompat {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class LocaleListCompatApi24Impl implements LocaleListInterface {
         private LocaleList mLocaleList = new LocaleList(new Locale[0]);
 

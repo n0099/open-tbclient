@@ -3,12 +3,12 @@ package com.baidu.tbadk.editortools;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class f {
-    public static g a(Context context, k kVar, int i) {
+    public static g a(Context context, l lVar, int i) {
         switch (i) {
             case 1:
-                return new BLauncher(context, kVar);
+                return new BLauncher(context, lVar);
             default:
-                return new DLauncher(context, kVar);
+                return new DLauncher(context, lVar);
         }
     }
 }

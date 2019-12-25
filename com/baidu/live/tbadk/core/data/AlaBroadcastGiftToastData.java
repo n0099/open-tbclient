@@ -3,8 +3,9 @@ package com.baidu.live.tbadk.core.data;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaBroadcastGiftToastData extends BaseData {
+    public static final int BROAD_TYPE_REDPACKET = 3;
     public static final int GIFT_BROADCAST = 1;
     public static final int GUARD_CLUB_UPGRADE = 2;
     public static final int HOUR_RANK_CONFIRM = 2;

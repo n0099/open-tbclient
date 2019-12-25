@@ -1,30 +1,29 @@
 package kotlin.coroutines.experimental;
 
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class e implements d {
-    public static final e kuV = new e();
+    public static final e mYR = new e();
 
     private e() {
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <E extends d.b> E a(d.c<E> cVar) {
-        p.i(cVar, TiebaInitialize.Params.KEY);
+        p.j(cVar, "key");
         return null;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
-        p.i(cVar, "operation");
+        p.j(cVar, "operation");
         return r;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
-        p.i(cVar, TiebaInitialize.Params.KEY);
+        p.j(cVar, "key");
         return this;
     }
 

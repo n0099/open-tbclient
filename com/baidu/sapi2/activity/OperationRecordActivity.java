@@ -2,12 +2,12 @@ package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.SapiWebCallback;
 import com.baidu.sapi2.result.SapiResult;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class OperationRecordActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     private SapiResult r = new SapiResult();
@@ -39,7 +39,7 @@ public class OperationRecordActivity extends BaseActivity {
         this.s = getIntent().getStringExtra("EXTRA_BDUSS");
         if (TextUtils.isEmpty(this.s)) {
             this.r.setResultCode(-204);
-            this.r.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
+            this.r.setResultMsg("参数错误，请稍后再试");
             finishActivity();
         }
     }
@@ -56,7 +56,7 @@ public class OperationRecordActivity extends BaseActivity {
     public void onClose() {
         super.onClose();
         this.r.setResultCode(-301);
-        this.r.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        this.r.setResultMsg("您已取消操作");
         finishActivity();
     }
 
@@ -71,7 +71,7 @@ public class OperationRecordActivity extends BaseActivity {
         } catch (Throwable th) {
             reportWebviewError(th);
             this.r.setResultCode(-202);
-            this.r.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
+            this.r.setResultMsg("网络连接失败，请检查网络设置");
             finishActivity();
         }
     }

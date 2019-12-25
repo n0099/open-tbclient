@@ -1,45 +1,88 @@
 package com.baidu.swan.apps.an;
 
-import android.os.Build;
-/* loaded from: classes2.dex */
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.an.a.c;
+import com.baidu.swan.apps.runtime.e;
+import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
 public final class a {
-    public static boolean hasGingerbread() {
-        return Build.VERSION.SDK_INT >= 9;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static a bPL;
+    private com.baidu.swan.apps.an.a.b bPM = new com.baidu.swan.apps.an.a.b();
+    private c bPN = new c();
+
+    private a() {
     }
 
-    public static boolean TW() {
-        return Build.VERSION.SDK_INT == 10;
+    public static a abU() {
+        if (bPL == null) {
+            synchronized (a.class) {
+                if (bPL == null) {
+                    bPL = new a();
+                }
+            }
+        }
+        return bPL;
     }
 
-    public static boolean TX() {
-        return Build.VERSION.SDK_INT == 9;
+    public void aW(JSONObject jSONObject) {
+        this.bPM.aY(jSONObject);
     }
 
-    public static boolean hasHoneycomb() {
-        return Build.VERSION.SDK_INT >= 11;
+    public void lk(String str) {
+        bc(str, null);
     }
 
-    public static boolean hasKitKat() {
-        return Build.VERSION.SDK_INT >= 19;
+    public void bc(String str, String str2) {
+        this.bPM.add(str, str2);
     }
 
-    public static boolean hasLollipop() {
-        return Build.VERSION.SDK_INT >= 21;
+    public void aX(JSONObject jSONObject) {
+        this.bPN.aY(jSONObject);
     }
 
-    public static boolean TY() {
-        return Build.VERSION.SDK_INT >= 22;
+    public JSONObject abV() {
+        JSONObject abZ = this.bPM.abZ();
+        if (DEBUG) {
+            Log.d("SwanStabilityTracer", "LaunchTraces: " + abZ);
+        }
+        return abZ;
     }
 
-    public static boolean TZ() {
-        return Build.VERSION.SDK_INT >= 23;
+    public JSONObject abW() {
+        JSONObject abZ = this.bPN.abZ();
+        if (DEBUG) {
+            Log.d("SwanStabilityTracer", "WhiteTraces: " + abZ);
+        }
+        return abZ;
     }
 
-    public static boolean hasNougat() {
-        return Build.VERSION.SDK_INT >= 24;
+    public void clear() {
+        this.bPM.clear();
+        this.bPN.clear();
     }
 
-    public static boolean Ua() {
-        return Build.VERSION.SDK_INT >= 26;
+    public File abX() {
+        String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + "aiapps_folder/stability/" + (e.ZU() == null ? "" : e.ZU()) + "_swan_stability_traces.log";
+        File file = new File(str);
+        JSONArray jSONArray = new JSONArray();
+        jSONArray.put(abV());
+        jSONArray.put(abW());
+        com.baidu.swan.apps.v.a.j(str, jSONArray.toString(), false);
+        if (DEBUG) {
+            Log.d("SwanStabilityTracer", "Write traces to file：" + str + "\ndata: " + jSONArray);
+        }
+        return file;
+    }
+
+    public void abY() {
+        String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + "aiapps_folder/stability/" + (e.ZU() == null ? "" : e.ZU()) + "_swan_stability_traces.log";
+        com.baidu.swan.d.c.qO(str);
+        if (DEBUG) {
+            Log.d("SwanStabilityTracer", "Safe delete trace file：" + str);
+        }
     }
 }

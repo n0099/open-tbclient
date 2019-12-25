@@ -1,0 +1,79 @@
+package com.baidu.rtc.camera.engine.d;
+
+import android.graphics.SurfaceTexture;
+import android.os.Handler;
+import android.os.Message;
+import android.view.Surface;
+import android.view.SurfaceHolder;
+import java.lang.ref.WeakReference;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes4.dex */
+public class d extends Handler {
+    private WeakReference<f> mWeakRenderThread;
+
+    public d(f fVar) {
+        super(fVar.getLooper());
+        this.mWeakRenderThread = new WeakReference<>(fVar);
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        if (this.mWeakRenderThread != null && this.mWeakRenderThread.get() != null) {
+            f fVar = this.mWeakRenderThread.get();
+            switch (message.what) {
+                case 1:
+                    if (message.obj instanceof SurfaceHolder) {
+                        fVar.c(((SurfaceHolder) message.obj).getSurface());
+                        return;
+                    } else if (message.obj instanceof Surface) {
+                        fVar.c((Surface) message.obj);
+                        return;
+                    } else if (message.obj instanceof SurfaceTexture) {
+                        fVar.e((SurfaceTexture) message.obj);
+                        return;
+                    } else {
+                        return;
+                    }
+                case 2:
+                    fVar.surfaceChanged(message.arg1, message.arg2);
+                    return;
+                case 3:
+                    fVar.surfaceDestroyed();
+                    return;
+                case 4:
+                    fVar.CI();
+                    return;
+                case 5:
+                case 7:
+                case 10:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 18:
+                default:
+                    throw new IllegalStateException("Can not handle message what is: " + message.what);
+                case 6:
+                    fVar.Ap();
+                    return;
+                case 8:
+                    fVar.stopRecording();
+                    return;
+                case 9:
+                    fVar.CL();
+                    fVar.startPreview();
+                    return;
+                case 16:
+                    fVar.switchCamera();
+                    return;
+                case 17:
+                    fVar.o((byte[]) message.obj);
+                    return;
+                case 19:
+                    fVar.CJ();
+                    return;
+            }
+        }
+    }
+}

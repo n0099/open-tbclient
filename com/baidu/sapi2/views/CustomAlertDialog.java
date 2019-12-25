@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 import android.widget.TextView;
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.permissions.AlertDialogInterface;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CustomAlertDialog extends Dialog implements com.baidu.sapi2.c, AlertDialogInterface {
     private TextView a;
     private TextView b;

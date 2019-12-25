@@ -6,11 +6,18 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.a.a;
 import com.baidu.tbadk.core.data.a;
-/* loaded from: classes3.dex */
-public abstract class b<T extends com.baidu.tbadk.core.data.a> implements i<T>, j {
-    protected x EO;
-    private com.baidu.tieba.card.ab<T> EP;
+/* loaded from: classes5.dex */
+public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, n {
+    protected ad Jw;
+    private Boolean Jx = false;
+    private com.baidu.tieba.card.z<T> Jy;
+    public a Jz;
     protected Context mContext;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(com.baidu.tbadk.core.data.a aVar);
+    }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract View getView();
@@ -19,33 +26,33 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements i<T>, 
         this.mContext = context;
     }
 
-    public void a(x xVar) {
-        this.EO = xVar;
+    public void a(ad adVar) {
+        this.Jw = adVar;
     }
 
-    public void aB(int i) {
+    public void aH(int i) {
     }
 
-    public void aC(int i) {
+    public void aI(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void lG() {
+    public void mD() {
     }
 
-    public com.baidu.tieba.card.ab<T> lH() {
-        return this.EP;
+    public com.baidu.tieba.card.z<T> mE() {
+        return this.Jy;
     }
 
-    public void a(com.baidu.tieba.card.ab<T> abVar) {
-        this.EP = abVar;
+    public void setOnCardSubClickListener(com.baidu.tieba.card.z<T> zVar) {
+        this.Jy = zVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.EO.a(i, bVar);
+        this.Jw.a(i, bVar);
     }
 
-    public void aD(int i) {
+    public void aJ(int i) {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -59,5 +66,13 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements i<T>, 
                 view.setLayoutParams(marginLayoutParams);
             }
         }
+    }
+
+    public Boolean mF() {
+        return this.Jx;
+    }
+
+    public void b(Boolean bool) {
+        this.Jx = bool;
     }
 }

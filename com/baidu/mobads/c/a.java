@@ -19,12 +19,14 @@ import com.baidu.mobads.utils.e;
 import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.m;
 import com.baidu.mobads.vo.a.d;
+import com.baidu.searchbox.ugc.model.PublishType;
+import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.tencent.connect.common.Constants;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
     protected final IXAdLogger a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private Context e;
@@ -48,18 +50,18 @@ public class a {
     }
 
     public void a(Context context, com.baidu.mobads.command.a aVar) {
-        a(context, "9", aVar);
+        a(context, PublishType.TYPE_VIDEO_SHARE, aVar);
     }
 
     public void a(com.baidu.mobads.command.a aVar) {
     }
 
     public void a(Context context, IXAppInfo iXAppInfo) {
-        a(context, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, iXAppInfo);
+        a(context, "11", iXAppInfo);
     }
 
     public void b(Context context, IXAppInfo iXAppInfo) {
-        a(context, Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, iXAppInfo);
+        a(context, "10", iXAppInfo);
     }
 
     public void a(String str) {
@@ -94,7 +96,7 @@ public class a {
             builder = new Uri.Builder();
         }
         try {
-            builder.appendQueryParameter("type", str2).appendQueryParameter(IXAdRequestInfo.P_VER, "8.8079").appendQueryParameter("appsid", adConstants.getAppSid()).appendQueryParameter("v", "android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30").appendQueryParameter(TiebaInitialize.LogFields.REASON, str).appendQueryParameter(IXAdRequestInfo.OSV, Build.VERSION.RELEASE).appendQueryParameter(IXAdRequestInfo.BDR, "" + Build.VERSION.SDK_INT).appendQueryParameter(IXAdRequestInfo.BRAND, "" + commonUtils.getTextEncoder(Build.BRAND)).appendQueryParameter("pack", adConstants.getAppPackageNameOfPublisher());
+            builder.appendQueryParameter("type", str2).appendQueryParameter(IXAdRequestInfo.P_VER, "8.8146").appendQueryParameter("appsid", adConstants.getAppSid()).appendQueryParameter("v", "android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30").appendQueryParameter(TiebaInitialize.LogFields.REASON, str).appendQueryParameter(IXAdRequestInfo.OSV, Build.VERSION.RELEASE).appendQueryParameter(IXAdRequestInfo.BDR, "" + Build.VERSION.SDK_INT).appendQueryParameter(IXAdRequestInfo.BRAND, "" + commonUtils.getTextEncoder(Build.BRAND)).appendQueryParameter("pack", adConstants.getAppPackageNameOfPublisher());
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(e);
         }
@@ -165,7 +167,7 @@ public class a {
 
     private String a(Context context, String str, Map<String, String> map) {
         try {
-            StringBuilder sb = new StringBuilder("type=" + str + "&");
+            StringBuilder sb = new StringBuilder("type=" + str + ETAG.ITEM_SEPARATOR);
             StringBuilder sb2 = new StringBuilder();
             map.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis() + "");
             e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
@@ -175,17 +177,17 @@ public class a {
                     String encodeURIComponent = commonUtils.encodeURIComponent(str2);
                     String encodeURIComponent2 = commonUtils.encodeURIComponent(str3);
                     sb.append(encodeURIComponent);
-                    sb.append("=");
+                    sb.append(ETAG.EQUAL);
                     sb.append(encodeURIComponent2);
-                    sb.append("&");
+                    sb.append(ETAG.ITEM_SEPARATOR);
                     sb2.append(encodeURIComponent2);
-                    sb2.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
             }
             sb2.append("mobads,");
             String md5 = commonUtils.getMD5(sb2.toString());
             this.a.d("ExtraQuery.allValue:" + ((Object) sb2));
-            sb.append("vd=" + md5 + "&");
+            sb.append("vd=" + md5 + ETAG.ITEM_SEPARATOR);
             this.a.d("ExtraQuery.params:" + ((Object) sb));
             return "https://mobads-logs.baidu.com/dz.zb?" + sb.toString();
         } catch (Exception e) {

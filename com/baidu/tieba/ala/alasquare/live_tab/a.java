@@ -8,44 +8,44 @@ import com.baidu.tieba.ala.alasquare.live_tab.a.c;
 import com.baidu.tieba.ala.alasquare.live_tab.a.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> agy;
-    private c dvW;
-    private d dvX;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b dvY;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a dvZ;
+    private BdTypeRecyclerView Bn;
+    private List<com.baidu.adp.widget.ListView.a> aoz;
+    private c egY;
+    private d egZ;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b eha;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a ehb;
     private Context mContext;
     private TbPageContext mPageContext;
-    private BdTypeRecyclerView yJ;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.yJ = bdTypeRecyclerView;
-        sY();
+        this.Bn = bdTypeRecyclerView;
+        uR();
     }
 
-    private void sY() {
-        this.agy = new ArrayList();
-        this.dvW = new c(this.mPageContext);
-        this.dvX = new d(this.mPageContext);
-        this.dvY = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.dvZ = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.agy.add(this.dvW);
-        this.agy.add(this.dvX);
-        this.agy.add(this.dvY);
-        this.agy.add(this.dvZ);
-        this.yJ.addAdapters(this.agy);
+    private void uR() {
+        this.aoz = new ArrayList();
+        this.egY = new c(this.mPageContext);
+        this.egZ = new d(this.mPageContext);
+        this.eha = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.ehb = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.aoz.add(this.egY);
+        this.aoz.add(this.egZ);
+        this.aoz.add(this.eha);
+        this.aoz.add(this.ehb);
+        this.Bn.addAdapters(this.aoz);
     }
 
     public void setData(List<m> list) {
-        this.yJ.setData(list);
+        this.Bn.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.yJ != null) {
-            this.yJ.getListAdapter().notifyDataSetChanged();
+        if (this.Bn != null) {
+            this.Bn.getListAdapter().notifyDataSetChanged();
         }
     }
 }

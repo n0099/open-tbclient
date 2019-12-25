@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.res.ColorStateList;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -18,14 +19,14 @@ import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.util.ViewHelper;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdAlertDialog {
     public static final int DIALOG_SIZE_BIG = 1;
     public static final int DIALOG_SIZE_SMALL = 0;
@@ -37,9 +38,11 @@ public class BdAlertDialog {
     private AlertDialog mDialog;
     private DialogInterface.OnDismissListener mDismissListener;
     private String mMessage;
+    private ColorStateList mNagetiveButtonColorStateList;
     private OnClickListener mNegativeButtonListener;
     private String mNegativeButtonTip;
     private DialogInterface.OnKeyListener mOnKeyListener;
+    private ColorStateList mPositiveButtonColorStateList;
     private OnClickListener mPositiveButtonListener;
     private String mPositiveButtonTip;
     private ViewGroup mRealView;
@@ -53,13 +56,15 @@ public class BdAlertDialog {
     private boolean isMessageShowCenter = false;
     private boolean isTitleShowCenter = false;
     private int mButtonTextColor = -1;
+    private int mPositiveButtonTextColor = -1;
+    private int mNagetiveButtonTextColor = -1;
     private int dialogSize = 0;
     private boolean mDialogCreated = false;
     private boolean cancelableFlag = true;
     private boolean mCancelable = true;
     private boolean isAutoNight = true;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnClickListener {
         void onClick(BdAlertDialog bdAlertDialog);
     }
@@ -177,6 +182,26 @@ public class BdAlertDialog {
         return this;
     }
 
+    public BdAlertDialog setPositiveButtonTextColor(int i) {
+        this.mPositiveButtonTextColor = i;
+        return this;
+    }
+
+    public BdAlertDialog setPositiveButtonTextColor(ColorStateList colorStateList) {
+        this.mPositiveButtonColorStateList = colorStateList;
+        return this;
+    }
+
+    public BdAlertDialog setNagetiveButtonTextColor(int i) {
+        this.mNagetiveButtonTextColor = i;
+        return this;
+    }
+
+    public BdAlertDialog setNagetiveButtonTextColor(ColorStateList colorStateList) {
+        this.mNagetiveButtonColorStateList = colorStateList;
+        return this;
+    }
+
     public BdAlertDialog setContentViewSize(int i) {
         this.dialogSize = i;
         return this;
@@ -223,6 +248,21 @@ public class BdAlertDialog {
                 }
                 if (this.noButton != null) {
                     this.noButton.setTextColor(this.mButtonTextColor);
+                }
+            } else {
+                if (this.yesButton != null) {
+                    if (this.mPositiveButtonTextColor != -1) {
+                        this.yesButton.setTextColor(this.mPositiveButtonTextColor);
+                    } else if (this.mPositiveButtonColorStateList != null) {
+                        this.yesButton.setTextColor(this.mPositiveButtonColorStateList);
+                    }
+                }
+                if (this.noButton != null) {
+                    if (this.mNagetiveButtonTextColor != -1) {
+                        this.noButton.setTextColor(this.mNagetiveButtonTextColor);
+                    } else if (this.mNagetiveButtonColorStateList != null) {
+                        this.noButton.setTextColor(this.mNagetiveButtonColorStateList);
+                    }
                 }
             }
             if (TextUtils.isEmpty(this.mPositiveButtonTip) || this.yesButton == null) {
@@ -375,9 +415,10 @@ public class BdAlertDialog {
                     this.mDialogGravity = 17;
                 }
                 window.setGravity(this.mDialogGravity);
+                window.setWindowAnimations(a.j.sdk_dialog_windowanim);
                 window.setBackgroundDrawableResource(a.f.sdk_transparent_bg);
                 WindowManager.LayoutParams attributes = window.getAttributes();
-                attributes.dimAmount = 0.7f;
+                attributes.dimAmount = 0.65f;
                 attributes.width = -1;
                 DisplayMetrics screenSize = BdUtilHelper.getScreenSize(this.mActivity);
                 if (screenSize != null) {
@@ -418,7 +459,7 @@ public class BdAlertDialog {
         if (this.dialogSize == 1) {
             return BdUtilHelper.getDimens(this.mActivity, a.e.sdk_ds40);
         }
-        return BdUtilHelper.getDimens(this.mActivity, a.e.sdk_ds90);
+        return (int) (BdUtilHelper.getEquipmentWidth(this.mActivity) * 0.09f);
     }
 
     public boolean isShowing() {
@@ -453,7 +494,7 @@ public class BdAlertDialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class ButtonEvent implements View.OnClickListener {
         private final OnClickListener listener;
         private final BdAlertDialog mDialog;

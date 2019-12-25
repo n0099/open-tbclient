@@ -2,7 +2,7 @@ package com.baidu.sapi2.views;
 
 import android.animation.ValueAnimator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class g implements ValueAnimator.AnimatorUpdateListener {
     final /* synthetic */ RippleSurfaceView a;
 

@@ -4,77 +4,77 @@ import android.util.SparseArray;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.aj;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.al;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.util.an;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
-    public bh caz;
-    private String dhw;
-    private String eOV;
-    private int eOW;
-    private String eOX;
-    private String eOY;
-    public int ePa;
+    public bj cMR;
+    private String fGJ;
+    private int fGK;
+    private String fGL;
+    private String fGM;
+    public int fGO;
+    private String mExtra;
     private String mSource;
     public String tid;
     public int objType = 1;
     public SparseArray<String> feedBackReasonMap = null;
-    private Integer eOZ = 0;
-    public int caA = 0;
-    public int caB = 0;
+    private Integer fGN = 0;
+    public int cMS = 0;
+    public int cMT = 0;
 
     public void setWeight(String str) {
-        this.eOV = str;
+        this.fGJ = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void oO(int i) {
-        this.eOW = i;
+    public void rh(int i) {
+        this.fGK = i;
     }
 
-    public void uB(String str) {
-        this.eOX = str;
+    public void zu(String str) {
+        this.fGL = str;
     }
 
-    public int baE() {
-        return this.eOW;
+    public int bsI() {
+        return this.fGK;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String agJ() {
-        return this.mSource + "#" + this.eOW + "#" + this.eOX;
+    public String axA() {
+        return this.mSource + "#" + this.fGK + "#" + this.fGL;
     }
 
     public String getWeight() {
-        return this.eOV;
+        return this.fGJ;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String baF() {
-        return this.eOX;
+    public String bsJ() {
+        return this.fGL;
     }
 
-    public String baG() {
-        return this.eOY;
+    public String bsK() {
+        return this.fGM;
     }
 
-    public void uC(String str) {
-        this.eOY = str;
+    public void zv(String str) {
+        this.fGM = str;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bh agG() {
+    public bj axx() {
         return null;
     }
 
@@ -83,75 +83,75 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
     }
 
     public void setExtra(String str) {
-        this.dhw = str;
+        this.mExtra = str;
     }
 
     public String getExtra() {
-        return this.dhw;
+        return this.mExtra;
     }
 
-    public Integer baH() {
-        return this.eOZ;
+    public Integer bsL() {
+        return this.fGN;
     }
 
-    public void d(Integer num) {
-        this.eOZ = num;
+    public void j(Integer num) {
+        this.fGN = num;
     }
 
-    public an uD(String str) {
-        return ab(str, false);
+    public an zw(String str) {
+        return af(str, false);
     }
 
-    public an ab(String str, boolean z) {
-        bh agG = agG();
-        if (agG == null || str.length() == 0) {
+    public an af(String str, boolean z) {
+        bj axx = axx();
+        if (axx == null || str.length() == 0) {
             return null;
         }
-        an bS = new an(str).bS("fid", String.valueOf(agG.getFid())).bS("tid", String.valueOf(agG.getTid())).bS("obj_id", getExtra()).bS("obj_param1", getWeight()).O(TiebaInitialize.Params.OBJ_PARAM2, 1).bS("obj_source", getSource()).O("obj_locate", baE()).bS("uid", TbadkCoreApplication.getCurrentAccount()).bS(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.bal());
+        an cp = new an(str).cp("fid", String.valueOf(axx.getFid())).cp("tid", String.valueOf(axx.getTid())).cp("obj_id", getExtra()).cp("obj_param1", getWeight()).Z(TiebaInitialize.Params.OBJ_PARAM2, 1).cp("obj_source", getSource()).Z("obj_locate", bsI()).cp("uid", TbadkCoreApplication.getCurrentAccount()).cp(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bsp());
         if (!z) {
-            bS.O("obj_type", baI());
+            cp.Z("obj_type", bsM());
         } else {
-            if (agG.cdj > 0) {
-                bS.O("midpageflag", 1);
+            if (axx.cPB > 0) {
+                cp.Z("midpageflag", 1);
             } else {
-                bS.O("midpageflag", 0);
+                cp.Z("midpageflag", 0);
             }
-            bS.bS(TiebaInitialize.Params.AB_TAG, baF());
-            bS.O("is_vertical", baH().intValue());
+            cp.cp(TiebaInitialize.Params.AB_TAG, bsJ());
+            cp.Z("is_vertical", bsL().intValue());
         }
-        if (agG.akb() != null && agG.akb().cop() != null && agG.akb().cop().azf() != null && agG.akb().cop().azf().size() > 0) {
-            bS.O(TiebaInitialize.Params.OBJ_TO, agG.akb().jie ? 2 : 1);
+        if (axx.aBe() != null && axx.aBe().cIv() != null && axx.aBe().cIv().aRf() != null && axx.aBe().cIv().aRf().size() > 0) {
+            cp.Z(TiebaInitialize.Params.OBJ_TO, axx.aBe().kcq ? 2 : 1);
         }
-        return bS;
+        return cp;
     }
 
-    public an ap(String str, int i) {
-        bh agG = agG();
-        if (agG == null) {
+    public an ay(String str, int i) {
+        bj axx = axx();
+        if (axx == null) {
             return null;
         }
-        an bS = new an(str).bS("fid", String.valueOf(agG.getFid())).bS("tid", String.valueOf(agG.getTid())).O("obj_id", U(agG)).O(TiebaInitialize.Params.OBJ_PARAM2, 1).bS("obj_param1", getWeight()).bS("obj_source", getSource()).O("obj_locate", baE()).bS("obj_name", baF()).bS("uid", TbadkCoreApplication.getCurrentAccount()).bS(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.bal());
+        an cp = new an(str).cp("fid", String.valueOf(axx.getFid())).cp("tid", String.valueOf(axx.getTid())).Z(TiebaInitialize.Params.OBJ_PARAM2, 1).cp("obj_param1", getWeight()).cp("obj_source", getSource()).Z("obj_locate", bsI()).cp("obj_name", bsJ()).cp("uid", TbadkCoreApplication.getCurrentAccount()).cp(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bsp());
         if (i == 0) {
-            bS.O("obj_type", baI());
+            cp.Z("obj_type", bsM());
         } else {
-            bS.O("obj_type", i);
+            cp.Z("obj_type", i);
         }
-        bS.bS("obj_id", getExtra());
-        return bS;
+        cp.cp("obj_id", getExtra());
+        return cp;
     }
 
-    private int baI() {
+    private int bsM() {
         int i;
         int i2 = 0;
-        bh agG = agG();
-        if (agG == null) {
+        bj axx = axx();
+        if (axx == null) {
             return 0;
         }
-        ArrayList<MediaData> aiO = agG.aiO();
-        if (aiO == null) {
+        ArrayList<MediaData> azO = axx.azO();
+        if (azO == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = aiO.iterator();
+            Iterator<MediaData> it = azO.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -169,41 +169,34 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        bh agG = agG();
-        if (agG != null) {
-            return agG.getImages();
+        bj axx = axx();
+        if (axx != null) {
+            return axx.getImages();
         }
         return null;
     }
 
-    private int U(bh bhVar) {
-        if (bhVar.ajN() == null || bhVar.ajN().channelId <= 0) {
-            return 0;
-        }
-        return (int) bhVar.ajN().channelId;
+    public void ri(int i) {
+        this.fGO = i;
     }
 
-    public void oP(int i) {
-        this.ePa = i;
-    }
-
-    public boolean baJ() {
-        return this.ePa == 1;
+    public boolean bsN() {
+        return this.fGO == 1;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public aj agI() {
-        if (agG() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
+    public al axz() {
+        if (axx() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
             return null;
         }
-        aj ajVar = new aj();
-        ajVar.setTid(agG().getTid());
-        ajVar.setFid(agG().getFid());
-        ajVar.setFeedBackReasonMap(this.feedBackReasonMap);
-        ajVar.weight = this.eOV;
-        ajVar.source = this.mSource;
-        ajVar.extra = this.dhw;
-        ajVar.threadType = agG().threadType;
-        return ajVar;
+        al alVar = new al();
+        alVar.setTid(axx().getTid());
+        alVar.setFid(axx().getFid());
+        alVar.setFeedBackReasonMap(this.feedBackReasonMap);
+        alVar.weight = this.fGJ;
+        alVar.source = this.mSource;
+        alVar.extra = this.mExtra;
+        alVar.threadType = axx().threadType;
+        return alVar;
     }
 }

@@ -2,48 +2,48 @@ package com.baidu.live.tieba.horizonallist.a;
 
 import android.os.Build;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: com.baidu.live.tieba.horizonallist.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static abstract class AbstractC0075a {
+    /* loaded from: classes2.dex */
+    public static abstract class AbstractC0091a {
         protected View view;
 
         public abstract void postOnAnimation(Runnable runnable);
 
         public abstract void setScrollX(int i);
 
-        public abstract boolean uS();
+        public abstract boolean wR();
 
-        protected AbstractC0075a(View view) {
+        protected AbstractC0091a(View view) {
             this.view = view;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b extends AbstractC0075a {
+    /* loaded from: classes2.dex */
+    public static class b extends AbstractC0091a {
         public b(View view) {
             super(view);
         }
 
-        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0075a
+        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0091a
         public void postOnAnimation(Runnable runnable) {
             this.view.post(runnable);
         }
 
-        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0075a
+        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0091a
         public void setScrollX(int i) {
             this.view.scrollTo(i, this.view.getScrollY());
         }
 
-        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0075a
-        public boolean uS() {
+        @Override // com.baidu.live.tieba.horizonallist.a.a.AbstractC0091a
+        public boolean wR() {
             return false;
         }
     }
 
-    public static final AbstractC0075a M(View view) {
+    public static final AbstractC0091a N(View view) {
         return Build.VERSION.SDK_INT >= 14 ? new com.baidu.live.tieba.horizonallist.a.b.a(view) : new b(view);
     }
 }

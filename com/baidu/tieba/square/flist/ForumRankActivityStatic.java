@@ -21,13 +21,12 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.square.forumlist.SquareForumListActivity;
 import com.baidu.tieba.square.forumlist.SquareForumListResHttpMsg;
 import com.baidu.tieba.square.forumlist.SquareForumListResSocketMsg;
-import com.baidu.tieba.square.square.BarFolderFirstDirActivity;
-import com.baidu.tieba.square.square.SquareActivity;
+import com.baidu.tieba.square.square.f;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ForumRankActivityStatic {
     static {
-        TbadkCoreApplication.getInst().RegisterIntent(BarFolderFirstDirActivityConfig.class, BarFolderFirstDirActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(BarFolderFirstDirActivityConfig.class, com.baidu.tieba.square.square.a.class);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new CustomMessageTask.CustomRunnable<ForumListActivityConfig>() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ForumListActivityConfig> customMessage) {
@@ -43,7 +42,7 @@ public class ForumRankActivityStatic {
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ForumRankActivityConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(ForumRankActivity.class);
+                    customMessage.getData().startActivity(d.class);
                 }
                 return null;
             }
@@ -54,7 +53,7 @@ public class ForumRankActivityStatic {
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<SingleSquareActivityConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(SquareActivity.class);
+                    customMessage.getData().startActivity(f.class);
                 }
                 return null;
             }
@@ -65,7 +64,7 @@ public class ForumRankActivityStatic {
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<BarFolderFirstDirActivityConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(BarFolderFirstDirActivity.class);
+                    customMessage.getData().startActivity(com.baidu.tieba.square.square.a.class);
                 }
                 return null;
             }
@@ -84,7 +83,7 @@ public class ForumRankActivityStatic {
         customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask5);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SQUARE_FORUM_LIST, SquareForumListResSocketMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003060, com.baidu.tieba.tbadkCore.a.a.bl("c/f/forumsquare/getForumsFromForumClass", CmdConfigSocket.CMD_SQUARE_FORUM_LIST));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003060, com.baidu.tieba.tbadkCore.a.a.bu("c/f/forumsquare/getForumsFromForumClass", CmdConfigSocket.CMD_SQUARE_FORUM_LIST));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -92,7 +91,7 @@ public class ForumRankActivityStatic {
         tbHttpMessageTask.setResponsedClass(SquareForumListResHttpMsg.class);
         tbHttpMessageTask.setIsImm(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        ba.amO().a(new ba.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
+        ba.aEa().a(new ba.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -113,7 +112,7 @@ public class ForumRankActivityStatic {
                 return 3;
             }
         });
-        ba.amO().a(UrlSchemaHelper.SCHEMA_TYPE_SQUARE, new ba.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
+        ba.aEa().a(UrlSchemaHelper.SCHEMA_TYPE_SQUARE, new ba.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
             @Override // com.baidu.tbadk.core.util.ba.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {

@@ -4,59 +4,48 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public final class b {
-    private static ArrayList<a> aUv = new ArrayList<>();
+    private static ArrayList<a> bvB = new ArrayList<>();
 
-    public static void u(String str, boolean z) {
-        if (!TextUtils.isEmpty(str)) {
-            for (int size = aUv.size() - 1; size >= 0; size--) {
-                a aVar = aUv.get(size);
-                if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
-                    aVar.bO(z);
-                }
-            }
-        }
-    }
-
-    public static void bQ(boolean z) {
-        for (int size = aUv.size() - 1; size >= 0; size--) {
-            a aVar = aUv.get(size);
+    public static void cG(boolean z) {
+        for (int size = bvB.size() - 1; size >= 0; size--) {
+            a aVar = bvB.get(size);
             if (aVar != null) {
-                aVar.bO(z);
+                aVar.cE(z);
             }
         }
     }
 
-    public static void bP(boolean z) {
-        for (int size = aUv.size() - 1; size >= 0; size--) {
-            a aVar = aUv.get(size);
+    public static void cF(boolean z) {
+        for (int size = bvB.size() - 1; size >= 0; size--) {
+            a aVar = bvB.get(size);
             if (aVar != null) {
-                aVar.bP(z);
+                aVar.cF(z);
             }
         }
     }
 
-    public static a fP(String str) {
+    public static a iC(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (int size = aUv.size() - 1; size >= 0; size--) {
-            a aVar = aUv.get(size);
-            if (aVar != null && TextUtils.equals(str, aVar.LL())) {
+        for (int size = bvB.size() - 1; size >= 0; size--) {
+            a aVar = bvB.get(size);
+            if (aVar != null && TextUtils.equals(str, aVar.Un())) {
                 return aVar;
             }
         }
         return null;
     }
 
-    public static a t(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+    public static a A(@Nullable String str, @Nullable String str2, @NonNull String str3) {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        for (int size = aUv.size() - 1; size >= 0; size--) {
-            a aVar = aUv.get(size);
-            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.LM())) || TextUtils.equals(str3, aVar.LL())))) {
+        for (int size = bvB.size() - 1; size >= 0; size--) {
+            a aVar = bvB.get(size);
+            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.Uo())) || TextUtils.equals(str3, aVar.Un())))) {
                 return aVar;
             }
         }
@@ -64,27 +53,27 @@ public final class b {
     }
 
     public static void a(a aVar) {
-        if (aVar != null && !aUv.contains(aVar)) {
-            aUv.add(aVar);
+        if (aVar != null && !bvB.contains(aVar)) {
+            bvB.add(aVar);
         }
     }
 
     public static void b(a aVar) {
         if (aVar != null) {
-            aUv.remove(aVar);
+            bvB.remove(aVar);
         }
     }
 
-    public static void LO() {
-        aUv.clear();
+    public static void Uq() {
+        bvB.clear();
     }
 
-    public static boolean fQ(String str) {
+    public static boolean iD(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int size = aUv.size() - 1; size >= 0; size--) {
-            a aVar = aUv.get(size);
+        for (int size = bvB.size() - 1; size >= 0; size--) {
+            a aVar = bvB.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.getSlaveId()) && aVar.onBackPressed()) {
                 return true;
             }
@@ -92,10 +81,10 @@ public final class b {
         return false;
     }
 
-    public static void cI(String str) {
+    public static void destroy(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int size = aUv.size() - 1; size >= 0; size--) {
-                a aVar = aUv.get(size);
+            for (int size = bvB.size() - 1; size >= 0; size--) {
+                a aVar = bvB.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
                     aVar.onDestroy();
                 }
@@ -104,15 +93,11 @@ public final class b {
     }
 
     public static void destroy() {
-        for (int size = aUv.size() - 1; size >= 0; size--) {
-            a aVar = aUv.get(size);
+        for (int size = bvB.size() - 1; size >= 0; size--) {
+            a aVar = bvB.get(size);
             if (aVar != null) {
                 aVar.onDestroy();
             }
         }
-    }
-
-    public static ArrayList<a> LP() {
-        return aUv;
     }
 }

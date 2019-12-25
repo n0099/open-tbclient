@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
 public class GuardClubRankHeaderMedalItemView extends LinearLayout {
-    private ImageView dPb;
-    private TextView dPc;
-    private TextView dPd;
+    private ImageView eDh;
+    private TextView eDi;
+    private TextView eDj;
 
     public GuardClubRankHeaderMedalItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -21,16 +21,16 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
     }
 
     public void setMedalResource(int i) {
-        this.dPb.setImageResource(i);
+        this.eDh.setImageResource(i);
     }
 
     public void setStyle(int i) {
         switch (i) {
             case 17:
-                this.dPd.setTextColor(-2856249);
+                this.eDj.setTextColor(-2856249);
                 return;
             case 18:
-                this.dPd.setTextColor(-3970070);
+                this.eDj.setTextColor(-3970070);
                 return;
             default:
                 return;
@@ -38,14 +38,14 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
     }
 
     public void setData(int i, String str, String str2) {
-        this.dPc.setText(str);
-        this.dPd.setText(str2);
+        this.eDi.setText(str);
+        this.eDj.setText(str2);
         switch (i) {
             case 1:
-                this.dPc.setTextColor(-838860801);
+                this.eDi.setTextColor(-838860801);
                 return;
             case 2:
-                this.dPc.setTextColor(-1);
+                this.eDi.setTextColor(-1);
                 return;
             default:
                 return;
@@ -57,8 +57,8 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
         setGravity(1);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_widget_rank_header_medal_item, (ViewGroup) this, true);
-        this.dPb = (ImageView) findViewById(a.g.iv_medal);
-        this.dPc = (TextView) findViewById(a.g.tv_name);
-        this.dPd = (TextView) findViewById(a.g.tv_value);
+        this.eDh = (ImageView) findViewById(a.g.iv_medal);
+        this.eDi = (TextView) findViewById(a.g.tv_name);
+        this.eDj = (TextView) findViewById(a.g.tv_value);
     }
 }

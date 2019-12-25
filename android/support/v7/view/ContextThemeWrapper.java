@@ -6,12 +6,10 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.annotation.RestrictTo;
 import android.support.annotation.StyleRes;
 import android.support.v7.appcompat.R;
 import android.view.LayoutInflater;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ContextThemeWrapper extends ContextWrapper {
     private LayoutInflater mInflater;
     private Configuration mOverrideConfiguration;
@@ -46,10 +44,6 @@ public class ContextThemeWrapper extends ContextWrapper {
             throw new IllegalStateException("Override configuration has already been set");
         }
         this.mOverrideConfiguration = new Configuration(configuration);
-    }
-
-    public Configuration getOverrideConfiguration() {
-        return this.mOverrideConfiguration;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context

@@ -1,6 +1,5 @@
 package com.baidu.platform.core.b;
 
-import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
@@ -127,7 +126,7 @@ public class e extends com.baidu.platform.base.d {
         reverseGeoCodeResult.setAddress(optJSONObject.optString("formatted_address"));
         reverseGeoCodeResult.setBusinessCircle(optJSONObject.optString("business"));
         reverseGeoCodeResult.setAddressDetail(a(optJSONObject, "addressComponent"));
-        reverseGeoCodeResult.setLocation(d(optJSONObject, Headers.LOCATION));
+        reverseGeoCodeResult.setLocation(d(optJSONObject, "location"));
         reverseGeoCodeResult.setPoiList(a(optJSONObject, "pois", reverseGeoCodeResult.getAddressDetail() != null ? reverseGeoCodeResult.getAddressDetail().city : ""));
         reverseGeoCodeResult.setSematicDescription(optJSONObject.optString("sematic_description"));
         reverseGeoCodeResult.setPoiRegionsInfoList(b(optJSONObject, "poiRegions"));

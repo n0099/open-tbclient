@@ -12,63 +12,63 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ShadowLayout extends FrameLayout {
-    private int cMK;
-    private int cML;
-    private int cMM;
-    private int cMN;
-    private int cMO;
-    private RectF hQ;
+    private int cYC;
+    private int dAO;
+    private int dAP;
+    private int dAQ;
+    private int dAR;
+    private RectF jE;
     private int mShadowRadius;
     private Paint paint;
 
     public ShadowLayout(@NonNull Context context) {
         super(context);
-        lj();
+        lB();
     }
 
     public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        lj();
+        lB();
     }
 
     public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        lj();
+        lB();
     }
 
-    private void lj() {
+    private void lB() {
         setWillNotDraw(false);
         setLayerType(1, null);
-        this.cMK = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
-        setPadding(this.cMK, this.cMK, this.cMK, this.cMK);
-        this.cMO = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
+        this.dAO = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
+        setPadding(this.dAO, this.dAO, this.dAO, this.dAO);
+        this.dAR = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
         this.mShadowRadius = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
-        this.cML = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
-        this.cMM = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
-        this.cMN = am.getColor(R.color.plugin_button_shadow_blue);
+        this.dAP = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
+        this.dAQ = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
+        this.cYC = am.getColor(R.color.plugin_button_shadow_blue);
         this.paint = new Paint();
         this.paint.setColor(0);
-        this.paint.setShadowLayer(this.mShadowRadius, this.cML, this.cMM, this.cMN);
-        this.hQ = new RectF();
+        this.paint.setShadowLayer(this.mShadowRadius, this.dAP, this.dAQ, this.cYC);
+        this.jE = new RectF();
     }
 
     public void setShadowColor(int i) {
-        this.cMN = am.getColor(i);
-        awX();
+        this.cYC = am.getColor(i);
+        aOL();
     }
 
-    private void awX() {
-        this.paint.setShadowLayer(this.mShadowRadius, this.cML, this.cMM, this.cMN);
+    private void aOL() {
+        this.paint.setShadowLayer(this.mShadowRadius, this.dAP, this.dAQ, this.cYC);
         postInvalidate();
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.hQ.left = getPaddingLeft();
-        this.hQ.right = getWidth() - getPaddingRight();
-        this.hQ.bottom = getHeight() - getPaddingBottom();
-        this.hQ.top = getPaddingTop();
-        canvas.drawRoundRect(this.hQ, this.cMO, this.cMO, this.paint);
+        this.jE.left = getPaddingLeft();
+        this.jE.right = getWidth() - getPaddingRight();
+        this.jE.bottom = getHeight() - getPaddingBottom();
+        this.jE.top = getPaddingTop();
+        canvas.drawRoundRect(this.jE, this.dAR, this.dAR, this.paint);
     }
 }

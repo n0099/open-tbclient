@@ -58,15 +58,15 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
         if (this.c != null) {
             if (this.b != null && message.arg1 == 0) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.b.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.abc_font_family_display_3_material), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_text_select_handle_left_mtrl_dark));
+                    this.b.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.search_menu_title), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_text_cursor_material));
                 } else {
-                    this.b.onGpsStatusChange(this.c.getResources().getString(R.string.abc_font_family_display_3_material), this.c.getResources().getDrawable(R.drawable.abc_text_select_handle_left_mtrl_dark));
+                    this.b.onGpsStatusChange(this.c.getResources().getString(R.string.search_menu_title), this.c.getResources().getDrawable(R.drawable.abc_text_cursor_material));
                 }
             } else if (this.a != null && message.arg1 == 0) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.a.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.abc_font_family_display_3_material), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_text_select_handle_left_mtrl_dark));
+                    this.a.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.search_menu_title), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_text_cursor_material));
                 } else {
-                    this.a.onGpsStatusChange(this.c.getResources().getString(R.string.abc_font_family_display_3_material), this.c.getResources().getDrawable(R.drawable.abc_text_select_handle_left_mtrl_dark));
+                    this.a.onGpsStatusChange(this.c.getResources().getString(R.string.search_menu_title), this.c.getResources().getDrawable(R.drawable.abc_text_cursor_material));
                 }
             }
         }
@@ -180,16 +180,16 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
         if (this.c != null) {
             if (this.b != null) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.b.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.abc_font_family_display_1_material), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_tab_indicator_material));
+                    this.b.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.exo_controls_shuffle_description), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_switch_track_mtrl_alpha));
                     return;
                 }
-                this.b.onRouteFarAway(this.c.getResources().getString(R.string.abc_font_family_display_1_material), this.c.getResources().getDrawable(R.drawable.abc_tab_indicator_material));
+                this.b.onRouteFarAway(this.c.getResources().getString(R.string.exo_controls_shuffle_description), this.c.getResources().getDrawable(R.drawable.abc_switch_track_mtrl_alpha));
             } else if (this.a != null) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.a.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.abc_font_family_display_1_material), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_tab_indicator_material));
+                    this.a.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.exo_controls_shuffle_description), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_switch_track_mtrl_alpha));
                     return;
                 }
-                this.a.onRouteFarAway(this.c.getResources().getString(R.string.abc_font_family_display_1_material), this.c.getResources().getDrawable(R.drawable.abc_tab_indicator_material));
+                this.a.onRouteFarAway(this.c.getResources().getString(R.string.exo_controls_shuffle_description), this.c.getResources().getDrawable(R.drawable.abc_switch_track_mtrl_alpha));
             }
         }
     }
@@ -199,16 +199,16 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
         if (this.c != null) {
             if (this.b != null) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.b.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.abc_font_family_body_1_material), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.account_active_account_check));
+                    this.b.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.exo_controls_repeat_all_description), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_vector_test));
                     return;
                 }
-                this.b.onRoutePlanYawing(this.c.getResources().getString(R.string.abc_font_family_body_1_material), this.c.getResources().getDrawable(R.drawable.account_active_account_check));
+                this.b.onRoutePlanYawing(this.c.getResources().getString(R.string.exo_controls_repeat_all_description), this.c.getResources().getDrawable(R.drawable.abc_vector_test));
             } else if (this.a != null) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.a.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.abc_font_family_body_1_material), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.account_active_account_check));
+                    this.a.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.exo_controls_repeat_all_description), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_vector_test));
                     return;
                 }
-                this.a.onRoutePlanYawing(this.c.getResources().getString(R.string.abc_font_family_body_1_material), this.c.getResources().getDrawable(R.drawable.account_active_account_check));
+                this.a.onRoutePlanYawing(this.c.getResources().getString(R.string.exo_controls_repeat_all_description), this.c.getResources().getDrawable(R.drawable.abc_vector_test));
             }
         }
     }

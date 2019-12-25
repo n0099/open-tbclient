@@ -10,6 +10,8 @@ public class VideoMiddlePageActivityConfig extends IntentConfig {
     public static final String FROM_FRS = "frs";
     public static final String FROM_HOTTOPIC = "hottopic";
     public static final String FROM_INDEX = "index";
+    public static final String FROM_VIDEO_TAB = "video_tab";
+    public static final String KEY_NID = "key_nid";
     public static final String PARAM_FROM = "PARAM_FROM";
     public static final String PARAM_ID = "PARAM_FID";
     public static final String PARAM_ST_TYPE = "st_type";
@@ -27,5 +29,11 @@ public class VideoMiddlePageActivityConfig extends IntentConfig {
     public VideoMiddlePageActivityConfig(Context context, String str, String str2, String str3, String str4, VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
         this(context, str, str2, str3, str4);
         getIntent().putExtra(PARAM_VIDEO_THREAD_INFO, videoSerializeVideoThreadInfo);
+    }
+
+    public void setNid(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("key_nid", str);
+        }
     }
 }

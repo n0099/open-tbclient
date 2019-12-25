@@ -17,7 +17,6 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.dto.PassNameValuePair;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.share.face.FaceLoginService;
 import com.baidu.sapi2.share.m;
@@ -32,7 +31,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class x {
     private static final String a = "share_account";
     private static final String b = "share_fail_reason";
@@ -378,9 +377,9 @@ public final class x {
                         return;
                     }
                     i3 = 1;
-                    str = SapiResult.ERROR_MSG_V2_SHARE_ACCOUNT_FAIL;
-                    Toast.makeText(context, SapiResult.ERROR_MSG_V2_SHARE_ACCOUNT_FAIL, 0).show();
-                    aVar.onFailed(SapiResult.ERROR_CODE_V2_SHARE_ACCOUNT_FAIL, SapiResult.ERROR_MSG_V2_SHARE_ACCOUNT_FAIL);
+                    str = "互通登录失败,请稍后再试";
+                    Toast.makeText(context, "互通登录失败,请稍后再试", 0).show();
+                    aVar.onFailed(-207, "互通登录失败,请稍后再试");
                 } else {
                     i3 = 2;
                     if (intent != null) {
@@ -389,7 +388,7 @@ public final class x {
                     } else {
                         str = "result data is null";
                     }
-                    aVar.onFailed(SapiResult.ERROR_CODE_V2_SHARE_ACCOUNT_FAIL, SapiResult.ERROR_MSG_V2_SHARE_ACCOUNT_FAIL);
+                    aVar.onFailed(-207, "互通登录失败,请稍后再试");
                 }
                 str2 = str;
                 str3 = "";

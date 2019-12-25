@@ -16,8 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ClipBoxView extends View {
     public static int a = 0;
     public static int b = 1;
@@ -204,7 +203,7 @@ public class ClipBoxView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        int argb = Color.argb((int) SubsamplingScaleImageView.ORIENTATION_180, 0, 0, 0);
+        int argb = Color.argb(180, 0, 0, 0);
         this.t.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
         canvas.drawColor(argb);
         b(canvas);

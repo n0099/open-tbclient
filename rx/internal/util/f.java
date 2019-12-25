@@ -2,36 +2,36 @@ package rx.internal.util;
 
 import java.security.AccessController;
 import java.security.PrivilegedAction;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class f {
-    private static final int kDv = cPa();
-    private static final boolean kDw;
+    private static final int niB = dGN();
+    private static final boolean niC;
 
     static {
-        kDw = kDv != 0;
+        niC = niB != 0;
     }
 
-    public static boolean cOY() {
-        return kDw;
+    public static boolean isAndroid() {
+        return niC;
     }
 
-    public static int cOZ() {
-        return kDv;
+    public static int dGM() {
+        return niB;
     }
 
-    private static int cPa() {
+    private static int dGN() {
         try {
-            return ((Integer) Class.forName("android.os.Build$VERSION", true, cPb()).getField("SDK_INT").get(null)).intValue();
+            return ((Integer) Class.forName("android.os.Build$VERSION", true, getSystemClassLoader()).getField("SDK_INT").get(null)).intValue();
         } catch (Exception e) {
             return 0;
         }
     }
 
-    static ClassLoader cPb() {
+    static ClassLoader getSystemClassLoader() {
         return System.getSecurityManager() == null ? ClassLoader.getSystemClassLoader() : (ClassLoader) AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() { // from class: rx.internal.util.f.1
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // java.security.PrivilegedAction
-            /* renamed from: cPc */
             public ClassLoader run() {
                 return ClassLoader.getSystemClassLoader();
             }

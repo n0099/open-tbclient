@@ -1,16 +1,15 @@
 package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.tbadk.core.util.aq;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class d {
-    public static String yE(String str) {
-        int lastIndexOf;
+    public static String Dn(String str) {
         int indexOf;
         String urlDecode = aq.getUrlDecode(str);
         if (urlDecode != null) {
-            if (urlDecode.indexOf(".baidu.com") != -1 && (lastIndexOf = urlDecode.lastIndexOf("/")) != -1 && (indexOf = urlDecode.indexOf(DefaultConfig.TOKEN_SEPARATOR, lastIndexOf)) != -1) {
+            int lastIndexOf = urlDecode.lastIndexOf("/");
+            if (lastIndexOf != -1 && (indexOf = urlDecode.indexOf(".", lastIndexOf)) != -1) {
                 return urlDecode.substring(lastIndexOf + 1, indexOf);
             }
             return null;
@@ -18,7 +17,7 @@ public class d {
         return urlDecode;
     }
 
-    public static boolean yF(String str) {
+    public static boolean Do(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

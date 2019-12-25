@@ -1,10 +1,9 @@
 package com.baidu.live.tbadk.core.util;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TiebaStaticHelper {
     private static final HashMap<String, String> mActivityNames = new HashMap<>();
     private static String mCurrentActivityAllName;
@@ -16,7 +15,7 @@ public class TiebaStaticHelper {
             mCurrentActivityName = str;
             return;
         }
-        int lastIndexOf = str.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR);
+        int lastIndexOf = str.lastIndexOf(".");
         if (lastIndexOf != -1 && lastIndexOf + 1 < str.length()) {
             str = str.substring(lastIndexOf + 1, str.length());
         }

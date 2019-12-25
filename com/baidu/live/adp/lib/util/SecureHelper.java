@@ -27,12 +27,11 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SecureHelper {
     public static final int AES256_PASSWORD_LENGTH = 32;
     public static final String CIPHER_TRIPLE_AES = "AES/ECB/PKCS5Padding";
-    public static final Charset defaultCharset = Charset.forName(HTTP.UTF_8);
+    public static final Charset defaultCharset = Charset.forName("UTF-8");
     private static final byte[] salt = {-92, Constants.GZIP_CAST_TYPE, -56, 52, -42, -107, -13, 19};
 
     public static long crc32File(File file) throws IOException {

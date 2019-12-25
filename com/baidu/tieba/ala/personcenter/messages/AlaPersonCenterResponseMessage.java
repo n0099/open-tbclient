@@ -1,9 +1,10 @@
 package com.baidu.tieba.ala.personcenter.messages;
 
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.personcenter.c.b;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
     private b data;
     private int errCode;
@@ -42,7 +43,7 @@ public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
             this.errCode = jSONObject.optInt("errno");
-            this.errMsg = jSONObject.optString("errmsg");
+            this.errMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
             this.data.parseJson(jSONObject);
         }
     }

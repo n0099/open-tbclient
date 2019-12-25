@@ -1,23 +1,9 @@
 package com.baidu.swan.pms.a;
 
-import java.io.File;
-import java.io.IOException;
-import okio.BufferedSource;
-/* loaded from: classes2.dex */
-public interface a<T> extends d {
-    void C(T t);
+import com.baidu.swan.pms.model.PMSAppInfo;
+/* loaded from: classes9.dex */
+public abstract class a<T> extends b<T> {
+    public abstract void a(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2);
 
-    void D(T t);
-
-    void E(T t);
-
-    void P(T t);
-
-    void R(T t);
-
-    void a(T t, com.baidu.swan.pms.model.a aVar);
-
-    boolean a(T t, BufferedSource bufferedSource, File file, long j) throws IOException;
-
-    String getDownloadPath();
+    public abstract void b(com.baidu.swan.pms.model.a aVar);
 }

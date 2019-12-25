@@ -5,41 +5,41 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private static c dua;
-    private List<an> dfF;
+    private static c eeJ;
+    private List<an> dTq;
 
-    public static c aII() {
-        if (dua == null) {
+    public static c aZf() {
+        if (eeJ == null) {
             synchronized (c.class) {
-                if (dua == null) {
-                    dua = new c();
+                if (eeJ == null) {
+                    eeJ = new c();
                 }
             }
         }
-        return dua;
+        return eeJ;
     }
 
     public void c(an anVar) {
         if (anVar != null) {
-            if (this.dfF == null) {
-                this.dfF = new ArrayList();
+            if (this.dTq == null) {
+                this.dTq = new ArrayList();
             }
-            if (this.dfF != null) {
-                this.dfF.add(anVar);
+            if (this.dTq != null) {
+                this.dTq.add(anVar);
             }
         }
     }
 
-    public void aIJ() {
-        if (v.getCount(this.dfF) != 0) {
-            for (an anVar : this.dfF) {
+    public void aZg() {
+        if (v.getCount(this.dTq) != 0) {
+            for (an anVar : this.dTq) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dfF.clear();
+            this.dTq.clear();
         }
     }
 }

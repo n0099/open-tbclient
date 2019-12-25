@@ -4,64 +4,146 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.ab;
-/* loaded from: classes4.dex */
-public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.h, com.baidu.tieba.card.a.a<com.baidu.tieba.card.j>> {
-    public BdUniqueId cJo;
-    private ab<com.baidu.tieba.card.data.h> fAH;
-    private com.baidu.tieba.card.j gky;
-    private TbPageContext<?> mPageContext;
+/* loaded from: classes6.dex */
+public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, com.baidu.tieba.card.a.a<com.baidu.tieba.card.u>> {
+    private com.baidu.tieba.card.z Jy;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> gnZ;
+    private com.baidu.adp.lib.d.b<TbImageView> goa;
+    private TbPageContext mPageContext;
 
-    public l(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.h.TYPE);
-        this.fAH = new ab<com.baidu.tieba.card.data.h>() { // from class: com.baidu.tieba.homepage.personalize.a.l.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.ab
-            public void a(View view, com.baidu.tieba.card.data.h hVar) {
-                if (view != null && l.this.gky != null && l.this.gky.eLy != null && l.this.gky.eLy.eLC != null && l.this.gky.eLy.eLA != null && l.this.gky.eLy.getView() != null) {
-                    if (view.getId() != l.this.gky.eLy.eLC.getId() || !(view.getTag() instanceof MetaData)) {
-                        if ((view.getId() == l.this.gky.eLy.getView().getId() || view.getId() == l.this.gky.eLy.eLA.getId()) && (view.getTag(R.id.rec_god_item_root) instanceof String)) {
-                            TiebaStatic.log(new an("c11005").bS("obj_id", (String) view.getTag(R.id.rec_god_item_root)));
-                        }
-                    } else if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
-                        TiebaStatic.log(new an("c10803").O("obj_locate", 6));
-                    }
+    /* JADX INFO: Access modifiers changed from: protected */
+    public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.Jy = new com.baidu.tieba.card.z() { // from class: com.baidu.tieba.homepage.personalize.a.l.1
+            @Override // com.baidu.tieba.card.z
+            public void a(View view, com.baidu.tieba.card.data.b bVar, Object obj) {
+                if ((bVar instanceof bj) && (obj instanceof com.baidu.tieba.card.s)) {
+                    TiebaStatic.log(l.this.a("c13024", (bj) bVar, (com.baidu.tieba.card.s) obj));
                 }
             }
         };
+        this.gnZ = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.personalize.a.l.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.d.c
+            /* renamed from: bDw */
+            public ConstrainImageLayout makeObject() {
+                return new ConstrainImageLayout(l.this.mPageContext.getPageActivity());
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.d.c
+            /* renamed from: c */
+            public void destroyObject(ConstrainImageLayout constrainImageLayout) {
+                constrainImageLayout.removeAllViews();
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.d.c
+            /* renamed from: d */
+            public ConstrainImageLayout activateObject(ConstrainImageLayout constrainImageLayout) {
+                return constrainImageLayout;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.d.c
+            /* renamed from: e */
+            public ConstrainImageLayout passivateObject(ConstrainImageLayout constrainImageLayout) {
+                return constrainImageLayout;
+            }
+        }, 6, 0);
+        this.goa = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.homepage.personalize.a.l.3
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.d.c
+            /* renamed from: aFw */
+            public TbImageView makeObject() {
+                TbImageView tbImageView = new TbImageView(l.this.mPageContext.getPageActivity());
+                tbImageView.setDrawBorder(true);
+                tbImageView.setBorderColor(am.getColor(R.color.common_color_10043));
+                tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
+                return tbImageView;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.d.c
+            /* renamed from: a */
+            public void destroyObject(TbImageView tbImageView) {
+                tbImageView.setOnClickListener(null);
+                tbImageView.setForegroundColor(0);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.d.c
+            /* renamed from: b */
+            public TbImageView activateObject(TbImageView tbImageView) {
+                return tbImageView;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.d.c
+            /* renamed from: c */
+            public TbImageView passivateObject(TbImageView tbImageView) {
+                tbImageView.setOnClickListener(null);
+                tbImageView.setForegroundColor(0);
+                return tbImageView;
+            }
+        }, 12, 0);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: as */
-    public com.baidu.tieba.card.a.a b(ViewGroup viewGroup) {
-        this.gky = new com.baidu.tieba.card.j(this.mPageContext, this.cJo);
-        return new com.baidu.tieba.card.a.a(this.gky);
+    /* renamed from: ar */
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.card.u> b(ViewGroup viewGroup) {
+        com.baidu.tieba.card.u uVar = new com.baidu.tieba.card.u(this.mPageContext, viewGroup);
+        com.baidu.tieba.card.a.a<com.baidu.tieba.card.u> aVar = new com.baidu.tieba.card.a.a<>(uVar);
+        uVar.setConstrainImagePool(this.goa);
+        uVar.setConstrainLayoutPool(this.gnZ);
+        uVar.c(this.Jy);
+        return aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.j> aVar) {
-        this.gky = aVar.baX();
-        aVar.baX().a(hVar);
-        aVar.baX().d(this.fAH);
-        aVar.baX().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.t.bau().c(new an("c11006"));
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.u> aVar) {
+        if (aVar == null || aVar.btc() == null) {
+            return null;
+        }
+        if (kVar != null && kVar.axx() != null) {
+            com.baidu.tieba.card.s sVar = new com.baidu.tieba.card.s();
+            sVar.locate = kVar.position + 1;
+            sVar.source = kVar.getSource();
+            sVar.weight = kVar.getWeight();
+            sVar.cLq = kVar.bsJ();
+            com.baidu.tieba.card.r.bsy().c(a("c13023", kVar.axx(), sVar));
+            aVar.btc().a(sVar);
+            aVar.btc().c(this.Jy);
+            aVar.btc().a(kVar.axx());
+        }
         return aVar.getView();
     }
 
-    public void tf(int i) {
-        if (this.gky != null) {
-            this.gky.onChangeSkinType(this.mPageContext, i);
+    /* JADX INFO: Access modifiers changed from: private */
+    public an a(String str, bj bjVar, com.baidu.tieba.card.s sVar) {
+        if (StringUtils.isNull(str) || bjVar == null || sVar == null) {
+            return null;
         }
+        an cp = new an(str).cp("fid", String.valueOf(bjVar.getFid())).cp("tid", String.valueOf(bjVar.getTid())).Z("obj_locate", sVar.locate).cp("obj_source", sVar.source).cp("obj_param1", sVar.weight).cp(TiebaInitialize.Params.AB_TAG, sVar.cLq).cp(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bsp());
+        if (bjVar.azE() != null) {
+            cp.cp("obj_name", bjVar.azE().getName_show());
+            return cp;
+        }
+        return cp;
     }
 }

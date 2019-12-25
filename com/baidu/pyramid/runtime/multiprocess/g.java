@@ -5,24 +5,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private static d aCs;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(d dVar) {
-        aCs = dVar;
-    }
+    private static d aQu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void h(Exception exc) {
-        if (aCs != null) {
-            aCs.dK(i(exc).toString());
+        if (aQu != null) {
+            aQu.eB(i(exc).toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void dK(String str) {
-        if (aCs != null) {
-            aCs.dK(str);
+    public static void eB(String str) {
+        if (aQu != null) {
+            aQu.eB(str);
         }
     }
 
@@ -32,7 +27,7 @@ public class g {
         try {
             jSONObject.put("process_name", a.getProcessName());
             jSONObject.put("stack_trace", Log.getStackTraceString(exc));
-            jSONObject.put("process_info", a.Ab());
+            jSONObject.put("process_info", a.BY());
             jSONObject.put("report_time", System.currentTimeMillis());
         } catch (JSONException e) {
         }

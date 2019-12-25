@@ -1,6 +1,5 @@
 package com.baidu.platform.core.f;
 
-import android.net.http.Headers;
 import android.util.Log;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
@@ -105,7 +104,7 @@ public class c extends com.baidu.platform.base.d {
                 suggestionInfo.setUid(jSONObject2.optString("uid"));
                 suggestionInfo.setTag(jSONObject2.optString("tag"));
                 suggestionInfo.setAddress(jSONObject2.optString(SlideActiviy.ADDRESS_PAGE_NAME));
-                suggestionInfo.setPt(a(jSONObject2.optJSONObject(Headers.LOCATION)));
+                suggestionInfo.setPt(a(jSONObject2.optJSONObject("location")));
                 JSONArray optJSONArray2 = jSONObject2.optJSONArray("children");
                 if (optJSONArray2 != null && optJSONArray2.length() != 0) {
                     suggestionInfo.setPoiChildrenInfoList(a(optJSONArray2));

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.searchbox.account.data.UserAccountActionItem;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Abstract;
@@ -32,7 +33,7 @@ public class AbstractData extends OrmObject implements Serializable {
                 this.type = jSONObject.optInt("type", 0);
                 this.text = jSONObject.optString("text");
                 this.link = jSONObject.optString("link");
-                this.src = jSONObject.optString("src");
+                this.src = jSONObject.optString(UserAccountActionItem.KEY_SRC);
                 this.un = jSONObject.optString("un");
                 this.duringTime = jSONObject.optString("during_time");
                 this.voiceMD5 = jSONObject.optString("voice_md5");

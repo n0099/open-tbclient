@@ -1,11 +1,12 @@
 package com.baidu.adp.lib.util;
 
+import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.live.adp.lib.util.FieldUtil;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class p {
-    public static String dateFormat = "yyyy-MM-dd HH:mm:ss";
+    public static String dateFormat = DateTimeUtil.TIME_FORMAT;
     public static HashMap<String, String> PrimitiveTypes = new HashMap<>();
 
     static {

@@ -5,10 +5,10 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 public class PluginInstallTask extends OrmObject {
     protected String apkFilePath;
     protected String pkgName;
-    protected boolean ue;
-    protected long uf;
+    protected boolean wK;
+    protected long wL;
 
-    public long ib() {
-        return Math.max(Math.min(this.uf * 80, 240000L), 60000L);
+    public long getTimeout() {
+        return Math.max(Math.min(this.wL * 80, 240000L), 60000L);
     }
 }

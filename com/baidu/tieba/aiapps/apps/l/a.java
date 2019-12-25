@@ -1,86 +1,138 @@
 package com.baidu.tieba.aiapps.apps.l;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.sapi2.service.AbstractThirdPartyService;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.pay.d;
-import java.util.Map;
-/* loaded from: classes4.dex */
-public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
-    private com.baidu.tieba.aiapps.apps.l.a.a drE;
-    private Activity drF;
-    private BdUniqueId mPageId = BdUniqueId.gen();
-    private CustomMessageListener drG = new CustomMessageListener(2921393) { // from class: com.baidu.tieba.aiapps.apps.l.a.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                Object data = customResponsedMessage.getData();
-                if (data instanceof d) {
-                    d dVar = (d) data;
-                    if (getTag() == dVar.tag) {
-                        a.this.mResult.putInt("result_code", dVar.type);
-                        a.this.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, dVar.message);
-                        a.this.drE.I(a.this.mResult);
-                        a.this.finish();
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.j;
+import com.baidu.swan.apps.y.f;
+import com.baidubce.AbstractBceClient;
+import java.io.IOException;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class a extends ab {
+    public a(j jVar) {
+        super(jVar, "/swanAPI/navigateToProgram");
+    }
+
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, e eVar) {
+        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+        if (optParamsAsJo == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        } else if (eVar == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        } else {
+            String ZU = e.ZU();
+            if (TextUtils.isEmpty(ZU) || TextUtils.isEmpty(ZU.trim())) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            final String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            String optString2 = optParamsAsJo.optString("path");
+            if (!StringUtils.isNull(optString2) && optString2.contains("/pages/frshistory/frshistory?")) {
+                com.baidu.tieba.aiapps.apps.m.e.aP(context, unitedSchemeEntity.getParam("params"));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+            Request g = g(ZU, optParamsAsJo);
+            if (g == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            eVar.aae().a(g, new Callback() { // from class: com.baidu.tieba.aiapps.apps.l.a.1
+                @Override // okhttp3.Callback
+                public void onFailure(Call call, IOException iOException) {
+                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                }
+
+                @Override // okhttp3.Callback
+                public void onResponse(Call call, Response response) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(response.body().string());
+                        if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
+                            callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                        } else {
+                            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                            if (optJSONObject != null) {
+                                Uri lc = a.this.lc(optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME));
+                                if (lc == null) {
+                                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                                } else {
+                                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(context, lc, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
+                                }
+                            } else {
+                                callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                            }
+                        }
+                    } catch (Exception e) {
+                        if (a.DEBUG) {
+                            Log.d("NavigateToSmartProgram", e.getMessage());
+                        }
+                        callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
                     }
+                }
+            });
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
+        }
+    }
+
+    private Request g(String str, JSONObject jSONObject) {
+        Request request = null;
+        if (jSONObject != null && !TextUtils.isEmpty(str)) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("app_key", str);
+                jSONObject2.put("srcAppPage", aYt());
+                jSONObject2.put("params", jSONObject);
+                request = new Request.Builder().url("https://spapi.baidu.com/ma/navigate").post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
+                if (DEBUG) {
+                    Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
+                }
+            } catch (Exception e) {
+                if (DEBUG) {
+                    e.printStackTrace();
                 }
             }
         }
-    };
-
-    public void a(com.baidu.tieba.aiapps.apps.l.a.a aVar) {
-        this.drE = aVar;
+        return request;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        this.drG.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.drG);
-        int i = this.mParams.getInt("type");
-        String string = this.mParams.getString("orderInfo");
-        d dVar = new d();
-        dVar.tag = this.mPageId;
-        dVar.type = i;
-        dVar.message = string;
-        dVar.params = (Map) this.mParams.getSerializable("params");
-        if (getAgent() != null) {
-            dVar.context = getAgent();
-        } else if (this.drF != null) {
-            dVar.context = this.drF;
-        } else {
-            dVar.context = TbadkCoreApplication.getInst().getCurrentActivity();
+    /* JADX INFO: Access modifiers changed from: private */
+    public Uri lc(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-        CustomMessage customMessage = new CustomMessage(2921393, dVar);
-        customMessage.setTag(this.mPageId);
-        boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
-        this.mResult.putInt("result_code", sendMessage ? 0 : 1);
-        this.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, "" + sendMessage);
-        return false;
+        return Uri.parse(str);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void finish() {
-        this.drE = null;
-        MessageManager.getInstance().unRegisterListener(this.drG);
-        super.finish();
-    }
-
-    @Override // com.baidu.swan.apps.a.a
-    public void onResult(int i) {
-        this.mResult.putInt("result_code", i);
-        this.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, "");
-        finish();
-    }
-
-    public void aa(Activity activity) {
-        this.drF = activity;
+    private String aYt() {
+        com.baidu.swan.apps.core.d.e DP = f.Uf().DP();
+        if (DP == null || DP.LC() == null) {
+            return "";
+        }
+        return DP.LC().Lq().getPage() + "?" + DP.LC().Lq().getParams();
     }
 }

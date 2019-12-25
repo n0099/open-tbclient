@@ -14,46 +14,46 @@ import com.baidu.tieba.tbadkCore.location.a;
 import com.baidu.tieba.tbadkCore.location.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends BaseAdapter {
     private ArrayList<Object> data;
-    private SelectLocationActivity hkX;
+    private SelectLocationActivity hYY;
     private boolean isShowLocation;
 
     public b(SelectLocationActivity selectLocationActivity) {
         this.isShowLocation = true;
-        this.hkX = selectLocationActivity;
-        com.baidu.tieba.tbadkCore.location.a locationData = c.coU().getLocationData();
-        this.isShowLocation = c.coU().coV() ? false : true;
+        this.hYY = selectLocationActivity;
+        com.baidu.tieba.tbadkCore.location.a locationData = c.cJa().getLocationData();
+        this.isShowLocation = c.cJa().cJb() ? false : true;
         if (locationData != null) {
-            this.data = h(locationData.coT(), locationData.coS());
+            this.data = i(locationData.cIZ(), locationData.cIY());
         }
     }
 
-    private ArrayList<Object> h(List<a.C0516a> list, String str) {
+    private ArrayList<Object> i(List<a.C0600a> list, String str) {
         if (list == null || list.size() <= 0) {
             return null;
         }
         ArrayList<Object> arrayList = new ArrayList<>();
-        a.C0516a c0516a = null;
-        for (a.C0516a c0516a2 : list) {
-            if (c0516a2 != null && !TextUtils.isEmpty(c0516a2.getName())) {
-                if (TextUtils.equals(c0516a2.getName(), str)) {
-                    c0516a = c0516a2;
+        a.C0600a c0600a = null;
+        for (a.C0600a c0600a2 : list) {
+            if (c0600a2 != null && !TextUtils.isEmpty(c0600a2.getName())) {
+                if (TextUtils.equals(c0600a2.getName(), str)) {
+                    c0600a = c0600a2;
                 } else {
-                    arrayList.add(c0516a2);
+                    arrayList.add(c0600a2);
                 }
             }
         }
-        if (c0516a != null) {
-            arrayList.add(0, c0516a);
+        if (c0600a != null) {
+            arrayList.add(0, c0600a);
         } else {
-            a.C0516a c0516a3 = new a.C0516a();
-            c0516a3.setName(str);
-            arrayList.add(0, c0516a3);
+            a.C0600a c0600a3 = new a.C0600a();
+            c0600a3.setName(str);
+            arrayList.add(0, c0600a3);
         }
-        if (this.hkX != null) {
-            arrayList.add(0, this.hkX.getPageContext().getString(R.string.select_position_no_location));
+        if (this.hYY != null) {
+            arrayList.add(0, this.hYY.getPageContext().getString(R.string.select_position_no_location));
         }
         return arrayList;
     }
@@ -64,7 +64,7 @@ public class b extends BaseAdapter {
         if (item instanceof String) {
             return 0;
         }
-        if (item instanceof a.C0516a) {
+        if (item instanceof a.C0600a) {
             return 1;
         }
         return 2;
@@ -112,43 +112,43 @@ public class b extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.location.selectpoi.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0459b {
-        View eyu;
-        ImageView hkY;
+    /* loaded from: classes7.dex */
+    public static class C0545b {
+        View fpV;
+        ImageView hYZ;
         TextView title;
 
-        private C0459b() {
+        private C0545b() {
         }
     }
 
     private View c(View view, int i, boolean z) {
-        C0459b c0459b;
+        C0545b c0545b;
         View view2;
         Object item = getItem(i);
         if (item instanceof String) {
             String str = (String) item;
-            if (view == null || !(view.getTag() instanceof C0459b)) {
-                View inflate = LayoutInflater.from(this.hkX.getPageContext().getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
-                c0459b = new C0459b();
-                c0459b.title = (TextView) inflate.findViewById(R.id.select_location_title);
-                c0459b.hkY = (ImageView) inflate.findViewById(R.id.select_location_tick);
-                c0459b.eyu = inflate.findViewById(R.id.select_location_line);
-                inflate.setTag(c0459b);
+            if (view == null || !(view.getTag() instanceof C0545b)) {
+                View inflate = LayoutInflater.from(this.hYY.getPageContext().getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
+                c0545b = new C0545b();
+                c0545b.title = (TextView) inflate.findViewById(R.id.select_location_title);
+                c0545b.hYZ = (ImageView) inflate.findViewById(R.id.select_location_tick);
+                c0545b.fpV = inflate.findViewById(R.id.select_location_line);
+                inflate.setTag(c0545b);
                 view2 = inflate;
             } else {
-                c0459b = (C0459b) view.getTag();
+                c0545b = (C0545b) view.getTag();
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                c0459b.hkY.setVisibility(0);
-                am.setImageResource(c0459b.hkY, R.drawable.icon_site_ok);
+                c0545b.hYZ.setVisibility(0);
+                am.setImageResource(c0545b.hYZ, R.drawable.icon_site_ok);
             } else {
-                c0459b.hkY.setVisibility(4);
+                c0545b.hYZ.setVisibility(4);
             }
-            c0459b.title.setText(str);
-            am.setBackgroundColor(c0459b.eyu, R.color.cp_bg_line_c);
-            am.setViewTextColor(c0459b.title, R.color.cp_link_tip_a, 1);
+            c0545b.title.setText(str);
+            am.setBackgroundColor(c0545b.fpV, R.color.cp_bg_line_c);
+            am.setViewTextColor(c0545b.title, R.color.cp_link_tip_a, 1);
             am.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
             return view2;
         }
@@ -156,11 +156,11 @@ public class b extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        TextView bFm;
-        TextView hkQ;
-        ImageView hkY;
+        TextView cpT;
+        TextView hYR;
+        ImageView hYZ;
 
         private a() {
         }
@@ -169,31 +169,31 @@ public class b extends BaseAdapter {
     private View d(View view, int i, boolean z) {
         a aVar;
         Object item = getItem(i);
-        if (item instanceof a.C0516a) {
-            a.C0516a c0516a = (a.C0516a) item;
-            if (view == null || !(view.getTag() instanceof C0459b)) {
-                view = LayoutInflater.from(this.hkX.getPageContext().getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
+        if (item instanceof a.C0600a) {
+            a.C0600a c0600a = (a.C0600a) item;
+            if (view == null || !(view.getTag() instanceof C0545b)) {
+                view = LayoutInflater.from(this.hYY.getPageContext().getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
                 a aVar2 = new a();
-                aVar2.bFm = (TextView) view.findViewById(R.id.select_location_name);
-                aVar2.hkQ = (TextView) view.findViewById(R.id.select_location_address);
-                aVar2.hkY = (ImageView) view.findViewById(R.id.select_location_tick);
+                aVar2.cpT = (TextView) view.findViewById(R.id.select_location_name);
+                aVar2.hYR = (TextView) view.findViewById(R.id.select_location_address);
+                aVar2.hYZ = (ImageView) view.findViewById(R.id.select_location_tick);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.hkQ.setText(c0516a.getAddr());
+            aVar.hYR.setText(c0600a.getAddr());
             if (this.isShowLocation && i == 1) {
-                aVar.hkY.setVisibility(0);
-                if (TextUtils.isEmpty(c0516a.getAddr())) {
-                    aVar.hkQ.setText(R.string.select_location_current);
+                aVar.hYZ.setVisibility(0);
+                if (TextUtils.isEmpty(c0600a.getAddr())) {
+                    aVar.hYR.setText(R.string.select_location_current);
                 }
             } else {
-                aVar.hkY.setVisibility(4);
+                aVar.hYZ.setVisibility(4);
             }
-            aVar.bFm.setText(c0516a.getName());
-            this.hkX.getLayoutMode().setNightMode(z);
-            this.hkX.getLayoutMode().onModeChanged(view);
+            aVar.cpT.setText(c0600a.getName());
+            this.hYY.getLayoutMode().setNightMode(z);
+            this.hYY.getLayoutMode().onModeChanged(view);
             am.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
             return view;
         }

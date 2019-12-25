@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.service.al;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 /* synthetic */ class gv {
     static final /* synthetic */ int[] a = new int[al.c.values().length];
 

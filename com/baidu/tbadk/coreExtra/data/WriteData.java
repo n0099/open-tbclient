@@ -1,7 +1,8 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.File;
@@ -33,14 +34,17 @@ public class WriteData extends OrmObject implements Serializable {
     private boolean canNoForum;
     private int entranceType;
     private boolean isAd;
+    private boolean isBJHPost;
     private boolean isBabaoPosted;
     private boolean isLinkThread;
     private boolean isPrivacy;
     private boolean isShareThread;
+    private boolean isToDynamic;
     private boolean isUserFeedback;
     private String linkUrl;
     private String linkUrlCode;
     private String mAuthSid;
+    private BaijiahaoData mBaijiahaoData;
     private long mBarrageTime;
     private int mBigEmtionCount;
     private int mCategoryFrom;
@@ -65,6 +69,7 @@ public class WriteData extends OrmObject implements Serializable {
     private String mLng;
     private String mMemeContSign;
     private String mMemeText;
+    private BaijiahaoData mOriBaijiahaoData;
     private boolean mPostLatLng;
     private String mRecommendExt;
     private String mReplyUid;
@@ -100,6 +105,7 @@ public class WriteData extends OrmObject implements Serializable {
     private VideoInfo mVideoInfo;
     private int mVideoReviewType;
     private String mVoiceMd5;
+    private VoiceData.VoiceModel mVoiceModel;
     private String originalThreadId;
     private String originalVideoCover;
     private String originalVideoTitle;
@@ -117,6 +123,14 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setBabaoPosted(boolean z) {
         this.isBabaoPosted = z;
+    }
+
+    public void setIsBJHPost(boolean z) {
+        this.isBJHPost = z;
+    }
+
+    public boolean isBJHPost() {
+        return this.isBJHPost;
     }
 
     public void setPostPrefix(String str) {
@@ -203,6 +217,7 @@ public class WriteData extends OrmObject implements Serializable {
         this.mIsBarrage = false;
         this.mBarrageTime = 0L;
         this.isPrivacy = false;
+        this.isToDynamic = false;
         this.isShareThread = false;
         this.originalThreadId = "";
         this.mTakePhotoNum = 0;
@@ -229,7 +244,10 @@ public class WriteData extends OrmObject implements Serializable {
     public boolean hasContentToSave() {
         if (com.baidu.adp.lib.util.k.isEmpty(this.mContent) && com.baidu.adp.lib.util.k.isEmpty(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
-                return (this.mVideoInfo != null && this.mVideoInfo.isAvaliable()) || this.mCategoryTo >= 0;
+                if (this.mVideoInfo == null || !this.mVideoInfo.isAvaliable()) {
+                    return !(this.mVoiceModel == null || this.mVoiceModel.voiceId == null || this.mVoiceModel.duration == -1) || this.mCategoryTo >= 0;
+                }
+                return true;
             }
             return true;
         }
@@ -252,13 +270,16 @@ public class WriteData extends OrmObject implements Serializable {
             if (this.mVideoInfo != null) {
                 jSONObject.put("new_video_info", VideoInfo.jsonWithObject(this.mVideoInfo));
             }
+            if (this.mVoiceModel != null) {
+                jSONObject.put("mVoiceModel", VoiceData.VoiceModel.jsonWithObject(this.mVoiceModel));
+            }
             if (this.mTaskId != null) {
                 jSONObject.put("mTaskId", this.mTaskId);
             }
             jSONObject.put("is_barrage", this.mIsBarrage);
             jSONObject.put("barrage_time", this.mBarrageTime);
             jSONObject.put("big_count", this.mBigEmtionCount);
-            jSONObject.put(VideoPlayActivityConfig.SOURCE_FROM, this.sourceFrom);
+            jSONObject.put("source_from", this.sourceFrom);
             jSONObject.put("pro_zone", this.proZone);
             jSONObject.put("topic_id", this.mTopicId);
             jSONObject.put("sub_pb_reply_prefix", this.mSubPbReplyPrefix);
@@ -285,15 +306,19 @@ public class WriteData extends OrmObject implements Serializable {
             if (optJSONObject != null) {
                 writeData.mVideoInfo = (VideoInfo) VideoInfo.objectWithJson(optJSONObject, VideoInfo.class);
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("writeImagesInfo");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("mVoiceModel");
             if (optJSONObject2 != null) {
+                writeData.mVoiceModel = (VoiceData.VoiceModel) VoiceData.VoiceModel.objectWithJson(optJSONObject2, VoiceData.VoiceModel.class);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("writeImagesInfo");
+            if (optJSONObject3 != null) {
                 writeData.writeImagesInfo = new WriteImagesInfo();
-                writeData.writeImagesInfo.parseJson(optJSONObject2);
+                writeData.writeImagesInfo.parseJson(optJSONObject3);
             }
             writeData.mIsBarrage = jSONObject.optBoolean("is_barrage");
             writeData.mBarrageTime = jSONObject.optLong("barrage_time");
             writeData.mBigEmtionCount = jSONObject.optInt("big_count");
-            writeData.sourceFrom = jSONObject.optString(VideoPlayActivityConfig.SOURCE_FROM);
+            writeData.sourceFrom = jSONObject.optString("source_from");
             writeData.proZone = jSONObject.optInt("pro_zone");
             writeData.mTopicId = jSONObject.optString("topic_id");
             writeData.mSubPbReplyPrefix = jSONObject.optString("sub_pb_reply_prefix");
@@ -476,6 +501,14 @@ public class WriteData extends OrmObject implements Serializable {
 
     public VideoInfo getVideoInfo() {
         return this.mVideoInfo;
+    }
+
+    public VoiceData.VoiceModel getVoiceModel() {
+        return this.mVoiceModel;
+    }
+
+    public void setVoiceModel(VoiceData.VoiceModel voiceModel) {
+        this.mVoiceModel = voiceModel;
     }
 
     public int getProZone() {
@@ -865,6 +898,14 @@ public class WriteData extends OrmObject implements Serializable {
         return this.isPrivacy;
     }
 
+    public void setToDynamic(boolean z) {
+        this.isToDynamic = z;
+    }
+
+    public boolean isToDynamic() {
+        return this.isToDynamic;
+    }
+
     public void setIsShareThread(boolean z) {
         this.isShareThread = z;
     }
@@ -959,5 +1000,21 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setSubPbReplyPrefix(String str) {
         this.mSubPbReplyPrefix = str;
+    }
+
+    public BaijiahaoData getBaijiahaoData() {
+        return this.mBaijiahaoData;
+    }
+
+    public void setBaijiahaoData(BaijiahaoData baijiahaoData) {
+        this.mBaijiahaoData = baijiahaoData;
+    }
+
+    public BaijiahaoData getOriBaijiahaoData() {
+        return this.mOriBaijiahaoData;
+    }
+
+    public void setOriBaijiahaoData(BaijiahaoData baijiahaoData) {
+        this.mOriBaijiahaoData = baijiahaoData;
     }
 }

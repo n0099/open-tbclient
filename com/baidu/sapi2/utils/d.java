@@ -3,7 +3,7 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sofire.ac.FH;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class d {
     private static final String a = "SafeService";
     public static final int b = 120;
@@ -11,7 +11,7 @@ public class d {
     public static final int d = 1;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static d a = new d();
 

@@ -8,61 +8,61 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.core.view.h;
-import com.baidu.tbadk.m.h;
+import com.baidu.tbadk.core.view.g;
+import com.baidu.tbadk.k.h;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.recent_history.b.b;
 import com.baidu.tieba.ala.alasquare.recent_history.c.a;
 import com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaRecentHistoryFragment extends BaseFragment {
-    private AlaRecentHistoryModel dzM;
-    private a dzN;
+    private AlaRecentHistoryModel ekM;
+    private a ekN;
     private h mRefreshView;
     private int mType;
-    private h.c cpa = new h.c() { // from class: com.baidu.tieba.ala.alasquare.recent_history.AlaRecentHistoryFragment.1
-        @Override // com.baidu.tbadk.core.view.h.c
+    private g.c dcr = new g.c() { // from class: com.baidu.tieba.ala.alasquare.recent_history.AlaRecentHistoryFragment.1
+        @Override // com.baidu.tbadk.core.view.g.c
         public void onListPullRefresh(boolean z) {
-            if (AlaRecentHistoryFragment.this.dzM != null) {
-                AlaRecentHistoryFragment.this.dzM.refresh();
+            if (AlaRecentHistoryFragment.this.ekM != null) {
+                AlaRecentHistoryFragment.this.ekM.refresh();
             }
         }
     };
-    private BdListView.e xE = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.recent_history.AlaRecentHistoryFragment.2
+    private BdListView.e Ac = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.recent_history.AlaRecentHistoryFragment.2
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (AlaRecentHistoryFragment.this.dzM != null) {
-                AlaRecentHistoryFragment.this.dzM.aIU();
+            if (AlaRecentHistoryFragment.this.ekM != null) {
+                AlaRecentHistoryFragment.this.ekM.aZs();
             }
         }
     };
-    private AlaRecentHistoryModel.a dzO = new AlaRecentHistoryModel.a() { // from class: com.baidu.tieba.ala.alasquare.recent_history.AlaRecentHistoryFragment.3
+    private AlaRecentHistoryModel.a ekO = new AlaRecentHistoryModel.a() { // from class: com.baidu.tieba.ala.alasquare.recent_history.AlaRecentHistoryFragment.3
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.a
         public void d(boolean z, List<b> list) {
-            AlaRecentHistoryFragment.this.dzN.completePullRefresh();
-            AlaRecentHistoryFragment.this.hideLoadingView(AlaRecentHistoryFragment.this.dzN.aJP());
-            AlaRecentHistoryFragment.this.dzN.setData(list, z);
+            AlaRecentHistoryFragment.this.ekN.completePullRefresh();
+            AlaRecentHistoryFragment.this.hideLoadingView(AlaRecentHistoryFragment.this.ekN.bao());
+            AlaRecentHistoryFragment.this.ekN.setData(list, z);
             if (v.isEmpty(list)) {
-                AlaRecentHistoryFragment.this.a(true, AlaRecentHistoryFragment.this.dzN.aJP(), AlaRecentHistoryFragment.this.mType == 0 ? AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_living_no_data_tip) : AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_whole_no_data_tip));
+                AlaRecentHistoryFragment.this.a(true, AlaRecentHistoryFragment.this.ekN.bao(), AlaRecentHistoryFragment.this.mType == 0 ? AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_living_no_data_tip) : AlaRecentHistoryFragment.this.getPageContext().getPageActivity().getResources().getString(R.string.sqaure_recent_whole_no_data_tip));
             } else {
                 AlaRecentHistoryFragment.this.a(false, null, null);
             }
         }
 
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.a
-        public void d(int i, String str, boolean z) {
-            AlaRecentHistoryFragment.this.dzN.completePullRefresh();
+        public void e(int i, String str, boolean z) {
+            AlaRecentHistoryFragment.this.ekN.completePullRefresh();
             if (!z) {
-                AlaRecentHistoryFragment.this.showNetRefreshView(AlaRecentHistoryFragment.this.dzN.aJP(), str, false);
+                AlaRecentHistoryFragment.this.showNetRefreshView(AlaRecentHistoryFragment.this.ekN.bao(), str, false);
             } else {
                 AlaRecentHistoryFragment.this.showToast(R.string.square_load_data_failed_tip);
             }
-            AlaRecentHistoryFragment.this.dzN.aJQ();
+            AlaRecentHistoryFragment.this.ekN.bap();
         }
     };
 
-    public static AlaRecentHistoryFragment mh(int i) {
+    public static AlaRecentHistoryFragment oq(int i) {
         AlaRecentHistoryFragment alaRecentHistoryFragment = new AlaRecentHistoryFragment();
         Bundle bundle = new Bundle();
         bundle.putInt("key_type", i);
@@ -82,37 +82,37 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         }
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.dzM = new AlaRecentHistoryModel(getPageContext(), this.mType, this.dzO);
-        this.dzN = new a(getPageContext(), this.mType);
-        this.dzN.setListPullRefreshListener(this.cpa);
-        this.dzN.setOnSrollToBottomListener(this.xE);
+        this.ekM = new AlaRecentHistoryModel(getPageContext(), this.mType, this.ekO);
+        this.ekN = new a(getPageContext(), this.mType);
+        this.ekN.setListPullRefreshListener(this.dcr);
+        this.ekN.setOnSrollToBottomListener(this.Ac);
         refreshData();
         if (this.mType == 0) {
             TiebaStatic.log("c12650");
         }
-        return this.dzN.getRootView();
+        return this.ekN.getRootView();
     }
 
     private void refreshData() {
-        hideNetRefreshView(this.dzN.aJP());
-        if (v.getCount(this.dzM.getData()) == 0) {
-            showLoadingView(this.dzN.aJP());
+        hideNetRefreshView(this.ekN.bao());
+        if (v.getCount(this.ekM.getData()) == 0) {
+            showLoadingView(this.ekN.bao());
         }
-        if (this.dzM != null) {
-            this.dzM.refresh();
+        if (this.ekM != null) {
+            this.ekM.refresh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, ViewGroup viewGroup, String str) {
         if (this.mRefreshView == null) {
-            this.mRefreshView = new com.baidu.tbadk.m.h(getPageContext().getPageActivity(), null);
+            this.mRefreshView = new h(getPageContext().getPageActivity(), null);
         }
         if (z) {
             this.mRefreshView.attachView(viewGroup);
-            this.mRefreshView.avv().setVisibility(8);
+            this.mRefreshView.aNd().setVisibility(8);
             this.mRefreshView.setSubText(null);
             this.mRefreshView.getTitleView().setVisibility(0);
             this.mRefreshView.getTitleView().setText(str);
@@ -130,19 +130,19 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dzN != null) {
-            this.dzN.onChangeSkinType(i);
+        if (this.ekN != null) {
+            this.ekN.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dzM != null) {
-            this.dzM.onDestroy();
+        if (this.ekM != null) {
+            this.ekM.onDestroy();
         }
-        if (this.dzN != null) {
-            this.dzN.onDestroy();
+        if (this.ekN != null) {
+            this.ekN.onDestroy();
         }
     }
 }

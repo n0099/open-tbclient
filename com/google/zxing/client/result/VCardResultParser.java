@@ -1,6 +1,8 @@
 package com.google.zxing.client.result;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.webkit.internal.ETAG;
 import com.google.zxing.Result;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
@@ -11,15 +13,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class VCardResultParser extends ResultParser {
     private static final Pattern BEGIN_VCARD = Pattern.compile("BEGIN:VCARD", 2);
     private static final Pattern VCARD_LIKE_DATE = Pattern.compile("\\d{4}-?\\d{2}-?\\d{2}");
     private static final Pattern CR_LF_SPACE_TAB = Pattern.compile("\r\n[ \t]");
     private static final Pattern NEWLINE_ESCAPE = Pattern.compile("\\\\[nN]");
     private static final Pattern VCARD_ESCAPES = Pattern.compile("\\\\([,;\\\\])");
-    private static final Pattern EQUALS = Pattern.compile("=");
+    private static final Pattern EQUALS = Pattern.compile(ETAG.EQUAL);
     private static final Pattern SEMICOLON = Pattern.compile(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
     private static final Pattern UNESCAPED_SEMICOLONS = Pattern.compile("(?<!\\\\);+");
     private static final Pattern COMMA = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
@@ -51,7 +52,7 @@ public final class VCardResultParser extends ResultParser {
         List<String> matchSingleVCardPrefixedField5 = matchSingleVCardPrefixedField("TITLE", massagedText, true, false);
         List<List<String>> matchVCardPrefixedField5 = matchVCardPrefixedField("URL", massagedText, true, false);
         List<String> matchSingleVCardPrefixedField6 = matchSingleVCardPrefixedField("IMPP", massagedText, true, false);
-        List<String> matchSingleVCardPrefixedField7 = matchSingleVCardPrefixedField("GEO", massagedText, true, false);
+        List<String> matchSingleVCardPrefixedField7 = matchSingleVCardPrefixedField(BdSailorConfig.SAILOR_BASE_GEO, massagedText, true, false);
         String[] split2 = matchSingleVCardPrefixedField7 == null ? null : SEMICOLON_OR_COMMA.split(matchSingleVCardPrefixedField7.get(0));
         if (split2 != null && split2.length != 2) {
             split2 = null;
@@ -212,12 +213,12 @@ public final class VCardResultParser extends ResultParser {
         if (byteArrayOutputStream.size() > 0) {
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             if (str == null) {
-                str2 = new String(byteArray, Charset.forName(HTTP.UTF_8));
+                str2 = new String(byteArray, Charset.forName("UTF-8"));
             } else {
                 try {
                     str2 = new String(byteArray, str);
                 } catch (UnsupportedEncodingException e) {
-                    str2 = new String(byteArray, Charset.forName(HTTP.UTF_8));
+                    str2 = new String(byteArray, Charset.forName("UTF-8"));
                 }
             }
             byteArrayOutputStream.reset();

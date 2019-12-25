@@ -1,5 +1,5 @@
 package com.baidu.ala.helper;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaVideoFrame {
     public static final int BGRA_PIXEL_FORMAT = 2;
     public static final int NV21_PIXEL_FORMAT = 3;

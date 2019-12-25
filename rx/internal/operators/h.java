@@ -1,65 +1,35 @@
 package rx.internal.operators;
 
+import java.util.concurrent.TimeUnit;
 import rx.d;
-import rx.internal.producers.SingleDelayedProducer;
-/* loaded from: classes2.dex */
-public final class h<T> implements d.b<Boolean, T> {
-    final rx.functions.f<? super T, Boolean> kyN;
-    final boolean kzH;
+import rx.g;
+/* loaded from: classes4.dex */
+public final class h implements d.a<Long> {
+    final rx.g scheduler;
+    final long time;
+    final TimeUnit unit;
 
-    public h(rx.functions.f<? super T, Boolean> fVar, boolean z) {
-        this.kyN = fVar;
-        this.kzH = z;
+    public h(long j, TimeUnit timeUnit, rx.g gVar) {
+        this.time = j;
+        this.unit = timeUnit;
+        this.scheduler = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // rx.functions.f
-    public rx.j<? super T> call(final rx.j<? super Boolean> jVar) {
-        final SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
-        rx.j jVar2 = (rx.j<T>) new rx.j<T>() { // from class: rx.internal.operators.h.1
-            boolean done;
-            boolean kzI;
-
-            @Override // rx.e
-            public void onNext(T t) {
-                if (!this.done) {
-                    this.kzI = true;
-                    try {
-                        if (h.this.kyN.call(t).booleanValue()) {
-                            this.done = true;
-                            singleDelayedProducer.setValue(Boolean.valueOf(!h.this.kzH));
-                            unsubscribe();
-                        }
-                    } catch (Throwable th) {
-                        rx.exceptions.a.a(th, this, t);
-                    }
+    @Override // rx.functions.b
+    public void call(final rx.j<? super Long> jVar) {
+        g.a createWorker = this.scheduler.createWorker();
+        jVar.add(createWorker);
+        createWorker.a(new rx.functions.a() { // from class: rx.internal.operators.h.1
+            @Override // rx.functions.a
+            public void call() {
+                try {
+                    jVar.onNext(0L);
+                    jVar.onCompleted();
+                } catch (Throwable th) {
+                    rx.exceptions.a.a(th, jVar);
                 }
             }
-
-            @Override // rx.e
-            public void onError(Throwable th) {
-                if (!this.done) {
-                    this.done = true;
-                    jVar.onError(th);
-                    return;
-                }
-                rx.c.c.onError(th);
-            }
-
-            @Override // rx.e
-            public void onCompleted() {
-                if (!this.done) {
-                    this.done = true;
-                    if (this.kzI) {
-                        singleDelayedProducer.setValue(false);
-                    } else {
-                        singleDelayedProducer.setValue(Boolean.valueOf(h.this.kzH));
-                    }
-                }
-            }
-        };
-        jVar.add(jVar2);
-        jVar.setProducer(singleDelayedProducer);
-        return jVar2;
+        }, this.time, this.unit);
     }
 }

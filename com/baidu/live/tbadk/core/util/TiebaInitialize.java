@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteDoneException;
 import android.database.sqlite.SQLiteFullException;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
@@ -21,9 +20,10 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TiebaInitialize {
     public static final String ALL_COST = "all_cost";
     public static final String CON_COST = "con_cost";
@@ -38,28 +38,28 @@ public class TiebaInitialize {
     private static int operateMsgUploadCount = 0;
     private static Object lock = new Object();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class DQPay extends LogFields {
         public static final String TYPE_VALUE = "pay";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class ErrorKey {
         public static final String OP_ALADIN_PORT_ERROR = "op_aladin_port_error";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class FileKey {
         public static final String FILE_SD_SIZE = "sd_size";
         public static final String FILE_SD_STATE = "sd_state";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class IM extends LogFields {
         public static final String TYPE_VALUE = "im";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class LogFields {
         public static final String ACTION = "action";
         public static final String CMD = "cmd";
@@ -83,16 +83,16 @@ public class TiebaInitialize {
         public static final String VERSON = "version";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class NetApiName {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class NetKey {
         public static final String NET_IMG = "img";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class OpKey {
         public static final String OP_FORUM_ENTER = "op_forum_enter";
         public static final String OP_FRS_ENTER = "op_frs_enter";
@@ -104,7 +104,7 @@ public class TiebaInitialize {
         public static final String OP_VOICE = "op_voice";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class Params {
         public static final String ABTEST = "abtest";
         public static final String AB_ACTION = "ab_action";
@@ -259,7 +259,7 @@ public class TiebaInitialize {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace.length >= 5) {
             StackTraceElement stackTraceElement = stackTrace[4];
-            str = BdStringHelper.join(stackTraceElement.getClassName(), DefaultConfig.TOKEN_SEPARATOR, stackTraceElement.getMethodName());
+            str = BdStringHelper.join(stackTraceElement.getClassName(), ".", stackTraceElement.getMethodName());
         }
         file(exc, str);
     }
@@ -411,7 +411,7 @@ public class TiebaInitialize {
             for (int i = 0; i < size; i++) {
                 stringBuffer.append(params.get(i));
                 if (i % 2 == 0) {
-                    stringBuffer.append("=");
+                    stringBuffer.append(ETAG.EQUAL);
                 } else if (i != size - 1) {
                     stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }

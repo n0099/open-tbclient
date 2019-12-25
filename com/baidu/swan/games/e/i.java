@@ -1,17 +1,9 @@
 package com.baidu.swan.games.e;
-/* loaded from: classes2.dex */
+
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+/* loaded from: classes9.dex */
 public interface i {
-    void c(a aVar);
+    a a(String str, com.baidu.swan.games.e.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy);
 
-    void o(a aVar);
-
-    void p(a aVar);
-
-    void q(a aVar);
-
-    void r(a aVar);
-
-    void s(a aVar);
-
-    void t(a aVar);
+    String getUserAgent();
 }

@@ -75,9 +75,9 @@ public class MaskView extends ViewGroup {
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
             if (childAt != null) {
-                a aVar = (a) childAt.getLayoutParams();
-                if (aVar == null) {
-                    childAt.setLayoutParams(aVar);
+                LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
+                if (layoutParams == null) {
+                    childAt.setLayoutParams(layoutParams);
                 }
                 measureChild(childAt, i3 - 2147483648, i4 - 2147483648);
             }
@@ -86,32 +86,32 @@ public class MaskView extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        a aVar;
+        LayoutParams layoutParams;
         int childCount = getChildCount();
         float f = getResources().getDisplayMetrics().density;
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
-            if (childAt != null && (aVar = (a) childAt.getLayoutParams()) != null) {
-                switch (aVar.targetAnchor) {
+            if (childAt != null && (layoutParams = (LayoutParams) childAt.getLayoutParams()) != null) {
+                switch (layoutParams.targetAnchor) {
                     case 1:
                         this.mChildTmpRect.right = this.mTargetRect.left;
                         this.mChildTmpRect.left = this.mChildTmpRect.right - childAt.getMeasuredWidth();
-                        verticalChildPositionLayout(childAt, this.mChildTmpRect, aVar.targetParentPosition);
+                        verticalChildPositionLayout(childAt, this.mChildTmpRect, layoutParams.targetParentPosition);
                         break;
                     case 2:
                         this.mChildTmpRect.bottom = this.mTargetRect.top;
                         this.mChildTmpRect.top = this.mChildTmpRect.bottom - childAt.getMeasuredHeight();
-                        horizontalChildPositionLayout(childAt, this.mChildTmpRect, aVar.targetParentPosition);
+                        horizontalChildPositionLayout(childAt, this.mChildTmpRect, layoutParams.targetParentPosition);
                         break;
                     case 3:
                         this.mChildTmpRect.left = this.mTargetRect.right;
                         this.mChildTmpRect.right = this.mChildTmpRect.left + childAt.getMeasuredWidth();
-                        verticalChildPositionLayout(childAt, this.mChildTmpRect, aVar.targetParentPosition);
+                        verticalChildPositionLayout(childAt, this.mChildTmpRect, layoutParams.targetParentPosition);
                         break;
                     case 4:
                         this.mChildTmpRect.top = this.mTargetRect.bottom;
                         this.mChildTmpRect.bottom = this.mChildTmpRect.top + childAt.getMeasuredHeight();
-                        horizontalChildPositionLayout(childAt, this.mChildTmpRect, aVar.targetParentPosition);
+                        horizontalChildPositionLayout(childAt, this.mChildTmpRect, layoutParams.targetParentPosition);
                         break;
                     case 5:
                         this.mChildTmpRect.left = (((int) this.mTargetRect.width()) - childAt.getMeasuredWidth()) >> 1;
@@ -122,9 +122,9 @@ public class MaskView extends ViewGroup {
                         break;
                 }
                 if (this.mUseDirectOffset) {
-                    this.mChildTmpRect.offset(aVar.offsetX, aVar.offsetY);
+                    this.mChildTmpRect.offset(layoutParams.offsetX, layoutParams.offsetY);
                 } else {
-                    this.mChildTmpRect.offset((int) ((aVar.offsetX * f) + 0.5f), (int) ((aVar.offsetY * f) + 0.5f));
+                    this.mChildTmpRect.offset((int) ((layoutParams.offsetX * f) + 0.5f), (int) ((layoutParams.offsetY * f) + 0.5f));
                 }
                 childAt.layout((int) this.mChildTmpRect.left, (int) this.mChildTmpRect.top, (int) this.mChildTmpRect.right, (int) this.mChildTmpRect.bottom);
             }
@@ -210,9 +210,9 @@ public class MaskView extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: fv */
-    public a generateDefaultLayoutParams() {
-        return new a(-2, -2);
+    /* renamed from: fJ */
+    public LayoutParams generateDefaultLayoutParams() {
+        return new LayoutParams(-2, -2);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -232,13 +232,21 @@ public class MaskView extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static class a extends ViewGroup.LayoutParams {
+    public static class LayoutParams extends ViewGroup.LayoutParams {
         public int offsetX;
         public int offsetY;
         public int targetAnchor;
         public int targetParentPosition;
 
-        public a(int i, int i2) {
+        public LayoutParams(Context context, AttributeSet attributeSet) {
+            super(context, attributeSet);
+            this.targetAnchor = 4;
+            this.targetParentPosition = 32;
+            this.offsetX = 0;
+            this.offsetY = 0;
+        }
+
+        public LayoutParams(int i, int i2) {
             super(i, i2);
             this.targetAnchor = 4;
             this.targetParentPosition = 32;

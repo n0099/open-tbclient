@@ -6,7 +6,7 @@ import android.os.Handler;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class n implements Runnable {
     final /* synthetic */ g.c a;
     final /* synthetic */ Handler b;

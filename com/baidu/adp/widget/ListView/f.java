@@ -7,22 +7,22 @@ import android.widget.Scroller;
 import com.baidu.adp.widget.ListView.c;
 /* loaded from: classes.dex */
 public class f {
+    private com.baidu.adp.widget.b.a Am;
+    private c.a An;
+    a Ao;
     private boolean isReadyToStart;
     int mDuration;
     private int mToPadding;
     View mView;
-    private com.baidu.adp.widget.b.a xN;
-    private c.a xO;
-    a xP;
     private int mStep = 1;
     Handler mHandler = new Handler();
     Runnable endAnimationRun = new Runnable() { // from class: com.baidu.adp.widget.ListView.f.1
         @Override // java.lang.Runnable
         public void run() {
-            if (f.this.xP == null) {
+            if (f.this.Ao == null) {
                 return;
             }
-            f.this.xP.endAnimation();
+            f.this.Ao.endAnimation();
         }
     };
 
@@ -33,16 +33,16 @@ public class f {
         if (abs < this.mStep) {
             this.isReadyToStart = false;
         }
-        this.xP = new a(context);
+        this.Ao = new a(context);
         this.mDuration = i3;
     }
 
     public void a(com.baidu.adp.widget.b.a aVar) {
-        this.xN = aVar;
+        this.Am = aVar;
     }
 
     public void a(c.a aVar) {
-        this.xO = aVar;
+        this.An = aVar;
     }
 
     /* loaded from: classes.dex */
@@ -110,16 +110,16 @@ public class f {
             if (f.this.mView != null) {
                 f.this.mView.removeCallbacks(this);
             }
-            if (f.this.xN != null) {
-                f.this.xN.onOver();
+            if (f.this.Am != null) {
+                f.this.Am.onOver();
             }
         }
     }
 
     public void startAnimation(View view) {
-        if (this.isReadyToStart && this.xP != null) {
+        if (this.isReadyToStart && this.Ao != null) {
             this.mView = view;
-            this.xP.startUsingDistance(Math.abs(this.mToPadding), this.mDuration);
+            this.Ao.startUsingDistance(Math.abs(this.mToPadding), this.mDuration);
             this.mHandler.postDelayed(this.endAnimationRun, this.mDuration);
         }
     }
@@ -135,8 +135,8 @@ public class f {
             z = false;
         }
         this.mView.setPadding(this.mView.getPaddingLeft(), paddingTop, this.mView.getPaddingRight(), this.mView.getPaddingBottom());
-        if (this.xO != null) {
-            this.xO.a(null, this.mView.getPaddingLeft(), this.mView.getPaddingRight(), this.mView.getPaddingTop() - this.mToPadding, this.mView.getPaddingBottom());
+        if (this.An != null) {
+            this.An.a(null, this.mView.getPaddingLeft(), this.mView.getPaddingRight(), this.mView.getPaddingTop() - this.mToPadding, this.mView.getPaddingBottom());
         }
         return z;
     }

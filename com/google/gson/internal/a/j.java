@@ -1,28 +1,50 @@
 package com.google.gson.internal.a;
 
-import com.google.gson.n;
-import com.google.gson.o;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.stream.JsonToken;
 import java.io.IOException;
-import java.sql.Time;
+import java.sql.Date;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-/* loaded from: classes2.dex */
-public final class j extends n<Time> {
-    public static final o koI = new o() { // from class: com.google.gson.internal.a.j.1
-        @Override // com.google.gson.o
-        public <T> n<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.cKC() == Time.class) {
+/* loaded from: classes4.dex */
+public final class j extends TypeAdapter<Date> {
+    public static final TypeAdapterFactory mGD = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.j.1
+        @Override // com.google.gson.TypeAdapterFactory
+        public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
+            if (aVar.getRawType() == Date.class) {
                 return new j();
             }
             return null;
         }
     };
-    private final DateFormat kpi = new SimpleDateFormat("hh:mm:ss a");
+    private final DateFormat mHf = new SimpleDateFormat("MMM d, yyyy");
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.gson.n
-    public synchronized void a(com.google.gson.stream.a aVar, Time time) throws IOException {
-        aVar.GP(time == null ? null : this.kpi.format((Date) time));
+    @Override // com.google.gson.TypeAdapter
+    /* renamed from: d */
+    public synchronized Date read(com.google.gson.stream.a aVar) throws IOException {
+        Date date;
+        if (aVar.dyA() == JsonToken.NULL) {
+            aVar.dyG();
+            date = null;
+        } else {
+            try {
+                date = new Date(this.mHf.parse(aVar.dyE()).getTime());
+            } catch (ParseException e) {
+                throw new JsonSyntaxException(e);
+            }
+        }
+        return date;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.gson.TypeAdapter
+    /* renamed from: a */
+    public synchronized void write(com.google.gson.stream.b bVar, Date date) throws IOException {
+        bVar.Qo(date == null ? null : this.mHf.format((java.util.Date) date));
     }
 }

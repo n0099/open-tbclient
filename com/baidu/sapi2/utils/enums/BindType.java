@@ -1,8 +1,10 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes2.dex */
+
+import com.baidu.searchbox.account.contants.LoginConstants;
+/* loaded from: classes4.dex */
 public enum BindType {
     EXPLICIT("explicit", "afterauth", "finishbind"),
-    SMS("sms", "afterauth", "finishbind"),
+    SMS(LoginConstants.SMS_LOGIN, "afterauth", "finishbind"),
     BIND_MOBILE("bind_mobile", "afterauth", "afterauth");
     
     private String b;

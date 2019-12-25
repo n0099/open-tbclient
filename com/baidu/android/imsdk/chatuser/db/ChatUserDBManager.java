@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ChatUserDBManager extends DBBase {
     private static final String TAG = ChatUserDBManager.class.getSimpleName();
     private static ChatUserDBManager mInstance = null;

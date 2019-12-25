@@ -1,136 +1,106 @@
 package com.baidu.tbadk.core.view;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
+import android.graphics.Canvas;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.text.style.ReplacementSpan;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public class b {
-    private TbPageContext<?> ceu;
-    private boolean isAutoSetCancelable;
-    private Activity mActivity;
-    private DialogInterface.OnCancelListener mOnCancelListner;
-    private TextView mTipView;
-    private AlertDialog mWaitingDialog;
-    private String tipString;
+public class b extends ReplacementSpan {
+    private int cZG;
+    private int cZH;
+    private int cZI;
+    private int cZK;
+    private int cZL;
+    private int cZM;
+    private String identify;
+    private int mTextColorId;
+    private int mTextSize;
+    private RectF cZJ = new RectF();
+    private Paint mTextPaint = new Paint();
 
-    public b(TbPageContext<?> tbPageContext) {
-        this.ceu = null;
-        this.mActivity = null;
-        this.tipString = null;
-        this.mTipView = null;
-        this.isAutoSetCancelable = true;
-        this.ceu = tbPageContext;
-        if (this.ceu != null && this.ceu.getPageActivity() != null) {
-            this.mActivity = this.ceu.getPageActivity();
-        }
+    public b(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
+        this.cZG = i;
+        this.cZH = i2;
+        this.cZI = i3;
+        this.mTextSize = i4;
+        this.mTextColorId = i5;
+        this.cZK = i6;
+        this.cZM = i7;
+        this.mTextPaint.setAntiAlias(true);
+        this.mTextPaint.setStyle(Paint.Style.STROKE);
+        this.mTextPaint.setTextSize(this.mTextSize);
     }
 
-    public b(Activity activity) {
-        this.ceu = null;
-        this.mActivity = null;
-        this.tipString = null;
-        this.mTipView = null;
-        this.isAutoSetCancelable = true;
-        this.mActivity = activity;
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
+        this.cZL = ((int) this.mTextPaint.measureText(charSequence, i, i2)) + (this.cZK * 2);
+        return this.cZL;
     }
 
-    private b d(DialogInterface.OnCancelListener onCancelListener) {
-        if (this.mActivity != null) {
-            this.mWaitingDialog = new AlertDialog.Builder(this.mActivity).create();
-            com.baidu.adp.lib.g.g.showDialog(this.mWaitingDialog, this.mActivity);
-            View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
-            this.mTipView = (TextView) inflate.findViewById(R.id.custom_loading_text);
-            if (!StringUtils.isNull(this.tipString) && this.mTipView != null) {
-                this.mTipView.setText(this.tipString);
-            }
-            if (this.mWaitingDialog != null && this.mWaitingDialog.getWindow() != null) {
-                this.mWaitingDialog.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.mWaitingDialog.setCancelable(true);
-                    this.mWaitingDialog.setCanceledOnTouchOutside(true);
-                    this.mWaitingDialog.setOnCancelListener(onCancelListener);
-                } else {
-                    this.mWaitingDialog.setCanceledOnTouchOutside(false);
-                    this.mWaitingDialog.setCancelable(false);
-                }
-            }
-        }
-        return this;
-    }
-
-    private b e(DialogInterface.OnCancelListener onCancelListener) {
-        if (this.mActivity != null) {
-            this.mWaitingDialog = new AlertDialog.Builder(this.mActivity).create();
-            com.baidu.adp.lib.g.g.showDialog(this.mWaitingDialog, this.mActivity);
-            View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
-            this.mTipView = (TextView) inflate.findViewById(R.id.custom_loading_text);
-            if (!StringUtils.isNull(this.tipString) && this.mTipView != null) {
-                this.mTipView.setText(this.tipString);
-            }
-            if (this.mWaitingDialog != null && this.mWaitingDialog.getWindow() != null) {
-                this.mWaitingDialog.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.mWaitingDialog.setOnCancelListener(onCancelListener);
-                }
-            }
-        }
-        return this;
-    }
-
-    public void setDialogVisiable(boolean z) {
-        if (z) {
-            if (this.isAutoSetCancelable) {
-                d(this.mOnCancelListner);
-                return;
+    @Override // android.text.style.ReplacementSpan
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+        int color;
+        int color2;
+        this.mTextPaint.setColor(am.getColor(this.cZI));
+        int i6 = ((i5 - this.cZM) / 2) + i3;
+        this.cZJ.left = f;
+        this.cZJ.top = i6;
+        this.cZJ.right = this.cZL + f;
+        this.cZJ.bottom = i6 + this.cZM;
+        if (this.identify != null) {
+            if (" 吧主".equals(this.identify)) {
+                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.ba_zhu_start);
+                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.ba_zhu_end);
+            } else if (" 小吧主".equals(this.identify)) {
+                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.xiao_ba_zhu_start);
+                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.xiao_ba_zhu_end);
+            } else if (" 楼主".equals(this.identify)) {
+                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.floor_host_start);
+                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.floor_host_end);
             } else {
-                e(this.mOnCancelListner);
-                return;
+                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.floor_host_end);
+                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.floor_host_end);
+            }
+            this.mTextPaint.setShader(new LinearGradient(this.cZJ.left, this.cZJ.top, this.cZJ.right, this.cZJ.bottom, color, color2, Shader.TileMode.CLAMP));
+        }
+        canvas.drawRoundRect(this.cZJ, this.cZH, this.cZH, this.mTextPaint);
+        this.mTextPaint.setShader(null);
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if ((skinType == 1 || skinType == 4) && this.identify != null) {
+            this.mTextPaint.setColor(com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.mask));
+            canvas.drawRoundRect(this.cZJ, this.cZH, this.cZH, this.mTextPaint);
+        }
+        Paint.FontMetricsInt fontMetricsInt = this.mTextPaint.getFontMetricsInt();
+        if (this.identify != null) {
+            this.mTextPaint.setColor(com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.cp_bg_line_d));
+        } else {
+            this.mTextPaint.setColor(am.getColor(this.mTextColorId));
+        }
+        canvas.drawText(charSequence, i, i2, f + this.cZK, (int) ((this.cZJ.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.mTextPaint);
+    }
+
+    public void fC(boolean z) {
+        if (this.mTextPaint != null) {
+            if (z) {
+                this.mTextPaint.setStyle(Paint.Style.FILL);
+            } else {
+                this.mTextPaint.setStyle(Paint.Style.STROKE);
             }
         }
-        com.baidu.adp.lib.g.g.dismissDialog(this.mWaitingDialog, this.mActivity);
     }
 
-    public void setTipString(int i) {
-        if (this.mActivity != null) {
-            this.tipString = this.mActivity.getString(i);
-        }
+    public void kE(int i) {
+        this.cZH = i;
     }
 
-    public void setTipString(String str) {
-        this.tipString = str;
-        if (this.mTipView != null) {
-            this.mTipView.setText(str);
-        }
-    }
-
-    public void setCancelListener(DialogInterface.OnCancelListener onCancelListener) {
-        this.mOnCancelListner = onCancelListener;
-    }
-
-    public boolean isShowing() {
-        return this.mWaitingDialog != null && this.mWaitingDialog.isShowing();
-    }
-
-    public void setAutoSetCancelable(boolean z) {
-        this.isAutoSetCancelable = z;
-    }
-
-    public void setCancelable(boolean z) {
-        if (this.mWaitingDialog != null) {
-            this.mWaitingDialog.setCancelable(z);
-        }
-    }
-
-    public void setCanceledOnTouchOutside(boolean z) {
-        if (this.mWaitingDialog != null) {
-            this.mWaitingDialog.setCanceledOnTouchOutside(z);
-        }
+    public void tx(String str) {
+        this.identify = str;
     }
 }

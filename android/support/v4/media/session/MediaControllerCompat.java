@@ -29,13 +29,12 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class MediaControllerCompat {
     static final String COMMAND_ADD_QUEUE_ITEM = "android.support.v4.media.session.command.ADD_QUEUE_ITEM";
     static final String COMMAND_ADD_QUEUE_ITEM_AT = "android.support.v4.media.session.command.ADD_QUEUE_ITEM_AT";
@@ -50,7 +49,7 @@ public final class MediaControllerCompat {
     private final MediaSessionCompat.Token mToken;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface MediaControllerImpl {
         void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat);
 
@@ -90,7 +89,7 @@ public final class MediaControllerCompat {
 
         boolean isCaptioningEnabled();
 
-        boolean isShuffleModeEnabled();
+        boolean isSessionReady();
 
         void registerCallback(Callback callback, Handler handler);
 
@@ -103,7 +102,7 @@ public final class MediaControllerCompat {
         void unregisterCallback(Callback callback);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class MediaControllerExtraData extends SupportActivity.ExtraData {
         private final MediaControllerCompat mMediaController;
 
@@ -168,7 +167,7 @@ public final class MediaControllerCompat {
                 case 0:
                 case 1:
                     if (bundle == null || !bundle.containsKey(MediaSessionCompat.ARGUMENT_MEDIA_ATTRIBUTE)) {
-                        throw new IllegalArgumentException("An extra field android.support.v4.media.session.ARGUMENT_MEDIA_ATTRIBUTE is required for this action " + str + DefaultConfig.TOKEN_SEPARATOR);
+                        throw new IllegalArgumentException("An extra field android.support.v4.media.session.ARGUMENT_MEDIA_ATTRIBUTE is required for this action " + str + ".");
                     }
                     return;
                 default:
@@ -273,11 +272,6 @@ public final class MediaControllerCompat {
         return this.mImpl.getRepeatMode();
     }
 
-    @Deprecated
-    public boolean isShuffleModeEnabled() {
-        return this.mImpl.isShuffleModeEnabled();
-    }
-
     public int getShuffleMode() {
         return this.mImpl.getShuffleMode();
     }
@@ -341,6 +335,10 @@ public final class MediaControllerCompat {
         this.mImpl.sendCommand(str, bundle, resultReceiver);
     }
 
+    public boolean isSessionReady() {
+        return this.mImpl.isSessionReady();
+    }
+
     public String getPackageName() {
         return this.mImpl.getPackageName();
     }
@@ -349,7 +347,7 @@ public final class MediaControllerCompat {
         return this.mImpl.getMediaController();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Callback implements IBinder.DeathRecipient {
         private final Object mCallbackObj;
         MessageHandler mHandler;
@@ -361,6 +359,9 @@ public final class MediaControllerCompat {
             } else {
                 this.mCallbackObj = new StubCompat(this);
             }
+        }
+
+        public void onSessionReady() {
         }
 
         public void onSessionDestroyed() {
@@ -393,10 +394,6 @@ public final class MediaControllerCompat {
         public void onRepeatModeChanged(int i) {
         }
 
-        @Deprecated
-        public void onShuffleModeChanged(boolean z) {
-        }
-
         public void onShuffleModeChanged(int i) {
         }
 
@@ -427,7 +424,7 @@ public final class MediaControllerCompat {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         private static class StubApi21 implements MediaControllerCompatApi21.Callback {
             private final WeakReference<Callback> mCallback;
 
@@ -502,7 +499,7 @@ public final class MediaControllerCompat {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         private static class StubCompat extends IMediaControllerCallback.Stub {
             private final WeakReference<Callback> mCallback;
 
@@ -575,11 +572,7 @@ public final class MediaControllerCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
-            public void onShuffleModeChangedDeprecated(boolean z) throws RemoteException {
-                Callback callback = this.mCallback.get();
-                if (callback != null) {
-                    callback.postToHandler(10, Boolean.valueOf(z), null);
-                }
+            public void onShuffleModeChangedRemoved(boolean z) throws RemoteException {
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
@@ -605,13 +598,22 @@ public final class MediaControllerCompat {
                     callback.postToHandler(4, parcelableVolumeInfo != null ? new PlaybackInfo(parcelableVolumeInfo.volumeType, parcelableVolumeInfo.audioStream, parcelableVolumeInfo.controlType, parcelableVolumeInfo.maxVolume, parcelableVolumeInfo.currentVolume) : null, null);
                 }
             }
+
+            @Override // android.support.v4.media.session.IMediaControllerCallback
+            public void onSessionReady() throws RemoteException {
+                Callback callback = this.mCallback.get();
+                if (callback != null) {
+                    callback.postToHandler(13, null, null);
+                }
+            }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public class MessageHandler extends Handler {
             private static final int MSG_DESTROYED = 8;
             private static final int MSG_EVENT = 1;
+            private static final int MSG_SESSION_READY = 13;
             private static final int MSG_UPDATE_CAPTIONING_ENABLED = 11;
             private static final int MSG_UPDATE_EXTRAS = 7;
             private static final int MSG_UPDATE_METADATA = 3;
@@ -620,7 +622,6 @@ public final class MediaControllerCompat {
             private static final int MSG_UPDATE_QUEUE_TITLE = 6;
             private static final int MSG_UPDATE_REPEAT_MODE = 9;
             private static final int MSG_UPDATE_SHUFFLE_MODE = 12;
-            private static final int MSG_UPDATE_SHUFFLE_MODE_DEPRECATED = 10;
             private static final int MSG_UPDATE_VOLUME = 4;
             boolean mRegistered;
 
@@ -661,7 +662,7 @@ public final class MediaControllerCompat {
                             Callback.this.onRepeatModeChanged(((Integer) message.obj).intValue());
                             return;
                         case 10:
-                            Callback.this.onShuffleModeChanged(((Boolean) message.obj).booleanValue());
+                        default:
                             return;
                         case 11:
                             Callback.this.onCaptioningEnabledChanged(((Boolean) message.obj).booleanValue());
@@ -669,7 +670,8 @@ public final class MediaControllerCompat {
                         case 12:
                             Callback.this.onShuffleModeChanged(((Integer) message.obj).intValue());
                             return;
-                        default:
+                        case 13:
+                            Callback.this.onSessionReady();
                             return;
                     }
                 }
@@ -677,7 +679,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class TransportControls {
         public static final String EXTRA_LEGACY_STREAM_TYPE = "android.media.session.extra.LEGACY_STREAM_TYPE";
 
@@ -719,9 +721,6 @@ public final class MediaControllerCompat {
 
         public abstract void setShuffleMode(int i);
 
-        @Deprecated
-        public abstract void setShuffleModeEnabled(boolean z);
-
         public abstract void skipToNext();
 
         public abstract void skipToPrevious();
@@ -734,7 +733,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class PlaybackInfo {
         public static final int PLAYBACK_TYPE_LOCAL = 1;
         public static final int PLAYBACK_TYPE_REMOTE = 2;
@@ -773,7 +772,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class MediaControllerImplBase implements MediaControllerImpl {
         private IMediaSession mBinder;
         private TransportControls mTransportControls;
@@ -943,17 +942,7 @@ public final class MediaControllerCompat {
                 return this.mBinder.getRepeatMode();
             } catch (RemoteException e) {
                 Log.e(MediaControllerCompat.TAG, "Dead object in getRepeatMode.", e);
-                return 0;
-            }
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public boolean isShuffleModeEnabled() {
-            try {
-                return this.mBinder.isShuffleModeEnabledDeprecated();
-            } catch (RemoteException e) {
-                Log.e(MediaControllerCompat.TAG, "Dead object in isShuffleModeEnabled.", e);
-                return false;
+                return -1;
             }
         }
 
@@ -963,7 +952,7 @@ public final class MediaControllerCompat {
                 return this.mBinder.getShuffleMode();
             } catch (RemoteException e) {
                 Log.e(MediaControllerCompat.TAG, "Dead object in getShuffleMode.", e);
-                return 0;
+                return -1;
             }
         }
 
@@ -1026,6 +1015,11 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public boolean isSessionReady() {
+            return true;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public String getPackageName() {
             try {
                 return this.mBinder.getPackageName();
@@ -1041,7 +1035,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class TransportControlsBase extends TransportControls {
         private IMediaSession mBinder;
 
@@ -1230,15 +1224,6 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void setShuffleModeEnabled(boolean z) {
-            try {
-                this.mBinder.setShuffleModeEnabledDeprecated(z);
-            } catch (RemoteException e) {
-                Log.e(MediaControllerCompat.TAG, "Dead object in setShuffleModeEnabled.", e);
-            }
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void setShuffleMode(int i) {
             try {
                 this.mBinder.setShuffleMode(i);
@@ -1264,7 +1249,7 @@ public final class MediaControllerCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class MediaControllerImplApi21 implements MediaControllerImpl {
         protected final Object mControllerObj;
         private IMediaSession mExtraBinder;
@@ -1306,6 +1291,7 @@ public final class MediaControllerCompat {
                 }
             }
             synchronized (this.mPendingCallbacks) {
+                callback.mHasExtraCallback = false;
                 this.mPendingCallbacks.add(callback);
             }
         }
@@ -1317,6 +1303,7 @@ public final class MediaControllerCompat {
                 try {
                     ExtraCallback remove = this.mCallbackMap.remove(callback);
                     if (remove != null) {
+                        callback.mHasExtraCallback = false;
                         this.mExtraBinder.unregisterCallbackListener(remove);
                         return;
                     }
@@ -1453,19 +1440,7 @@ public final class MediaControllerCompat {
                     Log.e(MediaControllerCompat.TAG, "Dead object in getRepeatMode.", e);
                 }
             }
-            return 0;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public boolean isShuffleModeEnabled() {
-            if (this.mExtraBinder != null) {
-                try {
-                    return this.mExtraBinder.isShuffleModeEnabledDeprecated();
-                } catch (RemoteException e) {
-                    Log.e(MediaControllerCompat.TAG, "Dead object in isShuffleModeEnabled.", e);
-                }
-            }
-            return false;
+            return -1;
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
@@ -1477,7 +1452,7 @@ public final class MediaControllerCompat {
                     Log.e(MediaControllerCompat.TAG, "Dead object in getShuffleMode.", e);
                 }
             }
-            return 0;
+            return -1;
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
@@ -1515,6 +1490,11 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public boolean isSessionReady() {
+            return this.mExtraBinder != null;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
         public String getPackageName() {
             return MediaControllerCompatApi21.getPackageName(this.mControllerObj);
         }
@@ -1538,6 +1518,7 @@ public final class MediaControllerCompat {
                         callback.mHasExtraCallback = true;
                         try {
                             this.mExtraBinder.registerCallbackListener(extraCallback);
+                            callback.onSessionReady();
                         } catch (RemoteException e) {
                             Log.e(MediaControllerCompat.TAG, "Dead object in registerCallback.", e);
                         }
@@ -1548,7 +1529,7 @@ public final class MediaControllerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static class ExtraBinderRequestResultReceiver extends ResultReceiver {
             private WeakReference<MediaControllerImplApi21> mMediaControllerImpl;
 
@@ -1568,7 +1549,7 @@ public final class MediaControllerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public static class ExtraCallback extends Callback.StubCompat {
             ExtraCallback(Callback callback) {
                 super(callback);
@@ -1606,7 +1587,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class TransportControlsApi21 extends TransportControls {
         protected final Object mControlsObj;
 
@@ -1711,13 +1692,6 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void setShuffleModeEnabled(boolean z) {
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("android.support.v4.media.session.action.ARGUMENT_SHUFFLE_MODE_ENABLED", z);
-            sendCustomAction("android.support.v4.media.session.action.SET_SHUFFLE_MODE_ENABLED", bundle);
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
         public void setShuffleMode(int i) {
             Bundle bundle = new Bundle();
             bundle.putInt("android.support.v4.media.session.action.ARGUMENT_SHUFFLE_MODE", i);
@@ -1764,7 +1738,7 @@ public final class MediaControllerCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class MediaControllerImplApi23 extends MediaControllerImplApi21 {
         public MediaControllerImplApi23(Context context, MediaSessionCompat mediaSessionCompat) {
             super(context, mediaSessionCompat);
@@ -1785,7 +1759,7 @@ public final class MediaControllerCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class TransportControlsApi23 extends TransportControlsApi21 {
         public TransportControlsApi23(Object obj) {
             super(obj);
@@ -1798,7 +1772,7 @@ public final class MediaControllerCompat {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class MediaControllerImplApi24 extends MediaControllerImplApi23 {
         public MediaControllerImplApi24(Context context, MediaSessionCompat mediaSessionCompat) {
             super(context, mediaSessionCompat);
@@ -1819,7 +1793,7 @@ public final class MediaControllerCompat {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class TransportControlsApi24 extends TransportControlsApi23 {
         public TransportControlsApi24(Object obj) {
             super(obj);

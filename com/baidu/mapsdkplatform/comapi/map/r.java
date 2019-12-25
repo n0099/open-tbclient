@@ -2,6 +2,7 @@ package com.baidu.mapsdkplatform.comapi.map;
 
 import android.content.Context;
 import android.os.Handler;
+import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.mapapi.common.EnvironmentUtilities;
@@ -66,7 +67,7 @@ public class r {
         ArrayList<q> arrayList = new ArrayList<>();
         try {
             JSONObject jSONObject = new JSONObject(a2);
-            if (jSONObject == null || jSONObject.length() == 0 || (optJSONArray = jSONObject.optJSONArray("dataset")) == null) {
+            if (jSONObject == null || jSONObject.length() == 0 || (optJSONArray = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET)) == null) {
                 return null;
             }
             for (int i = 0; i < optJSONArray.length(); i++) {
@@ -154,7 +155,7 @@ public class r {
         String m = this.b.m();
         ArrayList<q> arrayList = new ArrayList<>();
         try {
-            JSONArray optJSONArray = new JSONObject(m).optJSONArray("dataset");
+            JSONArray optJSONArray = new JSONObject(m).optJSONArray(ActionJsonData.TAG_DATASET);
             for (int i = 0; i < optJSONArray.length(); i++) {
                 q qVar = new q();
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
@@ -199,7 +200,7 @@ public class r {
         String a2 = this.b.a("");
         ArrayList<q> arrayList = new ArrayList<>();
         try {
-            JSONArray optJSONArray = new JSONObject(a2).optJSONArray("dataset");
+            JSONArray optJSONArray = new JSONObject(a2).optJSONArray(ActionJsonData.TAG_DATASET);
             for (int i = 0; i < optJSONArray.length(); i++) {
                 q qVar = new q();
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
@@ -250,7 +251,7 @@ public class r {
         try {
             JSONObject jSONObject = new JSONObject(l);
             if (jSONObject.length() != 0) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("dataset");
+                JSONArray optJSONArray = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET);
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     u uVar = new u();
                     t tVar = new t();

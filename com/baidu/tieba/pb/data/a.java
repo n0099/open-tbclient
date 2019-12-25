@@ -3,13 +3,13 @@ package com.baidu.tieba.pb.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import tbclient.PbPage.GodCard;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends PostData {
-    public static final BdUniqueId hHM = BdUniqueId.gen();
-    private String bWT;
+    public static final BdUniqueId ivQ = BdUniqueId.gen();
     private String buttonText;
-    private String hHN;
-    private int hHO;
+    private String cJg;
+    private String ivR;
+    private int ivS;
     private String picUrl;
     private String portrait;
     private String text;
@@ -19,12 +19,12 @@ public class a extends PostData {
         if (godCard != null) {
             this.userName = godCard.user_name;
             this.portrait = godCard.portrait;
-            this.hHN = godCard.time_ex;
+            this.ivR = godCard.time_ex;
             this.text = godCard.text;
             this.picUrl = godCard.pic_url;
             this.buttonText = godCard.button_text;
-            this.bWT = godCard.button_url;
-            this.hHO = godCard.show_floor.intValue();
+            this.cJg = godCard.button_url;
+            this.ivS = godCard.show_floor.intValue();
         }
     }
 
@@ -37,8 +37,8 @@ public class a extends PostData {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData
-    public String bQr() {
-        return this.hHN;
+    public String chC() {
+        return this.ivR;
     }
 
     public String getText() {
@@ -49,20 +49,20 @@ public class a extends PostData {
         return this.picUrl;
     }
 
-    public String bQs() {
+    public String chD() {
         return this.buttonText;
     }
 
-    public String bQt() {
-        return this.bWT;
+    public String chE() {
+        return this.cJg;
     }
 
-    public int bQu() {
-        return this.hHO;
+    public int chF() {
+        return this.ivS;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return hHM;
+        return ivQ;
     }
 }

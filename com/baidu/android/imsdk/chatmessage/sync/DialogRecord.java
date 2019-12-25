@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.chatmessage.sync;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DialogRecord {
     public static final int STATE_COMPLETE = 1;
     public static final int STATE_NEED_FETCHING = 0;

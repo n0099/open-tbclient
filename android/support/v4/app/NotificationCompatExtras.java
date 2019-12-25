@@ -1,5 +1,5 @@
 package android.support.v4.app;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class NotificationCompatExtras {
     public static final String EXTRA_ACTION_EXTRAS = "android.support.actionExtras";
     public static final String EXTRA_GROUP_KEY = "android.support.groupKey";

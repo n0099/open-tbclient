@@ -13,20 +13,19 @@ import com.baidu.sofire.i.l;
 import com.baidu.sofire.i.o;
 import com.baidu.sofire.rp.receiver.Receiver;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
-import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class a {
     e a;
     public Context b;
     com.baidu.sofire.g.a c;
     public Receiver d;
-    private HandlerC0144a e = new HandlerC0144a(l.a());
+    private HandlerC0181a e = new HandlerC0181a(l.a());
 
     public a(Context context) {
         this.b = context.getApplicationContext();
@@ -40,9 +39,9 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class HandlerC0144a extends Handler {
-        public HandlerC0144a(Looper looper) {
+    /* loaded from: classes4.dex */
+    public class HandlerC0181a extends Handler {
+        public HandlerC0181a(Looper looper) {
             super(looper);
         }
 
@@ -178,10 +177,10 @@ public final class a {
     static String a(JSONObject jSONObject) {
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject("Common_section");
-            if (jSONObject2 == null || !jSONObject2.has(Constants.VIA_REPORT_TYPE_SET_AVATAR)) {
+            if (jSONObject2 == null || !jSONObject2.has("12")) {
                 return null;
             }
-            return jSONObject2.optString(Constants.VIA_REPORT_TYPE_SET_AVATAR, "");
+            return jSONObject2.optString("12", "");
         } catch (Throwable th) {
             d.a();
             return null;

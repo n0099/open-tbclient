@@ -1,7 +1,7 @@
 package rx.internal.subscriptions;
 
 import rx.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public enum Unsubscribed implements k {
     INSTANCE;
 

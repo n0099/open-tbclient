@@ -14,7 +14,7 @@ import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.browser.BrowserHelper;
@@ -25,28 +25,27 @@ import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
-import com.baidu.mobstat.Config;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static a arr;
+    private static a azc;
     private HashMap<String, LinkedList<com.baidu.live.data.b>> mUserAttentionRequestMap = new HashMap<>();
-    private HashMap<String, C0079a> mAttentionTaskMap = new HashMap<>();
+    private HashMap<String, C0096a> mAttentionTaskMap = new HashMap<>();
 
     private a() {
     }
 
-    public static a wy() {
-        if (arr == null) {
+    public static a yy() {
+        if (azc == null) {
             synchronized (a.class) {
-                if (arr == null) {
-                    arr = new a();
+                if (azc == null) {
+                    azc = new a();
                 }
             }
         }
-        return arr;
+        return azc;
     }
 
     public void a(String str, com.baidu.live.data.b bVar) {
@@ -92,19 +91,19 @@ public class a {
     public void executeAttentionTask(String str) {
         LinkedList<com.baidu.live.data.b> linkedList;
         if (!StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
-            C0079a c0079a = new C0079a();
-            this.mAttentionTaskMap.put(str, c0079a);
-            c0079a.setPriority(2);
-            c0079a.a(linkedList.getFirst());
-            c0079a.execute(new Integer[0]);
+            C0096a c0096a = new C0096a();
+            this.mAttentionTaskMap.put(str, c0096a);
+            c0096a.setPriority(2);
+            c0096a.a(linkedList.getFirst());
+            c0096a.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0079a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId arw;
+    /* loaded from: classes2.dex */
+    public class C0096a extends BdAsyncTask<Integer, Integer, String> {
+        private BdUniqueId azh;
         private String forumId;
         private String from;
         private String inLive;
@@ -115,7 +114,7 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0079a() {
+        private C0096a() {
             this.mNetwork = null;
             this.metaKey = "";
             this.isGod = false;
@@ -129,11 +128,11 @@ public class a {
             this.isAttention = bVar.isAttention();
             this.toUid = bVar.getUserId();
             this.inLive = bVar.getInLive();
-            this.arw = bVar.oe();
+            this.azh = bVar.pz();
             this.from = bVar.getFrom();
             this.forumId = bVar.getForumId();
             this.isGod = bVar.isGod();
-            this.metaKey = bVar.og();
+            this.metaKey = bVar.pA();
             if (this.forumId != null) {
                 this.showToastAfterAttentionSuc = true;
             }
@@ -173,7 +172,7 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0079a) str);
+            super.onPostExecute((C0096a) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = this.mNetwork.isRequestSuccess();
@@ -184,7 +183,7 @@ public class a {
                 updateAttentionData.parserJson(str, this.showToastAfterAttentionSuc);
                 updateAttentionData.response = this.mNetwork.getHttpResponse();
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.arw));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.azh));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
             }
             a.this.mAttentionTaskMap.remove(this.toUid);
@@ -258,7 +257,7 @@ public class a {
             if (updateAttentionData.hasShownForbiddenAlert) {
                 return true;
             }
-            JSONObject optJSONObject = updateAttentionData.resultJson.optJSONObject(Config.LAUNCH_INFO);
+            JSONObject optJSONObject = updateAttentionData.resultJson.optJSONObject("info");
             if (optJSONObject != null) {
                 String optString = optJSONObject.optString("block_content");
                 final String optString2 = optJSONObject.optString("block_dealurl");

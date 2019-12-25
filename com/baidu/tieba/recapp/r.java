@@ -2,20 +2,20 @@ package com.baidu.tieba.recapp;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.tbadkCore.d.a;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class r implements o {
-    public static final AtomicReference<o> iHf = new AtomicReference<>(null);
-    private static final o iHg = new r();
+    public static final AtomicReference<o> jBx = new AtomicReference<>(null);
+    private static final o jBy = new r();
 
-    public static o cfJ() {
-        o oVar = iHf.get();
-        return oVar == null ? iHg : oVar;
+    public static o czO() {
+        o oVar = jBx.get();
+        return oVar == null ? jBy : oVar;
     }
 
     @Override // com.baidu.tieba.recapp.o
@@ -25,7 +25,7 @@ public class r implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public com.baidu.adp.widget.ListView.a<?, ?> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+    public com.baidu.adp.widget.ListView.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
@@ -47,37 +47,37 @@ public class r implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public j cfD() {
+    public j czI() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public l cfE() {
+    public l czJ() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public com.baidu.tieba.p.a cfF() {
+    public com.baidu.tieba.q.a czK() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public h cfG() {
+    public h czL() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public List<AppData> cfH() {
+    public List<AppData> czM() {
         BdLog.e("recapp plugin install failed!");
         return null;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public void cfI() {
+    public void czN() {
         BdLog.e("recapp plugin install failed!");
     }
 }

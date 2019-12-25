@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.message;
 import android.content.Context;
 import java.io.IOException;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class d {
     protected Context a;
     private LinkedList<e> b = new LinkedList<>();

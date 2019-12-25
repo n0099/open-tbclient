@@ -3,7 +3,7 @@ package com.baidu.ala.gift;
 import com.baidu.live.tbadk.log.LogConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaDynamicGift implements Serializable {
     public String giftId = "";
     public String giftName = "";

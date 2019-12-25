@@ -54,7 +54,7 @@ public class b {
                     }
                     InputStream inputStream2 = httpURLConnection.getInputStream();
                     try {
-                        byte[] bArr = new byte[51200];
+                        byte[] bArr = new byte[com.baidu.fsg.base.statistics.b.c];
                         int i = 0;
                         while (true) {
                             int read = inputStream2.read(bArr);

@@ -13,11 +13,11 @@ import android.view.View;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FragmentController {
     private final FragmentHostCallback<?> mHost;
 
-    public static final FragmentController createController(FragmentHostCallback<?> fragmentHostCallback) {
+    public static FragmentController createController(FragmentHostCallback<?> fragmentHostCallback) {
         return new FragmentController(fragmentHostCallback);
     }
 
@@ -29,8 +29,9 @@ public class FragmentController {
         return this.mHost.getFragmentManagerImpl();
     }
 
+    @Deprecated
     public LoaderManager getSupportLoaderManager() {
-        return this.mHost.getLoaderManagerImpl();
+        return null;
     }
 
     @Nullable
@@ -64,7 +65,7 @@ public class FragmentController {
 
     @Deprecated
     public void restoreAllState(Parcelable parcelable, List<Fragment> list) {
-        this.mHost.mFragmentManager.restoreAllState(parcelable, new FragmentManagerNonConfig(list, null));
+        this.mHost.mFragmentManager.restoreAllState(parcelable, new FragmentManagerNonConfig(list, null, null));
     }
 
     public void restoreAllState(Parcelable parcelable, FragmentManagerNonConfig fragmentManagerNonConfig) {
@@ -160,35 +161,36 @@ public class FragmentController {
         return this.mHost.mFragmentManager.execPendingActions();
     }
 
+    @Deprecated
     public void doLoaderStart() {
-        this.mHost.doLoaderStart();
     }
 
+    @Deprecated
     public void doLoaderStop(boolean z) {
-        this.mHost.doLoaderStop(z);
     }
 
+    @Deprecated
     public void doLoaderRetain() {
-        this.mHost.doLoaderRetain();
     }
 
+    @Deprecated
     public void doLoaderDestroy() {
-        this.mHost.doLoaderDestroy();
     }
 
+    @Deprecated
     public void reportLoaderStart() {
-        this.mHost.reportLoaderStart();
     }
 
+    @Deprecated
     public SimpleArrayMap<String, LoaderManager> retainLoaderNonConfig() {
-        return this.mHost.retainLoaderNonConfig();
+        return null;
     }
 
+    @Deprecated
     public void restoreLoaderNonConfig(SimpleArrayMap<String, LoaderManager> simpleArrayMap) {
-        this.mHost.restoreLoaderNonConfig(simpleArrayMap);
     }
 
+    @Deprecated
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.mHost.dumpLoaders(str, fileDescriptor, printWriter, strArr);
     }
 }

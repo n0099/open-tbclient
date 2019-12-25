@@ -5,62 +5,63 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.util.ac;
+import com.baidu.tbadk.util.af;
+import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private long hwP;
-    private long hwQ;
-    private long hwR;
-    private boolean hwS;
-    private String hwT = "";
+    private String bno = "";
+    private long ikR;
+    private long ikS;
+    private long ikT;
+    private boolean ikU;
 
-    public void bMT() {
-        this.hwS = true;
-        this.hwP = SystemClock.elapsedRealtime();
+    public void cef() {
+        this.ikU = true;
+        this.ikR = SystemClock.elapsedRealtime();
     }
 
-    public void bMU() {
-        this.hwQ = SystemClock.elapsedRealtime();
+    public void ceg() {
+        this.ikS = SystemClock.elapsedRealtime();
     }
 
-    public void bMV() {
-        this.hwR = SystemClock.elapsedRealtime();
+    public void ceh() {
+        this.ikT = SystemClock.elapsedRealtime();
     }
 
     public void a(String str, long j, long j2, com.baidu.tieba.play.a.a aVar) {
-        a(str, j, j2, this.hwT, aVar);
+        a(str, j, j2, this.bno, aVar);
     }
 
     public void a(String str, long j, long j2, String str2, com.baidu.tieba.play.a.a aVar) {
-        if (this.hwS) {
-            this.hwS = false;
+        if (this.ikU) {
+            this.ikU = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.hwQ - this.hwP;
-            long j4 = elapsedRealtime - this.hwR;
+            long j3 = this.ikS - this.ikR;
+            long j4 = elapsedRealtime - this.ikT;
             long j5 = j4 + j3;
             if (com.baidu.adp.lib.util.j.netType() == 2 || j3 <= 17500) {
                 an anVar = new an("c13171");
-                anVar.bS("obj_source", str2);
-                anVar.p("obj_param1", j3);
-                anVar.p(TiebaInitialize.Params.OBJ_PARAM2, j4);
-                anVar.p(TiebaInitialize.Params.OBJ_PARAM3, j5);
-                anVar.p("obj_duration", j2);
-                anVar.p("resource_id", j);
-                anVar.O("ptype", com.baidu.adp.lib.util.j.netType());
-                anVar.bS("tid", str);
-                anVar.bS("cuid", TbadkCoreApplication.getInst().getCuid());
-                anVar.O("obj_id", ac.kn(Aa(str2)) ? 1 : 0);
-                anVar.p("time_stamp", System.currentTimeMillis());
+                anVar.cp("obj_source", str2);
+                anVar.s("obj_param1", j3);
+                anVar.s(TiebaInitialize.Params.OBJ_PARAM2, j4);
+                anVar.s(TiebaInitialize.Params.OBJ_PARAM3, j5);
+                anVar.s("obj_duration", j2);
+                anVar.s("resource_id", j);
+                anVar.Z("ptype", com.baidu.adp.lib.util.j.netType());
+                anVar.cp("tid", str);
+                anVar.cp("cuid", TbadkCoreApplication.getInst().getCuid());
+                anVar.Z("obj_id", af.mC(EI(str2)) ? 1 : 0);
+                anVar.s(ETAG.KEY_TIME_STAMP, System.currentTimeMillis());
                 TiebaStatic.log(anVar);
                 if (aVar != null) {
-                    aVar.a(str2, j3, j4, j5, j2, j, str, ac.kn(Aa(str2)) ? 1 : 0);
+                    aVar.a(str2, j3, j4, j5, j2, j, str, af.mC(EI(str2)) ? 1 : 0);
                 }
             }
         }
     }
 
-    private int Aa(String str) {
+    private int EI(String str) {
         if ("frs".equals(str)) {
             return 2;
         }
@@ -77,6 +78,6 @@ public class k {
     }
 
     public void setPageTypeForPerfStat(String str) {
-        this.hwT = str;
+        this.bno = str;
     }
 }

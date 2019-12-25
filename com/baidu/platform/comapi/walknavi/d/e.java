@@ -3,7 +3,6 @@ package com.baidu.platform.comapi.walknavi.d;
 import android.os.Handler;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.platform.comapi.walknavi.d.g;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.io.File;
 /* loaded from: classes5.dex */
 public class e {
@@ -109,7 +108,7 @@ public class e {
             b.removeCallbacks(this.a);
         }
         this.d.a(str, str2);
-        b.postDelayed(this.a, StatisticConfig.MIN_UPLOAD_INTERVAL);
+        b.postDelayed(this.a, 30000L);
     }
 
     public boolean b(String str) {

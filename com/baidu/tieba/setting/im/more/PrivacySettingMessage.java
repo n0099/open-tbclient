@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.HttpMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class PrivacySettingMessage extends HttpMessage {
     private String opt;
     private int val;

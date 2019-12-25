@@ -9,20 +9,20 @@ import android.util.SparseIntArray;
 import android.view.View;
 /* loaded from: classes.dex */
 public class h {
+    private i AH;
+    private float AJ;
+    private float AK;
     private int mCurrentPosition;
     private int mOrientation;
     private RecyclerView mRecyclerView;
     private int mScrollState;
-    private i yh;
-    private float yj;
-    private float yk;
-    private boolean yl = false;
-    private SparseIntArray yi = new SparseIntArray();
-    private SparseArray<ValueAnimator> ym = new SparseArray<>();
-    private SparseIntArray yn = new SparseIntArray();
+    private boolean AM = false;
+    private SparseIntArray AI = new SparseIntArray();
+    private SparseArray<ValueAnimator> AN = new SparseArray<>();
+    private SparseIntArray AO = new SparseIntArray();
 
     public h(i iVar) {
-        this.yh = iVar;
+        this.AH = iVar;
     }
 
     public void a(RecyclerView recyclerView, int i) {
@@ -37,86 +37,86 @@ public class h {
             if (this.mOrientation != 2) {
                 f2 = f;
             }
-            if (Math.abs(f2) < this.yh.jS()) {
-                this.yl = true;
-                jH();
+            if (Math.abs(f2) < this.AH.kj()) {
+                this.AM = true;
+                jY();
                 return;
             }
             this.mCurrentPosition = i;
-            this.yl = false;
-            if (Math.abs(f2) > this.yh.jO()) {
-                f3 = f2 > 0.0f ? this.yh.jO() : -this.yh.jO();
+            this.AM = false;
+            if (Math.abs(f2) > this.AH.kf()) {
+                f3 = f2 > 0.0f ? this.AH.kf() : -this.AH.kf();
             } else {
                 f3 = f2;
             }
-            this.yi.clear();
-            float jK = f3 * this.yh.jK();
+            this.AI.clear();
+            float kb = f3 * this.AH.kb();
             if (f3 < 0.0f) {
-                float jL = this.yh.jL();
+                float kc = this.AH.kc();
                 int i3 = 1;
                 while (true) {
                     int i4 = i - i3;
-                    float f4 = jK + (i3 * jL);
-                    float f5 = jL * 1.4f;
+                    float f4 = kb + (i3 * kc);
+                    float f5 = kc * 1.4f;
                     if (f4 > 0.0f) {
                         break;
                     }
-                    float jJ = (f4 / this.yh.jJ()) + this.yi.get(i4);
-                    if (Math.abs(jJ) > this.yh.jN()) {
-                        jJ = -this.yh.jN();
+                    float ka = (f4 / this.AH.ka()) + this.AI.get(i4);
+                    if (Math.abs(ka) > this.AH.ke()) {
+                        ka = -this.AH.ke();
                     }
-                    this.yi.append(i4, (int) jJ);
+                    this.AI.append(i4, (int) ka);
                     i3++;
-                    jL = f5;
+                    kc = f5;
                 }
-                float jL2 = this.yh.jL();
+                float kc2 = this.AH.kc();
                 while (true) {
                     int i5 = i + i2;
-                    float f6 = jK + (i2 * jL2);
-                    float f7 = jL2 * 1.4f;
+                    float f6 = kb + (i2 * kc2);
+                    float f7 = kc2 * 1.4f;
                     if (f6 <= 0.0f) {
-                        float jI = (f6 / this.yh.jI()) + this.yi.get(i5);
-                        if (Math.abs(jI) > this.yh.jM()) {
-                            jI = -this.yh.jM();
+                        float jZ = (f6 / this.AH.jZ()) + this.AI.get(i5);
+                        if (Math.abs(jZ) > this.AH.kd()) {
+                            jZ = -this.AH.kd();
                         }
-                        this.yi.append(i5, (int) jI);
+                        this.AI.append(i5, (int) jZ);
                         i2++;
-                        jL2 = f7;
+                        kc2 = f7;
                     } else {
                         return;
                     }
                 }
             } else {
-                float jL3 = this.yh.jL();
+                float kc3 = this.AH.kc();
                 int i6 = 1;
                 while (true) {
                     int i7 = i - i6;
-                    float f8 = jK - (i6 * jL3);
-                    float f9 = jL3 * 1.4f;
+                    float f8 = kb - (i6 * kc3);
+                    float f9 = kc3 * 1.4f;
                     if (f8 < 0.0f) {
                         break;
                     }
-                    float jI2 = (f8 / this.yh.jI()) + this.yi.get(i7);
-                    if (Math.abs(jI2) > this.yh.jM()) {
-                        jI2 = this.yh.jM();
+                    float jZ2 = (f8 / this.AH.jZ()) + this.AI.get(i7);
+                    if (Math.abs(jZ2) > this.AH.kd()) {
+                        jZ2 = this.AH.kd();
                     }
-                    this.yi.append(i7, (int) jI2);
+                    this.AI.append(i7, (int) jZ2);
                     i6++;
-                    jL3 = f9;
+                    kc3 = f9;
                 }
-                float jL4 = this.yh.jL();
+                float kc4 = this.AH.kc();
                 while (true) {
                     int i8 = i + i2;
-                    float f10 = jK - (i2 * jL4);
-                    float f11 = jL4 * 1.4f;
+                    float f10 = kb - (i2 * kc4);
+                    float f11 = kc4 * 1.4f;
                     if (f10 >= 0.0f) {
-                        float jJ2 = (f10 / this.yh.jJ()) + this.yi.get(i8);
-                        if (Math.abs(jJ2) > this.yh.jN()) {
-                            jJ2 = this.yh.jN();
+                        float ka2 = (f10 / this.AH.ka()) + this.AI.get(i8);
+                        if (Math.abs(ka2) > this.AH.ke()) {
+                            ka2 = this.AH.ke();
                         }
-                        this.yi.append(i8, (int) jJ2);
+                        this.AI.append(i8, (int) ka2);
                         i2++;
-                        jL4 = f11;
+                        kc4 = f11;
                     } else {
                         return;
                     }
@@ -125,23 +125,23 @@ public class h {
         }
     }
 
-    public void aj(int i) {
+    public void am(int i) {
         if (this.mRecyclerView != null) {
             this.mScrollState = i;
             if (this.mScrollState == 0) {
-                this.yi.clear();
-                jH();
+                this.AI.clear();
+                jY();
             } else if (this.mScrollState == 2) {
-                jH();
+                jY();
             } else if (this.mScrollState == 1) {
-                this.yi.clear();
-                jH();
+                this.AI.clear();
+                jY();
             }
         }
     }
 
     public void i(int i, int i2, int i3) {
-        if (this.mRecyclerView != null && this.mScrollState == 1 && !this.yl) {
+        if (this.mRecyclerView != null && this.mScrollState == 1 && !this.AM) {
             if (this.mOrientation != 2) {
                 i2 = i;
             }
@@ -188,30 +188,30 @@ public class h {
         if (view != null) {
             if (f < 0.0f) {
                 if (i < i2) {
-                    float z = z(view) + (this.yh.jQ() * f);
-                    if (z > (-this.yi.get(i)) + z(this.mRecyclerView.getChildAt(i3 + 1))) {
+                    float z = z(view) + (this.AH.kh() * f);
+                    if (z > (-this.AI.get(i)) + z(this.mRecyclerView.getChildAt(i3 + 1))) {
                         m(view, z);
                     } else {
                         c(view, i);
                     }
                 } else if (i > i2) {
-                    float z2 = z(view) + (this.yh.jP() * f);
-                    if (z2 > (-this.yi.get(i)) + z(this.mRecyclerView.getChildAt(i3 - 1))) {
+                    float z2 = z(view) + (this.AH.kg() * f);
+                    if (z2 > (-this.AI.get(i)) + z(this.mRecyclerView.getChildAt(i3 - 1))) {
                         m(view, z2);
                     } else {
                         c(view, i);
                     }
                 }
             } else if (i > i2) {
-                float z3 = z(view) + (this.yh.jQ() * f);
-                if (z3 < (-this.yi.get(i)) + z(this.mRecyclerView.getChildAt(i3 - 1))) {
+                float z3 = z(view) + (this.AH.kh() * f);
+                if (z3 < (-this.AI.get(i)) + z(this.mRecyclerView.getChildAt(i3 - 1))) {
                     m(view, z3);
                 } else {
                     c(view, i);
                 }
             } else if (i < i2) {
-                float z4 = z(view) + (this.yh.jP() * f);
-                if (z4 < (-this.yi.get(i)) + z(this.mRecyclerView.getChildAt(i3 + 1))) {
+                float z4 = z(view) + (this.AH.kg() * f);
+                if (z4 < (-this.AI.get(i)) + z(this.mRecyclerView.getChildAt(i3 + 1))) {
                     m(view, z4);
                 } else {
                     c(view, i);
@@ -226,19 +226,19 @@ public class h {
             RecyclerView.LayoutManager layoutManager = this.mRecyclerView.getLayoutManager();
             if (layoutManager instanceof LinearLayoutManager) {
                 if (childAdapterPosition <= ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition()) {
-                    float f = -this.yi.get(childAdapterPosition, 0);
+                    float f = -this.AI.get(childAdapterPosition, 0);
                     if (f != 0.0f) {
-                        this.yj = f;
+                        this.AJ = f;
                     } else {
-                        f = this.yj;
+                        f = this.AJ;
                     }
                     m(view, f + (this.mRecyclerView.getChildAt(1) != null ? z(this.mRecyclerView.getChildAt(1)) : 0.0f));
                 } else {
-                    float f2 = -this.yi.get(childAdapterPosition, 0);
+                    float f2 = -this.AI.get(childAdapterPosition, 0);
                     if (f2 != 0.0f) {
-                        this.yk = f2;
+                        this.AK = f2;
                     } else {
-                        f2 = this.yk;
+                        f2 = this.AK;
                     }
                     m(view, f2 + (this.mRecyclerView.getChildAt(this.mRecyclerView.getChildCount() + (-2)) != null ? z(this.mRecyclerView.getChildAt(this.mRecyclerView.getChildCount() - 2)) : 0.0f));
                 }
@@ -251,16 +251,16 @@ public class h {
         if (this.mRecyclerView != null) {
             m(view, 0.0f);
             int childAdapterPosition = this.mRecyclerView.getChildAdapterPosition(view);
-            this.yi.delete(childAdapterPosition);
-            if (this.ym.get(childAdapterPosition) != null) {
-                this.ym.get(childAdapterPosition).cancel();
+            this.AI.delete(childAdapterPosition);
+            if (this.AN.get(childAdapterPosition) != null) {
+                this.AN.get(childAdapterPosition).cancel();
             }
-            this.ym.delete(childAdapterPosition);
-            this.yn.delete(childAdapterPosition);
+            this.AN.delete(childAdapterPosition);
+            this.AO.delete(childAdapterPosition);
         }
     }
 
-    private void jH() {
+    private void jY() {
         int childCount = this.mRecyclerView.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.mRecyclerView.getChildAt(i);
@@ -270,7 +270,7 @@ public class h {
 
     private void c(final View view, final int i) {
         if (view != null) {
-            ValueAnimator valueAnimator = this.ym.get(i);
+            ValueAnimator valueAnimator = this.AN.get(i);
             if (valueAnimator == null) {
                 if (Math.abs(z(view)) < 0.1f) {
                     m(view, 0.0f);
@@ -278,7 +278,7 @@ public class h {
                 }
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(z(view), 0.0f);
                 ofFloat.setInterpolator(new j(1.0f));
-                ofFloat.setDuration(this.yh.jT());
+                ofFloat.setDuration(this.AH.kk());
                 ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.adp.widget.ListView.h.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator2) {
@@ -292,16 +292,16 @@ public class h {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        h.this.ym.delete(i);
-                        h.this.yn.delete(i);
-                        h.this.yi.delete(i);
+                        h.this.AN.delete(i);
+                        h.this.AO.delete(i);
+                        h.this.AI.delete(i);
                         h.this.m(view, 0.0f);
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationCancel(Animator animator) {
-                        h.this.ym.delete(i);
-                        h.this.yn.delete(i);
+                        h.this.AN.delete(i);
+                        h.this.AO.delete(i);
                         h.this.m(view, 0.0f);
                     }
 
@@ -309,8 +309,8 @@ public class h {
                     public void onAnimationRepeat(Animator animator) {
                     }
                 });
-                this.ym.append(i, ofFloat);
-                this.yn.append(i, (int) z(view));
+                this.AN.append(i, ofFloat);
+                this.AO.append(i, (int) z(view));
                 ofFloat.start();
                 return;
             }
@@ -318,8 +318,8 @@ public class h {
                 valueAnimator.start();
             }
             float z = z(view);
-            if (Math.abs(z) > Math.abs(this.yn.get(i)) + this.yh.jR()) {
-                this.yn.append(i, (int) z);
+            if (Math.abs(z) > Math.abs(this.AO.get(i)) + this.AH.ki()) {
+                this.AO.append(i, (int) z);
                 valueAnimator.setFloatValues(z, 0.0f);
                 valueAnimator.cancel();
                 valueAnimator.start();

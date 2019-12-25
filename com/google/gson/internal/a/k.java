@@ -1,50 +1,51 @@
 package com.google.gson.internal.a;
 
-import com.google.gson.n;
-import com.google.gson.o;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.stream.JsonToken;
 import java.io.IOException;
-/* loaded from: classes2.dex */
-public final class k<T> extends n<T> {
-    private final com.google.gson.d gson;
-    private n<T> knC;
-    private final com.google.gson.m<T> kpj;
-    private final com.google.gson.g<T> kpk;
-    private final com.google.gson.b.a<T> kpl;
-    private final o kpm;
-    private final k<T>.a kpn = new a();
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+/* loaded from: classes4.dex */
+public final class k extends TypeAdapter<Time> {
+    public static final TypeAdapterFactory mGD = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.k.1
+        @Override // com.google.gson.TypeAdapterFactory
+        public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
+            if (aVar.getRawType() == Time.class) {
+                return new k();
+            }
+            return null;
+        }
+    };
+    private final DateFormat mHf = new SimpleDateFormat("hh:mm:ss a");
 
-    public k(com.google.gson.m<T> mVar, com.google.gson.g<T> gVar, com.google.gson.d dVar, com.google.gson.b.a<T> aVar, o oVar) {
-        this.kpj = mVar;
-        this.kpk = gVar;
-        this.gson = dVar;
-        this.kpl = aVar;
-        this.kpm = oVar;
-    }
-
-    @Override // com.google.gson.n
-    public void a(com.google.gson.stream.a aVar, T t) throws IOException {
-        if (this.kpj == null) {
-            cKl().a(aVar, t);
-        } else if (t == null) {
-            aVar.cKB();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.gson.TypeAdapter
+    /* renamed from: e */
+    public synchronized Time read(com.google.gson.stream.a aVar) throws IOException {
+        Time time;
+        if (aVar.dyA() == JsonToken.NULL) {
+            aVar.dyG();
+            time = null;
         } else {
-            com.google.gson.internal.f.b(this.kpj.a(t, this.kpl.cKD(), this.kpn), aVar);
+            try {
+                time = new Time(this.mHf.parse(aVar.dyE()).getTime());
+            } catch (ParseException e) {
+                throw new JsonSyntaxException(e);
+            }
         }
+        return time;
     }
 
-    private n<T> cKl() {
-        n<T> nVar = this.knC;
-        if (nVar != null) {
-            return nVar;
-        }
-        n<T> a2 = this.gson.a(this.kpm, this.kpl);
-        this.knC = a2;
-        return a2;
-    }
-
-    /* loaded from: classes2.dex */
-    private final class a implements com.google.gson.l {
-        private a() {
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.gson.TypeAdapter
+    /* renamed from: a */
+    public synchronized void write(com.google.gson.stream.b bVar, Time time) throws IOException {
+        bVar.Qo(time == null ? null : this.mHf.format((Date) time));
     }
 }

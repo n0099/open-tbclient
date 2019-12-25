@@ -10,6 +10,8 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.webkit.internal.ETAG;
+import com.baidubce.http.Headers;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.utils.j;
 import com.tencent.tauth.IRequestListener;
@@ -91,12 +93,12 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class HttpUtils {
     private HttpUtils() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class HttpStatusException extends Exception {
         public static final String ERROR_INFO = "http status code error:";
 
@@ -105,7 +107,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class NetworkUnavailableException extends Exception {
         public static final String ERROR_INFO = "network unavailable";
 
@@ -453,11 +455,11 @@ public class HttpUtils {
             if (str.indexOf("?") == -1) {
                 str3 = str + "?";
             } else {
-                str3 = str + "&";
+                str3 = str + ETAG.ITEM_SEPARATOR;
             }
             com.tencent.open.a.f.a("openSDK_LOG.HttpUtils", "-->openUrl2 encodedParam =" + encodeUrl + " -- url = " + str3);
             HttpGet httpGet2 = new HttpGet(str3 + encodeUrl);
-            httpGet2.addHeader("Accept-Encoding", "gzip");
+            httpGet2.addHeader(Headers.ACCEPT_ENCODING, "gzip");
             httpGet = httpGet2;
             i = length;
         } else if (!str2.equals("POST")) {
@@ -465,7 +467,7 @@ public class HttpUtils {
             i = 0;
         } else {
             HttpPost httpPost = new HttpPost(str);
-            httpPost.addHeader("Accept-Encoding", "gzip");
+            httpPost.addHeader(Headers.ACCEPT_ENCODING, "gzip");
             Bundle bundle3 = new Bundle();
             for (String str4 : bundle2.keySet()) {
                 Object obj = bundle2.get(str4);
@@ -516,7 +518,7 @@ public class HttpUtils {
     private static String a(HttpResponse httpResponse) throws IllegalStateException, IOException {
         InputStream content = httpResponse.getEntity().getContent();
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        Header firstHeader = httpResponse.getFirstHeader(HTTP.CONTENT_ENCODING);
+        Header firstHeader = httpResponse.getFirstHeader("Content-Encoding");
         InputStream gZIPInputStream = (firstHeader == null || firstHeader.getValue().toLowerCase().indexOf("gzip") <= -1) ? content : new GZIPInputStream(content);
         byte[] bArr = new byte[512];
         while (true) {
@@ -524,7 +526,7 @@ public class HttpUtils {
             if (read != -1) {
                 byteArrayOutputStream.write(bArr, 0, read);
             } else {
-                String str = new String(byteArrayOutputStream.toByteArray(), HTTP.UTF_8);
+                String str = new String(byteArrayOutputStream.toByteArray(), "UTF-8");
                 gZIPInputStream.close();
                 return str;
             }
@@ -566,7 +568,7 @@ public class HttpUtils {
         HttpConnectionParams.setConnectionTimeout(basicHttpParams, i);
         HttpConnectionParams.setSoTimeout(basicHttpParams, i2);
         HttpProtocolParams.setVersion(basicHttpParams, HttpVersion.HTTP_1_1);
-        HttpProtocolParams.setContentCharset(basicHttpParams, HTTP.UTF_8);
+        HttpProtocolParams.setContentCharset(basicHttpParams, "UTF-8");
         HttpProtocolParams.setUserAgent(basicHttpParams, "AndroidSDK_" + Build.VERSION.SDK + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.DEVICE + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.VERSION.RELEASE);
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
         c proxy = getProxy(context);
@@ -589,9 +591,9 @@ public class HttpUtils {
                     if (z) {
                         z = false;
                     } else {
-                        sb.append("&");
+                        sb.append(ETAG.ITEM_SEPARATOR);
                     }
-                    sb.append(URLEncoder.encode(str) + "=");
+                    sb.append(URLEncoder.encode(str) + ETAG.EQUAL);
                     String[] stringArray = bundle.getStringArray(str);
                     if (stringArray != null) {
                         for (int i = 0; i < stringArray.length; i++) {
@@ -606,9 +608,9 @@ public class HttpUtils {
                     if (z) {
                         z = false;
                     } else {
-                        sb.append("&");
+                        sb.append(ETAG.ITEM_SEPARATOR);
                     }
-                    sb.append(URLEncoder.encode(str) + "=" + URLEncoder.encode(bundle.getString(str)));
+                    sb.append(URLEncoder.encode(str) + ETAG.EQUAL + URLEncoder.encode(bundle.getString(str)));
                 }
                 z = z;
             }
@@ -655,7 +657,7 @@ public class HttpUtils {
         return null;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class c {
         public final String a;
         public final int b;
@@ -702,7 +704,7 @@ public class HttpUtils {
         return System.getProperty("http.proxyHost");
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a extends SSLSocketFactory {
         private final SSLContext a;
 
@@ -729,7 +731,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class b implements X509TrustManager {
         X509TrustManager a;
 

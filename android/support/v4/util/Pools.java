@@ -1,18 +1,22 @@
 package android.support.v4.util;
-/* loaded from: classes2.dex */
+
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+/* loaded from: classes4.dex */
 public final class Pools {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface Pool<T> {
+        @Nullable
         T acquire();
 
-        boolean release(T t);
+        boolean release(@NonNull T t);
     }
 
     private Pools() {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SimplePool<T> implements Pool<T> {
         private final Object[] mPool;
         private int mPoolSize;
@@ -37,7 +41,7 @@ public final class Pools {
         }
 
         @Override // android.support.v4.util.Pools.Pool
-        public boolean release(T t) {
+        public boolean release(@NonNull T t) {
             if (isInPool(t)) {
                 throw new IllegalStateException("Already in the pool!");
             }
@@ -49,7 +53,7 @@ public final class Pools {
             return false;
         }
 
-        private boolean isInPool(T t) {
+        private boolean isInPool(@NonNull T t) {
             for (int i = 0; i < this.mPoolSize; i++) {
                 if (this.mPool[i] == t) {
                     return true;
@@ -59,7 +63,7 @@ public final class Pools {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SynchronizedPool<T> extends SimplePool<T> {
         private final Object mLock;
 
@@ -78,7 +82,7 @@ public final class Pools {
         }
 
         @Override // android.support.v4.util.Pools.SimplePool, android.support.v4.util.Pools.Pool
-        public boolean release(T t) {
+        public boolean release(@NonNull T t) {
             boolean release;
             synchronized (this.mLock) {
                 release = super.release(t);

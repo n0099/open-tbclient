@@ -1,58 +1,56 @@
 package com.baidu.swan.apps.performance;
 
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import android.text.TextUtils;
+import android.util.Log;
 import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes2.dex */
-public class a {
-    private final Map<String, HybridUbcFlow> aZp = new HashMap();
-    private final Map<String, com.baidu.swan.apps.an.d.a<HybridUbcFlow>> aZq = new HashMap();
-    private final com.baidu.swan.apps.an.d.a<HybridUbcFlow> aZr = new com.baidu.swan.apps.an.d.a<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.a.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.swan.apps.an.d.a
-        /* renamed from: a */
-        public void B(HybridUbcFlow hybridUbcFlow) {
-            a.this.gA(hybridUbcFlow.name);
-        }
-    };
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class a implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public synchronized HybridUbcFlow gz(String str) {
-        HybridUbcFlow gB;
-        synchronized (this.aZp) {
-            gB = gB(str);
-            if (gB == null) {
-                HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-                hybridUbcFlow.a(HybridUbcFlow.ExtensionType.CALLBACK_ON_SUBMIT, this.aZr);
-                com.baidu.swan.apps.an.d.a<HybridUbcFlow> aVar = this.aZq.get(str);
-                if (aVar != null) {
-                    aVar.B(hybridUbcFlow);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.swan.apps.as.d.b
+    /* renamed from: a */
+    public void B(HybridUbcFlow hybridUbcFlow) {
+        if (DEBUG) {
+            Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
+        }
+        com.baidu.swan.apps.y.f Uf = com.baidu.swan.apps.y.f.Uf();
+        if (Uf.Ug()) {
+            if (DEBUG || com.baidu.swan.apps.y.f.Uf().TK()) {
+                HashMap hashMap = new HashMap();
+                try {
+                    hashMap.put("flow", b(hybridUbcFlow).toString());
+                } catch (JSONException e) {
+                    if (DEBUG) {
+                        e.printStackTrace();
+                    }
                 }
-                this.aZp.put(str, hybridUbcFlow);
-                gB = hybridUbcFlow;
+                Uf.a(new com.baidu.swan.apps.n.a.b("collect_performance", hashMap));
             }
         }
-        return gB;
     }
 
-    public a b(String str, com.baidu.swan.apps.an.d.a<HybridUbcFlow> aVar) {
-        synchronized (this.aZq) {
-            this.aZq.put(str, aVar);
+    private JSONObject b(HybridUbcFlow hybridUbcFlow) throws JSONException {
+        JSONObject jSONObject = new JSONObject();
+        if (hybridUbcFlow != null && !hybridUbcFlow.bCD.isEmpty()) {
+            jSONObject.put("flowId", hybridUbcFlow.WL());
+            JSONArray jSONArray = new JSONArray();
+            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.bCD) {
+                if (!ubcFlowEvent.Xl() && !TextUtils.isEmpty(ubcFlowEvent.id)) {
+                    if (DEBUG) {
+                        Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
+                    }
+                    jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.id).put("timestamp", ubcFlowEvent.Xj()));
+                }
+            }
+            jSONObject.put("data", jSONArray);
         }
-        return this;
-    }
-
-    public a gA(String str) {
-        synchronized (this.aZp) {
-            this.aZp.remove(str);
+        if (DEBUG) {
+            Log.i("FlowJarToH5Reporter", "buildJoMsg: joMsg=" + jSONObject);
         }
-        return this;
-    }
-
-    public HybridUbcFlow gB(String str) {
-        HybridUbcFlow hybridUbcFlow;
-        synchronized (this.aZp) {
-            hybridUbcFlow = this.aZp.get(str);
-        }
-        return hybridUbcFlow;
+        return jSONObject;
     }
 }

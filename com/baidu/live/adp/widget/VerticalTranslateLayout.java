@@ -13,12 +13,13 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.FrameLayout;
+import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.R;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class VerticalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String BOTTOM = "bottom";
@@ -61,20 +62,20 @@ public class VerticalTranslateLayout extends FrameLayout {
     private final Tracker mTracker;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnBottomAnimationListener {
         void onBottomAnimationEnd();
 
         void onRightAnimationStart();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     interface OnBottomTrackListener {
         void onBottomTrackStart();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnOpenAnimationListener {
         void onOpenAnimationEnd();
 
@@ -82,26 +83,26 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnTopAnimationListener {
         void onLeftAnimationStart();
 
         void onTopAnimationEnd();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     interface OnTopTrackListener {
         void onTopTrackStart();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnVerticalTrackListener {
         void onStartVerticalTrack(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum TrackDirection {
         top,
         bottom,
@@ -153,7 +154,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         }
         String string2 = obtainStyledAttributes.getString(R.styleable.sdk_VerticalTranslateLayout_tapBack);
         if (string2 != null && string2.length() > 0) {
-            String[] split = string2.split("\\|");
+            String[] split = string2.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
             for (String str : split) {
                 BdLog.d("VerticalTranslateLayout@loadAttrs tap area " + str);
                 if (TOP.equals(str) && this.mTopOffset != -1.0f) {
@@ -479,7 +480,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class AnimationHandler extends Handler {
         private AnimationHandler() {
         }
@@ -510,7 +511,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class Tracker {
         static final float MIN_VELOCITY = 500.0f;
         static final int VELOCITY_UNIT = 200;
@@ -651,7 +652,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class Animator {
         static final String TAG = "Animator";
         static final int VELOCITY = 600;

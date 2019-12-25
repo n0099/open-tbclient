@@ -1,8 +1,8 @@
 package com.baidu.tieba.recapp.lego.model.postad;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class AdDownloadExtra {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public enum STATUS {
         STATUS_NONE(0),
         STATUS_DOWNLOADING(1),

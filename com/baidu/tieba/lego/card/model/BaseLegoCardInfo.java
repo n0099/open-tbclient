@@ -2,6 +2,7 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tieba.a;
 import java.io.Serializable;
@@ -52,7 +53,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.cardType = jSONObject.optInt("card_type");
         this.itemId = jSONObject.optString(LegoListActivityConfig.ITEM_ID);
         this.flipId = jSONObject.optString("flip_id");
-        this.scheme = jSONObject.optString("scheme");
+        this.scheme = jSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
         this.title = jSONObject.optString("title");
         this.statistics = jSONObject.optString("statistics");
         this.sExtras = jSONObject.optString("sExtras");
@@ -140,12 +141,12 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public boolean equals(Object obj) {
         if ((obj instanceof BaseLegoCardInfo) && !TextUtils.isEmpty(this.itemId)) {
             BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) obj;
-            return this.itemId.equals(baseLegoCardInfo.itemId) && b(baseLegoCardInfo);
+            return this.itemId.equals(baseLegoCardInfo.itemId) && equalsGroupId(baseLegoCardInfo);
         }
         return false;
     }
 
-    private boolean b(BaseLegoCardInfo baseLegoCardInfo) {
+    private boolean equalsGroupId(BaseLegoCardInfo baseLegoCardInfo) {
         if (baseLegoCardInfo == null) {
             return false;
         }
@@ -221,7 +222,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public static class ClientParams implements Serializable {
         public ClientParams(JSONObject jSONObject) {
             if (jSONObject != null) {
-                a.aAM().parse(jSONObject);
+                a.aSA().parse(jSONObject);
             }
         }
     }

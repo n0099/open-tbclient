@@ -10,7 +10,8 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+import org.apache.commons.base.CharEncoding;
+/* loaded from: classes4.dex */
 public class PlayReadyHeader extends ProtectionSpecificHeader {
     public static UUID PROTECTION_SYSTEM_ID = UUID.fromString("9A04F079-9840-4286-AB92-E65BE0885F95");
     private long length;
@@ -73,7 +74,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         return sb.toString();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class PlayReadyRecord {
         int type;
 
@@ -122,7 +123,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             return sb.toString();
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class RMHeader extends PlayReadyRecord {
             String header;
 
@@ -135,7 +136,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                 try {
                     byte[] bArr = new byte[byteBuffer.slice().limit()];
                     byteBuffer.get(bArr);
-                    this.header = new String(bArr, "UTF-16LE");
+                    this.header = new String(bArr, CharEncoding.UTF_16LE);
                 } catch (UnsupportedEncodingException e) {
                     throw new RuntimeException(e);
                 }
@@ -144,7 +145,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             @Override // com.googlecode.mp4parser.contentprotection.PlayReadyHeader.PlayReadyRecord
             public ByteBuffer getValue() {
                 try {
-                    return ByteBuffer.wrap(this.header.getBytes("UTF-16LE"));
+                    return ByteBuffer.wrap(this.header.getBytes(CharEncoding.UTF_16LE));
                 } catch (UnsupportedEncodingException e) {
                     throw new RuntimeException(e);
                 }
@@ -169,7 +170,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class EmeddedLicenseStore extends PlayReadyRecord {
             ByteBuffer value;
 
@@ -197,7 +198,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class DefaulPlayReadyRecord extends PlayReadyRecord {
             ByteBuffer value;
 

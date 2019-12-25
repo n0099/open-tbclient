@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.util.httpnet;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HttpResponse {
     public String mErrorString;
     public int mNetErrorCode;

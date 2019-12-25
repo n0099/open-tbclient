@@ -3,7 +3,7 @@ package com.baidu.live.adp.framework.task;
 import com.baidu.live.adp.framework.settings.TimeOutData;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTaskParallel;
 import java.security.InvalidParameterException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class MessageTask {
     protected final int mCmd;
     protected int mPriority;

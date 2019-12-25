@@ -1,6 +1,5 @@
 package com.baidu.cyberplayer.sdk;
 
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -13,7 +12,7 @@ public final class CyberTaskExcutor {
     private static CyberTaskExcutor a;
     private final int b = 0;
     private final int c = 5;
-    private final int d = SubsamplingScaleImageView.ORIENTATION_180;
+    private final int d = 180;
     private ExecutorService e = new ThreadPoolExecutor(0, 5, 180, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyberplayer-thread", 5));
 
     /* loaded from: classes.dex */

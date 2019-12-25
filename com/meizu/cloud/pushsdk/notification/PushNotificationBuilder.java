@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.notification;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PushNotificationBuilder {
     protected String clickPackageName;
     protected int mLargIcon;

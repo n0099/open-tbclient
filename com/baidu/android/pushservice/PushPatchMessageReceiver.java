@@ -3,11 +3,10 @@ package com.baidu.android.pushservice;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.pushservice.i.l;
-import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageReceiver {
     public static final int MSG_ARRIVED = 2;
     public static final int MSG_CLICKED = 3;
@@ -54,7 +53,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
                 String command = miPushCommandMessage.getCommand();
                 List<String> commandArguments = miPushCommandMessage.getCommandArguments();
                 String str = (commandArguments == null || commandArguments.size() <= 0) ? null : commandArguments.get(0);
-                if (MiPushClient.COMMAND_REGISTER.equals(command)) {
+                if ("register".equals(command)) {
                     Intent intent = new Intent("com.xiaomi.mipush.REGISTER");
                     intent.putExtra(REGID, str);
                     intent.putExtra(REGISTER_ERRORCODE, miPushCommandMessage.getResultCode());

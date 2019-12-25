@@ -3,22 +3,24 @@ package com.baidu.live.view.input;
 import android.view.View;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.view.input.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0080a {
-        void g(String str, boolean z);
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0097a {
+        void j(String str, boolean z);
 
-        boolean sG();
+        void uA();
 
-        void sI();
+        boolean uB();
 
-        void sJ();
+        boolean ux();
+
+        void uz();
     }
 
-    void a(List<String> list, Map<String, Integer> map);
+    void b(List<String> list, Map<String, Integer> map);
 
     int getQuickInputPanelExpandHeight();
 
@@ -34,9 +36,9 @@ public interface a {
 
     void show();
 
-    boolean tF();
+    boolean vA();
 
-    boolean tG();
+    void vB();
 
-    void tH();
+    boolean vz();
 }

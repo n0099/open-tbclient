@@ -1,7 +1,7 @@
 package com.baidu.location.a;
 
 import android.os.Bundle;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static Object a = new Object();
     private static b b = null;
@@ -27,9 +27,5 @@ public class b {
             bundle.putByteArray("diagmessage", str.getBytes());
             a.a().a(bundle, 303);
         }
-    }
-
-    public void b() {
-        this.c = -1;
     }
 }

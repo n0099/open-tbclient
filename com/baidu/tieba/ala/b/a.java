@@ -1,105 +1,136 @@
 package com.baidu.tieba.ala.b;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Handler;
-import android.view.LayoutInflater;
+import android.content.Intent;
+import android.os.Build;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
+import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.adp.lib.safe.ShowUtil;
-import com.baidu.live.k.a;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes6.dex */
-public class a implements View.OnClickListener {
-    public TextView dPF;
-    public TextView dPG;
-    public TextView dPH;
-    private Context mContext;
-    private AlertDialog mDialog;
-    Handler handler = new Handler();
-    CustomMessageListener afT = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.b.a.1
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.adp.framework.task.HttpMessageTask;
+import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.util.UtilHelper;
+import com.baidu.live.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.ala.data.RedPktSendHttpResponseMessage;
+import com.baidu.tieba.ala.data.o;
+/* loaded from: classes2.dex */
+public class a {
+    private Activity activity;
+    private b esD;
+    private String liveId;
+    private String roomId;
+    private HttpMessageListener esE = new HttpMessageListener(1021156) { // from class: com.baidu.tieba.ala.b.a.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                if (a.this.activity.isDestroyed() || a.this.activity.isFinishing()) {
+                    return;
+                }
+            } else if (a.this.activity.isFinishing()) {
+                return;
+            }
+            if ((httpResponsedMessage instanceof RedPktSendHttpResponseMessage) && httpResponsedMessage.getError() == 0) {
+                com.baidu.live.j.a.a(a.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).euR, ((RedPktSendHttpResponseMessage) httpResponsedMessage).euS, "send_redpacket");
+                a.this.activity.finish();
+                return;
+            }
+            if (httpResponsedMessage.getError() == 3501) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(a.this.activity, 0L, "", true, "", true)));
+            } else if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
+                UtilHelper.showToast(a.this.activity, httpResponsedMessage.getErrorString());
+            }
+            if (a.this.esD != null) {
+                a.this.esD.hX(true);
+            }
+        }
+    };
+    private CustomMessageListener notifyDialogDismissListener = new CustomMessageListener(2913129) { // from class: com.baidu.tieba.ala.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (a.this.mDialog != null && a.this.mDialog.isShowing()) {
-                a.this.dismiss();
+            if (Build.VERSION.SDK_INT >= 17) {
+                if (a.this.activity.isDestroyed() || a.this.activity.isFinishing()) {
+                    return;
+                }
+            } else if (a.this.activity.isFinishing()) {
+                return;
             }
+            a.this.activity.finish();
         }
     };
-    private Runnable dPI = new Runnable() { // from class: com.baidu.tieba.ala.b.a.3
-        @Override // java.lang.Runnable
-        public void run() {
-            a.this.dismiss();
+
+    public a(Activity activity) {
+        this.activity = activity;
+        initView();
+        bbs();
+    }
+
+    private void initView() {
+        if (this.activity != null && this.activity.getIntent() != null) {
+            Intent intent = this.activity.getIntent();
+            this.liveId = intent.getStringExtra("live_id");
+            this.roomId = intent.getStringExtra("room_id");
         }
-    };
-    private View mRootView = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(a.h.ala_level_up_dialog, (ViewGroup) null);
-    public ImageView dPE = (ImageView) this.mRootView.findViewById(a.g.close_img);
-
-    public a(Context context) {
-        this.mContext = context;
-        this.dPE.setOnClickListener(this);
-        this.mRootView.setOnClickListener(this);
-        this.dPF = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLevel);
-        this.dPG = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipNum);
-        this.dPH = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLebel);
+        this.esD = new b(this.activity, this);
     }
 
-    private void aMj() {
-        MessageManager.getInstance().registerListener(this.afT);
+    private static void bbr() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021156, TbConfig.SERVER_HOST + "liveserver/redpacket/send");
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        tbHttpMessageTask.setResponsedClass(RedPktSendHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void w(String str, String str2, boolean z) {
-        this.dPH.setVisibility(z ? 0 : 8);
-        this.dPF.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_level, str2));
-        this.dPG.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_flower_num, str));
+    private void bbs() {
+        bbr();
+        MessageManager.getInstance().registerListener(this.esE);
+        MessageManager.getInstance().registerListener(this.notifyDialogDismissListener);
     }
 
-    public void show() {
-        this.mDialog = new AlertDialog.Builder(this.mContext).create();
-        this.mDialog.setCanceledOnTouchOutside(true);
-        this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.b.a.2
-            @Override // android.content.DialogInterface.OnDismissListener
-            public void onDismiss(DialogInterface dialogInterface) {
-                MessageManager.getInstance().unRegisterListener(a.this.afT);
+    public void destroy() {
+        MessageManager.getInstance().unRegisterTask(1021156);
+        MessageManager.getInstance().unRegisterListener(this.esE);
+        MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
+    }
+
+    public View getView() {
+        if (this.esD != null) {
+            return this.esD.getView();
+        }
+        return null;
+    }
+
+    public void a(o oVar) {
+        if (oVar != null) {
+            oVar.dB(this.liveId);
+            oVar.dC(this.roomId);
+            oVar.setParams();
+            MessageManager.getInstance().sendMessage(oVar);
+            if (this.esD != null) {
+                this.esD.hX(false);
             }
-        });
-        if (this.mContext instanceof Activity) {
-            ShowUtil.showDialog(this.mDialog, (Activity) this.mContext);
-            this.handler.postDelayed(this.dPI, 5000L);
-        }
-        Window window = this.mDialog.getWindow();
-        window.setWindowAnimations(a.j.sdk_dialog_ani_b2t);
-        window.setGravity(17);
-        window.setDimAmount(0.0f);
-        window.setBackgroundDrawable(new ColorDrawable(this.mContext.getResources().getColor(a.d.sdk_black_alpha35)));
-        window.setLayout(-1, -1);
-        window.setContentView(this.mRootView);
-        aMj();
-    }
-
-    public void dismiss() {
-        if (this.handler != null) {
-            this.handler.removeCallbacks(this.dPI);
-        }
-        if (this.mDialog != null && (this.mContext instanceof Activity)) {
-            ShowUtil.dismissDialog(this.mDialog, (Activity) this.mContext);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getId() == a.g.close_img || view == this.mRootView) {
-            dismiss();
+    public void rC() {
+        if (this.esD != null) {
+            this.esD.rC();
+        }
+    }
+
+    public void onKeyboardVisibilityChanged(boolean z) {
+        if (this.esD != null) {
+            this.esD.onKeyboardVisibilityChanged(z);
         }
     }
 }

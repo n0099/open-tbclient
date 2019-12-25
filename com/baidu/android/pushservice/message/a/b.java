@@ -1,8 +1,9 @@
 package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
+import com.baidu.webkit.internal.GlobalConstants;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class b {
     protected Context a;
 
@@ -14,7 +15,7 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String a(String str) {
-        return ("com.baidu.searchbox_samsung".equals(str) && "com.baidu.searchbox".equals(this.a.getPackageName())) ? "com.baidu.searchbox" : str;
+        return ("com.baidu.searchbox_samsung".equals(str) && GlobalConstants.SEARCHBOX_PACKAGE_NAME.equals(this.a.getPackageName())) ? GlobalConstants.SEARCHBOX_PACKAGE_NAME : str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -7,33 +7,34 @@ import com.baidu.adp.widget.ListView.m;
 import com.baidu.adp.widget.ListView.r;
 import com.baidu.adp.widget.ListView.s;
 import com.baidu.card.a.a;
-import com.baidu.card.ac;
-import com.baidu.card.t;
+import com.baidu.card.ad;
+import com.baidu.card.af;
+import com.baidu.card.al;
 import com.baidu.card.x;
-import com.baidu.card.z;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.l;
+import com.baidu.tieba.card.z;
+import com.baidu.tieba.play.y;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
-    private ab<l> EP;
-    private r Iu;
-    private BdUniqueId cJo;
-    private int clT;
-    private ac gdZ;
+    private z<l> Jy;
+    private r Ol;
+    private int cZa;
+    private BdUniqueId dwY;
+    private al gSy;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, l lVar) {
-        if (this.gdZ != null && this.gdZ.ma() != null && this.gdZ.ma().cbV() != null) {
-            if (view.getId() == this.gdZ.ma().cbV().getId()) {
-                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.clT);
+        if (this.gSy != null && this.gSy.mX() != null && this.gSy.mX().cvN() != null) {
+            if (view.getId() == this.gSy.mX().cvN().getId()) {
+                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.cZa);
             } else if (view.getId() == R.id.thread_card_root) {
-                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.clT);
+                com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.cZa);
             }
         }
     }
@@ -41,9 +42,9 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.EP = new ab<l>() { // from class: com.baidu.tieba.homepage.gamevideo.a.c.1
+        this.Jy = new z<l>() { // from class: com.baidu.tieba.homepage.gamevideo.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.ab
+            @Override // com.baidu.tieba.card.z
             /* renamed from: b */
             public void a(View view, l lVar) {
                 c.this.a(view, lVar);
@@ -53,36 +54,36 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     }
 
     public void b(r rVar) {
-        this.Iu = rVar;
+        this.Ol = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aQ */
+    /* renamed from: aN */
     public com.baidu.card.a<l> b(ViewGroup viewGroup) {
-        x.a aVar = new x.a(this.mPageContext.getPageActivity(), false);
-        this.gdZ = new t(this.mPageContext.getPageActivity());
-        this.gdZ.setPageUniqueId(this.cJo);
-        this.gdZ.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
-        aVar.b(this.gdZ);
-        x a = aVar.a(false, viewGroup, this.Iu);
+        ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
+        this.gSy = new x(this.mPageContext.getPageActivity());
+        this.gSy.setPageUniqueId(this.dwY);
+        this.gSy.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
+        aVar.c(this.gSy);
+        ad a = aVar.a(false, viewGroup, this.Ol);
         com.baidu.card.a<l> aVar2 = new com.baidu.card.a<>(a);
-        aVar2.setPageId(this.cJo);
-        a.b(this.EP);
-        a.aF(18);
+        aVar2.setPageId(this.dwY);
+        a.a(this.Jy);
+        a.aM(18);
         a(new s() { // from class: com.baidu.tieba.homepage.gamevideo.a.c.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                if ((mVar instanceof l) && (view.getTag() instanceof z)) {
-                    z zVar = (z) view.getTag();
+                if ((mVar instanceof l) && (view.getTag() instanceof af)) {
+                    af afVar = (af) view.getTag();
                     l lVar = (l) mVar;
                     lVar.objType = 1;
-                    if (c.this.EP != null) {
-                        c.this.EP.a(zVar.getView(), lVar);
+                    if (c.this.Jy != null) {
+                        c.this.Jy.a(afVar.getView(), lVar);
                     }
-                    com.baidu.tieba.homepage.gamevideo.e.a.a(lVar, view.getContext(), 18, false);
-                    zVar.lV().b(new a.C0044a(1));
+                    com.baidu.tieba.homepage.gamevideo.e.a.a(lVar, view.getContext(), 18, false, com.baidu.card.f.a((r) viewGroup2, view, i));
+                    afVar.mT().b(new a.C0050a(1));
                 }
             }
         });
@@ -99,51 +100,51 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
         if (aVar == null) {
             return null;
         }
-        lVar.oO(lVar.position + 1);
-        aVar.lV().setPosition(i);
-        com.baidu.tieba.homepage.gamevideo.e.a.d(lVar, this.clT);
+        lVar.rh(lVar.position + 1);
+        aVar.mT().setPosition(i);
+        com.baidu.tieba.homepage.gamevideo.e.a.d(lVar, this.cZa);
         aVar.setVideoStatsData(c(lVar));
-        aVar.a(lVar);
-        aVar.lV().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.lV().b(this.EP);
+        aVar.b((com.baidu.card.a<l>) lVar);
+        aVar.mT().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.mT().a(this.Jy);
         return aVar.getView();
     }
 
-    private com.baidu.tieba.play.z c(l lVar) {
-        com.baidu.tieba.play.z zVar = null;
+    private y c(l lVar) {
+        y yVar = null;
         if (lVar != null) {
-            zVar = new com.baidu.tieba.play.z();
-            zVar.mLocate = Constants.VIA_REPORT_TYPE_START_GROUP;
-            zVar.cma = lVar.tid;
-            if (lVar.agG() != null) {
-                zVar.ePc = String.valueOf(lVar.agG().getFid());
-                if (lVar.agG().aiV() != null) {
-                    zVar.iyn = lVar.agG().aiV().video_md5;
-                    zVar.iyp = String.valueOf(lVar.agG().aiV().is_vertical);
+            yVar = new y();
+            yVar.mLocate = Constants.VIA_REPORT_TYPE_START_GROUP;
+            yVar.OC = lVar.tid;
+            if (lVar.axx() != null) {
+                yVar.fGQ = String.valueOf(lVar.axx().getFid());
+                if (lVar.axx().azV() != null) {
+                    yVar.jsl = lVar.axx().azV().video_md5;
+                    yVar.jsn = String.valueOf(lVar.axx().azV().is_vertical);
                 }
             }
-            zVar.bYk = lVar.getExtra();
-            zVar.mSource = lVar.getSource();
-            zVar.iym = lVar.baF();
-            zVar.iyk = lVar.getWeight();
-            zVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            zVar.mFloor = String.valueOf(lVar.baE());
-            zVar.iyq = String.valueOf(this.clT);
+            yVar.cKC = lVar.getExtra();
+            yVar.mSource = lVar.getSource();
+            yVar.mAbTag = lVar.bsJ();
+            yVar.jsj = lVar.getWeight();
+            yVar.mUid = TbadkCoreApplication.getCurrentAccount();
+            yVar.mFloor = String.valueOf(lVar.bsI());
+            yVar.jso = String.valueOf(this.cZa);
         }
-        return zVar;
+        return yVar;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.cJo = bdUniqueId;
+        this.dwY = bdUniqueId;
     }
 
-    public void sX(int i) {
-        this.clT = i;
+    public void va(int i) {
+        this.cZa = i;
     }
 
     public void onPause() {
-        if (this.gdZ != null) {
-            this.gdZ.onPause();
+        if (this.gSy != null) {
+            this.gSy.onPause();
         }
     }
 }

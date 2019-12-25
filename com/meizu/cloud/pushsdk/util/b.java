@@ -2,10 +2,9 @@ package com.meizu.cloud.pushsdk.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static String a(Context context, String str) {
         return a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PushConstants.KEY_PUSH_ID);
@@ -52,7 +51,7 @@ public class b {
     }
 
     public static void b(Context context, String str, String str2, int i) {
-        a(context, "mz_push_preference", str + DefaultConfig.TOKEN_SEPARATOR + str2, i);
+        a(context, "mz_push_preference", str + "." + str2, i);
     }
 
     public static void b(Context context, String str, boolean z) {
@@ -104,7 +103,7 @@ public class b {
     }
 
     public static int h(Context context, String str, String str2) {
-        return b(context, "mz_push_preference", str + DefaultConfig.TOKEN_SEPARATOR + str2);
+        return b(context, "mz_push_preference", str + "." + str2);
     }
 
     public static boolean h(Context context, String str) {
@@ -116,7 +115,7 @@ public class b {
     }
 
     public static boolean i(Context context, String str, String str2) {
-        return d(context, "mz_push_preference", str + DefaultConfig.TOKEN_SEPARATOR + str2);
+        return d(context, "mz_push_preference", str + "." + str2);
     }
 
     public static int j(Context context, String str) {

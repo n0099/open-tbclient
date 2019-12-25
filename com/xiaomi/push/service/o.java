@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class o {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Map<String, byte[]> f922a = new HashMap();
+    private static final Map<String, byte[]> f927a = new HashMap();
     private static ArrayList<Pair<String, byte[]>> a = new ArrayList<>();
 
     public static void a(Context context, int i, String str) {
-        synchronized (f922a) {
-            for (String str2 : f922a.keySet()) {
-                a(context, str2, f922a.get(str2), i, str);
+        synchronized (f927a) {
+            for (String str2 : f927a.keySet()) {
+                a(context, str2, f927a.get(str2), i, str);
             }
-            f922a.clear();
+            f927a.clear();
         }
     }
 
@@ -35,11 +35,11 @@ public class o {
 
     public static void a(XMPushService xMPushService) {
         try {
-            synchronized (f922a) {
-                for (String str : f922a.keySet()) {
-                    w.a(xMPushService, str, f922a.get(str));
+            synchronized (f927a) {
+                for (String str : f927a.keySet()) {
+                    w.a(xMPushService, str, f927a.get(str));
                 }
-                f922a.clear();
+                f927a.clear();
             }
         } catch (fx e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -48,8 +48,8 @@ public class o {
     }
 
     public static void a(String str, byte[] bArr) {
-        synchronized (f922a) {
-            f922a.put(str, bArr);
+        synchronized (f927a) {
+            f927a.put(str, bArr);
         }
     }
 

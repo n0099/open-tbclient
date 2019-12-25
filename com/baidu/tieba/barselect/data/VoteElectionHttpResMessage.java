@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.ElectionInfo.ElectionInfoResIdl;
 import tbclient.ElectionList;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
     private f mVoteData;
 
@@ -30,7 +30,7 @@ public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
                     for (ElectionList electionList : electionInfoResIdl.data.election_list) {
                         arrayList.add(d.a(electionList));
                     }
-                    this.mVoteData.Q(arrayList);
+                    this.mVoteData.ab(arrayList);
                 }
                 if (electionInfoResIdl.data.basic != null) {
                     this.mVoteData.a(e.a(electionInfoResIdl.data.basic));

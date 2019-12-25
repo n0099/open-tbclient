@@ -1,9 +1,10 @@
 package com.baidu.live.tbadk.extrajump.interfaces;
 
+import android.app.Activity;
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface IExtraJump {
-    void jumpToPersonalCenter(Context context, String str);
+    void jumpToPersonalCenter(Activity activity, String str);
 
     void jumpToPlayCallback(Context context, Object obj);
 }

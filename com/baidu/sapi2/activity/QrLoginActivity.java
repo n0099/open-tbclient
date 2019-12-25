@@ -2,7 +2,7 @@ package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
 import android.widget.Toast;
-import com.baidu.d.a.a;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -10,10 +10,9 @@ import com.baidu.sapi2.callback.QrLoginCallback;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.result.QrAppLoginResult;
 import com.baidu.sapi2.result.QrLoginResult;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class QrLoginActivity extends BaseActivity {
     public static final String EXTRA_BOOLEAN_FINISH_PAGE = "EXTRA_BOOLEAN_FINISH_PAGE";
     public static final String EXTRA_STRING_QR_LOGIN_URL = "EXTRA_STRING_QR_LOGIN_URL";
@@ -57,7 +56,7 @@ public class QrLoginActivity extends BaseActivity {
         }
         Toast.makeText(this, "抱歉，您扫描的二维码有误，请重新扫描", 0).show();
         this.t.setResultCode(-204);
-        this.t.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
+        this.t.setResultMsg("参数错误，请稍后再试");
         finishActivity();
     }
 
@@ -92,7 +91,7 @@ public class QrLoginActivity extends BaseActivity {
             }
         }, this.r, QrLoginAction.CANCEL.getName());
         this.t.setResultCode(-301);
-        this.t.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        this.t.setResultMsg("您已取消操作");
         finishActivity();
     }
 
@@ -106,7 +105,7 @@ public class QrLoginActivity extends BaseActivity {
         } catch (Throwable th) {
             reportWebviewError(th);
             this.t.setResultCode(-202);
-            this.t.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
+            this.t.setResultMsg("网络连接失败，请检查网络设置");
             finishActivity();
         }
     }

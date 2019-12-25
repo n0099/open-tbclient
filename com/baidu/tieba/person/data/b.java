@@ -1,25 +1,25 @@
 package com.baidu.tieba.person.data;
 
 import tbclient.BookInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    public String bXF;
-    public int bXt;
-    public String ijB;
-    public String ijC;
-    public long ijD;
-    public int ijE;
+    public int cJM;
+    public String cJY;
+    public String jbs;
+    public String jbt;
+    public long jbu;
+    public int jbv;
     public long updateTime;
 
     public void a(BookInfo bookInfo) {
         if (bookInfo != null) {
-            this.bXF = bookInfo.book_id;
-            this.ijB = bookInfo.title;
-            this.ijC = bookInfo.cover;
+            this.cJY = bookInfo.book_id;
+            this.jbs = bookInfo.title;
+            this.jbt = bookInfo.cover;
             this.updateTime = bookInfo.update_time.intValue();
-            this.bXt = bookInfo.book_type.intValue();
-            this.ijD = bookInfo.forum_id.longValue();
-            this.ijE = bookInfo.total_chapter.intValue();
+            this.cJM = bookInfo.book_type.intValue();
+            this.jbu = bookInfo.forum_id.longValue();
+            this.jbv = bookInfo.total_chapter.intValue();
         }
     }
 }

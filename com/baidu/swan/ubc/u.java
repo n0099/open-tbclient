@@ -1,16 +1,16 @@
 package com.baidu.swan.ubc;
-/* loaded from: classes2.dex */
-public class u extends com.baidu.swan.c.d {
+/* loaded from: classes9.dex */
+public class u extends com.baidu.swan.d.e {
     public u() {
         super("com.baidu.searchbox_aiapp_openstat");
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     private static final class a {
-        private static final u bPy = new u();
+        private static final u cBo = new u();
     }
 
-    public static u adg() {
-        return a.bPy;
+    public static u atl() {
+        return a.cBo;
     }
 }

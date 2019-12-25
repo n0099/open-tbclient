@@ -12,9 +12,10 @@ import android.support.v7.appcompat.R;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.widget.RadioButton;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AppCompatRadioButton extends RadioButton implements TintableCompoundButton {
     private final AppCompatCompoundButtonHelper mCompoundButtonHelper;
+    private final AppCompatTextHelper mTextHelper;
 
     public AppCompatRadioButton(Context context) {
         this(context, null);
@@ -28,6 +29,8 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
         super(TintContextWrapper.wrap(context), attributeSet, i);
         this.mCompoundButtonHelper = new AppCompatCompoundButtonHelper(this);
         this.mCompoundButtonHelper.loadFromAttributes(attributeSet, i);
+        this.mTextHelper = new AppCompatTextHelper(this);
+        this.mTextHelper.loadFromAttributes(attributeSet, i);
     }
 
     @Override // android.widget.CompoundButton

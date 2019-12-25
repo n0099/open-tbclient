@@ -8,41 +8,41 @@ import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.hybrid.l;
 import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
-import com.baidu.tbadk.coreExtra.c.e;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d extends n {
-    private l cgF;
+    private l cTc;
 
     public d(l lVar) {
         super(lVar);
-        this.cgF = lVar;
+        this.cTc = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String afT() {
+    public String awM() {
         return "TBHY_COMMON_SHOW_SHARE_DIALOG";
     }
 
-    @o(alB = false, value = "showShareDialog")
+    @o(aCK = false, value = "showShareDialog")
     protected void showShareDialog(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             String optString = jSONObject.optString("title");
             String optString2 = jSONObject.optString("content");
             String optString3 = jSONObject.optString("imgUrl");
             String optString4 = jSONObject.optString("shareUrl");
-            e eVar = new e();
-            eVar.title = optString;
-            eVar.content = optString2;
+            ShareItem shareItem = new ShareItem();
+            shareItem.title = optString;
+            shareItem.content = optString2;
             if (optString3 == null) {
-                eVar.imageUri = null;
+                shareItem.imageUri = null;
             } else {
-                eVar.imageUri = Uri.parse(optString3);
+                shareItem.imageUri = Uri.parse(optString3);
             }
-            eVar.linkUrl = optString4;
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.cgF.getContext(), eVar, true);
+            shareItem.linkUrl = optString4;
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.cTc.getContext(), shareItem, true);
             shareDialogConfig.setIsSupportNightMode(true);
             shareDialogConfig.setIsCopyLink(true);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));

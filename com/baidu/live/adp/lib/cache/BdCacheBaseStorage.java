@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.cache;
 
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.adp.lib.util.BdLog;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class BdCacheBaseStorage<T> implements BdCacheStorage<T> {
     protected final BdCacheEvictPolicy cachePolicy;
     protected final boolean prefixNameSpaceToKey;

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.view.View;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface a {
     void a(c cVar);
 
@@ -12,11 +12,11 @@ public interface a {
 
     void b(Uri uri);
 
-    void bz(int i);
+    void bQ(int i);
 
     void d(Context context, Uri uri);
 
-    void pause();
+    View getPlayerView();
 
     void release();
 
@@ -27,6 +27,4 @@ public interface a {
     void start();
 
     void stop();
-
-    View uh();
 }

@@ -1,22 +1,22 @@
 package com.baidu.tieba.enterForum.recommend.b;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fdf = BdUniqueId.gen();
-    public b fdg;
-    public b fdh;
+    public static final BdUniqueId fRI = BdUniqueId.gen();
+    public b fRJ;
+    public b fRK;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fdf;
+        return fRI;
     }
 
     public void a(b bVar) {
-        this.fdh = bVar;
+        this.fRK = bVar;
     }
 
     public void b(b bVar) {
-        this.fdg = bVar;
+        this.fRJ = bVar;
     }
 }

@@ -4,9 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.searchbox.ugc.model.QuestionResponseModel;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HtmlMsg extends NormalMsg {
     public static final Parcelable.Creator<HtmlMsg> CREATOR = new Parcelable.Creator<HtmlMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.HtmlMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +62,7 @@ public class HtmlMsg extends NormalMsg {
             return false;
         }
         try {
-            this.mHtml = new JSONObject(jsonContent).optString("html");
+            this.mHtml = new JSONObject(jsonContent).optString(QuestionResponseModel.TEXT);
             return true;
         } catch (JSONException e) {
             LogUtils.e(TAG, "parse json err!", e);
@@ -83,7 +84,7 @@ public class HtmlMsg extends NormalMsg {
     private String getTextJson(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("html", str);
+            jSONObject.put(QuestionResponseModel.TEXT, str);
         } catch (JSONException e) {
             LogUtils.e(LogUtils.TAG, "getTextJson", e);
         }

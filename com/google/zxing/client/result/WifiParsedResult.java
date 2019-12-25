@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class WifiParsedResult extends ParsedResult {
     private final boolean hidden;
     private final String networkEncryption;

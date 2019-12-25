@@ -1,10 +1,11 @@
 package com.baidu.sapi2.shell.response;
 
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SocialResponse extends SapiAccountResponse {
     public boolean bindConflict;
     public String nextUrl;
@@ -23,7 +24,7 @@ public class SocialResponse extends SapiAccountResponse {
         }
         SocialResponse socialResponse = new SocialResponse();
         socialResponse.errorCode = jSONObject.optInt("errno");
-        socialResponse.errorMsg = jSONObject.optString("errmsg");
+        socialResponse.errorMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
         socialResponse.livingUname = jSONObject.optString("livinguname");
         socialResponse.socialType = SocialType.getSocialType(jSONObject.optInt("os_type"));
         socialResponse.bduss = jSONObject.optString("bduss");

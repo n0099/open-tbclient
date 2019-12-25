@@ -2,52 +2,52 @@ package com.facebook.c;
 
 import com.facebook.c.c;
 import com.facebook.common.internal.g;
-import com.facebook.common.internal.k;
+import com.facebook.common.internal.l;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private static d kfu;
-    private int kfv;
+    private static d lLd;
+    private int lLe;
     @Nullable
-    private List<c.a> kfw;
-    private final c.a kfx = new a();
+    private List<c.a> lLf;
+    private final c.a lLg = new a();
 
     private d() {
-        cFj();
+        dlh();
     }
 
-    public void eS(@Nullable List<c.a> list) {
-        this.kfw = list;
-        cFj();
+    public void eY(@Nullable List<c.a> list) {
+        this.lLf = list;
+        dlh();
     }
 
-    public c p(InputStream inputStream) throws IOException {
+    public c t(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.kfv];
-        int a = a(this.kfv, inputStream, bArr);
-        if (this.kfw != null) {
-            for (c.a aVar : this.kfw) {
-                c l = aVar.l(bArr, a);
-                if (l != null && l != c.kfs) {
-                    return l;
+        byte[] bArr = new byte[this.lLe];
+        int a = a(this.lLe, inputStream, bArr);
+        c p = this.lLg.p(bArr, a);
+        if (p == null || p == c.lLb) {
+            if (this.lLf != null) {
+                for (c.a aVar : this.lLf) {
+                    c p2 = aVar.p(bArr, a);
+                    if (p2 != null && p2 != c.lLb) {
+                        return p2;
+                    }
                 }
             }
+            return c.lLb;
         }
-        c l2 = this.kfx.l(bArr, a);
-        if (l2 == null) {
-            return c.kfs;
-        }
-        return l2;
+        return p;
     }
 
-    private void cFj() {
-        this.kfv = this.kfx.getHeaderSize();
-        if (this.kfw != null) {
-            for (c.a aVar : this.kfw) {
-                this.kfv = Math.max(this.kfv, aVar.getHeaderSize());
+    private void dlh() {
+        this.lLe = this.lLg.getHeaderSize();
+        if (this.lLf != null) {
+            for (c.a aVar : this.lLf) {
+                this.lLe = Math.max(this.lLe, aVar.getHeaderSize());
             }
         }
     }
@@ -67,26 +67,26 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d cFk() {
+    public static synchronized d dli() {
         d dVar;
         synchronized (d.class) {
-            if (kfu == null) {
-                kfu = new d();
+            if (lLd == null) {
+                lLd = new d();
             }
-            dVar = kfu;
+            dVar = lLd;
         }
         return dVar;
     }
 
-    public static c q(InputStream inputStream) throws IOException {
-        return cFk().p(inputStream);
+    public static c u(InputStream inputStream) throws IOException {
+        return dli().t(inputStream);
     }
 
-    public static c r(InputStream inputStream) {
+    public static c v(InputStream inputStream) {
         try {
-            return q(inputStream);
+            return u(inputStream);
         } catch (IOException e) {
-            throw k.r(e);
+            throw l.u(e);
         }
     }
 }

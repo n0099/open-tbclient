@@ -1,71 +1,36 @@
 package com.baidu.swan.apps.scheme.actions.e;
 
+import android.content.Context;
 import android.util.Log;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class b {
-    private static boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String TAG = b.class.getSimpleName();
-    public final double altitude;
-    public final double bmH;
-    public final double bmI = 0.0d;
-    public final double bmJ;
-    public final String city;
-    public final String cityCode;
-    public final String coorType;
-    public final String country;
-    public final String countryCode;
-    public final String district;
-    public final double latitude;
-    public final double longitude;
-    public final String province;
-    public final float speed;
-    public final String street;
-    public final String streetNumber;
-
-    public b(String str, double d, double d2, float f, double d3, double d4, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
-        this.coorType = str;
-        this.longitude = d;
-        this.latitude = d2;
-        this.speed = f;
-        this.bmH = d3;
-        this.altitude = d4;
-        this.bmJ = d3;
-        this.country = str2;
-        this.countryCode = str3;
-        this.city = str4;
-        this.cityCode = str5;
-        this.province = str6;
-        this.district = str7;
-        this.street = str8;
-        this.streetNumber = str9;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.j;
+/* loaded from: classes9.dex */
+public class b extends ab {
+    public b(j jVar) {
+        super(jVar, "/swanAPI/hideToast");
     }
 
-    public JSONObject toJSON() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("coorType", this.coorType);
-            jSONObject.put("longitude", this.longitude);
-            jSONObject.put("latitude", this.latitude);
-            jSONObject.put("speed", this.speed);
-            jSONObject.put("accuracy", this.bmH);
-            jSONObject.put("altitude", this.altitude);
-            jSONObject.put("verticalAccuracy", this.bmI);
-            jSONObject.put("horizontalAccuracy", this.bmJ);
-            jSONObject.put("country", this.country);
-            jSONObject.put("countryCode", this.countryCode);
-            jSONObject.put("city", this.city);
-            jSONObject.put("cityCode", this.cityCode);
-            jSONObject.put("province", this.province);
-            jSONObject.put("district", this.district);
-            jSONObject.put("street", this.street);
-            jSONObject.put("streetNumber", this.streetNumber);
-        } catch (JSONException e) {
-            if (DEBUG) {
-                Log.e(TAG, "toJSON error: " + Log.getStackTraceString(e));
-            }
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (DEBUG) {
+            Log.d("HideToastAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        return jSONObject;
+        if (eVar == null) {
+            com.baidu.swan.apps.console.c.e("hideToast", "aiapp is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.e.b.1
+            @Override // java.lang.Runnable
+            public void run() {
+                com.baidu.swan.apps.res.widget.b.d.cancelToast();
+            }
+        });
+        unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+        return true;
     }
 }

@@ -12,34 +12,34 @@ import com.baidu.live.adp.lib.util.BdBitmapHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.widget.CenteredImageSpan;
 import com.baidu.live.adp.widget.imageview.BdImage;
-import com.baidu.live.gift.q;
-import com.baidu.live.k.a;
+import com.baidu.live.gift.s;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c extends b {
-    private boolean XD;
+    private boolean afo;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context) {
-        super(context, com.baidu.live.im.a.aer);
-        this.XD = true;
+        super(context, com.baidu.live.im.a.amr);
+        this.afo = true;
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void ta() {
-        if (tb()) {
-            tc();
+    protected void uU() {
+        if (uV()) {
+            uW();
         } else {
-            td();
+            uX();
         }
     }
 
     @Override // com.baidu.live.im.a.b
     protected int getColor() {
-        if (tb()) {
+        if (uV()) {
             return -1647769;
         }
         return TbadkCoreApplication.getInst().getResources().getColor(a.d.sdk_cp_other_b);
@@ -48,12 +48,12 @@ public class c extends b {
     @Override // com.baidu.live.im.a.b
     protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, final com.baidu.live.im.c cVar) {
         final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        a(spannableStringBuilder, aVar.tf(), cVar, false, false);
+        a(spannableStringBuilder, aVar.uZ(), cVar, false, false);
         final a h = h(aVar);
-        String str = (h == null || TextUtils.isEmpty(h.WC)) ? "1" : h.WC;
+        String str = (h == null || TextUtils.isEmpty(h.aeh)) ? "1" : h.aeh;
         String string = (h == null || TextUtils.isEmpty(h.giftName)) ? this.mContext.getString(a.i.sdk_gift) : h.giftName;
-        if (h != null && !TextUtils.isEmpty(h.ahb)) {
-            String str2 = h.ahb;
+        if (h != null && !TextUtils.isEmpty(h.ape)) {
+            String str2 = h.ape;
         }
         String format = String.format(this.mContext.getString(a.i.ala_rec_gift), str, string);
         SpannableString valueOf = SpannableString.valueOf(format);
@@ -61,9 +61,9 @@ public class c extends b {
             valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
         }
         spannableStringBuilder.append((CharSequence) valueOf);
-        if (h != null && !TextUtils.isEmpty(h.aha)) {
-            this.XD = true;
-            BdResourceLoader.getInstance().loadResource(h.aha, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.live.im.a.c.1
+        if (h != null && !TextUtils.isEmpty(h.apd)) {
+            this.afo = true;
+            BdResourceLoader.getInstance().loadResource(h.apd, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.live.im.a.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.resourceloader.BdResourceCallback
@@ -105,24 +105,24 @@ public class c extends b {
                                     SpannableString spannableString = new SpannableString(" [img]");
                                     spannableString.setSpan(centeredImageSpan, 1, spannableString.length(), 33);
                                     spannableStringBuilder.append((CharSequence) spannableString);
-                                    if (c.this.agN && h != null && !TextUtils.isEmpty(h.ahb)) {
-                                        SpannableString valueOf2 = SpannableString.valueOf(String.format(c.this.mContext.getString(a.i.ala_rec_gift_charm_value), h.ahb));
+                                    if (c.this.aoO && h != null && !TextUtils.isEmpty(h.ape)) {
+                                        SpannableString valueOf2 = SpannableString.valueOf(String.format(c.this.mContext.getString(a.i.ala_rec_gift_charm_value), h.ape));
                                         valueOf2.setSpan(new ForegroundColorSpan(c.this.getColor()), 0, valueOf2.length(), 33);
                                         spannableStringBuilder.append((CharSequence) valueOf2);
                                     }
-                                    if (q.co(h.giftId) && !q.cm(h.giftId) && q.cn(h.giftId)) {
+                                    if (s.dg(h.giftId) && !s.de(h.giftId) && s.df(h.giftId)) {
                                         SpannableString valueOf3 = SpannableString.valueOf(c.this.mContext.getString(a.i.ala_dynamic_gift_downloading));
                                         valueOf3.setSpan(new ForegroundColorSpan(c.this.getColor()), 0, valueOf3.length(), 33);
                                         spannableStringBuilder.append((CharSequence) valueOf3);
                                     }
-                                    if (!h.ahc && h.ahd > 0.0d) {
-                                        com.baidu.live.im.view.a aVar2 = new com.baidu.live.im.view.a(c.this.mContext, "*" + h.ahd + "倍");
+                                    if (!h.apf && h.apg > 0.0d) {
+                                        com.baidu.live.im.view.a aVar2 = new com.baidu.live.im.view.a(c.this.mContext, "*" + h.apg + "倍");
                                         SpannableString spannableString2 = new SpannableString(" rate");
                                         spannableString2.setSpan(aVar2, 1, spannableString2.length(), 33);
                                         spannableStringBuilder.append((CharSequence) spannableString2);
                                     }
-                                    if (!c.this.XD) {
-                                        cVar.aeI.setText(spannableStringBuilder);
+                                    if (!c.this.afo) {
+                                        cVar.amJ.setText(spannableStringBuilder);
                                     }
                                 }
                             } catch (OutOfMemoryError e3) {
@@ -135,7 +135,7 @@ public class c extends b {
                     }
                 }
             }, null);
-            this.XD = false;
+            this.afo = false;
         }
         return spannableStringBuilder;
     }
@@ -150,16 +150,16 @@ public class c extends b {
             }
             a aVar2 = new a();
             aVar2.giftId = jSONObject.optString(LogConfig.LOG_GIFT_ID);
-            aVar2.WC = jSONObject.optString("gift_count");
+            aVar2.aeh = jSONObject.optString("gift_count");
             aVar2.giftName = jSONObject.optString("gift_name");
-            aVar2.aha = jSONObject.optString("gift_url");
-            aVar2.ahb = jSONObject.optString("charm_value");
-            aVar2.ahc = jSONObject.optInt("is_free") == 1;
-            aVar2.ahd = jSONObject.optDouble("gift_rate");
-            com.baidu.live.gift.g cl = q.cl(aVar2.giftId);
-            if (cl != null) {
-                aVar2.giftName = cl.pd();
-                aVar2.aha = cl.pf();
+            aVar2.apd = jSONObject.optString("gift_url");
+            aVar2.ape = jSONObject.optString("charm_value");
+            aVar2.apf = jSONObject.optInt("is_free") == 1;
+            aVar2.apg = jSONObject.optDouble("gift_rate");
+            com.baidu.live.gift.g dd = s.dd(aVar2.giftId);
+            if (dd != null) {
+                aVar2.giftName = dd.qy();
+                aVar2.apd = dd.qA();
                 return aVar2;
             }
             return aVar2;
@@ -169,13 +169,13 @@ public class c extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a {
-        public String WC;
-        public String aha;
-        public String ahb;
-        public boolean ahc;
-        public double ahd;
+        public String aeh;
+        public String apd;
+        public String ape;
+        public boolean apf;
+        public double apg;
         public String giftId;
         public String giftName;
 

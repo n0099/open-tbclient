@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.core.g;
 
 import android.app.Activity;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    com.baidu.swan.apps.core.container.a FZ();
+    void F(Activity activity);
 
-    void a(com.baidu.swan.apps.core.c cVar);
+    com.baidu.swan.apps.core.container.a GQ();
 
-    void a(com.baidu.swan.apps.core.j.a aVar);
+    void a(com.baidu.swan.apps.core.b bVar);
+
+    void a(com.baidu.swan.apps.core.k.a aVar);
 
     void destroy();
 
     void loadUrl(String str);
-
-    void x(Activity activity);
 }

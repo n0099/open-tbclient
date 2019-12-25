@@ -1,164 +1,99 @@
 package com.baidu.swan.apps.u;
 
-import android.app.Application;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.b.a.b;
-import com.baidu.swan.apps.b.a.g;
-import com.baidu.swan.apps.b.b.c;
-import com.baidu.swan.apps.b.b.j;
-import com.baidu.swan.apps.b.b.k;
-import com.baidu.swan.apps.b.b.l;
-import com.baidu.swan.apps.u.b.d;
-import com.baidu.swan.apps.u.b.f;
-import com.baidu.swan.apps.u.b.h;
-import com.baidu.swan.apps.u.b.i;
-import com.baidu.swan.apps.u.b.j;
-import com.baidu.swan.apps.u.b.m;
-import com.baidu.swan.apps.u.b.n;
-import com.baidu.swan.apps.u.b.p;
-import com.baidu.swan.apps.u.b.q;
-import com.baidu.swan.apps.u.b.r;
-import com.baidu.swan.apps.u.b.s;
-import com.baidu.swan.apps.u.b.t;
-import com.baidu.swan.apps.u.b.u;
-import com.baidu.swan.apps.u.b.v;
-import com.baidu.tieba.aiapps.apps.a.o;
-import com.baidu.tieba.aiapps.apps.share.e;
-/* loaded from: classes2.dex */
-public final class a {
-    public static Application Jj() {
-        return AppRuntime.getApplication();
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.sapi2.result.OAuthResult;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.console.c;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
+import com.baidu.swan.apps.scheme.j;
+import com.baidu.swan.apps.setting.oauth.a.b;
+import com.baidu.swan.apps.setting.oauth.h;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class a extends ab {
+    public a(j jVar) {
+        super(jVar, "/swanAPI/chooseInvoiceTitle");
     }
 
-    public static u Jk() {
-        return e.aIp();
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final e eVar) {
+        c.i("chooseInvoiceTitle", "发票调起");
+        if (eVar == null) {
+            c.e("chooseInvoiceTitle", "empty swanApp");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+            return false;
+        } else if (eVar.GS()) {
+            if (DEBUG) {
+                Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+            return false;
+        } else if (TextUtils.isEmpty(eVar.getAppKey())) {
+            c.e("chooseInvoiceTitle", "empty clientId");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty clientId");
+            return false;
+        } else {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                c.e("chooseInvoiceTitle", "empty joParams");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
+            }
+            final String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                c.e("chooseInvoiceTitle", "empty cb");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                return false;
+            } else if (!(context instanceof Activity)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
+                return false;
+            } else {
+                eVar.aac().b(context, "mapp_choose_invoice", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.u.a.1
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.swan.apps.as.d.b
+                    /* renamed from: a */
+                    public void B(h<b.d> hVar) {
+                        if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
+                            com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString);
+                            return;
+                        }
+                        c.i("chooseInvoiceTitle", OAuthResult.RESULT_MSG_SUCCESS);
+                        a.this.a(context, callbackHandler, unitedSchemeEntity, eVar, optString);
+                    }
+                });
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+        }
     }
 
-    public static l Jl() {
-        return new g();
-    }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Context context, final CallbackHandler callbackHandler, final UnitedSchemeEntity unitedSchemeEntity, e eVar, final String str) {
+        com.baidu.swan.apps.w.a.Rr().a(context, eVar.id, eVar.getAppKey(), new b() { // from class: com.baidu.swan.apps.u.a.2
+            @Override // com.baidu.swan.apps.u.b
+            public void L(JSONObject jSONObject) {
+                c.i("chooseInvoiceTitle", "choose success");
+                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), str);
+            }
 
-    public static c Jm() {
-        return new b();
-    }
-
-    public static com.baidu.swan.menu.c Jn() {
-        return new com.baidu.swan.apps.b.a.e();
-    }
-
-    public static com.baidu.swan.apps.u.b.c Jo() {
-        return o.aFp();
-    }
-
-    public static f Jp() {
-        return com.baidu.tieba.aiapps.apps.address.b.aFA();
-    }
-
-    public static com.baidu.swan.apps.u.b.g Jq() {
-        return com.baidu.tieba.aiapps.apps.invoice.g.aGD();
-    }
-
-    public static s Jr() {
-        return com.baidu.tieba.aiapps.apps.barcode.c.aFW();
-    }
-
-    public static com.baidu.swan.apps.b.b.g Js() {
-        return com.baidu.tieba.aiapps.apps.f.b.aGw();
-    }
-
-    public static d Jt() {
-        return com.baidu.tieba.aiapps.apps.k.b.aHN();
-    }
-
-    public static com.baidu.swan.apps.u.b.o Ju() {
-        return com.baidu.tieba.aiapps.apps.i.b.aGT();
-    }
-
-    public static com.baidu.swan.apps.b.b.f Jv() {
-        return com.baidu.tieba.aiapps.apps.c.c.aGc();
-    }
-
-    public static v Jw() {
-        return new com.baidu.tieba.aiapps.apps.media.video.a();
-    }
-
-    public static m Jx() {
-        return com.baidu.tieba.aiapps.apps.media.b.d.aGW();
-    }
-
-    public static com.baidu.swan.apps.u.b.l Jy() {
-        return com.baidu.tieba.aiapps.apps.media.a.b.aGU();
-    }
-
-    public static q Jz() {
-        return com.baidu.tieba.aiapps.apps.l.c.aIi();
-    }
-
-    public static h JA() {
-        return com.baidu.tieba.aiapps.apps.r.b.aIA();
-    }
-
-    public static j JB() {
-        return com.baidu.tieba.aiapps.apps.e.b.aGv();
-    }
-
-    public static n JC() {
-        return com.baidu.tieba.aiapps.apps.h.b.aGS();
-    }
-
-    public static com.baidu.swan.apps.b.b.h JD() {
-        return new com.baidu.swan.apps.b.a.d();
-    }
-
-    public static com.baidu.swan.apps.u.b.b JE() {
-        return com.baidu.tieba.aiapps.apps.p.d.aIs();
-    }
-
-    public static com.baidu.swan.apps.b.b.e JF() {
-        return com.baidu.tieba.aiapps.apps.abtest.b.aFl();
-    }
-
-    public static i JG() {
-        return com.baidu.tieba.aiapps.apps.d.e.aGu();
-    }
-
-    public static com.baidu.swan.apps.u.b.e JH() {
-        return com.baidu.tieba.aiapps.apps.bgmusic.a.aFX();
-    }
-
-    public static k JI() {
-        return new com.baidu.swan.apps.b.a.f();
-    }
-
-    public static com.baidu.swan.apps.u.b.k JJ() {
-        return com.baidu.tieba.aiapps.apps.o.d.aIl();
-    }
-
-    public static com.baidu.swan.apps.b.b.o JK() {
-        return com.baidu.tieba.aiapps.apps.b.b.aFq();
-    }
-
-    public static com.baidu.swan.apps.b.b.i JL() {
-        return com.baidu.tieba.aiapps.apps.g.b.aGR();
-    }
-
-    public static r JM() {
-        return new r.a();
-    }
-
-    public static p JN() {
-        return com.baidu.tieba.aiapps.apps.openstat.c.aHO();
-    }
-
-    public static com.baidu.swan.apps.b.b.n JO() {
-        return new com.baidu.swan.apps.b.a.h();
-    }
-
-    public static t JP() {
-        return com.baidu.tieba.aiapps.apps.m.d.aIk();
-    }
-
-    public static com.baidu.swan.apps.b.b.j JQ() {
-        return new j.a();
+            @Override // com.baidu.swan.apps.u.b
+            public void dG(int i) {
+                String jSONObject;
+                if (i == 1) {
+                    c.i("chooseInvoiceTitle", "choose invoice cancel");
+                    jSONObject = UnitedSchemeUtility.wrapCallbackParams(1002, "choose invoice cancel").toString();
+                } else {
+                    c.i("chooseInvoiceTitle", "choose invoice failed");
+                    jSONObject = UnitedSchemeUtility.wrapCallbackParams(1003, "choose invoice failed").toString();
+                }
+                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, jSONObject, str);
+            }
+        });
     }
 }

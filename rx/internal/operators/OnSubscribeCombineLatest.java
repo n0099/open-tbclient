@@ -1,5 +1,6 @@
 package rx.internal.operators;
 
+import com.google.android.exoplayer2.Format;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,13 +10,13 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 import rx.exceptions.CompositeException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     final int bufferSize;
-    final rx.functions.h<? extends R> combiner;
+    final rx.functions.j<? extends R> combiner;
     final boolean delayError;
-    final rx.d<? extends T>[] kyA;
-    final Iterable<? extends rx.d<? extends T>> kyB;
+    final Iterable<? extends rx.d<? extends T>> mTH;
+    final rx.d<? extends T>[] ned;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -26,17 +27,17 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         int length;
         rx.d<? extends T>[] dVarArr;
         rx.d<? extends T>[] dVarArr2;
-        rx.d<? extends T>[] dVarArr3 = this.kyA;
+        rx.d<? extends T>[] dVarArr3 = this.ned;
         if (dVarArr3 == null) {
-            if (this.kyB instanceof List) {
-                List list = (List) this.kyB;
+            if (this.mTH instanceof List) {
+                List list = (List) this.mTH;
                 rx.d<? extends T>[] dVarArr4 = (rx.d[]) list.toArray(new rx.d[list.size()]);
                 length = dVarArr4.length;
                 dVarArr = dVarArr4;
             } else {
                 int i = 0;
                 rx.d<? extends T>[] dVarArr5 = new rx.d[8];
-                for (rx.d<? extends T> dVar : this.kyB) {
+                for (rx.d<? extends T> dVar : this.mTH) {
                     if (i == dVarArr5.length) {
                         dVarArr2 = new rx.d[(i >> 2) + i];
                         System.arraycopy(dVarArr5, 0, dVarArr2, 0, i);
@@ -62,7 +63,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class LatestCoordinator<T, R> extends AtomicInteger implements rx.f, rx.k {
         static final Object MISSING = new Object();
         private static final long serialVersionUID = 8567835998786448817L;
@@ -70,7 +71,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         final rx.j<? super R> actual;
         final int bufferSize;
         volatile boolean cancelled;
-        final rx.functions.h<? extends R> combiner;
+        final rx.functions.j<? extends R> combiner;
         int complete;
         final boolean delayError;
         volatile boolean done;
@@ -80,9 +81,9 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         final AtomicLong requested;
         final a<T, R>[] subscribers;
 
-        public LatestCoordinator(rx.j<? super R> jVar, rx.functions.h<? extends R> hVar, int i, int i2, boolean z) {
+        public LatestCoordinator(rx.j<? super R> jVar, rx.functions.j<? extends R> jVar2, int i, int i2, boolean z) {
             this.actual = jVar;
-            this.combiner = hVar;
+            this.combiner = jVar2;
             this.bufferSize = i2;
             this.delayError = z;
             this.latest = new Object[i];
@@ -113,7 +114,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 throw new IllegalArgumentException("n >= required but it was " + j);
             }
             if (j != 0) {
-                rx.internal.operators.a.a(this.requested, j);
+                rx.internal.operators.a.e(this.requested, j);
                 drain();
             }
         }
@@ -160,7 +161,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                     this.complete = i6;
                     i2 = i6;
                 } else {
-                    this.latest[i] = NotificationLite.bo(obj);
+                    this.latest[i] = NotificationLite.getValue(obj);
                     i2 = i5;
                 }
                 z = i4 == length;
@@ -169,7 +170,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 }
                 if (!z2) {
                     if (obj != null && z) {
-                        this.queue.j(aVar, this.latest.clone());
+                        this.queue.offer(aVar, this.latest.clone());
                     } else if (obj == null && this.error.get() != null && (obj2 == MISSING || !this.delayError)) {
                         this.done = true;
                     }
@@ -178,7 +179,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 }
             }
             if (!z && obj != null) {
-                aVar.eo(1L);
+                aVar.requestMore(1L);
             } else {
                 drain();
             }
@@ -220,7 +221,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                                 }
                                 try {
                                     jVar.onNext((R) this.combiner.call(objArr));
-                                    aVar.eo(1L);
+                                    aVar.requestMore(1L);
                                     j3 = 1 + j;
                                 } catch (Throwable th) {
                                     this.cancelled = true;
@@ -232,8 +233,8 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                                 return;
                             }
                         }
-                        if (j != 0 && j2 != Long.MAX_VALUE) {
-                            rx.internal.operators.a.b(atomicLong, j);
+                        if (j != 0 && j2 != Format.OFFSET_SAMPLE_RELATIVE) {
+                            rx.internal.operators.a.c(atomicLong, j);
                         }
                         i = addAndGet(-i2);
                         if (i == 0) {
@@ -297,14 +298,14 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T, R> extends rx.j<T> {
         boolean done;
         final int index;
-        final LatestCoordinator<T, R> kyC;
+        final LatestCoordinator<T, R> nee;
 
         public a(LatestCoordinator<T, R> latestCoordinator, int i) {
-            this.kyC = latestCoordinator;
+            this.nee = latestCoordinator;
             this.index = i;
             request(latestCoordinator.bufferSize);
         }
@@ -312,7 +313,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         @Override // rx.e
         public void onNext(T t) {
             if (!this.done) {
-                this.kyC.combine(NotificationLite.bl(t), this.index);
+                this.nee.combine(NotificationLite.next(t), this.index);
             }
         }
 
@@ -322,20 +323,20 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 rx.c.c.onError(th);
                 return;
             }
-            this.kyC.onError(th);
+            this.nee.onError(th);
             this.done = true;
-            this.kyC.combine(null, this.index);
+            this.nee.combine(null, this.index);
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.done) {
                 this.done = true;
-                this.kyC.combine(null, this.index);
+                this.nee.combine(null, this.index);
             }
         }
 
-        public void eo(long j) {
+        public void requestMore(long j) {
             request(j);
         }
     }

@@ -1,13 +1,14 @@
 package com.baidu.pass.biometrics.face.liveness.result;
 
 import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.result.PassBiometricResult;
 import com.baidu.pass.biometrics.base.utils.ResUtils;
 import com.baidu.pass.biometrics.face.R;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PassFaceRecogResult extends PassBiometricResult {
     public static final int ERROR_CODE_CONTRAST_FAIL = -302;
     public static final int ERROR_CODE_FACE_SDK_INIT_FAIL = -303;
@@ -33,8 +34,8 @@ public class PassFaceRecogResult extends PassBiometricResult {
         this.msgMap.put(-305, ERROR_MSG_OPEN_CAMERA_FAILURE);
         this.msgMap.put(-301, ERROR_MSG_LIVENESS_RECOGNIZE_TIME_OUT);
         this.msgMap.put(-302, ERROR_MSG_CONTRAST_FAIL);
-        this.msgMap.put(ERROR_CODE_FACE_SDK_INIT_FAIL, ERROR_MSG_FACE_SDK_INIT_FAIL);
-        this.msgMap.put(ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION, ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION);
+        this.msgMap.put(-303, ERROR_MSG_FACE_SDK_INIT_FAIL);
+        this.msgMap.put(-307, ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION);
         this.msgMap.put(-306, ERROR_MSG_IMAGE_FILE_EMPTY);
     }
 
@@ -42,7 +43,7 @@ public class PassFaceRecogResult extends PassBiometricResult {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("errno", getResultCode());
-            jSONObject.put("errmsg", getResultMsg());
+            jSONObject.put(BaseJsonData.TAG_ERRMSG, getResultMsg());
             if (this.resultCode == 0) {
                 if (!TextUtils.isEmpty(this.callbackkey)) {
                     jSONObject.put("credentialKey", this.callbackkey);

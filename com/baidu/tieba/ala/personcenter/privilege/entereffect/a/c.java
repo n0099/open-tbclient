@@ -9,16 +9,16 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a, a> {
     public c(Context context) {
-        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.eAd);
+        super(context, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a.frE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: au */
+    /* renamed from: at */
     public a b(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null));
     }
@@ -26,8 +26,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     private void a(a aVar) {
         if (aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            am.setViewTextColor(aVar.eAb, R.color.cp_cont_b, 1, skinType);
-            am.setBackgroundResource(aVar.eAc, R.color.cp_bg_line_c, skinType);
+            am.setViewTextColor(aVar.frC, R.color.cp_cont_b, 1, skinType);
+            am.setBackgroundResource(aVar.frD, R.color.cp_bg_line_c, skinType);
         }
     }
 
@@ -36,26 +36,26 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.privilege.entereffect.data.a aVar, a aVar2) {
         if (aVar != null) {
-            aVar2.eAb.setText(aVar.Wz);
+            aVar2.frC.setText(aVar.Vq);
         }
         if (i == 0) {
-            aVar2.eAc.setVisibility(8);
+            aVar2.frD.setVisibility(8);
         } else {
-            aVar2.eAc.setVisibility(0);
+            aVar2.frD.setVisibility(0);
         }
         a(aVar2);
         return aVar2.getView();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a extends v.a {
-        public TextView eAb;
-        public View eAc;
+        public TextView frC;
+        public View frD;
 
         public a(View view) {
             super(view);
-            this.eAb = (TextView) getView().findViewById(R.id.enter_effect_txt);
-            this.eAc = getView().findViewById(R.id.ala_enter_effect_devide);
+            this.frC = (TextView) getView().findViewById(R.id.enter_effect_txt);
+            this.frD = getView().findViewById(R.id.ala_enter_effect_devide);
         }
     }
 }

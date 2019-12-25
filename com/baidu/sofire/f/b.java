@@ -1,7 +1,7 @@
 package com.baidu.sofire.f;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public JSONObject a;
     public String b;

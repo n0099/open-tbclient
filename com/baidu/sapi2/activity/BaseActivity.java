@@ -13,7 +13,8 @@ import android.view.KeyEvent;
 import android.webkit.ValueCallback;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.d.a.a;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.i.a.a;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
@@ -48,12 +49,13 @@ import com.baidu.sapi2.utils.k;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.CustomAlertDialog;
 import com.baidu.sapi2.views.f;
+import com.baidu.webkit.sdk.PermissionRequest;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BaseActivity extends TitleActivity {
     public static final String EXTRA_PARAM_BUSINESS_FROM = "extra_params_business_from";
     public static final int EXTRA_PARAM_FROM_ACCOUNT_CENTER = 2003;
@@ -83,7 +85,7 @@ public class BaseActivity extends TitleActivity {
     protected SapiWebView sapiWebView;
 
     /* renamed from: com.baidu.sapi2.activity.BaseActivity$11  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass11 extends SapiJsCallBacks.FingerprintCallback {
         AnonymousClass11() {
         }
@@ -473,7 +475,7 @@ public class BaseActivity extends TitleActivity {
     public void d() {
         PermissionsDTO permissionsDTO = new PermissionsDTO();
         permissionsDTO.context = this;
-        permissionsDTO.permissions = new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"};
+        permissionsDTO.permissions = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"};
         permissionsDTO.dialogTitle = "权限申请";
         permissionsDTO.dialogMsg = String.format(getString(a.g.sapi_sdk_pmn_msg_set_portrait), SapiUtils.getAppName(this), "相机和存储权限");
         PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.12
@@ -581,7 +583,7 @@ public class BaseActivity extends TitleActivity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("errno", getTplStokenResult.getResultCode());
-                    jSONObject.put("errmsg", getTplStokenResult.getResultMsg());
+                    jSONObject.put(BaseJsonData.TAG_ERRMSG, getTplStokenResult.getResultMsg());
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
@@ -604,8 +606,8 @@ public class BaseActivity extends TitleActivity {
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("errno", SapiWebView.BiometricsIdentifyResult.ERROR_CODE_GET_STOKEN_FAILED);
-                    jSONObject.put("errmsg", "服务异常，请稍后再试");
+                    jSONObject.put("errno", -402);
+                    jSONObject.put(BaseJsonData.TAG_ERRMSG, "服务异常，请稍后再试");
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
@@ -643,7 +645,7 @@ public class BaseActivity extends TitleActivity {
                                 jSONObject.remove("faceimage");
                                 jSONObject.remove("imgdigests");
                                 jSONObject.put("errno", passFaceRecogResult.getResultCode());
-                                jSONObject.put("errmsg", passFaceRecogResult.getResultMsg());
+                                jSONObject.put(BaseJsonData.TAG_ERRMSG, passFaceRecogResult.getResultMsg());
                                 str = jSONObject.toString();
                             }
                         } catch (JSONException e2) {
@@ -668,7 +670,7 @@ public class BaseActivity extends TitleActivity {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("errno", i);
-            jSONObject.put("errmsg", str);
+            jSONObject.put(BaseJsonData.TAG_ERRMSG, str);
             if (i == 0) {
                 if (!TextUtils.isEmpty(str2)) {
                     jSONObject.put("credentialKey", str2);

@@ -3,7 +3,8 @@ package com.baidu.android.pushservice.i;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+/* loaded from: classes5.dex */
 public class i {
     public static String a(Context context, String str) {
         return context.getSharedPreferences("pst", 0).getString(str, "");
@@ -40,7 +41,7 @@ public class i {
                 edit.putString("secret_key", str7);
             }
             edit.putString("appid", str);
-            edit.putString("channel_id", str2);
+            edit.putString(SharedPrefConfig.CHANNEL_ID, str2);
             if (!TextUtils.isEmpty(str3)) {
                 edit.putString("new_channel_id", str3);
             }

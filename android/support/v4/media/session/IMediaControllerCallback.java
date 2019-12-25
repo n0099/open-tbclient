@@ -10,7 +10,7 @@ import android.support.v4.media.MediaMetadataCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface IMediaControllerCallback extends IInterface {
     void onCaptioningEnabledChanged(boolean z) throws RemoteException;
 
@@ -30,13 +30,15 @@ public interface IMediaControllerCallback extends IInterface {
 
     void onSessionDestroyed() throws RemoteException;
 
+    void onSessionReady() throws RemoteException;
+
     void onShuffleModeChanged(int i) throws RemoteException;
 
-    void onShuffleModeChangedDeprecated(boolean z) throws RemoteException;
+    void onShuffleModeChangedRemoved(boolean z) throws RemoteException;
 
     void onVolumeInfoChanged(ParcelableVolumeInfo parcelableVolumeInfo) throws RemoteException;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IMediaControllerCallback {
         private static final String DESCRIPTOR = "android.support.v4.media.session.IMediaControllerCallback";
         static final int TRANSACTION_onCaptioningEnabledChanged = 11;
@@ -48,8 +50,9 @@ public interface IMediaControllerCallback extends IInterface {
         static final int TRANSACTION_onQueueTitleChanged = 6;
         static final int TRANSACTION_onRepeatModeChanged = 9;
         static final int TRANSACTION_onSessionDestroyed = 2;
+        static final int TRANSACTION_onSessionReady = 13;
         static final int TRANSACTION_onShuffleModeChanged = 12;
-        static final int TRANSACTION_onShuffleModeChangedDeprecated = 10;
+        static final int TRANSACTION_onShuffleModeChangedRemoved = 10;
         static final int TRANSACTION_onVolumeInfoChanged = 8;
 
         public Stub() {
@@ -113,7 +116,7 @@ public interface IMediaControllerCallback extends IInterface {
                     return true;
                 case 10:
                     parcel.enforceInterface(DESCRIPTOR);
-                    onShuffleModeChangedDeprecated(parcel.readInt() != 0);
+                    onShuffleModeChangedRemoved(parcel.readInt() != 0);
                     return true;
                 case 11:
                     parcel.enforceInterface(DESCRIPTOR);
@@ -123,6 +126,10 @@ public interface IMediaControllerCallback extends IInterface {
                     parcel.enforceInterface(DESCRIPTOR);
                     onShuffleModeChanged(parcel.readInt());
                     return true;
+                case 13:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    onSessionReady();
+                    return true;
                 case 1598968902:
                     parcel2.writeString(DESCRIPTOR);
                     return true;
@@ -131,7 +138,7 @@ public interface IMediaControllerCallback extends IInterface {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         private static class Proxy implements IMediaControllerCallback {
             private IBinder mRemote;
 
@@ -287,7 +294,7 @@ public interface IMediaControllerCallback extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
-            public void onShuffleModeChangedDeprecated(boolean z) throws RemoteException {
+            public void onShuffleModeChangedRemoved(boolean z) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
@@ -317,6 +324,17 @@ public interface IMediaControllerCallback extends IInterface {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeInt(i);
                     this.mRemote.transact(12, obtain, null, 1);
+                } finally {
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaControllerCallback
+            public void onSessionReady() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(13, obtain, null, 1);
                 } finally {
                     obtain.recycle();
                 }

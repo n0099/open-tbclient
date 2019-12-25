@@ -8,8 +8,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MetaBox extends AbstractContainerBox {
     public static final String TYPE = "meta";
     private int flags;
@@ -66,6 +65,6 @@ public class MetaBox extends AbstractContainerBox {
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || containerSize + 4 >= IjkMediaMeta.AV_CH_WIDE_RIGHT) ? 16 : 8) + containerSize + 4;
+        return ((this.largeBox || containerSize + 4 >= 4294967296L) ? 16 : 8) + containerSize + 4;
     }
 }

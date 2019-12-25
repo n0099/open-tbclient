@@ -2,7 +2,7 @@ package com.baidu.mobads.utils;
 
 import android.util.Log;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class m implements IXAdLogger {
     private static volatile m a = null;
 

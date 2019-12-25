@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewParent;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class ForwardingListener implements View.OnAttachStateChangeListener, View.OnTouchListener {
     private int mActivePointerId;
     private Runnable mDisallowIntercept;
@@ -173,7 +173,7 @@ public abstract class ForwardingListener implements View.OnAttachStateChangeList
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class DisallowIntercept implements Runnable {
         DisallowIntercept() {
         }
@@ -188,7 +188,7 @@ public abstract class ForwardingListener implements View.OnAttachStateChangeList
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class TriggerLongPress implements Runnable {
         TriggerLongPress() {
         }

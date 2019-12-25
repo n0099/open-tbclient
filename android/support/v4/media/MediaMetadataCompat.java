@@ -14,7 +14,7 @@ import android.util.Log;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class MediaMetadataCompat implements Parcelable {
     public static final Parcelable.Creator<MediaMetadataCompat> CREATOR;
     static final ArrayMap<String, Integer> METADATA_KEYS_TYPE = new ArrayMap<>();
@@ -63,25 +63,25 @@ public final class MediaMetadataCompat implements Parcelable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface BitmapKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface LongKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface RatingKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface TextKey {
     }
 
@@ -139,10 +139,12 @@ public final class MediaMetadataCompat implements Parcelable {
 
     MediaMetadataCompat(Bundle bundle) {
         this.mBundle = new Bundle(bundle);
+        this.mBundle.setClassLoader(MediaMetadataCompat.class.getClassLoader());
     }
 
     MediaMetadataCompat(Parcel parcel) {
         this.mBundle = parcel.readBundle();
+        this.mBundle.setClassLoader(MediaMetadataCompat.class.getClassLoader());
     }
 
     public boolean containsKey(String str) {
@@ -316,7 +318,7 @@ public final class MediaMetadataCompat implements Parcelable {
         return this.mMetadataObj;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         private final Bundle mBundle;
 

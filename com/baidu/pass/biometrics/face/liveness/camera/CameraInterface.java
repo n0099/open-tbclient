@@ -9,11 +9,10 @@ import android.view.SurfaceHolder;
 import android.view.WindowManager;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBioDisplayUtil;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CameraInterface {
     public static final int CAMERA_TYPE_LIVENESS = 3;
     public static final int DEFAULT_PREVIEW_HEIGHT = 480;
@@ -116,10 +115,10 @@ public class CameraInterface {
                     i = 90;
                     break;
                 case 2:
-                    i = SubsamplingScaleImageView.ORIENTATION_180;
+                    i = 180;
                     break;
                 case 3:
-                    i = SubsamplingScaleImageView.ORIENTATION_270;
+                    i = 270;
                     break;
             }
             if (Build.VERSION.SDK_INT >= 9) {
@@ -200,7 +199,7 @@ public class CameraInterface {
             return this.previewSize;
         }
         List<CameraSize> supportedPreviewSizes = getSupportedPreviewSizes(activity, parameters);
-        this.previewSize = new CameraSize(640, DEFAULT_PREVIEW_HEIGHT);
+        this.previewSize = new CameraSize(640, 480);
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
             return this.previewSize;
         }
@@ -269,7 +268,7 @@ public class CameraInterface {
 
     public CameraSize getPreviewSize() {
         if (this.previewSize == null) {
-            this.previewSize = new CameraSize(640, DEFAULT_PREVIEW_HEIGHT);
+            this.previewSize = new CameraSize(640, 480);
         }
         return this.previewSize;
     }
@@ -280,7 +279,7 @@ public class CameraInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class CameraSize {
         public int height;
         public int width;

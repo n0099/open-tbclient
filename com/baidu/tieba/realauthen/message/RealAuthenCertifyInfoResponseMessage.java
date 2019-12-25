@@ -1,10 +1,10 @@
 package com.baidu.tieba.realauthen.message;
 
-import android.util.Log;
 import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class RealAuthenCertifyInfoResponseMessage extends JsonHttpResponsedMessage {
     public String errmsg;
     public int errno;
@@ -17,9 +17,8 @@ public class RealAuthenCertifyInfoResponseMessage extends JsonHttpResponsedMessa
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            Log.i("FaceRecognition", "RealAuthenCertifyInfo retJson:" + jSONObject.toString());
             this.errno = jSONObject.optInt("errno");
-            this.errmsg = jSONObject.optString("errmsg");
+            this.errmsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
         }
     }
 }

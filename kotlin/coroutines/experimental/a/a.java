@@ -1,9 +1,9 @@
 package kotlin.coroutines.experimental.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class a {
-    private static final Object kuW = new Object();
+    private static final Object mYS = new Object();
 
-    public static final Object cMT() {
-        return kuW;
+    public static final Object dEN() {
+        return mYS;
     }
 }

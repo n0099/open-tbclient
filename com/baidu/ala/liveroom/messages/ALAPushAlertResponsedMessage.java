@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.f.b;
+import com.baidu.adp.lib.e.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ImageView.a;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -20,7 +20,7 @@ import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.imageManager.c;
 import com.squareup.wire.Wire;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
     private Handler mHandler;
 
@@ -47,7 +47,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                         int optInt2 = jSONObject.optInt("video_channel_id", 0);
                         intent.putExtra("video_channel_id", optInt2);
                         intent.putExtra("id", jSONObject.optString("tid"));
-                        TiebaStatic.log(new an("c11917").O("obj_id", optInt2));
+                        TiebaStatic.log(new an("c11917").Z("obj_id", optInt2));
                     } else if (optInt == 126) {
                         TiebaStatic.log(new an("c12100"));
                         intent.putExtra("is_live", 1);
@@ -64,9 +64,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             optString2 = "";
                         }
                         if (!StringUtils.isNull(optString3)) {
-                            a pY = c.avs().pY(optString4 + 10);
-                            if (pY != null && pY.getRawBitmap() != null) {
-                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, pY.getRawBitmap(), false);
+                            a vb = c.aMZ().vb(optString4 + 10);
+                            if (vb != null && vb.getRawBitmap() != null) {
+                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, vb.getRawBitmap(), false);
                                 return;
                             } else if (!StringUtils.isNull(optString4)) {
                                 final String str = optString2;
@@ -74,12 +74,12 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                 this.mHandler.post(new Runnable() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        com.baidu.adp.lib.f.c.fT().a(optString4, 10, new b<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
+                                        com.baidu.adp.lib.e.c.gs().a(optString4, 10, new b<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
                                             /* JADX DEBUG: Method merged with bridge method */
                                             /* JADX INFO: Access modifiers changed from: protected */
-                                            @Override // com.baidu.adp.lib.f.b
+                                            @Override // com.baidu.adp.lib.e.b
                                             public void onLoaded(a aVar, String str3, int i2) {
-                                                super.onLoaded((C00301) aVar, str3, i2);
+                                                super.onLoaded((C00311) aVar, str3, i2);
                                                 if (aVar != null && aVar.getRawBitmap() != null) {
                                                     NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, aVar.getRawBitmap(), false);
                                                 } else {

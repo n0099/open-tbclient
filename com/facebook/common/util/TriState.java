@@ -1,7 +1,7 @@
 package com.facebook.common.util;
 
 import com.facebook.infer.annotation.Functional;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public enum TriState {
     YES,
     NO,

@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.alasquare.subtablist.c;
 
 import com.baidu.adp.widget.ListView.v;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends v.a {
-    public a dCO;
+    public a enM;
 
     public b(a aVar) {
         super(aVar.getView());
-        this.dCO = aVar;
+        this.enM = aVar;
     }
 }

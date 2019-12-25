@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
     private List<b> userList = new ArrayList();
 
-    public void bM(JSONObject jSONObject) {
+    public void cC(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("admins")) != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 b bVar = new b();
-                bVar.bM(optJSONObject);
+                bVar.cC(optJSONObject);
                 this.userList.add(bVar);
             }
         }

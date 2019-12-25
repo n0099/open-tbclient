@@ -1,40 +1,61 @@
 package com.baidu.live.data;
 
-import com.coremedia.iso.boxes.TrackReferenceTypeBox;
+import android.text.TextUtils;
+import com.baidu.live.tbadk.core.data.BaseData;
+import com.baidu.mobstat.Config;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class ag {
-    public int TT;
-    public int TU;
-    public int TV;
-    public int TW;
-    public int TX;
-    public String app_version;
-    public String appendix_link;
-    public String appendix_text;
-    public String changelogs;
-    public String hint;
-    public String n_btn_link;
-    public String n_btn_text;
-    public String y_btn_link;
-    public String y_btn_text;
+/* loaded from: classes2.dex */
+public class ag extends BaseData {
+    public String aao;
+    public List<a> aap;
+    public String aaq;
+    public String aar;
+    public String aas;
+    public String aat;
+    public String aau;
+    public String text;
 
+    @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
+        int length;
         if (jSONObject != null) {
-            this.TT = jSONObject.optInt("popup_id");
-            this.TU = jSONObject.optInt("popup_times");
-            this.TV = jSONObject.optInt("popup_type");
-            this.hint = jSONObject.optString(TrackReferenceTypeBox.TYPE1);
-            this.app_version = jSONObject.optString("app_version");
-            this.TW = jSONObject.optInt("app_size");
-            this.changelogs = jSONObject.optString("changelogs");
-            this.appendix_text = jSONObject.optString("appendix_text");
-            this.appendix_link = jSONObject.optString("appendix_link");
-            this.TX = jSONObject.optInt("appendix_optional");
-            this.y_btn_text = jSONObject.optString("y_btn_text");
-            this.y_btn_link = jSONObject.optString("y_btn_link");
-            this.n_btn_text = jSONObject.optString("n_btn_text");
-            this.n_btn_link = jSONObject.optString("n_btn_link");
+            this.text = jSONObject.optString("text");
+            this.aao = jSONObject.optString(Config.EVENT_HEAT_POINT);
+            JSONArray optJSONArray = jSONObject.optJSONArray("data");
+            if (optJSONArray != null && (length = optJSONArray.length()) != 0) {
+                this.aap = new ArrayList();
+                for (int i = 0; i < length; i++) {
+                    this.aap.add(new a(optJSONArray.optJSONObject(i)));
+                }
+                this.aaq = jSONObject.optString("text_color");
+                if (!TextUtils.isEmpty(this.aaq) && this.aaq.charAt(0) != '#') {
+                    this.aaq = '#' + this.aaq;
+                }
+                this.aar = jSONObject.optString("value_color");
+                if (!TextUtils.isEmpty(this.aar) && this.aar.charAt(0) != '#') {
+                    this.aar = '#' + this.aar;
+                }
+                this.aas = jSONObject.optString("background_color");
+                if (!TextUtils.isEmpty(this.aas) && this.aas.charAt(0) != '#') {
+                    this.aas = '#' + this.aas;
+                }
+                this.aat = jSONObject.optString("transparency");
+                this.aau = jSONObject.optString("timer_point_text");
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class a {
+        public String text;
+        public String value;
+
+        a(JSONObject jSONObject) {
+            this.text = jSONObject.optString("text");
+            this.value = jSONObject.optString("value");
         }
     }
 }

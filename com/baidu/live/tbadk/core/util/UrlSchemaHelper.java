@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.util;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class UrlSchemaHelper {
     public static final String AUTO_PAY_MEMBER_SUCC_PARAM = "from=autopay";
     public static final String AUTO_PAY_MEMBER_SUCC_URL = "tieba.baidu.com/mo/q/tbeanrights?";

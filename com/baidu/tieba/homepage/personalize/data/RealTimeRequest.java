@@ -2,13 +2,18 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import tbclient.Realtime.DataReq;
 import tbclient.Realtime.RealtimeReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RealTimeRequest extends NetMessage {
     private String abtest_tag;
     private int location;
+    private String ori_ugc_nid;
+    private String ori_ugc_tid;
+    private String ori_ugc_type;
+    private String ori_ugc_vid;
+    private String page;
     private String source;
     private long tid;
     private int type;
@@ -66,6 +71,30 @@ public class RealTimeRequest extends NetMessage {
         this.type = i;
     }
 
+    public String getPage() {
+        return this.page;
+    }
+
+    public void setPage(String str) {
+        this.page = str;
+    }
+
+    public void setOriUgcNid(String str) {
+        this.ori_ugc_nid = str;
+    }
+
+    public void setOriUgcTid(String str) {
+        this.ori_ugc_tid = str;
+    }
+
+    public void setOriUgcType(String str) {
+        this.ori_ugc_type = str;
+    }
+
+    public void setOriUgcVid(String str) {
+        this.ori_ugc_vid = str;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
@@ -75,8 +104,13 @@ public class RealTimeRequest extends NetMessage {
         builder.location = Integer.valueOf(this.location);
         builder.abtest_tag = this.abtest_tag;
         builder.type = Integer.valueOf(this.type);
+        builder.page = this.page;
+        builder.ori_ugc_nid = this.ori_ugc_nid;
+        builder.ori_ugc_tid = this.ori_ugc_tid;
+        builder.ori_ugc_type = this.ori_ugc_type;
+        builder.ori_ugc_vid = this.ori_ugc_vid;
         if (z) {
-            r.a(builder, true);
+            t.a(builder, true);
         }
         RealtimeReqIdl.Builder builder2 = new RealtimeReqIdl.Builder();
         builder2.data = builder.build(false);

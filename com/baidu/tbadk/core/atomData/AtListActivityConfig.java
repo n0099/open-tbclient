@@ -5,6 +5,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class AtListActivityConfig extends IntentConfig {
+    public static final String IS_FOR_BJH = "is_for_bjh";
     public static final String IS_FOR_CHAT = "is_for_chat";
 
     public AtListActivityConfig(Context context, int i, boolean z) {
@@ -19,5 +20,9 @@ public class AtListActivityConfig extends IntentConfig {
 
     public void setIsForChat(boolean z) {
         getIntent().putExtra(IS_FOR_CHAT, z);
+    }
+
+    public void setIsForBjh(boolean z) {
+        getIntent().putExtra(IS_FOR_BJH, z);
     }
 }

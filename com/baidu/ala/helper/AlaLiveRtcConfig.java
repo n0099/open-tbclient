@@ -1,5 +1,5 @@
 package com.baidu.ala.helper;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveRtcConfig {
     public int mCloseTimeout;
     public int mHandshakeTimeout;
@@ -14,7 +14,7 @@ public class AlaLiveRtcConfig {
     public int mRtcServerPort;
     public long mUId;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class NativeErroCode {
         public static final int ERROR_CLOSE_TIMEOUT = 1030;
         public static final int ERROR_CLOSE_UNKNOW = 1031;

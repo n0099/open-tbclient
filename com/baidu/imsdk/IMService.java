@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.IMSDK;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMService extends Service {
     private static final int SERVICE_STOPPED_DELAY = 1000;
     private static final String TAG = "IMService";

@@ -3,8 +3,12 @@ package com.baidu.tieba.im.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class GroupPermData implements m, Serializable {
+    private static final int MANAGER = 1;
+    private static final int NORMAL = 1;
+    private static final int OFFICIAL = 1;
+    private static final int PERSONAL = 1;
     public static final BdUniqueId TYPE_FRS_CREATE_GROUP = BdUniqueId.gen();
     private static final long serialVersionUID = 5660832418912851013L;
     private int canCreateNormal;

@@ -2,25 +2,25 @@ package kotlin.jvm.internal;
 
 import java.util.NoSuchElementException;
 import kotlin.collections.z;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class j extends z {
     private int index;
-    private final long[] kvf;
+    private final long[] mZb;
 
     public j(long[] jArr) {
-        p.i(jArr, "array");
-        this.kvf = jArr;
+        p.j(jArr, "array");
+        this.mZb = jArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.kvf.length;
+        return this.index < this.mZb.length;
     }
 
     @Override // kotlin.collections.z
-    public long cMP() {
+    public long dyI() {
         try {
-            long[] jArr = this.kvf;
+            long[] jArr = this.mZb;
             int i = this.index;
             this.index = i + 1;
             return jArr[i];

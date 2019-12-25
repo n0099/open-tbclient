@@ -12,12 +12,12 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.pool.BdCache;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.RegisterActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ViewHelper {
     private static final String ARROW = "skin_arrow";
     private static final String CHECK_BOX = "skin_check_box";
@@ -39,14 +39,14 @@ public class ViewHelper {
     private static BdCache<Integer, Integer> cachedSkinInViews = new BdCache<>(500);
     private static Context mAppContext = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface ShareCallback {
         void finishProgressForSharing();
 
         void startProgressForSharing();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface ViewCallback {
         boolean onViewFound(View view);
     }

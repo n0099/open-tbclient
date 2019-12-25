@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.encryption;
 
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class EncryptionHelper {
     private static Encryptor encryptor;
 

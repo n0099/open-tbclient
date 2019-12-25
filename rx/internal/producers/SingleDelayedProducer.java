@@ -3,7 +3,7 @@ package rx.internal.producers;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.f;
 import rx.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
     static final int HAS_REQUEST_HAS_VALUE = 3;
     static final int HAS_REQUEST_NO_VALUE = 2;
@@ -27,7 +27,7 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
                 int i = get();
                 if (i != 0) {
                     if (i == 1 && compareAndSet(1, 3)) {
-                        a(this.child, this.value);
+                        emit(this.child, this.value);
                         return;
                     }
                     return;
@@ -42,7 +42,7 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
             if (i == 0) {
                 this.value = t;
             } else if (i == 2 && compareAndSet(2, 3)) {
-                a(this.child, t);
+                emit(this.child, t);
                 return;
             } else {
                 return;
@@ -52,7 +52,7 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    private static <T> void a(j<? super T> jVar, T t) {
+    private static <T> void emit(j<? super T> jVar, T t) {
         if (!jVar.isUnsubscribed()) {
             try {
                 jVar.onNext(t);

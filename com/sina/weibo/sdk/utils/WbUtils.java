@@ -6,12 +6,13 @@ import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLDecoder;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class WbUtils {
     private static final String DEFAULT_CHARSET = "UTF-8";
     private static final String WEIBO_IDENTITY_ACTION = "com.sina.weibo.action.sdkidentity";
@@ -27,8 +28,8 @@ public class WbUtils {
     public static Bundle decodeUrl(String str) {
         Bundle bundle = new Bundle();
         if (str != null) {
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
+            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                String[] split = str2.split(ETAG.EQUAL);
                 try {
                     bundle.putString(URLDecoder.decode(split[0], "UTF-8"), URLDecoder.decode(split[1], "UTF-8"));
                 } catch (UnsupportedEncodingException e) {

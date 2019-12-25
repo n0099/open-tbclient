@@ -1,37 +1,36 @@
 package com.airbnb.lottie.model.layer;
 
 import android.graphics.Canvas;
-import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.content.j;
 import java.util.Collections;
-/* loaded from: classes2.dex */
+import java.util.List;
+/* loaded from: classes4.dex */
 public class e extends a {
-    private final com.airbnb.lottie.a.a.c eK;
+    private final com.airbnb.lottie.a.a.c gw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(com.airbnb.lottie.f fVar, Layer layer) {
-        super(fVar, layer);
-        this.eK = new com.airbnb.lottie.a.a.c(fVar, this, new j(layer.getName(), layer.bX()));
-        this.eK.b(Collections.emptyList(), Collections.emptyList());
+    public e(com.airbnb.lottie.g gVar, Layer layer) {
+        super(gVar, layer);
+        this.gw = new com.airbnb.lottie.a.a.c(gVar, this, new j("__container", layer.ci()));
+        this.gw.b(Collections.emptyList(), Collections.emptyList());
     }
 
     @Override // com.airbnb.lottie.model.layer.a
     void b(@NonNull Canvas canvas, Matrix matrix, int i) {
-        this.eK.a(canvas, matrix, i);
+        this.gw.a(canvas, matrix, i);
     }
 
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.eK.a(rectF, this.hl);
+        this.gw.a(rectF, this.iW);
     }
 
-    @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d
-    public void b(@Nullable String str, @Nullable String str2, @Nullable ColorFilter colorFilter) {
-        this.eK.b(str, str2, colorFilter);
+    @Override // com.airbnb.lottie.model.layer.a
+    protected void b(com.airbnb.lottie.model.e eVar, int i, List<com.airbnb.lottie.model.e> list, com.airbnb.lottie.model.e eVar2) {
+        this.gw.a(eVar, i, list, eVar2);
     }
 }

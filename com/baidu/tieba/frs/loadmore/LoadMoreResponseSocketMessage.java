@@ -7,8 +7,8 @@ import com.baidu.adp.widget.ListView.m;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ad;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.ae;
+import com.baidu.tbadk.core.data.bj;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     private BannerListData bannerListData;
     private ArrayList<m> threadList;
@@ -50,25 +50,24 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.d.a.cgB().CN(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.d.a.cAE().HA(threadListResIdl.data.asp_shown_info);
             Message<?> orginalMessage2 = getOrginalMessage();
             boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
             this.threadList = new ArrayList<>();
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {
                 for (int i3 = 0; i3 < list2.size(); i3++) {
-                    bh bhVar = new bh();
-                    bhVar.setUserMap(this.userMap);
-                    bhVar.a(list2.get(i3));
-                    bhVar.setCurrentPage(3);
-                    bhVar.aju();
-                    bhVar.cdw = isBrandForum;
-                    if (!TextUtils.isEmpty(bhVar.ajG())) {
-                        ad adVar = new ad();
-                        adVar.mP(bhVar.ajG());
-                        this.threadList.add(adVar);
+                    bj bjVar = new bj();
+                    bjVar.setUserMap(this.userMap);
+                    bjVar.a(list2.get(i3));
+                    bjVar.aAA();
+                    bjVar.cPO = isBrandForum;
+                    if (!TextUtils.isEmpty(bjVar.aAM())) {
+                        ae aeVar = new ae();
+                        aeVar.sd(bjVar.aAM());
+                        this.threadList.add(aeVar);
                     } else {
-                        this.threadList.add(bhVar);
+                        this.threadList.add(bjVar);
                     }
                 }
             }

@@ -3,13 +3,14 @@ package com.baidu.ala.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaUserInfoData extends OrmObject {
     public static final int IS_LIVING = 1;
     public long ala_id;
     public long anchor_live;
     public int app_from = -1;
     public String card_pic;
+    public int certify_status;
     public int change_sex;
     public String channel_count;
     public String charm_count;

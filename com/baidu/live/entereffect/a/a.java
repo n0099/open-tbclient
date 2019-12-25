@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public c Vn;
-    private JSONObject Vo;
+    public c acO;
+    private JSONObject acP;
     public int frameCount;
     public String id;
     public int priority;
@@ -17,29 +17,29 @@ public class a {
 
     public a(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.Vo = jSONObject;
+            this.acP = jSONObject;
         }
     }
 
-    public JSONObject oI() {
-        return this.Vo;
+    public JSONObject qc() {
+        return this.acP;
     }
 
-    public a c(String str, List<String> list) {
-        if (this.Vn == null) {
-            this.Vn = new c();
+    public a b(String str, List<String> list) {
+        if (this.acO == null) {
+            this.acO = new c();
         }
-        this.Vn.upZipDirPath = str;
+        this.acO.upZipDirPath = str;
         if (list != null) {
             this.frameCount = list.size();
-            if (this.Vn.VT != null && this.Vn.VT.VS != null) {
-                this.Vn.VT.VS.frame_count = this.frameCount;
+            if (this.acO.adu != null && this.acO.adu.adt != null) {
+                this.acO.adu.adt.frame_count = this.frameCount;
             }
-            this.Vn.unZipFilesPathList = new ArrayList<>();
-            this.Vn.unZipFilesPathList.addAll(list);
-            if (this.Vo != null) {
+            this.acO.unZipFilesPathList = new ArrayList<>();
+            this.acO.unZipFilesPathList.addAll(list);
+            if (this.acP != null) {
                 try {
-                    this.Vo.put("frame_count", this.frameCount);
+                    this.acP.put("frame_count", this.frameCount);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

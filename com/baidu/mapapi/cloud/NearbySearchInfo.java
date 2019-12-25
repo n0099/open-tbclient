@@ -1,11 +1,11 @@
 package com.baidu.mapapi.cloud;
 
-import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes5.dex */
 public class NearbySearchInfo extends BaseCloudSearchInfo {
@@ -38,14 +38,14 @@ public class NearbySearchInfo extends BaseCloudSearchInfo {
                 } catch (Exception e) {
                 }
             }
-            sb.append("&");
-            sb.append(Headers.LOCATION);
-            sb.append("=");
+            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("location");
+            sb.append(ETAG.EQUAL);
             sb.append(this.location);
             if (this.radius >= 0) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("radius");
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
                 sb.append(this.radius);
             }
             return sb.toString();

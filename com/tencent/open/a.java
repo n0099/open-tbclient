@@ -2,6 +2,7 @@ package com.tencent.open;
 
 import android.net.Uri;
 import android.webkit.WebView;
+import com.baidu.android.common.others.IStringUtil;
 import com.tencent.open.a.f;
 import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
@@ -11,19 +12,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
     protected HashMap<String, b> a = new HashMap<>();
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0579a {
+    /* loaded from: classes5.dex */
+    public static class C0699a {
         protected WeakReference<WebView> a;
         protected long b;
         protected String c;
 
-        public C0579a(WebView webView, long j, String str) {
+        public C0699a(WebView webView, long j, String str) {
             this.a = new WeakReference<>(webView);
             this.b = j;
             this.c = str;
@@ -34,7 +34,7 @@ public class a {
             if (webView != null) {
                 String str = "'undefined'";
                 if (obj instanceof String) {
-                    str = "'" + ((Object) ((String) obj).replace("\\", "\\\\").replace("'", "\\'")) + "'";
+                    str = "'" + ((Object) ((String) obj).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace("'", "\\'")) + "'";
                 } else if ((obj instanceof Number) || (obj instanceof Long) || (obj instanceof Integer) || (obj instanceof Double) || (obj instanceof Float)) {
                     str = obj.toString();
                 } else if (obj instanceof Boolean) {
@@ -59,9 +59,9 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class b {
-        public void call(String str, List<String> list, C0579a c0579a) {
+        public void call(String str, List<String> list, C0699a c0699a) {
             Object invoke;
             Method[] declaredMethods = getClass().getDeclaredMethods();
             Method method = null;
@@ -80,8 +80,8 @@ public class a {
                     i++;
                 } catch (Exception e) {
                     f.b("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + ((Object) null), e);
-                    if (c0579a != null) {
-                        c0579a.a();
+                    if (c0699a != null) {
+                        c0699a.a();
                         return;
                     }
                     return;
@@ -114,14 +114,14 @@ public class a {
                 Class<?> returnType = method.getReturnType();
                 f.b("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                 if ("void".equals(returnType.getName()) || returnType == Void.class) {
-                    if (c0579a != null) {
-                        c0579a.a((Object) null);
+                    if (c0699a != null) {
+                        c0699a.a((Object) null);
                     }
-                } else if (c0579a != null && customCallback()) {
-                    c0579a.a(invoke != null ? invoke.toString() : null);
+                } else if (c0699a != null && customCallback()) {
+                    c0699a.a(invoke != null ? invoke.toString() : null);
                 }
-            } else if (c0579a != null) {
-                c0579a.a();
+            } else if (c0699a != null) {
+                c0699a.a();
             }
         }
 
@@ -134,12 +134,12 @@ public class a {
         this.a.put(str, bVar);
     }
 
-    public void a(String str, String str2, List<String> list, C0579a c0579a) {
+    public void a(String str, String str2, List<String> list, C0699a c0699a) {
         f.a("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
         int size = list.size();
         for (int i = 0; i < size; i++) {
             try {
-                list.set(i, URLDecoder.decode(list.get(i), HTTP.UTF_8));
+                list.set(i, URLDecoder.decode(list.get(i), "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -147,12 +147,12 @@ public class a {
         b bVar = this.a.get(str);
         if (bVar != null) {
             f.b("openSDK_LOG.JsBridge", "call----");
-            bVar.call(str2, list, c0579a);
+            bVar.call(str2, list, c0699a);
             return;
         }
         f.b("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-        if (c0579a != null) {
-            c0579a.a();
+        if (c0699a != null) {
+            c0699a.a();
         }
     }
 
@@ -162,9 +162,9 @@ public class a {
             ArrayList arrayList = new ArrayList(Arrays.asList((str + "/#").split("/")));
             if (arrayList.size() >= 6) {
                 List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-                C0579a c0579a = new C0579a(webView, 4L, str);
+                C0699a c0699a = new C0699a(webView, 4L, str);
                 webView.getUrl();
-                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0579a);
+                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0699a);
                 return true;
             }
             return false;

@@ -1,47 +1,113 @@
 package com.baidu.swan.apps.scheme.actions;
 
+import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.core.util.TbEnum;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import org.json.JSONException;
+import com.baidu.swan.apps.SwanAppActivity;
+import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class p extends z {
-    public p(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/openStatisticEvent");
+/* loaded from: classes9.dex */
+public class p extends ab implements com.baidu.swan.apps.network.f {
+    int RESULT_CODE_SUCCESS;
+    int bMo;
+
+    /* loaded from: classes9.dex */
+    public interface a {
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (bVar == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+    public p(com.baidu.swan.apps.scheme.j jVar) {
+        super(jVar, "/swanAPI/file/openDocument");
+        this.RESULT_CODE_SUCCESS = 1;
+        this.bMo = 3;
+    }
+
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (eVar == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
             return false;
-        }
-        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        if (optParamsAsJo == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-            return false;
-        }
-        String optString = optParamsAsJo.optString(TbEnum.SystemMessage.KEY_GROUP_ID, LivenessStat.TYPE_STRING_DEFAULT);
-        if (TextUtils.isEmpty(optString)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
-            return false;
-        }
-        try {
-            optParamsAsJo.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
-            optParamsAsJo.putOpt("eventType", "0");
-        } catch (JSONException e) {
+        } else if (eVar.GS()) {
             if (DEBUG) {
-                e.printStackTrace();
+                Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+            return false;
+        } else {
+            JSONObject b = b(unitedSchemeEntity, "params");
+            if (b == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+                return false;
+            }
+            String optString = b.optString("filePath");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal filePath");
+                return false;
+            }
+            String ZU = com.baidu.swan.apps.runtime.e.ZU();
+            if (TextUtils.isEmpty(ZU)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
+                return false;
+            }
+            String bf = com.baidu.swan.apps.storage.b.bf(optString, ZU);
+            if (TextUtils.isEmpty(bf)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal realFilePath");
+                return false;
+            }
+            String optString2 = b.optString("fileType");
+            String qP = com.baidu.swan.d.c.qP(bf);
+            if (!TextUtils.isEmpty(qP)) {
+                optString2 = qP;
+            } else if (TextUtils.isEmpty(optString2)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
+                return false;
+            }
+            String guessSupportMimeTypeFromExt = com.baidu.swan.apps.as.k.guessSupportMimeTypeFromExt(optString2);
+            if (TextUtils.isEmpty(guessSupportMimeTypeFromExt)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file mimeType");
+                return false;
+            }
+            Uri parse = Uri.parse(bf);
+            if (parse == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal Uri path");
+                return false;
+            }
+            if (parse.getScheme() == null) {
+                parse = Uri.fromFile(new File(bf));
+            }
+            SwanAppActivity ZO = eVar.ZO();
+            if (ZO == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal activity == null");
+                return false;
+            } else if (!com.baidu.swan.apps.as.k.getSupportMimeType(guessSupportMimeTypeFromExt)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + guessSupportMimeTypeFromExt);
+                return false;
+            } else {
+                String optString3 = b.optString("cb");
+                com.baidu.swan.apps.adaptation.a.q RC = com.baidu.swan.apps.w.a.RC();
+                if (!RC.ab(ZO, guessSupportMimeTypeFromExt)) {
+                    if (TextUtils.isEmpty(optString3)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + guessSupportMimeTypeFromExt);
+                        return false;
+                    }
+                    a(ZO, guessSupportMimeTypeFromExt, parse, optString3, callbackHandler);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    return true;
+                }
+                RC.a(ZO, parse, guessSupportMimeTypeFromExt);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                callbackHandler.handleSchemeDispatchCallback(optString3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                return true;
             }
         }
-        com.baidu.swan.apps.console.c.i("OpenStatisticEvent", "OpenStat : " + optParamsAsJo);
-        com.baidu.swan.ubc.s.onEvent(optString, optParamsAsJo);
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-        return true;
+    }
+
+    private void a(final Activity activity, final String str, final Uri uri, final String str2, final CallbackHandler callbackHandler) {
+        com.baidu.swan.apps.w.a.RC().a(activity, str, new a() { // from class: com.baidu.swan.apps.scheme.actions.p.1
+        });
     }
 }

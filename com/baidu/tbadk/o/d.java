@@ -1,84 +1,243 @@
 package com.baidu.tbadk.o;
 
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.List;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.cache.l;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.f;
+import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
+import com.baidu.adp.plugin.util.Util;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.x;
+import com.xiaomi.mipush.sdk.Constants;
+import java.io.File;
+import java.io.IOException;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class d {
-    public String cKK;
-    private String cKL;
-    private String currentPageKey;
-    private long fid;
-    public boolean isRouteStat = false;
-    public String isVertical;
-    public String objID;
-    public String objParam1;
-    private long pid;
-    private List<String> sorceKeyList;
-    private long stayDurationTime;
-    public String task_id;
-    private long tid;
+public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig.b {
+    private static final String ADDRESS = TbConfig.SERVER_ADDRESS + TbConfig.PLUGIN_NET_CONFIGS_MIS;
+    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a dBh;
+    private boolean dBi;
 
-    public List<String> getSorceKeyList() {
-        return this.sorceKeyList;
+    @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.b
+    public void a(boolean z, com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar, com.baidu.adp.plugin.packageManager.pluginServerConfig.a aVar) {
+        if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+            if (aVar != null) {
+                aVar.a(false, cVar, null, null);
+                return;
+            }
+            return;
+        }
+        this.dBh = aVar;
+        if (!this.dBi) {
+            this.dBi = true;
+            new b(cVar, z).execute(new Void[0]);
+        }
+        try {
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            File filesDir = inst.getFilesDir();
+            if (filesDir == null) {
+                filesDir = new File("/data/data/" + inst.getPackageName() + "/files/");
+                try {
+                    if (!filesDir.exists()) {
+                        f.forceMkdir(filesDir);
+                    }
+                } catch (IOException e) {
+                }
+            }
+            File file = new File(filesDir, "pluginsEX");
+            if (file != null && file.exists()) {
+                new a(file).execute(new Void[0]);
+            }
+        } catch (Exception e2) {
+            BdLog.e(e2);
+        }
     }
 
-    public void setSorceKeyList(List<String> list) {
-        this.sorceKeyList = list;
+    /* loaded from: classes.dex */
+    private class b extends BdAsyncTask<Void, PluginNetConfigInfos, Void> {
+        private x cHo;
+        private com.baidu.adp.plugin.packageManager.pluginServerConfig.c dBk;
+        private boolean dBl;
+
+        public b(com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar, boolean z) {
+            this.dBl = false;
+            this.dBk = cVar;
+            this.dBl = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        /* JADX WARN: Removed duplicated region for block: B:33:0x00cb  */
+        /* JADX WARN: Removed duplicated region for block: B:36:0x0105  */
+        /* JADX WARN: Removed duplicated region for block: B:39:0x011b  */
+        /* JADX WARN: Removed duplicated region for block: B:41:0x0144  */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public Void doInBackground(Void... voidArr) {
+            String str;
+            boolean z;
+            PluginSettings jE;
+            boolean z2;
+            String str2;
+            PluginNetConfigInfos pluginNetConfigInfos;
+            if (this.dBk == null) {
+                publishProgress(null);
+                return null;
+            }
+            if (this.dBk.jA() == null || this.dBk.jA().size() <= 0) {
+                str = "";
+            } else {
+                StringBuilder sb = new StringBuilder(50);
+                int size = this.dBk.jA().size();
+                for (int i = 0; i < size; i++) {
+                    if (i != 0) {
+                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    }
+                    BasicNameValuePair basicNameValuePair = this.dBk.jA().get(i);
+                    if (basicNameValuePair != null && !TextUtils.isEmpty(basicNameValuePair.getName()) && !TextUtils.isEmpty(basicNameValuePair.getValue())) {
+                        sb.append(basicNameValuePair.getName());
+                        sb.append(":");
+                        sb.append(basicNameValuePair.getValue());
+                    }
+                }
+                str = sb.toString();
+            }
+            BdCacheService ac = BdCacheService.ac("baidu_plugin.db");
+            l<String> a = ac.a("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+            String str3 = a.get("time");
+            if (!this.dBl && str3 != null) {
+                long j = com.baidu.adp.lib.f.b.toLong(str3, -1L);
+                if (j != -1 && System.currentTimeMillis() - j < 86400000) {
+                    z = false;
+                    String str4 = null;
+                    jE = com.baidu.adp.plugin.packageManager.pluginSettings.c.jH().jE();
+                    if (jE != null) {
+                        str4 = jE.getContainerVersion();
+                    }
+                    String str5 = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str4 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
+                    if (!z) {
+                        String b = b(a, str);
+                        pluginNetConfigInfos = PluginNetConfigInfos.parse(b);
+                        z2 = z;
+                        str2 = b;
+                    } else {
+                        String a2 = a(a, str5);
+                        PluginNetConfigInfos parse = PluginNetConfigInfos.parse(a2);
+                        if (parse == null) {
+                            str2 = b(a, str);
+                            pluginNetConfigInfos = PluginNetConfigInfos.parse(str2);
+                            z2 = true;
+                        } else {
+                            z2 = z;
+                            str2 = a2;
+                            pluginNetConfigInfos = parse;
+                        }
+                    }
+                    publishProgress(pluginNetConfigInfos);
+                    if (z2) {
+                        ac.a(a);
+                        l<String> a3 = ac.a("plugin.serverconfig", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+                        a3.set("time", String.valueOf(System.currentTimeMillis()), 172800000L);
+                        a3.set(str5, str2, 172800000L);
+                    }
+                    return null;
+                }
+            }
+            z = true;
+            String str42 = null;
+            jE = com.baidu.adp.plugin.packageManager.pluginSettings.c.jH().jE();
+            if (jE != null) {
+            }
+            String str52 = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str42 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str;
+            if (!z) {
+            }
+            publishProgress(pluginNetConfigInfos);
+            if (z2) {
+            }
+            return null;
+        }
+
+        private String a(l<String> lVar, String str) {
+            return lVar.get(str);
+        }
+
+        private String b(l<String> lVar, String str) {
+            boolean checkNewUser = TbadkCoreApplication.getInst().checkNewUser();
+            if (TbadkCoreApplication.getInst().checkInterrupt() && checkNewUser) {
+                return null;
+            }
+            this.cHo = new x(d.ADDRESS);
+            this.cHo.addPostData("plugin_upload_config", str);
+            return this.cHo.postNetData();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: a */
+        public void onProgressUpdate(PluginNetConfigInfos... pluginNetConfigInfosArr) {
+            super.onProgressUpdate(pluginNetConfigInfosArr);
+            d.this.dBi = false;
+            boolean z = pluginNetConfigInfosArr[0] != null;
+            String str = null;
+            if (this.cHo != null && !this.cHo.isNetSuccess()) {
+                str = this.cHo.aDC();
+                if (this.cHo.getServerErrorCode() != 0) {
+                    str = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.cHo.getErrorString();
+                }
+            }
+            d.this.dBh.a(z, this.dBk, pluginNetConfigInfosArr[0], str);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PLUGIN_NETCONFIG_GET));
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            super.cancel();
+            d.this.dBi = false;
+            this.cHo.cancelNetConnect();
+            this.cHo = null;
+        }
     }
 
-    public String getCurrentPageKey() {
-        return this.currentPageKey;
-    }
+    /* loaded from: classes.dex */
+    private class a extends BdAsyncTask<Void, Void, Void> {
+        private File mFile;
 
-    public void setCurrentPageKey(String str) {
-        this.currentPageKey = str;
-    }
+        public a(File file) {
+            this.mFile = null;
+            this.mFile = file;
+        }
 
-    public long getFid() {
-        return this.fid;
-    }
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            if (this.mFile != null && this.mFile.exists()) {
+                Util.cleanDirectory(this.mFile);
+                return null;
+            }
+            return null;
+        }
 
-    public void setFid(long j) {
-        this.fid = j;
-    }
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Void r1) {
+        }
 
-    public long getTid() {
-        return this.tid;
-    }
-
-    public void setTid(long j) {
-        this.tid = j;
-    }
-
-    public long getPid() {
-        return this.pid;
-    }
-
-    public long getStayDurationTime() {
-        return this.stayDurationTime;
-    }
-
-    public void setStayDurationTime(long j) {
-        this.stayDurationTime = j;
-    }
-
-    public void setTaskId(String str) {
-        this.task_id = str;
-    }
-
-    public String getTaskId() {
-        return this.task_id;
-    }
-
-    public String aww() {
-        return this.cKL;
-    }
-
-    public void qd(String str) {
-        this.cKL = str;
-    }
-
-    public boolean isDirtyData() {
-        return StringUtils.isNull(this.currentPageKey);
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            super.cancel();
+        }
     }
 }

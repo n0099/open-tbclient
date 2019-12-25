@@ -1,7 +1,7 @@
 package com.baidu.pass.http;
 
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class MultipartHashMap extends HttpHashMap {
     public a fileWrapper;
 
@@ -9,7 +9,7 @@ public class MultipartHashMap extends HttpHashMap {
         this.fileWrapper = new a(str, inputStream, str2, str3);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static class a {
         public String a;
         public String b;

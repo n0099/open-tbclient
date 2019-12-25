@@ -1,54 +1,117 @@
 package com.baidu.swan.apps.scheme.actions.d;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.res.widget.floatlayer.a;
-import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
-import com.baidu.swan.apps.scheme.actions.z;
-import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes2.dex */
-public class a extends z {
-    public a(j jVar) {
-        super(jVar, "/swan/hideLoading");
+import com.baidu.swan.apps.a;
+import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.res.ui.FloatButton;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class a {
+    private static final boolean DEBUG = b.DEBUG;
+    private static volatile a bMQ;
+    private FloatButton bMR;
+    private JSONObject bMS;
+    private Activity mActivity;
+    private String mApkName = "";
+    private String mText;
+
+    public static a aba() {
+        if (bMQ == null) {
+            synchronized (a.class) {
+                if (bMQ == null) {
+                    bMQ = new a();
+                }
+            }
+        }
+        return bMQ;
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (DEBUG) {
-            Log.d("HideLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
-        }
-        if (!(context instanceof SwanAppActivity)) {
-            com.baidu.swan.apps.console.c.e("hideLoading", "context not support");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
-            return false;
-        }
-        com.baidu.swan.apps.core.d.e AI = ((SwanAppActivity) context).AI();
-        if (AI == null) {
-            com.baidu.swan.apps.console.c.e("hideLoading", "none fragmentManger");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragmentManger");
-            return false;
-        }
-        com.baidu.swan.apps.core.d.b Fr = AI.Fr();
-        if (!(Fr instanceof a.InterfaceC0208a)) {
-            com.baidu.swan.apps.console.c.e("hideLoading", "fragment not support");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
-            return false;
-        } else if (Fr.getContext() == null) {
-            com.baidu.swan.apps.console.c.e("hideLoading", "fragment has detached");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment has detached");
-            return false;
-        } else {
-            com.baidu.swan.apps.res.widget.floatlayer.a AE = ((a.InterfaceC0208a) Fr).AE();
-            if (AE != null && (AE.getView() instanceof LoadingView)) {
-                AE.reset();
+    private a() {
+    }
+
+    public void a(Activity activity, JSONObject jSONObject) {
+        if (jSONObject != null) {
+            if (DEBUG) {
+                Log.i("FloatButtonGuideManager", jSONObject.toString());
             }
-            com.baidu.swan.apps.console.c.i("hideLoading", "hide loading success");
-            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+            this.mActivity = activity;
+            this.mApkName = jSONObject.optString("name");
+            this.mText = ai.isAppInstalled(activity, this.mApkName) ? activity.getString(a.h.swan_app_hover_button_open) : activity.getString(a.h.swan_app_hover_button_download);
+            this.bMS = jSONObject.optJSONObject("style");
+        }
+    }
+
+    public FloatButton abb() {
+        if (!(this.mActivity instanceof SwanAppActivity)) {
+            return null;
+        }
+        if (this.bMR == null) {
+            this.bMR = d(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
+        }
+        this.bMR.setFloatButtonText(this.mText);
+        this.bMR.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
+        this.bMR.setFloatButtonDefaultPosition();
+        this.bMR.setFloatButtonStyle(this.bMS);
+        this.bMR.setVisibility(0);
+        return this.bMR;
+    }
+
+    private FloatButton d(Context context, ViewGroup viewGroup) {
+        if (context == null || viewGroup == null) {
+            return null;
+        }
+        FloatButton cp = cp(context);
+        viewGroup.addView(cp);
+        return cp;
+    }
+
+    private FloatButton cp(Context context) {
+        if (context == null) {
+            return null;
+        }
+        return (FloatButton) LayoutInflater.from(context.getApplicationContext()).inflate(a.g.swan_app_float_button, (ViewGroup) null);
+    }
+
+    public void K(Intent intent) {
+        if (intent != null && this.bMR != null) {
+            String dataString = intent.getDataString();
+            if (!TextUtils.isEmpty(dataString)) {
+                String substring = dataString.substring(8);
+                if (!TextUtils.isEmpty(substring) && substring.equals(this.mApkName)) {
+                    if (TextUtils.equals("android.intent.action.PACKAGE_ADDED", intent.getAction())) {
+                        this.mText = this.mActivity.getResources().getString(a.h.swan_app_hover_button_open);
+                    } else if (TextUtils.equals("android.intent.action.PACKAGE_REMOVED", intent.getAction())) {
+                        this.mText = this.mActivity.getResources().getString(a.h.swan_app_hover_button_download);
+                    }
+                    this.bMR.setFloatButtonText(this.mText);
+                }
+            }
+        }
+    }
+
+    public FloatButton abc() {
+        return this.bMR;
+    }
+
+    public void a(FloatButton floatButton) {
+        this.bMR = floatButton;
+    }
+
+    public void la(String str) {
+        this.mApkName = str;
+    }
+
+    public static void release() {
+        if (bMQ != null) {
+            bMQ = null;
         }
     }
 }

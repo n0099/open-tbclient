@@ -1,19 +1,19 @@
 package com.baidu.crabsdk.sender;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class e implements Runnable {
-    final /* synthetic */ d Km;
+    final /* synthetic */ d QR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.Km = dVar;
+        this.QR = dVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         int i;
-        d dVar = this.Km;
-        i = this.Km.Kj;
-        dVar.Kj = (i + 1) % 10;
+        d dVar = this.QR;
+        i = this.QR.QN;
+        dVar.QN = (i + 1) % 10;
     }
 }

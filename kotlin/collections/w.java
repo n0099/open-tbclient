@@ -1,9 +1,9 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class w implements Iterator<Float> {
-    public abstract float cML();
+    public abstract float dgN();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,8 +12,8 @@ public abstract class w implements Iterator<Float> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: cMK */
+    /* renamed from: dEG */
     public final Float next() {
-        return Float.valueOf(cML());
+        return Float.valueOf(dgN());
     }
 }

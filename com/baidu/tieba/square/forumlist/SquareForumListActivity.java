@@ -29,15 +29,15 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.g;
 import com.baidu.tbadk.core.view.h;
-import com.baidu.tbadk.core.view.i;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetForumsFromForumClass.ForumSpaceForumInfo;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumListActivity> {
     private static final int DEFAULT_PAGE_LIMIT = 20;
     private static final int MAX_LIST_SIZE = 50;
@@ -52,7 +52,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private int mPageType;
-    private i mPullView;
+    private h mPullView;
     private View mRootView;
     private int mPageNum = 1;
     private final List<ForumSpaceForumInfo> mListData = new ArrayList();
@@ -158,14 +158,14 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(i));
         this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.hot_topic_rule), onClickListener);
-        this.mPullView = new i(getPageContext());
+        this.mPullView = new h(getPageContext());
         this.mForumListView = (BdListView) findViewById(R.id.forum_list_view);
         this.mForumListView.setPullRefresh(this.mPullView);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(getActivity(), R.dimen.ds98)));
         this.mForumListView.addHeaderView(textView, 0);
-        this.mPullView.setListPullRefreshListener(new h.c() { // from class: com.baidu.tieba.square.forumlist.SquareForumListActivity.6
-            @Override // com.baidu.tbadk.core.view.h.c
+        this.mPullView.setListPullRefreshListener(new g.c() { // from class: com.baidu.tieba.square.forumlist.SquareForumListActivity.6
+            @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
                 if (SquareForumListActivity.this.mIsLoading || !j.isNetWorkAvailable()) {
                     SquareForumListActivity.this.mForumListView.completePullRefreshPostDelayed(0L);
@@ -249,9 +249,9 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
     private void showNoDataView() {
         int a = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a), NoDataViewFactory.d.bU(null, getPageContext().getString(R.string.no_data_text)), null);
+            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a), NoDataViewFactory.d.cr(null, getPageContext().getString(R.string.no_data_text)), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.bU(null, getPageContext().getString(R.string.no_data_text)));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.cr(null, getPageContext().getString(R.string.no_data_text)));
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }
@@ -260,9 +260,9 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
     public void showNoNetworkView() {
         int a = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a), NoDataViewFactory.d.bU(null, getPageContext().getString(R.string.network_not_available)), null);
+            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a), NoDataViewFactory.d.cr(null, getPageContext().getString(R.string.network_not_available)), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.bU(null, getPageContext().getString(R.string.game_index_no_network_text)));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.cr(null, getPageContext().getString(R.string.game_index_no_network_text)));
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }

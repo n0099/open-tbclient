@@ -1,6 +1,5 @@
 package com.baidu.mapapi.favorite;
 
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapsdkplatform.comapi.favrite.FavSyncPoi;
@@ -39,7 +38,7 @@ class a {
         favoritePoiInfo.d = jSONObject.optString("addr");
         favoritePoiInfo.f = jSONObject.optString("uspoiuid");
         favoritePoiInfo.e = jSONObject.optString("ncityid");
-        favoritePoiInfo.a = jSONObject.optString(TiebaInitialize.Params.KEY);
+        favoritePoiInfo.a = jSONObject.optString("key");
         return favoritePoiInfo;
     }
 

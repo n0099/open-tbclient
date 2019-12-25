@@ -10,19 +10,18 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class cl {
     public static int a(String str, String str2, ch chVar) {
         HttpPost httpPost;
         LinkedList linkedList = new LinkedList();
-        linkedList.add(new BasicNameValuePair("logValue", chVar.f182a));
+        linkedList.add(new BasicNameValuePair("logValue", chVar.f187a));
         linkedList.add(new BasicNameValuePair("appId", str));
         linkedList.add(new BasicNameValuePair("showType", chVar.a + ""));
         linkedList.add(new BasicNameValuePair("s", cm.a(linkedList, str2)));
         try {
             httpPost = new HttpPost("http://new.api.ad.xiaomi.com/logNotificationAdActions");
-            httpPost.setEntity(new UrlEncodedFormEntity(linkedList, HTTP.UTF_8));
+            httpPost.setEntity(new UrlEncodedFormEntity(linkedList, "UTF-8"));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (ClientProtocolException e2) {

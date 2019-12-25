@@ -1,11 +1,14 @@
 package com.baidu.live.tbadk.pay.channel.interfaces;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+import java.util.HashMap;
+/* loaded from: classes2.dex */
 public interface IPayChannel {
-    void onPayResult(String str, String str2, Context context, boolean z);
+    PayChannelType getType();
 
-    void pay(Object obj, IPayCallback iPayCallback);
+    void onPayResult(String str, String str2, String str3, Context context, boolean z);
+
+    void pay(HashMap<String, String> hashMap, IPayCallback iPayCallback);
 
     void release();
 }

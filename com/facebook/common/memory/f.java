@@ -4,90 +4,90 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class f extends InputStream {
-    private final byte[] kam;
-    private final com.facebook.common.references.c<byte[]> kan;
-    private int kao = 0;
-    private int kap = 0;
-    private boolean mClosed = false;
+    private final com.facebook.common.references.c<byte[]> lEn;
+    private final byte[] mByteArray;
     private final InputStream mInputStream;
+    private int lEo = 0;
+    private int lEp = 0;
+    private boolean mClosed = false;
 
     public f(InputStream inputStream, byte[] bArr, com.facebook.common.references.c<byte[]> cVar) {
         this.mInputStream = (InputStream) com.facebook.common.internal.g.checkNotNull(inputStream);
-        this.kam = (byte[]) com.facebook.common.internal.g.checkNotNull(bArr);
-        this.kan = (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar);
+        this.mByteArray = (byte[]) com.facebook.common.internal.g.checkNotNull(bArr);
+        this.lEn = (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar);
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        com.facebook.common.internal.g.checkState(this.kap <= this.kao);
-        cCN();
-        if (!cCM()) {
+        com.facebook.common.internal.g.checkState(this.lEp <= this.lEo);
+        diw();
+        if (!div()) {
             return -1;
         }
-        byte[] bArr = this.kam;
-        int i = this.kap;
-        this.kap = i + 1;
+        byte[] bArr = this.mByteArray;
+        int i = this.lEp;
+        this.lEp = i + 1;
         return bArr[i] & 255;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        com.facebook.common.internal.g.checkState(this.kap <= this.kao);
-        cCN();
-        if (!cCM()) {
+        com.facebook.common.internal.g.checkState(this.lEp <= this.lEo);
+        diw();
+        if (!div()) {
             return -1;
         }
-        int min = Math.min(this.kao - this.kap, i2);
-        System.arraycopy(this.kam, this.kap, bArr, i, min);
-        this.kap += min;
+        int min = Math.min(this.lEo - this.lEp, i2);
+        System.arraycopy(this.mByteArray, this.lEp, bArr, i, min);
+        this.lEp += min;
         return min;
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
-        com.facebook.common.internal.g.checkState(this.kap <= this.kao);
-        cCN();
-        return (this.kao - this.kap) + this.mInputStream.available();
+        com.facebook.common.internal.g.checkState(this.lEp <= this.lEo);
+        diw();
+        return (this.lEo - this.lEp) + this.mInputStream.available();
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         if (!this.mClosed) {
             this.mClosed = true;
-            this.kan.release(this.kam);
+            this.lEn.release(this.mByteArray);
             super.close();
         }
     }
 
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
-        com.facebook.common.internal.g.checkState(this.kap <= this.kao);
-        cCN();
-        int i = this.kao - this.kap;
+        com.facebook.common.internal.g.checkState(this.lEp <= this.lEo);
+        diw();
+        int i = this.lEo - this.lEp;
         if (i >= j) {
-            this.kap = (int) (this.kap + j);
+            this.lEp = (int) (this.lEp + j);
             return j;
         }
-        this.kap = this.kao;
+        this.lEp = this.lEo;
         return i + this.mInputStream.skip(j - i);
     }
 
-    private boolean cCM() throws IOException {
-        if (this.kap < this.kao) {
+    private boolean div() throws IOException {
+        if (this.lEp < this.lEo) {
             return true;
         }
-        int read = this.mInputStream.read(this.kam);
+        int read = this.mInputStream.read(this.mByteArray);
         if (read <= 0) {
             return false;
         }
-        this.kao = read;
-        this.kap = 0;
+        this.lEo = read;
+        this.lEp = 0;
         return true;
     }
 
-    private void cCN() throws IOException {
+    private void diw() throws IOException {
         if (this.mClosed) {
             throw new IOException("stream already closed");
         }

@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class MultiFinderPatternFinder extends FinderPatternFinder {
     private static final float DIFF_MODSIZE_CUTOFF = 0.5f;
     private static final float DIFF_MODSIZE_CUTOFF_PERCENT = 0.05f;
@@ -23,7 +23,7 @@ final class MultiFinderPatternFinder extends FinderPatternFinder {
     private static final float MIN_MODULE_COUNT_PER_EDGE = 9.0f;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class ModuleSizeComparator implements Serializable, Comparator<FinderPattern> {
         private ModuleSizeComparator() {
         }
@@ -76,12 +76,12 @@ final class MultiFinderPatternFinder extends FinderPatternFinder {
                     FinderPattern finderPattern2 = possibleCenters.get(i4);
                     if (finderPattern2 != null) {
                         float estimatedModuleSize = (finderPattern.getEstimatedModuleSize() - finderPattern2.getEstimatedModuleSize()) / Math.min(finderPattern.getEstimatedModuleSize(), finderPattern2.getEstimatedModuleSize());
-                        if (Math.abs(finderPattern.getEstimatedModuleSize() - finderPattern2.getEstimatedModuleSize()) <= DIFF_MODSIZE_CUTOFF || estimatedModuleSize < DIFF_MODSIZE_CUTOFF_PERCENT) {
+                        if (Math.abs(finderPattern.getEstimatedModuleSize() - finderPattern2.getEstimatedModuleSize()) <= 0.5f || estimatedModuleSize < DIFF_MODSIZE_CUTOFF_PERCENT) {
                             for (int i5 = i4 + 1; i5 < size; i5++) {
                                 FinderPattern finderPattern3 = possibleCenters.get(i5);
                                 if (finderPattern3 != null) {
                                     float estimatedModuleSize2 = (finderPattern2.getEstimatedModuleSize() - finderPattern3.getEstimatedModuleSize()) / Math.min(finderPattern2.getEstimatedModuleSize(), finderPattern3.getEstimatedModuleSize());
-                                    if (Math.abs(finderPattern2.getEstimatedModuleSize() - finderPattern3.getEstimatedModuleSize()) <= DIFF_MODSIZE_CUTOFF || estimatedModuleSize2 < DIFF_MODSIZE_CUTOFF_PERCENT) {
+                                    if (Math.abs(finderPattern2.getEstimatedModuleSize() - finderPattern3.getEstimatedModuleSize()) <= 0.5f || estimatedModuleSize2 < DIFF_MODSIZE_CUTOFF_PERCENT) {
                                         FinderPattern[] finderPatternArr = {finderPattern, finderPattern2, finderPattern3};
                                         ResultPoint.orderBestPatterns(finderPatternArr);
                                         FinderPatternInfo finderPatternInfo = new FinderPatternInfo(finderPatternArr);

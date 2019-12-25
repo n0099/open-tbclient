@@ -7,35 +7,35 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String jvy;
-    private a jvz;
+    private String kpG;
+    private a kpH;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bGF();
+        void bYa();
 
-        void bGG();
+        void bYb();
 
-        void bGH();
+        void bYc();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.jvy = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.jvz = aVar;
+        this.kpG = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.kpH = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: A */
+    /* renamed from: J */
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.jvy);
-            xVar.amp().amP().mIsNeedAddCommenParam = false;
-            xVar.amp().amP().mIsUseCurrentBDUSS = false;
+            x xVar = new x(this.kpG);
+            xVar.aDB().aEb().mIsNeedAddCommenParam = false;
+            xVar.aDB().aEb().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.jvz != null && num != null) {
+        if (this.kpH != null && num != null) {
             if (num.intValue() == -1) {
-                this.jvz.onError(null);
+                this.kpH.onError(null);
             } else if (num.intValue() == 1) {
-                this.jvz.bGF();
+                this.kpH.bYa();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.jvz.bGG();
+                this.kpH.bYb();
             } else {
-                this.jvz.bGH();
+                this.kpH.bYc();
             }
         }
     }

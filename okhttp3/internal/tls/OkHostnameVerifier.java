@@ -1,7 +1,6 @@
 package okhttp3.internal.tls;
 
-import com.baidu.android.imsdk.internal.DefaultConfig;
-import com.baidu.live.adp.lib.util.BdFileHelper;
+import com.baidu.android.common.others.IStringUtil;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.internal.Util;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class OkHostnameVerifier implements HostnameVerifier {
     private static final int ALT_DNS_NAME = 2;
     private static final int ALT_IPA_NAME = 7;
@@ -89,14 +88,14 @@ public final class OkHostnameVerifier implements HostnameVerifier {
     }
 
     public boolean verifyHostname(String str, String str2) {
-        if (str == null || str.length() == 0 || str.startsWith(DefaultConfig.TOKEN_SEPARATOR) || str.endsWith("..") || str2 == null || str2.length() == 0 || str2.startsWith(DefaultConfig.TOKEN_SEPARATOR) || str2.endsWith("..")) {
+        if (str == null || str.length() == 0 || str.startsWith(".") || str.endsWith(IStringUtil.TOP_PATH) || str2 == null || str2.length() == 0 || str2.startsWith(".") || str2.endsWith(IStringUtil.TOP_PATH)) {
             return false;
         }
-        if (!str.endsWith(DefaultConfig.TOKEN_SEPARATOR)) {
-            str = str + BdFileHelper.EXTENSION_SEPARATOR;
+        if (!str.endsWith(".")) {
+            str = str + '.';
         }
-        if (!str2.endsWith(DefaultConfig.TOKEN_SEPARATOR)) {
-            str2 = str2 + BdFileHelper.EXTENSION_SEPARATOR;
+        if (!str2.endsWith(".")) {
+            str2 = str2 + '.';
         }
         String lowerCase = str2.toLowerCase(Locale.US);
         if (!lowerCase.contains("*")) {

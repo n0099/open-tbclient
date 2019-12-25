@@ -1,9 +1,11 @@
 package com.baidu.live.tbadk.pay;
 
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PayInfoResultData extends BaseData implements Serializable {
     private static final long serialVersionUID = -3890790632004634138L;
     private String errmsg;
@@ -14,10 +16,21 @@ public class PayInfoResultData extends BaseData implements Serializable {
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.errmsg = jSONObject.optString("errmsg");
+            this.errmsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
             this.errno = jSONObject.optInt("errno");
             this.usermsg = jSONObject.optString("");
             this.pay_status = jSONObject.optInt("pay_status");
+        }
+    }
+
+    public void parserNuomiJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.errno = jSONObject.optInt("error_code", 0);
+            this.errmsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+            JSONObject optJSONObject = jSONObject.optJSONObject("order_info");
+            if (optJSONObject != null) {
+                this.pay_status = optJSONObject.optInt("result");
+            }
         }
     }
 

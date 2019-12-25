@@ -1,7 +1,10 @@
 package com.baidu.swan.pms.a;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes2.dex */
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import java.util.Set;
+/* loaded from: classes9.dex */
 public interface e {
-    void b(PMSAppInfo pMSAppInfo);
+    @NonNull
+    Bundle a(@NonNull Bundle bundle, Set<String> set);
 }

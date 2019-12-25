@@ -4,10 +4,11 @@ import android.os.Bundle;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class WebviewHelper {
     public static final String TAG = "WebviewHelper";
 
@@ -50,13 +51,13 @@ public class WebviewHelper {
         String str3 = "";
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
             for (int i = 1; i < split.length; i++) {
-                String[] split2 = split[i].split("&");
+                String[] split2 = split[i].split(ETAG.ITEM_SEPARATOR);
                 if (split2 != null && split2.length > 0) {
                     int length = split2.length;
                     int i2 = 0;
                     while (true) {
                         if (i2 < length) {
-                            String[] split3 = split2[i2].split("=");
+                            String[] split3 = split2[i2].split(ETAG.EQUAL);
                             if (split3.length == 2) {
                                 String str4 = split3[0];
                                 String str5 = split3[1];
@@ -92,12 +93,12 @@ public class WebviewHelper {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
+        if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split(ETAG.ITEM_SEPARATOR)) == null) {
             return null;
         }
         bundle.putString("path", url.getPath());
         for (String str2 : split) {
-            String[] split2 = str2.split("=");
+            String[] split2 = str2.split(ETAG.EQUAL);
             if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
                 bundle.putString(split2[0], split2[1]);
             }
@@ -105,7 +106,7 @@ public class WebviewHelper {
         return bundle;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class TiebaCookieInfo {
         public String BDUSS;
         public String PTOKEN;
@@ -144,12 +145,12 @@ public class WebviewHelper {
         if (!StringHelper.isEmpty(str) && !str.contains("page_type")) {
             StringBuilder sb = new StringBuilder(str);
             if (str.contains("?")) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             } else {
                 sb.append("?");
             }
             sb.append("page_type");
-            sb.append("=");
+            sb.append(ETAG.EQUAL);
             sb.append("open_full_screen_opacity_web_page");
             return sb.toString();
         }

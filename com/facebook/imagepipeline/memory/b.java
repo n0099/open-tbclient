@@ -1,18 +1,28 @@
 package com.facebook.imagepipeline.memory;
-/* loaded from: classes2.dex */
-public class b {
-    public static final int kjw = cHZ();
-    private static a kjx;
 
-    private static int cHZ() {
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.facebook.infer.annotation.ThreadSafe;
+/* loaded from: classes9.dex */
+public class b {
+    private static final Class<?> lCO = b.class;
+    public static final int lPL = dor();
+    private static int lPM = 384;
+    private static volatile a lPN;
+
+    private static int dor() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
-        return ((long) min) > 16777216 ? (min / 4) * 3 : min / 2;
+        return ((long) min) > AccountConstants.TYPE_MODIFY_ADDRESSLIST_SWITCH ? (min / 4) * 3 : min / 2;
     }
 
-    public static a cIa() {
-        if (kjx == null) {
-            kjx = new a(384, kjw);
+    @ThreadSafe
+    public static a dos() {
+        if (lPN == null) {
+            synchronized (b.class) {
+                if (lPN == null) {
+                    lPN = new a(lPM, lPL);
+                }
+            }
         }
-        return kjx;
+        return lPN;
     }
 }

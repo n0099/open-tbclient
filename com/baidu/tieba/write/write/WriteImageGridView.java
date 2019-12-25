@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.GridView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class WriteImageGridView extends GridView {
     public WriteImageGridView(Context context) {
         super(context);

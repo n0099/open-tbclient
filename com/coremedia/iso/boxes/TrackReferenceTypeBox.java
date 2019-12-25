@@ -1,6 +1,7 @@
 package com.coremedia.iso.boxes;
 
 import com.baidu.live.adp.lib.util.FieldUtil;
+import com.baidu.webkit.internal.ETAG;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractBox;
@@ -8,12 +9,12 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TrackReferenceTypeBox extends AbstractBox {
     public static final String TYPE1 = "hint";
     public static final String TYPE2 = "cdsc";
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0591a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_1 = null;
     private long[] trackIds;
 
     static {
@@ -63,7 +64,7 @@ public class TrackReferenceTypeBox extends AbstractBox {
         for (int i = 0; i < this.trackIds.length; i++) {
             sb.append(";trackId");
             sb.append(i);
-            sb.append("=");
+            sb.append(ETAG.EQUAL);
             sb.append(this.trackIds[i]);
         }
         sb.append("]");

@@ -3,7 +3,8 @@ package com.baidu.live.tbadk.pay;
 import android.content.Context;
 import com.baidu.live.tbadk.pay.channel.PayChannelManager;
 import com.baidu.live.tbadk.pay.channel.interfaces.IPayChannel;
-/* loaded from: classes6.dex */
+import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
+/* loaded from: classes2.dex */
 public class PayHelper {
     public static final int PAY_CANCEL = 1;
     public static final int PAY_FAIL_GET_ORDER = 3;
@@ -21,10 +22,10 @@ public class PayHelper {
     public static final String STATUS_TIMEOUT = "1003";
     public static final String STATUS_TIMEOUT_DESC = "超时";
 
-    public static void notifyPayResult(String str, String str2, Context context, boolean z) {
-        IPayChannel buildPayChannel = PayChannelManager.getInstance().buildPayChannel();
+    public static void notifyPayResult(String str, String str2, String str3, Context context, boolean z, PayChannelType payChannelType) {
+        IPayChannel buildPayChannel = PayChannelManager.getInstance().buildPayChannel(payChannelType);
         if (buildPayChannel != null) {
-            buildPayChannel.onPayResult(str, str2, context, z);
+            buildPayChannel.onPayResult(str, str2, str3, context, z);
         }
     }
 }

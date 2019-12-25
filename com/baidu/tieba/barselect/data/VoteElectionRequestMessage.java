@@ -2,10 +2,10 @@ package com.baidu.tieba.barselect.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import tbclient.ElectionInfo.DataReq;
 import tbclient.ElectionInfo.ElectionInfoReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class VoteElectionRequestMessage extends NetMessage {
     private long fid;
     private int pn;
@@ -33,7 +33,7 @@ public class VoteElectionRequestMessage extends NetMessage {
         builder.fid = Long.valueOf(this.fid);
         builder.rn = Integer.valueOf(this.rn);
         builder.pn = Integer.valueOf(this.pn);
-        r.a(builder, false);
+        t.a(builder, false);
         ElectionInfoReqIdl.Builder builder2 = new ElectionInfoReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

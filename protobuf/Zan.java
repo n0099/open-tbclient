@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Zan extends Message {
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer isLiked;
@@ -51,7 +51,7 @@ public final class Zan extends Message {
         this.likerId = immutableCopyOf(builder.likerId);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder extends Message.Builder<Zan> {
         public Integer isLiked;
         public Integer lastTime;

@@ -1,21 +1,24 @@
 package android.support.v4.util;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AtomicFile {
     private final File mBackupName;
     private final File mBaseName;
 
-    public AtomicFile(File file) {
+    public AtomicFile(@NonNull File file) {
         this.mBaseName = file;
         this.mBackupName = new File(file.getPath() + ".bak");
     }
 
+    @NonNull
     public File getBaseFile() {
         return this.mBaseName;
     }
@@ -25,6 +28,7 @@ public class AtomicFile {
         this.mBackupName.delete();
     }
 
+    @NonNull
     public FileOutputStream startWrite() throws IOException {
         if (this.mBaseName.exists()) {
             if (!this.mBackupName.exists()) {
@@ -49,7 +53,7 @@ public class AtomicFile {
         }
     }
 
-    public void finishWrite(FileOutputStream fileOutputStream) {
+    public void finishWrite(@Nullable FileOutputStream fileOutputStream) {
         if (fileOutputStream != null) {
             sync(fileOutputStream);
             try {
@@ -61,7 +65,7 @@ public class AtomicFile {
         }
     }
 
-    public void failWrite(FileOutputStream fileOutputStream) {
+    public void failWrite(@Nullable FileOutputStream fileOutputStream) {
         if (fileOutputStream != null) {
             sync(fileOutputStream);
             try {
@@ -74,6 +78,7 @@ public class AtomicFile {
         }
     }
 
+    @NonNull
     public FileInputStream openRead() throws FileNotFoundException {
         if (this.mBackupName.exists()) {
             this.mBaseName.delete();
@@ -82,6 +87,7 @@ public class AtomicFile {
         return new FileInputStream(this.mBaseName);
     }
 
+    @NonNull
     public byte[] readFully() throws IOException {
         byte[] bArr;
         int i = 0;
@@ -109,14 +115,12 @@ public class AtomicFile {
         }
     }
 
-    static boolean sync(FileOutputStream fileOutputStream) {
-        if (fileOutputStream != null) {
-            try {
-                fileOutputStream.getFD().sync();
-            } catch (IOException e) {
-                return false;
-            }
+    private static boolean sync(@NonNull FileOutputStream fileOutputStream) {
+        try {
+            fileOutputStream.getFD().sync();
+            return true;
+        } catch (IOException e) {
+            return false;
         }
-        return true;
     }
 }

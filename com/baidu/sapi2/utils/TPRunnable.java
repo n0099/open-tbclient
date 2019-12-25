@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils;
 
 import android.os.Looper;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TPRunnable implements com.baidu.sapi2.c, Runnable {
     public Runnable runable;
 

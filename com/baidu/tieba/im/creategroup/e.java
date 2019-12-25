@@ -7,37 +7,37 @@ import android.widget.Button;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e implements o {
-    private CreateGroupStepActivity gCh;
-    private TbImageView gCt;
-    private Button gCu;
+    private CreateGroupStepActivity hqm;
+    private TbImageView hqy;
+    private Button hqz;
     private int mIndex;
     private View mView;
 
     public e(CreateGroupStepActivity createGroupStepActivity, int i, int i2) {
-        this.gCh = createGroupStepActivity;
+        this.hqm = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(R.layout.create_group_lbs_tips, (ViewGroup) null);
-        this.gCu = (Button) this.mView.findViewById(R.id.create_group_tips_btn);
-        this.gCt = (TbImageView) this.mView.findViewById(R.id.create_group_tips_image);
+        this.hqz = (Button) this.mView.findViewById(R.id.create_group_tips_btn);
+        this.hqy = (TbImageView) this.mView.findViewById(R.id.create_group_tips_image);
         this.mIndex = i;
-        this.gCu.setText(String.format(createGroupStepActivity.getPageContext().getString(R.string.group_create_can_create_num), Integer.valueOf(i2)));
-        c.b(this.gCh.getActivity(), c.gCm, TbadkApplication.getInst().getSkinType() == 1);
-        c.b(this.gCh.getActivity(), c.gCp, TbadkApplication.getInst().getSkinType() == 1);
-        c.b(this.gCh.getActivity(), c.gCn, TbadkApplication.getInst().getSkinType() == 1);
+        this.hqz.setText(String.format(createGroupStepActivity.getPageContext().getString(R.string.group_create_can_create_num), Integer.valueOf(i2)));
+        c.b(this.hqm.getActivity(), c.hqr, TbadkApplication.getInst().getSkinType() == 1);
+        c.b(this.hqm.getActivity(), c.hqu, TbadkApplication.getInst().getSkinType() == 1);
+        c.b(this.hqm.getActivity(), c.hqs, TbadkApplication.getInst().getSkinType() == 1);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void byP() {
-        this.gCt.setBackgroundDrawable(null);
+    public void bQg() {
+        this.hqy.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void byQ() {
+    public void bQh() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.gCh.getLayoutMode().setNightMode(z);
-        this.gCh.getLayoutMode().onModeChanged(this.mView);
-        this.gCt.startLoad(c.a(this.gCh.getActivity(), c.gCo, z), 29, false);
+        this.hqm.getLayoutMode().setNightMode(z);
+        this.hqm.getLayoutMode().onModeChanged(this.mView);
+        this.hqy.startLoad(c.a(this.hqm.getActivity(), c.hqt, z), 29, false);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -46,22 +46,22 @@ public class e implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int byJ() {
+    public int bQa() {
         return this.mIndex;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return this.gCh.getPageContext().getString(R.string.group_create_tips_lbs);
+        return this.hqm.getPageContext().getString(R.string.group_create_tips_lbs);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String byS() {
+    public String bQj() {
         return "";
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean byT() {
+    public boolean bQk() {
         return false;
     }
 
@@ -70,12 +70,12 @@ public class e implements o {
         return null;
     }
 
-    public Button byZ() {
-        return this.gCu;
+    public Button bQq() {
+        return this.hqz;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean byU() {
+    public boolean bQl() {
         return false;
     }
 }

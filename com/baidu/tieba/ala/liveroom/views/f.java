@@ -1,27 +1,27 @@
 package com.baidu.tieba.ala.liveroom.views;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface f {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void aTZ();
+        void blQ();
 
-        void aUa();
+        void blR();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface b {
-        void aUb();
+        void blS();
 
-        void aUc();
+        void blT();
 
-        void aUd();
+        void blU();
 
-        boolean aUe();
+        boolean blV();
 
-        void aUf();
+        void blW();
 
-        void aUg();
+        void blX();
 
         void onCloseClicked();
     }

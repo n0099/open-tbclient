@@ -1,15 +1,16 @@
 package com.baidu.searchbox.unitedscheme;
 
-import com.baidu.searchbox.unitedscheme.ioc.ISchemeIoc;
+import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
+import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
 import com.baidu.swan.apps.scheme.b;
 import com.baidu.swan.apps.scheme.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SchemeRuntime {
-    public static ISchemeContext getSchemeContext() {
-        return b.RK();
+    public static ISchemeIoc getSchemeIoc() {
+        return d.aaV();
     }
 
-    public static ISchemeIoc getSchemeIoc() {
-        return d.RL();
+    public static ISchemeHeadIoc getSchemeHeadIoc() {
+        return b.aaU();
     }
 }

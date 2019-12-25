@@ -1,6 +1,5 @@
 package com.baidu.live.tbadk.widget.lottie;
 
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdStringHelper;
@@ -11,14 +10,14 @@ import com.baidu.live.tbadk.core.util.NetWork;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TBLottieAnimationLoader extends BdAsyncTask<Void, String, String> {
     private OnLoadedCallback mCallback;
     private NetWork mNetWork;
     private String mPath;
     private String mUrl;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnLoadedCallback {
         void onLoaded(boolean z, String str);
     }
@@ -31,7 +30,7 @@ public class TBLottieAnimationLoader extends BdAsyncTask<Void, String, String> {
         try {
             return file.mkdirs();
         } catch (Exception e) {
-            TiebaInitialize.file(e, BdStringHelper.join("FileHelper", DefaultConfig.TOKEN_SEPARATOR, "CheckTempDir", HanziToPinyin.Token.SEPARATOR, str));
+            TiebaInitialize.file(e, BdStringHelper.join("FileHelper", ".", "CheckTempDir", HanziToPinyin.Token.SEPARATOR, str));
             return false;
         }
     }

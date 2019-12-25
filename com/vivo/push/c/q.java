@@ -3,12 +3,11 @@ package com.vivo.push.c;
 import android.app.NotificationManager;
 import android.os.Build;
 import android.text.TextUtils;
-import com.coloros.mcssdk.PushManager;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.model.InsideNotificationItem;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class q extends aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(com.vivo.push.y yVar) {
@@ -54,7 +53,7 @@ public final class q extends aa {
             }
             yVar4.a(hashMap3);
             com.vivo.push.p.a().a(yVar4);
-        } else if (Build.VERSION.SDK_INT >= 24 && (notificationManager = (NotificationManager) this.a.getSystemService(PushManager.MESSAGE_TYPE_NOTI)) != null && !notificationManager.areNotificationsEnabled()) {
+        } else if (Build.VERSION.SDK_INT >= 24 && (notificationManager = (NotificationManager) this.a.getSystemService("notification")) != null && !notificationManager.areNotificationsEnabled()) {
             com.vivo.push.util.p.b("OnNotificationArrivedTask", "pkg name : " + this.a.getPackageName() + " notify switch is false");
             com.vivo.push.util.p.b(this.a, "通知开关关闭，导致通知无法展示，请到设置页打开应用通知开关");
             com.vivo.push.b.y yVar5 = new com.vivo.push.b.y(2104L);

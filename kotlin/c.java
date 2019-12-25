@@ -1,7 +1,5 @@
 package kotlin;
-/* loaded from: classes2.dex */
-public final class c {
-    public static final <A, B> Pair<A, B> e(A a, B b) {
-        return new Pair<>(a, b);
-    }
+/* loaded from: classes4.dex */
+public interface c<T> {
+    T getValue();
 }

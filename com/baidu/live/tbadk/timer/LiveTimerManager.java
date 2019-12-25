@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.util.Log;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class LiveTimerManager {
     private static LiveTimerManager INSTANCE = null;
     private long currLiveId;

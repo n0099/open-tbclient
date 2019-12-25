@@ -12,27 +12,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tbadk.util.j;
-import com.baidu.tbadk.util.y;
-import com.baidu.tbadk.util.z;
+import com.baidu.tbadk.util.ab;
+import com.baidu.tbadk.util.ac;
+import com.baidu.tbadk.util.l;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.ResponseQueryUserInfoMessage;
 import com.baidu.tieba.im.model.BlackListModel;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 import com.baidu.tieba.imMessageCenter.RequestQueryUserInfoMessage;
 import protobuf.QueryUserInfos.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f {
-    private com.baidu.tbadk.coreExtra.model.a cje;
+    private com.baidu.tbadk.coreExtra.model.a cVO;
     private DataRes data;
-    private final BlackListModel gSx;
-    private PersonalTalkSettingActivity gSy;
-    private a gSz;
+    private final BlackListModel hGA;
+    private PersonalTalkSettingActivity hGB;
+    private a hGC;
     private boolean isAttention = false;
-    private boolean gSv = false;
-    private boolean gSw = false;
+    private boolean hGy = false;
+    private boolean hGz = false;
     private BdUniqueId tag = BdUniqueId.gen();
-    private com.baidu.adp.framework.listener.c gxN = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.3
+    private com.baidu.adp.framework.listener.c hlW = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -40,9 +40,9 @@ public class f {
                 switch (socketResponsedMessage.getCmd()) {
                     case CmdConfigSocket.CMD_UPDATE_MASK_INFO /* 104102 */:
                         if (socketResponsedMessage instanceof ResponsedMessage) {
-                            f.this.gSy.closeLoadingDialog();
+                            f.this.hGB.closeLoadingDialog();
                             if (socketResponsedMessage.getError() != 0) {
-                                f.this.gSy.showToast(socketResponsedMessage.getErrorString());
+                                f.this.hGB.showToast(socketResponsedMessage.getErrorString());
                             }
                         }
                         if (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) {
@@ -50,9 +50,9 @@ public class f {
                             if (responseUpdateMaskInfoMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) {
                                 RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) responseUpdateMaskInfoMessage.getOrginalMessage();
                                 if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
-                                    f.this.gSv = requestUpdateMaskInfoMessage.getIsMask() == 1;
-                                    if (f.this.gSz != null) {
-                                        f.this.gSz.updateUI();
+                                    f.this.hGy = requestUpdateMaskInfoMessage.getIsMask() == 1;
+                                    if (f.this.hGC != null) {
+                                        f.this.hGC.updateUI();
                                         return;
                                     }
                                     return;
@@ -64,18 +64,18 @@ public class f {
                         return;
                     case CmdConfigSocket.CMD_QUERY_USER_INFO /* 205003 */:
                         if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() != 0) {
-                            f.this.gSy.hideProgressBar();
-                            f.this.gSy.showToast(socketResponsedMessage.getErrorString());
+                            f.this.hGB.hideProgressBar();
+                            f.this.hGB.showToast(socketResponsedMessage.getErrorString());
                             return;
                         } else if (socketResponsedMessage instanceof ResponseQueryUserInfoMessage) {
                             ResponseQueryUserInfoMessage responseQueryUserInfoMessage = (ResponseQueryUserInfoMessage) socketResponsedMessage;
                             if (responseQueryUserInfoMessage.getResData() != null) {
                                 f.this.data = responseQueryUserInfoMessage.getResData();
                                 f.this.isAttention = f.this.data.hasConcerned.intValue() == 1;
-                                f.this.gSv = f.this.data.isBlacklist.intValue() == 1;
-                                f.this.gSy.hideProgressBar();
-                                if (f.this.gSz != null) {
-                                    f.this.gSz.updateUI();
+                                f.this.hGy = f.this.data.isBlacklist.intValue() == 1;
+                                f.this.hGB.hideProgressBar();
+                                if (f.this.hGC != null) {
+                                    f.this.hGC.updateUI();
                                     return;
                                 }
                                 return;
@@ -97,68 +97,68 @@ public class f {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (!updateAttentionMessage.isSucc()) {
-                    if (f.this.gSy != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                        f.this.gSy.showToast(updateAttentionMessage.getErrorString());
+                    if (f.this.hGB != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
+                        f.this.hGB.showToast(updateAttentionMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 f.this.isAttention = updateAttentionMessage.isAttention();
-                if (f.this.gSy != null) {
+                if (f.this.hGB != null) {
                     if (f.this.isAttention) {
-                        f.this.gSy.showToast(R.string.add_success);
+                        f.this.hGB.showToast(R.string.add_success);
                     } else {
-                        f.this.gSy.showToast(R.string.remove_succ);
+                        f.this.hGB.showToast(R.string.remove_succ);
                     }
                 }
-                if (f.this.gSz != null) {
-                    f.this.gSz.updateUI();
+                if (f.this.hGC != null) {
+                    f.this.hGC.updateUI();
                 }
             }
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void updateUI();
     }
 
-    public boolean bEJ() {
-        return this.gSw;
+    public boolean bVV() {
+        return this.hGz;
     }
 
-    public void mx(boolean z) {
-        this.gSw = z;
+    public void nK(boolean z) {
+        this.hGz = z;
     }
 
-    public DataRes bEK() {
+    public DataRes bVW() {
         return this.data;
     }
 
-    public boolean bEL() {
-        return this.gSv;
+    public boolean bVX() {
+        return this.hGy;
     }
 
     public f(final PersonalTalkSettingActivity personalTalkSettingActivity, a aVar, final long j) {
-        this.gSy = personalTalkSettingActivity;
-        this.gSz = aVar;
-        this.cje = new com.baidu.tbadk.coreExtra.model.a(personalTalkSettingActivity.getPageContext());
-        this.gSx = new BlackListModel(personalTalkSettingActivity.getPageContext());
+        this.hGB = personalTalkSettingActivity;
+        this.hGC = aVar;
+        this.cVO = new com.baidu.tbadk.coreExtra.model.a(personalTalkSettingActivity.getPageContext());
+        this.hGA = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
-        z.b(new y<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.1
+        ac.b(new ab<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.y
-            /* renamed from: bEO */
+            @Override // com.baidu.tbadk.util.ab
+            /* renamed from: bWa */
             public PersonalSettingItemData doInBackground() {
-                return com.baidu.tieba.im.settingcache.e.bEe().db(TbadkCoreApplication.getCurrentAccount(), String.valueOf(j));
+                return com.baidu.tieba.im.settingcache.e.bVq().du(TbadkCoreApplication.getCurrentAccount(), String.valueOf(j));
             }
-        }, new j<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.2
+        }, new l<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.j
+            @Override // com.baidu.tbadk.util.l
             /* renamed from: a */
             public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
                 if (personalSettingItemData != null) {
-                    f.this.gSw = personalSettingItemData.isAcceptNotify();
+                    f.this.hGz = personalSettingItemData.isAcceptNotify();
                 }
                 RequestQueryUserInfoMessage requestQueryUserInfoMessage = new RequestQueryUserInfoMessage();
                 requestQueryUserInfoMessage.setReqUserId(j);
@@ -167,7 +167,7 @@ public class f {
         });
     }
 
-    public void my(boolean z) {
+    public void nL(boolean z) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         requestUpdateMaskInfoMessage.setMaskType(9);
         requestUpdateMaskInfoMessage.setList(String.valueOf(this.data.id));
@@ -177,29 +177,29 @@ public class f {
         MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    public void mz(boolean z) {
-        this.gSy.showLoadingDialog(null);
+    public void nM(boolean z) {
+        this.hGB.showLoadingDialog(null);
         if (z) {
-            this.gSx.addToBlackList(this.data.id.longValue());
+            this.hGA.addToBlackList(this.data.id.longValue());
         } else {
-            this.gSx.removeFromBlackList(this.data.id.longValue());
+            this.hGA.removeFromBlackList(this.data.id.longValue());
         }
     }
 
     public void onDestory() {
-        if (this.cje != null) {
-            this.cje.cancel();
+        if (this.cVO != null) {
+            this.cVO.cancel();
         }
-        if (this.gSx != null) {
-            this.gSx.cancelLoadData();
+        if (this.hGA != null) {
+            this.hGA.cancelLoadData();
         }
     }
 
-    public com.baidu.adp.framework.listener.c bEM() {
-        return this.gxN;
+    public com.baidu.adp.framework.listener.c bVY() {
+        return this.hlW;
     }
 
-    public CustomMessageListener bEN() {
+    public CustomMessageListener bVZ() {
         return this.mCustomListener;
     }
 }

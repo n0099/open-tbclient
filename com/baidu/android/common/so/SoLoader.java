@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.common.so.SoUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -23,7 +22,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class SoLoader {
     private static final boolean DEBUG = false;
     private static final String TAG = "SoLoader";
@@ -81,7 +80,7 @@ public final class SoLoader {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("load so library argument error,soName is null.");
         }
-        if (loadLibrary(iCallingSoLoader, str, SoUtils.SOLOG.SO_LOAD_LIBRARY)) {
+        if (loadLibrary(iCallingSoLoader, str, "SO_LOAD_LIBRARY")) {
             return true;
         }
         return loadInternalFromLocal(context, str, iCallingSoLoader);
@@ -121,7 +120,7 @@ public final class SoLoader {
                 }
                 File file = new File(getNativeLibraryDir(context), fullName);
                 if (file.exists()) {
-                    if (file.length() == getSoSize(zipFile2, str2) && load(iCallingSoLoader, fullName, file.getAbsolutePath(), SoUtils.SOLOG.SO_NATIVE_LIB_LOAD)) {
+                    if (file.length() == getSoSize(zipFile2, str2) && load(iCallingSoLoader, fullName, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD")) {
                         if (zipFile2 != null) {
                             try {
                                 zipFile2.close();
@@ -134,7 +133,7 @@ public final class SoLoader {
                 }
                 File file2 = new File(getReleaseSoFilePath(context), fullName);
                 if (file2.exists()) {
-                    if (file2.length() == getSoSize(zipFile2, str2) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), SoUtils.SOLOG.SO_RELEASE_LIB_LOAD)) {
+                    if (file2.length() == getSoSize(zipFile2, str2) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), "SO_RELEASE_LIB_LOAD")) {
                         if (zipFile2 != null) {
                             try {
                                 zipFile2.close();
@@ -146,7 +145,7 @@ public final class SoLoader {
                     }
                 }
                 for (int i = 0; i < SoUtils.uris.length; i++) {
-                    if (executeRelease(context, zipFile2, fullName, SoUtils.uris[i]) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), SoUtils.SOLOG.SO_RELEASE_EXECUTE_LOAD)) {
+                    if (executeRelease(context, zipFile2, fullName, SoUtils.uris[i]) && load(iCallingSoLoader, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
                         if (zipFile2 != null) {
                             try {
                                 zipFile2.close();

@@ -4,7 +4,7 @@ import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdProdInfo;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b implements IXAdProdInfo {
     private d a;
     private IXAdConstants4PDK.SlotType b;
@@ -62,7 +62,7 @@ public class b implements IXAdProdInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdProdInfo
     public JSONObject getAttribute() {
-        return this.c != null ? this.c : AdSettings.zo();
+        return this.c != null ? this.c : AdSettings.getAttr();
     }
 
     public void a(JSONObject jSONObject) {

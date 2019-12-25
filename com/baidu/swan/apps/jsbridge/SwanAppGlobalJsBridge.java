@@ -10,9 +10,9 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter;
-import com.baidu.swan.apps.an.ac;
+import com.baidu.swan.apps.as.ai;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class SwanAppGlobalJsBridge extends a {
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_jsbridge";
     private static final String TAG = "SwanAppGlobalJsBridge";
@@ -23,7 +23,7 @@ public class SwanAppGlobalJsBridge extends a {
 
     @JavascriptInterface
     public boolean dispatch(final String str) {
-        ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppGlobalJsBridge.1
+        ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.jsbridge.SwanAppGlobalJsBridge.1
             @Override // java.lang.Runnable
             public void run() {
                 SwanAppGlobalJsBridge.this.doSchemeDispatch(SwanAppGlobalJsBridge.this.mCallbackHandler.getCurrentPageUrl(), str);

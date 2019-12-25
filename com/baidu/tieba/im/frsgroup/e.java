@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.util.s;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupInfoData;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
-    private View.OnClickListener cot;
+    private View.OnClickListener dbH;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.cot = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
+        this.dbH = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -34,9 +34,9 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
                                 long groupId = groupInfoData.getGroupId();
                                 int from = groupInfoData.getFrom();
                                 if (from == 4 || from == 5 || from == 6) {
-                                    TiebaStatic.log(new an("c10331").bS("obj_type", String.valueOf(groupId)));
+                                    TiebaStatic.log(new an("c10331").cp("obj_type", String.valueOf(groupId)));
                                 }
-                                q.a(CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, new GroupInfoActivityConfig(e.this.mPageContext.getPageActivity(), groupId, from));
+                                s.a(CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, new GroupInfoActivityConfig(e.this.mPageContext.getPageActivity(), groupId, from));
                             }
                         }
                     }
@@ -47,9 +47,9 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bx */
+    /* renamed from: bt */
     public f b(ViewGroup viewGroup) {
-        return new f(LayoutInflater.from(this.mContext).inflate(R.layout.frs_group_item_view, (ViewGroup) null), this.cot);
+        return new f(LayoutInflater.from(this.mContext).inflate(R.layout.frs_group_item_view, (ViewGroup) null), this.dbH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,24 +58,24 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
         super.a(i, view, viewGroup, (ViewGroup) groupInfoData, (GroupInfoData) fVar);
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        if (fVar.csg != this.mSkinType) {
+        if (fVar.MA != this.mSkinType) {
             this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
             this.mPageContext.getLayoutMode().onModeChanged(view);
-            fVar.csg = this.mSkinType;
+            fVar.MA = this.mSkinType;
         }
         if (groupInfoData != null) {
             fVar.rootView.setTag(Integer.MAX_VALUE, Integer.valueOf(i));
             fVar.a(groupInfoData);
             am.setBackgroundResource(fVar.rootView, R.drawable.frs_group_item_bg);
-            am.setViewTextColor(fVar.gGj, R.color.cp_cont_b, 1);
-            am.setViewTextColor(fVar.gGk, R.color.cp_cont_b, 1);
-            am.setBackgroundResource(fVar.gGk, R.drawable.bg_jinqun_meizi);
-            fVar.gGk.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
-            am.setViewTextColor(fVar.gGl, R.color.cp_cont_b, 1);
-            am.setBackgroundResource(fVar.gGn, R.drawable.icon_grade_small_star);
-            am.setBackgroundResource(fVar.gGo, R.drawable.icon_grade_small_star);
-            am.setBackgroundResource(fVar.gGp, R.drawable.icon_grade_small_star);
-            am.setViewTextColor(fVar.gGm, R.color.cp_cont_c, 1);
+            am.setViewTextColor(fVar.hun, R.color.cp_cont_b, 1);
+            am.setViewTextColor(fVar.huo, R.color.cp_cont_b, 1);
+            am.setBackgroundResource(fVar.huo, R.drawable.bg_jinqun_meizi);
+            fVar.huo.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
+            am.setViewTextColor(fVar.hup, R.color.cp_cont_b, 1);
+            am.setBackgroundResource(fVar.hur, R.drawable.icon_grade_small_star);
+            am.setBackgroundResource(fVar.hus, R.drawable.icon_grade_small_star);
+            am.setBackgroundResource(fVar.hut, R.drawable.icon_grade_small_star);
+            am.setViewTextColor(fVar.huq, R.color.cp_cont_c, 1);
             am.setBackgroundColor(fVar.dividerLine, R.color.cp_bg_line_c);
         }
         return view;

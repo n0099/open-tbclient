@@ -1,0 +1,39 @@
+package com.baidu.tbadk.switchs;
+
+import com.baidu.adp.lib.featureSwitch.a;
+/* loaded from: classes.dex */
+public class TencentMMSwitch extends a {
+    public static final String MM = "tencent_mm";
+    public static final int MM_DEFAULT_TYPE = 0;
+    public static final String[] MM_KEY = {"com.tencent.mm"};
+    public static final int MM_OFF_TYPE = 1;
+
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected void changeSettingByType(int i) {
+    }
+
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected String getName() {
+        return MM;
+    }
+
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected String[] getCrashKeys() {
+        return MM_KEY;
+    }
+
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected int getDefaultType() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected int getOffType() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected int getMaxCrashTimes() {
+        return 10;
+    }
+}

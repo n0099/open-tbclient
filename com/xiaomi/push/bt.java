@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.ContentValues;
 import android.content.Context;
 import com.xiaomi.push.bw;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class bt extends bw.e {
     private String a;
 
@@ -24,7 +24,7 @@ public class bt extends bw.e {
         contentValues.put("messageItemId", hkVar.d());
         contentValues.put("messageItem", a);
         contentValues.put("appId", bk.a(context).b());
-        contentValues.put("packageName", bk.a(context).m149a());
+        contentValues.put("packageName", bk.a(context).m152a());
         contentValues.put("createTimeStamp", Long.valueOf(System.currentTimeMillis()));
         contentValues.put("uploadTimestamp", (Integer) 0);
         return new bt(str, contentValues, "a job build to insert message to db");

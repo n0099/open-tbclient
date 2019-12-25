@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaFrsStoryLiveGatherRequestMessage extends HttpMessage {
     private String forumId;
     private int needRecommend;

@@ -3,99 +3,104 @@ package com.baidu.live.gift.graffitiGift;
 import android.content.Context;
 import android.widget.RelativeLayout;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.gift.a.d;
 import com.baidu.live.gift.graffitiGift.b;
-import com.baidu.live.gift.j;
+import com.baidu.live.gift.k;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private j Xr;
-    private b acJ;
-    private AlaGiftGraffitiShowView acK;
+    private k afc;
+    private b akG;
+    private AlaGiftGraffitiShowView akH;
     private Context mContext;
-    private boolean acH = false;
-    private boolean WL = false;
-    private b.a acL = new b.a() { // from class: com.baidu.live.gift.graffitiGift.a.1
+    private boolean akE = false;
+    private boolean aep = false;
+    private b.a akI = new b.a() { // from class: com.baidu.live.gift.graffitiGift.a.1
         @Override // com.baidu.live.gift.graffitiGift.b.a
         public void onEnd() {
-            a.this.pW();
+            a.this.ry();
         }
     };
-    private ArrayList<d> acI = new ArrayList<>();
+    private ArrayList<com.baidu.live.gift.a.b> akF = new ArrayList<>();
 
-    public a(Context context, j jVar) {
+    public a(Context context, k kVar) {
         this.mContext = context;
-        this.Xr = jVar;
+        this.afc = kVar;
         initView();
     }
 
     private void initView() {
-        this.acK = new AlaGiftGraffitiShowView(this.mContext);
-        this.acJ = new b(this.acK, this.mContext);
-        this.acJ.a(this.acL);
+        this.akH = new AlaGiftGraffitiShowView(this.mContext);
+        this.akG = new b(this.akH, this.mContext);
+        this.akG.a(this.akI);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(10);
-        this.acK.setLayoutParams(layoutParams);
-        this.Xr.J(this.acK);
+        this.akH.setLayoutParams(layoutParams);
+        this.afc.K(this.akH);
     }
 
-    public void px() {
-        this.acH = false;
-        this.Xr.J(this.acK);
-        pW();
+    public void qU() {
+        this.akE = false;
+        this.afc.K(this.akH);
+        ry();
     }
 
-    public void e(d dVar) {
-        if (dVar != null && !StringUtils.isNull(dVar.userId) && !StringUtils.isNull(dVar.giftId)) {
-            if (dVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.acI.add(0, dVar);
-            } else if (this.acI.size() < com.baidu.live.l.a.uB().ajF.Sa) {
-                this.acI.add(dVar);
+    public void e(com.baidu.live.gift.a.b bVar) {
+        if (bVar != null && !StringUtils.isNull(bVar.userId) && !StringUtils.isNull(bVar.giftId)) {
+            if (bVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                this.akF.add(0, bVar);
+            } else if (this.akF.size() < com.baidu.live.r.a.wA().arE.YM) {
+                this.akF.add(bVar);
             }
-            pW();
+            ry();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pW() {
-        if (!this.acI.isEmpty() && !this.acH && this.acJ.isReady()) {
-            d remove = this.acI.remove(0);
+    public void ry() {
+        if (!this.akF.isEmpty() && !this.akE && this.akG.isReady()) {
+            com.baidu.live.gift.a.b remove = this.akF.remove(0);
             if (remove != null) {
-                remove.y(System.currentTimeMillis());
+                remove.A(System.currentTimeMillis());
                 i(remove);
-                pW();
+                ry();
                 return;
             }
-            pW();
+            ry();
         }
     }
 
-    private void i(d dVar) {
-        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.WL) && this.acJ.isReady()) {
-            this.acJ.j(dVar);
+    private void i(com.baidu.live.gift.a.b bVar) {
+        if ((UtilHelper.getRealScreenOrientation(this.mContext) != 2 || !this.aep) && this.akG.isReady()) {
+            this.akG.j(bVar);
         }
     }
 
-    public void pw() {
-        this.acH = true;
+    public void qT() {
+        this.akE = true;
     }
 
     public void onDestroy() {
-        if (this.acJ != null) {
-            this.acJ.destory();
+        if (this.akG != null) {
+            this.akG.destory();
         }
-        this.acH = false;
+        this.akE = false;
     }
 
-    public void rj() {
-        if (this.acJ != null) {
-            this.acJ.rj();
+    public void sT() {
+        if (this.akG != null) {
+            this.akG.sT();
         }
     }
 
-    public void aj(boolean z) {
-        this.WL = z;
+    public void aw(boolean z) {
+        this.aep = z;
+    }
+
+    public void ra() {
+        if (this.akG != null) {
+            this.akG.ra();
+        }
     }
 }

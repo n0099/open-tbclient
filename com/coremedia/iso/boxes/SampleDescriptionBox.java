@@ -10,8 +10,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Iterator;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SampleDescriptionBox extends AbstractContainerBox implements FullBox {
     public static final String TYPE = "stsd";
     private int flags;
@@ -73,6 +72,6 @@ public class SampleDescriptionBox extends AbstractContainerBox implements FullBo
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || (containerSize + 8) + 8 >= IjkMediaMeta.AV_CH_WIDE_RIGHT) ? 16 : 8) + containerSize + 8;
+        return ((this.largeBox || (containerSize + 8) + 8 >= 4294967296L) ? 16 : 8) + containerSize + 8;
     }
 }

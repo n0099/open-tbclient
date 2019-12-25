@@ -1,5 +1,6 @@
 package android.support.v7.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -9,13 +10,21 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
+import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.widget.AutoSizeableTextView;
 import android.support.v7.appcompat.R;
 import android.text.method.PasswordTransformationMethod;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import java.lang.ref.WeakReference;
+/* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(9)
-/* loaded from: classes2.dex */
-class AppCompatTextHelper {
+/* loaded from: classes4.dex */
+public class AppCompatTextHelper {
+    private static final int MONOSPACE = 3;
+    private static final int SANS = 1;
+    private static final int SERIF = 2;
+    private boolean mAsyncFontPending;
     @NonNull
     private final AppCompatTextViewAutoSizeHelper mAutoSizeTextHelper;
     private TintInfo mDrawableBottomTint;
@@ -38,6 +47,7 @@ class AppCompatTextHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    @SuppressLint({"NewApi"})
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
         ColorStateList colorStateList;
         ColorStateList colorStateList2;
@@ -123,7 +133,7 @@ class AppCompatTextHelper {
             this.mView.setTypeface(this.mFontTypeface, this.mStyle);
         }
         this.mAutoSizeTextHelper.loadFromAttributes(attributeSet, i);
-        if (Build.VERSION.SDK_INT >= 26 && this.mAutoSizeTextHelper.getAutoSizeTextType() != 0) {
+        if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE && this.mAutoSizeTextHelper.getAutoSizeTextType() != 0) {
             int[] autoSizeTextAvailableSizes = this.mAutoSizeTextHelper.getAutoSizeTextAvailableSizes();
             if (autoSizeTextAvailableSizes.length > 0) {
                 if (this.mView.getAutoSizeStepGranularity() != -1.0f) {
@@ -136,19 +146,57 @@ class AppCompatTextHelper {
     }
 
     private void updateTypefaceAndStyle(Context context, TintTypedArray tintTypedArray) {
+        String string;
         this.mStyle = tintTypedArray.getInt(R.styleable.TextAppearance_android_textStyle, this.mStyle);
         if (tintTypedArray.hasValue(R.styleable.TextAppearance_android_fontFamily) || tintTypedArray.hasValue(R.styleable.TextAppearance_fontFamily)) {
             this.mFontTypeface = null;
-            int i = tintTypedArray.hasValue(R.styleable.TextAppearance_android_fontFamily) ? R.styleable.TextAppearance_android_fontFamily : R.styleable.TextAppearance_fontFamily;
+            int i = tintTypedArray.hasValue(R.styleable.TextAppearance_fontFamily) ? R.styleable.TextAppearance_fontFamily : R.styleable.TextAppearance_android_fontFamily;
             if (!context.isRestricted()) {
+                final WeakReference weakReference = new WeakReference(this.mView);
                 try {
-                    this.mFontTypeface = tintTypedArray.getFont(i, this.mStyle, this.mView);
+                    this.mFontTypeface = tintTypedArray.getFont(i, this.mStyle, new ResourcesCompat.FontCallback() { // from class: android.support.v7.widget.AppCompatTextHelper.1
+                        @Override // android.support.v4.content.res.ResourcesCompat.FontCallback
+                        public void onFontRetrieved(@NonNull Typeface typeface) {
+                            AppCompatTextHelper.this.onAsyncTypefaceReceived(weakReference, typeface);
+                        }
+
+                        @Override // android.support.v4.content.res.ResourcesCompat.FontCallback
+                        public void onFontRetrievalFailed(int i2) {
+                        }
+                    });
+                    this.mAsyncFontPending = this.mFontTypeface == null;
                 } catch (Resources.NotFoundException e) {
                 } catch (UnsupportedOperationException e2) {
                 }
             }
-            if (this.mFontTypeface == null) {
-                this.mFontTypeface = Typeface.create(tintTypedArray.getString(i), this.mStyle);
+            if (this.mFontTypeface == null && (string = tintTypedArray.getString(i)) != null) {
+                this.mFontTypeface = Typeface.create(string, this.mStyle);
+            }
+        } else if (tintTypedArray.hasValue(R.styleable.TextAppearance_android_typeface)) {
+            this.mAsyncFontPending = false;
+            switch (tintTypedArray.getInt(R.styleable.TextAppearance_android_typeface, 1)) {
+                case 1:
+                    this.mFontTypeface = Typeface.SANS_SERIF;
+                    return;
+                case 2:
+                    this.mFontTypeface = Typeface.SERIF;
+                    return;
+                case 3:
+                    this.mFontTypeface = Typeface.MONOSPACE;
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void onAsyncTypefaceReceived(WeakReference<TextView> weakReference, Typeface typeface) {
+        if (this.mAsyncFontPending) {
+            this.mFontTypeface = typeface;
+            TextView textView = weakReference.get();
+            if (textView != null) {
+                textView.setTypeface(typeface, this.mStyle);
             }
         }
     }
@@ -208,7 +256,7 @@ class AppCompatTextHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (Build.VERSION.SDK_INT < 26) {
+        if (!AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
             autoSizeText();
         }
     }
@@ -216,7 +264,7 @@ class AppCompatTextHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setTextSize(int i, float f) {
-        if (Build.VERSION.SDK_INT < 26 && !isAutoSizeEnabled()) {
+        if (!AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE && !isAutoSizeEnabled()) {
             setTextSizeInternal(i, f);
         }
     }

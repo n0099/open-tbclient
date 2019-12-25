@@ -3,7 +3,6 @@ package com.baidu.tbadk.coreExtra.message;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.a.c;
 import com.baidu.tbadk.core.util.aq;
@@ -14,8 +13,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public String blockUrl;
-        public c cjL;
-        public BlockPopInfoData cvM;
+        public c cWw;
+        public BlockPopInfoData djy;
         public String errorString;
         public boolean hasShownForbiddenAlert;
         public boolean isAttention;
@@ -33,7 +32,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     this.resultJson = jSONObject;
-                    JSONObject optJSONObject = jSONObject.optJSONObject(Config.LAUNCH_INFO);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("info");
                     if (optJSONObject != null) {
                         this.status = jSONObject.optInt("status");
                         boolean z3 = optJSONObject.optInt("is_toast", 0) == 1;
@@ -57,11 +56,11 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
                 if (!aq.isEmpty(optString) && !aq.isEmpty(this.blockUrl) && !aq.isEmpty(optString2) && !aq.isEmpty(optString3)) {
-                    this.cvM = new BlockPopInfoData();
-                    this.cvM.block_info = optString;
-                    this.cvM.ahead_url = this.blockUrl;
-                    this.cvM.ahead_info = optString2;
-                    this.cvM.ok_info = optString3;
+                    this.djy = new BlockPopInfoData();
+                    this.djy.block_info = optString;
+                    this.djy.ahead_url = this.blockUrl;
+                    this.djy.ahead_info = optString2;
+                    this.djy.ok_info = optString3;
                 }
             }
         }

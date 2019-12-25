@@ -34,7 +34,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.SwipeBackLayout;
 import com.baidu.live.adp.widget.listview.IPreLoadListView;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.BDLayoutInflateFactory;
 import com.baidu.live.tbadk.core.BDLayoutMode;
 import com.baidu.live.tbadk.core.ICheckPermissionCallback;
@@ -62,7 +62,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextSupport<T>, IPageStayDuration {
     public static final byte KEYBOARD_STATE_HIDE = -2;
     public static final byte KEYBOARD_STATE_INIT = -1;
@@ -596,8 +596,9 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         this.mSkinType = i;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
     }
 
@@ -722,7 +723,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class DelayRunnable implements Runnable {
         private View mView;
 
@@ -739,7 +740,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public abstract class LoadDataCallBack {
         public abstract void callback(Object... objArr);
 
@@ -1081,7 +1082,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class NetRefreshListener implements View.OnClickListener {
         private NetRefreshListener() {
         }

@@ -6,24 +6,31 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c {
-    public b VT;
+    public b adu;
     public ArrayList<String> unZipFilesPathList;
     public String upZipDirPath;
 
     public String getDynamicGiftId() {
-        if (this.VT == null) {
+        if (this.adu == null) {
             return null;
         }
-        return this.VT.giftId;
+        return this.adu.giftId;
     }
 
     public boolean isLandScapeZip() {
-        if (this.VT == null || this.VT.VR == null) {
+        if (this.adu == null || this.adu.ads == null) {
             return false;
         }
-        return this.VT.VR.isLandScape();
+        return this.adu.ads.isLandScape();
+    }
+
+    public boolean qn() {
+        if (this.adu == null || this.adu.ads == null) {
+            return false;
+        }
+        return this.adu.ads.qn();
     }
 
     public ArrayList<String> getDynamicGiftPicPathList() {

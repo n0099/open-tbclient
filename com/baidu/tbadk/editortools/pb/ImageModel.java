@@ -3,40 +3,40 @@ package com.baidu.tbadk.editortools.pb;
 import android.graphics.Bitmap;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.m;
 /* loaded from: classes.dex */
 public class ImageModel extends BdBaseModel {
-    private a cFU;
+    private a dtN;
     private String filename;
 
-    public ImageModel(BaseActivity baseActivity) {
-        super(baseActivity.getPageContext());
-        this.cFU = null;
+    public ImageModel(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        this.dtN = null;
         this.filename = null;
     }
 
-    public boolean pH(String str) {
+    public boolean uN(String str) {
         this.filename = str;
         return LoadData();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        if (this.cFU != null) {
-            this.cFU.cancel();
+        if (this.dtN != null) {
+            this.dtN.cancel();
         }
-        this.cFU = new a(this.filename);
-        this.cFU.execute(new Object[0]);
+        this.dtN = new a(this.filename);
+        this.dtN.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.cFU != null) {
-            this.cFU.cancel();
+        if (this.dtN != null) {
+            this.dtN.cancel();
             return true;
         }
         return true;
@@ -58,14 +58,14 @@ public class ImageModel extends BdBaseModel {
         /* renamed from: f */
         public Bitmap doInBackground(Object... objArr) {
             if (this.filename != null && !this.filename.equals(TbConfig.IMAGE_RESIZED_FILE)) {
-                m.bR("photos/" + this.filename, TbConfig.IMAGE_RESIZED_FILE);
+                m.co("photos/" + this.filename, TbConfig.IMAGE_RESIZED_FILE);
             }
             return BitmapHelper.getRoundedCornerBitmap(BitmapHelper.getSquareBitmap(m.getImage(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ImageModel.this.cFU = null;
+            ImageModel.this.dtN = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.callback(null);
             }
@@ -83,7 +83,7 @@ public class ImageModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            ImageModel.this.cFU = null;
+            ImageModel.this.dtN = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.callback(bitmap);
             }

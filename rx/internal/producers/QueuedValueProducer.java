@@ -1,5 +1,6 @@
 package rx.internal.producers;
 
+import com.google.android.exoplayer2.Format;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -8,7 +9,7 @@ import rx.internal.util.a.ae;
 import rx.internal.util.a.x;
 import rx.internal.util.atomic.e;
 import rx.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class QueuedValueProducer<T> extends AtomicLong implements f {
     static final Object NULL_SENTINEL = new Object();
     private static final long serialVersionUID = 7277121710709137047L;
@@ -17,7 +18,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
     final AtomicInteger wip;
 
     public QueuedValueProducer(j<? super T> jVar) {
-        this(jVar, ae.cPq() ? new x() : new e());
+        this(jVar, ae.dGX() ? new x() : new e());
     }
 
     public QueuedValueProducer(j<? super T> jVar, Queue<Object> queue) {
@@ -32,7 +33,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
             throw new IllegalArgumentException("n >= 0 required");
         }
         if (j > 0) {
-            rx.internal.operators.a.a(this, j);
+            rx.internal.operators.a.e(this, j);
             drain();
         }
     }
@@ -79,7 +80,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
                         return;
                     }
                 }
-                if (j2 != 0 && get() != Long.MAX_VALUE) {
+                if (j2 != 0 && get() != Format.OFFSET_SAMPLE_RELATIVE) {
                     addAndGet(-j2);
                 }
                 if (this.wip.decrementAndGet() == 0) {

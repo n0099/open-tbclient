@@ -7,75 +7,75 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.person.b.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class d implements com.baidu.live.liveroom.c.d {
-    private BdUniqueId dFi;
-    private CustomMessageListener dTU = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
+    private CustomMessageListener eJz = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.euK != null && d.this.euK.isEmpty() && !d.this.euK.isLoading()) {
-                d.this.euK.refreshData();
+            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.fmg != null && d.this.fmg.isEmpty() && !d.this.fmg.isLoading()) {
+                d.this.fmg.refreshData();
             }
         }
     };
-    private int euG;
-    private b euK;
+    private BdUniqueId erl;
+    private int fmc;
+    private b fmg;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public d(TbPageContext tbPageContext, int i, String str, BdUniqueId bdUniqueId) {
-        this.dFi = null;
+        this.erl = null;
         this.mPageContext = tbPageContext;
-        this.euG = i;
+        this.fmc = i;
         this.mUserId = str;
-        this.dFi = bdUniqueId;
-        this.euK = new b(this.mPageContext, this.euG, this.mUserId, this.dFi);
-        if (this.euK != null && this.euK.isEmpty() && !this.euK.isLoading()) {
-            this.euK.refreshData();
+        this.erl = bdUniqueId;
+        this.fmg = new b(this.mPageContext, this.fmc, this.mUserId, this.erl);
+        if (this.fmg != null && this.fmg.isEmpty() && !this.fmg.isLoading()) {
+            this.fmg.refreshData();
         }
-        MessageManager.getInstance().registerListener(this.dTU);
+        MessageManager.getInstance().registerListener(this.eJz);
     }
 
-    public void V(String str, boolean z) {
-        if (this.euK != null) {
-            this.euK.V(str, z);
+    public void Z(String str, boolean z) {
+        if (this.fmg != null) {
+            this.fmg.Z(str, z);
         }
     }
 
     public int getTabType() {
-        return this.euG;
+        return this.fmc;
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public View ss() {
-        if (this.euK == null) {
+    public View uj() {
+        if (this.fmg == null) {
             return null;
         }
-        return this.euK.aod();
+        return this.fmg.aFx();
     }
 
     @Override // com.baidu.live.liveroom.c.d
     public String getTitle() {
-        return this.euG == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
+        return this.fmc == 0 ? this.mPageContext.getString(a.i.ala_person_fans) : this.mPageContext.getString(a.i.ala_person_attentions);
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public String st() {
+    public String uk() {
         return null;
     }
 
-    public void a(a.InterfaceC0373a interfaceC0373a) {
-        if (this.euK != null) {
-            this.euK.a(interfaceC0373a);
+    public void a(a.InterfaceC0462a interfaceC0462a) {
+        if (this.fmg != null) {
+            this.fmg.a(interfaceC0462a);
         }
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public short su() {
+    public short ul() {
         return (short) 0;
     }
 
@@ -89,16 +89,16 @@ public class d implements com.baidu.live.liveroom.c.d {
 
     @Override // com.baidu.live.liveroom.c.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dTU);
-        if (this.euK != null) {
-            this.euK.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.eJz);
+        if (this.fmg != null) {
+            this.fmg.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.c.d
     public void onChangeSkinType(int i) {
-        if (this.euK != null) {
-            this.euK.onChangeSkinType(i);
+        if (this.fmg != null) {
+            this.fmg.onChangeSkinType(i);
         }
     }
 }

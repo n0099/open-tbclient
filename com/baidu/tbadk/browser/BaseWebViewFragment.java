@@ -5,7 +5,9 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
+import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
 /* loaded from: classes.dex */
@@ -14,7 +16,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public String mUrl;
     private String mUrlTitle;
 
-    public void mf(String str) {
+    public void rr(String str) {
         this.mUrlTitle = str;
     }
 
@@ -34,33 +36,33 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     public boolean isNeedShowNavigationBar() {
-        return bG(this.mUrl, "nonavigationbar");
+        return ce(this.mUrl, "nonavigationbar");
     }
 
     public boolean isNeedShowShareItem() {
-        return bG(this.mUrl, "noshare");
+        return ce(this.mUrl, "noshare");
     }
 
     public boolean isNeedShowMenuItem() {
-        return bG(this.mUrl, "nomenu");
+        return ce(this.mUrl, "nomenu");
     }
 
-    public boolean mg(String str) {
-        return bG(str, "blank");
+    public boolean rs(String str) {
+        return ce(str, "blank");
     }
 
-    public boolean bG(String str, String str2) {
+    public boolean ce(String str, String str2) {
         String[] split;
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return true;
         }
         try {
             String query = new URL(str).getQuery();
-            if (StringUtils.isNull(query) || (split = query.split("&")) == null) {
+            if (StringUtils.isNull(query) || (split = query.split(ETAG.ITEM_SEPARATOR)) == null) {
                 return true;
             }
             for (String str3 : split) {
-                String[] split2 = str3.split("=");
+                String[] split2 = str3.split(ETAG.EQUAL);
                 if (split2 != null && split2.length == 2) {
                     String str4 = split2[0];
                     String str5 = split2[1];
@@ -77,45 +79,45 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public com.baidu.tbadk.coreExtra.c.e createShareContent(String str, String str2, String str3, String str4) {
-        com.baidu.tbadk.coreExtra.c.e eVar = new com.baidu.tbadk.coreExtra.c.e();
+    public ShareItem createShareContent(String str, String str2, String str3, String str4) {
+        ShareItem shareItem = new ShareItem();
         if (StringUtils.isNull(this.mUrlTitle, true)) {
-            eVar.title = getResources().getString(R.string.share_from_tieba);
+            shareItem.title = getResources().getString(R.string.share_from_tieba);
         } else {
-            eVar.title = this.mUrlTitle;
+            shareItem.title = this.mUrlTitle;
         }
-        eVar.linkUrl = this.mUrl;
+        shareItem.linkUrl = this.mUrl;
         if (StringUtils.isNull(this.mSource, true)) {
-            eVar.content = this.mUrl;
+            shareItem.content = this.mUrl;
         } else {
             String findSubString = findSubString("<meta name=\"description\" content=\"", "\"");
             if (StringUtils.isNull(findSubString, true)) {
-                eVar.content = this.mUrl;
+                shareItem.content = this.mUrl;
             } else {
-                eVar.content = findSubString;
+                shareItem.content = findSubString;
             }
             String findSubString2 = findSubString("<img src=\"", "\"");
             if (!StringUtils.isNull(findSubString2, true)) {
-                eVar.imageUri = Uri.parse(findSubString2);
+                shareItem.imageUri = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString("<meta name=\"shareurl\" content=\"", "\"");
             if (!StringUtils.isNull(findSubString3, true)) {
-                eVar.linkUrl = findSubString3;
+                shareItem.linkUrl = findSubString3;
             }
         }
         if (!TextUtils.isEmpty(str)) {
-            eVar.title = str;
+            shareItem.title = str;
         }
         if (!TextUtils.isEmpty(str2)) {
-            eVar.linkUrl = str2;
+            shareItem.linkUrl = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            eVar.content = str3;
+            shareItem.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            eVar.imageUri = Uri.parse(str4);
+            shareItem.imageUri = Uri.parse(str4);
         }
-        return eVar;
+        return shareItem;
     }
 
     private String findSubString(String str, String str2) {

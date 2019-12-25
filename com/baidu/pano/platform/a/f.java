@@ -1,6 +1,7 @@
 package com.baidu.pano.platform.a;
 
 import android.os.Handler;
+import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -57,7 +58,7 @@ public class f implements r {
             if (this.c.d) {
                 this.b.a("intermediate-response");
             } else {
-                this.b.b("done");
+                this.b.b(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
             }
             if (this.d != null) {
                 this.d.run();

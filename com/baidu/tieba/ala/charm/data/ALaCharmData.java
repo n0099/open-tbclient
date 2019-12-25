@@ -1,12 +1,11 @@
 package com.baidu.tieba.ala.charm.data;
 
-import android.net.http.Headers;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ALaCharmData extends BaseData implements Serializable {
     private static final long serialVersionUID = -2170940113039348861L;
     public String anchor_live;
@@ -64,7 +63,7 @@ public class ALaCharmData extends BaseData implements Serializable {
                 this.fans_count = jSONObject.optInt("fans_count");
                 this.enter_live = jSONObject.optString("enter_live");
                 this.anchor_live = jSONObject.optString("anchor_live");
-                this.location = jSONObject.optString(Headers.LOCATION);
+                this.location = jSONObject.optString("location");
                 this.lng = jSONObject.optString("lng");
                 this.lat = jSONObject.optString("lat");
                 this.live_id = jSONObject.optString("live_id");

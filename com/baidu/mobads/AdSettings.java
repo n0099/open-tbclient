@@ -1,24 +1,42 @@
 package com.baidu.mobads;
 
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AdSettings {
+    private static String c;
+    private static String d;
+    private static String e;
+    private static String f;
+    private static String g;
+    private static String h;
+    private static String i;
     private static HashSet<String> a = new HashSet<>();
     private static JSONArray b = new JSONArray();
     private static String j = b.HTTP_PROTOCOL_TYPE.a() + "";
-    private static HashSet<String> azK = new HashSet<>();
-    private static JSONArray azL = new JSONArray();
+    private static HashSet<String> aJz = new HashSet<>();
+    private static JSONArray aJA = new JSONArray();
     private static JSONObject m = new JSONObject();
 
-    public static String zn() {
+    public static void setSupportHttps(boolean z) {
+        if (z) {
+            j = b.HTTPS_PROTOCOL_TYPE.a() + "";
+        } else {
+            j = b.HTTP_PROTOCOL_TYPE.a() + "";
+        }
+    }
+
+    public static String getSupportHttps() {
         return j;
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum b {
         UNKNOWN_PROTOCOL_TYPE(0),
         HTTP_PROTOCOL_TYPE(1),
@@ -36,7 +54,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum d {
         MALE(0),
         FEMALE(1);
@@ -53,7 +71,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum a {
         PRIMARY(0),
         JUNIOR(1),
@@ -75,7 +93,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum c {
         F0T1k(0),
         F1kT2k(1),
@@ -102,7 +120,7 @@ public class AdSettings {
         }
     }
 
-    public static JSONObject zo() {
+    public static JSONObject getAttr() {
         JSONObject jSONObject = new JSONObject();
         Iterator<String> it = a.iterator();
         b = new JSONArray();
@@ -112,8 +130,96 @@ public class AdSettings {
         try {
             jSONObject.putOpt("KEY", b);
             jSONObject.putOpt("RPT", j);
-        } catch (Exception e) {
+        } catch (Exception e2) {
         }
         return jSONObject;
+    }
+
+    @Deprecated
+    public static void setKey(String[] strArr) {
+        for (String str : strArr) {
+            a.add(str);
+        }
+    }
+
+    @Deprecated
+    public static void setKey(List<String> list) {
+        a.addAll(list);
+    }
+
+    @Deprecated
+    public static void setSex(d dVar) {
+        if (dVar != null) {
+            c = dVar.a() + "";
+        }
+    }
+
+    @Deprecated
+    public static void setBirthday(Calendar calendar) {
+        if (calendar != null) {
+            int i2 = calendar.get(1);
+            int i3 = calendar.get(2) + 1;
+            int i4 = calendar.get(5);
+            d = i2 + "";
+            if (i3 > 0 && i3 < 10) {
+                d += "0" + i3;
+            } else {
+                d += i3;
+            }
+            if (i4 > 0 && i4 < 10) {
+                d += "0" + i4;
+            } else {
+                d += i4;
+            }
+        }
+    }
+
+    @Deprecated
+    public static void setCity(String str) {
+        e = str;
+    }
+
+    @Deprecated
+    public static void setZip(String str) {
+        f = str;
+    }
+
+    @Deprecated
+    public static void setJob(String str) {
+        g = str;
+    }
+
+    @Deprecated
+    public static void setEducation(a aVar) {
+        if (aVar != null) {
+            h = aVar.a() + "";
+        }
+    }
+
+    @Deprecated
+    public static void setSalary(c cVar) {
+        if (cVar != null) {
+            i = cVar.a() + "";
+        }
+    }
+
+    @Deprecated
+    public static void setHob(String[] strArr) {
+        for (String str : strArr) {
+            aJz.add(str);
+        }
+    }
+
+    @Deprecated
+    public static void setHob(List<String> list) {
+        aJz.addAll(list);
+    }
+
+    @Deprecated
+    public static void setUserAttr(String str, String str2) {
+        try {
+            m.put(str, str2);
+        } catch (JSONException e2) {
+        }
     }
 }

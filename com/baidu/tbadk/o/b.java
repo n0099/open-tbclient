@@ -1,48 +1,40 @@
 package com.baidu.tbadk.o;
-
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public abstract class b {
-    private boolean isSwitchOpen = com.baidu.tbadk.core.sharedPref.b.alP().getBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, false);
+public class b {
+    private int dAT;
+    private String dAU;
+    private int errorCode;
+    private String exception;
+    public long qZ = -1;
+    public long ra = -1;
+    public long rb = -1;
+    private String url;
 
-    public abstract int getMaxCost();
-
-    public abstract boolean isCurrentPageCanBeAddToSourceTrace();
-
-    public boolean a(d dVar) {
-        if (dVar == null || dVar.isDirtyData()) {
-            return false;
-        }
-        if (dVar.isRouteStat) {
-            dVar.setSorceKeyList(c.trimToSize(dVar.getSorceKeyList(), 6));
-        } else {
-            int maxCostFromServer = getMaxCost() > e.awx().getMaxCostFromServer() ? e.awx().getMaxCostFromServer() : getMaxCost();
-            dVar.setSorceKeyList(c.trimToSize(dVar.getSorceKeyList(), maxCostFromServer <= 5 ? maxCostFromServer : 5));
-        }
-        return true;
+    public void setErrorCode(int i) {
+        this.errorCode = i;
     }
 
-    private void updataSwitchStaus(boolean z) {
-        if (this.isSwitchOpen != z) {
-            com.baidu.tbadk.core.sharedPref.b.alP().putBoolean(SharedPrefConfig.PAGE_STAY_DURATION_SWITCH, true);
-            this.isSwitchOpen = z;
-        }
+    public void aq(String str) {
+        this.exception = str;
     }
 
-    public boolean isSwitchOpen() {
-        if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-            return this.isSwitchOpen;
-        }
-        if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-            updataSwitchStaus(false);
-            return false;
-        } else if (!e.awx().isSmallFlowOpen()) {
-            updataSwitchStaus(false);
-            return false;
-        } else {
-            updataSwitchStaus(true);
-            return true;
-        }
+    public void vh(String str) {
+        this.dAU = str;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
+    public String aON() {
+        return "-netErrorCode-" + this.errorCode + "-serverCode-" + this.dAT + "-dnsStatus-" + this.dAU + "-exception-" + this.exception + "-url-" + this.url + "-dataLenth-" + this.qZ + "-fileLength-" + this.ra + "-contentLen-" + this.rb;
+    }
+
+    public void mx(int i) {
+        this.dAT = i;
     }
 }

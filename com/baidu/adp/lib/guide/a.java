@@ -9,12 +9,12 @@ class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static View a(LayoutInflater layoutInflater, b bVar) {
         View view = bVar.getView(layoutInflater);
-        MaskView.a aVar = new MaskView.a(-2, -2);
-        aVar.offsetX = bVar.getXOffset();
-        aVar.offsetY = bVar.getYOffset();
-        aVar.targetAnchor = bVar.getAnchor();
-        aVar.targetParentPosition = bVar.getFitPosition();
-        view.setLayoutParams(aVar);
+        MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
+        layoutParams.offsetX = bVar.getXOffset();
+        layoutParams.offsetY = bVar.getYOffset();
+        layoutParams.targetAnchor = bVar.getAnchor();
+        layoutParams.targetParentPosition = bVar.getFitPosition();
+        view.setLayoutParams(layoutParams);
         return view;
     }
 

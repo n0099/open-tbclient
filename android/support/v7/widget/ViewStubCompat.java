@@ -1,5 +1,6 @@
 package android.support.v7.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -12,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import java.lang.ref.WeakReference;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class ViewStubCompat extends View {
     private OnInflateListener mInflateListener;
     private int mInflatedId;
@@ -20,7 +21,7 @@ public final class ViewStubCompat extends View {
     private LayoutInflater mInflater;
     private int mLayoutResource;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnInflateListener {
         void onInflate(ViewStubCompat viewStubCompat, View view);
     }
@@ -71,6 +72,7 @@ public final class ViewStubCompat extends View {
     }
 
     @Override // android.view.View
+    @SuppressLint({"MissingSuperCall"})
     public void draw(Canvas canvas) {
     }
 

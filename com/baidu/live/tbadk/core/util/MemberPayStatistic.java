@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.util;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class MemberPayStatistic {
     public static final String CLICK_ZONE = "click_zone";
     public static final String CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON = "bottom_opende/renewalfee_button_V8.9";

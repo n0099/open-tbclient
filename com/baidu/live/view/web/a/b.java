@@ -1,44 +1,51 @@
 package com.baidu.live.view.web.a;
 
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.m;
-import com.baidu.live.tbadk.log.LogConfig;
+import android.text.TextUtils;
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.scheme.SchemeCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends com.baidu.live.view.web.a {
+    private SchemeCallback aBx;
+
+    public b(SchemeCallback schemeCallback) {
+        this.aBx = schemeCallback;
+    }
+
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "giftBridge";
+        return "cuidBridge";
     }
 
     @Override // com.baidu.live.view.web.a
-    public void cZ(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            final m mVar = new m();
-            mVar.Ps = jSONObject.optInt("tab", -1);
-            mVar.Pt = jSONObject.optInt("category_id", -1);
-            mVar.Pu = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
-            if (jSONObject.optInt("close", 0) == 1) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913123));
-                this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.view.web.a.b.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        b.this.a(mVar);
-                    }
-                }, 250L);
-            } else {
-                a(mVar);
+    public void dT(String str) {
+        JSONObject jSONObject;
+        JSONException e;
+        if (this.aBx != null) {
+            String cuid = ExtraParamsManager.getInstance().buildParamsExtra().getCuid();
+            if (TextUtils.isEmpty(cuid)) {
+                this.aBx.doJsCallback(0, "", null, str);
+                return;
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+            if (TextUtils.isEmpty(cuid)) {
+                jSONObject = null;
+            } else {
+                try {
+                    jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("cuid", cuid);
+                    } catch (JSONException e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        this.aBx.doJsCallback(1, "", jSONObject, str);
+                    }
+                } catch (JSONException e3) {
+                    jSONObject = null;
+                    e = e3;
+                }
+            }
+            this.aBx.doJsCallback(1, "", jSONObject, str);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(m mVar) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, mVar));
     }
 }

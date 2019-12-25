@@ -23,10 +23,10 @@ public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
     }
 
     private void a(View view) {
-        this.f = view.findViewById(2131165254);
-        this.c = (ImageView) view.findViewById(R.raw.refresh_load);
-        this.d = (TextView) view.findViewById(R.raw.rim_video_lrc_tip);
-        this.e = view.findViewById(R.raw.mime_1);
+        this.f = view.findViewById(R.raw.par_rain);
+        this.c = (ImageView) view.findViewById(R.raw.lottie_full_screen_refresh_1);
+        this.d = (TextView) view.findViewById(R.raw.lottie_full_screen_refresh_2);
+        this.e = view.findViewById(R.raw.lottie_full_screen_refresh);
         this.e.setVisibility(8);
     }
 
@@ -49,7 +49,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
     }
 
     public void a(int i, String str) {
-        if (i == R.drawable.abc_text_select_handle_left_mtrl_light) {
+        if (i == R.drawable.abc_text_select_handle_left_mtrl_dark) {
             this.d.setVisibility(8);
         } else {
             this.d.setVisibility(0);
@@ -59,7 +59,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
         } else {
             this.c.setImageResource(i);
         }
-        if (i == R.drawable.ad_divider_1 || i == R.drawable.ad_icon_sound_close) {
+        if (i == R.drawable.action_bar_editor_pressed || i == R.drawable.action_bar_eidtor_background) {
             this.d.setText("步行导航开始");
         } else {
             this.d.setText(str);

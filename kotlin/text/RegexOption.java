@@ -1,6 +1,6 @@
 package kotlin.text;
-/* loaded from: classes2.dex */
-public enum RegexOption implements d {
+/* loaded from: classes4.dex */
+public enum RegexOption implements e {
     IGNORE_CASE(2, 0, 2, null),
     MULTILINE(8, 0, 2, null),
     LITERAL(16, 0, 2, null),
@@ -21,12 +21,12 @@ public enum RegexOption implements d {
         this(i, (i3 & 2) != 0 ? i : i2);
     }
 
-    @Override // kotlin.text.d
+    @Override // kotlin.text.e
     public int getMask() {
         return this.mask;
     }
 
-    @Override // kotlin.text.d
+    @Override // kotlin.text.e
     public int getValue() {
         return this.value;
     }

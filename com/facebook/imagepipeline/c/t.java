@@ -1,14 +1,71 @@
 package com.facebook.imagepipeline.c;
+/* loaded from: classes9.dex */
+public class t implements n {
+    private static t lMS = null;
 
-import com.android.internal.util.Predicate;
-import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
-public interface t<K, V> {
-    @Nullable
-    com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar);
+    private t() {
+    }
 
-    @Nullable
-    com.facebook.common.references.a<V> aQ(K k);
+    public static synchronized t dlM() {
+        t tVar;
+        synchronized (t.class) {
+            if (lMS == null) {
+                lMS = new t();
+            }
+            tVar = lMS;
+        }
+        return tVar;
+    }
 
-    boolean b(Predicate<K> predicate);
+    @Override // com.facebook.imagepipeline.c.n
+    public void dlE() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void p(com.facebook.cache.common.b bVar) {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dlF() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dlG() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void q(com.facebook.cache.common.b bVar) {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dlH() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void r(com.facebook.cache.common.b bVar) {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dlI() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dlJ() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dlK() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void dlL() {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void a(h<?, ?> hVar) {
+    }
+
+    @Override // com.facebook.imagepipeline.c.n
+    public void b(h<?, ?> hVar) {
+    }
 }

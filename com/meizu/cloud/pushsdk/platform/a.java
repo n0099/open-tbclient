@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
     private static Map<String, String> a = a();
     private static final List<String> b = new ArrayList(a.keySet());
@@ -34,7 +33,7 @@ public class a {
                             i2++;
                             i++;
                         }
-                        return new String(String.valueOf(cArr).getBytes("iso-8859-1"), HTTP.UTF_8);
+                        return new String(String.valueOf(cArr).getBytes("iso-8859-1"), "UTF-8");
                     } catch (Exception e) {
                         str2 = substring2;
                         com.meizu.cloud.a.a.e("PushIdEncryptUtils", "invalid pushId encryption " + str2);

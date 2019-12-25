@@ -12,13 +12,13 @@ import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
-    public static boolean f(Context context, File file) {
-        return a(context, file, false);
+    public static boolean k(Context context, File file) {
+        return b(context, file, false);
     }
 
-    public static boolean a(Context context, File file, boolean z) {
+    public static boolean b(Context context, File file, boolean z) {
         Uri fromFile;
         if (file != null && file.exists() && file.isFile()) {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -43,7 +43,7 @@ public class a {
         return false;
     }
 
-    public static boolean ap(Context context, String str) {
+    public static boolean at(Context context, String str) {
         ResolveInfo next;
         if (TextUtils.isEmpty(str) || context == null) {
             return false;
@@ -86,7 +86,7 @@ public class a {
         return false;
     }
 
-    public static String aq(Context context, String str) {
+    public static String aI(Context context, String str) {
         PackageInfo packageArchiveInfo;
         if (context == null || TextUtils.isEmpty(str) || (packageArchiveInfo = context.getApplicationContext().getPackageManager().getPackageArchiveInfo(str, 1)) == null) {
             return null;

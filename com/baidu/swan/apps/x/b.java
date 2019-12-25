@@ -1,36 +1,32 @@
 package com.baidu.swan.apps.x;
 
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class b {
-    private UnitedSchemeEntity aTH;
-    private CallbackHandler aTI;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import java.util.Map;
+/* loaded from: classes9.dex */
+public class b extends com.baidu.swan.apps.process.a.a.a {
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static Map<String, com.baidu.swan.apps.as.d.b<Bundle>> bI = new com.baidu.swan.support.v4.b.a();
+    private int mStatus = -1;
+    private String mAppId = "";
 
-    private b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        this.aTH = unitedSchemeEntity;
-        this.aTI = callbackHandler;
-    }
-
-    public static b a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        return new b(unitedSchemeEntity, callbackHandler);
-    }
-
-    public void onError(int i) {
-        this.aTH.result = UnitedSchemeUtility.wrapCallbackParams(i);
-    }
-
-    public void ae(JSONObject jSONObject) {
-        this.aTH.result = UnitedSchemeUtility.callCallback(this.aTI, this.aTH, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-    }
-
-    public void f(String str, int i, String str2) {
-        UnitedSchemeUtility.safeCallback(this.aTI, this.aTH, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
-    }
-
-    public void e(String str, JSONObject jSONObject) {
-        UnitedSchemeUtility.safeCallback(this.aTI, this.aTH, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+    @Override // com.baidu.swan.apps.process.a.a.a
+    public void y(@NonNull Bundle bundle) {
+        final String string = bundle.getString("desAppId");
+        bI.put(string, new com.baidu.swan.apps.as.d.b<Bundle>() { // from class: com.baidu.swan.apps.x.b.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.as.d.b
+            /* renamed from: z */
+            public void B(Bundle bundle2) {
+                b.this.mAppId = bundle2.getString("key_launch_app_id");
+                b.this.mStatus = bundle2.getInt("key_launch_status");
+                if (TextUtils.equals(string, b.this.mAppId)) {
+                    b.this.bEc.putInt("ok", b.this.mStatus);
+                    b.this.finish();
+                }
+                b.bI.remove(string);
+            }
+        });
     }
 }

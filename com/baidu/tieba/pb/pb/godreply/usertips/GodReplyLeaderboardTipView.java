@@ -9,9 +9,9 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.view.TriangleShapeView;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GodReplyLeaderboardTipView extends LinearLayout {
-    private TriangleShapeView hKy;
+    private TriangleShapeView iyM;
     private TextView textView;
 
     public GodReplyLeaderboardTipView(Context context) {
@@ -32,9 +32,9 @@ public class GodReplyLeaderboardTipView extends LinearLayout {
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.usertips_view, this);
-        this.hKy = (TriangleShapeView) findViewById(R.id.usertip_triangle);
-        this.hKy.setColorId(R.color.cp_link_tip_a);
-        this.hKy.setAlpha(0.95f);
+        this.iyM = (TriangleShapeView) findViewById(R.id.usertip_triangle);
+        this.iyM.setColorId(R.color.cp_link_tip_a);
+        this.iyM.setAlpha(0.95f);
         this.textView = (TextView) findViewById(R.id.usertip_text);
         this.textView.setAlpha(0.95f);
     }

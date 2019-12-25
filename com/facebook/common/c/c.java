@@ -1,19 +1,17 @@
 package com.facebook.common.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public interface c {
-    void c(String str, String str2, Throwable th);
-
     void d(String str, String str2);
 
     void e(String str, String str2);
 
     void e(String str, String str2, Throwable th);
 
-    void em(String str, String str2);
-
     void f(String str, String str2, Throwable th);
 
-    void i(String str, String str2);
+    void fa(String str, String str2);
+
+    void g(String str, String str2, Throwable th);
 
     boolean isLoggable(int i);
 

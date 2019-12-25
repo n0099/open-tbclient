@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<ImageMsg> CREATOR = new Parcelable.Creator<ImageMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ImageMsg.1
         /* JADX DEBUG: Method merged with bridge method */

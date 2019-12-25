@@ -1,5 +1,6 @@
 package rx.observables;
 
+import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.c.c;
 import rx.d;
@@ -7,11 +8,11 @@ import rx.e;
 import rx.f;
 import rx.j;
 import rx.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
     protected abstract S a(S s, e<? super T> eVar);
 
-    protected abstract S cPr();
+    protected abstract S dGY();
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -20,20 +21,20 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
 
     public final void call(j<? super T> jVar) {
         try {
-            SubscriptionProducer subscriptionProducer = new SubscriptionProducer(jVar, this, cPr());
+            SubscriptionProducer subscriptionProducer = new SubscriptionProducer(jVar, this, dGY());
             jVar.add(subscriptionProducer);
             jVar.setProducer(subscriptionProducer);
         } catch (Throwable th) {
-            rx.exceptions.a.K(th);
+            rx.exceptions.a.I(th);
             jVar.onError(th);
         }
     }
 
-    protected void by(S s) {
+    protected void cc(S s) {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class SubscriptionProducer<S, T> extends AtomicLong implements e<T>, f, k {
         private static final long serialVersionUID = -3736864024352728072L;
         private final j<? super T> actualSubscriber;
@@ -59,34 +60,34 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             do {
                 j = get();
                 if (compareAndSet(0L, -1L)) {
-                    cPt();
+                    dHa();
                     return;
                 }
             } while (!compareAndSet(j, -2L));
         }
 
-        private boolean cPs() {
+        private boolean dGZ() {
             if (this.hasTerminated || get() < -1) {
                 set(-1L);
-                cPt();
+                dHa();
                 return true;
             }
             return false;
         }
 
-        private void cPt() {
+        private void dHa() {
             try {
-                this.parent.by(this.state);
+                this.parent.cc(this.state);
             } catch (Throwable th) {
-                rx.exceptions.a.K(th);
+                rx.exceptions.a.I(th);
                 c.onError(th);
             }
         }
 
         @Override // rx.f
         public void request(long j) {
-            if (j > 0 && rx.internal.operators.a.a(this, j) == 0) {
-                if (j == Long.MAX_VALUE) {
+            if (j > 0 && rx.internal.operators.a.e(this, j) == 0) {
+                if (j == Format.OFFSET_SAMPLE_RELATIVE) {
                     fastPath();
                 } else {
                     slowPath(j);
@@ -105,7 +106,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                     a(jVar, th);
                     return;
                 }
-            } while (!cPs());
+            } while (!dGZ());
         }
 
         private void a(j<? super T> jVar, Throwable th) {
@@ -127,7 +128,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                     try {
                         this.onNextCalled = false;
                         a(syncOnSubscribe);
-                        if (!cPs()) {
+                        if (!dGZ()) {
                             if (this.onNextCalled) {
                                 j2--;
                             }
@@ -141,7 +142,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                 } while (j2 != 0);
                 j = addAndGet(-j);
             } while (j > 0);
-            cPs();
+            dGZ();
         }
 
         private void a(SyncOnSubscribe<S, T> syncOnSubscribe) {

@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.UUID;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractMediaPlayer implements IMediaPlayer {
     private boolean isNewPlayer = true;
     private IMediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener;

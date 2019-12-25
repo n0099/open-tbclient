@@ -16,12 +16,12 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Adapter;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class AdapterView<T extends Adapter> extends ViewGroup {
-    e aml;
-    c amm;
-    d amn;
-    private AdapterView<T>.f amo;
+    e aul;
+    c aum;
+    d aun;
+    private AdapterView<T>.f auo;
     AccessibilityManager mAccessibilityManager;
     protected boolean mBlockLayoutRequests;
     public boolean mDataChanged;
@@ -50,17 +50,17 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     protected int mSyncPosition;
     protected long mSyncWidth;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a(AdapterView<?> adapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface d {
         boolean b(AdapterView<?> adapterView, View view, int i, long j);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface e {
         void c(AdapterView<?> adapterView, View view, int i, long j);
 
@@ -125,20 +125,20 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     public void setOnItemClickListener(c cVar) {
-        this.amm = cVar;
+        this.aum = cVar;
     }
 
     public final c getOnItemClickListener() {
-        return this.amm;
+        return this.aum;
     }
 
     public boolean performItemClick(View view, int i, long j) {
-        if (this.amm != null) {
+        if (this.aum != null) {
             playSoundEffect(0);
             if (view != null) {
                 view.sendAccessibilityEvent(1);
             }
-            this.amm.a(this, view, i, j);
+            this.aum.a(this, view, i, j);
             return true;
         }
         return false;
@@ -148,29 +148,29 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         if (!isLongClickable()) {
             setLongClickable(true);
         }
-        this.amn = dVar;
+        this.aun = dVar;
     }
 
     public final d getOnItemLongClickListener() {
-        return this.amn;
+        return this.aun;
     }
 
     public void setOnItemSelectedListener(e eVar) {
-        this.aml = eVar;
+        this.aul = eVar;
     }
 
     public final e getOnItemSelectedListener() {
-        return this.aml;
+        return this.aul;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a implements ContextMenu.ContextMenuInfo {
-        public View amp;
         public long id;
         public int position;
+        public View targetView;
 
         public a(View view, int i, long j) {
-            this.amp = view;
+            this.targetView = view;
             this.position = i;
             this.id = j;
         }
@@ -377,9 +377,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         dispatchThawSelfOnly(sparseArray);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     class b extends DataSetObserver {
-        private Parcelable amq = null;
+        private Parcelable mInstanceState = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -390,9 +390,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             AdapterView.this.mDataChanged = true;
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = AdapterView.this.getAdapter().getCount();
-            if (AdapterView.this.getAdapter().hasStableIds() && this.amq != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
-                AdapterView.this.onRestoreInstanceState(this.amq);
-                this.amq = null;
+            if (AdapterView.this.getAdapter().hasStableIds() && this.mInstanceState != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
+                AdapterView.this.onRestoreInstanceState(this.mInstanceState);
+                this.mInstanceState = null;
             } else {
                 AdapterView.this.rememberSyncState();
             }
@@ -404,7 +404,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             AdapterView.this.mDataChanged = true;
             if (AdapterView.this.getAdapter().hasStableIds()) {
-                this.amq = AdapterView.this.onSaveInstanceState();
+                this.mInstanceState = AdapterView.this.onSaveInstanceState();
             }
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = 0;
@@ -422,11 +422,11 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.amo);
+        removeCallbacks(this.auo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class f implements Runnable {
         private f() {
         }
@@ -443,12 +443,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     void selectionChanged() {
-        if (this.aml != null || this.mAccessibilityManager.isEnabled()) {
+        if (this.aul != null || this.mAccessibilityManager.isEnabled()) {
             if (this.mInLayout || this.mBlockLayoutRequests) {
-                if (this.amo == null) {
-                    this.amo = new f();
+                if (this.auo == null) {
+                    this.auo = new f();
                 }
-                post(this.amo);
+                post(this.auo);
                 return;
             }
             fireOnSelected();
@@ -458,13 +458,13 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fireOnSelected() {
-        if (this.aml != null) {
+        if (this.aul != null) {
             int selectedItemPosition = getSelectedItemPosition();
             if (selectedItemPosition >= 0) {
-                this.aml.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
+                this.aul.c(this, getSelectedView(), selectedItemPosition, getAdapter().getItemId(selectedItemPosition));
                 return;
             }
-            this.aml.d(this);
+            this.aul.d(this);
         }
     }
 

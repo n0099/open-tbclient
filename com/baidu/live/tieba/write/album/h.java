@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.album.MediaFileInfo;
 import com.baidu.live.tbadk.album.VideoFileInfo;
 import com.baidu.live.tbadk.core.util.ListUtils;
@@ -15,20 +15,20 @@ import com.baidu.live.tbadk.img.ImageFileInfo;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class h extends BaseAdapter {
-    private c apQ;
-    private f apS;
-    private g apT;
-    private AlbumActivity apq;
+    private c axG;
+    private f axI;
+    private g axJ;
+    private AlbumActivity axh;
     private LayoutInflater mLayoutInflater;
     private final List<MediaFileInfo> mDataList = new ArrayList();
-    private boolean apR = false;
+    private boolean axH = false;
 
     public h(AlbumActivity albumActivity, c cVar) {
-        this.apq = albumActivity;
-        this.apQ = cVar;
-        this.mLayoutInflater = LayoutInflater.from(this.apq.getPageContext().getPageActivity());
+        this.axh = albumActivity;
+        this.axG = cVar;
+        this.mLayoutInflater = LayoutInflater.from(this.axh.getPageContext().getPageActivity());
     }
 
     public void setData(List<MediaFileInfo> list) {
@@ -46,7 +46,7 @@ public class h extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: cj */
+    /* renamed from: cB */
     public MediaFileInfo getItem(int i) {
         return (MediaFileInfo) ListUtils.getItem(this.mDataList, i);
     }
@@ -87,35 +87,35 @@ public class h extends BaseAdapter {
                 b bVar2 = new b();
                 view = this.mLayoutInflater.inflate(a.h.sdk_ph_album_image_item_view, viewGroup, false);
                 bVar2.rootView = view;
-                bVar2.apW = (TbImageView) view.findViewById(a.g.pic);
-                bVar2.apW.setDefaultResource(0);
-                bVar2.apW.setDefaultErrorResource(0);
-                bVar2.apW.setTagPaddingDis(8, 8);
-                bVar2.apW.setGifIconSupport(true);
-                bVar2.apW.setLongIconSupport(true);
-                bVar2.apX = (ImageView) view.findViewById(a.g.select_icon);
-                bVar2.apY = (RelativeLayout) view.findViewById(a.g.lay_select);
+                bVar2.axM = (TbImageView) view.findViewById(a.g.pic);
+                bVar2.axM.setDefaultResource(0);
+                bVar2.axM.setDefaultErrorResource(0);
+                bVar2.axM.setTagPaddingDis(8, 8);
+                bVar2.axM.setGifIconSupport(true);
+                bVar2.axM.setLongIconSupport(true);
+                bVar2.axN = (ImageView) view.findViewById(a.g.select_icon);
+                bVar2.axO = (RelativeLayout) view.findViewById(a.g.lay_select);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            bVar.apW.setIsLongPic(imageFileInfo.isLong());
-            bVar.apW.startLoad(TbImageView.getUrlWithResizeTag(imageFileInfo.getFilePath(), 200, 200), 35, false);
-            a(bVar.apX, mediaFileInfo);
+            bVar.axM.setIsLongPic(imageFileInfo.isLong());
+            bVar.axM.startLoad(TbImageView.getUrlWithResizeTag(imageFileInfo.getFilePath(), 200, 200), 35, false);
+            a(bVar.axN, mediaFileInfo);
             a aVar = new a(mediaFileInfo, i);
-            bVar.apW.setOnClickListener(aVar);
-            bVar.apY.setOnClickListener(aVar);
+            bVar.axM.setOnClickListener(aVar);
+            bVar.axO.setOnClickListener(aVar);
         }
         return view;
     }
 
     private void a(ImageView imageView, MediaFileInfo mediaFileInfo) {
         boolean z = false;
-        if (this.apQ != null && (mediaFileInfo instanceof ImageFileInfo)) {
-            z = this.apQ.isAdded((ImageFileInfo) mediaFileInfo);
-        } else if (this.apQ != null && (mediaFileInfo instanceof VideoFileInfo)) {
-            z = this.apQ.b((VideoFileInfo) mediaFileInfo);
+        if (this.axG != null && (mediaFileInfo instanceof ImageFileInfo)) {
+            z = this.axG.isAdded((ImageFileInfo) mediaFileInfo);
+        } else if (this.axG != null && (mediaFileInfo instanceof VideoFileInfo)) {
+            z = this.axG.b((VideoFileInfo) mediaFileInfo);
         }
         b(imageView, z);
     }
@@ -123,60 +123,60 @@ public class h extends BaseAdapter {
     public void b(ImageView imageView, boolean z) {
         if (imageView != null) {
             if (z) {
-                imageView.setContentDescription(this.apq.getResources().getString(a.i.sdk_ph_check_box_checked));
+                imageView.setContentDescription(this.axh.getResources().getString(a.i.sdk_ph_check_box_checked));
                 SkinManager.setImageResource(imageView, a.f.sdk_ph_icon_list_select_ok_n);
                 return;
             }
-            imageView.setContentDescription(this.apq.getResources().getString(a.i.sdk_ph_check_box_not_checked));
+            imageView.setContentDescription(this.axh.getResources().getString(a.i.sdk_ph_check_box_not_checked));
             SkinManager.setImageResource(imageView, a.f.sdk_ph_icon_list_select_n);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
-        private MediaFileInfo apU;
+        private MediaFileInfo axK;
         private int position;
 
         public a(MediaFileInfo mediaFileInfo, int i) {
-            this.apU = mediaFileInfo;
+            this.axK = mediaFileInfo;
             this.position = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == a.g.pic) {
-                if (h.this.apS != null && this.apU != null) {
-                    h.this.apS.a(this.position, this.apU);
+                if (h.this.axI != null && this.axK != null) {
+                    h.this.axI.a(this.position, this.axK);
                 }
-            } else if (view.getId() == a.g.lay_select && this.apU != null && h.this.apT != null) {
-                h.this.apT.b(this.position, this.apU);
+            } else if (view.getId() == a.g.lay_select && this.axK != null && h.this.axJ != null) {
+                h.this.axJ.b(this.position, this.axK);
             }
         }
     }
 
     public boolean isScroll() {
-        return this.apR;
+        return this.axH;
     }
 
-    public void aT(boolean z) {
-        this.apR = z;
+    public void bk(boolean z) {
+        this.axH = z;
     }
 
     public void a(f fVar) {
-        this.apS = fVar;
+        this.axI = fVar;
     }
 
     public void a(g gVar) {
-        this.apT = gVar;
+        this.axJ = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class b {
-        TbImageView apW;
-        ImageView apX;
-        RelativeLayout apY;
+        TbImageView axM;
+        ImageView axN;
+        RelativeLayout axO;
         View rootView;
 
         private b() {

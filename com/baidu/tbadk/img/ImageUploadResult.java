@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ImageUploadResult extends OrmObject implements Serializable {
-    public long picId;
+    public String picId;
     public static int INTER_ERROR_FILE_ERROR = -1;
     public static int INTER_ERROR_SEND_ERROR = -2;
     public static int INTER_ERROR_SEND_CALCELLED = -3;

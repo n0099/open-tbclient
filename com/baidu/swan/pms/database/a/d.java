@@ -4,12 +4,12 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class d extends b<com.baidu.swan.pms.model.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: i */
-    public com.baidu.swan.pms.model.b h(Cursor cursor) {
+    /* renamed from: j */
+    public com.baidu.swan.pms.model.b i(Cursor cursor) {
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             com.baidu.swan.pms.model.b bVar = new com.baidu.swan.pms.model.b();
             if (a(cursor, bVar)) {
@@ -20,7 +20,7 @@ public class d extends b<com.baidu.swan.pms.model.b> {
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<com.baidu.swan.pms.model.b> f(Cursor cursor) {
+    public List<com.baidu.swan.pms.model.b> g(Cursor cursor) {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
@@ -36,8 +36,8 @@ public class d extends b<com.baidu.swan.pms.model.b> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: g */
-    public ContentValues S(com.baidu.swan.pms.model.b bVar) {
-        return g((com.baidu.swan.pms.model.e) bVar);
+    /* renamed from: j */
+    public ContentValues X(com.baidu.swan.pms.model.b bVar) {
+        return e(bVar);
     }
 }

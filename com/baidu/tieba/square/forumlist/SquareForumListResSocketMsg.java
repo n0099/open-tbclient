@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SquareForumListResSocketMsg extends SocketResponsedMessage {
     private GetForumsFromForumClassResIdl mResponseData;
 

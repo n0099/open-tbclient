@@ -3,21 +3,21 @@ package android.support.v4.app;
 import android.app.Activity;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.ReportFragment;
-import android.arch.lifecycle.b;
-import android.arch.lifecycle.c;
+import android.arch.lifecycle.j;
+import android.arch.lifecycle.k;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.util.SimpleArrayMap;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
-public class SupportActivity extends Activity implements b {
+/* loaded from: classes4.dex */
+public class SupportActivity extends Activity implements j {
     private SimpleArrayMap<Class<? extends ExtraData>, ExtraData> mExtraDataMap = new SimpleArrayMap<>();
-    private c mLifecycleRegistry = new c(this);
+    private k mLifecycleRegistry = new k(this);
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ExtraData {
     }
 

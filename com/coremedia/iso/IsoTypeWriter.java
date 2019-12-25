@@ -1,9 +1,7 @@
 package com.coremedia.iso;
 
-import android.support.v4.internal.view.SupportMenu;
 import java.nio.ByteBuffer;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class IsoTypeWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
 
@@ -19,17 +17,17 @@ public final class IsoTypeWriter {
     }
 
     public static void writeUInt32(ByteBuffer byteBuffer, long j) {
-        if (!$assertionsDisabled && (j < 0 || j > IjkMediaMeta.AV_CH_WIDE_RIGHT)) {
+        if (!$assertionsDisabled && (j < 0 || j > 4294967296L)) {
             throw new AssertionError("The given long is not in the range of uint32 (" + j + ")");
         }
         byteBuffer.putInt((int) j);
     }
 
     public static void writeUInt32BE(ByteBuffer byteBuffer, long j) {
-        if (!$assertionsDisabled && (j < 0 || j > IjkMediaMeta.AV_CH_WIDE_RIGHT)) {
+        if (!$assertionsDisabled && (j < 0 || j > 4294967296L)) {
             throw new AssertionError("The given long is not in the range of uint32 (" + j + ")");
         }
-        writeUInt16BE(byteBuffer, ((int) j) & SupportMenu.USER_MASK);
+        writeUInt16BE(byteBuffer, ((int) j) & 65535);
         writeUInt16BE(byteBuffer, (int) ((j >> 16) & 65535));
     }
 

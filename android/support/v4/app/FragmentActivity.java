@@ -1,6 +1,8 @@
 package android.support.v4.app;
 
 import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.aa;
+import android.arch.lifecycle.z;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -16,8 +18,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.internal.view.SupportMenu;
-import android.support.v4.util.SimpleArrayMap;
 import android.support.v4.util.SparseArrayCompat;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -28,8 +28,8 @@ import android.view.View;
 import android.view.Window;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes2.dex */
-public class FragmentActivity extends BaseFragmentActivityApi16 implements ActivityCompat.OnRequestPermissionsResultCallback, ActivityCompat.RequestPermissionsRequestCodeValidator {
+/* loaded from: classes4.dex */
+public class FragmentActivity extends BaseFragmentActivityApi16 implements aa, ActivityCompat.OnRequestPermissionsResultCallback, ActivityCompat.RequestPermissionsRequestCodeValidator {
     static final String ALLOCATED_REQUEST_INDICIES_TAG = "android:support:request_indicies";
     static final String FRAGMENTS_TAG = "android:support:fragments";
     static final int MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS = 65534;
@@ -39,11 +39,13 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
     static final String REQUEST_FRAGMENT_WHO_TAG = "android:support:request_fragment_who";
     private static final String TAG = "FragmentActivity";
     boolean mCreated;
+    LoaderManager mLoaderManager;
     int mNextCandidateRequestIndex;
     SparseArrayCompat<String> mPendingFragmentActivityResults;
     boolean mRequestedPermissionsFromFragment;
     boolean mResumed;
     boolean mRetaining;
+    private z mViewModelStore;
     final Handler mHandler = new Handler() { // from class: android.support.v4.app.FragmentActivity.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -95,11 +97,11 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
         super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class NonConfigurationInstances {
         Object custom;
         FragmentManagerNonConfig fragments;
-        SimpleArrayMap<String, LoaderManager> loaders;
+        z viewModelStore;
 
         NonConfigurationInstances() {
         }
@@ -127,7 +129,10 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
                 return;
             }
         }
-        super.onActivityResult(i, i2, intent);
+        ActivityCompat.PermissionCompatDelegate permissionCompatDelegate = ActivityCompat.getPermissionCompatDelegate();
+        if (permissionCompatDelegate == null || !permissionCompatDelegate.onActivityResult(this, i, i2, intent)) {
+            super.onActivityResult(i, i2, intent);
+        }
     }
 
     @Override // android.app.Activity
@@ -176,10 +181,23 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
+        this.mFragments.noteStateNotSaved();
         this.mFragments.dispatchConfigurationChanged(configuration);
     }
 
-    @Override // android.support.v4.app.SupportActivity, android.arch.lifecycle.b
+    @Override // android.arch.lifecycle.aa
+    @NonNull
+    public z getViewModelStore() {
+        if (getApplication() == null) {
+            throw new IllegalStateException("Your activity is not yet attached to the Application instance. You can't request ViewModel before onCreate call.");
+        }
+        if (this.mViewModelStore == null) {
+            this.mViewModelStore = new z();
+        }
+        return this.mViewModelStore;
+    }
+
+    @Override // android.support.v4.app.SupportActivity, android.arch.lifecycle.j
     public Lifecycle getLifecycle() {
         return super.getLifecycle();
     }
@@ -191,7 +209,7 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
         super.onCreate(bundle);
         NonConfigurationInstances nonConfigurationInstances = (NonConfigurationInstances) getLastNonConfigurationInstance();
         if (nonConfigurationInstances != null) {
-            this.mFragments.restoreLoaderNonConfig(nonConfigurationInstances.loaders);
+            this.mViewModelStore = nonConfigurationInstances.viewModelStore;
         }
         if (bundle != null) {
             this.mFragments.restoreAllState(bundle.getParcelable(FRAGMENTS_TAG), nonConfigurationInstances != null ? nonConfigurationInstances.fragments : null);
@@ -231,8 +249,10 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
     public void onDestroy() {
         super.onDestroy();
         doReallyStop(false);
+        if (this.mViewModelStore != null && !this.mRetaining) {
+            this.mViewModelStore.clear();
+        }
         this.mFragments.dispatchDestroy();
-        this.mFragments.doLoaderDestroy();
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
@@ -329,14 +349,13 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
         }
         Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
         FragmentManagerNonConfig retainNestedNonConfig = this.mFragments.retainNestedNonConfig();
-        SimpleArrayMap<String, LoaderManager> retainLoaderNonConfig = this.mFragments.retainLoaderNonConfig();
-        if (retainNestedNonConfig == null && retainLoaderNonConfig == null && onRetainCustomNonConfigurationInstance == null) {
+        if (retainNestedNonConfig == null && this.mViewModelStore == null && onRetainCustomNonConfigurationInstance == null) {
             return null;
         }
         NonConfigurationInstances nonConfigurationInstances = new NonConfigurationInstances();
         nonConfigurationInstances.custom = onRetainCustomNonConfigurationInstance;
+        nonConfigurationInstances.viewModelStore = this.mViewModelStore;
         nonConfigurationInstances.fragments = retainNestedNonConfig;
-        nonConfigurationInstances.loaders = retainLoaderNonConfig;
         return nonConfigurationInstances;
     }
 
@@ -344,7 +363,7 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
     @Override // android.support.v4.app.SupportActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        markState(getSupportFragmentManager(), Lifecycle.State.CREATED);
+        markFragmentsCreated();
         Parcelable saveAllState = this.mFragments.saveAllState();
         if (saveAllState != null) {
             bundle.putParcelable(FRAGMENTS_TAG, saveAllState);
@@ -382,9 +401,7 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
         }
         this.mFragments.noteStateNotSaved();
         this.mFragments.execPendingActions();
-        this.mFragments.doLoaderStart();
         this.mFragments.dispatchStart();
-        this.mFragments.reportLoaderStart();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -392,7 +409,7 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
     public void onStop() {
         super.onStop();
         this.mStopped = true;
-        markState(getSupportFragmentManager(), Lifecycle.State.CREATED);
+        markFragmentsCreated();
         this.mHandler.sendEmptyMessage(1);
         this.mFragments.dispatchStop();
     }
@@ -431,7 +448,9 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
         printWriter.print(this.mStopped);
         printWriter.print(" mReallyStopped=");
         printWriter.println(this.mReallyStopped);
-        this.mFragments.dumpLoaders(str2, fileDescriptor, printWriter, strArr);
+        if (this.mLoaderManager != null) {
+            this.mLoaderManager.dump(str2, fileDescriptor, printWriter, strArr);
+        }
         this.mFragments.getSupportFragmentManager().dump(str, fileDescriptor, printWriter, strArr);
     }
 
@@ -441,14 +460,10 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
             this.mRetaining = z;
             this.mHandler.removeMessages(1);
             onReallyStop();
-        } else if (z) {
-            this.mFragments.doLoaderStart();
-            this.mFragments.doLoaderStop(true);
         }
     }
 
     void onReallyStop() {
-        this.mFragments.doLoaderStop(this.mRetaining);
         this.mFragments.dispatchReallyStop();
     }
 
@@ -460,7 +475,11 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
     }
 
     public LoaderManager getSupportLoaderManager() {
-        return this.mFragments.getSupportLoaderManager();
+        if (this.mLoaderManager != null) {
+            return this.mLoaderManager;
+        }
+        this.mLoaderManager = new LoaderManagerImpl(this, getViewModelStore());
+        return this.mLoaderManager;
     }
 
     @Override // android.app.Activity
@@ -480,7 +499,8 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
 
     @Override // android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        int i2 = (i >> 16) & SupportMenu.USER_MASK;
+        this.mFragments.noteStateNotSaved();
+        int i2 = (i >> 16) & 65535;
         if (i2 != 0) {
             int i3 = i2 - 1;
             String str = this.mPendingFragmentActivityResults.get(i3);
@@ -493,7 +513,7 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
             if (findFragmentByWho == null) {
                 Log.w(TAG, "Activity result no fragment exists for who: " + str);
             } else {
-                findFragmentByWho.onRequestPermissionsResult(i & SupportMenu.USER_MASK, strArr, iArr);
+                findFragmentByWho.onRequestPermissionsResult(i & 65535, strArr, iArr);
             }
         }
     }
@@ -559,7 +579,7 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     class HostCallbacks extends FragmentHostCallback<FragmentActivity> {
         public HostCallbacks() {
             super(FragmentActivity.this);
@@ -649,12 +669,23 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements Activ
         }
     }
 
-    private static void markState(FragmentManager fragmentManager, Lifecycle.State state) {
+    private void markFragmentsCreated() {
+        do {
+        } while (markState(getSupportFragmentManager(), Lifecycle.State.CREATED));
+    }
+
+    private static boolean markState(FragmentManager fragmentManager, Lifecycle.State state) {
+        boolean z = false;
         for (Fragment fragment : fragmentManager.getFragments()) {
             if (fragment != null) {
-                fragment.mLifecycleRegistry.a(state);
-                markState(fragment.getChildFragmentManager(), state);
+                if (fragment.getLifecycle().au().isAtLeast(Lifecycle.State.STARTED)) {
+                    fragment.mLifecycleRegistry.a(state);
+                    z = true;
+                }
+                FragmentManager peekChildFragmentManager = fragment.peekChildFragmentManager();
+                z = peekChildFragmentManager != null ? markState(peekChildFragmentManager, state) | z : z;
             }
         }
+        return z;
     }
 }

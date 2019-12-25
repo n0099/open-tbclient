@@ -12,48 +12,48 @@ import java.lang.reflect.Method;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class j extends AsyncTask<String, Integer, Integer> {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f85a;
+    private Context f90a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f86a;
+    private SharedPreferences f91a;
 
     /* renamed from: a  reason: collision with other field name */
-    private c f87a;
+    private c f92a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ce f88a;
+    private ce f93a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f89a;
+    private String f94a;
     private String b;
 
     public j(Context context, SharedPreferences sharedPreferences, String str, int i, String str2, c cVar) {
-        this.f85a = context;
-        this.f87a = cVar;
-        this.f89a = str;
-        this.f86a = sharedPreferences;
+        this.f90a = context;
+        this.f92a = cVar;
+        this.f94a = str;
+        this.f91a = sharedPreferences;
         this.b = str2;
     }
 
     private int a(File file) {
-        h hVar = (h) this.f88a;
+        h hVar = (h) this.f93a;
         String str = hVar.b;
         if (str == null) {
             return -1;
         }
-        int a = b.a(this.f85a, file, str, hVar);
+        int a = b.a(this.f90a, file, str, hVar);
         d.a("下载广告 imgUrl: " + str + " 结果： " + a);
         if (isCancelled() || a != 0) {
             if (isCancelled()) {
                 d.a("asynctask 被cancel");
                 return a;
             }
-            d.a("网络类型改变，中断下载: " + f.a(this.f85a) + HanziToPinyin.Token.SEPARATOR + a);
+            d.a("网络类型改变，中断下载: " + f.a(this.f90a) + HanziToPinyin.Token.SEPARATOR + a);
             return a;
         }
         return a;
@@ -63,13 +63,13 @@ public class j extends AsyncTask<String, Integer, Integer> {
         try {
             JSONObject jSONObject = new JSONObject(str);
             int a = a(jSONObject);
-            k.a("解析参数并检查, 返回结果: " + m100a(a));
+            k.a("解析参数并检查, 返回结果: " + m103a(a));
             if (a != 0) {
                 return a;
             }
             int c = c(jSONObject);
-            if (this.f88a != null) {
-                k.a("广告获取最终结果： " + c + " 类型: " + this.f88a.a);
+            if (this.f93a != null) {
+                k.a("广告获取最终结果： " + c + " 类型: " + this.f93a.a);
                 return c;
             }
             return c;
@@ -108,12 +108,12 @@ public class j extends AsyncTask<String, Integer, Integer> {
                 break;
         }
         ceVar.d = this.a;
-        ceVar.h = this.f89a;
+        ceVar.h = this.f94a;
         return ceVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private String m100a(int i) {
+    private String m103a(int i) {
         switch (i) {
             case -5:
                 return "消息不匹配";
@@ -133,23 +133,23 @@ public class j extends AsyncTask<String, Integer, Integer> {
     }
 
     private boolean a(int i, int i2) {
-        synchronized (this.f86a) {
+        synchronized (this.f91a) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.f86a.getLong(LogBuilder.KEY_START_TIME, 0L);
+            long j = this.f91a.getLong(LogBuilder.KEY_START_TIME, 0L);
             if (j == 0) {
-                this.f86a.edit().putLong(LogBuilder.KEY_START_TIME, currentTimeMillis).commit();
+                this.f91a.edit().putLong(LogBuilder.KEY_START_TIME, currentTimeMillis).commit();
                 return true;
             } else if (currentTimeMillis - j > 86400000) {
-                this.f86a.edit().putLong(LogBuilder.KEY_START_TIME, 0L).commit();
-                this.f86a.edit().putInt("notifycount", 0).commit();
-                this.f86a.edit().putInt("bubblecount", 0).commit();
+                this.f91a.edit().putLong(LogBuilder.KEY_START_TIME, 0L).commit();
+                this.f91a.edit().putInt("notifycount", 0).commit();
+                this.f91a.edit().putInt("bubblecount", 0).commit();
                 return true;
             } else {
                 if (i2 == 2) {
-                    if (this.f86a.getInt("notifycount", 0) < i) {
+                    if (this.f91a.getInt("notifycount", 0) < i) {
                         return true;
                     }
-                } else if (i2 == 1 && this.f86a.getInt("bubblecount", 0) < i * 4) {
+                } else if (i2 == 1 && this.f91a.getInt("bubblecount", 0) < i * 4) {
                     return true;
                 }
                 d.b("超过了每天接受广告的上限");
@@ -170,7 +170,7 @@ public class j extends AsyncTask<String, Integer, Integer> {
         try {
             Method method = Class.forName("miui.util.NotificationFilterHelper").getMethod("canSendNotifications", Context.class, String.class);
             k.a(this.b);
-            z = !((Boolean) method.invoke(null, this.f85a, this.b)).booleanValue();
+            z = !((Boolean) method.invoke(null, this.f90a, this.b)).booleanValue();
         } catch (Exception e) {
             Log.d("NotifyAdsDownloader", "reflect errors!");
             e.printStackTrace();
@@ -187,8 +187,8 @@ public class j extends AsyncTask<String, Integer, Integer> {
         try {
             if (!z2 && (b != 2 || !z)) {
                 k.a("使用主广告 ");
-                this.f88a = a(b);
-                this.f88a.a(jSONObject);
+                this.f93a = a(b);
+                this.f93a.a(jSONObject);
                 return 0;
             }
             k.a("使用候选广告 ");
@@ -206,8 +206,8 @@ public class j extends AsyncTask<String, Integer, Integer> {
             if (a != 0) {
                 return a;
             }
-            this.f88a = a(b2);
-            this.f88a.a(jSONObject2);
+            this.f93a = a(b2);
+            this.f93a.a(jSONObject2);
             return 0;
         } catch (JSONException e2) {
             return -1;
@@ -219,13 +219,13 @@ public class j extends AsyncTask<String, Integer, Integer> {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public Integer doInBackground(String... strArr) {
-        int a = a(this.f89a);
+        int a = a(this.f94a);
         if (a != 0) {
             d.a("广告解析失败 " + a);
             return Integer.valueOf(a);
         }
-        if (this.f88a.a == 2) {
-            a = a(this.f85a.getDir("comxiaomimiuipushadssdk", 0));
+        if (this.f93a.a == 2) {
+            a = a(this.f90a.getDir("comxiaomimiuipushadssdk", 0));
         }
         return Integer.valueOf(a);
     }
@@ -236,9 +236,9 @@ public class j extends AsyncTask<String, Integer, Integer> {
     /* renamed from: a */
     public void onPostExecute(Integer num) {
         super.onPostExecute(num);
-        if (this.f87a != null) {
+        if (this.f92a != null) {
             d.a("下载 post 的结果是: " + num);
-            this.f87a.a(num.intValue(), this.f88a, this);
+            this.f92a.a(num.intValue(), this.f93a, this);
         }
     }
 

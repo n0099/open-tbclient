@@ -1,5 +1,6 @@
 package okio;
 
+import com.baidu.android.common.others.IStringUtil;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +18,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ByteString implements Serializable, Comparable<ByteString> {
     private static final long serialVersionUID = 1;
     final byte[] data;
@@ -441,7 +442,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
             }
             return "[size=" + this.data.length + " hex=" + substring(0, 64).hex() + "…]";
         }
-        String replace = utf8.substring(0, codePointIndexToCharIndex).replace("\\", "\\\\").replace("\n", "\\n").replace("\r", "\\r");
+        String replace = utf8.substring(0, codePointIndexToCharIndex).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace("\n", "\\n").replace("\r", "\\r");
         if (codePointIndexToCharIndex < utf8.length()) {
             return "[size=" + this.data.length + " text=" + replace + "…]";
         }

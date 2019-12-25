@@ -25,7 +25,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class IMSDK {
     private static final String TAG = "IMSDK";
     public static Handler mHandler;

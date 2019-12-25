@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.liveroom.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class d {
-    public long eeg;
+    public long eUa;
     public long liveId;
 }

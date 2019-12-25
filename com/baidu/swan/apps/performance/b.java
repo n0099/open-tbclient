@@ -1,184 +1,90 @@
 package com.baidu.swan.apps.performance;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.swan.apps.an.ac;
-import com.baidu.swan.apps.an.j;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import java.util.ArrayList;
+import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
-public final class b {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, Bundle> aZL = new HashMap();
-    private final c aZM = new c();
+/* loaded from: classes9.dex */
+public class b {
+    private final Map<String, Map<String, HybridUbcFlow>> bCu = new HashMap();
+    private final Map<String, com.baidu.swan.apps.as.d.b<HybridUbcFlow>> bCv = new HashMap();
+    private final com.baidu.swan.apps.as.d.b<HybridUbcFlow> bCw = new com.baidu.swan.apps.as.d.b<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.b.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.swan.apps.as.d.b
+        /* renamed from: a */
+        public void B(HybridUbcFlow hybridUbcFlow) {
+            b.this.jy(hybridUbcFlow.name);
+        }
+    };
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.baidu.swan.apps.performance.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0193b {
-        private static b aZY = new b();
+    private HybridUbcFlow jw(String str) {
+        HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
+        hybridUbcFlow.c("callback_on_submit", this.bCw);
+        com.baidu.swan.apps.as.d.b<HybridUbcFlow> bVar = this.bCv.get(str);
+        if (bVar != null) {
+            bVar.B(hybridUbcFlow);
+        }
+        return hybridUbcFlow;
     }
 
-    public static b NB() {
-        return C0193b.aZY;
+    public synchronized HybridUbcFlow jx(String str) {
+        return aO(str, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
     }
 
-    public Bundle gE(String str) {
-        Bundle gG = NC().gG(str);
-        if (gG == null) {
-            gG = new Bundle();
-        }
-        if (DEBUG) {
-            Log.i("UbcBundleHeloer", "xpass -> startTargetSwanApp: intent.bundle.ext.size=" + gG.size());
-        }
-        return gG;
-    }
-
-    public void a(final String str, final SwanAppProcessInfo swanAppProcessInfo) {
-        if (DEBUG) {
-            Log.i("UbcBundleHeloer", "xpass -> sendToProcess: mActionCache.size=" + this.aZM.size());
-        }
-        j.a(new Runnable() { // from class: com.baidu.swan.apps.performance.b.1
-            @Override // java.lang.Runnable
-            public void run() {
-                final Bundle gE = b.this.gE(str);
-                if (b.DEBUG) {
-                    Log.i("UbcBundleHeloer", "xpass -> sendMsgToClient: ext.size=" + gE.size());
+    public synchronized HybridUbcFlow aO(String str, String str2) {
+        HybridUbcFlow hybridUbcFlow;
+        synchronized (this.bCu) {
+            Map<String, HybridUbcFlow> map = this.bCu.get(str);
+            if (map == null) {
+                HashMap hashMap = new HashMap();
+                hybridUbcFlow = jw(str);
+                hashMap.put(str2, hybridUbcFlow);
+                this.bCu.put(str, hashMap);
+            } else {
+                HybridUbcFlow hybridUbcFlow2 = map.get(str2);
+                if (hybridUbcFlow2 == null) {
+                    hybridUbcFlow2 = jw(str);
+                    map.put(str2, hybridUbcFlow2);
                 }
-                if (!TextUtils.isEmpty(str) && swanAppProcessInfo.isSwanAppProcess()) {
-                    ac.c(new Runnable() { // from class: com.baidu.swan.apps.performance.b.1.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            if (b.DEBUG) {
-                                Log.i("UbcBundleHeloer", "xpass -> sendMsgToClient: action");
-                            }
-                            com.baidu.swan.apps.process.messaging.service.b.OK().a(swanAppProcessInfo, 109, gE);
-                        }
-                    }, 2500L);
-                }
+                hybridUbcFlow = hybridUbcFlow2;
             }
-        }, getClass().getSimpleName());
+        }
+        return hybridUbcFlow;
     }
 
-    public b aA(String str, String str2) {
-        return b(str, str2, System.currentTimeMillis());
-    }
-
-    public b b(String str, String str2, long j) {
-        return c(str, str2, j);
-    }
-
-    public b u(String str, final String str2, final String str3) {
-        b(str, str2, str3);
-        return a(new a(str) { // from class: com.baidu.swan.apps.performance.b.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.d.a
-            /* renamed from: o */
-            public void B(Bundle bundle) {
-                bundle.putString(str2, str3);
-            }
-        });
-    }
-
-    public b i(String str, final String str2, final boolean z) {
-        b(str, str2, Boolean.valueOf(z));
-        return a(new a(str) { // from class: com.baidu.swan.apps.performance.b.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.d.a
-            /* renamed from: o */
-            public void B(Bundle bundle) {
-                bundle.putBoolean(str2, z);
-            }
-        });
-    }
-
-    public b d(String str, final String str2, final int i) {
-        b(str, str2, Integer.valueOf(i));
-        return a(new a(str) { // from class: com.baidu.swan.apps.performance.b.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.d.a
-            /* renamed from: o */
-            public void B(Bundle bundle) {
-                bundle.putInt(str2, i);
-            }
-        });
-    }
-
-    public b c(String str, final String str2, final long j) {
-        b(str, str2, Long.valueOf(j));
-        return a(new a(str) { // from class: com.baidu.swan.apps.performance.b.5
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.d.a
-            /* renamed from: o */
-            public void B(Bundle bundle) {
-                bundle.putLong(str2, j);
-            }
-        });
-    }
-
-    private void b(String str, String str2, Object obj) {
-        com.baidu.swan.apps.v.c.a.fF(str).fG(String.format("%s: %s", str2, obj)).fJ("[CheckPoint]");
-    }
-
-    private b a(a aVar) {
-        this.aZM.d(aVar);
+    public b b(String str, com.baidu.swan.apps.as.d.b<HybridUbcFlow> bVar) {
+        synchronized (this.bCv) {
+            this.bCv.put(str, bVar);
+        }
         return this;
     }
 
-    public synchronized Bundle gF(String str) {
-        Bundle gH;
-        synchronized (this.aZL) {
-            gH = gH(str);
-            if (gH == null) {
-                gH = new Bundle();
-                this.aZL.put(str, gH);
-            }
+    public b jy(String str) {
+        synchronized (this.bCu) {
+            this.bCu.remove(str);
         }
-        return gH;
-    }
-
-    public b NC() {
-        this.aZM.NH();
         return this;
     }
 
-    public Bundle gG(String str) {
-        Bundle remove;
-        synchronized (this.aZL) {
-            remove = this.aZL.remove(str);
-        }
-        return remove;
-    }
-
-    public Bundle gH(String str) {
-        Bundle bundle;
-        synchronized (this.aZL) {
-            bundle = this.aZL.get(str);
-        }
-        return bundle;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public abstract class a implements com.baidu.swan.apps.an.d.a<Bundle>, Runnable {
-        final String aZW;
-        final List<Object<Bundle, Boolean>> aZX = new ArrayList();
-
-        public a(String str) {
-            this.aZW = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (!TextUtils.isEmpty(this.aZW)) {
-                synchronized (b.this.aZL) {
-                    B(b.this.gF(this.aZW));
-                }
+    public b aP(String str, String str2) {
+        synchronized (this.bCu) {
+            Map<String, HybridUbcFlow> map = this.bCu.get(str);
+            if (map != null) {
+                map.remove(str2);
             }
         }
+        return this;
+    }
+
+    public HybridUbcFlow jz(String str) {
+        return aQ(str, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
+    }
+
+    public HybridUbcFlow aQ(String str, String str2) {
+        HybridUbcFlow hybridUbcFlow;
+        synchronized (this.bCu) {
+            Map<String, HybridUbcFlow> map = this.bCu.get(str);
+            hybridUbcFlow = map == null ? null : map.get(str2);
+        }
+        return hybridUbcFlow;
     }
 }

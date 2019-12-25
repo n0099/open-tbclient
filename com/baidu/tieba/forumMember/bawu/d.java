@@ -3,32 +3,32 @@ package com.baidu.tieba.forumMember.bawu;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private l<byte[]> fqn;
+    private l<byte[]> geK;
 
     public d() {
-        aci();
+        aso();
     }
 
-    public void aci() {
-        if (this.fqn == null) {
-            this.fqn = com.baidu.tbadk.core.d.a.akL().nk("tb.bawu_team_info");
+    public void aso() {
+        if (this.geK == null) {
+            this.geK = com.baidu.tbadk.core.c.a.aBV().sw("tb.bawu_team_info");
         }
     }
 
-    public byte[] vB(String str) {
-        l.b<byte[]> Y = (this.fqn == null || str == null) ? null : this.fqn.Y(str);
-        if (Y == null || Y.value == null) {
+    public byte[] At(String str) {
+        l.b<byte[]> ad = (this.geK == null || str == null) ? null : this.geK.ad(str);
+        if (ad == null || ad.value == null) {
             return null;
         }
-        return Y.value;
+        return ad.value;
     }
 
-    public void i(String str, byte[] bArr) {
+    public void l(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            aci();
-            this.fqn.set(str, bArr, TbConfig.MILLS_7DAYS);
+            aso();
+            this.geK.set(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

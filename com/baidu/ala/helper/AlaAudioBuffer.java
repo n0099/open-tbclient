@@ -3,7 +3,7 @@ package com.baidu.ala.helper;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaAudioBuffer {
     private static final boolean VERBOSE = false;
     private ByteArrayOutputStream baos = new ByteArrayOutputStream();

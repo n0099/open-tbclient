@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaCharmCardActivityConfig extends IntentConfig {
     public static final String CHARM_VALUE = "charm_value";
     public static final String FLOWER_VALUE = "flower_value";

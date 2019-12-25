@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.statics;
 
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class QMStaticManager {
     public static String LIVE_ID = "";
     public static String ROOM_ID = "";

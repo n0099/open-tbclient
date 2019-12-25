@@ -1,9 +1,9 @@
 package com.airbnb.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class e extends f<Integer> {
-    public e(List<com.airbnb.lottie.a.a<Integer>> list) {
+    public e(List<com.airbnb.lottie.e.a<Integer>> list) {
         super(list);
     }
 
@@ -11,10 +11,11 @@ public class e extends f<Integer> {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.airbnb.lottie.a.b.a
     /* renamed from: b */
-    public Integer a(com.airbnb.lottie.a.a<Integer> aVar, float f) {
-        if (aVar.dK == null || aVar.dL == null) {
+    public Integer a(com.airbnb.lottie.e.a<Integer> aVar, float f) {
+        Integer num;
+        if (aVar.kn == null || aVar.ko == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        return Integer.valueOf(com.airbnb.lottie.c.e.lerp(aVar.dK.intValue(), aVar.dL.intValue(), f));
+        return (this.gE == null || (num = (Integer) this.gE.b(aVar.ed, aVar.kq.floatValue(), aVar.kn, aVar.ko, f, bS(), getProgress())) == null) ? Integer.valueOf(com.airbnb.lottie.d.e.lerp(aVar.kn.intValue(), aVar.ko.intValue(), f)) : num;
     }
 }

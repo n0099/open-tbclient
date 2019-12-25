@@ -11,12 +11,12 @@ import java.util.LinkedList;
 import java.util.List;
 import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     private List<a> msg;
     private int msgCount;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String content;
         public int id;
@@ -60,10 +60,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             }
         }
         if (!this.msg.isEmpty()) {
-            l<byte[]> nk = com.baidu.tbadk.core.d.a.akL().nk("tb.im_official_history");
+            l<byte[]> sw = com.baidu.tbadk.core.c.a.aBV().sw("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
-                nk.setForever(TbadkApplication.getCurrentAccount() + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
+                sw.setForever(TbadkApplication.getCurrentAccount() + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
             }
         }
     }

@@ -2,6 +2,7 @@ package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -150,6 +151,6 @@ public class StringUtils {
 
     public static long getyyyyMMddHHTimeForNow() {
         Calendar calendar = Calendar.getInstance();
-        return calendar.get(11) + 0 + (calendar.get(1) * 1000000) + ((calendar.get(2) + 1) * 10000) + (calendar.get(5) * 100);
+        return calendar.get(11) + 0 + (calendar.get(1) * TimeUtils.NANOS_PER_MS) + ((calendar.get(2) + 1) * 10000) + (calendar.get(5) * 100);
     }
 }

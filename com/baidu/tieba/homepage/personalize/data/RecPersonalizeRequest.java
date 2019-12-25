@@ -5,10 +5,11 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.util.t;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RecPersonalizeRequest extends NetMessage {
     public static final int LOAD_TYPE_LOAD_MORE = 2;
     public static final int LOAD_TYPE_UPDATE = 1;
@@ -78,7 +79,7 @@ public class RecPersonalizeRequest extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        r.a(builder, true, false, true);
+        t.a(builder, true, false, true);
         builder.need_tags = 0;
         builder.load_type = Integer.valueOf(this.loadType);
         builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -89,7 +90,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         builder.scr_dip = Double.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        builder.q_type = 1;
+        builder.q_type = Integer.valueOf(ar.aDX().aDY() ? 2 : 1);
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
         builder.new_net_type = Integer.valueOf(j.netType());
         builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);

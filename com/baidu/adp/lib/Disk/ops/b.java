@@ -40,12 +40,12 @@ public class b extends c {
     */
     public boolean formatData(byte[] bArr) {
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.my.paserFromByte(bArr)) {
-            long j = this.my.mValidTime;
+        if (bArr != null && this.oU.paserFromByte(bArr)) {
+            long j = this.oU.mValidTime;
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             long j2 = j;
             if (i != 0) {
-                long j3 = this.my.mValidTime;
+                long j3 = this.oU.mValidTime;
                 int i2 = (j3 > System.currentTimeMillis() ? 1 : (j3 == System.currentTimeMillis() ? 0 : -1));
                 j2 = j3;
                 if (i2 < 0) {
@@ -69,19 +69,19 @@ public class b extends c {
                     byteArrayInputStream = new ByteArrayInputStream(bArr, headerSize, bArr.length - headerSize);
                     try {
                         this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.mOptions);
-                        com.baidu.adp.lib.g.a.close((InputStream) byteArrayInputStream);
+                        com.baidu.adp.lib.f.a.close((InputStream) byteArrayInputStream);
                         byteArrayInputStream2 = byteArrayInputStream;
                     } catch (Error e) {
                         e = e;
                         BdLog.e(e.getMessage());
-                        com.baidu.adp.lib.g.a.close((InputStream) byteArrayInputStream);
+                        com.baidu.adp.lib.f.a.close((InputStream) byteArrayInputStream);
                         byteArrayInputStream2 = byteArrayInputStream;
                         if (this.mBitmap == null) {
                         }
                     }
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.adp.lib.g.a.close((InputStream) byteArrayInputStream2);
+                    com.baidu.adp.lib.f.a.close((InputStream) byteArrayInputStream2);
                     throw th;
                 }
             } catch (Error e2) {
@@ -90,7 +90,7 @@ public class b extends c {
             } catch (Throwable th2) {
                 th = th2;
                 byteArrayInputStream2 = 0;
-                com.baidu.adp.lib.g.a.close((InputStream) byteArrayInputStream2);
+                com.baidu.adp.lib.f.a.close((InputStream) byteArrayInputStream2);
                 throw th;
             }
             return this.mBitmap == null;

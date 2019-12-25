@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.internal;
 
 import android.util.LruCache;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class UKCache {
     private LruCache<Long, Long> mCache;
 

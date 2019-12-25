@@ -1,18 +1,19 @@
 package com.baidu.swan.game.ad.component;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-import com.baidu.swan.apps.ae.b;
-import com.baidu.swan.apps.media.d.a;
-import com.baidu.swan.apps.media.d.c;
-/* loaded from: classes2.dex */
+import com.baidu.swan.apps.media.c.a;
+import com.baidu.swan.apps.media.c.c;
+import com.baidu.swan.apps.runtime.e;
+/* loaded from: classes9.dex */
 public class RewardVideoView extends RelativeLayout {
-    private Context b;
-    private a bwA;
-    private boolean c;
+    private a aWC;
+    private Context mContext;
+    private boolean mIsMute;
 
     public RewardVideoView(Context context) {
         this(context, null);
@@ -24,51 +25,58 @@ public class RewardVideoView extends RelativeLayout {
 
     public RewardVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.b = context;
-        b();
+        this.mContext = context;
+        initPlayer();
     }
 
-    public void a(String str) {
-        c cVar = new c();
-        cVar.mSrc = str;
-        cVar.aUw = "SwanAdPlayer";
-        cVar.id = "SwanAdPlayer";
-        cVar.aUF = true;
-        cVar.aWA = this.c;
-        cVar.aWJ = false;
-        this.bwA.d(cVar);
-        this.bwA.bK(false);
+    public void U(String str) {
+        c ahB = ahB();
+        ahB.mSrc = str;
+        this.aWC.d(ahB);
+        this.aWC.cy(false);
     }
 
-    public void a(boolean z) {
-        if (this.bwA != null) {
-            this.c = z;
-            this.bwA.bJ(z);
+    public void cx(boolean z) {
+        if (this.aWC != null) {
+            this.mIsMute = z;
+            this.aWC.cx(z);
         }
     }
 
-    public boolean a() {
-        return this.c;
+    public boolean isMute() {
+        return this.mIsMute;
     }
 
     public a getPlayer() {
-        return this.bwA;
+        return this.aWC;
     }
 
-    private void b() {
-        b Ra = b.Ra();
-        if (Ra != null) {
-            this.bwA = new a(Ra.getActivity(), "SwanAdPlayer");
-            this.c = true;
-            this.bwA.bJ(this.c);
-            FrameLayout frameLayout = new FrameLayout(this.b);
+    private void initPlayer() {
+        e ZS = e.ZS();
+        if (ZS != null) {
+            this.aWC = new a(ZS.ZO(), ahB());
+            this.mIsMute = true;
+            this.aWC.cx(this.mIsMute);
+            FrameLayout frameLayout = new FrameLayout(this.mContext);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            this.bwA.b(frameLayout);
+            this.aWC.b(frameLayout);
         }
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         return true;
+    }
+
+    @NonNull
+    private c ahB() {
+        c cVar = new c();
+        cVar.bvC = "SwanAdPlayer";
+        cVar.bdh = "SwanAdPlayer";
+        cVar.bvK = true;
+        cVar.bzn = this.mIsMute;
+        cVar.bzw = false;
+        cVar.bzF = false;
+        return cVar;
     }
 }

@@ -1,5 +1,5 @@
 package android.support.v4.media;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class MediaBrowserProtocol {
     public static final int CLIENT_MSG_ADD_SUBSCRIPTION = 3;
     public static final int CLIENT_MSG_CONNECT = 1;
@@ -33,7 +33,8 @@ class MediaBrowserProtocol {
     public static final int SERVICE_MSG_ON_CONNECT_FAILED = 2;
     public static final int SERVICE_MSG_ON_LOAD_CHILDREN = 3;
     public static final int SERVICE_VERSION_1 = 1;
-    public static final int SERVICE_VERSION_CURRENT = 1;
+    public static final int SERVICE_VERSION_2 = 2;
+    public static final int SERVICE_VERSION_CURRENT = 2;
 
     MediaBrowserProtocol() {
     }

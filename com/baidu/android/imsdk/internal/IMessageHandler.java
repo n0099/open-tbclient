@@ -35,7 +35,7 @@ import javax.net.ssl.SSLHandshakeException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class IMessageHandler {
     protected static final int MAX_BODY_LENGTH = 1048576;
     public static final int MSG_ID_HERATBEAT = 101;

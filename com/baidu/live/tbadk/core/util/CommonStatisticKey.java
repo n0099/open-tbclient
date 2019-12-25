@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.util;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CommonStatisticKey {
     public static final String FACESHOP_FROM_MORE = "faceshop_from_more";
     public static final String FRS_VOICE_PLAY = "frs_voice_play";
@@ -39,7 +39,7 @@ public class CommonStatisticKey {
     public static final String USER_ICON_VISIT = "c10134";
     public static final String VIDEO_PLAY_STATE = "c11685";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Transmitthread {
         public static final String OBJ_TYPE_PB = "2";
         public static final String OBJ_TYPE_SOURCE_PB = "3";

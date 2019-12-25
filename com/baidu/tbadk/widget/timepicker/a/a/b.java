@@ -1,12 +1,12 @@
 package com.baidu.tbadk.widget.timepicker.a.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b implements com.baidu.tbadk.widget.timepicker.wheel.a.a {
-    private int cXt;
-    private int cXu;
+    private int maxValue;
+    private int minValue;
 
     public b(int i, int i2) {
-        this.cXt = i;
-        this.cXu = i2;
+        this.minValue = i;
+        this.maxValue = i2;
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.wheel.a.a
@@ -14,11 +14,11 @@ public class b implements com.baidu.tbadk.widget.timepicker.wheel.a.a {
         if (i < 0 || i >= getItemsCount()) {
             return 0;
         }
-        return Integer.valueOf(this.cXt + i);
+        return Integer.valueOf(this.minValue + i);
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.wheel.a.a
     public int getItemsCount() {
-        return (this.cXu - this.cXt) + 1;
+        return (this.maxValue - this.minValue) + 1;
     }
 }

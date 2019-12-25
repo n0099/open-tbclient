@@ -14,7 +14,7 @@ public class f extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.roundPx = com.baidu.adp.lib.g.b.toFloat(str, 0.0f);
+            this.roundPx = com.baidu.adp.lib.f.b.toFloat(str, 0.0f);
         }
     }
 
@@ -24,7 +24,7 @@ public class f extends b {
             return null;
         }
         if (this.roundPx > 0.0f) {
-            com.baidu.tbadk.imageManager.c.avs().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.aMZ().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
             return BitmapHelper.getRoundedCornerBitmap(bitmap, this.roundPx, z);
         }
         return bitmap;

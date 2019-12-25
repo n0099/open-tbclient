@@ -5,40 +5,40 @@ import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private final List<com.baidu.adp.widget.ListView.a> agy = new ArrayList();
-    private com.baidu.adp.base.e ceS;
-    private BdTypeMultiColumnListView dHO;
-    private e dHP;
-    private h dHQ;
+    private final List<com.baidu.adp.widget.ListView.a> aoz = new ArrayList();
+    private com.baidu.adp.base.e cRq;
+    private BdTypeMultiColumnListView ewa;
+    private e ewb;
+    private h ewc;
 
     public d(com.baidu.adp.base.e eVar, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
-        this.ceS = eVar;
-        this.dHO = bdTypeMultiColumnListView;
-        sY();
+        this.cRq = eVar;
+        this.ewa = bdTypeMultiColumnListView;
+        uR();
     }
 
-    private void sY() {
-        this.dHP = new e((TbPageContext) this.ceS, com.baidu.tieba.ala.frsgamelive.b.c.dHY);
-        this.dHQ = new h((TbPageContext) this.ceS, com.baidu.tieba.ala.frsgamelive.b.c.dHZ);
-        this.agy.add(this.dHP);
-        this.agy.add(this.dHQ);
-        this.dHO.addAdapters(this.agy);
+    private void uR() {
+        this.ewb = new e((TbPageContext) this.cRq, com.baidu.tieba.ala.frsgamelive.b.c.ewk);
+        this.ewc = new h((TbPageContext) this.cRq, com.baidu.tieba.ala.frsgamelive.b.c.ewl);
+        this.aoz.add(this.ewb);
+        this.aoz.add(this.ewc);
+        this.ewa.addAdapters(this.aoz);
     }
 
     public void setDatas(List<m> list) {
-        if (this.dHO != null) {
-            this.dHO.setData(list);
+        if (this.ewa != null) {
+            this.ewa.setData(list);
         }
     }
 
     public void b(com.baidu.tieba.ala.d dVar) {
-        if (this.dHP != null) {
-            this.dHP.a(dVar);
+        if (this.ewb != null) {
+            this.ewb.a(dVar);
         }
-        if (this.dHQ != null) {
-            this.dHQ.a(dVar);
+        if (this.ewc != null) {
+            this.ewc.a(dVar);
         }
     }
 }

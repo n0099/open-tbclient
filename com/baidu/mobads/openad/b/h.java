@@ -1,5 +1,5 @@
 package com.baidu.mobads.openad.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 class h {
     private int a;
     private int b;

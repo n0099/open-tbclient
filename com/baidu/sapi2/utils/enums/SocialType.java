@@ -1,7 +1,9 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes2.dex */
+
+import com.baidu.android.util.io.FileUtils;
+/* loaded from: classes4.dex */
 public enum SocialType {
-    UNKNOWN(0, "未知"),
+    UNKNOWN(0, FileUtils.UNKNOW),
     SINA_WEIBO_SSO(2, "新浪微博SSO"),
     QQ_SSO(15, "QQ_SSO"),
     WEIXIN(42, "微信"),

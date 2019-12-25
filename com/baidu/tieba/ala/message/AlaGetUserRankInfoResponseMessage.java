@@ -3,11 +3,11 @@ package com.baidu.tieba.ala.message;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.ala.data.c;
+import com.baidu.tieba.ala.data.g;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaGetUserRankInfoResponseMessage extends JsonHttpResponsedMessage {
-    public c esp;
+    public g fjp;
 
     public AlaGetUserRankInfoResponseMessage() {
         super(1021070);
@@ -17,15 +17,15 @@ public class AlaGetUserRankInfoResponseMessage extends JsonHttpResponsedMessage 
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0) {
-            this.esp = new c();
-            this.esp.user_nickname = jSONObject.optString("user_nickname");
-            this.esp.user_id = jSONObject.optLong("user_id");
-            this.esp.rank = jSONObject.optInt("rank");
-            this.esp.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.esp.Tx = jSONObject.optString(Config.EVENT_HEAT_POINT);
-            this.esp.dGk = jSONObject.optString("point_behind");
-            this.esp.user_name = jSONObject.optString("user_name");
-            this.esp.dGl = jSONObject.optString("rule_url");
+            this.fjp = new g();
+            this.fjp.user_nickname = jSONObject.optString("user_nickname");
+            this.fjp.user_id = jSONObject.optLong("user_id");
+            this.fjp.rank = jSONObject.optInt("rank");
+            this.fjp.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+            this.fjp.aao = jSONObject.optString(Config.EVENT_HEAT_POINT);
+            this.fjp.euo = jSONObject.optString("point_behind");
+            this.fjp.user_name = jSONObject.optString("user_name");
+            this.fjp.eup = jSONObject.optString("rule_url");
         }
     }
 }

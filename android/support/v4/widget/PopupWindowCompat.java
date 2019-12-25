@@ -1,6 +1,7 @@
 package android.support.v4.widget;
 
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
@@ -9,11 +10,11 @@ import android.view.View;
 import android.widget.PopupWindow;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class PopupWindowCompat {
     static final PopupWindowCompatBaseImpl IMPL;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class PopupWindowCompatBaseImpl {
         private static Method sGetWindowLayoutTypeMethod;
         private static boolean sGetWindowLayoutTypeMethodAttempted;
@@ -74,7 +75,7 @@ public final class PopupWindowCompat {
     }
 
     @RequiresApi(19)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class PopupWindowCompatApi19Impl extends PopupWindowCompatBaseImpl {
         PopupWindowCompatApi19Impl() {
         }
@@ -86,7 +87,7 @@ public final class PopupWindowCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class PopupWindowCompatApi21Impl extends PopupWindowCompatApi19Impl {
         private static final String TAG = "PopupWindowCompatApi21";
         private static Field sOverlapAnchorField;
@@ -128,7 +129,7 @@ public final class PopupWindowCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class PopupWindowCompatApi23Impl extends PopupWindowCompatApi21Impl {
         PopupWindowCompatApi23Impl() {
         }
@@ -169,23 +170,23 @@ public final class PopupWindowCompat {
     private PopupWindowCompat() {
     }
 
-    public static void showAsDropDown(PopupWindow popupWindow, View view, int i, int i2, int i3) {
+    public static void showAsDropDown(@NonNull PopupWindow popupWindow, @NonNull View view, int i, int i2, int i3) {
         IMPL.showAsDropDown(popupWindow, view, i, i2, i3);
     }
 
-    public static void setOverlapAnchor(PopupWindow popupWindow, boolean z) {
+    public static void setOverlapAnchor(@NonNull PopupWindow popupWindow, boolean z) {
         IMPL.setOverlapAnchor(popupWindow, z);
     }
 
-    public static boolean getOverlapAnchor(PopupWindow popupWindow) {
+    public static boolean getOverlapAnchor(@NonNull PopupWindow popupWindow) {
         return IMPL.getOverlapAnchor(popupWindow);
     }
 
-    public static void setWindowLayoutType(PopupWindow popupWindow, int i) {
+    public static void setWindowLayoutType(@NonNull PopupWindow popupWindow, int i) {
         IMPL.setWindowLayoutType(popupWindow, i);
     }
 
-    public static int getWindowLayoutType(PopupWindow popupWindow) {
+    public static int getWindowLayoutType(@NonNull PopupWindow popupWindow) {
         return IMPL.getWindowLayoutType(popupWindow);
     }
 }

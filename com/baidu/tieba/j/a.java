@@ -1,9 +1,7 @@
 package com.baidu.tieba.j;
-
-import com.baidu.android.imsdk.internal.DefaultConfig;
 /* loaded from: classes.dex */
 public class a {
-    public static String o(Throwable th) {
+    public static String r(Throwable th) {
         if (th == null) {
             return "";
         }
@@ -13,7 +11,7 @@ public class a {
             for (int i = 0; i < stackTrace.length; i++) {
                 StackTraceElement stackTraceElement = stackTrace[i];
                 if (stackTraceElement != null && i < 7) {
-                    sb.append(" ----> ").append(stackTraceElement.getClassName()).append(DefaultConfig.TOKEN_SEPARATOR).append(stackTraceElement.getMethodName()).append("()");
+                    sb.append(" ----> ").append(stackTraceElement.getClassName()).append(".").append(stackTraceElement.getMethodName()).append("()");
                 }
             }
         }

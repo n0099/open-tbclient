@@ -2,38 +2,43 @@ package com.baidu.tieba.personPolymeric;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private PersonPolymericFragment ipu;
+    private PersonPolymericFragment jhH;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_new_fragment_view);
-        this.ipu = new PersonPolymericFragment();
-        Bundle bundle2 = new Bundle();
-        bundle2.putBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE, true);
-        this.ipu.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.ipu).commit();
+        this.jhH = new PersonPolymericFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.jhH).commit();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        UtilHelper.changeStatusBarIconAndTextColor(false, this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.ipu != null) {
-            this.ipu.onChangeSkinType(i);
+        if (this.jhH != null) {
+            this.jhH.onChangeSkinType(i);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.o.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.m.a
     public String getCurrentPageKey() {
         return PageStayDurationConstants.PageName.PERSON;
     }
@@ -42,15 +47,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.ipu != null) {
-            this.ipu.onActivityResult(i, i2, intent);
+        if (this.jhH != null) {
+            this.jhH.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.ipu != null) {
-            return this.ipu.getVoiceManager();
+        if (this.jhH != null) {
+            return this.jhH.getVoiceManager();
         }
         return null;
     }
@@ -66,5 +71,20 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         if (!aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             TbadkCoreApplication.getInst().setTaskId("");
         }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i == 4) {
+            boolean z = false;
+            if (this.jhH != null) {
+                z = this.jhH.onBackPressed();
+            }
+            if (z) {
+                return true;
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+        return super.onKeyDown(i, keyEvent);
     }
 }

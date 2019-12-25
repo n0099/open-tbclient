@@ -3,50 +3,50 @@ package com.baidu.ubs.analytics.c;
 import android.app.Activity;
 import java.lang.ref.WeakReference;
 import java.util.Stack;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class d {
-    private Stack<WeakReference<Activity>> jXp;
+    private Stack<WeakReference<Activity>> kRM;
 
     /* synthetic */ d(byte b) {
         this();
     }
 
     private d() {
-        this.jXp = new Stack<>();
+        this.kRM = new Stack<>();
     }
 
-    public final Stack<WeakReference<Activity>> cBi() {
-        return this.jXp;
+    public final Stack<WeakReference<Activity>> cVa() {
+        return this.kRM;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(WeakReference<Activity> weakReference) {
-        this.jXp.add(weakReference);
+        this.kRM.add(weakReference);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(Activity activity) {
-        if (this.jXp != null) {
+        if (this.kRM != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.jXp.size()) {
+                if (i2 >= this.kRM.size()) {
                     break;
                 }
-                if (this.jXp.get(i2).get() == activity) {
-                    this.jXp.remove(this.jXp.get(i2));
+                if (this.kRM.get(i2).get() == activity) {
+                    this.kRM.remove(this.kRM.get(i2));
                 }
                 i = i2 + 1;
             }
         }
-        cBj();
+        cVb();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final String cBj() {
+    public final String cVb() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.jXp.size(); i++) {
-            Activity activity = this.jXp.get(i).get();
+        for (int i = 0; i < this.kRM.size(); i++) {
+            Activity activity = this.kRM.get(i).get();
             if (activity != null) {
                 sb.append(activity.getClass().getSimpleName());
                 sb.append("->");
@@ -56,8 +56,8 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a {
-        private static final d jXq = new d((byte) 0);
+        private static final d kRN = new d((byte) 0);
     }
 }

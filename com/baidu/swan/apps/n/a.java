@@ -1,76 +1,76 @@
 package com.baidu.swan.apps.n;
 
-import android.app.Activity;
-import android.content.Context;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.scheme.actions.z;
-import com.baidu.swan.apps.scheme.j;
+import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
+import com.baidu.swan.apps.performance.e;
+import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class a extends z {
-    private String aQt;
+/* loaded from: classes9.dex */
+public final class a {
+    private static final boolean DEBUG = b.DEBUG;
 
-    public a(j jVar) {
-        super(jVar, "/swan/getFormId");
+    public static void a(final com.baidu.swan.apps.core.container.a aVar, com.baidu.swan.apps.n.a.a aVar2) {
+        String format;
+        String r;
+        if (aVar != null && aVar2 != null) {
+            e.aJ("postMessage", "dispatchJSEvent start.");
+            if (aVar.isWebView()) {
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bpu);
+                r = "";
+            } else {
+                format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
+                r = r(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bpu);
+            }
+            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, r + aVar2.hr(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", b(aVar), NotificationCompat.CATEGORY_EVENT));
+            e.aJ("postMessage", "dispatchJSEvent buildEvent");
+            if (DEBUG) {
+                Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
+            }
+            if (aVar.isWebView()) {
+                ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.n.a.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        a.a(com.baidu.swan.apps.core.container.a.this, format2);
+                    }
+                });
+            } else {
+                a(aVar, format2);
+            }
+        }
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (bVar == null) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void a(com.baidu.swan.apps.core.container.a aVar, String str) {
+        if (aVar.isDestroyed()) {
             if (DEBUG) {
-                Log.e("GetFormIdAction", "swanApp is null");
+                Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str)));
+                return;
             }
-            c.e("GetFormIdAction", "swanApp is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-            return false;
+            return;
         }
-        JSONObject c = c(unitedSchemeEntity, "params");
-        if (c == null) {
-            if (DEBUG) {
-                Log.e("GetFormIdAction", "joParams is null");
-            }
-            c.e("GetFormIdAction", "joParams is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
-            return false;
+        aVar.evaluateJavascript(str, null);
+        e.aJ("postMessage", "dispatchJSEvent evaluateJavascript");
+    }
+
+    private static String b(com.baidu.swan.apps.core.container.a aVar) {
+        if (aVar.isWebView()) {
+            return "document";
         }
-        this.aQt = c.optString("cb");
-        if (TextUtils.isEmpty(this.aQt)) {
-            if (DEBUG) {
-                Log.e("GetFormIdAction", "mCallBack is null");
-            }
-            c.e("GetFormIdAction", "mCallBack is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty callback");
-            return false;
+        return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
+    }
+
+    public static String r(String str, String str2, String str3) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+            return "";
         }
-        String appKey = bVar.getAppKey();
-        if (TextUtils.isEmpty(appKey)) {
-            if (DEBUG) {
-                Log.e("GetFormIdAction", "appKey is null");
-            }
-            c.e("GetFormIdAction", "appKey is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty appkey");
-            return false;
-        } else if (!(context instanceof Activity)) {
-            if (DEBUG) {
-                Log.e("GetFormIdAction", "context is not instanceof Activity");
-            }
-            c.e("GetFormIdAction", "context is not instanceof Activity");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
-            return false;
-        } else {
-            com.baidu.swan.apps.u.a.JM().a(appKey, new b() { // from class: com.baidu.swan.apps.n.a.1
-                @Override // com.baidu.swan.apps.ad.a
-                public void onFail(String str) {
-                    callbackHandler.handleSchemeDispatchCallback(a.this.aQt, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
-                }
-            });
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
-        }
+        return String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, JSONObject.quote(str3));
+    }
+
+    public static String c(String str, String str2, JSONObject jSONObject) {
+        return (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || jSONObject == null) ? "" : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, jSONObject);
     }
 }

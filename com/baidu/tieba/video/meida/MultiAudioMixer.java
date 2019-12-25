@@ -6,27 +6,27 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class MultiAudioMixer {
-    private b jBR;
+    private b kvG;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void AV(int i);
+        void Dq(int i);
 
-        void G(byte[] bArr) throws IOException;
+        void T(byte[] bArr) throws IOException;
 
-        void cux();
+        void cOt();
     }
 
-    abstract byte[] b(byte[][] bArr);
+    abstract byte[] c(byte[][] bArr);
 
-    public static MultiAudioMixer cuw() {
+    public static MultiAudioMixer cOs() {
         return new a();
     }
 
     public void a(b bVar) {
-        this.jBR = bVar;
+        this.kvG = bVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[ARITH, INVOKE, ARITH, IF, INVOKE, MOVE_EXCEPTION, AGET, IF, ARRAY_LENGTH, INVOKE, MOVE_EXCEPTION] complete} */
@@ -45,8 +45,8 @@ public abstract class MultiAudioMixer {
                     fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (this.jBR != null) {
-                        this.jBR.AV(1);
+                    if (this.kvG != null) {
+                        this.kvG.Dq(1);
                     }
                     try {
                         int length2 = fileInputStreamArr.length;
@@ -88,9 +88,9 @@ public abstract class MultiAudioMixer {
                     bArr[i3] = Arrays.copyOf(bArr2, bArr2.length);
                 }
             }
-            byte[] b2 = b(bArr);
-            if (b2 != null && this.jBR != null) {
-                this.jBR.G(b2);
+            byte[] c = c(bArr);
+            if (c != null && this.kvG != null) {
+                this.kvG.T(c);
             }
             z = true;
             for (boolean z2 : zArr) {
@@ -99,12 +99,12 @@ public abstract class MultiAudioMixer {
                 }
             }
         } while (!z);
-        if (this.jBR != null) {
-            this.jBR.cux();
+        if (this.kvG != null) {
+            this.kvG.cOt();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class AudioMixException extends IOException {
         private static final long serialVersionUID = -1344782236320621800L;
 
@@ -113,13 +113,13 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     private static class a extends MultiAudioMixer {
         private a() {
         }
 
         @Override // com.baidu.tieba.video.meida.MultiAudioMixer
-        byte[] b(byte[][] bArr) {
+        byte[] c(byte[][] bArr) {
             if (bArr == null || bArr.length == 0) {
                 return null;
             }

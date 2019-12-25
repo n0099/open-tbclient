@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d extends com.baidu.mobads.vo.d {
     private Boolean a;
 

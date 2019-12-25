@@ -1,17 +1,112 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes2.dex */
-public class u {
-    public final int kgF;
-    public final int kgG;
-    public final int kgH;
-    public final int kgI;
-    public final int kgJ;
 
-    public u(int i, int i2, int i3, int i4, int i5) {
-        this.kgF = i;
-        this.kgG = i2;
-        this.kgH = i3;
-        this.kgI = i4;
-        this.kgJ = i5;
+import com.facebook.common.memory.PooledByteBuffer;
+import java.util.HashMap;
+import java.util.Map;
+import javax.annotation.concurrent.GuardedBy;
+/* loaded from: classes9.dex */
+public class u {
+    private static final Class<?> lCO = u.class;
+    @GuardedBy("this")
+    private Map<com.facebook.cache.common.b, com.facebook.imagepipeline.g.e> mMap = new HashMap();
+
+    private u() {
+    }
+
+    public static u dlN() {
+        return new u();
+    }
+
+    public synchronized void a(com.facebook.cache.common.b bVar, com.facebook.imagepipeline.g.e eVar) {
+        com.facebook.common.internal.g.checkNotNull(bVar);
+        com.facebook.common.internal.g.checkArgument(com.facebook.imagepipeline.g.e.f(eVar));
+        com.facebook.imagepipeline.g.e.e(this.mMap.put(bVar, com.facebook.imagepipeline.g.e.b(eVar)));
+        dlO();
+    }
+
+    public boolean s(com.facebook.cache.common.b bVar) {
+        com.facebook.imagepipeline.g.e remove;
+        com.facebook.common.internal.g.checkNotNull(bVar);
+        synchronized (this) {
+            remove = this.mMap.remove(bVar);
+        }
+        if (remove == null) {
+            return false;
+        }
+        try {
+            return remove.isValid();
+        } finally {
+            remove.close();
+        }
+    }
+
+    public synchronized boolean d(com.facebook.cache.common.b bVar, com.facebook.imagepipeline.g.e eVar) {
+        boolean z;
+        com.facebook.common.internal.g.checkNotNull(bVar);
+        com.facebook.common.internal.g.checkNotNull(eVar);
+        com.facebook.common.internal.g.checkArgument(com.facebook.imagepipeline.g.e.f(eVar));
+        com.facebook.imagepipeline.g.e eVar2 = this.mMap.get(bVar);
+        if (eVar2 == null) {
+            z = false;
+        } else {
+            com.facebook.common.references.a<PooledByteBuffer> doc = eVar2.doc();
+            com.facebook.common.references.a<PooledByteBuffer> doc2 = eVar.doc();
+            if (doc != null && doc2 != null && doc.get() == doc2.get()) {
+                this.mMap.remove(bVar);
+                com.facebook.common.references.a.c(doc2);
+                com.facebook.common.references.a.c(doc);
+                com.facebook.imagepipeline.g.e.e(eVar2);
+                dlO();
+                z = true;
+            } else {
+                com.facebook.common.references.a.c(doc2);
+                com.facebook.common.references.a.c(doc);
+                com.facebook.imagepipeline.g.e.e(eVar2);
+                z = false;
+            }
+        }
+        return z;
+    }
+
+    public synchronized com.facebook.imagepipeline.g.e t(com.facebook.cache.common.b bVar) {
+        com.facebook.imagepipeline.g.e eVar;
+        com.facebook.common.internal.g.checkNotNull(bVar);
+        eVar = this.mMap.get(bVar);
+        if (eVar != null) {
+            synchronized (eVar) {
+                if (!com.facebook.imagepipeline.g.e.f(eVar)) {
+                    this.mMap.remove(bVar);
+                    com.facebook.common.c.a.c(lCO, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(eVar)), bVar.dhC(), Integer.valueOf(System.identityHashCode(bVar)));
+                    eVar = null;
+                } else {
+                    eVar = com.facebook.imagepipeline.g.e.b(eVar);
+                }
+            }
+        }
+        return eVar;
+    }
+
+    public synchronized boolean u(com.facebook.cache.common.b bVar) {
+        boolean z;
+        com.facebook.common.internal.g.checkNotNull(bVar);
+        if (this.mMap.containsKey(bVar)) {
+            com.facebook.imagepipeline.g.e eVar = this.mMap.get(bVar);
+            synchronized (eVar) {
+                if (com.facebook.imagepipeline.g.e.f(eVar)) {
+                    z = true;
+                } else {
+                    this.mMap.remove(bVar);
+                    com.facebook.common.c.a.c(lCO, "Found closed reference %d for key %s (%d)", Integer.valueOf(System.identityHashCode(eVar)), bVar.dhC(), Integer.valueOf(System.identityHashCode(bVar)));
+                    z = false;
+                }
+            }
+        } else {
+            z = false;
+        }
+        return z;
+    }
+
+    private synchronized void dlO() {
+        com.facebook.common.c.a.a(lCO, "Count = %d", Integer.valueOf(this.mMap.size()));
     }
 }

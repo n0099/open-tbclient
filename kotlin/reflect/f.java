@@ -1,8 +1,8 @@
 package kotlin.reflect;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface f<R> extends j<R> {
 
-    /* loaded from: classes2.dex */
-    public interface a<R> extends e<kotlin.e> {
+    /* loaded from: classes4.dex */
+    public interface a<R> extends e<kotlin.g> {
     }
 }

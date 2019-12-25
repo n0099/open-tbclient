@@ -1,10 +1,11 @@
 package com.baidu.tieba.tbadkCore;
 
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class r {
-    private static boolean DG(String str) {
+    private static boolean Iv(String str) {
         String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.voice_black_frs_list);
         String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.forum);
         int length = stringArray.length;
@@ -16,9 +17,9 @@ public class r {
         return false;
     }
 
-    public static boolean b(String str, Boolean bool) {
-        if (com.baidu.adp.lib.b.d.ft().af("voice") == 0) {
-            if ((str == null || !DG(str)) && bool != null) {
+    public static boolean d(String str, Boolean bool) {
+        if (SwitchManager.getInstance().findType("voice") == 0) {
+            if ((str == null || !Iv(str)) && bool != null) {
                 return bool.booleanValue();
             }
             return false;

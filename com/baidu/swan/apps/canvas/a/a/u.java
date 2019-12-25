@@ -2,23 +2,23 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class u extends a {
-    private float aGi;
+    private float mRotateAngle;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 0) {
-            this.aGi = (float) jSONArray.optDouble(0);
-            this.aGi = (float) Math.toDegrees(this.aGi);
+            this.mRotateAngle = (float) jSONArray.optDouble(0);
+            this.mRotateAngle = (float) Math.toDegrees(this.mRotateAngle);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.CT() == 0) {
-            bVar.cN(canvas.save());
+        if (bVar.HD() == 0) {
+            bVar.dL(canvas.save());
         }
-        canvas.rotate(this.aGi);
+        canvas.rotate(this.mRotateAngle);
     }
 }

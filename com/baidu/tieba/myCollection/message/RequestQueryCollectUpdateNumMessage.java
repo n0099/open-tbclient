@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.QueryCollectUpdateNum.DataReq;
 import tbclient.QueryCollectUpdateNum.QueryCollectUpdateNumReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class RequestQueryCollectUpdateNumMessage extends TbSocketMessage {
     public RequestQueryCollectUpdateNumMessage() {
         super(CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM);

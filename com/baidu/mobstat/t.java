@@ -3,9 +3,10 @@ package com.baidu.mobstat;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.support.media.ExifInterface;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public enum t {
     SERVICE(1) { // from class: com.baidu.mobstat.t.1
         @Override // com.baidu.mobstat.t
@@ -57,7 +58,7 @@ public enum t {
                 a a = u.a(context);
                 ac acVar = new ac();
                 acVar.a = false;
-                acVar.b = "E";
+                acVar.b = ExifInterface.LONGITUDE_EAST;
                 acVar.c = false;
                 a.a(applicationContext, acVar.a());
             }

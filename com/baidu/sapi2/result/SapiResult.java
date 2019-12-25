@@ -2,7 +2,7 @@ package com.baidu.sapi2.result;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SapiResult {
     public static final int ERROR_CODE_METHOD_DEPRECATED = -206;
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
@@ -32,14 +32,14 @@ public class SapiResult {
     public SapiResult() {
         this.msgMap.put(0, "成功");
         this.msgMap.put(110000, "成功");
-        this.msgMap.put(-201, ERROR_MSG_NETWORK_UNAVAILABLE);
-        this.msgMap.put(-202, ERROR_MSG_UNKNOWN);
-        this.msgMap.put(-203, ERROR_MSG_SSL_PEER_UNVERIFIED);
-        this.msgMap.put(-204, ERROR_MSG_PARAMS_ERROR);
-        this.msgMap.put(-205, ERROR_MSG_SERVER_DATA_ERROR);
-        this.msgMap.put(-206, ERROR_MSG_METHOD_DEPRECATED);
-        this.msgMap.put(-301, ERROR_MSG_PROCESSED_END);
-        this.msgMap.put(ERROR_CODE_V2_SHARE_ACCOUNT_FAIL, ERROR_MSG_V2_SHARE_ACCOUNT_FAIL);
+        this.msgMap.put(-201, "网络连接不可用，请检查网络设置");
+        this.msgMap.put(-202, "网络连接失败，请检查网络设置");
+        this.msgMap.put(-203, "网站安全证书已过期或不可信，系统时间错误可能导致此问题");
+        this.msgMap.put(-204, "参数错误，请稍后再试");
+        this.msgMap.put(-205, "服务端数据异常，请稍后再试");
+        this.msgMap.put(-206, "接口已下线");
+        this.msgMap.put(-301, "您已取消操作");
+        this.msgMap.put(-207, "互通登录失败,请稍后再试");
     }
 
     public int getResultCode() {

@@ -5,51 +5,51 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class PersonGroupAdapter extends FragmentPagerAdapter {
-    public static int gNY = 1;
-    private int[] dJB;
-    private ArrayList<PersonalGroupFragment> gNZ;
+    public static int hCc = 1;
+    private int[] exP;
+    private ArrayList<PersonalGroupFragment> hCd;
 
     public PersonGroupAdapter(PersonGroupActivity personGroupActivity, boolean z) {
         super(personGroupActivity.getSupportFragmentManager());
-        this.gNZ = new ArrayList<>();
+        this.hCd = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
         personalGroupFragment.setArguments(bundle);
-        this.gNZ.add(personalGroupFragment);
+        this.hCd.add(personalGroupFragment);
         if (z) {
-            this.dJB = new int[]{0};
+            this.exP = new int[]{0};
         } else {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
             PersonalGroupFragment personalGroupFragment2 = new PersonalGroupFragment();
             personalGroupFragment2.setArguments(bundle2);
-            this.gNZ.add(personalGroupFragment2);
-            this.dJB = new int[]{0, 1};
+            this.hCd.add(personalGroupFragment2);
+            this.exP = new int[]{0, 1};
         }
-        gNY = this.dJB.length;
-        Iterator<PersonalGroupFragment> it = this.gNZ.iterator();
+        hCc = this.exP.length;
+        Iterator<PersonalGroupFragment> it = this.hCd.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt("page_size", this.gNZ.size());
+            it.next().getArguments().putInt("page_size", this.hCd.size());
         }
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= gNY || i < 0) {
+        if (i >= hCc || i < 0) {
             return null;
         }
-        return this.gNZ.get(i);
+        return this.hCd.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return gNY;
+        return hCc;
     }
 
-    public int uC(int i) {
-        return this.dJB[i];
+    public int wE(int i) {
+        return this.exP[i];
     }
 }

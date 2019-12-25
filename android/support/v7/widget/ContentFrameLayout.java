@@ -9,7 +9,8 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
-/* loaded from: classes2.dex */
+@RestrictTo({RestrictTo.Scope.LIBRARY})
+/* loaded from: classes4.dex */
 public class ContentFrameLayout extends FrameLayout {
     private OnAttachListener mAttachListener;
     private final Rect mDecorPadding;
@@ -20,7 +21,7 @@ public class ContentFrameLayout extends FrameLayout {
     private TypedValue mMinWidthMajor;
     private TypedValue mMinWidthMinor;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnAttachListener {
         void onAttachedFromWindow();
 

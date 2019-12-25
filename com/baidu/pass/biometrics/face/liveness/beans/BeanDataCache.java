@@ -2,7 +2,7 @@ package com.baidu.pass.biometrics.face.liveness.beans;
 
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BeanDataCache {
     private static BeanDataCache INSTANCE = null;
     public static final String KEY = "request_data";

@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.liveroom.turntable;
 
-import android.content.Context;
+import android.app.Activity;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.v4.graphics.ColorUtils;
@@ -11,78 +11,79 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.view.web.f;
-/* loaded from: classes6.dex */
+import com.baidu.webkit.internal.ETAG;
+/* loaded from: classes2.dex */
 public class e {
-    private CustomMessageListener dUi;
-    private d eol;
-    private PopupWindow.OnDismissListener eom;
-    private Context mContext;
+    private CustomMessageListener epv;
+    private PopupWindow.OnDismissListener epw;
+    private d feL;
+    private Activity mContext;
 
-    public e(Context context) {
-        this.mContext = context;
-        aNB();
+    public e(Activity activity) {
+        this.mContext = activity;
+        baU();
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.eol = new d(this.mContext);
-        this.eol.setOnDismissListener(this.eom);
-        this.eol.aNC().setBackgroundColor(tC(str));
+        this.feL = new d(this.mContext);
+        this.feL.setOnDismissListener(this.epw);
+        this.feL.baV().setBackgroundColor(xl(str));
         f fVar = new f();
-        fVar.az(this.mContext).a(this.eol).a(this.eol.aNC().getSchemeCallback());
-        com.baidu.live.view.web.a[] wP = fVar.wP();
-        for (com.baidu.live.view.web.a aVar : wP) {
-            this.eol.aNC().addJavascriptInterface(aVar, aVar.getName());
+        fVar.x(this.mContext).a(this.feL).a(this.feL.baV().getSchemeCallback());
+        com.baidu.live.view.web.a[] yO = fVar.yO();
+        for (com.baidu.live.view.web.a aVar : yO) {
+            this.feL.baV().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.eol.tD(b(str, j, j2, j3));
+        this.feL.show(b(str, j, j2, j3));
     }
 
     public void resume() {
-        if (this.eol != null && this.eol.isShowing() && this.eol.aNC() != null) {
-            this.eol.aNC().onResume();
+        if (this.feL != null && this.feL.isShowing() && this.feL.baV() != null) {
+            this.feL.baV().onResume();
         }
     }
 
     public void pause() {
-        if (this.eol != null && this.eol.isShowing() && this.eol.aNC() != null) {
-            this.eol.aNC().onPause();
+        if (this.feL != null && this.feL.isShowing() && this.feL.baV() != null) {
+            this.feL.baV().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.eol != null) {
-            this.eol.aND();
+        if (this.feL != null) {
+            this.feL.baW();
         }
     }
 
-    public void bw(int i) {
-        if (this.eol != null && this.eol.isShowing()) {
-            this.eol.bw(i);
+    public void bN(int i) {
+        if (this.feL != null && this.feL.isShowing()) {
+            this.feL.bN(i);
         }
     }
 
-    public void rt() {
+    public void th() {
         dismiss();
     }
 
     public void release() {
-        rt();
-        MessageManager.getInstance().unRegisterListener(this.dUi);
+        th();
+        MessageManager.getInstance().unRegisterListener(this.epv);
     }
 
-    private void aNB() {
-        this.dUi = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
+    private void baU() {
+        this.epv = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.eol != null && e.this.eol.isShowing()) {
-                    e.this.eol.dismiss();
+                if (e.this.feL != null && e.this.feL.isShowing()) {
+                    e.this.feL.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.dUi);
+        MessageManager.getInstance().registerListener(this.epv);
     }
 
-    private int tC(String str) {
+    private int xl(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -102,7 +103,7 @@ public class e {
     private String b(String str, long j, long j2, long j3) {
         StringBuilder sb = new StringBuilder(str);
         if (str.contains("?")) {
-            sb.append("&");
+            sb.append(ETAG.ITEM_SEPARATOR);
         } else {
             sb.append("?");
         }
@@ -120,10 +121,10 @@ public class e {
     }
 
     public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
-        this.eom = onDismissListener;
+        this.epw = onDismissListener;
     }
 
-    public PopupWindow.OnDismissListener aWg() {
-        return this.eom;
+    public PopupWindow.OnDismissListener bnU() {
+        return this.epw;
     }
 }

@@ -6,7 +6,7 @@ import com.xiaomi.push.be;
 import com.xiaomi.push.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
     public String clientInterfaceId;
     private String pkgName;
@@ -14,7 +14,7 @@ public class a {
     public int reportType;
     private String sdkVersion;
     private String os = be.a();
-    private String miuiVersion = l.m463a();
+    private String miuiVersion = l.m466a();
 
     public String getPackageName() {
         return this.pkgName;

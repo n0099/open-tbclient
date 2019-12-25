@@ -2,18 +2,18 @@ package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
-    private int ekG;
-    private String ekH;
-    private int ekI;
-    private int ekJ;
-    private String ekK;
+    private int faX;
+    private String faY;
+    private int faZ;
+    private int fba;
+    private String fbb;
 
     public MasterIdentityResponseMessage() {
         super(1021131);
-        this.ekI = 0;
-        this.ekJ = 0;
+        this.faZ = 0;
+        this.fba = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,24 +21,24 @@ public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getError() == 0) {
-                this.ekG = jSONObject.optInt("anchor_identity");
-                this.ekH = jSONObject.optString("anchor_proportion");
-                this.ekI = jSONObject.optInt("anchor_identity_status");
-                this.ekJ = jSONObject.optInt("anchor_proportion_status");
-                this.ekK = jSONObject.optString("anchor_text");
+                this.faX = jSONObject.optInt("anchor_identity");
+                this.faY = jSONObject.optString("anchor_proportion");
+                this.faZ = jSONObject.optInt("anchor_identity_status");
+                this.fba = jSONObject.optInt("anchor_proportion_status");
+                this.fbb = jSONObject.optString("anchor_text");
             }
         }
     }
 
-    public int aUG() {
-        return this.ekI;
+    public int bmx() {
+        return this.faZ;
     }
 
-    public int aUH() {
-        return this.ekJ;
+    public int bmy() {
+        return this.fba;
     }
 
-    public String aUI() {
-        return this.ekK;
+    public String bmz() {
+        return this.fbb;
     }
 }

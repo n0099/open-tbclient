@@ -2,10 +2,9 @@ package com.baidu.live.tbadk.ala;
 
 import com.baidu.live.tbadk.core.data.AlaInfoData;
 import com.baidu.live.tbadk.core.data.BaseData;
-import com.baidu.live.tbadk.log.LogConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveInfoCoreData extends BaseData implements Serializable {
     private static final long serialVersionUID = 5768965545624138312L;
     public String action;
@@ -44,7 +43,7 @@ public class AlaLiveInfoCoreData extends BaseData implements Serializable {
                 this.userInfo.parserJson(optJSONObject);
             }
             this.groupID = jSONObject.optLong("group_id");
-            this.sessionID = jSONObject.optString(LogConfig.LOG_SESSION_ID);
+            this.sessionID = jSONObject.optString("session_id");
             this.liveTitle = jSONObject.optString("description");
             this.liveCover = jSONObject.optString("cover");
             this.rtmpUrl = jSONObject.optString("rtmp_url");

@@ -1,18 +1,19 @@
 package rx.internal.producers;
 
+import com.google.android.exoplayer2.Format;
 import rx.f;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class a implements f {
-    static final f kBQ = new f() { // from class: rx.internal.producers.a.1
+    static final f nhp = new f() { // from class: rx.internal.producers.a.1
         @Override // rx.f
         public void request(long j) {
         }
     };
     boolean emitting;
-    f kBM;
-    long kBN;
-    long kBO;
-    f kBP;
+    f nhl;
+    long nhm;
+    long nhn;
+    f nho;
     long requested;
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -24,20 +25,20 @@ public final class a implements f {
         if (j != 0) {
             synchronized (this) {
                 if (this.emitting) {
-                    this.kBN += j;
+                    this.nhm += j;
                 } else {
                     this.emitting = true;
                     try {
                         long j2 = this.requested + j;
                         if (j2 < 0) {
-                            j2 = Long.MAX_VALUE;
+                            j2 = Format.OFFSET_SAMPLE_RELATIVE;
                         }
                         this.requested = j2;
-                        f fVar = this.kBM;
+                        f fVar = this.nhl;
                         if (fVar != null) {
                             fVar.request(j);
                         }
-                        cOG();
+                        emitLoop();
                     } catch (Throwable th) {
                         synchronized (this) {
                             this.emitting = false;
@@ -50,26 +51,26 @@ public final class a implements f {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void er(long j) {
+    public void produced(long j) {
         if (j <= 0) {
             throw new IllegalArgumentException("n > 0 required");
         }
         synchronized (this) {
             if (this.emitting) {
-                this.kBO += j;
+                this.nhn += j;
                 return;
             }
             this.emitting = true;
             try {
                 long j2 = this.requested;
-                if (j2 != Long.MAX_VALUE) {
+                if (j2 != Format.OFFSET_SAMPLE_RELATIVE) {
                     long j3 = j2 - j;
                     if (j3 < 0) {
                         throw new IllegalStateException("more items arrived than were requested");
                     }
                     this.requested = j3;
                 }
-                cOG();
+                emitLoop();
             } catch (Throwable th) {
                 synchronized (this) {
                     this.emitting = false;
@@ -84,18 +85,18 @@ public final class a implements f {
         synchronized (this) {
             if (this.emitting) {
                 if (fVar == null) {
-                    fVar = kBQ;
+                    fVar = nhp;
                 }
-                this.kBP = fVar;
+                this.nho = fVar;
                 return;
             }
             this.emitting = true;
             try {
-                this.kBM = fVar;
+                this.nhl = fVar;
                 if (fVar != null) {
                     fVar.request(this.requested);
                 }
-                cOG();
+                emitLoop();
             } catch (Throwable th) {
                 synchronized (this) {
                     this.emitting = false;
@@ -105,24 +106,24 @@ public final class a implements f {
         }
     }
 
-    public void cOG() {
+    public void emitLoop() {
         while (true) {
             synchronized (this) {
-                long j = this.kBN;
-                long j2 = this.kBO;
-                f fVar = this.kBP;
+                long j = this.nhm;
+                long j2 = this.nhn;
+                f fVar = this.nho;
                 if (j == 0 && j2 == 0 && fVar == null) {
                     this.emitting = false;
                     return;
                 }
-                this.kBN = 0L;
-                this.kBO = 0L;
-                this.kBP = null;
+                this.nhm = 0L;
+                this.nhn = 0L;
+                this.nho = null;
                 long j3 = this.requested;
-                if (j3 != Long.MAX_VALUE) {
+                if (j3 != Format.OFFSET_SAMPLE_RELATIVE) {
                     long j4 = j3 + j;
-                    if (j4 < 0 || j4 == Long.MAX_VALUE) {
-                        this.requested = Long.MAX_VALUE;
+                    if (j4 < 0 || j4 == Format.OFFSET_SAMPLE_RELATIVE) {
+                        this.requested = Format.OFFSET_SAMPLE_RELATIVE;
                         j3 = Long.MAX_VALUE;
                     } else {
                         j3 = j4 - j2;
@@ -133,14 +134,14 @@ public final class a implements f {
                     }
                 }
                 if (fVar != null) {
-                    if (fVar == kBQ) {
-                        this.kBM = null;
+                    if (fVar == nhp) {
+                        this.nhl = null;
                     } else {
-                        this.kBM = fVar;
+                        this.nhl = fVar;
                         fVar.request(j3);
                     }
                 } else {
-                    f fVar2 = this.kBM;
+                    f fVar2 = this.nhl;
                     if (fVar2 != null && j != 0) {
                         fVar2.request(j);
                     }

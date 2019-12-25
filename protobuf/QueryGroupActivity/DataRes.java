@@ -2,7 +2,7 @@ package protobuf.QueryGroupActivity;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class DataRes extends Message {
     public static final String DEFAULT_ACTIVITYPORTRAIT = "";
     public static final String DEFAULT_GACTIVITYAREA = "";
@@ -112,7 +112,7 @@ public final class DataRes extends Message {
         this.nameShow = builder.nameShow;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Integer activityId;
         public String activityPortrait;

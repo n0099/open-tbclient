@@ -5,11 +5,11 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
-import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.FloatRange;
+import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RawRes;
@@ -17,134 +17,158 @@ import android.support.annotation.VisibleForTesting;
 import android.support.v7.widget.AppCompatImageView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.SparseArray;
+import android.util.JsonReader;
+import android.util.Log;
 import android.view.View;
-import com.airbnb.lottie.e;
-import com.airbnb.lottie.j;
+import com.airbnb.lottie.p;
 import com.baidu.mapapi.map.WeightedLatLng;
-import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
+import java.io.StringReader;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+/* loaded from: classes4.dex */
 public class LottieAnimationView extends AppCompatImageView {
+    private static final String TAG = LottieAnimationView.class.getSimpleName();
     private String animationName;
     @RawRes
     private int animationResId;
     private boolean autoPlay;
-    private final h cF;
-    private final f cG;
-    private CacheStrategy cH;
     @Nullable
-    private a cI;
+    private e composition;
     @Nullable
-    private e cJ;
+    private m<e> compositionTask;
+    private final i<Throwable> failureListener;
+    private final i<e> loadedListener;
+    private final g lottieDrawable;
+    private Set<j> lottieOnCompositionLoadedListeners;
     private boolean useHardwareLayer;
     private boolean wasAnimatingWhenDetached;
-    private static final String TAG = LottieAnimationView.class.getSimpleName();
-    private static final SparseArray<e> RAW_RES_STRONG_REF_CACHE = new SparseArray<>();
-    private static final SparseArray<WeakReference<e>> RAW_RES_WEAK_REF_CACHE = new SparseArray<>();
-    private static final Map<String, e> ASSET_STRONG_REF_CACHE = new HashMap();
-    private static final Map<String, WeakReference<e>> ASSET_WEAK_REF_CACHE = new HashMap();
-
-    /* loaded from: classes2.dex */
-    public enum CacheStrategy {
-        None,
-        Weak,
-        Strong
-    }
 
     public LottieAnimationView(Context context) {
         super(context);
-        this.cF = new h() { // from class: com.airbnb.lottie.LottieAnimationView.1
-            @Override // com.airbnb.lottie.h
-            public void a(@Nullable e eVar) {
-                if (eVar != null) {
-                    LottieAnimationView.this.setComposition(eVar);
-                }
-                LottieAnimationView.this.cI = null;
+        this.loadedListener = new i<e>() { // from class: com.airbnb.lottie.LottieAnimationView.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.airbnb.lottie.i
+            /* renamed from: a */
+            public void onResult(e eVar) {
+                LottieAnimationView.this.setComposition(eVar);
             }
         };
-        this.cG = new f();
+        this.failureListener = new i<Throwable>() { // from class: com.airbnb.lottie.LottieAnimationView.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.airbnb.lottie.i
+            /* renamed from: g */
+            public void onResult(Throwable th) {
+                throw new IllegalStateException("Unable to parse composition", th);
+            }
+        };
+        this.lottieDrawable = new g();
         this.wasAnimatingWhenDetached = false;
         this.autoPlay = false;
         this.useHardwareLayer = false;
+        this.lottieOnCompositionLoadedListeners = new HashSet();
         init(null);
     }
 
     public LottieAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cF = new h() { // from class: com.airbnb.lottie.LottieAnimationView.1
-            @Override // com.airbnb.lottie.h
-            public void a(@Nullable e eVar) {
-                if (eVar != null) {
-                    LottieAnimationView.this.setComposition(eVar);
-                }
-                LottieAnimationView.this.cI = null;
+        this.loadedListener = new i<e>() { // from class: com.airbnb.lottie.LottieAnimationView.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.airbnb.lottie.i
+            /* renamed from: a */
+            public void onResult(e eVar) {
+                LottieAnimationView.this.setComposition(eVar);
             }
         };
-        this.cG = new f();
+        this.failureListener = new i<Throwable>() { // from class: com.airbnb.lottie.LottieAnimationView.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.airbnb.lottie.i
+            /* renamed from: g */
+            public void onResult(Throwable th) {
+                throw new IllegalStateException("Unable to parse composition", th);
+            }
+        };
+        this.lottieDrawable = new g();
         this.wasAnimatingWhenDetached = false;
         this.autoPlay = false;
         this.useHardwareLayer = false;
+        this.lottieOnCompositionLoadedListeners = new HashSet();
         init(attributeSet);
     }
 
     public LottieAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cF = new h() { // from class: com.airbnb.lottie.LottieAnimationView.1
-            @Override // com.airbnb.lottie.h
-            public void a(@Nullable e eVar) {
-                if (eVar != null) {
-                    LottieAnimationView.this.setComposition(eVar);
-                }
-                LottieAnimationView.this.cI = null;
+        this.loadedListener = new i<e>() { // from class: com.airbnb.lottie.LottieAnimationView.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.airbnb.lottie.i
+            /* renamed from: a */
+            public void onResult(e eVar) {
+                LottieAnimationView.this.setComposition(eVar);
             }
         };
-        this.cG = new f();
+        this.failureListener = new i<Throwable>() { // from class: com.airbnb.lottie.LottieAnimationView.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.airbnb.lottie.i
+            /* renamed from: g */
+            public void onResult(Throwable th) {
+                throw new IllegalStateException("Unable to parse composition", th);
+            }
+        };
+        this.lottieDrawable = new g();
         this.wasAnimatingWhenDetached = false;
         this.autoPlay = false;
         this.useHardwareLayer = false;
+        this.lottieOnCompositionLoadedListeners = new HashSet();
         init(attributeSet);
     }
 
     private void init(@Nullable AttributeSet attributeSet) {
         String string;
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, j.a.LottieAnimationView);
-        this.cH = CacheStrategy.values()[obtainStyledAttributes.getInt(j.a.LottieAnimationView_lottie_cacheStrategy, CacheStrategy.Weak.ordinal())];
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, p.a.LottieAnimationView);
         if (!isInEditMode()) {
-            boolean hasValue = obtainStyledAttributes.hasValue(j.a.LottieAnimationView_lottie_rawRes);
-            boolean hasValue2 = obtainStyledAttributes.hasValue(j.a.LottieAnimationView_lottie_fileName);
+            boolean hasValue = obtainStyledAttributes.hasValue(p.a.LottieAnimationView_lottie_rawRes);
+            boolean hasValue2 = obtainStyledAttributes.hasValue(p.a.LottieAnimationView_lottie_fileName);
+            boolean hasValue3 = obtainStyledAttributes.hasValue(p.a.LottieAnimationView_lottie_url);
             if (hasValue && hasValue2) {
-                throw new IllegalArgumentException("lottie_rawRes and lottie_fileName cannot be used at the same time. Please use use only one at once.");
+                throw new IllegalArgumentException("lottie_rawRes and lottie_fileName cannot be used at the same time. Please use only one at once.");
             }
             if (hasValue) {
-                int resourceId = obtainStyledAttributes.getResourceId(j.a.LottieAnimationView_lottie_rawRes, 0);
+                int resourceId = obtainStyledAttributes.getResourceId(p.a.LottieAnimationView_lottie_rawRes, 0);
                 if (resourceId != 0) {
                     setAnimation(resourceId);
                 }
-            } else if (hasValue2 && (string = obtainStyledAttributes.getString(j.a.LottieAnimationView_lottie_fileName)) != null) {
-                setAnimation(string);
+            } else if (hasValue2) {
+                String string2 = obtainStyledAttributes.getString(p.a.LottieAnimationView_lottie_fileName);
+                if (string2 != null) {
+                    setAnimation(string2);
+                }
+            } else if (hasValue3 && (string = obtainStyledAttributes.getString(p.a.LottieAnimationView_lottie_url)) != null) {
+                setAnimationFromUrl(string);
             }
         }
-        if (obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_autoPlay, false)) {
-            this.cG.playAnimation();
+        if (obtainStyledAttributes.getBoolean(p.a.LottieAnimationView_lottie_autoPlay, false)) {
+            this.wasAnimatingWhenDetached = true;
             this.autoPlay = true;
         }
-        this.cG.loop(obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_loop, false));
-        setImageAssetsFolder(obtainStyledAttributes.getString(j.a.LottieAnimationView_lottie_imageAssetsFolder));
-        setProgress(obtainStyledAttributes.getFloat(j.a.LottieAnimationView_lottie_progress, 0.0f));
-        enableMergePathsForKitKatAndAbove(obtainStyledAttributes.getBoolean(j.a.LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove, false));
-        if (obtainStyledAttributes.hasValue(j.a.LottieAnimationView_lottie_colorFilter)) {
-            addColorFilter(new k(obtainStyledAttributes.getColor(j.a.LottieAnimationView_lottie_colorFilter, 0)));
+        if (obtainStyledAttributes.getBoolean(p.a.LottieAnimationView_lottie_loop, false)) {
+            this.lottieDrawable.setRepeatCount(-1);
         }
-        if (obtainStyledAttributes.hasValue(j.a.LottieAnimationView_lottie_scale)) {
-            this.cG.setScale(obtainStyledAttributes.getFloat(j.a.LottieAnimationView_lottie_scale, 1.0f));
+        if (obtainStyledAttributes.hasValue(p.a.LottieAnimationView_lottie_repeatMode)) {
+            setRepeatMode(obtainStyledAttributes.getInt(p.a.LottieAnimationView_lottie_repeatMode, 1));
+        }
+        if (obtainStyledAttributes.hasValue(p.a.LottieAnimationView_lottie_repeatCount)) {
+            setRepeatCount(obtainStyledAttributes.getInt(p.a.LottieAnimationView_lottie_repeatCount, -1));
+        }
+        setImageAssetsFolder(obtainStyledAttributes.getString(p.a.LottieAnimationView_lottie_imageAssetsFolder));
+        setProgress(obtainStyledAttributes.getFloat(p.a.LottieAnimationView_lottie_progress, 0.0f));
+        enableMergePathsForKitKatAndAbove(obtainStyledAttributes.getBoolean(p.a.LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove, false));
+        if (obtainStyledAttributes.hasValue(p.a.LottieAnimationView_lottie_colorFilter)) {
+            addValueCallback(new com.airbnb.lottie.model.e("**"), (com.airbnb.lottie.model.e) k.fk, (com.airbnb.lottie.e.c<com.airbnb.lottie.model.e>) new com.airbnb.lottie.e.c(new q(obtainStyledAttributes.getColor(p.a.LottieAnimationView_lottie_colorFilter, 0))));
+        }
+        if (obtainStyledAttributes.hasValue(p.a.LottieAnimationView_lottie_scale)) {
+            this.lottieDrawable.setScale(obtainStyledAttributes.getFloat(p.a.LottieAnimationView_lottie_scale, 1.0f));
         }
         obtainStyledAttributes.recycle();
-        if (com.airbnb.lottie.c.f.Q(getContext()) == 0.0f) {
-            this.cG.bg();
-        }
         enableOrDisableHardwareLayer();
     }
 
@@ -157,7 +181,11 @@ public class LottieAnimationView extends AppCompatImageView {
 
     @Override // android.support.v7.widget.AppCompatImageView, android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
-        if (drawable != this.cG) {
+        setImageDrawable(drawable, true);
+    }
+
+    private void setImageDrawable(Drawable drawable, boolean z) {
+        if (z && drawable != this.lottieDrawable) {
             recycleBitmaps();
         }
         cancelLoaderTask();
@@ -171,14 +199,10 @@ public class LottieAnimationView extends AppCompatImageView {
         super.setImageBitmap(bitmap);
     }
 
-    public void addColorFilter(@Nullable ColorFilter colorFilter) {
-        this.cG.addColorFilter(colorFilter);
-    }
-
     @Override // android.widget.ImageView, android.view.View, android.graphics.drawable.Drawable.Callback
     public void invalidateDrawable(@NonNull Drawable drawable) {
-        if (getDrawable() == this.cG) {
-            super.invalidateDrawable(this.cG);
+        if (getDrawable() == this.lottieDrawable) {
+            super.invalidateDrawable(this.lottieDrawable);
         } else {
             super.invalidateDrawable(drawable);
         }
@@ -189,10 +213,11 @@ public class LottieAnimationView extends AppCompatImageView {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
         savedState.animationName = this.animationName;
         savedState.animationResId = this.animationResId;
-        savedState.progress = this.cG.getProgress();
-        savedState.cO = this.cG.isAnimating();
-        savedState.cP = this.cG.isLooping();
-        savedState.cQ = this.cG.getImageAssetsFolder();
+        savedState.progress = this.lottieDrawable.getProgress();
+        savedState.dS = this.lottieDrawable.isAnimating();
+        savedState.dT = this.lottieDrawable.getImageAssetsFolder();
+        savedState.dU = this.lottieDrawable.getRepeatMode();
+        savedState.repeatCount = this.lottieDrawable.getRepeatCount();
         return savedState;
     }
 
@@ -214,11 +239,12 @@ public class LottieAnimationView extends AppCompatImageView {
             setAnimation(this.animationResId);
         }
         setProgress(savedState.progress);
-        loop(savedState.cP);
-        if (savedState.cO) {
+        if (savedState.dS) {
             playAnimation();
         }
-        this.cG.G(savedState.cQ);
+        this.lottieDrawable.I(savedState.dT);
+        setRepeatMode(savedState.dU);
+        setRepeatCount(savedState.repeatCount);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -243,256 +269,344 @@ public class LottieAnimationView extends AppCompatImageView {
 
     @VisibleForTesting
     void recycleBitmaps() {
-        if (this.cG != null) {
-            this.cG.recycleBitmaps();
-        }
+        this.lottieDrawable.recycleBitmaps();
     }
 
     public void enableMergePathsForKitKatAndAbove(boolean z) {
-        this.cG.enableMergePathsForKitKatAndAbove(z);
+        this.lottieDrawable.enableMergePathsForKitKatAndAbove(z);
+    }
+
+    public boolean isMergePathsEnabledForKitKatAndAbove() {
+        return this.lottieDrawable.isMergePathsEnabledForKitKatAndAbove();
+    }
+
+    @Deprecated
+    public void useExperimentalHardwareAcceleration() {
+        useHardwareAcceleration(true);
+    }
+
+    @Deprecated
+    public void useExperimentalHardwareAcceleration(boolean z) {
+        useHardwareAcceleration(z);
+    }
+
+    public void useHardwareAcceleration() {
+        useHardwareAcceleration(true);
     }
 
     public void useHardwareAcceleration(boolean z) {
-        this.useHardwareLayer = z;
-        enableOrDisableHardwareLayer();
+        if (this.useHardwareLayer != z) {
+            this.useHardwareLayer = z;
+            enableOrDisableHardwareLayer();
+        }
+    }
+
+    public boolean getUseHardwareAcceleration() {
+        return this.useHardwareLayer;
     }
 
     public void setAnimation(@RawRes int i) {
-        setAnimation(i, this.cH);
-    }
-
-    public void setAnimation(@RawRes final int i, final CacheStrategy cacheStrategy) {
         this.animationResId = i;
         this.animationName = null;
-        if (RAW_RES_WEAK_REF_CACHE.indexOfKey(i) > 0) {
-            e eVar = RAW_RES_WEAK_REF_CACHE.get(i).get();
-            if (eVar != null) {
-                setComposition(eVar);
-                return;
-            }
-        } else if (RAW_RES_STRONG_REF_CACHE.indexOfKey(i) > 0) {
-            setComposition(RAW_RES_STRONG_REF_CACHE.get(i));
-            return;
-        }
-        this.cG.cancelAnimation();
-        cancelLoaderTask();
-        this.cI = e.a.a(getContext(), i, new h() { // from class: com.airbnb.lottie.LottieAnimationView.2
-            @Override // com.airbnb.lottie.h
-            public void a(e eVar2) {
-                if (cacheStrategy == CacheStrategy.Strong) {
-                    LottieAnimationView.RAW_RES_STRONG_REF_CACHE.put(i, eVar2);
-                } else if (cacheStrategy == CacheStrategy.Weak) {
-                    LottieAnimationView.RAW_RES_WEAK_REF_CACHE.put(i, new WeakReference(eVar2));
-                }
-                LottieAnimationView.this.setComposition(eVar2);
-            }
-        });
+        setCompositionTask(f.d(getContext(), i));
     }
 
     public void setAnimation(String str) {
-        setAnimation(str, this.cH);
-    }
-
-    public void setAnimation(final String str, final CacheStrategy cacheStrategy) {
         this.animationName = str;
         this.animationResId = 0;
-        if (ASSET_WEAK_REF_CACHE.containsKey(str)) {
-            e eVar = ASSET_WEAK_REF_CACHE.get(str).get();
-            if (eVar != null) {
-                setComposition(eVar);
-                return;
-            }
-        } else if (ASSET_STRONG_REF_CACHE.containsKey(str)) {
-            setComposition(ASSET_STRONG_REF_CACHE.get(str));
-            return;
-        }
-        this.cG.cancelAnimation();
-        cancelLoaderTask();
-        this.cI = e.a.a(getContext(), str, new h() { // from class: com.airbnb.lottie.LottieAnimationView.3
-            @Override // com.airbnb.lottie.h
-            public void a(e eVar2) {
-                if (cacheStrategy == CacheStrategy.Strong) {
-                    LottieAnimationView.ASSET_STRONG_REF_CACHE.put(str, eVar2);
-                } else if (cacheStrategy == CacheStrategy.Weak) {
-                    LottieAnimationView.ASSET_WEAK_REF_CACHE.put(str, new WeakReference(eVar2));
-                }
-                LottieAnimationView.this.setComposition(eVar2);
-            }
-        });
+        setCompositionTask(f.F(getContext(), str));
     }
 
-    public void setAnimation(JSONObject jSONObject) {
+    @Deprecated
+    public void setAnimationFromJson(String str) {
+        setAnimationFromJson(str, null);
+    }
+
+    public void setAnimationFromJson(String str, @Nullable String str2) {
+        setAnimation(new JsonReader(new StringReader(str)), str2);
+    }
+
+    public void setAnimation(JsonReader jsonReader, @Nullable String str) {
+        setCompositionTask(f.a(jsonReader, str));
+    }
+
+    public void setAnimationFromUrl(String str) {
+        setCompositionTask(f.E(getContext(), str));
+    }
+
+    private void setCompositionTask(m<e> mVar) {
+        clearComposition();
         cancelLoaderTask();
-        this.cI = e.a.a(getResources(), jSONObject, this.cF);
+        this.compositionTask = mVar.a(this.loadedListener).c(this.failureListener);
     }
 
     private void cancelLoaderTask() {
-        if (this.cI != null) {
-            this.cI.cancel();
-            this.cI = null;
+        if (this.compositionTask != null) {
+            this.compositionTask.b(this.loadedListener);
+            this.compositionTask.d(this.failureListener);
         }
     }
 
     public void setComposition(@NonNull e eVar) {
-        this.cG.setCallback(this);
-        boolean h = this.cG.h(eVar);
+        if (d.DBG) {
+            Log.v(TAG, "Set Composition \n" + eVar);
+        }
+        this.lottieDrawable.setCallback(this);
+        this.composition = eVar;
+        boolean b = this.lottieDrawable.b(eVar);
         enableOrDisableHardwareLayer();
-        if (h) {
+        if (getDrawable() != this.lottieDrawable || b) {
             setImageDrawable(null);
-            setImageDrawable(this.cG);
-            this.cJ = eVar;
+            setImageDrawable(this.lottieDrawable);
             requestLayout();
+            for (j jVar : this.lottieOnCompositionLoadedListeners) {
+                jVar.onCompositionLoaded(eVar);
+            }
         }
     }
 
+    @Nullable
+    public e getComposition() {
+        return this.composition;
+    }
+
+    public boolean hasMasks() {
+        return this.lottieDrawable.hasMasks();
+    }
+
+    public boolean hasMatte() {
+        return this.lottieDrawable.hasMatte();
+    }
+
+    @MainThread
     public void playAnimation() {
-        this.cG.playAnimation();
+        this.lottieDrawable.playAnimation();
         enableOrDisableHardwareLayer();
     }
 
+    @MainThread
     public void resumeAnimation() {
-        this.cG.resumeAnimation();
+        this.lottieDrawable.resumeAnimation();
         enableOrDisableHardwareLayer();
     }
 
     public void setMinFrame(int i) {
-        this.cG.setMinFrame(i);
+        this.lottieDrawable.setMinFrame(i);
+    }
+
+    public float getMinFrame() {
+        return this.lottieDrawable.getMinFrame();
     }
 
     public void setMinProgress(float f) {
-        this.cG.setMinProgress(f);
+        this.lottieDrawable.setMinProgress(f);
     }
 
     public void setMaxFrame(int i) {
-        this.cG.setMaxFrame(i);
+        this.lottieDrawable.setMaxFrame(i);
+    }
+
+    public float getMaxFrame() {
+        return this.lottieDrawable.getMaxFrame();
     }
 
     public void setMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        this.cG.setMaxProgress(f);
+        this.lottieDrawable.setMaxProgress(f);
     }
 
     public void setMinAndMaxFrame(int i, int i2) {
-        this.cG.setMinAndMaxFrame(i, i2);
+        this.lottieDrawable.setMinAndMaxFrame(i, i2);
     }
 
     public void setMinAndMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.cG.setMinAndMaxProgress(f, f2);
+        this.lottieDrawable.setMinAndMaxProgress(f, f2);
+    }
+
+    public void reverseAnimationSpeed() {
+        this.lottieDrawable.reverseAnimationSpeed();
     }
 
     public void setSpeed(float f) {
-        this.cG.setSpeed(f);
+        this.lottieDrawable.setSpeed(f);
     }
 
     public float getSpeed() {
-        return this.cG.getSpeed();
+        return this.lottieDrawable.getSpeed();
     }
 
     public void addAnimatorUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.cG.addAnimatorUpdateListener(animatorUpdateListener);
+        this.lottieDrawable.addAnimatorUpdateListener(animatorUpdateListener);
     }
 
     public void removeUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.cG.a(animatorUpdateListener);
+        this.lottieDrawable.a(animatorUpdateListener);
+    }
+
+    public void removeAllUpdateListeners() {
+        this.lottieDrawable.removeAllUpdateListeners();
     }
 
     public void addAnimatorListener(Animator.AnimatorListener animatorListener) {
-        this.cG.addAnimatorListener(animatorListener);
+        this.lottieDrawable.addAnimatorListener(animatorListener);
     }
 
     public void removeAnimatorListener(Animator.AnimatorListener animatorListener) {
-        this.cG.removeAnimatorListener(animatorListener);
+        this.lottieDrawable.removeAnimatorListener(animatorListener);
     }
 
+    public void removeAllAnimatorListeners() {
+        this.lottieDrawable.removeAllAnimatorListeners();
+    }
+
+    @Deprecated
     public void loop(boolean z) {
-        this.cG.loop(z);
+        this.lottieDrawable.setRepeatCount(z ? -1 : 0);
+    }
+
+    public void setRepeatMode(int i) {
+        this.lottieDrawable.setRepeatMode(i);
+    }
+
+    public int getRepeatMode() {
+        return this.lottieDrawable.getRepeatMode();
+    }
+
+    public void setRepeatCount(int i) {
+        this.lottieDrawable.setRepeatCount(i);
+    }
+
+    public int getRepeatCount() {
+        return this.lottieDrawable.getRepeatCount();
     }
 
     public boolean isAnimating() {
-        return this.cG.isAnimating();
+        return this.lottieDrawable.isAnimating();
     }
 
     public void setImageAssetsFolder(String str) {
-        this.cG.G(str);
+        this.lottieDrawable.I(str);
     }
 
     @Nullable
     public String getImageAssetsFolder() {
-        return this.cG.getImageAssetsFolder();
+        return this.lottieDrawable.getImageAssetsFolder();
+    }
+
+    @Nullable
+    public Bitmap updateBitmap(String str, @Nullable Bitmap bitmap) {
+        return this.lottieDrawable.updateBitmap(str, bitmap);
     }
 
     public void setImageAssetDelegate(c cVar) {
-        this.cG.setImageAssetDelegate(cVar);
+        this.lottieDrawable.setImageAssetDelegate(cVar);
     }
 
     public void setFontAssetDelegate(b bVar) {
-        this.cG.setFontAssetDelegate(bVar);
+        this.lottieDrawable.setFontAssetDelegate(bVar);
     }
 
-    public void setTextDelegate(l lVar) {
-        this.cG.setTextDelegate(lVar);
+    public void setTextDelegate(r rVar) {
+        this.lottieDrawable.setTextDelegate(rVar);
+    }
+
+    public List<com.airbnb.lottie.model.e> resolveKeyPath(com.airbnb.lottie.model.e eVar) {
+        return this.lottieDrawable.resolveKeyPath(eVar);
+    }
+
+    public <T> void addValueCallback(com.airbnb.lottie.model.e eVar, T t, com.airbnb.lottie.e.c<T> cVar) {
+        this.lottieDrawable.addValueCallback(eVar, (com.airbnb.lottie.model.e) t, (com.airbnb.lottie.e.c<com.airbnb.lottie.model.e>) cVar);
+    }
+
+    public <T> void addValueCallback(com.airbnb.lottie.model.e eVar, T t, final com.airbnb.lottie.e.e<T> eVar2) {
+        this.lottieDrawable.addValueCallback(eVar, (com.airbnb.lottie.model.e) t, (com.airbnb.lottie.e.c<com.airbnb.lottie.model.e>) new com.airbnb.lottie.e.c<T>() { // from class: com.airbnb.lottie.LottieAnimationView.3
+            /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
+            @Override // com.airbnb.lottie.e.c
+            public T getValue(com.airbnb.lottie.e.b<T> bVar) {
+                return eVar2.getValue(bVar);
+            }
+        });
     }
 
     public void setScale(float f) {
-        this.cG.setScale(f);
-        if (getDrawable() == this.cG) {
-            setImageDrawable(null);
-            setImageDrawable(this.cG);
+        this.lottieDrawable.setScale(f);
+        if (getDrawable() == this.lottieDrawable) {
+            setImageDrawable(null, false);
+            setImageDrawable(this.lottieDrawable, false);
         }
     }
 
     public float getScale() {
-        return this.cG.getScale();
+        return this.lottieDrawable.getScale();
     }
 
+    @MainThread
     public void cancelAnimation() {
-        this.cG.cancelAnimation();
+        this.lottieDrawable.cancelAnimation();
         enableOrDisableHardwareLayer();
     }
 
+    @MainThread
     public void pauseAnimation() {
-        this.cG.pauseAnimation();
+        this.lottieDrawable.pauseAnimation();
         enableOrDisableHardwareLayer();
     }
 
     public void setFrame(int i) {
-        this.cG.setFrame(i);
+        this.lottieDrawable.setFrame(i);
     }
 
     public int getFrame() {
-        return this.cG.getFrame();
+        return this.lottieDrawable.getFrame();
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        this.cG.setProgress(f);
+        this.lottieDrawable.setProgress(f);
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getProgress() {
-        return this.cG.getProgress();
+        return this.lottieDrawable.getProgress();
     }
 
     public long getDuration() {
-        if (this.cJ != null) {
-            return this.cJ.getDuration();
+        if (this.composition != null) {
+            return this.composition.bf();
         }
         return 0L;
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.cG.setPerformanceTrackingEnabled(z);
+        this.lottieDrawable.setPerformanceTrackingEnabled(z);
     }
 
     @Nullable
-    public i getPerformanceTracker() {
-        return this.cG.getPerformanceTracker();
+    public o getPerformanceTracker() {
+        return this.lottieDrawable.getPerformanceTracker();
+    }
+
+    private void clearComposition() {
+        this.composition = null;
+        this.lottieDrawable.clearComposition();
     }
 
     private void enableOrDisableHardwareLayer() {
-        setLayerType(this.useHardwareLayer && this.cG.isAnimating() ? 2 : 1, null);
+        setLayerType(this.useHardwareLayer && this.lottieDrawable.isAnimating() ? 2 : 1, null);
+    }
+
+    public boolean addLottieOnCompositionLoadedListener(@NonNull j jVar) {
+        return this.lottieOnCompositionLoadedListeners.add(jVar);
+    }
+
+    public boolean removeLottieOnCompositionLoadedListener(@NonNull j jVar) {
+        return this.lottieOnCompositionLoadedListeners.remove(jVar);
+    }
+
+    public void removeAllLottieOnCompositionLoadedListener() {
+        this.lottieOnCompositionLoadedListeners.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.airbnb.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -511,10 +625,11 @@ public class LottieAnimationView extends AppCompatImageView {
         };
         String animationName;
         int animationResId;
-        boolean cO;
-        boolean cP;
-        String cQ;
+        boolean dS;
+        String dT;
+        int dU;
         float progress;
+        int repeatCount;
 
         SavedState(Parcelable parcelable) {
             super(parcelable);
@@ -524,9 +639,10 @@ public class LottieAnimationView extends AppCompatImageView {
             super(parcel);
             this.animationName = parcel.readString();
             this.progress = parcel.readFloat();
-            this.cO = parcel.readInt() == 1;
-            this.cP = parcel.readInt() == 1;
-            this.cQ = parcel.readString();
+            this.dS = parcel.readInt() == 1;
+            this.dT = parcel.readString();
+            this.dU = parcel.readInt();
+            this.repeatCount = parcel.readInt();
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
@@ -534,9 +650,10 @@ public class LottieAnimationView extends AppCompatImageView {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.animationName);
             parcel.writeFloat(this.progress);
-            parcel.writeInt(this.cO ? 1 : 0);
-            parcel.writeInt(this.cP ? 1 : 0);
-            parcel.writeString(this.cQ);
+            parcel.writeInt(this.dS ? 1 : 0);
+            parcel.writeString(this.dT);
+            parcel.writeInt(this.dU);
+            parcel.writeInt(this.repeatCount);
         }
     }
 }

@@ -2,31 +2,35 @@ package com.baidu.swan.pms;
 
 import com.baidu.searchbox.http.cookie.CookieManager;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface b {
-    boolean A(String str, int i);
+    String Sf();
 
-    String JR();
+    String Sg();
 
-    String JS();
+    String Sh();
 
-    String JT();
+    String Si();
 
-    String JU();
+    String Sj();
 
-    String JV();
+    String Sk();
 
-    String JW();
+    String Sl();
 
-    String JX();
+    String Sm();
 
-    String JY();
+    String Sn();
 
-    String JZ();
+    CookieManager So();
 
-    CookieManager Ka();
+    String Sp();
 
     void a(String str, String str2, String str3, int i, JSONObject jSONObject);
+
+    String getProcessName();
+
+    String getUUID();
 
     boolean isDebug();
 }

@@ -7,7 +7,6 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.synchronization.DisplayOptions;
 import com.baidu.mapapi.synchronization.RoleOptions;
@@ -407,7 +406,7 @@ public final class g {
 
     private void b(JSONObject jSONObject, SyncResponseResult syncResponseResult) {
         syncResponseResult.a().a(jSONObject.optInt("c") != 0);
-        this.f = jSONObject.optString(BdStatsConstant.StatsKey.FROM);
+        this.f = jSONObject.optString("f");
         syncResponseResult.a().a(this.f);
         String optString = jSONObject.optString("d");
         if (TextUtils.isEmpty(optString)) {
@@ -440,7 +439,7 @@ public final class g {
 
     private void c(JSONObject jSONObject, SyncResponseResult syncResponseResult) {
         syncResponseResult.b().a(jSONObject.optInt("c") != 0);
-        this.g = jSONObject.optString(BdStatsConstant.StatsKey.FROM);
+        this.g = jSONObject.optString("f");
         syncResponseResult.b().a(this.g);
         String optString = jSONObject.optString("d");
         if (TextUtils.isEmpty(optString)) {

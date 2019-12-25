@@ -1,14 +1,14 @@
 package com.baidu.tieba.recapp;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.tbadkCore.d.a;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface o {
-    com.baidu.adp.widget.ListView.a<?, ?> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
+    com.baidu.adp.widget.ListView.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
     com.baidu.adp.widget.ListView.a<?, ?> a(n nVar, BdUniqueId bdUniqueId);
 
@@ -16,17 +16,17 @@ public interface o {
 
     com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 
-    j cfD();
+    j czI();
 
-    l cfE();
+    l czJ();
 
-    com.baidu.tieba.p.a cfF();
+    com.baidu.tieba.q.a czK();
 
-    h cfG();
+    h czL();
 
-    List<AppData> cfH();
+    List<AppData> czM();
 
-    void cfI();
+    void czN();
 
     void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4);
 }

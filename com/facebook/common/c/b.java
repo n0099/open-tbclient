@@ -3,14 +3,14 @@ package com.facebook.common.c;
 import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class b implements c {
-    public static final b kah = new b();
-    private String kai = "unknown";
-    private int kaj = 5;
+    public static final b lEi = new b();
+    private String lEj = "unknown";
+    private int lEk = 5;
 
-    public static b cCK() {
-        return kah;
+    public static b dit() {
+        return lEi;
     }
 
     private b() {
@@ -18,37 +18,32 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.kaj <= i;
+        return this.lEk <= i;
     }
 
     @Override // com.facebook.common.c.c
     public void v(String str, String str2) {
-        r(2, str, str2);
+        p(2, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void d(String str, String str2) {
-        r(3, str, str2);
-    }
-
-    @Override // com.facebook.common.c.c
-    public void i(String str, String str2) {
-        r(4, str, str2);
+        p(3, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void w(String str, String str2) {
-        r(5, str, str2);
+        p(5, str, str2);
     }
 
     @Override // com.facebook.common.c.c
-    public void c(String str, String str2, Throwable th) {
+    public void f(String str, String str2, Throwable th) {
         b(5, str, str2, th);
     }
 
     @Override // com.facebook.common.c.c
     public void e(String str, String str2) {
-        r(6, str, str2);
+        p(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -57,31 +52,31 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void em(String str, String str2) {
-        r(6, str, str2);
+    public void fa(String str, String str2) {
+        p(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
-    public void f(String str, String str2, Throwable th) {
+    public void g(String str, String str2, Throwable th) {
         b(6, str, str2, th);
     }
 
-    private void r(int i, String str, String str2) {
-        Log.println(i, Gx(str), str2);
+    private void p(int i, String str, String str2) {
+        Log.println(i, Os(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, Gx(str), j(str2, th));
+        Log.println(i, Os(str), g(str2, th));
     }
 
-    private String Gx(String str) {
-        if (this.kai != null) {
-            return this.kai + ":" + str;
+    private String Os(String str) {
+        if (this.lEj != null) {
+            return this.lEj + ":" + str;
         }
         return str;
     }
 
-    private static String j(String str, Throwable th) {
+    private static String g(String str, Throwable th) {
         return str + '\n' + getStackTraceString(th);
     }
 

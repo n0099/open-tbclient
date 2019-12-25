@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.webkit.internal.ETAG;
 import com.google.zxing.Result;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -7,14 +8,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class ResultParser {
     private static final String BYTE_ORDER_MARK = "\ufeff";
     private static final ResultParser[] PARSERS = {new BookmarkDoCoMoResultParser(), new AddressBookDoCoMoResultParser(), new EmailDoCoMoResultParser(), new AddressBookAUResultParser(), new VCardResultParser(), new BizcardResultParser(), new VEventResultParser(), new EmailAddressResultParser(), new SMTPResultParser(), new TelResultParser(), new SMSMMSResultParser(), new SMSTOMMSTOResultParser(), new GeoResultParser(), new WifiResultParser(), new URLTOResultParser(), new URIResultParser(), new ISBNResultParser(), new ProductResultParser(), new ExpandedProductResultParser(), new VINResultParser()};
     private static final Pattern DIGITS = Pattern.compile("\\d+");
-    private static final Pattern AMPERSAND = Pattern.compile("&");
-    private static final Pattern EQUALS = Pattern.compile("=");
+    private static final Pattern AMPERSAND = Pattern.compile(ETAG.ITEM_SEPARATOR);
+    private static final Pattern EQUALS = Pattern.compile(ETAG.EQUAL);
 
     public abstract ParsedResult parse(Result result);
 
@@ -134,7 +134,7 @@ public abstract class ResultParser {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String urlDecode(String str) {
         try {
-            return URLDecoder.decode(str, HTTP.UTF_8);
+            return URLDecoder.decode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new IllegalStateException(e);
         }

@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
@@ -10,10 +11,13 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class SelectForumActivityConfig extends IntentConfig {
+    public static final String EXTRA_KEY_BAIJIAHAO_DATA = "extra_key_baijiahao_data";
     public static final String EXTRA_KEY_FROM = "extra_key_from";
     public static final String EXTRA_KEY_LIVE_ID = "extra_key_live_id";
     public static final String EXTRA_KEY_ORIGINAL_THREAD = "extra_key_original_thread";
     public static final String EXTRA_KEY_PRIVATE_THREAD = "extra_key_private_thread";
+    public static final String EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT = "extra_key_transmit_origin_thread_content";
+    public static final String EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW = "extra_key_transmit_thread_author_name_show";
     public static final int FROM_ALA_SHARE = 1;
     public static final int FROM_FORUM_SHARE = 4;
     public static final int FROM_SHARE_SDK = 3;
@@ -59,9 +63,27 @@ public class SelectForumActivityConfig extends IntentConfig {
         }
     }
 
-    public void setOriginalThread(OriginalThreadInfo originalThreadInfo) {
+    public void setOriginalThread(OriginalThreadInfo.ShareInfo shareInfo) {
         if (getIntent() != null) {
-            getIntent().putExtra(EXTRA_KEY_ORIGINAL_THREAD, originalThreadInfo);
+            getIntent().putExtra(EXTRA_KEY_ORIGINAL_THREAD, shareInfo);
+        }
+    }
+
+    public void setTransmitOriginThreadComment(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra(EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT, str);
+        }
+    }
+
+    public void setBaijiahaoData(BaijiahaoData baijiahaoData) {
+        if (getIntent() != null) {
+            getIntent().putExtra(EXTRA_KEY_BAIJIAHAO_DATA, baijiahaoData);
+        }
+    }
+
+    public void setTransmitThreadAuthorNameShow(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra(EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);
         }
     }
 

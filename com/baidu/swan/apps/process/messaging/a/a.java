@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
 import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
-/* loaded from: classes2.dex */
+import com.baidu.swan.apps.process.messaging.c;
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
 
-    public static void l(Message message) {
+    public static void n(Message message) {
         Bundle bundle;
         String str;
         String str2;
@@ -24,14 +24,14 @@ public class a {
             str2 = bundle2.getString("ai_apps_observer_id", "");
             bundle = bundle2.getBundle("ai_apps_data");
         }
-        com.baidu.swan.apps.process.b.a.b.a(-1000, str, str2, bundle);
+        com.baidu.swan.apps.process.a.a.b.a(-1000, str, str2, bundle);
     }
 
-    public static void v(Bundle bundle) {
-        com.baidu.swan.apps.process.messaging.client.a.Oq().e(300, bundle);
+    public static void I(Bundle bundle) {
+        com.baidu.swan.apps.process.messaging.a.XY().a(new c(300, bundle));
     }
 
-    public static void m(Message message) {
+    public static void o(Message message) {
         if (!(message.obj instanceof Bundle)) {
             if (DEBUG) {
                 throw new RuntimeException("delegation msg obj is not a bundle");
@@ -39,12 +39,12 @@ public class a {
             return;
         }
         Bundle bundle = (Bundle) message.obj;
-        com.baidu.swan.apps.process.b.b.a.b bVar = new com.baidu.swan.apps.process.b.b.a.b(bundle.getString("key_observer_id", ""));
-        bVar.i(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.b.b.b.a.On().a(bVar);
+        com.baidu.swan.apps.process.a.b.a.b bVar = new com.baidu.swan.apps.process.a.b.a.b(bundle.getString("key_observer_id", ""));
+        bVar.l(bundle.getBundle("key_result_data"));
+        com.baidu.swan.apps.process.a.b.b.a.XW().a(bVar);
     }
 
-    public static void n(Message message) {
+    public static void p(Message message) {
         Bundle bundle;
         String str;
         String str2;
@@ -62,17 +62,14 @@ public class a {
             str2 = bundle2.getString("ai_apps_observer_id", "");
             bundle = bundle2.getBundle("ai_apps_data");
         }
-        com.baidu.swan.apps.process.b.a.b.a(i, str, str2, bundle);
+        com.baidu.swan.apps.process.a.a.b.a(i, str, str2, bundle);
     }
 
     public static void d(int i, Bundle bundle) {
-        SwanAppMessengerService serviceObject = SwanAppMessengerService.getServiceObject();
-        if (serviceObject != null) {
-            serviceObject.sendMessageToClient(i, 302, bundle);
-        }
+        com.baidu.swan.apps.process.messaging.a.XY().a(new c(302, bundle).e(i));
     }
 
-    public static void o(Message message) {
+    public static void q(Message message) {
         if (!(message.obj instanceof Bundle)) {
             if (DEBUG) {
                 throw new RuntimeException("delegation msg obj is not a bundle");
@@ -80,8 +77,8 @@ public class a {
             return;
         }
         Bundle bundle = (Bundle) message.obj;
-        com.baidu.swan.apps.process.b.b.a.b bVar = new com.baidu.swan.apps.process.b.b.a.b(bundle.getString("key_observer_id", ""));
-        bVar.i(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.b.b.b.a.On().a(bVar);
+        com.baidu.swan.apps.process.a.b.a.b bVar = new com.baidu.swan.apps.process.a.b.a.b(bundle.getString("key_observer_id", ""));
+        bVar.l(bundle.getBundle("key_result_data"));
+        com.baidu.swan.apps.process.a.b.b.a.XW().a(bVar);
     }
 }

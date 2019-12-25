@@ -5,6 +5,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.mobstat.bt;
+import com.baidu.swan.games.utils.so.SoUtils;
+import com.baidu.webkit.internal.ETAG;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -13,9 +15,8 @@ import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.jar.JarFile;
-import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class x {
     private static volatile DexClassLoader a;
     private static volatile boolean b = false;
@@ -170,7 +171,7 @@ public class x {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     static class a extends Thread {
         private Context a;
         private com.baidu.mobstat.a b;
@@ -255,7 +256,7 @@ public class x {
                 str = x.b(fileStreamPath.getAbsolutePath());
                 bb.c().a("startDownload remote jar file version = " + str);
             }
-            str = "24";
+            str = SoUtils.SO_EVENT_ID_DEFAULT;
             ArrayList<Pair> arrayList = new ArrayList();
             arrayList.add(new Pair("dynamicVersion", "" + str));
             arrayList.add(new Pair("packageName", bw.t(context)));
@@ -265,16 +266,16 @@ public class x {
             arrayList.add(new Pair("m", android.os.Build.MODEL));
             arrayList.add(new Pair("s", Build.VERSION.SDK_INT + ""));
             arrayList.add(new Pair(Config.OS, Build.VERSION.RELEASE));
-            arrayList.add(new Pair("i", "24"));
+            arrayList.add(new Pair("i", SoUtils.SO_EVENT_ID_DEFAULT));
             StringBuilder sb = new StringBuilder();
             for (Pair pair : arrayList) {
                 try {
-                    String encode = URLEncoder.encode(((String) pair.first).toString(), HTTP.UTF_8);
-                    String encode2 = URLEncoder.encode(((String) pair.second).toString(), HTTP.UTF_8);
+                    String encode = URLEncoder.encode(((String) pair.first).toString(), "UTF-8");
+                    String encode2 = URLEncoder.encode(((String) pair.second).toString(), "UTF-8");
                     if (TextUtils.isEmpty(sb.toString())) {
-                        sb.append(encode + "=" + encode2);
+                        sb.append(encode + ETAG.EQUAL + encode2);
                     } else {
-                        sb.append("&" + encode + "=" + encode2);
+                        sb.append(ETAG.ITEM_SEPARATOR + encode + ETAG.EQUAL + encode2);
                     }
                 } catch (Exception e) {
                 }

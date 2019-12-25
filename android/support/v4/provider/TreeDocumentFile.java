@@ -1,10 +1,15 @@
 package android.support.v4.provider;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
+import android.provider.DocumentsContract;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
+import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class TreeDocumentFile extends DocumentFile {
     private Context mContext;
     private Uri mUri;
@@ -18,18 +23,26 @@ class TreeDocumentFile extends DocumentFile {
 
     @Override // android.support.v4.provider.DocumentFile
     public DocumentFile createFile(String str, String str2) {
-        Uri createFile = DocumentsContractApi21.createFile(this.mContext, this.mUri, str, str2);
+        Uri createFile = createFile(this.mContext, this.mUri, str, str2);
         if (createFile != null) {
             return new TreeDocumentFile(this, this.mContext, createFile);
         }
         return null;
     }
 
+    private static Uri createFile(Context context, Uri uri, String str, String str2) {
+        try {
+            return DocumentsContract.createDocument(context.getContentResolver(), uri, str, str2);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     @Override // android.support.v4.provider.DocumentFile
     public DocumentFile createDirectory(String str) {
-        Uri createDirectory = DocumentsContractApi21.createDirectory(this.mContext, this.mUri, str);
-        if (createDirectory != null) {
-            return new TreeDocumentFile(this, this.mContext, createDirectory);
+        Uri createFile = createFile(this.mContext, this.mUri, "vnd.android.document/directory", str);
+        if (createFile != null) {
+            return new TreeDocumentFile(this, this.mContext, createFile);
         }
         return null;
     }
@@ -86,7 +99,11 @@ class TreeDocumentFile extends DocumentFile {
 
     @Override // android.support.v4.provider.DocumentFile
     public boolean delete() {
-        return DocumentsContractApi19.delete(this.mContext, this.mUri);
+        try {
+            return DocumentsContract.deleteDocument(this.mContext.getContentResolver(), this.mUri);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override // android.support.v4.provider.DocumentFile
@@ -94,23 +111,80 @@ class TreeDocumentFile extends DocumentFile {
         return DocumentsContractApi19.exists(this.mContext, this.mUri);
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:14:0x006f A[LOOP:1: B:12:0x006c->B:14:0x006f, LOOP_END] */
     @Override // android.support.v4.provider.DocumentFile
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public DocumentFile[] listFiles() {
-        Uri[] listFiles = DocumentsContractApi21.listFiles(this.mContext, this.mUri);
-        DocumentFile[] documentFileArr = new DocumentFile[listFiles.length];
-        for (int i = 0; i < listFiles.length; i++) {
-            documentFileArr[i] = new TreeDocumentFile(this, this.mContext, listFiles[i]);
+        Cursor cursor;
+        Uri[] uriArr;
+        int i;
+        ContentResolver contentResolver = this.mContext.getContentResolver();
+        Uri buildChildDocumentsUriUsingTree = DocumentsContract.buildChildDocumentsUriUsingTree(this.mUri, DocumentsContract.getDocumentId(this.mUri));
+        ArrayList arrayList = new ArrayList();
+        try {
+            cursor = contentResolver.query(buildChildDocumentsUriUsingTree, new String[]{"document_id"}, null, null, null);
+            while (cursor.moveToNext()) {
+                try {
+                    try {
+                        arrayList.add(DocumentsContract.buildDocumentUriUsingTree(this.mUri, cursor.getString(0)));
+                    } catch (Exception e) {
+                        e = e;
+                        Log.w("DocumentFile", "Failed query: " + e);
+                        closeQuietly(cursor);
+                        uriArr = (Uri[]) arrayList.toArray(new Uri[arrayList.size()]);
+                        DocumentFile[] documentFileArr = new DocumentFile[uriArr.length];
+                        while (i < uriArr.length) {
+                        }
+                        return documentFileArr;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    closeQuietly(cursor);
+                    throw th;
+                }
+            }
+            closeQuietly(cursor);
+        } catch (Exception e2) {
+            e = e2;
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+            cursor = null;
+            closeQuietly(cursor);
+            throw th;
         }
-        return documentFileArr;
+        uriArr = (Uri[]) arrayList.toArray(new Uri[arrayList.size()]);
+        DocumentFile[] documentFileArr2 = new DocumentFile[uriArr.length];
+        for (i = 0; i < uriArr.length; i++) {
+            documentFileArr2[i] = new TreeDocumentFile(this, this.mContext, uriArr[i]);
+        }
+        return documentFileArr2;
+    }
+
+    private static void closeQuietly(AutoCloseable autoCloseable) {
+        if (autoCloseable != null) {
+            try {
+                autoCloseable.close();
+            } catch (RuntimeException e) {
+                throw e;
+            } catch (Exception e2) {
+            }
+        }
     }
 
     @Override // android.support.v4.provider.DocumentFile
     public boolean renameTo(String str) {
-        Uri renameTo = DocumentsContractApi21.renameTo(this.mContext, this.mUri, str);
-        if (renameTo != null) {
-            this.mUri = renameTo;
-            return true;
+        try {
+            Uri renameDocument = DocumentsContract.renameDocument(this.mContext.getContentResolver(), this.mUri, str);
+            if (renameDocument != null) {
+                this.mUri = renameDocument;
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            return false;
         }
-        return false;
     }
 }

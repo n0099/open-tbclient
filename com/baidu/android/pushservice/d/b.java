@@ -9,8 +9,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static void a(Context context) {
         a(context, (ArrayList) com.baidu.android.pushservice.a.b.a(context).a.clone());
@@ -45,7 +44,7 @@ public final class b {
         hashMap.put("expires", (86400 + currentTimeMillis) + "");
         hashMap.put("v", "1");
         try {
-            hashMap.put("vcode", com.baidu.android.pushservice.j.d.a(URLEncoder.encode(currentTimeMillis + "bccs", HTTP.UTF_8).getBytes(), false));
+            hashMap.put("vcode", com.baidu.android.pushservice.j.d.a(URLEncoder.encode(currentTimeMillis + "bccs", "UTF-8").getBytes(), false));
         } catch (UnsupportedEncodingException e) {
         }
     }

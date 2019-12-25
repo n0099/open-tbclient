@@ -3,23 +3,23 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class eg {
     public static void a(Context context, String str, int i, String str2) {
         ai.a(context).a(new eh(context, str, i, str2));
     }
 
     private static void a(Context context, HashMap<String, String> hashMap) {
-        eo m240a = ek.a(context).m240a();
-        if (m240a != null) {
-            m240a.a(context, hashMap);
+        eo m243a = ek.a(context).m243a();
+        if (m243a != null) {
+            m243a.a(context, hashMap);
         }
     }
 
     private static void b(Context context, HashMap<String, String> hashMap) {
-        eo m240a = ek.a(context).m240a();
-        if (m240a != null) {
-            m240a.c(context, hashMap);
+        eo m243a = ek.a(context).m243a();
+        if (m243a != null) {
+            m243a.c(context, hashMap);
         }
     }
 
@@ -52,9 +52,9 @@ public class eg {
     }
 
     private static void c(Context context, HashMap<String, String> hashMap) {
-        eo m240a = ek.a(context).m240a();
-        if (m240a != null) {
-            m240a.b(context, hashMap);
+        eo m243a = ek.a(context).m243a();
+        if (m243a != null) {
+            m243a.b(context, hashMap);
         }
     }
 }

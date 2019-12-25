@@ -1,0 +1,61 @@
+package com.baidu.tieba.personPolymeric.tab.view;
+
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Canvas;
+import android.support.annotation.Nullable;
+import android.text.Layout;
+import android.util.AttributeSet;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.aq;
+/* loaded from: classes8.dex */
+public class AlignTextView extends TextView {
+    public AlignTextView(Context context) {
+        super(context);
+    }
+
+    public AlignTextView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public AlignTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+    }
+
+    @Override // android.widget.TextView
+    public void setTextColor(int i) {
+        super.setTextColor(i);
+        getPaint().setColor(i);
+    }
+
+    @Override // android.widget.TextView
+    public void setTextColor(ColorStateList colorStateList) {
+        super.setTextColor(colorStateList);
+        getPaint().setColor(colorStateList.getDefaultColor());
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    protected void onDraw(Canvas canvas) {
+        CharSequence text = getText();
+        if (!(text instanceof String)) {
+            super.onDraw(canvas);
+            return;
+        }
+        String str = (String) text;
+        Layout layout = getLayout();
+        if (!aq.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
+            int paddingTop = getPaddingTop() + layout.getLineBaseline(0);
+            float measureText = getPaint().measureText(str);
+            float paddingLeft = getPaddingLeft();
+            float measuredWidth = (((getMeasuredWidth() - measureText) - getPaddingLeft()) - getPaddingRight()) / (str.length() - 1);
+            for (int i = 0; i < str.length(); i++) {
+                String valueOf = String.valueOf(str.charAt(i));
+                float measureText2 = getPaint().measureText(valueOf);
+                canvas.drawText(valueOf, paddingLeft, paddingTop, getPaint());
+                paddingLeft += measureText2 + measuredWidth;
+            }
+            return;
+        }
+        super.onDraw(canvas);
+    }
+}

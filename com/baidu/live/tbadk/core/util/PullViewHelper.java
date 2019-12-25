@@ -9,14 +9,13 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.safe.ThreadService;
 import com.baidu.live.adp.lib.util.CloseUtil;
 import com.baidu.live.adp.lib.util.Md5;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
@@ -31,7 +30,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PullViewHelper {
     public static final long CLOSE_PULLVIEW_DELAYED_TIME = 2000;
     private static final int IMAGE_COLORFILTER_NIGHT = -5000269;
@@ -52,12 +51,12 @@ public class PullViewHelper {
     private PorterDuffColorFilter nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
     private int[] defaultResources = {a.f.sdk_listview_pull_refresh01, a.f.sdk_listview_pull_refresh02};
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface CallBack {
         void result(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class PullViewDrawable {
         public Drawable dayDrawable;
         public Drawable nightDrawable;
@@ -224,7 +223,7 @@ public class PullViewHelper {
                 if (imageFileDir != null) {
                     File[] listFiles = imageFileDir.listFiles();
                     for (int i2 = 1; i2 <= i; i2++) {
-                        this.drawables[i2 - 1] = buildDrawable(listFiles, i2 + DefaultConfig.TOKEN_SEPARATOR);
+                        this.drawables[i2 - 1] = buildDrawable(listFiles, i2 + ".");
                     }
                 }
             }
@@ -295,7 +294,7 @@ public class PullViewHelper {
         }
         int i2 = 0;
         for (int i3 = 1; i3 <= i; i3++) {
-            if (hasFileName(imageFileDir, i3 + DefaultConfig.TOKEN_SEPARATOR)) {
+            if (hasFileName(imageFileDir, i3 + ".")) {
                 i2++;
             }
         }
@@ -318,7 +317,7 @@ public class PullViewHelper {
 
     /* JADX INFO: Access modifiers changed from: private */
     public File getZipFile() {
-        File file = new File(TbadkCoreApplication.getInst().getFilesDir(), PULL_FILE_DIR + File.separator + ZIP_DIR);
+        File file = new File(TbadkCoreApplication.getInst().getFilesDir(), PULL_FILE_DIR + File.separator + "download");
         createFileDir(file);
         if (file.exists() && file.isDirectory()) {
             return new File(file, ZIP_FILE_NAME);

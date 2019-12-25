@@ -5,55 +5,55 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b implements m, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> daJ = new SparseArray<>();
-    private Object daK;
-    private int daL;
+    private static SparseArray<BdUniqueId> dOE = new SparseArray<>();
+    private Object dOF;
+    private int dOG;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return daJ.get(this.daL);
+        return dOE.get(this.dOG);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object aAV() {
-        return this.daK;
+    public Object aSJ() {
+        return this.dOF;
     }
 
-    public void af(Object obj) {
-        this.daK = obj;
+    public void al(Object obj) {
+        this.dOF = obj;
     }
 
-    public int aAW() {
-        return this.daL;
+    public int aSK() {
+        return this.dOG;
     }
 
-    public void lm(int i) {
-        this.daL = i;
+    public void nA(int i) {
+        this.dOG = i;
     }
 
-    public static void aJ(List<Integer> list) {
-        if (daJ.size() <= 0 && list != null) {
+    public static void aQ(List<Integer> list) {
+        if (dOE.size() <= 0 && list != null) {
             for (Integer num : list) {
-                daJ.put(num.intValue(), BdUniqueId.gen());
+                dOE.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> aAX() {
+    public static List<BdUniqueId> aSL() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < daJ.size(); i++) {
-            arrayList.add(daJ.valueAt(i));
+        for (int i = 0; i < dOE.size(); i++) {
+            arrayList.add(dOE.valueAt(i));
         }
         return arrayList;
     }
 
-    public static int k(BdUniqueId bdUniqueId) {
+    public static int l(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (daJ.size() == 0 || (indexOfValue = daJ.indexOfValue(bdUniqueId)) == -1 || daJ.size() <= indexOfValue) {
+        if (dOE.size() == 0 || (indexOfValue = dOE.indexOfValue(bdUniqueId)) == -1 || dOE.size() <= indexOfValue) {
             return -1;
         }
-        return daJ.keyAt(indexOfValue);
+        return dOE.keyAt(indexOfValue);
     }
 }

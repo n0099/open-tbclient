@@ -6,50 +6,52 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.coreExtra.c.e;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-/* loaded from: classes6.dex */
-public class b implements com.baidu.tbadk.coreExtra.c.c {
-    private com.baidu.tbadk.coreExtra.c.b cyr;
+/* loaded from: classes8.dex */
+public class b implements com.baidu.tbadk.coreExtra.share.c {
+    private com.baidu.tbadk.coreExtra.share.b dlZ;
     private Context mContext;
 
-    public b(Context context, com.baidu.tbadk.coreExtra.c.b bVar) {
+    public b(Context context, com.baidu.tbadk.coreExtra.share.b bVar) {
         this.mContext = null;
         this.mContext = context;
-        this.cyr = bVar;
+        this.dlZ = bVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.c.c
-    public void a(e eVar, int i, boolean z) {
-        b(eVar, i);
+    @Override // com.baidu.tbadk.coreExtra.share.c
+    public void a(ShareItem shareItem, int i, boolean z) {
+        b(shareItem, i);
     }
 
-    private void b(e eVar, int i) {
-        if (this.mContext != null && eVar != null) {
+    private void b(ShareItem shareItem, int i) {
+        if (this.mContext != null && shareItem != null) {
             IntentConfig intentConfig = new IntentConfig(this.mContext);
             ShareEntity shareEntity = new ShareEntity();
-            shareEntity.setTitle(eVar.title);
-            shareEntity.setContent(eVar.content);
-            shareEntity.setImageUri(eVar.imageUri);
-            shareEntity.cyl = eVar.cyl;
-            String str = eVar.linkUrl;
-            if (i == 6 && !StringUtils.isNull(eVar.cxO)) {
-                str = eVar.cxO;
+            shareEntity.setTitle(shareItem.title);
+            shareEntity.setContent(shareItem.content);
+            shareEntity.setImageUri(shareItem.imageUri);
+            shareEntity.canShareBySmartApp = shareItem.canShareBySmartApp;
+            String str = shareItem.linkUrl;
+            if (i == 6 && !StringUtils.isNull(shareItem.dlA)) {
+                str = shareItem.dlA;
             }
             shareEntity.setLinkUrl(str);
-            shareEntity.Dn(eVar.cxP);
-            shareEntity.setLocation(eVar.cxR);
-            shareEntity.zb(i);
-            shareEntity.E(eVar.asc());
-            shareEntity.zc(eVar.shareType);
-            shareEntity.setTid(eVar.tid);
-            shareEntity.topic = eVar.topic;
-            if (i == 6 && !StringUtils.isNull(eVar.cyc)) {
-                shareEntity.topic = eVar.cyb + eVar.cyc;
+            shareEntity.HZ(shareItem.localFile);
+            shareEntity.setLocation(shareItem.location);
+            shareEntity.Bw(i);
+            shareEntity.Y(shareItem.aJB());
+            shareEntity.By(shareItem.shareType);
+            shareEntity.setTid(shareItem.tid);
+            shareEntity.Ia(shareItem.fName);
+            shareEntity.Bx(shareItem.typeShareToSmallApp);
+            shareEntity.topic = shareItem.topic;
+            if (i == 6 && !StringUtils.isNull(shareItem.dlL)) {
+                shareEntity.topic = shareItem.dlK + shareItem.dlL;
                 shareEntity.setContent("");
             }
-            shareEntity.cyd = eVar.cyd;
-            shareEntity.cxQ = eVar.cxQ;
+            shareEntity.taskCompleteId = shareItem.taskCompleteId;
+            shareEntity.diskPicOperate = shareItem.diskPicOperate;
             Bundle bundle = new Bundle();
             bundle.putParcelable("extra_share_data", shareEntity);
             bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());

@@ -6,8 +6,7 @@ import com.googlecode.mp4parser.util.IntHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class IsoTypeReader {
     private static IntHashMap codeCache = new IntHashMap();
     private static byte[] codeBytes = new byte[4];
@@ -21,7 +20,7 @@ public final class IsoTypeReader {
     public static long readUInt32(ByteBuffer byteBuffer) {
         long j = byteBuffer.getInt();
         if (j < 0) {
-            return j + IjkMediaMeta.AV_CH_WIDE_RIGHT;
+            return j + 4294967296L;
         }
         return j;
     }

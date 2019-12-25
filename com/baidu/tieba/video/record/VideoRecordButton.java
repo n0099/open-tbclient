@@ -8,16 +8,16 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class VideoRecordButton extends FrameLayout {
-    private TextView CI;
-    private View jGd;
-    private View jGe;
-    private View jGf;
-    private ObjectAnimator jGg;
-    private ObjectAnimator jGh;
-    private ObjectAnimator jGi;
-    private ObjectAnimator jGj;
+    private TextView Fp;
+    private View kzM;
+    private View kzN;
+    private View kzO;
+    private ObjectAnimator kzP;
+    private ObjectAnimator kzQ;
+    private ObjectAnimator kzR;
+    private ObjectAnimator kzS;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), R.layout.layout_record_button, this);
-        this.jGd = findViewById(R.id.record_layer1);
-        this.jGe = findViewById(R.id.record_layer2);
-        this.jGf = findViewById(R.id.record_layer3);
-        this.CI = (TextView) findViewById(R.id.tv_tip);
-        this.jGf.setScaleX(0.766f);
-        this.jGf.setScaleY(0.766f);
+        this.kzM = findViewById(R.id.record_layer1);
+        this.kzN = findViewById(R.id.record_layer2);
+        this.kzO = findViewById(R.id.record_layer3);
+        this.Fp = (TextView) findViewById(R.id.tv_tip);
+        this.kzO.setScaleX(0.766f);
+        this.kzO.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.jGf;
+        return this.kzO;
     }
 
     public View getLayer1() {
-        return this.jGd;
+        return this.kzM;
     }
 
     public View getLayer2() {
-        return this.jGe;
+        return this.kzN;
     }
 
     public TextView getTvTip() {
-        return this.CI;
+        return this.Fp;
     }
 
-    public void cvW() {
-        if (this.jGj != null && this.jGj.isRunning()) {
-            this.jGi.cancel();
+    public void cPN() {
+        if (this.kzS != null && this.kzS.isRunning()) {
+            this.kzR.cancel();
         }
-        if (this.jGi == null) {
-            this.jGi = ObjectAnimator.ofPropertyValuesHolder(this.jGe, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.jGi.setDuration(200L);
+        if (this.kzR == null) {
+            this.kzR = ObjectAnimator.ofPropertyValuesHolder(this.kzN, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.kzR.setDuration(200L);
         }
-        this.jGi.start();
+        this.kzR.start();
     }
 
-    public void cvX() {
-        if (this.jGi != null && this.jGi.isRunning()) {
-            this.jGi.cancel();
+    public void cPO() {
+        if (this.kzR != null && this.kzR.isRunning()) {
+            this.kzR.cancel();
         }
-        if (this.jGe.getScaleX() != 1.0f) {
-            if (this.jGj == null) {
-                this.jGj = ObjectAnimator.ofPropertyValuesHolder(this.jGe, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.jGj.setDuration(200L);
+        if (this.kzN.getScaleX() != 1.0f) {
+            if (this.kzS == null) {
+                this.kzS = ObjectAnimator.ofPropertyValuesHolder(this.kzN, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.kzS.setDuration(200L);
             }
-            this.jGj.start();
+            this.kzS.start();
         }
     }
 
-    public void rA(boolean z) {
-        if (this.jGh != null && this.jGh.isRunning()) {
-            this.jGh.cancel();
+    public void tg(boolean z) {
+        if (this.kzQ != null && this.kzQ.isRunning()) {
+            this.kzQ.cancel();
         }
-        if (this.jGg == null) {
-            this.jGg = ObjectAnimator.ofPropertyValuesHolder(this.jGf, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.jGg.setRepeatCount(-1);
-            this.jGg.setRepeatMode(2);
-            this.jGg.setDuration(1000L);
+        if (this.kzP == null) {
+            this.kzP = ObjectAnimator.ofPropertyValuesHolder(this.kzO, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.kzP.setRepeatCount(-1);
+            this.kzP.setRepeatMode(2);
+            this.kzP.setDuration(1000L);
         }
-        this.jGf.setVisibility(0);
+        this.kzO.setVisibility(0);
         if (z) {
-            this.jGd.setVisibility(8);
+            this.kzM.setVisibility(8);
         } else {
-            this.jGd.setBackgroundResource(R.drawable.red_square_bg);
+            this.kzM.setBackgroundResource(R.drawable.red_square_bg);
         }
-        this.CI.setVisibility(8);
-        this.jGg.start();
+        this.Fp.setVisibility(8);
+        this.kzP.start();
     }
 
-    public void cvL() {
-        if (this.jGg != null && this.jGg.isRunning()) {
-            this.jGg.cancel();
+    public void cPC() {
+        if (this.kzP != null && this.kzP.isRunning()) {
+            this.kzP.cancel();
         }
-        if (this.jGh == null) {
-            this.jGh = ObjectAnimator.ofPropertyValuesHolder(this.jGf, PropertyValuesHolder.ofFloat("scaleX", this.jGf.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.jGf.getScaleY(), 0.766f));
-            this.jGh.setDuration((500.0f * Math.abs(0.766f - this.jGf.getScaleX())) / 0.3f);
+        if (this.kzQ == null) {
+            this.kzQ = ObjectAnimator.ofPropertyValuesHolder(this.kzO, PropertyValuesHolder.ofFloat("scaleX", this.kzO.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.kzO.getScaleY(), 0.766f));
+            this.kzQ.setDuration((500.0f * Math.abs(0.766f - this.kzO.getScaleX())) / 0.3f);
         }
-        this.jGd.setVisibility(0);
-        this.jGd.setBackgroundResource(R.drawable.red_circle_bg);
-        this.jGh.start();
+        this.kzM.setVisibility(0);
+        this.kzM.setBackgroundResource(R.drawable.red_circle_bg);
+        this.kzQ.start();
     }
 }

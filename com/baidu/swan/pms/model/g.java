@@ -1,20 +1,15 @@
 package com.baidu.swan.pms.model;
-/* loaded from: classes2.dex */
-public class g {
-    public f bLl;
-    public PMSAppInfo bLm;
 
-    public boolean equals(Object obj) {
-        if (super.equals(obj)) {
-            return true;
-        }
-        if (obj == null || !(obj instanceof g)) {
-            return false;
-        }
-        return this.bLl.equals(((g) obj).bLl);
-    }
+import android.text.TextUtils;
+/* loaded from: classes9.dex */
+public class g extends e {
+    public String appId;
+    public int cwY;
+    public boolean independent;
+    public String pkgName;
 
-    public String toString() {
-        return "PMSPkgPair{pkgMain=" + this.bLl + ",appInfo=" + this.bLm + "}";
+    @Override // com.baidu.swan.pms.model.e
+    public boolean Ni() {
+        return super.Ni() && !TextUtils.isEmpty(this.pkgName);
     }
 }

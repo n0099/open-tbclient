@@ -3,54 +3,41 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.an.z;
+import com.baidu.swan.apps.as.af;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    public boolean bdZ;
-    private int bea;
-    private boolean beb;
-    private boolean bec;
+    public boolean bGO;
+    private int bGP;
+    private boolean bGQ;
 
     public HeaderRefreshIndicator(Context context) {
-        this(context, (AttributeSet) null);
-    }
-
-    public HeaderRefreshIndicator(Context context, boolean z) {
-        this(context, null, z);
+        this(context, null);
     }
 
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bdZ = false;
-        this.bea = -1;
-        this.bec = false;
+        this.bGO = false;
+        this.bGP = -1;
+        this.bGQ = false;
     }
 
-    public HeaderRefreshIndicator(Context context, AttributeSet attributeSet, boolean z) {
-        super(context, attributeSet);
-        this.bdZ = false;
-        this.bea = -1;
-        this.bec = false;
-        this.beb = z;
-    }
-
-    public void Ap() {
-        if (!this.bdZ) {
-            this.bdZ = true;
-            this.bec = com.baidu.swan.apps.u.a.JE().Kd();
-            Pn();
+    public void Cm() {
+        if (!this.bGO) {
+            this.bGO = true;
+            this.bGQ = com.baidu.swan.apps.w.a.RG().getNightModeSwitcherState();
+            Zb();
             setTextSize(1, 11.0f);
-            setCompoundDrawablePadding(z.dip2px(getContext(), 5.0f));
-            dP(0);
+            setCompoundDrawablePadding(af.dip2px(getContext(), 5.0f));
+            initCornerRadius(0);
         }
     }
 
-    public void Pm() {
-        boolean Kd = com.baidu.swan.apps.u.a.JE().Kd();
-        if (this.bec != Kd) {
-            Pn();
-            this.bec = Kd;
+    public void Za() {
+        boolean nightModeSwitcherState = com.baidu.swan.apps.w.a.RG().getNightModeSwitcherState();
+        if (this.bGQ != nightModeSwitcherState) {
+            Zb();
+            this.bGQ = nightModeSwitcherState;
         }
     }
 
@@ -62,12 +49,12 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Pm();
+        Za();
     }
 
-    public void Pn() {
+    public void Zb() {
         setBackground(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_bg));
         setTextColor(getResources().getColor(a.c.aiapps_pull_refresh_result_text_color));
-        a(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, z.dip2px(getContext(), 11.0f), z.dip2px(getContext(), 11.0f));
+        initDrawable(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, af.dip2px(getContext(), 11.0f), af.dip2px(getContext(), 11.0f));
     }
 }

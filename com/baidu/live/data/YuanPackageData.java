@@ -2,7 +2,7 @@ package com.baidu.live.data;
 
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class YuanPackageData implements Serializable {
     public long dubi;
     public int giftId;

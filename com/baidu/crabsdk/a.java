@@ -1,10 +1,9 @@
 package com.baidu.crabsdk;
 
-import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static OnAnrCrashListener N;
     public static OnCrashExceedListener O;
@@ -19,7 +18,7 @@ public final class a {
     public static boolean i = true;
     public static int j = 50;
     public static long k = 10800000;
-    public static long l = StatisticConfig.MIN_UPLOAD_INTERVAL;
+    public static long l = 30000;
     public static boolean m = false;
     public static boolean n = false;
     public static String o = "";

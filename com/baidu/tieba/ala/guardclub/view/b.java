@@ -13,7 +13,7 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.widget.listview.BdListView;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.view.LoadMoreFooter;
 import com.baidu.live.tbadk.log.LogManager;
@@ -24,16 +24,16 @@ import com.baidu.tieba.ala.guardclub.j;
 import com.baidu.tieba.ala.guardclub.model.g;
 import com.baidu.tieba.ala.guardclub.model.h;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends BdBaseView<GuardClubMemberListActivity> {
-    private CommonEmptyView aqh;
-    private BaseActivity atk;
-    CustomMessageListener dEz;
-    private h dLw;
-    private LoadMoreFooter dMa;
-    private BdListView dOP;
-    private d dOQ;
-    private j dOR;
+    private BaseActivity aBe;
+    private CommonEmptyView axX;
+    private LoadMoreFooter eAm;
+    private BdListView eCV;
+    private d eCW;
+    private j eCX;
+    CustomMessageListener eqn;
+    private h ezI;
     private View mRootView;
     private String otherParams;
 
@@ -43,7 +43,7 @@ public class b extends BdBaseView<GuardClubMemberListActivity> {
 
     public b(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity.getPageContext());
-        this.dEz = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.view.b.3
+        this.eqn = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.view.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -56,109 +56,109 @@ public class b extends BdBaseView<GuardClubMemberListActivity> {
                 }
             }
         };
-        this.atk = baseActivity;
-        this.mRootView = LayoutInflater.from(this.atk).inflate(a.h.layout_guard_club_join_list, (ViewGroup) null);
-        this.dOP = (BdListView) this.mRootView.findViewById(a.g.list_guard_club_join);
-        this.dOQ = new d(baseActivity, bdUniqueId);
-        this.dOQ.a(new AnonymousClass1(baseActivity));
-        this.dOP.setAdapter((ListAdapter) this.dOQ);
-        this.dMa = new LoadMoreFooter(this.atk);
-        this.dMa.setBackgroundColor(-1);
-        this.dMa.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_b));
-        this.dMa.createView();
-        this.dOP.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.guardclub.view.b.2
+        this.aBe = baseActivity;
+        this.mRootView = LayoutInflater.from(this.aBe).inflate(a.h.layout_guard_club_join_list, (ViewGroup) null);
+        this.eCV = (BdListView) this.mRootView.findViewById(a.g.list_guard_club_join);
+        this.eCW = new d(baseActivity, bdUniqueId);
+        this.eCW.a(new AnonymousClass1(baseActivity));
+        this.eCV.setAdapter((ListAdapter) this.eCW);
+        this.eAm = new LoadMoreFooter(this.aBe);
+        this.eAm.setBackgroundColor(-1);
+        this.eAm.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_b));
+        this.eAm.createView();
+        this.eCV.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.guardclub.view.b.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (!b.this.dMa.isLoading() && b.this.dLw.aLC() && i + i2 > i3 - 2 && b.this.dLw.aLC()) {
-                    b.this.dLw.aLE();
+                if (!b.this.eAm.isLoading() && b.this.ezI.bcL() && i + i2 > i3 - 2 && b.this.ezI.bcL()) {
+                    b.this.ezI.bcN();
                 }
             }
         });
-        MessageManager.getInstance().registerListener(this.dEz);
-        this.aqh = (CommonEmptyView) this.mRootView.findViewById(a.g.guard_club_join_empty_view);
+        MessageManager.getInstance().registerListener(this.eqn);
+        this.axX = (CommonEmptyView) this.mRootView.findViewById(a.g.guard_club_join_empty_view);
     }
 
     /* renamed from: com.baidu.tieba.ala.guardclub.view.b$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     class AnonymousClass1 implements d.b {
-        final /* synthetic */ BaseActivity dOS;
+        final /* synthetic */ BaseActivity eCY;
 
         AnonymousClass1(BaseActivity baseActivity) {
-            this.dOS = baseActivity;
+            this.eCY = baseActivity;
         }
 
         @Override // com.baidu.tieba.ala.guardclub.d.b
         public void a(g gVar, int i) {
-            if (gVar != null && b.this.dLw != null) {
-                if (b.this.dOR == null) {
-                    b.this.dOR = new j(this.dOS.getPageContext());
-                    b.this.dOR.a(new j.a() { // from class: com.baidu.tieba.ala.guardclub.view.b.1.1
+            if (gVar != null && b.this.ezI != null) {
+                if (b.this.eCX == null) {
+                    b.this.eCX = new j(this.eCY.getPageContext());
+                    b.this.eCX.a(new j.a() { // from class: com.baidu.tieba.ala.guardclub.view.b.1.1
                         @Override // com.baidu.tieba.ala.guardclub.j.a
                         public void c(final g gVar2, final int i2) {
                             LogManager.getGuardClubLogger().doClickLiveLeaveGuardLog();
-                            if (b.this.dLw != null && gVar2 != null) {
-                                b.this.dLw.a(gVar2.id, new h.b() { // from class: com.baidu.tieba.ala.guardclub.view.b.1.1.1
+                            if (b.this.ezI != null && gVar2 != null) {
+                                b.this.ezI.a(gVar2.id, new h.b() { // from class: com.baidu.tieba.ala.guardclub.view.b.1.1.1
                                     @Override // com.baidu.tieba.ala.guardclub.model.h.b
                                     public void b(int i3, String str, Object obj) {
-                                        b.this.dOQ.mH(i2);
-                                        if (b.this.dOQ.getCount() <= 0) {
-                                            b.this.aFS();
+                                        b.this.eCW.oX(i2);
+                                        if (b.this.eCW.getCount() <= 0) {
+                                            b.this.afL();
                                         }
-                                        b.this.showToast(gVar2.dNg);
+                                        b.this.showToast(gVar2.eBo);
                                     }
                                 });
                             }
                         }
                     });
                 }
-                b.this.dOR.b(gVar, i);
+                b.this.eCX.b(gVar, i);
                 LogManager.getGuardClubLogger().doDisplayLiveLeaveGuardLog();
             }
         }
     }
 
     public void completePullRefresh() {
-        if (this.dOP != null) {
-            this.dOP.completePullRefresh();
+        if (this.eCV != null) {
+            this.eCV.completePullRefresh();
         }
     }
 
-    public void aLp() {
-        if (this.dMa != null) {
-            this.dMa.endLoadData();
-            this.dOP.setNextPage(null);
+    public void bcz() {
+        if (this.eAm != null) {
+            this.eAm.endLoadData();
+            this.eCV.setNextPage(null);
         }
     }
 
-    public void hf(boolean z) {
+    public void im(boolean z) {
         if (z) {
-            if (this.dMa != null) {
-                this.dOP.setNextPage(null);
+            if (this.eAm != null) {
+                this.eCV.setNextPage(null);
             }
-        } else if (this.dMa != null) {
-            if (this.dMa.getView().getParent() == null) {
-                this.dOP.setNextPage(this.dMa);
+        } else if (this.eAm != null) {
+            if (this.eAm.getView().getParent() == null) {
+                this.eCV.setNextPage(this.eAm);
             }
-            this.dMa.showNoMoreData();
+            this.eAm.showNoMoreData();
         }
     }
 
-    public void aJj() {
-        if (this.dMa != null) {
-            if (this.dMa.getView().getParent() == null) {
-                this.dOP.setNextPage(this.dMa);
+    public void aZH() {
+        if (this.eAm != null) {
+            if (this.eAm.getView().getParent() == null) {
+                this.eCV.setNextPage(this.eAm);
             }
-            this.dMa.showLoadView();
+            this.eAm.showLoadView();
         }
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.dOQ != null) {
-            this.dOQ.notifyDataSetInvalidated();
+        if (this.eCW != null) {
+            this.eCW.notifyDataSetInvalidated();
         }
     }
 
@@ -167,39 +167,39 @@ public class b extends BdBaseView<GuardClubMemberListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFS() {
-        aO(8, 0);
+    public void afL() {
+        be(8, 0);
     }
 
     public void f(h hVar) {
-        this.dLw = hVar;
-        this.dLw.aLD();
+        this.ezI = hVar;
+        this.ezI.bcM();
+    }
+
+    public void bs(List<g> list) {
+        if (this.eCW != null && list != null && !list.isEmpty()) {
+            be(0, 8);
+            this.eCW.bs(list);
+            return;
+        }
+        afL();
+    }
+
+    private void be(int i, int i2) {
+        this.eCV.setVisibility(i);
+        if (i2 == 0) {
+            this.axX.reset();
+            this.axX.setTitle(a.i.guard_join_list_empty);
+            this.axX.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
+            this.axX.setVisibility(0);
+            return;
+        }
+        this.axX.setVisibility(8);
     }
 
     public void bt(List<g> list) {
-        if (this.dOQ != null && list != null && !list.isEmpty()) {
-            aO(0, 8);
-            this.dOQ.bt(list);
-            return;
-        }
-        aFS();
-    }
-
-    private void aO(int i, int i2) {
-        this.dOP.setVisibility(i);
-        if (i2 == 0) {
-            this.aqh.reset();
-            this.aqh.setTitle(a.i.guard_join_list_empty);
-            this.aqh.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.aqh.setVisibility(0);
-            return;
-        }
-        this.aqh.setVisibility(8);
-    }
-
-    public void bu(List<g> list) {
-        if (this.dOQ != null) {
-            this.dOQ.bu(list);
+        if (this.eCW != null) {
+            this.eCW.bt(list);
         }
     }
 
@@ -211,31 +211,31 @@ public class b extends BdBaseView<GuardClubMemberListActivity> {
         makeText.show();
     }
 
-    public void aLn() {
-        if (this.dOQ != null) {
-            this.dOQ.aLn();
+    public void bcx() {
+        if (this.eCW != null) {
+            this.eCW.bcx();
         }
-        MessageManager.getInstance().unRegisterListener(this.dEz);
+        MessageManager.getInstance().unRegisterListener(this.eqn);
     }
 
-    public void aLr() {
-        this.aqh.reset();
-        this.aqh.setTitle(a.i.sdk_net_fail_tip_rank);
-        this.aqh.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.b.4
+    public void aYQ() {
+        this.axX.reset();
+        this.axX.setTitle(a.i.sdk_net_fail_tip_rank);
+        this.axX.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.aqh.setVisibility(8);
-                if (b.this.dLw != null) {
-                    b.this.dLw.aLD();
+                b.this.axX.setVisibility(8);
+                if (b.this.ezI != null) {
+                    b.this.ezI.bcM();
                 }
             }
         });
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.aqh.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
+            this.axX.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
         } else {
-            this.aqh.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+            this.axX.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
         }
-        this.aqh.setVisibility(0);
-        this.dOP.setVisibility(8);
+        this.axX.setVisibility(0);
+        this.eCV.setVisibility(8);
     }
 }

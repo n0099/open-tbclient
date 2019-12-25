@@ -18,14 +18,16 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Message;
 import android.os.Process;
+import android.support.media.ExifInterface;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mobstat.Config;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
+import com.baidu.searchbox.ugc.model.PublishType;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.sofire.MyActivity;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyReceiver;
@@ -33,9 +35,10 @@ import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.rp.Report;
+import com.baidu.swan.games.utils.so.SoUtils;
 import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
-import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -55,10 +58,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.TimeZone;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static String b;
     public static String c;
@@ -271,7 +273,7 @@ public final class d {
             String a2 = a(b2, i4);
             StringBuilder sb2 = new StringBuilder();
             sb2.append(a2);
-            sb2.insert(sb2.length() - 2, "A");
+            sb2.insert(sb2.length() - 2, ExifInterface.GPS_MEASUREMENT_IN_PROGRESS);
             return sb2.toString().replace("\n", "");
         } catch (Throwable th) {
             com.baidu.sofire.b.d();
@@ -427,7 +429,7 @@ public final class d {
                             str3 = z2 ? null : "must have at least one '.' separator";
                         }
                     }
-                    if (str3 != null && !"android".equals(attributeValue)) {
+                    if (str3 != null && !PraiseDataPassUtil.KEY_FROM_OS.equals(attributeValue)) {
                         return null;
                     }
                     if (str2.equals("provider")) {
@@ -852,9 +854,9 @@ public final class d {
                 jSONObject2.put("5", 0);
                 jSONObject2.put("6", 1);
                 jSONObject2.put("7", 0);
-                jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "sofire");
-                jSONObject2.put("9", "3.3.9.8.2");
-                jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, str);
+                jSONObject2.put("8", "sofire");
+                jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, "3.3.9.8.2");
+                jSONObject2.put("10", str);
                 jSONObject.put("Common_section", jSONObject2);
                 if (map.size() > 0) {
                     jSONObject.put("Module_section", new JSONObject(map));
@@ -939,14 +941,14 @@ public final class d {
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             String b2 = new com.baidu.sofire.e(context).b();
-            if (!TextUtils.isEmpty(b2) && (split = b2.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split.length == 2) {
+            if (!TextUtils.isEmpty(b2) && (split = b2.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split.length == 2) {
                 com.baidu.sofire.b.a();
                 return split;
             }
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             String string = new com.baidu.sofire.e(context).a.getString("svi", "");
-            if (!TextUtils.isEmpty(string) && (split2 = string.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split2.length == 2) {
+            if (!TextUtils.isEmpty(string) && (split2 = string.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split2.length == 2) {
                 com.baidu.sofire.b.a();
                 return split2;
             }
@@ -1216,34 +1218,34 @@ public final class d {
                 str6 = "";
             }
             jSONObject.put("7", str6);
-            jSONObject.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, g.b(context));
+            jSONObject.put("8", g.b(context));
             String c2 = g.c();
             if (c2 == null) {
                 c2 = "";
             }
-            jSONObject.put("9", c2);
+            jSONObject.put(PublishType.TYPE_VIDEO_SHARE, c2);
             String d2 = g.d();
             if (d2 == null) {
                 d2 = "";
             }
-            jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, d2);
-            jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, g.h(context));
+            jSONObject.put("10", d2);
+            jSONObject.put("11", g.h(context));
             String e2 = g.e();
             if (e2 == null) {
                 e2 = "";
             }
-            jSONObject.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, e2);
-            jSONObject.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, g.c(context));
-            jSONObject.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "");
-            jSONObject.put(Constants.VIA_REPORT_TYPE_WPA_STATE, g.i(context));
-            jSONObject.put(Constants.VIA_REPORT_TYPE_START_GROUP, g.j(context));
+            jSONObject.put("12", e2);
+            jSONObject.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_JOININ_GROUP, g.c(context));
+            jSONObject.put("14", "");
+            jSONObject.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_WPA_STATE, g.i(context));
+            jSONObject.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_START_GROUP, g.j(context));
             jSONObject.put("18", g.k(context));
             jSONObject.put("20", Build.VERSION.SDK_INT);
             TimeZone timeZone = TimeZone.getDefault();
             if (timeZone != null) {
-                jSONObject.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, timeZone.getID());
+                jSONObject.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_QQFAVORITES, timeZone.getID());
             } else {
-                jSONObject.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, LivenessStat.TYPE_STRING_DEFAULT);
+                jSONObject.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_QQFAVORITES, "-1");
             }
         } catch (Throwable th) {
             com.baidu.sofire.b.d();
@@ -1316,7 +1318,7 @@ public final class d {
     }
 
     private static String a(InputStream inputStream) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, HTTP.UTF_8));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
         StringBuilder sb = new StringBuilder();
         boolean z = true;
         while (true) {
@@ -1358,12 +1360,12 @@ public final class d {
             str5 = "";
             j2 = currentTimeMillis;
         } else {
-            String optString = jSONObject3.optString(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+            String optString = jSONObject3.optString("10");
             long optLong = jSONObject3.optLong("0");
             String optString2 = jSONObject3.optString("1");
             String optString3 = jSONObject3.optString("3");
-            String optString4 = jSONObject3.optString(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO);
-            str = jSONObject3.optString("9");
+            String optString4 = jSONObject3.optString("8");
+            str = jSONObject3.optString(PublishType.TYPE_VIDEO_SHARE);
             str2 = optString4;
             str3 = optString3;
             str4 = optString2;
@@ -1378,21 +1380,21 @@ public final class d {
             jSONObject2.put("5", str5);
             jSONObject2.put("6", j2);
             jSONObject2.put("7", str4);
-            jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, str3);
-            jSONObject2.put("9", str2);
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, str);
+            jSONObject2.put("8", str3);
+            jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, str2);
+            jSONObject2.put("10", str);
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, eVar.e.getString("re_a_cv", ""));
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, eVar.e.getString("re_a_lc", ""));
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, 1);
+            jSONObject2.put("11", eVar.e.getString("re_a_cv", ""));
+            jSONObject2.put("12", eVar.e.getString("re_a_lc", ""));
+            jSONObject2.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_JOININ_GROUP, 1);
             if (k(context) == 4) {
-                jSONObject2.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, 1);
+                jSONObject2.put("14", 1);
             } else {
-                jSONObject2.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, 2);
+                jSONObject2.put("14", 2);
             }
             jSONObject2.put("20", g.d(context));
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, g.g(context));
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_DATALINE, g.c(context));
+            jSONObject2.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_QQFAVORITES, g.g(context));
+            jSONObject2.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE, g.c(context));
             String n = eVar.n();
             if (TextUtils.isEmpty(n)) {
                 String string = eVar.b.getString("xygls", "");
@@ -1408,23 +1410,23 @@ public final class d {
                     eVar.d.putString("xyglsn", "");
                     eVar.d.commit();
                 } else {
-                    eVar.d.putString("xyglsn", new String(Base64.encode(a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str6.getBytes(HTTP.UTF_8)), 10), HTTP.UTF_8));
+                    eVar.d.putString("xyglsn", new String(Base64.encode(a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str6.getBytes("UTF-8")), 10), "UTF-8"));
                     eVar.d.commit();
                 }
             } else {
                 str6 = n;
             }
             jSONObject2.put("32", str6);
-            jSONObject2.put("25", com.baidu.sofire.rp.a.a(context));
+            jSONObject2.put(SoUtils.SO_EVENT_ID_NEW_SO, com.baidu.sofire.rp.a.a(context));
             jSONObject2.put("26", com.baidu.sofire.rp.a.b(context));
-            jSONObject2.put(Constants.VIA_ACT_TYPE_TWENTY_EIGHT, p.a(context));
+            jSONObject2.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT, p.a(context));
             String c2 = s.a(context).c();
             if (TextUtils.isEmpty(c2)) {
                 jSONObject2.put("30", "");
             } else {
                 jSONObject2.put("30", c2);
             }
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, DeviceId.getCUID(context));
+            jSONObject2.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, DeviceId.getCUID(context));
             Object obj = jSONObject.get("Module_section");
             if (obj instanceof JSONArray) {
                 jSONObject2.put("module_section", obj);
@@ -1486,11 +1488,11 @@ public final class d {
             eVar.e.getInt("re_net_ty", 2);
             JSONObject optJSONObject = jSONObject.optJSONObject("Common_section");
             long optLong = optJSONObject.optLong("0");
-            String optString = optJSONObject.optString(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+            String optString = optJSONObject.optString("10");
             int optInt = optJSONObject.optInt("5");
             int optInt2 = optJSONObject.optInt("6");
             int optInt3 = optJSONObject.optInt("7");
-            int optInt4 = optJSONObject.optInt(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+            int optInt4 = optJSONObject.optInt("11");
             int i2 = optInt2 != 0 ? optInt2 : 1;
             com.baidu.sofire.f.a aVar = new com.baidu.sofire.f.a();
             aVar.d = str;
@@ -1593,9 +1595,9 @@ public final class d {
             jSONObject2.put("5", 0);
             jSONObject2.put("6", 1);
             jSONObject2.put("7", 0);
-            jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, str);
-            jSONObject2.put("9", str2);
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, str3);
+            jSONObject2.put("8", str);
+            jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, str2);
+            jSONObject2.put("10", str3);
             JSONObject jSONObject3 = !TextUtils.isEmpty(str4) ? new JSONObject(str4) : new JSONObject();
             jSONObject.put("Common_section", jSONObject2);
             jSONObject.put("Module_section", jSONObject3);
@@ -1696,8 +1698,8 @@ public final class d {
                         jSONObject2.put("7", "");
                     }
                 }
-                jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, packageInfo.versionName);
-                jSONObject2.put("9", String.valueOf(new com.baidu.sofire.e(context).a.getInt("opi", 0)));
+                jSONObject2.put("8", packageInfo.versionName);
+                jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, String.valueOf(new com.baidu.sofire.e(context).a.getInt("opi", 0)));
                 jSONObject.put("1", jSONObject2);
                 String jSONObject3 = jSONObject.toString();
                 new StringBuilder().append(str).append("---").append(jSONObject3);
@@ -1712,7 +1714,7 @@ public final class d {
                 if (TextUtils.isEmpty(b) || TextUtils.isEmpty(c)) {
                     String b2 = new com.baidu.sofire.e(context).b();
                     if (!TextUtils.isEmpty(b2)) {
-                        strArr = b2.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                        strArr = b2.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                         if (strArr == null || strArr.length != 2) {
                             strArr = new String[0];
                         } else {
@@ -1742,7 +1744,7 @@ public final class d {
                                     b = optString;
                                     c = optString2;
                                     com.baidu.sofire.e eVar2 = a4.a;
-                                    eVar2.c.putString("svi_n", optString + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + optString2);
+                                    eVar2.c.putString("svi_n", optString + Constants.ACCEPT_TIME_SEPARATOR_SERVER + optString2);
                                     eVar2.c.commit();
                                 }
                             } catch (Throwable th) {
@@ -1804,7 +1806,7 @@ public final class d {
                 try {
                     String optString3 = jSONObject4.optString("0");
                     if (!TextUtils.isEmpty(optString3)) {
-                        eVar4.d.putString("gli", new String(Base64.encode(a.a("30212102dicudiab".getBytes(), optString3.getBytes(HTTP.UTF_8)), 10), HTTP.UTF_8));
+                        eVar4.d.putString("gli", new String(Base64.encode(a.a("30212102dicudiab".getBytes(), optString3.getBytes("UTF-8")), 10), "UTF-8"));
                         eVar4.d.commit();
                     }
                 } catch (Throwable th2) {
@@ -1941,7 +1943,7 @@ public final class d {
     public static String f(String str) {
         String str2;
         try {
-            str2 = new String(a.a("30212102dicudiab".getBytes(), Base64.decode(str, 10), true), HTTP.UTF_8);
+            str2 = new String(a.a("30212102dicudiab".getBytes(), Base64.decode(str, 10), true), "UTF-8");
         } catch (Throwable th) {
             com.baidu.sofire.b.d();
         }

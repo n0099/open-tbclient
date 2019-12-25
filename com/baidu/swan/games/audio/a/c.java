@@ -10,44 +10,41 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
-class c {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes9.dex */
+public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bxA;
-    private com.baidu.swan.games.network.b bxB;
-    private a bxD;
+    private String cfO;
+    private com.baidu.swan.games.network.b cfP;
+    private a cfQ;
     private String mSrc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.baidu.swan.games.network.b bVar, String str, String str2, a aVar) {
         this.mSrc = "";
-        this.bxA = "";
-        this.bxB = bVar;
-        this.bxA = str;
+        this.cfO = "";
+        this.cfP = bVar;
+        this.cfO = str;
         this.mSrc = str2;
-        this.bxD = aVar;
+        this.cfQ = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void load() {
-        this.bxB.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.audio.a.c.1
+        this.cfP.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.audio.a.c.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (c.DEBUG) {
                     Log.e("AudioDownloader", c.this.mSrc + " load failed");
                     iOException.printStackTrace();
                 }
-                if (c.this.bxD != null) {
-                    c.this.bxD.w(-1, c.this.mSrc);
+                if (c.this.cfQ != null) {
+                    c.this.cfQ.C(-1, c.this.mSrc);
                 }
             }
 
-            /* JADX WARN: Removed duplicated region for block: B:89:0x0192 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-            /* JADX WARN: Removed duplicated region for block: B:99:0x018d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+            /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [142=4] */
             @Override // okhttp3.Callback
-            /*
-                Code decompiled incorrectly, please refer to instructions dump.
-            */
             public void onResponse(Call call, Response response) {
                 FileOutputStream fileOutputStream;
                 InputStream inputStream;
@@ -59,13 +56,13 @@ class c {
                     inputStream = response.body().byteStream();
                     try {
                         try {
-                            String jt = f.jt(c.this.mSrc);
-                            String str = c.this.bxA + jt.substring(0, jt.lastIndexOf("/"));
+                            String nT = f.nT(c.this.mSrc);
+                            String str = c.this.cfO + nT.substring(0, nT.lastIndexOf("/"));
                             File file2 = new File(str);
                             if (!file2.exists() || !file2.isDirectory()) {
                                 file2.mkdirs();
                             }
-                            String substring = jt.substring(jt.lastIndexOf("/") + 1);
+                            String substring = nT.substring(nT.lastIndexOf("/") + 1);
                             File file3 = new File(str, substring + ".bddownload");
                             try {
                                 fileOutputStream = new FileOutputStream(file3);
@@ -88,53 +85,27 @@ class c {
                                             if (file != null) {
                                                 file.delete();
                                             }
-                                            if (c.this.bxD != null) {
-                                                c.this.bxD.w(-1, c.this.mSrc);
+                                            if (c.this.cfQ != null) {
+                                                c.this.cfQ.C(-1, c.this.mSrc);
                                             }
-                                            if (inputStream2 != null) {
-                                                try {
-                                                    inputStream2.close();
-                                                } catch (IOException e2) {
-                                                    Log.e("AudioDownloader", e2.getMessage(), e2);
-                                                }
-                                            }
-                                            if (fileOutputStream2 != null) {
-                                                try {
-                                                    fileOutputStream2.close();
-                                                } catch (IOException e3) {
-                                                    Log.e("AudioDownloader", e3.getMessage(), e3);
-                                                }
-                                            }
-                                            response.close();
+                                            com.baidu.swan.d.c.closeSafely(inputStream2);
+                                            com.baidu.swan.d.c.closeSafely(fileOutputStream2);
+                                            com.baidu.swan.d.c.closeSafely(response);
                                             return;
                                         } catch (Throwable th) {
                                             th = th;
                                             inputStream = inputStream2;
                                             fileOutputStream = fileOutputStream2;
-                                            if (inputStream != null) {
-                                                try {
-                                                    inputStream.close();
-                                                } catch (IOException e4) {
-                                                    Log.e("AudioDownloader", e4.getMessage(), e4);
-                                                }
-                                            }
-                                            if (fileOutputStream != null) {
-                                                try {
-                                                    fileOutputStream.close();
-                                                } catch (IOException e5) {
-                                                    Log.e("AudioDownloader", e5.getMessage(), e5);
-                                                }
-                                            }
-                                            response.close();
+                                            com.baidu.swan.d.c.closeSafely(inputStream);
+                                            com.baidu.swan.d.c.closeSafely(fileOutputStream);
+                                            com.baidu.swan.d.c.closeSafely(response);
                                             throw th;
                                         }
                                     } catch (Throwable th2) {
                                         th = th2;
-                                        if (inputStream != null) {
-                                        }
-                                        if (fileOutputStream != null) {
-                                        }
-                                        response.close();
+                                        com.baidu.swan.d.c.closeSafely(inputStream);
+                                        com.baidu.swan.d.c.closeSafely(fileOutputStream);
+                                        com.baidu.swan.d.c.closeSafely(response);
                                         throw th;
                                     }
                                 }
@@ -148,35 +119,23 @@ class c {
                                     if (c.DEBUG) {
                                         Log.e("AudioDownloader", c.this.mSrc + " load rename success path = " + absolutePath);
                                     }
-                                    if (c.this.bxD != null) {
-                                        c.this.bxD.aX(c.this.mSrc, absolutePath);
+                                    if (c.this.cfQ != null) {
+                                        c.this.cfQ.bq(c.this.mSrc, absolutePath);
                                     }
                                 } else {
                                     if (c.DEBUG) {
                                         Log.e("AudioDownloader", c.this.mSrc + " load rename error path = " + absolutePath);
                                     }
                                     file3.delete();
-                                    if (c.this.bxD != null) {
-                                        c.this.bxD.w(-1, absolutePath);
+                                    if (c.this.cfQ != null) {
+                                        c.this.cfQ.C(-1, absolutePath);
                                     }
                                 }
-                                if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (IOException e6) {
-                                        Log.e("AudioDownloader", e6.getMessage(), e6);
-                                    }
-                                }
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (IOException e7) {
-                                        Log.e("AudioDownloader", e7.getMessage(), e7);
-                                    }
-                                }
-                                response.close();
-                            } catch (Exception e8) {
-                                e = e8;
+                                com.baidu.swan.d.c.closeSafely(inputStream);
+                                com.baidu.swan.d.c.closeSafely(fileOutputStream);
+                                com.baidu.swan.d.c.closeSafely(response);
+                            } catch (Exception e2) {
+                                e = e2;
                                 inputStream2 = inputStream;
                                 file = file3;
                                 fileOutputStream2 = null;
@@ -185,13 +144,13 @@ class c {
                             th = th3;
                             fileOutputStream = null;
                         }
-                    } catch (Exception e9) {
-                        e = e9;
+                    } catch (Exception e3) {
+                        e = e3;
                         fileOutputStream2 = null;
                         inputStream2 = inputStream;
                     }
-                } catch (Exception e10) {
-                    e = e10;
+                } catch (Exception e4) {
+                    e = e4;
                     fileOutputStream2 = null;
                     inputStream2 = null;
                 } catch (Throwable th4) {

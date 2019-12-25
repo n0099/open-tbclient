@@ -7,16 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.swan.apps.a;
-/* loaded from: classes2.dex */
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+/* loaded from: classes9.dex */
 public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
-    private com.baidu.swan.games.view.recommend.d.b bEV;
-    private InterfaceC0257a bFn;
+    private com.baidu.swan.games.view.recommend.model.a cpD;
+    private InterfaceC0339a cpU;
     private LayoutInflater mInflater;
 
     /* renamed from: com.baidu.swan.games.view.recommend.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0257a {
-        void gl(int i);
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0339a {
+        void hQ(int i);
     }
 
     public a(@NonNull Context context) {
@@ -25,7 +26,7 @@ public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: b */
+    /* renamed from: e */
     public d onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new d(this.mInflater.inflate(a.g.swangame_recommend_dialog_item, viewGroup, false));
     }
@@ -34,40 +35,40 @@ public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(d dVar, int i) {
-        com.baidu.swan.games.view.recommend.d.a aVar = this.bEV.bFz.get(i);
-        if (aVar != null) {
-            dVar.bFl.setImageURI(aVar.iconUrl);
-            dVar.bFm.setText(aVar.appName);
-            dVar.bFw.setText(aVar.desc);
-            dVar.bFx.setText(aVar.buttonText);
+        RecommendItemModel recommendItemModel = this.cpD.cqg.get(i);
+        if (recommendItemModel != null) {
+            dVar.cpS.setImageURI(recommendItemModel.iconUrl);
+            dVar.cpT.setText(recommendItemModel.appName);
+            dVar.cqd.setText(recommendItemModel.desc);
+            dVar.cqe.setText(recommendItemModel.buttonText);
             dVar.itemView.setTag(Integer.valueOf(i));
-            dVar.bFx.setTag(Integer.valueOf(i));
+            dVar.cqe.setTag(Integer.valueOf(i));
             dVar.itemView.setOnClickListener(this);
-            dVar.bFx.setOnClickListener(this);
+            dVar.cqe.setOnClickListener(this);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.bEV == null || this.bEV.bFz == null) {
+        if (this.cpD == null || this.cpD.cqg == null) {
             return 0;
         }
-        return this.bEV.bFz.size();
+        return this.cpD.cqg.size();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bFn != null && view != null && (view.getTag() instanceof Integer)) {
-            this.bFn.gl(((Integer) view.getTag()).intValue());
+        if (this.cpU != null && view != null && (view.getTag() instanceof Integer)) {
+            this.cpU.hQ(((Integer) view.getTag()).intValue());
         }
     }
 
-    public void a(com.baidu.swan.games.view.recommend.d.b bVar) {
-        this.bEV = bVar;
+    public void a(com.baidu.swan.games.view.recommend.model.a aVar) {
+        this.cpD = aVar;
         notifyDataSetChanged();
     }
 
-    public void a(InterfaceC0257a interfaceC0257a) {
-        this.bFn = interfaceC0257a;
+    public void a(InterfaceC0339a interfaceC0339a) {
+        this.cpU = interfaceC0339a;
     }
 }

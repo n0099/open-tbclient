@@ -4,21 +4,22 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
-/* loaded from: classes2.dex */
-public class b extends z {
+import com.baidu.swan.apps.scheme.actions.ab;
+@Deprecated
+/* loaded from: classes9.dex */
+public class b extends ab {
     public b(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/clearStorageSync");
+        super(jVar, "/swanAPI/clearStorageSync");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (bVar == null) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        bVar.Re().SN().edit().clear().apply();
-        com.baidu.swan.apps.ak.e.bsj.update();
+        eVar.aaa().acv().edit().clear().apply();
+        com.baidu.swan.apps.ap.e.bTz.update();
         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
         return true;
     }

@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class LiveInfo extends Message {
     public static final String DEFAULT_CHANNEL_NAME = "";
     public static final String DEFAULT_CLOSE_REASON = "";
@@ -443,7 +443,7 @@ public final class LiveInfo extends Message {
         this.notice_broad_msg_id = builder.notice_broad_msg_id;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<LiveInfo> {
         public Integer audience_count;
         public Integer backstage_type;

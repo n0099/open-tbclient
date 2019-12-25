@@ -1,14 +1,14 @@
 package com.airbnb.lottie.model.content;
 
 import android.support.annotation.Nullable;
-import android.util.Log;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MergePaths implements b {
-    private final MergePathsMode gJ;
+
+    /* renamed from: io  reason: collision with root package name */
+    private final MergePathsMode f965io;
     private final String name;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public enum MergePathsMode {
         Merge,
         Add,
@@ -16,7 +16,6 @@ public class MergePaths implements b {
         Intersect,
         ExcludeIntersections;
 
-        /* JADX INFO: Access modifiers changed from: private */
         public static MergePathsMode forId(int i) {
             switch (i) {
                 case 1:
@@ -35,39 +34,30 @@ public class MergePaths implements b {
         }
     }
 
-    private MergePaths(String str, MergePathsMode mergePathsMode) {
+    public MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.gJ = mergePathsMode;
+        this.f965io = mergePathsMode;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public MergePathsMode cI() {
-        return this.gJ;
+    public MergePathsMode cL() {
+        return this.f965io;
     }
 
     @Override // com.airbnb.lottie.model.content.b
     @Nullable
-    public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar) {
-        if (fVar.bc()) {
-            return new com.airbnb.lottie.a.a.j(this);
+    public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar) {
+        if (gVar.bp()) {
+            return new com.airbnb.lottie.a.a.k(this);
         }
-        Log.w("LOTTIE", "Animation contains merge paths but they are disabled.");
+        com.airbnb.lottie.d.warn("Animation contains merge paths but they are disabled.");
         return null;
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.gJ + '}';
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static class a {
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static MergePaths g(JSONObject jSONObject) {
-            return new MergePaths(jSONObject.optString("nm"), MergePathsMode.forId(jSONObject.optInt("mm", 1)));
-        }
+        return "MergePaths{mode=" + this.f965io + '}';
     }
 }

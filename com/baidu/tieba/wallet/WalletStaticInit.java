@@ -7,13 +7,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.core.util.ba;
+import com.baidu.webkit.internal.ETAG;
 import java.net.URL;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WalletStaticInit {
     public static void init() {
-        ba.amO().a(new ba.a() { // from class: com.baidu.tieba.wallet.WalletStaticInit.1
+        ba.aEa().a(new ba.a() { // from class: com.baidu.tieba.wallet.WalletStaticInit.1
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
@@ -46,10 +47,10 @@ public class WalletStaticInit {
         }
         String query = url.getQuery();
         HashMap hashMap = new HashMap();
-        String[] split = query.split("&");
+        String[] split = query.split(ETAG.ITEM_SEPARATOR);
         if (split != null) {
             for (String str2 : split) {
-                String[] split2 = str2.split("=");
+                String[] split2 = str2.split(ETAG.EQUAL);
                 if (split2 != null && split2.length == 2) {
                     hashMap.put(split2[0], split2[1]);
                 }

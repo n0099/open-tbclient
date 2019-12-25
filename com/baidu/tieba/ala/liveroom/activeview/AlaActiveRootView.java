@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.liveroom.activeview;
 import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
 public class AlaActiveRootView extends FrameLayout {
     public AlaActiveRootView(Context context) {
         super(context);

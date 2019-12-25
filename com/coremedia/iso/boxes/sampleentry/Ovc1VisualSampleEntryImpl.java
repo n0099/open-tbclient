@@ -8,8 +8,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class Ovc1VisualSampleEntryImpl extends AbstractSampleEntry {
     public static final String TYPE = "ovc1";
     private byte[] vc1Content;
@@ -49,6 +48,6 @@ public class Ovc1VisualSampleEntryImpl extends AbstractSampleEntry {
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
-        return ((this.largeBox || ((long) (this.vc1Content.length + 16)) >= IjkMediaMeta.AV_CH_WIDE_RIGHT) ? 16 : 8) + this.vc1Content.length + 8;
+        return ((this.largeBox || ((long) (this.vc1Content.length + 16)) >= 4294967296L) ? 16 : 8) + this.vc1Content.length + 8;
     }
 }

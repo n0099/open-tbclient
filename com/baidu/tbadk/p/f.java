@@ -1,58 +1,28 @@
 package com.baidu.tbadk.p;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class f extends g {
-    public long cKZ;
-    public long cLa;
-    public long cLb;
-    public int cLc;
-    public int cLd;
-    private a cLe = null;
-    private final Handler cLf = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.p.f.1
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            f.this.cLe = new a();
-            f.this.cLe.setSelfExecute(true);
-            f.this.cLe.execute(new String[0]);
-        }
-    };
-    public long costTime;
-    public long oi;
-
-    public void awE() {
-        this.cLf.sendEmptyMessage(0);
+public class f extends com.baidu.adp.framework.a.d {
+    public f(int i) {
+        super(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void awF() {
-        j jVar = (j) m.awL().kh(this.mSubType);
-        if (jVar != null) {
-            jVar.c(this);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.f
+    /* renamed from: d */
+    public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
+            TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
+            if (httpMessage.removeParam("reloin_key") == null && ReloginManager.aCR().aCT() && tbHttpMessageTask.isNeedLogin()) {
+                httpMessage.addParam("reloin_key", "reloin_value");
+                ReloginManager.aCR().a(httpMessage);
+                return null;
+            }
+            return httpMessage;
         }
-    }
-
-    /* loaded from: classes.dex */
-    private class a extends BdAsyncTask<String, Integer, Boolean> {
-        public a() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Boolean doInBackground(String... strArr) {
-            f.this.cLd = m.awL().getCpuUsageStatistic();
-            f.this.awF();
-            return Boolean.TRUE;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-        }
+        return httpMessage;
     }
 }

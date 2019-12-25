@@ -14,8 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class TooltipPopup {
     private static final String TAG = "TooltipPopup";
     private final View mContentView;
@@ -29,7 +30,7 @@ class TooltipPopup {
     /* JADX INFO: Access modifiers changed from: package-private */
     public TooltipPopup(Context context) {
         this.mContext = context;
-        this.mContentView = LayoutInflater.from(this.mContext).inflate(R.layout.tooltip, (ViewGroup) null);
+        this.mContentView = LayoutInflater.from(this.mContext).inflate(R.layout.abc_tooltip, (ViewGroup) null);
         this.mMessageView = (TextView) this.mContentView.findViewById(R.id.message);
         this.mLayoutParams.setTitle(getClass().getSimpleName());
         this.mLayoutParams.packageName = this.mContext.getPackageName();
@@ -65,6 +66,7 @@ class TooltipPopup {
     private void computePosition(View view, int i, int i2, boolean z, WindowManager.LayoutParams layoutParams) {
         int height;
         int i3;
+        layoutParams.token = view.getApplicationWindowToken();
         int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.tooltip_precise_anchor_threshold);
         if (view.getWidth() < dimensionPixelOffset) {
             i = view.getWidth() / 2;
@@ -87,7 +89,7 @@ class TooltipPopup {
         appRootView.getWindowVisibleDisplayFrame(this.mTmpDisplayFrame);
         if (this.mTmpDisplayFrame.left < 0 && this.mTmpDisplayFrame.top < 0) {
             Resources resources = this.mContext.getResources();
-            int identifier = resources.getIdentifier("status_bar_height", "dimen", "android");
+            int identifier = resources.getIdentifier("status_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS);
             int dimensionPixelSize = identifier != 0 ? resources.getDimensionPixelSize(identifier) : 0;
             DisplayMetrics displayMetrics = resources.getDisplayMetrics();
             this.mTmpDisplayFrame.set(0, dimensionPixelSize, displayMetrics.widthPixels, displayMetrics.heightPixels);
@@ -98,7 +100,7 @@ class TooltipPopup {
         iArr[0] = iArr[0] - this.mTmpAppPos[0];
         int[] iArr2 = this.mTmpAnchorPos;
         iArr2[1] = iArr2[1] - this.mTmpAppPos[1];
-        layoutParams.x = (this.mTmpAnchorPos[0] + i) - (this.mTmpDisplayFrame.width() / 2);
+        layoutParams.x = (this.mTmpAnchorPos[0] + i) - (appRootView.getWidth() / 2);
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
         this.mContentView.measure(makeMeasureSpec, makeMeasureSpec);
         int measuredHeight = this.mContentView.getMeasuredHeight();
@@ -118,11 +120,16 @@ class TooltipPopup {
     }
 
     private static View getAppRootView(View view) {
+        View rootView = view.getRootView();
+        ViewGroup.LayoutParams layoutParams = rootView.getLayoutParams();
+        if ((layoutParams instanceof WindowManager.LayoutParams) && ((WindowManager.LayoutParams) layoutParams).type == 2) {
+            return rootView;
+        }
         for (Context context = view.getContext(); context instanceof ContextWrapper; context = ((ContextWrapper) context).getBaseContext()) {
             if (context instanceof Activity) {
                 return ((Activity) context).getWindow().getDecorView();
             }
         }
-        return view.getRootView();
+        return rootView;
     }
 }

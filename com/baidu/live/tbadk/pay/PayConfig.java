@@ -3,10 +3,8 @@ package com.baidu.live.tbadk.pay;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.util.PageDialogHelper;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PayConfig {
-    public static final String PAYMENT_POS_KEY_DUIBA = "1634";
-    public static final String PAYMENT_POS_KEY_MANGA = "37";
     public static final int PAYTYPE_MEMBER = 1;
     public static final int PAYTYPE_PAY_DIRECT = 3;
     public static final int PAYTYPE_TDOU = 2;

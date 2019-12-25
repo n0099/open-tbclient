@@ -8,25 +8,29 @@ import com.baidu.searchbox.process.ipc.agent.Agent;
 import com.baidu.searchbox.process.ipc.delegate.DelegateDef;
 import com.baidu.searchbox.process.ipc.delegate.Delegation;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.searchbox.process.ipc.util.OrientationUtils;
 import java.lang.reflect.Modifier;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 public class ProcessDelegateBaseActivity extends Activity implements Agent, DelegateDef {
     private static final boolean DEBUG = false;
     private static final String TAG = "DelegateBaseActivity";
+    private String mAppKey;
     protected ActivityDelegation mDelegation;
     protected String mDelegationName = "";
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
+        int releaseFixedOrientation = OrientationUtils.releaseFixedOrientation(this);
         super.onCreate(bundle);
+        OrientationUtils.fixedOrientation(this, releaseFixedOrientation);
         Intent intent = getIntent();
         this.mDelegationName = intent.getStringExtra(DelegateDef.EXTRA_DELEGATION_NAME);
         if (TextUtils.isEmpty(this.mDelegationName)) {
             throw new IllegalArgumentException("empty action name");
         }
         if (initDelegation()) {
-            Bundle bundleExtra = intent.getBundleExtra(DelegateDef.EXTRA_PARAMS);
+            Bundle bundleExtra = intent.getBundleExtra("extra_params");
             if (bundleExtra != null && !bundleExtra.isEmpty()) {
                 this.mDelegation.mParams.putAll(bundleExtra);
             }
@@ -65,8 +69,14 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
                 }
             }
             return z;
-        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+        } catch (ClassNotFoundException e) {
             exitByIllegalDelegationClass(e.toString());
+            return false;
+        } catch (IllegalAccessException e2) {
+            exitByIllegalDelegationClass(e2.toString());
+            return false;
+        } catch (InstantiationException e3) {
+            exitByIllegalDelegationClass(e3.toString());
             return false;
         }
     }

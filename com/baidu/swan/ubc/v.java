@@ -4,90 +4,90 @@ import android.util.SparseArray;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 class v {
-    private boolean bPD = false;
-    private JSONArray bbK = new JSONArray();
-    private SparseArray<Integer> bPz = new SparseArray<>();
-    private ArrayList<String> bPA = new ArrayList<>();
-    private long bPB = 0;
-    private long bPC = 0;
-    private String bOB = "0";
+    private boolean cBt = false;
+    private JSONArray bFw = new JSONArray();
+    private SparseArray<Integer> cBp = new SparseArray<>();
+    private ArrayList<String> cBq = new ArrayList<>();
+    private long cBr = 0;
+    private long cBs = 0;
+    private String cAx = "0";
 
-    public final void bt(JSONObject jSONObject) {
-        this.bbK.put(jSONObject);
+    public final void cg(JSONObject jSONObject) {
+        this.bFw.put(jSONObject);
     }
 
-    public final SparseArray<Integer> adi() {
-        return this.bPz;
+    public final SparseArray<Integer> atn() {
+        return this.cBp;
     }
 
-    public final void U(int i, int i2) {
-        this.bPz.put(i, Integer.valueOf(i2));
+    public final void ap(int i, int i2) {
+        this.cBp.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList adj() {
-        return this.bPA;
+    public final ArrayList ato() {
+        return this.cBq;
     }
 
-    public final void lF(String str) {
-        if (!this.bPA.contains(str)) {
-            this.bPA.add(str);
+    public final void qL(String str) {
+        if (!this.cBq.contains(str)) {
+            this.cBq.add(str);
         }
     }
 
-    public final void m(long j, long j2) {
-        if ((j < this.bPB || this.bPB == 0) && j != 0) {
-            this.bPB = j;
+    public final void q(long j, long j2) {
+        if ((j < this.cBr || this.cBr == 0) && j != 0) {
+            this.cBr = j;
         }
-        if (j2 > this.bPC) {
-            this.bPC = j2;
+        if (j2 > this.cBs) {
+            this.cBs = j2;
         }
     }
 
-    public boolean gZ(int i) {
-        return this.bbK.toString().getBytes().length >= i;
+    public boolean iJ(int i) {
+        return this.bFw.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.bbK.length() == 0;
+        return this.bFw.length() == 0;
     }
 
-    public JSONArray adk() {
-        return this.bbK;
+    public JSONArray atp() {
+        return this.bFw;
     }
 
     public void clearData() {
-        this.bPz.clear();
-        this.bPA.clear();
-        this.bbK = null;
+        this.cBp.clear();
+        this.cBq.clear();
+        this.bFw = null;
     }
 
-    public void lG(String str) {
-        this.bOB = str;
+    public void qM(String str) {
+        this.cAx = str;
     }
 
-    public String adl() {
-        return this.bOB;
+    public String atq() {
+        return this.cAx;
     }
 
-    public long adm() {
-        return this.bPB;
+    public long atr() {
+        return this.cBr;
     }
 
     public long getMaxTime() {
-        return this.bPC;
+        return this.cBs;
     }
 
-    public JSONArray adn() {
-        return this.bbK;
+    public JSONArray ats() {
+        return this.bFw;
     }
 
-    public boolean ado() {
-        return this.bPD;
+    public boolean att() {
+        return this.cBt;
     }
 
-    public void dJ(boolean z) {
-        this.bPD = z;
+    public void eU(boolean z) {
+        this.cBt = z;
     }
 }

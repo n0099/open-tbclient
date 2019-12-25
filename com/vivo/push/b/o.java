@@ -2,7 +2,7 @@ package com.vivo.push.b;
 
 import android.text.TextUtils;
 import com.vivo.push.model.UnvarnishedMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class o extends v {
     protected UnvarnishedMessage a;
 

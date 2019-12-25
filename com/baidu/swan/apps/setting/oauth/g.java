@@ -1,22 +1,23 @@
 package com.baidu.swan.apps.setting.oauth;
-/* loaded from: classes2.dex */
-public class g<ResultDataT> {
-    TaskState bod = TaskState.INIT;
-    OAuthException boe;
-    public ResultDataT mData;
 
-    public boolean isOk() {
-        return TaskState.FINISHED == this.bod && this.boe == null;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import java.util.List;
+/* loaded from: classes9.dex */
+public abstract class g implements CookieManager {
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public abstract String getCookie(String str);
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldAcceptCookie(String str, String str2) {
+        return false;
     }
 
-    public int getErrorCode() {
-        if (this.boe == null) {
-            return 0;
-        }
-        return this.boe.mErrorCode;
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldSendCookie(String str, String str2) {
+        return true;
     }
 
-    public OAuthException St() {
-        return this.boe;
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public void storeCookie(String str, List<String> list) {
     }
 }

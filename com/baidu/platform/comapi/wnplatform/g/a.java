@@ -25,12 +25,12 @@ public class a extends ItemizedOverlay {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0123a {
+    public static class C0139a {
         static final a a = new a();
     }
 
     public static a b() {
-        return C0123a.a;
+        return C0139a.a;
     }
 
     private a() {
@@ -71,7 +71,7 @@ public class a extends ItemizedOverlay {
 
     private BitmapDescriptor a(Context context, int i, int i2) {
         try {
-            this.b = ((Activity) context).getLayoutInflater().inflate(R.layout.abc_alert_dialog_title_material, (ViewGroup) null);
+            this.b = ((Activity) context).getLayoutInflater().inflate(R.layout.abc_dialog_title_material, (ViewGroup) null);
             this.c = (ImageView) this.b.findViewById(2131165305);
             this.c.setImageResource(i);
             this.d = (ImageView) this.b.findViewById(2131165306);

@@ -1,18 +1,46 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public class ax extends bh {
-    public static final BdUniqueId bZQ = BdUniqueId.gen();
-    private ArrayList<RecommendForumData> bZR = new ArrayList<>();
+public class ax {
+    private String cMc;
+    private String cMd;
+    private String cMe;
+    private String cMf;
 
-    public ArrayList<RecommendForumData> ahL() {
-        return this.bZR;
+    public void s(bj bjVar) {
+        if (bjVar != null) {
+            this.cMc = bjVar.mRecomWeight;
+            this.cMd = bjVar.mRecomSource;
+            this.cMe = bjVar.mRecomAbTag;
+            this.cMf = bjVar.mRecomExtra;
+        }
     }
 
-    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return bZQ;
+    public void R(Intent intent) {
+        if (intent != null) {
+            this.cMc = intent.getStringExtra("recom_weight");
+            this.cMd = intent.getStringExtra("recom_source");
+            this.cMe = intent.getStringExtra("recom_abtag");
+            this.cMf = intent.getStringExtra("recom_extra");
+        }
+    }
+
+    public void S(Intent intent) {
+        if (intent != null) {
+            intent.putExtra("recom_weight", this.cMc);
+            intent.putExtra("recom_source", this.cMd);
+            intent.putExtra("recom_abtag", this.cMe);
+            intent.putExtra("recom_extra", this.cMf);
+        }
+    }
+
+    public void b(com.baidu.tieba.play.y yVar) {
+        if (yVar != null) {
+            yVar.jsi = this.cMc;
+            yVar.mSource = this.cMd;
+            yVar.mAbTag = this.cMe;
+            yVar.mExtra = this.cMf;
+        }
     }
 }

@@ -5,7 +5,7 @@ import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SoftwareClipShaderDrawer extends ShaderDrawer {
     private boolean mIsRound;
     private Rect mRect;

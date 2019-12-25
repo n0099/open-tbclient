@@ -1,5 +1,5 @@
 package com.baidu.ala;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaConfig {
     public static final String ALA_FRS_NEGATIVE_URL = "c/f/video/sendFrsStageFeedBack";
     public static final String ALA_GET_BUY_TDOU_PRIVILEGE = "c/e/mema/buyLiveProps";

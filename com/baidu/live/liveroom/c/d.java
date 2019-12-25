@@ -1,7 +1,7 @@
 package com.baidu.live.liveroom.c;
 
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface d {
     void enterBackground();
 
@@ -13,9 +13,9 @@ public interface d {
 
     void onDestroy();
 
-    View ss();
+    View uj();
 
-    String st();
+    String uk();
 
-    short su();
+    short ul();
 }

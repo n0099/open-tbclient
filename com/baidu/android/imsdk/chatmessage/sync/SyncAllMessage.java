@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SyncAllMessage extends SyncStrategy {
     private static final String FETCHED_MAX_NOTIFY_MSGID = "fetched_max_msgid";
     private static final String TAG = SyncAllMessage.class.getSimpleName();

@@ -1,8 +1,8 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.mobstat.Config;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -31,10 +31,10 @@ public class AudioInfoData extends com.baidu.tbadk.core.data.k implements Serial
                 JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject != null) {
                     this.errorCode = optJSONObject.optInt("errno", -1);
-                    this.errorMsg = optJSONObject.optString("errmsg", null);
+                    this.errorMsg = optJSONObject.optString(BaseJsonData.TAG_ERRMSG, null);
                     this.errorUserMsg = optJSONObject.optString("usermsg", null);
                 }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject(Config.LAUNCH_INFO);
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("info");
                 if (optJSONObject2 != null) {
                     this.voiceId = optJSONObject2.optString("voice_md5", null);
                 }

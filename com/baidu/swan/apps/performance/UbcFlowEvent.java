@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.performance;
 
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class UbcFlowEvent {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String bai = "NA";
-    private RecordType baj = RecordType.KEEP;
-    private boolean bak = false;
+    private String bCV = "NA";
+    private RecordType bCW = RecordType.KEEP;
+    private boolean bCX = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public enum RecordType {
         KEEP,
         UPDATE,
@@ -23,7 +23,7 @@ public class UbcFlowEvent {
         this.id = str;
     }
 
-    public UbcFlowEvent ae(long j) {
+    public UbcFlowEvent an(long j) {
         if (j < 0) {
             j = 0;
         }
@@ -31,7 +31,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public long NL() {
+    public long Xj() {
         return this.mTime;
     }
 
@@ -39,34 +39,39 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent gM(String str) {
-        this.bai = str;
+    public UbcFlowEvent jM(String str) {
+        this.bCV = str;
         return this;
     }
 
-    public String NM() {
-        return this.bai;
+    public String Xk() {
+        return this.bCV;
     }
 
-    public boolean NN() {
-        return this.bak;
+    public UbcFlowEvent cU(boolean z) {
+        this.bCX = z;
+        return this;
+    }
+
+    public boolean Xl() {
+        return this.bCX;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.baj = recordType;
+        this.bCW = recordType;
         return this;
     }
 
-    public RecordType NO() {
-        return this.baj;
+    public RecordType Xm() {
+        return this.bCW;
     }
 
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[3];
-        objArr[0] = Long.valueOf(NL());
+        objArr[0] = Long.valueOf(Xj());
         objArr[1] = this.id;
-        objArr[2] = NN() ? "(justLocalRecord)" : "";
+        objArr[2] = Xl() ? "(justLocalRecord)" : "";
         return String.format(locale, "Event at %d id = %s %s", objArr);
     }
 }

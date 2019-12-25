@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b extends RecyclerView.Adapter<c> {
     private List<com.baidu.tieba.barselect.data.a> mDataList = new ArrayList();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: m */
+    /* renamed from: p */
     public c onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new c(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.view_candidate_item, (ViewGroup) null));
     }

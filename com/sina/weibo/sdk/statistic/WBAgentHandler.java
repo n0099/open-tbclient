@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class WBAgentHandler {
     private static int MAX_CACHE_SIZE = 5;
     private static CopyOnWriteArrayList<PageLog> mActivePages;
@@ -146,8 +146,8 @@ class WBAgentHandler {
 
     public void uploadAppLogs(final Context context) {
         long currentTimeMillis = System.currentTimeMillis() - LogReport.getTime(context);
-        if (LogReport.getTime(context) > 0 && currentTimeMillis < StatisticConfig.MIN_UPLOAD_INTERVAL) {
-            timerTask(context, StatisticConfig.MIN_UPLOAD_INTERVAL - currentTimeMillis, 0L);
+        if (LogReport.getTime(context) > 0 && currentTimeMillis < 30000) {
+            timerTask(context, 30000 - currentTimeMillis, 0L);
         } else {
             WBAgentExecutor.execute(new Runnable() { // from class: com.sina.weibo.sdk.statistic.WBAgentHandler.1
                 @Override // java.lang.Runnable

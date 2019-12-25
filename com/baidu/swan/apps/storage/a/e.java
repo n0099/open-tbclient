@@ -6,26 +6,26 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.scheme.actions.ab;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class e extends z {
+/* loaded from: classes9.dex */
+public class e extends ab {
     public e(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/file/getSavedFileList");
+        super(jVar, "/swanAPI/file/getSavedFileList");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (context == null || callbackHandler == null || bVar == null || bVar.Re() == null) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.aaa() == null) {
             com.baidu.swan.apps.console.c.e("getSavedFileList", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        ArrayList arrayList = (ArrayList) bVar.Re().SO();
+        ArrayList arrayList = (ArrayList) eVar.aaa().acw();
         JSONArray jSONArray = new JSONArray();
         if (arrayList == null || arrayList.size() == 0) {
             com.baidu.swan.apps.console.c.e("getSavedFileList", "file list is null");
@@ -37,8 +37,8 @@ public class e extends z {
             com.baidu.swan.apps.storage.a aVar = (com.baidu.swan.apps.storage.a) it.next();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("filePath", com.baidu.swan.apps.storage.b.aN(aVar.getPath(), com.baidu.swan.apps.ae.b.Rm()));
-                jSONObject.put("createTime", aVar.SL());
+                jSONObject.put("filePath", com.baidu.swan.apps.storage.b.bh(aVar.getPath(), com.baidu.swan.apps.runtime.e.ZU()));
+                jSONObject.put("createTime", aVar.acs());
                 jSONObject.put(TiebaInitialize.LogFields.SIZE, aVar.getSize());
                 if (DEBUG) {
                     Log.d("GetSavedFileListAction", "——> handle: fileInfo (" + jSONObject.get("filePath") + " , " + jSONObject.get("createTime") + " , " + jSONObject.get(TiebaInitialize.LogFields.SIZE) + ")");

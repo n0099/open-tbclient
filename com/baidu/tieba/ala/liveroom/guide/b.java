@@ -1,65 +1,63 @@
 package com.baidu.tieba.ala.liveroom.guide;
 
-import android.annotation.SuppressLint;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.live.k.a;
-import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
-/* loaded from: classes6.dex */
-public class b {
-    private RelativeLayout egs;
-    private AlaLivePriseGuideView egt;
-    private TbPageContext mTbPageContext;
-
-    public b(TbPageContext tbPageContext) {
-        this.mTbPageContext = tbPageContext;
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public void ae(ViewGroup viewGroup) {
-        boolean z = SharedPrefHelper.getInstance().getBoolean("live_root_key_guide_double_click_praise", false);
-        if (viewGroup != null && this.mTbPageContext != null && !z && this.egt == null) {
-            this.egt = new AlaLivePriseGuideView(this.mTbPageContext.getPageActivity());
-            this.egt.setOrientation(1);
-            TextView textView = new TextView(this.mTbPageContext.getPageActivity());
-            textView.setText("为主播点赞");
-            textView.setTextColor(-1);
-            textView.setTextSize(22.0f);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 1;
-            layoutParams.topMargin = 20;
-            this.egt.addView(textView, layoutParams);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams2.addRule(13, -1);
-            this.egs = new RelativeLayout(this.mTbPageContext.getPageActivity());
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -1);
-            this.egs.setBackgroundResource(a.d.sdk_black_alpha50);
-            this.egs.addView(this.egt, layoutParams2);
-            this.egs.setTag("AlaLivePraiseGuideController");
-            viewGroup.addView(this.egs, layoutParams3);
-            this.egs.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.guide.b.1
-                @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view, MotionEvent motionEvent) {
-                    b.this.aSf();
-                    return false;
+import com.baidu.live.adp.base.BdBaseModel;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+/* loaded from: classes2.dex */
+public class b extends BdBaseModel {
+    private a eWo;
+    private HttpMessageListener eWr = new HttpMessageListener(1021153) { // from class: com.baidu.tieba.ala.liveroom.guide.b.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021153 && (httpResponsedMessage instanceof YanZhiSignInHttpResponseMessage)) {
+                if (httpResponsedMessage.getError() == 0) {
+                    if (b.this.eWo != null) {
+                        b.this.eWo.d(0, ((YanZhiSignInHttpResponseMessage) httpResponsedMessage).bjR(), ((YanZhiSignInHttpResponseMessage) httpResponsedMessage).bjS());
+                    }
+                } else if (b.this.eWo != null) {
+                    b.this.eWo.d(httpResponsedMessage.getError(), true, true);
                 }
-            });
-            SharedPrefHelper.getInstance().putBoolean("live_root_key_guide_double_click_praise", true);
+            }
         }
+    };
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes2.dex */
+    public interface a {
+        void d(int i, boolean z, boolean z2);
     }
 
-    public boolean aSf() {
-        if (this.egt == null || !this.egt.aSf()) {
-            return false;
+    public b(a aVar) {
+        this.eWo = aVar;
+        bjJ();
+        MessageManager.getInstance().registerListener(this.eWr);
+    }
+
+    private void bjJ() {
+        com.baidu.live.tieba.f.a.a.a(1021153, "ala/user/getUserSignInStatus", YanZhiSignInHttpResponseMessage.class, true, true, true, true);
+    }
+
+    public void bjK() {
+        MessageManager.getInstance().sendMessage(new HttpMessage(1021153));
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    protected boolean loadData() {
+        return false;
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterTask(1021153);
+        if (this.eWr != null) {
+            MessageManager.getInstance().unRegisterListener(this.eWr);
         }
-        if (this.egs != null && this.egs.getParent() != null) {
-            ((ViewGroup) this.egs.getParent()).removeView(this.egs);
-        }
-        return true;
     }
 }

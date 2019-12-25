@@ -1,8 +1,8 @@
 package com.baidu.sapi2.activity.social;
 
 import android.os.Bundle;
-import com.baidu.d.a.a.a.a;
-/* loaded from: classes2.dex */
+import com.baidu.i.a.a.a.a;
+/* loaded from: classes4.dex */
 public class HuaweiLoginActivity extends BaseSSOLoginActivity {
     public static final String ACCESS_TOKEN = "access_token";
     public static final String UID = "uid";
@@ -18,6 +18,6 @@ public class HuaweiLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.b.sapi_sdk_title_login_hw);
+        setTitleText(a.c.sapi_sdk_title_login_hw);
     }
 }

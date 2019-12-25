@@ -1,8 +1,9 @@
 package com.baidu.live.adp.lib.util;
 
+import com.baidu.android.util.time.DateTimeUtil;
 import java.lang.reflect.Field;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class FieldUtil {
     public static final String TYPE_BOOLEAN = "java.lang.Boolean";
     public static final String TYPE_BYTE = "java.lang.Byte";
@@ -14,7 +15,7 @@ public class FieldUtil {
     public static final String TYPE_LONG = "java.lang.Long";
     public static final String TYPE_SHORT = "java.lang.Short";
     public static final String TYPE_STRING = "java.lang.String";
-    public static String dateFormat = "yyyy-MM-dd HH:mm:ss";
+    public static String dateFormat = DateTimeUtil.TIME_FORMAT;
     public static HashMap<String, String> PrimitiveTypes = new HashMap<>();
 
     static {

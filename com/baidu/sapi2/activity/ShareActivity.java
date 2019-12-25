@@ -3,8 +3,7 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.d.a.a;
-import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -22,7 +21,7 @@ import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ShareActivity extends BaseActivity {
     private static final String r = "share_fail_reason";
     private static final String s = "share_account";
@@ -181,7 +180,7 @@ public class ShareActivity extends BaseActivity {
                 jSONObject.put("displayName", currentAccount.displayname);
             }
             jSONObject.put("portrait", getIntent().getStringExtra("android.intent.extra.TEXT"));
-            jSONObject.put(LogConfig.LOG_SESSION_ID, getIntent().getStringExtra(m.b));
+            jSONObject.put("session_id", getIntent().getStringExtra(m.b));
             jSONObject.put("trace_id", getIntent().getStringExtra(m.a));
         } catch (Exception e) {
             Log.e(e);

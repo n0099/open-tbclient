@@ -12,10 +12,9 @@ import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LocalConfigOptions {
     public static final int DEFAULT_ILLUM_GRAY = -1;
     public static final int DEFAULT_ZIP_GRAY_THRESHOLD = 100;
@@ -103,7 +102,7 @@ public class LocalConfigOptions {
     private String getAccountEncryptKey(Context context) {
         if (TextUtils.isEmpty(this.encryptKey)) {
             try {
-                this.encryptKey = MD5Util.toMd5((context.getPackageName() + PassBiometricUtil.getPackageSign(context, context.getPackageName())).getBytes(HTTP.UTF_8), false).substring(0, 16);
+                this.encryptKey = MD5Util.toMd5((context.getPackageName() + PassBiometricUtil.getPackageSign(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
             } catch (UnsupportedEncodingException e) {
                 Log.e(e);
             }

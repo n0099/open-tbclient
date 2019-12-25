@@ -1,7 +1,7 @@
 package com.vivo.push.b;
 
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class m extends s {
     private ArrayList<String> a;
 

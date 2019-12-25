@@ -18,7 +18,7 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatche
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import rx.d;
 import rx.j;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 public final class DelegateUtils implements DelegateDef {
     public static Handler sMainHandler = new Handler(Looper.getMainLooper());
 
@@ -95,7 +95,7 @@ public final class DelegateUtils implements DelegateDef {
                     return true;
                 }
             });
-            resultDispatcher.startActivityForResult(new Intent(activity, cls).putExtra(DelegateDef.EXTRA_DELEGATION_NAME, name).putExtra(DelegateDef.EXTRA_PARAMS, bundle));
+            resultDispatcher.startActivityForResult(new Intent(activity, cls).putExtra(DelegateDef.EXTRA_DELEGATION_NAME, name).putExtra("extra_params", bundle));
         }
     }
 

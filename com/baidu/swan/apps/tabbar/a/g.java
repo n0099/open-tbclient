@@ -1,54 +1,43 @@
 package com.baidu.swan.apps.tabbar.a;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class g extends z {
+/* loaded from: classes9.dex */
+public class g extends a {
     public g(j jVar) {
-        super(jVar, "/swan/setTabBarItem");
+        super(jVar, "/swanAPI/setTabBarBadge");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (DEBUG) {
-            Log.d("SetTabBarItemAction", "handle entity: " + unitedSchemeEntity.toString());
-        }
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        com.baidu.swan.apps.w.e LE = com.baidu.swan.apps.w.e.LE();
         if (optParamsAsJo == null) {
-            com.baidu.swan.apps.console.c.e("setTabBarItem", "paramsJson is null");
+            com.baidu.swan.apps.console.c.e("setTabBarBadge", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.e AI = LE.AI();
-        if (AI == null) {
-            com.baidu.swan.apps.console.c.e("setTabBarItem", "fragmentManager is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        }
-        com.baidu.swan.apps.core.d.d Fs = AI.Fs();
         int optInt = optParamsAsJo.optInt("index");
         String optString = optParamsAsJo.optString("text");
-        String optString2 = optParamsAsJo.optString("iconPath");
-        String optString3 = optParamsAsJo.optString("selectedIconPath");
-        if (Fs == null) {
-            com.baidu.swan.apps.console.c.e("setTabBarItem", "swanAppFragment is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        if (optString.length() > 3) {
+            optString = context.getString(a.h.aiapps_tabbar_badge_over_length);
+        }
+        if (Hb()) {
+            com.baidu.swan.apps.console.c.e("SetTabBarBadgeAction", "fail not TabBar page");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         }
-        com.baidu.swan.apps.tabbar.b.a Fe = Fs.Fe();
-        if (Fe == null) {
-            com.baidu.swan.apps.console.c.e("setTabBarItem", "bottomBarViewController is null");
+        com.baidu.swan.apps.tabbar.b.a Ha = Ha();
+        if (Ha == null) {
+            com.baidu.swan.apps.console.c.e("SetTabBarBadgeAction", "tabBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!Fe.c(optInt, optString, optString2, optString3)) {
-            com.baidu.swan.apps.console.c.e("setTabBarItem", "set bottom bar time fail");
+        } else if (!Ha.z(optInt, optString)) {
+            com.baidu.swan.apps.console.c.e("setTabBarBadge", "set bottom badge fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {

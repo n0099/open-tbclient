@@ -14,11 +14,12 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.c;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BiometricsManager implements c {
     public static final String LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN = "authtoken";
     public static final String LIVENESS_RECOGNIZE_TYPE_BDUSS = "bduss";
@@ -31,7 +32,7 @@ public class BiometricsManager implements c {
     private static final String b = "scene:certlogin";
     private static final String c = "scene:uncertlogin";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class a {
         public static final String a = "bduss";
         public static final String b = "certinfo";
@@ -59,7 +60,7 @@ public class BiometricsManager implements c {
 
     public static String buildSubPro(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
-            str = "empty";
+            str = SchemeCollecter.CLASSIFY_EMPTY;
         }
         return "pp-pp-" + str + "-{tpl:" + SapiAccountManager.getInstance().getConfignation().tpl + ",scene:" + str2 + "}";
     }

@@ -1,5 +1,5 @@
 package com.baidu.ubs.analytics.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class d implements Runnable {
     protected abstract void a();
 
@@ -10,7 +10,7 @@ public abstract class d implements Runnable {
         } catch (Exception e) {
             j.b(e);
             if (e.getMessage() != null) {
-                b.Gf(e.getMessage());
+                b.KV(e.getMessage());
             }
         }
     }

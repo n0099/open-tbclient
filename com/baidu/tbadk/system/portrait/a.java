@@ -11,43 +11,43 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> cNL;
-    private int cNN;
-    private int cNO;
-    private TbPageContext<?> ceu;
+    private TbPageContext<?> cQU;
+    private ArrayList<b> dBJ;
+    private int dBL;
+    private int dBM;
     private int padding;
-    private int cNE = -1;
+    private int dBC = -1;
     private int rowSize = 0;
-    private int cmQ = am.getColor(R.color.common_color_10043);
-    private int cNM = am.getColor(R.color.cp_link_tip_a);
+    private int dab = am.getColor(R.color.common_color_10043);
+    private int dBK = am.getColor(R.color.cp_link_tip_a);
 
     public a(TbPageContext<?> tbPageContext) {
-        this.cNL = null;
-        this.ceu = null;
+        this.dBJ = null;
+        this.cQU = null;
         this.padding = 0;
-        this.ceu = tbPageContext;
-        this.cNL = new ArrayList<>();
-        this.cNN = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds1);
-        this.cNO = l.getDimens(this.ceu.getPageActivity(), R.dimen.ds4);
-        this.padding = l.getDimens(this.ceu.getPageActivity(), R.dimen.ds36);
+        this.cQU = tbPageContext;
+        this.dBJ = new ArrayList<>();
+        this.dBL = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds1);
+        this.dBM = l.getDimens(this.cQU.getPageActivity(), R.dimen.ds4);
+        this.padding = l.getDimens(this.cQU.getPageActivity(), R.dimen.ds36);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cNL != null) {
-            return this.cNL.size();
+        if (this.dBJ != null) {
+            return this.dBJ.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.cNL == null || i >= this.cNL.size()) {
+        if (this.dBJ == null || i >= this.dBJ.size()) {
             return null;
         }
-        return this.cNL.get(i);
+        return this.dBJ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,41 +57,41 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0297a c0297a;
+        C0383a c0383a;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = LayoutInflater.from(this.ceu.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
-            c0297a = new C0297a();
-            c0297a.cBh = (LinearLayout) view.findViewById(R.id.photo_container);
-            c0297a.cNP = (TbImageView) view.findViewById(R.id.photo);
+            view = LayoutInflater.from(this.cQU.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
+            c0383a = new C0383a();
+            c0383a.doQ = (LinearLayout) view.findViewById(R.id.photo_container);
+            c0383a.dBN = (TbImageView) view.findViewById(R.id.photo);
         } else {
-            c0297a = (C0297a) view.getTag();
+            c0383a = (C0383a) view.getTag();
         }
-        if (kj(i) == 1) {
-            c0297a.cBh.setPadding(0, this.padding, 0, 0);
-        } else if (kj(i) == 2) {
-            c0297a.cBh.setPadding(0, 0, 0, this.padding);
+        if (my(i) == 1) {
+            c0383a.doQ.setPadding(0, this.padding, 0, 0);
+        } else if (my(i) == 2) {
+            c0383a.doQ.setPadding(0, 0, 0, this.padding);
         } else {
-            c0297a.cBh.setPadding(0, 0, 0, 0);
+            c0383a.doQ.setPadding(0, 0, 0, 0);
         }
-        c0297a.cNP.setDrawerType(0);
-        c0297a.cNP.setBorderSurroundContent(true);
-        c0297a.cNP.setDrawBorder(true);
+        c0383a.dBN.setDrawerType(0);
+        c0383a.dBN.setBorderSurroundContent(true);
+        c0383a.dBN.setDrawBorder(true);
         if (itemViewType == 0) {
-            c0297a.cNP.setBorderColor(this.cmQ);
-            c0297a.cNP.setBorderWidth(this.cNN);
+            c0383a.dBN.setBorderColor(this.dab);
+            c0383a.dBN.setBorderWidth(this.dBL);
         } else {
-            c0297a.cNP.setBorderColor(this.cNM);
-            c0297a.cNP.setBorderWidth(this.cNO);
+            c0383a.dBN.setBorderColor(this.dBK);
+            c0383a.dBN.setBorderWidth(this.dBM);
         }
-        c0297a.cNP.setDefaultResource(R.drawable.transparent_bg);
-        c0297a.cNP.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        c0297a.cNP.startLoad(this.cNL.get(i).getUrl(), 10, false);
-        view.setTag(c0297a);
+        c0383a.dBN.setDefaultResource(R.drawable.transparent_bg);
+        c0383a.dBN.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        c0383a.dBN.startLoad(this.dBJ.get(i).getUrl(), 10, false);
+        view.setTag(c0383a);
         return view;
     }
 
-    public int kj(int i) {
+    public int my(int i) {
         if (i / 4 == 0) {
             return 1;
         }
@@ -103,7 +103,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return i == this.cNE ? 1 : 0;
+        return i == this.dBC ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -111,8 +111,8 @@ public class a extends BaseAdapter {
         return 2;
     }
 
-    public void C(ArrayList<b> arrayList) {
-        this.cNL = arrayList;
+    public void F(ArrayList<b> arrayList) {
+        this.dBJ = arrayList;
         if (arrayList != null) {
             if (arrayList.size() % 4 == 0) {
                 this.rowSize = arrayList.size() / 4;
@@ -122,17 +122,17 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void kk(int i) {
-        this.cNE = i;
+    public void mz(int i) {
+        this.dBC = i;
     }
 
     /* renamed from: com.baidu.tbadk.system.portrait.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private class C0297a {
-        LinearLayout cBh;
-        TbImageView cNP;
+    /* loaded from: classes5.dex */
+    private class C0383a {
+        TbImageView dBN;
+        LinearLayout doQ;
 
-        private C0297a() {
+        private C0383a() {
         }
     }
 }

@@ -3,13 +3,13 @@ package com.baidu.swan.support.v4.b;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class a<K, V> extends f<K, V> implements Map<K, V> {
-    e<K, V> bNB;
+    e<K, V> czx;
 
-    private e<K, V> acb() {
-        if (this.bNB == null) {
-            this.bNB = new e<K, V>() { // from class: com.baidu.swan.support.v4.b.a.1
+    private e<K, V> asg() {
+        if (this.czx == null) {
+            this.czx = new e<K, V>() { // from class: com.baidu.swan.support.v4.b.a.1
                 @Override // com.baidu.swan.support.v4.b.e
                 protected int colGetSize() {
                     return a.this.mSize;
@@ -56,7 +56,7 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
                 }
             };
         }
-        return this.bNB;
+        return this.czx;
     }
 
     @Override // java.util.Map
@@ -73,16 +73,16 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
 
     @Override // java.util.Map
     public Set<Map.Entry<K, V>> entrySet() {
-        return acb().getEntrySet();
+        return asg().getEntrySet();
     }
 
     @Override // java.util.Map
     public Set<K> keySet() {
-        return acb().getKeySet();
+        return asg().getKeySet();
     }
 
     @Override // java.util.Map
     public Collection<V> values() {
-        return acb().getValues();
+        return asg().getValues();
     }
 }

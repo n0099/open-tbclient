@@ -5,7 +5,7 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.b;
 import com.baidu.adp.lib.util.p;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.d.a;
+import com.baidu.tbadk.core.c.a;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tbadk.mvc.b.j;
@@ -68,7 +68,7 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         e eVar;
-        l<byte[]> bJ;
+        l<byte[]> ch;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && bArr != null) {
             if (getOrginalMessage() instanceof MvcSocketMessage) {
@@ -88,10 +88,10 @@ public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> 
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String avI = eVar.avI();
+                String aNs = eVar.aNs();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(avI) && bArr != null && (bJ = a.akL().bJ(avI, currentAccount)) != null) {
-                    bJ.setForever(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(aNs) && bArr != null && (ch = a.aBV().ch(aNs, currentAccount)) != null) {
+                    ch.setForever(cacheKey, bArr);
                 }
             }
         }

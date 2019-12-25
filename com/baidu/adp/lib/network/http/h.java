@@ -1,5 +1,32 @@
 package com.baidu.adp.lib.network.http;
+
+import java.net.HttpURLConnection;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes.dex */
-public interface h {
-    void h(int i, int i2);
+public class h {
+    public int downSize;
+    public byte[] retBytes;
+    public Map<String, List<String>> rp;
+    public volatile boolean ro = false;
+    public int responseCode = -1;
+    public int mNetErrorCode = -1;
+    public String contentEncoding = "";
+    public String contentType = "";
+    public String contentLength = "";
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void g(HttpURLConnection httpURLConnection) throws Exception {
+        if (httpURLConnection != null) {
+            this.responseCode = httpURLConnection.getResponseCode();
+            this.contentEncoding = httpURLConnection.getContentEncoding();
+            this.contentType = httpURLConnection.getContentType();
+            this.contentLength = httpURLConnection.getContentLength() + "";
+            this.rp = httpURLConnection.getHeaderFields();
+        }
+    }
+
+    public boolean gh() {
+        return this.responseCode == 200;
+    }
 }

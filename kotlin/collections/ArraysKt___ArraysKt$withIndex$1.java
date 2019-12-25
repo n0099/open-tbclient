@@ -2,7 +2,7 @@ package kotlin.collections;
 
 import java.util.Iterator;
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class ArraysKt___ArraysKt$withIndex$1 extends Lambda implements kotlin.jvm.a.a<Iterator<? extends T>> {
     final /* synthetic */ Object[] receiver$0;
 
@@ -15,6 +15,6 @@ final class ArraysKt___ArraysKt$withIndex$1 extends Lambda implements kotlin.jvm
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.a
     public final Iterator<T> invoke() {
-        return kotlin.jvm.internal.h.L(this.receiver$0);
+        return kotlin.jvm.internal.h.P(this.receiver$0);
     }
 }

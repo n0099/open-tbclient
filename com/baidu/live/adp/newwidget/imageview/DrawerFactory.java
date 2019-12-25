@@ -1,5 +1,5 @@
 package com.baidu.live.adp.newwidget.imageview;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DrawerFactory {
     public static final int COMMON = 0;
     public static final int COMMON_NO_COLOR_FILTER = 6;

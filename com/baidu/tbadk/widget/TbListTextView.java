@@ -89,12 +89,12 @@ public class TbListTextView extends TextView {
             }
             try {
                 setTextAndMeasure(spannableStringBuilder, i, i2);
-                return a.e(arrayList, arrayList2);
+                return a.g(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.ayn();
+        return a.aQn();
     }
 
     private boolean isNotSpace(CharSequence charSequence, int i) {
@@ -145,11 +145,11 @@ public class TbListTextView extends TextView {
         public final List<Object> spansWithSpacesAfter;
         public final List<Object> spansWithSpacesBefore;
 
-        public static a e(List<Object> list, List<Object> list2) {
+        public static a g(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a ayn() {
+        public static a aQn() {
             return new a(false, null, null);
         }
 

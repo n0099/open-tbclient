@@ -3,11 +3,11 @@ package com.baidu.tieba.m;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.tieba.VideoPlatformStatic;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface c {
-    JSONObject cdn();
+    JSONObject cxi();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a implements c {
         public final int state;
         private final long timestamp = System.currentTimeMillis();
@@ -17,12 +17,12 @@ public interface c {
         }
 
         @Override // com.baidu.tieba.m.c
-        public JSONObject cdn() {
+        public JSONObject cxi() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);
                 jSONObject.put("timestamp", this.timestamp);
-                jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.aCX());
+                jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.aUQ());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -30,7 +30,7 @@ public interface c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class b implements c {
         private final String source;
         public final int state;
@@ -42,7 +42,7 @@ public interface c {
         }
 
         @Override // com.baidu.tieba.m.c
-        public JSONObject cdn() {
+        public JSONObject cxi() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);

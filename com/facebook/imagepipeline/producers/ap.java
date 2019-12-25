@@ -1,21 +1,16 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes2.dex */
-public class ap<T> implements ai<Void> {
-    private final ai<T> kkh;
 
-    public ap(ai<T> aiVar) {
-        this.kkh = aiVar;
+import com.facebook.imagepipeline.common.Priority;
+import com.facebook.imagepipeline.request.ImageRequest;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
+/* loaded from: classes9.dex */
+public class ap extends d {
+    public ap(ImageRequest imageRequest, ak akVar) {
+        this(imageRequest, akVar.getId(), akVar.doY(), akVar.djN(), akVar.doZ(), akVar.dpa(), akVar.dpc(), akVar.dpb());
     }
 
-    @Override // com.facebook.imagepipeline.producers.ai
-    public void a(j<Void> jVar, aj ajVar) {
-        this.kkh.a(new m<T, Void>(jVar) { // from class: com.facebook.imagepipeline.producers.ap.1
-            @Override // com.facebook.imagepipeline.producers.b
-            protected void e(T t, boolean z) {
-                if (z) {
-                    cIS().f(null, z);
-                }
-            }
-        }, ajVar);
+    public ap(ImageRequest imageRequest, String str, am amVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
+        super(imageRequest, str, amVar, obj, requestLevel, z, z2, priority);
     }
 }

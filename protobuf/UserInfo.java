@@ -4,14 +4,17 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class UserInfo extends Message {
+    public static final String DEFAULT_BJHAVATAR = "";
     public static final String DEFAULT_FANSNICKNAME = "";
     public static final String DEFAULT_NICKNAME = "";
     public static final String DEFAULT_PORTRAIT = "";
     public static final String DEFAULT_POSITION = "";
     public static final String DEFAULT_USERNAME = "";
     public static final String DEFAULT_USERNAMESHOW = "";
+    @ProtoField(tag = 19, type = Message.Datatype.STRING)
+    public final String bjhAvatar;
     @ProtoField(tag = 17, type = Message.Datatype.STRING)
     public final String fansNickname;
     @ProtoField(tag = 16, type = Message.Datatype.INT32)
@@ -146,9 +149,14 @@ public final class UserInfo extends Message {
             }
             if (builder.userNameShow == null) {
                 this.userNameShow = "";
-                return;
             } else {
                 this.userNameShow = builder.userNameShow;
+            }
+            if (builder.bjhAvatar == null) {
+                this.bjhAvatar = "";
+                return;
+            } else {
+                this.bjhAvatar = builder.bjhAvatar;
                 return;
             }
         }
@@ -170,10 +178,12 @@ public final class UserInfo extends Message {
         this.fansNum = builder.fansNum;
         this.fansNickname = builder.fansNickname;
         this.userNameShow = builder.userNameShow;
+        this.bjhAvatar = builder.bjhAvatar;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder extends Message.Builder<UserInfo> {
+        public String bjhAvatar;
         public String fansNickname;
         public Integer fansNum;
         public Integer inTime;
@@ -217,6 +227,7 @@ public final class UserInfo extends Message {
                 this.fansNum = userInfo.fansNum;
                 this.fansNickname = userInfo.fansNickname;
                 this.userNameShow = userInfo.userNameShow;
+                this.bjhAvatar = userInfo.bjhAvatar;
             }
         }
 

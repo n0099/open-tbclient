@@ -5,49 +5,66 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import java.net.MalformedURLException;
+import java.net.URL;
 import javax.annotation.Nullable;
 import org.apache.http.HttpHost;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private static final String kbb = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo").getPath();
+    private static final Uri lER = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
 
-    public static boolean v(@Nullable Uri uri) {
-        String D = D(uri);
-        return "https".equals(D) || HttpHost.DEFAULT_SCHEME_NAME.equals(D);
+    @Nullable
+    public static URL A(@Nullable Uri uri) {
+        if (uri == null) {
+            return null;
+        }
+        try {
+            return new URL(uri.toString());
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public static boolean w(@Nullable Uri uri) {
-        return BdStatsConstant.OpSubType.FILE.equals(D(uri));
+    public static boolean B(@Nullable Uri uri) {
+        String schemeOrNull = getSchemeOrNull(uri);
+        return "https".equals(schemeOrNull) || HttpHost.DEFAULT_SCHEME_NAME.equals(schemeOrNull);
     }
 
-    public static boolean x(@Nullable Uri uri) {
-        return "content".equals(D(uri));
+    public static boolean isLocalFileUri(@Nullable Uri uri) {
+        return "file".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean y(Uri uri) {
-        return x(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(kbb);
+    public static boolean isLocalContentUri(@Nullable Uri uri) {
+        return "content".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean z(Uri uri) {
+    public static boolean C(Uri uri) {
+        return isLocalContentUri(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(lER.getPath());
+    }
+
+    public static boolean D(Uri uri) {
         String uri2 = uri.toString();
         return uri2.startsWith(MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString()) || uri2.startsWith(MediaStore.Images.Media.INTERNAL_CONTENT_URI.toString());
     }
 
-    public static boolean A(@Nullable Uri uri) {
-        return "asset".equals(D(uri));
+    public static boolean E(@Nullable Uri uri) {
+        return "asset".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean B(@Nullable Uri uri) {
-        return "res".equals(D(uri));
+    public static boolean F(@Nullable Uri uri) {
+        return "res".equals(getSchemeOrNull(uri));
     }
 
-    public static boolean C(@Nullable Uri uri) {
-        return "data".equals(D(uri));
+    public static boolean G(@Nullable Uri uri) {
+        return "android.resource".equals(getSchemeOrNull(uri));
+    }
+
+    public static boolean H(@Nullable Uri uri) {
+        return "data".equals(getSchemeOrNull(uri));
     }
 
     @Nullable
-    public static String D(@Nullable Uri uri) {
+    public static String getSchemeOrNull(@Nullable Uri uri) {
         if (uri == null) {
             return null;
         }
@@ -60,11 +77,11 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String b(ContentResolver contentResolver, Uri uri) {
+    public static String a(ContentResolver contentResolver, Uri uri) {
         int columnIndex;
         String string;
         Cursor cursor = null;
-        if (x(uri)) {
+        if (isLocalContentUri(uri)) {
             try {
                 Cursor query = contentResolver.query(uri, null, null, null, null);
                 if (query != null) {
@@ -92,14 +109,14 @@ public class d {
             } catch (Throwable th2) {
                 th = th2;
             }
-        } else if (w(uri)) {
+        } else if (isLocalFileUri(uri)) {
             return uri.getPath();
         } else {
             return null;
         }
     }
 
-    public static Uri BZ(int i) {
+    public static Uri Hl(int i) {
         return new Uri.Builder().scheme("res").path(String.valueOf(i)).build();
     }
 }

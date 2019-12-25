@@ -11,10 +11,10 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.graphics.drawable.shapes.Shape;
-import android.support.v4.graphics.drawable.DrawableWrapper;
+import android.support.v4.graphics.drawable.WrappedDrawable;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class AppCompatProgressBarHelper {
     private static final int[] TINT_ATTRS = {16843067, 16843068};
     private Bitmap mSampleTile;
@@ -40,10 +40,10 @@ class AppCompatProgressBarHelper {
     }
 
     private Drawable tileify(Drawable drawable, boolean z) {
-        if (drawable instanceof DrawableWrapper) {
-            Drawable wrappedDrawable = ((DrawableWrapper) drawable).getWrappedDrawable();
+        if (drawable instanceof WrappedDrawable) {
+            Drawable wrappedDrawable = ((WrappedDrawable) drawable).getWrappedDrawable();
             if (wrappedDrawable != null) {
-                ((DrawableWrapper) drawable).setWrappedDrawable(tileify(wrappedDrawable, z));
+                ((WrappedDrawable) drawable).setWrappedDrawable(tileify(wrappedDrawable, z));
             }
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;

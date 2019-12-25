@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class c {
-    private McnVideoAdView ayH;
-    private McnVideoAdView.a ayI = new McnVideoAdView.a() { // from class: com.baidu.mcn.c.1
+    private McnVideoAdView aGt;
+    private McnVideoAdView.a aGu = new McnVideoAdView.a() { // from class: com.baidu.mcn.c.1
         @Override // com.baidu.mcn.McnVideoAdView.a
         public void a(a aVar) {
             if (aVar != null) {
                 an anVar = new an("c13404");
-                anVar.bS("tid", aVar.tid);
-                anVar.bS("fid", aVar.fid);
-                anVar.p("uid", TbadkCoreApplication.getCurrentAccountId());
-                anVar.O("obj_locate", aVar.ayC);
+                anVar.cp("tid", aVar.tid);
+                anVar.cp("fid", aVar.fid);
+                anVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
+                anVar.Z("obj_locate", aVar.aGp);
                 TiebaStatic.log(anVar);
             }
         }
@@ -27,18 +27,18 @@ public class c {
         public void b(a aVar) {
             if (aVar != null) {
                 an anVar = new an("c13405");
-                anVar.bS("tid", aVar.tid);
-                anVar.bS("fid", aVar.fid);
-                anVar.p("uid", TbadkCoreApplication.getCurrentAccountId());
-                anVar.O("obj_locate", aVar.ayC);
+                anVar.cp("tid", aVar.tid);
+                anVar.cp("fid", aVar.fid);
+                anVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
+                anVar.Z("obj_locate", aVar.aGp);
                 TiebaStatic.log(anVar);
             }
         }
 
         @Override // com.baidu.mcn.McnVideoAdView.a
         public void c(a aVar) {
-            if (aVar != null && !StringUtils.isNull(aVar.ayB)) {
-                b.ze().dt(aVar.ayB);
+            if (aVar != null && !StringUtils.isNull(aVar.aGo)) {
+                b.AS().ei(aVar.aGo);
             }
         }
     };
@@ -46,43 +46,43 @@ public class c {
 
     public c(Context context) {
         this.mContext = context;
-        this.ayH = new McnVideoAdView(context);
-        this.ayH.setIMcnStatListener(this.ayI);
+        this.aGt = new McnVideoAdView(context);
+        this.aGt.setIMcnStatListener(this.aGu);
     }
 
     public void a(a aVar, ViewGroup viewGroup) {
-        if (this.ayH != null) {
-            this.ayH.a(aVar, viewGroup);
+        if (this.aGt != null) {
+            this.aGt.a(aVar, viewGroup);
         }
     }
 
     public void dismiss() {
-        if (this.ayH != null) {
-            this.ayH.dismiss();
+        if (this.aGt != null) {
+            this.aGt.dismiss();
         }
     }
 
     public void reset() {
-        if (this.ayH != null) {
-            this.ayH.reset();
+        if (this.aGt != null) {
+            this.aGt.reset();
         }
     }
 
     public void b(a aVar, ViewGroup viewGroup) {
-        if (this.ayH != null) {
-            this.ayH.b(aVar, viewGroup);
+        if (this.aGt != null) {
+            this.aGt.b(aVar, viewGroup);
         }
     }
 
-    public void zf() {
-        if (this.ayH != null) {
-            this.ayH.zf();
+    public void AT() {
+        if (this.aGt != null) {
+            this.aGt.AT();
         }
     }
 
     public boolean isShowing() {
-        if (this.ayH != null) {
-            return this.ayH.isShowing();
+        if (this.aGt != null) {
+            return this.aGt.isShowing();
         }
         return false;
     }

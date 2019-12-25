@@ -1,177 +1,334 @@
 package com.baidu.location.a;
 
-import android.location.Location;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Message;
-import android.text.TextUtils;
-import com.baidu.location.BDLocation;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.wifi.WifiInfo;
+import android.os.Bundle;
 import com.baidu.location.Jni;
-import com.baidu.mobstat.Config;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.io.File;
 import java.util.HashMap;
-import java.util.Locale;
-/* loaded from: classes3.dex */
-public abstract class h {
-    public static String c = null;
-    public com.baidu.location.e.e a = null;
-    public com.baidu.location.e.a b = null;
-    private boolean e = true;
-    private boolean f = true;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class h {
+    private static Object c = new Object();
+    private static h d = null;
+    private static final String e = com.baidu.location.d.j.h() + "/hst.db";
+    private SQLiteDatabase f = null;
     private boolean g = false;
-    final Handler d = new a();
+    a a = null;
+    a b = null;
     private String h = null;
-    private String i = null;
-
-    /* loaded from: classes3.dex */
-    public class a extends Handler {
-        public a() {
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            if (com.baidu.location.f.isServing) {
-                switch (message.what) {
-                    case 21:
-                        h.this.a(message);
-                        return;
-                    case 62:
-                    case 63:
-                        h.this.a();
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-    }
+    private int i = -2;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public class b extends com.baidu.location.g.e {
-        String a = null;
-        String b = null;
+    /* loaded from: classes5.dex */
+    public class a extends com.baidu.location.d.e {
+        private String b = null;
+        private String c = null;
+        private boolean d = true;
+        private boolean e = false;
 
-        public b() {
+        a() {
             this.k = new HashMap();
         }
 
-        @Override // com.baidu.location.g.e
+        @Override // com.baidu.location.d.e
         public void a() {
-            this.h = com.baidu.location.g.g.c();
-            String encodeTp4 = Jni.encodeTp4(this.b);
-            this.b = null;
-            if (this.a == null) {
-                this.a = p.b();
-            }
+            this.i = 1;
+            this.h = com.baidu.location.d.j.c();
+            String encodeTp4 = Jni.encodeTp4(this.c);
+            this.c = null;
             this.k.put(BaseLocationBox.TYPE, encodeTp4);
-            if (this.a != null) {
-                this.k.put("up", this.a);
+        }
+
+        public void a(String str, String str2) {
+            if (h.this.g) {
+                return;
             }
-            this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
-        }
-
-        public void a(String str) {
+            h.this.g = true;
             this.b = str;
-            b(com.baidu.location.g.g.f);
+            this.c = str2;
+            b(com.baidu.location.d.j.f);
         }
 
-        @Override // com.baidu.location.g.e
+        @Override // com.baidu.location.d.e
         public void a(boolean z) {
-            BDLocation bDLocation;
-            if (!z || this.j == null) {
-                Message obtainMessage = h.this.d.obtainMessage(63);
-                obtainMessage.obj = "HttpStatus error";
-                obtainMessage.sendToTarget();
-            } else {
+            if (z && this.j != null) {
                 try {
                     String str = this.j;
-                    h.c = str;
-                    try {
-                        bDLocation = new BDLocation(str);
-                        if (bDLocation.getLocType() == 161) {
-                            g.a().a(str);
+                    if (this.d) {
+                        JSONObject jSONObject = new JSONObject(str);
+                        JSONObject jSONObject2 = jSONObject.has("content") ? jSONObject.getJSONObject("content") : null;
+                        if (jSONObject2 != null && jSONObject2.has("imo")) {
+                            Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
+                            int i = jSONObject2.getJSONObject("imo").getInt("mv");
+                            if (Jni.encode3(this.b).longValue() == valueOf.longValue()) {
+                                ContentValues contentValues = new ContentValues();
+                                contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
+                                contentValues.put("hst", Integer.valueOf(i));
+                                try {
+                                    if (h.this.f.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
+                                        contentValues.put("id", valueOf);
+                                        h.this.f.insert("hstdata", null, contentValues);
+                                    }
+                                } catch (Exception e) {
+                                }
+                                Bundle bundle = new Bundle();
+                                bundle.putByteArray("mac", this.b.getBytes());
+                                bundle.putInt("hotspot", i);
+                                h.this.a(bundle);
+                            }
                         }
-                        bDLocation.setOperators(com.baidu.location.e.b.a().h());
-                        if (l.a().d()) {
-                            bDLocation.setDirection(l.a().e());
-                        }
-                    } catch (Exception e) {
-                        bDLocation = new BDLocation();
-                        bDLocation.setLocType(0);
-                    }
-                    this.a = null;
-                    if (bDLocation.getLocType() == 0 && bDLocation.getLatitude() == Double.MIN_VALUE && bDLocation.getLongitude() == Double.MIN_VALUE) {
-                        Message obtainMessage2 = h.this.d.obtainMessage(63);
-                        obtainMessage2.obj = "HttpStatus error";
-                        obtainMessage2.sendToTarget();
-                    } else {
-                        Message obtainMessage3 = h.this.d.obtainMessage(21);
-                        obtainMessage3.obj = bDLocation;
-                        obtainMessage3.sendToTarget();
                     }
                 } catch (Exception e2) {
-                    Message obtainMessage4 = h.this.d.obtainMessage(63);
-                    obtainMessage4.obj = "HttpStatus error";
-                    obtainMessage4.sendToTarget();
                 }
+            } else if (this.d) {
+                h.this.f();
             }
             if (this.k != null) {
                 this.k.clear();
             }
+            h.this.g = false;
         }
     }
 
-    public String a(String str) {
-        String m;
-        if (this.b == null || !this.b.a()) {
-            this.b = com.baidu.location.e.b.a().f();
+    public static h a() {
+        h hVar;
+        synchronized (c) {
+            if (d == null) {
+                d = new h();
+            }
+            hVar = d;
         }
-        if (this.a == null || !this.a.j()) {
-            this.a = com.baidu.location.e.f.a().p();
-        }
-        Location g = com.baidu.location.e.d.a().i() ? com.baidu.location.e.d.a().g() : null;
-        if ((this.b == null || this.b.d() || this.b.c()) && ((this.a == null || this.a.a() == 0) && g == null)) {
-            return null;
-        }
-        String b2 = b();
-        if (g.a().d() == -2) {
-            b2 = b2 + "&imo=1";
-        }
-        int c2 = com.baidu.location.g.g.c(com.baidu.location.f.getServiceContext());
-        if (c2 >= 0) {
-            b2 = b2 + "&lmd=" + c2;
-        }
-        String str2 = ((this.a == null || this.a.a() == 0) && (m = com.baidu.location.e.f.a().m()) != null) ? m + b2 : b2;
-        if (this.f) {
-            this.f = false;
-            return com.baidu.location.g.g.a(this.b, this.a, g, str2, 0, true);
-        }
-        return com.baidu.location.g.g.a(this.b, this.a, g, str2, 0);
+        return hVar;
     }
 
-    public abstract void a();
-
-    public abstract void a(Message message);
-
-    public String b() {
-        String c2 = com.baidu.location.a.a.a().c();
-        String format = com.baidu.location.e.f.j() ? "&cn=32" : String.format(Locale.CHINA, "&cn=%d", Integer.valueOf(com.baidu.location.e.b.a().e()));
-        if (this.e) {
-            this.e = false;
-            String r = com.baidu.location.e.f.a().r();
-            if (!TextUtils.isEmpty(r) && !r.equals(Config.DEF_MAC_ID)) {
-                format = String.format(Locale.CHINA, "%s&mac=%s", format, r.replace(":", ""));
-            }
-            if (Build.VERSION.SDK_INT > 17) {
-            }
-        } else if (!this.g) {
-            String e = p.e();
-            if (e != null) {
-                format = format + e;
-            }
-            this.g = true;
+    private String a(boolean z) {
+        com.baidu.location.b.a f = com.baidu.location.b.b.a().f();
+        com.baidu.location.b.h o = com.baidu.location.b.i.a().o();
+        StringBuffer stringBuffer = new StringBuffer(1024);
+        if (f != null && f.b()) {
+            stringBuffer.append(f.g());
         }
-        return format + c2;
+        if (o != null && o.a() > 1) {
+            stringBuffer.append(o.a(15));
+        } else if (com.baidu.location.b.i.a().l() != null) {
+            stringBuffer.append(com.baidu.location.b.i.a().l());
+        }
+        if (z) {
+            stringBuffer.append("&imo=1");
+        }
+        stringBuffer.append(com.baidu.location.d.b.a().a(false));
+        stringBuffer.append(com.baidu.location.a.a.a().c());
+        return stringBuffer.toString();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Bundle bundle) {
+        com.baidu.location.a.a.a().a(bundle, 406);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f() {
+        Bundle bundle = new Bundle();
+        bundle.putInt("hotspot", -1);
+        a(bundle);
+    }
+
+    public void a(String str) {
+        if (this.g) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject jSONObject2 = jSONObject.has("content") ? jSONObject.getJSONObject("content") : null;
+            if (jSONObject2 == null || !jSONObject2.has("imo")) {
+                return;
+            }
+            Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
+            int i = jSONObject2.getJSONObject("imo").getInt("mv");
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
+            contentValues.put("hst", Integer.valueOf(i));
+            try {
+                if (this.f.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
+                    contentValues.put("id", valueOf);
+                    this.f.insert("hstdata", null, contentValues);
+                }
+            } catch (Exception e2) {
+            }
+        } catch (Exception e3) {
+        }
+    }
+
+    public void b() {
+        try {
+            File file = new File(e);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            if (file.exists()) {
+                this.f = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
+                this.f.execSQL("CREATE TABLE IF NOT EXISTS hstdata(id Long PRIMARY KEY,hst INT,tt INT);");
+                this.f.setVersion(1);
+            }
+        } catch (Exception e2) {
+            this.f = null;
+        }
+    }
+
+    public void c() {
+        if (this.f != null) {
+            try {
+                this.f.close();
+            } catch (Exception e2) {
+            } finally {
+                this.f = null;
+            }
+        }
+    }
+
+    public synchronized int d() {
+        int i;
+        WifiInfo k;
+        Cursor cursor = null;
+        synchronized (this) {
+            i = -3;
+            if (!this.g) {
+                try {
+                    if (com.baidu.location.b.i.i() && this.f != null && (k = com.baidu.location.b.i.a().k()) != null && k.getBSSID() != null) {
+                        String replace = k.getBSSID().replace(":", "");
+                        Long encode3 = Jni.encode3(replace);
+                        if (this.h == null || !replace.equals(this.h) || this.i <= -2) {
+                            try {
+                                cursor = this.f.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
+                                if (cursor == null || !cursor.moveToFirst()) {
+                                    i = -2;
+                                } else {
+                                    i = cursor.getInt(1);
+                                    this.h = replace;
+                                    this.i = i;
+                                }
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e2) {
+                                    }
+                                }
+                            } catch (Exception e3) {
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e4) {
+                                    }
+                                }
+                            } catch (Throwable th) {
+                                int i2 = i;
+                                if (cursor != null) {
+                                    try {
+                                        cursor.close();
+                                    } catch (Exception e5) {
+                                    }
+                                }
+                                try {
+                                    throw th;
+                                } catch (Exception e6) {
+                                    i = i2;
+                                }
+                            }
+                        } else {
+                            i = this.i;
+                        }
+                    }
+                } catch (Exception e7) {
+                }
+                this.i = i;
+            }
+        }
+        return i;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0080 A[Catch: Exception -> 0x009b, TRY_ENTER, TryCatch #1 {Exception -> 0x009b, blocks: (B:5:0x0007, B:7:0x000d, B:9:0x0011, B:11:0x001b, B:13:0x0021, B:26:0x0080, B:28:0x0084, B:29:0x008b, B:31:0x008f, B:49:0x00cb, B:50:0x00d0, B:15:0x0034, B:17:0x0058, B:19:0x005e, B:35:0x009e), top: B:58:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x007b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:67:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void e() {
+        Cursor cursor;
+        Cursor rawQuery;
+        boolean z = true;
+        if (this.g) {
+            return;
+        }
+        try {
+            if (!com.baidu.location.b.i.i() || this.f == null) {
+                f();
+                return;
+            }
+            WifiInfo k = com.baidu.location.b.i.a().k();
+            if (k == null || k.getBSSID() == null) {
+                f();
+                return;
+            }
+            String replace = k.getBSSID().replace(":", "");
+            boolean z2 = false;
+            try {
+                rawQuery = this.f.rawQuery("select * from hstdata where id = \"" + Jni.encode3(replace) + "\";", null);
+            } catch (Exception e2) {
+                cursor = null;
+            }
+            if (rawQuery != null) {
+                try {
+                } catch (Exception e3) {
+                    cursor = rawQuery;
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    if (z2) {
+                    }
+                }
+                if (rawQuery.moveToFirst()) {
+                    int i = rawQuery.getInt(1);
+                    if ((System.currentTimeMillis() / 1000) - rawQuery.getInt(2) <= 259200) {
+                        Bundle bundle = new Bundle();
+                        bundle.putByteArray("mac", replace.getBytes());
+                        bundle.putInt("hotspot", i);
+                        a(bundle);
+                        z = false;
+                    }
+                    z2 = z;
+                    if (rawQuery != null) {
+                        try {
+                            rawQuery.close();
+                        } catch (Exception e5) {
+                        }
+                    }
+                    if (z2) {
+                        if (this.a == null) {
+                            this.a = new a();
+                        }
+                        if (this.a != null) {
+                            this.a.a(replace, a(true));
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+            }
+            z2 = true;
+            if (rawQuery != null) {
+            }
+            if (z2) {
+            }
+        } catch (Exception e6) {
+        }
     }
 }

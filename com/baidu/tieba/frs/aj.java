@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes4.dex */
-public interface aj {
-    String getForumId();
 
-    String getForumName();
+import java.util.ArrayList;
+/* loaded from: classes5.dex */
+public interface aj {
+    void a(int i, int i2, aq aqVar, ArrayList<com.baidu.adp.widget.ListView.m> arrayList);
 }

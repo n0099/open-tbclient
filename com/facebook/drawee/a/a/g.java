@@ -2,42 +2,41 @@ package com.facebook.drawee.a.a;
 
 import android.content.res.Resources;
 import com.facebook.common.internal.ImmutableList;
-import com.facebook.common.internal.i;
-import com.facebook.imagepipeline.c.t;
+import com.facebook.common.internal.j;
+import com.facebook.imagepipeline.c.p;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class g {
     @Nullable
-    private i<Boolean> kbG;
-    private com.facebook.imagepipeline.a.a.a kbJ;
+    private j<Boolean> lFA;
+    private p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> lFI;
+    private com.facebook.drawee.components.a lFS;
+    private Executor lFT;
     @Nullable
-    private ImmutableList<a> kbK;
-    private t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> kbL;
-    private com.facebook.drawee.components.a kbT;
-    private Executor kbU;
+    private ImmutableList<com.facebook.imagepipeline.f.a> lFU;
+    private com.facebook.imagepipeline.f.a lFx;
     private Resources mResources;
 
-    public void a(Resources resources, com.facebook.drawee.components.a aVar, com.facebook.imagepipeline.a.a.a aVar2, Executor executor, t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> tVar, @Nullable ImmutableList<a> immutableList, @Nullable i<Boolean> iVar) {
+    public void a(Resources resources, com.facebook.drawee.components.a aVar, com.facebook.imagepipeline.f.a aVar2, Executor executor, p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> pVar, @Nullable ImmutableList<com.facebook.imagepipeline.f.a> immutableList, @Nullable j<Boolean> jVar) {
         this.mResources = resources;
-        this.kbT = aVar;
-        this.kbJ = aVar2;
-        this.kbU = executor;
-        this.kbL = tVar;
-        this.kbK = immutableList;
-        this.kbG = iVar;
+        this.lFS = aVar;
+        this.lFx = aVar2;
+        this.lFT = executor;
+        this.lFI = pVar;
+        this.lFU = immutableList;
+        this.lFA = jVar;
     }
 
-    public d b(i<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>> iVar, String str, com.facebook.cache.common.b bVar, Object obj) {
-        com.facebook.common.internal.g.d(this.mResources != null, "init() not called");
-        d a = a(this.mResources, this.kbT, this.kbJ, this.kbU, this.kbL, this.kbK, iVar, str, bVar, obj);
-        if (this.kbG != null) {
-            a.sd(this.kbG.get().booleanValue());
+    public d dju() {
+        d a = a(this.mResources, this.lFS, this.lFx, this.lFT, this.lFI, this.lFU);
+        if (this.lFA != null) {
+            a.uL(this.lFA.get().booleanValue());
         }
         return a;
     }
 
-    protected d a(Resources resources, com.facebook.drawee.components.a aVar, com.facebook.imagepipeline.a.a.a aVar2, Executor executor, t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> tVar, @Nullable ImmutableList<a> immutableList, i<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>> iVar, String str, com.facebook.cache.common.b bVar, Object obj) {
-        return new d(resources, aVar, aVar2, executor, tVar, iVar, str, bVar, obj, immutableList);
+    protected d a(Resources resources, com.facebook.drawee.components.a aVar, com.facebook.imagepipeline.f.a aVar2, Executor executor, p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> pVar, @Nullable ImmutableList<com.facebook.imagepipeline.f.a> immutableList) {
+        return new d(resources, aVar, aVar2, executor, pVar, immutableList);
     }
 }

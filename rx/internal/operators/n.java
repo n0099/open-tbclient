@@ -1,70 +1,86 @@
 package rx.internal.operators;
 
 import rx.d;
-/* loaded from: classes2.dex */
-public final class n<T> implements d.b<T, T> {
-    final rx.functions.g<? super T, ? super Integer, Boolean> kBq;
+import rx.g;
+/* loaded from: classes4.dex */
+public final class n<T> implements d.a<T> {
+    final rx.d<T> ndN;
+    final rx.g scheduler;
 
-    @Override // rx.functions.f
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((rx.j) ((rx.j) obj));
+    @Override // rx.functions.b
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((rx.j) ((rx.j) obj));
     }
 
-    public n(final rx.functions.f<? super T, Boolean> fVar) {
-        this(new rx.functions.g<T, Integer, Boolean>() { // from class: rx.internal.operators.n.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.g
-            /* renamed from: a */
-            public Boolean h(T t, Integer num) {
-                return (Boolean) rx.functions.f.this.call(t);
-            }
-        });
+    public n(rx.d<T> dVar, rx.g gVar) {
+        this.scheduler = gVar;
+        this.ndN = dVar;
     }
 
-    public n(rx.functions.g<? super T, ? super Integer, Boolean> gVar) {
-        this.kBq = gVar;
+    public void call(rx.j<? super T> jVar) {
+        g.a createWorker = this.scheduler.createWorker();
+        jVar.add(createWorker);
+        createWorker.c(new AnonymousClass1(jVar, createWorker));
     }
 
-    public rx.j<? super T> call(final rx.j<? super T> jVar) {
-        rx.j jVar2 = (rx.j<T>) new rx.j<T>(jVar, false) { // from class: rx.internal.operators.n.2
-            private boolean done;
-            private int kBs;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: rx.internal.operators.n$1  reason: invalid class name */
+    /* loaded from: classes4.dex */
+    public class AnonymousClass1 implements rx.functions.a {
+        final /* synthetic */ g.a ngz;
+        final /* synthetic */ rx.j val$subscriber;
 
-            @Override // rx.e
-            public void onNext(T t) {
-                try {
-                    rx.functions.g<? super T, ? super Integer, Boolean> gVar = n.this.kBq;
-                    int i = this.kBs;
-                    this.kBs = i + 1;
-                    if (gVar.h(t, Integer.valueOf(i)).booleanValue()) {
-                        jVar.onNext(t);
-                        return;
+        AnonymousClass1(rx.j jVar, g.a aVar) {
+            this.val$subscriber = jVar;
+            this.ngz = aVar;
+        }
+
+        @Override // rx.functions.a
+        public void call() {
+            final Thread currentThread = Thread.currentThread();
+            n.this.ndN.a((rx.j) new rx.j<T>(this.val$subscriber) { // from class: rx.internal.operators.n.1.1
+                @Override // rx.e
+                public void onNext(T t) {
+                    AnonymousClass1.this.val$subscriber.onNext(t);
+                }
+
+                @Override // rx.e
+                public void onError(Throwable th) {
+                    try {
+                        AnonymousClass1.this.val$subscriber.onError(th);
+                    } finally {
+                        AnonymousClass1.this.ngz.unsubscribe();
                     }
-                    this.done = true;
-                    jVar.onCompleted();
-                    unsubscribe();
-                } catch (Throwable th) {
-                    this.done = true;
-                    rx.exceptions.a.a(th, jVar, t);
-                    unsubscribe();
                 }
-            }
 
-            @Override // rx.e
-            public void onCompleted() {
-                if (!this.done) {
-                    jVar.onCompleted();
+                @Override // rx.e
+                public void onCompleted() {
+                    try {
+                        AnonymousClass1.this.val$subscriber.onCompleted();
+                    } finally {
+                        AnonymousClass1.this.ngz.unsubscribe();
+                    }
                 }
-            }
 
-            @Override // rx.e
-            public void onError(Throwable th) {
-                if (!this.done) {
-                    jVar.onError(th);
+                @Override // rx.j
+                public void setProducer(final rx.f fVar) {
+                    AnonymousClass1.this.val$subscriber.setProducer(new rx.f() { // from class: rx.internal.operators.n.1.1.1
+                        @Override // rx.f
+                        public void request(final long j) {
+                            if (currentThread == Thread.currentThread()) {
+                                fVar.request(j);
+                            } else {
+                                AnonymousClass1.this.ngz.c(new rx.functions.a() { // from class: rx.internal.operators.n.1.1.1.1
+                                    @Override // rx.functions.a
+                                    public void call() {
+                                        fVar.request(j);
+                                    }
+                                });
+                            }
+                        }
+                    });
                 }
-            }
-        };
-        jVar.add(jVar2);
-        return jVar2;
+            });
+        }
     }
 }

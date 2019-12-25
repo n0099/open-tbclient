@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.UKCache;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMUserManager {
     private Context mContext;
     private static ChatObjectCache sChatObjectCache = null;

@@ -24,7 +24,7 @@ import java.nio.ByteBuffer;
 import java.util.Map;
 @RequiresApi(26)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
     private static final String ABORT_CREATION_METHOD = "abortCreation";
     private static final String ADD_FONT_FROM_ASSET_MANAGER_METHOD = "addFontFromAssetManager";
@@ -85,7 +85,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
 
     private static boolean isFontFamilyPrivateAPIAvailable() {
         if (sAddFontFromAssetManager == null) {
-            Log.w(TAG, "Unable to collect necessary private methods.Fallback to legacy implementation.");
+            Log.w(TAG, "Unable to collect necessary private methods. Fallback to legacy implementation.");
         }
         return sAddFontFromAssetManager != null;
     }
@@ -132,9 +132,9 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         }
     }
 
-    private static boolean abortCreation(Object obj) {
+    private static void abortCreation(Object obj) {
         try {
-            return ((Boolean) sAbortCreation.invoke(obj, new Object[0])).booleanValue();
+            sAbortCreation.invoke(obj, new Object[0]);
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
@@ -159,10 +159,11 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [248=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [250=5] */
     @Override // android.support.v4.graphics.TypefaceCompatApi21Impl, android.support.v4.graphics.TypefaceCompatBaseImpl, android.support.v4.graphics.TypefaceCompat.TypefaceCompatImpl
     public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         boolean z;
+        Typeface build;
         if (fontInfoArr.length < 1) {
             return null;
         }
@@ -170,12 +171,23 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             FontsContractCompat.FontInfo findBestInfo = findBestInfo(fontInfoArr, i);
             try {
                 ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), "r", cancellationSignal);
-                Typeface build = new Typeface.Builder(openFileDescriptor.getFileDescriptor()).setWeight(findBestInfo.getWeight()).setItalic(findBestInfo.isItalic()).build();
-                if (openFileDescriptor != null) {
-                    if (0 != 0) {
-                        openFileDescriptor.close();
-                    } else {
-                        openFileDescriptor.close();
+                if (openFileDescriptor == null) {
+                    build = null;
+                    if (openFileDescriptor != null) {
+                        if (0 != 0) {
+                            openFileDescriptor.close();
+                        } else {
+                            openFileDescriptor.close();
+                        }
+                    }
+                } else {
+                    build = new Typeface.Builder(openFileDescriptor.getFileDescriptor()).setWeight(findBestInfo.getWeight()).setItalic(findBestInfo.isItalic()).build();
+                    if (openFileDescriptor != null) {
+                        if (0 != 0) {
+                            openFileDescriptor.close();
+                        } else {
+                            openFileDescriptor.close();
+                        }
                     }
                 }
                 return build;
@@ -207,7 +219,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             abortCreation(newFamily);
             return null;
         } else if (freeze(newFamily)) {
-            return createFromFamiliesWithDefault(newFamily);
+            return Typeface.create(createFromFamiliesWithDefault(newFamily), i);
         } else {
             return null;
         }

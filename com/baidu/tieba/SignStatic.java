@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.location.Address;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -27,27 +29,29 @@ import com.baidu.tieba.signall.SignAllForumActivity;
 import com.baidu.tieba.signall.SignAllForumAdvertActivity;
 import com.baidu.tieba.supplementSign.SupplementSignActivity;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SignStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        aCh();
-        registerTask();
+        aUa();
+        rG();
     }
 
-    private static void registerTask() {
+    private static void rG() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SIGN_MODEL_TASK, new CustomMessageTask.CustomRunnable<ForumData>() { // from class: com.baidu.tieba.SignStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ForumData> customMessage) {
-                SignData signData = null;
+                SignData signData;
                 if (customMessage == null || customMessage.getData() == null) {
                     return null;
                 }
-                String name = customMessage.getData().getName();
-                String id = customMessage.getData().getId();
+                ForumData data = customMessage.getData();
+                String name = data.getName();
+                String id = data.getId();
                 if (name == null || name.length() <= 0 || id == null || id.length() <= 0) {
                     return null;
                 }
@@ -59,47 +63,64 @@ public class SignStatic {
                     x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
                     xVar.addPostData("kw", name);
                     xVar.addPostData("fid", id);
-                    xVar.amp().amP().mIsNeedTbs = true;
-                    xVar.ek(true);
+                    if (!TextUtils.isEmpty(data.getFromPage())) {
+                        xVar.addPostData("sign_from", data.getFromPage());
+                    }
+                    SignStatic.a(xVar);
+                    xVar.aDB().aEb().mIsNeedTbs = true;
+                    xVar.fy(true);
                     String postNetData = xVar.postNetData();
                     if (xVar.isNetSuccess()) {
-                        if (xVar.amp().amQ().isRequestSuccess()) {
+                        if (xVar.aDB().aEc().isRequestSuccess()) {
                             signData = new SignData();
                             signData.parserJson(postNetData);
                             signData.forumId = id;
                             signData.forumName = name;
-                        } else {
-                            if (!aq.isEmpty(postNetData)) {
-                                JSONObject jSONObject = new JSONObject(postNetData);
-                                if (AntiHelper.zX(xVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
-                                    signData = new SignData();
-                                    signData.parserJson(postNetData);
-                                    signData.is_signed = 1;
-                                    signData.count_sign_num = 1;
-                                    signData.sign_bonus_point = 0;
-                                    signData.forumId = id;
-                                    signData.forumName = name;
-                                }
+                        } else if (!aq.isEmpty(postNetData)) {
+                            JSONObject jSONObject = new JSONObject(postNetData);
+                            signMessage.parserJson(xVar, jSONObject);
+                            if (AntiHelper.Cs(xVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
+                                signData = new SignData();
+                                signData.parserJson(postNetData);
+                                signData.is_signed = 1;
+                                signData.count_sign_num = 1;
+                                signData.sign_bonus_point = 0;
+                                signData.forumId = id;
+                                signData.forumName = name;
+                            } else {
+                                signData = null;
                             }
-                            signMessage.mSignErrorCode = xVar.getServerErrorCode();
-                            signMessage.mSignErrorString = xVar.getErrorString();
+                        } else {
+                            signMessage.parserJson(xVar, null);
+                            signData = null;
                         }
                         signMessage.signData = signData;
-                        return signMessage;
                     }
-                    return signMessage;
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    return signMessage;
                 }
+                return signMessage;
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aCh() {
-        ba.amO().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
+    public static void a(x xVar) {
+        Address address;
+        String locationLng = TbadkCoreApplication.getInst().getLocationLng();
+        String locationLat = TbadkCoreApplication.getInst().getLocationLat();
+        if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (address = com.baidu.adp.lib.c.a.fK().getAddress(false)) != null) {
+            locationLng = String.valueOf(address.getLongitude());
+            locationLat = String.valueOf(address.getLatitude());
+        }
+        if (!TextUtils.isEmpty(locationLat) && !TextUtils.isEmpty(locationLng)) {
+            xVar.addPostData("location", locationLng + Constants.ACCEPT_TIME_SEPARATOR_SP + locationLat);
+        }
+    }
+
+    private static void aUa() {
+        ba.aEa().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

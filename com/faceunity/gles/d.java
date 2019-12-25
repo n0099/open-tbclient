@@ -3,12 +3,12 @@ package com.faceunity.gles;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
-import com.baidu.ala.liveRecorder.video.gles.GlUtil;
+import com.baidu.ala.recorder.video.gles.GlUtil;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static final float[] IDENTITY_MATRIX = new float[16];
 

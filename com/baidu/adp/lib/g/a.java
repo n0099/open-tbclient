@@ -1,61 +1,32 @@
 package com.baidu.adp.lib.g;
-
-import android.database.Cursor;
-import com.baidu.adp.lib.util.BdLog;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
-public class a {
-    public static void close(InputStream inputStream) {
-        if (inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+public class a extends com.baidu.adp.lib.featureSwitch.a {
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected void changeSettingByType(int i) {
     }
 
-    public static void close(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-            }
-        }
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected String getName() {
+        return "need_more_logs";
     }
 
-    public static void close(OutputStream outputStream) {
-        if (outputStream != null) {
-            try {
-                outputStream.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected String[] getCrashKeys() {
+        return null;
     }
 
-    public static void close(Cursor cursor) {
-        if (cursor != null) {
-            try {
-                cursor.close();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected int getDefaultType() {
+        return 0;
     }
 
-    public static void close(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null) {
-            try {
-                httpURLConnection.disconnect();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected int getOffType() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.featureSwitch.a
+    protected int getMaxCrashTimes() {
+        return 10;
     }
 }

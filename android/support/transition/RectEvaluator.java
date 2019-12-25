@@ -4,7 +4,7 @@ import android.animation.TypeEvaluator;
 import android.graphics.Rect;
 import android.support.annotation.RequiresApi;
 @RequiresApi(14)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class RectEvaluator implements TypeEvaluator<Rect> {
     private Rect mRect;
 

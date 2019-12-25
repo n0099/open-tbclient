@@ -2,12 +2,12 @@ package com.baidu.tbadk.album;
 
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static final String ALBUM_ID_ALL = String.valueOf(Integer.MAX_VALUE);
     public static final String ALBUM_ID_VIDEO = String.valueOf(2147483646);
     private String albumId;
-    private MediaFileInfo bTh;
+    private MediaFileInfo cFF;
     private int count;
     private List<MediaFileInfo> fileList;
     private String name;
@@ -33,26 +33,26 @@ public class a {
     }
 
     public void setCount(String str) {
-        this.count = com.baidu.adp.lib.g.b.toInt(str, 0);
+        this.count = com.baidu.adp.lib.f.b.toInt(str, 0);
     }
 
     public void addCount() {
         this.count++;
     }
 
-    public ImageFileInfo afc() {
-        if (this.bTh instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.bTh;
+    public ImageFileInfo avV() {
+        if (this.cFF instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.cFF;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.bTh = mediaFileInfo;
+        this.cFF = mediaFileInfo;
     }
 
-    public MediaFileInfo afd() {
-        return this.bTh;
+    public MediaFileInfo avW() {
+        return this.cFF;
     }
 
     public List<MediaFileInfo> getFileList() {

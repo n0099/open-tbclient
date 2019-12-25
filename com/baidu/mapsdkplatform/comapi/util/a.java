@@ -16,7 +16,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0097a {
+    public static class C0111a {
         public static String a(byte[] bArr) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
             StringBuilder sb = new StringBuilder(bArr.length * 2);
@@ -56,7 +56,7 @@ public class a {
 
     static String a(X509Certificate x509Certificate) {
         try {
-            return C0097a.a(a(x509Certificate.getEncoded()));
+            return C0111a.a(a(x509Certificate.getEncoded()));
         } catch (CertificateEncodingException e) {
             return null;
         }

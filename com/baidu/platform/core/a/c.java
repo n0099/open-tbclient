@@ -1,6 +1,4 @@
 package com.baidu.platform.core.a;
-
-import com.tencent.connect.common.Constants;
 /* loaded from: classes5.dex */
 public class c extends com.baidu.platform.base.e {
     public c(String str) {
@@ -10,7 +8,7 @@ public class c extends com.baidu.platform.base.e {
     private void a(String str) {
         this.a.a("qt", "ext");
         this.a.a("num", "1000");
-        this.a.a("l", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+        this.a.a("l", "10");
         this.a.a("ie", "utf-8");
         this.a.a("oue", "1");
         this.a.a("res", "api");

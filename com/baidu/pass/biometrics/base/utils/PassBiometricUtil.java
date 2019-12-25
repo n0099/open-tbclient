@@ -12,17 +12,15 @@ import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.debug.Log;
-import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.UUID;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PassBiometricUtil {
     public static final String CPU_TYPE_ARM64_V8A = "arm64-v8a";
     public static final String CPU_TYPE_ARMEABI = "armeabi";
@@ -39,11 +37,11 @@ public class PassBiometricUtil {
     private static final String TAG = "PassBiometricUtil";
 
     public static String getOSVersion() {
-        return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : LivenessStat.TYPE_STRING_DEFAULT;
+        return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "-1";
     }
 
     public static String getOSModel() {
-        return !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : LivenessStat.TYPE_STRING_DEFAULT;
+        return !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "-1";
     }
 
     public static String getClientId(Context context) {
@@ -126,11 +124,11 @@ public class PassBiometricUtil {
                 str = Build.CPU_ABI;
                 if (Build.VERSION.SDK_INT >= 8) {
                 }
-                str2 = IXAdSystemUtils.NT_NONE;
+                str2 = "none";
                 Log.i(TAG, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
-                if (!str.equals(CPU_TYPE_ARMEABI)) {
+                if (!str.equals("armeabi")) {
                 }
-                return CPU_TYPE_ARMEABI;
+                return "armeabi";
             } catch (Throwable th3) {
                 th = th3;
                 fileReader = fileReader2;
@@ -163,37 +161,37 @@ public class PassBiometricUtil {
                 Log.w(TAG, "getCpuType() abi2" + e7.toString());
             }
             Log.i(TAG, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
-            if (!str.equals(CPU_TYPE_ARMEABI) || str2.equals(CPU_TYPE_ARMEABI)) {
-                return CPU_TYPE_ARMEABI;
+            if (!str.equals("armeabi") || str2.equals("armeabi")) {
+                return "armeabi";
             }
-            if (str.equals(CPU_TYPE_ARMEABI_V7A) || str2.equals(CPU_TYPE_ARMEABI_V7A)) {
-                return CPU_TYPE_ARMEABI_V7A;
+            if (str.equals("armeabi-v7a") || str2.equals("armeabi-v7a")) {
+                return "armeabi-v7a";
             }
-            if (str.equals(CPU_TYPE_ARM64_V8A) || str2.equals(CPU_TYPE_ARM64_V8A)) {
-                return CPU_TYPE_ARM64_V8A;
+            if (str.equals("arm64-v8a") || str2.equals("arm64-v8a")) {
+                return "arm64-v8a";
             }
-            if (str.equals(CPU_TYPE_X86) || str2.equals(CPU_TYPE_X86)) {
-                return CPU_TYPE_X86;
+            if (str.equals("x86") || str2.equals("x86")) {
+                return "x86";
             }
             if (strArr[0].toLowerCase().contains("armv7")) {
-                return CPU_TYPE_ARMEABI_V7A;
+                return "armeabi-v7a";
             }
             if (strArr[0].toLowerCase().contains("arm")) {
-                return CPU_TYPE_ARMEABI;
+                return "armeabi";
             }
             if (strArr[0].toLowerCase().contains("arm64")) {
-                return CPU_TYPE_ARM64_V8A;
+                return "arm64-v8a";
             }
-            if (strArr[0].toLowerCase().contains(CPU_TYPE_X86)) {
-                return CPU_TYPE_X86;
+            if (strArr[0].toLowerCase().contains("x86")) {
+                return "x86";
             }
-            return CPU_TYPE_ARMEABI;
+            return "armeabi";
         }
-        str2 = IXAdSystemUtils.NT_NONE;
+        str2 = "none";
         Log.i(TAG, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
-        if (!str.equals(CPU_TYPE_ARMEABI)) {
+        if (!str.equals("armeabi")) {
         }
-        return CPU_TYPE_ARMEABI;
+        return "armeabi";
     }
 
     public static String getPackageSign(Context context, String str) {
@@ -236,7 +234,7 @@ public class PassBiometricUtil {
             return false;
         }
         Rect currentFaceRect = getCurrentFaceRect(iArr);
-        return currentFaceRect.right - currentFaceRect.left > (iArr2[0] * CameraInterface.DEFAULT_PREVIEW_HEIGHT) / 750;
+        return currentFaceRect.right - currentFaceRect.left > (iArr2[0] * 480) / 750;
     }
 
     public static boolean isTooFarFromCamera(int[] iArr, int[] iArr2) {
@@ -244,7 +242,7 @@ public class PassBiometricUtil {
             return false;
         }
         Rect currentFaceRect = getCurrentFaceRect(iArr);
-        return currentFaceRect.right - currentFaceRect.left < (iArr2[0] * STANDARD_MIN_FACE_WIDTH) / 750;
+        return currentFaceRect.right - currentFaceRect.left < (iArr2[0] * 192) / 750;
     }
 
     private static Rect getCurrentFaceRect(int[] iArr) {
@@ -288,7 +286,7 @@ public class PassBiometricUtil {
         if (iArr == null || iArr.length != 2) {
             return new Rect(0, 0, 0, 0);
         }
-        int i = ((iArr[0] * CameraInterface.DEFAULT_PREVIEW_HEIGHT) / 750) / 2;
+        int i = ((iArr[0] * 480) / 750) / 2;
         int i2 = ((iArr[1] * STANDARD_FACE_INSIDE_MAX_HEIGHT) / STANDARD_BG_HEIGHT) / 2;
         Point point = new Point();
         point.set(iArr[0] / 2, (iArr[1] * STANDARD_FACE_MIDDLE_MARGIN_TOP) / STANDARD_BG_HEIGHT);
@@ -315,7 +313,7 @@ public class PassBiometricUtil {
     public static String getUA(Context context, String str) {
         StringBuilder sb = new StringBuilder();
         sb.append("pass_bio").append("-p-");
-        sb.append("android").append("-p-");
+        sb.append(PraiseDataPassUtil.KEY_FROM_OS).append("-p-");
         sb.append(str).append("-p-");
         sb.append(getVersionCode(context)).append("-p-");
         sb.append(PassBiometricDefaultFactory.VERSION_NAME).append("-p-");

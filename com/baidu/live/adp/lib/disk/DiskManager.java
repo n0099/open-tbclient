@@ -4,7 +4,7 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTaskParallel;
 import com.baidu.live.adp.lib.disk.ops.DiskFileOperate;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DiskManager {
     public static final int SUB_FOLDERS_NUM = 100;
     private BdAsyncTaskParallel mBdAsyncTaskParallelRom;

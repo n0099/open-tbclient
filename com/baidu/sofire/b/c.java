@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public SharedPreferences.Editor a;
     private SharedPreferences b;
@@ -21,7 +20,7 @@ public final class c {
 
     public static String a(String str) {
         try {
-            return new String(Base64.encode(a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes(HTTP.UTF_8)), 10), HTTP.UTF_8);
+            return new String(Base64.encode(a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), str.getBytes("UTF-8")), 10), "UTF-8");
         } catch (Throwable th) {
             return "";
         }
@@ -29,7 +28,7 @@ public final class c {
 
     private static String b(String str) {
         try {
-            return new String(a.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(str, 10)), HTTP.UTF_8);
+            return new String(a.b("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), Base64.decode(str, 10)), "UTF-8");
         } catch (Throwable th) {
             return "";
         }

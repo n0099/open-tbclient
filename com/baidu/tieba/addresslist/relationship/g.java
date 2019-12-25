@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class g extends SQLiteOpenHelper {
     public g(Context context) {
         super(context, "relationship.db", (SQLiteDatabase.CursorFactory) null, 4);
@@ -17,10 +17,10 @@ public class g extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        H(sQLiteDatabase);
+        y(sQLiteDatabase);
     }
 
-    private void H(SQLiteDatabase sQLiteDatabase) {
+    private void y(SQLiteDatabase sQLiteDatabase) {
         try {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
@@ -32,7 +32,7 @@ public class g extends SQLiteOpenHelper {
         }
     }
 
-    private void I(SQLiteDatabase sQLiteDatabase) {
+    private void L(SQLiteDatabase sQLiteDatabase) {
         try {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
@@ -46,8 +46,8 @@ public class g extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        I(sQLiteDatabase);
-        H(sQLiteDatabase);
+        L(sQLiteDatabase);
+        y(sQLiteDatabase);
         try {
             MessageManager.getInstance().sendMessageFromBackground(new RequestGetAddressListMessage(CmdConfigSocket.CMD_GET_ADDRESSLIST));
         } catch (Exception e) {

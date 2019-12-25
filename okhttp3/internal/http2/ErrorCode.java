@@ -1,5 +1,5 @@
 package okhttp3.internal.http2;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public enum ErrorCode {
     NO_ERROR(0),
     PROTOCOL_ERROR(1),

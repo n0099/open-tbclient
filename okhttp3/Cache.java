@@ -37,8 +37,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class Cache implements Closeable, Flushable {
     private static final int ENTRY_BODY = 1;
     private static final int ENTRY_COUNT = 2;
@@ -304,7 +303,7 @@ public final class Cache implements Closeable, Flushable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public final class CacheRequestImpl implements CacheRequest {
         private Sink body;
         private Sink cacheOut;
@@ -351,7 +350,7 @@ public final class Cache implements Closeable, Flushable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Entry {
         private final int code;
         @Nullable
@@ -368,7 +367,6 @@ public final class Cache implements Closeable, Flushable {
         private static final String RECEIVED_MILLIS = Platform.get().getPrefix() + "-Received-Millis";
 
         Entry(Source source) throws IOException {
-            TlsVersion tlsVersion;
             try {
                 BufferedSource buffer = Okio.buffer(source);
                 this.url = buffer.readUtf8LineStrict();
@@ -400,15 +398,7 @@ public final class Cache implements Closeable, Flushable {
                     if (readUtf8LineStrict.length() > 0) {
                         throw new IOException("expected \"\" but was \"" + readUtf8LineStrict + "\"");
                     }
-                    CipherSuite forJavaName = CipherSuite.forJavaName(buffer.readUtf8LineStrict());
-                    List<Certificate> readCertificateList = readCertificateList(buffer);
-                    List<Certificate> readCertificateList2 = readCertificateList(buffer);
-                    if (!buffer.exhausted()) {
-                        tlsVersion = TlsVersion.forJavaName(buffer.readUtf8LineStrict());
-                    } else {
-                        tlsVersion = TlsVersion.SSL_3_0;
-                    }
-                    this.handshake = Handshake.get(tlsVersion, forJavaName, readCertificateList, readCertificateList2);
+                    this.handshake = Handshake.get(!buffer.exhausted() ? TlsVersion.forJavaName(buffer.readUtf8LineStrict()) : TlsVersion.SSL_3_0, CipherSuite.forJavaName(buffer.readUtf8LineStrict()), readCertificateList(buffer), readCertificateList(buffer));
                 } else {
                     this.handshake = null;
                 }
@@ -499,7 +489,7 @@ public final class Cache implements Closeable, Flushable {
 
         public Response response(DiskLruCache.Snapshot snapshot) {
             String str = this.responseHeaders.get("Content-Type");
-            String str2 = this.responseHeaders.get(HTTP.CONTENT_LEN);
+            String str2 = this.responseHeaders.get("Content-Length");
             return new Response.Builder().request(new Request.Builder().url(this.url).method(this.requestMethod, null).headers(this.varyHeaders).build()).protocol(this.protocol).code(this.code).message(this.message).headers(this.responseHeaders).body(new CacheResponseBody(snapshot, str, str2)).handshake(this.handshake).sentRequestAtMillis(this.sentRequestMillis).receivedResponseAtMillis(this.receivedResponseMillis).build();
         }
     }
@@ -518,7 +508,7 @@ public final class Cache implements Closeable, Flushable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class CacheResponseBody extends ResponseBody {
         private final BufferedSource bodySource;
         @Nullable

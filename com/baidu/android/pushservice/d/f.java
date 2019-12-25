@@ -7,9 +7,8 @@ import android.text.TextUtils;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.mobstat.Config;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class f extends d {
     protected int e;
     private int f;
@@ -80,7 +79,7 @@ public class f extends d {
         hashMap.put("sdk_int", Build.VERSION.SDK_INT + "");
         String str = this.b.e;
         if (!TextUtils.isEmpty(str) && str.length() <= 128) {
-            hashMap.put(Constants.PACKAGE_NAME, str);
+            hashMap.put("package_name", str);
         }
         hashMap.put("app_alone_conn", (com.baidu.android.pushservice.a.d(this.a) ? 1 : 0) + "");
         if (PushSettings.d(this.a)) {

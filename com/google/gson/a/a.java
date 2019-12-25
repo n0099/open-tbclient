@@ -8,9 +8,9 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public @interface a {
-    boolean cKe() default true;
+    boolean dyb() default true;
 
-    boolean cKf() default true;
+    boolean dyc() default true;
 }

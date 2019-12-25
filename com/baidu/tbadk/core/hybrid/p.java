@@ -1,21 +1,20 @@
 package com.baidu.tbadk.core.hybrid;
 
 import android.text.TextUtils;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.net.MalformedURLException;
 import java.net.URL;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 class p {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean nu(String str) {
+    public static boolean sF(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
         try {
             URL url = new URL(str);
             String protocol = url.getProtocol();
-            if (BdStatsConstant.OpSubType.FILE.equals(protocol)) {
+            if ("file".equals(protocol)) {
                 return true;
             }
             if (HttpHost.DEFAULT_SCHEME_NAME.equals(protocol) || "https".equals(protocol)) {
@@ -28,14 +27,14 @@ class p {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean nv(String str) {
+    public static boolean sG(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
         try {
             URL url = new URL(str);
             String protocol = url.getProtocol();
-            if (BdStatsConstant.OpSubType.FILE.equals(protocol)) {
+            if ("file".equals(protocol)) {
                 return true;
             }
             if (HttpHost.DEFAULT_SCHEME_NAME.equals(protocol) || "https".equals(protocol)) {

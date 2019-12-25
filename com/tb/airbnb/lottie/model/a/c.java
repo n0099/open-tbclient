@@ -9,48 +9,48 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c extends o<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> {
     private c(List<com.tb.airbnb.lottie.a.a<com.tb.airbnb.lottie.model.content.c>> list, com.tb.airbnb.lottie.model.content.c cVar) {
         super(list, cVar);
     }
 
     @Override // com.tb.airbnb.lottie.model.a.m
-    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> cLl() {
-        return !hasAnimation() ? new com.tb.airbnb.lottie.a.b.n(this.fg) : new com.tb.airbnb.lottie.a.b.d(this.eR);
+    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> dBq() {
+        return !hasAnimation() ? new com.tb.airbnb.lottie.a.b.n(this.mNB) : new com.tb.airbnb.lottie.a.b.d(this.gD);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static c f(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {
-            n.a cLC = n.a(jSONObject, 1.0f, eVar, new b(jSONObject.optInt("p", jSONObject.optJSONArray("k").length() / 4))).cLC();
-            return new c(cLC.eR, (com.tb.airbnb.lottie.model.content.c) cLC.fg);
+            n.a dBK = n.a(jSONObject, 1.0f, eVar, new b(jSONObject.optInt("p", jSONObject.optJSONArray("k").length() / 4))).dBK();
+            return new c(dBK.gD, (com.tb.airbnb.lottie.model.content.c) dBK.mNB);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class b implements m.a<com.tb.airbnb.lottie.model.content.c> {
-        private final int fW;
+        private final int jS;
 
         private b(int i) {
-            this.fW = i;
+            this.jS = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.tb.airbnb.lottie.model.a.m.a
-        /* renamed from: k */
-        public com.tb.airbnb.lottie.model.content.c b(Object obj, float f) {
+        /* renamed from: g */
+        public com.tb.airbnb.lottie.model.content.c c(Object obj, float f) {
             JSONArray jSONArray = (JSONArray) obj;
-            float[] fArr = new float[this.fW];
-            int[] iArr = new int[this.fW];
+            float[] fArr = new float[this.jS];
+            int[] iArr = new int[this.jS];
             com.tb.airbnb.lottie.model.content.c cVar = new com.tb.airbnb.lottie.model.content.c(fArr, iArr);
-            if (jSONArray.length() != this.fW * 4) {
-                Log.w("LOTTIE", "Unexpected gradient length: " + jSONArray.length() + ". Expected " + (this.fW * 4) + ". This may affect the appearance of the gradient. Make sure to save your After Effects file before exporting an animation with gradients.");
+            if (jSONArray.length() != this.jS * 4) {
+                Log.w("LOTTIE", "Unexpected gradient length: " + jSONArray.length() + ". Expected " + (this.jS * 4) + ". This may affect the appearance of the gradient. Make sure to save your After Effects file before exporting an animation with gradients.");
             }
             int i = 0;
             int i2 = 0;
-            for (int i3 = 0; i3 < this.fW * 4; i3++) {
+            for (int i3 = 0; i3 < this.jS * 4; i3++) {
                 int i4 = i3 / 4;
                 double optDouble = jSONArray.optDouble(i3);
                 switch (i3 % 4) {
@@ -73,7 +73,7 @@ public class c extends o<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lot
         }
 
         private void a(com.tb.airbnb.lottie.model.content.c cVar, JSONArray jSONArray) {
-            int i = this.fW * 4;
+            int i = this.jS * 4;
             if (jSONArray.length() > i) {
                 int length = (jSONArray.length() - i) / 2;
                 double[] dArr = new double[length];
@@ -89,7 +89,7 @@ public class c extends o<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lot
                 }
                 for (int i4 = 0; i4 < cVar.getSize(); i4++) {
                     int i5 = cVar.getColors()[i4];
-                    cVar.getColors()[i4] = Color.argb(a(cVar.cv()[i4], dArr, dArr2), Color.red(i5), Color.green(i5), Color.blue(i5));
+                    cVar.getColors()[i4] = Color.argb(a(cVar.cx()[i4], dArr, dArr2), Color.red(i5), Color.green(i5), Color.blue(i5));
                 }
             }
         }

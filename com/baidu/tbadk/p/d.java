@@ -1,16 +1,20 @@
 package com.baidu.tbadk.p;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes.dex */
-public class d extends i {
-    public int pageType;
-
-    public d(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
-        super(i, z, responsedMessage, j, j2, j3, z2, j4);
-        this.pageType = 0;
+public class d extends com.baidu.adp.framework.a.e {
+    public d(int i) {
+        super(i);
     }
 
-    public d() {
-        this.pageType = 0;
+    @Override // com.baidu.adp.framework.a.e
+    public void b(int i, BdUniqueId bdUniqueId) {
+        ReloginManager.aCR().d(i, bdUniqueId);
+    }
+
+    @Override // com.baidu.adp.framework.a.e
+    public void b(BdUniqueId bdUniqueId) {
+        ReloginManager.aCR().i(bdUniqueId);
     }
 }

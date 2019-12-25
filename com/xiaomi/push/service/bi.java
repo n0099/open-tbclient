@@ -1,7 +1,7 @@
 package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class bi extends XMPushService.i {
     final /* synthetic */ XMPushService a;
 
@@ -19,9 +19,9 @@ class bi extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (this.a.f813a != null) {
-            this.a.f813a.b(15, (Exception) null);
-            this.a.f813a = null;
+        if (this.a.f818a != null) {
+            this.a.f818a.b(15, (Exception) null);
+            this.a.f818a = null;
         }
     }
 }

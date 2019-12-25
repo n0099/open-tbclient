@@ -1,5 +1,5 @@
 package com.baidu.live;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface d {
-    void nq();
+    void oJ();
 }

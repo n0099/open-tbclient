@@ -1,5 +1,5 @@
 package com.baidu.tieba.video.editvideo.scale;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public enum PivotPoint {
     LEFT_TOP,
     LEFT_CENTER,

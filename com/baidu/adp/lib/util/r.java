@@ -36,16 +36,16 @@ public class r {
                     Collections.sort(linkedList, new a());
                     return linkedList;
                 } finally {
-                    com.baidu.adp.lib.g.a.close(cursor);
+                    com.baidu.adp.lib.f.a.close(cursor);
                 }
             }
         }
-        com.baidu.adp.lib.g.a.close(cursor);
+        com.baidu.adp.lib.f.a.close(cursor);
         Collections.sort(linkedList, new a());
         return linkedList;
     }
 
-    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
     public static List<l.b<byte[]>> c(com.baidu.adp.lib.cache.l<byte[]> lVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();
@@ -73,11 +73,11 @@ public class r {
                     Collections.sort(linkedList, new a());
                     return linkedList;
                 } finally {
-                    com.baidu.adp.lib.g.a.close(cursor);
+                    com.baidu.adp.lib.f.a.close(cursor);
                 }
             }
         }
-        com.baidu.adp.lib.g.a.close(cursor);
+        com.baidu.adp.lib.f.a.close(cursor);
         Collections.sort(linkedList, new a());
         return linkedList;
     }
@@ -85,9 +85,9 @@ public class r {
     private static Cursor d(com.baidu.adp.lib.cache.l<?> lVar) {
         if (lVar != null && (lVar instanceof l.c)) {
             l.c cVar = (l.c) lVar;
-            if (cVar.fg() instanceof com.baidu.adp.lib.cache.j) {
-                com.baidu.adp.lib.cache.c fd = ((com.baidu.adp.lib.cache.j) cVar.fg()).fd();
-                return fd.queryAllForNameSpace(fd.fa().getOpenedDatabase(), cVar.getNameSpace());
+            if (cVar.fB() instanceof com.baidu.adp.lib.cache.j) {
+                com.baidu.adp.lib.cache.c fy = ((com.baidu.adp.lib.cache.j) cVar.fB()).fy();
+                return fy.queryAllForNameSpace(fy.fv().getOpenedDatabase(), cVar.getNameSpace());
             }
             return null;
         }

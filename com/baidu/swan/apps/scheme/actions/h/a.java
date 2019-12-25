@@ -1,41 +1,42 @@
 package com.baidu.swan.apps.scheme.actions.h;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.core.d.d;
-import com.baidu.swan.apps.core.d.e;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes2.dex */
-public class a extends z {
+import com.baidu.swan.apps.y.f;
+/* loaded from: classes9.dex */
+public class a extends ab {
     public a(j jVar) {
-        super(jVar, "/swan/startPullDownRefresh");
+        super(jVar, "/swanAPI/hideNavigationBarLoading");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        e AI = com.baidu.swan.apps.w.e.LE().AI();
-        if (AI == null) {
-            c.e("startPullDownRefresh", "manager is null");
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
+        if (DEBUG) {
+            Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
+        }
+        com.baidu.swan.apps.core.d.e DP = f.Uf().DP();
+        if (DP == null) {
+            com.baidu.swan.apps.console.c.e("navigationLoading", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!(AI.Fr() instanceof d)) {
-            c.e("startPullDownRefresh", "top fragment error");
+        }
+        com.baidu.swan.apps.core.d.b LB = DP.LB();
+        if (LB == null) {
+            com.baidu.swan.apps.console.c.e("navigationLoading", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        } else if (!LB.Lb()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            com.baidu.swan.apps.console.c.e("navigationLoading", "hide navigation loading progressbar fail");
             return false;
         } else {
-            d dVar = (d) AI.Fr();
-            if (dVar.Cm() == null) {
-                c.e("startPullDownRefresh", "view is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            c.i("startPullDownRefresh", "start pull refresh");
-            dVar.Cm().doPullRefreshing(true, 100L);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
     }

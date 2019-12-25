@@ -21,10 +21,10 @@ public class ad {
             int i3 = 0;
             int i4 = 0;
             int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean amN = ar.amN();
+            boolean aDZ = ar.aDZ();
             int firstVisiblePosition = pVar.getFirstVisiblePosition();
             int lastVisiblePosition = pVar.getLastVisiblePosition();
-            com.baidu.adp.lib.f.c.fT().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
+            com.baidu.adp.lib.e.c.gs().a(bdUniqueId, (com.baidu.adp.lib.e.b) null);
             while (true) {
                 int i5 = firstVisiblePosition;
                 if (i5 < adapter.getCount()) {
@@ -36,14 +36,14 @@ public class ad {
                         int i8 = i2;
                         while (it.hasNext()) {
                             PreLoadImageInfo next = it.next();
-                            if (com.baidu.adp.lib.f.c.fT().M(next.procType)) {
+                            if (com.baidu.adp.lib.e.c.gs().Q(next.procType)) {
                                 if (12 == next.procType || 28 == next.procType) {
                                     i6++;
                                     if (i6 <= 30 && i5 > lastVisiblePosition && !TextUtils.isEmpty(next.imgUrl)) {
                                         if (12 == next.procType) {
-                                            com.baidu.adp.lib.f.c.fT().a(next.imgUrl, 12, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                            com.baidu.adp.lib.e.c.gs().a(next.imgUrl, 12, null, next.width, next.height, bdUniqueId, new Object[0]);
                                         } else if (28 == next.procType) {
-                                            com.baidu.adp.lib.f.c.fT().a(next.imgUrl, 28, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                            com.baidu.adp.lib.e.c.gs().a(next.imgUrl, 28, null, next.width, next.height, bdUniqueId, new Object[0]);
                                         }
                                     }
                                 } else {
@@ -64,14 +64,14 @@ public class ad {
                                     if (i8 <= i && i7 < bigImageMaxUsedMemory && i5 > lastVisiblePosition) {
                                         if (next.bigEmotion != null) {
                                             TbRichTextEmotionInfo tbRichTextEmotionInfo = next.bigEmotion;
-                                            String str = amN ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
+                                            String str = aDZ ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
                                             if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.c.fT().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, next.width, next.height, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(amN), str);
+                                                com.baidu.adp.lib.e.c.gs().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, next.width, next.height, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(aDZ), str);
                                             }
                                         } else {
                                             String str2 = next.imgUrl;
                                             if (!TextUtils.isEmpty(str2)) {
-                                                com.baidu.adp.lib.f.c.fT().a(str2, next.procType, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                                com.baidu.adp.lib.e.c.gs().a(str2, next.procType, null, next.width, next.height, bdUniqueId, new Object[0]);
                                             }
                                         }
                                     }

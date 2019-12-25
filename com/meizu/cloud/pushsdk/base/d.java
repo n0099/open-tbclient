@@ -1,5 +1,7 @@
 package com.meizu.cloud.pushsdk.base;
-/* loaded from: classes3.dex */
+
+import com.baidu.webkit.internal.ETAG;
+/* loaded from: classes5.dex */
 class d {
     private static final char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
     private static final char b = (char) Integer.parseInt("00000011", 2);
@@ -48,7 +50,7 @@ class d {
                 sb.append(this.f[i3 >>> 2]);
                 sb.append(this.f[((b & i3) << 4) | (i5 >>> 4)]);
                 sb.append(this.f[(c & i5) << 2]);
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
                 break;
             }
             i = i4 + 1;

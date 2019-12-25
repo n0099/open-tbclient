@@ -5,7 +5,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public interface IQuickMediaPlayerListener extends IInterface {
     void onCompletion() throws RemoteException;
 
@@ -23,7 +23,7 @@ public interface IQuickMediaPlayerListener extends IInterface {
 
     void onSubError(int i, int i2, String str) throws RemoteException;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Stub extends Binder implements IQuickMediaPlayerListener {
         private static final String DESCRIPTOR = "com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener";
         static final int TRANSACTION_onCompletion = 2;
@@ -106,7 +106,7 @@ public interface IQuickMediaPlayerListener extends IInterface {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes10.dex */
         private static class Proxy implements IQuickMediaPlayerListener {
             private IBinder mRemote;
 

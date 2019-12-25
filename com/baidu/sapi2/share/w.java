@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class w implements Runnable {
     final /* synthetic */ SapiContext a;
     final /* synthetic */ Context b;

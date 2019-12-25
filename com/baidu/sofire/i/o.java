@@ -1,16 +1,15 @@
 package com.baidu.sofire.i;
 
 import android.text.TextUtils;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
-import com.tencent.connect.common.Constants;
+import com.baidu.searchbox.ugc.model.PublishType;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class o {
-    private static final String[] a = {"0", "1", "2", "3", "4", "5", "6", "7", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "9", Config.APP_VERSION_CODE, "b", "c", "d", "e", BdStatsConstant.StatsKey.FROM};
+    private static final String[] a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", PublishType.TYPE_VIDEO_SHARE, Config.APP_VERSION_CODE, "b", "c", "d", "e", "f"};
 
     private static String c(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();

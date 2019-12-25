@@ -3,12 +3,11 @@ package android.support.v7.widget;
 import android.support.v4.util.Pools;
 import android.support.v7.widget.OpReorderer;
 import android.support.v7.widget.RecyclerView;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AdapterHelper implements OpReorderer.Callback {
     private static final boolean DEBUG = false;
     static final int POSITION_TYPE_INVISIBLE = 0;
@@ -24,7 +23,7 @@ public class AdapterHelper implements OpReorderer.Callback {
     private Pools.Pool<UpdateOp> mUpdateOpPool;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface Callback {
         RecyclerView.ViewHolder findViewHolder(int i);
 
@@ -587,7 +586,7 @@ public class AdapterHelper implements OpReorderer.Callback {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class UpdateOp {
         static final int ADD = 1;
         static final int MOVE = 8;
@@ -609,7 +608,7 @@ public class AdapterHelper implements OpReorderer.Callback {
         String cmdToString() {
             switch (this.cmd) {
                 case 1:
-                    return IMTrack.DbBuilder.ACTION_ADD;
+                    return "add";
                 case 2:
                     return "rm";
                 case 3:

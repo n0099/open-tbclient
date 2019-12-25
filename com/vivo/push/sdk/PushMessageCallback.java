@@ -4,7 +4,7 @@ import android.content.Context;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.model.UnvarnishedMessage;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface PushMessageCallback {
     boolean isAllowNet(Context context);
 

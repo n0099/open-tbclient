@@ -4,18 +4,18 @@ import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class g {
+    public String abl;
     public String createTime;
-    public String dND;
-    public String dNE;
-    public int dNF;
-    public String dNg;
-    public String dNh;
-    public int dNl;
-    public long dNm;
-    public String dNn;
     public String description;
+    public String eBL;
+    public int eBM;
+    public String eBo;
+    public String eBp;
+    public int eBt;
+    public long eBu;
+    public String eBv;
     public String id;
     public String liveId;
     public int liveStatus;
@@ -28,19 +28,19 @@ public class g {
                 this.id = jSONObject.optString("id");
                 String optString = jSONObject.optString("anchor_id");
                 if (!TextUtils.isEmpty(optString)) {
-                    this.dND = EncryptionHelper.getDecryptUserId(optString);
+                    this.abl = EncryptionHelper.getDecryptUserId(optString);
                 }
-                this.dNg = jSONObject.optString("regiment_name");
-                this.dNh = jSONObject.optString("regiment_icon");
+                this.eBo = jSONObject.optString("regiment_name");
+                this.eBp = jSONObject.optString("regiment_icon");
                 this.description = jSONObject.optString("description");
                 this.score = jSONObject.optString("score");
                 this.status = jSONObject.optString("status");
                 this.createTime = jSONObject.optString("create_time");
-                this.dNE = jSONObject.optString("update_time");
-                this.dNF = jSONObject.optInt("member_counts");
-                this.dNn = jSONObject.optString("guard_club_portrait");
-                this.dNl = jSONObject.optInt("guard_level");
-                this.dNm = jSONObject.optLong("next_level_need_score");
+                this.eBL = jSONObject.optString("update_time");
+                this.eBM = jSONObject.optInt("member_counts");
+                this.eBv = jSONObject.optString("guard_club_portrait");
+                this.eBt = jSONObject.optInt("guard_level");
+                this.eBu = jSONObject.optLong("next_level_need_score");
                 this.liveStatus = jSONObject.optInt("live_status");
                 this.liveId = jSONObject.optString("live_id");
             } catch (Exception e) {

@@ -1,6 +1,5 @@
 package com.baidu.platform.core.c;
 
-import android.net.http.Headers;
 import android.util.Log;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
@@ -12,6 +11,7 @@ import com.baidu.mapapi.search.poi.PoiDetailResult;
 import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.sapi2.activity.SlideActiviy;
+import com.baidu.swan.bdprivate.invoice.model.InvoiceInfo;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -51,9 +51,9 @@ public class d extends com.baidu.platform.base.d {
             return false;
         }
         poiDetailResult.setName(jSONObject.optString("name"));
-        poiDetailResult.setLocation(a(jSONObject.optJSONObject(Headers.LOCATION)));
+        poiDetailResult.setLocation(a(jSONObject.optJSONObject("location")));
         poiDetailResult.setAddress(jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME));
-        poiDetailResult.setTelephone(jSONObject.optString("telephone"));
+        poiDetailResult.setTelephone(jSONObject.optString(InvoiceInfo.KEY_TELEPHONE));
         poiDetailResult.setUid(jSONObject.optString("uid"));
         JSONObject optJSONObject = jSONObject.optJSONObject("detail_info");
         if (optJSONObject != null && optJSONObject.length() != 0) {
@@ -87,12 +87,12 @@ public class d extends com.baidu.platform.base.d {
             if (jSONObject != null && jSONObject.length() != 0) {
                 PoiDetailInfo poiDetailInfo = new PoiDetailInfo();
                 poiDetailInfo.setName(jSONObject.optString("name"));
-                poiDetailInfo.setLocation(a(jSONObject.optJSONObject(Headers.LOCATION)));
+                poiDetailInfo.setLocation(a(jSONObject.optJSONObject("location")));
                 poiDetailInfo.setAddress(jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME));
                 poiDetailInfo.setProvince(jSONObject.optString("province"));
                 poiDetailInfo.setCity(jSONObject.optString("city"));
                 poiDetailInfo.setArea(jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
-                poiDetailInfo.setTelephone(jSONObject.optString("telephone"));
+                poiDetailInfo.setTelephone(jSONObject.optString(InvoiceInfo.KEY_TELEPHONE));
                 poiDetailInfo.setUid(jSONObject.optString("uid"));
                 poiDetailInfo.setStreetId(jSONObject.optString("setStreetId"));
                 poiDetailInfo.setDetail(jSONObject.optString("detail"));

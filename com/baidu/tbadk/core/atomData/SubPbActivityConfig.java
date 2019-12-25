@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
@@ -20,8 +21,15 @@ public class SubPbActivityConfig extends IntentConfig {
     public static final String KEY_FROM_FRS_FORUM_ID = "from_frs_forum_id";
     public static final String KEY_HIGH_LIGHT_POST_ID = "high_light_post_id";
     public static final String KEY_IMG_URLS = "img_urls";
+    public static final String KEY_IS_FROM_DYNAMIC = "key_is_from_dynamic";
+    public static final String KEY_IS_FROM_SCHEMA = "is_from_schema";
     public static final String KEY_IS_JUMP_FROM_PB = "is_jump_from_pb";
     public static final String KEY_IS_SHOW_GO_TO_SUBJECT = "is_show_go_to_subject";
+    public static final String KEY_ORI_UGC_NID = "key_ori_ugc_nid";
+    public static final String KEY_ORI_UGC_TID = "key_ori_ugc_tid";
+    public static final String KEY_ORI_UGC_TOP_PID = "key_ori_ugc_top_pid";
+    public static final String KEY_ORI_UGC_TYPE = "key_ori_ugc_type";
+    public static final String KEY_ORI_UGC_VID = "key_ori_ugc_vid";
     public static final String KEY_PAGE_START_FROM = "page_start_from";
     public static final String KEY_POST_ID = "post_id";
     public static final String KEY_REPLAY_NAME = "replay_name";
@@ -121,6 +129,28 @@ public class SubPbActivityConfig extends IntentConfig {
         }
     }
 
+    public void setBjhData(BaijiahaoData baijiahaoData) {
+        boolean z = true;
+        Intent intent = getIntent();
+        if (intent != null && baijiahaoData != null) {
+            if (baijiahaoData.oriUgcType != 1 && baijiahaoData.oriUgcType != 2 && baijiahaoData.oriUgcType != 3 && baijiahaoData.oriUgcType != 4) {
+                z = false;
+            }
+            intent.putExtra("key_is_from_dynamic", z);
+            intent.putExtra("key_ori_ugc_nid", baijiahaoData.oriUgcNid);
+            intent.putExtra("key_ori_ugc_tid", baijiahaoData.oriUgcTid);
+            intent.putExtra("key_ori_ugc_type", baijiahaoData.oriUgcType);
+            intent.putExtra("key_ori_ugc_vid", baijiahaoData.oriUgcVid);
+        }
+    }
+
+    public void setKeyOriUgcTopPid(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_ORI_UGC_TOP_PID, str);
+        }
+    }
+
     public void setKeyPageStartFrom(int i) {
         Intent intent = getIntent();
         if (intent != null) {
@@ -139,6 +169,13 @@ public class SubPbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra("high_light_post_id", str);
+        }
+    }
+
+    public void setIsFromeSchema(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_IS_FROM_SCHEMA, z);
         }
     }
 }

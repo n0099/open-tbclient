@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.personcenter.privilege.entereffect.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.f.b;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.ala.gift.AlaDynamicGift;
 import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
@@ -9,7 +9,7 @@ import com.baidu.ala.gift.AlaDynamicGiftZip;
 import com.baidu.live.tbadk.log.LogConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaEnterEffectData implements m, Serializable {
     public static final int ALA_ENTER_EFFECT_DOWNLOADING = 102;
     public static final int ALA_ENTER_EFFECT_HAS_DOWNLOAD = 101;

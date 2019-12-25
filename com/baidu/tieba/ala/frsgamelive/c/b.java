@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.b> {
-    private View dIX;
-    private TextView dIY;
-    private View dIZ;
+    private View exk;
+    private TextView exl;
+    private View exm;
     private int mSkinType;
     private TbPageContext mTbPageContext;
 
@@ -19,18 +19,18 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.dIX = view.findViewById(R.id.frs_game_live_recommand_line1);
-        this.dIY = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
-        this.dIZ = view.findViewById(R.id.frs_game_live_recommand_line2);
+        this.exk = view.findViewById(R.id.frs_game_live_recommand_line1);
+        this.exl = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
+        this.exm = view.findViewById(R.id.frs_game_live_recommand_line2);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundResource(this.dIX, R.color.cp_bg_line_c);
-            am.setViewTextColor(this.dIY, (int) R.color.cp_cont_d);
-            am.setBackgroundResource(this.dIZ, R.color.cp_bg_line_c);
+            am.setBackgroundResource(this.exk, R.color.cp_bg_line_c);
+            am.setViewTextColor(this.exl, (int) R.color.cp_cont_d);
+            am.setBackgroundResource(this.exm, R.color.cp_bg_line_c);
             this.mSkinType = i;
         }
     }
@@ -50,13 +50,13 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     public void onClick(View view) {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a extends v.a {
-        public b dJa;
+        public b exn;
 
         public a(b bVar) {
             super(bVar.getView());
-            this.dJa = bVar;
+            this.exn = bVar;
         }
     }
 }

@@ -1,18 +1,21 @@
 package com.baidu.live.tbadk.core.util;
 
+import android.support.media.ExifInterface;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.format.Time;
 import android.text.style.ForegroundColorSpan;
-import com.baidu.android.imsdk.internal.DefaultConfig;
+import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdStringHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
+import com.baidu.swan.games.utils.so.SoUtils;
+import com.google.android.exoplayer2.Format;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -23,7 +26,7 @@ import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class StringHelper extends BdStringHelper {
     public static final String STRING_MORE = "...";
     private static long MS_TO_SEC = 1000;
@@ -39,7 +42,7 @@ public class StringHelper extends BdStringHelper {
     private static String TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_hour);
     private static String TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_minute);
     private static String TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_second);
-    private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT);
     private static final SimpleDateFormat FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
     private static Date date = new Date();
 
@@ -176,8 +179,8 @@ public class StringHelper extends BdStringHelper {
                 return "刚刚";
             }
             return getDateStringDay(date3);
-        } else if (time >= StatisticConfig.MIN_UPLOAD_INTERVAL) {
-            long j = StatisticConfig.MIN_UPLOAD_INTERVAL * 2;
+        } else if (time >= 30000) {
+            long j = 30000 * 2;
             if (time < j) {
                 return "半分钟前";
             }
@@ -222,8 +225,8 @@ public class StringHelper extends BdStringHelper {
                 return "刚刚";
             }
             return getDateStringDay(date3);
-        } else if (time >= StatisticConfig.MIN_UPLOAD_INTERVAL) {
-            long j = StatisticConfig.MIN_UPLOAD_INTERVAL * 2;
+        } else if (time >= 30000) {
+            long j = 30000 * 2;
             if (time < j) {
                 return "半分钟前";
             }
@@ -265,7 +268,7 @@ public class StringHelper extends BdStringHelper {
         if (abs <= 120000) {
             return "刚刚";
         }
-        if (abs >= Long.MAX_VALUE) {
+        if (abs >= Format.OFFSET_SAMPLE_RELATIVE) {
             return "一个月前";
         }
         if (abs / MS_TO_DAY != 0) {
@@ -285,7 +288,7 @@ public class StringHelper extends BdStringHelper {
         if (abs <= 120000) {
             return "刚刚";
         }
-        if (abs >= Long.MAX_VALUE || abs / MS_TO_DAY != 0) {
+        if (abs >= Format.OFFSET_SAMPLE_RELATIVE || abs / MS_TO_DAY != 0) {
             return "";
         }
         if (abs / MS_TO_HOUR != 0) {
@@ -297,7 +300,7 @@ public class StringHelper extends BdStringHelper {
     public static String getNameFromUrl(String str) {
         try {
             int lastIndexOf = str.lastIndexOf("/");
-            int lastIndexOf2 = str.lastIndexOf(DefaultConfig.TOKEN_SEPARATOR);
+            int lastIndexOf2 = str.lastIndexOf(".");
             if (lastIndexOf != -1) {
                 if (lastIndexOf < lastIndexOf2) {
                     str = str.substring(lastIndexOf, lastIndexOf2);
@@ -340,7 +343,7 @@ public class StringHelper extends BdStringHelper {
     private static long[] parseVersion(String str) {
         long[] jArr = new long[3];
         if (str != null) {
-            String[] split = str.replace(DefaultConfig.TOKEN_SEPARATOR, "#").split("#");
+            String[] split = str.replace(".", "#").split("#");
             jArr[0] = Long.parseLong(split[0]);
             jArr[1] = Long.parseLong(split[1]);
             jArr[2] = Long.parseLong(split[2]);
@@ -517,7 +520,7 @@ public class StringHelper extends BdStringHelper {
             }
             return f + "万";
         }
-        float f2 = ((float) (j / 1000000)) / 10.0f;
+        float f2 = ((float) (j / TimeUtils.NANOS_PER_MS)) / 10.0f;
         if (f2 % 1.0f == 0.0f) {
             return ((int) f2) + "千万";
         }
@@ -577,9 +580,9 @@ public class StringHelper extends BdStringHelper {
         if (j < 9999000.0d) {
             float f = ((float) (j / 1000)) / 10.0f;
             if (f % 1.0f == 0.0f) {
-                return ((int) f) + "W";
+                return ((int) f) + ExifInterface.LONGITUDE_WEST;
             }
-            return f + "W";
+            return f + ExifInterface.LONGITUDE_WEST;
         }
         return "999.9W";
     }
@@ -594,11 +597,11 @@ public class StringHelper extends BdStringHelper {
         if (j < 10000000) {
             float f = ((float) (j / 1000)) / 10.0f;
             if (f % 1.0f == 0.0f) {
-                return ((int) f) + "W";
+                return ((int) f) + ExifInterface.LONGITUDE_WEST;
             }
-            return f + "W";
+            return f + ExifInterface.LONGITUDE_WEST;
         }
-        float f2 = ((float) (j / 1000000)) / 10.0f;
+        float f2 = ((float) (j / TimeUtils.NANOS_PER_MS)) / 10.0f;
         if (f2 >= 9999.0f) {
             return "9999KW+";
         }
@@ -620,7 +623,7 @@ public class StringHelper extends BdStringHelper {
 
     public static String numFormatOver10000ReturnInt(long j) {
         if (j > 9999) {
-            return ((int) (((float) j) / 10000.0f)) + "W";
+            return ((int) (((float) j) / 10000.0f)) + ExifInterface.LONGITUDE_WEST;
         }
         if (j < 0) {
             return "0";
@@ -643,7 +646,7 @@ public class StringHelper extends BdStringHelper {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + "W";
+            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
         }
         if (j > 10000) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
@@ -662,7 +665,7 @@ public class StringHelper extends BdStringHelper {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + "W";
+            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
         }
         if (j > 10000) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
@@ -683,7 +686,7 @@ public class StringHelper extends BdStringHelper {
             if (((float) round) > f) {
                 round--;
             }
-            return round + "W";
+            return round + ExifInterface.LONGITUDE_WEST;
         } else if (j < 0) {
             return "0";
         } else {
@@ -698,7 +701,7 @@ public class StringHelper extends BdStringHelper {
             if (((float) round) > f) {
                 round--;
             }
-            return round >= 9999 ? "9999W+" : j + "W";
+            return round >= 9999 ? "9999W+" : j + ExifInterface.LONGITUDE_WEST;
         } else if (j < 0) {
             return "0";
         } else {
@@ -728,7 +731,7 @@ public class StringHelper extends BdStringHelper {
             if (((float) round) > f) {
                 round--;
             }
-            return round + "W";
+            return round + ExifInterface.LONGITUDE_WEST;
         } else if (j < 0) {
             return "0";
         } else {
@@ -879,7 +882,7 @@ public class StringHelper extends BdStringHelper {
             return "00";
         }
         if (TextUtils.equals(str2, "00")) {
-            return "24";
+            return SoUtils.SO_EVENT_ID_DEFAULT;
         }
         return str2;
     }
@@ -937,7 +940,7 @@ public class StringHelper extends BdStringHelper {
                 return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
             }
             return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
-        } else if (j >= 1000000) {
+        } else if (j >= TimeUtils.NANOS_PER_MS) {
             long j2 = j / 10000;
             if (((float) j) / 10000.0f > ((float) j2)) {
                 return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
@@ -959,13 +962,13 @@ public class StringHelper extends BdStringHelper {
             DecimalFormat decimalFormat = new DecimalFormat("#.#");
             float f = ((float) j) / 10000.0f;
             if (f < 1000.0f) {
-                return decimalFormat.format(f) + "W";
+                return decimalFormat.format(f) + ExifInterface.LONGITUDE_WEST;
             }
             long round = Math.round(f);
             if (((float) round) > f) {
                 round--;
             }
-            return round + "W";
+            return round + ExifInterface.LONGITUDE_WEST;
         }
         return String.valueOf(j);
     }
@@ -1275,10 +1278,10 @@ public class StringHelper extends BdStringHelper {
                 return d2 + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
             }
             return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_yi);
-        } else if (j >= 1000000) {
+        } else if (j >= TimeUtils.NANOS_PER_MS) {
             float f = ((float) j) / 10000.0f;
             long j2 = j / 10000;
-            if (j % 1000000 > 999) {
+            if (j % TimeUtils.NANOS_PER_MS > 999) {
                 return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);
             }
             return j2 + TbadkCoreApplication.getInst().getResources().getString(a.i.sdk_unit_wan);

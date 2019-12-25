@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.MD5;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ApiUtils {
     public static final int BUILD_INT = 10350;
     public static final int BUILD_INT_440 = 10355;

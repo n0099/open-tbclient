@@ -1,13 +1,14 @@
 package com.baidu.live.adp.lib.util;
 
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.baidu.android.util.devices.IDevices;
+import com.baidu.fsg.face.base.b.c;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTaskParallel;
 import com.baidu.live.adp.lib.safe.BdCloseHelper;
 import com.baidu.live.adp.lib.stats.BdStatisticsManager;
-import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -19,7 +20,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdLoadLibraryHelper {
     private static BdLoadLibraryHelper mInstance = null;
 
@@ -168,7 +169,7 @@ public class BdLoadLibraryHelper {
     }
 
     private String getNewLibFile(String str) {
-        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + "lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
+        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + c.g + File.separator + "lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [268=5, 281=4] */
@@ -182,9 +183,9 @@ public class BdLoadLibraryHelper {
         zipInputStream2 = null;
         boolean z = false;
         ArrayList arrayList = new ArrayList();
-        arrayList.add("lib" + File.separator + PassBiometricUtil.CPU_TYPE_X86 + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
-        arrayList.add("lib" + File.separator + "mips" + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
-        arrayList.add("lib" + File.separator + PassBiometricUtil.CPU_TYPE_ARMEABI + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
+        arrayList.add("lib" + File.separator + "x86" + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
+        arrayList.add("lib" + File.separator + IDevices.ABI_MIPS + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
+        arrayList.add("lib" + File.separator + "armeabi" + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
         File file = new File(str);
         try {
             if (file.exists()) {
@@ -289,7 +290,7 @@ public class BdLoadLibraryHelper {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private class LoadApkTask extends BdAsyncTask<Object, Object, Object> {
         BdLoadLibraryHelperCallback mCallback;
         String mLibName;

@@ -7,7 +7,7 @@ import com.baidu.android.pushservice.message.CrossPushMessage;
 import com.baidu.android.pushservice.message.PublicMsg;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class i {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static CrossPushMessage a(String str, String str2, byte[] bArr) {

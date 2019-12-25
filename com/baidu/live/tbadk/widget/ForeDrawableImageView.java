@@ -10,7 +10,7 @@ import android.view.ViewParent;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.TbImgSetting;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ForeDrawableImageView extends TbImageView {
     private String bottomText;
     private int bottomTextPadding;

@@ -2,6 +2,8 @@ package com.baidu.tbadk.browser;
 
 import android.os.Build;
 import com.baidu.adp.lib.util.j;
+import com.baidu.android.ext.manage.PopItemMethodConstant;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.l;
@@ -18,18 +20,18 @@ public class c extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String afT() {
+    public String awM() {
         return "TBHY_COMMON_Utils";
     }
 
-    @o(alB = false, value = "showToast")
+    @o(aCK = false, value = PopItemMethodConstant.showToast)
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.b(getContext(), jSONObject.optString("message")).akR();
+            BdToast.b(getContext(), jSONObject.optString("message")).aCb();
         }
     }
 
-    @o(alB = false, value = "showNetStatus")
+    @o(aCK = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
@@ -55,7 +57,7 @@ public class c extends n {
         return jSONObject;
     }
 
-    @o(alB = false, value = "showDeviceInfo")
+    @o(aCK = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
@@ -64,7 +66,7 @@ public class c extends n {
         String str3 = String.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
-            jSONObject.put("systemName", "android");
+            jSONObject.put("systemName", PraiseDataPassUtil.KEY_FROM_OS);
             jSONObject.put("systemVersion", str);
             jSONObject.put("model", str2);
             jSONObject.put("cuid", cuid);

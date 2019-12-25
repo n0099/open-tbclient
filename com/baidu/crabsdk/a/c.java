@@ -6,33 +6,33 @@ import android.os.Looper;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c {
-    private static c IH;
-    private static Context II;
-    private static ExecutorService IJ;
+    private static c Pg;
+    private static Context Ph;
+    private static ExecutorService Pi;
     private static boolean al = false;
-    public l IF;
-    public p IG;
+    public l Pe;
+    public p Pf;
 
     private c(Context context) {
-        II = context;
-        this.IG = new p(Looper.getMainLooper().getThread(), a.U);
-        this.IF = new l(new d(this), context);
-        if (IJ == null) {
-            IJ = Executors.newSingleThreadExecutor();
+        Ph = context;
+        this.Pf = new p(Looper.getMainLooper().getThread(), a.U);
+        this.Pe = new l(new d(this), context);
+        if (Pi == null) {
+            Pi = Executors.newSingleThreadExecutor();
         }
     }
 
-    public static c aj(Context context) {
-        if (IH == null) {
+    public static c aq(Context context) {
+        if (Pg == null) {
             synchronized (c.class) {
-                if (IH == null) {
-                    IH = new c(context);
+                if (Pg == null) {
+                    Pg = new c(context);
                 }
             }
         }
-        return IH;
+        return Pg;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,23 +42,23 @@ public class c {
         if (c.isEmpty()) {
             return;
         }
-        a mh = a.mh();
-        mh.IA = c;
-        mh.a(j, j2, j3, j4);
+        a nq = a.nq();
+        nq.OZ = c;
+        nq.a(j, j2, j3, j4);
     }
 
     public static void start() {
         al = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.IL.start();
-            com.baidu.crabsdk.c.a.bu("start FrameMonitor...");
+            e.Pk.start();
+            com.baidu.crabsdk.c.a.cb("start FrameMonitor...");
         }
     }
 
     public static void stop() {
         al = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.IL.stop();
+            e.Pk.stop();
         }
     }
 }

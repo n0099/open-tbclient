@@ -1,5 +1,5 @@
 package com.google.zxing.qrcode.decoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 final class FormatInformation {
     private final byte dataMask;
     private final ErrorCorrectionLevel errorCorrectionLevel;

@@ -2,171 +2,171 @@ package org.aspectj.a.b;
 
 import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 abstract class f implements org.aspectj.lang.c {
-    int knT;
-    ClassLoader kvT = null;
-    String kwc;
-    Class kwd;
-    a kwe;
-    private String kwf;
+    int mFN;
+    ClassLoader mZT = null;
+    String nac;
+    Class nad;
+    a nae;
+    private String naf;
     String name;
-    private static boolean eWs = true;
+    private static boolean fLb = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] kwg = new Class[0];
+    static Class[] nag = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void aP(int i, String str);
-
         String get(int i);
+
+        void set(int i, String str);
     }
 
     protected abstract String b(h hVar);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.knT = -1;
-        this.knT = i;
+        this.mFN = -1;
+        this.mFN = i;
         this.name = str;
-        this.kwd = cls;
+        this.nad = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
-        if (eWs) {
-            if (this.kwe == null) {
+        if (fLb) {
+            if (this.nae == null) {
                 try {
-                    this.kwe = new b();
+                    this.nae = new b();
                 } catch (Throwable th) {
-                    eWs = false;
+                    fLb = false;
                 }
             } else {
-                str = this.kwe.get(hVar.kwr);
+                str = this.nae.get(hVar.nar);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
-        if (eWs) {
-            this.kwe.aP(hVar.kwr, str);
+        if (fLb) {
+            this.nae.set(hVar.nar, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.kwt);
+        return a(h.nat);
     }
 
-    public int cNo() {
-        if (this.knT == -1) {
-            this.knT = Dm(0);
+    public int dFk() {
+        if (this.mFN == -1) {
+            this.mFN = MU(0);
         }
-        return this.knT;
+        return this.mFN;
     }
 
     public String getName() {
         if (this.name == null) {
-            this.name = Dl(1);
+            this.name = MT(1);
         }
         return this.name;
     }
 
-    public Class cNp() {
-        if (this.kwd == null) {
-            this.kwd = Dn(2);
+    public Class dFl() {
+        if (this.nad == null) {
+            this.nad = MV(2);
         }
-        return this.kwd;
+        return this.nad;
     }
 
-    public String cNq() {
-        if (this.kwc == null) {
-            this.kwc = cNp().getName();
+    public String dFm() {
+        if (this.nac == null) {
+            this.nac = dFl().getName();
         }
-        return this.kwc;
+        return this.nac;
     }
 
-    private ClassLoader cNr() {
-        if (this.kvT == null) {
-            this.kvT = getClass().getClassLoader();
+    private ClassLoader dFn() {
+        if (this.mZT == null) {
+            this.mZT = getClass().getClassLoader();
         }
-        return this.kvT;
+        return this.mZT;
     }
 
-    String Dl(int i) {
+    String MT(int i) {
         int i2 = 0;
-        int indexOf = this.kwf.indexOf(45);
+        int indexOf = this.naf.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.kwf.indexOf(45, i2);
+            indexOf = this.naf.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.kwf.length();
+            indexOf = this.naf.length();
         }
-        return this.kwf.substring(i2, indexOf);
+        return this.naf.substring(i2, indexOf);
     }
 
-    int Dm(int i) {
-        return Integer.parseInt(Dl(i), 16);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Class Dn(int i) {
-        return org.aspectj.a.b.b.b(Dl(i), cNr());
+    int MU(int i) {
+        return Integer.parseInt(MT(i), 16);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Class[] Do(int i) {
-        StringTokenizer stringTokenizer = new StringTokenizer(Dl(i), ":");
+    public Class MV(int i) {
+        return org.aspectj.a.b.b.b(MT(i), dFn());
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Class[] MW(int i) {
+        StringTokenizer stringTokenizer = new StringTokenizer(MT(i), ":");
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), cNr());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), dFn());
         }
         return clsArr;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class b implements a {
-        private SoftReference kwh;
+        private SoftReference nah;
 
         public b() {
-            cNt();
+            dFp();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String get(int i) {
-            String[] cNs = cNs();
-            if (cNs == null) {
+            String[] dFo = dFo();
+            if (dFo == null) {
                 return null;
             }
-            return cNs[i];
+            return dFo[i];
         }
 
         @Override // org.aspectj.a.b.f.a
-        public void aP(int i, String str) {
-            String[] cNs = cNs();
-            if (cNs == null) {
-                cNs = cNt();
+        public void set(int i, String str) {
+            String[] dFo = dFo();
+            if (dFo == null) {
+                dFo = dFp();
             }
-            cNs[i] = str;
+            dFo[i] = str;
         }
 
-        private String[] cNs() {
-            return (String[]) this.kwh.get();
+        private String[] dFo() {
+            return (String[]) this.nah.get();
         }
 
-        private String[] cNt() {
+        private String[] dFp() {
             String[] strArr = new String[3];
-            this.kwh = new SoftReference(strArr);
+            this.nah = new SoftReference(strArr);
             return strArr;
         }
     }

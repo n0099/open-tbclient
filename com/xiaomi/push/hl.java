@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public enum hl {
     UploadSwitch(1),
     UploadFrequency(2),
@@ -95,7 +95,7 @@ public enum hl {
     PopupDialogContent(95),
     PopupDialogSwitch(96),
     StatDataUploadFrequency(120),
-    StatDataUploadNum(Constants.METHOD_IM_FRIEND_GROUP_DROP),
+    StatDataUploadNum(121),
     StatDataProcessFrequency(122),
     StatDataSwitch(Constants.METHOD_IM_FRIEND_GROUP_QUERY),
     StatDataUploadWay(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER),
@@ -107,13 +107,13 @@ public enum hl {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f473a;
+    private final int f478a;
 
     hl(int i) {
-        this.f473a = i;
+        this.f478a = i;
     }
 
     public int a() {
-        return this.f473a;
+        return this.f478a;
     }
 }

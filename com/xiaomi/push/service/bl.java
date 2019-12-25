@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class bl extends Handler {
     final /* synthetic */ XMPushService a;
 
@@ -30,7 +30,7 @@ class bl extends Handler {
                         Message obtain = Message.obtain((Handler) null, 0);
                         obtain.what = 18;
                         Bundle bundle = new Bundle();
-                        str = this.a.f822a;
+                        str = this.a.f827a;
                         bundle.putString("xmsf_region", str);
                         obtain.setData(bundle);
                         message.replyTo.send(obtain);

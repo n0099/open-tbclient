@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class ByteString implements Iterable<Byte> {
     static final /* synthetic */ boolean $assertionsDisabled;
     static final int CONCATENATE_BY_COPY_SIZE = 128;
@@ -18,7 +17,7 @@ public abstract class ByteString implements Iterable<Byte> {
     static final int MAX_READ_FROM_CHUNK_SIZE = 8192;
     static final int MIN_READ_FROM_CHUNK_SIZE = 256;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface ByteIterator extends Iterator<Byte> {
         byte nextByte();
     }
@@ -116,7 +115,7 @@ public abstract class ByteString implements Iterable<Byte> {
 
     public static ByteString copyFromUtf8(String str) {
         try {
-            return new LiteralByteString(str.getBytes(HTTP.UTF_8));
+            return new LiteralByteString(str.getBytes("UTF-8"));
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("UTF-8 not supported?", e);
         }
@@ -230,7 +229,7 @@ public abstract class ByteString implements Iterable<Byte> {
 
     public String toStringUtf8() {
         try {
-            return toString(HTTP.UTF_8);
+            return toString("UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("UTF-8 not supported?", e);
         }
@@ -244,7 +243,7 @@ public abstract class ByteString implements Iterable<Byte> {
         return new Output(128);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class Output extends OutputStream {
         private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
         private byte[] buffer;
@@ -355,7 +354,7 @@ public abstract class ByteString implements Iterable<Byte> {
         return new CodedBuilder(i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class CodedBuilder {
         private final byte[] buffer;
         private final CodedOutputStream output;

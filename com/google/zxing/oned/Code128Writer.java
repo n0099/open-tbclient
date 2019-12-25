@@ -1,12 +1,13 @@
 package com.google.zxing.oned;
 
+import com.baidu.fsg.base.activity.BaseActivity;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class Code128Writer extends OneDimensionalCodeWriter {
     private static final int CODE_CODE_B = 100;
     private static final int CODE_CODE_C = 99;
@@ -23,7 +24,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
     private static final char ESCAPE_FNC_4 = 244;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum CType {
         UNCODABLE,
         ONE_DIGIT,
@@ -51,8 +52,8 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
             char charAt = str.charAt(i3);
             if (charAt < ' ' || charAt > '~') {
                 switch (charAt) {
-                    case 241:
-                    case 242:
+                    case BaseActivity.DIALOG_PROMPT /* 241 */:
+                    case BaseActivity.DIALOG_LOADING /* 242 */:
                     case 243:
                     case 244:
                         break;
@@ -70,10 +71,10 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
             int chooseCode = chooseCode(str, i4, i5);
             if (chooseCode == i5) {
                 switch (str.charAt(i4)) {
-                    case 241:
+                    case BaseActivity.DIALOG_PROMPT /* 241 */:
                         i = 102;
                         break;
-                    case 242:
+                    case BaseActivity.DIALOG_LOADING /* 242 */:
                         i = 97;
                         break;
                     case 243:

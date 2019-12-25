@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.live.tbadk.util.WebviewHelper;
 import com.baidu.live.tieba.f.a.a;
 import com.baidu.tieba.live.tbean.message.GetYinJiHttpResponseMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BuyTBeanActivityInitialize {
     static {
         if (Build.VERSION.SDK_INT == 26) {
@@ -27,7 +27,7 @@ public class BuyTBeanActivityInitialize {
     }
 
     private static void registerGetYinJiHttpTask() {
-        a.a(1001533, "tbmall/pay/geticonlist", GetYinJiHttpResponseMessage.class, true, true, true, true);
+        a.a(1001533, BuyTBeanModel.GET_ICON_URL, GetYinJiHttpResponseMessage.class, true, true, true, true);
     }
 
     private static void registerBuyTbeanJump() {

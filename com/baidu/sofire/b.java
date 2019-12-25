@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static int a = -1;
     private static int c = 0;

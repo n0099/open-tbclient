@@ -6,8 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
     protected static final Uri a = Uri.parse("content://telephony/carriers/preferapn");
 
@@ -48,7 +47,7 @@ public class a {
         }
         String b = b(context);
         if (b == null || b.length() == 0) {
-            return IXAdSystemUtils.NT_NONE;
+            return "none";
         }
         return b;
     }

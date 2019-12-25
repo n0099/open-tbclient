@@ -9,12 +9,13 @@ import java.util.List;
 import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
 public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     protected int connectionTimeout;
     protected CookieManager cookieManager;
     protected boolean enableRetry;
+    protected JSONObject extraUserLog;
     protected Headers.Builder headersBuilder;
     protected AbstractHttpManager httpManager;
     protected HttpUrl httpUrl;
@@ -24,6 +25,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     protected String logTag;
     protected IAsyncRequestParamsHandler paramsHandler;
     protected int readTimeout;
+    protected int requestFrom;
     protected Object tag;
     protected int writeTimeout;
 
@@ -34,6 +36,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.logTag = null;
         this.logLevel = null;
         this.isWifiOnly = false;
+        this.requestFrom = 0;
         this.httpManager = abstractHttpManager;
         this.headersBuilder = new Headers.Builder();
     }
@@ -43,6 +46,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.logTag = null;
         this.logLevel = null;
         this.isWifiOnly = false;
+        this.requestFrom = 0;
         if (abstractHttpManager != null) {
             this.httpManager = abstractHttpManager;
         } else {
@@ -65,6 +69,8 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.cookieManager = httpRequest.cookieManager;
         this.paramsHandler = httpRequest.paramsHandler;
         this.isReqNetStatEnable = httpRequest.isReqNetStatEnable;
+        this.requestFrom = httpRequest.requestFrom;
+        this.extraUserLog = httpRequest.extraUserLog;
     }
 
     public RequestCall makeRequestCall() {
@@ -204,7 +210,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
 
     public T userAgent(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.headersBuilder.set(HTTP.USER_AGENT, str);
+            this.headersBuilder.set("User-Agent", str);
         }
         return this;
     }
@@ -227,6 +233,16 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
 
     public T enableStat(boolean z) {
         this.isReqNetStatEnable = z;
+        return this;
+    }
+
+    public T requestFrom(int i) {
+        this.requestFrom = i;
+        return this;
+    }
+
+    public T extraUserLog(JSONObject jSONObject) {
+        this.extraUserLog = jSONObject;
         return this;
     }
 }

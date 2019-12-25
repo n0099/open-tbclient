@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TransitionSet extends Transition {
     public static final int ORDERING_SEQUENTIAL = 1;
     public static final int ORDERING_TOGETHER = 0;
@@ -349,7 +349,7 @@ public class TransitionSet extends Transition {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class TransitionSetListener extends TransitionListenerAdapter {
         TransitionSet mTransitionSet;
 
@@ -535,6 +535,15 @@ public class TransitionSet extends Transition {
         int size = this.mTransitions.size();
         for (int i = 0; i < size; i++) {
             this.mTransitions.get(i).setCanRemoveViews(z);
+        }
+    }
+
+    @Override // android.support.transition.Transition
+    public void setPropagation(TransitionPropagation transitionPropagation) {
+        super.setPropagation(transitionPropagation);
+        int size = this.mTransitions.size();
+        for (int i = 0; i < size; i++) {
+            this.mTransitions.get(i).setPropagation(transitionPropagation);
         }
     }
 

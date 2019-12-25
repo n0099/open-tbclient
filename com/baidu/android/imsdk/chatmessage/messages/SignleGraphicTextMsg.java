@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SignleGraphicTextMsg extends NormalMsg {
     public static final Parcelable.Creator<SignleGraphicTextMsg> CREATOR = new Parcelable.Creator<SignleGraphicTextMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SignleGraphicTextMsg.1
         /* JADX DEBUG: Method merged with bridge method */

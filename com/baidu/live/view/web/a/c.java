@@ -1,48 +1,44 @@
 package com.baidu.live.view.web.a;
 
-import android.util.Log;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.data.o;
+import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.live.view.web.a {
-    private boolean isHost;
-
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "liveBridge";
+        return "giftBridge";
     }
 
     @Override // com.baidu.live.view.web.a
-    public void cZ(String str) {
-        if (!this.isHost) {
-            Log.d("JsInterface", "@@ JsInterface-impl LiveBridgeJsInterface params = " + str);
-            try {
-                long parseLong = Long.parseLong(str);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_EXTRA_RECOMMEND_TYPE, 0);
-                    jSONObject.put(AlaLiveRoomActivityConfig.LIVE_SHOW_GITE_PANEL, 0);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                String jSONObject2 = jSONObject.toString();
-                AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(TbadkCoreApplication.getInst());
-                alaLiveRoomActivityConfig.addExtraByLiveId(parseLong, jSONObject2);
-                alaLiveRoomActivityConfig.setNeedStopImWhenClose(true);
-                alaLiveRoomActivityConfig.getIntent().addFlags(268435456);
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaLiveRoomActivityConfig));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+    public void dT(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            final o oVar = new o();
+            oVar.Wn = jSONObject.optInt("tab", -1);
+            oVar.Wo = jSONObject.optInt("category_id", -1);
+            oVar.Wp = jSONObject.optInt(LogConfig.LOG_GIFT_ID, -1);
+            if (jSONObject.optInt("close", 0) == 1) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913123));
+                this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.view.web.a.c.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        c.this.a(oVar);
+                    }
+                }, 250L);
+            } else {
+                a(oVar);
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public void setHost(boolean z) {
-        this.isHost = z;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(o oVar) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, oVar));
     }
 }

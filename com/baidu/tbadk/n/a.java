@@ -1,59 +1,65 @@
 package com.baidu.tbadk.n;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import android.annotation.TargetApi;
+import android.view.Choreographer;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
+@TargetApi(16)
 /* loaded from: classes.dex */
-public class a {
-    private static String bduss;
-    private static boolean cJF = false;
-    private static String stoken;
-    private static String tbs;
+public class a implements Choreographer.FrameCallback {
+    private long bDa;
+    private long mStartTime;
+    private long dyW = 0;
+    private int dyX = 0;
+    private int mFps = -1;
+    private boolean dyY = false;
 
-    public static void fp(boolean z) {
-        cJF = z;
+    public void start() {
+        this.mStartTime = System.currentTimeMillis();
+        this.bDa = this.mStartTime + 1000;
+        this.dyW = 0L;
+        this.dyX = 0;
+        this.mFps = -1;
+        this.dyY = false;
+        Choreographer.getInstance().postFrameCallback(this);
     }
 
-    public static boolean isLogin() {
-        return cJF;
+    public void stop() {
+        this.dyY = true;
+        Choreographer.getInstance().removeFrameCallback(this);
+        bC(System.currentTimeMillis());
+        this.dyX = 0;
+        this.mStartTime = 0L;
     }
 
-    public static void dj(String str) {
-        bduss = str;
-    }
-
-    public static String getBduss() {
-        return bduss;
-    }
-
-    public static void setStoken(String str) {
-        stoken = str;
-    }
-
-    public static String getStoken() {
-        return stoken;
-    }
-
-    public static void setTbs(String str) {
-        tbs = str;
-    }
-
-    public static String getTbs() {
-        return tbs;
-    }
-
-    public static boolean checkUpIsLogin(Context context) {
-        if (!cJF) {
-            skipToLoginActivity(context);
+    @Override // android.view.Choreographer.FrameCallback
+    public void doFrame(long j) {
+        if (this.dyW != 0) {
+            long j2 = (j - this.dyW) / TimeUtils.NANOS_PER_MS;
+            if (j2 > 16 && j2 < 960) {
+                this.dyX = (int) ((j2 / 16) + this.dyX);
+            }
         }
-        return cJF;
+        this.dyW = j;
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis < this.bDa && !this.dyY) {
+            Choreographer.getInstance().postFrameCallback(this);
+            return;
+        }
+        bC(currentTimeMillis);
+        this.dyX = 0;
+        this.mStartTime = 0L;
     }
 
-    public static void skipToLoginActivity(Context context) {
-        if (context != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, true)));
+    private void bC(long j) {
+        if (this.mStartTime > 0) {
+            long j2 = j - this.mStartTime;
+            if (j2 > 0 && this.mFps <= 0) {
+                this.mFps = (int) (60 - ((this.dyX * 1000) / j2));
+            }
         }
+    }
+
+    public int getFps() {
+        return this.mFps;
     }
 }

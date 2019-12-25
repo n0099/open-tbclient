@@ -11,7 +11,7 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
     private boolean mHasTickMarkTint;
     private boolean mHasTickMarkTintMode;

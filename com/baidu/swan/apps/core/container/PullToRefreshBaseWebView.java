@@ -1,26 +1,26 @@
 package com.baidu.swan.apps.core.container;
 
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
-/* loaded from: classes2.dex */
+import com.baidu.swan.support.v4.c.f;
+/* loaded from: classes9.dex */
 public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a aJN;
-    private boolean aJO;
+    private a bhV;
+    private boolean bhW;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void h(int i, int i2, int i3, int i4);
+        void j(int i, int i2, int i3, int i4);
     }
 
     public PullToRefreshBaseWebView(Context context, com.baidu.swan.apps.res.ui.pullrefresh.a<T> aVar, PullToRefreshBase.HEADERTYPE headertype) {
         super(context, aVar, headertype);
-        this.aJO = false;
+        this.bhW = false;
     }
 
     public PullToRefreshBaseWebView(Context context) {
@@ -29,7 +29,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
 
     public PullToRefreshBaseWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aJO = false;
+        this.bhW = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -37,7 +37,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
         switch (motionEvent.getAction()) {
             case 1:
             case 3:
-                this.aJO = false;
+                this.bhW = false;
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -45,18 +45,18 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     protected T createRefreshableView(Context context, AttributeSet attributeSet) {
-        return getRefreshableFactory().aU(context);
+        return getRefreshableFactory().bS(context);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     protected boolean isReadyForPullDown() {
-        if (this.beZ == null) {
+        if (this.bHL == null) {
             return false;
         }
-        if (getScrollYValue() == 0 && this.aJO) {
+        if (getScrollYValue() == 0 && this.bhW) {
             return false;
         }
-        boolean canScrollVertically = ViewCompat.canScrollVertically(this.beZ, -1);
+        boolean canScrollVertically = f.canScrollVertically(this.bHL, -1);
         if (DEBUG) {
             Log.d("PullToRefreshWebView", "isReadyForPullDown result: " + canScrollVertically);
         }
@@ -71,16 +71,16 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
     @Override // android.view.View
     public void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.aJN != null) {
-            this.aJN.h(i, i2, i3, i4);
+        if (this.bhV != null) {
+            this.bhV.j(i, i2, i3, i4);
         }
     }
 
     public void setOnPullToRefreshScrollChangeListener(a aVar) {
-        this.aJN = aVar;
+        this.bhV = aVar;
     }
 
     public void setIsPreventPullToRefresh(boolean z) {
-        this.aJO = z;
+        this.bhW = z;
     }
 }

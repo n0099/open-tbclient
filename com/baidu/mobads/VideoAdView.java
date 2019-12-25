@@ -2,19 +2,25 @@ package com.baidu.mobads;
 
 import android.content.Context;
 import android.widget.RelativeLayout;
+import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class VideoAdView extends RelativeLayout {
-    private IOAdEventListener aAi;
-    private f aAj;
+    private com.baidu.mobads.production.h.b aJZ;
+    private IOAdEventListener aKa;
+    private VideoAdViewListener aKb;
 
     public VideoAdView(Context context) {
         super(context);
-        this.aAi = new m(this);
+        this.aKa = new v(this);
     }
 
-    /* loaded from: classes5.dex */
+    public VideoAdView(Context context, String str) {
+        super(context, null);
+        this.aKa = new v(this);
+    }
+
+    /* loaded from: classes7.dex */
     public enum VideoDuration {
         DURATION_15_SECONDS(15),
         DURATION_30_SECONDS(30),
@@ -31,9 +37,9 @@ public class VideoAdView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public enum VideoSize {
-        SIZE_16x9(320, SubsamplingScaleImageView.ORIENTATION_180),
+        SIZE_16x9(320, 180),
         SIZE_4x3(400, 300);
         
         private int a;
@@ -53,11 +59,27 @@ public class VideoAdView extends RelativeLayout {
         }
     }
 
+    public void requestAd(VideoAdRequest videoAdRequest) {
+        this.aJZ = new com.baidu.mobads.production.h.b(getContext(), "TODO");
+        this.aJZ.setActivity(getContext());
+        this.aJZ.setAdSlotBase(this);
+        this.aJZ.addEventListener(IXAdEvent.AD_CLICK_THRU, this.aKa);
+        this.aJZ.addEventListener(IXAdEvent.AD_LOADED, this.aKa);
+        this.aJZ.addEventListener(IXAdEvent.AD_STARTED, this.aKa);
+        this.aJZ.addEventListener(IXAdEvent.AD_STOPPED, this.aKa);
+        this.aJZ.addEventListener(IXAdEvent.AD_ERROR, this.aKa);
+        this.aJZ.request();
+    }
+
+    public void startVideo() {
+        this.aJZ.start();
+    }
+
     public static void setAppSid(Context context, String str) {
         AdView.setAppSid(context, str);
     }
 
-    public void setListener(f fVar) {
-        this.aAj = fVar;
+    public void setListener(VideoAdViewListener videoAdViewListener) {
+        this.aKb = videoAdViewListener;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.coreextra.act;
 
 import com.baidu.live.tbadk.core.data.AccountData;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface IPassManager {
     List<AccountData> loadLoginAccounts();
 

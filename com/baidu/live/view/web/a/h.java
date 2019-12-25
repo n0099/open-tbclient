@@ -1,64 +1,50 @@
 package com.baidu.live.view.web.a;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.atomdata.FaceRecognitionActivityConfig;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.scheme.SchemeCallback;
-import com.baidu.live.tbadk.scheme.SchemeUtils;
-import java.util.List;
-/* loaded from: classes6.dex */
+import com.baidu.live.tbadk.data.ShareEntity;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public class h extends com.baidu.live.view.web.a {
-    private SchemeCallback atB;
-    private Context context;
-
-    public h(Context context, SchemeCallback schemeCallback) {
-        this.context = context;
-        this.atB = schemeCallback;
-    }
+    private long userId;
+    private String userName = "";
 
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "wkBridge";
+        return "shareBridge";
     }
 
     @Override // com.baidu.live.view.web.a
-    public void cZ(String str) {
-        Log.d("JsInterface", "@@ JsInterface-impl WkBridgeJsInterface params = " + str);
-        if (str != null && str.contains("rmb_baiducloud://")) {
-            if (this.context instanceof Activity) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceRecognitionActivityConfig(this.context, RequestResponseCode.REQUEST_REAL_AUTHEN, "")));
-            }
-        } else if (this.atB == null) {
-            SchemeUtils.openScheme(str);
-        } else {
-            SchemeUtils.openScheme(str, this.atB);
+    public void dT(String str) {
+        Log.d("JsInterface", "@@ JsInterface-impl ShareBridgeJsInterface params = " + str);
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            String optString = jSONObject.optString("title");
+            String optString2 = jSONObject.optString("content");
+            String optString3 = jSONObject.optString("imageUrl");
+            String optString4 = jSONObject.optString("linkUrl");
+            int optInt = jSONObject.optInt("type");
+            ShareEntity shareEntity = new ShareEntity();
+            shareEntity.title = optString;
+            shareEntity.content = optString2;
+            shareEntity.imageUrl = optString3;
+            shareEntity.linkUrl = optString4;
+            shareEntity.shareType = optInt;
+            shareEntity.userId = this.userId;
+            shareEntity.userName = this.userName;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2913077, shareEntity));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    @Override // com.baidu.live.view.web.a
-    public void d(String str, String str2, boolean z) {
-        PackageManager packageManager;
-        if (!TextUtils.isEmpty(str)) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-            List<ResolveInfo> queryIntentActivities = (this.context == null || (packageManager = this.context.getPackageManager()) == null) ? null : packageManager.queryIntentActivities(intent, 0);
-            boolean z2 = (queryIntentActivities == null || queryIntentActivities.isEmpty()) ? false : true;
-            if (this.atB != null) {
-                this.atB.doJsCallback(z2 ? 1 : 0, "", null, str2);
-            }
-            if (z && z2) {
-                intent.addFlags(268435456);
-                this.context.startActivity(intent);
-            }
-        }
+    public void setUserId(long j) {
+        this.userId = j;
+    }
+
+    public void setUserName(String str) {
+        this.userName = str;
     }
 }

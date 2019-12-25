@@ -6,7 +6,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.tieba.sdk.a.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
@@ -18,9 +18,9 @@ public class b implements CustomMessageTask.CustomRunnable {
             intent.putExtra(AlaLiveRoomActivityConfig.LIVE_BROADCAST_GIFT_TOAST_QUEUE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_BROADCAST_GIFT_TOAST_QUEUE));
             intent.putExtra("room_id", alaLiveRoomActivityConfig.getIntent().getStringExtra("room_id"));
             intent.putExtra("params", alaLiveRoomActivityConfig.getIntent().getStringExtra("params"));
-            e chC = com.baidu.tieba.sdk.c.a.chz().chC();
-            if (chC != null) {
-                chC.f(alaLiveRoomActivityConfig.getContext(), intent);
+            e cBF = com.baidu.tieba.sdk.c.a.cBC().cBF();
+            if (cBF != null) {
+                cBF.e(alaLiveRoomActivityConfig.getContext(), intent);
                 return null;
             }
             return null;

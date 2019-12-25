@@ -1,5 +1,6 @@
 package com.baidu.live.tbadk.baidusim;
 
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
@@ -10,7 +11,7 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
@@ -19,7 +20,7 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.tbadk.util.CheckBaiduSimResponseMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CheckBaiduSimController {
     private static CheckBaiduSimController mInstance = null;
     private CustomMessageListener networkChangedListener = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.live.tbadk.baidusim.CheckBaiduSimController.1
@@ -86,7 +87,7 @@ public class CheckBaiduSimController {
             case 3:
                 return "TELECOM";
             default:
-                return "UNKNOWN";
+                return RomUtils.UNKNOWN;
         }
     }
 }

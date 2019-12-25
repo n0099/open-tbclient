@@ -1,29 +1,35 @@
 package com.baidu.swan.apps.performance.b;
 
-import com.baidu.swan.apps.an.ac;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-/* loaded from: classes2.dex */
-public class c implements com.baidu.swan.apps.an.d.a<HybridUbcFlow> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.an.d.a
-    /* renamed from: a */
-    public void B(HybridUbcFlow hybridUbcFlow) {
-        ac.c(new Runnable() { // from class: com.baidu.swan.apps.performance.b.c.1
-            @Override // java.lang.Runnable
-            public void run() {
-                ac.UD();
-            }
-        }, NP());
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+/* loaded from: classes9.dex */
+public class c implements e {
+    private List<Long> bDb = new ArrayList();
+    private long bDa = -1;
+
+    @Override // com.baidu.swan.apps.performance.b.e
+    public void setStart(long j) {
+        if (this.bDb != null) {
+            this.bDb.add(Long.valueOf(j));
+        }
     }
 
-    private int NP() {
-        if (com.baidu.swan.apps.u.a.Jm() == null) {
-            return 0;
+    @Override // com.baidu.swan.apps.performance.b.e
+    public void setEnd(long j) {
+        this.bDa = j;
+    }
+
+    @Override // com.baidu.swan.apps.performance.b.e
+    public long Xn() {
+        if (this.bDb == null || this.bDb.size() <= 0 || this.bDa < 0) {
+            return -1L;
         }
-        int Bf = com.baidu.swan.apps.u.a.Jm().Bf();
-        if (Bf <= 0) {
-            Bf = 0;
-        }
-        return Bf;
+        return this.bDa - ((Long) Collections.min(this.bDb)).longValue();
+    }
+
+    @Override // com.baidu.swan.apps.performance.b.e
+    public String getType() {
+        return "PageUpdateRender";
     }
 }

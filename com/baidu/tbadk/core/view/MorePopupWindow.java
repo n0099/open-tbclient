@@ -121,32 +121,32 @@ public class MorePopupWindow extends PopupWindow {
 
     public void showWindowInRightBottomOfHost() {
         if (isShowing()) {
-            com.baidu.adp.lib.g.g.dismissPopupWindow(this, this.mActivity);
+            com.baidu.adp.lib.f.g.dismissPopupWindow(this, this.mActivity);
         } else if (this.mHostView != null) {
-            com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff, 0);
+            com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff, 0);
         }
     }
 
     public void showWindowInRightBottomOfHost(int i) {
         if (isShowing()) {
-            com.baidu.adp.lib.g.g.dismissPopupWindow(this, this.mActivity);
+            com.baidu.adp.lib.f.g.dismissPopupWindow(this, this.mActivity);
         } else if (this.mHostView != null) {
-            com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff - i, 0);
+            com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(this, this.mHostView, this.mShowRightTopXOff - i, 0);
         }
     }
 
     public void showWindowInCustomPosition(int i, int i2) {
         if (isShowing()) {
-            com.baidu.adp.lib.g.g.dismissPopupWindow(this, this.mActivity);
+            com.baidu.adp.lib.f.g.dismissPopupWindow(this, this.mActivity);
         } else if (this.mHostView != null) {
-            com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, this.mHostView, i, i2);
+            com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(this, this.mHostView, i, i2);
         }
     }
 
     public void showWindowInLeftCenterOfHost(View view, boolean z) {
         setAnimationStyle(R.style.pop_window_anim);
         setFocusable(z);
-        com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, view, this.mShowLeftCenterXOff, (-this.mWindowHeight) + ((this.mWindowHeight - view.getHeight()) / 2));
+        com.baidu.adp.lib.f.g.showPopupWindowAsDropDown(this, view, this.mShowLeftCenterXOff, (-this.mWindowHeight) + ((this.mWindowHeight - view.getHeight()) / 2));
     }
 
     public void refresh() {

@@ -16,7 +16,8 @@ import android.os.Process;
 import android.os.StatFs;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.baidu.webkit.internal.ETAG;
+import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -236,19 +237,19 @@ public class Utils {
 
     public static void a(StringBuilder sb, String str, long j) {
         if (sb.length() > 0) {
-            sb.append("&");
+            sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append(str);
-        sb.append("=");
+        sb.append(ETAG.EQUAL);
         sb.append(j);
     }
 
     public static void a(StringBuilder sb, String str, String str2) {
         if (sb.length() > 0) {
-            sb.append("&");
+            sb.append(ETAG.ITEM_SEPARATOR);
         }
         sb.append(str);
-        sb.append("=");
+        sb.append(ETAG.EQUAL);
         sb.append(str2);
     }
 
@@ -394,14 +395,14 @@ public class Utils {
         if (TextUtils.isEmpty(k)) {
             return Build.CPU_ABI;
         }
-        String str = k.contains("ARMv5") ? "armv5" : k.contains("ARMv6") ? "armv6" : k.contains("ARMv7") ? "armv7" : k.contains("Intel") ? PassBiometricUtil.CPU_TYPE_X86 : k.contains("AArch64") ? "AArch64" : !TextUtils.isEmpty(Build.CPU_ABI) ? Build.CPU_ABI.equals(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) ? "armv7" : Build.CPU_ABI : "unknown";
+        String str = k.contains("ARMv5") ? "armv5" : k.contains("ARMv6") ? "armv6" : k.contains("ARMv7") ? "armv7" : k.contains("Intel") ? "x86" : k.contains("AArch64") ? "AArch64" : !TextUtils.isEmpty(Build.CPU_ABI) ? Build.CPU_ABI.equals("armeabi-v7a") ? "armv7" : Build.CPU_ABI : "unknown";
         return k.contains("neon") ? str + "-neon" : k.contains("vfpv3") ? str + "-vfpv3" : k.contains(" vfp") ? str + "-vfp" : str + "-none";
     }
 
     public static void g() {
-        SharedPreferences.Editor edit = CyberPlayerManager.getApplicationContext().getSharedPreferences("video_cfg_", 0).edit();
-        edit.putString("video_cyber_sdk_version", SDKVersion.VERSION);
-        edit.putString("video_cyber_core_version", CyberPlayerManager.getCoreVersion());
+        SharedPreferences.Editor edit = CyberPlayerManager.getApplicationContext().getSharedPreferences(VideoCloudSetting.PREF_NAME, 0).edit();
+        edit.putString(VideoCloudSetting.PREF_KEY_CYBER_SDK_VERSION, SDKVersion.VERSION);
+        edit.putString(VideoCloudSetting.PREF_KEY_CYBER_CORE_VERSION, CyberPlayerManager.getCoreVersion());
         edit.commit();
     }
 
@@ -463,7 +464,7 @@ public class Utils {
     private static String k() {
         String str;
         IOException e;
-        if (Build.CPU_ABI.equalsIgnoreCase(PassBiometricUtil.CPU_TYPE_X86)) {
+        if (Build.CPU_ABI.equalsIgnoreCase("x86")) {
             return "Intel";
         }
         try {

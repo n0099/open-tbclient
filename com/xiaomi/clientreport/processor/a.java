@@ -27,12 +27,12 @@ import java.util.List;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a implements IEventProcessor {
     protected Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f16a;
+    private HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f21a;
 
     public a(Context context) {
         a(context);
@@ -165,7 +165,7 @@ public class a implements IEventProcessor {
                 break;
             }
             str = str2 + i2;
-            if (be.m142a(this.a, str)) {
+            if (be.m145a(this.a, str)) {
                 break;
             }
             i = i2 + 1;
@@ -185,17 +185,17 @@ public class a implements IEventProcessor {
         RandomAccessFile randomAccessFile;
         Exception exc;
         be.a(this.a, NotificationCompat.CATEGORY_EVENT, "eventUploading");
-        File[] m143a = be.m143a(this.a, "eventUploading");
-        if (m143a == null || m143a.length <= 0) {
+        File[] m146a = be.m146a(this.a, "eventUploading");
+        if (m146a == null || m146a.length <= 0) {
             return;
         }
-        int length = m143a.length;
+        int length = m146a.length;
         int i = 0;
         FileLock fileLock2 = null;
         RandomAccessFile randomAccessFile2 = null;
         File file2 = null;
         while (i < length) {
-            File file3 = m143a[i];
+            File file3 = m146a[i];
             if (file3 == null) {
                 if (fileLock2 != null && fileLock2.isValid()) {
                     try {
@@ -218,7 +218,7 @@ public class a implements IEventProcessor {
                     String absolutePath = file3.getAbsolutePath();
                     file = new File(absolutePath + ".lock");
                     try {
-                        y.m551a(file);
+                        y.m554a(file);
                         RandomAccessFile randomAccessFile3 = new RandomAccessFile(file, "rw");
                         try {
                             FileLock lock = randomAccessFile3.getChannel().lock();
@@ -332,16 +332,16 @@ public class a implements IEventProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a  reason: collision with other method in class */
-    public void mo35a(com.xiaomi.clientreport.data.a aVar) {
-        if ((aVar instanceof EventClientReport) && this.f16a != null) {
+    public void mo38a(com.xiaomi.clientreport.data.a aVar) {
+        if ((aVar instanceof EventClientReport) && this.f21a != null) {
             EventClientReport eventClientReport = (EventClientReport) aVar;
             String a = a((com.xiaomi.clientreport.data.a) eventClientReport);
-            ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f16a.get(a);
+            ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f21a.get(a);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
             arrayList.add(eventClientReport);
-            this.f16a.put(a, arrayList);
+            this.f21a.put(a, arrayList);
         }
     }
 
@@ -368,7 +368,7 @@ public class a implements IEventProcessor {
             }
             try {
                 File file = new File(b + ".lock");
-                y.m551a(file);
+                y.m554a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -420,12 +420,12 @@ public class a implements IEventProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     public void b() {
-        if (this.f16a == null) {
+        if (this.f21a == null) {
             return;
         }
-        if (this.f16a.size() > 0) {
-            for (String str : this.f16a.keySet()) {
-                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f16a.get(str);
+        if (this.f21a.size() > 0) {
+            for (String str : this.f21a.keySet()) {
+                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f21a.get(str);
                 if (arrayList != null && arrayList.size() > 0) {
                     com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[arrayList.size()];
                     arrayList.toArray(aVarArr);
@@ -433,7 +433,7 @@ public class a implements IEventProcessor {
                 }
             }
         }
-        this.f16a.clear();
+        this.f21a.clear();
     }
 
     @Override // com.xiaomi.clientreport.processor.IEventProcessor
@@ -474,7 +474,7 @@ public class a implements IEventProcessor {
 
     @Override // com.xiaomi.clientreport.processor.IEventProcessor
     public void setEventMap(HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap) {
-        this.f16a = hashMap;
+        this.f21a = hashMap;
     }
 
     @Override // com.xiaomi.clientreport.processor.IEventProcessor
@@ -485,13 +485,13 @@ public class a implements IEventProcessor {
         }
         if (com.xiaomi.clientreport.manager.a.a(this.a).a().isEventEncrypted()) {
             String a2 = be.a(this.a);
-            byte[] m124a = ay.m124a(str);
-            if (TextUtils.isEmpty(a2) || m124a == null || m124a.length <= 1 || (a = be.a(a2)) == null) {
+            byte[] m127a = ay.m127a(str);
+            if (TextUtils.isEmpty(a2) || m127a == null || m127a.length <= 1 || (a = be.a(a2)) == null) {
                 return null;
             }
             try {
                 if (a.length > 1) {
-                    return h.b(a, Base64.encode(m124a, 2));
+                    return h.b(a, Base64.encode(m127a, 2));
                 }
                 return null;
             } catch (Exception e) {
@@ -499,6 +499,6 @@ public class a implements IEventProcessor {
                 return null;
             }
         }
-        return ay.m124a(str);
+        return ay.m127a(str);
     }
 }

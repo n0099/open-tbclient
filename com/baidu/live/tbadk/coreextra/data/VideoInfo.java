@@ -2,12 +2,11 @@ package com.baidu.live.tbadk.coreextra.data;
 
 import android.content.Intent;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class VideoInfo implements Serializable {
     public static final String DRAFT_JSON_NAME = "new_video_info";
     private static final String KEY_VIDEO_DURATION = "video_l";
@@ -144,8 +143,8 @@ public class VideoInfo implements Serializable {
             this.videoPath = intent.getStringExtra("video");
             this.thumbPath = intent.getStringExtra("image");
             this.videoDuration = (int) (intent.getLongExtra(KEY_VIDEO_DURATION, 8000L) / 1000);
-            this.videoHeight = intent.getIntExtra(KEY_VIDEO_HEIGHT, CameraInterface.DEFAULT_PREVIEW_HEIGHT);
-            this.videoWidth = intent.getIntExtra(KEY_VIDEO_WIDTH, CameraInterface.DEFAULT_PREVIEW_HEIGHT);
+            this.videoHeight = intent.getIntExtra(KEY_VIDEO_HEIGHT, 480);
+            this.videoWidth = intent.getIntExtra(KEY_VIDEO_WIDTH, 480);
         }
     }
 

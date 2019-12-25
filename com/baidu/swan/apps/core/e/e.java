@@ -5,18 +5,18 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class e {
     private static final FrameLayout.LayoutParams COVER_SCREEN_PARAMS = new FrameLayout.LayoutParams(-1, -1);
-    private a aLW;
+    private a bky;
     private Context mContext;
     private View mCustomView;
     private FrameLayout mFullscreenContainer;
     private int mOriginalOrientation;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void FY();
+        void onCustomViewHidden();
     }
 
     public e(Context context) {
@@ -31,7 +31,7 @@ public class e {
         }
         if (activity != null) {
             if (this.mCustomView != null) {
-                aVar.FY();
+                aVar.onCustomViewHidden();
                 return;
             }
             this.mOriginalOrientation = activity.getRequestedOrientation();
@@ -39,8 +39,8 @@ public class e {
             this.mFullscreenContainer.addView(view, COVER_SCREEN_PARAMS);
             ((FrameLayout) activity.getWindow().getDecorView()).addView(this.mFullscreenContainer, COVER_SCREEN_PARAMS);
             this.mCustomView = view;
-            e(activity, true);
-            this.aLW = aVar;
+            setFullscreen(activity, true);
+            this.bky = aVar;
             activity.setRequestedOrientation(i);
         }
     }
@@ -50,21 +50,21 @@ public class e {
             Context context = this.mContext;
             Activity activity = context instanceof Activity ? (Activity) context : null;
             if (activity != null) {
-                e(activity, false);
+                setFullscreen(activity, false);
                 ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.mFullscreenContainer);
                 this.mFullscreenContainer = null;
                 this.mCustomView = null;
-                this.aLW.FY();
+                this.bky.onCustomViewHidden();
                 activity.setRequestedOrientation(this.mOriginalOrientation);
             }
         }
     }
 
-    public void e(Activity activity, boolean z) {
+    public void setFullscreen(Activity activity, boolean z) {
         activity.getWindow().setFlags(!z ? 0 : 1024, 1024);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     static class b extends FrameLayout {
         public b(Context context) {
             super(context);

@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class j implements b {
     private final List<b> items;
     private final String name;
@@ -127,7 +127,7 @@ public class j implements b {
             case 6:
                 return k.a.z(jSONObject, eVar);
             case 7:
-                return a.C0575a.o(jSONObject, eVar);
+                return a.C0690a.o(jSONObject, eVar);
             case '\b':
                 return f.a.t(jSONObject, eVar);
             case '\t':
@@ -135,7 +135,7 @@ public class j implements b {
             case '\n':
                 return PolystarShape.a.s(jSONObject, eVar);
             case 11:
-                return MergePaths.a.cx(jSONObject);
+                return MergePaths.a.dE(jSONObject);
             case '\f':
                 return g.a.u(jSONObject, eVar);
             default:
@@ -150,7 +150,7 @@ public class j implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         /* JADX INFO: Access modifiers changed from: private */
         public static j x(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {

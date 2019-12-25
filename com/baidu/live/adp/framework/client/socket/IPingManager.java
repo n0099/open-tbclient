@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework.client.socket;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface IPingManager {
     void Ping(String str);
 

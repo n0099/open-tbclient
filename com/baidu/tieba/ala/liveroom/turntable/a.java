@@ -1,16 +1,16 @@
 package com.baidu.tieba.ala.liveroom.turntable;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface a {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.turntable.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0366a {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0454a {
         void a(String str, com.baidu.tieba.ala.liveroom.turntable.lucky.c cVar);
     }
 
-    void a(InterfaceC0366a interfaceC0366a);
+    void a(InterfaceC0454a interfaceC0454a);
 
     void release();
 
-    void ud(String str);
+    void yU(String str);
 }

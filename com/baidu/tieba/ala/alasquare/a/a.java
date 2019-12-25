@@ -12,9 +12,9 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.LiveSquare.HotLiveWithCategory;
 import tbclient.ThreadInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public static Pair<List<m>, List<m>> e(String str, List<com.baidu.tieba.ala.alasquare.live.b.a> list) {
+    public static Pair<List<m>, List<m>> d(String str, List<com.baidu.tieba.ala.alasquare.live.b.a> list) {
         if (v.isEmpty(list)) {
             return null;
         }
@@ -31,12 +31,12 @@ public class a {
                     arrayList2.add(aVar);
                 } else {
                     com.baidu.tieba.ala.alasquare.live.b.b bVar = new com.baidu.tieba.ala.alasquare.live.b.b();
-                    bVar.tabId = aVar.duO;
+                    bVar.tabId = aVar.efQ;
                     bVar.entryName = str2;
                     bVar.labelName = aVar.label_name;
-                    bVar.Os = aVar.bitmap_wh_ratio;
-                    bVar.categoryType = aVar.duP;
-                    bVar.duQ = aVar.duQ;
+                    bVar.bitmapRatio = aVar.bitmap_wh_ratio;
+                    bVar.categoryType = aVar.efR;
+                    bVar.efS = aVar.efS;
                     linkedList.add(bVar);
                     int size = b.size();
                     int i = size % 2 != 0 ? size - 1 : size;
@@ -46,8 +46,8 @@ public class a {
                             com.baidu.tieba.ala.alasquare.subtablist.b.b bVar2 = new com.baidu.tieba.ala.alasquare.subtablist.b.b();
                             b bVar3 = (b) b.get(i2);
                             b bVar4 = (b) b.get(i2 + 1);
-                            bVar2.dwA = bVar3;
-                            bVar2.dwB = bVar4;
+                            bVar2.ehC = bVar3;
+                            bVar2.ehD = bVar4;
                             arrayList.add(bVar3);
                             arrayList.add(bVar4);
                             linkedList.add(bVar2);
@@ -55,8 +55,8 @@ public class a {
                             com.baidu.tieba.ala.alasquare.subtablist.b.a aVar2 = new com.baidu.tieba.ala.alasquare.subtablist.b.a();
                             b bVar5 = (b) b.get(i2);
                             b bVar6 = (b) b.get(i2 + 1);
-                            aVar2.dwA = bVar5;
-                            aVar2.dwB = bVar6;
+                            aVar2.ehC = bVar5;
+                            aVar2.ehD = bVar6;
                             arrayList.add(bVar5);
                             arrayList.add(bVar6);
                             linkedList.add(aVar2);
@@ -99,14 +99,14 @@ public class a {
             return false;
         }
         for (com.baidu.tieba.ala.alasquare.live.b.a aVar2 : list) {
-            if (aVar.duO == aVar2.duO && aVar.entry_name.equals(aVar2.entry_name) && aVar.label_name.equals(aVar2.label_name)) {
+            if (aVar.efQ == aVar2.efQ && aVar.entry_name.equals(aVar2.entry_name) && aVar.label_name.equals(aVar2.label_name)) {
                 return true;
             }
         }
         return false;
     }
 
-    public static List<com.baidu.tieba.ala.alasquare.live.b.a> bf(List<HotLiveWithCategory> list) {
+    public static List<com.baidu.tieba.ala.alasquare.live.b.a> be(List<HotLiveWithCategory> list) {
         if (v.isEmpty(list)) {
             return new LinkedList();
         }
@@ -121,7 +121,7 @@ public class a {
 
     private static String a(com.baidu.tieba.ala.alasquare.live.b.a aVar) {
         StringBuilder sb = new StringBuilder();
-        sb.append(aVar.duO + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        sb.append(aVar.efQ + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(aVar.entry_name + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         sb.append(aVar.label_name);
         return sb.toString();
@@ -195,7 +195,7 @@ public class a {
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null && threadInfo.thread_type.intValue() == 49) {
                 b bVar = new b();
-                bVar.tabId = aVar.duO;
+                bVar.tabId = aVar.efQ;
                 bVar.entryName = aVar.entry_name;
                 bVar.labelName = aVar.label_name;
                 bVar.a(threadInfo);

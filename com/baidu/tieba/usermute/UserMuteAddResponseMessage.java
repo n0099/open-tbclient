@@ -1,6 +1,6 @@
 package com.baidu.tieba.usermute;
 
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.f.b;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;

@@ -2,12 +2,12 @@ package com.baidu.live.gift;
 
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b {
     public String giftId = "";
     public String giftName = "";
-    public e VR = null;
-    public d VS = null;
+    public e ads = null;
+    public d adt = null;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -15,13 +15,13 @@ public class b {
             this.giftName = jSONObject.optString("gift_name");
             JSONObject optJSONObject = jSONObject.optJSONObject("config_info");
             if (optJSONObject != null) {
-                this.VS = new d();
-                this.VS.parseJson(optJSONObject);
+                this.adt = new d();
+                this.adt.parseJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("gift_zip");
             if (optJSONObject2 != null) {
-                this.VR = new e();
-                this.VR.parseJson(optJSONObject2);
+                this.ads = new e();
+                this.ads.parseJson(optJSONObject2);
             }
         }
     }

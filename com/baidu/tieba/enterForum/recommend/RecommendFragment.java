@@ -11,96 +11,96 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.h;
+import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.enterForum.home.c;
 import com.baidu.tieba.enterForum.recommend.model.RecommendModel;
 import com.baidu.tieba.enterForum.recommend.view.RecommendView;
-/* loaded from: classes4.dex */
-public class RecommendFragment extends BaseFragment implements h.c, a {
-    private c faE;
-    private RecommendModel fcK;
-    private RecommendView fcL;
-    private boolean fcM;
+/* loaded from: classes6.dex */
+public class RecommendFragment extends BaseFragment implements g.c, a {
+    private c fPk;
+    private RecommendModel fRn;
+    private RecommendView fRo;
+    private boolean fRp;
 
-    @Override // android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.fcL == null) {
-            this.fcL = new RecommendView(getPageContext());
-            this.fcL.setTabViewController(this.faE);
-            this.fcL.setPresenter(this);
-            this.fcL.setListPullRefreshListener(this);
-            this.fcL.setPageUniqueId(getUniqueId());
+        if (this.fRo == null) {
+            this.fRo = new RecommendView(getPageContext());
+            this.fRo.setTabViewController(this.fPk);
+            this.fRo.setPresenter(this);
+            this.fRo.setListPullRefreshListener(this);
+            this.fRo.setPageUniqueId(getUniqueId());
         }
-        if (this.fcL.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.fcL.getParent()).removeView(this.fcL);
+        if (this.fRo.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.fRo.getParent()).removeView(this.fRo);
         }
-        com.baidu.tieba.q.c.cni().v(getUniqueId());
-        return this.fcL;
+        com.baidu.tieba.r.c.cHo().w(getUniqueId());
+        return this.fRo;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        if (this.fcK == null) {
-            this.fcK = new RecommendModel(getPageContext());
-            this.fcK.setPresenter(this);
-            this.fcK.setUniqueId(getUniqueId());
+        if (this.fRn == null) {
+            this.fRn = new RecommendModel(getPageContext());
+            this.fRn.setPresenter(this);
+            this.fRn.setUniqueId(getUniqueId());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        if (!this.fcM && !TbadkCoreApplication.getInst().checkInterrupt()) {
-            this.fcL.dp(false);
-            this.fcK.bfc();
-            this.fcM = true;
+        if (!this.fRp && !TbadkCoreApplication.getInst().checkInterrupt()) {
+            this.fRo.eA(false);
+            this.fRn.bww();
+            this.fRp = true;
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.h.c
+    @Override // com.baidu.tbadk.core.view.g.c
     public void onListPullRefresh(boolean z) {
-        if (this.fcK != null) {
-            this.fcK.bfc();
+        if (this.fRn != null) {
+            this.fRn.bww();
         }
-        com.baidu.tieba.q.c.cni().y(getUniqueId());
+        com.baidu.tieba.r.c.cHo().z(getUniqueId());
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
     public void loadData() {
         if (j.isNetWorkAvailable()) {
-            this.fcL.aJm();
-            this.fcL.dp(false);
-            this.fcK.bfc();
+            this.fRo.aZK();
+            this.fRo.eA(false);
+            this.fRn.bww();
         }
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
     public void a(int i, com.baidu.tieba.enterForum.recommend.b.a aVar) {
-        this.fcL.hideLoadingView();
-        this.fcL.aJF();
+        this.fRo.hideLoadingView();
+        this.fRo.bad();
         if (i != 0 || aVar == null) {
-            this.fcL.jm(false);
+            this.fRo.ky(false);
             return;
         }
-        this.fcL.aJm();
-        this.fcL.aMo();
-        this.fcL.setData(aVar);
+        this.fRo.aZK();
+        this.fRo.bdR();
+        this.fRo.setData(aVar);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.fcL != null) {
-            this.fcL.onChangeSkinType();
+        if (this.fRo != null) {
+            this.fRo.onChangeSkinType();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        this.faE = null;
-        this.fcL.onDestroy();
-        this.fcK.onDestroy();
-        com.baidu.tieba.q.c.cni().w(getUniqueId());
+        this.fPk = null;
+        this.fRo.onDestroy();
+        this.fRn.onDestroy();
+        com.baidu.tieba.r.c.cHo().x(getUniqueId());
         super.onDestroyView();
     }
 
@@ -109,22 +109,22 @@ public class RecommendFragment extends BaseFragment implements h.c, a {
         super.onPrimary();
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921385));
-            if (!this.fcM) {
+            if (!this.fRp) {
                 loadData();
-                this.fcM = true;
+                this.fRp = true;
                 return;
             }
             return;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921386));
-        com.baidu.tieba.q.c.cni().b(getUniqueId(), false);
+        com.baidu.tieba.r.c.cHo().b(getUniqueId(), false);
     }
 
     public void setTabViewController(c cVar) {
-        this.faE = cVar;
+        this.fPk = cVar;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.o.a
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
     public String getCurrentPageKey() {
         return PageStayDurationConstants.PageName.ENTER_FORUM;
     }

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.guardclub.model;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.mobstat.Config;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class q extends HttpMessage {
     public int type;
 

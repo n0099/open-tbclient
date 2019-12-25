@@ -1,22 +1,35 @@
 package rx.a.b;
 
 import android.os.Looper;
+import java.util.concurrent.atomic.AtomicReference;
 import rx.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class a {
-    private static final a kxV = new a();
-    private final g kxW;
+    private static final AtomicReference<a> ndD = new AtomicReference<>();
+    private final g ndE;
+
+    private static a dGk() {
+        a aVar;
+        do {
+            aVar = ndD.get();
+            if (aVar != null) {
+                break;
+            }
+            aVar = new a();
+        } while (!ndD.compareAndSet(null, aVar));
+        return aVar;
+    }
 
     private a() {
-        g cOp = rx.a.a.a.cOm().cOn().cOp();
-        if (cOp != null) {
-            this.kxW = cOp;
+        g dGj = rx.a.a.a.dGg().dGh().dGj();
+        if (dGj != null) {
+            this.ndE = dGj;
         } else {
-            this.kxW = new b(Looper.getMainLooper());
+            this.ndE = new b(Looper.getMainLooper());
         }
     }
 
-    public static g cOq() {
-        return kxV.kxW;
+    public static g dGl() {
+        return dGk().ndE;
     }
 }

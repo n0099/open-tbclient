@@ -1,6 +1,5 @@
 package com.baidu.platform.core.c;
 
-import android.net.http.Headers;
 import android.util.Log;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
@@ -14,6 +13,7 @@ import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.platform.base.SearchType;
 import com.baidu.sapi2.activity.SlideActiviy;
+import com.baidu.swan.bdprivate.invoice.model.InvoiceInfo;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -99,9 +99,9 @@ public class g extends com.baidu.platform.base.d {
                 poiInfo.setArea(jSONObject2.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
                 poiInfo.setStreetId(jSONObject2.optString("street_id"));
                 poiInfo.setUid(jSONObject2.optString("uid"));
-                poiInfo.setPhoneNum(jSONObject2.optString("telephone"));
+                poiInfo.setPhoneNum(jSONObject2.optString(InvoiceInfo.KEY_TELEPHONE));
                 poiInfo.setDetail(jSONObject2.optInt("detail"));
-                poiInfo.setLocation(a(jSONObject2.optJSONObject(Headers.LOCATION)));
+                poiInfo.setLocation(a(jSONObject2.optJSONObject("location")));
                 String optString = jSONObject2.optString("detail_info");
                 if (optString != null && optString.length() != 0) {
                     poiInfo.setPoiDetailInfo(b(optString));
@@ -166,7 +166,7 @@ public class g extends com.baidu.platform.base.d {
                 poiChildrenInfo.setName(optJSONObject.optString("name"));
                 poiChildrenInfo.setShowName(optJSONObject.optString("show_name"));
                 poiChildrenInfo.setTag(optJSONObject.optString("tag"));
-                poiChildrenInfo.setLocation(a(optJSONObject.optJSONObject(Headers.LOCATION)));
+                poiChildrenInfo.setLocation(a(optJSONObject.optJSONObject("location")));
                 poiChildrenInfo.setAddress(optJSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME));
                 arrayList.add(poiChildrenInfo);
             }

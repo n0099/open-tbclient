@@ -2,13 +2,13 @@ package com.baidu.adp.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.megapp.ma.MAApplication;
-import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends MAApplication {
@@ -29,7 +29,7 @@ public class BdBaseApplication extends MAApplication {
                 BdBaseApplication.this.handleInitMessage(message);
             }
         };
-        g.eo().setHostResources(super.getResources());
+        g.eI().setHostResources(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
@@ -43,7 +43,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.iB().init();
+        com.baidu.adp.plugin.c.a.iU().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -75,13 +75,13 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.gW().initial(this.mContext);
+        com.baidu.adp.lib.util.d.ht().initial(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.em().releaseAllPossibleAcitivities();
+        a.eG().releaseAllPossibleAcitivities();
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.lastGcTime > StatisticConfig.MIN_UPLOAD_INTERVAL) {
+        if (currentTimeMillis - this.lastGcTime > 30000) {
             this.lastGcTime = currentTimeMillis;
             System.gc();
         }
@@ -91,17 +91,23 @@ public class BdBaseApplication extends MAApplication {
     }
 
     public void setActivityStackMaxSize(int i) {
-        a.em().setActivityStackMaxSize(i);
+        a.eG().setActivityStackMaxSize(i);
     }
 
     public int getActivityStackMaxSize() {
-        return a.em().getActivityStackMaxSize();
+        return a.eG().getActivityStackMaxSize();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.eo().getResources();
+        Resources resources = g.eI().getResources();
         return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public AssetManager getAssets() {
+        AssetManager assets = getResources().getAssets();
+        return assets != null ? assets : super.getAssets();
     }
 
     public boolean getIsPluginResourcOpen() {

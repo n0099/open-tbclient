@@ -5,28 +5,29 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Debug;
 import android.os.Process;
+import com.baidu.android.util.devices.NetWorkUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class l {
-    private static ActivityManager JG;
+    private static ActivityManager Qj;
     private static Context mContext;
 
     public static String A() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (JG == null) {
+        if (Qj == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            JG.getMemoryInfo(memoryInfo2);
-            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : "no").append("\navailMem: ").append(com.baidu.crabsdk.c.c.p(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.p(memoryInfo2.threshold)).append("\n");
-            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = JG.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
-                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
+            Qj.getMemoryInfo(memoryInfo2);
+            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\navailMem: ").append(com.baidu.crabsdk.c.c.r(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.r(memoryInfo2.threshold)).append("\n");
+            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = Qj.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.r(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.r(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.r(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("getMemInfo error!!!", e);
@@ -37,7 +38,7 @@ public final class l {
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            JG = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            Qj = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 

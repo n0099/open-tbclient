@@ -11,8 +11,9 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.mobstat.Config;
+import com.baidu.webkit.internal.ETAG;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c {
     private static String d;
     static String a = null;
@@ -117,7 +118,7 @@ public class c {
                 sb.append("network=").append(b2).append('&');
                 sb.append("sdcard=").append(Environment.getExternalStorageState().equals("mounted") ? 1 : 0).append('&');
                 sb.append("display=").append(displayMetrics.widthPixels).append('*').append(displayMetrics.heightPixels).append('&');
-                sb.append("manu=").append(Build.MANUFACTURER).append("&");
+                sb.append("manu=").append(Build.MANUFACTURER).append(ETAG.ITEM_SEPARATOR);
                 sb.append("wifi=").append(a.e(context));
                 e = sb.toString();
             }

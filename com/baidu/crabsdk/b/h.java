@@ -8,10 +8,9 @@ import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class h {
-    private static String JD = null;
+    private static String Qg = null;
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -21,7 +20,7 @@ public final class h {
         try {
             messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.reset();
-            messageDigest.update(str.getBytes(HTTP.UTF_8));
+            messageDigest.update(str.getBytes("UTF-8"));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (NoSuchAlgorithmException e2) {
@@ -50,16 +49,16 @@ public final class h {
 
     public static String g(Context context) {
         if (com.baidu.crabsdk.a.K) {
-            if (JD != null) {
-                return JD;
+            if (Qg != null) {
+                return Qg;
             }
             try {
-                JD = a(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                Qg = a(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.v("getCUID fail," + e);
-                JD = "N/A";
+                Qg = "N/A";
             }
-            return JD;
+            return Qg;
         }
         return "N/A";
     }

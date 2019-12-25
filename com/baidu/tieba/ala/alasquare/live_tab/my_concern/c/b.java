@@ -8,28 +8,28 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
-    private View bFk;
-    private View cfh;
-    private TextView dxB;
-    private ImageView dxC;
+    private View cRG;
+    private View cpR;
+    private TextView eiD;
+    private ImageView eiE;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.bFk = getView();
-        this.dxB = (TextView) getView().findViewById(R.id.tv_empty);
-        this.dxC = (ImageView) getView().findViewById(R.id.iv_empty);
-        this.cfh = getView().findViewById(R.id.id_tab_live_sub_empty_divider);
+        this.cpR = getView();
+        this.eiD = (TextView) getView().findViewById(R.id.tv_empty);
+        this.eiE = (ImageView) getView().findViewById(R.id.iv_empty);
+        this.cRG = getView().findViewById(R.id.id_tab_live_sub_empty_divider);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setBackgroundResource(this.bFk, R.color.cp_bg_line_d);
-        am.setViewTextColor(this.dxB, (int) R.color.cp_cont_d);
-        am.setImageResource(this.dxC, R.drawable.new_pic_emotion_gray_09);
-        am.setBackgroundResource(this.cfh, R.color.cp_bg_line_c);
+        am.setBackgroundResource(this.cpR, R.color.cp_bg_line_d);
+        am.setViewTextColor(this.eiD, (int) R.color.cp_cont_d);
+        am.setImageResource(this.eiE, R.drawable.new_pic_emotion_08);
+        am.setBackgroundResource(this.cRG, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -41,12 +41,12 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.e eVar) {
         if (eVar.followStatus == 1) {
-            this.dxB.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
-            am.setImageResource(this.dxC, R.drawable.new_pic_emotion_gray_10);
+            this.eiD.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
+            am.setImageResource(this.eiE, R.drawable.new_pic_emotion_07);
             return;
         }
-        this.dxB.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
-        am.setImageResource(this.dxC, R.drawable.new_pic_emotion_gray_09);
+        this.eiD.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
+        am.setImageResource(this.eiE, R.drawable.new_pic_emotion_06);
     }
 
     @Override // android.view.View.OnClickListener

@@ -1,15 +1,14 @@
 package com.baidu.ala.data;
 
 import alaim.LiveInfo;
-import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveInfoData extends OrmObject implements Serializable {
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
     public static final int LIVE_SCREEN_DIRECTION_PORTRAIT = 1;
@@ -108,7 +107,7 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
             this.user_nickname = jSONObject.optString("user_nickname");
             this.group_id = jSONObject.optLong("group_id");
             this.last_msg_id = jSONObject.optLong("last_msg_id");
-            this.session_id = jSONObject.optString(LogConfig.LOG_SESSION_ID);
+            this.session_id = jSONObject.optString("session_id");
             this.description = jSONObject.optString("description");
             this.cover = jSONObject.optString("cover");
             this.join_count = jSONObject.optInt("join_count");
@@ -120,8 +119,8 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
             this.flower_count = jSONObject.optInt("flower_count");
             this.start_time = jSONObject.optInt("start_time");
             this.end_time = jSONObject.optInt("end_time");
-            this.location = jSONObject.optString(Headers.LOCATION);
-            this.channel_id = jSONObject.optLong("channel_id");
+            this.location = jSONObject.optString("location");
+            this.channel_id = jSONObject.optLong(SharedPrefConfig.CHANNEL_ID);
             this.channel_name = jSONObject.optString("channel_name");
             this.live_status = jSONObject.optInt("live_status");
             this.close_type = jSONObject.optInt("close_type");

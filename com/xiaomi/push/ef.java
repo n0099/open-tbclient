@@ -1,20 +1,21 @@
 package com.xiaomi.push;
 
 import android.net.Uri;
+import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ef {
     public static Uri a(String str, String str2) {
         return Uri.parse("content://" + str).buildUpon().appendPath(str2).build();
     }
 
     public static String a(String str) {
-        return Base64.encodeToString(ay.m124a(str), 2);
+        return Base64.encodeToString(ay.m127a(str), 2);
     }
 
     public static String a(HashMap<String, String> hashMap) {
@@ -49,7 +50,7 @@ public class ef {
                     hashMap2.put("flow_id", String.valueOf(jSONObject.opt("flow_id")));
                     hashMap2.put("jobkey", String.valueOf(jSONObject.opt("jobkey")));
                     hashMap2.put("msg_id", String.valueOf(jSONObject.opt("msg_id")));
-                    hashMap2.put("A", String.valueOf(jSONObject.opt("awake_app")));
+                    hashMap2.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, String.valueOf(jSONObject.opt("awake_app")));
                     hashMap2.put("B", String.valueOf(jSONObject.opt("awakened_app")));
                     hashMap2.put(BdStatsConstant.StatsKey.TYPE, String.valueOf(jSONObject.opt("awake_type")));
                 } catch (JSONException e) {

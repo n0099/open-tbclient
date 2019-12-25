@@ -1,10 +1,14 @@
 package com.baidu.tieba.tbadkCore.data;
 
+import com.baidu.tbadk.core.data.BaijiahaoData;
 import java.io.Serializable;
+import org.json.JSONObject;
 import tbclient.Agree;
 /* loaded from: classes.dex */
 public class AgreeData implements Serializable {
     public int agreeType;
+    public BaijiahaoData baijiahaoData;
+    public String nid;
     public long diffAgreeNum = 0;
     public long agreeNum = 0;
     public long disAgreeNum = 0;
@@ -24,6 +28,16 @@ public class AgreeData implements Serializable {
             this.agreeType = agree.agree_type == null ? 0 : agree.agree_type.intValue();
             this.hasAgree = agree.has_agree.intValue() == 1;
             this.diffAgreeNum = agree.diff_agree_num != null ? agree.diff_agree_num.longValue() : 0L;
+        }
+    }
+
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.agreeNum = jSONObject.optInt("agree_num");
+            this.disAgreeNum = jSONObject.optLong("disagree_num");
+            this.agreeType = jSONObject.optInt("agree_type");
+            this.hasAgree = jSONObject.optInt("has_agree") == 1;
+            this.diffAgreeNum = jSONObject.optLong("diff_agree_num");
         }
     }
 }

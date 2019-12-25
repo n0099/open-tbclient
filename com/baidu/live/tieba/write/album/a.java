@@ -4,55 +4,55 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import com.baidu.live.adp.base.BdBaseView;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a extends BdBaseView<BaseFragmentActivity> {
-    private Fragment[] adq;
-    private String apn;
-    private String apo;
-    private AlbumActivity apq;
-    private String[] apr;
-    private ImageListFragment aps;
-    private AlbumImageBrowseFragment apt;
+    private Fragment[] alo;
+    private String axf;
+    private String axg;
+    private AlbumActivity axh;
+    private String[] axi;
+    private ImageListFragment axj;
+    private AlbumImageBrowseFragment axk;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.apn = "tag_image";
-        this.apo = "tag_b_image";
-        this.apq = albumActivity;
+        this.axf = "tag_image";
+        this.axg = "tag_b_image";
+        this.axh = albumActivity;
     }
 
-    public void vK() {
-        this.adq = new Fragment[2];
-        this.apr = new String[2];
-        this.aps = new ImageListFragment();
-        this.adq[0] = this.aps;
-        this.apr[0] = this.apn;
-        this.apt = new AlbumImageBrowseFragment();
-        this.adq[1] = this.apt;
-        this.apr[1] = this.apo;
+    public void xI() {
+        this.alo = new Fragment[2];
+        this.axi = new String[2];
+        this.axj = new ImageListFragment();
+        this.alo[0] = this.axj;
+        this.axi[0] = this.axf;
+        this.axk = new AlbumImageBrowseFragment();
+        this.alo[1] = this.axk;
+        this.axi[1] = this.axg;
     }
 
-    public Fragment ce(int i) {
+    public Fragment cw(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.adq[i];
+        return this.alo[i];
     }
 
-    public String cf(int i) {
+    public String cx(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.apr[i];
+        return this.axi[i];
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.adq.length) {
-                if (this.adq[i3] != null && (this.adq[i3] instanceof ImageListFragment)) {
-                    ((ImageListFragment) this.adq[i3]).onChangeSkinType(i);
+            if (i3 < this.alo.length) {
+                if (this.alo[i3] != null && (this.alo[i3] instanceof ImageListFragment)) {
+                    ((ImageListFragment) this.alo[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -61,57 +61,57 @@ public class a extends BdBaseView<BaseFragmentActivity> {
         }
     }
 
-    public View vL() {
-        if (this.aps == null) {
+    public View xJ() {
+        if (this.axj == null) {
             return null;
         }
-        return this.aps.vT();
+        return this.axj.xR();
     }
 
-    public View vM() {
-        if (this.aps == null) {
+    public View xK() {
+        if (this.axj == null) {
             return null;
         }
-        return this.aps.wi();
+        return this.axj.yg();
     }
 
-    public View vN() {
-        if (this.apt == null) {
+    public View xL() {
+        if (this.axk == null) {
             return null;
         }
-        return this.apt.vT();
+        return this.axk.xR();
     }
 
-    public View vO() {
-        if (this.apt == null) {
+    public View xM() {
+        if (this.axk == null) {
             return null;
         }
-        return this.apt.vU();
+        return this.axk.xS();
     }
 
-    public View vP() {
-        if (this.apt == null) {
+    public View xN() {
+        if (this.axk == null) {
             return null;
         }
-        return this.apt.vP();
+        return this.axk.xN();
     }
 
-    public View vQ() {
-        if (this.aps == null) {
+    public View xO() {
+        if (this.axj == null) {
             return null;
         }
-        return this.aps.vP();
+        return this.axj.xN();
     }
 
     public void onDestroy() {
     }
 
-    public void aQ(boolean z) {
-        if (this.apt != null) {
-            this.apt.aQ(z);
+    public void bh(boolean z) {
+        if (this.axk != null) {
+            this.axk.bh(z);
         }
-        if (this.aps != null) {
-            this.aps.aQ(z);
+        if (this.axj != null) {
+            this.axj.bh(z);
         }
     }
 }

@@ -1,52 +1,73 @@
 package com.baidu.swan.apps.scheme.actions;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class n extends z {
+/* loaded from: classes9.dex */
+public class n extends ab {
     public n(com.baidu.swan.apps.scheme.j jVar) {
-        super(jVar, "/swan/openApp");
+        super(jVar, "/swanAPI/openApp4Ad");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        boolean z;
-        if (bVar == null) {
-            com.baidu.swan.apps.console.c.i("OpenApp", "swanApp is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
+        JSONObject b = b(unitedSchemeEntity, "params");
+        if (b == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
+            com.baidu.swan.apps.console.c.i("OpenAdAppAction", "params parse error");
             return false;
         }
-        JSONObject c = c(unitedSchemeEntity, "params");
-        if (c == null) {
-            com.baidu.swan.apps.console.c.i("OpenApp", "params is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
-            return false;
-        }
-        String optString = c.optString("open");
+        String optString = b.optString("name");
         if (TextUtils.isEmpty(optString)) {
-            z = false;
-        } else {
-            com.baidu.swan.apps.console.c.i("OpenApp", "open app: url=" + optString);
-            z = com.baidu.swan.apps.an.ac.Y(context, optString);
-        }
-        boolean optBoolean = c.optBoolean("isNeedDownload", true);
-        if (!z && !optBoolean) {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 1002);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty package name");
+            com.baidu.swan.apps.console.c.i("OpenAdAppAction", "empty package name");
             return false;
         }
-        if (!z) {
-            z = com.baidu.swan.apps.an.ac.Z(context, c.optString("download"));
+        ResolveInfo al = al(context, optString);
+        if (al == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "app not installed");
+            com.baidu.swan.apps.console.c.i("OpenAdAppAction", "app not installed");
+            return false;
         }
-        com.baidu.swan.apps.console.c.i("OpenApp", "open app: executeResult=" + z);
-        if (z) {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-        }
+        a(context, al);
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
+    }
+
+    private static void a(Context context, ResolveInfo resolveInfo) {
+        if (context != null && resolveInfo != null) {
+            Intent intent = new Intent("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setComponent(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name));
+            intent.setFlags(268435456);
+            try {
+                context.startActivity(intent);
+            } catch (Exception e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private static ResolveInfo al(Context context, String str) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return null;
+        }
+        Intent intent = new Intent("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.LAUNCHER");
+        intent.setPackage(str);
+        List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+        if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
+            return null;
+        }
+        return queryIntentActivities.iterator().next();
     }
 }

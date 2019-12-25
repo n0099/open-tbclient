@@ -14,6 +14,7 @@ import com.baidu.mapsdkplatform.comapi.synchronization.data.k;
 import com.baidu.mapsdkplatform.comapi.synchronization.data.l;
 import com.baidu.mapsdkplatform.comapi.synchronization.render.d;
 import com.baidu.mapsdkplatform.comapi.synchronization.render.e;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 /* loaded from: classes5.dex */
 public class a implements k, d {
     private static final String a = a.class.getSimpleName();
@@ -85,7 +86,7 @@ public class a implements k, d {
     }
 
     public void a() {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "onResume");
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, MissionEvent.MESSAGE_RESUME);
         if (this.b != null) {
             this.b.a();
         }
@@ -157,7 +158,7 @@ public class a implements k, d {
     }
 
     public void b() {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "onPause");
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, MissionEvent.MESSAGE_PAUSE);
         if (this.b != null) {
             this.b.b();
         }

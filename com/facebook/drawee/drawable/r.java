@@ -1,7 +1,10 @@
 package com.facebook.drawee.drawable;
-/* loaded from: classes2.dex */
-public interface r {
-    void cEA();
 
-    void sh(boolean z);
+import android.graphics.Matrix;
+import android.graphics.RectF;
+/* loaded from: classes11.dex */
+public interface r {
+    void getRootBounds(RectF rectF);
+
+    void getTransform(Matrix matrix);
 }

@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public enum hi {
     DeviceInfo(1),
     AppInstallList(2),
@@ -27,10 +27,10 @@ public enum hi {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f456a;
+    private final int f461a;
 
     hi(int i) {
-        this.f456a = i;
+        this.f461a = i;
     }
 
     public static hi a(int i) {
@@ -87,6 +87,6 @@ public enum hi {
     }
 
     public int a() {
-        return this.f456a;
+        return this.f461a;
     }
 }

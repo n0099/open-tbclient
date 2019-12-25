@@ -15,23 +15,23 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.swan.apps.an.z;
-/* loaded from: classes2.dex */
+import com.baidu.swan.apps.as.af;
+/* loaded from: classes9.dex */
 public class DrawableCenterTextView extends TextView {
-    private Pair<Object, Object> bcA;
-    private Object bcB;
-    private Object bcC;
-    private int bcD;
-    private boolean bcE;
-    private boolean bcF;
-    private boolean bcG;
-    private boolean bcH;
-    private float bcI;
-    private boolean bcJ;
-    private GradientDrawable bcy;
-    private Paint bcz;
+    private Pair<Object, Object> bFV;
+    private boolean isDrawBorder;
+    private boolean isDrawSingleBorder;
+    private boolean isPressEnable;
+    private boolean isPressed;
+    private float mAnimationPercent;
+    private Object mBorderColor;
     private float mCornerRadius;
+    private boolean mIsAnimationActive;
+    private Paint mOutShadowPaint;
+    private GradientDrawable mRoundDrawable;
     private Path mRoundPath;
+    private Object mSingleBorderColor;
+    private int mSingleBorderDirect;
 
     public DrawableCenterTextView(Context context) {
         this(context, null);
@@ -39,23 +39,23 @@ public class DrawableCenterTextView extends TextView {
 
     public DrawableCenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bcy = new GradientDrawable();
-        this.bcz = null;
+        this.mRoundDrawable = new GradientDrawable();
+        this.mOutShadowPaint = null;
         this.mRoundPath = new Path();
-        this.bcA = null;
-        this.bcH = false;
+        this.bFV = null;
+        this.isPressed = false;
         this.mCornerRadius = -1.0f;
-        this.bcI = 0.0f;
+        this.mAnimationPercent = 0.0f;
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        l(canvas);
-        k(canvas);
+        onDrawBackground(canvas);
+        onDrawableAndTextRelocated(canvas);
         super.onDraw(canvas);
     }
 
-    private void k(Canvas canvas) {
+    private void onDrawableAndTextRelocated(Canvas canvas) {
         int i;
         Drawable drawable;
         int i2;
@@ -78,8 +78,8 @@ public class DrawableCenterTextView extends TextView {
         }
         i = -1;
         drawable = null;
-        int b = z.b(this);
-        int a = z.a(this);
+        int textViewWidth = af.getTextViewWidth(this);
+        int textViewHeight = af.getTextViewHeight(this);
         int compoundDrawablePadding = getCompoundDrawablePadding();
         if (drawable != null) {
             Rect bounds = drawable.getBounds();
@@ -90,10 +90,10 @@ public class DrawableCenterTextView extends TextView {
             i3 = 0;
         }
         if (i == 0 || i == 2) {
-            i4 = b + i3 + compoundDrawablePadding;
+            i4 = textViewWidth + i3 + compoundDrawablePadding;
             i5 = 0;
         } else if (i == 1 || i == 3) {
-            i5 = i2 + a + compoundDrawablePadding;
+            i5 = i2 + textViewHeight + compoundDrawablePadding;
             i4 = 0;
         } else {
             i5 = 0;
@@ -122,65 +122,65 @@ public class DrawableCenterTextView extends TextView {
                 break;
             default:
                 setGravity(19);
-                i6 = width - b;
+                i6 = width - textViewWidth;
                 break;
         }
         canvas.translate(i6 / 2, i7 / 2);
     }
 
-    private void l(Canvas canvas) {
-        if (OW()) {
+    private void onDrawBackground(Canvas canvas) {
+        if (isEnableHandlePress()) {
             if (this.mCornerRadius >= 0.0f) {
-                this.bcy.setCornerRadius(this.mCornerRadius);
+                this.mRoundDrawable.setCornerRadius(this.mCornerRadius);
             } else {
-                this.bcy.setCornerRadius(4.0f);
+                this.mRoundDrawable.setCornerRadius(4.0f);
             }
-            if (this.bcF) {
-                int dip2px = z.dip2px(getContext(), 0.5f);
-                if (this.bcB instanceof String) {
-                    this.bcy.setStroke(dip2px, Color.parseColor(this.bcB.toString()));
-                } else if (this.bcB instanceof Integer) {
-                    this.bcy.setStroke(dip2px, getResources().getColor(Integer.valueOf(this.bcB.toString()).intValue()));
+            if (this.isDrawBorder) {
+                int dip2px = af.dip2px(getContext(), 0.5f);
+                if (this.mBorderColor instanceof String) {
+                    this.mRoundDrawable.setStroke(dip2px, Color.parseColor(this.mBorderColor.toString()));
+                } else if (this.mBorderColor instanceof Integer) {
+                    this.mRoundDrawable.setStroke(dip2px, getResources().getColor(Integer.valueOf(this.mBorderColor.toString()).intValue()));
                 }
             }
-            if (this.bcH) {
-                if (this.bcA.second instanceof String) {
-                    this.bcy.setColor(Color.parseColor(this.bcA.second.toString()));
-                } else if (this.bcA.second instanceof Integer) {
-                    this.bcy.setColor(getResources().getColor(Integer.valueOf(this.bcA.second.toString()).intValue()));
+            if (this.isPressed) {
+                if (this.bFV.second instanceof String) {
+                    this.mRoundDrawable.setColor(Color.parseColor(this.bFV.second.toString()));
+                } else if (this.bFV.second instanceof Integer) {
+                    this.mRoundDrawable.setColor(getResources().getColor(Integer.valueOf(this.bFV.second.toString()).intValue()));
                 }
-            } else if (this.bcA.first instanceof String) {
-                this.bcy.setColor(Color.parseColor(this.bcA.first.toString()));
-            } else if (this.bcA.first instanceof Integer) {
-                this.bcy.setColor(getResources().getColor(Integer.valueOf(this.bcA.first.toString()).intValue()));
+            } else if (this.bFV.first instanceof String) {
+                this.mRoundDrawable.setColor(Color.parseColor(this.bFV.first.toString()));
+            } else if (this.bFV.first instanceof Integer) {
+                this.mRoundDrawable.setColor(getResources().getColor(Integer.valueOf(this.bFV.first.toString()).intValue()));
             }
             canvas.save();
-            if (this.bcJ) {
-                OU();
+            if (this.mIsAnimationActive) {
+                generateNextAnimationFrame();
             } else {
-                this.bcy.setBounds(0, 0, getWidth(), getHeight());
+                this.mRoundDrawable.setBounds(0, 0, getWidth(), getHeight());
             }
-            this.bcy.draw(canvas);
-            if (this.bcG) {
-                m(canvas);
+            this.mRoundDrawable.draw(canvas);
+            if (this.isDrawSingleBorder) {
+                onDrawSingleBorder(canvas);
             }
             canvas.restore();
         }
     }
 
-    private void m(Canvas canvas) {
+    private void onDrawSingleBorder(Canvas canvas) {
         float height;
         float f;
         float width = getWidth();
         float height2 = getHeight();
         Paint paint = new Paint();
-        paint.setStrokeWidth(z.dip2px(getContext(), 0.5f));
-        if (this.bcC instanceof String) {
-            paint.setColor(Color.parseColor(this.bcC.toString()));
-        } else if (this.bcC instanceof Integer) {
-            paint.setColor(getResources().getColor(Integer.valueOf(this.bcC.toString()).intValue()));
+        paint.setStrokeWidth(af.dip2px(getContext(), 0.5f));
+        if (this.mSingleBorderColor instanceof String) {
+            paint.setColor(Color.parseColor(this.mSingleBorderColor.toString()));
+        } else if (this.mSingleBorderColor instanceof Integer) {
+            paint.setColor(getResources().getColor(Integer.valueOf(this.mSingleBorderColor.toString()).intValue()));
         }
-        switch (this.bcD) {
+        switch (this.mSingleBorderDirect) {
             case 0:
                 width = 0.0f;
                 height = 0.0f;
@@ -208,48 +208,48 @@ public class DrawableCenterTextView extends TextView {
     }
 
     public void setAnimationPercent(float f) {
-        if (this.bcI != f) {
-            this.bcI = f;
+        if (this.mAnimationPercent != f) {
+            this.mAnimationPercent = f;
             postInvalidate();
         }
     }
 
     public void setAnimationModeActive(boolean z) {
-        this.bcJ = z;
+        this.mIsAnimationActive = z;
     }
 
-    private void OU() {
-        if (this.bcy != null) {
+    private void generateNextAnimationFrame() {
+        if (this.mRoundDrawable != null) {
             int[] iArr = {getWidth(), getHeight()};
-            if (this.bcJ) {
-                iArr[0] = (int) (getWidth() * this.bcI);
+            if (this.mIsAnimationActive) {
+                iArr[0] = (int) (getWidth() * this.mAnimationPercent);
                 iArr[1] = getHeight();
             }
             int width = getWidth() / 2;
-            this.bcy.setBounds(width - (iArr[0] / 2), 0, (iArr[0] / 2) + width, getHeight());
+            this.mRoundDrawable.setBounds(width - (iArr[0] / 2), 0, (iArr[0] / 2) + width, getHeight());
         }
     }
 
     @Override // android.widget.TextView
     public void setShadowLayer(float f, float f2, float f3, int i) {
-        OV();
+        initShadowPaint();
         RectF rectF = new RectF(f, f, f, f);
         rectF.offset(f2, f3);
         setPadding(rectF.left < 0.0f ? 0 : (int) (rectF.left + 0.5f), rectF.top < 0.0f ? 0 : (int) (rectF.top + 0.5f), rectF.right < 0.0f ? 0 : (int) (rectF.right + 0.5f), rectF.bottom >= 0.0f ? (int) (rectF.bottom + 0.5f) : 0);
-        this.bcz.setShadowLayer(f, f2, f3, i);
+        this.mOutShadowPaint.setShadowLayer(f, f2, f3, i);
     }
 
-    private void OV() {
-        if (this.bcz == null) {
-            this.bcz = new Paint();
-            this.bcz.setColor(0);
-            this.bcz.setStyle(Paint.Style.STROKE);
-            this.bcz.setAntiAlias(true);
-            this.bcz.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+    private void initShadowPaint() {
+        if (this.mOutShadowPaint == null) {
+            this.mOutShadowPaint = new Paint();
+            this.mOutShadowPaint.setColor(0);
+            this.mOutShadowPaint.setStyle(Paint.Style.STROKE);
+            this.mOutShadowPaint.setAntiAlias(true);
+            this.mOutShadowPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         }
     }
 
-    public void a(Drawable drawable, int i, int i2, int i3) {
+    public void initDrawable(Drawable drawable, int i, int i2, int i3) {
         if (drawable != null && i > -1 && i <= 3) {
             if (i2 <= 0 || i3 <= 0) {
                 i2 = drawable.getIntrinsicWidth();
@@ -275,34 +275,34 @@ public class DrawableCenterTextView extends TextView {
         }
     }
 
-    public void dP(int i) {
+    public void initCornerRadius(int i) {
         this.mCornerRadius = i;
     }
 
-    private boolean OW() {
-        return this.bcE && this.bcA != null;
+    private boolean isEnableHandlePress() {
+        return this.isPressEnable && this.bFV != null;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (OW()) {
-                    this.bcH = true;
+                if (isEnableHandlePress()) {
+                    this.isPressed = true;
                     invalidate();
                     break;
                 }
                 break;
             case 1:
-                if (OW()) {
-                    this.bcH = false;
+                if (isEnableHandlePress()) {
+                    this.isPressed = false;
                     invalidate();
                     break;
                 }
                 break;
             case 3:
-                if (OW()) {
-                    this.bcH = false;
+                if (isEnableHandlePress()) {
+                    this.isPressed = false;
                     invalidate();
                     break;
                 }

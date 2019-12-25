@@ -4,14 +4,14 @@ import android.graphics.Color;
 import android.support.v4.view.ViewCompat;
 import com.tb.airbnb.lottie.model.a.m;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a implements m.a<Integer> {
-    public static final a ksX = new a();
+    public static final a mNN = new a();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.tb.airbnb.lottie.model.a.m.a
-    /* renamed from: a */
-    public Integer b(Object obj, float f) {
+    /* renamed from: b */
+    public Integer c(Object obj, float f) {
         JSONArray jSONArray = (JSONArray) obj;
         if (jSONArray.length() == 4) {
             boolean z = true;

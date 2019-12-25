@@ -1,15 +1,16 @@
 package com.baidu.live.data;
 
+import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLivePersonData implements Serializable {
     public AlaAvtsConfigInfo mAvtsConfigInfo;
     public AlaAvtsData mAvtsData;
     public AlaPersonChallengeData mChallengeData;
     public AlaLiveInfoData mLiveInfo;
-    public h mLiveSdkInfo;
+    public j mLiveSdkInfo;
     public AlaLocationData mLocationData;
     public AlaPersonPkData mPkData;
     public AlaRelationData mRelationData;
@@ -57,9 +58,9 @@ public class AlaLivePersonData implements Serializable {
                 this.mAvtsConfigInfo = new AlaAvtsConfigInfo();
                 this.mAvtsConfigInfo.parserJson(optJSONObject8);
             }
-            JSONObject jSONObject2 = (JSONObject) jSONObject.opt("sdk");
+            JSONObject jSONObject2 = (JSONObject) jSONObject.opt(CashierData.SDK);
             if (jSONObject2 != null) {
-                this.mLiveSdkInfo = new h();
+                this.mLiveSdkInfo = new j();
                 this.mLiveSdkInfo.parseJson(jSONObject2);
             }
         }
@@ -93,7 +94,7 @@ public class AlaLivePersonData implements Serializable {
                 jSONObject.put("avts_conf", this.mAvtsConfigInfo.toJsonObject());
             }
             if (this.mLiveSdkInfo != null) {
-                jSONObject.put("sdk", this.mLiveSdkInfo.toJsonObject());
+                jSONObject.put(CashierData.SDK, this.mLiveSdkInfo.toJsonObject());
             }
         } catch (JSONException e) {
             e.printStackTrace();

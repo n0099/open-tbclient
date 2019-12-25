@@ -2,11 +2,12 @@ package com.baidu.sofire.g;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.sofire.b;
 import com.baidu.sofire.i.d;
 import com.baidu.sofire.i.h;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class a {
     private Context a;
 
@@ -28,7 +29,7 @@ public final class a {
             if (TextUtils.isEmpty(a)) {
                 return false;
             }
-            return new JSONObject(a).getInt("response") == 1;
+            return new JSONObject(a).getInt(IIntercepter.TYPE_RESPONSE) == 1;
         } catch (Throwable th) {
             d.a();
             return true;

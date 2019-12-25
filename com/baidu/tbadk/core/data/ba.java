@@ -1,42 +1,39 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import java.util.ArrayList;
+import tbclient.RecommendInfo;
 import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class ba {
-    private String uid = "";
-    private String uname = "";
-    private String portrait = "";
-    private String institute = "";
-    private int isLike = -1;
+public class ba extends bj {
+    public static final BdUniqueId cMj = BdUniqueId.gen();
+    private String title = "";
+    private ArrayList<bc> cMk = new ArrayList<>();
 
-    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
-        if (schoolRecomUserInfo != null) {
-            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
-            this.uname = schoolRecomUserInfo.uname;
-            this.portrait = schoolRecomUserInfo.portrait;
-            this.institute = schoolRecomUserInfo.institute;
-            this.isLike = schoolRecomUserInfo.is_liked.intValue();
+    public void a(RecommendInfo recommendInfo) {
+        if (recommendInfo != null) {
+            this.title = recommendInfo.title;
+            for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
+                if (schoolRecomUserInfo != null) {
+                    bc bcVar = new bc();
+                    bcVar.a(schoolRecomUserInfo);
+                    this.cMk.add(bcVar);
+                }
+            }
         }
     }
 
-    public String getUid() {
-        return this.uid;
+    @Override // com.baidu.tbadk.core.data.bj
+    public String getTitle() {
+        return this.title;
     }
 
-    public String ahR() {
-        return this.uname;
+    public ArrayList<bc> ayM() {
+        return this.cMk;
     }
 
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public String ahS() {
-        return this.institute;
-    }
-
-    public int getIsLike() {
-        return this.isLike;
+    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.m
+    public BdUniqueId getType() {
+        return cMj;
     }
 }

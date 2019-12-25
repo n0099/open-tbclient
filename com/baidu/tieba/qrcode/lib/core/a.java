@@ -12,14 +12,14 @@ import android.os.Build;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public static final int dT(Context context) {
-        Point dU = dU(context);
-        return dU.x > dU.y ? 1 : 0;
+    public static final int fl(Context context) {
+        Point fm = fm(context);
+        return fm.x > fm.y ? 1 : 0;
     }
 
-    public static Point dU(Context context) {
+    public static Point fm(Context context) {
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= 13) {
@@ -30,11 +30,11 @@ public class a {
         return point;
     }
 
-    public static int h(Context context, float f) {
+    public static int dp2px(Context context, float f) {
         return (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics());
     }
 
-    public static int g(Context context, float f) {
+    public static int h(Context context, float f) {
         return (int) TypedValue.applyDimension(2, f, context.getResources().getDisplayMetrics());
     }
 
@@ -61,7 +61,7 @@ public class a {
         return createBitmap;
     }
 
-    public static Bitmap d(Bitmap bitmap, int i) {
+    public static Bitmap e(Bitmap bitmap, int i) {
         if (bitmap == null) {
             return null;
         }

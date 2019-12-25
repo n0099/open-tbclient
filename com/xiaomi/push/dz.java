@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class dz extends dx {
     private boolean a;
     private boolean b;
@@ -28,7 +28,7 @@ public class dz extends dx {
         if (this.a) {
             try {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) this.f245a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                ((WindowManager) this.f250a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 return displayMetrics.heightPixels + Constants.ACCEPT_TIME_SEPARATOR_SP + displayMetrics.widthPixels;
             } catch (Throwable th) {
                 return "";
@@ -62,7 +62,7 @@ public class dz extends dx {
     private String e() {
         if (this.d) {
             try {
-                return Settings.Secure.getString(this.f245a.getContentResolver(), "android_id");
+                return Settings.Secure.getString(this.f250a.getContentResolver(), "android_id");
             } catch (Throwable th) {
                 return "";
             }
@@ -73,7 +73,7 @@ public class dz extends dx {
     private String f() {
         if (this.e) {
             try {
-                return ((TelephonyManager) this.f245a.getSystemService("phone")).getSimOperator();
+                return ((TelephonyManager) this.f250a.getSystemService("phone")).getSimOperator();
             } catch (Throwable th) {
                 return "";
             }
@@ -83,19 +83,19 @@ public class dz extends dx {
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo140a() {
+    public int mo143a() {
         return 3;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hi mo140a() {
+    public hi mo143a() {
         return hi.DeviceInfoV2;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo140a() {
+    public String mo143a() {
         return b() + "|" + c() + "|" + d() + "|" + e() + "|" + f();
     }
 }

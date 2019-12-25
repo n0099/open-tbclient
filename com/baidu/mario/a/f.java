@@ -1,5 +1,13 @@
 package com.baidu.mario.a;
-/* loaded from: classes2.dex */
-public interface f {
-    void onRealtimeVolume(int i);
+/* loaded from: classes9.dex */
+class f {
+    private long aFw;
+    private int aFv = 100;
+    private long aFx = 0;
+    private boolean aFy = false;
+
+    public f(long j) {
+        this.aFw = 0L;
+        this.aFw = j;
+    }
 }

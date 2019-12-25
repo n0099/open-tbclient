@@ -4,6 +4,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
+import android.support.media.ExifInterface;
 import android.util.Log;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
@@ -13,7 +14,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class b implements g {
     private long d = 60;
     private int e = 10;
@@ -26,7 +27,7 @@ public class b implements g {
     private String h = String.valueOf(Process.myPid());
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a {
         String a;
         String b;
@@ -96,7 +97,7 @@ public class b implements g {
         }
         synchronized (this.b) {
             b();
-            a(new a("E", str, str2 + "\n" + Log.getStackTraceString(th)));
+            a(new a(ExifInterface.LONGITUDE_EAST, str, str2 + "\n" + Log.getStackTraceString(th)));
             c();
         }
     }
@@ -171,7 +172,7 @@ public class b implements g {
         }
         synchronized (this.b) {
             b();
-            a(new a("W", str, str2));
+            a(new a(ExifInterface.LONGITUDE_WEST, str, str2));
             c();
         }
     }
@@ -183,7 +184,7 @@ public class b implements g {
         }
         synchronized (this.b) {
             b();
-            a(new a("E", str, str2));
+            a(new a(ExifInterface.LONGITUDE_EAST, str, str2));
             c();
         }
     }

@@ -1,0 +1,59 @@
+package com.google.android.exoplayer2.upstream;
+
+import android.net.Uri;
+import java.util.Arrays;
+/* loaded from: classes4.dex */
+public final class g {
+    public final long fIt;
+    public final int flags;
+    public final String key;
+    public final long length;
+    public final byte[] mBk;
+    public final long mBl;
+    public final Uri uri;
+
+    public g(Uri uri, int i) {
+        this(uri, 0L, -1L, null, i);
+    }
+
+    public g(Uri uri, long j, long j2, String str) {
+        this(uri, j, j, j2, str, 0);
+    }
+
+    public g(Uri uri, long j, long j2, String str, int i) {
+        this(uri, j, j, j2, str, i);
+    }
+
+    public g(Uri uri, long j, long j2, long j3, String str, int i) {
+        this(uri, null, j, j2, j3, str, i);
+    }
+
+    public g(Uri uri, byte[] bArr, long j, long j2, long j3, String str, int i) {
+        com.google.android.exoplayer2.util.a.checkArgument(j >= 0);
+        com.google.android.exoplayer2.util.a.checkArgument(j2 >= 0);
+        com.google.android.exoplayer2.util.a.checkArgument(j3 > 0 || j3 == -1);
+        this.uri = uri;
+        this.mBk = bArr;
+        this.mBl = j;
+        this.fIt = j2;
+        this.length = j3;
+        this.key = str;
+        this.flags = i;
+    }
+
+    public boolean LC(int i) {
+        return (this.flags & i) == i;
+    }
+
+    public String toString() {
+        return "DataSpec[" + this.uri + ", " + Arrays.toString(this.mBk) + ", " + this.mBl + ", " + this.fIt + ", " + this.length + ", " + this.key + ", " + this.flags + "]";
+    }
+
+    public g gC(long j) {
+        return W(j, this.length != -1 ? this.length - j : -1L);
+    }
+
+    public g W(long j, long j2) {
+        return (j == 0 && this.length == j2) ? this : new g(this.uri, this.mBk, this.mBl + j, this.fIt + j, j2, this.key, this.flags);
+    }
+}

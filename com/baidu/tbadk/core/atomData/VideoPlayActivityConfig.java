@@ -17,6 +17,8 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String FROM_MAINTAB_VIDEO = "video_tab";
     public static final String FROM_NANI_VIDEO = "from_nani_video";
     public static final String FROM_VIDEO_MIDDLE_VIDEO = "from_video_middle_video";
+    public static final String IS_FROM_BJH_PB = "is_from_bjh_pb";
+    public static final String KEY_NID = "key_nid";
     public static final String OBJ_ID = "obj_id";
     public static final String PAGE_FIRST_IN = "page_first_in";
     public static final String PAGE_FROM = "page_from";
@@ -62,7 +64,17 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
         getIntent().putExtra("from", str4);
-        getIntent().putExtra(SOURCE_FROM, str5);
+        getIntent().putExtra("source_from", str5);
         getIntent().setSourceBounds(rect);
+    }
+
+    public void setIsFromBjhPb(boolean z) {
+        getIntent().putExtra(IS_FROM_BJH_PB, z);
+    }
+
+    public void setNid(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("key_nid", str);
+        }
     }
 }

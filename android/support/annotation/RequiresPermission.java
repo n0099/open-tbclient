@@ -6,17 +6,17 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public @interface RequiresPermission {
 
     @Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface Read {
         RequiresPermission value() default @RequiresPermission;
     }
 
     @Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface Write {
         RequiresPermission value() default @RequiresPermission;
     }

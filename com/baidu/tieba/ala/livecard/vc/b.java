@@ -1,110 +1,110 @@
 package com.baidu.tieba.ala.livecard.vc;
 
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private List<bh> csA;
-    private List<bh> csB;
-    private boolean csC;
-    private boolean csD;
-    private int csE = 2;
-    private int csF = 1;
-    private int cst;
+    private int dgh;
+    private List<bj> dgn;
+    private List<bj> dgo;
+    private boolean dgp;
+    private boolean dgq;
+    private int dgr = 2;
+    private int dgs = 1;
 
-    public b(List<bh> list, boolean z, int i) {
-        this.cst = 2;
-        this.csD = z;
-        this.cst = i;
-        aY(list);
+    public b(List<bj> list, boolean z, int i) {
+        this.dgh = 2;
+        this.dgq = z;
+        this.dgh = i;
+        ad(list);
     }
 
-    public void aY(List<bh> list) {
+    public void ad(List<bj> list) {
         if (list != null) {
-            this.csA = list;
-            if (list != null && list.size() >= this.csE && list.size() <= this.cst) {
-                this.csC = true;
-            } else if (list.size() > this.cst && this.csD) {
-                this.csC = true;
+            this.dgn = list;
+            if (list != null && list.size() >= this.dgr && list.size() <= this.dgh) {
+                this.dgp = true;
+            } else if (list.size() > this.dgh && this.dgq) {
+                this.dgp = true;
             } else {
-                this.csC = false;
+                this.dgp = false;
             }
-            this.csB = aop();
+            this.dgo = aFS();
         }
     }
 
-    private List<bh> aop() {
+    private List<bj> aFS() {
         ArrayList arrayList = new ArrayList();
-        if (this.csA != null) {
-            if (this.csC) {
-                if (this.csA.size() > this.cst && this.csA.size() >= this.csF) {
-                    arrayList.addAll(this.csA.subList(0, this.cst));
-                    arrayList.addAll(0, this.csA.subList(this.cst - this.csF, this.cst));
-                    arrayList.addAll(this.csA.subList(0, this.csF));
+        if (this.dgn != null) {
+            if (this.dgp) {
+                if (this.dgn.size() > this.dgh && this.dgn.size() >= this.dgs) {
+                    arrayList.addAll(this.dgn.subList(0, this.dgh));
+                    arrayList.addAll(0, this.dgn.subList(this.dgh - this.dgs, this.dgh));
+                    arrayList.addAll(this.dgn.subList(0, this.dgs));
                 } else {
-                    arrayList.addAll(this.csA);
-                    arrayList.addAll(0, this.csA.subList(this.csA.size() - this.csF, this.csA.size()));
-                    arrayList.addAll(this.csA.subList(0, this.csF));
+                    arrayList.addAll(this.dgn);
+                    arrayList.addAll(0, this.dgn.subList(this.dgn.size() - this.dgs, this.dgn.size()));
+                    arrayList.addAll(this.dgn.subList(0, this.dgs));
                 }
-            } else if (this.csA != null && this.csA.size() > 0 && this.csA.size() >= this.csF) {
-                arrayList.addAll(this.csA.subList(0, this.csF));
+            } else if (this.dgn != null && this.dgn.size() > 0 && this.dgn.size() >= this.dgs) {
+                arrayList.addAll(this.dgn.subList(0, this.dgs));
             }
         }
         return arrayList;
     }
 
-    public int iX(int i) {
-        if (this.csC) {
-            int size = this.csB.size();
+    public int lk(int i) {
+        if (this.dgp) {
+            int size = this.dgo.size();
             if (i == 0) {
-                return (size - 1) - this.csF;
+                return (size - 1) - this.dgs;
             }
-            if (i == size - this.csF) {
-                return this.csF;
+            if (i == size - this.dgs) {
+                return this.dgs;
             }
             return i;
         }
         return i;
     }
 
-    public int iY(int i) {
-        if (this.csC) {
-            return i - this.csF;
+    public int ll(int i) {
+        if (this.dgp) {
+            return i - this.dgs;
         }
         return i;
     }
 
-    public int aoq() {
-        if (this.csA == null) {
+    public int aFT() {
+        if (this.dgn == null) {
             return 0;
         }
-        return this.csA.size();
+        return this.dgn.size();
     }
 
-    public int aor() {
-        if (this.csC) {
-            return this.csF;
+    public int aFU() {
+        if (this.dgp) {
+            return this.dgs;
         }
         return 0;
     }
 
-    public void iZ(int i) {
-        this.cst = i;
-        aY(this.csA);
+    public void lm(int i) {
+        this.dgh = i;
+        ad(this.dgn);
     }
 
-    public void ja(int i) {
-        this.csE = i;
-        aY(this.csA);
+    public void ln(int i) {
+        this.dgr = i;
+        ad(this.dgn);
     }
 
-    public List<bh> aos() {
-        return this.csB;
+    public List<bj> aFV() {
+        return this.dgo;
     }
 
-    public void jb(int i) {
-        this.csF = i;
-        aY(this.csA);
+    public void lo(int i) {
+        this.dgs = i;
+        ad(this.dgn);
     }
 }

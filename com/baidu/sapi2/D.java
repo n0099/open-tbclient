@@ -7,7 +7,7 @@ import com.baidu.sapi2.result.OAuthResult;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class D extends HttpHandlerWrap {
     final /* synthetic */ SapiCallback a;
     final /* synthetic */ OAuthResult b;

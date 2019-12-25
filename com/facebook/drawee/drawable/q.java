@@ -1,5 +1,5 @@
 package com.facebook.drawee.drawable;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public interface q {
-    void a(r rVar);
+    void setTransformCallback(r rVar);
 }

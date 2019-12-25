@@ -6,9 +6,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public @interface IntDef {
     boolean flag() default false;
 
-    long[] value() default {};
+    int[] value() default {};
 }

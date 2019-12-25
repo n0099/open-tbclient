@@ -1,21 +1,30 @@
 package com.facebook.common.internal;
-
-import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
-public final class k {
-    public static <X extends Throwable> void a(@Nullable Throwable th, Class<X> cls) throws Throwable {
-        if (th != null && cls.isInstance(th)) {
-            throw cls.cast(th);
+/* loaded from: classes11.dex */
+public class k {
+    public static final j<Boolean> lEe = new j<Boolean>() { // from class: com.facebook.common.internal.k.2
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.facebook.common.internal.j
+        /* renamed from: dis */
+        public Boolean get() {
+            return true;
         }
-    }
+    };
+    public static final j<Boolean> lEf = new j<Boolean>() { // from class: com.facebook.common.internal.k.3
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.facebook.common.internal.j
+        /* renamed from: dis */
+        public Boolean get() {
+            return false;
+        }
+    };
 
-    public static void q(@Nullable Throwable th) {
-        a(th, Error.class);
-        a(th, RuntimeException.class);
-    }
-
-    public static RuntimeException r(Throwable th) {
-        q((Throwable) g.checkNotNull(th));
-        throw new RuntimeException(th);
+    public static <T> j<T> aS(final T t) {
+        return new j<T>() { // from class: com.facebook.common.internal.k.1
+            /* JADX WARN: Type inference failed for: r0v0, types: [T, java.lang.Object] */
+            @Override // com.facebook.common.internal.j
+            public T get() {
+                return t;
+            }
+        };
     }
 }

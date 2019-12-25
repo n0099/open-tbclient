@@ -2,7 +2,7 @@ package com.baidu.ala.atomdata;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaPrivilegeListActivityConfig extends IntentConfig {
     public static final String EFFECT_NUM = "effect_num";
     public static final String MARK_NUM = "mark_num";

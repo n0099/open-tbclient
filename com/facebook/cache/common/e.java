@@ -2,20 +2,20 @@ package com.facebook.cache.common;
 
 import com.facebook.cache.common.CacheErrorLogger;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class e implements CacheErrorLogger {
-    private static e jYU = null;
+    private static e lCM = null;
 
     private e() {
     }
 
-    public static synchronized e cBY() {
+    public static synchronized e dhD() {
         e eVar;
         synchronized (e.class) {
-            if (jYU == null) {
-                jYU = new e();
+            if (lCM == null) {
+                lCM = new e();
             }
-            eVar = jYU;
+            eVar = lCM;
         }
         return eVar;
     }

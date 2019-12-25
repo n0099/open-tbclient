@@ -5,15 +5,15 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.tbadk.core.d.a;
-import com.baidu.tbadk.core.data.as;
+import com.baidu.tbadk.core.c.a;
+import com.baidu.tbadk.core.data.av;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
-    private as data;
+    private av data;
     private int mErrCode;
     private String mErrMsg;
 
@@ -31,7 +31,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         return this.mErrMsg;
     }
 
-    public as getData() {
+    public av getData() {
         return this.data;
     }
 
@@ -42,7 +42,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
             this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-            this.data = new as();
+            this.data = new av();
             this.data.parserJson(jSONObject);
         }
     }
@@ -64,9 +64,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> nl = a.akL().nl("tb.my_pages");
-                    if (nl != null) {
-                        nl.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
+                    l<String> sx = a.aBV().sx("tb.my_pages");
+                    if (sx != null) {
+                        sx.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
                     }
                 }
             }

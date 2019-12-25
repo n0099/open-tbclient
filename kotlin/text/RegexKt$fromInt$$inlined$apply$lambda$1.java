@@ -1,7 +1,7 @@
 package kotlin.text;
 
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class RegexKt$fromInt$$inlined$apply$lambda$1 extends Lambda implements kotlin.jvm.a.b<T, Boolean> {
     final /* synthetic */ int $value$inlined;
 
@@ -19,6 +19,6 @@ public final class RegexKt$fromInt$$inlined$apply$lambda$1 extends Lambda implem
 
     /* JADX WARN: Incorrect types in method signature: (TT;)Z */
     public final boolean invoke(Enum r3) {
-        return (((d) r3).getMask() & this.$value$inlined) == ((d) r3).getValue();
+        return (((e) r3).getMask() & this.$value$inlined) == ((e) r3).getValue();
     }
 }

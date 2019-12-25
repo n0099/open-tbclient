@@ -1,7 +1,7 @@
 package kotlin.text;
 
 import kotlin.jvm.internal.PropertyReference1Impl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public enum CharDirectionality {
     UNDEFINED(-1),
     LEFT_TO_RIGHT(0),
@@ -26,7 +26,7 @@ public enum CharDirectionality {
     
     private final int value;
     public static final a Companion = new a(null);
-    private static final kotlin.a directionalityMap$delegate = kotlin.b.a(CharDirectionality$Companion$directionalityMap$2.INSTANCE);
+    private static final kotlin.c directionalityMap$delegate = kotlin.d.b(CharDirectionality$Companion$directionalityMap$2.INSTANCE);
 
     CharDirectionality(int i) {
         this.value = i;
@@ -36,9 +36,9 @@ public enum CharDirectionality {
         return this.value;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
-        static final /* synthetic */ kotlin.reflect.j[] kuX = {kotlin.jvm.internal.s.a(new PropertyReference1Impl(kotlin.jvm.internal.s.D(a.class), "directionalityMap", "getDirectionalityMap()Ljava/util/Map;"))};
+        static final /* synthetic */ kotlin.reflect.j[] clD = {kotlin.jvm.internal.s.a(new PropertyReference1Impl(kotlin.jvm.internal.s.M(a.class), "directionalityMap", "getDirectionalityMap()Ljava/util/Map;"))};
 
         private a() {
         }

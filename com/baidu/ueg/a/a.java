@@ -1,7 +1,7 @@
 package com.baidu.ueg.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
-    public static boolean m(CharSequence charSequence) {
+    public static boolean isBlank(CharSequence charSequence) {
         int length;
         if (charSequence == null || (length = charSequence.length()) == 0) {
             return true;

@@ -1,12 +1,11 @@
 package tv.danmaku.ijk.media.player;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.DefaultConfig;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class IjkMediaFormat implements IMediaFormat {
     public static final String CODEC_NAME_H264 = "h264";
     public static final String KEY_IJK_BIT_RATE_UI = "ijk-bit-rate-ui";
@@ -55,7 +54,7 @@ public class IjkMediaFormat implements IMediaFormat {
                     sb.append(" Profile Level ");
                     sb.append((integer / 10) % 10);
                     if (integer % 10 != 0) {
-                        sb.append(DefaultConfig.TOKEN_SEPARATOR);
+                        sb.append(".");
                         sb.append(integer % 10);
                     }
                 }
@@ -138,7 +137,7 @@ public class IjkMediaFormat implements IMediaFormat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Formatter {
         protected abstract String doFormat(IjkMediaFormat ijkMediaFormat);
 

@@ -1,65 +1,50 @@
 package com.baidu.swan.games.view;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-import android.view.View;
-import android.widget.FrameLayout;
-/* loaded from: classes2.dex */
+import android.support.annotation.Nullable;
+import com.baidu.swan.apps.core.d.e;
+import com.baidu.swan.apps.core.d.i;
+import com.baidu.swan.apps.y.f;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes9.dex */
 public class b {
-    private FrameLayout bEf;
-    private boolean bEg;
+    private ArrayList<a> coI = new ArrayList<>();
 
-    public b(@NonNull FrameLayout frameLayout) {
-        this.bEf = frameLayout;
+    /* loaded from: classes9.dex */
+    public interface a {
+        void GW();
+
+        void dI(int i);
     }
 
-    public boolean a(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        if (view == null || bVar == null) {
-            return false;
+    public synchronized void a(a aVar) {
+        if (!this.coI.contains(aVar)) {
+            this.coI.add(aVar);
         }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
-        layoutParams.leftMargin = bVar.getLeft();
-        layoutParams.topMargin = bVar.Mu();
-        this.bEf.addView(view, layoutParams);
-        return true;
     }
 
-    public boolean at(View view) {
-        if (!ay(view)) {
-            return false;
+    public synchronized void hH(int i) {
+        Iterator<a> it = this.coI.iterator();
+        while (it.hasNext()) {
+            it.next().dI(i);
         }
-        this.bEf.removeView(view);
-        return true;
     }
 
-    public boolean b(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        if (!ay(view)) {
-            return false;
+    public synchronized void GW() {
+        Iterator<a> it = this.coI.iterator();
+        while (it.hasNext()) {
+            it.next().GW();
         }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bVar.getWidth(), bVar.getHeight());
-        layoutParams.leftMargin = bVar.getLeft();
-        layoutParams.topMargin = bVar.Mu();
-        this.bEf.updateViewLayout(view, layoutParams);
-        return true;
+        this.coI.clear();
     }
 
-    public boolean isLandScape() {
-        return this.bEg;
-    }
-
-    public void dm(boolean z) {
-        this.bEg = z;
-    }
-
-    public boolean ay(View view) {
-        return view != null && view.getParent() == this.bEf && this.bEf.indexOfChild(view) >= 0;
-    }
-
-    public Context getContext() {
-        return this.bEf.getContext();
-    }
-
-    public FrameLayout Yr() {
-        return this.bEf;
+    @Nullable
+    public static b anH() {
+        i iVar;
+        e DP = f.Uf().DP();
+        if (DP != null && (iVar = (i) DP.p(i.class)) != null) {
+            return iVar.Mb();
+        }
+        return null;
     }
 }

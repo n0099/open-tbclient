@@ -2,13 +2,15 @@ package com.baidu.tieba.model.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.r;
+import com.baidu.tbadk.util.t;
 import tbclient.CommonReq;
 import tbclient.Share.DataReq;
 import tbclient.Share.ShareReqIdl;
 /* loaded from: classes.dex */
 public class ShareReportNetMessage extends NetMessage {
-    private CommonReq common;
+
+    /* renamed from: common  reason: collision with root package name */
+    private CommonReq f984common;
     private long fid;
     private int from;
     private long tid;
@@ -20,12 +22,12 @@ public class ShareReportNetMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.common = getCommon();
+        builder.f1189common = getCommon();
         builder.fid = Long.valueOf(getFid());
         builder.tid = Long.valueOf(getTid());
         builder.from = Integer.valueOf(getFrom());
         if (z) {
-            r.a(builder, true);
+            t.a(builder, true);
         }
         ShareReqIdl.Builder builder2 = new ShareReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -33,11 +35,11 @@ public class ShareReportNetMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.common;
+        return this.f984common;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.common = commonReq;
+        this.f984common = commonReq;
     }
 
     public long getFid() {

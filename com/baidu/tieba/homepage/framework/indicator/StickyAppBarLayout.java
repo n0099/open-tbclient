@@ -8,16 +8,16 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.t.ao;
-@CoordinatorLayout.DefaultBehavior(b.class)
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.switchs.MissionEntranceSwitch;
+@CoordinatorLayout.DefaultBehavior(StickyAppBarLayoutBehavior.class)
+/* loaded from: classes6.dex */
 public class StickyAppBarLayout extends AppBarLayout {
-    private b ghq;
-    private a ghr;
+    private StickyAppBarLayoutBehavior gUK;
+    private a gUL;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void lc(boolean z);
+        void mp(boolean z);
     }
 
     public StickyAppBarLayout(Context context) {
@@ -31,63 +31,63 @@ public class StickyAppBarLayout extends AppBarLayout {
     }
 
     private void init() {
-        if (ao.isOn()) {
-            btT();
+        if (MissionEntranceSwitch.isOn()) {
+            bLh();
         }
     }
 
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        btR();
+        bLf();
     }
 
-    private void btR() {
+    private void bLf() {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
-            if (behavior instanceof b) {
-                this.ghq = (b) behavior;
+            if (behavior instanceof StickyAppBarLayoutBehavior) {
+                this.gUK = (StickyAppBarLayoutBehavior) behavior;
             }
         }
     }
 
-    public boolean btS() {
-        if (this.ghq == null) {
-            btR();
+    public boolean bLg() {
+        if (this.gUK == null) {
+            bLf();
         }
-        if (this.ghq != null) {
-            if (isSticky() && ao.isOn() && this.ghq.btV() != null && this.ghq.btV().getVisibility() == 0) {
-                btT();
+        if (this.gUK != null) {
+            if (isSticky() && MissionEntranceSwitch.isOn() && this.gUK.bLj() != null && this.gUK.bLj().getVisibility() == 0) {
+                bLh();
             }
-            this.ghq.btU();
+            this.gUK.bLi();
             return true;
         }
         return false;
     }
 
     public boolean isSticky() {
-        if (this.ghq == null) {
-            btR();
+        if (this.gUK == null) {
+            bLf();
         }
-        if (this.ghq != null) {
-            return this.ghq.isSticky();
+        if (this.gUK != null) {
+            return this.gUK.isSticky();
         }
         return false;
     }
 
-    private void btT() {
+    private void bLh() {
         an anVar = new an("c13422");
-        anVar.O("obj_type", 1);
-        anVar.O("obj_locate", 1);
-        anVar.O(TiebaInitialize.Params.AB_TAG, TbSingleton.getInstance().getHomePageStyleAbTest());
+        anVar.Z("obj_type", 1);
+        anVar.Z("obj_locate", 1);
+        anVar.Z(TiebaInitialize.Params.AB_TAG, TbSingleton.getInstance().getHomePageStyleAbTest());
         TiebaStatic.log(anVar);
     }
 
     public void setOnHeaderStickyListener(a aVar) {
-        this.ghr = aVar;
+        this.gUL = aVar;
     }
 
     public a getOnHeaderStickyListener() {
-        return this.ghr;
+        return this.gUL;
     }
 }

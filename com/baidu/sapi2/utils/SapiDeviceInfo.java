@@ -2,6 +2,7 @@ package com.baidu.sapi2.utils;
 
 import android.content.Context;
 import android.os.Build;
+import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
@@ -14,7 +15,7 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
-import com.tencent.connect.common.Constants;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,12 +23,12 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SapiDeviceInfo implements com.baidu.sapi2.c {
     private static final int a = 11;
     private static final String c = "android";
     private static final String b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{DeviceId.CUIDInfo.I_FIXED, Config.APP_VERSION_CODE, "L", "h", "z", DeviceId.CUIDInfo.I_FIXED, "K", "T", "T", "Q", "G", "L", "w", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
+    private static final String d = TextUtils.join("", new String[]{DeviceId.CUIDInfo.I_FIXED, Config.APP_VERSION_CODE, "L", "h", "z", DeviceId.CUIDInfo.I_FIXED, "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
 
     static String a() {
         return String.format("%02d", Integer.valueOf(new Random().nextInt(100))) + (System.currentTimeMillis() / 1000) + String.format("%03d", 11) + "0";
@@ -54,11 +55,11 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
         arrayList.add(diExceptIndex.contains(2) ? "" : isAccountManager.getVersionName());
         arrayList.add(diExceptIndex.contains(3) ? "" : c());
         arrayList.add(diExceptIndex.contains(4) ? "" : d());
-        arrayList.add(diExceptIndex.contains(5) ? "" : c);
+        arrayList.add(diExceptIndex.contains(5) ? "" : "android");
         arrayList.add(diExceptIndex.contains(6) ? "" : SapiUtils.getClientId(context));
         arrayList.add(diExceptIndex.contains(7) ? "" : confignation.tpl);
         arrayList.add(diExceptIndex.contains(8) ? "" : String.valueOf(isAccountManager.getShareAccounts().size()));
-        arrayList.add(diExceptIndex.contains(9) ? "" : TextUtils.join(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP, b()));
+        arrayList.add(diExceptIndex.contains(9) ? "" : TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, b()));
         if (diExceptIndex.contains(10) || str == null) {
             str = "";
         }
@@ -81,7 +82,7 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
         if (diExceptIndex.contains(17)) {
             str2 = "";
         } else {
-            str2 = SapiUtils.isEmulator(context) ? "emulator" : c;
+            str2 = SapiUtils.isEmulator(context) ? "emulator" : "android";
         }
         arrayList.add(str2);
         arrayList.add(diExceptIndex.contains(18) ? "" : SapiDeviceUtils.c(context));
@@ -92,7 +93,7 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
         arrayList.add(diExceptIndex.contains(23) ? "" : SapiUtils.getTimeSinceBoot() + "");
         diExceptIndex.contains(24);
         arrayList.add("");
-        arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP, SapiUtils.getPackageList(context)));
+        arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, SapiUtils.getPackageList(context)));
         arrayList.add((diExceptIndex.contains(26) || SapiUtils.getLocalIpAddress() == null) ? "" : SapiUtils.getLocalIpAddress());
         arrayList.add(diExceptIndex.contains(27) ? "" : SapiUtils.a(context));
         diExceptIndex.contains(28);
@@ -173,7 +174,7 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         static Map<String, String> a = new HashMap();
 
@@ -189,7 +190,7 @@ public class SapiDeviceInfo implements com.baidu.sapi2.c {
             arrayList.add("SystemVersion");
             arrayList.add("SystemType");
             arrayList.add("cuid");
-            arrayList.add(TableDefine.PaSubscribeColumns.COLUMN_TPL);
+            arrayList.add("tpl");
             arrayList.add("uid_count");
             arrayList.add("uid_list");
             arrayList.add("usetype");

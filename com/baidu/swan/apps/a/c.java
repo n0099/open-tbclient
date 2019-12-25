@@ -1,4 +1,5 @@
 package com.baidu.swan.apps.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface c {
+    void bF(boolean z);
 }

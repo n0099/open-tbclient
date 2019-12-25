@@ -1,8 +1,10 @@
 package com.baidu.searchbox.process.ipc.agent.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
-/* loaded from: classes.dex */
+import com.baidu.searchbox.process.ipc.util.TranslucentUtils;
+/* loaded from: classes9.dex */
 public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
     private static final boolean DEBUG = false;
     public static final String ENABLE_FALLBACK_FINISH_KEY = "fallback_finish_key";
@@ -15,6 +17,13 @@ public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
     @Override // com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        if (Build.VERSION.SDK_INT == 26) {
+            TranslucentUtils.convertFromTranslucent(this);
+            setRequestedOrientation(this.mDelegation.getScreenOrientation());
+            TranslucentUtils.convertToTranslucent(this);
+        } else {
+            setRequestedOrientation(this.mDelegation.getScreenOrientation());
+        }
         if (!this.mDelegation.mParams.isEmpty()) {
             this.mFallbackFinish = this.mDelegation.mParams.getBoolean(ENABLE_FALLBACK_FINISH_KEY, true);
         }

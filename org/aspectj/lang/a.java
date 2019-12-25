@@ -1,10 +1,10 @@
 package org.aspectj.lang;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface a {
 
     /* renamed from: org.aspectj.lang.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0591a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0719a {
     }
 
     Object getTarget();

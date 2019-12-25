@@ -1,5 +1,5 @@
 package com.baidu.sapi2;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 final class o extends com.baidu.sapi2.share.k {
     @Override // com.baidu.sapi2.share.k
     protected String a(SapiAccount sapiAccount) {

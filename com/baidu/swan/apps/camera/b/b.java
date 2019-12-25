@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.camera.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface b {
-    void CI();
+    void Hv();
 
     void cancel();
 }

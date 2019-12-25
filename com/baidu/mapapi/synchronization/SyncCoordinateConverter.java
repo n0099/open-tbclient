@@ -2,7 +2,6 @@ package com.baidu.mapapi.synchronization;
 
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 /* loaded from: classes5.dex */
 public class SyncCoordinateConverter {
@@ -16,7 +15,7 @@ public class SyncCoordinateConverter {
     }
 
     private static LatLng a(LatLng latLng) {
-        return a(latLng, CoordinateType.GCJ02);
+        return a(latLng, "gcj02");
     }
 
     private static LatLng a(LatLng latLng, String str) {

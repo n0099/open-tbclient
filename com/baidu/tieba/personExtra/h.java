@@ -1,7 +1,6 @@
 package com.baidu.tieba.personExtra;
 
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +14,9 @@ import com.baidu.tieba.R;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.SmartApp;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class h extends RecyclerView.Adapter<a> {
-    private View.OnLongClickListener iph;
+    private View.OnLongClickListener jhy;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
@@ -26,11 +25,11 @@ public class h extends RecyclerView.Adapter<a> {
         this.mContext = context;
     }
 
-    public void aq(List<SmartApp> list) {
+    public void aw(List<SmartApp> list) {
         this.mDataList = list;
     }
 
-    public SmartApp BG(String str) {
+    public SmartApp Gs(String str) {
         if (v.isEmpty(this.mDataList)) {
             return null;
         }
@@ -45,28 +44,28 @@ public class h extends RecyclerView.Adapter<a> {
         return null;
     }
 
-    public void V(View.OnClickListener onClickListener) {
+    public void W(View.OnClickListener onClickListener) {
         this.mOnItemClickListener = onClickListener;
     }
 
-    public void d(View.OnLongClickListener onLongClickListener) {
-        this.iph = onLongClickListener;
+    public void c(View.OnLongClickListener onLongClickListener) {
+        this.jhy = onLongClickListener;
     }
 
-    private SmartApp xw(int i) {
+    private SmartApp zI(int i) {
         return (SmartApp) v.getItem(this.mDataList, i);
     }
 
     public void b(SmartApp smartApp) {
-        SmartApp BG = BG(smartApp.id);
-        if (BG != null && this.mDataList != null) {
-            v.add(this.mDataList, 0, BG);
+        SmartApp Gs = Gs(smartApp.id);
+        if (Gs != null && this.mDataList != null) {
+            v.add(this.mDataList, 0, Gs);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: u */
+    /* renamed from: y */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.smart_app_history_record_item, viewGroup, false));
     }
@@ -75,11 +74,11 @@ public class h extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        SmartApp xw;
-        if (aVar != null && (xw = xw(i)) != null) {
-            aVar.c(xw);
+        SmartApp zI;
+        if (aVar != null && (zI = zI(i)) != null) {
+            aVar.c(zI);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.iph);
+            aVar.setOnLongClickListener(this.jhy);
             aVar.onChangeSkinType();
         }
     }
@@ -89,27 +88,28 @@ public class h extends RecyclerView.Adapter<a> {
         return v.getCount(this.mDataList);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView gXi;
-        private SmartApp ipi;
+        private HeadImageView hLj;
+        private SmartApp jhz;
         private TextView mName;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.gXi = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.gXi.setIsRound(true);
-            this.gXi.setBg(new ColorDrawable(am.getColor(R.color.cp_bg_line_c)));
+            this.hLj = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.hLj.setIsRound(true);
+            this.hLj.setPlaceHolder(1);
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void c(SmartApp smartApp) {
-            this.ipi = smartApp;
+            this.jhz = smartApp;
             this.mRootView.setTag(smartApp);
             if (!aq.isEmpty(smartApp.avatar)) {
-                this.gXi.startLoad(smartApp.avatar, 10, false, false);
+                this.hLj.setPlaceHolder(1);
+                this.hLj.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!aq.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);

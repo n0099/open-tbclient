@@ -8,14 +8,13 @@ import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import org.apache.http.HttpStatus;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class d {
     private static int c = -1;
     private static Boolean e = false;
@@ -55,11 +54,11 @@ public final class d {
         }
     };
     private long t = 0;
-    private final int[] u = {SubsamplingScaleImageView.ORIENTATION_180, 300, 360, HttpStatus.SC_METHOD_FAILURE, 540, 720, CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR};
+    private final int[] u = {180, 300, 360, HttpStatus.SC_METHOD_FAILURE, 540, 720, CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR};
     private int w = 0;
     private int x = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     class a extends Thread {
         a() {
             setName("PushService-PushConnection-readThread");
@@ -110,7 +109,7 @@ public final class d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     class b extends Thread {
         b() {
             setName("PushService-PushConnection-SendThread");

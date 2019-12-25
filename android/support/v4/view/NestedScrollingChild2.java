@@ -1,7 +1,7 @@
 package android.support.v4.view;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface NestedScrollingChild2 extends NestedScrollingChild {
     boolean dispatchNestedPreScroll(int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2, int i3);
 

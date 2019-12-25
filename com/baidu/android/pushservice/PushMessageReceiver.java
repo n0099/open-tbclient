@@ -12,6 +12,7 @@ import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.message.a.k;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -20,15 +21,14 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class PushMessageReceiver extends BroadcastReceiver {
     public static final String TAG = "PushMessageReceiver";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     private static class a extends Handler {
         protected final WeakReference<Context> d;
 
@@ -38,7 +38,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public enum b {
         MSG_PASS(1),
         MSG_ARRIVED(2),
@@ -320,7 +320,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
                         String string2 = jSONObject2.getString("appid");
                         PushSettings.a(context, string2);
-                        String string3 = jSONObject2.getString("channel_id");
+                        String string3 = jSONObject2.getString(SharedPrefConfig.CHANNEL_ID);
                         String optString = jSONObject2.optString("new_channel_id");
                         String string4 = jSONObject2.getString("user_id");
                         long j = 0;
@@ -445,7 +445,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
             } else if (action.equals("com.huawei.android.push.intent.REGISTRATION")) {
                 if (com.baidu.android.pushservice.b.d.f(context)) {
                     try {
-                        String str4 = new String(intent.getByteArrayExtra("device_token"), HTTP.UTF_8);
+                        String str4 = new String(intent.getByteArrayExtra("device_token"), "UTF-8");
                         if (TextUtils.isEmpty(str4)) {
                             return;
                         }
@@ -456,7 +456,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
             } else if (action.equals("com.huawei.intent.action.PUSH")) {
                 if (com.baidu.android.pushservice.b.d.f(context)) {
                     try {
-                        String str5 = new String(intent.getByteArrayExtra("selfshow_info"), HTTP.UTF_8);
+                        String str5 = new String(intent.getByteArrayExtra("selfshow_info"), "UTF-8");
                         if (TextUtils.isEmpty(str5) || (a3 = (a2 = com.baidu.android.pushservice.message.a.i.a(context, str5)).a(context)) == null || !l.y(context) || l.y(context, a2.l)) {
                             return;
                         }

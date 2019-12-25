@@ -15,15 +15,15 @@ import android.webkit.WebView;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.aj;
 import com.baidu.mobstat.ak;
+import com.baidu.webkit.internal.ETAG;
 import com.coloros.mcssdk.mode.CommandMessage;
 import com.coremedia.iso.boxes.MetaBox;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class am {
     private static final am B = new am();
     private Context a;
@@ -96,7 +96,7 @@ public class am {
         this.f = new a(this.g.getLooper());
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     class c extends Handler {
         public c(Looper looper) {
             super(looper);
@@ -118,7 +118,7 @@ public class am {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b implements aj.a {
         private b() {
         }
@@ -148,7 +148,7 @@ public class am {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -468,12 +468,12 @@ public class am {
         StringBuilder sb = new StringBuilder();
         for (Pair pair : arrayList) {
             try {
-                String encode = URLEncoder.encode(((String) pair.first).toString(), HTTP.UTF_8);
-                String encode2 = URLEncoder.encode(((String) pair.second).toString(), HTTP.UTF_8);
+                String encode = URLEncoder.encode(((String) pair.first).toString(), "UTF-8");
+                String encode2 = URLEncoder.encode(((String) pair.second).toString(), "UTF-8");
                 if (TextUtils.isEmpty(sb.toString())) {
-                    sb.append(encode + "=" + encode2);
+                    sb.append(encode + ETAG.EQUAL + encode2);
                 } else {
-                    sb.append("&" + encode + "=" + encode2);
+                    sb.append(ETAG.ITEM_SEPARATOR + encode + ETAG.EQUAL + encode2);
                 }
             } catch (Exception e) {
             }

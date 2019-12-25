@@ -1,6 +1,5 @@
 package com.baidu.pano.platform.a.a;
 
-import android.net.http.Headers;
 import android.os.SystemClock;
 import com.baidu.pano.platform.a.b;
 import com.baidu.pano.platform.a.s;
@@ -8,6 +7,7 @@ import com.baidu.pano.platform.a.t;
 import com.baidu.pano.platform.a.u;
 import com.baidu.pano.platform.a.v;
 import com.baidu.pano.platform.a.w;
+import com.baidubce.http.Headers;
 import com.coremedia.iso.boxes.AuthorBox;
 import java.io.IOException;
 import java.io.InputStream;
@@ -67,7 +67,7 @@ public class a implements com.baidu.pano.platform.a.i {
                             return new com.baidu.pano.platform.a.l(304, f.a, f.g, true, SystemClock.elapsedRealtime() - elapsedRealtime);
                         }
                         if (statusCode == 301 || statusCode == 302) {
-                            nVar.c(emptyMap.get("Location"));
+                            nVar.c(emptyMap.get(Headers.LOCATION));
                         }
                         if (a2.getEntity() != null) {
                             bArr2 = a(a2.getEntity());
@@ -121,7 +121,7 @@ public class a implements com.baidu.pano.platform.a.i {
             } catch (SocketTimeoutException e6) {
                 a("socket", nVar, new u());
             } catch (ConnectTimeoutException e7) {
-                a(Headers.CONN_DIRECTIVE, nVar, new u());
+                a(android.net.http.Headers.CONN_DIRECTIVE, nVar, new u());
             }
         }
     }

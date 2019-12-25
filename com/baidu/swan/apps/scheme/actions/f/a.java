@@ -1,81 +1,94 @@
 package com.baidu.swan.apps.scheme.actions.f;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import com.baidu.live.adp.widget.HorizontalTranslateLayout;
-import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ae.b;
-import com.baidu.swan.apps.core.d.e;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.api.module.f.a;
+import com.baidu.swan.apps.api.module.f.b;
+import com.baidu.swan.apps.console.c;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.apps.view.SwanAppActionBar;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class a extends z {
+import com.baidu.swan.apps.setting.oauth.a.b;
+import com.baidu.swan.apps.setting.oauth.h;
+/* loaded from: classes9.dex */
+public final class a extends ab implements b.a {
+    private CallbackHandler buK;
+
     public a(j jVar) {
-        super(jVar, "/swan/getMenuButtonBoundingClientRect");
+        super(jVar, "/swanAPI/getLocation");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final e eVar) {
         if (DEBUG) {
-            Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
+            Log.d("GetLocationAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        e AI = com.baidu.swan.apps.w.e.LE().AI();
-        if (AI == null) {
+        this.buK = callbackHandler;
+        if (eVar == null) {
+            c.e("location", "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.b Fr = AI.Fr();
-        if (Fr == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        final a.C0206a fk = a.C0206a.fk(unitedSchemeEntity.getParam("params"));
+        if (fk == null || !fk.isValid()) {
+            c.e("location", "params is invalid");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        }
-        SwanAppActionBar EB = Fr.EB();
-        if (EB == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        } else if (TextUtils.isEmpty(fk.aZs)) {
+            c.e("location", "empty cb");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
+        } else {
+            eVar.aac().b(context, "mapp_location", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.f.a.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.swan.apps.as.d.b
+                /* renamed from: a */
+                public void B(h<b.d> hVar) {
+                    a.this.a(hVar, callbackHandler, fk, eVar.GS());
+                }
+            });
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
-        View rightMenu = EB.getRightMenu();
-        if (rightMenu == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        }
-        unitedSchemeEntity.result = ap(rightMenu);
-        return true;
     }
 
-    private JSONObject ap(View view) {
-        JSONObject wrapCallbackParams;
-        float V = com.baidu.swan.apps.an.z.V(view.getLeft());
-        float V2 = com.baidu.swan.apps.an.z.V(view.getRight());
-        float V3 = com.baidu.swan.apps.an.z.V(view.getTop());
-        float V4 = com.baidu.swan.apps.an.z.V(view.getBottom());
-        float f = V2 - V;
-        float f2 = V4 - V3;
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("width", f);
-            jSONObject.put("height", f2);
-            jSONObject.put("left", V);
-            jSONObject.put(HorizontalTranslateLayout.RIGHT, V2);
-            jSONObject.put(VerticalTranslateLayout.TOP, V3);
-            jSONObject.put(VerticalTranslateLayout.BOTTOM, V4);
-            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-        } catch (JSONException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(h<b.d> hVar, CallbackHandler callbackHandler, a.C0206a c0206a, boolean z) {
+        c.i("GetLocationAction", "authorized result is " + hVar);
+        if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
+            com.baidu.swan.apps.api.module.f.b.He().a(c0206a, this, z);
+            return;
         }
+        int errorCode = hVar.getErrorCode();
+        callbackHandler.handleSchemeDispatchCallback(c0206a.aZs, UnitedSchemeUtility.wrapCallbackParams(errorCode, com.baidu.swan.apps.setting.oauth.c.fW(errorCode)).toString());
+    }
+
+    @Override // com.baidu.swan.apps.api.module.f.b.a
+    public void a(a.C0206a c0206a, b bVar) {
         if (DEBUG) {
-            Log.e("GetMenuButtonBounding", wrapCallbackParams.toString());
+            Log.d("GetLocationAction", "convert info : " + bVar.toJSON());
         }
-        return wrapCallbackParams;
+        if (this.buK != null) {
+            this.buK.handleSchemeDispatchCallback(c0206a.aZs, UnitedSchemeUtility.wrapCallbackParams(bVar.toJSON(), 0).toString());
+        }
+    }
+
+    @Override // com.baidu.swan.apps.api.module.f.b.a
+    public void a(a.C0206a c0206a, int i) {
+        if (this.buK != null) {
+            c.e("GetLocationAction", "request location error code : " + i);
+            this.buK.handleSchemeDispatchCallback(c0206a.aZs, UnitedSchemeUtility.wrapCallbackParams(i).toString());
+        }
+    }
+
+    @Override // com.baidu.swan.apps.api.module.f.b.a
+    public void a(a.C0206a c0206a, String str) {
+        if (this.buK != null) {
+            this.buK.handleSchemeDispatchCallback(c0206a.aZs, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
+        }
     }
 }

@@ -2,15 +2,16 @@ package com.baidu.tieba.livesdk.c;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.realAuthen.AuthenCallback;
 import com.baidu.live.tbadk.realAuthen.RealAuthen;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.wallet.ICertification;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a implements RealAuthen {
     @Override // com.baidu.live.tbadk.realAuthen.RealAuthen
-    public void doAuthen(Map<String, Object> map, final RealAuthen.AuthenCallback authenCallback) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921423, ICertification.class);
+    public void doAuthen(Map<String, Object> map, final AuthenCallback authenCallback) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921433, ICertification.class);
         if (runTask != null && runTask.getData() != null) {
             ((ICertification) runTask.getData()).certification(TbadkCoreApplication.getInst(), map, new ICertification.CertificationCallback() { // from class: com.baidu.tieba.livesdk.c.a.1
                 @Override // com.baidu.tieba.wallet.ICertification.CertificationCallback

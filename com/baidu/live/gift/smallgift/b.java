@@ -5,33 +5,32 @@ import android.os.Message;
 import android.view.View;
 import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.gift.a.d;
 import com.baidu.live.gift.smallgift.AlaSmallGiftView;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private AlaSmallGiftView aed;
-    private d aee;
-    private a aef;
-    private int aeg;
-    private AlaSmallGiftView.a abH = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.smallgift.b.1
+    private AlaSmallGiftView amc;
+    private com.baidu.live.gift.a.b amd;
+    private a ame;
+    private int amf;
+    private AlaSmallGiftView.a ajG = new AlaSmallGiftView.a() { // from class: com.baidu.live.gift.smallgift.b.1
         @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-        public void qU() {
+        public void sD() {
             b.this.mHandler.sendEmptyMessage(2);
         }
 
         @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-        public void K(View view) {
+        public void L(View view) {
             view.setVisibility(4);
             view.clearAnimation();
-            b.this.aee = null;
-            if (b.this.aef != null) {
-                b.this.aef.rJ();
+            b.this.amd = null;
+            if (b.this.ame != null) {
+                b.this.ame.ty();
             }
         }
 
         @Override // com.baidu.live.gift.smallgift.AlaSmallGiftView.a
-        public void qV() {
+        public void sE() {
             b.this.mHandler.sendEmptyMessageDelayed(2, 240L);
         }
     };
@@ -40,25 +39,25 @@ public class b {
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    b.this.rP();
+                    b.this.tF();
                     return false;
                 case 2:
-                    b.this.sa();
+                    b.this.tP();
                     return false;
                 case 3:
-                    b.this.rQ();
+                    b.this.tG();
                     return false;
                 default:
                     return false;
             }
         }
     });
-    private Runnable aeh = new Runnable() { // from class: com.baidu.live.gift.smallgift.b.3
+    private Runnable amg = new Runnable() { // from class: com.baidu.live.gift.smallgift.b.3
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.aee != null) {
-                if (System.currentTimeMillis() - b.this.aee.qE() < b.this.aeg || b.this.aee.aaF < b.this.aee.aaE) {
-                    b.this.mHandler.postDelayed(b.this.aeh, 1000L);
+            if (b.this.amd != null) {
+                if (System.currentTimeMillis() - b.this.amd.sn() < b.this.amf || b.this.amd.aiI < b.this.amd.aiH) {
+                    b.this.mHandler.postDelayed(b.this.amg, 1000L);
                     return;
                 }
                 b.this.mHandler.removeMessages(2);
@@ -68,159 +67,160 @@ public class b {
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void p(d dVar);
+        void p(com.baidu.live.gift.a.b bVar);
 
-        void rJ();
+        void ty();
     }
 
     public b(AlaSmallGiftView alaSmallGiftView) {
-        this.aed = alaSmallGiftView;
-        this.aed.setSmallAnimCallBack(this.abH);
+        this.amc = alaSmallGiftView;
+        this.amc.setSmallAnimCallBack(this.ajG);
     }
 
     public boolean isReady() {
-        return this.aee == null;
+        return this.amd == null;
     }
 
-    public boolean rX() {
-        if (this.aee == null || StringUtils.isNull(this.aee.userId)) {
+    public boolean tM() {
+        if (this.amd == null || StringUtils.isNull(this.amd.userId)) {
             return false;
         }
-        return this.aee.userId.equals(TbadkCoreApplication.getCurrentAccount());
+        return this.amd.userId.equals(TbadkCoreApplication.getCurrentAccount());
     }
 
-    public boolean q(d dVar) {
-        return (dVar == null || this.aee == null || dVar.priority <= this.aee.priority) ? false : true;
+    public boolean q(com.baidu.live.gift.a.b bVar) {
+        return (bVar == null || this.amd == null || bVar.priority <= this.amd.priority) ? false : true;
     }
 
-    public boolean r(d dVar) {
-        if (this.aed == null || this.aed.getVisibility() == 0 || this.aee != null || dVar == null || StringUtils.isNull(dVar.userId) || StringUtils.isNull(dVar.giftId)) {
+    public boolean r(com.baidu.live.gift.a.b bVar) {
+        if (this.amc == null || this.amc.getVisibility() == 0 || this.amd != null || bVar == null || StringUtils.isNull(bVar.userId) || StringUtils.isNull(bVar.giftId)) {
             return false;
         }
-        this.aee = dVar;
-        rY();
+        this.amd = bVar;
+        tN();
         this.mHandler.sendEmptyMessage(1);
-        this.mHandler.postDelayed(this.aeh, 1000L);
+        this.mHandler.postDelayed(this.amg, 1000L);
         return true;
     }
 
-    public void s(d dVar) {
-        rZ();
-        if (this.aef != null) {
-            this.aef.p(this.aee);
-            this.aee = null;
+    public void s(com.baidu.live.gift.a.b bVar) {
+        tO();
+        if (this.ame != null) {
+            this.ame.p(this.amd);
+            this.amd = null;
         }
-        this.aee = dVar;
-        rY();
-        this.aed.setVisibility(0);
-        this.aed.setTag(this.aee.qG());
-        this.aed.setData(this.aee);
-        this.mHandler.postDelayed(this.aeh, 1000L);
+        this.amd = bVar;
+        tN();
+        this.amc.setVisibility(0);
+        this.amc.setTag(this.amd.sp());
+        this.amc.setData(this.amd, false);
+        this.mHandler.postDelayed(this.amg, 1000L);
         this.mHandler.sendEmptyMessage(2);
     }
 
-    private void rY() {
-        this.aeg = this.aee.aaE > 10 ? SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME : 3000;
+    private void tN() {
+        this.amf = this.amd.aiH > 10 ? SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME : 3000;
     }
 
-    public void pw() {
-        if (this.aee != null) {
-            rZ();
-            this.aed.setVisibility(4);
-            if (this.aef != null) {
-                this.aef.p(this.aee);
-                this.aee = null;
+    public void qT() {
+        if (this.amd != null) {
+            tO();
+            this.amc.setVisibility(4);
+            if (this.ame != null) {
+                this.ame.p(this.amd);
+                this.amd = null;
             }
         }
     }
 
-    public void px() {
-        if (this.aef != null) {
-            this.aef.rJ();
+    public void qU() {
+        if (this.ame != null) {
+            this.ame.ty();
         }
     }
 
     public void onDestroy() {
-        rZ();
-        if (this.aed != null) {
-            this.aed.onDestroy();
+        tO();
+        if (this.amc != null) {
+            this.amc.onDestroy();
         }
     }
 
-    private void rZ() {
-        this.mHandler.removeCallbacks(this.aeh);
+    private void tO() {
+        this.mHandler.removeCallbacks(this.amg);
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
         this.mHandler.removeMessages(3);
     }
 
-    public boolean t(d dVar) {
-        if (this.aee == null || StringUtils.isNull(this.aee.userId) || StringUtils.isNull(this.aee.giftId) || !b(this.aee, dVar)) {
+    public boolean t(com.baidu.live.gift.a.b bVar) {
+        if (this.amd == null || StringUtils.isNull(this.amd.userId) || StringUtils.isNull(this.amd.giftId) || !b(this.amd, bVar)) {
             return false;
         }
-        c(this.aee, dVar);
+        c(this.amd, bVar);
         return true;
     }
 
-    private boolean b(d dVar, d dVar2) {
-        return dVar != null && !StringUtils.isNull(dVar.aaA) && dVar.aaA.equals(dVar2.aaA) && Math.abs(dVar2.qE() - dVar.qE()) <= 3000 && dVar2.aaE <= 10;
+    private boolean b(com.baidu.live.gift.a.b bVar, com.baidu.live.gift.a.b bVar2) {
+        return bVar != null && !StringUtils.isNull(bVar.aiD) && bVar.aiD.equals(bVar2.aiD) && Math.abs(bVar2.sn() - bVar.sn()) <= 3000 && bVar2.aiH <= 10;
     }
 
-    private void c(d dVar, d dVar2) {
-        dVar.aaE += dVar2.aaE;
-        dVar.y(dVar2.qE());
+    private void c(com.baidu.live.gift.a.b bVar, com.baidu.live.gift.a.b bVar2) {
+        bVar.aiH += bVar2.aiH;
+        bVar.A(bVar2.sn());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rP() {
-        if (this.aee != null) {
-            this.aed.setVisibility(0);
-            this.aed.setTag(this.aee.qG());
-            this.aed.setData(this.aee);
-            this.aed.rP();
+    public void tF() {
+        if (this.amd != null) {
+            this.amc.setVisibility(0);
+            this.amc.setTag(this.amd.sp());
+            this.amc.setData(this.amd, false);
+            this.amc.tF();
+            tP();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rQ() {
-        this.aed.rQ();
+    public void tG() {
+        this.amc.tG();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sa() {
+    public void tP() {
         long j;
-        if (this.aed.getVisibility() == 0) {
-            this.aed.clearAnimation();
-            if (this.aee != null) {
-                if (this.aee.aaF >= this.aee.aaE) {
+        if (this.amc.getVisibility() == 0) {
+            this.amc.clearAnimation();
+            if (this.amd != null) {
+                if (this.amd.aiI >= this.amd.aiH) {
                     this.mHandler.sendEmptyMessageDelayed(2, 240L);
                     return;
                 }
-                this.aee.y(System.currentTimeMillis());
-                boolean z = this.aee.aaE > 10;
-                d dVar = this.aee;
+                this.amd.A(System.currentTimeMillis());
+                boolean z = this.amd.aiH > 10;
+                com.baidu.live.gift.a.b bVar = this.amd;
                 if (z) {
-                    j = this.aee.aaE;
+                    j = this.amd.aiH;
                 } else {
-                    d dVar2 = this.aee;
-                    j = dVar2.aaF + 1;
-                    dVar2.aaF = j;
+                    com.baidu.live.gift.a.b bVar2 = this.amd;
+                    j = bVar2.aiI + 1;
+                    bVar2.aiI = j;
                 }
-                dVar.aaF = j;
-                this.aed.e(this.aee.aaE, this.aee.aaF);
+                bVar.aiI = j;
+                this.amc.e(this.amd.aiH, this.amd.aiI);
             }
         }
     }
 
-    public void qa() {
-        if (this.aee != null && this.aee.aaE == this.aee.aaF) {
-            this.mHandler.postDelayed(this.aeh, 1000L);
+    public void rC() {
+        if (this.amd != null && this.amd.aiH == this.amd.aiI) {
+            this.mHandler.postDelayed(this.amg, 1000L);
         }
     }
 
     public void a(a aVar) {
-        this.aef = aVar;
+        this.ame = aVar;
     }
 }

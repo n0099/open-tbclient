@@ -1,13 +1,13 @@
 package com.baidu.live.tbadk.img;
 
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.LocalViewSize;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.img.ImageUploader;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AsyncImageUploadModel<T> {
     private final ImageUploader imageUploader;
     private String mPath;
@@ -16,12 +16,12 @@ public class AsyncImageUploadModel<T> {
     private UploadPicCallback mUploadPicCallback = null;
     private AsyncImageUploadModel<T>.SendPicAyncTask mSendPicAyncTask = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface ImageUploadUIProgressCallback<T> {
         void onImageProgessInUI(int i, T t);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface UploadPicCallback {
         void callBack(String str, ImageUploadResult imageUploadResult);
     }
@@ -44,7 +44,7 @@ public class AsyncImageUploadModel<T> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private class SendPicAyncTask extends BdAsyncTask<String, Integer, ImageUploadResult> implements ImageUploader.ImageUploadProgressCallback {
         private boolean isNeedAddWater;
 

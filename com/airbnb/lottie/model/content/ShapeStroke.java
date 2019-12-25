@@ -2,28 +2,24 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
-import com.airbnb.lottie.a.a.p;
-import com.airbnb.lottie.model.a.a;
-import com.airbnb.lottie.model.a.b;
-import com.airbnb.lottie.model.a.d;
-import com.baidu.mobstat.Config;
-import java.util.ArrayList;
+import com.airbnb.lottie.a.a.q;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ShapeStroke implements b {
-    private final com.airbnb.lottie.model.a.b gC;
-    private final LineCapType gD;
-    private final LineJoinType gE;
-    private final List<com.airbnb.lottie.model.a.b> gF;
+    private final com.airbnb.lottie.model.a.a hG;
+    private final com.airbnb.lottie.model.a.d hO;
     @Nullable
-    private final com.airbnb.lottie.model.a.b gR;
-    private final com.airbnb.lottie.model.a.a ge;
-    private final com.airbnb.lottie.model.a.d gm;
+    private final com.airbnb.lottie.model.a.b iD;
+    private final com.airbnb.lottie.model.a.b ie;
+
+    /* renamed from: if  reason: not valid java name */
+    private final LineCapType f1if;
+    private final LineJoinType ig;
+    private final float ii;
+    private final List<com.airbnb.lottie.model.a.b> ij;
     private final String name;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public enum LineCapType {
         Butt,
         Round,
@@ -41,7 +37,7 @@ public class ShapeStroke implements b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public enum LineJoinType {
         Miter,
         Round,
@@ -61,85 +57,56 @@ public class ShapeStroke implements b {
         }
     }
 
-    private ShapeStroke(String str, @Nullable com.airbnb.lottie.model.a.b bVar, List<com.airbnb.lottie.model.a.b> list, com.airbnb.lottie.model.a.a aVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType) {
+    public ShapeStroke(String str, @Nullable com.airbnb.lottie.model.a.b bVar, List<com.airbnb.lottie.model.a.b> list, com.airbnb.lottie.model.a.a aVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f) {
         this.name = str;
-        this.gR = bVar;
-        this.gF = list;
-        this.ge = aVar;
-        this.gm = dVar;
-        this.gC = bVar2;
-        this.gD = lineCapType;
-        this.gE = lineJoinType;
+        this.iD = bVar;
+        this.ij = list;
+        this.hG = aVar;
+        this.hO = dVar;
+        this.ie = bVar2;
+        this.f1if = lineCapType;
+        this.ig = lineJoinType;
+        this.ii = f;
     }
 
     @Override // com.airbnb.lottie.model.content.b
-    public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar) {
-        return new p(fVar, aVar, this);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static class a {
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static ShapeStroke A(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            String optString = jSONObject.optString("nm");
-            ArrayList arrayList = new ArrayList();
-            com.airbnb.lottie.model.a.a d = a.C0008a.d(jSONObject.optJSONObject("c"), eVar);
-            com.airbnb.lottie.model.a.b e = b.a.e(jSONObject.optJSONObject("w"), eVar);
-            com.airbnb.lottie.model.a.d g = d.a.g(jSONObject.optJSONObject(Config.OS), eVar);
-            LineCapType lineCapType = LineCapType.values()[jSONObject.optInt("lc") - 1];
-            LineJoinType lineJoinType = LineJoinType.values()[jSONObject.optInt("lj") - 1];
-            com.airbnb.lottie.model.a.b bVar = null;
-            if (jSONObject.has("d")) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("d");
-                com.airbnb.lottie.model.a.b bVar2 = null;
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    String optString2 = optJSONObject.optString("n");
-                    if (optString2.equals(Config.OS)) {
-                        bVar2 = b.a.e(optJSONObject.optJSONObject("v"), eVar);
-                    } else if (optString2.equals("d") || optString2.equals("g")) {
-                        arrayList.add(b.a.e(optJSONObject.optJSONObject("v"), eVar));
-                    }
-                }
-                if (arrayList.size() == 1) {
-                    arrayList.add(arrayList.get(0));
-                }
-                bVar = bVar2;
-            }
-            return new ShapeStroke(optString, bVar, arrayList, d, g, e, lineCapType, lineJoinType);
-        }
+    public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar) {
+        return new q(gVar, aVar, this);
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.airbnb.lottie.model.a.a cV() {
-        return this.ge;
+    public com.airbnb.lottie.model.a.a cY() {
+        return this.hG;
     }
 
-    public com.airbnb.lottie.model.a.d cn() {
-        return this.gm;
+    public com.airbnb.lottie.model.a.d cs() {
+        return this.hO;
     }
 
-    public com.airbnb.lottie.model.a.b cB() {
-        return this.gC;
+    public com.airbnb.lottie.model.a.b cD() {
+        return this.ie;
     }
 
-    public List<com.airbnb.lottie.model.a.b> cE() {
-        return this.gF;
+    public List<com.airbnb.lottie.model.a.b> cG() {
+        return this.ij;
     }
 
-    public com.airbnb.lottie.model.a.b cF() {
-        return this.gR;
+    public com.airbnb.lottie.model.a.b cH() {
+        return this.iD;
     }
 
-    public LineCapType cC() {
-        return this.gD;
+    public LineCapType cE() {
+        return this.f1if;
     }
 
-    public LineJoinType cD() {
-        return this.gE;
+    public LineJoinType cF() {
+        return this.ig;
+    }
+
+    public float cI() {
+        return this.ii;
     }
 }

@@ -3,13 +3,14 @@ package com.facebook.drawee.drawable;
 import android.annotation.SuppressLint;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes2.dex */
+import com.baidubce.http.Headers;
+/* loaded from: classes11.dex */
 public class d {
     private int mAlpha = -1;
-    private boolean kdj = false;
+    private boolean lHL = false;
     private ColorFilter mColorFilter = null;
-    private int kdk = -1;
-    private int kdl = -1;
+    private int lHM = -1;
+    private int lHN = -1;
 
     public void setAlpha(int i) {
         this.mAlpha = i;
@@ -17,31 +18,31 @@ public class d {
 
     public void setColorFilter(ColorFilter colorFilter) {
         this.mColorFilter = colorFilter;
-        this.kdj = true;
+        this.lHL = true;
     }
 
     public void setDither(boolean z) {
-        this.kdk = z ? 1 : 0;
+        this.lHM = z ? 1 : 0;
     }
 
     public void setFilterBitmap(boolean z) {
-        this.kdl = z ? 1 : 0;
+        this.lHN = z ? 1 : 0;
     }
 
-    @SuppressLint({"Range"})
-    public void h(Drawable drawable) {
+    @SuppressLint({Headers.RANGE})
+    public void o(Drawable drawable) {
         if (drawable != null) {
             if (this.mAlpha != -1) {
                 drawable.setAlpha(this.mAlpha);
             }
-            if (this.kdj) {
+            if (this.lHL) {
                 drawable.setColorFilter(this.mColorFilter);
             }
-            if (this.kdk != -1) {
-                drawable.setDither(this.kdk != 0);
+            if (this.lHM != -1) {
+                drawable.setDither(this.lHM != 0);
             }
-            if (this.kdl != -1) {
-                drawable.setFilterBitmap(this.kdl != 0);
+            if (this.lHN != -1) {
+                drawable.setFilterBitmap(this.lHN != 0);
             }
         }
     }

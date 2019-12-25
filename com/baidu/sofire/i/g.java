@@ -10,14 +10,14 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class g {
     private static final String[] a = {"On7h9W1_KIkIa50wk9Fnl1friw1cdOsubmr_O-Hrgss=", "73Ry_SRX9WDHPoeAkGWfJbuntGR7RQ3rde1s6KyyCoo=", "iQirV45vitYDQfzxgr68ylBY1DWLBKje2Pl428sE27Q=", "czwe2zUrt14MfnaeH474T5prOCIik3agOnBud_KwFa0=", "JzLix2JtXzSSsVkQFD0Cnf37028Rco5rGb7_-t_C8Qk=", "lUApGLCwwTIqYrpC4ZaqkVItjc8DeoJ5fB_pxizrjnc=", "6PzPHS4JINi0q8yUj180JTMbpq1Q44DuQggknxVmVPA=", "fCbyLrInjq1BOByP4wH4mUGBidquiIKIy6zcJCBuKtk=", "qEeaB7chq_oSIUyWhq_EwETFQIu3w3myIFyGD80p_u8=", "UNzyljxPfmKANfePasqvdfmpLS4aJ1v0S1Aj2BGl75o="};
     private static String b = "";
@@ -54,7 +54,7 @@ public final class g {
                     }
                     str = eVar.l();
                     if (!TextUtils.isEmpty(str)) {
-                        eVar.b(new String(Base64.encode(a.a("30212102dicudiab".getBytes(), str.getBytes(HTTP.UTF_8)), 10), HTTP.UTF_8));
+                        eVar.b(new String(Base64.encode(a.a("30212102dicudiab".getBytes(), str.getBytes("UTF-8")), 10), "UTF-8"));
                         b = str;
                     } else {
                         String l = l(context);
@@ -63,7 +63,7 @@ public final class g {
                             e = "0";
                         }
                         str = l + "|" + new StringBuffer(e).reverse().toString();
-                        String str2 = new String(Base64.encode(a.a("30212102dicudiab".getBytes(), str.getBytes(HTTP.UTF_8)), 10), HTTP.UTF_8);
+                        String str2 = new String(Base64.encode(a.a("30212102dicudiab".getBytes(), str.getBytes("UTF-8")), 10), "UTF-8");
                         String l2 = eVar.l();
                         if (TextUtils.isEmpty(l2)) {
                             eVar.a(str);
@@ -245,7 +245,7 @@ public final class g {
                 sb.append("\r\n");
             }
             bufferedReader.close();
-            Object[] split = new String(a.a("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes(), 0))).split("=");
+            Object[] split = new String(a.a("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes(), 0))).split(ETAG.EQUAL);
             if (split == null || split.length != 2 || !str.equals(split[0])) {
                 return "";
             }

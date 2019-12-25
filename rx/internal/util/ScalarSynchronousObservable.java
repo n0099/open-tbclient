@@ -6,16 +6,16 @@ import rx.g;
 import rx.internal.producers.SingleProducer;
 import rx.j;
 import rx.k;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class ScalarSynchronousObservable<T> extends rx.d<T> {
-    static final boolean kDy = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
+    static final boolean niE = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
     final T t;
 
-    static <T> rx.f b(j<? super T> jVar, T t) {
-        return kDy ? new SingleProducer(jVar, t) : new c(jVar, t);
+    static <T> rx.f a(j<? super T> jVar, T t) {
+        return niE ? new SingleProducer(jVar, t) : new c(jVar, t);
     }
 
-    public static <T> ScalarSynchronousObservable<T> bw(T t) {
+    public static <T> ScalarSynchronousObservable<T> ca(T t) {
         return new ScalarSynchronousObservable<>(t);
     }
 
@@ -28,7 +28,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
         return this.t;
     }
 
-    public rx.d<T> e(final rx.g gVar) {
+    public rx.d<T> g(final rx.g gVar) {
         rx.functions.f<rx.functions.a, k> fVar;
         if (gVar instanceof rx.internal.schedulers.b) {
             final rx.internal.schedulers.b bVar = (rx.internal.schedulers.b) gVar;
@@ -64,7 +64,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
         return a((d.a) new b(this.t, fVar));
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static final class a<T> implements d.a<T> {
         final T value;
 
@@ -78,12 +78,12 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
         }
 
         public void call(j<? super T> jVar) {
-            jVar.setProducer(ScalarSynchronousObservable.b(jVar, this.value));
+            jVar.setProducer(ScalarSynchronousObservable.a(jVar, this.value));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class b<T> implements d.a<T> {
         final rx.functions.f<rx.functions.a, k> onSchedule;
         final T value;
@@ -104,7 +104,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements rx.f, rx.functions.a {
         private static final long serialVersionUID = -2466317989629281651L;
         final j<? super T> actual;
@@ -156,7 +156,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
             public void call(j<? super R> jVar) {
                 rx.d dVar = (rx.d) fVar.call(ScalarSynchronousObservable.this.t);
                 if (dVar instanceof ScalarSynchronousObservable) {
-                    jVar.setProducer(ScalarSynchronousObservable.b(jVar, ((ScalarSynchronousObservable) dVar).t));
+                    jVar.setProducer(ScalarSynchronousObservable.a(jVar, ((ScalarSynchronousObservable) dVar).t));
                 } else {
                     dVar.a((j) rx.b.f.d(jVar));
                 }
@@ -165,7 +165,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class c<T> implements rx.f {
         final j<? super T> actual;
         boolean once;

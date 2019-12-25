@@ -5,60 +5,54 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import android.widget.AbsoluteLayout;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.an.z;
+import com.baidu.swan.apps.as.af;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class e extends a {
-    @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ AbsoluteLayout a(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        return super.a(unitedSchemeEntity, str);
-    }
-
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
         super.a(unitedSchemeEntity, callbackHandler, z);
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject cM(int i) {
-        return super.cM(i);
+    public /* bridge */ /* synthetic */ JSONObject dK(int i) {
+        return super.dK(i);
     }
 
     public e(j jVar) {
-        super(jVar, "/swan/canvas/measureTextSync");
+        super(jVar, "/swanAPI/canvas/measureTextSync");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         int i;
         int i2;
         Rect rect;
-        unitedSchemeEntity.result = cM(201);
-        com.baidu.swan.apps.canvas.c.d c = c(unitedSchemeEntity);
-        if (c == null) {
+        unitedSchemeEntity.result = dK(201);
+        com.baidu.swan.apps.canvas.b.d d = d(unitedSchemeEntity);
+        if (d == null) {
             return false;
         }
-        if (c.mText == null || c.mText.length() <= 0) {
+        if (d.mText == null || d.mText.length() <= 0) {
             i = 0;
         } else {
-            if (c.aGe && c.mItalic) {
+            if (d.bbN && d.mItalic) {
                 i2 = 3;
-            } else if (c.aGe) {
+            } else if (d.bbN) {
                 i2 = 1;
             } else {
-                i2 = c.mItalic ? 2 : 0;
+                i2 = d.mItalic ? 2 : 0;
             }
             TextPaint textPaint = new TextPaint();
-            textPaint.setTypeface(Typeface.create(c.aGc, i2));
-            textPaint.setTextSize(c.aGd);
-            textPaint.getTextBounds(c.mText, 0, c.mText.length(), new Rect());
-            i = z.U(rect.width());
+            textPaint.setTypeface(Typeface.create(d.bbL, i2));
+            textPaint.setTextSize(d.bbM);
+            textPaint.getTextBounds(d.mText, 0, d.mText.length(), new Rect());
+            i = af.V(rect.width());
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -72,12 +66,12 @@ public class e extends a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.canvas.a.a
-    /* renamed from: f */
-    public com.baidu.swan.apps.canvas.c.d c(UnitedSchemeEntity unitedSchemeEntity) {
+    /* renamed from: g */
+    public com.baidu.swan.apps.canvas.b.d d(UnitedSchemeEntity unitedSchemeEntity) {
         String str = unitedSchemeEntity.getParams().get("params");
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return new com.baidu.swan.apps.canvas.c.d(str);
+        return new com.baidu.swan.apps.canvas.b.d(str);
     }
 }

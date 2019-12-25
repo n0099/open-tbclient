@@ -22,7 +22,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMFetchMsgByIdMsg extends Message {
     private static final String TAG = "IMFetchMsgByIdMsg";
     private long mBeginId;
@@ -130,7 +130,7 @@ public class IMFetchMsgByIdMsg extends Message {
         TaskManager.getInstance(this.mContext).submitForNetWork(new FetchTask(context, jSONObject, i, str));
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     private class FetchTask extends TaskManager.Task {
         private Context mContext;
         private int mErrorCode;

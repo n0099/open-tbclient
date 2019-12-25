@@ -7,11 +7,13 @@ import android.util.SparseArray;
 import android.view.View;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.coreExtra.c.e;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ShareDialogConfig extends IntentConfig {
     public View.OnClickListener copyLinkListener;
+    public int copyTitleId;
+    public boolean hasSpecialItem;
     public int hideMode;
     public boolean isCopyLink;
     @Deprecated
@@ -28,58 +30,101 @@ public class ShareDialogConfig extends IntentConfig {
     public SparseArray<String> mtjStatistics;
     public DialogInterface.OnCancelListener onCancelListener;
     public DialogInterface.OnDismissListener onDismissListener;
-    public e shareItem;
+    public ShareItem shareItem;
     public boolean showLocation;
+    public ShareItem[] specialShareItems;
     public ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> textViewList;
 
-    public ShareDialogConfig(Context context, e eVar, boolean z) {
+    public ShareDialogConfig(Context context, ShareItem shareItem, boolean z) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
+        this.copyTitleId = 0;
+        this.hasSpecialItem = false;
         this.hideMode = 0;
         this.isLandscape = false;
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
         this.mShowMoreForumShare = false;
-        this.shareItem = eVar;
+        this.shareItem = shareItem;
         this.showLocation = z;
     }
 
-    public ShareDialogConfig(Context context, e eVar, boolean z, SparseArray<String> sparseArray) {
+    public ShareDialogConfig(Context context, ShareItem shareItem, boolean z, SparseArray<String> sparseArray) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
+        this.copyTitleId = 0;
+        this.hasSpecialItem = false;
         this.hideMode = 0;
         this.isLandscape = false;
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
         this.mShowMoreForumShare = false;
-        this.shareItem = eVar;
+        this.shareItem = shareItem;
         this.showLocation = z;
         this.mtjStatistics = sparseArray;
     }
 
-    @Deprecated
-    public ShareDialogConfig(Context context, e eVar, boolean z, boolean z2) {
+    public ShareDialogConfig(Context context, ShareItem shareItem, boolean z, SparseArray<String> sparseArray, boolean z2) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
+        this.copyTitleId = 0;
+        this.hasSpecialItem = false;
         this.hideMode = 0;
         this.isLandscape = false;
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
         this.mShowMoreForumShare = false;
-        this.shareItem = eVar;
+        this.shareItem = shareItem;
+        this.showLocation = z;
+        this.mtjStatistics = sparseArray;
+        this.hasSpecialItem = z2;
+        if (this.hasSpecialItem) {
+            this.specialShareItems = new ShareItem[9];
+        }
+    }
+
+    @Deprecated
+    public ShareDialogConfig(Context context, ShareItem shareItem, boolean z, boolean z2) {
+        super(context);
+        this.showLocation = true;
+        this.isSetCopyLink = false;
+        this.isCopyLink = false;
+        this.copyTitleId = 0;
+        this.hasSpecialItem = false;
+        this.hideMode = 0;
+        this.isLandscape = false;
+        this.isSupportNightMode = true;
+        this.mIsShowTransmitShare = false;
+        this.mShowMoreForumShare = false;
+        this.shareItem = shareItem;
         this.showLocation = z;
         this.isInsertBack = z2;
+    }
+
+    public void setHasSpecialItem(boolean z) {
+        this.hasSpecialItem = z;
+    }
+
+    public void setSpecialShareItems(int i, ShareItem shareItem) {
+        if (this.specialShareItems == null) {
+            this.specialShareItems = new ShareItem[9];
+        }
+        this.specialShareItems[i] = shareItem;
     }
 
     public void setIsCopyLink(boolean z) {
         this.isSetCopyLink = true;
         this.isCopyLink = z;
+    }
+
+    public void setCustomCopyTitle(int i) {
+        this.copyTitleId = i;
     }
 
     public void setIsLandscape(boolean z) {

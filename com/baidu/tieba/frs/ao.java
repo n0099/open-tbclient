@@ -1,39 +1,14 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.data.bh;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-/* loaded from: classes4.dex */
-class ao implements ad {
-    @Override // com.baidu.tieba.frs.ad
-    public h<ICardInfo, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        return new com.baidu.tieba.frs.c.a(tbPageContext, bdUniqueId, bdUniqueId2);
-    }
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
+/* loaded from: classes6.dex */
+public class ao implements com.baidu.tieba.horizonalList.widget.c {
+    public MetaData metaData = new MetaData();
 
-    @Override // com.baidu.tieba.frs.ad
-    public com.baidu.adp.widget.ListView.a<? extends bh, ? extends v.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        if (bdUniqueId == bh.ccy) {
-            return new com.baidu.tieba.frs.entelechy.a.c(tbPageContext, bdUniqueId, bdUniqueId2);
+    public ao() {
+        if (this.metaData.getGodUserData() == null) {
+            this.metaData.setGodUserData(new GodUserData());
         }
-        throw new IllegalArgumentException("Unsupported adapter type.");
-    }
-
-    @Override // com.baidu.tieba.frs.ad
-    public com.baidu.adp.widget.ListView.a<? extends bh, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        if (bdUniqueId == com.baidu.tieba.tbadkCore.u.jgu) {
-            return new com.baidu.tieba.frs.entelechy.a.b(tbPageContext, bdUniqueId, z);
-        }
-        if (bdUniqueId == bh.ccp) {
-            return new com.baidu.tieba.frs.entelechy.a.u(tbPageContext, bdUniqueId, bdUniqueId2, z);
-        }
-        throw new IllegalArgumentException("Unsupported adapter type.");
-    }
-
-    @Override // com.baidu.tieba.frs.ad
-    public com.baidu.adp.widget.ListView.a<? extends bg, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        return new com.baidu.tieba.frs.entelechy.a.t(tbPageContext, bh.ccp, bdUniqueId, z);
     }
 }

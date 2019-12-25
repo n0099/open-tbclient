@@ -14,16 +14,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadForumEnterButton extends RelativeLayout implements View.OnClickListener {
-    private static final int Fi = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds70) * 2);
-    private bh caz;
-    private View.OnClickListener clw;
-    public final int cqk;
-    private TextView cql;
+    private static final int JX = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds70) * 2);
+    private View.OnClickListener Mz;
+    private bj cMR;
+    public final int ddD;
+    private TextView ddE;
     private Context mContext;
     private int mFrom;
     private int mSkinType;
@@ -31,7 +31,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context) {
         super(context);
-        this.cqk = 0;
+        this.ddD = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -39,7 +39,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cqk = 0;
+        this.ddD = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -48,71 +48,71 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     private void init(Context context) {
         this.mContext = context;
         this.mView = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
-        this.cql = (TextView) this.mView.findViewById(R.id.forum_name_text);
-        this.cql.setOnClickListener(this);
+        this.ddE = (TextView) this.mView.findViewById(R.id.forum_name_text);
+        this.ddE.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!StringUtils.isNull(this.caz.aiJ())) {
-            view.setTag(this.caz);
+        if (!StringUtils.isNull(this.cMR.azJ())) {
+            view.setTag(this.cMR);
             if (this.mFrom == 0) {
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.caz.aiJ(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.cMR.azJ(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
             } else if (this.mFrom == 1) {
             }
-            if (this.clw != null) {
-                this.clw.onClick(view);
+            if (this.Mz != null) {
+                this.Mz.onClick(view);
             }
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.clw = onClickListener;
+        this.Mz = onClickListener;
     }
 
     public void onChangeSkinType() {
-        if (this.caz != null) {
+        if (this.cMR != null) {
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
             }
-            int Vj = com.baidu.tbadk.util.e.Vj();
-            am.setBackgroundColor(this.cql, Vj);
+            int aPk = com.baidu.tbadk.util.f.aPk();
+            am.setBackgroundColor(this.ddE, aPk);
             if (this.mSkinType == 0) {
-                am.setViewTextColor(this.cql, (int) R.color.cp_cont_b);
+                am.setViewTextColor(this.ddE, (int) R.color.cp_cont_b);
             } else {
-                this.cql.setTextColor(com.baidu.tbadk.util.e.km(Vj));
+                this.ddE.setTextColor(com.baidu.tbadk.util.f.mB(aPk));
             }
         }
     }
 
-    public void y(bh bhVar) {
-        if (bhVar != null) {
-            String aiJ = bhVar.aiJ();
-            if (StringUtils.isNull(aiJ)) {
+    public void q(bj bjVar) {
+        if (bjVar != null) {
+            String azJ = bjVar.azJ();
+            if (StringUtils.isNull(azJ)) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.caz = bhVar;
-            this.cql.setText(((Object) TextUtils.ellipsize(aiJ, this.cql.getPaint(), Fi - this.cql.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
+            this.cMR = bjVar;
+            this.ddE.setText(((Object) TextUtils.ellipsize(azJ, this.ddE.getPaint(), JX - this.ddE.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
             onChangeSkinType();
             return;
         }
         setVisibility(8);
     }
 
-    public void a(bh bhVar, int i) {
-        if (this.cql != null && bhVar != null && i > 0) {
-            this.caz = bhVar;
-            float paddingLeft = (i - (this.cql.getPaddingLeft() * 2)) - this.cql.getPaint().measureText(getResources().getString(R.string.forum));
-            String aiJ = bhVar.aiJ();
-            if (StringUtils.isNull(aiJ)) {
+    public void a(bj bjVar, int i) {
+        if (this.ddE != null && bjVar != null && i > 0) {
+            this.cMR = bjVar;
+            float paddingLeft = (i - (this.ddE.getPaddingLeft() * 2)) - this.ddE.getPaint().measureText(getResources().getString(R.string.forum));
+            String azJ = bjVar.azJ();
+            if (StringUtils.isNull(azJ)) {
                 setVisibility(8);
                 return;
             }
-            this.cql.setText(((Object) TextUtils.ellipsize(aiJ, this.cql.getPaint(), paddingLeft, TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
+            this.ddE.setText(((Object) TextUtils.ellipsize(azJ, this.ddE.getPaint(), paddingLeft, TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
             setVisibility(0);
             onChangeSkinType();
             return;

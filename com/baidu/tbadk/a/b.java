@@ -3,6 +3,7 @@ package com.baidu.tbadk.a;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -12,50 +13,50 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b bSU;
-    private final HashMap<String, a> nU = new HashMap<>();
+    private static b cFs;
+    private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> aeV = aeV();
-        this.nU.clear();
-        this.nU.putAll(aeV);
+        HashMap<String, a> avO = avO();
+        this.mSwitchs.clear();
+        this.mSwitchs.putAll(avO);
     }
 
-    public static b aeT() {
-        if (bSU == null) {
+    public static b avM() {
+        if (cFs == null) {
             synchronized (b.class) {
-                if (bSU == null) {
-                    bSU = new b();
+                if (cFs == null) {
+                    cFs = new b();
                 }
             }
         }
-        return bSU;
+        return cFs;
     }
 
-    private static String aeU() {
+    private static String avN() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(aeU(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(avN(), 0);
     }
 
-    public synchronized a ma(String str) {
-        return this.nU.get(str);
+    public synchronized a ro(String str) {
+        return this.mSwitchs.get(str);
     }
 
-    private String bF(String str, String str2) {
-        a ma = ma(str);
-        if (ma != null && !TextUtils.isEmpty(ma.bST)) {
-            return ma.bST;
+    private String cd(String str, String str2) {
+        a ro = ro(str);
+        if (ro != null && !TextUtils.isEmpty(ro.cFr)) {
+            return ro.cFr;
         }
         return str2;
     }
 
     private void clearAll() {
         try {
-            synchronized (this.nU) {
-                this.nU.clear();
+            synchronized (this.mSwitchs) {
+                this.mSwitchs.clear();
             }
             SharedPreferences.Editor edit = getSharedPreferences().edit();
             edit.clear();
@@ -69,7 +70,7 @@ public class b {
         }
     }
 
-    public void C(JSONArray jSONArray) {
+    public void I(JSONArray jSONArray) {
         try {
             if (jSONArray == null) {
                 clearAll();
@@ -83,17 +84,20 @@ public class b {
                     hashMap.put(optString, new a(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));
                 }
             }
-            synchronized (this.nU) {
-                this.nU.clear();
-                this.nU.putAll(hashMap);
+            synchronized (this.mSwitchs) {
+                this.mSwitchs.clear();
+                this.mSwitchs.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
+            if (rp("cyber_player_test") && !CyberPlayerManager.isCoreLoaded(1)) {
+                CyberPlayerManager.install(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getCuid(), null, 1, null, null, null);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private HashMap<String, a> aeV() {
+    private HashMap<String, a> avO() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -110,7 +114,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean mb(String str) {
-        return Config.APP_VERSION_CODE.equalsIgnoreCase(aeT().bF(str, ""));
+    public static boolean rp(String str) {
+        return Config.APP_VERSION_CODE.equalsIgnoreCase(avM().cd(str, ""));
     }
 }

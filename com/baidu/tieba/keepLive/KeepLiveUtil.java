@@ -15,7 +15,7 @@ import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
 import com.baidu.tieba.keepLive.startActivity.ScreenBroadcastListener;
 import com.baidu.tieba.keepLive.startActivity.ScreenManager;
 import com.baidu.tieba.keepLive.sync.SyncService;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class KeepLiveUtil {
     private static final String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
     public static final String NEEDSHOWNOTIFICATION = "needShowBindSystemNotification";
@@ -96,7 +96,7 @@ public class KeepLiveUtil {
         if (mKeepLiveContext == null) {
             mKeepLiveContext = TbadkCoreApplication.getInst().getApplicationContext();
         }
-        if (!ak.Uo()) {
+        if (!ak.isEmui()) {
             SyncService.startAccountSync(mKeepLiveContext.getApplicationContext());
         }
     }

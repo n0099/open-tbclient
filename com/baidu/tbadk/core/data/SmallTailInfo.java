@@ -11,6 +11,10 @@ import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SmallTailInfo extends OrmObject implements Serializable {
+    private static final String EMOTION_PREFIX = "#(";
+    private static final String EMOTION_SUFFIX = ")";
+    private static final int TAIL_CONTENT_TYPE_EMOTION = 2;
+    private static final int TAIL_CONTENT_TYPE_TEXT = 0;
     private static final long serialVersionUID = -6548060282571779153L;
     public String color;
     public List<SmallTailInfoContent> content;
@@ -34,11 +38,11 @@ public class SmallTailInfo extends OrmObject implements Serializable {
     }
 
     public void updateShowInfo() {
-        ahU();
-        ahV();
+        updateTailSpannable();
+        updateColor();
     }
 
-    private void ahU() {
+    private void updateTailSpannable() {
         if (this.content != null) {
             StringBuilder sb = new StringBuilder();
             for (SmallTailInfoContent smallTailInfoContent : this.content) {
@@ -47,25 +51,25 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String pB = TbFaceManager.avr().pB(smallTailInfoContent.text);
-                    if (!StringUtils.isNull(pB)) {
-                        sb.append("#(" + pB + ")");
+                    String uH = TbFaceManager.aMY().uH(smallTailInfoContent.text);
+                    if (!StringUtils.isNull(uH)) {
+                        sb.append(EMOTION_PREFIX + uH + EMOTION_SUFFIX);
                     }
                 }
             }
-            this.tailSpannable = TbFaceManager.avr().a(TbadkCoreApplication.getInst(), sb.toString(), null);
+            this.tailSpannable = TbFaceManager.aMY().a(TbadkCoreApplication.getInst(), sb.toString(), null);
         }
     }
 
-    private void ahV() {
+    private void updateColor() {
         try {
-            this.showColorId = Color.parseColor(mT(this.color));
+            this.showColorId = Color.parseColor(getShowColorText(this.color));
         } catch (Exception e) {
-            this.showColorId = Color.parseColor(mT(TbadkCoreApplication.getInst().getString(R.string.tail_color_default)));
+            this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.tail_color_default)));
         }
     }
 
-    private String mT(String str) {
+    private String getShowColorText(String str) {
         if (str == null) {
             return null;
         }

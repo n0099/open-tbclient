@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaBannerRecyclerView extends RecyclerView {
     public AlaBannerRecyclerView(Context context) {
         super(context);
@@ -20,10 +20,10 @@ public class AlaBannerRecyclerView extends RecyclerView {
 
     @Override // android.support.v7.widget.RecyclerView
     public boolean fling(int i, int i2) {
-        return super.fling(mu(i), mu(i2));
+        return super.fling(oD(i), oD(i2));
     }
 
-    private int mu(int i) {
+    private int oD(int i) {
         return i > 0 ? Math.min(i, 3000) : Math.max(i, -3000);
     }
 }

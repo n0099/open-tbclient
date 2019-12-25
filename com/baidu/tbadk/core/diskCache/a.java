@@ -7,12 +7,12 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.g.f;
+import com.baidu.adp.lib.f.f;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean cfl = false;
+    private static boolean cRK = false;
     private static Handler sHandler = new Handler() { // from class: com.baidu.tbadk.core.diskCache.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -32,7 +32,7 @@ public class a {
     }
 
     public static void setIsSuccess(boolean z) {
-        cfl = z;
+        cRK = z;
     }
 
     public static void init() {
@@ -42,7 +42,7 @@ public class a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        if (!a.cfl) {
+                        if (!a.cRK) {
                             a.sHandler.sendEmptyMessageDelayed(1, 10000L);
                             return;
                         }

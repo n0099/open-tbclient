@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.PassFriend.PassFriendResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ResponsePassFriendMessage extends SocketResponsedMessage {
     private long friendId;
     private String key;

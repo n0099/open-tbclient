@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IMManagerImpl {
     private static volatile IMManagerImpl mInstance;
     private static Object mLock = new Object();

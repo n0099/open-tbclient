@@ -20,24 +20,24 @@ import com.baidu.tbadk.widget.pulltorefresh.library.internal.RotateLoadingLayout
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
-    private Interpolator aqs;
-    T beZ;
-    private FrameLayout bfa;
-    private State cUl;
-    private Mode cUm;
-    private Mode cUn;
-    private boolean cUo;
-    private boolean cUp;
-    private boolean cUq;
-    private boolean cUr;
-    private boolean cUs;
-    private AnimationStyle cUt;
-    private LoadingLayout cUu;
-    private LoadingLayout cUv;
-    private b<T> cUw;
-    private c<T> cUx;
-    private a<T> cUy;
-    private PullToRefreshBase<T>.e cUz;
+    private Interpolator ayh;
+    T bHL;
+    private FrameLayout bHM;
+    private State dIE;
+    private Mode dIF;
+    private Mode dIG;
+    private boolean dIH;
+    private boolean dII;
+    private boolean dIJ;
+    private boolean dIK;
+    private boolean dIL;
+    private AnimationStyle dIM;
+    private LoadingLayout dIN;
+    private LoadingLayout dIO;
+    private b<T> dIP;
+    private c<T> dIQ;
+    private a<T> dIR;
+    private PullToRefreshBase<T>.e dIS;
     private float mInitialMotionX;
     private float mInitialMotionY;
     private boolean mIsBeingDragged;
@@ -71,12 +71,12 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface d {
-        void wk();
+        void yi();
     }
 
-    protected abstract boolean ayX();
+    protected abstract boolean aQX();
 
-    protected abstract boolean ayY();
+    protected abstract boolean aQY();
 
     protected abstract T createRefreshableView(Context context, AttributeSet attributeSet);
 
@@ -85,28 +85,28 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public PullToRefreshBase(Context context) {
         super(context);
         this.mIsBeingDragged = false;
-        this.cUl = State.RESET;
-        this.cUm = Mode.getDefault();
-        this.cUo = true;
-        this.cUp = false;
-        this.cUq = true;
-        this.cUr = true;
-        this.cUs = true;
-        this.cUt = AnimationStyle.getDefault();
+        this.dIE = State.RESET;
+        this.dIF = Mode.getDefault();
+        this.dIH = true;
+        this.dII = false;
+        this.dIJ = true;
+        this.dIK = true;
+        this.dIL = true;
+        this.dIM = AnimationStyle.getDefault();
         init(context, null);
     }
 
     public PullToRefreshBase(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mIsBeingDragged = false;
-        this.cUl = State.RESET;
-        this.cUm = Mode.getDefault();
-        this.cUo = true;
-        this.cUp = false;
-        this.cUq = true;
-        this.cUr = true;
-        this.cUs = true;
-        this.cUt = AnimationStyle.getDefault();
+        this.dIE = State.RESET;
+        this.dIF = Mode.getDefault();
+        this.dIH = true;
+        this.dII = false;
+        this.dIJ = true;
+        this.dIK = true;
+        this.dIL = true;
+        this.dIM = AnimationStyle.getDefault();
         init(context, attributeSet);
     }
 
@@ -121,50 +121,50 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public final Mode getCurrentMode() {
-        return this.cUn;
+        return this.dIG;
     }
 
     public final boolean getFilterTouchEvents() {
-        return this.cUq;
+        return this.dIJ;
     }
 
     public final com.baidu.tbadk.widget.pulltorefresh.library.a getLoadingLayoutProxy() {
-        return v(true, true);
+        return w(true, true);
     }
 
-    public final com.baidu.tbadk.widget.pulltorefresh.library.a v(boolean z, boolean z2) {
-        return w(z, z2);
+    public final com.baidu.tbadk.widget.pulltorefresh.library.a w(boolean z, boolean z2) {
+        return x(z, z2);
     }
 
     public final Mode getMode() {
-        return this.cUm;
+        return this.dIF;
     }
 
     public final T getRefreshableView() {
-        return this.beZ;
+        return this.bHL;
     }
 
     public final boolean getShowViewWhileRefreshing() {
-        return this.cUo;
+        return this.dIH;
     }
 
     public final State getState() {
-        return this.cUl;
+        return this.dIE;
     }
 
-    public final boolean ayW() {
-        return this.cUm.permitsPullToRefresh();
+    public final boolean aQW() {
+        return this.dIF.permitsPullToRefresh();
     }
 
     public final boolean isRefreshing() {
-        return this.cUl == State.REFRESHING || this.cUl == State.MANUAL_REFRESHING;
+        return this.dIE == State.REFRESHING || this.dIE == State.MANUAL_REFRESHING;
     }
 
     @Override // android.view.ViewGroup
     public final boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         float f;
         float f2;
-        if (ayW()) {
+        if (aQW()) {
             int action = motionEvent.getAction();
             if (action == 3 || action == 1) {
                 this.mIsBeingDragged = false;
@@ -172,7 +172,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
             } else if (action == 0 || !this.mIsBeingDragged) {
                 switch (action) {
                     case 0:
-                        if (azb()) {
+                        if (aRb()) {
                             float y = motionEvent.getY();
                             this.mInitialMotionY = y;
                             this.mLastMotionY = y;
@@ -184,10 +184,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                         }
                         break;
                     case 2:
-                        if (!this.cUp && isRefreshing()) {
+                        if (!this.dII && isRefreshing()) {
                             return true;
                         }
-                        if (azb()) {
+                        if (aRb()) {
                             float y2 = motionEvent.getY();
                             float x2 = motionEvent.getX();
                             switch (getPullToRefreshScrollDirection()) {
@@ -201,21 +201,21 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                                     break;
                             }
                             float abs = Math.abs(f);
-                            if (abs > this.mTouchSlop && (!this.cUq || abs > Math.abs(f2))) {
-                                if (this.cUm.showHeaderLoadingLayout() && f >= 1.0f && ayY()) {
+                            if (abs > this.mTouchSlop && (!this.dIJ || abs > Math.abs(f2))) {
+                                if (this.dIF.showHeaderLoadingLayout() && f >= 1.0f && aQY()) {
                                     this.mLastMotionY = y2;
                                     this.mLastMotionX = x2;
                                     this.mIsBeingDragged = true;
-                                    if (this.cUm == Mode.BOTH) {
-                                        this.cUn = Mode.PULL_FROM_START;
+                                    if (this.dIF == Mode.BOTH) {
+                                        this.dIG = Mode.PULL_FROM_START;
                                         break;
                                     }
-                                } else if (this.cUm.showFooterLoadingLayout() && f <= -1.0f && ayX()) {
+                                } else if (this.dIF.showFooterLoadingLayout() && f <= -1.0f && aQX()) {
                                     this.mLastMotionY = y2;
                                     this.mLastMotionX = x2;
                                     this.mIsBeingDragged = true;
-                                    if (this.cUm == Mode.BOTH) {
-                                        this.cUn = Mode.PULL_FROM_END;
+                                    if (this.dIF == Mode.BOTH) {
+                                        this.dIG = Mode.PULL_FROM_END;
                                         break;
                                     }
                                 }
@@ -233,12 +233,12 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
 
     @Override // android.view.View
     public final boolean onTouchEvent(MotionEvent motionEvent) {
-        if (ayW()) {
-            if (this.cUp || !isRefreshing()) {
+        if (aQW()) {
+            if (this.dII || !isRefreshing()) {
                 if (motionEvent.getAction() != 0 || motionEvent.getEdgeFlags() == 0) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            if (azb()) {
+                            if (aRb()) {
                                 float y = motionEvent.getY();
                                 this.mInitialMotionY = y;
                                 this.mLastMotionY = y;
@@ -252,11 +252,11 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                         case 3:
                             if (this.mIsBeingDragged) {
                                 this.mIsBeingDragged = false;
-                                if (this.cUl == State.RELEASE_TO_REFRESH && (this.cUw != null || this.cUx != null)) {
+                                if (this.dIE == State.RELEASE_TO_REFRESH && (this.dIP != null || this.dIQ != null)) {
                                     a(State.REFRESHING, true);
                                     return true;
                                 } else if (isRefreshing()) {
-                                    ea(0);
+                                    fx(0);
                                     return true;
                                 } else {
                                     a(State.RESET, new boolean[0]);
@@ -268,7 +268,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                             if (this.mIsBeingDragged) {
                                 this.mLastMotionY = motionEvent.getY();
                                 this.mLastMotionX = motionEvent.getX();
-                                azc();
+                                aRc();
                                 return true;
                             }
                             return false;
@@ -284,7 +284,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public final void setScrollingWhileRefreshingEnabled(boolean z) {
-        this.cUp = z;
+        this.dII = z;
     }
 
     public void setDisableScrollingWhileRefreshing(boolean z) {
@@ -292,7 +292,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public final void setFilterTouchEvents(boolean z) {
-        this.cUq = z;
+        this.dIJ = z;
     }
 
     public void setLastUpdatedLabel(CharSequence charSequence) {
@@ -304,7 +304,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public void setLoadingDrawable(Drawable drawable, Mode mode) {
-        v(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setLoadingDrawable(drawable);
+        w(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setLoadingDrawable(drawable);
     }
 
     @Override // android.view.View
@@ -313,24 +313,24 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public final void setMode(Mode mode) {
-        if (mode != this.cUm) {
-            this.cUm = mode;
-            ayZ();
+        if (mode != this.dIF) {
+            this.dIF = mode;
+            aQZ();
         }
     }
 
     public void setOnPullEventListener(a<T> aVar) {
-        this.cUy = aVar;
+        this.dIR = aVar;
     }
 
     public final void setOnRefreshListener(b<T> bVar) {
-        this.cUw = bVar;
-        this.cUx = null;
+        this.dIP = bVar;
+        this.dIQ = null;
     }
 
     public final void setOnRefreshListener(c<T> cVar) {
-        this.cUx = cVar;
-        this.cUw = null;
+        this.dIQ = cVar;
+        this.dIP = null;
     }
 
     public void setPullLabel(CharSequence charSequence) {
@@ -338,7 +338,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public void setPullLabel(CharSequence charSequence, Mode mode) {
-        v(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setPullLabel(charSequence);
+        w(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setPullLabel(charSequence);
     }
 
     public final void setPullToRefreshEnabled(boolean z) {
@@ -346,7 +346,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public final void setPullToRefreshOverScrollEnabled(boolean z) {
-        this.cUr = z;
+        this.dIK = z;
     }
 
     public final void setRefreshing() {
@@ -364,7 +364,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public void setRefreshingLabel(CharSequence charSequence, Mode mode) {
-        v(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setRefreshingLabel(charSequence);
+        w(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setRefreshingLabel(charSequence);
     }
 
     public void setReleaseLabel(CharSequence charSequence) {
@@ -372,20 +372,20 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     public void setReleaseLabel(CharSequence charSequence, Mode mode) {
-        v(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setReleaseLabel(charSequence);
+        w(mode.showHeaderLoadingLayout(), mode.showFooterLoadingLayout()).setReleaseLabel(charSequence);
     }
 
     public void setScrollAnimationInterpolator(Interpolator interpolator) {
-        this.aqs = interpolator;
+        this.ayh = interpolator;
     }
 
     public final void setShowViewWhileRefreshing(boolean z) {
-        this.cUo = z;
+        this.dIH = z;
     }
 
     final void a(State state, boolean... zArr) {
-        this.cUl = state;
-        switch (this.cUl) {
+        this.dIE = state;
+        switch (this.dIE) {
             case RESET:
                 onReset();
                 break;
@@ -397,11 +397,11 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                 break;
             case REFRESHING:
             case MANUAL_REFRESHING:
-                fK(zArr[0]);
+                gX(zArr[0]);
                 break;
         }
-        if (this.cUy != null) {
-            this.cUy.a(this, this.cUl, this.cUn);
+        if (this.dIR != null) {
+            this.dIR.a(this, this.dIE, this.dIG);
         }
     }
 
@@ -414,36 +414,36 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     protected LoadingLayout a(Context context, Mode mode, TypedArray typedArray) {
-        LoadingLayout createLoadingLayout = this.cUt.createLoadingLayout(context, mode, getPullToRefreshScrollDirection(), typedArray);
+        LoadingLayout createLoadingLayout = this.dIM.createLoadingLayout(context, mode, getPullToRefreshScrollDirection(), typedArray);
         createLoadingLayout.setVisibility(4);
         return createLoadingLayout;
     }
 
-    protected com.baidu.tbadk.widget.pulltorefresh.library.b w(boolean z, boolean z2) {
+    protected com.baidu.tbadk.widget.pulltorefresh.library.b x(boolean z, boolean z2) {
         com.baidu.tbadk.widget.pulltorefresh.library.b bVar = new com.baidu.tbadk.widget.pulltorefresh.library.b();
-        if (z && this.cUm.showHeaderLoadingLayout()) {
-            bVar.a(this.cUu);
+        if (z && this.dIF.showHeaderLoadingLayout()) {
+            bVar.a(this.dIN);
         }
-        if (z2 && this.cUm.showFooterLoadingLayout()) {
-            bVar.a(this.cUv);
+        if (z2 && this.dIF.showFooterLoadingLayout()) {
+            bVar.a(this.dIO);
         }
         return bVar;
     }
 
     protected final LoadingLayout getFooterLayout() {
-        return this.cUv;
+        return this.dIO;
     }
 
     protected final int getFooterSize() {
-        return this.cUv.getContentSize();
+        return this.dIO.getContentSize();
     }
 
     protected final LoadingLayout getHeaderLayout() {
-        return this.cUu;
+        return this.dIN;
     }
 
     protected final int getHeaderSize() {
-        return this.cUu.getContentSize();
+        return this.dIN.getContentSize();
     }
 
     protected int getPullToRefreshScrollDuration() {
@@ -455,47 +455,47 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     protected FrameLayout getRefreshableViewWrapper() {
-        return this.bfa;
+        return this.bHM;
     }
 
     protected void a(TypedArray typedArray) {
     }
 
-    protected void F(Bundle bundle) {
+    protected void Z(Bundle bundle) {
     }
 
-    protected void G(Bundle bundle) {
+    protected void aa(Bundle bundle) {
     }
 
     protected void onPullToRefresh() {
-        switch (this.cUn) {
+        switch (this.dIG) {
             case PULL_FROM_END:
-                this.cUv.pullToRefresh();
+                this.dIO.pullToRefresh();
                 return;
             case PULL_FROM_START:
-                this.cUu.pullToRefresh();
+                this.dIN.pullToRefresh();
                 return;
             default:
                 return;
         }
     }
 
-    protected void fK(boolean z) {
-        if (this.cUm.showHeaderLoadingLayout()) {
-            this.cUu.refreshing();
+    protected void gX(boolean z) {
+        if (this.dIF.showHeaderLoadingLayout()) {
+            this.dIN.refreshing();
         }
-        if (this.cUm.showFooterLoadingLayout()) {
-            this.cUv.refreshing();
+        if (this.dIF.showFooterLoadingLayout()) {
+            this.dIO.refreshing();
         }
         if (z) {
-            if (this.cUo) {
+            if (this.dIH) {
                 d dVar = new d() { // from class: com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase.1
                     @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase.d
-                    public void wk() {
-                        PullToRefreshBase.this.aza();
+                    public void yi() {
+                        PullToRefreshBase.this.aRa();
                     }
                 };
-                switch (this.cUn) {
+                switch (this.dIG) {
                     case PULL_FROM_END:
                     case MANUAL_REFRESH_ONLY:
                         a(getFooterSize(), dVar);
@@ -506,19 +506,19 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                         return;
                 }
             }
-            ea(0);
+            fx(0);
             return;
         }
-        aza();
+        aRa();
     }
 
     protected void onReleaseToRefresh() {
-        switch (this.cUn) {
+        switch (this.dIG) {
             case PULL_FROM_END:
-                this.cUv.releaseToRefresh();
+                this.dIO.releaseToRefresh();
                 return;
             case PULL_FROM_START:
-                this.cUu.releaseToRefresh();
+                this.dIN.releaseToRefresh();
                 return;
             default:
                 return;
@@ -527,10 +527,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
 
     protected void onReset() {
         this.mIsBeingDragged = false;
-        this.cUs = true;
-        this.cUu.reset();
-        this.cUv.reset();
-        ea(0);
+        this.dIL = true;
+        this.dIN.reset();
+        this.dIO.reset();
+        fx(0);
     }
 
     @Override // android.view.View
@@ -538,15 +538,15 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         if (parcelable instanceof Bundle) {
             Bundle bundle = (Bundle) parcelable;
             setMode(Mode.mapIntToValue(bundle.getInt("ptr_mode", 0)));
-            this.cUn = Mode.mapIntToValue(bundle.getInt("ptr_current_mode", 0));
-            this.cUp = bundle.getBoolean("ptr_disable_scrolling", false);
-            this.cUo = bundle.getBoolean("ptr_show_refreshing_view", true);
+            this.dIG = Mode.mapIntToValue(bundle.getInt("ptr_current_mode", 0));
+            this.dII = bundle.getBoolean("ptr_disable_scrolling", false);
+            this.dIH = bundle.getBoolean("ptr_show_refreshing_view", true);
             super.onRestoreInstanceState(bundle.getParcelable("ptr_super"));
             State mapIntToValue = State.mapIntToValue(bundle.getInt("ptr_state", 0));
             if (mapIntToValue == State.REFRESHING || mapIntToValue == State.MANUAL_REFRESHING) {
                 a(mapIntToValue, true);
             }
-            F(bundle);
+            Z(bundle);
             return;
         }
         super.onRestoreInstanceState(parcelable);
@@ -555,12 +555,12 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     @Override // android.view.View
     protected final Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
-        G(bundle);
-        bundle.putInt("ptr_state", this.cUl.getIntValue());
-        bundle.putInt("ptr_mode", this.cUm.getIntValue());
-        bundle.putInt("ptr_current_mode", this.cUn.getIntValue());
-        bundle.putBoolean("ptr_disable_scrolling", this.cUp);
-        bundle.putBoolean("ptr_show_refreshing_view", this.cUo);
+        aa(bundle);
+        bundle.putInt("ptr_state", this.dIE.getIntValue());
+        bundle.putInt("ptr_mode", this.dIF.getIntValue());
+        bundle.putInt("ptr_current_mode", this.dIG.getIntValue());
+        bundle.putBoolean("ptr_disable_scrolling", this.dII);
+        bundle.putBoolean("ptr_show_refreshing_view", this.dIH);
         bundle.putParcelable("ptr_super", super.onSaveInstanceState());
         return bundle;
     }
@@ -568,7 +568,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     @Override // android.view.View
     protected final void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        Pt();
+        Zh();
         refreshRefreshableViewSize(i, i2);
         post(new Runnable() { // from class: com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase.2
             @Override // java.lang.Runnable
@@ -578,7 +578,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         });
     }
 
-    protected final void Pt() {
+    protected final void Zh() {
         int i;
         int i2;
         int i3;
@@ -592,20 +592,20 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         int paddingBottom = getPaddingBottom();
         switch (getPullToRefreshScrollDirection()) {
             case HORIZONTAL:
-                if (this.cUm.showHeaderLoadingLayout()) {
-                    this.cUu.setWidth(maximumPullScroll);
+                if (this.dIF.showHeaderLoadingLayout()) {
+                    this.dIN.setWidth(maximumPullScroll);
                     i5 = -maximumPullScroll;
                 } else {
                     i5 = 0;
                 }
-                if (!this.cUm.showFooterLoadingLayout()) {
+                if (!this.dIF.showFooterLoadingLayout()) {
                     i4 = i5;
                     i3 = 0;
                     i6 = paddingBottom;
                     i2 = paddingTop;
                     break;
                 } else {
-                    this.cUv.setWidth(maximumPullScroll);
+                    this.dIO.setWidth(maximumPullScroll);
                     i4 = i5;
                     i3 = -maximumPullScroll;
                     i6 = paddingBottom;
@@ -613,19 +613,19 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                     break;
                 }
             case VERTICAL:
-                if (this.cUm.showHeaderLoadingLayout()) {
-                    this.cUu.setHeight(maximumPullScroll);
+                if (this.dIF.showHeaderLoadingLayout()) {
+                    this.dIN.setHeight(maximumPullScroll);
                     i = -maximumPullScroll;
                 } else {
                     i = 0;
                 }
-                if (!this.cUm.showFooterLoadingLayout()) {
+                if (!this.dIF.showFooterLoadingLayout()) {
                     i2 = i;
                     i3 = paddingRight;
                     i4 = paddingLeft;
                     break;
                 } else {
-                    this.cUv.setHeight(maximumPullScroll);
+                    this.dIO.setHeight(maximumPullScroll);
                     i6 = -maximumPullScroll;
                     i2 = i;
                     i3 = paddingRight;
@@ -643,19 +643,19 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     protected final void refreshRefreshableViewSize(int i, int i2) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bfa.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bHM.getLayoutParams();
         switch (getPullToRefreshScrollDirection()) {
             case HORIZONTAL:
                 if (layoutParams.width != i) {
                     layoutParams.width = i;
-                    this.bfa.requestLayout();
+                    this.bHM.requestLayout();
                     return;
                 }
                 return;
             case VERTICAL:
                 if (layoutParams.height != i2) {
                     layoutParams.height = i2;
-                    this.bfa.requestLayout();
+                    this.bHM.requestLayout();
                     return;
                 }
                 return;
@@ -667,14 +667,14 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     protected final void setHeaderScroll(int i) {
         int maximumPullScroll = getMaximumPullScroll();
         int min = Math.min(maximumPullScroll, Math.max(-maximumPullScroll, i));
-        if (this.cUs) {
+        if (this.dIL) {
             if (min < 0) {
-                this.cUu.setVisibility(0);
+                this.dIN.setVisibility(0);
             } else if (min > 0) {
-                this.cUv.setVisibility(0);
+                this.dIO.setVisibility(0);
             } else {
-                this.cUu.setVisibility(4);
-                this.cUv.setVisibility(4);
+                this.dIN.setVisibility(4);
+                this.dIO.setVisibility(4);
             }
         }
         switch (getPullToRefreshScrollDirection()) {
@@ -689,47 +689,47 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    protected final void ea(int i) {
-        n(i, getPullToRefreshScrollDuration());
+    protected final void fx(int i) {
+        t(i, getPullToRefreshScrollDuration());
     }
 
     protected final void a(int i, d dVar) {
         a(i, getPullToRefreshScrollDuration(), 0L, dVar);
     }
 
-    protected void ayZ() {
+    protected void aQZ() {
         LinearLayout.LayoutParams loadingLayoutLayoutParams = getLoadingLayoutLayoutParams();
-        if (this == this.cUu.getParent()) {
-            removeView(this.cUu);
+        if (this == this.dIN.getParent()) {
+            removeView(this.dIN);
         }
-        if (this.cUm.showHeaderLoadingLayout()) {
-            a(this.cUu, 0, loadingLayoutLayoutParams);
+        if (this.dIF.showHeaderLoadingLayout()) {
+            a(this.dIN, 0, loadingLayoutLayoutParams);
         }
-        if (this == this.cUv.getParent()) {
-            removeView(this.cUv);
+        if (this == this.dIO.getParent()) {
+            removeView(this.dIO);
         }
-        if (this.cUm.showFooterLoadingLayout()) {
-            a(this.cUv, loadingLayoutLayoutParams);
+        if (this.dIF.showFooterLoadingLayout()) {
+            a(this.dIO, loadingLayoutLayoutParams);
         }
-        Pt();
-        this.cUn = this.cUm != Mode.BOTH ? this.cUm : Mode.PULL_FROM_START;
+        Zh();
+        this.dIG = this.dIF != Mode.BOTH ? this.dIF : Mode.PULL_FROM_START;
     }
 
     private void addRefreshableView(Context context, T t) {
-        this.bfa = new FrameLayout(context);
-        this.bfa.addView(t, -1, -1);
-        a(this.bfa, new LinearLayout.LayoutParams(-1, -1));
+        this.bHM = new FrameLayout(context);
+        this.bHM.addView(t, -1, -1);
+        a(this.bHM, new LinearLayout.LayoutParams(-1, -1));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aza() {
-        if (this.cUw != null) {
-            this.cUw.c(this);
-        } else if (this.cUx != null) {
-            if (this.cUn == Mode.PULL_FROM_START) {
-                this.cUx.d(this);
-            } else if (this.cUn == Mode.PULL_FROM_END) {
-                this.cUx.e(this);
+    public void aRa() {
+        if (this.dIP != null) {
+            this.dIP.c(this);
+        } else if (this.dIQ != null) {
+            if (this.dIG == Mode.PULL_FROM_START) {
+                this.dIQ.d(this);
+            } else if (this.dIG == Mode.PULL_FROM_END) {
+                this.dIQ.e(this);
             }
         }
     }
@@ -747,53 +747,53 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         this.mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.PullToRefresh);
         if (obtainStyledAttributes.hasValue(12)) {
-            this.cUm = Mode.mapIntToValue(obtainStyledAttributes.getInteger(12, 0));
+            this.dIF = Mode.mapIntToValue(obtainStyledAttributes.getInteger(12, 0));
         }
         if (obtainStyledAttributes.hasValue(1)) {
-            this.cUt = AnimationStyle.mapIntToValue(obtainStyledAttributes.getInteger(1, 0));
+            this.dIM = AnimationStyle.mapIntToValue(obtainStyledAttributes.getInteger(1, 0));
         }
-        this.beZ = createRefreshableView(context, attributeSet);
-        addRefreshableView(context, this.beZ);
-        this.cUu = a(context, Mode.PULL_FROM_START, obtainStyledAttributes);
-        this.cUv = a(context, Mode.PULL_FROM_END, obtainStyledAttributes);
+        this.bHL = createRefreshableView(context, attributeSet);
+        addRefreshableView(context, this.bHL);
+        this.dIN = a(context, Mode.PULL_FROM_START, obtainStyledAttributes);
+        this.dIO = a(context, Mode.PULL_FROM_END, obtainStyledAttributes);
         if (obtainStyledAttributes.hasValue(9)) {
             Drawable drawable = obtainStyledAttributes.getDrawable(9);
             if (drawable != null) {
-                this.beZ.setBackgroundDrawable(drawable);
+                this.bHL.setBackgroundDrawable(drawable);
             }
         } else if (obtainStyledAttributes.hasValue(3)) {
-            com.baidu.tbadk.widget.pulltorefresh.library.internal.a.cc("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
+            com.baidu.tbadk.widget.pulltorefresh.library.internal.a.cz("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
             Drawable drawable2 = obtainStyledAttributes.getDrawable(3);
             if (drawable2 != null) {
-                this.beZ.setBackgroundDrawable(drawable2);
+                this.bHL.setBackgroundDrawable(drawable2);
             }
         }
         if (obtainStyledAttributes.hasValue(6)) {
-            this.cUr = obtainStyledAttributes.getBoolean(6, true);
+            this.dIK = obtainStyledAttributes.getBoolean(6, true);
         }
         if (obtainStyledAttributes.hasValue(15)) {
-            this.cUp = obtainStyledAttributes.getBoolean(15, false);
+            this.dII = obtainStyledAttributes.getBoolean(15, false);
         }
         a(obtainStyledAttributes);
         obtainStyledAttributes.recycle();
-        ayZ();
+        aQZ();
     }
 
-    private boolean azb() {
-        switch (this.cUm) {
+    private boolean aRb() {
+        switch (this.dIF) {
             case PULL_FROM_END:
-                return ayX();
+                return aQX();
             case PULL_FROM_START:
-                return ayY();
+                return aQY();
             case MANUAL_REFRESH_ONLY:
             default:
                 return false;
             case BOTH:
-                return ayX() || ayY();
+                return aQX() || aQY();
         }
     }
 
-    private void azc() {
+    private void aRc() {
         float f;
         float f2;
         int round;
@@ -808,7 +808,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                 f2 = this.mLastMotionY;
                 break;
         }
-        switch (this.cUn) {
+        switch (this.dIG) {
             case PULL_FROM_END:
                 round = Math.round(Math.max(f - f2, 0.0f) / 2.0f);
                 footerSize = getFooterSize();
@@ -821,17 +821,17 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         setHeaderScroll(round);
         if (round != 0 && !isRefreshing()) {
             float abs = Math.abs(round) / footerSize;
-            switch (this.cUn) {
+            switch (this.dIG) {
                 case PULL_FROM_END:
-                    this.cUv.onPull(abs);
+                    this.dIO.onPull(abs);
                     break;
                 default:
-                    this.cUu.onPull(abs);
+                    this.dIN.onPull(abs);
                     break;
             }
-            if (this.cUl != State.PULL_TO_REFRESH && footerSize >= Math.abs(round)) {
+            if (this.dIE != State.PULL_TO_REFRESH && footerSize >= Math.abs(round)) {
                 a(State.PULL_TO_REFRESH, new boolean[0]);
-            } else if (this.cUl == State.PULL_TO_REFRESH && footerSize < Math.abs(round)) {
+            } else if (this.dIE == State.PULL_TO_REFRESH && footerSize < Math.abs(round)) {
                 a(State.RELEASE_TO_REFRESH, new boolean[0]);
             }
         }
@@ -855,14 +855,14 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    private final void n(int i, long j) {
+    private final void t(int i, long j) {
         a(i, j, 0L, null);
     }
 
     private final void a(int i, long j, long j2, d dVar) {
         int scrollX;
-        if (this.cUz != null) {
-            this.cUz.stop();
+        if (this.dIS != null) {
+            this.dIS.stop();
         }
         switch (getPullToRefreshScrollDirection()) {
             case HORIZONTAL:
@@ -873,14 +873,14 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                 break;
         }
         if (scrollX != i) {
-            if (this.aqs == null) {
-                this.aqs = new DecelerateInterpolator();
+            if (this.ayh == null) {
+                this.ayh = new DecelerateInterpolator();
             }
-            this.cUz = new e(scrollX, i, j, dVar);
+            this.dIS = new e(scrollX, i, j, dVar);
             if (j2 > 0) {
-                postDelayed(this.cUz, j2);
+                postDelayed(this.dIS, j2);
             } else {
-                post(this.cUz);
+                post(this.dIS);
             }
         }
     }
@@ -993,21 +993,21 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public final class e implements Runnable {
-        private final int aqD;
-        private final int aqE;
-        private d cUF;
+        private final int ays;
+        private final int ayt;
+        private d dIY;
         private final long mDuration;
         private final Interpolator mInterpolator;
-        private boolean aqG = true;
+        private boolean ayv = true;
         private long mStartTime = -1;
-        private int aqH = -1;
+        private int mCurrentY = -1;
 
         public e(int i, int i2, long j, d dVar) {
-            this.aqE = i;
-            this.aqD = i2;
-            this.mInterpolator = PullToRefreshBase.this.aqs;
+            this.ayt = i;
+            this.ays = i2;
+            this.mInterpolator = PullToRefreshBase.this.ayh;
             this.mDuration = j;
-            this.cUF = dVar;
+            this.dIY = dVar;
         }
 
         @Override // java.lang.Runnable
@@ -1015,18 +1015,18 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
             if (this.mStartTime == -1) {
                 this.mStartTime = System.currentTimeMillis();
             } else {
-                this.aqH = this.aqE - Math.round(this.mInterpolator.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.mStartTime) * 1000) / this.mDuration, 1000L), 0L)) / 1000.0f) * (this.aqE - this.aqD));
-                PullToRefreshBase.this.setHeaderScroll(this.aqH);
+                this.mCurrentY = this.ayt - Math.round(this.mInterpolator.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.mStartTime) * 1000) / this.mDuration, 1000L), 0L)) / 1000.0f) * (this.ayt - this.ays));
+                PullToRefreshBase.this.setHeaderScroll(this.mCurrentY);
             }
-            if (this.aqG && this.aqD != this.aqH) {
+            if (this.ayv && this.ays != this.mCurrentY) {
                 com.baidu.tbadk.widget.pulltorefresh.library.internal.b.postOnAnimation(PullToRefreshBase.this, this);
-            } else if (this.cUF != null) {
-                this.cUF.wk();
+            } else if (this.dIY != null) {
+                this.dIY.yi();
             }
         }
 
         public void stop() {
-            this.aqG = false;
+            this.ayv = false;
             PullToRefreshBase.this.removeCallbacks(this);
         }
     }

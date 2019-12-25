@@ -4,16 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.ala.atomdata.AlaAdminListActivityConfig;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.NavigationBar;
 import com.baidu.live.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.ala.live.personcenter.admin.c.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaAdminListActivity extends BaseFragmentActivity {
-    private NoNetworkView dPX;
-    private a dPY;
+    private a eFA;
+    private NoNetworkView eFz;
     private NavigationBar mNavigationBar;
     private View rootView;
 
@@ -31,9 +31,9 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
         }
         this.rootView = findViewById(a.g.ala_person_adminlist_rootview);
         this.mNavigationBar = (NavigationBar) findViewById(a.g.ala_person_adminlist_navigation_bar);
-        this.dPX = (NoNetworkView) findViewById(a.g.ala_person_adminlist_no_network_view);
-        this.dPY = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
-        this.dPY.onCreate(bundle);
+        this.eFz = (NoNetworkView) findViewById(a.g.ala_person_adminlist_no_network_view);
+        this.eFA = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
+        this.eFA.onCreate(bundle);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getString(a.i.sdk_prc_person_live_admin));
     }
@@ -46,11 +46,11 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
         }
         SkinManager.setBackgroundResource(this.mNavigationBar, a.d.sdk_cp_bg_line_d);
         SkinManager.setBackgroundResource(this.rootView, a.d.sdk_cp_bg_line_d);
-        if (this.dPX != null) {
-            this.dPX.onChangeSkinType(getPageContext(), i);
+        if (this.eFz != null) {
+            this.eFz.onChangeSkinType(getPageContext(), i);
         }
-        if (this.dPY != null) {
-            this.dPY.onChangeSkinType(i);
+        if (this.eFA != null) {
+            this.eFA.onChangeSkinType(i);
         }
     }
 }

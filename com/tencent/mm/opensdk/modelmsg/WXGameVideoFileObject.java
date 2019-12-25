@@ -3,10 +3,10 @@ package com.tencent.mm.opensdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes2.dex */
+import java.io.File;
+/* loaded from: classes4.dex */
 public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
-    private static final int FILE_SIZE_LIMIT = 31457280;
+    private static final int FILE_SIZE_LIMIT = 10485760;
     private static final String TAG = "MicroMsg.SDK.WXGameVideoFileObject";
     private static final int URL_LENGTH_LIMIT = 10240;
     public String filePath;
@@ -26,7 +26,14 @@ public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
     }
 
     private int getFileSize(String str) {
-        return d.getFileSize(str);
+        if (str == null || str.length() == 0) {
+            return 0;
+        }
+        File file = new File(str);
+        if (file.exists()) {
+            return (int) file.length();
+        }
+        return 0;
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
@@ -34,7 +41,7 @@ public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
         if (this.filePath == null || this.filePath.length() == 0) {
             Log.e(TAG, "checkArgs fail, filePath is null");
             return false;
-        } else if (getFileSize(this.filePath) > 31457280) {
+        } else if (getFileSize(this.filePath) > FILE_SIZE_LIMIT) {
             Log.e(TAG, "checkArgs fail, video file size is too large");
             return false;
         } else if (this.videoUrl != null && this.videoUrl.length() > URL_LENGTH_LIMIT) {

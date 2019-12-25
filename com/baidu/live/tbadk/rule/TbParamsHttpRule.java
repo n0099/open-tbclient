@@ -16,10 +16,12 @@ import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
+import com.baidu.webkit.internal.ETAG;
+import com.baidubce.http.Headers;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TbParamsHttpRule extends HttpRule {
     private static final String SIGN_SUFFIX = "tiebaclient!!!";
 
@@ -60,16 +62,16 @@ public class TbParamsHttpRule extends HttpRule {
     private void generateHeaders(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
         boolean z = true;
         if ((tbHttpMessageTask.isNeedGzip() && !tbHttpMessageTask.isBDImage()) || tbHttpMessageTask.isFromCDN()) {
-            httpMessage.addHeader("Accept-Encoding", "gzip");
+            httpMessage.addHeader(Headers.ACCEPT_ENCODING, "gzip");
         } else {
-            httpMessage.addHeader("Accept-Encoding", "");
+            httpMessage.addHeader(Headers.ACCEPT_ENCODING, "");
         }
-        httpMessage.addHeader("Charset", HTTP.UTF_8);
+        httpMessage.addHeader("Charset", "UTF-8");
         String userAgent = httpMessage.getUserAgent();
         if (TextUtils.isEmpty(userAgent)) {
-            httpMessage.addHeader(HTTP.USER_AGENT, ExtraParamsManager.getUserAgent());
+            httpMessage.addHeader("User-Agent", ExtraParamsManager.getUserAgent());
         } else {
-            httpMessage.addHeader(HTTP.USER_AGENT, userAgent);
+            httpMessage.addHeader("User-Agent", userAgent);
         }
         if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             httpMessage.addHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
@@ -156,7 +158,7 @@ public class TbParamsHttpRule extends HttpRule {
                 String key = entry.getKey();
                 Object value = entry.getValue();
                 if ((value instanceof String) && !"sign".equals(key)) {
-                    stringBuffer.append(key + "=");
+                    stringBuffer.append(key + ETAG.EQUAL);
                     stringBuffer.append(value);
                 }
             }

@@ -1,50 +1,43 @@
 package com.baidu.live.data;
 
-import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class y {
-    public JSONObject SM;
-    public String SO;
-    public String SQ;
-    public String SR;
-    public String SS;
-    public long ST;
-    public long SU;
-    public String SV;
-    public String SW;
-    public String SX;
-    public int SY;
-    public String SZ;
-    public String Ta;
-    public String Tb;
-    public String Tc;
-    public String fromType;
-    public String platform;
-    public String price;
-    public String title;
+    public int Zo;
+    public int Zp;
+    public int Zq;
+    public long Zr;
+    public long Zs;
+    public long Zt;
+    public long Zu;
+    public long Zv;
+    public long Zw;
+    public int Zx;
+    public int Zy;
+    public String Zz;
+    public long challengeId;
+    public int challengeResult;
+    public long endTime;
+    public long startTime;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.SM = jSONObject.optJSONObject("slink");
-            this.SO = jSONObject.optString("num_id");
-            this.SQ = jSONObject.optString("goods_id");
-            this.title = jSONObject.optString("title");
-            this.SR = jSONObject.optString("original_title");
-            this.price = jSONObject.optString("price");
-            this.SS = jSONObject.optString(TbConfig.IMAGE_CACHE_DIR_NAME);
-            this.ST = jSONObject.optLong("v_start_time");
-            this.SU = jSONObject.optLong("v_end_time");
-            this.fromType = jSONObject.optString("from_type");
-            this.platform = jSONObject.optString("platform");
-            this.SV = jSONObject.optString("nid");
-            this.SW = jSONObject.optString("c_status");
-            this.SX = jSONObject.optString("b_status");
-            this.SY = jSONObject.optInt("index_id");
-            this.SZ = jSONObject.optString("reserve_price");
-            this.Ta = jSONObject.optString("profit");
-            this.Tb = jSONObject.optString("sale_num");
-            this.Tc = jSONObject.optString("coupon");
+            this.challengeId = jSONObject.optLong("challenge_id");
+            this.Zo = jSONObject.optInt("challenge_status");
+            this.challengeResult = jSONObject.optInt("challenge_ret");
+            this.Zp = jSONObject.optInt("challenge_ret_type");
+            this.Zq = jSONObject.optInt("allin");
+            this.Zr = jSONObject.optLong("allin_start_user");
+            this.startTime = jSONObject.optLong("start_time");
+            this.endTime = jSONObject.optLong("end_time");
+            this.Zs = jSONObject.optLong("stage_start_time");
+            this.Zt = jSONObject.optLong("stage_end_time");
+            this.Zu = jSONObject.optLong("now_time");
+            this.Zv = jSONObject.optLong("anchor_score");
+            this.Zw = jSONObject.optLong("rival_score");
+            this.Zx = jSONObject.optInt("winning_num");
+            this.Zy = jSONObject.optInt("anchor_rank");
+            this.Zz = jSONObject.optString("rank_url");
         }
     }
 }

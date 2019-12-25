@@ -1,20 +1,21 @@
 package rx.internal.operators;
 
+import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class OnSubscribeRange implements d.a<Integer> {
-    private final int aqP;
-    private final int aqQ;
+    private final int ayD;
+    private final int ayE;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     public void call(rx.j<? super Integer> jVar) {
-        jVar.setProducer(new RangeProducer(jVar, this.aqP, this.aqQ));
+        jVar.setProducer(new RangeProducer(jVar, this.ayD, this.ayE));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class RangeProducer extends AtomicLong implements rx.f {
         private static final long serialVersionUID = 4114392207069098388L;
         private final rx.j<? super Integer> childSubscriber;
@@ -29,10 +30,10 @@ public final class OnSubscribeRange implements d.a<Integer> {
 
         @Override // rx.f
         public void request(long j) {
-            if (get() != Long.MAX_VALUE) {
-                if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
+            if (get() != Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j == Format.OFFSET_SAMPLE_RELATIVE && compareAndSet(0L, Format.OFFSET_SAMPLE_RELATIVE)) {
                     fastPath();
-                } else if (j > 0 && a.a(this, j) == 0) {
+                } else if (j > 0 && a.e(this, j) == 0) {
                     slowPath(j);
                 }
             }

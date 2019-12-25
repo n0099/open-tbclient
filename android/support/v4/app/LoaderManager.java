@@ -1,30 +1,43 @@
 package android.support.v4.app;
 
 import android.os.Bundle;
+import android.support.annotation.MainThread;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.content.Loader;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class LoaderManager {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface LoaderCallbacks<D> {
-        Loader<D> onCreateLoader(int i, Bundle bundle);
+        @NonNull
+        @MainThread
+        Loader<D> onCreateLoader(int i, @Nullable Bundle bundle);
 
-        void onLoadFinished(Loader<D> loader, D d);
+        @MainThread
+        void onLoadFinished(@NonNull Loader<D> loader, D d);
 
-        void onLoaderReset(Loader<D> loader);
+        @MainThread
+        void onLoaderReset(@NonNull Loader<D> loader);
     }
 
+    @MainThread
     public abstract void destroyLoader(int i);
 
     public abstract void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
 
+    @Nullable
     public abstract <D> Loader<D> getLoader(int i);
 
-    public abstract <D> Loader<D> initLoader(int i, Bundle bundle, LoaderCallbacks<D> loaderCallbacks);
+    @NonNull
+    @MainThread
+    public abstract <D> Loader<D> initLoader(int i, @Nullable Bundle bundle, @NonNull LoaderCallbacks<D> loaderCallbacks);
 
-    public abstract <D> Loader<D> restartLoader(int i, Bundle bundle, LoaderCallbacks<D> loaderCallbacks);
+    @NonNull
+    @MainThread
+    public abstract <D> Loader<D> restartLoader(int i, @Nullable Bundle bundle, @NonNull LoaderCallbacks<D> loaderCallbacks);
 
     public static void enableDebugLogging(boolean z) {
         LoaderManagerImpl.DEBUG = z;

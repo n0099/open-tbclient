@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.util;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ImageLogStruct {
     public int num = 0;
     public int failnum = 0;

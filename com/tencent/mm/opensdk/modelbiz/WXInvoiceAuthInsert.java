@@ -5,10 +5,10 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class WXInvoiceAuthInsert {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Req extends BaseReq {
         private static final String TAG = "MicroMsg.SDK.WXInvoiceAuthInsert.Req";
         private static final int URL_LENGTH_LIMIT = 10240;
@@ -16,7 +16,7 @@ public class WXInvoiceAuthInsert {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public final boolean checkArgs() {
-            if (d.b(this.url)) {
+            if (d.a(this.url)) {
                 Log.i(TAG, "url should not be empty");
                 return false;
             } else if (this.url.length() > URL_LENGTH_LIMIT) {
@@ -45,7 +45,7 @@ public class WXInvoiceAuthInsert {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Resp extends BaseResp {
         public String wxOrderId;
 

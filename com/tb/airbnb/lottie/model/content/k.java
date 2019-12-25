@@ -3,24 +3,24 @@ package com.tb.airbnb.lottie.model.content;
 import com.tb.airbnb.lottie.a.a.o;
 import com.tb.airbnb.lottie.model.a.h;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class k implements b {
     private final int index;
-    private final com.tb.airbnb.lottie.model.a.h ktQ;
+    private final com.tb.airbnb.lottie.model.a.h mOJ;
     private final String name;
 
     private k(String str, int i, com.tb.airbnb.lottie.model.a.h hVar) {
         this.name = str;
         this.index = i;
-        this.ktQ = hVar;
+        this.mOJ = hVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.h cMa() {
-        return this.ktQ;
+    public com.tb.airbnb.lottie.model.a.h dCj() {
+        return this.mOJ;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -29,11 +29,11 @@ public class k implements b {
     }
 
     public String toString() {
-        return "ShapePath{name=" + this.name + ", index=" + this.index + ", hasAnimation=" + this.ktQ.hasAnimation() + '}';
+        return "ShapePath{name=" + this.name + ", index=" + this.index + ", hasAnimation=" + this.mOJ.hasAnimation() + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static k z(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {

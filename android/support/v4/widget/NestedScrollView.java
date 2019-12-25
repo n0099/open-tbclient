@@ -4,9 +4,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.AccessibilityDelegateCompat;
 import android.support.v4.view.NestedScrollingChild2;
@@ -35,7 +38,7 @@ import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import android.widget.ScrollView;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class NestedScrollView extends FrameLayout implements NestedScrollingChild2, NestedScrollingParent, ScrollingView {
     static final int ANIMATED_SCROLL_GAP = 250;
     private static final int INVALID_POINTER = -1;
@@ -70,20 +73,20 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     private static final AccessibilityDelegate ACCESSIBILITY_DELEGATE = new AccessibilityDelegate();
     private static final int[] SCROLLVIEW_STYLEABLE = {16843130};
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnScrollChangeListener {
         void onScrollChange(NestedScrollView nestedScrollView, int i, int i2, int i3, int i4);
     }
 
-    public NestedScrollView(Context context) {
+    public NestedScrollView(@NonNull Context context) {
         this(context, null);
     }
 
-    public NestedScrollView(Context context, AttributeSet attributeSet) {
+    public NestedScrollView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public NestedScrollView(Context context, AttributeSet attributeSet, int i) {
+    public NestedScrollView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mTempRect = new Rect();
         this.mIsLayoutDirty = true;
@@ -255,7 +258,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     public int getMaxScrollAmount() {
-        return (int) (MAX_SCROLL_FACTOR * getHeight());
+        return (int) (0.5f * getHeight());
     }
 
     private void initScrollView() {
@@ -301,7 +304,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         super.addView(view, i, layoutParams);
     }
 
-    public void setOnScrollChangeListener(OnScrollChangeListener onScrollChangeListener) {
+    public void setOnScrollChangeListener(@Nullable OnScrollChangeListener onScrollChangeListener) {
         this.mOnScrollChangeListener = onScrollChangeListener;
     }
 
@@ -357,7 +360,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         return super.dispatchKeyEvent(keyEvent) || executeKeyEvent(keyEvent);
     }
 
-    public boolean executeKeyEvent(KeyEvent keyEvent) {
+    public boolean executeKeyEvent(@NonNull KeyEvent keyEvent) {
         this.mTempRect.setEmpty();
         if (!canScroll()) {
             if (!isFocused() || keyEvent.getKeyCode() == 4) {
@@ -1216,14 +1219,30 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
+        int paddingLeft;
+        int paddingLeft2;
+        int i = 0;
         super.draw(canvas);
         if (this.mEdgeGlowTop != null) {
             int scrollY = getScrollY();
             if (!this.mEdgeGlowTop.isFinished()) {
                 int save = canvas.save();
-                int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
-                canvas.translate(getPaddingLeft(), Math.min(0, scrollY));
-                this.mEdgeGlowTop.setSize(width, getHeight());
+                int width = getWidth();
+                int height = getHeight();
+                int min = Math.min(0, scrollY);
+                if (Build.VERSION.SDK_INT < 21 || getClipToPadding()) {
+                    paddingLeft = width - (getPaddingLeft() + getPaddingRight());
+                    paddingLeft2 = getPaddingLeft() + 0;
+                } else {
+                    paddingLeft = width;
+                    paddingLeft2 = 0;
+                }
+                if (Build.VERSION.SDK_INT >= 21 && getClipToPadding()) {
+                    height -= getPaddingTop() + getPaddingBottom();
+                    min += getPaddingTop();
+                }
+                canvas.translate(paddingLeft2, min);
+                this.mEdgeGlowTop.setSize(paddingLeft, height);
                 if (this.mEdgeGlowTop.draw(canvas)) {
                     ViewCompat.postInvalidateOnAnimation(this);
                 }
@@ -1231,11 +1250,20 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
             }
             if (!this.mEdgeGlowBottom.isFinished()) {
                 int save2 = canvas.save();
-                int width2 = (getWidth() - getPaddingLeft()) - getPaddingRight();
-                int height = getHeight();
-                canvas.translate((-width2) + getPaddingLeft(), Math.max(getScrollRange(), scrollY) + height);
+                int width2 = getWidth();
+                int height2 = getHeight();
+                int max = Math.max(getScrollRange(), scrollY) + height2;
+                if (Build.VERSION.SDK_INT < 21 || getClipToPadding()) {
+                    width2 -= getPaddingLeft() + getPaddingRight();
+                    i = 0 + getPaddingLeft();
+                }
+                if (Build.VERSION.SDK_INT >= 21 && getClipToPadding()) {
+                    height2 -= getPaddingTop() + getPaddingBottom();
+                    max -= getPaddingBottom();
+                }
+                canvas.translate(i - width2, max);
                 canvas.rotate(180.0f, width2, 0.0f);
-                this.mEdgeGlowBottom.setSize(width2, height);
+                this.mEdgeGlowBottom.setSize(width2, height2);
                 if (this.mEdgeGlowBottom.draw(canvas)) {
                     ViewCompat.postInvalidateOnAnimation(this);
                 }
@@ -1274,7 +1302,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v4.widget.NestedScrollView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1313,7 +1341,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class AccessibilityDelegate extends AccessibilityDelegateCompat {
         AccessibilityDelegate() {
         }

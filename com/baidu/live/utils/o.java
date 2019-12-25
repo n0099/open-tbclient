@@ -1,51 +1,24 @@
 package com.baidu.live.utils;
 
-import android.text.TextUtils;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes6.dex */
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.live.q.a;
+import com.baidu.live.tbadk.util.ScreenHelper;
+/* loaded from: classes2.dex */
 public class o {
-    private static String are = "";
-
-    public static String wu() {
-        if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            return "ala_subapp_shoubai_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isHaokan()) {
-            return "ala_subapp_haokan_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
-            return "ala_subapp_quanmin_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isTieba()) {
-            return "ala_tieba_android_consume";
-        }
-        return "";
+    public static int aK(Context context) {
+        return context.getResources().getDimensionPixelOffset(a.e.sdk_ds176);
     }
 
-    public static String wv() {
-        if (!TextUtils.isEmpty(are)) {
-            return are;
-        }
-        if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            return "ala_subapp_shoubai_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isHaokan()) {
-            return "ala_subapp_haokan_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
-            return "ala_subapp_quanmin_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isTieba()) {
-            return "ala_tieba_android_consume";
-        }
-        return "";
+    public static int u(Activity activity) {
+        return ScreenHelper.getRealScreenWidth(activity);
     }
 
-    public static void cY(String str) {
-        are = str;
+    public static int v(Activity activity) {
+        return (u(activity) * 9) / 16;
     }
 
-    public static String ww() {
-        return are;
+    public static int w(Activity activity) {
+        return aK(activity) + v(activity);
     }
 }

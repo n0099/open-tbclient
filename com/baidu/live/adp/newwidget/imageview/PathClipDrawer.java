@@ -5,14 +5,14 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class PathClipDrawer extends CommonDrawer {
     private PathClipDrawerPathCreateDelegate delegate;
     protected Path mDefaultPath = new Path();
     protected Paint mPathStrokePaint = null;
     protected boolean isPathAvailable = false;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface PathClipDrawerPathCreateDelegate {
         void drawWhenPathAvailable(Canvas canvas);
 

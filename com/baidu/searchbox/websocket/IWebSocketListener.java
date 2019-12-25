@@ -3,7 +3,7 @@ package com.baidu.searchbox.websocket;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public interface IWebSocketListener {
     void onClose(JSONObject jSONObject);
 

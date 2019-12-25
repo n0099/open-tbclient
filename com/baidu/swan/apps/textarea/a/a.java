@@ -4,36 +4,45 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class a extends z {
+/* loaded from: classes9.dex */
+public class a extends ab {
     public a(j jVar) {
-        super(jVar, "/swan/closeTextarea");
+        super(jVar, "/swanAPI/closeTextarea");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
         com.baidu.swan.apps.console.c.d("CloseTextAreaAction", "closeTextAreaAction paramsJson: " + optParamsAsJo);
-        String optString = optParamsAsJo.optString("inputId");
-        String optString2 = optParamsAsJo.optString("slaveId");
-        String optString3 = optParamsAsJo.optString("parentId");
-        com.baidu.swan.apps.textarea.c.b iG = com.baidu.swan.apps.textarea.c.a.TG().iG(optString2);
-        if (iG == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            return false;
-        } else if (!iG.c(false, optString2, optString, optString3)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        } else {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
+        com.baidu.swan.apps.component.components.textarea.b bVar = new com.baidu.swan.apps.component.components.textarea.b();
+        try {
+            bVar.parseFromJson(optParamsAsJo);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            com.baidu.swan.apps.console.c.e("CloseTextAreaAction", "model parse exception:", e);
         }
+        com.baidu.swan.apps.component.components.textarea.a aVar = (com.baidu.swan.apps.component.components.textarea.a) com.baidu.swan.apps.component.container.a.d(bVar);
+        if (aVar == null) {
+            String str = "can't find textarea component:#" + bVar.bdh;
+            com.baidu.swan.apps.console.c.e("CloseTextAreaAction", str);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
+            return false;
+        }
+        com.baidu.swan.apps.component.b.c HU = aVar.HU();
+        if (!HU.isSuccess()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, HU.msg);
+            return false;
+        }
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        return true;
     }
 }

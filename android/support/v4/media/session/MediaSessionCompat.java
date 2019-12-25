@@ -39,13 +39,14 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
+import com.baidu.fsg.base.router.RouterCallback;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MediaSessionCompat {
     static final String ACTION_ARGUMENT_CAPTIONING_ENABLED = "android.support.v4.media.session.action.ARGUMENT_CAPTIONING_ENABLED";
     static final String ACTION_ARGUMENT_EXTRAS = "android.support.v4.media.session.action.ARGUMENT_EXTRAS";
@@ -54,7 +55,6 @@ public class MediaSessionCompat {
     static final String ACTION_ARGUMENT_RATING = "android.support.v4.media.session.action.ARGUMENT_RATING";
     static final String ACTION_ARGUMENT_REPEAT_MODE = "android.support.v4.media.session.action.ARGUMENT_REPEAT_MODE";
     static final String ACTION_ARGUMENT_SHUFFLE_MODE = "android.support.v4.media.session.action.ARGUMENT_SHUFFLE_MODE";
-    static final String ACTION_ARGUMENT_SHUFFLE_MODE_ENABLED = "android.support.v4.media.session.action.ARGUMENT_SHUFFLE_MODE_ENABLED";
     static final String ACTION_ARGUMENT_URI = "android.support.v4.media.session.action.ARGUMENT_URI";
     public static final String ACTION_FLAG_AS_INAPPROPRIATE = "android.support.v4.media.session.action.FLAG_AS_INAPPROPRIATE";
     public static final String ACTION_FOLLOW = "android.support.v4.media.session.action.FOLLOW";
@@ -67,7 +67,6 @@ public class MediaSessionCompat {
     static final String ACTION_SET_RATING = "android.support.v4.media.session.action.SET_RATING";
     static final String ACTION_SET_REPEAT_MODE = "android.support.v4.media.session.action.SET_REPEAT_MODE";
     static final String ACTION_SET_SHUFFLE_MODE = "android.support.v4.media.session.action.SET_SHUFFLE_MODE";
-    static final String ACTION_SET_SHUFFLE_MODE_ENABLED = "android.support.v4.media.session.action.SET_SHUFFLE_MODE_ENABLED";
     public static final String ACTION_SKIP_AD = "android.support.v4.media.session.action.SKIP_AD";
     public static final String ACTION_UNFOLLOW = "android.support.v4.media.session.action.UNFOLLOW";
     public static final String ARGUMENT_MEDIA_ATTRIBUTE = "android.support.v4.media.session.ARGUMENT_MEDIA_ATTRIBUTE";
@@ -87,7 +86,7 @@ public class MediaSessionCompat {
     private final MediaSessionImpl mImpl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface MediaSessionImpl {
         String getCallingPackage();
 
@@ -136,18 +135,16 @@ public class MediaSessionCompat {
         void setSessionActivity(PendingIntent pendingIntent);
 
         void setShuffleMode(int i);
-
-        void setShuffleModeEnabled(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnActiveChangeListener {
         void onActiveChanged();
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public @interface SessionFlags {
     }
 
@@ -293,11 +290,6 @@ public class MediaSessionCompat {
         this.mImpl.setRepeatMode(i);
     }
 
-    @Deprecated
-    public void setShuffleModeEnabled(boolean z) {
-        this.mImpl.setShuffleModeEnabled(z);
-    }
-
     public void setShuffleMode(int i) {
         this.mImpl.setShuffleMode(i);
     }
@@ -364,7 +356,7 @@ public class MediaSessionCompat {
         return playbackStateCompat;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Callback {
         private CallbackHandler mCallbackHandler = null;
         final Object mCallbackObj;
@@ -508,10 +500,6 @@ public class MediaSessionCompat {
         public void onSetRepeatMode(int i) {
         }
 
-        @Deprecated
-        public void onSetShuffleModeEnabled(boolean z) {
-        }
-
         public void onSetShuffleMode(int i) {
         }
 
@@ -532,7 +520,7 @@ public class MediaSessionCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public class CallbackHandler extends Handler {
             private static final int MSG_MEDIA_PLAY_PAUSE_KEY_DOUBLE_TAP_TIMEOUT = 1;
 
@@ -549,7 +537,7 @@ public class MediaSessionCompat {
         }
 
         @RequiresApi(21)
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         private class StubApi21 implements MediaSessionCompatApi21.Callback {
             StubApi21() {
             }
@@ -678,8 +666,6 @@ public class MediaSessionCompat {
                     Callback.this.onSetCaptioningEnabled(bundle.getBoolean(MediaSessionCompat.ACTION_ARGUMENT_CAPTIONING_ENABLED));
                 } else if (str.equals(MediaSessionCompat.ACTION_SET_REPEAT_MODE)) {
                     Callback.this.onSetRepeatMode(bundle.getInt(MediaSessionCompat.ACTION_ARGUMENT_REPEAT_MODE));
-                } else if (str.equals(MediaSessionCompat.ACTION_SET_SHUFFLE_MODE_ENABLED)) {
-                    Callback.this.onSetShuffleModeEnabled(bundle.getBoolean(MediaSessionCompat.ACTION_ARGUMENT_SHUFFLE_MODE_ENABLED));
                 } else if (str.equals(MediaSessionCompat.ACTION_SET_SHUFFLE_MODE)) {
                     Callback.this.onSetShuffleMode(bundle.getInt(MediaSessionCompat.ACTION_ARGUMENT_SHUFFLE_MODE));
                 } else if (str.equals(MediaSessionCompat.ACTION_SET_RATING)) {
@@ -693,7 +679,7 @@ public class MediaSessionCompat {
         }
 
         @RequiresApi(23)
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         private class StubApi23 extends StubApi21 implements MediaSessionCompatApi23.Callback {
             StubApi23() {
                 super();
@@ -706,7 +692,7 @@ public class MediaSessionCompat {
         }
 
         @RequiresApi(24)
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         private class StubApi24 extends StubApi23 implements MediaSessionCompatApi24.Callback {
             StubApi24() {
                 super();
@@ -734,7 +720,7 @@ public class MediaSessionCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Token implements Parcelable {
         public static final Parcelable.Creator<Token> CREATOR = new Parcelable.Creator<Token>() { // from class: android.support.v4.media.session.MediaSessionCompat.Token.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -829,7 +815,7 @@ public class MediaSessionCompat {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class QueueItem implements Parcelable {
         public static final Parcelable.Creator<QueueItem> CREATOR = new Parcelable.Creator<QueueItem>() { // from class: android.support.v4.media.session.MediaSessionCompat.QueueItem.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -924,7 +910,7 @@ public class MediaSessionCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class ResultReceiverWrapper implements Parcelable {
         public static final Parcelable.Creator<ResultReceiverWrapper> CREATOR = new Parcelable.Creator<ResultReceiverWrapper>() { // from class: android.support.v4.media.session.MediaSessionCompat.ResultReceiverWrapper.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -963,7 +949,7 @@ public class MediaSessionCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class MediaSessionImplBase implements MediaSessionImpl {
         static final int RCC_PLAYSTATE_NONE = 0;
         final AudioManager mAudioManager;
@@ -985,7 +971,6 @@ public class MediaSessionCompat {
         int mRepeatMode;
         PendingIntent mSessionActivity;
         int mShuffleMode;
-        boolean mShuffleModeEnabled;
         PlaybackStateCompat mState;
         private final MediaSessionStub mStub;
         final String mTag;
@@ -1357,14 +1342,6 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setShuffleModeEnabled(boolean z) {
-            if (this.mShuffleModeEnabled != z) {
-                this.mShuffleModeEnabled = z;
-                sendShuffleModeEnabled(z);
-            }
-        }
-
-        @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setShuffleMode(int i) {
             if (this.mShuffleMode != i) {
                 this.mShuffleMode = i;
@@ -1532,16 +1509,6 @@ public class MediaSessionCompat {
             this.mControllerCallbacks.finishBroadcast();
         }
 
-        private void sendShuffleModeEnabled(boolean z) {
-            for (int beginBroadcast = this.mControllerCallbacks.beginBroadcast() - 1; beginBroadcast >= 0; beginBroadcast--) {
-                try {
-                    this.mControllerCallbacks.getBroadcastItem(beginBroadcast).onShuffleModeChangedDeprecated(z);
-                } catch (RemoteException e) {
-                }
-            }
-            this.mControllerCallbacks.finishBroadcast();
-        }
-
         private void sendShuffleMode(int i) {
             for (int beginBroadcast = this.mControllerCallbacks.beginBroadcast() - 1; beginBroadcast >= 0; beginBroadcast--) {
                 try {
@@ -1562,7 +1529,7 @@ public class MediaSessionCompat {
             this.mControllerCallbacks.finishBroadcast();
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         class MediaSessionStub extends IMediaSession.Stub {
             MediaSessionStub() {
             }
@@ -1761,8 +1728,7 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setShuffleModeEnabledDeprecated(boolean z) throws RemoteException {
-                MediaSessionImplBase.this.postToHandler(24, Boolean.valueOf(z));
+            public void setShuffleModeEnabledRemoved(boolean z) throws RemoteException {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
@@ -1850,8 +1816,8 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public boolean isShuffleModeEnabledDeprecated() {
-                return MediaSessionImplBase.this.mShuffleModeEnabled;
+            public boolean isShuffleModeEnabledRemoved() {
+                return false;
             }
 
             @Override // android.support.v4.media.session.IMediaSession
@@ -1865,7 +1831,7 @@ public class MediaSessionCompat {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         private static final class Command {
             public final String command;
             public final Bundle extras;
@@ -1879,7 +1845,7 @@ public class MediaSessionCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         public class MessageHandler extends Handler {
             private static final int KEYCODE_MEDIA_PAUSE = 127;
             private static final int KEYCODE_MEDIA_PLAY = 126;
@@ -1910,7 +1876,6 @@ public class MediaSessionCompat {
             private static final int MSG_SET_CAPTIONING_ENABLED = 29;
             private static final int MSG_SET_REPEAT_MODE = 23;
             private static final int MSG_SET_SHUFFLE_MODE = 30;
-            private static final int MSG_SET_SHUFFLE_MODE_ENABLED = 24;
             private static final int MSG_SET_VOLUME = 22;
             private static final int MSG_SKIP_TO_ITEM = 11;
             private static final int MSG_STOP = 13;
@@ -2019,7 +1984,7 @@ public class MediaSessionCompat {
                             callback.onSetRepeatMode(message.arg1);
                             return;
                         case 24:
-                            callback.onSetShuffleModeEnabled(((Boolean) message.obj).booleanValue());
+                        default:
                             return;
                         case 25:
                             callback.onAddQueueItem((MediaDescriptionCompat) message.obj);
@@ -2048,8 +2013,6 @@ public class MediaSessionCompat {
                             return;
                         case 31:
                             callback.onSetRating((RatingCompat) message.obj, message.getData());
-                            return;
-                        default:
                             return;
                     }
                 }
@@ -2114,7 +2077,7 @@ public class MediaSessionCompat {
     }
 
     @RequiresApi(18)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class MediaSessionImplApi18 extends MediaSessionImplBase {
         private static boolean sIsMbrPendingIntentSupported = true;
 
@@ -2194,7 +2157,7 @@ public class MediaSessionCompat {
     }
 
     @RequiresApi(19)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class MediaSessionImplApi19 extends MediaSessionImplApi18 {
         MediaSessionImplApi19(Context context, String str, ComponentName componentName, PendingIntent pendingIntent) {
             super(context, str, componentName, pendingIntent);
@@ -2230,7 +2193,7 @@ public class MediaSessionCompat {
         RemoteControlClient.MetadataEditor buildRccMetadata(Bundle bundle) {
             RemoteControlClient.MetadataEditor buildRccMetadata = super.buildRccMetadata(bundle);
             if (((this.mState == null ? 0L : this.mState.getActions()) & 128) != 0) {
-                buildRccMetadata.addEditableKey(268435457);
+                buildRccMetadata.addEditableKey(RouterCallback.CODE_ERROR);
             }
             if (bundle != null) {
                 if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_YEAR)) {
@@ -2240,7 +2203,7 @@ public class MediaSessionCompat {
                     buildRccMetadata.putObject(101, (Object) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_RATING));
                 }
                 if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_USER_RATING)) {
-                    buildRccMetadata.putObject(268435457, (Object) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_USER_RATING));
+                    buildRccMetadata.putObject(RouterCallback.CODE_ERROR, (Object) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_USER_RATING));
                 }
             }
             return buildRccMetadata;
@@ -2248,7 +2211,7 @@ public class MediaSessionCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class MediaSessionImplApi21 implements MediaSessionImpl {
         boolean mCaptioningEnabled;
         private boolean mDestroyed = false;
@@ -2260,7 +2223,6 @@ public class MediaSessionCompat {
         int mRepeatMode;
         private final Object mSessionObj;
         int mShuffleMode;
-        boolean mShuffleModeEnabled;
         private final Token mToken;
 
         public MediaSessionImplApi21(Context context, String str) {
@@ -2422,20 +2384,6 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setShuffleModeEnabled(boolean z) {
-            if (this.mShuffleModeEnabled != z) {
-                this.mShuffleModeEnabled = z;
-                for (int beginBroadcast = this.mExtraControllerCallbacks.beginBroadcast() - 1; beginBroadcast >= 0; beginBroadcast--) {
-                    try {
-                        this.mExtraControllerCallbacks.getBroadcastItem(beginBroadcast).onShuffleModeChangedDeprecated(z);
-                    } catch (RemoteException e) {
-                    }
-                }
-                this.mExtraControllerCallbacks.finishBroadcast();
-            }
-        }
-
-        @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
         public void setShuffleMode(int i) {
             if (this.mShuffleMode != i) {
                 this.mShuffleMode = i;
@@ -2472,7 +2420,7 @@ public class MediaSessionCompat {
             return MediaSessionCompatApi24.getCallingPackage(this.mSessionObj);
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes4.dex */
         class ExtraSession extends IMediaSession.Stub {
             ExtraSession() {
             }
@@ -2635,8 +2583,7 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setShuffleModeEnabledDeprecated(boolean z) throws RemoteException {
-                throw new AssertionError();
+            public void setShuffleModeEnabledRemoved(boolean z) throws RemoteException {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
@@ -2710,8 +2657,8 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public boolean isShuffleModeEnabledDeprecated() {
-                return MediaSessionImplApi21.this.mShuffleModeEnabled;
+            public boolean isShuffleModeEnabledRemoved() {
+                return false;
             }
 
             @Override // android.support.v4.media.session.IMediaSession

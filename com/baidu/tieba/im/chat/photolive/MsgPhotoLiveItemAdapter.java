@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
     public MsgPhotoLiveItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -16,7 +16,7 @@ public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bv */
+    /* renamed from: br */
     public e.a<MsgPhotoLiveCardVew> b(ViewGroup viewGroup) {
         MsgPhotoLiveCardVew msgPhotoLiveCardVew = new MsgPhotoLiveCardVew(this.mPageContext);
         return new a(msgPhotoLiveCardVew.getConvertView(), msgPhotoLiveCardVew);
@@ -27,17 +27,17 @@ public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgPhotoLiveCardVew> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgPhotoLiveCardVew byi = aVar.byi();
-        byi.a(this.mPageContext, chatMessage, viewGroup);
-        byi.a(this.gyD);
-        byi.setPosition(i);
+        MsgPhotoLiveCardVew bPA = aVar.bPA();
+        bPA.a(this.mPageContext, chatMessage, viewGroup);
+        bPA.a(this.hmL);
+        bPA.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public class a extends e.a<MsgPhotoLiveCardVew> {
         public a(View view, MsgPhotoLiveCardVew msgPhotoLiveCardVew) {
             super(view, msgPhotoLiveCardVew);

@@ -2,11 +2,11 @@ package com.baidu.live.challenge;
 
 import com.baidu.android.imsdk.db.TableDefine;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class d {
-    public boolean Og;
-    public long Oh;
-    public long Oi;
+    public boolean Ve;
+    public long Vf;
+    public long Vg;
     public long alaId;
     public String avatar;
     public long charmCount;
@@ -20,9 +20,9 @@ public class d {
             this.userName = jSONObject.optString("user_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
             this.charmCount = jSONObject.optLong("charm_count");
-            this.Og = jSONObject.optInt("can_challenge") == 1;
-            this.Oh = jSONObject.optLong("challenge_end_time");
-            this.Oi = jSONObject.optLong("challenge_time");
+            this.Ve = jSONObject.optInt("can_challenge") == 1;
+            this.Vf = jSONObject.optLong("challenge_end_time");
+            this.Vg = jSONObject.optLong("challenge_time");
         }
     }
 

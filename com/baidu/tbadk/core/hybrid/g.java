@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a cfW = null;
+    private a cSv = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g cgj = new g();
+        private static final g cSI = new g();
     }
 
-    public static g alr() {
-        return c.cgj;
+    public static g aCB() {
+        return c.cSI;
     }
 
     public void a(int i, j jVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.cfW = new a(i, jVar);
-                this.cfW.alt();
+                this.cSv = new a(i, jVar);
+                this.cSv.aCC();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a cfW;
-        private final List<Long> cgh = new ArrayList(240);
-        private final List<Integer> cgi = new ArrayList(15);
+        private final List<Long> cSG = new ArrayList(240);
+        private final List<Integer> cSH = new ArrayList(15);
+        protected a cSv;
 
         public b(a aVar) {
-            this.cfW = aVar;
+            this.cSv = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,57 +63,57 @@ public class g {
         }
 
         private void doFrame(long j) {
-            this.cgh.add(Long.valueOf(j));
-            this.cfW.alt();
+            this.cSG.add(Long.valueOf(j));
+            this.cSv.aCC();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.cfW = null;
-            this.cgh.clear();
-            this.cgi.clear();
+            this.cSv = null;
+            this.cSG.clear();
+            this.cSH.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private final Class<?> cfX;
-        private final Object cfY;
-        private final Class<?> cfZ;
-        private final Method cga;
-        private final Object cgb;
-        private final Method cgc;
-        private final b cgd;
-        private final int cge;
-        private final j cgf;
+        private final Object cSA;
+        private final Method cSB;
+        private final b cSC;
+        private final int cSD;
+        private final j cSE;
+        private final Class<?> cSw;
+        private final Object cSx;
+        private final Class<?> cSy;
+        private final Method cSz;
         private int index;
 
         private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.cfZ = Class.forName("android.view.Choreographer");
-            this.cfX = Class.forName("android.view.Choreographer$FrameCallback");
-            this.cgd = new b(this);
-            this.cfY = Proxy.newProxyInstance(this.cfX.getClassLoader(), new Class[]{this.cfX}, this.cgd);
-            this.cga = this.cfZ.getMethod("getInstance", new Class[0]);
-            this.cgb = this.cga.invoke(null, new Object[0]);
-            this.cgc = this.cfZ.getMethod("postFrameCallback", this.cfX);
-            this.cge = i <= 0 ? 16 : i;
-            this.cgf = jVar;
+            this.cSy = Class.forName("android.view.Choreographer");
+            this.cSw = Class.forName("android.view.Choreographer$FrameCallback");
+            this.cSC = new b(this);
+            this.cSx = Proxy.newProxyInstance(this.cSw.getClassLoader(), new Class[]{this.cSw}, this.cSC);
+            this.cSz = this.cSy.getMethod("getInstance", new Class[0]);
+            this.cSA = this.cSz.invoke(null, new Object[0]);
+            this.cSB = this.cSy.getMethod("postFrameCallback", this.cSw);
+            this.cSD = i <= 0 ? 16 : i;
+            this.cSE = jVar;
         }
 
-        private void als() throws InvocationTargetException, IllegalAccessException {
-            this.cgc.invoke(this.cgb, this.cfY);
+        private void dH() throws InvocationTargetException, IllegalAccessException {
+            this.cSB.invoke(this.cSA, this.cSx);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void alt() {
-            if (this.index >= this.cge) {
-                com.baidu.adp.lib.g.e.fZ().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
+        public void aCC() {
+            if (this.index >= this.cSD) {
+                com.baidu.adp.lib.f.e.gy().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.cgf.au(a.this.alv());
-                        a.this.cgd.destroy();
+                        a.this.cSE.aB(a.this.aCE());
+                        a.this.cSC.destroy();
                         a.this.destroy();
                     }
                 });
@@ -121,31 +121,31 @@ public class g {
             }
             this.index++;
             try {
-                als();
+                dH();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> alu() {
-            return this.cgd.cgh;
+        private List<Long> aCD() {
+            return this.cSC.cSG;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.cgd.destroy();
+            this.cSC.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> alv() {
+        public List<Long> aCE() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> alu = alu();
-            int size = alu.size();
+            List<Long> aCD = aCD();
+            int size = aCD.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(alu.get(i2 + 1).longValue() - alu.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(aCD.get(i2 + 1).longValue() - aCD.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

@@ -6,29 +6,29 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live_tab.b.i> {
-    ViewGroup AE;
-    private j dzr;
-    private j dzs;
+    private j eks;
+    private j ekt;
+    ViewGroup rootView;
 
     public h(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.dzr = new j(tbPageContext);
-        this.dzs = new j(tbPageContext);
-        this.AE = (ViewGroup) getView();
+        this.eks = new j(tbPageContext);
+        this.ekt = new j(tbPageContext);
+        this.rootView = (ViewGroup) getView();
         View view = new View(getContext());
-        this.AE.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12));
-        this.AE.addView(this.dzr.getView());
-        this.AE.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.AE.addView(this.dzs.getView());
+        this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12));
+        this.rootView.addView(this.eks.getView());
+        this.rootView.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
+        this.rootView.addView(this.ekt.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setBackgroundColor(this.AE, R.color.cp_bg_line_d);
-        this.dzr.onChangeSkinType(tbPageContext, i);
-        this.dzs.onChangeSkinType(tbPageContext, i);
+        am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
+        this.eks.onChangeSkinType(tbPageContext, i);
+        this.ekt.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -40,8 +40,8 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.i iVar) {
         if (iVar != null) {
-            this.dzr.b(iVar.dwA);
-            this.dzs.b(iVar.dwB);
+            this.eks.b(iVar.ehC);
+            this.ekt.b(iVar.ehD);
         }
     }
 

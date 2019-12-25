@@ -2,15 +2,15 @@ package com.baidu.tieba.frs.tab;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.frs.ar;
+import com.baidu.tieba.frs.as;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface a {
     void a(Context context, e eVar);
 
-    int bpK();
+    int bHg();
 
     View getView();
 
-    void setData(List<ar> list);
+    void setData(List<as> list);
 }

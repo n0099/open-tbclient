@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DBOperationFactory {
     private static final String TAG = "DBOperationFactory";
     private static String sUid = null;

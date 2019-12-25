@@ -10,10 +10,10 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.util.a.ae;
 import rx.internal.util.a.y;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class OnSubscribeFromEmitter<T> implements d.a<T> {
-    final rx.functions.b<Emitter<T>> kyO;
-    final Emitter.BackpressureMode kyP;
+    final rx.functions.b<Emitter<T>> neq;
+    final Emitter.BackpressureMode ner;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -22,7 +22,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
     public void call(rx.j<? super T> jVar) {
         BaseEmitter latestEmitter;
-        switch (this.kyP) {
+        switch (this.ner) {
             case NONE:
                 latestEmitter = new NoneEmitter(jVar);
                 break;
@@ -41,11 +41,11 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
         }
         jVar.add(latestEmitter);
         jVar.setProducer(latestEmitter);
-        this.kyO.call(latestEmitter);
+        this.neq.call(latestEmitter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static abstract class BaseEmitter<T> extends AtomicLong implements Emitter<T>, rx.f, rx.k {
         private static final long serialVersionUID = 7326289992464377023L;
         final rx.j<? super T> actual;
@@ -93,8 +93,8 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
         @Override // rx.f
         public final void request(long j) {
-            if (a.en(j)) {
-                a.a(this, j);
+            if (a.validate(j)) {
+                a.e(this, j);
                 onRequested();
             }
         }
@@ -116,7 +116,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class NoneEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 3776720187248809713L;
 
@@ -139,7 +139,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static abstract class NoOverflowBaseEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 4127754106204442833L;
 
@@ -153,7 +153,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
             if (!this.actual.isUnsubscribed()) {
                 if (get() != 0) {
                     this.actual.onNext(t);
-                    a.b(this, 1L);
+                    a.c(this, 1L);
                     return;
                 }
                 onOverflow();
@@ -162,7 +162,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class DropEmitter<T> extends NoOverflowBaseEmitter<T> {
         private static final long serialVersionUID = 8360058422307496563L;
 
@@ -176,7 +176,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class ErrorEmitter<T> extends NoOverflowBaseEmitter<T> {
         private static final long serialVersionUID = 338953216916120960L;
         private boolean done;
@@ -217,7 +217,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class BufferEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 2427151001689639875L;
         volatile boolean done;
@@ -227,13 +227,13 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
         public BufferEmitter(rx.j<? super T> jVar, int i) {
             super(jVar);
-            this.queue = ae.cPq() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+            this.queue = ae.dGX() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             this.wip = new AtomicInteger();
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.queue.offer(NotificationLite.bl(t));
+            this.queue.offer(NotificationLite.next(t));
             drain();
         }
 
@@ -290,7 +290,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
                         } else if (z2) {
                             break;
                         } else {
-                            jVar.onNext((Object) NotificationLite.bo(poll));
+                            jVar.onNext((Object) NotificationLite.getValue(poll));
                             j2 = 1 + j2;
                         }
                     }
@@ -313,7 +313,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
                         }
                     }
                     if (j2 != 0) {
-                        a.b(this, j2);
+                        a.c(this, j2);
                     }
                     i = this.wip.addAndGet(-i);
                 } while (i != 0);
@@ -322,7 +322,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class LatestEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 4023437720691792495L;
         volatile boolean done;
@@ -338,7 +338,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.queue.set(NotificationLite.bl(t));
+            this.queue.set(NotificationLite.next(t));
             drain();
         }
 
@@ -395,7 +395,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
                         } else if (z2) {
                             break;
                         } else {
-                            jVar.onNext((Object) NotificationLite.bo(andSet));
+                            jVar.onNext((Object) NotificationLite.getValue(andSet));
                             j2++;
                         }
                     }
@@ -418,7 +418,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
                         }
                     }
                     if (j2 != 0) {
-                        a.b(this, j2);
+                        a.c(this, j2);
                     }
                     i = this.wip.addAndGet(-i);
                 } while (i != 0);

@@ -2,18 +2,18 @@ package com.baidu.tieba.im.util;
 
 import android.text.InputFilter;
 import android.text.Spanned;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a implements InputFilter {
-    private int dhe;
+    private int mMax;
 
     public a(int i) {
-        this.dhe = i;
+        this.mMax = i;
     }
 
     @Override // android.text.InputFilter
     public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
         int i5 = i4 - i3;
-        int length = this.dhe - (spanned.length() - i5);
+        int length = this.mMax - (spanned.length() - i5);
         String obj = spanned.toString();
         int textLength = f.getTextLength(obj);
         if (i5 > 0) {
@@ -26,7 +26,7 @@ public class a implements InputFilter {
         } else {
             textLength += f.getTextLength(charSequence.toString());
         }
-        if (textLength > this.dhe || length <= 0) {
+        if (textLength > this.mMax || length <= 0) {
             return "";
         }
         if (length >= i2 - i) {

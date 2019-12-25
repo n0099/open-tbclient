@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.util;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class CommonHelper {
     private static String mIp = null;
 

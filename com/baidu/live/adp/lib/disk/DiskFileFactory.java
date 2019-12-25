@@ -4,7 +4,7 @@ import android.os.Environment;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DiskFileFactory {
     private String mAppCachePath;
     private String mAppInternalPath;

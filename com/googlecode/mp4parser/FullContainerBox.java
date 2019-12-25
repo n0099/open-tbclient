@@ -9,8 +9,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.logging.Logger;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class FullContainerBox extends AbstractContainerBox implements FullBox {
     private static Logger LOG = Logger.getLogger(FullContainerBox.class.getName());
     private int flags;
@@ -73,7 +72,7 @@ public abstract class FullContainerBox extends AbstractContainerBox implements F
     @Override // com.googlecode.mp4parser.AbstractContainerBox
     public ByteBuffer getHeader() {
         ByteBuffer wrap;
-        if (this.largeBox || getSize() >= IjkMediaMeta.AV_CH_WIDE_RIGHT) {
+        if (this.largeBox || getSize() >= 4294967296L) {
             byte[] bArr = new byte[20];
             bArr[3] = 1;
             bArr[4] = this.type.getBytes()[0];

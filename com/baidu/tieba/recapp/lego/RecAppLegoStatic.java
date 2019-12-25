@@ -1,9 +1,9 @@
 package com.baidu.tieba.recapp.lego;
 
 import com.baidu.tieba.lego.card.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class RecAppLegoStatic {
     static {
-        b.bHI().a(new a());
+        b.bYX().a(new a());
     }
 }

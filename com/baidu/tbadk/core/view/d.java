@@ -1,22 +1,77 @@
 package com.baidu.tbadk.core.view;
 
+import android.content.Context;
+import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bh;
+import android.widget.Toast;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public interface d {
-    void et(boolean z);
+public class d {
+    private Context mContext;
+    private Toast mToast;
+    private Handler mToastHandler;
+    private ImageView tipImage;
+    private TextView tipText;
+    private View tipView;
+    public long toastTime = 3000;
+    private int imageID = -1;
+    private int stringID = -1;
+    private Runnable mToastRunnable = new Runnable() { // from class: com.baidu.tbadk.core.view.d.1
+        @Override // java.lang.Runnable
+        public void run() {
+            if (d.this.mToast != null) {
+                d.this.mToast.cancel();
+            }
+        }
+    };
 
-    ClickableHeaderImageView getHeaderImg();
+    public d() {
+        this.mContext = null;
+        this.tipView = null;
+        this.tipText = null;
+        this.tipImage = null;
+        this.mContext = TbadkCoreApplication.getInst().getContext();
+        this.tipView = LayoutInflater.from(this.mContext).inflate(R.layout.image_toast_view, (ViewGroup) null);
+        this.tipText = (TextView) this.tipView.findViewById(R.id.tip_text);
+        this.tipImage = (ImageView) this.tipView.findViewById(R.id.tip_iamge);
+        this.tipView.setBackgroundDrawable(am.au(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds32), am.getColor(R.color.cp_hud_a)));
+        am.setViewTextColor(this.tipText, (int) R.color.cp_cont_a);
+        this.mToastHandler = new Handler();
+    }
 
-    boolean getIsSimpleThread();
+    public void showToast(int i, int i2) {
+        this.tipText.setText(i2);
+        this.tipImage.setImageResource(i);
+        showViewToast(this.tipView);
+    }
 
-    TextView getUserName();
+    public void showViewToast(View view) {
+        this.mToastHandler.removeCallbacks(this.mToastRunnable);
+        if (this.mToast == null) {
+            this.mToast = new Toast(this.mContext);
+        }
+        this.mToastHandler.postDelayed(this.mToastRunnable, this.toastTime);
+        this.mToast.setView(view);
+        this.mToast.setDuration(1);
+        this.mToast.setGravity(17, 0, 0);
+        this.mToast.show();
+    }
 
-    boolean setData(bh bhVar);
+    public void showSuccessToast(CharSequence charSequence) {
+        this.tipText.setText(charSequence);
+        this.tipImage.setImageResource(R.drawable.icon_toast_game_ok);
+        showViewToast(this.tipView);
+    }
 
-    void setPageUniqueId(BdUniqueId bdUniqueId);
-
-    void setUserAfterClickListener(View.OnClickListener onClickListener);
+    public void showFailToast(CharSequence charSequence) {
+        this.tipText.setText(charSequence);
+        this.tipImage.setImageResource(R.drawable.icon_toast_game_error);
+        showViewToast(this.tipView);
+    }
 }

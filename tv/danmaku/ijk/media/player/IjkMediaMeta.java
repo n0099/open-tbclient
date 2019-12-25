@@ -2,10 +2,11 @@ package tv.danmaku.ijk.media.player;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes10.dex */
 public class IjkMediaMeta {
     public static final long AV_CH_BACK_CENTER = 256;
     public static final long AV_CH_BACK_LEFT = 16;
@@ -136,7 +137,7 @@ public class IjkMediaMeta {
     }
 
     public String getDurationInline() {
-        long j = (this.mDurationUS + 5000) / 1000000;
+        long j = (this.mDurationUS + 5000) / TimeUtils.NANOS_PER_MS;
         long j2 = j / 60;
         return String.format(Locale.US, "%02d:%02d:%02d", Long.valueOf(j2 / 60), Long.valueOf(j2 % 60), Long.valueOf(j % 60));
     }
@@ -198,7 +199,7 @@ public class IjkMediaMeta {
         return ijkMediaMeta;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes10.dex */
     public static class IjkStreamMeta {
         public long mBitrate;
         public long mChannelLayout;

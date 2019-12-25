@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.CallBack;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class GetIpInfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public GetIpInfoForRecordHandler(Context context) {
         super(context);

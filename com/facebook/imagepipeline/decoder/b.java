@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.decoder;
 
-import com.facebook.imagepipeline.f.g;
-/* loaded from: classes2.dex */
+import com.facebook.imagepipeline.g.h;
+/* loaded from: classes11.dex */
 public interface b {
-    com.facebook.imagepipeline.f.b a(com.facebook.imagepipeline.f.d dVar, int i, g gVar, com.facebook.imagepipeline.common.a aVar);
+    com.facebook.imagepipeline.g.c a(com.facebook.imagepipeline.g.e eVar, int i, h hVar, com.facebook.imagepipeline.common.b bVar);
 }

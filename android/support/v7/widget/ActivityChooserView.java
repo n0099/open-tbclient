@@ -25,13 +25,14 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ActivityChooserView extends ViewGroup implements ActivityChooserModel.ActivityChooserModelClient {
     private static final String LOG_TAG = "ActivityChooserView";
-    private final LinearLayoutCompat mActivityChooserContent;
+    private final View mActivityChooserContent;
     private final Drawable mActivityChooserContentBackground;
     final ActivityChooserViewAdapter mAdapter;
     private final Callbacks mCallbacks;
@@ -95,7 +96,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         obtainStyledAttributes.recycle();
         LayoutInflater.from(getContext()).inflate(R.layout.abc_activity_chooser_view, (ViewGroup) this, true);
         this.mCallbacks = new Callbacks();
-        this.mActivityChooserContent = (LinearLayoutCompat) findViewById(R.id.activity_chooser_view_content);
+        this.mActivityChooserContent = findViewById(R.id.activity_chooser_view_content);
         this.mActivityChooserContentBackground = this.mActivityChooserContent.getBackground();
         this.mDefaultActivityButton = (FrameLayout) findViewById(R.id.default_activity_button);
         this.mDefaultActivityButton.setOnClickListener(this.mCallbacks);
@@ -252,12 +253,12 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        LinearLayoutCompat linearLayoutCompat = this.mActivityChooserContent;
+        View view = this.mActivityChooserContent;
         if (this.mDefaultActivityButton.getVisibility() != 0) {
             i2 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2), 1073741824);
         }
-        measureChild(linearLayoutCompat, i, i2);
-        setMeasuredDimension(linearLayoutCompat.getMeasuredWidth(), linearLayoutCompat.getMeasuredHeight());
+        measureChild(view, i, i2);
+        setMeasuredDimension(view.getMeasuredWidth(), view.getMeasuredHeight());
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -323,7 +324,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class Callbacks implements View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, PopupWindow.OnDismissListener {
         Callbacks() {
         }
@@ -403,7 +404,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class ActivityChooserViewAdapter extends BaseAdapter {
         private static final int ITEM_VIEW_TYPE_ACTIVITY = 0;
         private static final int ITEM_VIEW_TYPE_COUNT = 3;
@@ -565,8 +566,8 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes2.dex */
-    public static class InnerLayout extends LinearLayoutCompat {
+    /* loaded from: classes4.dex */
+    public static class InnerLayout extends LinearLayout {
         private static final int[] TINT_ATTRS = {16842964};
 
         public InnerLayout(Context context, AttributeSet attributeSet) {

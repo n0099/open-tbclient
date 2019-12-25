@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class a {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final byte[] _ORDERED_ALPHABET;
@@ -109,7 +109,7 @@ public class a {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [695=5, 696=4, 697=4] */
     public static byte[] encodeBytesToBytes(byte[] bArr, int i, int i2, int i3) throws IOException {
-        C0593a c0593a;
+        C0721a c0721a;
         ByteArrayOutputStream byteArrayOutputStream;
         ByteArrayOutputStream byteArrayOutputStream2;
         GZIPOutputStream gZIPOutputStream;
@@ -163,9 +163,9 @@ public class a {
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                c0593a = new C0593a(byteArrayOutputStream, i3 | 1);
+                c0721a = new C0721a(byteArrayOutputStream, i3 | 1);
                 try {
-                    gZIPOutputStream = new GZIPOutputStream(c0593a);
+                    gZIPOutputStream = new GZIPOutputStream(c0721a);
                 } catch (IOException e) {
                     e = e;
                     byteArrayOutputStream2 = byteArrayOutputStream;
@@ -174,19 +174,19 @@ public class a {
                 }
             } catch (IOException e2) {
                 e = e2;
-                c0593a = null;
+                c0721a = null;
                 byteArrayOutputStream2 = byteArrayOutputStream;
             } catch (Throwable th2) {
                 th = th2;
-                c0593a = null;
+                c0721a = null;
             }
         } catch (IOException e3) {
             e = e3;
-            c0593a = null;
+            c0721a = null;
             byteArrayOutputStream2 = null;
         } catch (Throwable th3) {
             th = th3;
-            c0593a = null;
+            c0721a = null;
             byteArrayOutputStream = null;
         }
         try {
@@ -197,7 +197,7 @@ public class a {
             } catch (Exception e4) {
             }
             try {
-                c0593a.close();
+                c0721a.close();
             } catch (Exception e5) {
             }
             try {
@@ -219,7 +219,7 @@ public class a {
                 } catch (Exception e8) {
                 }
                 try {
-                    c0593a.close();
+                    c0721a.close();
                 } catch (Exception e9) {
                 }
                 try {
@@ -232,7 +232,7 @@ public class a {
             th = th5;
             gZIPOutputStream2 = gZIPOutputStream;
             gZIPOutputStream2.close();
-            c0593a.close();
+            c0721a.close();
             byteArrayOutputStream.close();
             throw th;
         }
@@ -271,8 +271,8 @@ public class a {
     }
 
     /* renamed from: org.java_websocket.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0593a extends FilterOutputStream {
+    /* loaded from: classes4.dex */
+    public static class C0721a extends FilterOutputStream {
         private byte[] b4;
         private boolean breakLines;
         private byte[] buffer;
@@ -284,7 +284,7 @@ public class a {
         private int position;
         private boolean suspendEncoding;
 
-        public C0593a(OutputStream outputStream, int i) {
+        public C0721a(OutputStream outputStream, int i) {
             super(outputStream);
             this.breakLines = (i & 8) != 0;
             this.encode = (i & 1) != 0;

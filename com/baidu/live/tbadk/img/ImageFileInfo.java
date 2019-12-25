@@ -16,7 +16,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ImageFileInfo extends MediaFileInfo {
     private String _cacheKey_all;
     private String _cacheKey_page;

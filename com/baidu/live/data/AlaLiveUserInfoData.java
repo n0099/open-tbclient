@@ -1,6 +1,5 @@
 package com.baidu.live.data;
 
-import android.net.http.Headers;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.StringUtils;
@@ -12,7 +11,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
     public static final int ALA_AUTHENT_STATUS_NOT = 0;
@@ -58,6 +57,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public int recordCount;
     public int sex;
     public long streamID;
+    public String throneUid;
     public long totalPrice;
     public long userId;
     public String userName;
@@ -92,7 +92,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             }
             this.levelId = jSONObject.optInt("level_id");
             this.levelExp = jSONObject.optInt("level_exp");
-            this.location = jSONObject.optString(Headers.LOCATION);
+            this.location = jSONObject.optString("location");
             this.lng = jSONObject.optDouble("lng");
             this.lat = jSONObject.optDouble("lat");
             this.fansCount = jSONObject.optInt("fans_count");
@@ -147,6 +147,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             if (jSONObject.has("is_bluediamond_member")) {
                 this.isBluediamondMember = jSONObject.optInt("is_bluediamond_member");
             }
+            this.throneUid = jSONObject.optString("is_guard_seat");
         }
     }
 
@@ -167,7 +168,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             jSONObject.put("portrait", this.portrait);
             jSONObject.put("level_id", this.levelId);
             jSONObject.put("level_exp", this.levelExp);
-            jSONObject.put(Headers.LOCATION, this.location);
+            jSONObject.put("location", this.location);
             jSONObject.put("lng", this.lng);
             jSONObject.put("lat", this.lat);
             jSONObject.put("fans_count", this.fansCount);
@@ -207,6 +208,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
                 }
                 jSONObject.put("live_mark_info_new", jSONArray);
             }
+            jSONObject.put("is_guard_seat", this.throneUid);
         } catch (JSONException e) {
             e.printStackTrace();
         }

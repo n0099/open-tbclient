@@ -13,13 +13,13 @@ public class b {
         DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
         diskFileOperate.setSdCard(z);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.eP().b(diskFileOperate);
+        com.baidu.adp.lib.Disk.d.fj().b(diskFileOperate);
         File[] listFiles2 = (diskFileOperate.getFileInfo() == null || diskFileOperate.getFileInfo().listFiles() == null) ? null : diskFileOperate.getFileInfo().listFiles();
         if (z2) {
             DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
             diskFileOperate2.setSdCard(z);
             diskFileOperate2.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            com.baidu.adp.lib.Disk.d.eP().b(diskFileOperate2);
+            com.baidu.adp.lib.Disk.d.fj().b(diskFileOperate2);
             if (diskFileOperate2.getFileInfo() != null && (listFiles = diskFileOperate2.getFileInfo().listFiles()) != null && listFiles.length != 0) {
                 if (listFiles2 == null || listFiles2.length == 0) {
                     return listFiles;
@@ -33,7 +33,7 @@ public class b {
         return listFiles2;
     }
 
-    public static ArrayList<c> I(boolean z) {
+    public static ArrayList<c> O(boolean z) {
         ArrayList<c> arrayList = new ArrayList<>();
         File[] c = c(z, true);
         if (c != null) {
@@ -53,6 +53,6 @@ public class b {
         e eVar = new e(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
         eVar.setSdCard(z);
         eVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.eP().c(eVar);
+        com.baidu.adp.lib.Disk.d.fj().c(eVar);
     }
 }

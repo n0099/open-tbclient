@@ -1,90 +1,51 @@
 package com.baidu.swan.apps.r.a;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.swan.apps.a;
-/* loaded from: classes2.dex */
-public class a extends BaseAdapter {
-    private String[] aRy;
-    private Context mContext;
+import android.view.KeyEvent;
+import com.baidu.swan.apps.r.a.a.d;
+import com.baidu.swan.apps.r.a.a.e;
+import com.baidu.swan.apps.r.a.c;
+/* loaded from: classes9.dex */
+class a extends com.baidu.swan.apps.r.b<c> {
+    private final c.a brB;
 
-    public a(Context context, @NonNull String[] strArr) {
-        this.mContext = context;
-        this.aRy = strArr;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.aRy.length;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return this.aRy[i];
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        Object tag;
-        Object bVar;
-        View view2;
-        if (view == null) {
-            if (i == 11) {
-                View inflate = View.inflate(this.mContext, a.g.aiapps_keyboard_img_item, null);
-                bVar = new C0202a();
-                ((C0202a) bVar).aRz = (ImageView) inflate.findViewById(a.f.delete_key_img_view);
-                view2 = inflate;
-            } else {
-                View inflate2 = View.inflate(this.mContext, a.g.aiapps_keyboard_text_item, null);
-                bVar = new b();
-                ((b) bVar).aRA = (TextView) inflate2.findViewById(a.f.key_text_view);
-                if (i == 9) {
-                    if (TextUtils.isEmpty(this.aRy[9])) {
-                        inflate2.setBackgroundColor(this.mContext.getResources().getColor(a.c.aiapps_keyboard_non_number_item_background_normal));
-                        view2 = inflate2;
-                    } else {
-                        inflate2.setBackgroundResource(a.e.aiapps_keyboard_non_number_item_selector);
-                    }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a(@NonNull c cVar) {
+        super(cVar);
+        this.brB = new c.a() { // from class: com.baidu.swan.apps.r.a.a.1
+            @Override // com.baidu.swan.apps.r.a.c.a
+            public void dP(int i) {
+                if (a.this.bru != null) {
+                    a.this.bru.onCallback(a.this, "onCustomKeyboardShow", Integer.valueOf(i));
                 }
-                view2 = inflate2;
             }
-            view2.setTag(bVar);
-            view = view2;
-            tag = bVar;
-        } else {
-            tag = view.getTag();
-        }
-        if (i != 11) {
-            ((b) tag).aRA.setText(this.aRy[i]);
-        }
-        return view;
-    }
 
-    /* loaded from: classes2.dex */
-    private static final class b {
-        private TextView aRA;
+            @Override // com.baidu.swan.apps.r.a.c.a
+            public void Id() {
+                if (a.this.bru != null) {
+                    a.this.bru.onCallback(a.this, "onCustomKeyboardHide", null);
+                }
+            }
 
-        private b() {
-        }
-    }
+            @Override // com.baidu.swan.apps.r.a.c.a
+            public void hJ(String str) {
+                if (a.this.bru != null) {
+                    a.this.bru.onCallback(a.this, "committext", str);
+                }
+            }
 
-    /* renamed from: com.baidu.swan.apps.r.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    private static final class C0202a {
-        private ImageView aRz;
-
-        private C0202a() {
-        }
+            @Override // com.baidu.swan.apps.r.a.c.a
+            public void QJ() {
+                if (a.this.bru != null) {
+                    a.this.bru.onCallback(a.this, "deletebutton", new KeyEvent(0, 67));
+                }
+            }
+        };
+        cVar.a(this.brB);
+        this.brt.a(new e());
+        this.brt.a(new com.baidu.swan.apps.r.a.a.a());
+        this.brt.a(new d());
+        this.brt.a(new com.baidu.swan.apps.r.a.a.c());
+        this.brt.a(new com.baidu.swan.apps.r.a.a.b());
     }
 }

@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.i.l;
+import com.baidu.down.manage.DownloadConstants;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
 import java.io.File;
@@ -14,7 +15,7 @@ import java.io.FileInputStream;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Properties;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class g {
     private static String f = "api.tuisong.baidu.com";
     private static String[] g = {"api0.tuisong.baidu.com", "api1.tuisong.baidu.com", "api2.tuisong.baidu.com", "api3.tuisong.baidu.com", "api4.tuisong.baidu.com", "api5.tuisong.baidu.com", "api6.tuisong.baidu.com", "api7.tuisong.baidu.com", "api8.tuisong.baidu.com", "api9.tuisong.baidu.com"};
@@ -24,7 +25,7 @@ public final class g {
     public static int b = 5288;
     public static String[] c = {"202.108.23.105", "180.149.132.107", "180.149.131.209", "111.13.100.86", "111.13.100.85", " 61.135.185.18", "220.181.163.183", "220.181.163.182"};
     private static boolean j = true;
-    private static String k = "http://m.baidu.com";
+    private static String k = DownloadConstants.REFER;
     private static ArrayList<String> l = null;
     private static ArrayList<String> m = null;
     public static final String d = k;

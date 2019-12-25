@@ -10,7 +10,7 @@ import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class CommandService extends Service {
     private void a(Intent intent) {
         String action = intent.getAction();

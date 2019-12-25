@@ -3,6 +3,7 @@ package com.sina.weibo.sdk.network.impl;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidubce.http.Headers;
 import com.sina.weibo.sdk.net.NetStateManager;
 import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.network.base.RequestBodyHelper;
@@ -24,9 +25,8 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import org.apache.http.HttpHost;
-import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RequestEngine {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v29, types: [java.net.HttpURLConnection] */
@@ -74,14 +74,14 @@ public class RequestEngine {
             if (iRequestParam.getMethod() == IRequestParam.RequestType.POST) {
                 httpsURLConnection.setRequestMethod("POST");
                 httpsURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                httpsURLConnection.setRequestProperty("Charset", HTTP.UTF_8);
+                httpsURLConnection.setRequestProperty("Charset", "UTF-8");
                 httpsURLConnection.setUseCaches(false);
                 if (iRequestParam.getPostBundle().getByteArray(RequestParam.KEY_PARAM_BODY_BYTE_ARRAY) != null) {
                     bundle.putString("Content-Type", "application/octet-stream");
                 } else if (RequestBodyHelper.isMultipartRequest(iRequestParam)) {
                     bundle.putString("Content-Type", "multipart/form-data;boundary=" + str);
                 } else {
-                    bundle.putString("Content-Type", URLEncodedUtils.CONTENT_TYPE);
+                    bundle.putString("Content-Type", "application/x-www-form-urlencoded");
                 }
                 httpsURLConnection.setDoInput(true);
                 httpsURLConnection.setDoOutput(true);
@@ -102,7 +102,7 @@ public class RequestEngine {
                 return new WbResponse(new WbResponseBody(httpsURLConnection.getInputStream(), httpsURLConnection.getContentLength()));
             }
             if (responseCode == 302 || responseCode == 301) {
-                iRequestParam.setUrl(httpsURLConnection.getHeaderField("Location"));
+                iRequestParam.setUrl(httpsURLConnection.getHeaderField(Headers.LOCATION));
                 return request(iRequestParam);
             }
             throw new RequestException("服务器异常" + new WbResponseBody(httpsURLConnection.getErrorStream(), httpsURLConnection.getContentLength()).string());

@@ -5,7 +5,7 @@ import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractExpandedDecoder {
     private final GeneralAppIdDecoder generalDecoder;
     private final BitArray information;
@@ -49,9 +49,9 @@ public abstract class AbstractExpandedDecoder {
                     default:
                         switch (GeneralAppIdDecoder.extractNumericValueFromBitArray(bitArray, 1, 7)) {
                             case 56:
-                                return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+                                return new AI013x0x1xDecoder(bitArray, "310", "11");
                             case 57:
-                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, "11");
                             case 58:
                                 return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_JOININ_GROUP);
                             case 59:

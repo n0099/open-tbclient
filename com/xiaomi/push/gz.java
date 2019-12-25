@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.xiaomi.push.ee;
 import com.xiaomi.push.service.ba;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class gz extends ba.a {
     final /* synthetic */ gy a;
 
@@ -14,8 +14,8 @@ public class gz extends ba.a {
 
     @Override // com.xiaomi.push.service.ba.a
     public void a(ee.b bVar) {
-        if (bVar.m225e()) {
-            gy.m306a().m310a(bVar.e());
+        if (bVar.m228e()) {
+            gy.m309a().m313a(bVar.e());
         }
     }
 }

@@ -6,26 +6,26 @@ import android.graphics.Rect;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class ao extends a {
-    private int aFT;
-    private int aFU;
-    private float aGB = -1.0f;
-    private float aGC = 0.0f;
+    private float bci = -1.0f;
+    private float bcj = 0.0f;
     private float mStrokeWidth = 1.0f;
     private String mText;
+    private int mX;
+    private int mY;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 2) {
                 this.mText = jSONArray.optString(0);
-                this.aFT = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(1));
-                this.aFU = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(2));
+                this.mX = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(1));
+                this.mY = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(2));
                 if (jSONArray.length() > 3) {
-                    this.aGB = com.baidu.swan.apps.an.z.S((float) jSONArray.optDouble(3));
+                    this.bci = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(3));
                 }
-                this.mStrokeWidth = com.baidu.swan.apps.an.z.S(1.0f);
+                this.mStrokeWidth = com.baidu.swan.apps.as.af.T(1.0f);
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -39,32 +39,32 @@ public class ao extends a {
         float f;
         Rect rect;
         if (!TextUtils.isEmpty(this.mText)) {
-            TextPaint textPaint = bVar.aFB;
-            int i = bVar.aFG;
+            TextPaint textPaint = bVar.bbm;
+            int i = bVar.bbr;
             Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-            float f2 = fontMetrics.top + this.aFU;
-            float f3 = fontMetrics.ascent + this.aFU;
-            float f4 = fontMetrics.bottom + this.aFU;
+            float f2 = fontMetrics.top + this.mY;
+            float f3 = fontMetrics.ascent + this.mY;
+            float f4 = fontMetrics.bottom + this.mY;
             switch (i) {
                 case 1:
-                    f = this.aFU + ((f4 - f2) / 2.0f) + (f3 - f2);
+                    f = this.mY + ((f4 - f2) / 2.0f) + (f3 - f2);
                     break;
                 case 2:
-                    f = (this.aFU + ((fontMetrics.bottom - fontMetrics.top) / 2.0f)) - fontMetrics.bottom;
+                    f = (this.mY + ((fontMetrics.bottom - fontMetrics.top) / 2.0f)) - fontMetrics.bottom;
                     break;
                 case 3:
-                    f = this.aFU - (f3 - f2);
+                    f = this.mY - (f3 - f2);
                     break;
                 default:
-                    f = this.aFU;
+                    f = this.mY;
                     break;
             }
-            if (this.aGC == 0.0d) {
+            if (this.bcj == 0.0d) {
                 textPaint.getTextBounds(this.mText, 0, this.mText.length(), new Rect());
-                if (this.aGB == -1.0f || rect.width() <= this.aGB) {
-                    this.aGC = 1.0f;
+                if (this.bci == -1.0f || rect.width() <= this.bci) {
+                    this.bcj = 1.0f;
                 } else {
-                    this.aGC = this.aGB / rect.width();
+                    this.bcj = this.bci / rect.width();
                 }
             }
             canvas.save();
@@ -74,8 +74,8 @@ public class ao extends a {
             textPaint.setStrokeWidth(this.mStrokeWidth);
             textPaint.setColor(bVar.mStrokeColor);
             bVar.a(textPaint);
-            canvas.scale(this.aGC, 1.0f);
-            canvas.drawText(this.mText, this.aFT, f, textPaint);
+            canvas.scale(this.bcj, 1.0f);
+            canvas.drawText(this.mText, this.mX, f, textPaint);
             textPaint.setStyle(Paint.Style.FILL);
             textPaint.setAlpha(alpha);
             textPaint.setColor(color);

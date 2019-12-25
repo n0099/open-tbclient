@@ -1,8 +1,7 @@
 package com.vivo.push.b;
 
 import com.baidu.mapapi.UIMsg;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class aa extends com.vivo.push.y {
     private String a;
 
@@ -17,12 +16,12 @@ public final class aa extends com.vivo.push.y {
 
     @Override // com.vivo.push.y
     protected final void c(com.vivo.push.a aVar) {
-        aVar.a(Constants.PACKAGE_NAME, this.a);
+        aVar.a("package_name", this.a);
     }
 
     @Override // com.vivo.push.y
     protected final void d(com.vivo.push.a aVar) {
-        this.a = aVar.a(Constants.PACKAGE_NAME);
+        this.a = aVar.a("package_name");
     }
 
     @Override // com.vivo.push.y

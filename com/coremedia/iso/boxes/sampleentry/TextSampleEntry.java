@@ -9,8 +9,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TextSampleEntry extends AbstractSampleEntry {
     public static final String TYPE1 = "tx3g";
     public static final String TYPE_ENCRYPTED = "enct";
@@ -196,7 +195,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         this.backgroundColorRgba = iArr;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class BoxRecord {
         int bottom;
         int left;
@@ -247,7 +246,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class StyleRecord {
         int endChar;
         int faceStyleFlags;
@@ -318,6 +317,6 @@ public class TextSampleEntry extends AbstractSampleEntry {
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || containerSize + 38 >= IjkMediaMeta.AV_CH_WIDE_RIGHT) ? 16 : 8) + containerSize + 38;
+        return ((this.largeBox || containerSize + 38 >= 4294967296L) ? 16 : 8) + containerSize + 38;
     }
 }

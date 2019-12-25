@@ -10,18 +10,18 @@ import com.baidu.live.adp.widget.listview.BdTypeListView;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private BdTypeListView agA;
-    private f agB;
-    private c agC;
-    private g agD;
-    private d agE;
-    private e agF;
-    private boolean agG;
-    private BdPageContext agz;
-    private List<AbsDelegateAdapter> agy = new ArrayList();
-    private CustomMessageListener agH = new CustomMessageListener(0) { // from class: com.baidu.live.im.a.a.1
+    private BdPageContext aoA;
+    private BdTypeListView aoB;
+    private f aoC;
+    private c aoD;
+    private g aoE;
+    private d aoF;
+    private e aoG;
+    private boolean aoH;
+    private List<AbsDelegateAdapter> aoz = new ArrayList();
+    private CustomMessageListener aoI = new CustomMessageListener(0) { // from class: com.baidu.live.im.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,41 +30,41 @@ public class a {
     };
 
     public a(BdPageContext bdPageContext, BdTypeListView bdTypeListView) {
-        this.agz = bdPageContext;
-        this.agA = bdTypeListView;
-        sY();
+        this.aoA = bdPageContext;
+        this.aoB = bdTypeListView;
+        uR();
     }
 
-    public void sX() {
-        MessageManager.getInstance().registerListener(2913069, this.agH);
+    public void uQ() {
+        MessageManager.getInstance().registerListener(2913069, this.aoI);
     }
 
-    private void sY() {
-        this.agB = new f(this.agz.getPageActivity());
-        this.agC = new c(this.agz.getPageActivity());
-        this.agD = new g(this.agz.getPageActivity());
-        this.agE = new d(this.agz.getPageActivity());
-        this.agF = new e(this.agz.getPageActivity());
-        this.agy.add(this.agB);
-        this.agy.add(this.agC);
-        this.agy.add(this.agD);
-        this.agy.add(this.agE);
-        this.agy.add(this.agF);
-        this.agA.addAdapters(this.agy);
+    private void uR() {
+        this.aoC = new f(this.aoA.getPageActivity());
+        this.aoD = new c(this.aoA.getPageActivity());
+        this.aoE = new g(this.aoA.getPageActivity());
+        this.aoF = new d(this.aoA.getPageActivity());
+        this.aoG = new e(this.aoA.getPageActivity());
+        this.aoz.add(this.aoC);
+        this.aoz.add(this.aoD);
+        this.aoz.add(this.aoE);
+        this.aoz.add(this.aoF);
+        this.aoz.add(this.aoG);
+        this.aoB.addAdapters(this.aoz);
     }
 
     public void setMode(boolean z) {
-        this.agB.setMode(z);
+        this.aoC.setMode(z);
     }
 
     public void setDatas(List<IAdapterData> list) {
-        if (this.agA != null) {
-            this.agA.setData(list);
+        if (this.aoB != null) {
+            this.aoB.setData(list);
         }
     }
 
     public void a(String str, String str2, boolean z, String str3) {
-        for (AbsDelegateAdapter absDelegateAdapter : this.agy) {
+        for (AbsDelegateAdapter absDelegateAdapter : this.aoz) {
             if (absDelegateAdapter instanceof b) {
                 ((b) absDelegateAdapter).a(str, str2, z, str3);
             }
@@ -72,33 +72,33 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.agA != null && (this.agA.getAdapter() instanceof BaseAdapter)) {
-            this.agA.getAdapter().notifyDataSetChanged();
+        if (this.aoB != null && (this.aoB.getAdapter() instanceof BaseAdapter)) {
+            this.aoB.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void setFromMaster(boolean z) {
-        this.agG = z;
-        if (this.agG) {
-            if (this.agB != null) {
-                this.agB.az(true);
+        this.aoH = z;
+        if (this.aoH) {
+            if (this.aoC != null) {
+                this.aoC.aQ(true);
             }
-            if (this.agC != null) {
-                this.agC.az(true);
+            if (this.aoD != null) {
+                this.aoD.aQ(true);
             }
-            if (this.agD != null) {
-                this.agD.az(true);
+            if (this.aoE != null) {
+                this.aoE.aQ(true);
             }
-            if (this.agE != null) {
-                this.agE.az(true);
+            if (this.aoF != null) {
+                this.aoF.aQ(true);
             }
-            if (this.agF != null) {
-                this.agF.az(true);
+            if (this.aoG != null) {
+                this.aoG.aQ(true);
             }
         }
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.agH);
+        MessageManager.getInstance().unRegisterListener(this.aoI);
     }
 }

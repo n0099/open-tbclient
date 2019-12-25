@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class cl extends RuntimeException {
     public cl() {
     }

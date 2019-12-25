@@ -11,11 +11,11 @@ import android.widget.FrameLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
 public class VerticalScrollTextSwitcher extends TextSwitcher implements ViewSwitcher.ViewFactory {
-    private float asP;
     private int mTextColor;
+    private float mTextSize;
 
     public VerticalScrollTextSwitcher(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -27,7 +27,7 @@ public class VerticalScrollTextSwitcher extends TextSwitcher implements ViewSwit
         TextView textView = new TextView(getContext());
         textView.setGravity(16);
         textView.setTextColor(this.mTextColor);
-        textView.setTextSize(0, this.asP);
+        textView.setTextSize(0, this.mTextSize);
         textView.setMaxLines(1);
         textView.setEllipsize(TextUtils.TruncateAt.END);
         textView.setIncludeFontPadding(false);
@@ -37,18 +37,18 @@ public class VerticalScrollTextSwitcher extends TextSwitcher implements ViewSwit
 
     private void init(AttributeSet attributeSet) {
         initAttrs(attributeSet);
-        wJ();
+        initAnimation();
         setFactory(this);
     }
 
     private void initAttrs(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.k.sdk_VerticalScrollTextSwitcher);
         this.mTextColor = obtainStyledAttributes.getColor(a.k.sdk_VerticalScrollTextSwitcher_sdk_vsts_text_color, -1);
-        this.asP = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_VerticalScrollTextSwitcher_sdk_vsts_text_size, 20);
+        this.mTextSize = obtainStyledAttributes.getDimensionPixelOffset(a.k.sdk_VerticalScrollTextSwitcher_sdk_vsts_text_size, 20);
         obtainStyledAttributes.recycle();
     }
 
-    private void wJ() {
+    private void initAnimation() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(1000L);
         translateAnimation.setInterpolator(new LinearInterpolator());

@@ -16,6 +16,7 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.ExceptionData;
 import com.baidu.live.tbadk.util.DaemonServiceManager;
+import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -27,7 +28,7 @@ import java.io.PrintStream;
 import java.io.Writer;
 import java.lang.Thread;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
     private static final String HPROF_FILE_PATH = Environment.getExternalStorageDirectory().getPath() + File.separator + "tblive" + File.separator + "oom" + File.separator;
     private static final String OOM = "java.lang.OutOfMemoryError";
@@ -137,7 +138,7 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
         try {
             fileWriter.append((CharSequence) str);
             if (str2 != null) {
-                fileWriter.append("=");
+                fileWriter.append(ETAG.EQUAL);
                 fileWriter.append((CharSequence) str2);
             }
             fileWriter.append("\n");

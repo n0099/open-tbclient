@@ -1,69 +1,165 @@
 package rx.internal.operators;
 
-import java.util.NoSuchElementException;
+import java.util.concurrent.TimeoutException;
 import rx.d;
-import rx.h;
-/* loaded from: classes2.dex */
-public final class q<T> implements h.a<T> {
-    final d.a<T> kBK;
+import rx.g;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes4.dex */
+public class q<T> implements d.b<T, T> {
+    final a<T> ngQ;
+    final b<T> ngR;
+    final rx.d<? extends T> ngS;
+    final rx.g scheduler;
 
-    public q(d.a<T> aVar) {
-        this.kBK = aVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // rx.functions.b
-    /* renamed from: b */
-    public void call(rx.i<? super T> iVar) {
-        a aVar = new a(iVar);
-        iVar.add(aVar);
-        this.kBK.call(aVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes4.dex */
+    public interface a<T> extends rx.functions.h<c<T>, Long, g.a, rx.k> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static final class a<T> extends rx.j<T> {
-        final rx.i<? super T> actual;
-        int state;
-        T value;
+    /* loaded from: classes4.dex */
+    public interface b<T> extends rx.functions.i<c<T>, Long, T, g.a, rx.k> {
+    }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public a(rx.i<? super T> iVar) {
-            this.actual = iVar;
+    @Override // rx.functions.f
+    public /* bridge */ /* synthetic */ Object call(Object obj) {
+        return call((rx.j) ((rx.j) obj));
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(a<T> aVar, b<T> bVar, rx.d<? extends T> dVar, rx.g gVar) {
+        this.ngQ = aVar;
+        this.ngR = bVar;
+        this.ngS = dVar;
+        this.scheduler = gVar;
+    }
+
+    public rx.j<? super T> call(rx.j<? super T> jVar) {
+        g.a createWorker = this.scheduler.createWorker();
+        jVar.add(createWorker);
+        rx.b.e eVar = new rx.b.e(jVar);
+        rx.subscriptions.d dVar = new rx.subscriptions.d();
+        eVar.add(dVar);
+        c cVar = new c(eVar, this.ngR, dVar, this.ngS, createWorker);
+        eVar.add(cVar);
+        eVar.setProducer(cVar.nek);
+        dVar.f(this.ngQ.b(cVar, 0L, createWorker));
+        return cVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes4.dex */
+    public static final class c<T> extends rx.j<T> {
+        long actual;
+        final rx.internal.producers.a nek = new rx.internal.producers.a();
+        final b<T> ngR;
+        final rx.d<? extends T> ngS;
+        final rx.b.e<T> ngT;
+        final g.a ngU;
+        final rx.subscriptions.d serial;
+        boolean terminated;
+
+        c(rx.b.e<T> eVar, b<T> bVar, rx.subscriptions.d dVar, rx.d<? extends T> dVar2, g.a aVar) {
+            this.ngT = eVar;
+            this.ngR = bVar;
+            this.serial = dVar;
+            this.ngS = dVar2;
+            this.ngU = aVar;
+        }
+
+        @Override // rx.j
+        public void setProducer(rx.f fVar) {
+            this.nek.setProducer(fVar);
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            int i = this.state;
-            if (i == 0) {
-                this.state = 1;
-                this.value = t;
-            } else if (i == 1) {
-                this.state = 2;
-                this.actual.onError(new IndexOutOfBoundsException("The upstream produced more than one value"));
+            long j;
+            boolean z = false;
+            synchronized (this) {
+                if (!this.terminated) {
+                    j = this.actual + 1;
+                    this.actual = j;
+                    z = true;
+                } else {
+                    j = this.actual;
+                }
+            }
+            if (z) {
+                this.ngT.onNext(t);
+                this.serial.f(this.ngR.a(this, Long.valueOf(j), t, this.ngU));
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (this.state == 2) {
-                rx.c.c.onError(th);
-                return;
+            boolean z = true;
+            synchronized (this) {
+                if (this.terminated) {
+                    z = false;
+                } else {
+                    this.terminated = true;
+                }
             }
-            this.value = null;
-            this.actual.onError(th);
+            if (z) {
+                this.serial.unsubscribe();
+                this.ngT.onError(th);
+            }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            int i = this.state;
-            if (i == 0) {
-                this.actual.onError(new NoSuchElementException());
-            } else if (i == 1) {
-                this.state = 2;
-                T t = this.value;
-                this.value = null;
-                this.actual.onSuccess(t);
+            boolean z = true;
+            synchronized (this) {
+                if (this.terminated) {
+                    z = false;
+                } else {
+                    this.terminated = true;
+                }
+            }
+            if (z) {
+                this.serial.unsubscribe();
+                this.ngT.onCompleted();
+            }
+        }
+
+        public void onTimeout(long j) {
+            boolean z = true;
+            synchronized (this) {
+                if (j != this.actual || this.terminated) {
+                    z = false;
+                } else {
+                    this.terminated = true;
+                }
+            }
+            if (z) {
+                if (this.ngS == null) {
+                    this.ngT.onError(new TimeoutException());
+                    return;
+                }
+                rx.j<T> jVar = new rx.j<T>() { // from class: rx.internal.operators.q.c.1
+                    @Override // rx.e
+                    public void onNext(T t) {
+                        c.this.ngT.onNext(t);
+                    }
+
+                    @Override // rx.e
+                    public void onError(Throwable th) {
+                        c.this.ngT.onError(th);
+                    }
+
+                    @Override // rx.e
+                    public void onCompleted() {
+                        c.this.ngT.onCompleted();
+                    }
+
+                    @Override // rx.j
+                    public void setProducer(rx.f fVar) {
+                        c.this.nek.setProducer(fVar);
+                    }
+                };
+                this.ngS.a((rx.j<? super Object>) jVar);
+                this.serial.f(jVar);
             }
         }
     }

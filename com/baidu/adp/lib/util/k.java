@@ -144,4 +144,11 @@ public class k {
         }
         return sb.toString();
     }
+
+    public static boolean r(String str, String str2) {
+        if (str == null || str2 == null) {
+            return false;
+        }
+        return str.equals(str2);
+    }
 }

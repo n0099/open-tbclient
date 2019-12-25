@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.account;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AccountHelper {
     private static OnSyncAccountCallback onSyncAccountCallback;
 

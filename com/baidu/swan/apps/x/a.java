@@ -1,286 +1,174 @@
 package com.baidu.swan.apps.x;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.swan.apps.an.ac;
-import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.as.ai;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.swan.apps.x.a.e;
-import com.baidu.swan.apps.x.a.f;
-import com.baidu.swan.apps.x.a.g;
+import com.baidu.swan.apps.statistic.a.d;
+import com.baidu.swan.apps.statistic.f;
+import com.baidu.swan.apps.t.e;
+import com.baidu.swan.apps.x.b.b;
+import com.baidu.swan.apps.x.b.c;
 import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class a extends z {
+/* loaded from: classes9.dex */
+public class a extends ab {
+
+    /* renamed from: com.baidu.swan.apps.x.a$a  reason: collision with other inner class name */
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0295a {
+        void SA();
+
+        void SB();
+    }
+
     public a(j jVar) {
-        super(jVar, "/swan/map");
+        super(jVar, "/swanAPI/launch");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+    @Override // com.baidu.swan.apps.scheme.actions.ab
+    public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, e eVar) {
         if (DEBUG) {
-            Log.d("MapAction", "handle entity: " + unitedSchemeEntity.toString());
-            return false;
-        }
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.scheme.actions.z
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar) {
-        boolean a;
-        if (DEBUG) {
-            Log.d("MapAction", "handleSubAction subAction: " + str);
-        }
-        c.i("map", "handleSubAction " + str);
-        b a2 = b.a(unitedSchemeEntity, callbackHandler);
-        char c = 65535;
-        switch (str.hashCode()) {
-            case -1733613079:
-                if (str.equals("/swan/map/openWalkNavigation")) {
-                    c = 11;
-                    break;
-                }
-                break;
-            case -1106368664:
-                if (str.equals("/swan/map/getRegion")) {
-                    c = '\b';
-                    break;
-                }
-                break;
-            case -758520770:
-                if (str.equals("/swan/map/create")) {
-                    c = 0;
-                    break;
-                }
-                break;
-            case -340837434:
-                if (str.equals("/swan/map/remove")) {
-                    c = 2;
-                    break;
-                }
-                break;
-            case -245072885:
-                if (str.equals("/swan/map/update")) {
-                    c = 1;
-                    break;
-                }
-                break;
-            case -220100127:
-                if (str.equals("/swan/map/openLocation")) {
-                    c = 4;
-                    break;
-                }
-                break;
-            case 332527518:
-                if (str.equals("/swan/map/getCenterLocation")) {
-                    c = '\t';
-                    break;
-                }
-                break;
-            case 877004326:
-                if (str.equals("/swan/map/translateMarker")) {
-                    c = 3;
-                    break;
-                }
-                break;
-            case 1162505769:
-                if (str.equals("/swan/map/includePoints")) {
-                    c = 6;
-                    break;
-                }
-                break;
-            case 1350642262:
-                if (str.equals("/swan/map/getScale")) {
-                    c = 7;
-                    break;
-                }
-                break;
-            case 1767935811:
-                if (str.equals("/swan/map/moveToLocation")) {
-                    c = 5;
-                    break;
-                }
-                break;
-            case 1986876462:
-                if (str.equals("/swan/map/chooseLocation")) {
-                    c = '\n';
-                    break;
-                }
-                break;
-        }
-        switch (c) {
-            case 0:
-                com.baidu.swan.apps.x.a.c a3 = a(unitedSchemeEntity, com.baidu.swan.apps.x.a.c.class);
-                if (!a(a3, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().a(context, a3, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            case 1:
-                com.baidu.swan.apps.x.a.c a4 = a(unitedSchemeEntity, com.baidu.swan.apps.x.a.c.class);
-                if (!a(a4, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().b(context, a4, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            case 2:
-                com.baidu.swan.apps.x.a.c a5 = a(unitedSchemeEntity, com.baidu.swan.apps.x.a.c.class);
-                if (!a(a5, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().c(context, a5, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            case 3:
-                f fVar = (f) a(unitedSchemeEntity, f.class);
-                if (!a(fVar, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().a(context, fVar, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            case 4:
-                e eVar = (e) a(unitedSchemeEntity, e.class);
-                if (!a(eVar, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().a(context, eVar, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            case 5:
-                com.baidu.swan.apps.x.a.c a6 = a(unitedSchemeEntity, com.baidu.swan.apps.x.a.c.class);
-                if (!a(a6, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().d(context, a6, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            case 6:
-                com.baidu.swan.apps.x.a.b bVar2 = (com.baidu.swan.apps.x.a.b) a(unitedSchemeEntity, com.baidu.swan.apps.x.a.b.class);
-                if (!a(bVar2, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().a(context, bVar2, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            case 7:
-                com.baidu.swan.apps.x.a.c a7 = a(unitedSchemeEntity, com.baidu.swan.apps.x.a.c.class);
-                if (!a(a7, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().e(context, a7, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            case '\b':
-                com.baidu.swan.apps.x.a.c a8 = a(unitedSchemeEntity, com.baidu.swan.apps.x.a.c.class);
-                if (!a(a8, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().f(context, a8, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            case '\t':
-                com.baidu.swan.apps.x.a.c a9 = a(unitedSchemeEntity, com.baidu.swan.apps.x.a.c.class);
-                if (!a(a9, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().g(context, a9, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            case '\n':
-                com.baidu.swan.apps.x.a.a aVar = (com.baidu.swan.apps.x.a.a) a(unitedSchemeEntity, com.baidu.swan.apps.x.a.a.class);
-                if (!a(aVar, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().a(context, aVar, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            case 11:
-                g gVar = (g) a(unitedSchemeEntity, g.class);
-                if (!a(gVar, a2)) {
-                    a = com.baidu.swan.apps.u.a.Ju().a(context, gVar, a2, bVar);
-                    break;
-                } else {
-                    a = false;
-                    break;
-                }
-            default:
-                a = false;
-                break;
-        }
-        return a || super.a(context, unitedSchemeEntity, callbackHandler, str, bVar);
-    }
-
-    protected <T extends com.baidu.swan.apps.x.a.c> T a(UnitedSchemeEntity unitedSchemeEntity, Class<T> cls) {
-        T t;
-        Exception e;
-        JSONObject jSONObject;
-        if (unitedSchemeEntity == null) {
-            return null;
+            Log.d("LaunchAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         HashMap<String, String> params = unitedSchemeEntity.getParams();
-        if (params == null || params.isEmpty()) {
-            c.e("map", "entity get Params is empty");
-            return null;
-        }
         String str = params.get("params");
-        if (str == null) {
-            c.e("map", "params string is empty");
-            return null;
+        String str2 = params.get("from");
+        if (TextUtils.isEmpty(str)) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            com.baidu.swan.apps.ap.a mh = new com.baidu.swan.apps.ap.a().aB(1L).aC(1L).mh("paramsValue is empty");
+            com.baidu.swan.apps.ap.e.adF().f(mh);
+            com.baidu.swan.apps.x.a.a.a(context, mh, 0, "");
+            f.b(new d().e(mh).lx(str2).be(SuspensionBallEntity.KEY_SCHEME, unitedSchemeEntity.getUri().toString()));
+            return false;
         }
         try {
-            jSONObject = new JSONObject(str);
-            t = cls.newInstance();
-        } catch (Exception e2) {
-            t = null;
-            e = e2;
-        }
-        try {
-            t.parseFromJson(jSONObject);
-            return t;
-        } catch (Exception e3) {
-            e = e3;
-            e.printStackTrace();
-            c.e("map", "params json parse error");
-            return t;
+            JSONObject jSONObject = new JSONObject(str);
+            final String optString = jSONObject.optString("appid");
+            String optString2 = jSONObject.optString("url");
+            String optString3 = jSONObject.optString("extraData");
+            final String optString4 = jSONObject.optString("navi");
+            String optString5 = jSONObject.optString("downloadurl");
+            String optString6 = jSONObject.optString("clkid");
+            String optString7 = jSONObject.optString("notinhis");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                com.baidu.swan.apps.ap.a mh2 = new com.baidu.swan.apps.ap.a().aB(1L).aC(1L).mh("appId is empty");
+                com.baidu.swan.apps.ap.e.adF().f(mh2);
+                com.baidu.swan.apps.x.a.a.a(context, mh2, 0, "");
+                f.b(new d().e(mh2).lx(str2).be(SuspensionBallEntity.KEY_SCHEME, unitedSchemeEntity.getUri().toString()));
+                return false;
+            }
+            final c.a aVar = (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().ig(optString)).il(optString2)).ij(str2)).ik(unitedSchemeEntity.getUri().toString())).im(optString6)).in(optString7);
+            if (eVar != null && !TextUtils.isEmpty(optString4)) {
+                aVar.aG("extraData", optString3);
+                aVar.aG("navi", optString4);
+                b.a DR = eVar.DR();
+                if (DR == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                String appId = DR.getAppId();
+                if (com.baidu.swan.apps.e.a.a(DR) && !com.baidu.swan.apps.e.a.fP(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                aVar.aG("srcAppId", appId);
+                aVar.aG("srcAppPage", ai.aeB().getPage());
+            }
+            if (DEBUG && !TextUtils.isEmpty(optString5)) {
+                e.c cVar = new e.c();
+                cVar.mAppId = optString;
+                cVar.mDownloadUrl = optString5;
+                com.baidu.swan.apps.t.e.a(cVar, new e.b() { // from class: com.baidu.swan.apps.x.a.1
+                    @Override // com.baidu.swan.apps.t.e.b
+                    public void cG(int i) {
+                    }
+
+                    @Override // com.baidu.swan.apps.t.e.b
+                    public void onSuccess() {
+                        ((c.a) aVar.cA(true)).io("1.6.0");
+                        SwanLauncher.OU().a(aVar, (Bundle) null);
+                        a.a(optString4, optString, callbackHandler, unitedSchemeEntity);
+                    }
+
+                    @Override // com.baidu.swan.apps.t.e.b
+                    public void onFailed() {
+                        com.baidu.swan.apps.ap.a mh3 = new com.baidu.swan.apps.ap.a().aB(7L).aC(9L).mh("debug download pkg fail");
+                        com.baidu.swan.apps.ap.e.adF().f(mh3);
+                        com.baidu.swan.apps.x.a.a.a(com.baidu.swan.apps.w.a.Rk(), mh3, 0, optString);
+                        f.b(new d().e(mh3).a(aVar));
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    }
+                });
+                return true;
+            } else if (TextUtils.isEmpty(optString5)) {
+                aVar.cA(false);
+                SwanLauncher.OU().a(aVar, (Bundle) null);
+                a(optString4, optString, callbackHandler, unitedSchemeEntity);
+                return true;
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                com.baidu.swan.apps.ap.a mh3 = new com.baidu.swan.apps.ap.a().aB(1L).aC(1L).mh("release but downloadUrl is not empty");
+                com.baidu.swan.apps.ap.e.adF().f(mh3);
+                com.baidu.swan.apps.x.a.a.a(context, mh3, 0, optString);
+                f.b(new d().lx(str2).lw(optString).a(aVar).be(SuspensionBallEntity.KEY_SCHEME, unitedSchemeEntity.getUri().toString()));
+                return false;
+            }
+        } catch (JSONException e) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            com.baidu.swan.apps.ap.a mh4 = new com.baidu.swan.apps.ap.a().aB(1L).aC(1L).mh("parse paramsValue with JSONException:" + e.getMessage());
+            com.baidu.swan.apps.ap.e.adF().f(mh4);
+            com.baidu.swan.apps.x.a.a.a(context, mh4, 0, "");
+            f.b(new d().e(mh4).lx(str2).be(SuspensionBallEntity.KEY_SCHEME, unitedSchemeEntity.getUri().toString()));
+            return false;
         }
     }
 
-    private boolean a(com.baidu.swan.apps.x.a.c cVar, b bVar) {
-        if (cVar == null) {
-            c.e("map", "parse error, model is null");
-            bVar.onError(202);
-            return true;
+    public static void a(String str, String str2, final CallbackHandler callbackHandler, final UnitedSchemeEntity unitedSchemeEntity) {
+        if (!TextUtils.isEmpty(str)) {
+            a(str2, new InterfaceC0295a() { // from class: com.baidu.swan.apps.x.a.2
+                @Override // com.baidu.swan.apps.x.a.InterfaceC0295a
+                public void SA() {
+                    UnitedSchemeUtility.callCallback(CallbackHandler.this, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                }
+
+                @Override // com.baidu.swan.apps.x.a.InterfaceC0295a
+                public void SB() {
+                    UnitedSchemeUtility.callCallback(CallbackHandler.this, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
+                }
+            });
         }
-        if (TextUtils.isEmpty(cVar.aXp)) {
-            String UE = ac.UE();
-            if (!TextUtils.isEmpty(UE)) {
-                cVar.aXp = UE;
-            }
-            c.w("map", "webView id is empty, use current webView");
+    }
+
+    private static void a(String str, final InterfaceC0295a interfaceC0295a) {
+        if (!TextUtils.isEmpty(str)) {
+            Bundle bundle = new Bundle();
+            bundle.putString("desAppId", str);
+            com.baidu.swan.apps.runtime.d.ZP().ZL().a(bundle, b.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.x.a.3
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.swan.apps.process.a.b.c.a
+                public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
+                    if (bVar.getResult() != null && bVar.getResult().getInt("ok") == 0) {
+                        if (InterfaceC0295a.this != null) {
+                            InterfaceC0295a.this.SA();
+                        }
+                    } else if (InterfaceC0295a.this != null) {
+                        InterfaceC0295a.this.SB();
+                    }
+                }
+            });
         }
-        if (ac.fN(cVar.aXp) == null) {
-            bVar.onError(202);
-            c.e("map", "can not find weiView by id " + cVar.aXp);
-            return true;
-        }
-        return false;
     }
 }

@@ -16,14 +16,14 @@ public class a extends Dialog {
     private TextView d;
     private LinearLayout e;
     private LinearLayout f;
-    private InterfaceC0121a g;
-    private InterfaceC0121a h;
+    private InterfaceC0137a g;
+    private InterfaceC0137a h;
     private boolean i;
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0121a {
+    public interface InterfaceC0137a {
         void a();
     }
 
@@ -42,14 +42,14 @@ public class a extends Dialog {
 
     public a(Activity activity) {
         this(activity, R.dimen.pass_liveness_face_round_width);
-        View a = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.layout.abc_action_menu_layout, null);
+        View a = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.layout.abc_action_mode_bar, null);
         setContentView(a);
-        this.a = (TextView) a.findViewById(2131165234);
-        this.b = (TextView) a.findViewById(2131165237);
-        this.c = (TextView) a.findViewById(2131165241);
-        this.d = (TextView) a.findViewById(2131165242);
-        this.e = (LinearLayout) a.findViewById(2131165240);
-        this.f = (LinearLayout) a.findViewById(2131165243);
+        this.a = (TextView) a.findViewById(R.raw.par_banana);
+        this.b = (TextView) a.findViewById(R.raw.par_doctor_magic_center);
+        this.c = (TextView) a.findViewById(R.raw.par_firework);
+        this.d = (TextView) a.findViewById(R.raw.par_heart);
+        this.e = (LinearLayout) a.findViewById(R.raw.par_fire_flame);
+        this.f = (LinearLayout) a.findViewById(R.raw.par_heart_1);
         this.c.setOnClickListener(new b(this));
         this.d.setOnClickListener(new c(this));
         this.i = false;
@@ -119,13 +119,13 @@ public class a extends Dialog {
         return this;
     }
 
-    public a a(InterfaceC0121a interfaceC0121a) {
-        this.g = interfaceC0121a;
+    public a a(InterfaceC0137a interfaceC0137a) {
+        this.g = interfaceC0137a;
         return this;
     }
 
-    public a b(InterfaceC0121a interfaceC0121a) {
-        this.h = interfaceC0121a;
+    public a b(InterfaceC0137a interfaceC0137a) {
+        this.h = interfaceC0137a;
         return this;
     }
 

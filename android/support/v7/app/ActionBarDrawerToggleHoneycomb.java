@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import java.lang.reflect.Method;
 @RequiresApi(11)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class ActionBarDrawerToggleHoneycomb {
-    private static final String TAG = "ActionBarDrawerToggleHoneycomb";
+    private static final String TAG = "ActionBarDrawerToggleHC";
     private static final int[] THEME_ATTRS = {16843531};
 
     ActionBarDrawerToggleHoneycomb() {
@@ -62,7 +62,7 @@ class ActionBarDrawerToggleHoneycomb {
         return drawable;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     static class SetIndicatorInfo {
         public Method setHomeActionContentDescription;
         public Method setHomeAsUpIndicator;

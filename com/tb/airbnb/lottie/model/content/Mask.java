@@ -4,13 +4,13 @@ import com.baidu.mobstat.Config;
 import com.tb.airbnb.lottie.model.a.d;
 import com.tb.airbnb.lottie.model.a.h;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class Mask {
-    private final MaskMode ktD;
-    private final com.tb.airbnb.lottie.model.a.h ktE;
-    private final com.tb.airbnb.lottie.model.a.d kto;
+    private final com.tb.airbnb.lottie.model.a.d mOg;
+    private final MaskMode mOw;
+    private final com.tb.airbnb.lottie.model.a.h mOx;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum MaskMode {
         MaskModeAdd,
         MaskModeSubtract,
@@ -19,12 +19,12 @@ public class Mask {
     }
 
     private Mask(MaskMode maskMode, com.tb.airbnb.lottie.model.a.h hVar, com.tb.airbnb.lottie.model.a.d dVar) {
-        this.ktD = maskMode;
-        this.ktE = hVar;
-        this.kto = dVar;
+        this.mOw = maskMode;
+        this.mOx = hVar;
+        this.mOg = dVar;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static Mask r(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {
             MaskMode maskMode;
@@ -68,15 +68,15 @@ public class Mask {
         }
     }
 
-    public MaskMode cLM() {
-        return this.ktD;
+    public MaskMode dBV() {
+        return this.mOw;
     }
 
-    public com.tb.airbnb.lottie.model.a.h cLN() {
-        return this.ktE;
+    public com.tb.airbnb.lottie.model.a.h dBW() {
+        return this.mOx;
     }
 
-    public com.tb.airbnb.lottie.model.a.d cLx() {
-        return this.kto;
+    public com.tb.airbnb.lottie.model.a.d dBF() {
+        return this.mOg;
     }
 }

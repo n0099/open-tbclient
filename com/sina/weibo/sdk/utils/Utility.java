@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
+import com.baidu.webkit.internal.ETAG;
 import com.sina.weibo.sdk.sso.WeiboSsoManager;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
@@ -16,7 +18,7 @@ import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Locale;
 import java.util.UUID;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class Utility {
     private static final String DEFAULT_CHARSET = "UTF-8";
 
@@ -34,8 +36,8 @@ public class Utility {
     public static Bundle decodeUrl(String str) {
         Bundle bundle = new Bundle();
         if (str != null) {
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
+            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                String[] split = str2.split(ETAG.EQUAL);
                 try {
                     if (split.length == 2) {
                         bundle.putString(URLDecoder.decode(split[0], "UTF-8"), URLDecoder.decode(split[1], "UTF-8"));
@@ -107,7 +109,7 @@ public class Utility {
         } catch (Exception e) {
             sb.append("unknown");
         }
-        sb.append("__").append("android").append("__android").append(Build.VERSION.RELEASE);
+        sb.append("__").append(PraiseDataPassUtil.KEY_FROM_OS).append("__android").append(Build.VERSION.RELEASE);
         return sb.toString();
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.tieba.personCenter.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PersonMoreItemData extends OrmObject {
     public int mId;
     public String mName;

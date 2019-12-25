@@ -5,14 +5,13 @@ import android.util.Log;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.DefaultConfig;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BoxConfig extends DefaultConfig {
     @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
     public ChatObject parseTokenToChatObject(Context context, String str) {
@@ -33,7 +32,7 @@ public class BoxConfig extends DefaultConfig {
         if (chatObject == null) {
             return null;
         }
-        return chatObject.getCategory() + DefaultConfig.TOKEN_SEPARATOR + chatObject.getContacter() + DefaultConfig.TOKEN_SEPARATOR + chatObject.getType();
+        return chatObject.getCategory() + "." + chatObject.getContacter() + "." + chatObject.getType();
     }
 
     @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
@@ -45,7 +44,7 @@ public class BoxConfig extends DefaultConfig {
     public Map<String, Object> getOtherParameters(Context context, ChatMsg chatMsg) {
         HashMap hashMap = new HashMap();
         if (chatMsg != null && chatMsg.isZhida()) {
-            hashMap.put(TableDefine.PaSubscribeColumns.COLUMN_TPL, Integer.valueOf(Constants.getTplZhida(context)));
+            hashMap.put("tpl", Integer.valueOf(Constants.getTplZhida(context)));
         }
         return hashMap;
     }

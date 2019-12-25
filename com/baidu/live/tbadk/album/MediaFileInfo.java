@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.album;
 
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class MediaFileInfo implements Serializable {
     public static final int TYPE_ADD = 2;
     public static final int TYPE_IMAGE = 0;

@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class SyncStrategy {
     public static final int DEFAULT_AOUNT_EACH_FETCH = 100;
     public static final int DEFAULT_COUNT_JUMP_TO_RECENT_EACH_FETCH = 200;
@@ -41,7 +41,7 @@ public abstract class SyncStrategy {
     private long mContacter = -1;
 
     @FunctionalInterface
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface CompleteListener {
         void onComplete(DialogRecord dialogRecord);
     }
@@ -105,7 +105,7 @@ public abstract class SyncStrategy {
         LogUtils.d(TAG, "sync state: " + this.mState);
         this.mState = 1;
         long startMsgid = getStartMsgid();
-        long j3 = UNLIMITEDMSGID;
+        long j3 = Long.MAX_VALUE;
         LogUtils.i(TAG, "sync startId : " + startMsgid);
         if (startMsgid < 0) {
             LogUtils.d(TAG, "sync startId state: " + this.mState);

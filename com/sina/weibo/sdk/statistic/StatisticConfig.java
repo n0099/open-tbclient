@@ -2,18 +2,18 @@ package com.sina.weibo.sdk.statistic;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class StatisticConfig {
     private static final long DEFAULT_UPLOAD_INTERVAL = 90000;
     private static final long MAX_UPLOAD_INTERVAL = 28800000;
+    public static final long MIN_UPLOAD_INTERVAL = 30000;
     private static String mAppkey = null;
     private static String mChannel = null;
     public static boolean ACTIVITY_DURATION_OPEN = true;
     private static boolean mNeedGizp = true;
-    public static final long MIN_UPLOAD_INTERVAL = 30000;
-    public static long kContinueSessionMillis = MIN_UPLOAD_INTERVAL;
+    public static long kContinueSessionMillis = 30000;
     private static long kUploadInterval = 90000;
-    private static long kForceUploadInterval = MIN_UPLOAD_INTERVAL;
+    private static long kForceUploadInterval = 30000;
 
     StatisticConfig() {
     }
@@ -45,7 +45,7 @@ public class StatisticConfig {
     }
 
     public static void setUploadInterval(long j) throws Exception {
-        if (j < MIN_UPLOAD_INTERVAL || j > MAX_UPLOAD_INTERVAL) {
+        if (j < 30000 || j > MAX_UPLOAD_INTERVAL) {
             throw new Exception("The interval must be between 30 seconds and 8 hours");
         }
         kUploadInterval = j;

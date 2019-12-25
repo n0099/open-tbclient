@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.tencent.connect.share.QzonePublish;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b {
     private long endShowTime;
     private long startShowTime;
@@ -39,7 +39,7 @@ public class b {
         return bVar;
     }
 
-    public static b rV(String str) {
+    public static b xb(String str) {
         b bVar = new b();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -80,11 +80,11 @@ public class b {
         return jSONObject.toString();
     }
 
-    public boolean aEE() {
+    public boolean isValidate() {
         return (System.currentTimeMillis() / 1000 >= this.startShowTime && System.currentTimeMillis() / 1000 <= this.endShowTime) || (this.startShowTime == 0 && this.endShowTime == 0);
     }
 
-    public boolean aEF() {
+    public boolean aWx() {
         return !TextUtils.isEmpty(this.videoLocalPath);
     }
 }

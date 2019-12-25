@@ -11,7 +11,7 @@ public class au {
         this.mPageContext = tbPageContext;
     }
 
-    public void g(String str, byte[] bArr) {
+    public void j(String str, byte[] bArr) {
         new a(str, bArr).execute(new String[0]);
     }
 

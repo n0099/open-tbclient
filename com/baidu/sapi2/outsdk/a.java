@@ -1,7 +1,6 @@
 package com.baidu.sapi2.outsdk;
 
 import android.text.TextUtils;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.outsdk.c;
 import com.baidu.sapi2.utils.Log;
@@ -13,7 +12,7 @@ import com.cmic.sso.sdk.auth.TokenListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class a {
     static final String a = "rsa2048";
 
@@ -31,7 +30,7 @@ public class a {
                             String str;
                             int i = 1;
                             Log.i(c.a, "getPhoneInfo", jSONObject);
-                            String str2 = LivenessStat.TYPE_STRING_DEFAULT;
+                            String str2 = "-1";
                             JSONObject jSONObject2 = jSONObject;
                             if (jSONObject2 != null) {
                                 str2 = jSONObject2.optString("resultCode");

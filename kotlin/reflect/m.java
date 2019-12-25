@@ -1,10 +1,10 @@
 package kotlin.reflect;
 
 import kotlin.reflect.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface m<D, E, R> extends kotlin.jvm.a.c<D, E, R>, j<R> {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface a<D, E, R> extends kotlin.jvm.a.c<D, E, R>, j.a<R> {
     }
 

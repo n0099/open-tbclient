@@ -2,6 +2,7 @@ package com.baidu.mobads.production.c;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.AdSize;
 import com.baidu.mobads.BaiduNativeH5AdView;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
@@ -19,7 +20,7 @@ import com.baidu.mobads.utils.n;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.mobads.production.b {
     private b w;
     private BaiduNativeH5AdView x;
@@ -28,12 +29,12 @@ public class a extends com.baidu.mobads.production.b {
         super(context);
         this.w = null;
         this.x = baiduNativeH5AdView;
-        setId(this.x.getAdPlacement().zt());
+        setId(this.x.getAdPlacement().getApId());
         setActivity(context);
         setAdSlotBase(this.x);
         this.o = IXAdConstants4PDK.SlotType.SLOT_TYPE_FEEDS;
         this.w = new b(getApplicationContext(), getActivity(), this.o);
-        this.w.d(this.x.getAdPlacement().zt());
+        this.w.d(this.x.getAdPlacement().getApId());
         h adConstants = XAdSDKFoundationFacade.getInstance().getAdConstants();
         ArrayList arrayList = new ArrayList();
         arrayList.add(adConstants.getSupportedActionType4RequestingLandingPage());
@@ -60,9 +61,9 @@ public class a extends com.baidu.mobads.production.b {
         this.w.c(i);
     }
 
-    public void a(com.baidu.mobad.feeds.a aVar) {
-        int width = aVar.getWidth();
-        int height = aVar.getHeight();
+    public void a(RequestParameters requestParameters) {
+        int width = requestParameters.getWidth();
+        int height = requestParameters.getHeight();
         if (width > 0 && height > 0) {
             this.w.d(width);
             this.w.e(height);
@@ -118,7 +119,7 @@ public class a extends com.baidu.mobads.production.b {
                 a(XAdErrorCode.REQUEST_PARAM_ERROR, "代码位错误，请检查代码位是否是信息流模板");
                 return;
             }
-            this.x.getAdPlacement().e(iXAdResponseInfo);
+            this.x.getAdPlacement().setAdResponse(iXAdResponseInfo);
             dispatchEvent(new com.baidu.mobads.f.a("AdLoadData"));
         }
     }

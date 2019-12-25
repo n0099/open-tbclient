@@ -12,6 +12,7 @@ import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.x;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -19,43 +20,42 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] bMt;
+        String[] cdF;
         if (bVar == null) {
             return null;
         }
         try {
-            bMt = bMt();
+            cdF = cdF();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (bMt != null) {
+        if (cdF != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
-            arrayList.add(new BasicNameValuePair(TableDefine.PaSubscribeColumns.COLUMN_TPL, "tb"));
+            arrayList.add(new BasicNameValuePair("tpl", "tb"));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", bMt[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", cdF[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.mBduss);
             jSONObject.put("ptoken", bVar.mPtoken);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(bMt[1], jSONObject.toString())));
-            arrayList.add(new BasicNameValuePair("sig", e(arrayList, "6e93e7659ae637845c7f83abee68a740")));
+            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(cdF[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("sig", g(arrayList, "6e93e7659ae637845c7f83abee68a740")));
             x xVar = new x("http://passport.baidu.com/v2/sapi/bdusslogin");
-            xVar.amp().amP().mIsNeedAddCommenParam = false;
-            xVar.amp().amP().mIsUseCurrentBDUSS = false;
+            xVar.aDB().aEb().mIsNeedAddCommenParam = false;
+            xVar.aDB().aEb().mIsUseCurrentBDUSS = false;
             xVar.setPostData(arrayList);
-            xVar.amp().amP().amS().mRequestGzip = true;
-            xVar.amp().amP().amS().mIsBaiduServer = false;
+            xVar.aDB().aEb().aEe().mRequestGzip = true;
+            xVar.aDB().aEb().aEe().mIsBaiduServer = false;
             String postNetData = xVar.postNetData();
-            if (xVar.amp().amQ().isRequestSuccess() && !aq.isEmpty(postNetData)) {
+            if (xVar.aDB().aEc().isRequestSuccess() && !aq.isEmpty(postNetData)) {
                 JSONObject jSONObject2 = new JSONObject(postNetData);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     bVar2 = new a.b();
@@ -71,11 +71,11 @@ public class d {
         return null;
     }
 
-    private static String[] bMt() {
+    private static String[] cdF() {
         try {
             x xVar = new x("http://passport.baidu.com/sslcrypt/get_last_cert");
-            xVar.amp().amP().mIsNeedAddCommenParam = false;
-            xVar.amp().amP().mIsUseCurrentBDUSS = false;
+            xVar.aDB().aEb().mIsNeedAddCommenParam = false;
+            xVar.aDB().aEb().mIsUseCurrentBDUSS = false;
             JSONObject jSONObject = new JSONObject(new String(xVar.getNetData()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
@@ -90,7 +90,7 @@ public class d {
         return UtilHelper.getGprsIpAddress();
     }
 
-    private static String e(ArrayList<BasicNameValuePair> arrayList, String str) {
+    private static String g(ArrayList<BasicNameValuePair> arrayList, String str) {
         ArrayList arrayList2 = new ArrayList();
         HashMap hashMap = new HashMap();
         int size = arrayList.size();
@@ -104,16 +104,16 @@ public class d {
         while (it.hasNext()) {
             String str2 = (String) it.next();
             stringBuffer.append(str2);
-            stringBuffer.append("=");
+            stringBuffer.append(ETAG.EQUAL);
             try {
                 String str3 = (String) hashMap.get(str2);
                 if (!TextUtils.isEmpty(str3)) {
-                    stringBuffer.append(URLEncoder.encode(str3, HTTP.UTF_8));
+                    stringBuffer.append(URLEncoder.encode(str3, "UTF-8"));
                 }
             } catch (UnsupportedEncodingException e) {
                 BdLog.e(e.getMessage());
             }
-            stringBuffer.append("&");
+            stringBuffer.append(ETAG.ITEM_SEPARATOR);
         }
         stringBuffer.append("sign_key=" + str);
         return s.toMd5(stringBuffer.toString());

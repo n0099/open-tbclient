@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.util.resourceloaderproc;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ResourceLoaderType {
     public static final int LOCAL_FILE_FIT_IMAGE = 36;
     public static final int LOCAL_FILE_THUMB = 35;

@@ -11,10 +11,10 @@ import android.view.Surface;
 import android.view.TextureView;
 import com.baidu.tieba.R;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
-    protected MediaPlayer bSn;
-    protected ScalableType dle;
+    protected ScalableType dYJ;
+    protected MediaPlayer mMediaPlayer;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -27,18 +27,18 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.dle = ScalableType.NONE;
+        this.dYJ = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.scaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.dle = ScalableType.values()[i2];
+            this.dYJ = ScalableType.values()[i2];
         }
     }
 
-    private void aET() {
-        if (this.bSn == null) {
-            this.bSn = new MediaPlayer();
-            this.bSn.setOnVideoSizeChangedListener(this);
+    private void aWJ() {
+        if (this.mMediaPlayer == null) {
+            this.mMediaPlayer = new MediaPlayer();
+            this.mMediaPlayer.setOnVideoSizeChangedListener(this);
             setSurfaceTextureListener(this);
             return;
         }
@@ -46,25 +46,25 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void reset() {
-        if (this.bSn != null) {
-            this.bSn.reset();
+        if (this.mMediaPlayer != null) {
+            this.mMediaPlayer.reset();
         }
     }
 
     public void setDataSource(String str) throws IOException {
-        aET();
-        this.bSn.setDataSource(str);
+        aWJ();
+        this.mMediaPlayer.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri) throws Exception {
-        aET();
-        this.bSn.setDataSource(context, uri);
+        aWJ();
+        this.mMediaPlayer.setDataSource(context, uri);
     }
 
     @Override // android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.bSn != null) {
+        if (this.mMediaPlayer != null) {
             if (isPlaying()) {
                 stop();
             }
@@ -73,91 +73,91 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public int getVideoHeight() {
-        if (this.bSn == null) {
+        if (this.mMediaPlayer == null) {
             return 0;
         }
-        return this.bSn.getVideoHeight();
+        return this.mMediaPlayer.getVideoHeight();
     }
 
     public int getVideoWidth() {
-        if (this.bSn == null) {
+        if (this.mMediaPlayer == null) {
             return 0;
         }
-        return this.bSn.getVideoWidth();
+        return this.mMediaPlayer.getVideoWidth();
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.dle = scalableType;
-        aC(getVideoWidth(), getVideoHeight());
+        this.dYJ = scalableType;
+        aW(getVideoWidth(), getVideoHeight());
     }
 
     public void b(MediaPlayer.OnPreparedListener onPreparedListener) throws IllegalStateException {
-        this.bSn.setOnPreparedListener(onPreparedListener);
-        this.bSn.prepareAsync();
+        this.mMediaPlayer.setOnPreparedListener(onPreparedListener);
+        this.mMediaPlayer.prepareAsync();
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        this.bSn.setOnErrorListener(onErrorListener);
+        this.mMediaPlayer.setOnErrorListener(onErrorListener);
     }
 
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        this.bSn.setOnCompletionListener(onCompletionListener);
+        this.mMediaPlayer.setOnCompletionListener(onCompletionListener);
     }
 
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        this.bSn.setOnInfoListener(onInfoListener);
+        this.mMediaPlayer.setOnInfoListener(onInfoListener);
     }
 
     public int getCurrentPosition() {
-        return this.bSn.getCurrentPosition();
+        return this.mMediaPlayer.getCurrentPosition();
     }
 
     public int getDuration() {
-        return this.bSn.getDuration();
+        return this.mMediaPlayer.getDuration();
     }
 
     public boolean isPlaying() {
-        return this.bSn.isPlaying();
+        return this.mMediaPlayer.isPlaying();
     }
 
     public void setLooping(boolean z) {
-        this.bSn.setLooping(z);
+        this.mMediaPlayer.setLooping(z);
     }
 
     public void setVolume(float f, float f2) {
-        if (this.bSn != null) {
-            this.bSn.setVolume(f, f2);
+        if (this.mMediaPlayer != null) {
+            this.mMediaPlayer.setVolume(f, f2);
         }
     }
 
-    private void aC(int i, int i2) {
+    private void aW(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.dle)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.dYJ)) != null) {
             setTransform(a);
         }
     }
 
     public void start() {
-        this.bSn.start();
+        this.mMediaPlayer.start();
     }
 
     public void stop() {
-        this.bSn.stop();
+        this.mMediaPlayer.stop();
     }
 
     public void release() {
         reset();
-        if (this.bSn != null) {
-            this.bSn.release();
+        if (this.mMediaPlayer != null) {
+            this.mMediaPlayer.release();
         }
-        this.bSn = null;
+        this.mMediaPlayer = null;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         Surface surface = new Surface(surfaceTexture);
-        if (this.bSn != null) {
-            this.bSn.setSurface(surface);
+        if (this.mMediaPlayer != null) {
+            this.mMediaPlayer.setSurface(surface);
         }
     }
 
@@ -176,6 +176,6 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
     public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-        aC(i, i2);
+        aW(i, i2);
     }
 }

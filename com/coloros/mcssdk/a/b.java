@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.coloros.mcssdk.mode.CommandMessage;
 import com.coloros.mcssdk.mode.Message;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class b extends c {
     @Override // com.coloros.mcssdk.a.d
     public final Message a(Context context, int i, Intent intent) {
@@ -18,7 +18,7 @@ public final class b extends c {
     public final Message a(Intent intent) {
         try {
             CommandMessage commandMessage = new CommandMessage();
-            commandMessage.setCommand(Integer.parseInt(com.coloros.mcssdk.c.b.a(intent.getStringExtra(CommandMessage.COMMAND))));
+            commandMessage.setCommand(Integer.parseInt(com.coloros.mcssdk.c.b.a(intent.getStringExtra("command"))));
             commandMessage.setResponseCode(Integer.parseInt(com.coloros.mcssdk.c.b.a(intent.getStringExtra("code"))));
             commandMessage.setContent(com.coloros.mcssdk.c.b.a(intent.getStringExtra("content")));
             commandMessage.setAppKey(com.coloros.mcssdk.c.b.a(intent.getStringExtra("appKey")));

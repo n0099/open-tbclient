@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.FrameHelper;
 import com.baidu.live.adp.framework.message.SocketMessage;
 import com.baidu.live.adp.framework.task.SocketMessageTask;
 import java.security.InvalidParameterException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class SocketRule extends MessageRule<SocketMessage, SocketMessageTask> {
     public SocketRule(int i) {
         super(i);

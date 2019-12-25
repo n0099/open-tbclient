@@ -4,7 +4,7 @@ import android.animation.PropertyValuesHolder;
 import android.graphics.Path;
 import android.graphics.PointF;
 import android.util.Property;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 interface PropertyValuesHolderUtilsImpl {
     PropertyValuesHolder ofPointF(Property<?, PointF> property, Path path);
 }

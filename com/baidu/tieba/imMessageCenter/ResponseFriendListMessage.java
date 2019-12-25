@@ -8,7 +8,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
     private LinkedList<a> friendList;
 
@@ -30,8 +30,8 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
                         if (!TextUtils.isEmpty(metaData.getName_show())) {
                             a aVar = new a();
                             aVar.setUserName(metaData.getUserName());
-                            aVar.oW(metaData.getName_show());
-                            aVar.bU(metaData.getPortrait());
+                            aVar.ua(metaData.getName_show());
+                            aVar.cL(metaData.getPortrait());
                             aVar.setUserId(metaData.getUserIdLong());
                             this.friendList.add(aVar);
                         }

@@ -2,6 +2,7 @@ package com.baidu.bdhttpdns;
 
 import android.net.http.Headers;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -30,8 +31,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class i {
-    private static volatile i ED;
-    private static c EE;
+    private static volatile i Hp;
+    private static c Hq;
     private static boolean b = true;
     private String d;
     private int o;
@@ -45,7 +46,7 @@ public final class i {
     private boolean n = false;
     private int p = 10;
     private final Object i = new Object();
-    private final HashSet<String> EF = new HashSet<>();
+    private final HashSet<String> Hr = new HashSet<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -56,46 +57,46 @@ public final class i {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b implements Runnable {
-        private d EG;
-        private a EH;
+        private d Hs;
+        private a Ht;
         private String c;
         public boolean a = false;
         private boolean f = false;
 
         public b(String str, d dVar, a aVar) {
             this.c = str;
-            this.EG = dVar;
-            this.EH = aVar;
+            this.Hs = dVar;
+            this.Ht = aVar;
         }
 
         private String a(String str, d dVar) {
             String str2;
             long currentTimeMillis = i.this.g + (System.currentTimeMillis() / 1000) + 300;
-            String g = i.this.g(str, currentTimeMillis);
-            if (g == null) {
+            String a = i.this.a(str, currentTimeMillis);
+            if (a == null) {
                 return null;
             }
             if (i.this.d == null || i.this.o >= 3) {
                 str2 = i.this.c;
                 this.f = false;
-                f.a("Using BGPServerIp(%s)", i.this.c);
+                l.a("Using BGPServerIp(%s)", i.this.c);
             } else {
                 str2 = i.this.d;
                 this.f = true;
-                f.a("Using IDCServerIP(%s)", i.this.d);
+                l.a("Using IDCServerIP(%s)", i.this.d);
             }
-            String format = dVar.equals(d.TAG_OF_HOSTS) ? String.format("%s/v4/resolve?account_id=%s&tag=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, i.this.l, str, g, Long.valueOf(currentTimeMillis), "1.3", "android") : String.format("%s/v4/resolve?account_id=%s&dn=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, i.this.l, str, g, Long.valueOf(currentTimeMillis), "1.3", "android");
+            String format = dVar.equals(d.TAG_OF_HOSTS) ? String.format("%s/v4/resolve?account_id=%s&tag=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, i.this.l, str, a, Long.valueOf(currentTimeMillis), "1.3", PraiseDataPassUtil.KEY_FROM_OS) : String.format("%s/v4/resolve?account_id=%s&dn=%s&sign=%s&t=%d&sdk_ver=%s&os_type=%s&alt_server_ip=true", str2, i.this.l, str, a, Long.valueOf(currentTimeMillis), "1.3", PraiseDataPassUtil.KEY_FROM_OS);
             return i.this.f ? String.format("https://%s", format) : String.format("http://%s", format);
         }
 
         private void a() {
-            String a = a(this.c, this.EG);
+            String a = a(this.c, this.Hs);
             if (a != null) {
                 a(a);
                 return;
             }
-            this.EH.a(-1, this.EG, null, this.c);
-            f.a("Httpdns request failed for  %s(%s), get url error", this.EG.toString(), this.c);
+            this.Ht.a(-1, this.Hs, null, this.c);
+            l.a("Httpdns request failed for  %s(%s), get url error", this.Hs.toString(), this.c);
         }
 
         /* JADX WARN: Multi-variable type inference failed */
@@ -116,8 +117,8 @@ public final class i {
                     URL url = new URL(str);
                     if (i.this.f) {
                         HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) url.openConnection();
-                        httpsURLConnection2.setRequestProperty(HTTP.TARGET_HOST, "httpdns.baidubce.com");
-                        httpsURLConnection2.setHostnameVerifier(i.EE);
+                        httpsURLConnection2.setRequestProperty("Host", "httpdns.baidubce.com");
+                        httpsURLConnection2.setHostnameVerifier(i.Hq);
                         httpsURLConnection = httpsURLConnection2;
                     } else {
                         httpsURLConnection = (HttpURLConnection) url.openConnection();
@@ -152,7 +153,7 @@ public final class i {
                 httpsURLConnection.setReadTimeout(30000);
                 httpsURLConnection.setConnectTimeout(30000);
                 httpsURLConnection.setRequestProperty(Headers.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                httpsURLConnection.setRequestProperty("Accept-Encoding", "gzip, deflate");
+                httpsURLConnection.setRequestProperty(com.baidubce.http.Headers.ACCEPT_ENCODING, "gzip, deflate");
                 httpsURLConnection.connect();
                 int responseCode = httpsURLConnection.getResponseCode();
                 InputStream errorStream = responseCode >= 400 ? httpsURLConnection.getErrorStream() : httpsURLConnection.getInputStream();
@@ -161,8 +162,8 @@ public final class i {
                     if (a == null) {
                         Boolean bool2 = false;
                         i.this.a(Boolean.valueOf(this.f));
-                        f.a("Httpdns request failed for %s(%s), get empty response data", this.EG.toString(), this.c);
-                        this.EH.a(-1, this.EG, null, this.c);
+                        l.a("Httpdns request failed for %s(%s), get empty response data", this.Hs.toString(), this.c);
+                        this.Ht.a(-1, this.Hs, null, this.c);
                         if (httpsURLConnection != null) {
                             httpsURLConnection.disconnect();
                         }
@@ -172,7 +173,7 @@ public final class i {
                         }
                         return;
                     }
-                    Map a2 = i.this.a(a, this.c, this.EG);
+                    Map a2 = i.this.a(a, this.c, this.Hs);
                     if (a2.get("isSignExpired").equals(true)) {
                         this.a = true;
                         if (httpsURLConnection != null) {
@@ -185,17 +186,17 @@ public final class i {
                         return;
                     }
                     if (a2.get("isMsgOK").equals(true) && responseCode == 200) {
-                        map = i.this.C(a, this.c);
+                        map = i.this.G(a, this.c);
                     } else {
-                        this.EH.a(-1, this.EG, null, this.c);
+                        this.Ht.a(-1, this.Hs, null, this.c);
                         map = hashMap;
                     }
                     hashMap = map;
                 } else {
                     bool = false;
                     i.this.a(Boolean.valueOf(this.f));
-                    f.a("Httpdns request failed for %s(%s), get null response stream", this.EG.toString(), this.c);
-                    this.EH.a(-1, this.EG, null, this.c);
+                    l.a("Httpdns request failed for %s(%s), get null response stream", this.Hs.toString(), this.c);
+                    this.Ht.a(-1, this.Hs, null, this.c);
                 }
                 if (httpsURLConnection != null) {
                     httpsURLConnection.disconnect();
@@ -208,8 +209,8 @@ public final class i {
                 e.printStackTrace();
                 Boolean bool3 = false;
                 i.this.a(Boolean.valueOf(this.f));
-                f.a("Httpdns request failed for %s(%s), caught network IOException", this.EG.toString(), this.c);
-                this.EH.a(-1, this.EG, null, this.c);
+                l.a("Httpdns request failed for %s(%s), caught network IOException", this.Hs.toString(), this.c);
+                this.Ht.a(-1, this.Hs, null, this.c);
                 if (httpsURLConnection != null) {
                     httpsURLConnection.disconnect();
                 }
@@ -218,14 +219,14 @@ public final class i {
                 }
                 if (hashMap != null) {
                 }
-                this.EH.a(-1, this.EG, null, this.c);
+                this.Ht.a(-1, this.Hs, null, this.c);
             } catch (ArrayIndexOutOfBoundsException e4) {
                 e = e4;
                 e.printStackTrace();
                 Boolean bool4 = false;
                 i.this.a(Boolean.valueOf(this.f));
-                f.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.EG.toString(), this.c);
-                this.EH.a(-1, this.EG, null, this.c);
+                l.a("Httpdns request failed for %s(%s), caught ArrayIndexOutOfBoundsException", this.Hs.toString(), this.c);
+                this.Ht.a(-1, this.Hs, null, this.c);
                 if (httpsURLConnection != null) {
                     httpsURLConnection.disconnect();
                 }
@@ -234,12 +235,12 @@ public final class i {
                 }
                 if (hashMap != null) {
                 }
-                this.EH.a(-1, this.EG, null, this.c);
+                this.Ht.a(-1, this.Hs, null, this.c);
             }
             if (hashMap != null || hashMap.isEmpty()) {
-                this.EH.a(-1, this.EG, null, this.c);
+                this.Ht.a(-1, this.Hs, null, this.c);
             } else {
-                this.EH.a(0, this.EG, hashMap, this.c);
+                this.Ht.a(0, this.Hs, hashMap, this.c);
             }
         }
 
@@ -247,18 +248,18 @@ public final class i {
         public void run() {
             a();
             if (this.a) {
-                f.a("Retry for %s(%s).", this.EG.toString(), this.c);
+                l.a("Retry for %s(%s).", this.Hs.toString(), this.c);
                 a();
             }
             synchronized (i.this.i) {
-                if (!this.EG.equals(d.TAG_OF_HOSTS)) {
+                if (!this.Hs.equals(d.TAG_OF_HOSTS)) {
                     for (String str : this.c.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-                        i.this.EF.remove(str);
+                        i.this.Hr.remove(str);
                     }
                 }
             }
             synchronized (i.this.j) {
-                if (this.EG.equals(d.DNLIST_HOSTS)) {
+                if (this.Hs.equals(d.DNLIST_HOSTS)) {
                     for (String str2 : this.c.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
                         i.this.k.remove(str2);
                     }
@@ -305,7 +306,7 @@ public final class i {
     }
 
     private i() {
-        EE = new c();
+        Hq = new c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -343,7 +344,7 @@ public final class i {
                 return null;
             }
         }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, HTTP.UTF_8));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
         StringBuilder sb = new StringBuilder();
         while (true) {
             String readLine = bufferedReader.readLine();
@@ -353,6 +354,11 @@ public final class i {
             }
             sb.append(readLine);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(String str, long j) {
+        return com.baidu.bdhttpdns.e.e(String.format("%s-%s-%d", str, e(), Long.valueOf(j)));
     }
 
     private String a(byte[] bArr, int i) {
@@ -379,7 +385,7 @@ public final class i {
     public synchronized void a(Boolean bool) {
         if (bool.booleanValue()) {
             this.o++;
-            f.a("requestIDCFailNum: %s", Integer.valueOf(this.o));
+            l.a("requestIDCFailNum: %s", Integer.valueOf(this.o));
         }
     }
 
@@ -392,24 +398,19 @@ public final class i {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String g(String str, long j) {
-        return com.baidu.bdhttpdns.a.e(String.format("%s-%s-%d", str, e(), Long.valueOf(j)));
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static i lD() {
-        if (ED == null) {
+    public static i lU() {
+        if (Hp == null) {
             synchronized (i.class) {
-                if (ED == null) {
-                    ED = new i();
+                if (Hp == null) {
+                    Hp = new i();
                 }
             }
         }
-        return ED;
+        return Hp;
     }
 
-    Map C(String str, String str2) {
+    Map G(String str, String str2) {
         HashMap hashMap = new HashMap();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -421,7 +422,7 @@ public final class i {
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
-                f.a("Httpdns request failed, hostsOrTag(%s), response has empty data", str2);
+                l.a("Httpdns request failed, hostsOrTag(%s), response has empty data", str2);
                 return null;
             }
             Iterator<String> keys = optJSONObject.keys();
@@ -431,28 +432,28 @@ public final class i {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject(next).optJSONObject("ipv4");
                 JSONArray optJSONArray2 = optJSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP);
                 if (optJSONArray2 == null || optJSONArray2.length() == 0) {
-                    f.a("Httpdns request failed, host(%s), response has no ip field", next);
+                    l.a("Httpdns request failed, host(%s), response has no ip field", next);
                     hashMap.put(next, null);
                 } else {
                     ArrayList arrayList = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         String optString = optJSONArray2.optString(i2);
                         if (optString == null || optString.isEmpty()) {
-                            f.a("Httpdns request warning, host(%s), response get ip error", next);
-                        } else if (com.baidu.bdhttpdns.a.a(optString)) {
+                            l.a("Httpdns request warning, host(%s), response get ip error", next);
+                        } else if (com.baidu.bdhttpdns.e.a(optString)) {
                             arrayList.add(optString);
                         } else {
-                            f.a("Httpdns request warning, host(%s), response get invalid ip(%s)", next, optString);
+                            l.a("Httpdns request warning, host(%s), response get invalid ip(%s)", next, optString);
                         }
                     }
                     if (arrayList.isEmpty()) {
-                        f.a("Httpdns request failed, host(%s), response has no valid ip", next);
+                        l.a("Httpdns request failed, host(%s), response has no valid ip", next);
                         hashMap.put(next, null);
                     } else {
                         try {
                             long j = optJSONObject2.getLong("ttl");
                             if (j < 0) {
-                                f.a("Httpdns request failed, host(%s), response has invalid ttl(%s)", next, Long.valueOf(j));
+                                l.a("Httpdns request failed, host(%s), response has invalid ttl(%s)", next, Long.valueOf(j));
                                 hashMap.put(next, null);
                             } else {
                                 hashMap.put(next, new e(arrayList, j));
@@ -460,7 +461,7 @@ public final class i {
                             }
                         } catch (JSONException e2) {
                             e2.printStackTrace();
-                            f.a("Httpdns request failed, host(%s), response has no ttl", next);
+                            l.a("Httpdns request failed, host(%s), response has no ttl", next);
                             return null;
                         }
                     }
@@ -472,7 +473,7 @@ public final class i {
             return hashMap;
         } catch (JSONException e3) {
             e3.printStackTrace();
-            f.a("Httpdns request failed, hostsOrTag(%s), response parse data json error", str2);
+            l.a("Httpdns request failed, hostsOrTag(%s), response parse data json error", str2);
             return null;
         }
     }
@@ -485,11 +486,11 @@ public final class i {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("msg");
             if (optString == null || optString.isEmpty()) {
-                f.a("Httpdns request failed for %s(%s), response lack of msg", dVar.toString(), str2);
+                l.a("Httpdns request failed for %s(%s), response lack of msg", dVar.toString(), str2);
             } else if ("SignatureExpired".equals(optString)) {
                 int optInt = jSONObject.optInt("timestamp");
                 if (optInt == 0) {
-                    f.a("Httpdns request failed for %s(%s), response get invalid timestamp", dVar.toString(), str2);
+                    l.a("Httpdns request failed for %s(%s), response get invalid timestamp", dVar.toString(), str2);
                 } else {
                     this.g = optInt - (System.currentTimeMillis() / 1000);
                     hashMap.put("isSignExpired", true);
@@ -497,11 +498,11 @@ public final class i {
             } else if ("ok".equals(optString)) {
                 hashMap.put("isMsgOK", true);
             } else {
-                f.a("Httpdns request failed for %s(%s), response msg(%s) is not ok", dVar.toString(), str2, optString);
+                l.a("Httpdns request failed for %s(%s), response msg(%s) is not ok", dVar.toString(), str2, optString);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
-            f.a("Httpdns request failed for %s(%s), response parse json error", dVar.toString(), str2);
+            l.a("Httpdns request failed for %s(%s), response parse json error", dVar.toString(), str2);
         }
         return hashMap;
     }
@@ -526,11 +527,11 @@ public final class i {
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     String str2 = (String) it.next();
-                    if (this.EF.contains(str2)) {
-                        f.a("Httpdns request request for host(%s) is in processing，will exclude it.", str2);
+                    if (this.Hr.contains(str2)) {
+                        l.a("Httpdns request request for host(%s) is in processing，will exclude it.", str2);
                         it.remove();
                     } else {
-                        this.EF.add(str2);
+                        this.Hr.add(str2);
                     }
                 }
                 StringBuilder sb = new StringBuilder();
@@ -541,10 +542,10 @@ public final class i {
             }
             if (str != null && !str.isEmpty()) {
                 try {
-                    g.lF().b().execute(new b(str, dVar, aVar));
+                    m.lW().b().execute(new b(str, dVar, aVar));
                 } catch (RejectedExecutionException e2) {
                     e2.printStackTrace();
-                    f.a("Httpdns request failed, host(%s), async tasks has exceed the maximum thread limit.", str);
+                    l.a("Httpdns request failed, host(%s), async tasks has exceed the maximum thread limit.", str);
                 }
             }
         }
@@ -573,7 +574,7 @@ public final class i {
             i2++;
             if (str != null && !str.isEmpty()) {
                 String substring = str.substring(0, str.length() - 1);
-                f.a("Hosts for httpdns request is (%s) ", substring);
+                l.a("Hosts for httpdns request is (%s) ", substring);
                 a(substring, d.DNLIST_HOSTS, aVar);
             }
         }
@@ -604,7 +605,7 @@ public final class i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(String str) {
-        this.m = com.baidu.bdhttpdns.a.f(str);
+        this.m = com.baidu.bdhttpdns.e.f(str);
         if (this.m == null) {
             this.m = str;
             b = false;
@@ -612,7 +613,7 @@ public final class i {
     }
 
     String e() {
-        return !b ? this.m : com.baidu.bdhttpdns.a.g(this.m);
+        return !b ? this.m : com.baidu.bdhttpdns.e.g(this.m);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

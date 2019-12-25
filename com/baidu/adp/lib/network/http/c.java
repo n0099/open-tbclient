@@ -3,411 +3,573 @@ package com.baidu.adp.lib.network.http;
 import android.text.TextUtils;
 import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.k;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
-import org.apache.http.protocol.HTTP;
+import java.net.UnknownHostException;
+import javax.net.ssl.SSLException;
 /* loaded from: classes.dex */
 public class c {
-    private e lh;
-    private b or;
-    private int ot = 0;
-    private long of = 0;
+    public static boolean qH = true;
+    private f nE;
+    private b qL;
+    private int qM = 0;
+    private long qB = 0;
 
-    public c(e eVar) {
-        this.lh = eVar;
+    public c(f fVar) {
+        this.nE = fVar;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET]}, finally: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [199=15, 200=8, 201=8, 202=8, 203=8, 205=6] */
-    public boolean a(String str, h hVar, int i, int i2, int i3, int i4, boolean z, boolean z2) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [238=21, 240=11, 241=11, 242=11, 244=11, 245=11, 246=11, 247=11, 248=11] */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x073d  */
+    /* JADX WARN: Removed duplicated region for block: B:143:0x0796  */
+    /* JADX WARN: Removed duplicated region for block: B:191:0x0a6c  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0123  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean a(String str, i iVar, int i, int i2, int i3, int i4, boolean z, boolean z2) {
         boolean z3;
-        int timeOutAuto = i3 <= 0 ? com.baidu.adp.framework.c.b.eH().eK().getTimeOutAuto() : i3;
+        Throwable th;
+        a fL;
+        int timeOutAuto = i3 <= 0 ? com.baidu.adp.framework.c.b.fb().fe().getTimeOutAuto() : i3;
         if (i <= 0) {
-            i = com.baidu.adp.framework.c.b.eH().getRetryCount();
+            i = com.baidu.adp.framework.c.b.fb().getRetryCount();
         }
-        int timeOutAuto2 = i4 <= 0 ? com.baidu.adp.framework.c.b.eH().eI().getTimeOutAuto() : i4;
+        int timeOutAuto2 = i4 <= 0 ? com.baidu.adp.framework.c.b.fb().fc().getTimeOutAuto() : i4;
         boolean z4 = false;
-        this.or = new b(this.lh);
+        this.qL = new b(this.nE);
+        this.qL.H(qH);
+        String url = this.nE.fY().getUrl();
         int i5 = 0;
+        String str2 = null;
         while (i5 < i) {
             d dVar = new d();
+            this.nE.fZ().mNetErrorCode = -1;
             try {
-                dVar.ow = i5 + 1;
-                this.ot = i5;
-                L(i5);
-                z3 = this.or.a(str, hVar, timeOutAuto, timeOutAuto2, z, dVar, z2);
+                dVar.retry = i5 + 1;
+                this.qM = i5;
+                M(i5);
+                z3 = this.qL.a(str, iVar, timeOutAuto, timeOutAuto2, z, dVar, z2);
                 if (!z3) {
                     try {
-                        if (this.lh.fK().oT) {
-                            this.lh.fK().mNetErrorCode = -14;
+                        if (this.nE.fZ().ro) {
+                            this.nE.fZ().mNetErrorCode = -14;
                         }
                     } catch (FileNotFoundException e) {
                         e = e;
-                        dVar.exception = "responseCode:" + String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                        this.lh.fK().mNetErrorCode = -100;
-                        com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                        this.lh.a(dVar);
-                        a fx = a.fx();
-                        if (fx != null) {
-                            fx.a(this.lh);
+                        dVar.exception = "responseCode:" + String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.nE.fZ().mNetErrorCode = -100;
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                        if (!z3 && i5 == i - 1) {
+                            dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                            dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
+                        }
+                        str2 = dVar.qT;
+                        this.nE.a(dVar);
+                        a fL2 = a.fL();
+                        if (fL2 != null) {
+                            fL2.a(this.nE);
                         }
                         i5++;
                         z4 = z3;
                     } catch (IllegalStateException e2) {
                         e = e2;
-                        dVar.exception = "responseCode:" + String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                        this.lh.fK().mNetErrorCode = -19;
-                        com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                        this.lh.a(dVar);
-                        a fx2 = a.fx();
-                        if (fx2 != null) {
-                            fx2.a(this.lh);
+                        dVar.exception = "responseCode:" + String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                        this.nE.fZ().mNetErrorCode = -19;
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                        if (!z3 && i5 == i - 1) {
+                            dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                            dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
+                        }
+                        str2 = dVar.qT;
+                        this.nE.a(dVar);
+                        a fL3 = a.fL();
+                        if (fL3 != null) {
+                            fL3.a(this.nE);
                         }
                         i5++;
                         z4 = z3;
-                    } catch (SocketException e3) {
+                    } catch (ConnectException e3) {
                         e = e3;
-                        dVar.exception = "responseCode:" + String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                        this.lh.fK().mNetErrorCode = -12;
-                        com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                        this.lh.a(dVar);
-                        a fx3 = a.fx();
-                        if (fx3 != null) {
-                            fx3.a(this.lh);
+                        dVar.exception = "responseCode:" + String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.nE.fZ().mNetErrorCode = -22;
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                        if (!z3 && i5 == i - 1) {
+                            dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                            dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
+                        }
+                        str2 = dVar.qT;
+                        this.nE.a(dVar);
+                        a fL4 = a.fL();
+                        if (fL4 != null) {
+                            fL4.a(this.nE);
                         }
                         i5++;
                         z4 = z3;
-                    } catch (SocketTimeoutException e4) {
+                    } catch (SocketException e4) {
                         e = e4;
-                        dVar.exception = "responseCode:" + String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                        this.lh.fK().mNetErrorCode = -13;
-                        com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                        this.lh.a(dVar);
-                        a fx4 = a.fx();
-                        if (fx4 != null) {
-                            fx4.a(this.lh);
+                        dVar.exception = "responseCode:" + String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.nE.fZ().mNetErrorCode = -12;
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                        if (!z3 && i5 == i - 1) {
+                            dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                            dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
+                        }
+                        str2 = dVar.qT;
+                        this.nE.a(dVar);
+                        a fL5 = a.fL();
+                        if (fL5 != null) {
+                            fL5.a(this.nE);
                         }
                         i5++;
                         z4 = z3;
-                    } catch (IOException e5) {
+                    } catch (SocketTimeoutException e5) {
                         e = e5;
-                        dVar.exception = "errorCode:" + String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                        this.lh.fK().mNetErrorCode = -19;
-                        com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                        this.lh.a(dVar);
-                        a fx5 = a.fx();
-                        if (fx5 != null) {
-                            fx5.a(this.lh);
+                        dVar.exception = "responseCode:" + String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.nE.fZ().mNetErrorCode = -13;
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                        if (!z3 && i5 == i - 1) {
+                            dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                            dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
+                        }
+                        str2 = dVar.qT;
+                        this.nE.a(dVar);
+                        a fL6 = a.fL();
+                        if (fL6 != null) {
+                            fL6.a(this.nE);
                         }
                         i5++;
                         z4 = z3;
-                    } catch (Exception e6) {
+                    } catch (UnknownHostException e6) {
                         e = e6;
+                        dVar.exception = "errorCode:" + String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.nE.fZ().mNetErrorCode = -21;
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                        if (!z3 && i5 == i - 1) {
+                            dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                            dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
+                        }
+                        str2 = dVar.qT;
+                        this.nE.a(dVar);
+                        a fL7 = a.fL();
+                        if (fL7 != null) {
+                            fL7.a(this.nE);
+                        }
+                        i5++;
+                        z4 = z3;
+                    } catch (SSLException e7) {
+                        e = e7;
+                        if (!this.nE.fY().gg() || i5 >= i - 1) {
+                            dVar.exception = "errorCode:" + String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                            this.nE.fZ().mNetErrorCode = -20;
+                        } else {
+                            String at = com.baidu.adp.lib.network.http.a.d.at(this.nE.fY().getUrl());
+                            if (!k.isEmpty(at)) {
+                                this.nE.fY().setUrl(at);
+                            }
+                            BdStatisticsManager.getInstance().eventStat(null, "c13429", "", 1, "obj_type", "1");
+                        }
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                        if (!z3 && i5 == i - 1) {
+                            dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                            dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
+                        }
+                        str2 = dVar.qT;
+                        this.nE.a(dVar);
+                        a fL8 = a.fL();
+                        if (fL8 != null) {
+                            fL8.a(this.nE);
+                        }
+                        i5++;
+                        z4 = z3;
+                    } catch (IOException e8) {
+                        e = e8;
+                        dVar.exception = "errorCode:" + String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.nE.fZ().mNetErrorCode = -19;
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                        if (!z3 && i5 == i - 1) {
+                            dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                            dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
+                        }
+                        str2 = dVar.qT;
+                        this.nE.a(dVar);
+                        a fL9 = a.fL();
+                        if (fL9 != null) {
+                            fL9.a(this.nE);
+                        }
+                        i5++;
+                        z4 = z3;
+                    } catch (Exception e9) {
+                        e = e9;
                         try {
-                            dVar.exception = "errorCode:" + String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
-                            this.lh.fK().mNetErrorCode = -10;
+                            dVar.exception = "errorCode:" + String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                            this.nE.fZ().mNetErrorCode = -10;
                             BdLog.e(e.getMessage());
-                            com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                            this.lh.a(dVar);
-                            a fx6 = a.fx();
-                            if (fx6 != null) {
-                                fx6.a(this.lh);
+                            com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                            if (!z3 && i5 == i - 1) {
+                                dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                                dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
+                            }
+                            str2 = dVar.qT;
+                            this.nE.a(dVar);
+                            a fL10 = a.fL();
+                            if (fL10 != null) {
+                                fL10.a(this.nE);
                             }
                             i5++;
                             z4 = z3;
-                        } finally {
-                            com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                            this.lh.a(dVar);
-                            a fx7 = a.fx();
-                            if (fx7 != null) {
-                                fx7.a(this.lh);
+                        } catch (Throwable th2) {
+                            z4 = z3;
+                            th = th2;
+                            com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT == null);
+                            if (!z4 && i5 == i - 1) {
+                                dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                                dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
                             }
+                            String str3 = dVar.qT;
+                            this.nE.a(dVar);
+                            fL = a.fL();
+                            if (fL != null) {
+                                fL.a(this.nE);
+                            }
+                            throw th;
                         }
+                    } catch (Throwable th3) {
+                        z4 = z3;
+                        th = th3;
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT == null);
+                        if (!z4) {
+                            dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                            dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
+                        }
+                        String str32 = dVar.qT;
+                        this.nE.a(dVar);
+                        fL = a.fL();
+                        if (fL != null) {
+                        }
+                        throw th;
                     }
                 }
+                com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                if (!z3 && i5 == i - 1) {
+                    dVar.exception += "|" + com.baidu.adp.lib.network.http.a.d.go();
+                    dVar.exception += "|netAvailable:" + com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately();
+                }
+                str2 = dVar.qT;
+                this.nE.a(dVar);
+                a fL11 = a.fL();
+                if (fL11 != null) {
+                    fL11.a(this.nE);
+                }
+                if (!z3) {
+                    e.fX().l(url, str2);
+                }
                 return z3;
-            } catch (FileNotFoundException e7) {
-                e = e7;
-                z3 = z4;
-            } catch (IllegalStateException e8) {
-                e = e8;
-                z3 = z4;
-            } catch (SocketException e9) {
-                e = e9;
-                z3 = z4;
-            } catch (SocketTimeoutException e10) {
+            } catch (FileNotFoundException e10) {
                 e = e10;
                 z3 = z4;
-            } catch (IOException e11) {
+            } catch (IllegalStateException e11) {
                 e = e11;
                 z3 = z4;
-            } catch (Exception e12) {
+            } catch (ConnectException e12) {
                 e = e12;
                 z3 = z4;
+            } catch (SocketException e13) {
+                e = e13;
+                z3 = z4;
+            } catch (SocketTimeoutException e14) {
+                e = e14;
+                z3 = z4;
+            } catch (UnknownHostException e15) {
+                e = e15;
+                z3 = z4;
+            } catch (SSLException e16) {
+                e = e16;
+                z3 = z4;
+            } catch (IOException e17) {
+                e = e17;
+                z3 = z4;
+            } catch (Exception e18) {
+                e = e18;
+                z3 = z4;
+            } catch (Throwable th4) {
+                th = th4;
             }
         }
-        return z4;
+        z3 = z4;
+        if (!z3) {
+        }
+        return z3;
     }
 
-    public boolean a(String str, h hVar, int i, int i2, int i3, boolean z) {
-        return a(str, hVar, i, -1, i2, i3, false, z);
+    public boolean a(String str, i iVar, int i, int i2, int i3, boolean z) {
+        return a(str, iVar, i, -1, i2, i3, false, z);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CONST, CMP_L]}, finally: {[IGET, CONST, CMP_L, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IPUT, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF, IGET, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [297=7, 298=7, 300=7, 301=14, 302=7, 303=7, 304=7, 305=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [348=7, 349=7, 351=7, 352=14, 353=7, 354=7, 355=7, 356=7] */
     public void c(int i, int i2, int i3) {
         if (i2 <= 0) {
-            i2 = com.baidu.adp.framework.c.b.eH().eK().getTimeOutAuto();
+            i2 = com.baidu.adp.framework.c.b.fb().fe().getTimeOutAuto();
         }
         if (i <= 0) {
-            i = com.baidu.adp.framework.c.b.eH().getRetryCount();
+            i = com.baidu.adp.framework.c.b.fb().getRetryCount();
         }
         if (i3 <= 0) {
-            i3 = com.baidu.adp.framework.c.b.eH().eI().getTimeOutAuto();
+            i3 = com.baidu.adp.framework.c.b.fb().fc().getTimeOutAuto();
         }
+        String url = this.nE.fY().getUrl();
         boolean z = true;
         long currentTimeMillis = System.currentTimeMillis();
-        for (int i4 = 0; !this.lh.fK().oT && z && i4 < i; i4++) {
+        int i4 = 0;
+        while (true) {
+            if (this.nE.fZ().ro || !z || i4 >= i) {
+                break;
+            }
             d dVar = new d();
-            this.lh.a(dVar);
+            this.nE.a(dVar);
             try {
                 try {
                     try {
                         try {
-                            this.ot = i4;
-                            dVar.ow = i4 + 1;
-                            dVar.oG = 1;
-                            L(i4);
-                            this.or = new b(this.lh);
-                            this.or.a(i2, i3, dVar);
+                            this.qM = i4;
+                            dVar.retry = i4 + 1;
+                            dVar.qY = 1;
+                            M(i4);
+                            this.qL = new b(this.nE);
+                            this.qL.H(qH);
+                            this.qL.a(i2, i3, dVar);
                         } catch (IllegalStateException e) {
-                            this.lh.fK().mNetErrorCode = -19;
+                            this.nE.fZ().mNetErrorCode = -19;
                             dVar.exception = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                            if (this.of <= 0 && this.or != null) {
-                                this.of = this.or.fA();
+                            if (this.qB <= 0 && this.qL != null) {
+                                this.qB = this.qL.fO();
                             }
-                            dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                            com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                            this.lh.b(dVar);
-                            a fx = a.fx();
-                            if (fx != null) {
-                                fx.a(this.lh);
+                            dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                            com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                            this.nE.b(dVar);
+                            a fL = a.fL();
+                            if (fL != null) {
+                                fL.a(this.nE);
                             }
                         }
                     } catch (SocketException e2) {
-                        dVar.exception = String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
-                        this.lh.fK().mNetErrorCode = -12;
-                        if (this.of <= 0 && this.or != null) {
-                            this.of = this.or.fA();
+                        dVar.exception = String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
+                        this.nE.fZ().mNetErrorCode = -12;
+                        if (this.qB <= 0 && this.qL != null) {
+                            this.qB = this.qL.fO();
                         }
-                        dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                        this.lh.b(dVar);
-                        a fx2 = a.fx();
-                        if (fx2 != null) {
-                            fx2.a(this.lh);
+                        dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                        this.nE.b(dVar);
+                        a fL2 = a.fL();
+                        if (fL2 != null) {
+                            fL2.a(this.nE);
                         }
                         z = true;
                     }
                 } catch (SocketTimeoutException e3) {
-                    dVar.exception = String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
-                    this.lh.fK().mNetErrorCode = -13;
-                    if (this.of <= 0 && this.or != null) {
-                        this.of = this.or.fA();
+                    dVar.exception = String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
+                    this.nE.fZ().mNetErrorCode = -13;
+                    if (this.qB <= 0 && this.qL != null) {
+                        this.qB = this.qL.fO();
                     }
-                    dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                    this.lh.b(dVar);
-                    a fx3 = a.fx();
-                    if (fx3 != null) {
-                        fx3.a(this.lh);
+                    dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                    this.nE.b(dVar);
+                    a fL3 = a.fL();
+                    if (fL3 != null) {
+                        fL3.a(this.nE);
                     }
                     z = true;
                 } catch (Exception e4) {
-                    dVar.exception = String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i4 + "|" + e4.getClass() + "|" + e4.getMessage();
-                    this.lh.fK().mNetErrorCode = -10;
+                    dVar.exception = String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i4 + "|" + e4.getClass() + "|" + e4.getMessage();
+                    this.nE.fZ().mNetErrorCode = -10;
                     BdLog.e(e4.getMessage());
-                    if (this.of <= 0 && this.or != null) {
-                        this.of = this.or.fA();
+                    if (this.qB <= 0 && this.qL != null) {
+                        this.qB = this.qL.fO();
                     }
-                    dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                    this.lh.b(dVar);
-                    a fx4 = a.fx();
-                    if (fx4 != null) {
-                        fx4.a(this.lh);
-                        return;
+                    dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                    this.nE.b(dVar);
+                    a fL4 = a.fL();
+                    if (fL4 != null) {
+                        fL4.a(this.nE);
                     }
-                    return;
                 }
-                if (this.lh.fK().responseCode == 200) {
-                    this.lh.b(dVar);
-                    if (this.of <= 0 && this.or != null) {
-                        this.of = this.or.fA();
+                if (this.nE.fZ().responseCode != 200) {
+                    dVar.exception = String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i4;
+                    boolean L = L(this.nE.fZ().responseCode);
+                    if (this.qB <= 0 && this.qL != null) {
+                        this.qB = this.qL.fO();
                     }
-                    dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                    this.lh.b(dVar);
-                    a fx5 = a.fx();
-                    if (fx5 != null) {
-                        fx5.a(this.lh);
-                        return;
+                    dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                    this.nE.b(dVar);
+                    a fL5 = a.fL();
+                    if (fL5 != null) {
+                        fL5.a(this.nE);
                     }
-                    return;
+                    z = L;
+                    i4++;
+                } else {
+                    this.nE.b(dVar);
+                    if (this.qB <= 0 && this.qL != null) {
+                        this.qB = this.qL.fO();
+                    }
+                    dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                    this.nE.b(dVar);
+                    a fL6 = a.fL();
+                    if (fL6 != null) {
+                        fL6.a(this.nE);
+                    }
                 }
-                dVar.exception = String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i4;
-                boolean K = K(this.lh.fK().responseCode);
-                if (this.of <= 0 && this.or != null) {
-                    this.of = this.or.fA();
-                }
-                dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                this.lh.b(dVar);
-                a fx6 = a.fx();
-                if (fx6 != null) {
-                    fx6.a(this.lh);
-                }
-                z = K;
             } catch (Throwable th) {
-                if (this.of <= 0 && this.or != null) {
-                    this.of = this.or.fA();
+                if (this.qB <= 0 && this.qL != null) {
+                    this.qB = this.qL.fO();
                 }
-                dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                this.lh.b(dVar);
-                a fx7 = a.fx();
-                if (fx7 != null) {
-                    fx7.a(this.lh);
+                dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                this.nE.b(dVar);
+                a fL7 = a.fL();
+                if (fL7 != null) {
+                    fL7.a(this.nE);
                 }
                 throw th;
             }
         }
+        if (this.nE.fZ().mNetErrorCode == -1 && this.nE.fZ().responseCode == 200) {
+            return;
+        }
+        e.fX().l(url, null);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CONST, CMP_L]}, finally: {[IGET, CONST, CMP_L, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IPUT, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF, IGET, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [384=7, 385=7, 387=5, 377=7, 378=7, 380=7, 381=14, 382=7, 383=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [434=7, 435=7, 437=7, 438=14, 439=7, 440=7, 441=7, 442=7, 444=5] */
     private void d(int i, int i2, int i3) {
         boolean z;
-        a fx;
-        b bVar;
-        boolean fD;
         if (i2 <= 0) {
-            i2 = com.baidu.adp.framework.c.b.eH().eK().getTimeOutAuto();
+            i2 = com.baidu.adp.framework.c.b.fb().fe().getTimeOutAuto();
         }
         if (i <= 0) {
-            i = com.baidu.adp.framework.c.b.eH().getRetryCount();
+            i = com.baidu.adp.framework.c.b.fb().getRetryCount();
         }
         if (i3 <= 0) {
-            i3 = com.baidu.adp.framework.c.b.eH().eI().getTimeOutAuto();
+            i3 = com.baidu.adp.framework.c.b.fb().fc().getTimeOutAuto();
         }
+        String url = this.nE.fY().getUrl();
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.lh.fK().oT && z2 && i4 < i; i4++) {
+        int i4 = 0;
+        while (true) {
+            if (this.nE.fZ().ro || !z2 || i4 >= i) {
+                break;
+            }
             d dVar = new d();
-            dVar.ow = i4 + 1;
-            this.ot = i4;
-            L(i4);
+            dVar.retry = i4 + 1;
+            this.qM = i4;
+            M(i4);
             try {
                 try {
                     try {
                         try {
-                            this.or = new b(this.lh);
-                            this.or.b(i2, i3, dVar);
+                            this.qL = new b(this.nE);
+                            this.qL.H(qH);
+                            this.qL.b(i2, i3, dVar);
                         } catch (UnsupportedOperationException e) {
                             z = false;
-                            this.lh.fK().mNetErrorCode = -14;
+                            this.nE.fZ().mNetErrorCode = -14;
                             dVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                            this.lh.a(dVar);
-                            if (this.of <= 0 && this.or != null) {
-                                this.of = this.or.fA();
+                            this.nE.a(dVar);
+                            if (this.qB <= 0 && this.qL != null) {
+                                this.qB = this.qL.fO();
                             }
-                            dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                            com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                            this.lh.a(dVar);
-                            a fx2 = a.fx();
-                            if (fx2 != null && this.or != null && this.or.fD()) {
-                                fx2.a(this.lh);
+                            dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                            com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                            this.nE.a(dVar);
+                            a fL = a.fL();
+                            if (fL != null && this.qL != null && this.qL.fR()) {
+                                fL.a(this.nE);
                             }
                         }
                     } catch (SocketTimeoutException e2) {
-                        this.lh.fK().mNetErrorCode = -13;
+                        this.nE.fZ().mNetErrorCode = -13;
                         z = true;
                         dVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(e2.getMessage());
-                        this.lh.a(dVar);
-                        if (this.of <= 0 && this.or != null) {
-                            this.of = this.or.fA();
+                        this.nE.a(dVar);
+                        if (this.qB <= 0 && this.qL != null) {
+                            this.qB = this.qL.fO();
                         }
-                        dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                        this.lh.a(dVar);
-                        a fx3 = a.fx();
-                        if (fx3 != null && this.or != null && this.or.fD()) {
-                            fx3.a(this.lh);
+                        dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                        this.nE.a(dVar);
+                        a fL2 = a.fL();
+                        if (fL2 != null && this.qL != null && this.qL.fR()) {
+                            fL2.a(this.nE);
                         }
                     }
                 } catch (SocketException e3) {
-                    this.lh.fK().mNetErrorCode = -12;
+                    this.nE.fZ().mNetErrorCode = -12;
                     z = true;
                     dVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    this.lh.a(dVar);
-                    if (this.of <= 0 && this.or != null) {
-                        this.of = this.or.fA();
+                    this.nE.a(dVar);
+                    if (this.qB <= 0 && this.qL != null) {
+                        this.qB = this.qL.fO();
                     }
-                    dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                    this.lh.a(dVar);
-                    a fx4 = a.fx();
-                    if (fx4 != null && this.or != null && this.or.fD()) {
-                        fx4.a(this.lh);
+                    dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                    this.nE.a(dVar);
+                    a fL3 = a.fL();
+                    if (fL3 != null && this.qL != null && this.qL.fR()) {
+                        fL3.a(this.nE);
                     }
                 }
-                if (this.lh.fK().responseCode == 200) {
-                    if (fx != null) {
-                        if (bVar != null) {
-                            if (fD) {
-                                return;
-                            }
-                            return;
-                        }
-                        return;
+                if (this.nE.fZ().responseCode != 200) {
+                    dVar.exception = String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i4;
+                    z = L(this.nE.fZ().responseCode);
+                    this.nE.a(dVar);
+                    if (this.qB <= 0 && this.qL != null) {
+                        this.qB = this.qL.fO();
                     }
-                    return;
+                    dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                    this.nE.a(dVar);
+                    a fL4 = a.fL();
+                    if (fL4 != null && this.qL != null && this.qL.fR()) {
+                        fL4.a(this.nE);
+                    }
+                    z2 = z;
+                    i4++;
                 }
-                dVar.exception = String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i4;
-                z = K(this.lh.fK().responseCode);
-                this.lh.a(dVar);
-                if (this.of <= 0 && this.or != null) {
-                    this.of = this.or.fA();
-                }
-                dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                this.lh.a(dVar);
-                a fx5 = a.fx();
-                if (fx5 != null && this.or != null && this.or.fD()) {
-                    fx5.a(this.lh);
-                }
-                z2 = z;
             } finally {
-                if (this.of <= 0 && this.or != null) {
-                    this.of = this.or.fA();
+                if (this.qB <= 0 && this.qL != null) {
+                    this.qB = this.qL.fO();
                 }
-                dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                this.lh.a(dVar);
-                fx = a.fx();
-                if (fx != null && this.or != null && this.or.fD()) {
-                    fx.a(this.lh);
+                dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                this.nE.a(dVar);
+                a fL5 = a.fL();
+                if (fL5 != null && this.qL != null && this.qL.fR()) {
+                    fL5.a(this.nE);
                 }
             }
         }
+        if (this.nE.fZ().mNetErrorCode == -1 && this.nE.fZ().responseCode == 200) {
+            return;
+        }
+        e.fX().l(url, null);
     }
 
-    private boolean K(int i) {
+    private boolean L(int i) {
         if (i == 202 || i == 201 || i == 205 || i == 304 || i == 305 || i == 408) {
             return true;
         }
@@ -415,7 +577,7 @@ public class c {
     }
 
     public void e(int i, int i2, int i3) {
-        if (this.lh.fJ().fN()) {
+        if (this.nE.fY().gd()) {
             d(i, i2, i3);
         } else {
             f(i, i2, i3);
@@ -423,206 +585,216 @@ public class c {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CONST, CMP_L]}, finally: {[IGET, CONST, CMP_L, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IPUT, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF, IGET, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [499=7, 500=7, 502=7, 503=14, 504=7, 505=7, 506=7, 507=7, 509=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [562=7, 563=7, 565=7, 566=14, 567=7, 568=7, 569=7, 570=7, 572=5] */
     private void f(int i, int i2, int i3) {
         boolean z;
         if (i2 <= 0) {
-            i2 = com.baidu.adp.framework.c.b.eH().eK().getTimeOutAuto();
+            i2 = com.baidu.adp.framework.c.b.fb().fe().getTimeOutAuto();
         }
         if (i <= 0) {
-            i = com.baidu.adp.framework.c.b.eH().getRetryCount();
+            i = com.baidu.adp.framework.c.b.fb().getRetryCount();
         }
         if (i3 <= 0) {
-            i3 = com.baidu.adp.framework.c.b.eH().eI().getTimeOutAuto();
+            i3 = com.baidu.adp.framework.c.b.fb().fc().getTimeOutAuto();
         }
+        String url = this.nE.fY().getUrl();
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.lh.fK().oT && z2 && i4 < i; i4++) {
+        int i4 = 0;
+        while (true) {
+            if (this.nE.fZ().ro || !z2 || i4 >= i) {
+                break;
+            }
             d dVar = new d();
-            this.ot = i4;
-            dVar.ow = i4 + 1;
-            L(i4);
+            this.qM = i4;
+            dVar.retry = i4 + 1;
+            M(i4);
             try {
                 try {
                     try {
                         try {
-                            this.or = new b(this.lh);
-                            this.or.c(i2, i3, dVar);
+                            this.qL = new b(this.nE);
+                            this.qL.H(qH);
+                            this.qL.c(i2, i3, dVar);
                         } catch (UnsupportedOperationException e) {
                             z = false;
-                            this.lh.fK().mNetErrorCode = -14;
+                            this.nE.fZ().mNetErrorCode = -14;
                             dVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                            this.lh.a(dVar);
-                            if (this.of <= 0 && this.or != null) {
-                                this.of = this.or.fA();
+                            this.nE.a(dVar);
+                            if (this.qB <= 0 && this.qL != null) {
+                                this.qB = this.qL.fO();
                             }
-                            dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                            com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                            this.lh.a(dVar);
-                            a fx = a.fx();
-                            if (fx != null) {
-                                fx.a(this.lh);
+                            dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                            com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                            this.nE.a(dVar);
+                            a fL = a.fL();
+                            if (fL != null) {
+                                fL.a(this.nE);
                             }
                         }
                     } catch (SocketTimeoutException e2) {
-                        this.lh.fK().mNetErrorCode = -13;
+                        this.nE.fZ().mNetErrorCode = -13;
                         z = true;
                         dVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(e2.getMessage());
-                        this.lh.a(dVar);
-                        if (this.of <= 0 && this.or != null) {
-                            this.of = this.or.fA();
+                        this.nE.a(dVar);
+                        if (this.qB <= 0 && this.qL != null) {
+                            this.qB = this.qL.fO();
                         }
-                        dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                        this.lh.a(dVar);
-                        a fx2 = a.fx();
-                        if (fx2 != null) {
-                            fx2.a(this.lh);
+                        dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                        this.nE.a(dVar);
+                        a fL2 = a.fL();
+                        if (fL2 != null) {
+                            fL2.a(this.nE);
                         }
                     }
                 } catch (SocketException e3) {
-                    this.lh.fK().mNetErrorCode = -12;
+                    this.nE.fZ().mNetErrorCode = -12;
                     z = true;
                     dVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    this.lh.a(dVar);
-                    if (this.of <= 0 && this.or != null) {
-                        this.of = this.or.fA();
+                    this.nE.a(dVar);
+                    if (this.qB <= 0 && this.qL != null) {
+                        this.qB = this.qL.fO();
                     }
-                    dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                    this.lh.a(dVar);
-                    a fx3 = a.fx();
-                    if (fx3 != null) {
-                        fx3.a(this.lh);
+                    dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                    this.nE.a(dVar);
+                    a fL3 = a.fL();
+                    if (fL3 != null) {
+                        fL3.a(this.nE);
                     }
                 } catch (Throwable th) {
-                    this.lh.fK().mNetErrorCode = -10;
+                    this.nE.fZ().mNetErrorCode = -10;
                     z = false;
                     dVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(th.getMessage());
-                    this.lh.a(dVar);
-                    if (this.of <= 0 && this.or != null) {
-                        this.of = this.or.fA();
+                    this.nE.a(dVar);
+                    if (this.qB <= 0 && this.qL != null) {
+                        this.qB = this.qL.fO();
                     }
-                    dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                    this.lh.a(dVar);
-                    a fx4 = a.fx();
-                    if (fx4 != null) {
-                        fx4.a(this.lh);
+                    dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                    this.nE.a(dVar);
+                    a fL4 = a.fL();
+                    if (fL4 != null) {
+                        fL4.a(this.nE);
                     }
                 }
-                if (this.lh.fK().responseCode == 200) {
-                    if (this.of <= 0 && this.or != null) {
-                        this.of = this.or.fA();
+                if (this.nE.fZ().responseCode != 200) {
+                    dVar.exception = String.valueOf(this.nE.fZ().responseCode) + "|retryCount:" + i4;
+                    z = L(this.nE.fZ().responseCode);
+                    this.nE.a(dVar);
+                    if (this.qB <= 0 && this.qL != null) {
+                        this.qB = this.qL.fO();
                     }
-                    dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                    this.lh.a(dVar);
-                    a fx5 = a.fx();
-                    if (fx5 != null) {
-                        fx5.a(this.lh);
-                        return;
+                    dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                    this.nE.a(dVar);
+                    a fL5 = a.fL();
+                    if (fL5 != null) {
+                        fL5.a(this.nE);
                     }
-                    return;
+                    z2 = z;
+                    i4++;
+                } else {
+                    if (this.qB <= 0 && this.qL != null) {
+                        this.qB = this.qL.fO();
+                    }
+                    dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                    this.nE.a(dVar);
+                    a fL6 = a.fL();
+                    if (fL6 != null) {
+                        fL6.a(this.nE);
+                    }
                 }
-                dVar.exception = String.valueOf(this.lh.fK().responseCode) + "|retryCount:" + i4;
-                z = K(this.lh.fK().responseCode);
-                this.lh.a(dVar);
-                if (this.of <= 0 && this.or != null) {
-                    this.of = this.or.fA();
-                }
-                dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                this.lh.a(dVar);
-                a fx6 = a.fx();
-                if (fx6 != null) {
-                    fx6.a(this.lh);
-                }
-                z2 = z;
             } catch (Throwable th2) {
-                if (this.of <= 0 && this.or != null) {
-                    this.of = this.or.fA();
+                if (this.qB <= 0 && this.qL != null) {
+                    this.qB = this.qL.fO();
                 }
-                dVar.ox = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.fh().a(this.lh.fJ().getUrl(), this.lh.fJ().ah(HTTP.TARGET_HOST), TextUtils.isEmpty(dVar.exception), dVar.oC != null);
-                this.lh.a(dVar);
-                a fx7 = a.fx();
-                if (fx7 != null) {
-                    fx7.a(this.lh);
+                dVar.qP = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.fC().a(this.nE.fY().getUrl(), this.nE.fY().al("Host"), TextUtils.isEmpty(dVar.exception), dVar.qT != null);
+                this.nE.a(dVar);
+                a fL7 = a.fL();
+                if (fL7 != null) {
+                    fL7.a(this.nE);
                 }
                 throw th2;
             }
         }
+        if (this.nE.fZ().mNetErrorCode == -1 && this.nE.fZ().responseCode == 200) {
+            return;
+        }
+        e.fX().l(url, null);
     }
 
     public void cancel() {
-        if (this.or != null) {
-            this.or.cancelNetConnect();
+        if (this.qL != null) {
+            this.qL.cancelNetConnect();
         }
     }
 
     public boolean isCancel() {
-        if (this.lh == null) {
+        if (this.nE == null) {
             return false;
         }
-        return this.lh.fK().oT;
+        return this.nE.fZ().ro;
     }
 
     public void setCancel() {
-        if (this.lh != null) {
-            this.lh.fK().oT = true;
+        if (this.nE != null) {
+            this.nE.fZ().ro = true;
         }
     }
 
-    public long fE() {
-        if (this.of > 0) {
-            return this.of;
+    public long fS() {
+        if (this.qB > 0) {
+            return this.qB;
         }
-        if (this.or == null) {
+        if (this.qL == null) {
             return -1L;
         }
-        return this.or.fA();
+        return this.qL.fO();
     }
 
-    public long fF() {
-        if (this.or == null) {
+    public long fT() {
+        if (this.qL == null) {
             return -1L;
         }
-        return this.or.fB();
+        return this.qL.fP();
     }
 
-    public long fC() {
-        if (this.or == null) {
+    public long fQ() {
+        if (this.qL == null) {
             return -1L;
         }
-        return this.or.fC();
+        return this.qL.fQ();
     }
 
-    public long fG() {
-        if (this.or == null) {
+    public long fU() {
+        if (this.qL == null) {
             return -1L;
         }
-        return this.or.fz();
+        return this.qL.fN();
     }
 
-    public long fH() {
-        if (this.or == null) {
+    public long fV() {
+        if (this.qL == null) {
             return -1L;
         }
-        return this.or.fy();
+        return this.qL.fM();
     }
 
-    public int fI() {
-        return this.ot;
+    public int fW() {
+        return this.qM;
     }
 
-    private void L(int i) {
+    private void M(int i) {
         try {
-            if (this.lh != null && i > 0) {
-                this.lh.fJ().l("Retry-Count", String.valueOf(i));
+            if (this.nE != null && i > 0) {
+                this.nE.fY().m("Retry-Count", String.valueOf(i));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

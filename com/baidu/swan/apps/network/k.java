@@ -6,12 +6,12 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public final class k {
-    public static final a aYD = new a(null);
-    private Set<String> aYC;
+    public static final a bBE = new a(null);
+    private volatile Set<String> bBD;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         private a() {
         }
@@ -21,63 +21,48 @@ public final class k {
         }
     }
 
-    public final void a(WebSocketTask webSocketTask) {
-        p.i(webSocketTask, "task");
-        if (this.aYC == null) {
-            this.aYC = new LinkedHashSet();
+    public final synchronized void a(WebSocketTask webSocketTask) {
+        p.j(webSocketTask, "task");
+        if (this.bBD == null) {
+            this.bBD = new LinkedHashSet();
         }
-        Set<String> set = this.aYC;
+        Set<String> set = this.bBD;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
     }
 
-    public final void gt(String str) {
-        p.i(str, "taskId");
-        Set<String> set = this.aYC;
+    public final synchronized void jp(String str) {
+        p.j(str, "taskId");
+        Set<String> set = this.bBD;
         if (set != null) {
             set.remove(str);
         }
     }
 
-    public final void release() {
-        try {
-            try {
-                Set<String> set = this.aYC;
-                if (set != null) {
-                    for (String str : set) {
-                        try {
-                            WebSocketManager.INSTANCE.close(str, 1001, "aiapp terminate");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
+    public final synchronized void release() {
+        Set<String> set = this.bBD;
+        if (set != null) {
+            for (String str : set) {
                 try {
-                    Set<String> set2 = this.aYC;
-                    if (set2 != null) {
-                        set2.clear();
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                    WebSocketManager.INSTANCE.close(str, 1001, "aiapp terminate");
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
             }
-        } finally {
-            try {
-                Set<String> set3 = this.aYC;
-                if (set3 != null) {
-                    set3.clear();
-                }
-            } catch (Exception e4) {
-                e4.printStackTrace();
-            }
+        }
+        Set<String> set2 = this.bBD;
+        if (set2 != null) {
+            set2.clear();
         }
     }
 
-    public final boolean MR() {
-        Set<String> set = this.aYC;
-        return (set != null ? set.size() : 0) < 5;
+    public final synchronized boolean Wn() {
+        boolean z;
+        synchronized (this) {
+            Set<String> set = this.bBD;
+            z = (set != null ? set.size() : 0) < 5;
+        }
+        return z;
     }
 }

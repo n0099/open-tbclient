@@ -7,14 +7,13 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class c {
     public static String a(String str, String str2) {
         SecureRandom secureRandom = new SecureRandom();
         Cipher cipher = Cipher.getInstance("DES");
         cipher.init(1, a(str2), secureRandom);
-        return new String(Base64.encode(cipher.doFinal(str.getBytes(HTTP.UTF_8)), 0), Charset.defaultCharset()).trim();
+        return new String(Base64.encode(cipher.doFinal(str.getBytes("UTF-8")), 0), Charset.defaultCharset()).trim();
     }
 
     private static Key a(String str) {

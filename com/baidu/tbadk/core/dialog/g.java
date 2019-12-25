@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g implements j {
-    private k ceI;
-    private View ceJ;
-    private int ceK;
-    private int ceL;
-    private k.b ceM;
-    private boolean ceN;
+    private k cRg;
+    private View cRh;
+    private int cRi;
+    private int cRj;
+    private k.b cRk;
+    private boolean cRl;
     private int mId;
     private final View.OnClickListener mOnClickListener;
     private String mText;
@@ -31,22 +31,22 @@ public class g implements j {
 
     public g(String str, k kVar) {
         this.mTextColor = R.drawable.person_more_pop_cancel_text_selector;
-        this.ceK = R.color.cp_bg_line_k;
-        this.ceL = 17;
-        this.ceN = false;
+        this.cRi = R.color.cp_bg_line_k;
+        this.cRj = 17;
+        this.cRl = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.ceM != null) {
-                    g.this.ceM.onClick();
+                if (g.this.cRk != null) {
+                    g.this.cRk.onClick();
                 }
-                if (g.this.ceI != null && g.this.ceI.alb() != null) {
-                    g.this.ceI.alb().a(g.this.ceI, g.this.mId, g.this.mTextView);
+                if (g.this.cRg != null && g.this.cRg.aCl() != null) {
+                    g.this.cRg.aCl().a(g.this.cRg, g.this.mId, g.this.mTextView);
                 }
             }
         };
         this.mText = str;
-        this.ceI = kVar;
+        this.cRg = kVar;
         this.mId = hashCode();
         initView();
         initListener();
@@ -54,23 +54,23 @@ public class g implements j {
 
     public g(int i, String str, k kVar) {
         this.mTextColor = R.drawable.person_more_pop_cancel_text_selector;
-        this.ceK = R.color.cp_bg_line_k;
-        this.ceL = 17;
-        this.ceN = false;
+        this.cRi = R.color.cp_bg_line_k;
+        this.cRj = 17;
+        this.cRl = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.ceM != null) {
-                    g.this.ceM.onClick();
+                if (g.this.cRk != null) {
+                    g.this.cRk.onClick();
                 }
-                if (g.this.ceI != null && g.this.ceI.alb() != null) {
-                    g.this.ceI.alb().a(g.this.ceI, g.this.mId, g.this.mTextView);
+                if (g.this.cRg != null && g.this.cRg.aCl() != null) {
+                    g.this.cRg.aCl().a(g.this.cRg, g.this.mId, g.this.mTextView);
                 }
             }
         };
         this.mId = i;
         this.mText = str;
-        this.ceI = kVar;
+        this.cRg = kVar;
         initView();
         initListener();
     }
@@ -86,7 +86,7 @@ public class g implements j {
     }
 
     public void a(k.b bVar) {
-        this.ceM = bVar;
+        this.cRk = bVar;
         initListener();
     }
 
@@ -97,22 +97,22 @@ public class g implements j {
 
     @Override // com.baidu.tbadk.core.dialog.j
     public void onChangeSkinType() {
-        am.setBackgroundResource(this.mTextView, this.ceK);
+        am.setBackgroundResource(this.mTextView, this.cRi);
         am.setViewTextColor(this.mTextView, this.mTextColor);
-        am.setBackgroundColor(this.ceJ, R.color.cp_bg_line_c);
+        am.setBackgroundColor(this.cRh, R.color.cp_bg_line_c);
     }
 
     private void initView() {
-        if (this.ceI != null && this.ceI.getContext() != null) {
-            this.mView = LayoutInflater.from(this.ceI.getContext()).inflate(R.layout.popup_dialog_view_item, this.ceI.ala(), false);
+        if (this.cRg != null && this.cRg.getContext() != null) {
+            this.mView = LayoutInflater.from(this.cRg.getContext()).inflate(R.layout.popup_dialog_view_item, this.cRg.aCk(), false);
             this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
             this.mTextView.setText(this.mText);
-            this.mTextView.setGravity(this.ceL);
-            this.ceJ = this.mView.findViewById(R.id.divider_line);
-            if (this.ceN) {
-                this.ceJ.setVisibility(0);
+            this.mTextView.setGravity(this.cRj);
+            this.cRh = this.mView.findViewById(R.id.divider_line);
+            if (this.cRl) {
+                this.cRh.setVisibility(0);
             } else {
-                this.ceJ.setVisibility(8);
+                this.cRh.setVisibility(8);
             }
             onChangeSkinType();
         }

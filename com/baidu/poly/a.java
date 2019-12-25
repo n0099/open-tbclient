@@ -2,97 +2,82 @@ package com.baidu.poly;
 
 import android.content.Context;
 import android.os.Bundle;
-import com.baidu.poly.a.d;
-import com.baidu.poly.a.e;
-import com.baidu.poly.widget.ChannelListView;
-/* loaded from: classes2.dex */
+import com.baidu.poly.util.f;
+import com.baidu.poly.widget.PolyActivity;
+/* loaded from: classes9.dex */
 public class a {
-    private ChannelListView aAt;
-    private Context context;
-
-    /* loaded from: classes2.dex */
-    public static class b {
-        public static int aAz = 1;
-        public static int aAA = 2;
-        public static int aAB = 3;
-    }
-
-    public a(Context context, d dVar, com.baidu.poly.b.c cVar, com.baidu.poly.d.a aVar, int i) {
-        if (aVar == null) {
-            throw new IllegalStateException("wallet can not be null");
-        }
-        this.context = context;
-        dVar = dVar == null ? new e() : dVar;
-        cVar = cVar == null ? com.baidu.poly.b.a.aE(context) : cVar;
-        com.baidu.poly.a.a.a.a(dVar, i);
-        com.baidu.poly.b.b.a(cVar);
-        com.baidu.poly.d.b.b(aVar);
-        if (i == b.aAz) {
-            com.baidu.poly.util.b.enable(false);
-        }
-    }
-
-    public void a(Bundle bundle, c cVar) {
-        if (bundle == null) {
-            throw new NullPointerException("arguments can not be null");
-        }
-        if (this.aAt == null || !this.aAt.zY()) {
-            this.aAt = new ChannelListView(this.context).j(i(bundle)).a(cVar).a(new ChannelListView.a() { // from class: com.baidu.poly.a.1
-                @Override // com.baidu.poly.widget.ChannelListView.a
-                public void onClose() {
-                    a.this.aAt = null;
-                }
-            }).zX();
-        }
-    }
-
-    private Bundle i(Bundle bundle) {
-        bundle.putString("deviceType", "ANDROID");
-        bundle.putString("channel", "cashiersdk");
-        return bundle;
-    }
-
-    public boolean zD() {
-        if (this.aAt != null) {
-            this.aAt.detach();
-            this.aAt = null;
-            return true;
-        }
-        return false;
-    }
-
-    /* loaded from: classes2.dex */
-    public static class c {
-        public void onResult(int i, String str) {
-        }
-
-        public void onFail(String str) {
-        }
-
-        public void onCancel(String str) {
-        }
-    }
+    private com.baidu.poly.c.a.c aKC;
+    private long aKD;
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0126a {
-        private d aAv;
-        private com.baidu.poly.b.c aAw;
-        private com.baidu.poly.d.a aAx;
-        private int aAy = b.aAz;
+    /* loaded from: classes9.dex */
+    public static class C0142a {
+        private com.baidu.poly.c.a.c aKC;
+        private Context context;
+        private int aKE = 1;
+        private boolean debug = false;
 
-        public C0126a a(com.baidu.poly.d.a aVar) {
-            this.aAx = aVar;
+        public a BE() {
+            return new a(this);
+        }
+
+        public C0142a a(com.baidu.poly.c.a.c cVar) {
+            this.aKC = cVar;
             return this;
         }
 
-        public C0126a cA(int i) {
-            this.aAy = i;
+        public C0142a aR(Context context) {
+            this.context = context;
             return this;
         }
 
-        public a aD(Context context) {
-            return new a(context, this.aAv, this.aAw, this.aAx, this.aAy);
+        public C0142a bA(boolean z) {
+            this.debug = z;
+            return this;
         }
+
+        public C0142a db(int i) {
+            this.aKE = i;
+            return this;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static abstract class b {
+        public abstract void onResult(int i, String str);
+    }
+
+    public void a(Context context, Bundle bundle, b bVar) {
+        if (context == null) {
+            throw new IllegalArgumentException("context can not be null");
+        }
+        if (bundle != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.aKD < 1000) {
+                com.baidu.poly.util.c.info("cashier pay time interval less than 1s");
+                return;
+            }
+            this.aKD = currentTimeMillis;
+            com.baidu.poly.util.c.info("cashier pay");
+            PolyActivity.a(context, this.aKC, bVar, bundle);
+            return;
+        }
+        throw new IllegalArgumentException("arguments can not be null");
+    }
+
+    private a(C0142a c0142a) {
+        this.aKD = 0L;
+        if (c0142a != null && c0142a.aKC != null) {
+            if (c0142a.context != null) {
+                this.aKC = c0142a.aKC;
+                com.baidu.poly.a.b.a.init(c0142a.aKE);
+                com.baidu.poly.a.c.b.a(com.baidu.poly.a.c.a.aS(c0142a.context.getApplicationContext()));
+                f.b(c0142a.context.getApplicationContext());
+                com.baidu.poly.util.c.aMK = c0142a.debug;
+                return;
+            }
+            throw new IllegalArgumentException("context can not be null");
+        }
+        throw new IllegalArgumentException("channelPay can not be null");
     }
 }

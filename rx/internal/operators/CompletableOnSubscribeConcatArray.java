@@ -2,13 +2,13 @@ package rx.internal.operators;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class CompletableOnSubscribeConcatArray implements b.a {
     final rx.b[] sources;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
-    /* renamed from: c */
+    /* renamed from: a */
     public void call(rx.c cVar) {
         ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(cVar, this.sources);
         cVar.onSubscribe(concatInnerSubscriber.sd);
@@ -16,7 +16,7 @@ public final class CompletableOnSubscribeConcatArray implements b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class ConcatInnerSubscriber extends AtomicInteger implements rx.c {
         private static final long serialVersionUID = -7965400327305809232L;
         final rx.c actual;
@@ -54,7 +54,7 @@ public final class CompletableOnSubscribeConcatArray implements b.a {
                         this.actual.onCompleted();
                         return;
                     }
-                    bVarArr[i].a(this);
+                    bVarArr[i].b(this);
                     if (decrementAndGet() == 0) {
                         return;
                     }

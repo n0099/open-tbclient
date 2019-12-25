@@ -2,9 +2,9 @@ package org.aspectj.lang;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SoftException extends RuntimeException {
-    private static final boolean kvO;
+    private static final boolean HAVE_JAVA_14;
     Throwable inner;
 
     static {
@@ -14,7 +14,7 @@ public class SoftException extends RuntimeException {
             z = true;
         } catch (Throwable th) {
         }
-        kvO = z;
+        HAVE_JAVA_14 = z;
     }
 
     public SoftException(Throwable th) {
@@ -39,7 +39,7 @@ public class SoftException extends RuntimeException {
     public void printStackTrace(PrintStream printStream) {
         super.printStackTrace(printStream);
         Throwable th = this.inner;
-        if (!kvO && th != null) {
+        if (!HAVE_JAVA_14 && th != null) {
             printStream.print("Caused by: ");
             th.printStackTrace(printStream);
         }
@@ -49,7 +49,7 @@ public class SoftException extends RuntimeException {
     public void printStackTrace(PrintWriter printWriter) {
         super.printStackTrace(printWriter);
         Throwable th = this.inner;
-        if (!kvO && th != null) {
+        if (!HAVE_JAVA_14 && th != null) {
             printWriter.print("Caused by: ");
             th.printStackTrace(printWriter);
         }

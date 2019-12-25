@@ -4,71 +4,71 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> bbH = new ArrayList<>();
-    private View.OnClickListener dFs;
-    private View.OnClickListener dFt;
-    private View.OnClickListener dFu;
-    private int dFv;
+    private ArrayList<ALaCharmData> cRE = new ArrayList<>();
+    private View.OnClickListener erw;
+    private View.OnClickListener erx;
+    private View.OnClickListener ery;
+    private int mFromType;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.dFv = 1;
+        this.mFromType = 1;
         this.mPageContext = tbPageContext;
-        this.dFv = i;
-    }
-
-    public void m(View.OnClickListener onClickListener) {
-        this.dFs = onClickListener;
+        this.mFromType = i;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.dFu = onClickListener;
+        this.erw = onClickListener;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.dFt = onClickListener;
+        this.ery = onClickListener;
+    }
+
+    public void p(View.OnClickListener onClickListener) {
+        this.erx = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.bbH.clear();
-            this.bbH.addAll(arrayList);
+            this.cRE.clear();
+            this.cRE.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
-    public void L(ArrayList<ALaCharmData> arrayList) {
+    public void R(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.bbH.addAll(arrayList);
+            this.cRE.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bbH == null) {
+        if (this.cRE == null) {
             return 0;
         }
-        return this.bbH.size();
+        return this.cRE.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mw */
+    /* renamed from: oH */
     public ALaCharmData getItem(int i) {
-        if (this.bbH == null) {
+        if (this.cRE == null) {
             return null;
         }
-        return this.bbH.get(i);
+        return this.cRE.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.dFv == 1) {
+            if (this.mFromType == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.dFv == 2) {
+            } else if (this.mFromType == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            d dVar2 = new d(inflate, this.dFv);
-            dVar2.p(this.dFu);
-            dVar2.m(this.dFs);
-            dVar2.q(this.dFt);
+            d dVar2 = new d(inflate, this.mFromType);
+            dVar2.q(this.ery);
+            dVar2.n(this.erw);
+            dVar2.r(this.erx);
             inflate.setTag(dVar2);
             view = inflate;
             dVar = dVar2;
@@ -105,9 +105,9 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public void T(String str, boolean z) {
-        if (this.bbH != null && str != null) {
-            Iterator<ALaCharmData> it = this.bbH.iterator();
+    public void X(String str, boolean z) {
+        if (this.cRE != null && str != null) {
+            Iterator<ALaCharmData> it = this.cRE.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

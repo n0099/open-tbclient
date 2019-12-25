@@ -34,6 +34,7 @@ import android.widget.TextView;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.au;
 import com.baidu.mobstat.bt;
+import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class bj {
     public static View a(Activity activity) {
         Window window;
@@ -1158,7 +1159,7 @@ public class bj {
             return "";
         }
         String str = activityInfo.packageName;
-        if ("android".equals(str)) {
+        if (PraiseDataPassUtil.KEY_FROM_OS.equals(str)) {
             return "";
         }
         if (TextUtils.isEmpty(str)) {

@@ -6,19 +6,22 @@ import android.view.SurfaceHolder;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
+import java.util.ArrayList;
+import java.util.List;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes9.dex */
 public class MarioSDK {
     private static final String TAG = "MarioSDK";
     private AREngineDelegate mAREngineDelegate;
     private b mMarioInitListener;
     private V8Engine mV8Engine;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public interface b {
-        void AB();
+        void Dp();
     }
 
     public void setMarioInitListener(b bVar) {
@@ -71,7 +74,7 @@ public class MarioSDK {
         }
         MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
         if (bVar != null) {
-            bVar.AB();
+            bVar.Dp();
         }
         return marioSDK;
     }
@@ -113,32 +116,55 @@ public class MarioSDK {
         }
         com.baidu.smallgame.sdk.a aVar2 = new com.baidu.smallgame.sdk.a();
         if (aVar.mSurfaceHolder != null) {
-            aVar2.setSurfaceHolder(aVar.mSurfaceHolder);
+            aVar2.c(aVar.mSurfaceHolder);
         }
         if (aVar.mFirstFrameListener != null) {
             aVar2.setFirstFrameListener(aVar.mFirstFrameListener);
         }
-        aVar2.setRenderMode(aVar.aCZ);
-        if (aVar.aCG == null) {
-            return aVar2;
+        aVar2.setRenderMode(aVar.aTs);
+        if (aVar.mContext != null) {
+            aVar2.setContext(aVar.mContext);
         }
-        aVar2.setRenderer(aVar.aCG);
+        if (aVar.aSU != null) {
+            aVar2.setRenderer(aVar.aSU);
+        }
+        if (aVar.Do() != null) {
+            for (DebugConsole debugConsole : aVar.Do()) {
+                aVar2.addDebugConsole(debugConsole);
+            }
+        }
         return aVar2;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        private GLSurfaceView.Renderer aCG;
-        private int aCZ;
+        private GLSurfaceView.Renderer aSU;
+        private List<DebugConsole> aTK = new ArrayList();
+        private int aTs;
+        private Context mContext;
         private ArBridge.FirstFrameListener mFirstFrameListener;
         private SurfaceHolder mSurfaceHolder;
 
-        public void setSurfaceHolder(SurfaceHolder surfaceHolder) {
+        public void setContext(Context context) {
+            this.mContext = context;
+        }
+
+        public void c(SurfaceHolder surfaceHolder) {
             this.mSurfaceHolder = surfaceHolder;
         }
 
         public void setRenderer(GLSurfaceView.Renderer renderer) {
-            this.aCG = renderer;
+            this.aSU = renderer;
+        }
+
+        public void addDebugConsole(DebugConsole debugConsole) {
+            if (debugConsole != null) {
+                this.aTK.add(debugConsole);
+            }
+        }
+
+        public List<DebugConsole> Do() {
+            return this.aTK;
         }
 
         public void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener) {

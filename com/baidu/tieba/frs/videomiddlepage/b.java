@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs.videomiddlepage;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface b {
-    com.baidu.afd.videopaster.data.b wC(String str);
+    com.baidu.afd.videopaster.data.b Br(String str);
 }

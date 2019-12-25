@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.k.a;
+import com.baidu.live.q.a;
 import com.baidu.live.tbadk.core.BaseFragment;
 import com.baidu.live.tbadk.core.tabhost.FragmentTabWidget;
 import com.baidu.live.tbadk.core.util.SkinManager;
@@ -25,7 +25,7 @@ import com.baidu.live.tbadk.maintab.TbFragmentTabIndicator;
 import com.baidu.live.tbadk.widget.CustomViewPager;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageChangeListener, FragmentTabWidget.OnTabSelectionChanged {
     public static final int BELOW_NAVIGATION = 3;
     public static final int TABBAR_COVER_BOTTOM = 2;
@@ -46,14 +46,14 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
     private View topDvider;
     private int wrapperHeight;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface OnTabSelectionListener {
         boolean onPreTabSelectionChange(int i, boolean z);
 
         void onTabSelectionChanged(int i, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class TabSpec {
         public FragmentDelegate FragmentDelegate;
         public Fragment mContentFragment;
@@ -445,7 +445,7 @@ public class FragmentTabHost extends RelativeLayout implements ViewPager.OnPageC
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class FragmentAdapter extends FragmentPagerAdapter {
         private int mPrimaryPosition;
         private List<TabSpec> specs;

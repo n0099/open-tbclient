@@ -1,57 +1,221 @@
 package com.baidu.swan.pms.b.b;
 
-import com.baidu.swan.pms.a.f;
-import com.baidu.swan.pms.b.d.e;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class d extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.d> {
-    public d(f fVar, e eVar) {
-        super(fVar, eVar);
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.ConnectManager;
+import com.baidu.searchbox.http.HttpManager;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.Channels;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.BufferedSource;
+/* loaded from: classes9.dex */
+public class d {
+    private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
+    private final Deque<a> cwR;
+    private final Deque<a> cwS;
+    private final ExecutorService executorService;
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes9.dex */
+    public static class b {
+        private static d cwV = new d();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.pms.b.d
-    /* renamed from: bg */
-    public com.baidu.swan.pms.b.c.d bc(JSONObject jSONObject) {
-        return com.baidu.swan.pms.e.d.bj(jSONObject);
+    private d() {
+        this.cwR = new ArrayDeque();
+        this.cwS = new ArrayDeque();
+        this.executorService = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.pms.b.d
-    /* renamed from: a */
-    public com.baidu.swan.pms.model.a T(com.baidu.swan.pms.b.c.d dVar) {
-        this.bLt.Gn();
-        com.baidu.swan.pms.d.a.d(this.bLu.getCategory(), dVar.aOB);
-        com.baidu.swan.pms.e.e eVar = new com.baidu.swan.pms.e.e();
-        a(dVar.bLX, eVar);
-        a(dVar.bLZ, eVar);
-        if (eVar.abL() == 0) {
-            this.bLt.Gj();
-            return null;
+    public static d aqV() {
+        return b.cwV;
+    }
+
+    public synchronized void a(@NonNull com.baidu.swan.pms.b.b.a aVar) {
+        a aVar2 = new a(aVar);
+        if (this.cwS.size() < 1) {
+            this.cwS.add(aVar2);
+            this.executorService.execute(aVar2);
+        } else {
+            this.cwR.add(aVar2);
         }
-        this.bLt.a(eVar);
-        com.baidu.swan.pms.b.a.a.a(dVar, this.bLt);
-        return null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.pms.b.d
-    /* renamed from: b */
-    public boolean U(com.baidu.swan.pms.b.c.d dVar) {
-        if (dVar == null) {
-            return false;
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void a(@NonNull a aVar) {
+        if (!this.cwS.remove(aVar) && DEBUG) {
+            throw new RuntimeException("runningCalls remove fail ");
         }
-        if (dVar.bLX == null || dVar.bLX.abf()) {
-            return dVar.bLZ == null || dVar.bLZ.abf();
+        if (this.cwS.size() < 1 && !this.cwR.isEmpty()) {
+            Iterator<a> it = this.cwR.iterator();
+            while (it.hasNext()) {
+                a next = it.next();
+                it.remove();
+                this.cwS.add(next);
+                this.executorService.execute(next);
+                if (this.cwS.size() >= 1) {
+                    break;
+                }
+            }
         }
-        return false;
     }
 
-    @Override // com.baidu.swan.pms.b.d
-    protected String abh() {
-        return "updatecore";
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes9.dex */
+    public final class a implements Runnable {
+        private File bst;
+        @NonNull
+        private com.baidu.swan.pms.b.b.a cwT;
+        public String filePath = "";
+
+        a(@NonNull com.baidu.swan.pms.b.b.a aVar) {
+            this.cwT = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (d.DEBUG) {
+                Log.d("Mini-Pm-Download", "run thread: " + Thread.currentThread().getName() + " md5: " + this.cwT.md5);
+            }
+            execute();
+            d.this.a(this);
+        }
+
+        private void execute() {
+            com.baidu.swan.pms.b.b bVar = this.cwT.cwQ;
+            if (!ConnectManager.isNetworkConnected(AppRuntime.getAppContext())) {
+                com.baidu.swan.pms.b.b.b bVar2 = new com.baidu.swan.pms.b.b.b(1003, "无网");
+                if (d.DEBUG) {
+                    Log.d("Mini-Pm-Download", bVar2.toString());
+                }
+                bVar.a(bVar2);
+            } else if (!aqW()) {
+                com.baidu.swan.pms.b.b.b bVar3 = new com.baidu.swan.pms.b.b.b(1004, "创建本地文件失败");
+                if (d.DEBUG) {
+                    Log.d("Mini-Pm-Download", bVar3.toString());
+                }
+                bVar.a(bVar3);
+            } else {
+                try {
+                    Response executeSync = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(this.cwT.downloadUrl).build().executeSync();
+                    com.baidu.swan.pms.b.b.b f = f(executeSync, executeSync.code());
+                    f.filePath = this.filePath;
+                    if (d.DEBUG) {
+                        Log.d("Mini-Pm-Download", "parseResponse: " + f.toString());
+                    }
+                    if (f.isSuccess()) {
+                        bVar.b(f);
+                    } else {
+                        bVar.a(f);
+                    }
+                    if (executeSync != null) {
+                        if (0 != 0) {
+                            executeSync.close();
+                        } else {
+                            executeSync.close();
+                        }
+                    }
+                } catch (Exception e) {
+                    if (d.DEBUG) {
+                        Log.e("Mini-Pm-Download", "execute with exception", e);
+                    }
+                    bVar.a(new com.baidu.swan.pms.b.b.b(1005, "execute with exception: " + e.getMessage(), this.filePath));
+                }
+            }
+        }
+
+        private boolean aqW() {
+            if (TextUtils.isEmpty(this.filePath)) {
+                this.bst = com.baidu.swan.pms.f.c.bW(c.Re().getPath(), this.cwT.md5);
+                if (this.bst == null) {
+                    return false;
+                }
+                this.filePath = this.bst.getAbsolutePath();
+                return true;
+            }
+            return true;
+        }
+
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [275=5, 277=5, 278=5, 279=5] */
+        /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x0111 -> B:71:0x0023). Please submit an issue!!! */
+        /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:52:0x0113 -> B:71:0x0023). Please submit an issue!!! */
+        /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:55:0x0119 -> B:71:0x0023). Please submit an issue!!! */
+        @NonNull
+        private com.baidu.swan.pms.b.b.b f(@NonNull Response response, int i) {
+            com.baidu.swan.pms.b.b.b bVar;
+            if (i < 200 || i > 300) {
+                return new com.baidu.swan.pms.b.b.b(1005, "http status code: " + i);
+            }
+            ResponseBody body = response.body();
+            if (body == null) {
+                return new com.baidu.swan.pms.b.b.b(1005, "response body is null");
+            }
+            long contentLength = body.contentLength();
+            if (contentLength <= 0 || contentLength == this.cwT.size) {
+                if (c.p(c.Re().getPath(), this.cwT.size)) {
+                    BufferedSource source = body.source();
+                    try {
+                        if (source == null) {
+                            return new com.baidu.swan.pms.b.b.b(1005, "body source is null");
+                        }
+                        try {
+                            if (!c.a(Channels.newInputStream(source), new FileOutputStream(this.bst), contentLength)) {
+                                bVar = new com.baidu.swan.pms.b.b.b(1008, "写入磁盘出错");
+                                if (source.isOpen()) {
+                                    try {
+                                        source.close();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } else if (c.d(this.filePath, this.cwT.size, this.cwT.md5)) {
+                                bVar = new com.baidu.swan.pms.b.b.b(0, "成功");
+                                if (source.isOpen()) {
+                                    try {
+                                        source.close();
+                                    } catch (IOException e2) {
+                                        e2.printStackTrace();
+                                    }
+                                }
+                            } else {
+                                bVar = new com.baidu.swan.pms.b.b.b(1009, "md5 校验失败");
+                            }
+                        } catch (IOException e3) {
+                            bVar = new com.baidu.swan.pms.b.b.b(1008, "写入磁盘出错: " + e3.getMessage());
+                            if (source.isOpen()) {
+                                try {
+                                    source.close();
+                                } catch (IOException e4) {
+                                    e4.printStackTrace();
+                                }
+                            }
+                        }
+                        return bVar;
+                    } finally {
+                        if (source.isOpen()) {
+                            try {
+                                source.close();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
+                            }
+                        }
+                    }
+                }
+                return new com.baidu.swan.pms.b.b.b(1007, "磁盘空间不足");
+            }
+            return new com.baidu.swan.pms.b.b.b(1006, "真实文件大小跟服务器返回的size不一样");
+        }
     }
 }

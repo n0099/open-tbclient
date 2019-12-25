@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.IncrForumAccessCount.IncrForumAccessCountResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ResponseIncrForumAccessCountSocketMessage extends SocketResponsedMessage {
     private IncrForumAccessCountResIdl mResponseData;
 

@@ -1,27 +1,21 @@
 package com.facebook.imagepipeline.producers;
+/* loaded from: classes9.dex */
+public class ar<T> implements aj<Void> {
+    private final aj<T> lQz;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.concurrent.Executor;
-/* loaded from: classes2.dex */
-public class ar {
-    private boolean klV = false;
-    private final Deque<Runnable> klW = new ArrayDeque();
-    private final Executor mExecutor;
-
-    public ar(Executor executor) {
-        this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
+    public ar(aj<T> ajVar) {
+        this.lQz = ajVar;
     }
 
-    public synchronized void s(Runnable runnable) {
-        if (this.klV) {
-            this.klW.add(runnable);
-        } else {
-            this.mExecutor.execute(runnable);
-        }
-    }
-
-    public synchronized void t(Runnable runnable) {
-        this.klW.remove(runnable);
+    @Override // com.facebook.imagepipeline.producers.aj
+    public void c(k<Void> kVar, ak akVar) {
+        this.lQz.c(new n<T, Void>(kVar) { // from class: com.facebook.imagepipeline.producers.ar.1
+            @Override // com.facebook.imagepipeline.producers.b
+            protected void f(T t, int i) {
+                if (Iv(i)) {
+                    dpj().g(null, i);
+                }
+            }
+        }, akVar);
     }
 }

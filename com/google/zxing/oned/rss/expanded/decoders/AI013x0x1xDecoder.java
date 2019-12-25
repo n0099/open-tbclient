@@ -3,7 +3,7 @@ package com.google.zxing.oned.rss.expanded.decoders;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class AI013x0x1xDecoder extends AI01weightDecoder {
     private static final int DATE_SIZE = 16;
     private static final int HEADER_SIZE = 8;

@@ -1,20 +1,89 @@
 package com.airbnb.lottie.c;
-/* loaded from: classes2.dex */
+
+import android.graphics.PointF;
+import android.util.JsonReader;
+import android.util.JsonToken;
+import com.baidu.mobstat.Config;
+import java.io.IOException;
+import java.util.ArrayList;
+/* loaded from: classes4.dex */
 public class a {
-    private static float j(float f) {
-        return f <= 0.0031308f ? 12.92f * f : (float) ((Math.pow(f, 0.4166666567325592d) * 1.0549999475479126d) - 0.054999999701976776d);
+    public static com.airbnb.lottie.model.a.e a(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+        ArrayList arrayList = new ArrayList();
+        if (jsonReader.peek() == JsonToken.BEGIN_ARRAY) {
+            jsonReader.beginArray();
+            while (jsonReader.hasNext()) {
+                arrayList.add(w.s(jsonReader, eVar));
+            }
+            jsonReader.endArray();
+            r.g(arrayList);
+        } else {
+            arrayList.add(new com.airbnb.lottie.e.a(p.g(jsonReader, com.airbnb.lottie.d.f.dK())));
+        }
+        return new com.airbnb.lottie.model.a.e(arrayList);
     }
 
-    private static float k(float f) {
-        return f <= 0.04045f ? f / 12.92f : (float) Math.pow((0.055f + f) / 1.055f, 2.4000000953674316d);
-    }
-
-    public static int b(float f, int i, int i2) {
-        float f2 = ((i >> 24) & 255) / 255.0f;
-        float k = k(((i >> 16) & 255) / 255.0f);
-        float k2 = k(((i >> 8) & 255) / 255.0f);
-        float k3 = k((i & 255) / 255.0f);
-        float k4 = k(((i2 >> 16) & 255) / 255.0f);
-        return (Math.round((f2 + (((((i2 >> 24) & 255) / 255.0f) - f2) * f)) * 255.0f) << 24) | (Math.round(j(k + ((k4 - k) * f)) * 255.0f) << 16) | (Math.round(j(k2 + ((k(((i2 >> 8) & 255) / 255.0f) - k2) * f)) * 255.0f) << 8) | Math.round(j(k3 + ((k((i2 & 255) / 255.0f) - k3) * f)) * 255.0f);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static com.airbnb.lottie.model.a.m<PointF, PointF> b(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+        com.airbnb.lottie.model.a.b bVar = null;
+        jsonReader.beginObject();
+        boolean z = false;
+        com.airbnb.lottie.model.a.b bVar2 = null;
+        com.airbnb.lottie.model.a.e eVar2 = null;
+        while (jsonReader.peek() != JsonToken.END_OBJECT) {
+            String nextName = jsonReader.nextName();
+            char c = 65535;
+            switch (nextName.hashCode()) {
+                case 107:
+                    if (nextName.equals("k")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 120:
+                    if (nextName.equals(Config.EVENT_HEAT_X)) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 121:
+                    if (nextName.equals("y")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    eVar2 = a(jsonReader, eVar);
+                    break;
+                case 1:
+                    if (jsonReader.peek() == JsonToken.STRING) {
+                        jsonReader.skipValue();
+                        z = true;
+                        break;
+                    } else {
+                        bVar2 = d.f(jsonReader, eVar);
+                        break;
+                    }
+                case 2:
+                    if (jsonReader.peek() == JsonToken.STRING) {
+                        jsonReader.skipValue();
+                        z = true;
+                        break;
+                    } else {
+                        bVar = d.f(jsonReader, eVar);
+                        break;
+                    }
+                default:
+                    jsonReader.skipValue();
+                    break;
+            }
+        }
+        jsonReader.endObject();
+        if (z) {
+            eVar.G("Lottie doesn't support expressions.");
+        }
+        return eVar2 != null ? eVar2 : new com.airbnb.lottie.model.a.i(bVar2, bVar);
     }
 }

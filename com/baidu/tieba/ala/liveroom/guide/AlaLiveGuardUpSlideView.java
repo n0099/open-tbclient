@@ -9,76 +9,76 @@ import android.view.MotionEvent;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.baidu.live.k.a;
-/* loaded from: classes6.dex */
+import com.baidu.live.q.a;
+/* loaded from: classes2.dex */
 public class AlaLiveGuardUpSlideView extends FrameLayout {
-    private ImageView dgd;
-    private AnimatorSet ego;
-    private ObjectAnimator egp;
-    private ObjectAnimator egq;
-    a egr;
+    private ImageView dTP;
+    private ObjectAnimator eWA;
+    a eWB;
+    private AnimatorSet eWy;
+    private ObjectAnimator eWz;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void hO(boolean z);
+        void je(boolean z);
     }
 
     public AlaLiveGuardUpSlideView(Context context) {
         super(context);
-        c(context, false, false);
+        b(context, false, false);
     }
 
     public AlaLiveGuardUpSlideView(Context context, boolean z, boolean z2) {
         super(context);
-        c(context, z, z2);
+        b(context, z, z2);
     }
 
     public AlaLiveGuardUpSlideView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        c(context, false, false);
+        b(context, false, false);
     }
 
     public AlaLiveGuardUpSlideView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        c(context, false, false);
+        b(context, false, false);
     }
 
-    private void c(Context context, boolean z, boolean z2) {
+    private void b(Context context, boolean z, boolean z2) {
         setBackgroundColor(getResources().getColor(a.d.sdk_black_alpha50));
         LayoutInflater.from(context).inflate(a.h.ala_liveroom_guard_upglide_layout, this);
-        this.dgd = (ImageView) findViewById(a.g.ala_liveroom_guard_image_hand);
+        this.dTP = (ImageView) findViewById(a.g.ala_liveroom_guard_image_hand);
     }
 
-    public void aSd() {
+    public void bjO() {
         setVisibility(0);
-        aSe();
+        bjP();
     }
 
-    private void aSe() {
+    private void bjP() {
         try {
-            if (this.ego == null) {
-                this.ego = new AnimatorSet();
-                this.ego.setDuration(2200L);
-                this.egp = ObjectAnimator.ofFloat(this.dgd, "translationY", 0.0f, -126.0f, -200.0f, -200.0f, 0.0f, 0.0f, 65.0f, 110.0f, 110.0f, 0.0f, 0.0f);
-                this.egq = ObjectAnimator.ofFloat(this.dgd, "alpha", 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f);
-                this.egp.setRepeatMode(1);
-                this.egp.setRepeatCount(-1);
-                this.egq.setRepeatMode(1);
-                this.egq.setRepeatCount(-1);
-                this.ego.play(this.egp).with(this.egq);
-                this.ego.setInterpolator(new LinearInterpolator());
-                this.ego.start();
+            if (this.eWy == null) {
+                this.eWy = new AnimatorSet();
+                this.eWy.setDuration(2200L);
+                this.eWz = ObjectAnimator.ofFloat(this.dTP, "translationY", 0.0f, -126.0f, -200.0f, -200.0f, 0.0f, 0.0f, 65.0f, 110.0f, 110.0f, 0.0f, 0.0f);
+                this.eWA = ObjectAnimator.ofFloat(this.dTP, "alpha", 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f);
+                this.eWz.setRepeatMode(1);
+                this.eWz.setRepeatCount(-1);
+                this.eWA.setRepeatMode(1);
+                this.eWA.setRepeatCount(-1);
+                this.eWy.play(this.eWz).with(this.eWA);
+                this.eWy.setInterpolator(new LinearInterpolator());
+                this.eWy.start();
             }
         } catch (OutOfMemoryError e) {
             System.gc();
-            if (this.egr != null) {
-                this.egr.hO(true);
+            if (this.eWB != null) {
+                this.eWB.je(true);
             }
         }
     }
 
     public void setOnEndListener(a aVar) {
-        this.egr = aVar;
+        this.eWB = aVar;
     }
 
     @Override // android.view.View
@@ -86,16 +86,16 @@ public class AlaLiveGuardUpSlideView extends FrameLayout {
         if (getVisibility() == 8) {
             return super.onTouchEvent(motionEvent);
         }
-        if (motionEvent.getAction() == 0 && this.egr != null) {
-            this.egr.hO(false);
+        if (motionEvent.getAction() == 0 && this.eWB != null) {
+            this.eWB.je(false);
         }
         return true;
     }
 
     public void onDestroy() {
-        if (this.ego != null) {
-            this.ego.cancel();
-            this.ego = null;
+        if (this.eWy != null) {
+            this.eWy.cancel();
+            this.eWy = null;
         }
     }
 }

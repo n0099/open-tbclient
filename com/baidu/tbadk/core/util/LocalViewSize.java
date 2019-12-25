@@ -2,11 +2,10 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import com.baidu.location.BDLocation;
-import com.baidu.pass.biometrics.face.liveness.camera.CameraInterface;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize cin = null;
+    private static LocalViewSize cUX = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -15,11 +14,11 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize amm() {
-        if (cin == null) {
-            cin = new LocalViewSize();
+    public static LocalViewSize aDy() {
+        if (cUX == null) {
+            cUX = new LocalViewSize();
         }
-        return cin;
+        return cUX;
     }
 
     private LocalViewSize() {
@@ -65,13 +64,10 @@ public class LocalViewSize {
         if (equipmentWidth >= 1080) {
             return 1080;
         }
-        if (equipmentWidth < 720 || equipmentWidth >= 1080) {
-            return CameraInterface.DEFAULT_PREVIEW_HEIGHT;
-        }
-        return 720;
+        return (equipmentWidth < 720 || equipmentWidth >= 1080) ? 480 : 720;
     }
 
-    public ImageSize amn() {
+    public ImageSize aDz() {
         int i = 240;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
         if (equipmentWidth < 240) {
@@ -89,7 +85,7 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize amo() {
+    public ImageSize aDA() {
         ImageSize imageSize = new ImageSize();
         imageSize.height = com.baidu.adp.lib.util.l.getEquipmentHeight(this.mContext);
         imageSize.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
@@ -97,7 +93,7 @@ public class LocalViewSize {
     }
 
     public int getMsgSPicMaxSizeInt() {
-        ImageSize amn = amn();
-        return amn.height >= amn.width ? amn.height : amn.width;
+        ImageSize aDz = aDz();
+        return aDz.height >= aDz.width ? aDz.height : aDz.width;
     }
 }

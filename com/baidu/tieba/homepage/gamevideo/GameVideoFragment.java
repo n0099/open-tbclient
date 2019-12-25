@@ -11,82 +11,78 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.util.w;
-import com.baidu.tieba.frs.ae;
+import com.baidu.tbadk.util.z;
+import com.baidu.tieba.frs.af;
 import com.baidu.tieba.homepage.gamevideo.b.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class GameVideoFragment extends BaseFragment implements ae {
-    private c ghz;
+/* loaded from: classes6.dex */
+public class GameVideoFragment extends BaseFragment implements af {
+    private c gUT;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.ghz == null) {
-            this.ghz = new c(getPageContext(), getUniqueId());
+        if (this.gUT == null) {
+            this.gUT = new c(getPageContext(), getUniqueId());
         }
-        this.ghz.init();
+        this.gUT.init();
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.ghz == null || this.ghz.getView() == null) {
+        if (this.gUT == null || this.gUT.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.ghz.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.ghz.getView().getParent()).removeView(this.ghz.getView());
+        if (this.gUT.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.gUT.getView().getParent()).removeView(this.gUT.getView());
         }
-        return this.ghz.getView();
+        return this.gUT.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.ghz != null) {
-            this.ghz.loadData();
+        if (this.gUT != null) {
+            this.gUT.loadData();
         }
     }
 
-    @Override // com.baidu.tieba.frs.ae
-    public void vV() {
-        if (this.ghz != null) {
-            this.ghz.vV();
+    @Override // com.baidu.tieba.frs.af
+    public void xT() {
+        if (this.gUT != null) {
+            this.gUT.xT();
         }
     }
 
-    @Override // com.baidu.tieba.frs.ae
-    public void aJn() {
+    @Override // com.baidu.tieba.frs.af
+    public void aZL() {
     }
 
-    @Override // com.baidu.tieba.frs.ae
-    public void aJo() {
+    @Override // com.baidu.tieba.frs.af
+    public void aZM() {
     }
 
-    @Override // com.baidu.tieba.frs.ae
-    public void setRecommendFrsNavigationAnimDispatcher(w wVar) {
+    @Override // com.baidu.tieba.frs.af
+    public void setRecommendFrsNavigationAnimDispatcher(z zVar) {
     }
 
-    @Override // com.baidu.tieba.frs.ae
+    @Override // com.baidu.tieba.frs.af
     public void showFloatingView() {
     }
 
-    @Override // com.baidu.tieba.frs.ae
-    public void anM() {
+    @Override // com.baidu.tieba.frs.af
+    public void aFd() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ghz != null) {
-            this.ghz.anM();
+        if (this.gUT != null) {
+            this.gUT.aFd();
         }
-    }
-
-    @Override // com.baidu.tieba.frs.ae
-    public void setVideoThreadId(String str) {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -95,28 +91,28 @@ public class GameVideoFragment extends BaseFragment implements ae {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.ghz != null) {
-            this.ghz.setPrimary(isPrimary());
+        if (this.gUT != null) {
+            this.gUT.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.ghz != null) {
-            this.ghz.onPause();
+        if (this.gUT != null) {
+            this.gUT.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.ghz != null) {
-            this.ghz.onDestroy();
+        if (this.gUT != null) {
+            this.gUT.onDestroy();
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.o.a
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
     public List<String> getCurrentPageSourceKeyList() {
         ArrayList arrayList;
         if (super.getCurrentPageSourceKeyList() != null) {
@@ -130,7 +126,7 @@ public class GameVideoFragment extends BaseFragment implements ae {
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.o.a
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
     public String getCurrentPageKey() {
         return "a066";
     }
