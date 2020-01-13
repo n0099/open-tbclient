@@ -3,11 +3,11 @@ package com.baidu.mobads;
 import android.content.Context;
 import android.view.ViewGroup;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdService {
-    private AdView aJx;
+    private AdView aKp;
     protected static String channelId = "";
-    protected static int aJy = -1;
+    protected static int aKq = -1;
 
     public static void setChannelId(String str) {
         channelId = str;
@@ -22,19 +22,19 @@ public class AdService {
         if (context == null || viewGroup == null || layoutParams == null || adViewListener == null || adSize == null) {
             throw new IllegalArgumentException("One of arguments is null");
         }
-        this.aJx = new AdView(context, false, adSize, str);
-        this.aJx.setListener(adViewListener);
+        this.aKp = new AdView(context, false, adSize, str);
+        this.aKp.setListener(adViewListener);
         b(viewGroup, layoutParams);
-        aJy++;
+        aKq++;
     }
 
     private void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         try {
-            if (this.aJx.getParent() != viewGroup) {
-                if (this.aJx.getParent() != null) {
-                    ((ViewGroup) this.aJx.getParent()).removeView(this.aJx);
+            if (this.aKp.getParent() != viewGroup) {
+                if (this.aKp.getParent() != null) {
+                    ((ViewGroup) this.aKp.getParent()).removeView(this.aKp);
                 }
-                viewGroup.addView(this.aJx, layoutParams);
+                viewGroup.addView(this.aKp, layoutParams);
             }
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
@@ -42,9 +42,9 @@ public class AdService {
     }
 
     public void destroy() {
-        if (this.aJx != null) {
-            this.aJx.destroy();
-            this.aJx = null;
+        if (this.aKp != null) {
+            this.aKp.destroy();
+            this.aKp = null;
         }
     }
 }

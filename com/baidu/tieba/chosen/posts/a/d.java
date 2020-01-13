@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.util.ArrayList;
 import tbclient.HotThread.Pic;
 import tbclient.HotThread.tinfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d implements com.baidu.tbadk.mvc.b.a {
-    private ArrayList<String> fJl;
+    private ArrayList<String> fMv;
     private String forumId;
     private String forumName;
     private int index;
@@ -18,20 +18,20 @@ public class d implements com.baidu.tbadk.mvc.b.a {
 
     public d(int i, tinfo tinfoVar) {
         if (tinfoVar != null) {
-            this.fJl = new ArrayList<>();
+            this.fMv = new ArrayList<>();
             this.index = i;
             this.forumId = String.valueOf(tinfoVar.forum_id);
             this.forumName = tinfoVar.forum_name;
             this.threadId = String.valueOf(tinfoVar.thread_id);
             for (Pic pic : tinfoVar.pics) {
                 if (pic != null && !StringUtils.isNull(pic.big_pic)) {
-                    this.fJl.add(pic.big_pic);
+                    this.fMv.add(pic.big_pic);
                 }
             }
         }
     }
 
     public CustomMessage<ImageViewerConfig> eI(Context context) {
-        return new CustomMessage<>((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(context).createConfig(this.fJl, this.index, this.forumName, this.forumId, this.threadId, true, this.fJl.get(this.fJl.size() - 1), false));
+        return new CustomMessage<>((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(context).createConfig(this.fMv, this.index, this.forumName, this.forumId, this.threadId, true, this.fMv.get(this.fMv.size() - 1), false));
     }
 }

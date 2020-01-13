@@ -5,61 +5,61 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private int dgh;
-    private List<m> dgn;
-    private List<m> dgo;
-    private boolean dgp;
-    private boolean dgq;
-    private int dgr = 2;
-    private int dgs = 1;
+    private List<m> dgA;
+    private boolean dgB;
+    private boolean dgC;
+    private int dgD = 2;
+    private int dgE = 1;
+    private int dgt;
+    private List<m> dgz;
 
     public d(List<m> list, boolean z, int i) {
-        this.dgh = 2;
-        this.dgn = list;
-        this.dgq = z;
-        this.dgh = i;
-        aE(list);
+        this.dgt = 2;
+        this.dgz = list;
+        this.dgC = z;
+        this.dgt = i;
+        aD(list);
     }
 
-    public void aE(List<m> list) {
-        if (list != null && list.size() >= this.dgr && list.size() <= this.dgh) {
-            this.dgp = true;
-        } else if (list.size() > this.dgh && this.dgq) {
-            this.dgp = true;
+    public void aD(List<m> list) {
+        if (list != null && list.size() >= this.dgD && list.size() <= this.dgt) {
+            this.dgB = true;
+        } else if (list.size() > this.dgt && this.dgC) {
+            this.dgB = true;
         } else {
-            this.dgp = false;
+            this.dgB = false;
         }
-        this.dgo = aFS();
+        this.dgA = aGl();
     }
 
-    private List<m> aFS() {
+    private List<m> aGl() {
         ArrayList arrayList = new ArrayList();
-        if (this.dgn != null) {
-            if (this.dgp) {
-                if (this.dgn.size() > this.dgh && this.dgn.size() >= this.dgs) {
-                    arrayList.addAll(this.dgn.subList(0, this.dgh));
-                    arrayList.addAll(0, this.dgn.subList(this.dgh - this.dgs, this.dgh));
-                    arrayList.addAll(this.dgn.subList(0, this.dgs));
+        if (this.dgz != null) {
+            if (this.dgB) {
+                if (this.dgz.size() > this.dgt && this.dgz.size() >= this.dgE) {
+                    arrayList.addAll(this.dgz.subList(0, this.dgt));
+                    arrayList.addAll(0, this.dgz.subList(this.dgt - this.dgE, this.dgt));
+                    arrayList.addAll(this.dgz.subList(0, this.dgE));
                 } else {
-                    arrayList.addAll(this.dgn);
-                    arrayList.addAll(0, this.dgn.subList(this.dgn.size() - this.dgs, this.dgn.size()));
-                    arrayList.addAll(this.dgn.subList(0, this.dgs));
+                    arrayList.addAll(this.dgz);
+                    arrayList.addAll(0, this.dgz.subList(this.dgz.size() - this.dgE, this.dgz.size()));
+                    arrayList.addAll(this.dgz.subList(0, this.dgE));
                 }
-            } else if (this.dgn != null && this.dgn.size() > 0 && this.dgn.size() >= this.dgs) {
-                arrayList.addAll(this.dgn.subList(0, this.dgs));
+            } else if (this.dgz != null && this.dgz.size() > 0 && this.dgz.size() >= this.dgE) {
+                arrayList.addAll(this.dgz.subList(0, this.dgE));
             }
         }
         return arrayList;
     }
 
     public int lk(int i) {
-        if (this.dgp) {
-            int size = this.dgo.size();
+        if (this.dgB) {
+            int size = this.dgA.size();
             if (i == 0) {
-                return (size - 1) - this.dgs;
+                return (size - 1) - this.dgE;
             }
-            if (i == size - this.dgs) {
-                return this.dgs;
+            if (i == size - this.dgE) {
+                return this.dgE;
             }
             return i;
         }
@@ -67,42 +67,42 @@ public class d {
     }
 
     public int ll(int i) {
-        if (this.dgp) {
-            return i - this.dgs;
+        if (this.dgB) {
+            return i - this.dgE;
         }
         return i;
     }
 
-    public int aFT() {
-        if (this.dgn == null) {
+    public int aGm() {
+        if (this.dgz == null) {
             return 0;
         }
-        return this.dgn.size();
+        return this.dgz.size();
     }
 
-    public int aFU() {
-        if (this.dgp) {
-            return this.dgs;
+    public int aGn() {
+        if (this.dgB) {
+            return this.dgE;
         }
         return 0;
     }
 
     public void lm(int i) {
-        this.dgh = i;
-        aE(this.dgn);
+        this.dgt = i;
+        aD(this.dgz);
     }
 
     public void ln(int i) {
-        this.dgr = i;
-        aE(this.dgn);
+        this.dgD = i;
+        aD(this.dgz);
     }
 
-    public List<m> aFV() {
-        return this.dgo;
+    public List<m> aGo() {
+        return this.dgA;
     }
 
     public void lo(int i) {
-        this.dgs = i;
-        aE(this.dgn);
+        this.dgE = i;
+        aD(this.dgz);
     }
 }

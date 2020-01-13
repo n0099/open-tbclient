@@ -15,7 +15,6 @@ import android.support.v4.content.ContextCompat;
 import android.widget.RemoteViews;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
@@ -24,7 +23,7 @@ public class NotificationHelper {
     private static NotificationCompat.Builder PROGRESS_BUILDER_2;
     private static int lastProgressNotifiyId = 0;
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;
-    private static String PRIMARY_CHANNEL = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
+    private static String PRIMARY_CHANNEL = "default";
     private static String PRIMARY_CHANNEL_2 = "default_2";
     private static String PRIMARY_CHANNEL_3 = "default_3";
 
@@ -157,7 +156,7 @@ public class NotificationHelper {
             if (Build.VERSION.SDK_INT < 26) {
                 builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
             } else {
-                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), switchData.cVp ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2);
+                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), switchData.cVz ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2);
             }
             builder.setContentTitle(str).setContentText(str2).setTicker(str3);
             processNotificationIcon(builder);
@@ -172,11 +171,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.cVq) {
+            if (!switchData.cVA) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.cVp) {
+            if (!switchData.cVz) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -184,7 +183,7 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.cVr) {
+            if (switchData.cVB) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = 400;
@@ -217,32 +216,32 @@ public class NotificationHelper {
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.b.aHR() && com.baidu.tbadk.coreExtra.messageCenter.b.aHQ()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.b.aIl() && com.baidu.tbadk.coreExtra.messageCenter.b.aIk()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.aIw().aIF()) {
-                    aVar.cVp = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIZ()) {
+                    aVar.cVz = true;
                     if (z || z2) {
-                        aVar.cVp = false;
+                        aVar.cVz = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.aIw().aII()) {
-                    aVar.cVq = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJc()) {
+                    aVar.cVA = true;
                     if (z) {
-                        aVar.cVq = false;
+                        aVar.cVA = false;
                     }
                     if (z2) {
-                        aVar.cVq = true;
+                        aVar.cVA = true;
                     }
                 }
                 TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIw().aIG()) {
-            aVar.cVr = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJa()) {
+            aVar.cVB = true;
         }
         return aVar;
     }
@@ -279,14 +278,14 @@ public class NotificationHelper {
         try {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
             if (Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(aVar.cVp ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(R.string.notify_channel_primary), 3);
+                NotificationChannel notificationChannel = new NotificationChannel(aVar.cVz ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(R.string.notify_channel_primary), 3);
                 notificationChannel.setLightColor(-16776961);
                 notificationChannel.setLockscreenVisibility(0);
-                notificationChannel.enableVibration(aVar.cVq);
-                if (!aVar.cVp) {
+                notificationChannel.enableVibration(aVar.cVA);
+                if (!aVar.cVz) {
                     notificationChannel.setSound(null, null);
                 }
-                notificationChannel.enableLights(aVar.cVr);
+                notificationChannel.enableLights(aVar.cVB);
                 notificationManager.createNotificationChannel(notificationChannel);
             }
             if (notification == null || notificationManager == null) {
@@ -307,9 +306,9 @@ public class NotificationHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        boolean cVp = false;
-        boolean cVq = false;
-        boolean cVr = false;
+        boolean cVz = false;
+        boolean cVA = false;
+        boolean cVB = false;
 
         a() {
         }

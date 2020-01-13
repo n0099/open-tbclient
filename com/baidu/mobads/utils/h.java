@@ -5,7 +5,7 @@ import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdContainerFactory;
 import com.baidu.mobads.interfaces.utils.IXAdConstants;
 import com.baidu.webkit.internal.GlobalConstants;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h implements IXAdConstants {
     private static String[] a = {"com.android.chrome", "com.UCMobile", "com.uc.browser", "com.uc.browser.hd", "com.tencent.mtt", "com.tencent.padbrowser", "com.baidu.browser.apps", "com.android.browser", "com.oupeng.mini.android", "com.oupeng.mobile", "com.oupeng.browser", "com.opera.mini.android", "com.opera.browser", "com.opera.browser.beta", "com.mediawoz.xbrowser", "com.mx.browser", "com.mx.browser.tablet", "org.mozilla.firefox", "com.tiantianmini.android.browser", "com.ijinshan.browser_fast", "sogou.mobile.explorer", "com.dolphin.browser.cn", "com.qihoo.browser", GlobalConstants.SEARCHBOX_PACKAGE_NAME};
 

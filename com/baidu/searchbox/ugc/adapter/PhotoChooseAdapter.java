@@ -24,7 +24,7 @@ import com.facebook.imagepipeline.common.d;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PhotoChooseAdapter extends BaseAdapter {
     private Activity mContext;
     private int mHorizontalSpacing;
@@ -32,7 +32,7 @@ public class PhotoChooseAdapter extends BaseAdapter {
     private int mMax = 3;
     private int mNumColumns;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface DeletePhotoListener {
         void setPublishStatus();
     }
@@ -138,10 +138,10 @@ public class PhotoChooseAdapter extends BaseAdapter {
                 } else {
                     UiBaseUtils.setVisibility(viewHolder.photoTypeBg, 8);
                 }
-                c.dji().N(item);
-                ImageRequest dpZ = ImageRequestBuilder.X(item).c(new d((int) (displayWidth2 / 2.0f), (int) (displayWidth3 / 2.0f))).a(b.dlR().uY(true).dlZ()).dpZ();
+                c.dkj().N(item);
+                ImageRequest drm = ImageRequestBuilder.X(item).c(new d((int) (displayWidth2 / 2.0f), (int) (displayWidth3 / 2.0f))).a(b.dmW().vk(true).dne()).drm();
                 if (viewHolder.img != null) {
-                    viewHolder.img.setController(c.djg().uR(false).c(viewHolder.img.getController()).be(dpZ).djX());
+                    viewHolder.img.setController(c.dkh().vd(false).c(viewHolder.img.getController()).be(drm).dkY());
                 }
             }
         }
@@ -157,7 +157,7 @@ public class PhotoChooseAdapter extends BaseAdapter {
         return view;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class ViewHolder {
         public ImageView closeImg;
         public SimpleDraweeView img;

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ui.animview.util;
 
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DebugUtil {
     public static boolean isApkInDebug() {
         try {

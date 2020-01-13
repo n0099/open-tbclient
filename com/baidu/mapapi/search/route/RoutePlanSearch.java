@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.route;
 
 import com.baidu.mapapi.BMapManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
     private boolean b = false;
     private com.baidu.platform.core.d.e a = new com.baidu.platform.core.d.j();

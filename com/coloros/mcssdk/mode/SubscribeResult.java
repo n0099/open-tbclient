@@ -1,5 +1,5 @@
 package com.coloros.mcssdk.mode;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SubscribeResult {
     private String content;
     private String subscribeId;

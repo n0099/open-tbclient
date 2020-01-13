@@ -2,11 +2,11 @@ package com.baidu.swan.apps.r.e.a;
 
 import android.support.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.e.b.a> {
     @Override // com.baidu.swan.apps.r.a
     @NonNull
-    public String QG() {
+    public String Rc() {
         return "getVideoWidth";
     }
 

@@ -3,7 +3,7 @@ package com.baidu.swan.bdprivate.a;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull Bundle bundle) {
@@ -16,7 +16,7 @@ public class f extends com.baidu.swan.apps.process.a.a.a {
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: z */
                 public void B(Bundle bundle2) {
-                    f.this.bEc.putBundle("key_result_stokent", bundle2);
+                    f.this.bEN.putBundle("key_result_stokent", bundle2);
                     f.this.finish();
                 }
             }, stringArray);

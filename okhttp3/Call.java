@@ -1,10 +1,10 @@
 package okhttp3;
 
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface Call extends Cloneable {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Factory {
         Call newCall(Request request);
     }

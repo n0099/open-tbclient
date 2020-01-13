@@ -4,118 +4,118 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.extractor.m;
 import com.google.android.exoplayer2.util.v;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class n {
     private int length;
-    private int mnU;
-    private int mnV;
-    private int mnW;
-    private Format mob;
-    private int moc;
+    private int mrJ;
+    private int mrK;
+    private int mrL;
+    private Format mrQ;
+    private int mrR;
     private int capacity = 1000;
-    private int[] mnR = new int[this.capacity];
-    private long[] lZn = new long[this.capacity];
-    private long[] lZp = new long[this.capacity];
-    private int[] meD = new int[this.capacity];
-    private int[] lZm = new int[this.capacity];
-    private m.a[] mnS = new m.a[this.capacity];
-    private Format[] mnT = new Format[this.capacity];
-    private long mnX = Long.MIN_VALUE;
-    private long mnY = Long.MIN_VALUE;
-    private boolean moa = true;
-    private boolean mnZ = true;
+    private int[] mrG = new int[this.capacity];
+    private long[] mdf = new long[this.capacity];
+    private long[] mdh = new long[this.capacity];
+    private int[] miu = new int[this.capacity];
+    private int[] mde = new int[this.capacity];
+    private m.a[] mrH = new m.a[this.capacity];
+    private Format[] mrI = new Format[this.capacity];
+    private long mrM = Long.MIN_VALUE;
+    private long mrN = Long.MIN_VALUE;
+    private boolean mrP = true;
+    private boolean mrO = true;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        public m.a mbz;
+        public m.a mfo;
         public long offset;
         public int size;
     }
 
     public void reset(boolean z) {
         this.length = 0;
-        this.mnU = 0;
-        this.mnV = 0;
-        this.mnW = 0;
-        this.mnZ = true;
-        this.mnX = Long.MIN_VALUE;
-        this.mnY = Long.MIN_VALUE;
+        this.mrJ = 0;
+        this.mrK = 0;
+        this.mrL = 0;
+        this.mrO = true;
+        this.mrM = Long.MIN_VALUE;
+        this.mrN = Long.MIN_VALUE;
         if (z) {
-            this.mob = null;
-            this.moa = true;
+            this.mrQ = null;
+            this.mrP = true;
         }
     }
 
-    public int dtW() {
-        return this.mnU + this.length;
+    public int dvh() {
+        return this.mrJ + this.length;
     }
 
-    public long Ks(int i) {
-        int Kw;
-        int dtW = dtW() - i;
-        com.google.android.exoplayer2.util.a.checkArgument(dtW >= 0 && dtW <= this.length - this.mnW);
-        this.length -= dtW;
-        this.mnY = Math.max(this.mnX, Kv(this.length));
+    public long KB(int i) {
+        int KF;
+        int dvh = dvh() - i;
+        com.google.android.exoplayer2.util.a.checkArgument(dvh >= 0 && dvh <= this.length - this.mrL);
+        this.length -= dvh;
+        this.mrN = Math.max(this.mrM, KE(this.length));
         if (this.length == 0) {
             return 0L;
         }
-        return this.lZm[Kw] + this.lZn[Kw(this.length - 1)];
+        return this.mde[KF] + this.mdf[KF(this.length - 1)];
     }
 
-    public void Kt(int i) {
-        this.moc = i;
+    public void KC(int i) {
+        this.mrR = i;
     }
 
-    public int dtX() {
-        return this.mnU + this.mnW;
+    public int dvi() {
+        return this.mrJ + this.mrL;
     }
 
-    public int dtY() {
-        return dtZ() ? this.mnR[Kw(this.mnW)] : this.moc;
+    public int dvj() {
+        return dvk() ? this.mrG[KF(this.mrL)] : this.mrR;
     }
 
-    public synchronized boolean dtZ() {
-        return this.mnW != this.length;
+    public synchronized boolean dvk() {
+        return this.mrL != this.length;
     }
 
-    public synchronized Format dua() {
-        return this.moa ? null : this.mob;
+    public synchronized Format dvl() {
+        return this.mrP ? null : this.mrQ;
     }
 
-    public synchronized long dtS() {
-        return this.mnY;
+    public synchronized long dvd() {
+        return this.mrN;
     }
 
     public synchronized void rewind() {
-        this.mnW = 0;
+        this.mrL = 0;
     }
 
     public synchronized int a(com.google.android.exoplayer2.m mVar, com.google.android.exoplayer2.a.e eVar, boolean z, boolean z2, Format format, a aVar) {
         int i = -4;
         synchronized (this) {
-            if (!dtZ()) {
+            if (!dvk()) {
                 if (z2) {
                     eVar.setFlags(4);
-                } else if (this.mob == null || (!z && this.mob == format)) {
+                } else if (this.mrQ == null || (!z && this.mrQ == format)) {
                     i = -3;
                 } else {
-                    mVar.lUU = this.mob;
+                    mVar.lYL = this.mrQ;
                     i = -5;
                 }
             } else {
-                int Kw = Kw(this.mnW);
-                if (z || this.mnT[Kw] != format) {
-                    mVar.lUU = this.mnT[Kw];
+                int KF = KF(this.mrL);
+                if (z || this.mrI[KF] != format) {
+                    mVar.lYL = this.mrI[KF];
                     i = -5;
-                } else if (eVar.dsc()) {
+                } else if (eVar.dto()) {
                     i = -3;
                 } else {
-                    eVar.lYY = this.lZp[Kw];
-                    eVar.setFlags(this.meD[Kw]);
-                    aVar.size = this.lZm[Kw];
-                    aVar.offset = this.lZn[Kw];
-                    aVar.mbz = this.mnS[Kw];
-                    this.mnW++;
+                    eVar.mcQ = this.mdh[KF];
+                    eVar.setFlags(this.miu[KF]);
+                    aVar.size = this.mde[KF];
+                    aVar.offset = this.mdf[KF];
+                    aVar.mfo = this.mrH[KF];
+                    this.mrL++;
                 }
             }
         }
@@ -126,50 +126,50 @@ public final class n {
         int a2;
         int i = -1;
         synchronized (this) {
-            int Kw = Kw(this.mnW);
-            if (dtZ() && j >= this.lZp[Kw] && ((j <= this.mnY || z2) && (a2 = a(Kw, this.length - this.mnW, j, z)) != -1)) {
-                this.mnW += a2;
+            int KF = KF(this.mrL);
+            if (dvk() && j >= this.mdh[KF] && ((j <= this.mrN || z2) && (a2 = a(KF, this.length - this.mrL, j, z)) != -1)) {
+                this.mrL += a2;
                 i = a2;
             }
         }
         return i;
     }
 
-    public synchronized int dub() {
+    public synchronized int dvm() {
         int i;
-        i = this.length - this.mnW;
-        this.mnW = this.length;
+        i = this.length - this.mrL;
+        this.mrL = this.length;
         return i;
     }
 
     public synchronized long b(long j, boolean z, boolean z2) {
         long j2;
-        if (this.length == 0 || j < this.lZp[this.mnV]) {
+        if (this.length == 0 || j < this.mdh[this.mrK]) {
             j2 = -1;
         } else {
-            int a2 = a(this.mnV, (!z2 || this.mnW == this.length) ? this.length : this.mnW + 1, j, z);
-            j2 = a2 == -1 ? -1L : Ku(a2);
+            int a2 = a(this.mrK, (!z2 || this.mrL == this.length) ? this.length : this.mrL + 1, j, z);
+            j2 = a2 == -1 ? -1L : KD(a2);
         }
         return j2;
     }
 
-    public synchronized long duc() {
-        return this.mnW == 0 ? -1L : Ku(this.mnW);
+    public synchronized long dvn() {
+        return this.mrL == 0 ? -1L : KD(this.mrL);
     }
 
-    public synchronized long dud() {
-        return this.length == 0 ? -1L : Ku(this.length);
+    public synchronized long dvo() {
+        return this.length == 0 ? -1L : KD(this.length);
     }
 
     public synchronized boolean l(Format format) {
         boolean z = false;
         synchronized (this) {
             if (format == null) {
-                this.moa = true;
+                this.mrP = true;
             } else {
-                this.moa = false;
-                if (!v.h(format, this.mob)) {
-                    this.mob = format;
+                this.mrP = false;
+                if (!v.h(format, this.mrQ)) {
+                    this.mrQ = format;
                     z = true;
                 }
             }
@@ -178,21 +178,21 @@ public final class n {
     }
 
     public synchronized void a(long j, int i, long j2, int i2, m.a aVar) {
-        if (this.mnZ) {
+        if (this.mrO) {
             if ((i & 1) != 0) {
-                this.mnZ = false;
+                this.mrO = false;
             }
         }
-        com.google.android.exoplayer2.util.a.checkState(!this.moa);
-        gd(j);
-        int Kw = Kw(this.length);
-        this.lZp[Kw] = j;
-        this.lZn[Kw] = j2;
-        this.lZm[Kw] = i2;
-        this.meD[Kw] = i;
-        this.mnS[Kw] = aVar;
-        this.mnT[Kw] = this.mob;
-        this.mnR[Kw] = this.moc;
+        com.google.android.exoplayer2.util.a.checkState(!this.mrP);
+        gi(j);
+        int KF = KF(this.length);
+        this.mdh[KF] = j;
+        this.mdf[KF] = j2;
+        this.mde[KF] = i2;
+        this.miu[KF] = i;
+        this.mrH[KF] = aVar;
+        this.mrI[KF] = this.mrQ;
+        this.mrG[KF] = this.mrR;
         this.length++;
         if (this.length == this.capacity) {
             int i3 = this.capacity + 1000;
@@ -203,59 +203,59 @@ public final class n {
             int[] iArr3 = new int[i3];
             m.a[] aVarArr = new m.a[i3];
             Format[] formatArr = new Format[i3];
-            int i4 = this.capacity - this.mnV;
-            System.arraycopy(this.lZn, this.mnV, jArr, 0, i4);
-            System.arraycopy(this.lZp, this.mnV, jArr2, 0, i4);
-            System.arraycopy(this.meD, this.mnV, iArr2, 0, i4);
-            System.arraycopy(this.lZm, this.mnV, iArr3, 0, i4);
-            System.arraycopy(this.mnS, this.mnV, aVarArr, 0, i4);
-            System.arraycopy(this.mnT, this.mnV, formatArr, 0, i4);
-            System.arraycopy(this.mnR, this.mnV, iArr, 0, i4);
-            int i5 = this.mnV;
-            System.arraycopy(this.lZn, 0, jArr, i4, i5);
-            System.arraycopy(this.lZp, 0, jArr2, i4, i5);
-            System.arraycopy(this.meD, 0, iArr2, i4, i5);
-            System.arraycopy(this.lZm, 0, iArr3, i4, i5);
-            System.arraycopy(this.mnS, 0, aVarArr, i4, i5);
-            System.arraycopy(this.mnT, 0, formatArr, i4, i5);
-            System.arraycopy(this.mnR, 0, iArr, i4, i5);
-            this.lZn = jArr;
-            this.lZp = jArr2;
-            this.meD = iArr2;
-            this.lZm = iArr3;
-            this.mnS = aVarArr;
-            this.mnT = formatArr;
-            this.mnR = iArr;
-            this.mnV = 0;
+            int i4 = this.capacity - this.mrK;
+            System.arraycopy(this.mdf, this.mrK, jArr, 0, i4);
+            System.arraycopy(this.mdh, this.mrK, jArr2, 0, i4);
+            System.arraycopy(this.miu, this.mrK, iArr2, 0, i4);
+            System.arraycopy(this.mde, this.mrK, iArr3, 0, i4);
+            System.arraycopy(this.mrH, this.mrK, aVarArr, 0, i4);
+            System.arraycopy(this.mrI, this.mrK, formatArr, 0, i4);
+            System.arraycopy(this.mrG, this.mrK, iArr, 0, i4);
+            int i5 = this.mrK;
+            System.arraycopy(this.mdf, 0, jArr, i4, i5);
+            System.arraycopy(this.mdh, 0, jArr2, i4, i5);
+            System.arraycopy(this.miu, 0, iArr2, i4, i5);
+            System.arraycopy(this.mde, 0, iArr3, i4, i5);
+            System.arraycopy(this.mrH, 0, aVarArr, i4, i5);
+            System.arraycopy(this.mrI, 0, formatArr, i4, i5);
+            System.arraycopy(this.mrG, 0, iArr, i4, i5);
+            this.mdf = jArr;
+            this.mdh = jArr2;
+            this.miu = iArr2;
+            this.mde = iArr3;
+            this.mrH = aVarArr;
+            this.mrI = formatArr;
+            this.mrG = iArr;
+            this.mrK = 0;
             this.length = this.capacity;
             this.capacity = i3;
         }
     }
 
-    public synchronized void gd(long j) {
-        this.mnY = Math.max(this.mnY, j);
+    public synchronized void gi(long j) {
+        this.mrN = Math.max(this.mrN, j);
     }
 
-    public synchronized boolean ge(long j) {
+    public synchronized boolean gj(long j) {
         boolean z = true;
         synchronized (this) {
             if (this.length == 0) {
-                if (j <= this.mnX) {
+                if (j <= this.mrM) {
                     z = false;
                 }
-            } else if (Math.max(this.mnX, Kv(this.mnW)) >= j) {
+            } else if (Math.max(this.mrM, KE(this.mrL)) >= j) {
                 z = false;
             } else {
                 int i = this.length;
-                int Kw = Kw(this.length - 1);
-                while (i > this.mnW && this.lZp[Kw] >= j) {
+                int KF = KF(this.length - 1);
+                while (i > this.mrL && this.mdh[KF] >= j) {
                     i--;
-                    Kw--;
-                    if (Kw == -1) {
-                        Kw = this.capacity - 1;
+                    KF--;
+                    if (KF == -1) {
+                        KF = this.capacity - 1;
                     }
                 }
-                Ks(this.mnU + i);
+                KB(this.mrJ + i);
             }
         }
         return z;
@@ -264,8 +264,8 @@ public final class n {
     private int a(int i, int i2, long j, boolean z) {
         int i3 = -1;
         int i4 = 0;
-        while (i4 < i2 && this.lZp[i] <= j) {
-            if (!z || (this.meD[i] & 1) != 0) {
+        while (i4 < i2 && this.mdh[i] <= j) {
+            if (!z || (this.miu[i] & 1) != 0) {
                 i3 = i4;
             }
             int i5 = i + 1;
@@ -278,50 +278,50 @@ public final class n {
         return i3;
     }
 
-    private long Ku(int i) {
+    private long KD(int i) {
         int i2;
-        this.mnX = Math.max(this.mnX, Kv(i));
+        this.mrM = Math.max(this.mrM, KE(i));
         this.length -= i;
-        this.mnU += i;
-        this.mnV += i;
-        if (this.mnV >= this.capacity) {
-            this.mnV -= this.capacity;
+        this.mrJ += i;
+        this.mrK += i;
+        if (this.mrK >= this.capacity) {
+            this.mrK -= this.capacity;
         }
-        this.mnW -= i;
-        if (this.mnW < 0) {
-            this.mnW = 0;
+        this.mrL -= i;
+        if (this.mrL < 0) {
+            this.mrL = 0;
         }
         if (this.length == 0) {
-            return this.lZm[i2] + this.lZn[(this.mnV == 0 ? this.capacity : this.mnV) - 1];
+            return this.mde[i2] + this.mdf[(this.mrK == 0 ? this.capacity : this.mrK) - 1];
         }
-        return this.lZn[this.mnV];
+        return this.mdf[this.mrK];
     }
 
-    private long Kv(int i) {
+    private long KE(int i) {
         long j = Long.MIN_VALUE;
         if (i == 0) {
             return Long.MIN_VALUE;
         }
         int i2 = 0;
-        int Kw = Kw(i - 1);
+        int KF = KF(i - 1);
         while (i2 < i) {
-            long max = Math.max(j, this.lZp[Kw]);
-            if ((this.meD[Kw] & 1) != 0) {
+            long max = Math.max(j, this.mdh[KF]);
+            if ((this.miu[KF] & 1) != 0) {
                 return max;
             }
-            int i3 = Kw - 1;
+            int i3 = KF - 1;
             if (i3 == -1) {
                 i3 = this.capacity - 1;
             }
             i2++;
-            Kw = i3;
+            KF = i3;
             j = max;
         }
         return j;
     }
 
-    private int Kw(int i) {
-        int i2 = this.mnV + i;
+    private int KF(int i) {
+        int i2 = this.mrK + i;
         return i2 < this.capacity ? i2 : i2 - this.capacity;
     }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.http.util.ByteArrayBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HttpMultipart {
     private final String boundary;
     private final Charset charset;

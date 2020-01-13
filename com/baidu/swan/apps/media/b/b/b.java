@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.media.b.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    void Hv();
+    void HR();
 }

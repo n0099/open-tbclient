@@ -10,7 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import com.baidu.i.a.a;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class o extends Dialog {
     private Context a;
     private RippleSurfaceView b;

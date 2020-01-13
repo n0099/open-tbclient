@@ -10,14 +10,14 @@ public class b {
     public int buy_staus;
     private String description;
     private String end_time;
-    private String fqc;
-    private int fqe;
-    private int fqf;
-    private int fqg;
-    private int fqh;
-    private String fqi;
-    private String fqj;
-    private String fqk;
+    private String ftl;
+    private int ftn;
+    private int fto;
+    private int ftp;
+    private int ftq;
+    private String ftr;
+    private String fts;
+    private String ftt;
     private int height;
     private String mark_name;
     private String mark_pic;
@@ -30,22 +30,22 @@ public class b {
     private int weight;
     private int width;
     public int propId = -1;
-    private List<d> fql = new ArrayList();
+    private List<d> ftu = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         this.type = jSONObject.optInt("type");
-        this.fqf = jSONObject.optInt("mark_id");
+        this.fto = jSONObject.optInt("mark_id");
         this.mark_name = jSONObject.optString("mark_name");
         this.description = jSONObject.optString("description");
-        this.fqh = jSONObject.optInt("wear_status");
+        this.ftq = jSONObject.optInt("wear_status");
         this.mark_pic = jSONObject.optString("mark_pic");
-        this.fqg = jSONObject.optInt("mark_rank");
+        this.ftp = jSONObject.optInt("mark_rank");
         this.width = jSONObject.optInt("width");
         this.height = jSONObject.optInt("height");
         this.weight = jSONObject.optInt(TableDefine.SessionColumns.COLUMN_WEIGHT);
-        this.fqj = jSONObject.optString("next_level_diff");
-        this.fqi = jSONObject.optString("mark_dir_level");
-        this.fqk = jSONObject.optString("expire_text");
+        this.fts = jSONObject.optString("next_level_diff");
+        this.ftr = jSONObject.optString("mark_dir_level");
+        this.ftt = jSONObject.optString("expire_text");
         this.start_time = jSONObject.optString("begin_time");
         this.end_time = jSONObject.optString("end_time");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
@@ -53,7 +53,7 @@ public class b {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 d dVar = new d();
                 dVar.parseJson(optJSONArray.optJSONObject(i));
-                this.fql.add(dVar);
+                this.ftu.add(dVar);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
@@ -70,70 +70,70 @@ public class b {
         }
     }
 
-    public List<d> bpH() {
-        if (this.fql == null) {
-            this.fql = new ArrayList();
+    public List<d> bqI() {
+        if (this.ftu == null) {
+            this.ftu = new ArrayList();
         }
-        return this.fql;
+        return this.ftu;
     }
 
-    public boolean bpI() {
-        return this.fqe == 1;
+    public boolean bqJ() {
+        return this.ftn == 1;
     }
 
-    public void qC(int i) {
-        this.fqe = i;
+    public void qH(int i) {
+        this.ftn = i;
     }
 
-    public String bpG() {
-        return this.fqc;
+    public String bqH() {
+        return this.ftl;
     }
 
-    public void ze(String str) {
-        this.fqc = str;
+    public void zn(String str) {
+        this.ftl = str;
     }
 
-    public int bpJ() {
-        return this.fqf;
+    public int bqK() {
+        return this.fto;
     }
 
-    public String bpK() {
+    public String bqL() {
         return this.mark_name;
     }
 
-    public String bpL() {
+    public String bqM() {
         return this.mark_pic;
     }
 
-    public int bpM() {
-        return this.fqh;
+    public int bqN() {
+        return this.ftq;
     }
 
-    public void qD(int i) {
-        this.fqh = i;
+    public void qI(int i) {
+        this.ftq = i;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public String bpN() {
-        return this.fqj;
+    public String bqO() {
+        return this.fts;
     }
 
-    public int bpO() {
-        return this.fqg;
+    public int bqP() {
+        return this.ftp;
     }
 
-    public String bpP() {
-        return this.fqk;
+    public String bqQ() {
+        return this.ftt;
     }
 
-    public boolean bpQ() {
+    public boolean bqR() {
         return this.type == 10;
     }
 
-    public boolean bpR() {
+    public boolean bqS() {
         return this.type == 9;
     }
 }

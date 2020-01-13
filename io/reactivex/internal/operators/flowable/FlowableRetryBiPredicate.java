@@ -1,32 +1,31 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.b.d;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableRetryBiPredicate<T> extends a<T, T> {
-    final d<? super Integer, ? super Throwable> predicate;
+    final io.reactivex.c.d<? super Integer, ? super Throwable> predicate;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RetryBiSubscriber(cVar, this.predicate, subscriptionArbiter, this.mTG).subscribeNext();
+        new RetryBiSubscriber(cVar, this.predicate, subscriptionArbiter, this.nvK).subscribeNext();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class RetryBiSubscriber<T> extends AtomicInteger implements j<T> {
         private static final long serialVersionUID = -7098360935104053232L;
         final org.a.c<? super T> actual;
-        final d<? super Integer, ? super Throwable> predicate;
+        final io.reactivex.c.d<? super Integer, ? super Throwable> predicate;
         long produced;
         int retries;
         final SubscriptionArbiter sa;
         final org.a.b<? extends T> source;
 
-        RetryBiSubscriber(org.a.c<? super T> cVar, d<? super Integer, ? super Throwable> dVar, SubscriptionArbiter subscriptionArbiter, org.a.b<? extends T> bVar) {
+        RetryBiSubscriber(org.a.c<? super T> cVar, io.reactivex.c.d<? super Integer, ? super Throwable> dVar, SubscriptionArbiter subscriptionArbiter, org.a.b<? extends T> bVar) {
             this.actual = cVar;
             this.sa = subscriptionArbiter;
             this.source = bVar;
@@ -47,10 +46,10 @@ public final class FlowableRetryBiPredicate<T> extends a<T, T> {
         @Override // org.a.c
         public void onError(Throwable th) {
             try {
-                d<? super Integer, ? super Throwable> dVar = this.predicate;
+                io.reactivex.c.d<? super Integer, ? super Throwable> dVar = this.predicate;
                 int i = this.retries + 1;
                 this.retries = i;
-                if (!dVar.j(Integer.valueOf(i), th)) {
+                if (!dVar.k(Integer.valueOf(i), th)) {
                     this.actual.onError(th);
                 } else {
                     subscribeNext();

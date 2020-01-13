@@ -1,28 +1,28 @@
 package com.baidu.crabsdk.c;
 
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    public static String Qx = "CRAB";
-    public static String Qy = "CRAB-NA";
+    public static String QC = "CRAB";
+    public static String QD = "CRAB-NA";
 
     public static int cb(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.i(Qx, ce(str));
+            return Log.i(QC, ce(str));
         }
         return -1;
     }
 
     public static int cc(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(Qy, ce(str));
+            return Log.d(QD, ce(str));
         }
         return -1;
     }
 
     public static int cd(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.w(Qx, ce(str));
+            return Log.w(QC, ce(str));
         }
         return -1;
     }
@@ -44,21 +44,21 @@ public final class a {
 
     public static int f(String str, Throwable th) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(Qx, ce(str), th);
+            return Log.e(QC, ce(str), th);
         }
         return -1;
     }
 
     public static int v(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(Qx, ce(str));
+            return Log.d(QC, ce(str));
         }
         return -1;
     }
 
     public static int w(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(Qx, ce(str));
+            return Log.e(QC, ce(str));
         }
         return -1;
     }

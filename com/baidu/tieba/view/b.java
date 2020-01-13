@@ -6,25 +6,25 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 /* loaded from: classes.dex */
 public class b extends TimePickerDialog {
-    private int bFF;
-    private int kDk;
-    private boolean kDl;
+    private int bGq;
+    private int kGL;
+    private boolean kGM;
 
     public b(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
         super(context, onTimeSetListener, i, i2, z);
-        this.bFF = -1;
-        this.kDk = -1;
-        this.kDl = false;
-        this.bFF = i;
-        this.kDk = i2;
+        this.bGq = -1;
+        this.kGL = -1;
+        this.kGM = false;
+        this.bGq = i;
+        this.kGL = i2;
     }
 
     @Override // android.app.TimePickerDialog
     public void updateTime(int i, int i2) {
         super.updateTime(i, i2);
-        this.bFF = i;
-        this.kDk = i2;
-        this.kDl = false;
+        this.bGq = i;
+        this.kGL = i2;
+        this.kGM = false;
     }
 
     @Override // android.app.TimePickerDialog, android.app.Dialog
@@ -37,8 +37,8 @@ public class b extends TimePickerDialog {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        bundle.putInt("hour_key", this.bFF);
-        bundle.putInt("min_key", this.kDk);
+        bundle.putInt("hour_key", this.bGq);
+        bundle.putInt("min_key", this.kGL);
         return bundle;
     }
 
@@ -46,25 +46,25 @@ public class b extends TimePickerDialog {
     public void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
         updateTime(0, 0);
-        this.bFF = bundle.getInt("hour_key");
-        this.kDk = bundle.getInt("min_key");
-        updateTime(this.bFF, this.kDk);
+        this.bGq = bundle.getInt("hour_key");
+        this.kGL = bundle.getInt("min_key");
+        updateTime(this.bGq, this.kGL);
     }
 
     @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == -1) {
-            this.kDl = true;
-        } else if (this.bFF >= 0 && this.kDk >= 0) {
-            updateTime(this.bFF, this.kDk);
+            this.kGM = true;
+        } else if (this.bGq >= 0 && this.kGL >= 0) {
+            updateTime(this.bGq, this.kGL);
         }
         super.onClick(dialogInterface, i);
     }
 
     @Override // android.app.Dialog
     protected void onStop() {
-        if (!this.kDl) {
-            updateTime(this.bFF, this.kDk);
+        if (!this.kGM) {
+            updateTime(this.bGq, this.kGL);
         }
         super.onStop();
     }

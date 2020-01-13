@@ -7,7 +7,7 @@ import com.baidu.sapi2.callback.FaceIDCallback;
 import com.baidu.sapi2.result.UnRealNameFaceIDResult;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k extends PassFaceRecogCallback {
     final /* synthetic */ UnRealNameFaceIDResult a;
     final /* synthetic */ String b;

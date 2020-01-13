@@ -1,5 +1,5 @@
 package android.support.v7.view.menu;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class BaseWrapper<T> {
     final T mWrappedObject;
 

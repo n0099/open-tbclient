@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.source.a;
 
 import android.util.Log;
 import com.google.android.exoplayer2.upstream.HttpDataSource;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class h {
     public static boolean a(com.google.android.exoplayer2.b.f fVar, int i, Exception exc) {
         return a(fVar, i, exc, 60000L);
@@ -13,10 +13,10 @@ public final class h {
             boolean I = fVar.I(i, j);
             int i2 = ((HttpDataSource.InvalidResponseCodeException) exc).responseCode;
             if (I) {
-                Log.w("ChunkedTrackBlacklist", "Blacklisted: duration=" + j + ", responseCode=" + i2 + ", format=" + fVar.KC(i));
+                Log.w("ChunkedTrackBlacklist", "Blacklisted: duration=" + j + ", responseCode=" + i2 + ", format=" + fVar.KL(i));
                 return I;
             }
-            Log.w("ChunkedTrackBlacklist", "Blacklisting failed (cannot blacklist last enabled track): responseCode=" + i2 + ", format=" + fVar.KC(i));
+            Log.w("ChunkedTrackBlacklist", "Blacklisting failed (cannot blacklist last enabled track): responseCode=" + i2 + ", format=" + fVar.KL(i));
             return I;
         }
         return false;

@@ -6,12 +6,12 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.swan.support.v4.a.a {
 
     /* renamed from: com.baidu.swan.support.v4.app.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0353a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0355a {
         void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
@@ -26,7 +26,7 @@ public class a extends com.baidu.swan.support.v4.a.a {
     public static void requestPermissions(@NonNull final Activity activity, @NonNull final String[] strArr, final int i) {
         if (Build.VERSION.SDK_INT >= 23) {
             c.requestPermissions(activity, strArr, i);
-        } else if (activity instanceof InterfaceC0353a) {
+        } else if (activity instanceof InterfaceC0355a) {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.swan.support.v4.app.a.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -37,7 +37,7 @@ public class a extends com.baidu.swan.support.v4.a.a {
                     for (int i2 = 0; i2 < length; i2++) {
                         iArr[i2] = packageManager.checkPermission(strArr[i2], packageName);
                     }
-                    ((InterfaceC0353a) activity).onRequestPermissionsResult(i, strArr, iArr);
+                    ((InterfaceC0355a) activity).onRequestPermissionsResult(i, strArr, iArr);
                 }
             });
         }

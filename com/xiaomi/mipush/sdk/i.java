@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 /* synthetic */ class i {
     static final /* synthetic */ int[] a = new int[f.values().length];
 

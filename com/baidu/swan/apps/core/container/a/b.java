@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.core.container.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    void Eq();
+    void EM();
 }

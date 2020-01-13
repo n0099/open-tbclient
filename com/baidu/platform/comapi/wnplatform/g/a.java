@@ -15,7 +15,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends ItemizedOverlay {
     private View b;
     private ImageView c;
@@ -24,13 +24,13 @@ public class a extends ItemizedOverlay {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0139a {
+    /* loaded from: classes6.dex */
+    public static class C0141a {
         static final a a = new a();
     }
 
     public static a b() {
-        return C0139a.a;
+        return C0141a.a;
     }
 
     private a() {
@@ -72,9 +72,9 @@ public class a extends ItemizedOverlay {
     private BitmapDescriptor a(Context context, int i, int i2) {
         try {
             this.b = ((Activity) context).getLayoutInflater().inflate(R.layout.abc_dialog_title_material, (ViewGroup) null);
-            this.c = (ImageView) this.b.findViewById(2131165305);
+            this.c = (ImageView) this.b.findViewById(R.raw.sapi_camera_special_recg);
             this.c.setImageResource(i);
-            this.d = (ImageView) this.b.findViewById(2131165306);
+            this.d = (ImageView) this.b.findViewById(R.raw.sapi_camera_too_far);
             this.d.setImageResource(i2);
             this.b.setDrawingCacheEnabled(true);
             this.b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));

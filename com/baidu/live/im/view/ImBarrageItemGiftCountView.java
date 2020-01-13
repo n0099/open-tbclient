@@ -5,7 +5,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 /* loaded from: classes2.dex */
 public class ImBarrageItemGiftCountView extends TextView {
     public ImBarrageItemGiftCountView(Context context, @Nullable AttributeSet attributeSet) {

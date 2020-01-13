@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.util.ak;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ScreenChangeReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {

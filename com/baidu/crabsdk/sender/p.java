@@ -5,13 +5,13 @@ import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class p implements Runnable {
-    final /* synthetic */ Context QZ;
+    final /* synthetic */ Context Re;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(Context context) {
-        this.QZ = context;
+        this.Re = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x00b6 A[Catch: Exception -> 0x00ba, TRY_LEAVE, TryCatch #4 {Exception -> 0x00ba, blocks: (B:34:0x00b1, B:36:0x00b6), top: B:53:0x00b1, outer: #7 }] */
@@ -28,8 +28,8 @@ public final class p implements Runnable {
         DataOutputStream dataOutputStream2 = null;
         try {
             try {
-                String nH = g.nH();
-                com.baidu.crabsdk.c.a.v("sync json is " + nH);
+                String nI = g.nI();
+                com.baidu.crabsdk.c.a.v("sync json is " + nI);
                 httpURLConnection = (HttpURLConnection) new URL(com.baidu.crabsdk.a.c()).openConnection();
                 try {
                     httpURLConnection.setRequestMethod("POST");
@@ -42,7 +42,7 @@ public final class p implements Runnable {
                     httpURLConnection.setReadTimeout(3000);
                     dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     try {
-                        dataOutputStream.writeBytes(nH);
+                        dataOutputStream.writeBytes(nI);
                         dataOutputStream.flush();
                         dataOutputStream.close();
                         if (httpURLConnection.getResponseCode() == 200) {

@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f implements d, j, a.InterfaceC0010a {
     private final com.airbnb.lottie.model.layer.a fG;
     private final com.airbnb.lottie.a.b.a<Integer, Integer> fK;
@@ -101,11 +101,11 @@ public class f implements d, j, a.InterfaceC0010a {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (t == com.airbnb.lottie.k.eL) {
+        if (t == com.airbnb.lottie.k.eK) {
             this.fW.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eO) {
+        } else if (t == com.airbnb.lottie.k.eN) {
             this.fK.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fk) {
+        } else if (t == com.airbnb.lottie.k.fj) {
             if (cVar == null) {
                 this.fN = null;
                 return;

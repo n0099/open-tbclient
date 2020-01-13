@@ -6,9 +6,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b implements com.baidu.tbadk.core.e.a {
-    private a kif;
+    private a klI;
 
     @Override // com.baidu.tbadk.core.e.a
     public void b(Context context, int i, boolean z) {
@@ -36,24 +36,24 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public Class<?> aCP() {
+    public Class<?> aDi() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public String aCQ() {
+    public String aDj() {
         return MainTabActivity.class.getName();
     }
 
     @Override // com.baidu.tbadk.core.e.a
     public int getCurrentTabType() {
-        if (this.kif != null) {
-            return this.kif.getCurrentTabType();
+        if (this.klI != null) {
+            return this.klI.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.kif = aVar;
+        this.klI = aVar;
     }
 }

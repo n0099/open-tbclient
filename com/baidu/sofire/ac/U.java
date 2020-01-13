@@ -15,7 +15,6 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.b;
@@ -42,7 +41,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class U extends Thread {
     public static final int FROM_DAILY_ALARM = 6;
     public static final int FROM_DEFAULT = 0;
@@ -105,7 +104,7 @@ public class U extends Thread {
     private static boolean sSetRetrmAlarm = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class UpgradeResult {
         int networkId;
         int resultId;
@@ -625,7 +624,7 @@ public class U extends Thread {
                 hashMap.put("8", jSONObject);
             }
             Map<Integer, String> b = this.loadedPluginDB.b();
-            hashMap.put(PublishType.TYPE_VIDEO_SHARE, b.keySet());
+            hashMap.put("9", b.keySet());
             hashMap.put("10", b.values());
             hashMap.put("11", Integer.valueOf(this.mEndReason));
             if (!TextUtils.isEmpty(str)) {

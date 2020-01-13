@@ -14,20 +14,20 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ParallelSortedJoin<T> extends g<T> {
     final Comparator<? super T> comparator;
-    final a<List<T>> mVD;
+    final a<List<T>> nxM;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.mVD.dDW(), this.comparator);
+        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.nxM.dIg(), this.comparator);
         cVar.onSubscribe(sortedJoinSubscription);
-        this.mVD.a(sortedJoinSubscription.subscribers);
+        this.nxM.a(sortedJoinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SortedJoinSubscription<T> extends AtomicInteger implements d {
         private static final long serialVersionUID = 3481980673745556697L;
         final c<? super T> actual;
@@ -91,7 +91,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
             if (this.error.compareAndSet(null, th)) {
                 drain();
             } else if (th != this.error.get()) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
 
@@ -222,7 +222,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
                                             cancelAll();
                                             Arrays.fill(listArr, (Object) null);
                                             if (!this.error.compareAndSet(null, th2)) {
-                                                io.reactivex.d.a.onError(th2);
+                                                io.reactivex.e.a.onError(th2);
                                             }
                                             cVar.onError(this.error.get());
                                             return;
@@ -251,7 +251,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SortedJoinInnerSubscriber<T> extends AtomicReference<d> implements j<List<T>> {
         private static final long serialVersionUID = 6751017204873808094L;
         final int index;

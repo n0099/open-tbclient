@@ -3,7 +3,7 @@ package com.baidu.mapapi.http;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends AsyncHttpClient.a {
     final /* synthetic */ HttpClient.ProtoResultCallback a;
     final /* synthetic */ String b;

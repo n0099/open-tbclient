@@ -2,16 +2,16 @@ package com.google.android.exoplayer2;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.google.android.exoplayer2.util.PriorityTaskManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class e implements n {
-    private boolean kXV;
-    private final com.google.android.exoplayer2.upstream.h lTG;
-    private final long lTH;
-    private final long lTI;
-    private final long lTJ;
-    private final long lTK;
-    private final PriorityTaskManager lTL;
-    private int lTM;
+    private final long lXA;
+    private final long lXB;
+    private final PriorityTaskManager lXC;
+    private int lXD;
+    private final com.google.android.exoplayer2.upstream.h lXx;
+    private final long lXy;
+    private final long lXz;
+    private boolean lbv;
 
     public e() {
         this(new com.google.android.exoplayer2.upstream.h(true, 65536));
@@ -26,12 +26,12 @@ public final class e implements n {
     }
 
     public e(com.google.android.exoplayer2.upstream.h hVar, int i, int i2, long j, long j2, PriorityTaskManager priorityTaskManager) {
-        this.lTG = hVar;
-        this.lTH = i * 1000;
-        this.lTI = i2 * 1000;
-        this.lTJ = j * 1000;
-        this.lTK = j2 * 1000;
-        this.lTL = priorityTaskManager;
+        this.lXx = hVar;
+        this.lXy = i * 1000;
+        this.lXz = i2 * 1000;
+        this.lXA = j * 1000;
+        this.lXB = j2 * 1000;
+        this.lXC = priorityTaskManager;
     }
 
     @Override // com.google.android.exoplayer2.n
@@ -41,13 +41,13 @@ public final class e implements n {
 
     @Override // com.google.android.exoplayer2.n
     public void a(s[] sVarArr, com.google.android.exoplayer2.source.u uVar, com.google.android.exoplayer2.b.g gVar) {
-        this.lTM = 0;
+        this.lXD = 0;
         for (int i = 0; i < sVarArr.length; i++) {
-            if (gVar.Lu(i) != null) {
-                this.lTM += com.google.android.exoplayer2.util.v.LN(sVarArr[i].getTrackType());
+            if (gVar.LD(i) != null) {
+                this.lXD += com.google.android.exoplayer2.util.v.LW(sVarArr[i].getTrackType());
             }
         }
-        this.lTG.LD(this.lTM);
+        this.lXx.LM(this.lXD);
     }
 
     @Override // com.google.android.exoplayer2.n
@@ -56,56 +56,56 @@ public final class e implements n {
     }
 
     @Override // com.google.android.exoplayer2.n
-    public void dqo() {
+    public void drA() {
         reset(true);
     }
 
     @Override // com.google.android.exoplayer2.n
-    public com.google.android.exoplayer2.upstream.b dqp() {
-        return this.lTG;
+    public com.google.android.exoplayer2.upstream.b drB() {
+        return this.lXx;
     }
 
     @Override // com.google.android.exoplayer2.n
     public boolean k(long j, boolean z) {
-        long j2 = z ? this.lTK : this.lTJ;
+        long j2 = z ? this.lXB : this.lXA;
         return j2 <= 0 || j >= j2;
     }
 
     @Override // com.google.android.exoplayer2.n
-    public boolean fm(long j) {
+    public boolean fr(long j) {
         boolean z = true;
-        int fn = fn(j);
-        boolean z2 = this.lTG.dwz() >= this.lTM;
-        boolean z3 = this.kXV;
-        if (fn != 2 && (fn != 1 || !this.kXV || z2)) {
+        int fs = fs(j);
+        boolean z2 = this.lXx.dxK() >= this.lXD;
+        boolean z3 = this.lbv;
+        if (fs != 2 && (fs != 1 || !this.lbv || z2)) {
             z = false;
         }
-        this.kXV = z;
-        if (this.lTL != null && this.kXV != z3) {
-            if (this.kXV) {
-                this.lTL.add(0);
+        this.lbv = z;
+        if (this.lXC != null && this.lbv != z3) {
+            if (this.lbv) {
+                this.lXC.add(0);
             } else {
-                this.lTL.remove(0);
+                this.lXC.remove(0);
             }
         }
-        return this.kXV;
+        return this.lbv;
     }
 
-    private int fn(long j) {
-        if (j > this.lTI) {
+    private int fs(long j) {
+        if (j > this.lXz) {
             return 0;
         }
-        return j < this.lTH ? 2 : 1;
+        return j < this.lXy ? 2 : 1;
     }
 
     private void reset(boolean z) {
-        this.lTM = 0;
-        if (this.lTL != null && this.kXV) {
-            this.lTL.remove(0);
+        this.lXD = 0;
+        if (this.lXC != null && this.lbv) {
+            this.lXC.remove(0);
         }
-        this.kXV = false;
+        this.lbv = false;
         if (z) {
-            this.lTG.reset();
+            this.lXx.reset();
         }
     }
 }

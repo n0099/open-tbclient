@@ -7,7 +7,7 @@ import com.baidu.down.manage.DownloadConstants;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class e {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [75=8, 77=8, 78=8, 79=8] */
     @Nullable
@@ -22,8 +22,8 @@ public class e {
                     inputStream.read(bArr);
                     if (g(bArr, "WEBP")) {
                         inputStream.read(bArr);
-                        String al = al(bArr);
-                        if ("VP8 ".equals(al)) {
+                        String ak = ak(bArr);
+                        if ("VP8 ".equals(ak)) {
                             pair = C(inputStream);
                             if (inputStream != null) {
                                 try {
@@ -32,7 +32,7 @@ public class e {
                                     e.printStackTrace();
                                 }
                             }
-                        } else if ("VP8L".equals(al)) {
+                        } else if ("VP8L".equals(ak)) {
                             pair = D(inputStream);
                             if (inputStream != null) {
                                 try {
@@ -41,7 +41,7 @@ public class e {
                                     e2.printStackTrace();
                                 }
                             }
-                        } else if ("VP8X".equals(al)) {
+                        } else if ("VP8X".equals(ak)) {
                             pair = E(inputStream);
                             if (inputStream != null) {
                                 try {
@@ -124,7 +124,7 @@ public class e {
         return true;
     }
 
-    private static String al(byte[] bArr) {
+    private static String ak(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bArr) {
             sb.append((char) b);

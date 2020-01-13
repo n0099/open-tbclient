@@ -1,19 +1,19 @@
 package com.google.android.exoplayer2;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class q {
-    public static final q lVf = new q(1.0f, 1.0f);
-    private final int lVg;
+    public static final q lYW = new q(1.0f, 1.0f);
+    private final int lYX;
     public final float pitch;
     public final float speed;
 
     public q(float f, float f2) {
         this.speed = f;
         this.pitch = f2;
-        this.lVg = Math.round(1000.0f * f);
+        this.lYX = Math.round(1000.0f * f);
     }
 
-    public long fw(long j) {
-        return this.lVg * j;
+    public long fB(long j) {
+        return this.lYX * j;
     }
 
     public boolean equals(Object obj) {

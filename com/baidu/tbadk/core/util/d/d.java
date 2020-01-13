@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a> {
     @Override // com.baidu.adp.lib.e.e
-    public boolean gv() {
+    public boolean gu() {
         return true;
     }
 
@@ -19,7 +19,7 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.aMZ().vb(str);
+        return com.baidu.tbadk.imageManager.c.aNs().vg(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
                 aVar.rS = iVar;
             }
             byte[] T = iVar.T(str, false);
-            if ((T != null || iVar.fZ().ro) && !iVar.cXf) {
+            if ((T != null || iVar.fY().ro) && !iVar.cXp) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, as.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setData(T);
@@ -99,23 +99,23 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
-            com.baidu.tbadk.imageManager.c.aMZ().c(str, (com.baidu.adp.widget.ImageView.a) obj);
+            com.baidu.tbadk.imageManager.c.aNs().c(str, (com.baidu.adp.widget.ImageView.a) obj);
         }
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public BdAsyncTaskParallel gw() {
-        return j.aEp().gw();
+    public BdAsyncTaskParallel gv() {
+        return j.aEI().gv();
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public int gx() {
+    public int gw() {
         return 1;
     }
 
-    public static boolean tq(String str) {
+    public static boolean tu(String str) {
         com.baidu.adp.lib.Disk.ops.c cVar;
-        if (TextUtils.isEmpty(str) || (cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, as.getNameMd5FromUrl(com.baidu.adp.lib.e.c.gs().genCacheKey(str, 41)), DiskFileOperate.Action.INFO)) == null) {
+        if (TextUtils.isEmpty(str) || (cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, as.getNameMd5FromUrl(com.baidu.adp.lib.e.c.gr().genCacheKey(str, 41)), DiskFileOperate.Action.INFO)) == null) {
             return false;
         }
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);

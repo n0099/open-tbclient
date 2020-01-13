@@ -1,7 +1,7 @@
 package kotlin.text;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface i {
-    kotlin.b.c dFd();
+    i dJA();
 
-    i dFe();
+    kotlin.b.c dJz();
 }

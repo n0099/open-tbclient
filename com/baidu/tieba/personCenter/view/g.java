@@ -26,16 +26,16 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personCenter.data.h;
 import com.baidu.tieba.view.PersonCenterGuideView;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g extends com.baidu.tieba.card.a<h> {
-    private TextView bXt;
-    private ImageView gHr;
-    private View haj;
-    private RelativeLayout jel;
-    private PersonHeadPendantView jem;
-    private TbImageView jen;
-    private TextView jeo;
-    private PersonCenterGuideView jep;
+    private TextView bXF;
+    private ImageView gPf;
+    private View hdL;
+    private RelativeLayout jhN;
+    private PersonHeadPendantView jhO;
+    private TbImageView jhP;
+    private TextView jhQ;
+    private PersonCenterGuideView jhR;
     private int mSkinType;
     private UserData mUserData;
 
@@ -43,35 +43,35 @@ public class g extends com.baidu.tieba.card.a<h> {
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.jem = (PersonHeadPendantView) view.findViewById(R.id.person_header);
-        this.haj = view.findViewById(R.id.person_header_shadow);
-        this.jem.setBorderWidth(l.getDimens(getContext(), R.dimen.tbds8));
-        this.jem.setHasPendantStyle();
-        this.jem.getHeadView().setIsRound(true);
-        this.jem.getHeadView().setGodIconWidth(R.dimen.tbds40);
-        this.jem.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.jem.getHeadView().setPlaceHolder(2);
-        this.jel = (RelativeLayout) view.findViewById(R.id.person_header_container);
-        this.jen = (TbImageView) view.findViewById(R.id.member_icon);
-        this.bXt = (TextView) view.findViewById(R.id.person_name);
-        this.jeo = (TextView) view.findViewById(R.id.person_desc);
-        this.gHr = (ImageView) view.findViewById(R.id.arrow_icon);
-        this.jep = (PersonCenterGuideView) view.findViewById(R.id.person_center_guide_view);
+        this.jhO = (PersonHeadPendantView) view.findViewById(R.id.person_header);
+        this.hdL = view.findViewById(R.id.person_header_shadow);
+        this.jhO.setBorderWidth(l.getDimens(getContext(), R.dimen.tbds8));
+        this.jhO.setHasPendantStyle();
+        this.jhO.getHeadView().setIsRound(true);
+        this.jhO.getHeadView().setGodIconWidth(R.dimen.tbds40);
+        this.jhO.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.jhO.getHeadView().setPlaceHolder(2);
+        this.jhN = (RelativeLayout) view.findViewById(R.id.person_header_container);
+        this.jhP = (TbImageView) view.findViewById(R.id.member_icon);
+        this.bXF = (TextView) view.findViewById(R.id.person_name);
+        this.jhQ = (TextView) view.findViewById(R.id.person_desc);
+        this.gPf = (ImageView) view.findViewById(R.id.arrow_icon);
+        this.jhR = (PersonCenterGuideView) view.findViewById(R.id.person_center_guide_view);
         view.setOnClickListener(this);
-        this.jen.setOnClickListener(this);
-        this.jep.setOnClickListener(this);
+        this.jhP.setOnClickListener(this);
+        this.jhR.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            this.jep.onChangeSkinType();
+            this.jhR.onChangeSkinType();
             am.setBackgroundColor(getView(), R.color.cp_bg_line_e);
-            am.setViewTextColor(this.jeo, (int) R.color.cp_cont_j);
-            SvgManager.aDW().a(this.gHr, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-            this.jem.setBorderColor(R.color.cp_border_b);
-            com.baidu.tbadk.core.util.f.a.aEs().kt(2).ku(4369).a(R.color.cp_shadow_a, 0.4f, 0, 0, l.getDimens(getContext(), R.dimen.tbds12)).aM(this.haj);
-            csO();
+            am.setViewTextColor(this.jhQ, (int) R.color.cp_cont_j);
+            SvgManager.aEp().a(this.gPf, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+            this.jhO.setBorderColor(R.color.cp_border_b);
+            com.baidu.tbadk.core.util.f.a.aEL().kt(2).ku(4369).a(R.color.cp_shadow_a, 0.4f, 0, 0, l.getDimens(getContext(), R.dimen.tbds12)).aQ(this.hdL);
+            ctV();
             this.mSkinType = i;
         }
     }
@@ -86,63 +86,63 @@ public class g extends com.baidu.tieba.card.a<h> {
     public void a(h hVar) {
         if (hVar != null && hVar.userData != null) {
             this.mUserData = hVar.userData;
-            this.jem.a(this.mUserData);
-            this.jem.a(this.mUserData, 3);
-            this.bXt.setText(this.mUserData.getName_show());
-            this.jeo.setText(getContext().getString(R.string.person_center_default_introduce));
-            csO();
+            this.jhO.a(this.mUserData);
+            this.jhO.a(this.mUserData, 3);
+            this.bXF.setText(this.mUserData.getName_show());
+            this.jhQ.setText(getContext().getString(R.string.person_center_default_introduce));
+            ctV();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void csO() {
-        csP();
-        csR();
-        csQ();
+    private void ctV() {
+        ctW();
+        ctY();
+        ctX();
     }
 
-    private void csP() {
+    private void ctW() {
         if (this.mUserData == null) {
-            this.jen.setImageDrawable(am.getDrawable(R.drawable.icon_crown_super_non));
+            this.jhP.setImageDrawable(am.getDrawable(R.drawable.icon_crown_super_non));
             return;
         }
         UserVipInfoData userVipInfo = this.mUserData.getUserVipInfo();
         if (this.mUserData.getIsMem() > 0 && userVipInfo != null && !TextUtils.isEmpty(userVipInfo.getVipIconUrl())) {
-            this.jen.startLoad(userVipInfo.getVipIconUrl(), 10, false);
+            this.jhP.startLoad(userVipInfo.getVipIconUrl(), 10, false);
         } else {
-            this.jen.setImageDrawable(am.getDrawable(R.drawable.icon_crown_super_non));
+            this.jhP.setImageDrawable(am.getDrawable(R.drawable.icon_crown_super_non));
         }
     }
 
-    private void csQ() {
+    private void ctX() {
         int i = R.drawable.icon_mask_boy16_svg;
         if (this.mUserData != null && this.mUserData.getSex() == 2) {
             i = R.drawable.icon_mask_girl16_svg;
         }
-        this.bXt.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aDW().a(i, null), (Drawable) null);
+        this.bXF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aEp().a(i, null), (Drawable) null);
     }
 
-    private void csR() {
+    private void ctY() {
         if (this.mUserData != null && (this.mUserData.getIsMem() > 0 || this.mUserData.isBigV())) {
-            am.setViewTextColor(this.bXt, R.color.cp_cont_h, 1);
+            am.setViewTextColor(this.bXF, R.color.cp_cont_h, 1);
         } else {
-            am.setViewTextColor(this.bXt, R.color.cp_cont_b, 1);
+            am.setViewTextColor(this.bXF, R.color.cp_cont_b, 1);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
-            if (view == this.jen) {
+            if (view == this.jhP) {
                 TiebaStatic.log(new an("c12523").Z("obj_locate", 2));
                 if (bc.checkUpIsLogin(this.mTbPageContext.getPageActivity())) {
-                    ba.aEa().b(this.mTbPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
+                    ba.aEt().b(this.mTbPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
                     return;
                 }
                 return;
             }
-            if (view == this.jep) {
-                this.jep.cQW();
+            if (view == this.jhR) {
+                this.jhR.cRZ();
             }
             TiebaStatic.log(new an("c12523").Z("obj_locate", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mTbPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() != null ? TbadkCoreApplication.getCurrentAccountInfo().isBigV() : false)));

@@ -8,7 +8,7 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatche
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
 import com.baidu.swan.apps.as.s;
 import com.baidu.swan.bdprivate.invoice.ui.InvoiceListActivity;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f implements com.baidu.swan.apps.w.b.c {
     @Override // com.baidu.swan.apps.w.b.c
     public void a(Context context, String str, String str2, final com.baidu.swan.apps.u.b bVar) {
@@ -26,9 +26,9 @@ public class f implements com.baidu.swan.apps.w.b.c {
                     if (i == -1 && intent2 != null) {
                         bVar.L(s.parseString(intent2.getStringExtra("invoiceInfo")));
                     } else if (i == 0) {
-                        bVar.dG(1);
+                        bVar.dH(1);
                     } else {
-                        bVar.dG(0);
+                        bVar.dH(0);
                     }
                     return true;
                 }

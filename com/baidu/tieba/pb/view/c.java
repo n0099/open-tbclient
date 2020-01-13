@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.view;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c extends h {
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);

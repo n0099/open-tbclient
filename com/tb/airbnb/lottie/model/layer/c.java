@@ -9,31 +9,37 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes2.dex */
+import com.tb.airbnb.lottie.a.b.p;
+import com.tb.airbnb.lottie.j;
+/* loaded from: classes5.dex */
 public class c extends a {
-    private final float density;
     private final Rect dst;
+    @Nullable
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> noY;
     private final Paint paint;
     private final Rect src;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(com.tb.airbnb.lottie.f fVar, Layer layer, float f) {
+    public c(com.tb.airbnb.lottie.f fVar, Layer layer) {
         super(fVar, layer);
         this.paint = new Paint(3);
         this.src = new Rect();
         this.dst = new Rect();
-        this.density = f;
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a
     public void b(@NonNull Canvas canvas, Matrix matrix, int i) {
         Bitmap bitmap = getBitmap();
-        if (bitmap != null) {
+        if (bitmap != null && !bitmap.isRecycled()) {
+            float dK = com.tb.airbnb.lottie.d.f.dK();
             this.paint.setAlpha(i);
+            if (this.noY != null) {
+                this.paint.setColorFilter(this.noY.getValue());
+            }
             canvas.save();
             canvas.concat(matrix);
             this.src.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.dst.set(0, 0, (int) (bitmap.getWidth() * this.density), (int) (bitmap.getHeight() * this.density));
+            this.dst.set(0, 0, (int) (bitmap.getWidth() * dK), (int) (dK * bitmap.getHeight()));
             canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
             canvas.restore();
         }
@@ -45,17 +51,24 @@ public class c extends a {
         Bitmap bitmap = getBitmap();
         if (bitmap != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, bitmap.getWidth()), Math.min(rectF.bottom, bitmap.getHeight()));
-            this.iW.mapRect(rectF);
+            this.iV.mapRect(rectF);
         }
     }
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.J(this.mOM.getRefId());
+        return this.lottieDrawable.J(this.nqH.getRefId());
     }
 
-    @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.a.a.d
-    public void b(@Nullable String str, @Nullable String str2, @Nullable ColorFilter colorFilter) {
-        this.paint.setColorFilter(colorFilter);
+    @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
+    public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
+        super.a((c) t, (com.tb.airbnb.lottie.e.c<c>) cVar);
+        if (t == j.fj) {
+            if (cVar == null) {
+                this.noY = null;
+            } else {
+                this.noY = new p(cVar);
+            }
+        }
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.swan.games.audio;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private static volatile int cfp;
+    private static volatile int cfC;
 
-    public static synchronized int aiA() {
+    public static synchronized int aiT() {
         int i;
         synchronized (c.class) {
-            i = cfp;
-            cfp = i + 1;
+            i = cfC;
+            cfC = i + 1;
         }
         return i;
     }

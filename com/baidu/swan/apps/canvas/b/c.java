@@ -9,7 +9,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.as.af;
 import java.io.ByteArrayOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends a {
     private int mHeight;
     private int mWidth;
@@ -20,10 +20,10 @@ public class c extends a {
         super(str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.mX = af.T((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.mY = af.T((float) jSONObject.optDouble("y"));
-            this.mWidth = af.T((float) jSONObject.optDouble("width"));
-            this.mHeight = af.T((float) jSONObject.optDouble("height"));
+            this.mX = af.S((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.mY = af.S((float) jSONObject.optDouble("y"));
+            this.mWidth = af.S((float) jSONObject.optDouble("width"));
+            this.mHeight = af.S((float) jSONObject.optDouble("height"));
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -32,7 +32,7 @@ public class c extends a {
         }
     }
 
-    public JSONObject ab(@NonNull View view) {
+    public JSONObject af(@NonNull View view) {
         String str;
         int measuredWidth = view.getMeasuredWidth();
         int measuredHeight = view.getMeasuredHeight();
@@ -56,8 +56,8 @@ public class c extends a {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("width", af.V(this.mWidth));
-            jSONObject.put("height", af.V(this.mHeight));
+            jSONObject.put("width", af.U(this.mWidth));
+            jSONObject.put("height", af.U(this.mHeight));
             jSONObject.put("data", str);
         } catch (Exception e) {
             if (DEBUG) {

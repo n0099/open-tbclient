@@ -10,7 +10,7 @@ import java.util.List;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.DislikeReason;
 import tbclient.Personalized.ThreadPersonalized;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static void a(DataRes.Builder builder, List<m> list) {
         cJ(list);
@@ -23,21 +23,21 @@ public class b {
             for (int i = 0; i < count; i++) {
                 m mVar = (m) v.getItem(list, i);
                 if (mVar instanceof p) {
-                    ((p) mVar).kf(true);
+                    ((p) mVar).kq(true);
                 }
                 m mVar2 = (m) v.getItem(list, i + 1);
                 if ((mVar instanceof p) && (mVar2 instanceof p)) {
                     p pVar = (p) mVar;
                     p pVar2 = (p) mVar2;
-                    if (pVar.bsO()) {
-                        pVar2.kf(false);
+                    if (pVar.btQ()) {
+                        pVar2.kq(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
-                            pVar.kg(false);
+                            pVar.kr(false);
                         }
                     }
                 }
                 if (mVar instanceof com.baidu.tieba.homepage.personalize.b.c) {
-                    ((com.baidu.tieba.homepage.personalize.b.c) mVar).kg(false);
+                    ((com.baidu.tieba.homepage.personalize.b.c) mVar).kr(false);
                 }
             }
         }
@@ -45,7 +45,7 @@ public class b {
 
     private static void b(DataRes.Builder builder, List<m> list) {
         com.baidu.tieba.card.data.c cVar;
-        bj axx;
+        bj axQ;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -57,15 +57,15 @@ public class b {
             int count = v.getCount(list);
             for (int i = 0; i < count; i++) {
                 m mVar = (m) v.getItem(list, i);
-                if ((mVar instanceof com.baidu.tieba.card.data.c) && (axx = (cVar = (com.baidu.tieba.card.data.c) mVar).axx()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(axx.getTid(), 0L))) != null) {
+                if ((mVar instanceof com.baidu.tieba.card.data.c) && (axQ = (cVar = (com.baidu.tieba.card.data.c) mVar).axQ()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(axQ.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.zu(threadPersonalized.abtest_tag);
-                    axx.mRecomAbTag = threadPersonalized.abtest_tag;
-                    axx.mRecomSource = threadPersonalized.source;
-                    axx.mRecomWeight = threadPersonalized.weight;
-                    if (axx.azV() != null) {
-                        cVar.j(axx.azV().is_vertical);
+                    cVar.zE(threadPersonalized.abtest_tag);
+                    axQ.mRecomAbTag = threadPersonalized.abtest_tag;
+                    axQ.mRecomSource = threadPersonalized.source;
+                    axQ.mRecomWeight = threadPersonalized.weight;
+                    if (axQ.aAo() != null) {
+                        cVar.j(axQ.aAo().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {

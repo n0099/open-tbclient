@@ -2,8 +2,9 @@ package com.opensource.svgaplayer;
 
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
-/* loaded from: classes4.dex */
-final class SVGAParser$FileDownloader$resume$cancelBlock$1 extends Lambda implements kotlin.jvm.a.a<kotlin.g> {
+import kotlin.k;
+/* loaded from: classes.dex */
+final class SVGAParser$FileDownloader$resume$cancelBlock$1 extends Lambda implements kotlin.jvm.a.a<k> {
     final /* synthetic */ Ref.BooleanRef $cancelled;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,9 +16,9 @@ final class SVGAParser$FileDownloader$resume$cancelBlock$1 extends Lambda implem
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.a.a
-    public /* bridge */ /* synthetic */ kotlin.g invoke() {
+    public /* bridge */ /* synthetic */ k invoke() {
         invoke2();
-        return kotlin.g.mYA;
+        return k.nAT;
     }
 
     @Override // kotlin.jvm.a.a

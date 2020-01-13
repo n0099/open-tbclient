@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ugc.utils;
 
 import com.baidu.android.util.sp.SharedPrefsWrapper;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class UgcSpWrapper extends SharedPrefsWrapper {
     private static final String SP_FILE_DEFAULT = "ugc";
 
@@ -9,7 +9,7 @@ public final class UgcSpWrapper extends SharedPrefsWrapper {
         super("ugc");
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     private static class Holder {
         private static final UgcSpWrapper INSTANCE = new UgcSpWrapper();
 

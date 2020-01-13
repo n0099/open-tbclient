@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class ALaImInitialize {
-    public static Map<String, com.baidu.live.view.c> ani = new HashMap();
+    public static Map<String, com.baidu.live.view.c> anV = new HashMap();
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913003, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.live.im.ALaImInitialize.1
@@ -37,8 +37,8 @@ public class ALaImInitialize {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.c.a) {
                     com.baidu.live.liveroom.c.a aVar = (com.baidu.live.liveroom.c.a) customResponsedMessage.getData();
-                    if (aVar.arj != null) {
-                        aVar.a(new e(aVar.arj.context, aVar.arj.arl));
+                    if (aVar.arV != null) {
+                        aVar.a(new e(aVar.arV.context, aVar.arV.arX));
                     }
                 }
             }
@@ -47,7 +47,7 @@ public class ALaImInitialize {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ALaImInitialize.ani.clear();
+                ALaImInitialize.anV.clear();
             }
         });
     }

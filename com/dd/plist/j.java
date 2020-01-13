@@ -3,38 +3,38 @@ package com.dd.plist;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class j extends i {
-    private Set<i> Jo;
-    private boolean lCy;
+    private Set<i> Ju;
+    private boolean lFW;
 
     public j() {
-        this.lCy = false;
-        this.Jo = new LinkedHashSet();
+        this.lFW = false;
+        this.Ju = new LinkedHashSet();
     }
 
     public j(boolean z) {
-        this.lCy = false;
-        this.lCy = z;
+        this.lFW = false;
+        this.lFW = z;
         if (!z) {
-            this.Jo = new LinkedHashSet();
+            this.Ju = new LinkedHashSet();
         } else {
-            this.Jo = new TreeSet();
+            this.Ju = new TreeSet();
         }
     }
 
     public synchronized void a(i iVar) {
-        this.Jo.add(iVar);
+        this.Ju.add(iVar);
     }
 
     public int hashCode() {
-        return (this.Jo != null ? this.Jo.hashCode() : 0) + 203;
+        return (this.Ju != null ? this.Ju.hashCode() : 0) + 203;
     }
 
     public boolean equals(Object obj) {
         if (obj != null && getClass() == obj.getClass()) {
             j jVar = (j) obj;
-            return this.Jo == jVar.Jo || (this.Jo != null && this.Jo.equals(jVar.Jo));
+            return this.Ju == jVar.Ju || (this.Ju != null && this.Ju.equals(jVar.Ju));
         }
         return false;
     }

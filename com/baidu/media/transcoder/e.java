@@ -1,16 +1,16 @@
 package com.baidu.media.transcoder;
 
 import com.baidu.media.transcoder.cyber.MediaTranscoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e {
-    private c aHK = null;
+    private c aIC = null;
 
-    public c cS(int i) {
+    public c cT(int i) {
         if (i == 0) {
-            this.aHK = new com.baidu.media.transcoder.a.c();
+            this.aIC = new com.baidu.media.transcoder.a.c();
         } else {
-            this.aHK = new MediaTranscoder();
+            this.aIC = new MediaTranscoder();
         }
-        return this.aHK;
+        return this.aIC;
     }
 }

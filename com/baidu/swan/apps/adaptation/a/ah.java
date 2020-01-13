@@ -3,9 +3,9 @@ package com.baidu.swan.apps.adaptation.a;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ah {
-    ExecutorService Fb();
+    ExecutorService Fx();
 
     void a(String str, int i, JSONArray jSONArray);
 

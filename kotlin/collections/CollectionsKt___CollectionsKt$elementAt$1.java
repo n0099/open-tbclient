@@ -1,7 +1,7 @@
 package kotlin.collections;
 
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class CollectionsKt___CollectionsKt$elementAt$1 extends Lambda implements kotlin.jvm.a.b {
     final /* synthetic */ int $index;
 

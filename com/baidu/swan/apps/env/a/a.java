@@ -2,10 +2,10 @@ package com.baidu.swan.apps.env.a;
 
 import android.support.annotation.Nullable;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Nullable
-    List<String> T(@Nullable List<String> list);
+    List<String> S(@Nullable List<String> list);
 }

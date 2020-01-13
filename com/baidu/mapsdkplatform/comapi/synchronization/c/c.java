@@ -14,7 +14,7 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     HttpURLConnection a;
     private String d = null;
@@ -26,7 +26,7 @@ public class c {
     private static final String c = c.class.getSimpleName();
     public static boolean b = true;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         SUCCESS,
         NETWORK_ERROR,

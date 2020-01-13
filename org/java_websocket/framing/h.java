@@ -1,7 +1,7 @@
 package org.java_websocket.framing;
 
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class h extends d {
     public h() {
         super(Framedata.Opcode.PONG);
@@ -9,6 +9,6 @@ public class h extends d {
 
     public h(g gVar) {
         super(Framedata.Opcode.PONG);
-        u(gVar.dFI());
+        u(gVar.dMj());
     }
 }

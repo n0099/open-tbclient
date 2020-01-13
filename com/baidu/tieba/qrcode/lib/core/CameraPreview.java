@@ -7,39 +7,39 @@ import android.hardware.Camera;
 import android.util.Log;
 import android.view.TextureView;
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CameraPreview extends TextureView implements TextureView.SurfaceTextureListener {
     private static final String TAG = CameraPreview.class.getSimpleName();
-    private boolean jyw;
-    private b jyx;
-    private Runnable jyy;
-    Camera.AutoFocusCallback jyz;
+    private boolean jBY;
+    private b jBZ;
+    private Runnable jCa;
+    Camera.AutoFocusCallback jCb;
     private Camera mCamera;
     private boolean mSurfaceCreated;
     private SurfaceTexture mSurfaceTexture;
 
     public CameraPreview(Context context) {
         super(context);
-        this.jyw = false;
+        this.jBY = false;
         this.mSurfaceCreated = false;
-        this.jyy = new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.1
+        this.jCa = new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.1
             @Override // java.lang.Runnable
             public void run() {
-                if (CameraPreview.this.mCamera != null && CameraPreview.this.jyw && CameraPreview.this.mSurfaceCreated) {
+                if (CameraPreview.this.mCamera != null && CameraPreview.this.jBY && CameraPreview.this.mSurfaceCreated) {
                     try {
-                        CameraPreview.this.mCamera.autoFocus(CameraPreview.this.jyz);
+                        CameraPreview.this.mCamera.autoFocus(CameraPreview.this.jCb);
                     } catch (Exception e) {
                     }
                 }
             }
         };
-        this.jyz = new Camera.AutoFocusCallback() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.2
+        this.jCb = new Camera.AutoFocusCallback() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.2
             @Override // android.hardware.Camera.AutoFocusCallback
             public void onAutoFocus(boolean z, Camera camera) {
                 if (z) {
-                    CameraPreview.this.postDelayed(CameraPreview.this.jyy, 2000L);
+                    CameraPreview.this.postDelayed(CameraPreview.this.jCa, 2000L);
                 } else {
-                    CameraPreview.this.postDelayed(CameraPreview.this.jyy, 500L);
+                    CameraPreview.this.postDelayed(CameraPreview.this.jCa, 500L);
                 }
             }
         };
@@ -49,36 +49,36 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void setCamera(Camera camera) {
         this.mCamera = camera;
         if (this.mCamera != null) {
-            this.jyx = new b(getContext());
-            this.jyx.b(this.mCamera);
-            if (this.jyw) {
+            this.jBZ = new b(getContext());
+            this.jBZ.b(this.mCamera);
+            if (this.jBY) {
                 requestLayout();
             } else {
-                blN();
+                bmL();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void blN() {
+    public void bmL() {
         if (this.mSurfaceTexture != null && this.mCamera != null) {
             try {
-                this.jyw = true;
+                this.jBY = true;
                 this.mCamera.setPreviewTexture(this.mSurfaceTexture);
-                this.jyx.d(this.mCamera);
+                this.jBZ.d(this.mCamera);
                 this.mCamera.startPreview();
-                this.mCamera.autoFocus(this.jyz);
+                this.mCamera.autoFocus(this.jCb);
             } catch (Exception e) {
                 Log.e(TAG, e.toString(), e);
             }
         }
     }
 
-    public void cyZ() {
+    public void cAg() {
         if (this.mCamera != null) {
             try {
-                removeCallbacks(this.jyy);
-                this.jyw = false;
+                removeCallbacks(this.jCa);
+                this.jBY = false;
                 this.mCamera.cancelAutoFocus();
                 this.mCamera.setOneShotPreviewCallback(null);
                 this.mCamera.stopPreview();
@@ -92,10 +92,10 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void onMeasure(int i, int i2) {
         int defaultSize = getDefaultSize(getSuggestedMinimumWidth(), i);
         int defaultSize2 = getDefaultSize(getSuggestedMinimumHeight(), i2);
-        if (this.jyx != null && this.jyx.cyX() != null) {
-            Point cyX = this.jyx.cyX();
-            int i3 = cyX.x;
-            int i4 = cyX.y;
+        if (this.jBZ != null && this.jBZ.cAe() != null) {
+            Point cAe = this.jBZ.cAe();
+            int i3 = cAe.x;
+            int i4 = cAe.y;
             if ((defaultSize * 1.0f) / defaultSize2 < (i3 * 1.0f) / i4) {
                 defaultSize = (int) ((defaultSize2 / ((i4 * 1.0f) / i3)) + 0.5f);
             } else {
@@ -109,17 +109,17 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         this.mSurfaceCreated = true;
         this.mSurfaceTexture = surfaceTexture;
-        blN();
+        bmL();
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         if (surfaceTexture != null) {
-            cyZ();
+            cAg();
             post(new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.CameraPreview.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    CameraPreview.this.blN();
+                    CameraPreview.this.bmL();
                 }
             });
         }
@@ -128,7 +128,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
         this.mSurfaceCreated = false;
-        cyZ();
+        cAg();
         return true;
     }
 

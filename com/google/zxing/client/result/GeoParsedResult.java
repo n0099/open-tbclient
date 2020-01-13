@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class GeoParsedResult extends ParsedResult {
     private final double altitude;
     private final double latitude;

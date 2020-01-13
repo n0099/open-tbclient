@@ -8,16 +8,16 @@ public interface a {
 
     /* renamed from: com.baidu.live.view.input.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0097a {
+    public interface InterfaceC0098a {
         void j(String str, boolean z);
 
-        void uA();
+        boolean uO();
 
-        boolean uB();
+        void uQ();
 
-        boolean ux();
+        void uR();
 
-        void uz();
+        boolean uS();
     }
 
     void b(List<String> list, Map<String, Integer> map);
@@ -36,9 +36,9 @@ public interface a {
 
     void show();
 
-    boolean vA();
+    boolean vQ();
 
-    void vB();
+    boolean vR();
 
-    boolean vz();
+    void vS();
 }

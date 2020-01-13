@@ -20,7 +20,7 @@ import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class t implements IXAdURIUitls {
     @Override // com.baidu.mobads.interfaces.utils.IXAdURIUitls
     public HashMap<String, String> getAllQueryParameters(String str) {

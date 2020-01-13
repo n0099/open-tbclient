@@ -10,7 +10,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/setSelectedAddressSync");
@@ -47,11 +47,11 @@ public class a extends ab {
     }
 
     private void N(JSONObject jSONObject) {
-        d.GM().L(jSONObject);
+        d.Hi().L(jSONObject);
         ai.l(new Runnable() { // from class: com.baidu.swan.apps.c.a.b.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                c.LR();
+                c.Mn();
             }
         });
     }

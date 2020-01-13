@@ -12,7 +12,7 @@ import com.baidu.pass.biometrics.face.liveness.beans.BeanDataCache;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import java.io.Serializable;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LivenessBaseActivity extends BaseActivity {
     public PassBiometricConfiguration configuration;
     protected PassFaceRecogDTO passFaceRecogDTO;

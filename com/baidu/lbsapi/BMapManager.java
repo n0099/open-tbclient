@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.pano.platform.c.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BMapManager {
     private static boolean a = true;
     private Context b;

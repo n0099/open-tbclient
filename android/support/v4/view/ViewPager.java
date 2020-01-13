@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ViewPager extends ViewGroup {
     private static final int CLOSE_ENOUGH = 2;
     private static final boolean DEBUG = false;
@@ -136,16 +136,16 @@ public class ViewPager extends ViewGroup {
     @Target({ElementType.TYPE})
     @Inherited
     @Retention(RetentionPolicy.RUNTIME)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface DecorView {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnAdapterChangeListener {
         void onAdapterChanged(@NonNull ViewPager viewPager, @Nullable PagerAdapter pagerAdapter, @Nullable PagerAdapter pagerAdapter2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnPageChangeListener {
         void onPageScrollStateChanged(int i);
 
@@ -154,13 +154,13 @@ public class ViewPager extends ViewGroup {
         void onPageSelected(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface PageTransformer {
         void transformPage(@NonNull View view, float f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ItemInfo {
         Object object;
         float offset;
@@ -172,7 +172,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SimpleOnPageChangeListener implements OnPageChangeListener {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -964,7 +964,7 @@ public class ViewPager extends ViewGroup {
         this.mNeedCalculatePageOffsets = false;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.v4.view.ViewPager.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -2047,7 +2047,8 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    protected boolean canScroll(View view, boolean z, int i, int i2, int i3) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean canScroll(View view, boolean z, int i, int i2, int i3) {
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             int scrollX = view.getScrollX();
@@ -2293,7 +2294,7 @@ public class ViewPager extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class MyAccessibilityDelegate extends AccessibilityDelegateCompat {
         MyAccessibilityDelegate() {
         }
@@ -2351,7 +2352,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private class PagerObserver extends DataSetObserver {
         PagerObserver() {
         }
@@ -2367,7 +2368,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         int childIndex;
         public int gravity;
@@ -2391,7 +2392,7 @@ public class ViewPager extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ViewPositionComparator implements Comparator<View> {
         ViewPositionComparator() {
         }

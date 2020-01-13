@@ -5,8 +5,8 @@ import android.util.Log;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.a;
 import com.baidu.platform.comapi.pano.c;
-/* loaded from: classes5.dex */
-final class a implements a.InterfaceC0129a<c> {
+/* loaded from: classes6.dex */
+final class a implements a.InterfaceC0131a<c> {
     final /* synthetic */ Context a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ final class a implements a.InterfaceC0129a<c> {
         this.a = context;
     }
 
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0129a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0131a
     public void a(HttpClient.HttpStateError httpStateError) {
         switch (httpStateError) {
             case NETWORK_ERROR:
@@ -29,7 +29,7 @@ final class a implements a.InterfaceC0129a<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0129a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0131a
     public void a(c cVar) {
         if (cVar == null) {
             Log.d("baidumapsdk", "pano info is null");

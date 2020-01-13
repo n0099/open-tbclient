@@ -4,6 +4,6 @@ public interface b {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void dk(String str);
+        void dm(String str);
     }
 }

@@ -8,19 +8,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    public bj cMR;
-    public long elf;
+    public bj cNb;
+    public long emb;
     public boolean isFollow;
     public List<a> tagList;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.isFollow = jSONObject.optInt("is_follow") == 1;
-            this.elf = jSONObject.optLong("last_watch_time");
+            this.emb = jSONObject.optLong("last_watch_time");
             JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
             if (optJSONObject != null) {
-                this.cMR = new bj();
-                this.cMR.parserJson(optJSONObject);
+                this.cNb = new bj();
+                this.cNb.parserJson(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
             if (optJSONArray != null) {
@@ -40,13 +40,13 @@ public class b {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public int Vo;
-        public String elg;
+        public int VE;
+        public String emc;
 
         public void parse(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.Vo = jSONObject.optInt("tag_type");
-                this.elg = jSONObject.optString("tag_word");
+                this.VE = jSONObject.optInt("tag_type");
+                this.emc = jSONObject.optString("tag_word");
             }
         }
     }

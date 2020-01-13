@@ -7,18 +7,18 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a nx;
+    private static volatile a nu;
     private SparseArray<String> mCmdMap;
 
     public static a eO() {
-        if (nx == null) {
+        if (nu == null) {
             synchronized (a.class) {
-                if (nx == null) {
-                    nx = new a();
+                if (nu == null) {
+                    nu = new a();
                 }
             }
         }
-        return nx;
+        return nu;
     }
 
     private a() {

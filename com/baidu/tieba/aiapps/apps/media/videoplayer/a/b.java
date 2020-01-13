@@ -1,10 +1,10 @@
 package com.baidu.tieba.aiapps.apps.media.videoplayer.a;
 
 import com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class b implements a {
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.a
-    public void hv(boolean z) {
+    public void hA(boolean z) {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.a
@@ -16,7 +16,7 @@ public abstract class b implements a {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.a
-    public void f(int i, int i2, String str) {
+    public void g(int i, int i2, String str) {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.a

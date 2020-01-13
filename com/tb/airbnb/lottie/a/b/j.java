@@ -2,11 +2,11 @@ package com.tb.airbnb.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class j extends f<PointF> {
     private final PointF gK;
 
-    public j(List<com.tb.airbnb.lottie.a.a<PointF>> list) {
+    public j(List<com.tb.airbnb.lottie.e.a<PointF>> list) {
         super(list);
         this.gK = new PointF();
     }
@@ -14,13 +14,17 @@ public class j extends f<PointF> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.tb.airbnb.lottie.a.b.a
     /* renamed from: e */
-    public PointF a(com.tb.airbnb.lottie.a.a<PointF> aVar, float f) {
-        if (aVar.kn == null || aVar.ko == null) {
+    public PointF a(com.tb.airbnb.lottie.e.a<PointF> aVar, float f) {
+        PointF pointF;
+        if (aVar.km == null || aVar.kn == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        PointF pointF = aVar.kn;
-        PointF pointF2 = aVar.ko;
-        this.gK.set(pointF.x + ((pointF2.x - pointF.x) * f), ((pointF2.y - pointF.y) * f) + pointF.y);
-        return this.gK;
+        PointF pointF2 = aVar.km;
+        PointF pointF3 = aVar.kn;
+        if (this.npA == null || (pointF = (PointF) this.npA.b(aVar.ec, aVar.kp.floatValue(), pointF2, pointF3, f, bS(), getProgress())) == null) {
+            this.gK.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
+            return this.gK;
+        }
+        return pointF;
     }
 }

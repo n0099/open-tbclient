@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h {
     public List<ScanResult> a;
     private long b;

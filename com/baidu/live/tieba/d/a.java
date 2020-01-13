@@ -5,9 +5,9 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes2.dex */
 public class a {
-    private float atj;
-    private float atk;
-    private InterfaceC0089a atl;
+    private float atV;
+    private float atW;
+    private InterfaceC0090a atX;
     private float mLastTouchX;
     private float mLastTouchY;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.live.tieba.d.a.1
@@ -17,13 +17,13 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.atl.u(i, i2);
+                    a.this.atX.y(i, i2);
                     return true;
                 case 1:
-                    a.this.atl.v(i, i2);
+                    a.this.atX.z(i, i2);
                     return true;
                 case 2:
-                    a.this.atl.w(i, i2);
+                    a.this.atX.A(i, i2);
                     return true;
                 default:
                     return false;
@@ -34,45 +34,45 @@ public class a {
 
     /* renamed from: com.baidu.live.tieba.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0089a {
-        void u(int i, int i2);
+    public interface InterfaceC0090a {
+        void A(int i, int i2);
 
-        void v(int i, int i2);
+        void y(int i, int i2);
 
-        void w(int i, int i2);
+        void z(int i, int i2);
     }
 
-    public void a(InterfaceC0089a interfaceC0089a) {
-        this.atl = interfaceC0089a;
+    public void a(InterfaceC0090a interfaceC0090a) {
+        this.atX = interfaceC0090a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.atj = motionEvent.getRawX();
-                this.atk = motionEvent.getRawY();
+                this.atV = motionEvent.getRawX();
+                this.atW = motionEvent.getRawY();
                 return true;
             case 1:
             case 3:
-                if (this.atl != null) {
-                    int i = (int) (this.mLastTouchX - this.atj);
-                    if (Math.abs(i) >= Math.abs((int) (this.mLastTouchY - this.atk))) {
-                        t(i, (int) this.atj);
+                if (this.atX != null) {
+                    int i = (int) (this.mLastTouchX - this.atV);
+                    if (Math.abs(i) >= Math.abs((int) (this.mLastTouchY - this.atW))) {
+                        x(i, (int) this.atV);
                     }
                 }
-                this.atj = 0.0f;
-                this.atk = 0.0f;
+                this.atV = 0.0f;
+                this.atW = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
                 int i2 = (int) (rawX - this.mLastTouchX);
                 int i3 = (int) (rawY - this.mLastTouchY);
-                if (this.atl != null) {
+                if (this.atX != null) {
                     if (i3 > 0) {
-                        r(i2, i3);
+                        v(i2, i3);
                     } else {
-                        s(i2, i3);
+                        w(i2, i3);
                     }
                 }
                 this.mLastTouchX = rawX;
@@ -83,7 +83,7 @@ public class a {
         }
     }
 
-    public void r(int i, int i2) {
+    public void v(int i, int i2) {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(0)) {
             Message message = new Message();
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    public void s(int i, int i2) {
+    public void w(int i, int i2) {
         this.mHandler.removeMessages(0);
         if (!this.mHandler.hasMessages(1)) {
             Message message = new Message();
@@ -105,7 +105,7 @@ public class a {
         }
     }
 
-    public void t(int i, int i2) {
+    public void x(int i, int i2) {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(2)) {
             Message message = new Message();

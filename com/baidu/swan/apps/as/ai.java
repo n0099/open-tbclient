@@ -49,7 +49,7 @@ import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ai {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static Handler sHandler = new Handler(Looper.getMainLooper());
@@ -89,16 +89,16 @@ public final class ai {
             Log.d("SwanAppUtils", "checkPageParam allowTab : " + z);
         }
         if (z) {
-            return swanAppConfigData.kK(bVar.mPage) || swanAppConfigData.kL(bVar.mPage);
+            return swanAppConfigData.kN(bVar.mPage) || swanAppConfigData.kO(bVar.mPage);
         }
-        if (!swanAppConfigData.kK(bVar.mPage) || swanAppConfigData.kL(bVar.mPage)) {
+        if (!swanAppConfigData.kN(bVar.mPage) || swanAppConfigData.kO(bVar.mPage)) {
             z2 = false;
         }
         return z2;
     }
 
     public static boolean a(SwanAppConfigData swanAppConfigData, com.baidu.swan.apps.model.b bVar) {
-        return swanAppConfigData != null && swanAppConfigData.aaH() && swanAppConfigData.kL(bVar.mPage);
+        return swanAppConfigData != null && swanAppConfigData.abe() && swanAppConfigData.kO(bVar.mPage);
     }
 
     public static void j(Runnable runnable) {
@@ -133,7 +133,7 @@ public final class ai {
         sHandler.postDelayed(runnable, j);
     }
 
-    public static String bl(String str, String str2) {
+    public static String bm(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             if (DEBUG) {
                 Log.w("SwanAppUtils", "openUrl && downloadUrl is empty");
@@ -161,7 +161,7 @@ public final class ai {
         return append.toString();
     }
 
-    public static String aeu() {
+    public static String aeN() {
         return gO(Integer.MAX_VALUE);
     }
 
@@ -186,7 +186,7 @@ public final class ai {
     }
 
     @RequiresApi(api = 23)
-    public static boolean aev() {
+    public static boolean aeO() {
         return !a.hasMarshMallow() || AppRuntime.getAppContext().checkSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0;
     }
 
@@ -203,38 +203,38 @@ public final class ai {
         return null;
     }
 
-    public static AbsoluteLayout iB(String str) {
-        com.baidu.swan.apps.adaptation.b.d Gc;
-        com.baidu.swan.apps.adaptation.b.e hd = com.baidu.swan.apps.y.f.Uf().hd(str);
-        if (hd == null || (Gc = hd.Gc()) == null) {
+    public static AbsoluteLayout iE(String str) {
+        com.baidu.swan.apps.adaptation.b.d Gy;
+        com.baidu.swan.apps.adaptation.b.e hg = com.baidu.swan.apps.y.f.UC().hg(str);
+        if (hg == null || (Gy = hg.Gy()) == null) {
             return null;
         }
-        return Gc.getCurrentWebView();
+        return Gy.getCurrentWebView();
     }
 
-    public static void aew() {
+    public static void aeP() {
         if (DEBUG) {
             Log.d("SwanAppSlavePool", "onPreloadNextEnv()");
         }
-        SwanAppActivity TQ = com.baidu.swan.apps.y.f.Uf().TQ();
-        if (TQ != null) {
+        SwanAppActivity Un = com.baidu.swan.apps.y.f.UC().Un();
+        if (Un != null) {
             Bundle bundle = new Bundle();
             bundle.putString("bundle_key_preload_preload_scene", "2");
-            TQ.m(bundle);
-            com.baidu.swan.apps.core.slave.b.e(TQ, 600L);
+            Un.m(bundle);
+            com.baidu.swan.apps.core.slave.b.e(Un, 600L);
         }
     }
 
-    public static String aex() {
-        com.baidu.swan.apps.core.d.d LC = com.baidu.swan.apps.y.f.Uf().LC();
-        if (LC != null) {
-            return LC.Ln();
+    public static String aeQ() {
+        com.baidu.swan.apps.core.d.d LY = com.baidu.swan.apps.y.f.UC().LY();
+        if (LY != null) {
+            return LY.LJ();
         }
         return null;
     }
 
     @Nullable
-    public static String mC(@Nullable String str) {
+    public static String mF(@Nullable String str) {
         if (!TextUtils.isEmpty(str)) {
             StringBuffer stringBuffer = new StringBuffer();
             int length = str.length();
@@ -272,21 +272,21 @@ public final class ai {
 
     public static String getVersionName() {
         try {
-            Application Rk = com.baidu.swan.apps.w.a.Rk();
-            return Rk.getPackageManager().getPackageInfo(Rk.getPackageName(), 0).versionName;
+            Application RG = com.baidu.swan.apps.w.a.RG();
+            return RG.getPackageManager().getPackageInfo(RG.getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return "";
         }
     }
 
-    public static String aey() {
+    public static String aeR() {
         String str;
-        if (a.hasMarshMallow() && com.baidu.swan.apps.w.a.Rk().checkSelfPermission("android.permission.READ_PHONE_STATE") != 0) {
+        if (a.hasMarshMallow() && com.baidu.swan.apps.w.a.RG().checkSelfPermission("android.permission.READ_PHONE_STATE") != 0) {
             return "";
         }
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) com.baidu.swan.apps.w.a.Rk().getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) com.baidu.swan.apps.w.a.RG().getSystemService("phone");
             str = telephonyManager != null ? telephonyManager.getDeviceId() : null;
         } catch (Exception e) {
             str = null;
@@ -313,7 +313,7 @@ public final class ai {
         }
         if (uri != null) {
             if (aVar != null) {
-                com.facebook.drawee.a.a.c.dji().e(ImageRequestBuilder.X(uri).dpZ(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.as.ai.1
+                com.facebook.drawee.a.a.c.dkj().e(ImageRequestBuilder.X(uri).drm(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.as.ai.1
                     @Override // com.facebook.imagepipeline.e.b
                     protected void onNewResultImpl(Bitmap bitmap) {
                         Bitmap copy;
@@ -344,7 +344,7 @@ public final class ai {
                         super.onCancellation(bVar);
                         p.a.this.h(str, null);
                     }
-                }, com.facebook.common.b.i.din());
+                }, com.facebook.common.b.i.djo());
             } else {
                 p.b(uri, str2);
             }
@@ -367,7 +367,7 @@ public final class ai {
         }
     }
 
-    public static boolean ap(Context context, String str) {
+    public static boolean launchApp(Context context, String str) {
         boolean z = true;
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
@@ -407,7 +407,7 @@ public final class ai {
             String string = context.getString(a.h.aiapps_ok);
             String string2 = context.getString(a.h.aiapps_cancel);
             g.a aVar = new g.a(context);
-            aVar.dp(true).kr(str3).a(new com.baidu.swan.apps.view.c.a()).dr(false);
+            aVar.du(true).ku(str3).a(new com.baidu.swan.apps.view.c.a()).dw(false);
             aVar.a(string, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.as.ai.2
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -421,7 +421,7 @@ public final class ai {
                     CallbackHandler.this.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1004, "取消打开APP").toString());
                 }
             });
-            aVar.ZC();
+            aVar.ZZ();
             return true;
         } catch (PackageManager.NameNotFoundException | URISyntaxException e) {
             if (DEBUG) {
@@ -431,7 +431,7 @@ public final class ai {
         }
     }
 
-    public static boolean aq(Context context, String str) {
+    public static boolean ar(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
         }
@@ -443,7 +443,7 @@ public final class ai {
             if (TextUtils.isEmpty(jSONObject.optString("url"))) {
                 return false;
             }
-            return com.baidu.swan.apps.w.a.Ru().h(context, jSONObject);
+            return com.baidu.swan.apps.w.a.RQ().h(context, jSONObject);
         } catch (JSONException e) {
             if (!DEBUG) {
                 return false;
@@ -469,15 +469,15 @@ public final class ai {
         return str;
     }
 
-    public static boolean aez() {
-        return TextUtils.equals("baiduboxapp", com.baidu.swan.apps.w.a.RV().EX());
+    public static boolean aeS() {
+        return TextUtils.equals("baiduboxapp", com.baidu.swan.apps.w.a.Sr().Ft());
     }
 
     public static void cI(Context context) {
         SchemeRouter.invoke(context, "baiduboxapp://v1/easybrowse/open?url=" + Uri.encode("https://baozhang.baidu.com/guarantee/m/#/swan-guarantee") + "&newbrowser=1");
     }
 
-    public static int mD(String str) {
+    public static int mG(String str) {
         try {
             return Integer.parseInt(str);
         } catch (NumberFormatException e) {
@@ -604,17 +604,17 @@ public final class ai {
         }
     }
 
-    public static boolean aeA() {
-        return g.adT();
+    public static boolean aeT() {
+        return g.aem();
     }
 
-    public static com.baidu.swan.apps.model.b aeB() {
+    public static com.baidu.swan.apps.model.b aeU() {
         com.baidu.swan.apps.model.b bVar = new com.baidu.swan.apps.model.b();
         bVar.mParams = "";
         bVar.mPage = "";
-        com.baidu.swan.apps.core.d.e DP = com.baidu.swan.apps.y.f.Uf().DP();
-        if (DP != null && DP.LC() != null) {
-            return DP.LC().Lq();
+        com.baidu.swan.apps.core.d.e El = com.baidu.swan.apps.y.f.UC().El();
+        if (El != null && El.LY() != null) {
+            return El.LY().LM();
         }
         return bVar;
     }

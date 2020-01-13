@@ -19,59 +19,59 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a {
-    private static a aUf;
-    private Thread aUg;
-    private Handler aUh;
-    private ExecutorService aUi;
-    private LinkedList<Runnable> aUj;
-    private LruCache<String, Bitmap> aUk;
-    private Semaphore aUl = new Semaphore(0);
-    private Semaphore aUm;
+    private static a aUX;
+    private Thread aUY;
+    private Handler aUZ;
+    private ExecutorService aVa;
+    private LinkedList<Runnable> aVb;
+    private LruCache<String, Bitmap> aVc;
+    private Semaphore aVd = new Semaphore(0);
+    private Semaphore aVe;
 
     private a(int i) {
         init(i);
     }
 
-    public static a Dw() {
-        if (aUf == null) {
+    public static a DS() {
+        if (aUX == null) {
             synchronized (a.class) {
-                if (aUf == null) {
-                    aUf = new a(3);
+                if (aUX == null) {
+                    aUX = new a(3);
                 }
             }
         }
-        return aUf;
+        return aUX;
     }
 
     private void init(int i) {
-        this.aUg = new Thread() { // from class: com.baidu.spswitch.emotion.a.1
+        this.aUY = new Thread() { // from class: com.baidu.spswitch.emotion.a.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 super.run();
                 Looper.prepare();
-                a.this.aUh = new Handler() { // from class: com.baidu.spswitch.emotion.a.1.1
+                a.this.aUZ = new Handler() { // from class: com.baidu.spswitch.emotion.a.1.1
                     @Override // android.os.Handler
                     public void handleMessage(Message message) {
-                        a.this.aUi.execute(a.this.Dx());
-                        Log.d("EmotionLoader", "thread poop execute one task, task queue size: " + a.this.aUj.size());
+                        a.this.aVa.execute(a.this.DT());
+                        Log.d("EmotionLoader", "thread poop execute one task, task queue size: " + a.this.aVb.size());
                         try {
-                            a.this.aUm.acquire();
+                            a.this.aVe.acquire();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
                 };
-                a.this.aUl.release();
+                a.this.aVd.release();
                 Looper.loop();
             }
         };
-        this.aUg.start();
-        this.aUm = new Semaphore(i);
-        this.aUi = Executors.newFixedThreadPool(i);
-        this.aUj = new LinkedList<>();
-        this.aUk = new LruCache<String, Bitmap>(((int) Runtime.getRuntime().maxMemory()) / 8) { // from class: com.baidu.spswitch.emotion.a.2
+        this.aUY.start();
+        this.aVe = new Semaphore(i);
+        this.aVa = Executors.newFixedThreadPool(i);
+        this.aVb = new LinkedList<>();
+        this.aVc = new LruCache<String, Bitmap>(((int) Runtime.getRuntime().maxMemory()) / 8) { // from class: com.baidu.spswitch.emotion.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.util.LruCache
@@ -95,16 +95,16 @@ public class a {
             Integer valueOf = Integer.valueOf(b.aY(context).a(emotionType, group));
             if (valueOf != null) {
                 int textSize = (int) ((textView.getTextSize() * 11.0f) / 10.0f);
-                Bitmap eF = eF(group);
-                if (eF == null) {
+                Bitmap eI = eI(group);
+                if (eI == null) {
                     Bitmap decodeResource = BitmapFactory.decodeResource(resources, valueOf.intValue());
                     if (decodeResource != null) {
-                        eF = Bitmap.createScaledBitmap(decodeResource, textSize, textSize, true);
-                        f(group, eF);
+                        eI = Bitmap.createScaledBitmap(decodeResource, textSize, textSize, true);
+                        f(group, eI);
                     }
-                    createScaledBitmap = eF;
+                    createScaledBitmap = eI;
                 } else {
-                    createScaledBitmap = Bitmap.createScaledBitmap(eF, textSize, textSize, true);
+                    createScaledBitmap = Bitmap.createScaledBitmap(eI, textSize, textSize, true);
                 }
                 if (createScaledBitmap != null) {
                     if (textView instanceof EditText) {
@@ -119,21 +119,21 @@ public class a {
         return spannableString;
     }
 
-    private Bitmap eF(String str) {
-        if (this.aUk != null) {
-            return this.aUk.get(str);
+    private Bitmap eI(String str) {
+        if (this.aVc != null) {
+            return this.aVc.get(str);
         }
         return null;
     }
 
     private void f(String str, Bitmap bitmap) {
-        if (eF(str) == null && bitmap != null) {
-            this.aUk.put(str, bitmap);
+        if (eI(str) == null && bitmap != null) {
+            this.aVc.put(str, bitmap);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Runnable Dx() {
-        return this.aUj.removeLast();
+    public Runnable DT() {
+        return this.aVb.removeLast();
     }
 }

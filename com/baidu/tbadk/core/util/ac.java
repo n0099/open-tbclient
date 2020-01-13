@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ac {
-    private static ac cVs;
-    private static final BdUniqueId cVt = BdUniqueId.gen();
+    private static ac cVC;
+    private static final BdUniqueId cVD = BdUniqueId.gen();
 
-    public static synchronized ac aDH() {
+    public static synchronized ac aEa() {
         ac acVar;
         synchronized (ac.class) {
-            if (cVs == null) {
-                cVs = new ac();
+            if (cVC == null) {
+                cVC = new ac();
             }
-            acVar = cVs;
+            acVar = cVC;
         }
         return acVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String cVu;
-        private final boolean cVv;
-        private final boolean cVw;
-        private final boolean cVx;
+        private final String cVE;
+        private final boolean cVF;
+        private final boolean cVG;
+        private final boolean cVH;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.cVu = str2;
-            this.cVv = z;
-            this.cVw = z2;
-            this.cVx = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.cVt));
+            this.cVE = str2;
+            this.cVF = z;
+            this.cVG = z2;
+            this.cVH = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.cVD));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class ac {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             try {
-                ac.this.b(this.imageUrl, this.cVu, this.cVv, this.cVw, this.cVx);
+                ac.this.b(this.imageUrl, this.cVE, this.cVF, this.cVG, this.cVH);
             } finally {
                 return null;
             }
@@ -54,16 +54,16 @@ public class ac {
     public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
             String nameMd5FromUrl = as.getNameMd5FromUrl(str);
-            ap.aDU().copyFile(str2, nameMd5FromUrl);
+            ap.aEn().copyFile(str2, nameMd5FromUrl);
             if (z || z2 || z3) {
                 synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int td = ap.aDU().td(nameMd5FromUrl);
-                    if (td > 0) {
+                    int th = ap.aEn().th(nameMd5FromUrl);
+                    if (th > 0) {
                         if (z) {
-                            Bitmap image = ap.aDU().getImage(nameMd5FromUrl);
-                            com.baidu.tbadk.imageManager.c.aMZ().freePicCache(td);
+                            Bitmap image = ap.aEn().getImage(nameMd5FromUrl);
+                            com.baidu.tbadk.imageManager.c.aNs().freePicCache(th);
                             if (image != null) {
-                                a(str, image, z2, ap.aDU().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
+                                a(str, image, z2, ap.aEn().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                             }
                         }
                     }
@@ -104,7 +104,7 @@ public class ac {
     }
 
     private static void a(String str, com.baidu.adp.widget.ImageView.a aVar) {
-        com.baidu.tbadk.imageManager.c.aMZ().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.aNs().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
@@ -117,7 +117,7 @@ public class ac {
             bitmap2 = BitmapHelper.getRoundedCornerBitmap(n, (n.getHeight() < 100 || n.getWidth() < 100) ? 5.0f : 5.0f, true);
         }
         if (!TextUtils.isEmpty(str)) {
-            ap.aDU().j(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
+            ap.aEn().j(str, BitmapHelper.Bitmap2Bytes(bitmap2, 100));
         }
         return bitmap2;
     }
@@ -139,7 +139,7 @@ public class ac {
         int i4;
         int i5;
         int i6 = 70;
-        int msgSPicMaxSizeInt = LocalViewSize.aDy().getMsgSPicMaxSizeInt();
+        int msgSPicMaxSizeInt = LocalViewSize.aDR().getMsgSPicMaxSizeInt();
         if (z) {
             if (i / i2 >= 3) {
                 z2 = true;

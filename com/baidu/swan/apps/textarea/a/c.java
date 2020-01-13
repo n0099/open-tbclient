@@ -9,7 +9,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends ab {
     public c(j jVar) {
         super(jVar, "/swanAPI/updateTextarea");
@@ -28,14 +28,14 @@ public class c extends ab {
         com.baidu.swan.apps.console.c.d("UpdateTextAreaAction", "UpdateTextAreaAction updateParams: " + optParamsAsJo);
         String optString = optParamsAsJo.optString("slaveId");
         String optString2 = optParamsAsJo.optString("inputId");
-        com.baidu.swan.apps.component.components.textarea.a aVar = (com.baidu.swan.apps.component.components.textarea.a) com.baidu.swan.apps.component.container.a.ai(optString, optString2);
+        com.baidu.swan.apps.component.components.textarea.a aVar = (com.baidu.swan.apps.component.components.textarea.a) com.baidu.swan.apps.component.container.a.aj(optString, optString2);
         if (aVar == null) {
             String str = "can't find textarea component:#" + optString2;
             com.baidu.swan.apps.console.c.e("UpdateTextAreaAction", str);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
             return false;
         }
-        com.baidu.swan.apps.component.components.textarea.b bVar = (com.baidu.swan.apps.component.components.textarea.b) aVar.HW();
+        com.baidu.swan.apps.component.components.textarea.b bVar = (com.baidu.swan.apps.component.components.textarea.b) aVar.Is();
         bVar.Y(optParamsAsJo);
         com.baidu.swan.apps.component.b.c a = aVar.a((com.baidu.swan.apps.component.components.textarea.a) bVar);
         if (!a.isSuccess()) {
@@ -43,7 +43,7 @@ public class c extends ab {
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        aVar.gb(optString2);
+        aVar.ge(optString2);
         return true;
     }
 }

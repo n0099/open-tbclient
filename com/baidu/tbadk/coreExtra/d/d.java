@@ -8,47 +8,47 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    private c dqb;
-    private b dqc;
-    private a dqd;
+    private c dqm;
+    private b dqn;
+    private a dqo;
 
     /* loaded from: classes.dex */
     public interface b {
-        void gg(boolean z);
+        void gl(boolean z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class c extends Handler {
-        private final WeakReference<d> dqg;
+        private final WeakReference<d> dqr;
 
         c(d dVar) {
-            this.dqg = new WeakReference<>(dVar);
+            this.dqr = new WeakReference<>(dVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             d dVar;
             super.handleMessage(message);
-            if (message.what == 0 && (dVar = this.dqg.get()) != null) {
-                dVar.Hv();
+            if (message.what == 0 && (dVar = this.dqr.get()) != null) {
+                dVar.HR();
             }
         }
     }
 
     public d(String str, b bVar) {
-        this.dqb = null;
-        this.dqc = null;
-        this.dqd = null;
-        this.dqb = new c(this);
-        this.dqc = bVar;
-        this.dqb.sendEmptyMessageDelayed(0, 50000L);
-        this.dqd = new a();
-        this.dqd.setSelfExecute(true);
-        this.dqd.execute(aKC() + str);
+        this.dqm = null;
+        this.dqn = null;
+        this.dqo = null;
+        this.dqm = new c(this);
+        this.dqn = bVar;
+        this.dqm.sendEmptyMessageDelayed(0, 50000L);
+        this.dqo = new a();
+        this.dqo.setSelfExecute(true);
+        this.dqo.execute(aKV() + str);
     }
 
-    private String aKC() {
+    private String aKV() {
         switch (j.netType()) {
             case 1:
                 return "ping -c 3 -w 3000 ";
@@ -62,22 +62,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hv() {
-        if (this.dqd != null) {
-            this.dqd.cancel(true);
+    public void HR() {
+        if (this.dqo != null) {
+            this.dqo.cancel(true);
         }
-        if (this.dqb != null) {
-            this.dqb.removeMessages(0);
+        if (this.dqm != null) {
+            this.dqm.removeMessages(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Void, Boolean> {
-        Process dqe;
+        Process dqp;
 
         private a() {
-            this.dqe = null;
+            this.dqp = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,19 +88,19 @@ public class d {
             if (strArr != null && strArr.length >= 1) {
                 try {
                     try {
-                        this.dqe = Runtime.getRuntime().exec(strArr[0]);
-                        boolean z2 = this.dqe.waitFor() == 0;
-                        this.dqe.destroy();
+                        this.dqp = Runtime.getRuntime().exec(strArr[0]);
+                        boolean z2 = this.dqp.waitFor() == 0;
+                        this.dqp.destroy();
                         z = z2;
                     } catch (IOException e) {
                         e.printStackTrace();
-                        this.dqe.destroy();
+                        this.dqp.destroy();
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
-                        this.dqe.destroy();
+                        this.dqp.destroy();
                     }
                 } catch (Throwable th) {
-                    this.dqe.destroy();
+                    this.dqp.destroy();
                     throw th;
                 }
             }
@@ -111,18 +111,18 @@ public class d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.dqe != null) {
+            if (this.dqp != null) {
                 try {
-                    this.dqe.destroy();
+                    this.dqp.destroy();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            if (d.this.dqc != null) {
-                d.this.dqc.gg(false);
+            if (d.this.dqn != null) {
+                d.this.dqn.gl(false);
             }
-            if (d.this.dqb != null) {
-                d.this.dqb.removeMessages(0);
+            if (d.this.dqm != null) {
+                d.this.dqm.removeMessages(0);
             }
         }
 
@@ -130,11 +130,11 @@ public class d {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (d.this.dqc != null) {
-                d.this.dqc.gg(bool == null ? false : bool.booleanValue());
+            if (d.this.dqn != null) {
+                d.this.dqn.gl(bool == null ? false : bool.booleanValue());
             }
-            if (d.this.dqb != null) {
-                d.this.dqb.removeMessages(0);
+            if (d.this.dqm != null) {
+                d.this.dqm.removeMessages(0);
             }
         }
     }

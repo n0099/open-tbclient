@@ -6,22 +6,21 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableOnBackpressureLatest<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new BackpressureLatestSubscriber(cVar));
+        this.nvK.a((j) new BackpressureLatestSubscriber(cVar));
     }
 
-    /* loaded from: classes4.dex */
-    static final class BackpressureLatestSubscriber<T> extends AtomicInteger implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class BackpressureLatestSubscriber<T> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = 163080509307634843L;
         final org.a.c<? super T> actual;
         volatile boolean cancelled;
         volatile boolean done;
         Throwable error;
-        d s;
+        org.a.d s;
         final AtomicLong requested = new AtomicLong();
         final AtomicReference<T> current = new AtomicReference<>();
 
@@ -30,7 +29,7 @@ public final class FlowableOnBackpressureLatest<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);

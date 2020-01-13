@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.util.Log;
 import com.baidu.platform.comapi.walknavi.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
     private String a;
     private String b;

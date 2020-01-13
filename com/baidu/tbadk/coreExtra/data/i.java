@@ -3,23 +3,23 @@ package com.baidu.tbadk.coreExtra.data;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class i {
-    private final TbPageContext<?> cQU;
-    private final int cdq;
-    private final int cdr;
+    private final TbPageContext<?> cRe;
+    private final int cdD;
+    private final int cdE;
 
-    public TbPageContext<?> aGD() {
-        return this.cQU;
+    public TbPageContext<?> aGW() {
+        return this.cRe;
     }
 
-    public int ahN() {
-        return this.cdr;
+    public int aig() {
+        return this.cdE;
     }
 
-    public int ahM() {
-        return this.cdq;
+    public int aif() {
+        return this.cdD;
     }
 
     public boolean isAvailable() {
-        return this.cQU != null && this.cdr > 0 && this.cdq > 0;
+        return this.cRe != null && this.cdE > 0 && this.cdD > 0;
     }
 }

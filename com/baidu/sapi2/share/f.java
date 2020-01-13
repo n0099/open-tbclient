@@ -8,7 +8,7 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.Log;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f implements Runnable {
     final /* synthetic */ List a;
     final /* synthetic */ Handler b;

@@ -26,11 +26,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.concern.a.o;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ConcernRecommendLayout extends LinearLayout implements n {
-    private k fUZ;
-    private CustomMessageListener fVb;
-    private o gTg;
+    private k fYi;
+    private CustomMessageListener fYk;
+    private o gWA;
     private final Context mContext;
     private RecyclerView mListView;
     private int mSkinType;
@@ -43,18 +43,18 @@ public class ConcernRecommendLayout extends LinearLayout implements n {
     public ConcernRecommendLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.fVb = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout.1
+        this.fYk = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        if (ConcernRecommendLayout.this.fUZ == null) {
-                            ConcernRecommendLayout.this.fUZ = new k(new i());
+                        if (ConcernRecommendLayout.this.fYi == null) {
+                            ConcernRecommendLayout.this.fYi = new k(new i());
                         }
-                        ConcernRecommendLayout.this.fUZ.a(ConcernRecommendLayout.this.mListView, 1);
-                    } else if (ConcernRecommendLayout.this.fUZ != null) {
-                        ConcernRecommendLayout.this.fUZ.kl();
+                        ConcernRecommendLayout.this.fYi.a(ConcernRecommendLayout.this.mListView, 1);
+                    } else if (ConcernRecommendLayout.this.fYi != null) {
+                        ConcernRecommendLayout.this.fYi.km();
                     }
                 }
             }
@@ -69,12 +69,12 @@ public class ConcernRecommendLayout extends LinearLayout implements n {
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.mTitleView = (TextView) findViewById(R.id.title);
         this.mListView = (RecyclerView) findViewById(R.id.thread_card_list);
-        this.gTg = new o(this.mContext);
-        this.mListView.setAdapter(this.gTg);
+        this.gWA = new o(this.mContext);
+        this.mListView.setAdapter(this.gWA);
         this.mListView.setClipChildren(false);
         if (TbSingleton.getInstance().isSlideAnimEnable()) {
-            this.fUZ = new k(new i());
-            this.fUZ.a(this.mListView, 1);
+            this.fYi = new k(new i());
+            this.fYi.a(this.mListView, 1);
         }
         int dimens = l.getDimens(this.mContext, R.dimen.tbds44);
         int dimens2 = l.getDimens(this.mContext, R.dimen.tbds44);
@@ -87,7 +87,7 @@ public class ConcernRecommendLayout extends LinearLayout implements n {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (i != this.mSkinType) {
             am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_c);
-            this.gTg.onChangeSkinType(i);
+            this.gWA.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }
@@ -100,9 +100,9 @@ public class ConcernRecommendLayout extends LinearLayout implements n {
         setVisibility(0);
         am.setViewTextColor(this.mTitleView, (int) R.color.cp_cont_c);
         this.mTitleView.setText(R.string.concern_recommend_title);
-        this.gTg.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.gTg.setData(bVar.bKD());
-        this.gTg.notifyDataSetChanged();
+        this.gWA.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.gWA.setData(bVar.bLI());
+        this.gWA.notifyDataSetChanged();
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -111,25 +111,25 @@ public class ConcernRecommendLayout extends LinearLayout implements n {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fVb.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.fVb);
-        this.gTg.setPageUniqueId(bdUniqueId);
+        this.fYk.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.fYk);
+        this.gWA.setPageUniqueId(bdUniqueId);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.gTg.setPageContext(tbPageContext);
+        this.gWA.setPageContext(tbPageContext);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends RecyclerView.ItemDecoration {
-        private int fVe;
-        private int fVf;
+        private int fYn;
+        private int fYo;
         private int mEnd;
 
         public a(int i, int i2, int i3) {
-            this.fVe = i;
-            this.fVf = i2;
+            this.fYn = i;
+            this.fYo = i2;
             this.mEnd = i3;
         }
 
@@ -139,9 +139,9 @@ public class ConcernRecommendLayout extends LinearLayout implements n {
             LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
             if (linearLayoutManager.getOrientation() == 1) {
                 if (recyclerView.getChildAdapterPosition(view) == 0) {
-                    rect.top = this.fVe;
+                    rect.top = this.fYn;
                 } else {
-                    rect.top = this.fVf;
+                    rect.top = this.fYo;
                 }
                 if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
                     rect.bottom = this.mEnd;
@@ -150,9 +150,9 @@ public class ConcernRecommendLayout extends LinearLayout implements n {
                 return;
             }
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.left = this.fVe;
+                rect.left = this.fYn;
             } else {
-                rect.left = this.fVf;
+                rect.left = this.fYo;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
                 rect.right = this.mEnd;

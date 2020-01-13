@@ -8,58 +8,58 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLngBounds;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
-    BaiduMap crx;
-    private List<OverlayOptions> ctQ;
-    List<Overlay> ctR;
+    BaiduMap crI;
+    private List<OverlayOptions> cub;
+    List<Overlay> cuc;
 
-    public abstract List<OverlayOptions> apP();
+    public abstract List<OverlayOptions> aqi();
 
     public c(BaiduMap baiduMap) {
-        this.crx = null;
-        this.ctQ = null;
-        this.ctR = null;
-        this.crx = baiduMap;
-        if (this.ctQ == null) {
-            this.ctQ = new ArrayList();
+        this.crI = null;
+        this.cub = null;
+        this.cuc = null;
+        this.crI = baiduMap;
+        if (this.cub == null) {
+            this.cub = new ArrayList();
         }
-        if (this.ctR == null) {
-            this.ctR = new ArrayList();
-        }
-    }
-
-    public final void apR() {
-        if (this.crx != null) {
-            apS();
-            if (apP() != null) {
-                this.ctQ.addAll(apP());
-            }
-            for (OverlayOptions overlayOptions : this.ctQ) {
-                this.ctR.add(this.crx.addOverlay(overlayOptions));
-            }
+        if (this.cuc == null) {
+            this.cuc = new ArrayList();
         }
     }
 
-    public final void apS() {
-        if (this.crx != null) {
-            for (Overlay overlay : this.ctR) {
+    public final void aqk() {
+        if (this.crI != null) {
+            aql();
+            if (aqi() != null) {
+                this.cub.addAll(aqi());
+            }
+            for (OverlayOptions overlayOptions : this.cub) {
+                this.cuc.add(this.crI.addOverlay(overlayOptions));
+            }
+        }
+    }
+
+    public final void aql() {
+        if (this.crI != null) {
+            for (Overlay overlay : this.cuc) {
                 overlay.remove();
             }
-            this.ctQ.clear();
-            this.ctR.clear();
+            this.cub.clear();
+            this.cuc.clear();
         }
     }
 
-    public void apT() {
-        if (this.crx != null && this.ctR.size() > 0) {
+    public void aqm() {
+        if (this.crI != null && this.cuc.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.ctR) {
+            for (Overlay overlay : this.cuc) {
                 if (overlay instanceof Marker) {
                     builder.include(((Marker) overlay).getPosition());
                 }
             }
-            this.crx.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            this.crI.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
     }
 }

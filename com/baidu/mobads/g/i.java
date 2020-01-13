@@ -7,7 +7,7 @@ import android.os.Message;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i extends Handler {
     final /* synthetic */ g a;
 

@@ -7,7 +7,7 @@ import android.view.View;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RequiresApi(22)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class ViewUtilsApi22 extends ViewUtilsApi21 {
     private static final String TAG = "ViewUtilsApi22";
     private static Method sSetLeftTopRightBottomMethod;

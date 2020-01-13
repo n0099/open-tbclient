@@ -16,7 +16,7 @@ import java.io.File;
 import java.net.URI;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends b {
     public a(j jVar) {
         super(jVar, "/swanAPI/animView");
@@ -35,7 +35,7 @@ public class a extends b {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e("AbsSwanAppWidget", "model is null");
             return false;
-        } else if (!s.DF()) {
+        } else if (!s.Eb()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e("AbsSwanAppWidget", "parse insert params, but invalid");
             return false;
@@ -45,7 +45,7 @@ public class a extends b {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parse insert params, anim data is null");
                 return false;
             }
-            if (f.Uf().TK()) {
+            if (f.UC().Uh()) {
                 try {
                     new JSONObject(e);
                 } catch (Throwable th) {
@@ -56,14 +56,14 @@ public class a extends b {
                     return false;
                 }
             }
-            com.baidu.swan.apps.component.b.c HS = new com.baidu.swan.apps.component.components.a.a(context, s, e).HS();
-            boolean isSuccess = HS.isSuccess();
+            com.baidu.swan.apps.component.b.c Io = new com.baidu.swan.apps.component.components.a.a(context, s, e).Io();
+            boolean isSuccess = Io.isSuccess();
             c.i("AbsSwanAppWidget", "insert anim view success = " + isSuccess);
             if (isSuccess) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, HS.msg);
-                c.e("AbsSwanAppWidget", "insert anim view, but failure: " + HS.msg);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Io.msg);
+                c.e("AbsSwanAppWidget", "insert anim view, but failure: " + Io.msg);
             }
             return isSuccess;
         }
@@ -118,15 +118,15 @@ public class a extends b {
                 c.e("AbsSwanAppWidget", "get component is null");
                 return false;
             }
-            com.baidu.swan.apps.component.b.c HU = aVar.HU();
-            boolean isSuccess = HU.isSuccess();
+            com.baidu.swan.apps.component.b.c Iq = aVar.Iq();
+            boolean isSuccess = Iq.isSuccess();
             c.i("AbsSwanAppWidget", "remove anim view success = " + isSuccess);
             if (isSuccess) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return isSuccess;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, HU.msg);
-            c.e("AbsSwanAppWidget", "remove anim view, but failure: " + HU.msg);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Iq.msg);
+            c.e("AbsSwanAppWidget", "remove anim view, but failure: " + Iq.msg);
             return isSuccess;
         }
     }
@@ -143,7 +143,7 @@ public class a extends b {
         }
         try {
             if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
-                a = com.baidu.swan.apps.storage.b.bf(str, eVar.id);
+                a = com.baidu.swan.apps.storage.b.bg(str, eVar.id);
             } else {
                 a = com.baidu.swan.apps.storage.b.a(str, eVar, eVar.getVersion());
             }

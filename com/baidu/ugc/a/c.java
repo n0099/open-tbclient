@@ -5,9 +5,9 @@ import android.text.SpannableString;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.request.RequestOptions;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface c {
-    void H(Context context, int i);
+    void I(Context context, int i);
 
     SpannableString a(Context context, CharSequence charSequence, TextView textView);
 
@@ -15,21 +15,21 @@ public interface c {
 
     void a(Context context, String str, RequestOptions requestOptions, ImageView imageView);
 
-    String cPZ();
+    String cRc();
 
-    String cQd();
+    String cRg();
 
-    void cQe();
+    void cRh();
 
-    String cQf();
+    String cRi();
 
-    void cQg();
+    void cRj();
 
     void e(Context context, int i, String str);
 
     void e(String str, Context context);
 
-    void fD(Context context);
+    void fE(Context context);
 
     String getUserId();
 

@@ -2,11 +2,11 @@ package com.baidu.tieba.personPolymeric.tab.fragments;
 
 import com.baidu.adp.widget.ListView.m;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    List<m> cbZ();
+    List<m> cdi();
 
-    com.baidu.tieba.personPolymeric.tab.view.a cuZ();
+    com.baidu.tieba.personPolymeric.tab.view.a cwg();
 
-    boolean cva();
+    boolean cwh();
 }

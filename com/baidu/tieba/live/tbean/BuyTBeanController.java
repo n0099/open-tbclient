@@ -1,10 +1,7 @@
 package com.baidu.tieba.live.tbean;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,7 +14,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
@@ -44,12 +41,9 @@ import com.baidu.tieba.live.tbean.data.CustomData;
 import com.baidu.tieba.live.tbean.data.GiftBagWrapperData;
 import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
-import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.CallBack {
-    public static final String BROADCAST_ACTION = "com.baidu.minivideo.live.action.pay_broadcast";
-    public static final String BROADCAST_PERMISSION = "com.baidu.minivideo.live.permission.PAY_BROADCAST";
     public static final String GIFT_TBEAN = "gift_tbean";
     private Activity activity;
     private IBuyTBeanActivity buyTBeanActivityImpl;
@@ -58,7 +52,6 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
     private String from;
     private boolean isTBeanNotEnough;
     private String mClickZone;
-    private MyBroadcastReceiver mDetailReceive;
     private long mGiftBbean;
     private CustomData mLastPayDataInfo;
     private BuyTBeanModel mModel;
@@ -76,7 +69,6 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
     private int mLastPayItemTbeanCount = -1;
     private String mLastTotalMoneyByFen = "";
     private String orderId = "";
-    private boolean mReceiverTag = false;
     private PayChannelType mPayChannelType = null;
     private CustomMessageListener mOnAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.live.tbean.BuyTBeanController.3
         /* JADX DEBUG: Method merged with bridge method */
@@ -175,13 +167,6 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             this.extraFromForLog = "";
         }
         LogManager.getCommonLogger().doDisplayBuyTBeanPageLog(null, this.mOtherParams, this.extraFromForLog);
-        if (!this.mReceiverTag) {
-            this.mDetailReceive = new MyBroadcastReceiver(this);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(BROADCAST_ACTION);
-            this.activity.registerReceiver(this.mDetailReceive, intentFilter, BROADCAST_PERMISSION, null);
-            this.mReceiverTag = true;
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -421,15 +406,15 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             if (i >= 0) {
                 intent.putExtra("status", 0);
                 intent.putExtra("message", "充值成功");
-                this.buyTBeanActivityImpl.setResult(-1, intent);
+                this.buyTBeanActivityImpl.setResultIntent(-1, intent);
             } else if (i == -1) {
                 intent.putExtra("status", -1);
                 intent.putExtra("message", "充值失败");
-                this.buyTBeanActivityImpl.setResult(0, intent);
+                this.buyTBeanActivityImpl.setResultIntent(0, intent);
             } else {
                 intent.putExtra("status", -2);
                 intent.putExtra("message", "取消充值");
-                this.buyTBeanActivityImpl.setResult(0, intent);
+                this.buyTBeanActivityImpl.setResultIntent(0, intent);
             }
             ExtraParamsManager.getInstance();
             ExtraParamsManager.handleResultCallback(ExtraParamsManager.KEY_BUY_TBEAN_RESULT_CALLBACK, intent);
@@ -444,10 +429,6 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
         MessageManager.getInstance().unRegisterListener(this.mOnAccountChangedListener);
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
         MessageManager.getInstance().unRegisterListener(this.mPayResultListener);
-        if (this.mDetailReceive != null && this.mReceiverTag) {
-            this.activity.unregisterReceiver(this.mDetailReceive);
-            this.mReceiverTag = false;
-        }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
@@ -463,27 +444,5 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
 
     public String getClickZone() {
         return this.mClickZone;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public static class MyBroadcastReceiver extends BroadcastReceiver {
-        WeakReference<BuyTBeanController> reference;
-
-        public MyBroadcastReceiver(BuyTBeanController buyTBeanController) {
-            this.reference = new WeakReference<>(buyTBeanController);
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            if (intent != null && this.reference != null && this.reference.get() != null && TextUtils.equals(BuyTBeanController.BROADCAST_ACTION, intent.getAction())) {
-                int intExtra = intent.getIntExtra("result_code", -1);
-                int intExtra2 = intent.getIntExtra("result_payinfo_status", -1);
-                String stringExtra = intent.getStringExtra("result_tbean_num");
-                this.reference.get().orderId = intent.getStringExtra("result_order_id");
-                this.reference.get().handlePayResult(intExtra, intExtra2, stringExtra);
-                this.reference.get().mPayChannelType = PayChannelType.valueOf(intent.getStringExtra("pay_channel_type_name"));
-            }
-        }
     }
 }

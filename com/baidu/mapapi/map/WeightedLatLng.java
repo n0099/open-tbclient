@@ -5,7 +5,7 @@ import com.baidu.mapapi.map.n;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WeightedLatLng extends n.a {
     public static final double DEFAULT_INTENSITY = 1.0d;
     private Point a;

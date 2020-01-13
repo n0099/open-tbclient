@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseGLMapView extends GLSurfaceView implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener {
     protected static Context b;
     private static final String d = BaseGLMapView.class.getSimpleName();

@@ -6,7 +6,7 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ab {
     private static final String t = ab.class.getSimpleName();
     public double m;
@@ -29,7 +29,7 @@ public class ab {
     public a k = new a();
     public boolean l = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a {
         public long a = 0;
         public long b = 0;

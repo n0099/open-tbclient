@@ -1,19 +1,19 @@
 package kotlin.text;
 
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes4.dex */
-final class StringsKt___StringsKt$withIndex$1 extends Lambda implements kotlin.jvm.a.a<kotlin.collections.m> {
-    final /* synthetic */ CharSequence receiver$0;
+/* loaded from: classes5.dex */
+final class StringsKt___StringsKt$withIndex$1 extends Lambda implements kotlin.jvm.a.a<kotlin.collections.n> {
+    final /* synthetic */ CharSequence $this_withIndex;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     StringsKt___StringsKt$withIndex$1(CharSequence charSequence) {
         super(0);
-        this.receiver$0 = charSequence;
+        this.$this_withIndex = charSequence;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.a
-    public final kotlin.collections.m invoke() {
-        return l.r(this.receiver$0);
+    public final kotlin.collections.n invoke() {
+        return l.r(this.$this_withIndex);
     }
 }

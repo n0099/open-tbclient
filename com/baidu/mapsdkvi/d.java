@@ -1,7 +1,7 @@
 package com.baidu.mapsdkvi;
 
 import android.net.NetworkInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 /* synthetic */ class d {
     static final /* synthetic */ int[] a = new int[NetworkInfo.State.values().length];
 

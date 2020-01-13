@@ -14,7 +14,7 @@ import java.util.concurrent.ThreadFactory;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class b {
-    private static b mRG = null;
+    private static b ntN = null;
     private SQLiteDatabase mDatabase;
     private ExecutorService mExecutor = Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: common.network.b.b.1
         @Override // java.util.concurrent.ThreadFactory
@@ -24,27 +24,27 @@ public class b {
     });
 
     public static void init(Context context) {
-        mRG = new b(context);
+        ntN = new b(context);
     }
 
-    public static b dDu() {
-        return mRG;
+    public static b dHA() {
+        return ntN;
     }
 
     /* loaded from: classes.dex */
     private class a implements Runnable {
         private String mIp;
-        private String mRI;
+        private String ntP;
 
         public a(String str, String[] strArr) {
-            this.mRI = str;
+            this.ntP = str;
             this.mIp = new JSONArray((Collection) Arrays.asList(strArr)).toString();
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("hostname", this.mRI);
+            contentValues.put("hostname", this.ntP);
             contentValues.put(TableDefine.UserInfoColumns.COLUMN_IP, this.mIp);
             b.this.mDatabase.insertWithOnConflict("dns_disaster_cache", null, contentValues, 5);
         }
@@ -58,7 +58,7 @@ public class b {
         this.mExecutor.submit(new a(str, strArr));
     }
 
-    public String[] QW(String str) {
+    public String[] RJ(String str) {
         String[] strArr;
         Cursor query = this.mDatabase.query("dns_disaster_cache", new String[]{TableDefine.UserInfoColumns.COLUMN_IP}, String.format("%s=?", "hostname"), new String[]{str}, null, null, null);
         try {

@@ -8,8 +8,7 @@ import io.reactivex.j;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableThrottleFirstTimed<T> extends a<T, T> {
     final v scheduler;
     final long timeout;
@@ -17,16 +16,16 @@ public final class FlowableThrottleFirstTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.dDP()));
+        this.nvK.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.dHW()));
     }
 
-    /* loaded from: classes4.dex */
-    static final class DebounceTimedSubscriber<T> extends AtomicLong implements j<T>, Runnable, d {
+    /* loaded from: classes5.dex */
+    static final class DebounceTimedSubscriber<T> extends AtomicLong implements j<T>, Runnable, org.a.d {
         private static final long serialVersionUID = -9102637559663639004L;
         final org.a.c<? super T> actual;
         boolean done;
         volatile boolean gate;
-        d s;
+        org.a.d s;
         final long timeout;
         final SequentialDisposable timer = new SequentialDisposable();
         final TimeUnit unit;
@@ -40,7 +39,7 @@ public final class FlowableThrottleFirstTimed<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -76,7 +75,7 @@ public final class FlowableThrottleFirstTimed<T> extends a<T, T> {
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;

@@ -3,7 +3,7 @@ package com.baidu.pano.platform.comapi.map;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f extends Handler {
     final /* synthetic */ e a;
 

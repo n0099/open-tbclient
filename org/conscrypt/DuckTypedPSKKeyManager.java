@@ -5,7 +5,7 @@ import java.net.Socket;
 import javax.crypto.SecretKey;
 import javax.net.ssl.SSLEngine;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class DuckTypedPSKKeyManager implements PSKKeyManager {
     private final Object mDelegate;
 

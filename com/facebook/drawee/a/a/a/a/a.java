@@ -5,63 +5,63 @@ import com.facebook.drawee.a.a.a.g;
 import com.facebook.drawee.a.a.a.h;
 import com.facebook.imagepipeline.g.f;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a extends com.facebook.drawee.controller.b<f> {
-    private final g lFL;
-    private final h lGo;
-    private final com.facebook.common.time.b lGv;
+    private final h lJM;
+    private final com.facebook.common.time.b lJT;
+    private final g lJj;
 
     public a(com.facebook.common.time.b bVar, h hVar, g gVar) {
-        this.lGv = bVar;
-        this.lGo = hVar;
-        this.lFL = gVar;
+        this.lJT = bVar;
+        this.lJM = hVar;
+        this.lJj = gVar;
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void onSubmit(String str, Object obj) {
-        this.lGo.eV(this.lGv.now());
-        this.lGo.OA(str);
-        this.lGo.bb(obj);
-        this.lFL.a(this.lGo, 0);
+        this.lJM.fa(this.lJT.now());
+        this.lJM.OK(str);
+        this.lJM.bb(obj);
+        this.lJj.a(this.lJM, 0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     /* renamed from: a */
     public void onIntermediateImageSet(String str, @Nullable f fVar) {
-        this.lGo.eW(this.lGv.now());
-        this.lGo.OA(str);
-        this.lGo.a(fVar);
-        this.lFL.a(this.lGo, 2);
+        this.lJM.fb(this.lJT.now());
+        this.lJM.OK(str);
+        this.lJM.a(fVar);
+        this.lJj.a(this.lJM, 2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void onFinalImageSet(String str, @Nullable f fVar, @Nullable Animatable animatable) {
-        this.lGo.eX(this.lGv.now());
-        this.lGo.OA(str);
-        this.lGo.a(fVar);
-        this.lGo.uN(true);
-        this.lFL.a(this.lGo, 3);
+        this.lJM.fc(this.lJT.now());
+        this.lJM.OK(str);
+        this.lJM.a(fVar);
+        this.lJM.uY(true);
+        this.lJj.a(this.lJM, 3);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void onFailure(String str, Throwable th) {
-        this.lGo.eY(this.lGv.now());
-        this.lGo.OA(str);
-        this.lGo.uN(false);
-        this.lFL.a(this.lGo, 5);
+        this.lJM.fd(this.lJT.now());
+        this.lJM.OK(str);
+        this.lJM.uY(false);
+        this.lJj.a(this.lJM, 5);
     }
 
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void onRelease(String str) {
         super.onRelease(str);
-        int djy = this.lGo.djy();
-        if (djy != 3 && djy != 5) {
-            this.lGo.eZ(this.lGv.now());
-            this.lGo.OA(str);
-            this.lGo.uM(true);
-            this.lFL.a(this.lGo, 4);
+        int dkz = this.lJM.dkz();
+        if (dkz != 3 && dkz != 5) {
+            this.lJM.fe(this.lJT.now());
+            this.lJM.OK(str);
+            this.lJM.uX(true);
+            this.lJj.a(this.lJM, 4);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.swan.apps.statistic;
 import android.util.Log;
 import com.baidu.swan.apps.as.m;
 import com.baidu.swan.ubc.s;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -31,9 +31,9 @@ public final class d {
             }
             return;
         }
-        com.baidu.swan.apps.statistic.a.d e = new com.baidu.swan.apps.statistic.a.d().lv(f.ga(i)).e(new com.baidu.swan.apps.ap.a().aB(11L).aC(2331L).mh("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
+        com.baidu.swan.apps.statistic.a.d e = new com.baidu.swan.apps.statistic.a.d().ly(f.gb(i)).e(new com.baidu.swan.apps.ap.a().aE(11L).aF(2331L).mk("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
         if (dVar instanceof com.baidu.swan.apps.core.pms.g) {
-            e.a(((com.baidu.swan.apps.core.pms.g) dVar).MO());
+            e.a(((com.baidu.swan.apps.core.pms.g) dVar).Nk());
         }
         a(e);
         if (DEBUG) {

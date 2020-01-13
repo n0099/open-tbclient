@@ -4,7 +4,7 @@ import com.coremedia.iso.IsoTypeReader;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @Descriptor(tags = {0})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseDescriptor {
     static final /* synthetic */ boolean $assertionsDisabled;
     int sizeBytes;

@@ -3,7 +3,7 @@ package com.baidu.searchbox.ugc.publishmenu;
 import android.text.TextUtils;
 import com.baidu.searchbox.ugc.R;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ItemInfo {
     public static final String TYPE_ANSWER = "6";
     public static final String TYPE_ASK = "11";

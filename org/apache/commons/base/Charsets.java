@@ -1,7 +1,7 @@
 package org.apache.commons.base;
 
 import java.nio.charset.Charset;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Charsets {
     public static final Charset ISO_8859_1 = Charset.forName("ISO-8859-1");
     public static final Charset US_ASCII = Charset.forName("US-ASCII");

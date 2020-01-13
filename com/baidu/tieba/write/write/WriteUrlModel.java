@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WriteUrlModel extends NewWriteModel {
     public WriteUrlModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -23,19 +23,19 @@ public class WriteUrlModel extends NewWriteModel {
     }
 
     public void e(String str, String str2, String str3, String str4, String str5, String str6) {
-        WriteData cFi = cFi();
-        if (cFi != null) {
+        WriteData cGm = cGm();
+        if (cGm != null) {
             cancelLoadData();
-            cFi.setTitle(str);
-            cFi.setIsNoTitle(StringUtils.isNull(str));
-            cFi.setContent(str2);
-            cFi.setLinkUrl(str3);
-            cFi.setLinkUrlCode(str4);
-            cFi.setIsLinkThread(true);
-            cFi.setPostLatLng(true);
-            cFi.setLat(str5);
-            cFi.setLng(str6);
-            cJG();
+            cGm.setTitle(str);
+            cGm.setIsNoTitle(StringUtils.isNull(str));
+            cGm.setContent(str2);
+            cGm.setLinkUrl(str3);
+            cGm.setLinkUrlCode(str4);
+            cGm.setIsLinkThread(true);
+            cGm.setPostLatLng(true);
+            cGm.setLat(str5);
+            cGm.setLng(str6);
+            cKK();
         }
     }
 }

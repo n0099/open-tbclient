@@ -13,14 +13,14 @@ import java.lang.reflect.Method;
 public class h extends PopupWindow {
     private Context context;
     private int count;
-    private LinearLayout doQ;
-    private a kHZ;
+    private LinearLayout dpb;
+    private a kLA;
     private int mCurrentIndex;
     private int maxHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void BR(int i);
+        void BW(int i);
     }
 
     public h(Context context) {
@@ -33,10 +33,10 @@ public class h extends PopupWindow {
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.doQ = new LinearLayout(context);
-        this.doQ.setOrientation(1);
-        this.doQ.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.doQ);
+        this.dpb = new LinearLayout(context);
+        this.dpb.setOrientation(1);
+        this.dpb.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.dpb);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, l.dip2px(context, 1.0f), l.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -67,8 +67,8 @@ public class h extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.kHZ));
-        this.doQ.addView(view);
+        view.setOnClickListener(new b(this.count, this.kLA));
+        this.dpb.addView(view);
         this.count++;
     }
 
@@ -78,30 +78,30 @@ public class h extends PopupWindow {
 
     public void setCurrentIndex(int i) {
         if (this.mCurrentIndex != -1) {
-            this.doQ.getChildAt(this.mCurrentIndex).setSelected(false);
+            this.dpb.getChildAt(this.mCurrentIndex).setSelected(false);
         }
         this.mCurrentIndex = i;
-        this.doQ.getChildAt(this.mCurrentIndex).setSelected(true);
+        this.dpb.getChildAt(this.mCurrentIndex).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.kHZ = aVar;
+        this.kLA = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a kIa;
+        private a kLB;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.kIa = aVar;
+            this.kLB = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.kIa != null) {
-                this.kIa.BR(this.position);
+            if (this.kLB != null) {
+                this.kLB.BW(this.position);
             }
         }
     }

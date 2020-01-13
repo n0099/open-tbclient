@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public abstract class b implements c.a {
     @Override // com.baidu.live.gift.c.c.a
-    public void a(boolean z, String str, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.c> arrayList2, ArrayList<d> arrayList3) {
+    public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.c> arrayList2, ArrayList<d> arrayList3) {
     }
 
     @Override // com.baidu.live.gift.c.c.a

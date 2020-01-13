@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NetworkBroadcastReceiver extends BroadcastReceiver {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private String mCallback;

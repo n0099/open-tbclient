@@ -2,7 +2,7 @@ package com.baidu.searchbox.ugc.model;
 
 import com.baidu.android.imsdk.db.TableDefine;
 import com.google.gson.a.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ReferenceDt {
     @c("account_type")
     public String accountType;

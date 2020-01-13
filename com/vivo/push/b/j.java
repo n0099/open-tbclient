@@ -1,7 +1,7 @@
 package com.vivo.push.b;
 
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class j extends s {
     private String a;
     private String b;

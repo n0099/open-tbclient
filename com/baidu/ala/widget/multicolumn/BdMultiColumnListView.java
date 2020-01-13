@@ -749,7 +749,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
         if (this.mPullRefresh != null && this.mPullRefresh.getBdIListPullView() != null) {
             this.mPullRefresh.mBdIListPullView.onCompletePullRefresh();
         }
-        com.baidu.adp.lib.f.e.gy().postDelayed(new Runnable() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.10
+        com.baidu.adp.lib.f.e.gx().postDelayed(new Runnable() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.10
             @Override // java.lang.Runnable
             public void run() {
                 if (BdMultiColumnListView.this.mPullRefresh == null) {

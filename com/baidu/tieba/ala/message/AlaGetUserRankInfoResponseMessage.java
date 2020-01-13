@@ -7,7 +7,7 @@ import com.baidu.tieba.ala.data.g;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AlaGetUserRankInfoResponseMessage extends JsonHttpResponsedMessage {
-    public g fjp;
+    public g fmA;
 
     public AlaGetUserRankInfoResponseMessage() {
         super(1021070);
@@ -17,15 +17,15 @@ public class AlaGetUserRankInfoResponseMessage extends JsonHttpResponsedMessage 
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0) {
-            this.fjp = new g();
-            this.fjp.user_nickname = jSONObject.optString("user_nickname");
-            this.fjp.user_id = jSONObject.optLong("user_id");
-            this.fjp.rank = jSONObject.optInt("rank");
-            this.fjp.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.fjp.aao = jSONObject.optString(Config.EVENT_HEAT_POINT);
-            this.fjp.euo = jSONObject.optString("point_behind");
-            this.fjp.user_name = jSONObject.optString("user_name");
-            this.fjp.eup = jSONObject.optString("rule_url");
+            this.fmA = new g();
+            this.fmA.user_nickname = jSONObject.optString("user_nickname");
+            this.fmA.user_id = jSONObject.optLong("user_id");
+            this.fmA.rank = jSONObject.optInt("rank");
+            this.fmA.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+            this.fmA.point = jSONObject.optString(Config.EVENT_HEAT_POINT);
+            this.fmA.evz = jSONObject.optString("point_behind");
+            this.fmA.user_name = jSONObject.optString("user_name");
+            this.fmA.evA = jSONObject.optString("rule_url");
         }
     }
 }

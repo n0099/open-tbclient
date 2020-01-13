@@ -19,7 +19,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -42,7 +42,7 @@ public class a {
         return 0;
     }
 
-    public static int afQ() {
+    public static int agj() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if ("wifi".equals(networkClass)) {
             return 1;
@@ -60,7 +60,7 @@ public class a {
     }
 
     @Nullable
-    public static String mS(String str) {
+    public static String mV(String str) {
         try {
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
@@ -75,7 +75,7 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            mT(jSONObject.toString());
+            mW(jSONObject.toString());
             return null;
         }
     }
@@ -85,7 +85,7 @@ public class a {
         boolean z;
         int i;
         if (aVar != null && bVar != null) {
-            String str = TextUtils.isEmpty(bVar.bZf) ? "unknown" : bVar.bZf;
+            String str = TextUtils.isEmpty(bVar.bZr) ? "unknown" : bVar.bZr;
             switch (str.hashCode()) {
                 case -1395470197:
                     if (str.equals("bd09ll")) {
@@ -136,18 +136,18 @@ public class a {
                     i = -1;
                     break;
             }
-            aVar.bYV.coordType = i;
-            aVar.bYV.latitude = bVar.latitude;
-            aVar.bYV.longitude = bVar.longitude;
+            aVar.bZh.coordType = i;
+            aVar.bZh.latitude = bVar.latitude;
+            aVar.bZh.longitude = bVar.longitude;
         }
     }
 
-    public static void mT(String str) {
+    public static void mW(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
             }
-            new a.C0285a(10003).ln(str).lm(e.ZU()).Tz();
+            new a.C0287a(10003).lq(str).lp(e.aar()).TW();
         }
     }
 }

@@ -6,16 +6,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.f;
 import com.baidu.tieba.card.z;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f>> {
-    private z gwj;
-    private com.baidu.tieba.card.f gwt;
+    private com.baidu.tieba.card.f gzD;
+    private z gzt;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.d.fKE);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.d.fNN);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -23,33 +23,33 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ar */
+    /* renamed from: av */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> b(ViewGroup viewGroup) {
-        this.gwt = new com.baidu.tieba.card.f(this.mPageContext, this.mForumId);
-        return new com.baidu.tieba.card.a.a<>(this.gwt);
+        this.gzD = new com.baidu.tieba.card.f(this.mPageContext, this.mForumId);
+        return new com.baidu.tieba.card.a.a<>(this.gzD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> aVar) {
-        if (aVar.btc() == null) {
+        if (aVar.bue() == null) {
             return null;
         }
-        aVar.btc().a(dVar);
-        aVar.btc().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.btc().a(new f.a() { // from class: com.baidu.tieba.frs.gamerecommend.a.e.1
+        aVar.bue().a(dVar);
+        aVar.bue().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.bue().a(new f.a() { // from class: com.baidu.tieba.frs.gamerecommend.a.e.1
             @Override // com.baidu.tieba.card.f.a
             public void b(View view2, com.baidu.tieba.card.data.b bVar) {
-                if (e.this.gwj != null) {
-                    e.this.gwj.a(view2, bVar);
+                if (e.this.gzt != null) {
+                    e.this.gzt.a(view2, bVar);
                 }
             }
         });
-        return aVar.btc().getView();
+        return aVar.bue().getView();
     }
 
     public void d(z zVar) {
-        this.gwj = zVar;
+        this.gzt = zVar;
     }
 }

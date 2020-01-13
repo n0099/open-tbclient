@@ -1,5 +1,5 @@
 package com.caverock.androidsvg;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SVGParseException extends Exception {
     public SVGParseException(String str) {
         super(str);

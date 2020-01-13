@@ -5,7 +5,7 @@ import android.widget.RelativeLayout;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IXAdContext {
     void addEventListener(String str, IOAdEventListener iOAdEventListener);
 

@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.mixed;
 
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
@@ -9,7 +9,7 @@ import io.reactivex.q;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MaybeFlatMapObservable<T, R> extends q<R> {
     final h<? super T, ? extends t<? extends R>> mapper;
     final o<T> source;
@@ -21,7 +21,7 @@ public final class MaybeFlatMapObservable<T, R> extends q<R> {
         this.source.a(flatMapObserver);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapObserver<T, R> extends AtomicReference<b> implements b, m<T>, u<R> {
         private static final long serialVersionUID = -8948264376121066672L;
         final u<? super R> downstream;

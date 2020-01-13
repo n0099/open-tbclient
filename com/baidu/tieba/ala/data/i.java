@@ -4,19 +4,19 @@ import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i {
-    private int etO;
-    private long euk;
+    private int euZ;
+    private long evv;
 
     public void parserJson(JSONObject jSONObject) {
-        this.etO = jSONObject.optInt("loot_result");
-        this.euk = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+        this.euZ = jSONObject.optInt("loot_result");
+        this.evv = jSONObject.optLong(LogConfig.LOG_AMOUNT);
     }
 
-    public boolean bbz() {
-        return this.etO == 1;
+    public boolean bbU() {
+        return this.euZ == 1;
     }
 
-    public long bbA() {
-        return this.euk;
+    public long bbV() {
+        return this.evv;
     }
 }

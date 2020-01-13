@@ -7,15 +7,15 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class m<T> extends TypeAdapter<T> {
     private final TypeAdapter<T> delegate;
-    private final Gson mHp;
+    private final Gson mLh;
     private final Type type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(Gson gson, TypeAdapter<T> typeAdapter, Type type) {
-        this.mHp = gson;
+        this.mLh = gson;
         this.delegate = typeAdapter;
         this.type = type;
     }
@@ -30,7 +30,7 @@ public final class m<T> extends TypeAdapter<T> {
         TypeAdapter<T> typeAdapter = this.delegate;
         Type a = a(this.type, t);
         if (a != this.type) {
-            typeAdapter = this.mHp.getAdapter(com.google.gson.b.a.get(a));
+            typeAdapter = this.mLh.getAdapter(com.google.gson.b.a.get(a));
             if ((typeAdapter instanceof i.a) && !(this.delegate instanceof i.a)) {
                 typeAdapter = this.delegate;
             }

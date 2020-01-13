@@ -3,7 +3,7 @@ package com.baidu.swan.apps.y;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {

@@ -9,7 +9,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class VisualSampleEntry extends AbstractSampleEntry implements Container {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE1 = "mp4v";

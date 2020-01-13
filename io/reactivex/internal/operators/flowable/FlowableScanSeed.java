@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.internal.a.e;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -8,26 +7,25 @@ import io.reactivex.j;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableScanSeed<T, R> extends a<T, R> {
-    final io.reactivex.b.c<R, ? super T, R> accumulator;
-    final Callable<R> mUo;
+    final io.reactivex.c.c<R, ? super T, R> accumulator;
+    final Callable<R> nwx;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         try {
-            this.mTG.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.h(this.mUo.call(), "The seed supplied is null"), dDL()));
+            this.nvK.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.h(this.nwx.call(), "The seed supplied is null"), dHR()));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.I(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes4.dex */
-    static final class ScanSeedSubscriber<T, R> extends AtomicInteger implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class ScanSeedSubscriber<T, R> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -1776795561228106469L;
-        final io.reactivex.b.c<R, ? super T, R> accumulator;
+        final io.reactivex.c.c<R, ? super T, R> accumulator;
         final org.a.c<? super R> actual;
         volatile boolean cancelled;
         int consumed;
@@ -35,12 +33,12 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
         Throwable error;
         final int limit;
         final int prefetch;
-        final e<R> queue;
+        final io.reactivex.internal.a.f<R> queue;
         final AtomicLong requested;
-        d s;
+        org.a.d s;
         R value;
 
-        ScanSeedSubscriber(org.a.c<? super R> cVar, io.reactivex.b.c<R, ? super T, R> cVar2, R r, int i) {
+        ScanSeedSubscriber(org.a.c<? super R> cVar, io.reactivex.c.c<R, ? super T, R> cVar2, R r, int i) {
             this.actual = cVar;
             this.accumulator = cVar2;
             this.value = r;
@@ -52,7 +50,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -79,7 +77,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.error = th;
@@ -158,7 +156,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
             if (getAndIncrement() == 0) {
                 int i = 1;
                 org.a.c<? super R> cVar = this.actual;
-                e<R> eVar = this.queue;
+                io.reactivex.internal.a.f<R> fVar = this.queue;
                 int i2 = this.limit;
                 int i3 = this.consumed;
                 do {
@@ -169,16 +167,16 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
                         if (j3 == j) {
                             break;
                         } else if (this.cancelled) {
-                            eVar.clear();
+                            fVar.clear();
                             return;
                         } else {
                             boolean z = this.done;
                             if (z && (th = this.error) != null) {
-                                eVar.clear();
+                                fVar.clear();
                                 cVar.onError(th);
                                 return;
                             }
-                            Object obj = (R) eVar.poll();
+                            Object obj = (R) fVar.poll();
                             boolean z2 = obj == null;
                             if (z && z2) {
                                 cVar.onComplete();

@@ -12,44 +12,44 @@ import com.baidu.tieba.recapp.l;
 import com.baidu.tieba.recapp.r;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c dOw;
-    private long dOt;
-    private final int dOr = 2;
-    private final int dOs = 3;
-    private int aam = -1;
-    private CustomMessageListener dOx = new CustomMessageListener(CmdConfigCustom.CMD_HOT_SPLASH_SHOW) { // from class: com.baidu.tieba.c.1
+    private static volatile c dOE;
+    private long dOB;
+    private final int dOz = 2;
+    private final int dOA = 3;
+    private int aaz = -1;
+    private CustomMessageListener dOF = new CustomMessageListener(CmdConfigCustom.CMD_HOT_SPLASH_SHOW) { // from class: com.baidu.tieba.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.czO().czJ() != null) {
-                r.czO().czJ().czC();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.cAV().cAQ() != null) {
+                r.cAV().cAQ().cAJ();
             }
         }
     };
-    private CustomMessageListener dOy = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_BACKGROUND) { // from class: com.baidu.tieba.c.2
+    private CustomMessageListener dOG = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_BACKGROUND) { // from class: com.baidu.tieba.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016521) {
-                c.this.aSF();
+                c.this.aSZ();
             }
         }
     };
-    private CustomMessageListener dOz = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_FOREGROUND) { // from class: com.baidu.tieba.c.3
+    private CustomMessageListener dOH = new CustomMessageListener(CmdConfigCustom.CMD_APP_ENTER_FOREGROUND) { // from class: com.baidu.tieba.c.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && c.this.dOt != 0) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && c.this.dOB != 0) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof BaseActivity) {
-                    if (!data.getClass().getSimpleName().equals("LoginActivity") && c.this.aSG()) {
+                    if (!data.getClass().getSimpleName().equals("LoginActivity") && c.this.aTa()) {
                         BaseActivity baseActivity = (BaseActivity) data;
                         Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
                         intent.putExtra("splash", true);
                         intent.setFlags(65536);
                         baseActivity.startActivity(intent);
                     }
-                } else if ((data instanceof BaseFragmentActivity) && c.this.aSG()) {
+                } else if ((data instanceof BaseFragmentActivity) && c.this.aTa()) {
                     BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) data;
                     Intent intent2 = new Intent(baseFragmentActivity.getActivity(), LogoActivity.class);
                     intent2.putExtra("splash", true);
@@ -59,7 +59,7 @@ public class c {
             }
         }
     };
-    private CustomMessageListener dOA = new CustomMessageListener(CmdConfigCustom.CMD_APP_SCREEN_LOCK_STATE_CHANGED) { // from class: com.baidu.tieba.c.4
+    private CustomMessageListener dOI = new CustomMessageListener(CmdConfigCustom.CMD_APP_SCREEN_LOCK_STATE_CHANGED) { // from class: com.baidu.tieba.c.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -68,69 +68,69 @@ public class c {
                 if (data instanceof Boolean) {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (((Boolean) data).booleanValue()) {
-                        c.this.dOu = currentTimeMillis - c.this.dOt <= 1;
+                        c.this.dOC = currentTimeMillis - c.this.dOB <= 1;
                     }
                 }
             }
         }
     };
-    private boolean dOu = false;
-    private boolean dOv = false;
+    private boolean dOC = false;
+    private boolean dOD = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c aSE() {
-        if (dOw == null) {
+    public static c aSY() {
+        if (dOE == null) {
             synchronized (c.class) {
-                if (dOw == null) {
-                    dOw = new c();
+                if (dOE == null) {
+                    dOE = new c();
                 }
             }
         }
-        return dOw;
+        return dOE;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.dOy);
-        MessageManager.getInstance().registerListener(this.dOz);
-        MessageManager.getInstance().registerListener(this.dOx);
-        MessageManager.getInstance().registerListener(this.dOA);
-        if (r.czO().czJ() != null) {
-            r.czO().czJ().czB();
+        MessageManager.getInstance().registerListener(this.dOG);
+        MessageManager.getInstance().registerListener(this.dOH);
+        MessageManager.getInstance().registerListener(this.dOF);
+        MessageManager.getInstance().registerListener(this.dOI);
+        if (r.cAV().cAQ() != null) {
+            r.cAV().cAQ().cAI();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSF() {
-        this.dOv = true;
-        this.dOt = System.currentTimeMillis() / 1000;
+    public void aSZ() {
+        this.dOD = true;
+        this.dOB = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aSG() {
-        aSH();
-        this.dOv = false;
+    public boolean aTa() {
+        aTb();
+        this.dOD = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        if (this.dOu) {
-            this.dOu = false;
+        if (this.dOC) {
+            this.dOC = false;
             return false;
-        } else if (currentTimeMillis - this.dOt <= 2 || currentTimeMillis - this.dOt <= this.aam) {
+        } else if (currentTimeMillis - this.dOB <= 2 || currentTimeMillis - this.dOB <= this.aaz) {
             return false;
         } else {
-            l czJ = r.czO().czJ();
-            return (czJ != null ? czJ.czD() : 3) < 3;
+            l cAQ = r.cAV().cAQ();
+            return (cAQ != null ? cAQ.cAK() : 3) < 3;
         }
     }
 
-    private void aSH() {
+    private void aTb() {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (adAdSense != null) {
-            this.aam = adAdSense.aGz();
-            if (this.aam <= 0) {
-                this.aam = 86400;
+            this.aaz = adAdSense.aGS();
+            if (this.aaz <= 0) {
+                this.aaz = 86400;
                 return;
             }
             return;
         }
-        this.aam = 300;
+        this.aaz = 300;
     }
 }

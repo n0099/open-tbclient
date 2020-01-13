@@ -5,7 +5,7 @@ import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapsdkplatform.comapi.favrite.FavSyncPoi;
 import com.baidu.mobstat.Config;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static FavoritePoiInfo a(FavSyncPoi favSyncPoi) {

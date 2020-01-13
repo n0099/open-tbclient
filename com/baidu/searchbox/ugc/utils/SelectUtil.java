@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SelectUtil {
     private static List<ImageStruct> selectedImages = new ArrayList();
     public static int MAX_SELECTED_DEFAULT = 9;

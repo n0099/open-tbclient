@@ -31,11 +31,11 @@ public class Static {
                     if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                         AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                         CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                        absDelegateAdapterList.add(new c(null, bj.cNn, null));
-                        absDelegateAdapterList.add(new f(null, bj.cNm, null));
-                        absDelegateAdapterList.add(new e(null, bj.cNo, null));
-                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.f.jZA, null));
-                        absDelegateAdapterList.add(new d(null, g.jZD, null));
+                        absDelegateAdapterList.add(new c(null, bj.cNx, null));
+                        absDelegateAdapterList.add(new f(null, bj.cNw, null));
+                        absDelegateAdapterList.add(new e(null, bj.cNy, null));
+                        absDelegateAdapterList.add(new a(null, com.baidu.tieba.tbadkCore.f.kdd, null));
+                        absDelegateAdapterList.add(new d(null, g.kdg, null));
                     }
                 }
             });
@@ -46,12 +46,12 @@ public class Static {
                     if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof z)) {
                         z zVar = (z) customResponsedMessage.getData();
                         com.baidu.tieba.ala.livecard.models.a aVar = new com.baidu.tieba.ala.livecard.models.a();
-                        aVar.setTag(zVar.dwY);
+                        aVar.setTag(zVar.dxg);
                         zVar.a(49, aVar);
                     }
                 }
             });
-            aa.bCX().sP(49);
+            aa.bDZ().sU(49);
         }
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003390, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_FRS_NEGATIVE_URL);

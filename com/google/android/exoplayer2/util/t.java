@@ -2,27 +2,27 @@ package com.google.android.exoplayer2.util;
 
 import android.annotation.TargetApi;
 import android.os.Trace;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class t {
     public static void beginSection(String str) {
         if (v.SDK_INT >= 18) {
-            PY(str);
+            Qj(str);
         }
     }
 
     public static void endSection() {
         if (v.SDK_INT >= 18) {
-            dxv();
+            dyF();
         }
     }
 
     @TargetApi(18)
-    private static void PY(String str) {
+    private static void Qj(String str) {
         Trace.beginSection(str);
     }
 
     @TargetApi(18)
-    private static void dxv() {
+    private static void dyF() {
         Trace.endSection();
     }
 }

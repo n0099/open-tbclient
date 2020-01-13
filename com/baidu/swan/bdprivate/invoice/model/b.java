@@ -2,7 +2,7 @@ package com.baidu.swan.bdprivate.invoice.model;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements c {
     public long mId;
 

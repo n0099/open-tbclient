@@ -5,13 +5,13 @@ import com.baidu.searchbox.websocket.WebSocketTask;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.p;
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.q;
+/* loaded from: classes10.dex */
 public final class k {
-    public static final a bBE = new a(null);
-    private volatile Set<String> bBD;
+    public static final a bCq = new a(null);
+    private volatile Set<String> bCp;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         private a() {
         }
@@ -22,26 +22,26 @@ public final class k {
     }
 
     public final synchronized void a(WebSocketTask webSocketTask) {
-        p.j(webSocketTask, "task");
-        if (this.bBD == null) {
-            this.bBD = new LinkedHashSet();
+        q.j(webSocketTask, "task");
+        if (this.bCp == null) {
+            this.bCp = new LinkedHashSet();
         }
-        Set<String> set = this.bBD;
+        Set<String> set = this.bCp;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
     }
 
-    public final synchronized void jp(String str) {
-        p.j(str, "taskId");
-        Set<String> set = this.bBD;
+    public final synchronized void js(String str) {
+        q.j(str, "taskId");
+        Set<String> set = this.bCp;
         if (set != null) {
             set.remove(str);
         }
     }
 
     public final synchronized void release() {
-        Set<String> set = this.bBD;
+        Set<String> set = this.bCp;
         if (set != null) {
             for (String str : set) {
                 try {
@@ -51,16 +51,16 @@ public final class k {
                 }
             }
         }
-        Set<String> set2 = this.bBD;
+        Set<String> set2 = this.bCp;
         if (set2 != null) {
             set2.clear();
         }
     }
 
-    public final synchronized boolean Wn() {
+    public final synchronized boolean WK() {
         boolean z;
         synchronized (this) {
-            Set<String> set = this.bBD;
+            Set<String> set = this.bCp;
             z = (set != null ? set.size() : 0) < 5;
         }
         return z;

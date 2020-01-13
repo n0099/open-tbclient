@@ -15,7 +15,7 @@ import com.bigkoo.svprogresshud.listener.OnDismissListener;
 import com.bigkoo.svprogresshud.view.SVCircleProgressBar;
 import com.bigkoo.svprogresshud.view.SVProgressDefaultView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SVProgressHUD {
     private static final long DISMISSDELAYED = 1000;
     private WeakReference<Context> contextWeak;
@@ -62,7 +62,7 @@ public class SVProgressHUD {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum SVProgressHUDMaskType {
         None,
         Clear,

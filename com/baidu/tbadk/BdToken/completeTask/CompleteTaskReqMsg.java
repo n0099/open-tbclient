@@ -16,10 +16,15 @@ public class CompleteTaskReqMsg extends NetMessage {
     public String completeId;
     public Object extra;
     private int mTaskType;
+    private String mToken;
 
     public CompleteTaskReqMsg(int i) {
         super(CmdConfigHttp.CMD_COMPLETE_TASK, 309627);
         this.mTaskType = i;
+    }
+
+    public void setToken(String str) {
+        this.mToken = str;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -33,7 +38,12 @@ public class CompleteTaskReqMsg extends NetMessage {
         }
         DataReq.Builder builder = new DataReq.Builder();
         builder.shoubaicuid = TbadkCoreApplication.getInst().getCuidGalaxy2();
-        builder.compelete_id = Base64.encodeToString(this.completeId.getBytes(), 2);
+        if (this.completeId != null) {
+            builder.compelete_id = Base64.encodeToString(this.completeId.getBytes(), 2);
+        }
+        if (this.mToken != null) {
+            builder.token = Base64.encodeToString(this.mToken.getBytes(), 2);
+        }
         t.a(builder, true, true, false);
         CompleteTaskReqIdl.Builder builder2 = new CompleteTaskReqIdl.Builder();
         builder2.data = builder.build(false);

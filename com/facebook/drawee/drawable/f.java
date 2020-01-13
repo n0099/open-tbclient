@@ -4,104 +4,104 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class f extends a {
-    private static boolean lHT = true;
-    long aFx;
-    private final Drawable[] lHC;
-    int lHO;
-    int[] lHP;
-    int[] lHQ;
-    boolean[] lHR;
-    int lHS;
+    private static boolean lLr = true;
+    long aGp;
+    private final Drawable[] lLa;
+    int lLm;
+    int[] lLn;
+    int[] lLo;
+    boolean[] lLp;
+    int lLq;
     int mAlpha;
     int mDurationMs;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
         com.facebook.common.internal.g.d(drawableArr.length >= 1, "At least one layer required!");
-        this.lHC = drawableArr;
-        this.lHP = new int[drawableArr.length];
-        this.lHQ = new int[drawableArr.length];
+        this.lLa = drawableArr;
+        this.lLn = new int[drawableArr.length];
+        this.lLo = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.lHR = new boolean[drawableArr.length];
-        this.lHS = 0;
+        this.lLp = new boolean[drawableArr.length];
+        this.lLq = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.lHS == 0) {
+        if (this.lLq == 0) {
             super.invalidateSelf();
         }
     }
 
-    public void dkc() {
-        this.lHS++;
+    public void dld() {
+        this.lLq++;
     }
 
-    public void dkd() {
-        this.lHS--;
+    public void dle() {
+        this.lLq--;
         invalidateSelf();
     }
 
-    public void Hw(int i) {
+    public void HB(int i) {
         this.mDurationMs = i;
-        if (this.lHO == 1) {
-            this.lHO = 0;
+        if (this.lLm == 1) {
+            this.lLm = 0;
         }
     }
 
     private void resetInternal() {
-        this.lHO = 2;
-        Arrays.fill(this.lHP, 0);
-        this.lHP[0] = 255;
-        Arrays.fill(this.lHQ, 0);
-        this.lHQ[0] = 255;
-        Arrays.fill(this.lHR, false);
-        this.lHR[0] = true;
+        this.lLm = 2;
+        Arrays.fill(this.lLn, 0);
+        this.lLn[0] = 255;
+        Arrays.fill(this.lLo, 0);
+        this.lLo[0] = 255;
+        Arrays.fill(this.lLp, false);
+        this.lLp[0] = true;
     }
 
-    public void Hx(int i) {
-        this.lHO = 0;
-        this.lHR[i] = true;
+    public void HC(int i) {
+        this.lLm = 0;
+        this.lLp[i] = true;
         invalidateSelf();
     }
 
-    public void Hy(int i) {
-        this.lHO = 0;
-        this.lHR[i] = false;
+    public void HD(int i) {
+        this.lLm = 0;
+        this.lLp[i] = false;
         invalidateSelf();
     }
 
-    public void dke() {
-        this.lHO = 0;
-        Arrays.fill(this.lHR, true);
+    public void dlf() {
+        this.lLm = 0;
+        Arrays.fill(this.lLp, true);
         invalidateSelf();
     }
 
-    public void dkf() {
-        this.lHO = 2;
-        for (int i = 0; i < this.lHC.length; i++) {
-            this.lHQ[i] = this.lHR[i] ? 255 : 0;
+    public void dlg() {
+        this.lLm = 2;
+        for (int i = 0; i < this.lLa.length; i++) {
+            this.lLo[i] = this.lLp[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
-    private boolean bn(float f) {
+    private boolean bm(float f) {
         boolean z = true;
-        for (int i = 0; i < this.lHC.length; i++) {
-            this.lHQ[i] = (int) (((this.lHR[i] ? 1 : -1) * 255 * f) + this.lHP[i]);
-            if (this.lHQ[i] < 0) {
-                this.lHQ[i] = 0;
+        for (int i = 0; i < this.lLa.length; i++) {
+            this.lLo[i] = (int) (((this.lLp[i] ? 1 : -1) * 255 * f) + this.lLn[i]);
+            if (this.lLo[i] < 0) {
+                this.lLo[i] = 0;
             }
-            if (this.lHQ[i] > 255) {
-                this.lHQ[i] = 255;
+            if (this.lLo[i] > 255) {
+                this.lLo[i] = 255;
             }
-            if (this.lHR[i] && this.lHQ[i] < 255) {
+            if (this.lLp[i] && this.lLo[i] < 255) {
                 z = false;
             }
-            if (!this.lHR[i] && this.lHQ[i] > 0) {
+            if (!this.lLp[i] && this.lLo[i] > 0) {
                 z = false;
             }
         }
@@ -111,26 +111,26 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.lHO) {
+        switch (this.lLm) {
             case 0:
-                System.arraycopy(this.lHQ, 0, this.lHP, 0, this.lHC.length);
-                this.aFx = dkg();
-                if (lHT && this.mDurationMs != 0) {
+                System.arraycopy(this.lLo, 0, this.lLn, 0, this.lLa.length);
+                this.aGp = dlh();
+                if (lLr && this.mDurationMs != 0) {
                     r0 = 0.0f;
                 }
-                boolean bn = bn(r0);
-                this.lHO = bn ? 2 : 1;
-                z = bn;
+                boolean bm = bm(r0);
+                this.lLm = bm ? 2 : 1;
+                z = bm;
                 break;
             case 1:
                 com.facebook.common.internal.g.checkState(this.mDurationMs > 0);
-                boolean bn2 = bn(lHT ? ((float) (dkg() - this.aFx)) / this.mDurationMs : 1.0f);
-                this.lHO = bn2 ? 2 : 1;
-                z = bn2;
+                boolean bm2 = bm(lLr ? ((float) (dlh() - this.aGp)) / this.mDurationMs : 1.0f);
+                this.lLm = bm2 ? 2 : 1;
+                z = bm2;
                 break;
         }
-        for (int i = 0; i < this.lHC.length; i++) {
-            a(canvas, this.lHC[i], (this.lHQ[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.lLa.length; i++) {
+            a(canvas, this.lLa[i], (this.lLo[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -139,9 +139,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.lHS++;
+            this.lLq++;
             drawable.mutate().setAlpha(i);
-            this.lHS--;
+            this.lLq--;
             drawable.draw(canvas);
         }
     }
@@ -159,7 +159,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long dkg() {
+    protected long dlh() {
         return SystemClock.uptimeMillis();
     }
 }

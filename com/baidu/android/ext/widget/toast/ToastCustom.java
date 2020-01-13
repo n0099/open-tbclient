@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.baidu.android.common.ui.R;
 import com.baidu.android.ext.widget.toast.UniversalToast;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ToastCustom {
     public static final int CLICKABLE_TOAST_SHOW_TIME = 3;
     public static final int NORMAL_TOAST_SHOW_TIME = 2;

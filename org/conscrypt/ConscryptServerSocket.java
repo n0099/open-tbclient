@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import javax.net.ssl.SSLServerSocket;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class ConscryptServerSocket extends SSLServerSocket {
     private boolean channelIdEnabled;
     private final SSLParametersImpl sslParameters;

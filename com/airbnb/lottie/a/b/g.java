@@ -4,7 +4,7 @@ import android.graphics.Path;
 import com.airbnb.lottie.model.content.Mask;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class g {
     private final List<a<com.airbnb.lottie.model.content.h, Path>> gH;
     private final List<a<Integer, Integer>> gI;

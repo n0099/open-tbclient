@@ -5,22 +5,22 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AlaGetVerifyStrategyResponseHttpMessage extends JsonHttpResponsedMessage {
-    public int faH;
-    public String faI;
-    public int faJ;
-    public String faK;
-    public int faL;
-    public int faM;
-    public String faN;
+    public int fdA;
+    public String fdB;
+    public int fdv;
+    public String fdw;
+    public int fdx;
+    public String fdy;
+    public int fdz;
     public int verifyType;
 
     public AlaGetVerifyStrategyResponseHttpMessage() {
         super(1003303);
-        this.faH = 0;
-        this.faJ = 2;
-        this.faL = 0;
+        this.fdv = 0;
+        this.fdx = 2;
+        this.fdz = 0;
         this.verifyType = 0;
-        this.faM = 0;
+        this.fdA = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -32,19 +32,19 @@ public class AlaGetVerifyStrategyResponseHttpMessage extends JsonHttpResponsedMe
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("strategy")) != null) {
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject(LogConfig.VALUE_LIVE_HK_RECORD_START);
                 if (optJSONObject3 != null) {
-                    this.faH = optJSONObject3.optInt("switch");
-                    this.faI = optJSONObject3.optString("text");
+                    this.fdv = optJSONObject3.optInt("switch");
+                    this.fdw = optJSONObject3.optString("text");
                 }
                 JSONObject optJSONObject4 = optJSONObject.optJSONObject("certify");
                 if (optJSONObject4 != null) {
-                    this.faM = optJSONObject4.optInt("switch");
-                    this.faN = optJSONObject4.optString("text");
+                    this.fdA = optJSONObject4.optInt("switch");
+                    this.fdB = optJSONObject4.optString("text");
                 }
                 JSONObject optJSONObject5 = optJSONObject.optJSONObject("user_verify");
                 if (optJSONObject5 != null) {
-                    this.faJ = optJSONObject5.optInt("switch");
-                    this.faL = optJSONObject5.optInt("in_testlist");
-                    this.faK = optJSONObject5.optString("text");
+                    this.fdx = optJSONObject5.optInt("switch");
+                    this.fdz = optJSONObject5.optInt("in_testlist");
+                    this.fdy = optJSONObject5.optString("text");
                     this.verifyType = optJSONObject5.optInt("type");
                 }
             }

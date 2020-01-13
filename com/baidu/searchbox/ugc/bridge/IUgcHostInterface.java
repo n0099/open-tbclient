@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface IUgcHostInterface<T> {
     public static final IUgcHostInterface EMPTY = new IUgcHostInterface() { // from class: com.baidu.searchbox.ugc.bridge.IUgcHostInterface.1
         @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
@@ -54,7 +54,7 @@ public interface IUgcHostInterface<T> {
     };
     public static final String LOG_TAG = "IUgcHostInterface";
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface RequestPermissionCallBack {
         void isAllAgree(Boolean bool);
 
@@ -82,7 +82,7 @@ public interface IUgcHostInterface<T> {
 
     void setUgcRNInitData(Activity activity, String str);
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class Impl {
         private static IUgcHostInterface sUgcHostImpl = UgcRuntime.getUgcInterface();
 

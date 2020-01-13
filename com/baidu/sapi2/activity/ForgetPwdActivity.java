@@ -5,7 +5,7 @@ import com.baidu.i.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.SapiWebDTO;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForgetPwdActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {

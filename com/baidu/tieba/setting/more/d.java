@@ -1,5 +1,5 @@
 package com.baidu.tieba.setting.more;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface d {
-    void Bo(int i);
+    void Bt(int i);
 }

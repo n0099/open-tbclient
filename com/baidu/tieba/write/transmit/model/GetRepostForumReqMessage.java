@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.GetRepostRecommendForum.DataReq;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GetRepostForumReqMessage extends NetMessage {
     private long forumId;
     private BdUniqueId mRequestId;

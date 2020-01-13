@@ -1,5 +1,6 @@
 package com.baidu.tieba.sdk.d;
 
+import android.app.Activity;
 import android.content.Intent;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
@@ -18,9 +19,12 @@ public class b implements CustomMessageTask.CustomRunnable {
             intent.putExtra(AlaLiveRoomActivityConfig.LIVE_BROADCAST_GIFT_TOAST_QUEUE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_BROADCAST_GIFT_TOAST_QUEUE));
             intent.putExtra("room_id", alaLiveRoomActivityConfig.getIntent().getStringExtra("room_id"));
             intent.putExtra("params", alaLiveRoomActivityConfig.getIntent().getStringExtra("params"));
-            e cBF = com.baidu.tieba.sdk.c.a.cBC().cBF();
-            if (cBF != null) {
-                cBF.e(alaLiveRoomActivityConfig.getContext(), intent);
+            if (!(alaLiveRoomActivityConfig.getContext() instanceof Activity)) {
+                intent.addFlags(268435456);
+            }
+            e cCK = com.baidu.tieba.sdk.c.a.cCH().cCK();
+            if (cCK != null) {
+                cCK.e(alaLiveRoomActivityConfig.getContext(), intent);
                 return null;
             }
             return null;

@@ -1,14 +1,14 @@
 package com.airbnb.lottie.e;
 
 import com.baidu.mobstat.Config;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d {
-    private final float kB;
-    private final float kC;
+    private final float scaleX;
+    private final float scaleY;
 
     public d(float f, float f2) {
-        this.kB = f;
-        this.kC = f2;
+        this.scaleX = f;
+        this.scaleY = f2;
     }
 
     public d() {
@@ -16,11 +16,11 @@ public class d {
     }
 
     public float getScaleX() {
-        return this.kB;
+        return this.scaleX;
     }
 
     public float getScaleY() {
-        return this.kC;
+        return this.scaleY;
     }
 
     public String toString() {

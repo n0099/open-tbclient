@@ -1,0 +1,22 @@
+package kotlin.coroutines;
+
+import kotlin.coroutines.c;
+import kotlin.jvm.a.m;
+import kotlin.jvm.internal.Lambda;
+import kotlin.jvm.internal.q;
+/* loaded from: classes5.dex */
+final class CombinedContext$toString$1 extends Lambda implements m<String, c.b, String> {
+    public static final CombinedContext$toString$1 INSTANCE = new CombinedContext$toString$1();
+
+    CombinedContext$toString$1() {
+        super(2);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.jvm.a.m
+    public final String invoke(String str, c.b bVar) {
+        q.j(str, "acc");
+        q.j(bVar, "element");
+        return str.length() == 0 ? bVar.toString() : str + ", " + bVar;
+    }
+}

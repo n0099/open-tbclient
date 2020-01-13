@@ -3,11 +3,11 @@ package com.baidu.swan.apps.runtime;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.swan.apps.runtime.i;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class i<SelfT extends i<SelfT>> extends com.baidu.swan.apps.x.b.a.c<SelfT> {
     public final String id;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends i<a> {
         public a(String str) {
             super(str);
@@ -19,8 +19,8 @@ public abstract class i<SelfT extends i<SelfT>> extends com.baidu.swan.apps.x.b.
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.as.d.d
-        /* renamed from: aap */
-        public a SS() {
+        /* renamed from: aaM */
+        public a Tp() {
             return this;
         }
     }

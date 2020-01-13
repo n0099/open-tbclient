@@ -6,11 +6,11 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends ab {
-    private a bAc;
-    private e bAd;
-    private d bAe;
+    private a bAP;
+    private e bAQ;
+    private d bAR;
 
     public b(j jVar) {
         super(jVar, "/swanAPI/vrvideo");
@@ -53,22 +53,22 @@ public class b extends ab {
         }
         switch (c) {
             case 0:
-                if (this.bAc == null) {
-                    this.bAc = new a("/swanAPI/vrvideo/open");
+                if (this.bAP == null) {
+                    this.bAP = new a("/swanAPI/vrvideo/open");
                 }
-                a = this.bAc.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.bAP.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 1:
-                if (this.bAd == null) {
-                    this.bAd = new e("/swanAPI/vrvideo/update");
+                if (this.bAQ == null) {
+                    this.bAQ = new e("/swanAPI/vrvideo/update");
                 }
-                a = this.bAd.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.bAQ.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 2:
-                if (this.bAe == null) {
-                    this.bAe = new d("/swanAPI/vrvideo/remove");
+                if (this.bAR == null) {
+                    this.bAR = new d("/swanAPI/vrvideo/remove");
                 }
-                a = this.bAe.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.bAR.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             default:
                 a = false;

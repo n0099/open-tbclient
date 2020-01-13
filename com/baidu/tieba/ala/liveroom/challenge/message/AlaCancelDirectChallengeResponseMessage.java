@@ -4,8 +4,8 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AlaCancelDirectChallengeResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.live.challenge.a eOW;
-    private int eOX;
+    private com.baidu.live.challenge.a eQv;
+    private int eQw;
 
     public AlaCancelDirectChallengeResponseMessage() {
         super(1021107);
@@ -16,20 +16,20 @@ public class AlaCancelDirectChallengeResponseMessage extends JsonHttpResponsedMe
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.eOX = optJSONObject.optInt("cancel_status");
+            this.eQw = optJSONObject.optInt("cancel_status");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("match_info");
             if (optJSONObject2 != null) {
-                this.eOW = new com.baidu.live.challenge.a();
-                this.eOW.parseJson(optJSONObject2);
+                this.eQv = new com.baidu.live.challenge.a();
+                this.eQv.parseJson(optJSONObject2);
             }
         }
     }
 
-    public com.baidu.live.challenge.a bhJ() {
-        return this.eOW;
+    public com.baidu.live.challenge.a biv() {
+        return this.eQv;
     }
 
-    public boolean bhL() {
-        return this.eOX == 1;
+    public boolean bix() {
+        return this.eQw == 1;
     }
 }

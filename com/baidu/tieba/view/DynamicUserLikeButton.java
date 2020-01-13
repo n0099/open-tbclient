@@ -7,11 +7,11 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    private a kDx;
+    private a kGY;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void G(View view);
     }
@@ -32,7 +32,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
     }
 
-    public void fI(boolean z) {
+    public void fN(boolean z) {
         if (z) {
             com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
             cVar.ld(R.color.cp_cont_d);
@@ -50,17 +50,17 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void k(boolean z, int i) {
+    public void l(boolean z, int i) {
         if (z || i == 1 || i == 2) {
-            fI(true);
+            fN(true);
         } else {
-            fI(false);
+            fN(false);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void b(boolean z, int i, boolean z2) {
-        k(z, i);
+        l(z, i);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -68,22 +68,22 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void aW(View view) {
-        if (this.kDx != null) {
-            this.kDx.G(view);
+    public void ba(View view) {
+        if (this.kGY != null) {
+            this.kGY.G(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void h(View.OnClickListener onClickListener) {
+    public void g(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
     public void onChangeSkinType(int i) {
-        aFd();
+        aFw();
     }
 
     public void setOnClickEvent(a aVar) {
-        this.kDx = aVar;
+        this.kGY = aVar;
     }
 }

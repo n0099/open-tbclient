@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.maybe;
 
-import io.reactivex.b.f;
+import io.reactivex.c.f;
 import io.reactivex.internal.disposables.CancellableDisposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.k;
@@ -8,23 +8,23 @@ import io.reactivex.l;
 import io.reactivex.m;
 import io.reactivex.n;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MaybeCreate<T> extends k<T> {
-    final n<T> mUH;
+    final n<T> nwQ;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         Emitter emitter = new Emitter(mVar);
         mVar.onSubscribe(emitter);
         try {
-            this.mUH.a(emitter);
+            this.nwQ.a(emitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.I(th);
             emitter.onError(th);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class Emitter<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, l<T> {
         private static final long serialVersionUID = -2467358622224974244L;
         final m<? super T> actual;
@@ -56,7 +56,7 @@ public final class MaybeCreate<T> extends k<T> {
 
         public void onError(Throwable th) {
             if (!tryOnError(th)) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
 

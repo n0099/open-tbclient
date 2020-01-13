@@ -1,18 +1,18 @@
 package io.reactivex.disposables;
 
 import io.reactivex.internal.util.ExceptionHelper;
-/* loaded from: classes4.dex */
-final class ActionDisposable extends ReferenceDisposable<io.reactivex.b.a> {
+/* loaded from: classes5.dex */
+final class ActionDisposable extends ReferenceDisposable<io.reactivex.c.a> {
     private static final long serialVersionUID = -8219729196779211169L;
 
-    ActionDisposable(io.reactivex.b.a aVar) {
+    ActionDisposable(io.reactivex.c.a aVar) {
         super(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // io.reactivex.disposables.ReferenceDisposable
-    public void onDisposed(io.reactivex.b.a aVar) {
+    public void onDisposed(io.reactivex.c.a aVar) {
         try {
             aVar.run();
         } catch (Throwable th) {

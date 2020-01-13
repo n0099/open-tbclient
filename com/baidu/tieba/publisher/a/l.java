@@ -10,7 +10,7 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.ugc.bridge.IUgcHostInterface;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
 import com.baidu.tbadk.plugins.PluginCheckUtil;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class l implements IUgcHostInterface<CookieManager> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
@@ -51,7 +51,7 @@ public class l implements IUgcHostInterface<CookieManager> {
     @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
     public void openVideoPublisherActivity(Context context, UgcSchemeModel ugcSchemeModel) {
         com.baidu.tbadk.data.h ad;
-        if (PluginCheckUtil.vn("com.baidu.tieba.pluginPublisher") && (ad = com.baidu.tbadk.data.h.ad(ugcSchemeModel)) != null) {
+        if (PluginCheckUtil.vs("com.baidu.tieba.pluginPublisher") && (ad = com.baidu.tbadk.data.h.ad(ugcSchemeModel)) != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2921429, ad));
         }
     }

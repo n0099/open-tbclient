@@ -47,7 +47,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.GUIDTool;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.imageview.BdImage;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbadkSettings;
 import com.baidu.live.tbadk.TiebaDatabase;

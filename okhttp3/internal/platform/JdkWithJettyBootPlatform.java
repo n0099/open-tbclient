@@ -11,7 +11,7 @@ import javax.net.ssl.SSLSocket;
 import okhttp3.Protocol;
 import okhttp3.internal.Util;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class JdkWithJettyBootPlatform extends Platform {
     private final Class<?> clientProviderClass;
     private final Method getMethod;
@@ -70,7 +70,7 @@ public class JdkWithJettyBootPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static class JettyNegoProvider implements InvocationHandler {
         private final List<String> protocols;
         String selected;

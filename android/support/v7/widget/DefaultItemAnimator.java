@@ -12,7 +12,7 @@ import android.view.ViewPropertyAnimator;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DefaultItemAnimator extends SimpleItemAnimator {
     private static final boolean DEBUG = false;
     private static TimeInterpolator sDefaultInterpolator;
@@ -29,7 +29,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     ArrayList<RecyclerView.ViewHolder> mChangeAnimations = new ArrayList<>();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class MoveInfo {
         public int fromX;
         public int fromY;
@@ -47,7 +47,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ChangeInfo {
         public int fromX;
         public int fromY;

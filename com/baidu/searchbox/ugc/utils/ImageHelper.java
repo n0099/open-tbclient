@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ImageHelper {
     private static final String PHOTO_FILE = "take_photo";
     private static List<ImageStruct> mList = new ArrayList();

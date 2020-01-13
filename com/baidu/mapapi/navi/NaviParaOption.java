@@ -1,7 +1,7 @@
 package com.baidu.mapapi.navi;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NaviParaOption {
     LatLng a;
     String b;

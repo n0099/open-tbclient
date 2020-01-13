@@ -1,31 +1,31 @@
 package com.baidu.tieba.pb.data;
 
 import tbclient.PbPage.ForumHeadlineImgInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class h {
-    private long cKq = 0;
-    private String cKr = "";
+    private long cKB = 0;
+    private String cKC = "";
     private String imgUrl = "";
-    private int iwT = Integer.MAX_VALUE;
-    private String iwU = "";
-    private String Zz = "";
+    private int iAx = Integer.MAX_VALUE;
+    private String iAy = "";
+    private String ZN = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
-            this.cKq = forumHeadlineImgInfo.img_user_id.longValue();
-            this.cKr = forumHeadlineImgInfo.img_user_name;
+            this.cKB = forumHeadlineImgInfo.img_user_id.longValue();
+            this.cKC = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.iwT = forumHeadlineImgInfo.rank_num.intValue();
-            this.iwU = forumHeadlineImgInfo.rank_up_info;
-            this.Zz = forumHeadlineImgInfo.rank_url;
+            this.iAx = forumHeadlineImgInfo.rank_num.intValue();
+            this.iAy = forumHeadlineImgInfo.rank_up_info;
+            this.ZN = forumHeadlineImgInfo.rank_url;
         }
     }
 
-    public String cio() {
-        return this.Zz;
+    public String cjw() {
+        return this.ZN;
     }
 
-    public String axX() {
+    public String ayq() {
         return this.imgUrl;
     }
 }

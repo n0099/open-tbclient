@@ -8,7 +8,7 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e extends com.baidu.platform.base.e {
     public e(RouteShareURLOption routeShareURLOption) {
         a(routeShareURLOption);

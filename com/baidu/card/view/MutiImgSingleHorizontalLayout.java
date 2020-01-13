@@ -27,19 +27,19 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<a> {
-    private static final int LX = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-    private static final int LY = l.getEquipmentWidth(TbadkCoreApplication.getInst());
-    private static final int LZ = LY - LX;
-    private static final int Ma = LZ / 2;
-    private a JB;
-    private z<a> Lb;
-    public TbImageView NQ;
-    public ImageView NR;
-    private boolean Nf;
-    private boolean Nu;
-    private LinkedList<MediaData> Nw;
+    private static final int Mc = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+    private static final int Me = l.getEquipmentWidth(TbadkCoreApplication.getInst());
+    private static final int Mf = Me - Mc;
+    private static final int Mg = Mf / 2;
+    private a JH;
+    private z<a> Lh;
+    private LinkedList<MediaData> NB;
+    public TbImageView NV;
+    public ImageView NW;
+    private boolean Nj;
+    private boolean Ny;
     public TextView mTitle;
 
     public MutiImgSingleHorizontalLayout(Context context) {
@@ -48,54 +48,54 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<a> 
 
     public MutiImgSingleHorizontalLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Nf = true;
-        this.JB = null;
-        this.Nu = false;
+        this.Nj = true;
+        this.JH = null;
+        this.Ny = false;
         initUI();
     }
 
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.multi_image_single_h_layout, (ViewGroup) this, true);
         setOrientation(1);
-        setLayoutParams(new ViewGroup.LayoutParams(-1, Ma));
+        setLayoutParams(new ViewGroup.LayoutParams(-1, Mg));
         this.mTitle = (TextView) findViewById(R.id.thread_card_title);
-        this.NQ = (TbImageView) findViewById(R.id.thread_card_img_singal);
-        this.NR = (ImageView) findViewById(R.id.play_btn);
+        this.NV = (TbImageView) findViewById(R.id.thread_card_img_singal);
+        this.NW = (ImageView) findViewById(R.id.play_btn);
     }
 
     private void setImageData(bj bjVar) {
-        ArrayList<MediaData> azO = bjVar.azO();
-        if (i.axf().isShowImages() && v.getCount(azO) != 0) {
+        ArrayList<MediaData> aAh = bjVar.aAh();
+        if (i.axy().isShowImages() && v.getCount(aAh) != 0) {
             LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < azO.size(); i++) {
-                MediaData mediaData = (MediaData) v.getItem(azO, i);
+            for (int i = 0; i < aAh.size(); i++) {
+                MediaData mediaData = (MediaData) v.getItem(aAh, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
             }
-            this.Nw = linkedList;
-            this.Nu = true;
-            this.NQ.setVisibility(8);
-            this.NR.setVisibility(8);
+            this.NB = linkedList;
+            this.Ny = true;
+            this.NV.setVisibility(8);
+            this.NW.setVisibility(8);
             if (v.getCount(linkedList) > 0) {
-                this.NQ.setVisibility(0);
-                this.NR.setVisibility(0);
-                this.NQ.setConrers(15);
-                a((MediaData) v.getItem(azO, 0), this.NQ, true, false, true, 0);
+                this.NV.setVisibility(0);
+                this.NW.setVisibility(0);
+                this.NV.setConrers(15);
+                a((MediaData) v.getItem(aAh, 0), this.NV, true, false, true, 0);
                 return;
             }
-            this.NQ.setVisibility(8);
-            this.NR.setVisibility(8);
-            this.Nu = false;
+            this.NV.setVisibility(8);
+            this.NW.setVisibility(8);
+            this.Ny = false;
             return;
         }
-        this.NQ.setVisibility(8);
-        this.NR.setVisibility(8);
-        this.Nu = false;
+        this.NV.setVisibility(8);
+        this.NW.setVisibility(8);
+        this.Ny = false;
     }
 
     public void setFromCDN(boolean z) {
-        this.Nf = z;
+        this.Nj = z;
     }
 
     public void setPreloadSizeReadyCallback(b bVar) {
@@ -105,10 +105,10 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<a> 
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(a aVar) {
-        this.JB = aVar;
-        bj axx = aVar.axx();
-        au.a(this.mTitle, axx);
-        setImageData(axx);
+        this.JH = aVar;
+        bj axQ = aVar.axQ();
+        au.a(this.mTitle, axQ);
+        setImageData(axQ);
     }
 
     public void setMarginsTop(View view, int i) {
@@ -122,11 +122,11 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<a> 
     }
 
     public z<a> getSubClickListener() {
-        return this.Lb;
+        return this.Lh;
     }
 
     public void setSubClickListener(z<a> zVar) {
-        this.Lb = zVar;
+        this.Lh = zVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -136,7 +136,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements m<a> 
 
     private void a(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i) {
         String a = a(mediaData);
-        int i2 = this.Nf ? 13 : 14;
+        int i2 = this.Nj ? 13 : 14;
         if (!aq.equals(a, tbImageView.getUrl())) {
             tbImageView.reset();
         }

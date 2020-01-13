@@ -2,7 +2,7 @@ package com.vivo.push.c;
 
 import android.content.Context;
 import com.vivo.push.sdk.PushMessageCallback;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class n implements Runnable {
     final /* synthetic */ com.vivo.push.b.n a;
     final /* synthetic */ m b;

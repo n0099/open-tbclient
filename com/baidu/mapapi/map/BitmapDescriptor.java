@@ -7,7 +7,7 @@ import android.os.Bundle;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class BitmapDescriptor {
     Bitmap a;
     private Bundle b;

@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private g erq;
+    private g esC;
 
     public OnlineListHttpResponseMessage() {
         super(1021008);
@@ -16,12 +16,12 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null && optJSONObject.optJSONArray("initmacy_rank") != null) {
-            this.erq = new g();
-            this.erq.parserJson(optJSONObject);
+            this.esC = new g();
+            this.esC.parserJson(optJSONObject);
         }
     }
 
-    public g bbm() {
-        return this.erq;
+    public g bbH() {
+        return this.esC;
     }
 }

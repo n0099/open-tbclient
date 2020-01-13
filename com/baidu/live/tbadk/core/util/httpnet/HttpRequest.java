@@ -13,6 +13,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.util.INetWorkCore;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.sofire.ac.FH;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class HttpRequest {
     public static final String BDUSS = "BDUSS";
@@ -28,6 +29,7 @@ public class HttpRequest {
     public static final String NET_TYPE = "net_type";
     public static final String PHONE_IMEI = "_phone_imei";
     public static final String SDK_LIVE_IS_HOT = "ishot";
+    public static final String SDK_LIVE_LIVE_ACTIVITY_TYPE = "live_activity_type";
     public static final String SDK_VERSION = "_sdk_version";
     public static final String STOKEN = "stoken";
     public static final String SUBAPP_TYPE = "subapp_type";
@@ -75,6 +77,9 @@ public class HttpRequest {
         if (AlaLiveSwitchData.isHotLive == 1) {
             iNetWorkCore.addPostData(SDK_LIVE_IS_HOT, "1");
         }
+        if (!TextUtils.isEmpty(AlaLiveSwitchData.liveActivityType)) {
+            iNetWorkCore.addPostData(SDK_LIVE_LIVE_ACTIVITY_TYPE, AlaLiveSwitchData.liveActivityType);
+        }
         String from = TbadkCoreApplication.getFrom();
         if (from != null && from.length() > 0) {
             iNetWorkCore.addPostData("from", from);
@@ -89,6 +94,8 @@ public class HttpRequest {
         iNetWorkCore.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
         iNetWorkCore.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
         iNetWorkCore.addPostData("model", Build.MODEL);
+        iNetWorkCore.addPostData(Constants.PHONE_BRAND, Build.BRAND);
+        iNetWorkCore.addPostData("_os_version", Build.VERSION.RELEASE);
         if (SharedPrefHelper.getInstance().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
             iNetWorkCore.addPostData("z_id", FH.gz(TbadkCoreApplication.getInst()));
         }

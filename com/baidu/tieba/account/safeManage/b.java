@@ -8,11 +8,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 import tbclient.SimpleUser;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private LinearLayout dUh;
-    private TbSettingTextTipView dUi;
-    private TbSettingTextTipView dUj;
+    private LinearLayout dUq;
+    private TbSettingTextTipView dUr;
+    private TbSettingTextTipView dUs;
     private BaseActivity mActivity;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
@@ -20,18 +20,18 @@ public class b {
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mActivity = baseActivity;
         this.mOnClickListener = onClickListener;
-        aKa();
+        aKt();
     }
 
-    private void aKa() {
+    private void aKt() {
         this.mRootLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.dUh = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.dUi = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.dUj = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.dUi.aKc();
-        this.dUj.aKc();
-        this.dUi.setOnClickListener(this.mOnClickListener);
-        this.dUj.setOnClickListener(this.mOnClickListener);
+        this.dUq = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.dUr = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.dUs = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
+        this.dUr.aKv();
+        this.dUs.aKv();
+        this.dUr.setOnClickListener(this.mOnClickListener);
+        this.dUs.setOnClickListener(this.mOnClickListener);
     }
 
     public void lM(int i) {
@@ -41,7 +41,7 @@ public class b {
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.dUj.setTip(simpleUser.block_msg);
+            this.dUs.setTip(simpleUser.block_msg);
         }
     }
 

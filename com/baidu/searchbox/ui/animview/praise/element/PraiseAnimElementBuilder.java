@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PraiseAnimElementBuilder {
     private int mCanvasHeight;
     private int mCanvasWidth;

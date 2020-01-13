@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements ZeusPluginFactory {
-    private String aXf;
+    private String aXX;
 
     public b(@NonNull String str) {
-        this.aXf = str;
+        this.aXX = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -19,7 +19,7 @@ public class b implements ZeusPluginFactory {
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        com.baidu.swan.apps.r.e.b.a a = com.baidu.swan.apps.w.a.RX().a(invoker, this.aXf);
+        com.baidu.swan.apps.r.e.b.a a = com.baidu.swan.apps.w.a.St().a(invoker, this.aXX);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i("【InlineFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline player「Hash:" + a.hashCode() + "」");
         }

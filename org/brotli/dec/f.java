@@ -1,7 +1,7 @@
 package org.brotli.dec;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class f {
-    private static int er(int i, int i2) {
+    private static int eB(int i, int i2) {
         int i3 = 1 << (i2 - 1);
         while ((i & i3) != 0) {
             i3 >>= 1;
@@ -63,9 +63,9 @@ final class f {
             while (iArr4[i12] > 0) {
                 int i17 = i15 + 1;
                 a(iArr, i + i16, i14, i10, iArr3[i15] | (i12 << 16));
-                int er = er(i16, i12);
+                int eB = eB(i16, i12);
                 iArr4[i12] = iArr4[i12] - 1;
-                i16 = er;
+                i16 = eB;
                 i15 = i17;
             }
             i12++;
@@ -94,9 +94,9 @@ final class f {
                 }
                 int i28 = i25 + 1;
                 a(iArr, i26 + (i27 >> i2), i19, i22, iArr3[i25] | ((i20 - i2) << 16));
-                int er2 = er(i27, i20);
+                int eB2 = eB(i27, i20);
                 iArr4[i20] = iArr4[i20] - 1;
-                i27 = er2;
+                i27 = eB2;
                 i25 = i28;
             }
             i20++;

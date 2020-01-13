@@ -5,20 +5,20 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.h;
 /* loaded from: classes.dex */
 public class StringU {
-    private static boolean dRm;
+    private static boolean dRv;
 
     private static native String toUpper(String str);
 
     static {
         try {
-            dRm = h.hu().loadLibrary("stringu", 2);
-            if (dRm) {
-                aJ("stringu_so_load_success", null);
+            dRv = h.ht().loadLibrary("stringu", 2);
+            if (dRv) {
+                aK("stringu_so_load_success", null);
             } else {
-                aJ("stringu_so_load_retry_fail", "retry to load so failed at 2 times");
+                aK("stringu_so_load_retry_fail", "retry to load so failed at 2 times");
             }
         } catch (Exception e) {
-            aJ("stringu_so_load_fail", e.getMessage());
+            aK("stringu_so_load_fail", e.getMessage());
         }
     }
 
@@ -27,18 +27,18 @@ public class StringU {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String vP(String str) {
+    public static String vT(String str) {
         String str2;
         String str3 = "";
-        if (dRm && !TextUtils.isEmpty(str)) {
+        if (dRv && !TextUtils.isEmpty(str)) {
             try {
                 str3 = toUpper(str);
                 if (TextUtils.isEmpty(str3)) {
-                    aJ("stringu_m_result_null", null);
+                    aK("stringu_m_result_null", null);
                 }
                 str2 = str3;
             } catch (Exception e) {
-                aJ("stringu_m_call_fail", e.getMessage());
+                aK("stringu_m_call_fail", e.getMessage());
             }
             return str2 != null ? "" : str2;
         }
@@ -47,7 +47,7 @@ public class StringU {
         }
     }
 
-    private static void aJ(String str, String str2) {
+    private static void aK(String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
             BdStatisticsManager.getInstance().eventStat(null, str, null, 1, new Object[0]);
         } else {

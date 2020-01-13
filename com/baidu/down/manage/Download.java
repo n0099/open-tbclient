@@ -6,7 +6,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Download {
     private static final DecimalFormat DFOEMAT = new DecimalFormat("###0.0");
     private String mFromParam;
@@ -241,7 +241,7 @@ public class Download {
         return stringBuffer.toString();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum DownloadState {
         WAITING,
         DOWNLOADING,

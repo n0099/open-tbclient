@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SnackbarContentLayout extends LinearLayout implements BaseTransientBottomBar.ContentViewCallback {
     private Button mActionView;
     private int mMaxInlineActionWidth;

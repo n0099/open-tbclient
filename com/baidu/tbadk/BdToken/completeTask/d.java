@@ -27,13 +27,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d implements Handler.Callback {
-    private com.baidu.tbadk.h.b<com.baidu.tbadk.BdToken.b> cFi;
-    private com.baidu.tbadk.BdToken.completeTask.b cFj;
+    private com.baidu.tbadk.h.b<com.baidu.tbadk.BdToken.b> cFu;
+    private com.baidu.tbadk.BdToken.completeTask.b cFv;
     protected BdUniqueId mBdUniqueId;
-    private final Queue<a> cFh = new LinkedList();
+    private final Queue<a> cFt = new LinkedList();
     private boolean isLoading = false;
     private final Handler mHandler = new Handler(this);
-    private com.baidu.adp.framework.listener.a cFk = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_COMPLETE_TASK, 309627) { // from class: com.baidu.tbadk.BdToken.completeTask.d.1
+    private com.baidu.adp.framework.listener.a cFw = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_COMPLETE_TASK, 309627) { // from class: com.baidu.tbadk.BdToken.completeTask.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             com.baidu.tbadk.BdToken.completeTask.a data;
@@ -50,24 +50,24 @@ public class d implements Handler.Callback {
                     data = responsedMessage instanceof CompleteTaskSocketResMsg ? ((CompleteTaskSocketResMsg) responsedMessage).getData() : null;
                 }
                 if (data != null) {
-                    if (d.this.cFj == null) {
-                        d.this.cFj = new com.baidu.tbadk.BdToken.completeTask.b();
+                    if (d.this.cFv == null) {
+                        d.this.cFv = new com.baidu.tbadk.BdToken.completeTask.b();
                     }
-                    d.this.cFj.a(data);
-                    d.this.cFj.show();
+                    d.this.cFv.a(data);
+                    d.this.cFv.show();
                     CompleteTaskReqMsg completeTaskReqMsg = (CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra();
                     if (completeTaskReqMsg.extra instanceof e) {
                         obj = (e) completeTaskReqMsg.extra;
-                        com.baidu.tbadk.BdToken.b bVar = ((e) obj).cFq;
-                        if (data != null && data.cFf == 1) {
-                            bVar.cDi = true;
+                        com.baidu.tbadk.BdToken.b bVar = ((e) obj).cFC;
+                        if (data != null && data.cFr == 1) {
+                            bVar.cDt = true;
                         }
                         d.this.r(bVar);
-                    } else if (completeTaskReqMsg.extra instanceof C0360d) {
-                        obj = (C0360d) completeTaskReqMsg.extra;
-                        d.this.rn(((C0360d) obj).data);
+                    } else if (completeTaskReqMsg.extra instanceof C0362d) {
+                        obj = (C0362d) completeTaskReqMsg.extra;
+                        d.this.rq(((C0362d) obj).data);
                     } else if (completeTaskReqMsg.extra instanceof f) {
-                        n.avp().avq();
+                        n.avI().avJ();
                         obj = null;
                     } else {
                         if (completeTaskReqMsg.extra instanceof c) {
@@ -75,21 +75,21 @@ public class d implements Handler.Callback {
                         obj = null;
                     }
                     if (obj != null) {
-                        d.this.cFh.remove(obj);
+                        d.this.cFt.remove(obj);
                     }
-                    d.this.avI();
+                    d.this.awb();
                 }
             }
         }
     };
-    private CustomMessageListener cFl = new CustomMessageListener(2921379) { // from class: com.baidu.tbadk.BdToken.completeTask.d.2
+    private CustomMessageListener cFx = new CustomMessageListener(2921379) { // from class: com.baidu.tbadk.BdToken.completeTask.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof b)) {
                 b bVar = (b) customResponsedMessage.getData();
-                d.this.ar(bVar.cFn);
-                d.this.as(bVar.cFo);
+                d.this.aq(bVar.cFz);
+                d.this.ar(bVar.cFA);
             }
         }
     };
@@ -114,7 +114,7 @@ public class d implements Handler.Callback {
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                avK();
+                awd();
                 return false;
             default:
                 return false;
@@ -122,7 +122,7 @@ public class d implements Handler.Callback {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void avI() {
+    public void awb() {
         Message obtain = Message.obtain();
         obtain.what = 1;
         this.mHandler.sendMessage(obtain);
@@ -130,26 +130,27 @@ public class d implements Handler.Callback {
 
     public d(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        avL();
+        awe();
         registerListeners();
     }
 
     public void a(com.baidu.tbadk.h.b<com.baidu.tbadk.BdToken.b> bVar) {
-        this.cFi = bVar;
+        this.cFu = bVar;
     }
 
-    public void avJ() {
-        if (this.cFj != null) {
-            this.cFj.clearData();
+    public void awc() {
+        if (this.cFv != null) {
+            this.cFv.clearData();
         }
     }
 
-    public void a(String str, int i, Object obj) {
+    public void a(String str, int i, String str2, Object obj) {
         if (j.isNetWorkAvailable()) {
             this.isLoading = true;
             CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(i);
             completeTaskReqMsg.setTag(this.mBdUniqueId);
             completeTaskReqMsg.completeId = str;
+            completeTaskReqMsg.setToken(str2);
             completeTaskReqMsg.extra = obj;
             completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
             MessageManager.getInstance().sendMessage(completeTaskReqMsg);
@@ -160,22 +161,22 @@ public class d implements Handler.Callback {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
     public void c(ResponsedMessage<?> responsedMessage) {
-        C0360d c0360d;
+        C0362d c0362d;
         if (responsedMessage != null) {
             CompleteTaskReqMsg completeTaskReqMsg = (CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra();
             if (completeTaskReqMsg.extra instanceof e) {
                 e eVar = (e) completeTaskReqMsg.extra;
-                m(eVar.cFq);
-                c0360d = eVar;
-            } else if (!(completeTaskReqMsg.extra instanceof C0360d)) {
-                c0360d = null;
+                m(eVar.cFC);
+                c0362d = eVar;
+            } else if (!(completeTaskReqMsg.extra instanceof C0362d)) {
+                c0362d = null;
             } else {
-                c0360d = (C0360d) completeTaskReqMsg.extra;
+                c0362d = (C0362d) completeTaskReqMsg.extra;
             }
-            if (c0360d != null) {
-                this.cFh.remove(c0360d);
+            if (c0362d != null) {
+                this.cFt.remove(c0362d);
             }
-            avI();
+            awb();
         }
     }
 
@@ -187,7 +188,7 @@ public class d implements Handler.Callback {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rn(String str) {
+    public void rq(String str) {
         JSONObject jSONObject;
         String[] split;
         if (str != null) {
@@ -209,7 +210,7 @@ public class d implements Handler.Callback {
                                 com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
                                 bVar.setActivityId(com.baidu.adp.lib.f.b.toInt(next, 0));
                                 bVar.iM(com.baidu.adp.lib.f.b.toInt(str2, 0));
-                                if (bVar.getActivityId() != 0 && bVar.auA() != 0) {
+                                if (bVar.getActivityId() != 0 && bVar.auT() != 0) {
                                     linkedList.add(bVar);
                                 }
                             }
@@ -226,71 +227,85 @@ public class d implements Handler.Callback {
     }
 
     private void m(com.baidu.tbadk.BdToken.b bVar) {
-        if (bVar != null && this.cFi != null) {
-            this.cFi.onProgressUpdate(bVar);
+        if (bVar != null && this.cFu != null) {
+            this.cFu.onProgressUpdate(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ar(List<h> list) {
+    public void aq(List<h> list) {
         if (!v.isEmpty(list)) {
-            HashMap hashMap = new HashMap();
+            LinkedList<com.baidu.tbadk.BdToken.b> linkedList = new LinkedList();
             for (h hVar : list) {
-                if (hVar != null && hVar.avm() != null) {
-                    com.baidu.tbadk.BdToken.b avm = hVar.avm();
-                    if (avm.aux()) {
-                        avm.iS(avm.auO());
-                        m(avm);
-                    } else if (avm.getActivityId() != 0 && avm.auA() != 0) {
-                        HashSet hashSet = (HashSet) hashMap.get(Integer.valueOf(avm.auA()));
-                        if (hashSet == null) {
-                            hashSet = new HashSet();
-                            hashMap.put(Integer.valueOf(avm.getActivityId()), hashSet);
-                        }
-                        hashSet.add(Integer.valueOf(avm.auA()));
+                if (hVar != null && hVar.avF() != null) {
+                    com.baidu.tbadk.BdToken.b avF = hVar.avF();
+                    if (avF.auQ()) {
+                        avF.iS(avF.avh());
+                        m(avF);
+                    } else if (avF.getActivityId() != 0 && avF.auT() != 0) {
+                        linkedList.add(avF);
                     }
                 }
             }
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry entry : hashMap.entrySet()) {
-                StringBuilder sb = new StringBuilder();
-                Iterator it = ((HashSet) entry.getValue()).iterator();
-                while (it.hasNext()) {
-                    sb.append(it.next() + Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (!v.isEmpty(linkedList)) {
+                HashMap hashMap = new HashMap();
+                for (com.baidu.tbadk.BdToken.b bVar : linkedList) {
+                    if (bVar != null) {
+                        HashSet hashSet = (HashSet) hashMap.get(Integer.valueOf(bVar.getActivityId()));
+                        if (hashSet == null) {
+                            hashSet = new HashSet();
+                            hashMap.put(Integer.valueOf(bVar.getActivityId()), hashSet);
+                        }
+                        hashSet.add(Integer.valueOf(bVar.auT()));
+                    }
                 }
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1);
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    StringBuilder sb = new StringBuilder();
+                    Iterator it = ((HashSet) entry.getValue()).iterator();
+                    while (it.hasNext()) {
+                        sb.append(it.next() + Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    }
+                    if (sb.length() > 0) {
+                        sb.deleteCharAt(sb.length() - 1);
+                    }
+                    try {
+                        jSONObject.put(String.valueOf(entry.getKey()), sb);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
                 }
-                try {
-                    jSONObject.put(String.valueOf(entry.getKey()), sb);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                JSONObject jSONObject2 = new JSONObject();
+                for (com.baidu.tbadk.BdToken.b bVar2 : linkedList) {
+                    if (bVar2 != null) {
+                        com.baidu.tbadk.BdToken.completeTask.c.a(jSONObject2, bVar2.getActivityId(), bVar2.auT(), bVar2.getToken());
+                    }
                 }
-            }
-            if (jSONObject != null) {
-                this.cFh.add(new C0360d(jSONObject.toString()));
-                avI();
+                C0362d c0362d = new C0362d(jSONObject.toString());
+                c0362d.token = jSONObject2.toString();
+                this.cFt.add(c0362d);
+                awb();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void as(List<com.baidu.tbadk.BdToken.b> list) {
+    public void ar(List<com.baidu.tbadk.BdToken.b> list) {
         if (!v.isEmpty(list)) {
             for (com.baidu.tbadk.BdToken.b bVar : list) {
-                if (bVar.aux()) {
-                    bVar.iS(bVar.auO());
+                if (bVar.auQ()) {
+                    bVar.iS(bVar.avh());
                     m(bVar);
                 } else {
-                    this.cFh.add(new e(bVar));
+                    this.cFt.add(new e(bVar));
                 }
             }
-            avI();
+            awb();
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:31:0x0060 -> B:6:0x0007). Please submit an issue!!! */
-    private boolean avK() {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:31:0x0066 -> B:6:0x0007). Please submit an issue!!! */
+    private boolean awd() {
         a peek;
         String str;
         com.baidu.tbadk.BdToken.b bVar;
@@ -298,21 +313,21 @@ public class d implements Handler.Callback {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        if (!this.isLoading && (peek = this.cFh.peek()) != null) {
+        if (!this.isLoading && (peek = this.cFt.peek()) != null) {
             if (peek instanceof e) {
                 e eVar = (e) peek;
-                if (eVar != null && (bVar = eVar.cFq) != null) {
+                if (eVar != null && (bVar = eVar.cFC) != null) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(String.valueOf(bVar.getActivityId()), String.valueOf(bVar.auA()));
-                    a(jSONObject.toString(), 1, eVar);
+                    jSONObject.put(String.valueOf(bVar.getActivityId()), String.valueOf(bVar.auT()));
+                    a(jSONObject.toString(), 1, bVar.getToken(), eVar);
                     return true;
                 }
                 return false;
             }
-            if (peek instanceof C0360d) {
-                C0360d c0360d = (C0360d) peek;
-                if (c0360d != null && (str = c0360d.data) != null) {
-                    a(str, 1, c0360d);
+            if (peek instanceof C0362d) {
+                C0362d c0362d = (C0362d) peek;
+                if (c0362d != null && (str = c0362d.data) != null) {
+                    a(str, 1, c0362d.token, c0362d);
                     return true;
                 }
                 return false;
@@ -322,61 +337,62 @@ public class d implements Handler.Callback {
         return false;
     }
 
-    private void avL() {
+    private void awe() {
         com.baidu.tieba.tbadkCore.a.a.a(309627, CompleteTaskSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, com.baidu.tieba.tbadkCore.a.a.bu(TbConfig.COMPLETE_TASK_URL, 309627));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, com.baidu.tieba.tbadkCore.a.a.bv(TbConfig.COMPLETE_TASK_URL, 309627));
         tbHttpMessageTask.setResponsedClass(CompleteTaskHTTPResMsg.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     private void registerListeners() {
-        this.cFk.setTag(getUniqueId());
-        this.cFl.setTag(getUniqueId());
-        MessageManager.getInstance().registerListener(this.cFk);
-        MessageManager.getInstance().registerListener(this.cFl);
+        this.cFw.setTag(getUniqueId());
+        this.cFx.setTag(getUniqueId());
+        MessageManager.getInstance().registerListener(this.cFw);
+        MessageManager.getInstance().registerListener(this.cFx);
     }
 
     /* loaded from: classes.dex */
     public static class e extends a {
-        public com.baidu.tbadk.BdToken.b cFq;
+        public com.baidu.tbadk.BdToken.b cFC;
 
         public e(com.baidu.tbadk.BdToken.b bVar) {
-            this.cFq = bVar;
+            this.cFC = bVar;
         }
     }
 
     /* renamed from: com.baidu.tbadk.BdToken.completeTask.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0360d extends a {
+    public static class C0362d extends a {
         public String data;
+        public String token;
 
-        public C0360d(String str) {
+        public C0362d(String str) {
             this.data = str;
         }
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public List<h> cFn;
-        public List<com.baidu.tbadk.BdToken.b> cFo;
-        public List<com.baidu.tbadk.BdToken.b> cFp;
+        public List<com.baidu.tbadk.BdToken.b> cFA;
+        public List<com.baidu.tbadk.BdToken.b> cFB;
+        public List<h> cFz;
 
         public void c(h hVar) {
-            if (this.cFn != null) {
-                this.cFn.add(hVar);
+            if (this.cFz != null) {
+                this.cFz.add(hVar);
             }
         }
 
         public void s(com.baidu.tbadk.BdToken.b bVar) {
-            if (this.cFo != null) {
-                this.cFo.add(bVar);
+            if (this.cFA != null) {
+                this.cFA.add(bVar);
             }
         }
 
         public void t(com.baidu.tbadk.BdToken.b bVar) {
-            if (this.cFp != null) {
-                this.cFp.add(bVar);
+            if (this.cFB != null) {
+                this.cFB.add(bVar);
             }
         }
     }

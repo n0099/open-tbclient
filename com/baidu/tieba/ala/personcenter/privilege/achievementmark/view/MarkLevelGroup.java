@@ -17,13 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class MarkLevelGroup extends LinearLayout {
-    private LinearLayout fqG;
-    private List<View> fqH;
-    private a fqI;
+    private LinearLayout ftQ;
+    private List<View> ftR;
+    private a ftS;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void cO(String str, String str2);
+        void cP(String str, String str2);
     }
 
     public MarkLevelGroup(Context context) {
@@ -42,20 +42,20 @@ public class MarkLevelGroup extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.fqI = aVar;
+        this.ftS = aVar;
     }
 
     private void initView() {
         setOrientation(0);
         setGravity(1);
         LayoutInflater.from(getContext()).inflate(R.layout.ala_achievement_mark_level_layout, (ViewGroup) this, true);
-        this.fqG = (LinearLayout) findViewById(R.id.mark_level_list_container);
+        this.ftQ = (LinearLayout) findViewById(R.id.mark_level_list_container);
     }
 
     public void c(b bVar) {
         if (bVar != null) {
-            List<d> bpH = bVar.bpH();
-            if (v.isEmpty(bpH)) {
+            List<d> bqI = bVar.bqI();
+            if (v.isEmpty(bqI)) {
                 if (getLayoutParams() != null) {
                     ViewGroup.LayoutParams layoutParams = getLayoutParams();
                     layoutParams.height = getContext().getResources().getDimensionPixelSize(R.dimen.ds118);
@@ -65,53 +65,53 @@ public class MarkLevelGroup extends LinearLayout {
                 return;
             }
             setVisibility(0);
-            this.fqG.removeAllViews();
-            if (this.fqH == null) {
-                this.fqH = new ArrayList();
+            this.ftQ.removeAllViews();
+            if (this.ftR == null) {
+                this.ftR = new ArrayList();
             } else {
-                this.fqH.clear();
+                this.ftR.clear();
             }
-            int size = bpH.size();
+            int size = bqI.size();
             for (int i = 0; i < size; i++) {
-                final d dVar = bpH.get(i);
+                final d dVar = bqI.get(i);
                 if (dVar != null) {
                     View inflate = LayoutInflater.from(getContext()).inflate(R.layout.ala_achievement_mark_level_item_view, (ViewGroup) null);
                     FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.mark_level_layout);
                     TextView textView = (TextView) inflate.findViewById(R.id.mark_level_tv);
                     textView.setText(String.valueOf(i + 1));
-                    ((TextView) inflate.findViewById(R.id.mark_level_score_tv)).setText(AlaStringHelper.numFormatMarkLevel(dVar.bpS()));
-                    this.fqH.add(inflate);
-                    boolean z = bVar.bpM() == 0;
-                    if (bVar.bpO() == dVar.bpO()) {
+                    ((TextView) inflate.findViewById(R.id.mark_level_score_tv)).setText(AlaStringHelper.numFormatMarkLevel(dVar.bqT()));
+                    this.ftR.add(inflate);
+                    boolean z = bVar.bqN() == 0;
+                    if (bVar.bqP() == dVar.bqP()) {
                         a(frameLayout, true);
                         if (z) {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                         } else {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_on);
                         }
-                    } else if (bVar.bpO() > dVar.bpO()) {
+                    } else if (bVar.bqP() > dVar.bqP()) {
                         a(frameLayout, false);
                         if (z) {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                         } else {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_on);
                         }
-                    } else if (bVar.bpO() < dVar.bpO()) {
+                    } else if (bVar.bqP() < dVar.bqP()) {
                         a(frameLayout, false);
                         textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                     }
                     inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.MarkLevelGroup.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            for (View view2 : MarkLevelGroup.this.fqH) {
+                            for (View view2 : MarkLevelGroup.this.ftR) {
                                 if (view == view2) {
                                     MarkLevelGroup.this.a((FrameLayout) view2.findViewById(R.id.mark_level_layout), true);
                                 } else {
                                     MarkLevelGroup.this.a((FrameLayout) view2.findViewById(R.id.mark_level_layout), false);
                                 }
                             }
-                            if (MarkLevelGroup.this.fqI != null) {
-                                MarkLevelGroup.this.fqI.cO(dVar.bpL(), dVar.bpK());
+                            if (MarkLevelGroup.this.ftS != null) {
+                                MarkLevelGroup.this.ftS.cP(dVar.bqM(), dVar.bqL());
                             }
                         }
                     });
@@ -122,7 +122,7 @@ public class MarkLevelGroup extends LinearLayout {
                         layoutParams2.width = getContext().getResources().getDimensionPixelSize(R.dimen.ds82);
                         layoutParams2.height = -2;
                     }
-                    this.fqG.addView(inflate, layoutParams2);
+                    this.ftQ.addView(inflate, layoutParams2);
                 }
             }
         }

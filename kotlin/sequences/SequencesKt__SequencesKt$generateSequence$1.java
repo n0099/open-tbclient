@@ -2,8 +2,8 @@ package kotlin.sequences;
 
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.jvm.internal.Lambda;
-import kotlin.jvm.internal.p;
-/* loaded from: classes4.dex */
+import kotlin.jvm.internal.q;
+/* loaded from: classes5.dex */
 final class SequencesKt__SequencesKt$generateSequence$1 extends Lambda implements kotlin.jvm.a.b<T, T> {
     final /* synthetic */ kotlin.jvm.a.a $nextFunction;
 
@@ -16,7 +16,7 @@ final class SequencesKt__SequencesKt$generateSequence$1 extends Lambda implement
     /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
     @Override // kotlin.jvm.a.b
     public final T invoke(T t) {
-        p.j(t, AdvanceSetting.NETWORK_TYPE);
+        q.j(t, AdvanceSetting.NETWORK_TYPE);
         return this.$nextFunction.invoke();
     }
 }

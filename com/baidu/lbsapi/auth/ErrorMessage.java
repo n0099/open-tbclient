@@ -2,7 +2,7 @@ package com.baidu.lbsapi.auth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class ErrorMessage {
     ErrorMessage() {
     }

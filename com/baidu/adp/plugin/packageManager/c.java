@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c xO;
-    private ArrayList<String> xF = new ArrayList<>();
-    private a xP;
+    private static volatile c xS;
+    private ArrayList<String> xJ = new ArrayList<>();
+    private a xT;
 
-    public static c jc() {
-        if (xO == null) {
+    public static c jb() {
+        if (xS == null) {
             synchronized (c.class) {
-                if (xO == null) {
-                    xO = new c();
+                if (xS == null) {
+                    xS = new c();
                 }
             }
         }
-        return xO;
+        return xS;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.xF.iterator();
+            Iterator<String> it = this.xJ.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,17 +45,17 @@ public class c {
                 }
             }
             if (!z) {
-                this.xF.add(pluginSetting.packageName);
+                this.xJ.add(pluginSetting.packageName);
             }
-            iY();
+            iX();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iY() {
-        if (this.xF.size() > 0 && this.xP == null) {
-            this.xP = new a(this.xF.get(0));
-            this.xP.execute(new String[0]);
+    public void iX() {
+        if (this.xJ.size() > 0 && this.xT == null) {
+            this.xT = new a(this.xJ.get(0));
+            this.xT.execute(new String[0]);
         }
     }
 
@@ -83,36 +83,36 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.xP = null;
-            if (c.this.xF.size() > 0) {
-                Iterator it = c.this.xF.iterator();
+            c.this.xT = null;
+            if (c.this.xJ.size() > 0) {
+                Iterator it = c.this.xJ.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.xF.remove(str);
+                        c.this.xJ.remove(str);
                         break;
                     }
                 }
             }
-            c.this.iY();
+            c.this.iX();
         }
 
         private void aX(String str) {
             File[] listFiles;
-            File jR = Util.jR();
+            File jQ = Util.jQ();
             String bu = Util.bu(str);
-            if (jR != null && jR.exists() && (listFiles = jR.listFiles()) != null) {
+            if (jQ != null && jQ.exists() && (listFiles = jQ.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
                     if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bu)) {
                         try {
                             f.forceDelete(listFiles[i]);
-                            com.baidu.adp.plugin.b.a.iO().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
+                            com.baidu.adp.plugin.b.a.iN().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
-                            com.baidu.adp.plugin.b.a.iO().g("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
+                            com.baidu.adp.plugin.b.a.iN().g("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
                         }
                     }
                 }

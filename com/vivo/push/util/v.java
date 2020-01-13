@@ -3,7 +3,7 @@ package com.vivo.push.util;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.provider.Settings;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class v implements c {
     private ContentResolver a;
 

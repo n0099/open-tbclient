@@ -3,7 +3,7 @@ package com.baidu.searchbox.ugc.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CommonContentItem implements Parcelable, Serializable {
     public static final Parcelable.Creator<CommonContentItem> CREATOR = new Parcelable.Creator<CommonContentItem>() { // from class: com.baidu.searchbox.ugc.model.CommonContentItem.1
         /* JADX DEBUG: Method merged with bridge method */

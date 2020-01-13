@@ -41,12 +41,12 @@ import java.lang.reflect.InvocationTargetException;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class am {
-    private static com.baidu.tbadk.core.dialog.a Ft;
+    private static com.baidu.tbadk.core.dialog.a Fy;
     private static String TYPE_ERROR;
-    private static String cVW;
-    private static AssetManager cVX;
-    private static SparseIntArray cVY;
-    private static SparseIntArray cVZ;
+    private static String cWg;
+    private static AssetManager cWh;
+    private static SparseIntArray cWi;
+    private static SparseIntArray cWj;
     public static Resources mPluginRes;
     private static Resources mSkinRes;
     private static String sPackagename;
@@ -63,23 +63,23 @@ public class am {
         TYPE_ERROR = "skinType not support";
         sPackagename = null;
         sPacknameLength = 0;
-        cVY = new SparseIntArray();
-        cVZ = new SparseIntArray();
+        cWi = new SparseIntArray();
+        cWj = new SparseIntArray();
     }
 
-    public static void ta(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+    public static void td(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
         if (!StringUtils.isNull(str)) {
             try {
                 Resources resources = TbadkCoreApplication.getInst().getResources();
                 if (resources != null) {
-                    cVX = (AssetManager) AssetManager.class.newInstance();
+                    cWh = (AssetManager) AssetManager.class.newInstance();
                     File GetFile = m.GetFile(str);
                     if (GetFile == null || !GetFile.exists()) {
                         com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), (int) R.string.theme_skin_apk_error);
                     } else {
-                        cVX.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(cVX, GetFile.getAbsolutePath());
-                        mSkinRes = new Resources(cVX, resources.getDisplayMetrics(), resources.getConfiguration());
-                        cVW = m.getApkFilePackageName(str);
+                        cWh.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(cWh, GetFile.getAbsolutePath());
+                        mSkinRes = new Resources(cWh, resources.getDisplayMetrics(), resources.getConfiguration());
+                        cWg = m.getApkFilePackageName(str);
                     }
                 }
             } catch (Throwable th) {
@@ -191,7 +191,7 @@ public class am {
         if (mPluginRes == null) {
             mPluginRes = resources;
         }
-        int i3 = cVY.get(i, -1);
+        int i3 = cWi.get(i, -1);
         if (i3 == -1) {
             try {
                 str = resources.getResourceName(i);
@@ -209,12 +209,12 @@ public class am {
                 i3 = mPluginRes.getIdentifier(str + "_1", null, null);
                 if (i3 <= 0) {
                     i2 = mPluginRes.getIdentifier(("com.baidu.tieba.pluginResource" + str.substring(str.indexOf(":"))) + "_1", null, null);
-                    cVY.put(i, i2);
+                    cWi.put(i, i2);
                     return i2;
                 }
             }
             i2 = i3;
-            cVY.put(i, i2);
+            cWi.put(i, i2);
             return i2;
         }
         return i3;
@@ -230,7 +230,7 @@ public class am {
         if (mPluginRes == null) {
             mPluginRes = resources;
         }
-        int i3 = cVZ.get(i, -1);
+        int i3 = cWj.get(i, -1);
         if (i3 != -1) {
             return i3;
         }
@@ -253,14 +253,14 @@ public class am {
                 if (i2 <= 0) {
                     i2 = c(resources, i);
                 }
-                cVZ.put(i, i2);
+                cWj.put(i, i2);
                 return i2;
             }
         }
         i2 = i3;
         if (i2 <= 0) {
         }
-        cVZ.put(i, i2);
+        cWj.put(i, i2);
         return i2;
     }
 
@@ -325,7 +325,7 @@ public class am {
         if (StringUtils.isNull(substring) || !substring.startsWith("/s_")) {
             return 0;
         }
-        return mSkinRes.getIdentifier(cVW + str.substring(str.indexOf(":")), null, null);
+        return mSkinRes.getIdentifier(cWg + str.substring(str.indexOf(":")), null, null);
     }
 
     public static void setViewTextColor(View view, int i) {
@@ -903,7 +903,7 @@ public class am {
         return gradientDrawable;
     }
 
-    public static GradientDrawable au(int i, int i2) {
+    public static GradientDrawable ay(int i, int i2) {
         if (i2 == 0) {
             return null;
         }
@@ -947,15 +947,15 @@ public class am {
         return stateListDrawable;
     }
 
-    public static boolean aDQ() {
+    public static boolean aEj() {
         return (TbadkCoreApplication.getInst() == null || TbadkCoreApplication.getInst().getResources() == null || TbadkCoreApplication.getInst().getResources().getConfiguration() == null || (TbadkCoreApplication.getInst().getResources().getConfiguration().uiMode & 48) != 32) ? false : true;
     }
 
-    public static void t(boolean z, boolean z2) {
-        boolean aDQ = aDQ();
+    public static void s(boolean z, boolean z2) {
+        boolean aEj = aEj();
         final Activity currentActivity = com.baidu.adp.base.a.eG().currentActivity();
         if (currentActivity != null) {
-            if (!aDQ) {
+            if (!aEj) {
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(currentActivity);
                 }
@@ -965,8 +965,8 @@ public class am {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (com.baidu.tbadk.core.sharedPref.b.aCY().getBoolean("key_is_dark_mode_notify_shown", false)) {
-                boolean z3 = com.baidu.tbadk.core.sharedPref.b.aCY().getBoolean("key_is_follow_system_mode", false);
+            } else if (com.baidu.tbadk.core.sharedPref.b.aDr().getBoolean("key_is_dark_mode_notify_shown", false)) {
+                boolean z3 = com.baidu.tbadk.core.sharedPref.b.aDr().getBoolean("key_is_follow_system_mode", false);
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(currentActivity);
                 }
@@ -978,26 +978,26 @@ public class am {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i);
             } else {
-                com.baidu.tbadk.core.sharedPref.b.aCY().putBoolean("key_is_dark_mode_notify_shown", true);
+                com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean("key_is_dark_mode_notify_shown", true);
                 View inflate = LayoutInflater.from(currentActivity).inflate(R.layout.dark_mode_notify_dialog_layout, (ViewGroup) null);
                 View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.util.am.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (view != null) {
                             if (view.getId() == R.id.dark_notify_dialog_cancel) {
-                                com.baidu.tbadk.core.sharedPref.b.aCY().putBoolean("key_is_follow_system_mode", false);
+                                com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean("key_is_follow_system_mode", false);
                                 TbadkCoreApplication.getInst().setSkinType(0);
                                 TiebaStatic.log(new an("c13577").Z("obj_type", 2).Z("obj_locate", 2));
                             } else if (view.getId() == R.id.dark_notify_dialog_ok) {
-                                com.baidu.tbadk.core.sharedPref.b.aCY().putBoolean("key_is_follow_system_mode", true);
-                                TbadkCoreApplication.getInst().setSkinType(am.aDQ() ? 4 : 0);
+                                com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean("key_is_follow_system_mode", true);
+                                TbadkCoreApplication.getInst().setSkinType(am.aEj() ? 4 : 0);
                                 TiebaStatic.log(new an("c13577").Z("obj_type", 1).Z("obj_locate", 2));
                             }
                             com.baidu.adp.lib.util.l.showToast(currentActivity, (int) R.string.dark_mode_notify_dissmis_toast);
-                            if (am.Ft != null) {
-                                am.Ft.dismiss();
+                            if (am.Fy != null) {
+                                am.Fy.dismiss();
                             }
-                            com.baidu.tbadk.core.dialog.a unused = am.Ft = null;
+                            com.baidu.tbadk.core.dialog.a unused = am.Fy = null;
                         }
                     }
                 };
@@ -1008,12 +1008,12 @@ public class am {
                 tbImageView.setDrawCorner(true);
                 tbImageView.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32));
                 tbImageView.setAutoChangeStyle(false);
-                Ft = new com.baidu.tbadk.core.dialog.a(currentActivity);
-                Ft.jI(2);
-                Ft.fu(false);
-                Ft.fv(false);
-                Ft.aK(inflate);
-                Ft.b(com.baidu.adp.base.i.ab(currentActivity)).aBW();
+                Fy = new com.baidu.tbadk.core.dialog.a(currentActivity);
+                Fy.jI(2);
+                Fy.fz(false);
+                Fy.fA(false);
+                Fy.aO(inflate);
+                Fy.b(com.baidu.adp.base.i.ab(currentActivity)).aCp();
             }
         }
     }

@@ -4,12 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.KeyEvent;
 import android.widget.RelativeLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class XAdView extends RelativeLayout {
     public static final String TAG = "BDAdView";
     private Listener mListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Listener {
         void onAttachedToWindow();
 

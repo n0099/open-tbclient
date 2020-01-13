@@ -10,15 +10,15 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ak extends h {
-    private static final int LX = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-    private static int LY = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-    private static int LZ = LY;
-    private static int Ma = LZ / 2;
-    private static int Mb = LZ / 3;
-    private com.baidu.tbadk.core.data.a JB;
-    private VideoImageNoPlayerLayout Mc;
+    private static final int Mc = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+    private static int Me = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+    private static int Mf = Me;
+    private static int Mg = Mf / 2;
+    private static int Mh = Mf / 3;
+    private com.baidu.tbadk.core.data.a JH;
+    private VideoImageNoPlayerLayout Mi;
     private Context mContext;
     private String mFrom;
     private int mLastScreenWidth;
@@ -29,13 +29,13 @@ public class ak extends h {
         this.mLastScreenWidth = 0;
         this.mSkinType = 3;
         this.mContext = context;
-        this.Mc = new VideoImageNoPlayerLayout(context);
+        this.Mi = new VideoImageNoPlayerLayout(context);
         b((Boolean) true);
     }
 
     @Override // com.baidu.card.b
     public View getView() {
-        return this.Mc;
+        return this.Mi;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,52 +59,52 @@ public class ak extends h {
         boolean z2 = true;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         if (equipmentWidth != this.mLastScreenWidth) {
-            LY = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
-            LZ = LY;
-            Ma = LZ / 2;
-            Mb = LZ / 3;
+            Me = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
+            Mf = Me;
+            Mg = Mf / 2;
+            Mh = Mf / 3;
             this.mLastScreenWidth = equipmentWidth;
         }
-        this.JB = aVar;
-        if (this.JB == null || this.JB.axx() == null || this.JB.axx().cPD == null || this.JB.axx().cPD.cKv) {
-            this.Mc.setVisibility(8);
+        this.JH = aVar;
+        if (this.JH == null || this.JH.axQ() == null || this.JH.axQ().cPN == null || this.JH.axQ().cPN.cKG) {
+            this.Mi.setVisibility(8);
             return;
         }
-        this.Mc.setVisibility(0);
-        this.Mc.A(aVar);
-        ViewGroup.LayoutParams layoutParams = this.Mc.getLayoutParams();
-        ViewGroup.LayoutParams layoutParams2 = this.Mc.Oz.getLayoutParams();
+        this.Mi.setVisibility(0);
+        this.Mi.A(aVar);
+        ViewGroup.LayoutParams layoutParams = this.Mi.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.Mi.OD.getLayoutParams();
         int i = layoutParams.width;
         int i2 = layoutParams.height;
         int homePageStyleAbTest = TbSingleton.getInstance().getHomePageStyleAbTest();
         if ("index".equals(this.mFrom) && (homePageStyleAbTest & 4) != 0) {
-            layoutParams.width = LZ;
-            layoutParams.height = ((LZ / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-            layoutParams2.width = LZ;
-            layoutParams2.height = ((LZ / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+            layoutParams.width = Mf;
+            layoutParams.height = ((Mf / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+            layoutParams2.width = Mf;
+            layoutParams2.height = ((Mf / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
             if (i2 == layoutParams.height) {
             }
             if (z2) {
             }
-            this.Mc.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.ak.1
+            this.Mi.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.ak.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    ak.this.Jz.a(ak.this.JB);
+                    ak.this.JF.a(ak.this.JH);
                 }
             });
-            this.Mc.setData(this.JB);
+            this.Mi.setData(this.JH);
             if (mE() == null) {
             }
         }
-        if (this.JB.axx().cPD.videoInfo.is_vertical.intValue() == 1) {
-            VideoInfo videoInfo = this.JB.axx().cPD.videoInfo;
+        if (this.JH.axQ().cPN.videoInfo.is_vertical.intValue() == 1) {
+            VideoInfo videoInfo = this.JH.axQ().cPN.videoInfo;
             if (videoInfo != null) {
-                int i3 = (Ma / 9) * 16;
-                int i4 = Mb;
+                int i3 = (Mg / 9) * 16;
+                int i4 = Mh;
                 int intValue = videoInfo.video_width.intValue();
                 int intValue2 = videoInfo.video_height.intValue();
-                layoutParams.width = LZ;
-                layoutParams2.width = Ma;
+                layoutParams.width = Mf;
+                layoutParams2.width = Mg;
                 boolean z3 = i != layoutParams.width;
                 if (intValue == 0 || intValue2 == 0) {
                     layoutParams.height = i3;
@@ -116,7 +116,7 @@ public class ak extends h {
                     z = z3;
                     z2 = z;
                 } else {
-                    int i5 = (int) (((1.0f * intValue2) / intValue) * Ma);
+                    int i5 = (int) (((1.0f * intValue2) / intValue) * Mg);
                     if (i5 >= i4) {
                         i4 = i5 > i3 ? i3 : i5;
                     }
@@ -133,24 +133,24 @@ public class ak extends h {
                 return;
             }
         } else {
-            layoutParams.width = LZ;
-            layoutParams2.width = LZ;
-            layoutParams.height = ((LZ / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-            layoutParams2.height = ((LZ / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+            layoutParams.width = Mf;
+            layoutParams2.width = Mf;
+            layoutParams.height = ((Mf / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+            layoutParams2.height = ((Mf / 16) * 9) - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
             if (i2 == layoutParams.height) {
             }
         }
         if (z2) {
-            this.Mc.setLayoutParams(layoutParams);
-            this.Mc.Oz.setLayoutParams(layoutParams2);
+            this.Mi.setLayoutParams(layoutParams);
+            this.Mi.OD.setLayoutParams(layoutParams2);
         }
-        this.Mc.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.ak.1
+        this.Mi.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.ak.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ak.this.Jz.a(ak.this.JB);
+                ak.this.JF.a(ak.this.JH);
             }
         });
-        this.Mc.setData(this.JB);
+        this.Mi.setData(this.JH);
         if (mE() == null) {
         }
     }
@@ -158,13 +158,13 @@ public class ak extends h {
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.z<com.baidu.tbadk.core.data.a> zVar) {
         super.setOnCardSubClickListener(zVar);
-        this.Mc.setOnCardSubClickListener(zVar);
+        this.Mi.setOnCardSubClickListener(zVar);
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            this.Mc.onChangeSkinType(tbPageContext, i);
+            this.Mi.onChangeSkinType(tbPageContext, i);
         }
         this.mSkinType = i;
     }
@@ -174,6 +174,6 @@ public class ak extends h {
     }
 
     public void a(b.a aVar) {
-        this.Jz = aVar;
+        this.JF = aVar;
     }
 }

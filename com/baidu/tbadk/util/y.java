@@ -7,49 +7,49 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class y {
-    private View dCw;
-    private int dCx;
-    private boolean dCy;
+    private View dCG;
+    private int dCH;
+    private boolean dCI;
     private final Handler mHandler;
 
-    public void aPA() {
+    public void aPT() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void aPB() {
+    public void aPU() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void gQ(boolean z) {
-        if (this.dCw != null) {
-            if (z || this.dCw.getVisibility() != 8) {
-                aPB();
+    public void gV(boolean z) {
+        if (this.dCG != null) {
+            if (z || this.dCG.getVisibility() != 8) {
+                aPU();
             }
         }
     }
 
-    public void gR(boolean z) {
-        if (this.dCw != null) {
-            if (z || this.dCw.getVisibility() != 0) {
-                aPA();
+    public void gW(boolean z) {
+        if (this.dCG != null) {
+            if (z || this.dCG.getVisibility() != 0) {
+                aPT();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.dCw != null) {
-            if (i != 0 && i2 > i && this.dCw.getVisibility() != 8) {
-                gQ(false);
-            } else if ((i == 0 || i2 < i) && this.dCw.getVisibility() != 0) {
-                gR(false);
+        if (this.dCG != null) {
+            if (i != 0 && i2 > i && this.dCG.getVisibility() != 8) {
+                gV(false);
+            } else if ((i == 0 || i2 < i) && this.dCG.getVisibility() != 0) {
+                gW(false);
             }
-            this.dCx = i;
+            this.dCH = i;
         }
     }
 
@@ -63,15 +63,15 @@ public class y {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.dCx) {
-                gQ(true);
-            } else if (firstVisiblePosition < this.dCx) {
-                gR(true);
-            } else if (firstVisiblePosition == this.dCx) {
-                if (firstVisiblePosition == 0 || !this.dCy) {
-                    gR(true);
+            if (firstVisiblePosition > this.dCH) {
+                gV(true);
+            } else if (firstVisiblePosition < this.dCH) {
+                gW(true);
+            } else if (firstVisiblePosition == this.dCH) {
+                if (firstVisiblePosition == 0 || !this.dCI) {
+                    gW(true);
                 } else {
-                    gQ(true);
+                    gV(true);
                 }
             }
         }

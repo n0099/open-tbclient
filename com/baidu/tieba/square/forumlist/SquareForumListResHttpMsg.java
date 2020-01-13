@@ -3,7 +3,7 @@ package com.baidu.tieba.square.forumlist;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SquareForumListResHttpMsg extends TbHttpResponsedMessage {
     private GetForumsFromForumClassResIdl mResponseData;
 

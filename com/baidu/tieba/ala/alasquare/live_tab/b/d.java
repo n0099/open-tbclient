@@ -1,13 +1,29 @@
 package com.baidu.tieba.ala.alasquare.live_tab.b;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bj;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId ehs = BdUniqueId.gen();
-    public e eht;
+public class d {
+    public boolean ehB = false;
+    public ArrayList<bj> ehy;
 
-    @Override // com.baidu.adp.widget.ListView.m
-    public BdUniqueId getType() {
-        return ehs;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.ehB = jSONObject.optInt("need_show") == 1;
+            JSONArray optJSONArray = jSONObject.optJSONArray("live_list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.ehy = new ArrayList<>(optJSONArray.length());
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        bj bjVar = new bj();
+                        bjVar.parserJson(optJSONObject);
+                        this.ehy.add(bjVar);
+                    }
+                }
+            }
+        }
     }
 }

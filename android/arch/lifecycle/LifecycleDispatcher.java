@@ -12,21 +12,21 @@ import android.support.v4.app.FragmentManager;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LifecycleDispatcher {
-    private static AtomicBoolean bZ = new AtomicBoolean(false);
+    private static AtomicBoolean bY = new AtomicBoolean(false);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void init(Context context) {
-        if (!bZ.getAndSet(true)) {
+        if (!bY.getAndSet(true)) {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new a());
         }
     }
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static class a extends d {
-        private final b cc = new b();
+        private final b bZ = new b();
 
         a() {
         }
@@ -34,7 +34,7 @@ public class LifecycleDispatcher {
         @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             if (activity instanceof FragmentActivity) {
-                ((FragmentActivity) activity).getSupportFragmentManager().registerFragmentLifecycleCallbacks(this.cc, true);
+                ((FragmentActivity) activity).getSupportFragmentManager().registerFragmentLifecycleCallbacks(this.bZ, true);
             }
             ReportFragment.j(activity);
         }
@@ -54,7 +54,7 @@ public class LifecycleDispatcher {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class DestructionReportFragment extends Fragment {
         @Override // android.support.v4.app.Fragment
         public void onPause() {
@@ -113,7 +113,7 @@ public class LifecycleDispatcher {
     }
 
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static class b extends FragmentManager.FragmentLifecycleCallbacks {
         b() {
         }

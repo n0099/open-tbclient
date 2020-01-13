@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c extends v.a {
     public ImageView mImageView;
     public TextView mTextView;

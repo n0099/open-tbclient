@@ -8,58 +8,58 @@ import com.baidu.swan.apps.res.ui.BdDatePicker;
 import com.baidu.swan.apps.res.widget.dialog.h;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends h {
-    private Date bFh;
-    private Date bFi;
-    private String bFq;
-    private boolean bFr;
-    private BdDatePicker bIY;
-    private int zh;
-    private int zi;
-    private int zj;
+    private Date bFS;
+    private Date bFT;
+    private String bGb;
+    private boolean bGc;
+    private BdDatePicker bJI;
+    private int zl;
+    private int zm;
+    private int zn;
 
     d(Context context) {
         super(context, a.i.NoTitleDialog);
     }
 
     public void setYear(int i) {
-        this.zh = i;
+        this.zl = i;
     }
 
     public int getYear() {
-        return this.bIY.getYear();
+        return this.bJI.getYear();
     }
 
     public void setMonth(int i) {
-        this.zi = i;
+        this.zm = i;
     }
 
     public int getMonth() {
-        return this.bIY.getMonth();
+        return this.bJI.getMonth();
     }
 
     public void setDay(int i) {
-        this.zj = i;
+        this.zn = i;
     }
 
     public int getDay() {
-        return this.bIY.getDay();
+        return this.bJI.getDay();
     }
 
-    private boolean kk(String str) {
-        return this.bIY.kk(str);
+    private boolean kn(String str) {
+        return this.bJI.kn(str);
     }
 
-    public String Zt() {
+    public String ZQ() {
         StringBuilder sb = new StringBuilder();
-        if (kk("year")) {
+        if (kn("year")) {
             sb.append(String.format("%d-", Integer.valueOf(getYear())));
         }
-        if (kk("month")) {
+        if (kn("month")) {
             sb.append(String.format("%02d-", Integer.valueOf(getMonth())));
         }
-        if (kk("day")) {
+        if (kn("day")) {
             sb.append(String.format("%02d", Integer.valueOf(getDay())));
         }
         String sb2 = sb.toString();
@@ -69,26 +69,26 @@ public class d extends h {
         return sb2;
     }
 
-    private void Zu() {
-        this.bIY = new BdDatePicker(getContext());
+    private void ZR() {
+        this.bJI = new BdDatePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.bIY.setLayoutParams(layoutParams);
-        this.bIY.setScrollCycle(true);
-        this.bIY.setStartDate(this.bFh);
-        this.bIY.setEndDate(this.bFi);
-        this.bIY.setYear(this.zh);
-        this.bIY.setMonth(this.zi);
-        this.bIY.setDay(this.zj);
-        this.bIY.YQ();
-        this.bIY.setFields(this.bFq);
-        this.bIY.setDisabled(this.bFr);
+        this.bJI.setLayoutParams(layoutParams);
+        this.bJI.setScrollCycle(true);
+        this.bJI.setStartDate(this.bFS);
+        this.bJI.setEndDate(this.bFT);
+        this.bJI.setYear(this.zl);
+        this.bJI.setMonth(this.zm);
+        this.bJI.setDay(this.zn);
+        this.bJI.Zn();
+        this.bJI.setFields(this.bGb);
+        this.bJI.setDisabled(this.bGc);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        Zu();
-        ZD().ak(this.bIY);
+        ZR();
+        aaa().ao(this.bJI);
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.c, android.app.Dialog
@@ -97,28 +97,28 @@ public class d extends h {
     }
 
     public void setFields(String str) {
-        this.bFq = str;
+        this.bGb = str;
     }
 
     public void setDisabled(boolean z) {
-        this.bFr = z;
+        this.bGc = z;
     }
 
     public void setStartDate(Date date) {
-        this.bFh = date;
+        this.bFS = date;
     }
 
     public void setEndDate(Date date) {
-        this.bFi = date;
+        this.bFT = date;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends h.a {
-        public Date bIZ;
-        public Date bJa;
-        public Date bJb;
-        private String bJc;
-        private boolean bJd;
+        public Date bJJ;
+        public Date bJK;
+        public Date bJL;
+        private String bJM;
+        private boolean bJN;
 
         public a(Context context) {
             super(context);
@@ -130,45 +130,45 @@ public class d extends h {
         }
 
         public a d(Date date) {
-            this.bIZ = date;
+            this.bJJ = date;
             return this;
         }
 
         public a e(Date date) {
-            this.bJa = date;
+            this.bJK = date;
             return this;
         }
 
         public a f(Date date) {
-            this.bJb = date;
+            this.bJL = date;
             return this;
         }
 
-        public a kq(String str) {
-            this.bJc = str;
+        public a kt(String str) {
+            this.bJM = str;
             return this;
         }
 
-        public a dm(boolean z) {
-            this.bJd = z;
+        public a dr(boolean z) {
+            this.bJN = z;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
-        public h Zv() {
-            d dVar = (d) super.Zv();
-            dVar.setFields(this.bJc);
-            dVar.setDisabled(this.bJd);
-            if (this.bJb != null) {
-                dVar.setYear(this.bJb.getYear() + 1900);
-                dVar.setMonth(this.bJb.getMonth() + 1);
-                dVar.setDay(this.bJb.getDate());
+        public h ZS() {
+            d dVar = (d) super.ZS();
+            dVar.setFields(this.bJM);
+            dVar.setDisabled(this.bJN);
+            if (this.bJL != null) {
+                dVar.setYear(this.bJL.getYear() + 1900);
+                dVar.setMonth(this.bJL.getMonth() + 1);
+                dVar.setDay(this.bJL.getDate());
             }
-            if (this.bIZ != null) {
-                dVar.setStartDate(this.bIZ);
+            if (this.bJJ != null) {
+                dVar.setStartDate(this.bJJ);
             }
-            if (this.bJa != null) {
-                dVar.setEndDate(this.bJa);
+            if (this.bJK != null) {
+                dVar.setEndDate(this.bJK);
             }
             return dVar;
         }

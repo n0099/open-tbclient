@@ -45,8 +45,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onPreDownload(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.acH = 1;
-                cVar.acI = downloadData2;
+                cVar.acT = 1;
+                cVar.acU = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return true;
             }
@@ -54,8 +54,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onFileDownloaded(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.acH = 4;
-                cVar.acI = downloadData2;
+                cVar.acT = 4;
+                cVar.acU = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return true;
             }
@@ -69,8 +69,8 @@ public class b {
             public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str7) {
                 BdLog.e("failed to donwload dynamic gift zip" + str7);
                 c cVar = new c();
-                cVar.acH = 2;
-                cVar.acI = downloadData2;
+                cVar.acT = 2;
+                cVar.acU = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
             }
         });
@@ -102,7 +102,7 @@ public class b {
                 if (DownloadData.this.getPath() != null && new File(DownloadData.this.getPath()).exists()) {
                     boolean unZipFile = b.unZipFile(DownloadData.this.getPath(), str);
                     if (unZipFile) {
-                        b.N(str2, str);
+                        b.M(str2, str);
                     }
                     return Boolean.valueOf(unZipFile);
                 }
@@ -116,14 +116,14 @@ public class b {
                 if (bool.booleanValue()) {
                     if (a.existFile(str)) {
                         c cVar = new c();
-                        cVar.acH = 5;
-                        cVar.acI = DownloadData.this;
+                        cVar.acT = 5;
+                        cVar.acU = DownloadData.this;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                         return;
                     }
                     c cVar2 = new c();
-                    cVar2.acH = 6;
-                    cVar2.acI = DownloadData.this;
+                    cVar2.acT = 6;
+                    cVar2.acU = DownloadData.this;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar2));
                     BdLog.e("zip empty");
                     return;
@@ -133,9 +133,9 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    public static ArrayList<String> cO(String str) {
+    public static ArrayList<String> cQ(String str) {
         ArrayList<String> arrayList = null;
-        String string = com.baidu.live.c.oI().getSharedPreferences().getString(str, null);
+        String string = com.baidu.live.c.oJ().getSharedPreferences().getString(str, null);
         if (string == null) {
             return null;
         }
@@ -182,7 +182,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void N(String str, String str2) {
+    public static void M(String str, String str2) {
         File[] listFiles;
         String fileMd5;
         if (!StringUtils.isNull(str2) && (listFiles = new File(str2).listFiles()) != null) {
@@ -192,10 +192,11 @@ public class b {
                     jSONArray.put(fileMd5);
                 }
             }
-            com.baidu.live.c.oI().putString(str, jSONArray.toString());
+            com.baidu.live.c.oJ().putString(str, jSONArray.toString());
         }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [291=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean unZipFile(String str, String str2) {
         ZipInputStream zipInputStream;
@@ -205,15 +206,13 @@ public class b {
                 while (true) {
                     try {
                         ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry != null) {
-                            if (!nextEntry.isDirectory()) {
-                                saveFile(str2, nextEntry.getName(), zipInputStream);
-                            }
-                        } else {
+                        if (nextEntry == null) {
                             zipInputStream.close();
                             FileHelper.deleteFile(new File(str));
                             CloseUtil.close((InputStream) zipInputStream);
                             return true;
+                        } else if (!nextEntry.isDirectory()) {
+                            saveFile(str2, nextEntry.getName(), zipInputStream);
                         }
                     } catch (FileNotFoundException e) {
                         e = e;
@@ -245,7 +244,7 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [357=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [354=5] */
     private static String saveFile(String str, String str2, InputStream inputStream) {
         String str3;
         FileOutputStream fileOutputStream;

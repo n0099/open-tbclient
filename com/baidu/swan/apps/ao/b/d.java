@@ -10,76 +10,76 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static d bRL;
-    private boolean bRN;
+    private static d bSv;
+    private boolean bSx;
     private AudioManager mAudioManager;
-    private final ConcurrentHashMap<String, a> bRM = new ConcurrentHashMap<>();
-    private BroadcastReceiver bRO = new BroadcastReceiver() { // from class: com.baidu.swan.apps.ao.b.d.1
+    private final ConcurrentHashMap<String, a> bSw = new ConcurrentHashMap<>();
+    private BroadcastReceiver bSy = new BroadcastReceiver() { // from class: com.baidu.swan.apps.ao.b.d.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             int i;
             if ("android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
                 if (d.this.mAudioManager == null) {
-                    d.this.mAudioManager = (AudioManager) com.baidu.swan.apps.w.a.Rk().getSystemService("audio");
+                    d.this.mAudioManager = (AudioManager) com.baidu.swan.apps.w.a.RG().getSystemService("audio");
                 }
-                for (Map.Entry entry : d.this.bRM.entrySet()) {
+                for (Map.Entry entry : d.this.bSw.entrySet()) {
                     if (d.this.mAudioManager != null) {
                         i = d.this.mAudioManager.getStreamVolume(3);
                     } else {
                         i = 0;
                     }
-                    ((a) entry.getValue()).gB(i);
+                    ((a) entry.getValue()).gC(i);
                 }
             }
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void gB(int i);
+        void gC(int i);
     }
 
     private d() {
     }
 
-    public static d acY() {
-        if (bRL == null) {
+    public static d adv() {
+        if (bSv == null) {
             synchronized (d.class) {
-                if (bRL == null) {
-                    bRL = new d();
+                if (bSv == null) {
+                    bSv = new d();
                 }
             }
         }
-        return bRL;
+        return bSv;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(@NonNull String str, @NonNull a aVar) {
         if (!TextUtils.isEmpty(str)) {
             synchronized (this) {
-                this.bRM.put(str, aVar);
-                if (!this.bRN) {
+                this.bSw.put(str, aVar);
+                if (!this.bSx) {
                     registerReceiver();
                 }
                 if (com.baidu.swan.apps.b.DEBUG) {
-                    Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.bRM.size());
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.bSw.size());
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean ma(@NonNull String str) {
+    public boolean md(@NonNull String str) {
         if (!TextUtils.isEmpty(str)) {
             synchronized (this) {
-                a remove = this.bRM.remove(str);
-                if (this.bRM.size() == 0 && this.bRN) {
+                a remove = this.bSw.remove(str);
+                if (this.bSw.size() == 0 && this.bSx) {
                     unregisterReceiver();
                 }
                 if (com.baidu.swan.apps.b.DEBUG && remove != null) {
-                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.bRM.size());
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.bSw.size());
                 }
                 r0 = remove != null;
             }
@@ -88,9 +88,9 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int acZ() {
+    public int adw() {
         if (this.mAudioManager == null) {
-            this.mAudioManager = (AudioManager) com.baidu.swan.apps.w.a.Rk().getSystemService("audio");
+            this.mAudioManager = (AudioManager) com.baidu.swan.apps.w.a.RG().getSystemService("audio");
         }
         if (this.mAudioManager != null) {
             return this.mAudioManager.getStreamMaxVolume(3);
@@ -101,31 +101,31 @@ public class d {
     private void registerReceiver() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
-        com.baidu.swan.apps.w.a.Rk().registerReceiver(this.bRO, intentFilter);
-        this.bRN = true;
+        com.baidu.swan.apps.w.a.RG().registerReceiver(this.bSy, intentFilter);
+        this.bSx = true;
     }
 
     private void unregisterReceiver() {
         try {
-            com.baidu.swan.apps.w.a.Rk().unregisterReceiver(this.bRO);
-            this.bRN = false;
+            com.baidu.swan.apps.w.a.RG().unregisterReceiver(this.bSy);
+            this.bSx = false;
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void release() {
-        if (bRL != null) {
-            bRL.Nf();
+        if (bSv != null) {
+            bSv.NB();
         }
     }
 
-    private void Nf() {
+    private void NB() {
         synchronized (this) {
-            this.bRM.clear();
+            this.bSw.clear();
             this.mAudioManager = null;
-            this.bRN = false;
+            this.bSx = false;
         }
-        bRL = null;
+        bSv = null;
     }
 }

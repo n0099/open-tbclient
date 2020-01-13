@@ -4,66 +4,66 @@ import android.util.Log;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.extractor.f.w;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class l implements h {
-    private com.google.android.exoplayer2.extractor.m mah;
-    private int mbj;
-    private boolean miq;
-    private long mis;
-    private final com.google.android.exoplayer2.util.l mjv = new com.google.android.exoplayer2.util.l(10);
+    private com.google.android.exoplayer2.extractor.m mdY;
+    private int meY;
+    private boolean mme;
+    private long mmg;
+    private final com.google.android.exoplayer2.util.l mnj = new com.google.android.exoplayer2.util.l(10);
     private int sampleSize;
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void cwy() {
-        this.miq = false;
+    public void cxF() {
+        this.mme = false;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void a(com.google.android.exoplayer2.extractor.g gVar, w.d dVar) {
-        dVar.dte();
-        this.mah = gVar.dJ(dVar.dtf(), 4);
-        this.mah.h(Format.a(dVar.dtg(), "application/id3", (String) null, -1, (DrmInitData) null));
+        dVar.dup();
+        this.mdY = gVar.dH(dVar.duq(), 4);
+        this.mdY.h(Format.a(dVar.dur(), "application/id3", (String) null, -1, (DrmInitData) null));
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void m(long j, boolean z) {
         if (z) {
-            this.miq = true;
-            this.mis = j;
+            this.mme = true;
+            this.mmg = j;
             this.sampleSize = 0;
-            this.mbj = 0;
+            this.meY = 0;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void I(com.google.android.exoplayer2.util.l lVar) {
-        if (this.miq) {
-            int dwV = lVar.dwV();
-            if (this.mbj < 10) {
-                int min = Math.min(dwV, 10 - this.mbj);
-                System.arraycopy(lVar.data, lVar.getPosition(), this.mjv.data, this.mbj, min);
-                if (min + this.mbj == 10) {
-                    this.mjv.setPosition(0);
-                    if (73 != this.mjv.readUnsignedByte() || 68 != this.mjv.readUnsignedByte() || 51 != this.mjv.readUnsignedByte()) {
+        if (this.mme) {
+            int dyf = lVar.dyf();
+            if (this.meY < 10) {
+                int min = Math.min(dyf, 10 - this.meY);
+                System.arraycopy(lVar.data, lVar.getPosition(), this.mnj.data, this.meY, min);
+                if (min + this.meY == 10) {
+                    this.mnj.setPosition(0);
+                    if (73 != this.mnj.readUnsignedByte() || 68 != this.mnj.readUnsignedByte() || 51 != this.mnj.readUnsignedByte()) {
                         Log.w("Id3Reader", "Discarding invalid ID3 tag");
-                        this.miq = false;
+                        this.mme = false;
                         return;
                     }
-                    this.mjv.skipBytes(3);
-                    this.sampleSize = this.mjv.dxf() + 10;
+                    this.mnj.skipBytes(3);
+                    this.sampleSize = this.mnj.dyp() + 10;
                 }
             }
-            int min2 = Math.min(dwV, this.sampleSize - this.mbj);
-            this.mah.a(lVar, min2);
-            this.mbj = min2 + this.mbj;
+            int min2 = Math.min(dyf, this.sampleSize - this.meY);
+            this.mdY.a(lVar, min2);
+            this.meY = min2 + this.meY;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void dsO() {
-        if (this.miq && this.sampleSize != 0 && this.mbj == this.sampleSize) {
-            this.mah.a(this.mis, 1, this.sampleSize, 0, null);
-            this.miq = false;
+    public void dua() {
+        if (this.mme && this.sampleSize != 0 && this.meY == this.sampleSize) {
+            this.mdY.a(this.mmg, 1, this.sampleSize, 0, null);
+            this.mme = false;
         }
     }
 }

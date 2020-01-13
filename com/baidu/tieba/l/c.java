@@ -24,10 +24,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private RelativeLayout ils;
-    private TextView ilt;
-    private Runnable ilu;
-    private Runnable ilv;
+    private RelativeLayout ioY;
+    private TextView ioZ;
+    private Runnable ipa;
+    private Runnable ipb;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
@@ -42,8 +42,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void cep() {
-        if (!this.mIsShowing && isMainProcess() && ceq()) {
+    public void cfy() {
+        if (!this.mIsShowing && isMainProcess() && cfz()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -51,73 +51,73 @@ public class c {
             if (this.mHandler == null) {
                 this.mHandler = new Handler(this.mHandlerThread.getLooper());
             }
-            if (this.ilu == null) {
-                this.ilu = new Runnable() { // from class: com.baidu.tieba.l.c.1
+            if (this.ipa == null) {
+                this.ipa = new Runnable() { // from class: com.baidu.tieba.l.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (c.this.ils != null) {
-                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.ils);
+                        if (c.this.ioY != null) {
+                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.ioY);
                             c.this.clean();
                         }
                     }
                 };
             }
-            if (this.ilv == null) {
-                this.ilv = new Runnable() { // from class: com.baidu.tieba.l.c.2
+            if (this.ipb == null) {
+                this.ipb = new Runnable() { // from class: com.baidu.tieba.l.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.EL(c.this.mContext.getString(R.string.data_init));
+                        c.this.EV(c.this.mContext.getString(R.string.data_init));
                     }
                 };
             }
-            this.mHandler.removeCallbacks(this.ilv);
-            this.mHandler.postAtFrontOfQueue(this.ilv);
+            this.mHandler.removeCallbacks(this.ipb);
+            this.mHandler.postAtFrontOfQueue(this.ipb);
             this.mIsShowing = true;
-            this.mHandler.postDelayed(this.ilu, 20000L);
+            this.mHandler.postDelayed(this.ipa, 20000L);
         }
     }
 
     public void hide() {
-        if (this.ils != null && this.ilt != null) {
-            this.mHandler.removeCallbacks(this.ilu);
-            this.mHandler.post(this.ilu);
+        if (this.ioY != null && this.ioZ != null) {
+            this.mHandler.removeCallbacks(this.ipa);
+            this.mHandler.post(this.ipa);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clean() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.ilu);
-            this.mHandler.removeCallbacks(this.ilv);
-            this.ilv = null;
-            this.ilu = null;
+            this.mHandler.removeCallbacks(this.ipa);
+            this.mHandler.removeCallbacks(this.ipb);
+            this.ipb = null;
+            this.ipa = null;
             this.mHandler = null;
         }
         if (this.mHandlerThread != null) {
             this.mHandlerThread.quit();
         }
-        if (this.ilt != null) {
-            this.ilt = null;
+        if (this.ioZ != null) {
+            this.ioZ = null;
         }
-        if (this.ils != null) {
-            this.ils = null;
+        if (this.ioY != null) {
+            this.ioY = null;
         }
         this.mIsShowing = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void EL(String str) {
-        if (this.ilt == null) {
-            this.ilt = new b(this.mContext);
-            this.ilt.setTextSize(1, 18.0f);
+    public void EV(String str) {
+        if (this.ioZ == null) {
+            this.ioZ = new b(this.mContext);
+            this.ioZ.setTextSize(1, 18.0f);
         }
-        this.ilt.setText(str);
-        this.ils = new RelativeLayout(this.mContext);
-        this.ils.setBackgroundResource(R.drawable.pic_splash_logo);
+        this.ioZ.setText(str);
+        this.ioY = new RelativeLayout(this.mContext);
+        this.ioY.setBackgroundResource(R.drawable.pic_splash_logo);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
         layoutParams.addRule(15);
-        this.ils.addView(this.ilt, layoutParams);
+        this.ioY.addView(this.ioZ, layoutParams);
         WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
         layoutParams2.type = 2005;
         layoutParams2.format = 1;
@@ -127,7 +127,7 @@ public class c {
         layoutParams2.width = -1;
         layoutParams2.height = -1;
         layoutParams2.flags = 1280;
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.ils, layoutParams2);
+        ((WindowManager) this.mContext.getSystemService("window")).addView(this.ioY, layoutParams2);
     }
 
     private boolean isMainProcess() {
@@ -150,7 +150,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean ceq() {
+    private boolean cfz() {
         List<String> fc = fc(this.mContext);
         if (fc == null || fc.size() == 0) {
             return false;
@@ -187,9 +187,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends TextView {
-        private LinearGradient awO;
-        private Matrix ilx;
-        private int ily;
+        private LinearGradient axx;
+        private Matrix ipd;
+        private int ipe;
         private boolean mAnimating;
         private Paint mPaint;
         private int mViewWidth;
@@ -197,20 +197,20 @@ public class c {
         public b(Context context) {
             super(context);
             this.mViewWidth = 0;
-            this.ily = 0;
+            this.ipe = 0;
             this.mAnimating = true;
         }
 
         @Override // android.widget.TextView, android.view.View
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.mAnimating && this.ilx != null) {
-                this.ily += this.mViewWidth / 10;
-                if (this.ily > this.mViewWidth * 2) {
-                    this.ily = -this.mViewWidth;
+            if (this.mAnimating && this.ipd != null) {
+                this.ipe += this.mViewWidth / 10;
+                if (this.ipe > this.mViewWidth * 2) {
+                    this.ipe = -this.mViewWidth;
                 }
-                this.ilx.setTranslate(this.ily, 0.0f);
-                this.awO.setLocalMatrix(this.ilx);
+                this.ipd.setTranslate(this.ipe, 0.0f);
+                this.axx.setLocalMatrix(this.ipd);
                 postInvalidateDelayed(50L);
             }
         }
@@ -222,9 +222,9 @@ public class c {
                 this.mViewWidth = getMeasuredWidth();
                 if (this.mViewWidth > 0) {
                     this.mPaint = getPaint();
-                    this.awO = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, Integer.MAX_VALUE, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
-                    this.mPaint.setShader(this.awO);
-                    this.ilx = new Matrix();
+                    this.axx = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, Integer.MAX_VALUE, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
+                    this.mPaint.setShader(this.axx);
+                    this.ipd = new Matrix();
                 }
             }
         }

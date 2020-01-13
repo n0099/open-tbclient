@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.exoplayer2.util.l;
 import com.google.android.exoplayer2.util.s;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class TimeSignalCommand extends SpliceCommand {
     public static final Parcelable.Creator<TimeSignalCommand> CREATOR = new Parcelable.Creator<TimeSignalCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.TimeSignalCommand.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public final class TimeSignalCommand extends SpliceCommand {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kj */
+        /* renamed from: Ks */
         public TimeSignalCommand[] newArray(int i) {
             return new TimeSignalCommand[i];
         }
@@ -32,7 +32,7 @@ public final class TimeSignalCommand extends SpliceCommand {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static TimeSignalCommand b(l lVar, long j, s sVar) {
         long e = e(lVar, j);
-        return new TimeSignalCommand(e, sVar.gF(e));
+        return new TimeSignalCommand(e, sVar.gK(e));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

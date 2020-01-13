@@ -4,7 +4,7 @@ import android.graphics.Path;
 import com.tb.airbnb.lottie.model.content.Mask;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class g {
     private final List<a<com.tb.airbnb.lottie.model.content.h, Path>> gH;
     private final List<a<Integer, Integer>> gI;
@@ -18,8 +18,8 @@ public class g {
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                this.gH.add(list.get(i2).dBW().dBq());
-                this.gI.add(list.get(i2).dBF().dBq());
+                this.gH.add(list.get(i2).dFY().dFE());
+                this.gI.add(list.get(i2).dFK().dFE());
                 i = i2 + 1;
             } else {
                 return;

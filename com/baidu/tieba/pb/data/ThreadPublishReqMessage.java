@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.t;
 import tbclient.ThreadPublish.DataReq;
 import tbclient.ThreadPublish.ThreadPublishReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ThreadPublishReqMessage extends NetMessage {
     public long fid;
     public long tid;

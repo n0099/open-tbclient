@@ -14,18 +14,18 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static c dyT = null;
+    private static c dzb = null;
 
     private c() {
     }
 
-    public static synchronized c aOp() {
+    public static synchronized c aOI() {
         c cVar;
         synchronized (c.class) {
-            if (dyT == null) {
-                dyT = new c();
+            if (dzb == null) {
+                dzb = new c();
             }
-            cVar = dyT;
+            cVar = dzb;
         }
         return cVar;
     }
@@ -46,7 +46,7 @@ public class c {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            ba.aEa().b(tbPageContext, new String[]{str});
+            ba.aEt().b(tbPageContext, new String[]{str});
         }
     }
 

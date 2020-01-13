@@ -1,5 +1,5 @@
 package bolts;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UnobservedTaskException extends RuntimeException {
     public UnobservedTaskException(Throwable th) {
         super(th);

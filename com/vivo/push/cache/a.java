@@ -11,7 +11,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a extends d<com.vivo.push.model.a> {
     public a(Context context) {
         super(context);

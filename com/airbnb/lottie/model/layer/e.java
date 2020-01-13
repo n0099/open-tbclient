@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import com.airbnb.lottie.model.content.j;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e extends a {
     private final com.airbnb.lottie.a.a.c gw;
 
@@ -26,7 +26,7 @@ public class e extends a {
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.gw.a(rectF, this.iW);
+        this.gw.a(rectF, this.iV);
     }
 
     @Override // com.airbnb.lottie.model.layer.a

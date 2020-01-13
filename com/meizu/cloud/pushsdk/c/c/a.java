@@ -8,15 +8,15 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     protected final List<com.meizu.cloud.pushsdk.c.a.b> a;
     protected final long b;
     protected final String c;
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static abstract class AbstractC0679a<T extends AbstractC0679a<T>> {
+    /* loaded from: classes6.dex */
+    public static abstract class AbstractC0722a<T extends AbstractC0722a<T>> {
         private List<com.meizu.cloud.pushsdk.c.a.b> a = new LinkedList();
         private long b = System.currentTimeMillis();
         private String c = e.b();
@@ -31,13 +31,13 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a(AbstractC0679a<?> abstractC0679a) {
-        d.a(((AbstractC0679a) abstractC0679a).a);
-        d.a(((AbstractC0679a) abstractC0679a).c);
-        d.a(!((AbstractC0679a) abstractC0679a).c.isEmpty(), "eventId cannot be empty");
-        this.a = ((AbstractC0679a) abstractC0679a).a;
-        this.b = ((AbstractC0679a) abstractC0679a).b;
-        this.c = ((AbstractC0679a) abstractC0679a).c;
+    public a(AbstractC0722a<?> abstractC0722a) {
+        d.a(((AbstractC0722a) abstractC0722a).a);
+        d.a(((AbstractC0722a) abstractC0722a).c);
+        d.a(!((AbstractC0722a) abstractC0722a).c.isEmpty(), "eventId cannot be empty");
+        this.a = ((AbstractC0722a) abstractC0722a).a;
+        this.b = ((AbstractC0722a) abstractC0722a).b;
+        this.c = ((AbstractC0722a) abstractC0722a).c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

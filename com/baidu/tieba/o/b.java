@@ -1,21 +1,21 @@
 package com.baidu.tieba.o;
 
 import android.util.SparseArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public SparseArray<a> jKk;
+    public SparseArray<a> jNM;
 
     public b(SparseArray<a> sparseArray) {
-        this.jKk = sparseArray;
+        this.jNM = sparseArray;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public boolean dBS;
+        public boolean dCc;
         public int mNum;
 
         public a(boolean z, int i) {
-            this.dBS = z;
+            this.dCc = z;
             this.mNum = i;
         }
     }

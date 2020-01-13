@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e implements com.baidu.pano.platform.a.b {
     private final Map<String, a> a;
     private long b;
@@ -278,7 +278,7 @@ public class e implements com.baidu.pano.platform.a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public long a;
         public String b;
@@ -352,7 +352,7 @@ public class e implements com.baidu.pano.platform.a.b {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class b extends FilterInputStream {
         private int a;
 

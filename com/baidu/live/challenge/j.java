@@ -2,8 +2,8 @@ package com.baidu.live.challenge;
 
 import com.baidu.live.challenge.ChallenfeInfoData;
 import com.baidu.live.data.AlaPersonChallengeData;
-import com.baidu.live.data.y;
-import com.baidu.live.data.z;
+import com.baidu.live.data.ac;
+import com.baidu.live.data.ad;
 import java.util.List;
 /* loaded from: classes2.dex */
 public interface j {
@@ -17,79 +17,74 @@ public interface j {
 
     /* loaded from: classes2.dex */
     public interface b {
-        void a(int i, boolean z, String str);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface c {
-        void pm();
-
-        void pn();
-
-        void po();
-
-        void pp();
-    }
-
-    /* loaded from: classes2.dex */
-    public interface d {
         void bf(int i);
     }
 
     /* loaded from: classes2.dex */
+    public interface c {
+        void b(ac acVar, ad adVar, ad adVar2);
+
+        void c(ac acVar, ad adVar, ad adVar2);
+
+        void d(ac acVar, ad adVar, ad adVar2);
+
+        void e(ac acVar, ad adVar, ad adVar2);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface d {
+        void a(int i, String str, com.baidu.live.challenge.a aVar);
+
+        void b(int i, String str, com.baidu.live.challenge.a aVar);
+
+        void h(int i, String str);
+    }
+
+    /* loaded from: classes2.dex */
     public interface e {
-        void b(y yVar, z zVar, z zVar2);
-
-        void c(y yVar, z zVar, z zVar2);
-
-        void d(y yVar, z zVar, z zVar2);
-
-        void e(y yVar, z zVar, z zVar2);
+        int pt();
     }
 
     /* loaded from: classes2.dex */
     public interface f {
-        void a(int i, String str, com.baidu.live.challenge.a aVar);
-
-        void b(int i, String str, com.baidu.live.challenge.a aVar);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface g {
-        int pq();
-    }
-
-    /* loaded from: classes2.dex */
-    public interface h {
-        void h(int i, String str);
+        void i(int i, String str);
 
         void m(List<com.baidu.live.challenge.d> list);
     }
 
     /* loaded from: classes2.dex */
-    public interface i {
+    public interface g {
         void a(com.baidu.live.challenge.d dVar);
-
-        void i(int i, String str);
-    }
-
-    /* renamed from: com.baidu.live.challenge.j$j  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0074j {
-        void a(com.baidu.live.challenge.b bVar, List<com.baidu.live.challenge.d> list);
 
         void j(int i, String str);
     }
 
     /* loaded from: classes2.dex */
-    public interface k {
-        void a(boolean z, String str, com.baidu.live.challenge.a aVar);
+    public interface h {
+        void a(com.baidu.live.challenge.b bVar, List<com.baidu.live.challenge.d> list);
 
-        void c(int i, String str, com.baidu.live.challenge.a aVar);
+        void k(int i, String str);
     }
 
     /* loaded from: classes2.dex */
-    public interface l {
+    public interface i {
+        void a(boolean z, String str, com.baidu.live.challenge.a aVar);
+
+        void c(int i, String str, com.baidu.live.challenge.a aVar);
+
+        void l(int i, String str);
+    }
+
+    /* renamed from: com.baidu.live.challenge.j$j  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0074j {
+        void m(int i, String str);
+
+        void pu();
+    }
+
+    /* loaded from: classes2.dex */
+    public interface k {
         void d(boolean z, String str);
     }
 
@@ -115,45 +110,45 @@ public interface j {
 
     void a(k kVar);
 
-    void a(l lVar);
-
     void a(AlaPersonChallengeData alaPersonChallengeData);
 
     void as(boolean z);
 
     void be(int i2);
 
-    void c(com.baidu.live.data.k kVar);
+    void c(com.baidu.live.data.l lVar);
 
-    void cK(String str);
+    void cL(String str);
 
     void d(long j, long j2);
 
-    void n(int i2, int i3);
+    void e(int i2, int i3, String str);
 
-    void oS();
+    void oZ();
 
     void onDestroy();
-
-    void pc();
-
-    void pd();
-
-    void pe();
-
-    void pf();
-
-    void pg();
-
-    ChallenfeInfoData.ChallengeStatus ph();
-
-    boolean pi();
 
     void pj();
 
     void pk();
 
-    long pl();
+    void pl();
+
+    void pm();
+
+    void pn();
+
+    void po();
+
+    ChallenfeInfoData.ChallengeStatus pp();
+
+    boolean pq();
+
+    void pr();
+
+    long ps();
+
+    void r(int i2, int i3);
 
     void s(long j);
 

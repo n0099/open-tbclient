@@ -22,7 +22,7 @@ import com.baidu.searchbox.ugc.model.UgcTagSelectEvent;
 import com.baidu.searchbox.unitedscheme.BaseRouter;
 import java.util.List;
 import rx.functions.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UgcUiUtils {
     private static Context context = AppRuntime.getAppContext();
 

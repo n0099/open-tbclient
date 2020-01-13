@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MP3TrackImpl extends AbstractTrack {
     private static final int ES_OBJECT_TYPE_INDICATION = 107;
     private static final int ES_STREAM_TYPE = 5;
@@ -141,23 +141,23 @@ public class MP3TrackImpl extends AbstractTrack {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a {
         int bitRate;
         int channelCount;
         int layer;
-        int mJF;
-        int mJG;
-        int mJn;
-        int mJo;
-        int mJp;
+        int mNb;
+        int mNc;
+        int mNd;
+        int mNt;
+        int mNu;
         int padding;
         int sampleRate;
 
         a() {
         }
 
-        int dzt() {
+        int dAy() {
             return ((this.bitRate * 144) / this.sampleRate) + this.padding;
         }
     }
@@ -172,7 +172,7 @@ public class MP3TrackImpl extends AbstractTrack {
                     aVar = readMP3Header;
                 }
                 dataSource.position(position);
-                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.dzt());
+                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.dAy());
                 dataSource.read(allocate);
                 allocate.rewind();
                 this.samples.add(new SampleImpl(allocate));
@@ -194,29 +194,29 @@ public class MP3TrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(11) != 2047) {
             throw new IOException("Expected Start Word 0x7ff");
         }
-        aVar.mJo = bitReaderBuffer.readBits(2);
-        if (aVar.mJo != 3) {
+        aVar.mNc = bitReaderBuffer.readBits(2);
+        if (aVar.mNc != 3) {
             throw new IOException("Expected MPEG Version 1 (ISO/IEC 11172-3)");
         }
         aVar.layer = bitReaderBuffer.readBits(2);
         if (aVar.layer != 1) {
             throw new IOException("Expected Layer III");
         }
-        aVar.mJp = bitReaderBuffer.readBits(1);
-        aVar.mJF = bitReaderBuffer.readBits(4);
-        aVar.bitRate = BIT_RATE[aVar.mJF];
+        aVar.mNd = bitReaderBuffer.readBits(1);
+        aVar.mNt = bitReaderBuffer.readBits(4);
+        aVar.bitRate = BIT_RATE[aVar.mNt];
         if (aVar.bitRate == 0) {
             throw new IOException("Unexpected (free/bad) bit rate");
         }
-        aVar.mJn = bitReaderBuffer.readBits(2);
-        aVar.sampleRate = SAMPLE_RATE[aVar.mJn];
+        aVar.mNb = bitReaderBuffer.readBits(2);
+        aVar.sampleRate = SAMPLE_RATE[aVar.mNb];
         if (aVar.sampleRate == 0) {
             throw new IOException("Unexpected (reserved) sample rate frequency");
         }
         aVar.padding = bitReaderBuffer.readBits(1);
         bitReaderBuffer.readBits(1);
-        aVar.mJG = bitReaderBuffer.readBits(2);
-        aVar.channelCount = aVar.mJG == 3 ? 1 : 2;
+        aVar.mNu = bitReaderBuffer.readBits(2);
+        aVar.channelCount = aVar.mNu == 3 ? 1 : 2;
         return aVar;
     }
 

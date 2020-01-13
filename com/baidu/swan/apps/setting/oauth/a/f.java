@@ -8,48 +8,48 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import okhttp3.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends g<JSONObject> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private boolean bPd;
-    private final String bPs;
+    private boolean bPN;
+    private final String bQc;
     protected final Activity mActivity;
     private final String mScope;
 
     public f(Activity activity, String str, String str2, boolean z) {
         this.mActivity = activity;
         this.mScope = str;
-        this.bPs = str2;
-        this.bPd = z;
+        this.bQc = str2;
+        this.bPN = z;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean abt() {
-        bb("data", abN().toString());
+    protected boolean abQ() {
+        bc("data", ack().toString());
         return true;
     }
 
-    public JSONObject abN() {
+    public JSONObject ack() {
         JSONObject jSONObject = new JSONObject();
         try {
-            com.baidu.swan.apps.runtime.e aao = aao();
-            jSONObject.put("ma_id", aao.id);
+            com.baidu.swan.apps.runtime.e aaL = aaL();
+            jSONObject.put("ma_id", aaL.id);
             jSONObject.put("scope", this.mScope);
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            jSONObject.put("app_key", aao.getAppKey());
-            if (aao.DR() != null && aao.DR().SW() != null) {
-                jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, aao.DR().SW());
+            jSONObject.put("app_key", aaL.getAppKey());
+            if (aaL.En() != null && aaL.En().Tt() != null) {
+                jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, aaL.En().Tt());
             }
-            if (this.bPd) {
+            if (this.bPN) {
                 jSONObject.put(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "1");
             }
-            String Fp = com.baidu.swan.apps.w.a.Rw().Fp();
-            if (!TextUtils.isEmpty(Fp)) {
-                jSONObject.put("host_api_key", Fp);
+            String FL = com.baidu.swan.apps.w.a.RS().FL();
+            if (!TextUtils.isEmpty(FL)) {
+                jSONObject.put("host_api_key", FL);
             }
-            if (!TextUtils.isEmpty(this.bPs)) {
-                jSONObject.put("provider_appkey", this.bPs);
+            if (!TextUtils.isEmpty(this.bQc)) {
+                jSONObject.put("provider_appkey", this.bQc);
             }
         } catch (JSONException e) {
             if (DEBUG) {
@@ -61,7 +61,7 @@ public class f extends g<JSONObject> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.w.a.Rw().i(this.mActivity, gVar.abO());
+        return com.baidu.swan.apps.w.a.RS().i(this.mActivity, gVar.acl());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import com.baidu.webkit.sdk.JsResult;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JsPromptResult extends JsResult {
     private String mStringResult;
 

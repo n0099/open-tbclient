@@ -1,5 +1,7 @@
 package com.baidu.tieba.livesdk.share;
 
+import android.app.Activity;
+import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.l;
@@ -16,10 +18,16 @@ import com.baidu.tieba.tbadkCore.w;
 /* loaded from: classes2.dex */
 public class a implements IShareChannel, f {
     @Override // com.baidu.tieba.sdk.a.f
-    public void e(ShareEntity shareEntity) {
-        ShareItem f;
-        if (shareEntity != null && (f = f(shareEntity)) != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaSDKShareEmptyActivityConfig(TbadkCoreApplication.getInst(), f, 0, 1)));
+    public void a(Activity activity, ShareEntity shareEntity) {
+        if (shareEntity != null) {
+            ShareItem e = e(shareEntity);
+            Context context = activity;
+            if (e != null) {
+                if (activity == null) {
+                    context = TbadkCoreApplication.getInst();
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaSDKShareEmptyActivityConfig(context, e, 0, 1)));
+            }
         }
     }
 
@@ -45,21 +53,21 @@ public class a implements IShareChannel, f {
 
     private void a(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
         if (shareEntity != null) {
-            if (!xw(i)) {
+            if (!xB(i)) {
                 if (iShareCallback != null) {
                     iShareCallback.onShare(0, 0, "");
                     return;
                 }
                 return;
             }
-            ShareItem f = f(shareEntity);
-            if (f != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaSDKShareEmptyActivityConfig(TbadkCoreApplication.getInst(), f, i, 2)));
+            ShareItem e = e(shareEntity);
+            if (e != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaSDKShareEmptyActivityConfig(TbadkCoreApplication.getInst(), e, i, 2)));
             }
         }
     }
 
-    private boolean xw(int i) {
+    private boolean xB(int i) {
         boolean z = false;
         switch (i) {
             case 2:
@@ -88,7 +96,7 @@ public class a implements IShareChannel, f {
         return z;
     }
 
-    private ShareItem f(ShareEntity shareEntity) {
+    private ShareItem e(ShareEntity shareEntity) {
         if (shareEntity == null) {
             return null;
         }

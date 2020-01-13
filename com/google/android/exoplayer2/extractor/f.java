@@ -1,19 +1,19 @@
 package com.google.android.exoplayer2.extractor;
 
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface f {
-    int Jg(int i) throws IOException, InterruptedException;
+    int Jp(int i) throws IOException, InterruptedException;
 
-    void Jh(int i) throws IOException, InterruptedException;
+    void Jq(int i) throws IOException, InterruptedException;
 
-    void Ji(int i) throws IOException, InterruptedException;
+    void Jr(int i) throws IOException, InterruptedException;
 
     boolean d(byte[] bArr, int i, int i2, boolean z) throws IOException, InterruptedException;
 
-    void dsq();
+    void dtC();
 
-    long dsr();
+    long dtD();
 
     boolean e(byte[] bArr, int i, int i2, boolean z) throws IOException, InterruptedException;
 
@@ -21,7 +21,7 @@ public interface f {
 
     long getPosition();
 
-    void p(byte[] bArr, int i, int i2) throws IOException, InterruptedException;
+    void o(byte[] bArr, int i, int i2) throws IOException, InterruptedException;
 
     int read(byte[] bArr, int i, int i2) throws IOException, InterruptedException;
 

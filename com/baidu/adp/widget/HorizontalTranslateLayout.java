@@ -38,13 +38,13 @@ public class HorizontalTranslateLayout extends FrameLayout {
     private float mRightOffset;
     private boolean mRightTapBack;
     private final int mTouchThreshold;
-    private TrackDirection zq;
-    private final a zr;
-    private final b zs;
-    private final g zt;
-    private d zu;
-    private f zv;
-    private c zw;
+    private c zA;
+    private TrackDirection zu;
+    private final a zv;
+    private final b zw;
+    private final g zx;
+    private d zy;
+    private f zz;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -94,9 +94,9 @@ public class HorizontalTranslateLayout extends FrameLayout {
         this.mLeftFrameForTap = new Rect();
         this.mRightFrameForTap = new Rect();
         this.mOnOpenAnimationListener = new ArrayList();
-        this.zr = new a();
-        this.zs = new b();
-        this.zt = new g();
+        this.zv = new a();
+        this.zw = new b();
+        this.zx = new g();
         this.mPositionState = 10004;
         Resources resources = getResources();
         this.mBackgroundPaint = new Paint();
@@ -113,15 +113,15 @@ public class HorizontalTranslateLayout extends FrameLayout {
         if (string != null && string.length() > 0) {
             if (this.mLeftOffset != -1.0f && this.mRightOffset != -1.0f && com.baidu.live.adp.widget.HorizontalTranslateLayout.HORIZONTAL.equals(string)) {
                 BdLog.d("HorizontalTranslateLayout@parseTrack horizontal");
-                this.zq = TrackDirection.horizontal;
+                this.zu = TrackDirection.horizontal;
             } else if (this.mRightOffset != -1.0f && com.baidu.live.adp.widget.HorizontalTranslateLayout.RIGHT.equals(string)) {
                 BdLog.d("HorizontalTranslateLayout@parseTrack right");
-                this.zq = TrackDirection.right;
+                this.zu = TrackDirection.right;
             } else if (this.mLeftOffset != -1.0f && "left".equals(string)) {
                 BdLog.d("HorizontalTranslateLayout@parseTrack left");
-                this.zq = TrackDirection.left;
+                this.zu = TrackDirection.left;
             } else {
-                this.zq = TrackDirection.none;
+                this.zu = TrackDirection.none;
                 BdLog.d("HorizontalTranslateLayout@loadAttrs no direction");
             }
         }
@@ -191,15 +191,15 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     public void setLeftAnimationListener(d dVar) {
-        this.zu = dVar;
+        this.zy = dVar;
     }
 
     public void setRightAnimationListener(f fVar) {
-        this.zv = fVar;
+        this.zz = fVar;
     }
 
     public void setHorizontalTrackListener(c cVar) {
-        this.zw = cVar;
+        this.zA = cVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -218,7 +218,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.zq == TrackDirection.none) {
+        if (this.zu == TrackDirection.none) {
             return false;
         }
         int action = motionEvent.getAction() & 255;
@@ -229,10 +229,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 case 0:
                     this.mLastDownX = x;
                     this.mLastDownY = y;
-                    this.zr.removeMessages(-100);
-                    this.zr.removeMessages(-104);
-                    this.zr.removeMessages(-101);
-                    this.zr.removeMessages(-105);
+                    this.zv.removeMessages(-100);
+                    this.zv.removeMessages(-104);
+                    this.zv.removeMessages(-101);
+                    this.zv.removeMessages(-105);
                     return false;
                 case 1:
                 default:
@@ -248,7 +248,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     private boolean prepareTracking(int i, int i2) {
-        return i2 >= this.mLastDownY - this.mTouchThreshold && i2 <= this.mLastDownY + this.mTouchThreshold && (i < this.mLastDownX - this.mTouchThreshold || i > this.mLastDownX + this.mTouchThreshold) && this.zt.prepareTracking(i - this.mLastDownX);
+        return i2 >= this.mLastDownY - this.mTouchThreshold && i2 <= this.mLastDownY + this.mTouchThreshold && (i < this.mLastDownX - this.mTouchThreshold || i > this.mLastDownX + this.mTouchThreshold) && this.zx.prepareTracking(i - this.mLastDownX);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -263,15 +263,15 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 case 3:
                     BdLog.d("HorizontalTranslateLayout@onTouchEvent up");
                     this.mLastMoveXBeenSet = false;
-                    if (this.zt.tracking) {
+                    if (this.zx.tracking) {
                         BdLog.d("HorizontalTranslateLayout@onTouchEvent tracking");
-                        this.zt.stopTracking();
-                        this.zt.fling();
+                        this.zx.stopTracking();
+                        this.zx.fling();
                         return true;
                     }
                     return true;
                 case 2:
-                    if (this.zt.tracking) {
+                    if (this.zx.tracking) {
                         if (!this.mLastMoveXBeenSet) {
                             if (x > this.mLastDownX) {
                                 this.mLastMoveX = this.mLastDownX + this.mTouchThreshold;
@@ -281,9 +281,9 @@ public class HorizontalTranslateLayout extends FrameLayout {
                                 this.mLastMoveXBeenSet = true;
                             }
                         }
-                        this.zt.move(this.mLastMoveX - x);
+                        this.zx.move(this.mLastMoveX - x);
                         this.mLastMoveX = x;
-                        this.zt.velocityTracker.addMovement(motionEvent);
+                        this.zx.velocityTracker.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -299,17 +299,17 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 if ((this.mPositionState != 10000 || !this.mLeftFrameForTap.contains(x, y)) && (this.mPositionState != 10001 || !this.mRightFrameForTap.contains(x, y))) {
                     return false;
                 }
-                if (!this.zt.tracking) {
+                if (!this.zx.tracking) {
                     this.mLastMoveX = x;
-                    this.zt.prepareTracking(x);
+                    this.zx.prepareTracking(x);
                     break;
                 }
                 break;
             case 1:
             case 3:
-                if (this.zt.tracking) {
-                    this.zt.stopTracking();
-                    this.zt.fling();
+                if (this.zx.tracking) {
+                    this.zx.stopTracking();
+                    this.zx.fling();
                     return true;
                 }
                 return true;
@@ -318,10 +318,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
             default:
                 return true;
         }
-        if (this.zt.tracking) {
-            this.zt.move(this.mLastMoveX - x);
+        if (this.zx.tracking) {
+            this.zx.move(this.mLastMoveX - x);
             this.mLastMoveX = x;
-            this.zt.velocityTracker.addMovement(motionEvent);
+            this.zx.velocityTracker.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -338,7 +338,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 this.mRightFrameForTap.set((int) (i3 - this.mRightOffset), i2, i3, i4);
             }
         }
-        if (!this.zs.iAnimating && !this.zt.tracking) {
+        if (!this.zw.iAnimating && !this.zx.tracking) {
             offset();
         }
     }
@@ -386,23 +386,23 @@ public class HorizontalTranslateLayout extends FrameLayout {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (HorizontalTranslateLayout.this.zs.iAnimating) {
+            if (HorizontalTranslateLayout.this.zw.iAnimating) {
                 switch (message.what) {
                     case -105:
-                        HorizontalTranslateLayout.this.zs.computeRightOpenAnimation();
+                        HorizontalTranslateLayout.this.zw.computeRightOpenAnimation();
                         return;
                     case -104:
-                        HorizontalTranslateLayout.this.zs.computeLeftOpenAnimation();
+                        HorizontalTranslateLayout.this.zw.computeLeftOpenAnimation();
                         return;
                     case SapiErrorCode.INVALID_ARG /* -103 */:
                     case -102:
                     default:
                         return;
                     case -101:
-                        HorizontalTranslateLayout.this.zs.computeRightAnimation();
+                        HorizontalTranslateLayout.this.zw.computeRightAnimation();
                         return;
                     case -100:
-                        HorizontalTranslateLayout.this.zs.computeLeftAnimation();
+                        HorizontalTranslateLayout.this.zw.computeLeftAnimation();
                         return;
                 }
             }
@@ -424,7 +424,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         }
 
         boolean prepareTracking(int i) {
-            switch (HorizontalTranslateLayout.this.zq) {
+            switch (HorizontalTranslateLayout.this.zu) {
                 case left:
                     if (HorizontalTranslateLayout.this.mPositionState != 10004 && HorizontalTranslateLayout.this.mPositionState != 10000) {
                         return false;
@@ -436,8 +436,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     }
                     break;
                 case horizontal:
-                    if (HorizontalTranslateLayout.this.zw != null) {
-                        HorizontalTranslateLayout.this.zw.onStartHorizontalTrack(i);
+                    if (HorizontalTranslateLayout.this.zA != null) {
+                        HorizontalTranslateLayout.this.zA.onStartHorizontalTrack(i);
                         break;
                     }
                     break;
@@ -454,7 +454,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         void move(int i) {
             if (this.tracking) {
                 int i2 = HorizontalTranslateLayout.this.mLeftTranslate - i;
-                switch (HorizontalTranslateLayout.this.zq) {
+                switch (HorizontalTranslateLayout.this.zu) {
                     case left:
                         BdLog.d("HorizontalTranslateLayout@move left");
                         if (i2 > HorizontalTranslateLayout.this.mLeftOffset - HorizontalTranslateLayout.this.getMeasuredWidth() && i2 < 0) {
@@ -496,7 +496,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             } else {
                 max = Math.max(xVelocity, this.minVelocity);
             }
-            switch (HorizontalTranslateLayout.this.zq) {
+            switch (HorizontalTranslateLayout.this.zu) {
                 case left:
                     leftFling(max);
                     break;
@@ -516,15 +516,15 @@ public class HorizontalTranslateLayout extends FrameLayout {
             int i = HorizontalTranslateLayout.this.mLeftTranslate;
             if (i <= 0 && i >= HorizontalTranslateLayout.this.mLeftOffset - HorizontalTranslateLayout.this.getMeasuredWidth()) {
                 if (f < 0.0f) {
-                    HorizontalTranslateLayout.this.zs.animateLeft(f);
+                    HorizontalTranslateLayout.this.zw.animateLeft(f);
                 } else {
-                    HorizontalTranslateLayout.this.zs.animateLeftOpen(f);
+                    HorizontalTranslateLayout.this.zw.animateLeftOpen(f);
                 }
             } else if (i >= 0 && i <= HorizontalTranslateLayout.this.getMeasuredWidth() - HorizontalTranslateLayout.this.mRightOffset) {
                 if (f < 0.0f) {
-                    HorizontalTranslateLayout.this.zs.animateRightOpen(f);
+                    HorizontalTranslateLayout.this.zw.animateRightOpen(f);
                 } else {
-                    HorizontalTranslateLayout.this.zs.animateRight(f);
+                    HorizontalTranslateLayout.this.zw.animateRight(f);
                 }
             }
         }
@@ -532,18 +532,18 @@ public class HorizontalTranslateLayout extends FrameLayout {
         private void leftFling(float f) {
             BdLog.d("HorizontalTranslateLayout@leftFling");
             if (f < 0.0f) {
-                HorizontalTranslateLayout.this.zs.animateLeft(f);
+                HorizontalTranslateLayout.this.zw.animateLeft(f);
             } else {
-                HorizontalTranslateLayout.this.zs.animateLeftOpen(f);
+                HorizontalTranslateLayout.this.zw.animateLeftOpen(f);
             }
         }
 
         private void rightFling(float f) {
             BdLog.d("HorizontalTranslateLayout@rightFling");
             if (f < 0.0f) {
-                HorizontalTranslateLayout.this.zs.animateRightOpen(f);
+                HorizontalTranslateLayout.this.zw.animateRightOpen(f);
             } else {
-                HorizontalTranslateLayout.this.zs.animateRight(f);
+                HorizontalTranslateLayout.this.zw.animateRight(f);
             }
         }
     }
@@ -574,7 +574,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         void computeLeftAnimation() {
             compute();
             if (this.iAnimatingPosition <= this.iAnimationDistance) {
-                d dVar = HorizontalTranslateLayout.this.zu;
+                d dVar = HorizontalTranslateLayout.this.zy;
                 if (dVar != null) {
                     dVar.onLeftAnimationEnd();
                 }
@@ -585,13 +585,13 @@ public class HorizontalTranslateLayout extends FrameLayout {
             }
             HorizontalTranslateLayout.this.mLeftTranslate = (int) (com.baidu.adp.widget.d.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.zr.sendEmptyMessageAtTime(-100, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.zv.sendEmptyMessageAtTime(-100, this.iCurrentAnimationTime);
         }
 
         void computeRightAnimation() {
             compute();
             if (this.iAnimatingPosition >= this.iAnimationDistance) {
-                f fVar = HorizontalTranslateLayout.this.zv;
+                f fVar = HorizontalTranslateLayout.this.zz;
                 if (fVar != null) {
                     fVar.onRightAnimationEnd();
                 }
@@ -602,7 +602,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             }
             HorizontalTranslateLayout.this.mLeftTranslate = (int) (com.baidu.adp.widget.d.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.zr.sendEmptyMessageAtTime(-101, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.zv.sendEmptyMessageAtTime(-101, this.iCurrentAnimationTime);
         }
 
         void computeLeftOpenAnimation() {
@@ -620,7 +620,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             }
             HorizontalTranslateLayout.this.mLeftTranslate = (int) (com.baidu.adp.widget.d.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.zr.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.zv.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
         }
 
         void computeRightOpenAnimation() {
@@ -638,7 +638,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             }
             HorizontalTranslateLayout.this.mLeftTranslate = (int) (com.baidu.adp.widget.d.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.zr.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.zv.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
         }
 
         void animateLeftOpen(float f) {
@@ -655,10 +655,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.iAnimatingPosition = 0.0f;
             this.iAnimationDistance = 0 - HorizontalTranslateLayout.this.mLeftTranslate;
             this.iAnimationStart = HorizontalTranslateLayout.this.mLeftTranslate;
-            HorizontalTranslateLayout.this.zr.removeMessages(-104);
+            HorizontalTranslateLayout.this.zv.removeMessages(-104);
             BdLog.d("Animator@animateTopOpen " + this.iAnimationDistance);
             BdLog.d("Animator@animateTopOpen " + f);
-            HorizontalTranslateLayout.this.zr.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.zv.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
         }
 
         void animateRightOpen(float f) {
@@ -677,12 +677,12 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.iAnimationStart = HorizontalTranslateLayout.this.mLeftTranslate;
             BdLog.d("Animator@animateBottomOpen " + this.iAnimationDistance);
             BdLog.d("Animator@animateBottomOpen " + f);
-            HorizontalTranslateLayout.this.zr.removeMessages(-105);
-            HorizontalTranslateLayout.this.zr.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.zv.removeMessages(-105);
+            HorizontalTranslateLayout.this.zv.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
         }
 
         void animateLeft(float f) {
-            d dVar = HorizontalTranslateLayout.this.zu;
+            d dVar = HorizontalTranslateLayout.this.zy;
             if (dVar != null) {
                 dVar.onLeftAnimationStart();
             }
@@ -696,12 +696,12 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.iAnimationStart = HorizontalTranslateLayout.this.mLeftTranslate;
             BdLog.d("Animator@animateTop " + this.iAnimationDistance);
             BdLog.d("Animator@animateTop " + f);
-            HorizontalTranslateLayout.this.zr.removeMessages(-100);
-            HorizontalTranslateLayout.this.zr.sendEmptyMessageAtTime(-100, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.zv.removeMessages(-100);
+            HorizontalTranslateLayout.this.zv.sendEmptyMessageAtTime(-100, this.iCurrentAnimationTime);
         }
 
         void animateRight(float f) {
-            f fVar = HorizontalTranslateLayout.this.zv;
+            f fVar = HorizontalTranslateLayout.this.zz;
             if (fVar != null) {
                 fVar.onRightAnimationStart();
             }
@@ -715,8 +715,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.iAnimationStart = HorizontalTranslateLayout.this.mLeftTranslate;
             BdLog.d("Animator@animateBottom " + this.iAnimationDistance);
             BdLog.d("Animator@animateBottom " + f);
-            HorizontalTranslateLayout.this.zr.removeMessages(-101);
-            HorizontalTranslateLayout.this.zr.sendEmptyMessageAtTime(-101, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.zv.removeMessages(-101);
+            HorizontalTranslateLayout.this.zv.sendEmptyMessageAtTime(-101, this.iCurrentAnimationTime);
         }
     }
 }

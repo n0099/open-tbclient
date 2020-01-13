@@ -1,11 +1,11 @@
 package com.google.android.exoplayer2.source.dash.manifest;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class i implements com.google.android.exoplayer2.source.dash.d {
-    private final f mqS;
+    private final f muH;
 
     public i(f fVar) {
-        this.mqS = fVar;
+        this.muH = fVar;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
@@ -14,7 +14,7 @@ public final class i implements com.google.android.exoplayer2.source.dash.d {
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public long KH(int i) {
+    public long KQ(int i) {
         return 0L;
     }
 
@@ -24,22 +24,22 @@ public final class i implements com.google.android.exoplayer2.source.dash.d {
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public f KI(int i) {
-        return this.mqS;
+    public f KR(int i) {
+        return this.muH;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public int duy() {
+    public int dvJ() {
         return 0;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public int gn(long j) {
+    public int gs(long j) {
         return 1;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.d
-    public boolean duz() {
+    public boolean dvK() {
         return true;
     }
 }

@@ -1,7 +1,7 @@
 package android.support.graphics.drawable;
 
 import android.support.annotation.StyleableRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class AndroidResources {
     public static final int FAST_OUT_LINEAR_IN = 17563663;
     public static final int FAST_OUT_SLOW_IN = 17563661;

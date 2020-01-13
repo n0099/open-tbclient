@@ -10,7 +10,7 @@ import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableWindowBoundary<T, B> extends io.reactivex.internal.operators.observable.a<T, q<T>> {
     final int capacityHint;
     final t<B> other;
@@ -23,7 +23,7 @@ public final class ObservableWindowBoundary<T, B> extends io.reactivex.internal.
         this.source.subscribe(windowBoundaryMainObserver);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class WindowBoundaryMainObserver<T, B> extends AtomicInteger implements io.reactivex.disposables.b, u<T>, Runnable {
         static final Object NEXT_WINDOW = new Object();
         private static final long serialVersionUID = 2233020065421370272L;
@@ -64,7 +64,7 @@ public final class ObservableWindowBoundary<T, B> extends io.reactivex.internal.
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u
@@ -108,7 +108,7 @@ public final class ObservableWindowBoundary<T, B> extends io.reactivex.internal.
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         void innerComplete() {
@@ -184,37 +184,37 @@ public final class ObservableWindowBoundary<T, B> extends io.reactivex.internal.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class a<T, B> extends io.reactivex.observers.a<B> {
         boolean done;
-        final WindowBoundaryMainObserver<T, B> mVw;
+        final WindowBoundaryMainObserver<T, B> nxF;
 
         a(WindowBoundaryMainObserver<T, B> windowBoundaryMainObserver) {
-            this.mVw = windowBoundaryMainObserver;
+            this.nxF = windowBoundaryMainObserver;
         }
 
         @Override // io.reactivex.u
         public void onNext(B b) {
             if (!this.done) {
-                this.mVw.innerNext();
+                this.nxF.innerNext();
             }
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;
-            this.mVw.innerError(th);
+            this.nxF.innerError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.mVw.innerComplete();
+                this.nxF.innerComplete();
             }
         }
     }

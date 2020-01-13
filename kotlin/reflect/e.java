@@ -1,6 +1,6 @@
 package kotlin.reflect;
-/* loaded from: classes4.dex */
-public interface e<R> extends b<R> {
+/* loaded from: classes5.dex */
+public interface e<R> extends kotlin.c<R>, b<R> {
     boolean isExternal();
 
     boolean isInfix();
@@ -9,5 +9,6 @@ public interface e<R> extends b<R> {
 
     boolean isOperator();
 
+    @Override // kotlin.reflect.b
     boolean isSuspend();
 }

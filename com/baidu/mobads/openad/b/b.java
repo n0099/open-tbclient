@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements Observer {
     private static NotificationManager a;
     private static int b = 10091;

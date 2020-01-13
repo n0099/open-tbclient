@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.swan.apps.adaptation.a.ah;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class m implements ah {
     @Override // com.baidu.swan.apps.adaptation.a.ah
     public void b(String str, Object obj, int i) {
@@ -36,7 +36,7 @@ public class m implements ah {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ah
-    public ExecutorService Fb() {
+    public ExecutorService Fx() {
         return null;
     }
 }

@@ -17,21 +17,21 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.editvideo.data.MusicData;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends BaseAdapter {
-    private e cRq;
-    public int krY;
-    public String krZ;
+    private e cRA;
+    public int kvB;
+    public String kvC;
     private List<MusicData> mList;
 
     public c(e eVar) {
-        this.cRq = eVar;
+        this.cRA = eVar;
     }
 
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            JB(this.krZ);
+            JL(this.kvC);
             notifyDataSetChanged();
         }
     }
@@ -61,19 +61,19 @@ public class c extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.cRq.getPageActivity()).inflate(R.layout.layout_music_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.cRA.getPageActivity()).inflate(R.layout.layout_music_item, (ViewGroup) null);
             aVar = new a();
-            aVar.krj = (TbImageView) view.findViewById(R.id.music_image);
-            aVar.krm = (TextView) view.findViewById(R.id.music_title);
-            aVar.krl = view.findViewById(R.id.music_loading);
-            aVar.krj.setDrawerType(1);
-            aVar.krj.setIsRound(true);
-            aVar.krj.setDefaultBgResource(R.color.transparent);
-            aVar.krj.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
-            aVar.krj.setDefaultResource(R.drawable.bg_video_cloudmusic);
-            aVar.krj.setBorderWidth(l.getDimens(this.cRq.getPageActivity(), R.dimen.ds4));
-            aVar.krj.setBorderColor(am.getColor(R.color.cp_link_tip_a));
-            aVar.krj.setConrers(15);
+            aVar.kuM = (TbImageView) view.findViewById(R.id.music_image);
+            aVar.kuP = (TextView) view.findViewById(R.id.music_title);
+            aVar.kuO = view.findViewById(R.id.music_loading);
+            aVar.kuM.setDrawerType(1);
+            aVar.kuM.setIsRound(true);
+            aVar.kuM.setDefaultBgResource(R.color.transparent);
+            aVar.kuM.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
+            aVar.kuM.setDefaultResource(R.drawable.bg_video_cloudmusic);
+            aVar.kuM.setBorderWidth(l.getDimens(this.cRA.getPageActivity(), R.dimen.ds4));
+            aVar.kuM.setBorderColor(am.getColor(R.color.cp_link_tip_a));
+            aVar.kuM.setConrers(15);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -82,49 +82,49 @@ public class c extends BaseAdapter {
         if (musicData != null) {
             switch (musicData.editMusicType) {
                 case 1:
-                    aVar.krj.startLoad(String.valueOf((int) R.drawable.icon_video_mute), 24, false);
+                    aVar.kuM.startLoad(String.valueOf((int) R.drawable.icon_video_mute), 24, false);
                     break;
                 case 2:
-                    aVar.krj.startLoad(String.valueOf((int) R.drawable.icon_video_cloudmusic), 24, false);
+                    aVar.kuM.startLoad(String.valueOf((int) R.drawable.icon_video_cloudmusic), 24, false);
                     break;
                 default:
-                    aVar.krj.startLoad(musicData.img, 10, false);
+                    aVar.kuM.startLoad(musicData.img, 10, false);
                     break;
             }
-            aVar.krl.setVisibility(4);
-            aVar.krm.setTextColor(am.getColor(R.color.cp_cont_j));
-            aVar.krm.setText(musicData.name);
-            b(aVar.krm, l.getDimens(this.cRq.getPageActivity(), R.dimen.ds120), musicData.name);
-            if (i == this.krY) {
-                aVar.krj.setDrawBorder(true);
+            aVar.kuO.setVisibility(4);
+            aVar.kuP.setTextColor(am.getColor(R.color.cp_cont_j));
+            aVar.kuP.setText(musicData.name);
+            b(aVar.kuP, l.getDimens(this.cRA.getPageActivity(), R.dimen.ds120), musicData.name);
+            if (i == this.kvB) {
+                aVar.kuM.setDrawBorder(true);
             } else {
-                aVar.krj.setDrawBorder(false);
+                aVar.kuM.setDrawBorder(false);
             }
             if (i == 0) {
-                view.setPadding(l.getDimens(this.cRq.getPageActivity(), R.dimen.ds34), l.getDimens(this.cRq.getPageActivity(), R.dimen.ds44), 0, 0);
+                view.setPadding(l.getDimens(this.cRA.getPageActivity(), R.dimen.ds34), l.getDimens(this.cRA.getPageActivity(), R.dimen.ds44), 0, 0);
             } else if (i == this.mList.size() - 1) {
-                view.setPadding(l.getDimens(this.cRq.getPageActivity(), R.dimen.ds34), l.getDimens(this.cRq.getPageActivity(), R.dimen.ds44), l.getDimens(this.cRq.getPageActivity(), R.dimen.ds34), 0);
+                view.setPadding(l.getDimens(this.cRA.getPageActivity(), R.dimen.ds34), l.getDimens(this.cRA.getPageActivity(), R.dimen.ds44), l.getDimens(this.cRA.getPageActivity(), R.dimen.ds34), 0);
             } else {
-                view.setPadding(l.getDimens(this.cRq.getPageActivity(), R.dimen.ds28), l.getDimens(this.cRq.getPageActivity(), R.dimen.ds44), 0, 0);
+                view.setPadding(l.getDimens(this.cRA.getPageActivity(), R.dimen.ds28), l.getDimens(this.cRA.getPageActivity(), R.dimen.ds44), 0, 0);
             }
-            if (this.cRq.getPageActivity() instanceof BaseActivity) {
-                ((BaseActivity) this.cRq.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseActivity) this.cRq.getPageActivity()).getLayoutMode().onModeChanged(view);
-            } else if (this.cRq.getPageActivity() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) this.cRq.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                ((BaseFragmentActivity) this.cRq.getPageActivity()).getLayoutMode().onModeChanged(view);
+            if (this.cRA.getPageActivity() instanceof BaseActivity) {
+                ((BaseActivity) this.cRA.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                ((BaseActivity) this.cRA.getPageActivity()).getLayoutMode().onModeChanged(view);
+            } else if (this.cRA.getPageActivity() instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) this.cRA.getPageActivity()).getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                ((BaseFragmentActivity) this.cRA.getPageActivity()).getLayoutMode().onModeChanged(view);
             }
         }
         return view;
     }
 
-    public void Dm(int i) {
-        this.krY = i;
+    public void Ds(int i) {
+        this.kvB = i;
         notifyDataSetChanged();
     }
 
-    public void JB(String str) {
-        this.krZ = str;
+    public void JL(String str) {
+        this.kvC = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;
             for (int i2 = 0; i2 < this.mList.size(); i2++) {
@@ -135,17 +135,17 @@ public class c extends BaseAdapter {
             if (i == -1) {
                 i = 1;
             }
-            this.krY = i;
+            this.kvB = i;
         }
     }
 
-    public int cNf() {
-        return this.krY;
+    public int cOk() {
+        return this.kvB;
     }
 
     public void b(TextView textView, int i, String str) {
         if (i > 0) {
-            float dimens = l.getDimens(this.cRq.getPageActivity(), R.dimen.fontsize24);
+            float dimens = l.getDimens(this.cRA.getPageActivity(), R.dimen.fontsize24);
             TextPaint textPaint = new TextPaint();
             textPaint.setTextSize(dimens);
             while (textPaint.measureText(str) > i) {
@@ -156,11 +156,11 @@ public class c extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a {
-        public TbImageView krj;
-        public View krl;
-        public TextView krm;
+        public TbImageView kuM;
+        public View kuO;
+        public TextView kuP;
 
         public a() {
         }

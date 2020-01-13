@@ -3,9 +3,9 @@ package com.baidu.rtc.utils;
 import android.content.Context;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private a aSG;
+    private a aTy;
     private boolean mIsRegisted = false;
     private TelephonyManager mTelephonyManager = null;
     private boolean mIsCalling = false;
@@ -15,23 +15,23 @@ public class b {
             super.onCallStateChanged(i, str);
             switch (i) {
                 case 0:
-                    if (b.this.aSG != null && b.this.mIsCalling) {
-                        b.this.aSG.onInterruptionEnd();
+                    if (b.this.aTy != null && b.this.mIsCalling) {
+                        b.this.aTy.onInterruptionEnd();
                         b.this.mIsCalling = false;
                         return;
                     }
                     return;
                 case 1:
                     b.this.mIsCalling = true;
-                    if (b.this.aSG != null) {
-                        b.this.aSG.onInterruptionBegin();
+                    if (b.this.aTy != null) {
+                        b.this.aTy.onInterruptionBegin();
                         return;
                     }
                     return;
                 case 2:
                     b.this.mIsCalling = true;
-                    if (b.this.aSG != null) {
-                        b.this.aSG.onInterruptionBegin();
+                    if (b.this.aTy != null) {
+                        b.this.aTy.onInterruptionBegin();
                         return;
                     }
                     return;
@@ -41,7 +41,7 @@ public class b {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void onInterruptionBegin();
 
@@ -49,8 +49,8 @@ public class b {
     }
 
     public b(a aVar) {
-        this.aSG = null;
-        this.aSG = aVar;
+        this.aTy = null;
+        this.aTy = aVar;
     }
 
     public void register(Context context) {

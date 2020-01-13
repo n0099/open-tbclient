@@ -5,7 +5,7 @@ import android.support.v4.view.AccessibilityDelegateCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateCompat {
     final AccessibilityDelegateCompat mItemDelegate = new ItemDelegate(this);
     final RecyclerView mRecyclerView;
@@ -54,7 +54,7 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         return this.mItemDelegate;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ItemDelegate extends AccessibilityDelegateCompat {
         final RecyclerViewAccessibilityDelegate mRecyclerViewDelegate;
 

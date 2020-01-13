@@ -7,23 +7,23 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private int dIt;
-    protected int dIu;
-    private double dIv;
-    private boolean dIw;
+    private int dIC;
+    protected int dID;
+    private double dIE;
+    private boolean dIF;
 
     public f() {
-        this.dIt = 3;
-        this.dIu = this.dIt;
-        this.dIw = true;
+        this.dIC = 3;
+        this.dID = this.dIC;
+        this.dIF = true;
     }
 
     public f(int i) {
-        this.dIt = 3;
-        this.dIu = this.dIt;
-        this.dIw = true;
+        this.dIC = 3;
+        this.dID = this.dIC;
+        this.dIF = true;
         if (i > 0) {
-            this.dIu = i;
+            this.dID = i;
         }
     }
 
@@ -44,22 +44,22 @@ public class f implements c {
         }
         int count = v.getCount(list);
         if (count >= 2) {
-            constrainImageLayout.setImageMaxChildCount(this.dIt);
+            constrainImageLayout.setImageMaxChildCount(this.dIC);
             constrainImageLayout.setCanCenterStart(false);
         } else {
             constrainImageLayout.setImageMaxChildCount(-1);
             constrainImageLayout.setCanCenterStart(true);
         }
-        int i3 = count - this.dIu;
+        int i3 = count - this.dID;
         if (i3 > 0) {
-            int i4 = this.dIu + i;
+            int i4 = this.dID + i;
             List<MediaData> subList = v.subList(list, i, i4);
             String string = TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)});
-            if (!this.dIw) {
+            if (!this.dIF) {
                 string = null;
             }
             constrainImageLayout.setExtraCenterText(string);
-            constrainImageLayout.setUrls(subList, i, true, this.dIw);
+            constrainImageLayout.setUrls(subList, i, true, this.dIF);
             i2 = i4;
         } else {
             constrainImageLayout.setUrls(v.subList(list, i, count), i);
@@ -75,13 +75,13 @@ public class f implements c {
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.dIv > 0.0d) {
-            return this.dIv;
+        if (this.dIE > 0.0d) {
+            return this.dIE;
         }
         return 0.6666666666666666d;
     }
 
     public void h(double d) {
-        this.dIv = d;
+        this.dIE = d;
     }
 }

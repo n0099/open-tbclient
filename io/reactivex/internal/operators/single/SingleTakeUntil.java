@@ -11,7 +11,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.b;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleTakeUntil<T, U> extends w<T> {
     final b<U> other;
     final aa<T> source;
@@ -24,7 +24,7 @@ public final class SingleTakeUntil<T, U> extends w<T> {
         this.source.a(takeUntilMainObserver);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class TakeUntilMainObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -622603812305745221L;
         final y<? super T> actual;
@@ -64,7 +64,7 @@ public final class SingleTakeUntil<T, U> extends w<T> {
             if (get() != DisposableHelper.DISPOSED && getAndSet(DisposableHelper.DISPOSED) != DisposableHelper.DISPOSED) {
                 this.actual.onError(th);
             } else {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
 
@@ -77,11 +77,11 @@ public final class SingleTakeUntil<T, U> extends w<T> {
                 this.actual.onError(th);
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class TakeUntilOtherSubscriber extends AtomicReference<d> implements j<Object> {
         private static final long serialVersionUID = 5170026210238877381L;
         final TakeUntilMainObserver<?> parent;

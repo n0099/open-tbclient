@@ -11,10 +11,10 @@ import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.swan.apps.x.b.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends c<a> {
         @Override // com.baidu.swan.apps.x.b.c, com.baidu.swan.apps.x.b.a.c
         public /* synthetic */ com.baidu.swan.apps.x.b.a.c B(Bundle bundle) {
@@ -23,8 +23,8 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.as.d.d
-        /* renamed from: ST */
-        public a SS() {
+        /* renamed from: Tq */
+        public a Tp() {
             return this;
         }
     }
@@ -59,7 +59,7 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
 
     @Override // com.baidu.swan.apps.x.b.a.c
     public String toString() {
-        return "SwanAppLaunchParams{appId='" + getAppId() + "', from='" + SW() + "', page='" + getPage() + "', isDebug=" + isDebug() + ", extraData=" + Tb() + ", clickId='" + Td() + "', launchScheme='" + SY() + "', notInHistory='" + Te() + "'}";
+        return "SwanAppLaunchParams{appId='" + getAppId() + "', from='" + Tt() + "', page='" + getPage() + "', isDebug=" + isDebug() + ", extraData=" + Ty() + ", clickId='" + TA() + "', launchScheme='" + Tv() + "', notInHistory='" + TB() + "'}";
     }
 
     public static String g(String str, String str2, int i) {

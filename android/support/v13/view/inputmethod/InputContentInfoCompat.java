@@ -7,11 +7,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.view.inputmethod.InputContentInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class InputContentInfoCompat {
     private final InputContentInfoCompatImpl mImpl;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private interface InputContentInfoCompatImpl {
         @NonNull
         Uri getContentUri();
@@ -30,7 +30,7 @@ public final class InputContentInfoCompat {
         void requestPermission();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static final class InputContentInfoCompatBaseImpl implements InputContentInfoCompatImpl {
         @NonNull
         private final Uri mContentUri;
@@ -79,7 +79,7 @@ public final class InputContentInfoCompat {
     }
 
     @RequiresApi(25)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static final class InputContentInfoCompatApi25Impl implements InputContentInfoCompatImpl {
         @NonNull
         final InputContentInfo mObject;

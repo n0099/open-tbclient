@@ -15,7 +15,7 @@ import com.tencent.open.utils.e;
 import com.tencent.tauth.IUiListener;
 import java.io.File;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     private AuthAgent a;
     private QQToken b;

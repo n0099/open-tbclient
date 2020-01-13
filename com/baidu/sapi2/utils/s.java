@@ -2,7 +2,7 @@ package com.baidu.sapi2.utils;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class s implements ThreadFactory {
     private final AtomicInteger a = new AtomicInteger(1);
 

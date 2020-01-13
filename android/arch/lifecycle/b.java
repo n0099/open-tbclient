@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class b {
-    static b bH = new b();
-    private final Map<Class, a> bI = new HashMap();
-    private final Map<Class, Boolean> bJ = new HashMap();
+    static b bG = new b();
+    private final Map<Class, a> bH = new HashMap();
+    private final Map<Class, Boolean> bI = new HashMap();
 
     b() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean e(Class cls) {
-        if (this.bJ.containsKey(cls)) {
-            return this.bJ.get(cls).booleanValue();
+        if (this.bI.containsKey(cls)) {
+            return this.bI.get(cls).booleanValue();
         }
         Method[] f = f(cls);
         for (Method method : f) {
@@ -29,7 +29,7 @@ class b {
                 return true;
             }
         }
-        this.bJ.put(cls, false);
+        this.bI.put(cls, false);
         return false;
     }
 
@@ -43,7 +43,7 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a g(Class cls) {
-        a aVar = this.bI.get(cls);
+        a aVar = this.bH.get(cls);
         if (aVar == null) {
             return a(cls, null);
         }
@@ -66,10 +66,10 @@ class b {
         Class superclass = cls.getSuperclass();
         HashMap hashMap = new HashMap();
         if (superclass != null && (g = g(superclass)) != null) {
-            hashMap.putAll(g.bL);
+            hashMap.putAll(g.bK);
         }
         for (Class<?> cls2 : cls.getInterfaces()) {
-            for (Map.Entry<C0001b, Lifecycle.Event> entry : g(cls2).bL.entrySet()) {
+            for (Map.Entry<C0001b, Lifecycle.Event> entry : g(cls2).bK.entrySet()) {
                 a(hashMap, entry.getKey(), entry.getValue(), cls);
             }
         }
@@ -113,25 +113,25 @@ class b {
             z2 = z;
         }
         a aVar = new a(hashMap);
-        this.bI.put(cls, aVar);
-        this.bJ.put(cls, Boolean.valueOf(z2));
+        this.bH.put(cls, aVar);
+        this.bI.put(cls, Boolean.valueOf(z2));
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
-        final Map<Lifecycle.Event, List<C0001b>> bK = new HashMap();
-        final Map<C0001b, Lifecycle.Event> bL;
+        final Map<Lifecycle.Event, List<C0001b>> bJ = new HashMap();
+        final Map<C0001b, Lifecycle.Event> bK;
 
         a(Map<C0001b, Lifecycle.Event> map) {
-            this.bL = map;
+            this.bK = map;
             for (Map.Entry<C0001b, Lifecycle.Event> entry : map.entrySet()) {
                 Lifecycle.Event value = entry.getValue();
-                List<C0001b> list = this.bK.get(value);
+                List<C0001b> list = this.bJ.get(value);
                 if (list == null) {
                     list = new ArrayList<>();
-                    this.bK.put(value, list);
+                    this.bJ.put(value, list);
                 }
                 list.add(entry.getKey());
             }
@@ -139,8 +139,8 @@ class b {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void a(j jVar, Lifecycle.Event event, Object obj) {
-            a(this.bK.get(event), jVar, event, obj);
-            a(this.bK.get(Lifecycle.Event.ON_ANY), jVar, event, obj);
+            a(this.bJ.get(event), jVar, event, obj);
+            a(this.bJ.get(Lifecycle.Event.ON_ANY), jVar, event, obj);
         }
 
         private static void a(List<C0001b> list, j jVar, Lifecycle.Event event, Object obj) {
@@ -154,7 +154,7 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: android.arch.lifecycle.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class C0001b {
         final int mCallType;
         final Method mMethod;

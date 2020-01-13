@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static void a(int i, ShareEntity shareEntity) {
         an anVar = new an(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
@@ -36,22 +36,22 @@ public class b {
             TiebaStatic.log(anVar);
             return;
         }
-        Bundle aJB = shareEntity.aJB();
-        if (aJB != null) {
-            int i3 = aJB.getInt("obj_param1");
+        Bundle aJV = shareEntity.aJV();
+        if (aJV != null) {
+            int i3 = aJV.getInt("obj_param1");
             if (i3 != 0) {
                 anVar.Z("obj_param1", i3);
                 if (i3 == 2) {
-                    anVar.cp("fid", aJB.getString("fid"));
+                    anVar.cp("fid", aJV.getString("fid"));
                 } else if (i3 == 3) {
-                    int i4 = aJB.getInt("obj_type");
+                    int i4 = aJV.getInt("obj_type");
                     if (i4 != 0) {
                         anVar.Z("obj_type", i4);
                     }
-                    anVar.cp("tid", aJB.getString("tid")).cp("fid", aJB.getString("fid"));
+                    anVar.cp("tid", aJV.getString("tid")).cp("fid", aJV.getString("fid"));
                 }
             }
-            String string = aJB.getString(TiebaInitialize.Params.OBJ_URL);
+            String string = aJV.getString(TiebaInitialize.Params.OBJ_URL);
             if (!aq.isEmpty(string)) {
                 anVar.cp(TiebaInitialize.Params.OBJ_URL, string);
             }
@@ -86,11 +86,11 @@ public class b {
             TiebaStatic.log(anVar);
             return;
         }
-        Bundle aJB = shareEntity.aJB();
-        if (aJB != null) {
-            anVar.cp("tid", aJB.getString("tid"));
-            anVar.cp("uid", aJB.getString("uid"));
-            anVar.cp("fid", aJB.getString("fid"));
+        Bundle aJV = shareEntity.aJV();
+        if (aJV != null) {
+            anVar.cp("tid", aJV.getString("tid"));
+            anVar.cp("uid", aJV.getString("uid"));
+            anVar.cp("fid", aJV.getString("fid"));
         }
         TiebaStatic.log(anVar);
     }

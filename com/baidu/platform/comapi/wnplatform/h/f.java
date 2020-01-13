@@ -8,7 +8,7 @@ import com.baidu.mapsdkplatform.comapi.map.MessageCenter;
 import com.baidu.platform.comapi.walknavi.d.j;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f extends com.baidu.platform.comapi.walknavi.a {
     private static int d = 0;
     private List<a> a;

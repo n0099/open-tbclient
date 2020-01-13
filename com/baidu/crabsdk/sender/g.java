@@ -22,7 +22,7 @@ import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class g {
     public static String a(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
@@ -86,9 +86,9 @@ public final class g {
             if (z) {
                 map.put("screenshot", new byte[0]);
             } else if (com.baidu.crabsdk.a.m) {
-                byte[] nw = com.baidu.crabsdk.b.a.nw();
-                com.baidu.crabsdk.c.a.v("截图大小：" + (nw.length / 1024) + "KB");
-                map.put("screenshot", nw);
+                byte[] nx = com.baidu.crabsdk.b.a.nx();
+                com.baidu.crabsdk.c.a.v("截图大小：" + (nx.length / 1024) + "KB");
+                map.put("screenshot", nx);
             } else {
                 map.put("screenshot", new byte[0]);
             }
@@ -123,7 +123,7 @@ public final class g {
         hashMap.put("sysMemInfo", com.baidu.crabsdk.b.l.z());
         hashMap.put("pageHistory", com.baidu.crabsdk.b.a.p());
         hashMap.put("activitySteps", com.baidu.crabsdk.b.d.t());
-        if (t.nB()) {
+        if (t.nC()) {
             hashMap.put("urlRecord", t.P());
         }
         if (com.baidu.crabsdk.c.c.g(context, "android.permission.ACCESS_NETWORK_STATE")) {
@@ -160,7 +160,7 @@ public final class g {
         hashMap.put("allThreadStacks", r.L());
         hashMap.put("appCurConfig", com.baidu.crabsdk.b.f.d(context));
         try {
-            str = com.baidu.crabsdk.b.q.nz();
+            str = com.baidu.crabsdk.b.q.nA();
         } catch (Exception e2) {
             str = "N/A";
             e2.printStackTrace();
@@ -248,7 +248,7 @@ public final class g {
         jSONObject.put(BdStatsConstant.StatsKey.UNAME, s.getUserName());
         jSONObject.put("uid", s.M());
         try {
-            str2 = com.baidu.crabsdk.b.q.nz();
+            str2 = com.baidu.crabsdk.b.q.nA();
         } catch (Exception e) {
             str2 = "N/A";
             e.printStackTrace();
@@ -275,7 +275,7 @@ public final class g {
         return jSONObject;
     }
 
-    public static String nH() {
+    public static String nI() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("os", PraiseDataPassUtil.KEY_FROM_OS);
@@ -289,7 +289,7 @@ public final class g {
             jSONObject.put(PushClientConstants.TAG_PKG_NAME, com.baidu.crabsdk.a.d);
             jSONObject.put("sdkVN", "7.3.7");
             jSONObject.put("ndkVN", CrabSDK.NDK_VERSION);
-            jSONObject.put("appUsedCount", String.valueOf(com.baidu.crabsdk.b.m.ny()));
+            jSONObject.put("appUsedCount", String.valueOf(com.baidu.crabsdk.b.m.nz()));
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

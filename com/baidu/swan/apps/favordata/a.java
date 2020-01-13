@@ -2,7 +2,7 @@ package com.baidu.swan.apps.favordata;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static Map<String, String> t(String str, String str2, String str3) {
         HashMap hashMap = new HashMap();
@@ -18,7 +18,7 @@ public class a {
         return hashMap;
     }
 
-    public static Map<String, String> au(String str, String str2) {
+    public static Map<String, String> av(String str, String str2) {
         if (str == null || str2 == null) {
             return new HashMap();
         }

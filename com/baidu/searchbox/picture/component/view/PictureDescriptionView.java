@@ -13,7 +13,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ScrollView;
 import com.baidu.searchbox.common.lib_atlas_base.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PictureDescriptionView extends FrameLayout {
     private float factor;
     private int mChildHeight;

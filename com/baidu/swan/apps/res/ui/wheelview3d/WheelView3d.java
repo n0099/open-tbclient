@@ -25,18 +25,18 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WheelView3d extends View {
-    private static final int[] bIL = {-1, 452984831};
-    private DividerType bID;
-    private b bIE;
-    private c bIF;
-    private int bIG;
-    private int bIH;
-    private Drawable bII;
-    private Drawable bIJ;
-    private Paint bIK;
-    private int bIM;
+    private static final int[] bJv = {-1, 452984831};
+    private DividerType bJn;
+    private b bJo;
+    private c bJp;
+    private int bJq;
+    private int bJr;
+    private Drawable bJs;
+    private Drawable bJt;
+    private Paint bJu;
+    private int bJw;
     private float centerContentOffset;
     private float centerY;
     private int change;
@@ -79,14 +79,14 @@ public class WheelView3d extends View {
     private Typeface typeface;
     private int widthMeasureSpec;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum ACTION {
         CLICK,
         FLING,
         DAGGLE
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum DividerType {
         FILL,
         WRAP
@@ -110,8 +110,8 @@ public class WheelView3d extends View {
         this.mGravity = 17;
         this.drawCenterContentStart = 0;
         this.drawOutContentStart = 0;
-        this.bIM = 0;
-        this.bIG = 20;
+        this.bJw = 0;
+        this.bJq = 20;
         float f = getResources().getDisplayMetrics().density;
         if (f < 1.0f) {
             this.centerContentOffset = 2.4f;
@@ -130,7 +130,7 @@ public class WheelView3d extends View {
             this.textColorOut = obtainStyledAttributes.getColor(a.j.pickerview_wheelview_textColorOut, -5723992);
             this.textColorCenter = obtainStyledAttributes.getColor(a.j.pickerview_wheelview_textColorCenter, -14013910);
             this.dividerColor = obtainStyledAttributes.getColor(a.j.pickerview_wheelview_dividerColor, -2763307);
-            this.bIG = obtainStyledAttributes.getDimensionPixelOffset(a.j.pickerview_wheelview_textSize, this.bIG);
+            this.bJq = obtainStyledAttributes.getDimensionPixelOffset(a.j.pickerview_wheelview_textSize, this.bJq);
             this.lineSpacingMultiplier = obtainStyledAttributes.getFloat(a.j.pickerview_wheelview_lineSpacingMultiplier, this.lineSpacingMultiplier);
             obtainStyledAttributes.recycle();
         }
@@ -154,8 +154,8 @@ public class WheelView3d extends View {
         this.isLoop = true;
         this.totalScrollY = 0.0f;
         this.initPosition = -1;
-        this.bII = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, bIL);
-        this.bIJ = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, bIL);
+        this.bJs = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, bJv);
+        this.bJt = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, bJv);
         initPaints();
     }
 
@@ -164,23 +164,23 @@ public class WheelView3d extends View {
         this.paintOuterText.setColor(this.textColorOut);
         this.paintOuterText.setAntiAlias(true);
         this.paintOuterText.setTypeface(this.typeface);
-        this.paintOuterText.setTextSize(this.bIG);
+        this.paintOuterText.setTextSize(this.bJq);
         this.paintCenterText = new Paint();
         this.paintCenterText.setColor(this.textColorCenter);
         this.paintCenterText.setAntiAlias(true);
         this.paintCenterText.setTextScaleX(1.1f);
         this.paintCenterText.setTypeface(this.typeface);
-        this.paintCenterText.setTextSize(this.bIG);
+        this.paintCenterText.setTextSize(this.bJq);
         this.paintIndicator = new Paint();
         this.paintIndicator.setColor(this.dividerColor);
         this.paintIndicator.setAntiAlias(true);
-        this.bIK = new Paint();
-        this.bIK.setColor(-460552);
+        this.bJu = new Paint();
+        this.bJu.setColor(-460552);
         setLayerType(1, null);
     }
 
     private void remeasure() {
-        if (this.bIF != null) {
+        if (this.bJp != null) {
             measureTextWidthHeight();
             int i = (int) (this.itemHeight * (this.itemsVisible - 1));
             this.measuredHeight = (int) ((i * 2) / 3.141592653589793d);
@@ -191,7 +191,7 @@ public class WheelView3d extends View {
             this.centerY = (this.secondLineY - ((this.itemHeight - this.maxTextHeight) / 2.0f)) - this.centerContentOffset;
             if (this.initPosition == -1) {
                 if (this.isLoop) {
-                    this.initPosition = (this.bIF.getItemsCount() + 1) / 2;
+                    this.initPosition = (this.bJp.getItemsCount() + 1) / 2;
                 } else {
                     this.initPosition = 0;
                 }
@@ -202,8 +202,8 @@ public class WheelView3d extends View {
 
     private void measureTextWidthHeight() {
         Rect rect = new Rect();
-        for (int i = 0; i < this.bIF.getItemsCount(); i++) {
-            String contentText = getContentText(this.bIF.getItem(i));
+        for (int i = 0; i < this.bJp.getItemsCount(); i++) {
+            String contentText = getContentText(this.bJp.getItem(i));
             this.paintCenterText.getTextBounds(contentText, 0, contentText.length(), rect);
             int width = rect.width();
             if (width > this.maxTextWidth) {
@@ -252,14 +252,14 @@ public class WheelView3d extends View {
 
     public final void setCenterTextSize(int i) {
         if (i > 0.0f) {
-            this.bIG = i;
+            this.bJq = i;
             this.paintCenterText.setTextSize(i);
         }
     }
 
     public final void setOuterTextSize(int i) {
         if (i > 0.0f) {
-            this.bIH = i;
+            this.bJr = i;
             this.paintOuterText.setTextSize(i);
         }
     }
@@ -272,35 +272,35 @@ public class WheelView3d extends View {
     }
 
     public final void setOnItemSelectedListener(b bVar) {
-        this.bIE = bVar;
+        this.bJo = bVar;
     }
 
     public final void setAdapter(c cVar) {
-        this.bIF = cVar;
+        this.bJp = cVar;
         remeasure();
         invalidate();
     }
 
     public final c getAdapter() {
-        return this.bIF;
+        return this.bJp;
     }
 
     public final int getCurrentItem() {
-        if (this.bIF == null) {
+        if (this.bJp == null) {
             return 0;
         }
-        if (this.isLoop && (this.selectedItem < 0 || this.selectedItem >= this.bIF.getItemsCount())) {
-            return Math.max(0, Math.min(Math.abs(Math.abs(this.selectedItem) - this.bIF.getItemsCount()), this.bIF.getItemsCount() - 1));
+        if (this.isLoop && (this.selectedItem < 0 || this.selectedItem >= this.bJp.getItemsCount())) {
+            return Math.max(0, Math.min(Math.abs(Math.abs(this.selectedItem) - this.bJp.getItemsCount()), this.bJp.getItemsCount() - 1));
         }
-        return Math.max(0, Math.min(this.selectedItem, this.bIF.getItemsCount() - 1));
+        return Math.max(0, Math.min(this.selectedItem, this.bJp.getItemsCount() - 1));
     }
 
     public final void onItemSelected() {
-        if (this.bIE != null) {
+        if (this.bJo != null) {
             postDelayed(new Runnable() { // from class: com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    WheelView3d.this.bIE.a(WheelView3d.this, WheelView3d.this.getCurrentItem());
+                    WheelView3d.this.bJo.a(WheelView3d.this, WheelView3d.this.getCurrentItem());
                 }
             }, 200L);
         }
@@ -310,12 +310,12 @@ public class WheelView3d extends View {
     protected void onDraw(Canvas canvas) {
         String contentText;
         int i;
-        if (this.bIF != null) {
-            this.initPosition = Math.min(Math.max(0, this.initPosition), this.bIF.getItemsCount() - 1);
+        if (this.bJp != null) {
+            this.initPosition = Math.min(Math.max(0, this.initPosition), this.bJp.getItemsCount() - 1);
             Object[] objArr = new Object[this.itemsVisible];
             this.change = (int) (this.totalScrollY / this.itemHeight);
             try {
-                this.preCurrentIndex = this.initPosition + (this.change % this.bIF.getItemsCount());
+                this.preCurrentIndex = this.initPosition + (this.change % this.bJp.getItemsCount());
             } catch (ArithmeticException e) {
                 if (e.DEBUG) {
                     Log.e("WheelView", "出错了！adapter.getItemsCount() == 0，联动数据不匹配");
@@ -325,31 +325,31 @@ public class WheelView3d extends View {
                 if (this.preCurrentIndex < 0) {
                     this.preCurrentIndex = 0;
                 }
-                if (this.preCurrentIndex > this.bIF.getItemsCount() - 1) {
-                    this.preCurrentIndex = this.bIF.getItemsCount() - 1;
+                if (this.preCurrentIndex > this.bJp.getItemsCount() - 1) {
+                    this.preCurrentIndex = this.bJp.getItemsCount() - 1;
                 }
             } else {
                 if (this.preCurrentIndex < 0) {
-                    this.preCurrentIndex = this.bIF.getItemsCount() + this.preCurrentIndex;
+                    this.preCurrentIndex = this.bJp.getItemsCount() + this.preCurrentIndex;
                 }
-                if (this.preCurrentIndex > this.bIF.getItemsCount() - 1) {
-                    this.preCurrentIndex -= this.bIF.getItemsCount();
+                if (this.preCurrentIndex > this.bJp.getItemsCount() - 1) {
+                    this.preCurrentIndex -= this.bJp.getItemsCount();
                 }
             }
             float f = this.totalScrollY % this.itemHeight;
             for (int i2 = 0; i2 < this.itemsVisible; i2++) {
                 int i3 = this.preCurrentIndex - ((this.itemsVisible / 2) - i2);
                 if (this.isLoop) {
-                    objArr[i2] = this.bIF.getItem(getLoopMappingIndex(i3));
+                    objArr[i2] = this.bJp.getItem(getLoopMappingIndex(i3));
                 } else if (i3 < 0) {
                     objArr[i2] = "";
-                } else if (i3 > this.bIF.getItemsCount() - 1) {
+                } else if (i3 > this.bJp.getItemsCount() - 1) {
                     objArr[i2] = "";
                 } else {
-                    objArr[i2] = this.bIF.getItem(i3);
+                    objArr[i2] = this.bJp.getItem(i3);
                 }
             }
-            if (this.bID == DividerType.WRAP) {
+            if (this.bJn == DividerType.WRAP) {
                 float f2 = TextUtils.isEmpty(this.label) ? ((this.measuredWidth - this.maxTextWidth) / 2) - 12 : ((this.measuredWidth - this.maxTextWidth) / 4) - 12;
                 if (f2 <= 0.0f) {
                     f2 = 10.0f;
@@ -361,7 +361,7 @@ public class WheelView3d extends View {
                 canvas.drawLine(0.0f, this.firstLineY, this.measuredWidth, this.firstLineY, this.paintIndicator);
                 canvas.drawLine(0.0f, this.secondLineY, this.measuredWidth, this.secondLineY, this.paintIndicator);
             }
-            canvas.drawRect(0.0f, this.firstLineY, this.measuredWidth, this.secondLineY, this.bIK);
+            canvas.drawRect(0.0f, this.firstLineY, this.measuredWidth, this.secondLineY, this.bJu);
             if (!TextUtils.isEmpty(this.label) && this.isCenterLabel) {
                 canvas.drawText(this.label, (this.measuredWidth - getTextWidth(this.paintCenterText, this.label)) - this.centerContentOffset, this.centerY, this.paintCenterText);
             }
@@ -378,32 +378,32 @@ public class WheelView3d extends View {
                     } else {
                         contentText = getContentText(objArr[i4]);
                     }
-                    String km = km(contentText);
-                    measuredCenterContentStart(km);
-                    measuredOutContentStart(km);
+                    String kp = kp(contentText);
+                    measuredCenterContentStart(kp);
+                    measuredOutContentStart(kp);
                     float cos = (float) ((this.radius - (Math.cos(d) * this.radius)) - ((Math.sin(d) * this.maxTextHeight) / 2.0d));
                     canvas.translate(0.0f, cos);
                     if (cos <= this.firstLineY && this.maxTextHeight + cos >= this.firstLineY) {
                         canvas.save();
                         canvas.clipRect(0.0f, 0.0f, this.measuredWidth, this.firstLineY - cos);
-                        canvas.drawText(km, this.drawOutContentStart, this.maxTextHeight, this.paintOuterText);
+                        canvas.drawText(kp, this.drawOutContentStart, this.maxTextHeight, this.paintOuterText);
                         canvas.restore();
                         canvas.save();
                         canvas.clipRect(0.0f, this.firstLineY - cos, this.measuredWidth, (int) this.itemHeight);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
-                        canvas.drawText(km, this.drawCenterContentStart, this.maxTextHeight - this.centerContentOffset, this.paintCenterText);
+                        canvas.drawText(kp, this.drawCenterContentStart, this.maxTextHeight - this.centerContentOffset, this.paintCenterText);
                         canvas.restore();
                     } else if (cos <= this.secondLineY && this.maxTextHeight + cos >= this.secondLineY) {
                         canvas.save();
                         canvas.clipRect(0.0f, 0.0f, this.measuredWidth, this.secondLineY - cos);
-                        canvas.drawText(km, this.drawCenterContentStart, this.maxTextHeight - this.centerContentOffset, this.paintCenterText);
+                        canvas.drawText(kp, this.drawCenterContentStart, this.maxTextHeight - this.centerContentOffset, this.paintCenterText);
                         canvas.restore();
                         canvas.save();
                         canvas.clipRect(0.0f, this.secondLineY - cos, this.measuredWidth, (int) this.itemHeight);
-                        canvas.drawText(km, this.drawOutContentStart, this.maxTextHeight, this.paintOuterText);
+                        canvas.drawText(kp, this.drawOutContentStart, this.maxTextHeight, this.paintOuterText);
                         canvas.restore();
                     } else if (cos >= this.firstLineY && cos + this.maxTextHeight <= this.secondLineY) {
-                        canvas.drawText(km, this.drawCenterContentStart, this.maxTextHeight - this.centerContentOffset, this.paintCenterText);
+                        canvas.drawText(kp, this.drawCenterContentStart, this.maxTextHeight - this.centerContentOffset, this.paintCenterText);
                         this.selectedItem = this.preCurrentIndex - ((this.itemsVisible / 2) - i4);
                     } else {
                         canvas.save();
@@ -416,19 +416,19 @@ public class WheelView3d extends View {
                         }
                         paint.setTextSkewX((f4 > 0.0f ? -1 : 1) * i * 0.0f * pow);
                         this.paintOuterText.setAlpha((int) ((1.0f - pow) * 255.0f));
-                        canvas.drawText(km, this.drawOutContentStart + (this.textXOffset * pow), this.maxTextHeight, this.paintOuterText);
+                        canvas.drawText(kp, this.drawOutContentStart + (this.textXOffset * pow), this.maxTextHeight, this.paintOuterText);
                         canvas.restore();
                     }
                     canvas.restore();
-                    this.paintCenterText.setTextSize(this.bIG);
+                    this.paintCenterText.setTextSize(this.bJq);
                 }
             }
-            a(this.bII, canvas, 0, (int) this.firstLineY);
-            a(this.bIJ, canvas, (int) this.secondLineY, this.measuredHeight);
+            a(this.bJs, canvas, 0, (int) this.firstLineY);
+            a(this.bJt, canvas, (int) this.secondLineY, this.measuredHeight);
         }
     }
 
-    private String km(String str) {
+    private String kp(String str) {
         float[] fArr = {0.0f};
         Rect rect = new Rect();
         this.paintCenterText.getTextBounds(str, 0, str.length(), rect);
@@ -440,10 +440,10 @@ public class WheelView3d extends View {
 
     private int getLoopMappingIndex(int i) {
         if (i < 0) {
-            return getLoopMappingIndex(this.bIF.getItemsCount() + i);
+            return getLoopMappingIndex(this.bJp.getItemsCount() + i);
         }
-        if (i > this.bIF.getItemsCount() - 1) {
-            return getLoopMappingIndex(i - this.bIF.getItemsCount());
+        if (i > this.bJp.getItemsCount() - 1) {
+            return getLoopMappingIndex(i - this.bJp.getItemsCount());
         }
         return i;
     }
@@ -463,17 +463,17 @@ public class WheelView3d extends View {
         this.paintCenterText.getTextBounds(str, 0, str.length(), rect);
         switch (this.mGravity) {
             case 3:
-                this.drawCenterContentStart = this.bIM;
+                this.drawCenterContentStart = this.bJw;
                 return;
             case 5:
-                this.drawCenterContentStart = ((this.measuredWidth - rect.width()) - ((int) this.centerContentOffset)) - this.bIM;
+                this.drawCenterContentStart = ((this.measuredWidth - rect.width()) - ((int) this.centerContentOffset)) - this.bJw;
                 return;
             case 17:
                 if (this.isOptions || this.label == null || this.label.equals("") || !this.isCenterLabel) {
-                    this.drawCenterContentStart = (int) (((this.measuredWidth - rect.width()) - this.bIM) * 0.5d);
+                    this.drawCenterContentStart = (int) (((this.measuredWidth - rect.width()) - this.bJw) * 0.5d);
                     return;
                 } else {
-                    this.drawCenterContentStart = (int) (((this.measuredWidth - rect.width()) - this.bIM) * 0.25d);
+                    this.drawCenterContentStart = (int) (((this.measuredWidth - rect.width()) - this.bJw) * 0.25d);
                     return;
                 }
             default:
@@ -486,17 +486,17 @@ public class WheelView3d extends View {
         this.paintOuterText.getTextBounds(str, 0, str.length(), rect);
         switch (this.mGravity) {
             case 3:
-                this.drawOutContentStart = this.bIM;
+                this.drawOutContentStart = this.bJw;
                 return;
             case 5:
-                this.drawOutContentStart = ((this.measuredWidth - rect.width()) - ((int) this.centerContentOffset)) - this.bIM;
+                this.drawOutContentStart = ((this.measuredWidth - rect.width()) - ((int) this.centerContentOffset)) - this.bJw;
                 return;
             case 17:
                 if (this.isOptions || this.label == null || this.label.equals("") || !this.isCenterLabel) {
-                    this.drawOutContentStart = (int) (((this.measuredWidth - rect.width()) - this.bIM) * 0.5d);
+                    this.drawOutContentStart = (int) (((this.measuredWidth - rect.width()) - this.bJw) * 0.5d);
                     return;
                 } else {
-                    this.drawOutContentStart = (int) (((this.measuredWidth - rect.width()) - this.bIM) * 0.25d);
+                    this.drawOutContentStart = (int) (((this.measuredWidth - rect.width()) - this.bJw) * 0.25d);
                     return;
                 }
             default:
@@ -516,7 +516,7 @@ public class WheelView3d extends View {
         boolean z = false;
         boolean onTouchEvent = this.gestureDetector.onTouchEvent(motionEvent);
         float f = (-this.initPosition) * this.itemHeight;
-        float itemsCount = ((this.bIF.getItemsCount() - 1) - this.initPosition) * this.itemHeight;
+        float itemsCount = ((this.bJp.getItemsCount() - 1) - this.initPosition) * this.itemHeight;
         switch (motionEvent.getAction()) {
             case 0:
                 this.startTime = System.currentTimeMillis();
@@ -555,8 +555,8 @@ public class WheelView3d extends View {
     }
 
     public int getItemsCount() {
-        if (this.bIF != null) {
-            return this.bIF.getItemsCount();
+        if (this.bJp != null) {
+            return this.bJp.getItemsCount();
         }
         return 0;
     }
@@ -612,7 +612,7 @@ public class WheelView3d extends View {
     }
 
     public void setDividerType(DividerType dividerType) {
-        this.bID = dividerType;
+        this.bJn = dividerType;
     }
 
     public void setLineSpacingMultiplier(float f) {
@@ -657,7 +657,7 @@ public class WheelView3d extends View {
     }
 
     public void setGravityOffset(int i) {
-        this.bIM = i;
+        this.bJw = i;
     }
 
     public float getCenterContentOffset() {

@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.c.a;
 
-import kotlin.jvm.internal.p;
+import kotlin.jvm.internal.q;
 import kotlin.text.l;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class h {
-    private static String aXo;
-    public static final h aXp = new h();
+    private static String aYg;
+    public static final h aYh = new h();
 
     private h() {
     }
 
     public final void d(int i, JSONObject jSONObject) {
-        p.j(jSONObject, "jsonObject");
+        q.j(jSONObject, "jsonObject");
         if (i == 0) {
             M(jSONObject);
         }
@@ -21,32 +21,32 @@ public final class h {
     private final void M(JSONObject jSONObject) {
         String optString = jSONObject.optString("uk");
         f.c(Long.valueOf(jSONObject.optLong("refresh_time")));
-        com.baidu.swan.apps.storage.c.b acE = com.baidu.swan.apps.storage.c.h.acE();
-        acE.putString("alliance_login_uk", optString);
-        Long GF = f.GF();
-        if (GF != null) {
-            acE.putLong("ma_bduss_refresh_time", GF.longValue());
+        com.baidu.swan.apps.storage.c.b adb = com.baidu.swan.apps.storage.c.h.adb();
+        adb.putString("alliance_login_uk", optString);
+        Long Hb = f.Hb();
+        if (Hb != null) {
+            adb.putLong("ma_bduss_refresh_time", Hb.longValue());
         }
     }
 
-    private final String GK() {
-        com.baidu.swan.apps.storage.c.b acE = com.baidu.swan.apps.storage.c.h.acE();
-        if (acE != null) {
-            return acE.getString("alliance_login_uk", null);
+    private final String Hg() {
+        com.baidu.swan.apps.storage.c.b adb = com.baidu.swan.apps.storage.c.h.adb();
+        if (adb != null) {
+            return adb.getString("alliance_login_uk", null);
         }
         return null;
     }
 
     public final String getUid() {
-        String str = aXo;
+        String str = aYg;
         if (str == null || l.isBlank(str)) {
-            aXo = GK();
+            aYg = Hg();
         }
-        return aXo;
+        return aYg;
     }
 
-    public final void GL() {
-        com.baidu.swan.apps.storage.c.h.acE().putString("alliance_login_uk", "");
-        aXo = null;
+    public final void Hh() {
+        com.baidu.swan.apps.storage.c.h.adb().putString("alliance_login_uk", "");
+        aYg = null;
     }
 }

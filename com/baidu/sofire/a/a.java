@@ -2,7 +2,7 @@ package com.baidu.sofire.a;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a {
     private static String a;
     private static int b = -1;

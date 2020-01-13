@@ -3,7 +3,7 @@ package com.baidu.swan.pms.c.b;
 import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.c.d.f;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     public e(g gVar, f fVar) {
         super(gVar, fVar);
@@ -22,17 +22,17 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a P(com.baidu.swan.pms.c.c.e eVar) {
-        this.cxc.MA();
-        com.baidu.swan.pms.e.a.j(this.cxd.getCategory(), eVar.maxAge);
+        this.cxn.MW();
+        com.baidu.swan.pms.e.a.j(this.cxo.getCategory(), eVar.maxAge);
         com.baidu.swan.pms.f.e eVar2 = new com.baidu.swan.pms.f.e();
-        a(eVar.cxK, eVar2);
-        a(eVar.cxM, eVar2);
-        if (eVar2.arK() == 0) {
-            this.cxc.Mw();
+        a(eVar.cxV, eVar2);
+        a(eVar.cxX, eVar2);
+        if (eVar2.asd() == 0) {
+            this.cxn.MS();
             return null;
         }
-        this.cxc.a(eVar2);
-        com.baidu.swan.pms.c.a.a.a(eVar, this.cxc);
+        this.cxn.a(eVar2);
+        com.baidu.swan.pms.c.a.a.a(eVar, this.cxn);
         return null;
     }
 
@@ -44,14 +44,14 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
         if (eVar == null) {
             return false;
         }
-        if (eVar.cxK == null || eVar.cxK.Ni()) {
-            return eVar.cxM == null || eVar.cxM.Ni();
+        if (eVar.cxV == null || eVar.cxV.NE()) {
+            return eVar.cxX == null || eVar.cxX.NE();
         }
         return false;
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String agC() {
+    protected String agV() {
         return "updatecore";
     }
 }

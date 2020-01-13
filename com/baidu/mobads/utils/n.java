@@ -22,7 +22,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class n implements IXAdPackageUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdPackageUtils
     public boolean isInstalled(Context context, String str) {

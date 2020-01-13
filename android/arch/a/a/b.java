@@ -7,7 +7,7 @@ import android.support.annotation.RestrictTo;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b extends c {
     @Nullable
     private volatile Handler mMainHandler;

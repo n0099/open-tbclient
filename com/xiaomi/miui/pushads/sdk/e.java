@@ -1,7 +1,7 @@
 package com.xiaomi.miui.pushads.sdk;
 
 import android.app.PendingIntent;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface e {
     int a();
 
@@ -10,7 +10,7 @@ public interface e {
     void a(a aVar);
 
     /* renamed from: a  reason: collision with other method in class */
-    boolean m101a(h hVar);
+    boolean m110a(h hVar);
 
     PendingIntent b(h hVar);
 }

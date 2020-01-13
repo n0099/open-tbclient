@@ -9,19 +9,19 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.zip.ZipException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     private static final k a = new k(101010256);
     private static final l b = new l(38651);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.open.utils.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0703a {
+    /* loaded from: classes6.dex */
+    public static class C0743a {
         Properties a;
         byte[] b;
 
-        private C0703a() {
+        private C0743a() {
             this.a = new Properties();
         }
 
@@ -67,9 +67,9 @@ public final class a {
             try {
                 byte[] a2 = a(randomAccessFile);
                 if (a2 != null) {
-                    C0703a c0703a = new C0703a();
-                    c0703a.a(a2);
-                    str2 = c0703a.a.getProperty(str);
+                    C0743a c0743a = new C0743a();
+                    c0743a.a(a2);
+                    str2 = c0743a.a.getProperty(str);
                     if (randomAccessFile != null) {
                         randomAccessFile.close();
                     }

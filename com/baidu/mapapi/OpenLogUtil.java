@@ -1,7 +1,7 @@
 package com.baidu.mapapi;
 
 import com.baidu.mapsdkplatform.comjni.tools.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class OpenLogUtil {
     private static ModuleName a;
 

@@ -85,4 +85,9 @@ public class BuyTBeanFullscreenActivity extends BaseActivity<BuyTBeanActivity> i
             this.buyTBeanController.onKeyboardVisibilityChanged(z);
         }
     }
+
+    @Override // com.baidu.tieba.live.tbean.IBuyTBeanActivity
+    public void setResultIntent(int i, Intent intent) {
+        setResult(i, intent);
+    }
 }

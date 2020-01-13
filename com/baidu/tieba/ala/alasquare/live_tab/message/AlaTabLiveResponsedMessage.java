@@ -3,18 +3,18 @@ package com.baidu.tieba.ala.alasquare.live_tab.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.alasquare.live_tab.b.a;
-import com.baidu.tieba.ala.alasquare.live_tab.b.c;
-import com.baidu.tieba.ala.alasquare.live_tab.b.e;
-import com.baidu.tieba.ala.alasquare.live_tab.b.f;
+import com.baidu.tieba.ala.alasquare.live_tab.b.d;
+import com.baidu.tieba.ala.alasquare.live_tab.b.g;
 import com.baidu.tieba.ala.alasquare.live_tab.b.h;
+import com.baidu.tieba.ala.alasquare.live_tab.b.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
     public a hotLiveInfo;
-    public c officialRecommendLiveInfo;
-    public e stageLiveInfo;
-    public f superEntranceInfo;
-    public h tabAllLiveInfo;
+    public d officialRecommendLiveInfo;
+    public g stageLiveInfo;
+    public h superEntranceInfo;
+    public j tabAllLiveInfo;
 
     public AlaTabLiveResponsedMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
@@ -27,12 +27,12 @@ public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("goldspace");
             if (optJSONObject2 != null) {
-                this.superEntranceInfo = new f();
+                this.superEntranceInfo = new h();
                 this.superEntranceInfo.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("stage_live");
             if (optJSONObject3 != null) {
-                this.stageLiveInfo = new e();
+                this.stageLiveInfo = new g();
                 this.stageLiveInfo.parserJson(optJSONObject3);
             }
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("hot_live");
@@ -42,12 +42,12 @@ public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
             }
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("official_recommend");
             if (optJSONObject5 != null) {
-                this.officialRecommendLiveInfo = new c();
+                this.officialRecommendLiveInfo = new d();
                 this.officialRecommendLiveInfo.parserJson(optJSONObject5);
             }
             JSONObject optJSONObject6 = optJSONObject.optJSONObject("all_lives");
             if (optJSONObject6 != null) {
-                this.tabAllLiveInfo = new h();
+                this.tabAllLiveInfo = new j();
                 this.tabAllLiveInfo.parserJson(optJSONObject6);
             }
         }

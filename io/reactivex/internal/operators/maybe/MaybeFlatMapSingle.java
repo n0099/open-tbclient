@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.maybe;
 
 import io.reactivex.aa;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.o;
@@ -9,7 +9,7 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.NoSuchElementException;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MaybeFlatMapSingle<T, R> extends w<R> {
     final h<? super T, ? extends aa<? extends R>> mapper;
     final o<T> source;
@@ -19,7 +19,7 @@ public final class MaybeFlatMapSingle<T, R> extends w<R> {
         this.source.a(new FlatMapMaybeObserver(yVar, this.mapper));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapMaybeObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 4827726964688405508L;
         final y<? super R> actual;
@@ -71,7 +71,7 @@ public final class MaybeFlatMapSingle<T, R> extends w<R> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class a<R> implements y<R> {
         final y<? super R> actual;
         final AtomicReference<io.reactivex.disposables.b> parent;

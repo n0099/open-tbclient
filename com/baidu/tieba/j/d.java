@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static boolean e(File file, String str) {
         return a(file, str, true);
@@ -48,7 +48,7 @@ public class d {
         }
     }
 
-    public static void Et(String str) {
+    public static void ED(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -96,7 +96,7 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray Eu(String str) {
+    public static JSONArray EE(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
@@ -131,9 +131,9 @@ public class d {
         }
     }
 
-    public static void Ev(String str) {
+    public static void EF(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.ikm + g.a.ikd + str));
+            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.inS + g.a.inJ + str));
         }
     }
 }

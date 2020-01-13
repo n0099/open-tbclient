@@ -27,11 +27,11 @@ import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class f {
-    public static final Pattern mxC = Pattern.compile("^(\\S+)\\s+-->\\s+(\\S+)(.*)?$");
-    private static final Pattern mxD = Pattern.compile("(\\S+?):(\\S+)");
-    private final StringBuilder mwG = new StringBuilder();
+    public static final Pattern mBr = Pattern.compile("^(\\S+)\\s+-->\\s+(\\S+)(.*)?$");
+    private static final Pattern mBs = Pattern.compile("(\\S+?):(\\S+)");
+    private final StringBuilder mAu = new StringBuilder();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(l lVar, e.a aVar, List<d> list) {
@@ -39,15 +39,15 @@ public final class f {
         if (readLine == null) {
             return false;
         }
-        Matcher matcher = mxC.matcher(readLine);
+        Matcher matcher = mBr.matcher(readLine);
         if (matcher.matches()) {
-            return a(null, matcher, lVar, aVar, this.mwG, list);
+            return a(null, matcher, lVar, aVar, this.mAu, list);
         }
         String readLine2 = lVar.readLine();
         if (readLine2 != null) {
-            Matcher matcher2 = mxC.matcher(readLine2);
+            Matcher matcher2 = mBr.matcher(readLine2);
             if (matcher2.matches()) {
-                return a(readLine.trim(), matcher2, lVar, aVar, this.mwG, list);
+                return a(readLine.trim(), matcher2, lVar, aVar, this.mAu, list);
             }
             return false;
         }
@@ -56,7 +56,7 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(String str, e.a aVar) {
-        Matcher matcher = mxD.matcher(str);
+        Matcher matcher = mBs.matcher(str);
         while (matcher.find()) {
             String group = matcher.group(1);
             String group2 = matcher.group(2);
@@ -64,11 +64,11 @@ public final class f {
                 if ("line".equals(group)) {
                     b(group2, aVar);
                 } else if ("align".equals(group)) {
-                    aVar.b(PJ(group2));
+                    aVar.b(PU(group2));
                 } else if ("position".equals(group)) {
                     c(group2, aVar);
                 } else if (TiebaInitialize.LogFields.SIZE.equals(group)) {
-                    aVar.bC(h.PM(group2));
+                    aVar.bC(h.PX(group2));
                 } else {
                     Log.w("WebvttCueParser", "Unknown cue setting " + group + ":" + group2);
                 }
@@ -113,31 +113,31 @@ public final class f {
                         break;
                     } else {
                         boolean z = str2.charAt(i + 1) == '/';
-                        int bJ = bJ(str2, i + 1);
-                        boolean z2 = str2.charAt(bJ + (-2)) == '/';
-                        String substring = str2.substring((z ? 2 : 1) + i, z2 ? bJ - 2 : bJ - 1);
-                        String PK = PK(substring);
-                        if (PK != null) {
-                            if (!Pz(PK)) {
-                                i = bJ;
+                        int bK = bK(str2, i + 1);
+                        boolean z2 = str2.charAt(bK + (-2)) == '/';
+                        String substring = str2.substring((z ? 2 : 1) + i, z2 ? bK - 2 : bK - 1);
+                        String PV = PV(substring);
+                        if (PV != null) {
+                            if (!PK(PV)) {
+                                i = bK;
                                 break;
                             } else if (z) {
                                 while (!stack.isEmpty()) {
                                     a aVar2 = (a) stack.pop();
                                     a(str, aVar2, spannableStringBuilder, list, arrayList);
-                                    if (aVar2.name.equals(PK)) {
-                                        i = bJ;
+                                    if (aVar2.name.equals(PV)) {
+                                        i = bK;
                                         break;
                                     }
                                 }
-                                i = bJ;
+                                i = bK;
                             } else if (!z2) {
-                                stack.push(a.bK(substring, spannableStringBuilder.length()));
-                                i = bJ;
+                                stack.push(a.bL(substring, spannableStringBuilder.length()));
+                                i = bK;
                                 break;
                             }
                         }
-                        i = bJ;
+                        i = bK;
                         break;
                     }
                 default:
@@ -149,13 +149,13 @@ public final class f {
         while (!stack.isEmpty()) {
             a(str, (a) stack.pop(), spannableStringBuilder, list, arrayList);
         }
-        a(str, a.dvX(), spannableStringBuilder, list, arrayList);
+        a(str, a.dxi(), spannableStringBuilder, list, arrayList);
         aVar.f(spannableStringBuilder);
     }
 
     private static boolean a(String str, Matcher matcher, l lVar, e.a aVar, StringBuilder sb, List<d> list) {
         try {
-            aVar.gw(h.PL(matcher.group(1))).gx(h.PL(matcher.group(2)));
+            aVar.gB(h.PW(matcher.group(1))).gC(h.PW(matcher.group(2)));
             a(matcher.group(3), aVar);
             sb.setLength(0);
             while (true) {
@@ -179,34 +179,34 @@ public final class f {
     private static void b(String str, e.a aVar) throws NumberFormatException {
         int indexOf = str.indexOf(44);
         if (indexOf != -1) {
-            aVar.Lq(PI(str.substring(indexOf + 1)));
+            aVar.Lz(PT(str.substring(indexOf + 1)));
             str = str.substring(0, indexOf);
         } else {
-            aVar.Lq(Integer.MIN_VALUE);
+            aVar.Lz(Integer.MIN_VALUE);
         }
         if (str.endsWith("%")) {
-            aVar.bA(h.PM(str)).Lp(0);
+            aVar.bA(h.PX(str)).Ly(0);
             return;
         }
         int parseInt = Integer.parseInt(str);
         if (parseInt < 0) {
             parseInt--;
         }
-        aVar.bA(parseInt).Lp(1);
+        aVar.bA(parseInt).Ly(1);
     }
 
     private static void c(String str, e.a aVar) throws NumberFormatException {
         int indexOf = str.indexOf(44);
         if (indexOf != -1) {
-            aVar.Lr(PI(str.substring(indexOf + 1)));
+            aVar.LA(PT(str.substring(indexOf + 1)));
             str = str.substring(0, indexOf);
         } else {
-            aVar.Lr(Integer.MIN_VALUE);
+            aVar.LA(Integer.MIN_VALUE);
         }
-        aVar.bB(h.PM(str));
+        aVar.bB(h.PX(str));
     }
 
-    private static int PI(String str) {
+    private static int PT(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -1364013995:
@@ -248,7 +248,7 @@ public final class f {
         }
     }
 
-    private static Layout.Alignment PJ(String str) {
+    private static Layout.Alignment PU(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -1364013995:
@@ -304,7 +304,7 @@ public final class f {
         }
     }
 
-    private static int bJ(String str, int i) {
+    private static int bK(String str, int i) {
         int indexOf = str.indexOf(62, i);
         return indexOf == -1 ? str.length() : indexOf + 1;
     }
@@ -356,7 +356,7 @@ public final class f {
         }
     }
 
-    private static boolean Pz(String str) {
+    private static boolean PK(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case 98:
@@ -480,7 +480,7 @@ public final class f {
         a(list, str, aVar, list2);
         int size = list2.size();
         for (int i2 = 0; i2 < size; i2++) {
-            a(spannableStringBuilder, list2.get(i2).mxH, i, length);
+            a(spannableStringBuilder, list2.get(i2).mBw, i, length);
         }
     }
 
@@ -489,33 +489,33 @@ public final class f {
             if (dVar.getStyle() != -1) {
                 spannableStringBuilder.setSpan(new StyleSpan(dVar.getStyle()), i, i2, 33);
             }
-            if (dVar.dvM()) {
+            if (dVar.dwX()) {
                 spannableStringBuilder.setSpan(new StrikethroughSpan(), i, i2, 33);
             }
-            if (dVar.dvN()) {
+            if (dVar.dwY()) {
                 spannableStringBuilder.setSpan(new UnderlineSpan(), i, i2, 33);
             }
-            if (dVar.dvP()) {
+            if (dVar.dxa()) {
                 spannableStringBuilder.setSpan(new ForegroundColorSpan(dVar.getFontColor()), i, i2, 33);
             }
-            if (dVar.dvQ()) {
+            if (dVar.dxb()) {
                 spannableStringBuilder.setSpan(new BackgroundColorSpan(dVar.getBackgroundColor()), i, i2, 33);
             }
-            if (dVar.dvO() != null) {
-                spannableStringBuilder.setSpan(new TypefaceSpan(dVar.dvO()), i, i2, 33);
+            if (dVar.dwZ() != null) {
+                spannableStringBuilder.setSpan(new TypefaceSpan(dVar.dwZ()), i, i2, 33);
             }
-            if (dVar.dvR() != null) {
-                spannableStringBuilder.setSpan(new AlignmentSpan.Standard(dVar.dvR()), i, i2, 33);
+            if (dVar.dxc() != null) {
+                spannableStringBuilder.setSpan(new AlignmentSpan.Standard(dVar.dxc()), i, i2, 33);
             }
-            switch (dVar.dvS()) {
+            switch (dVar.dxd()) {
                 case 1:
-                    spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) dVar.dvT(), true), i, i2, 33);
+                    spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) dVar.dxe(), true), i, i2, 33);
                     return;
                 case 2:
-                    spannableStringBuilder.setSpan(new RelativeSizeSpan(dVar.dvT()), i, i2, 33);
+                    spannableStringBuilder.setSpan(new RelativeSizeSpan(dVar.dxe()), i, i2, 33);
                     return;
                 case 3:
-                    spannableStringBuilder.setSpan(new RelativeSizeSpan(dVar.dvT() / 100.0f), i, i2, 33);
+                    spannableStringBuilder.setSpan(new RelativeSizeSpan(dVar.dxe() / 100.0f), i, i2, 33);
                     return;
                 default:
                     return;
@@ -523,7 +523,7 @@ public final class f {
         }
     }
 
-    private static String PK(String str) {
+    private static String PV(String str) {
         String trim = str.trim();
         if (trim.isEmpty()) {
             return null;
@@ -535,7 +535,7 @@ public final class f {
         int size = list.size();
         for (int i = 0; i < size; i++) {
             d dVar = list.get(i);
-            int a2 = dVar.a(str, aVar.name, aVar.mxG, aVar.mxF);
+            int a2 = dVar.a(str, aVar.name, aVar.mBv, aVar.mBu);
             if (a2 > 0) {
                 list2.add(new b(a2, dVar));
             }
@@ -544,14 +544,14 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class b implements Comparable<b> {
-        public final d mxH;
+        public final d mBw;
         public final int score;
 
         public b(int i, d dVar) {
             this.score = i;
-            this.mxH = dVar;
+            this.mBw = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -563,22 +563,22 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        private static final String[] mxE = new String[0];
-        public final String mxF;
-        public final String[] mxG;
+        private static final String[] mBt = new String[0];
+        public final String mBu;
+        public final String[] mBv;
         public final String name;
         public final int position;
 
         private a(String str, int i, String str2, String[] strArr) {
             this.position = i;
             this.name = str;
-            this.mxF = str2;
-            this.mxG = strArr;
+            this.mBu = str2;
+            this.mBv = strArr;
         }
 
-        public static a bK(String str, int i) {
+        public static a bL(String str, int i) {
             String substring;
             String str2;
             String[] strArr;
@@ -600,12 +600,12 @@ public final class f {
             if (split.length > 1) {
                 strArr = (String[]) Arrays.copyOfRange(split, 1, split.length);
             } else {
-                strArr = mxE;
+                strArr = mBt;
             }
             return new a(str3, i, str2, strArr);
         }
 
-        public static a dvX() {
+        public static a dxi() {
             return new a("", 0, "", new String[0]);
         }
     }

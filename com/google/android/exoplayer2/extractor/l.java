@@ -1,32 +1,32 @@
 package com.google.android.exoplayer2.extractor;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface l {
-    long drc();
+    long dso();
 
-    boolean dsp();
+    boolean dtB();
 
-    long fI(long j);
+    long fN(long j);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements l {
-        private final long lUZ;
+        private final long lYQ;
 
         public a(long j) {
-            this.lUZ = j;
+            this.lYQ = j;
         }
 
         @Override // com.google.android.exoplayer2.extractor.l
-        public boolean dsp() {
+        public boolean dtB() {
             return false;
         }
 
         @Override // com.google.android.exoplayer2.extractor.l
-        public long drc() {
-            return this.lUZ;
+        public long dso() {
+            return this.lYQ;
         }
 
         @Override // com.google.android.exoplayer2.extractor.l
-        public long fI(long j) {
+        public long fN(long j) {
             return 0L;
         }
     }

@@ -6,11 +6,11 @@ import com.baidu.swan.games.screenrecord.a.a;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private ArrayList<a> cnB;
-    private int cnC;
+    private ArrayList<a> cnO;
+    private int cnP;
     private String mSavePath;
     private String mVideoPath;
 
@@ -18,10 +18,10 @@ public class e {
         if (DEBUG) {
             Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
         }
-        this.cnB = o(arrayList);
+        this.cnO = o(arrayList);
         this.mVideoPath = str;
         this.mSavePath = str2;
-        this.cnC = this.cnB.size();
+        this.cnP = this.cnO.size();
     }
 
     public void a(final c cVar) {
@@ -29,19 +29,19 @@ public class e {
             m.postOnSerial(new Runnable() { // from class: com.baidu.swan.games.screenrecord.a.e.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    ArrayList<long[]> amM = e.this.amM();
+                    ArrayList<long[]> anf = e.this.anf();
                     d dVar = new d();
                     dVar.videoPath = e.this.mVideoPath;
-                    dVar.cnA = amM;
+                    dVar.cnN = anf;
                     dVar.clipPath = e.this.mSavePath;
-                    com.baidu.swan.games.l.a.amb().a(dVar, cVar);
+                    com.baidu.swan.games.l.a.amu().a(dVar, cVar);
                 }
             }, "clipVideo");
         }
     }
 
     private ArrayList<a> o(ArrayList<b> arrayList) {
-        a amL;
+        a ane;
         ArrayList<a> arrayList2 = new ArrayList<>();
         if (arrayList == null || arrayList.size() == 0) {
             return arrayList2;
@@ -49,25 +49,25 @@ public class e {
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && (amL = next.amL()) != null) {
-                arrayList2.add(amL);
+            if (next != null && (ane = next.ane()) != null) {
+                arrayList2.add(ane);
             }
         }
         return arrayList2;
     }
 
-    public ArrayList<long[]> amM() {
+    public ArrayList<long[]> anf() {
         ArrayList<long[]> arrayList = new ArrayList<>();
-        if (this.cnC == 0) {
+        if (this.cnP == 0) {
             return arrayList;
         }
         if (DEBUG) {
-            Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.cnB);
+            Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.cnO);
         }
-        Collections.sort(this.cnB, new a.C0335a());
-        a aVar = this.cnB.get(0);
-        for (int i = 1; i < this.cnC; i++) {
-            a aVar2 = this.cnB.get(i);
+        Collections.sort(this.cnO, new a.C0337a());
+        a aVar = this.cnO.get(0);
+        for (int i = 1; i < this.cnP; i++) {
+            a aVar2 = this.cnO.get(i);
             if (!aVar.b(aVar2)) {
                 arrayList.add(a.a(aVar));
                 aVar = aVar2;

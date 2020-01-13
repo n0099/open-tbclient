@@ -1,26 +1,26 @@
 package com.baidu.live.message;
 
-import com.baidu.live.data.ag;
+import com.baidu.live.data.ak;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class GetLiveActivityDynamicHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ag arM;
+    private ak asy;
 
     public GetLiveActivityDynamicHttpResponseMessage() {
         super(1021126);
     }
 
-    public ag wl() {
-        return this.arM;
+    public ak wC() {
+        return this.asy;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.arM = new ag();
-            this.arM.parserJson(jSONObject);
+            this.asy = new ak();
+            this.asy.parserJson(jSONObject);
         }
     }
 }

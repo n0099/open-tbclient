@@ -3,7 +3,7 @@ package com.vivo.push.b;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ab extends c {
     private ArrayList<String> a;
 

@@ -4,22 +4,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile c aKy;
+    private static volatile c aLq;
 
-    public static synchronized c BA() {
+    public static synchronized c BW() {
         c cVar;
         synchronized (c.class) {
-            if (aKy == null) {
+            if (aLq == null) {
                 synchronized (c.class) {
-                    if (aKy == null) {
-                        aKy = new c();
+                    if (aLq == null) {
+                        aLq = new c();
                     }
                 }
             }
-            cVar = aKy;
+            cVar = aLq;
         }
         return cVar;
     }
@@ -31,7 +31,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.Bz().e(activity, str, aVar);
+        b.BV().e(activity, str, aVar);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.Bz().f(activity, str, aVar);
+        b.BV().f(activity, str, aVar);
         return true;
     }
 
@@ -47,7 +47,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.Bz().b(context, jSONObject, aVar);
+        b.BV().b(context, jSONObject, aVar);
         return true;
     }
 
@@ -55,7 +55,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.Bz().g(context, jSONObject);
+        b.BV().g(context, jSONObject);
         return true;
     }
 }

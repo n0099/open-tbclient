@@ -1,23 +1,21 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.b.h;
-import io.reactivex.g;
+import io.reactivex.c.h;
 import io.reactivex.internal.operators.flowable.FlowableRepeatWhen;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.processors.UnicastProcessor;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableRetryWhen<T> extends a<T, T> {
-    final h<? super g<Throwable>, ? extends org.a.b<?>> mUj;
+    final h<? super io.reactivex.g<Throwable>, ? extends org.a.b<?>> nwt;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        io.reactivex.processors.a<T> dEo = UnicastProcessor.MM(8).dEo();
+        io.reactivex.processors.a<T> dIy = UnicastProcessor.Nz(8).dIy();
         try {
-            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.mUj.apply(dEo), "handler returned a null Publisher");
-            FlowableRepeatWhen.WhenReceiver whenReceiver = new FlowableRepeatWhen.WhenReceiver(this.mTG);
-            RetryWhenSubscriber retryWhenSubscriber = new RetryWhenSubscriber(bVar, dEo, whenReceiver);
+            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.nwt.apply(dIy), "handler returned a null Publisher");
+            FlowableRepeatWhen.WhenReceiver whenReceiver = new FlowableRepeatWhen.WhenReceiver(this.nvK);
+            RetryWhenSubscriber retryWhenSubscriber = new RetryWhenSubscriber(bVar, dIy, whenReceiver);
             whenReceiver.subscriber = retryWhenSubscriber;
             cVar.onSubscribe(retryWhenSubscriber);
             bVar2.subscribe(whenReceiver);
@@ -28,11 +26,11 @@ public final class FlowableRetryWhen<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class RetryWhenSubscriber<T> extends FlowableRepeatWhen.WhenSourceSubscriber<T, Throwable> {
         private static final long serialVersionUID = -2680129890138081029L;
 
-        RetryWhenSubscriber(org.a.c<? super T> cVar, io.reactivex.processors.a<Throwable> aVar, d dVar) {
+        RetryWhenSubscriber(org.a.c<? super T> cVar, io.reactivex.processors.a<Throwable> aVar, org.a.d dVar) {
             super(cVar, aVar, dVar);
         }
 

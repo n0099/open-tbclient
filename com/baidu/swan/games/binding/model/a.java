@@ -2,61 +2,61 @@ package com.baidu.swan.games.binding.model;
 
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.v8engine.JsFunction;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
-    public JsFunction chA;
-    public JsFunction chB;
-    public JsFunction chz;
+    public JsFunction chM;
+    public JsFunction chN;
+    public JsFunction chO;
 
     public static a f(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.chz = cVar.om("success");
-        aVar.chA = cVar.om(LivenessStat.TYPE_FACE_MATCH_FAIL);
-        aVar.chB = cVar.om(com.baidu.mobads.openad.c.b.COMPLETE);
+        aVar.chM = cVar.oq("success");
+        aVar.chN = cVar.oq(LivenessStat.TYPE_FACE_MATCH_FAIL);
+        aVar.chO = cVar.oq(com.baidu.mobads.openad.c.b.COMPLETE);
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.chz != null) {
-            this.chz.call(obj);
+        if (this.chM != null) {
+            this.chM.call(obj);
         }
-        if (this.chB != null) {
-            this.chB.call(obj);
+        if (this.chO != null) {
+            this.chO.call(obj);
         }
-        a(this.chA);
+        a(this.chN);
     }
 
     public void Q(Object obj) {
-        if (this.chA != null) {
-            this.chA.call(obj);
+        if (this.chN != null) {
+            this.chN.call(obj);
         }
-        if (this.chB != null) {
-            this.chB.call(obj);
+        if (this.chO != null) {
+            this.chO.call(obj);
         }
-        a(this.chz);
+        a(this.chM);
     }
 
     public void onSuccess() {
-        if (this.chz != null) {
-            this.chz.call();
+        if (this.chM != null) {
+            this.chM.call();
         }
-        if (this.chB != null) {
-            this.chB.call();
+        if (this.chO != null) {
+            this.chO.call();
         }
-        a(this.chA);
+        a(this.chN);
     }
 
     public void onFail() {
-        if (this.chA != null) {
-            this.chA.call();
+        if (this.chN != null) {
+            this.chN.call();
         }
-        if (this.chB != null) {
-            this.chB.call();
+        if (this.chO != null) {
+            this.chO.call();
         }
-        a(this.chz);
+        a(this.chM);
     }
 
     private void a(JsFunction jsFunction) {

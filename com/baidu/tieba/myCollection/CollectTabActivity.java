@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private a imD;
-    private CustomMessageListener imE = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private a iqi;
+    private CustomMessageListener iqj = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -28,8 +28,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.imD.ceC()) {
-                    CollectTabActivity.this.imD.oG(z);
+                if (i != -1 && i == CollectTabActivity.this.iqi.cfK()) {
+                    CollectTabActivity.this.iqi.oS(z);
                 }
             }
         }
@@ -40,37 +40,37 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.collect_tab_activity);
-        this.imD = new a(this);
-        registerListener(this.imE);
-        ceB();
+        this.iqi = new a(this);
+        registerListener(this.iqj);
+        cfJ();
         ar(getIntent());
     }
 
-    protected void ceB() {
+    protected void cfJ() {
         com.baidu.tbadk.collectTab.a aVar = new com.baidu.tbadk.collectTab.a(getPageContext().getPageActivity());
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
         if (aVar.getContext() != null) {
-            com.baidu.tbadk.mainTab.c aNf = threadDelegateStatic.aNf();
-            if (aNf != null) {
-                aNf.frag.setArguments(new Bundle());
+            com.baidu.tbadk.mainTab.c aNy = threadDelegateStatic.aNy();
+            if (aNy != null) {
+                aNy.frag.setArguments(new Bundle());
             } else {
                 return;
             }
         }
-        this.imD.aF(aVar.getList());
+        this.iqi.aF(aVar.getList());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.imD.onChangeSkinType(i);
+        this.iqi.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.imD.ceE()) {
-            this.imD.oF(!this.imD.ceF());
+        if (view == this.iqi.cfM()) {
+            this.iqi.oR(!this.iqi.cfN());
         }
     }
 
@@ -78,8 +78,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b.ceG().oH(true);
-        b.ceG().oI(false);
+        b.cfO().oT(true);
+        b.cfO().oU(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
     }
 
@@ -87,16 +87,16 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        b.ceG().oH(false);
+        b.cfO().oT(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment ceD = this.imD.ceD();
-        if (ceD != null) {
-            ceD.onActivityResult(i, i2, intent);
+        Fragment cfL = this.iqi.cfL();
+        if (cfL != null) {
+            cfL.onActivityResult(i, i2, intent);
         }
     }
 

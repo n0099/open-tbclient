@@ -11,7 +11,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.tieba.ala.guardclub.model.p;
@@ -20,13 +20,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class k extends BaseAdapter {
-    private a eAP;
-    private String eAQ;
-    private List<p> eAR;
-    private int eAS;
-    private float eAT;
-    private float eAU;
-    private int eAV;
+    private a eCa;
+    private String eCb;
+    private List<p> eCc;
+    private int eCd;
+    private float eCe;
+    private float eCf;
+    private int eCg;
     private int mType;
 
     /* loaded from: classes2.dex */
@@ -37,68 +37,68 @@ public class k extends BaseAdapter {
     }
 
     public k(Context context) {
-        this.eAT = context.getResources().getDimensionPixelOffset(a.e.sdk_fontsize36);
-        this.eAU = context.getResources().getDimensionPixelOffset(a.e.sdk_fontsize36);
+        this.eCe = context.getResources().getDimensionPixelOffset(a.e.sdk_fontsize36);
+        this.eCf = context.getResources().getDimensionPixelOffset(a.e.sdk_fontsize36);
     }
 
     public void setType(int i) {
         this.mType = i;
         switch (i) {
             case 0:
-                this.eAV = a.i.guard_club_rank_list_contribution_week;
+                this.eCg = a.i.guard_club_rank_list_contribution_week;
                 return;
             case 1:
-                this.eAV = a.i.guard_club_rank_list_contribution_total;
+                this.eCg = a.i.guard_club_rank_list_contribution_total;
                 return;
             default:
                 return;
         }
     }
 
-    public void xV(String str) {
-        this.eAQ = str;
+    public void ya(String str) {
+        this.eCb = str;
     }
 
     public void a(a aVar) {
-        this.eAP = aVar;
+        this.eCa = aVar;
     }
 
     public List<p> getDatas() {
-        return this.eAR;
+        return this.eCc;
     }
 
     public void setData(List<p> list) {
-        if (this.eAR == null) {
-            this.eAR = new ArrayList();
+        if (this.eCc == null) {
+            this.eCc = new ArrayList();
         }
-        this.eAR.clear();
+        this.eCc.clear();
         bw(list);
     }
 
     public void bw(List<p> list) {
-        if (this.eAR == null) {
-            this.eAR = new ArrayList();
+        if (this.eCc == null) {
+            this.eCc = new ArrayList();
         }
         if (list != null && !list.isEmpty()) {
-            this.eAR.addAll(list);
+            this.eCc.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eAR != null) {
-            return this.eAR.size();
+        if (this.eCc != null) {
+            return this.eCc.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pa */
+    /* renamed from: pb */
     public p getItem(int i) {
         if (getCount() > i) {
-            return this.eAR.get(i);
+            return this.eCc.get(i);
         }
         return null;
     }
@@ -114,18 +114,18 @@ public class k extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.live_guard_club_rank_item, viewGroup, false);
             b bVar2 = new b();
-            bVar2.eAY = (TextView) view.findViewById(a.g.tv_rank);
-            bVar2.eAZ = view.findViewById(a.g.layout_avatar);
-            bVar2.eBa = (HeadImageView) view.findViewById(a.g.iv_avatar);
-            bVar2.eBb = (TbImageView) view.findViewById(a.g.iv_level);
-            a(bVar2.eBa, bVar2.eBb);
-            bVar2.eBc = (LottieAnimationView) view.findViewById(a.g.lottie_live);
-            bVar2.aqC = (TextView) view.findViewById(a.g.tv_name);
-            bVar2.ezB = (TextView) view.findViewById(a.g.tv_name_suffix);
-            bVar2.eBe = (TextView) view.findViewById(a.g.tv_content);
-            bVar2.eBf = view.findViewById(a.g.layout_action);
-            bVar2.eBg = (TextView) view.findViewById(a.g.tv_guard);
-            bVar2.eBh = (TextView) view.findViewById(a.g.tv_joined);
+            bVar2.eCj = (TextView) view.findViewById(a.g.tv_rank);
+            bVar2.eCk = view.findViewById(a.g.layout_avatar);
+            bVar2.eCl = (HeadImageView) view.findViewById(a.g.iv_avatar);
+            bVar2.eCm = (TbImageView) view.findViewById(a.g.iv_level);
+            a(bVar2.eCl, bVar2.eCm);
+            bVar2.eCn = (LottieAnimationView) view.findViewById(a.g.lottie_live);
+            bVar2.aro = (TextView) view.findViewById(a.g.tv_name);
+            bVar2.eAM = (TextView) view.findViewById(a.g.tv_name_suffix);
+            bVar2.eCp = (TextView) view.findViewById(a.g.tv_content);
+            bVar2.eCq = view.findViewById(a.g.layout_action);
+            bVar2.eCr = (TextView) view.findViewById(a.g.tv_guard);
+            bVar2.eCs = (TextView) view.findViewById(a.g.tv_joined);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
@@ -153,66 +153,66 @@ public class k extends BaseAdapter {
 
     private void a(b bVar, int i) {
         if (i + 4 >= 100) {
-            bVar.eAY.setText("99+");
-            bVar.eAY.setTextSize(0, this.eAU);
+            bVar.eCj.setText("99+");
+            bVar.eCj.setTextSize(0, this.eCf);
             return;
         }
-        bVar.eAY.setText(String.valueOf(i + 4));
-        bVar.eAY.setTextSize(0, this.eAT);
+        bVar.eCj.setText(String.valueOf(i + 4));
+        bVar.eCj.setTextSize(0, this.eCe);
     }
 
     private void a(b bVar, final p pVar) {
-        bVar.eBa.stopLoad();
-        bVar.eBa.startLoad(pVar.avatar, 12, false, false);
-        bVar.eBb.stopLoad();
+        bVar.eCl.stopLoad();
+        bVar.eCl.startLoad(pVar.avatar, 12, false, false);
+        bVar.eCm.stopLoad();
         b(bVar);
-        bVar.eBa.setScaleX(1.0f);
-        bVar.eBa.setScaleY(1.0f);
+        bVar.eCl.setScaleX(1.0f);
+        bVar.eCl.setScaleY(1.0f);
         if (pVar.liveStatus != 1 || TextUtils.isEmpty(pVar.liveId)) {
-            bVar.eBc.setVisibility(8);
+            bVar.eCn.setVisibility(8);
         } else {
-            bVar.eBc.setVisibility(0);
+            bVar.eCn.setVisibility(0);
             a(bVar);
         }
-        String pd = l.bcE().pd(pVar.level);
-        if (!TextUtils.isEmpty(pd)) {
-            bVar.eBb.startLoad(pd, 10, false);
-            bVar.eBb.setVisibility(0);
+        String pe = l.bcZ().pe(pVar.level);
+        if (!TextUtils.isEmpty(pe)) {
+            bVar.eCm.startLoad(pe, 10, false);
+            bVar.eCm.setVisibility(0);
         } else {
-            bVar.eBb.setVisibility(8);
+            bVar.eCm.setVisibility(8);
         }
-        bVar.eAZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.k.1
+        bVar.eCk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.eAP != null) {
-                    k.this.eAP.a(pVar);
+                if (k.this.eCa != null) {
+                    k.this.eCa.a(pVar);
                 }
             }
         });
     }
 
     private void a(b bVar, Context context, p pVar) {
-        if (this.eAS <= 0) {
-            this.eAS = bVar.ezB.getWidth();
-            if (this.eAS <= 0) {
-                bVar.ezB.measure(0, 0);
-                this.eAS = bVar.ezB.getMeasuredWidth();
+        if (this.eCd <= 0) {
+            this.eCd = bVar.eAM.getWidth();
+            if (this.eCd <= 0) {
+                bVar.eAM.measure(0, 0);
+                this.eCd = bVar.eAM.getMeasuredWidth();
             }
         }
         String str = pVar.name;
         if (str != null && str.endsWith("的真爱团")) {
             str = str.substring(0, str.lastIndexOf("的真爱团"));
-            bVar.aqC.setPadding(0, 0, this.eAS, 0);
-            bVar.ezB.setVisibility(0);
+            bVar.aro.setPadding(0, 0, this.eCd, 0);
+            bVar.eAM.setVisibility(0);
         } else {
-            bVar.aqC.setPadding(0, 0, 0, 0);
-            bVar.ezB.setVisibility(4);
+            bVar.aro.setPadding(0, 0, 0, 0);
+            bVar.eAM.setVisibility(4);
         }
-        bVar.aqC.setText(str);
+        bVar.aro.setText(str);
         String str2 = null;
         switch (this.mType) {
             case 0:
-                str2 = pVar.eCk;
+                str2 = pVar.eDv;
                 break;
             case 1:
                 str2 = pVar.score;
@@ -221,83 +221,83 @@ public class k extends BaseAdapter {
         if (str2 == null) {
             str2 = "";
         }
-        bVar.eBe.setText(String.format(context.getResources().getString(this.eAV), str2));
+        bVar.eCp.setText(String.format(context.getResources().getString(this.eCg), str2));
     }
 
     private void b(b bVar, final p pVar) {
-        if (TextUtils.isEmpty(this.eAQ) || TextUtils.isEmpty(pVar.abl) || !this.eAQ.equals(pVar.abl)) {
-            bVar.eBf.setVisibility(0);
-            if (pVar.eCl) {
-                bVar.eBh.setVisibility(0);
-                bVar.eBg.setVisibility(8);
+        if (TextUtils.isEmpty(this.eCb) || TextUtils.isEmpty(pVar.abx) || !this.eCb.equals(pVar.abx)) {
+            bVar.eCq.setVisibility(0);
+            if (pVar.eDw) {
+                bVar.eCs.setVisibility(0);
+                bVar.eCr.setVisibility(8);
                 return;
             }
-            bVar.eBh.setVisibility(8);
-            bVar.eBg.setVisibility(0);
-            bVar.eBg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.k.2
+            bVar.eCs.setVisibility(8);
+            bVar.eCr.setVisibility(0);
+            bVar.eCr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.k.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (k.this.eAP != null) {
-                        k.this.eAP.b(pVar);
+                    if (k.this.eCa != null) {
+                        k.this.eCa.b(pVar);
                     }
                 }
             });
             return;
         }
-        bVar.eBf.setVisibility(4);
+        bVar.eCq.setVisibility(4);
     }
 
     private void a(b bVar) {
-        if (bVar.eBd == null) {
-            bVar.eBd = new AnimatorSet();
+        if (bVar.eCo == null) {
+            bVar.eCo = new AnimatorSet();
         }
-        bVar.eBc.setAnimation("live_anim_guard_join.json");
-        bVar.eBc.loop(true);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(bVar.eBa, "scaleX", 0.88f, 1.0f, 0.88f);
+        bVar.eCn.setAnimation("live_anim_guard_join.json");
+        bVar.eCn.loop(true);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(bVar.eCl, "scaleX", 0.88f, 1.0f, 0.88f);
         ofFloat.setRepeatCount(-1);
         ofFloat.setRepeatMode(2);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(bVar.eBa, "scaleY", 0.88f, 1.0f, 0.88f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(bVar.eCl, "scaleY", 0.88f, 1.0f, 0.88f);
         ofFloat2.setRepeatCount(-1);
         ofFloat2.setRepeatMode(2);
-        bVar.eBd.setDuration(1000L);
-        bVar.eBd.setInterpolator(new AccelerateDecelerateInterpolator());
-        bVar.eBd.play(ofFloat).with(ofFloat2);
-        bVar.eBc.playAnimation();
-        bVar.eBd.start();
+        bVar.eCo.setDuration(1000L);
+        bVar.eCo.setInterpolator(new AccelerateDecelerateInterpolator());
+        bVar.eCo.play(ofFloat).with(ofFloat2);
+        bVar.eCn.playAnimation();
+        bVar.eCo.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(b bVar) {
-        bVar.eBc.cancelAnimation();
-        if (bVar.eBd == null) {
+        bVar.eCn.cancelAnimation();
+        if (bVar.eCo == null) {
             return;
         }
-        bVar.eBd.cancel();
+        bVar.eCo.cancel();
     }
 
     /* loaded from: classes2.dex */
     public class b {
-        private TextView aqC;
-        private TextView eAY;
-        private View eAZ;
-        private HeadImageView eBa;
-        private TbImageView eBb;
-        private LottieAnimationView eBc;
-        private AnimatorSet eBd;
-        private TextView eBe;
-        private View eBf;
-        private TextView eBg;
-        private TextView eBh;
-        private TextView ezB;
+        private TextView aro;
+        private TextView eAM;
+        private TextView eCj;
+        private View eCk;
+        private HeadImageView eCl;
+        private TbImageView eCm;
+        private LottieAnimationView eCn;
+        private AnimatorSet eCo;
+        private TextView eCp;
+        private View eCq;
+        private TextView eCr;
+        private TextView eCs;
 
         public b() {
         }
 
         public void recycle() {
-            bcD();
+            bcY();
         }
 
-        public void bcD() {
+        public void bcY() {
             k.this.b(this);
         }
     }

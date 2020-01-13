@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GeolocationServiceBridge {
     static GeolocationServiceBridge sInstance = null;
 

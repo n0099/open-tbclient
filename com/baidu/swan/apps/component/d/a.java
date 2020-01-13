@@ -2,11 +2,11 @@ package com.baidu.swan.apps.component.d;
 
 import android.support.annotation.IntRange;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bev = 5;
-    private int[] bew;
+    private static int bfk = 5;
+    private int[] bfl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.bew = new int[dQ(i - 1) + 1];
-        int length = this.bew.length;
+        this.bfl = new int[dR(i - 1) + 1];
+        int length = this.bfl.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.bew[i2] = -1;
+                this.bfl[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.bew.length << bev) - 1;
+        int length = (this.bfl.length << bfk) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.bew;
-        int dQ = dQ(i);
-        iArr[dQ] = iArr[dQ] | (1 << i);
+        int[] iArr = this.bfl;
+        int dR = dR(i);
+        iArr[dR] = iArr[dR] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.bew.length << bev) - 1;
+        int length = (this.bfl.length << bfk) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.bew[dQ(i)] & (1 << i)) != 0;
+        return (this.bfl[dR(i)] & (1 << i)) != 0;
     }
 
-    private int dQ(int i) {
-        return i >> bev;
+    private int dR(int i) {
+        return i >> bfk;
     }
 }

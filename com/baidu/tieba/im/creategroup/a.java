@@ -7,43 +7,43 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.adp.base.c<BaseActivity> {
-    private View cRG;
-    private ImageView doU;
-    private TextView hqk;
+    private View cRQ;
+    private ImageView dpf;
+    private TextView htN;
     private View layoutView;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         this.layoutView = null;
-        this.hqk = null;
-        this.doU = null;
-        this.cRG = null;
+        this.htN = null;
+        this.dpf = null;
+        this.cRQ = null;
         initUI();
     }
 
-    public View bdY() {
+    public View bet() {
         return this.layoutView;
     }
 
-    public void Cc(String str) {
-        this.hqk.setText(str);
+    public void Cm(String str) {
+        this.htN.setText(str);
     }
 
-    public void mY(boolean z) {
-        this.doU.setVisibility(z ? 0 : 8);
+    public void nk(boolean z) {
+        this.dpf.setVisibility(z ? 0 : 8);
     }
 
     private void initUI() {
         this.layoutView = LayoutInflater.from(this.mContext.getContext()).inflate(R.layout.address_lbs_item, (ViewGroup) null);
-        this.hqk = (TextView) this.layoutView.findViewById(R.id.text);
-        this.doU = (ImageView) this.layoutView.findViewById(R.id.group_address_list_item_selected);
-        this.cRG = this.layoutView.findViewById(R.id.group_address_list_item_divider);
+        this.htN = (TextView) this.layoutView.findViewById(R.id.text);
+        this.dpf = (ImageView) this.layoutView.findViewById(R.id.group_address_list_item_selected);
+        this.cRQ = this.layoutView.findViewById(R.id.group_address_list_item_divider);
         this.layoutView.setTag(this);
     }
 
-    public View bPZ() {
-        return this.cRG;
+    public View bRi() {
+        return this.cRQ;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.c;
 
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
     String getAbstract();
 

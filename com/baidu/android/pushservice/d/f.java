@@ -8,7 +8,7 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.mobstat.Config;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f extends d {
     protected int e;
     private int f;

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.NewTopicList.NewTopicListResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
     private List<m> mTopicDataList;
 
@@ -41,13 +41,13 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.fRQ = R.dimen.tbds1;
-                        cVar.hcg = R.color.cp_bg_line_b;
+                        cVar.fVa = R.dimen.tbds1;
+                        cVar.hfJ = R.color.cp_bg_line_b;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) v.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).fRQ = 0;
+                ((c) v.getItem(this.mTopicDataList, this.mTopicDataList.size() - 1)).fVa = 0;
             }
         }
     }

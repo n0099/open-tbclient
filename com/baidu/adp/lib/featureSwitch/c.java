@@ -6,57 +6,57 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    public static String ql = "_crashtime";
-    public static String qm = "_crashtype";
-    private int qn;
-    private int qo;
-    private b qp;
+    public static String qh = "_crashtime";
+    public static String qi = "_crashtype";
+    private int qj;
+    private int ql;
+    private b qm;
 
     public c(b bVar) {
-        this.qn = 0;
-        this.qo = 0;
-        this.qp = null;
+        this.qj = 0;
+        this.ql = 0;
+        this.qm = null;
         if (bVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.qp = bVar;
-        if (this.qp.getMaxCrashTimes() > 0 && this.qp.fE() != null) {
-            this.qn = fH();
-            if (this.qn == -1) {
+        this.qm = bVar;
+        if (this.qm.getMaxCrashTimes() > 0 && this.qm.fE() != null) {
+            this.qj = fH();
+            if (this.qj == -1) {
                 reset();
             }
         }
         if (!bVar.fD()) {
-            this.qo = fG();
+            this.ql = fG();
         }
-        this.qp.f(this.qo, true);
+        this.qm.f(this.ql, true);
     }
 
     public b fF() {
-        return this.qp;
+        return this.qm;
     }
 
     public String getName() {
-        return this.qp.getName();
+        return this.qm.getName();
     }
 
     public int getDefaultType() {
-        return this.qp.getDefaultType();
+        return this.qm.getDefaultType();
     }
 
     public int getType() {
-        return this.qo;
+        return this.ql;
     }
 
     public boolean E(int i) {
-        if (this.qp.getMaxCrashTimes() >= 0 && this.qn >= this.qp.getMaxCrashTimes() + 2) {
-            i = this.qp.getOffType();
+        if (this.qm.getMaxCrashTimes() >= 0 && this.qj >= this.qm.getMaxCrashTimes() + 2) {
+            i = this.qm.getOffType();
         }
-        if (i == this.qo) {
+        if (i == this.ql) {
             return false;
         }
-        this.qo = i;
-        this.qp.f(this.qo, false);
+        this.ql = i;
+        this.qm.f(this.ql, false);
         F(i);
         return true;
     }
@@ -64,33 +64,33 @@ public class c {
     public boolean aj(String str) {
         String[] switchLibs;
         String[] fE;
-        if (str == null || this.qp.getMaxCrashTimes() <= 0) {
+        if (str == null || this.qm.getMaxCrashTimes() <= 0) {
             return false;
         }
-        if (this.qp.fE() != null) {
-            for (String str2 : this.qp.fE()) {
+        if (this.qm.fE() != null) {
+            for (String str2 : this.qm.fE()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.qn++;
-                    G(this.qn);
-                    if (this.qn >= this.qp.getMaxCrashTimes()) {
-                        F(this.qp.getOffType());
-                        this.qo = this.qp.getOffType();
-                        this.qp.f(this.qp.getOffType(), false);
+                    this.qj++;
+                    G(this.qj);
+                    if (this.qj >= this.qm.getMaxCrashTimes()) {
+                        F(this.qm.getOffType());
+                        this.ql = this.qm.getOffType();
+                        this.qm.f(this.qm.getOffType(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.qp.getSwitchLibs() != null) {
-            for (String str3 : this.qp.getSwitchLibs()) {
+        if (this.qm.getSwitchLibs() != null) {
+            for (String str3 : this.qm.getSwitchLibs()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.qn++;
-                    G(this.qn);
-                    if (this.qn >= this.qp.getMaxCrashTimes()) {
-                        F(this.qp.getOffType());
-                        this.qo = this.qp.getOffType();
-                        this.qp.f(this.qp.getOffType(), false);
+                    this.qj++;
+                    G(this.qj);
+                    if (this.qj >= this.qm.getMaxCrashTimes()) {
+                        F(this.qm.getOffType());
+                        this.ql = this.qm.getOffType();
+                        this.qm.f(this.qm.getOffType(), false);
                         return true;
                     }
                     return true;
@@ -102,29 +102,29 @@ public class c {
 
     private void F(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.qp.getName() + qm, i);
+        edit.putInt(this.qm.getName() + qi, i);
         edit.commit();
     }
 
     private int fG() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.qp.getName() + qm, this.qp.getDefaultType());
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.qm.getName() + qi, this.qm.getDefaultType());
     }
 
     private int fH() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.qp.getName() + ql, -1);
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.qm.getName() + qh, -1);
     }
 
     private void G(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.qp.getName() + ql, i);
+        edit.putInt(this.qm.getName() + qh, i);
         edit.commit();
     }
 
     public void reset() {
-        this.qn = 0;
+        this.qj = 0;
     }
 
     public void H(int i) {
-        this.qn = i;
+        this.qj = i;
     }
 }

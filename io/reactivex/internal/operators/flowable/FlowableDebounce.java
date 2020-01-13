@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -9,26 +9,25 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableDebounce<T, U> extends a<T, T> {
     final h<? super T, ? extends org.a.b<U>> debounceSelector;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new DebounceSubscriber(new io.reactivex.subscribers.b(cVar), this.debounceSelector));
+        this.nvK.a((j) new DebounceSubscriber(new io.reactivex.subscribers.b(cVar), this.debounceSelector));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class DebounceSubscriber<T, U> extends AtomicLong implements j<T>, d {
+    /* loaded from: classes5.dex */
+    public static final class DebounceSubscriber<T, U> extends AtomicLong implements j<T>, org.a.d {
         private static final long serialVersionUID = 6725975399620862591L;
         final org.a.c<? super T> actual;
         final h<? super T, ? extends org.a.b<U>> debounceSelector;
         final AtomicReference<io.reactivex.disposables.b> debouncer = new AtomicReference<>();
         boolean done;
         volatile long index;
-        d s;
+        org.a.d s;
 
         DebounceSubscriber(org.a.c<? super T> cVar, h<? super T, ? extends org.a.b<U>> hVar) {
             this.actual = cVar;
@@ -36,7 +35,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -111,16 +110,16 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         static final class a<T, U> extends io.reactivex.subscribers.a<U> {
             boolean done;
             final long index;
-            final DebounceSubscriber<T, U> mTW;
+            final DebounceSubscriber<T, U> nwa;
             final AtomicBoolean once = new AtomicBoolean();
             final T value;
 
             a(DebounceSubscriber<T, U> debounceSubscriber, long j, T t) {
-                this.mTW = debounceSubscriber;
+                this.nwa = debounceSubscriber;
                 this.index = j;
                 this.value = t;
             }
@@ -136,18 +135,18 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
 
             void emit() {
                 if (this.once.compareAndSet(false, true)) {
-                    this.mTW.emit(this.index, this.value);
+                    this.nwa.emit(this.index, this.value);
                 }
             }
 
             @Override // org.a.c
             public void onError(Throwable th) {
                 if (this.done) {
-                    io.reactivex.d.a.onError(th);
+                    io.reactivex.e.a.onError(th);
                     return;
                 }
                 this.done = true;
-                this.mTW.onError(th);
+                this.nwa.onError(th);
             }
 
             @Override // org.a.c

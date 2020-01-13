@@ -11,7 +11,7 @@ import javax.net.ssl.X509TrustManager;
 import okhttp3.Protocol;
 import org.conscrypt.Conscrypt;
 import org.conscrypt.OpenSSLProvider;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ConscryptPlatform extends Platform {
     private ConscryptPlatform() {
     }

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.google.gson.JsonElement;
 import org.json.JSONException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class NoneCommandListener extends AbstractCommandListener<JsonElement> {
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public void addPostData(Context context, String str, String str2, CommandPostData commandPostData) throws JSONException {

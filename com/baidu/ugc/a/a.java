@@ -1,11 +1,11 @@
 package com.baidu.ugc.a;
 
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface a {
-    boolean DC(int i);
+    boolean DI(int i);
 
-    InputStream Kc(String str);
+    InputStream Km(String str);
 
-    c cQh();
+    c cRk();
 }

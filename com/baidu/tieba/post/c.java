@@ -1,5 +1,5 @@
 package com.baidu.tieba.post;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface c {
-    void cxp();
+    void cyw();
 }

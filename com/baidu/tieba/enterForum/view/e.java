@@ -4,14 +4,14 @@ import android.view.View;
 import android.widget.AbsListView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e implements AbsListView.OnScrollListener {
-    private a fUO;
-    private b fUQ;
+    private a fXX;
+    private b fXZ;
     private int mScrollState = -1;
-    private int fUP = 0;
+    private int fXY = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(AbsListView absListView, int i, int i2);
     }
@@ -28,37 +28,37 @@ public class e implements AbsListView.OnScrollListener {
         View childAt;
         if (absListView != null && i >= 0 && absListView.getChildCount() > 0 && (childAt = absListView.getChildAt(0)) != null) {
             if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-                if (this.fUP != 0 && this.fUQ != null) {
-                    this.fUQ.a(absListView, 0, -this.fUP);
+                if (this.fXY != 0 && this.fXZ != null) {
+                    this.fXZ.a(absListView, 0, -this.fXY);
                 }
-                this.fUP = 0;
-                this.fUO = null;
+                this.fXY = 0;
+                this.fXX = null;
                 return;
             }
             a aVar = new a(absListView, i);
-            if (this.fUO == null) {
-                this.fUO = aVar;
-                this.fUP = absListView.getPaddingTop() - childAt.getTop();
-                if (this.fUQ != null) {
-                    this.fUQ.a(absListView, this.fUP, 0);
+            if (this.fXX == null) {
+                this.fXX = aVar;
+                this.fXY = absListView.getPaddingTop() - childAt.getTop();
+                if (this.fXZ != null) {
+                    this.fXZ.a(absListView, this.fXY, 0);
                     return;
                 }
                 return;
             }
-            int a2 = this.fUO.a(aVar);
-            this.fUO = aVar;
-            this.fUP += a2;
-            if (this.fUQ != null) {
-                this.fUQ.a(absListView, this.fUP, a2);
+            int a2 = this.fXX.a(aVar);
+            this.fXX = aVar;
+            this.fXY += a2;
+            if (this.fXZ != null) {
+                this.fXZ.a(absListView, this.fXY, a2);
             }
         }
     }
 
     public void a(b bVar) {
-        this.fUQ = bVar;
+        this.fXZ = bVar;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     private class a {
         private List<c> list;
 
@@ -90,7 +90,7 @@ public class e implements AbsListView.OnScrollListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c {
         private int bottom;
         private int position;

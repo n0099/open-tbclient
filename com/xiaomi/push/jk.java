@@ -1,23 +1,23 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class jk extends jm {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private iu f800a;
+    private iu f798a;
 
     public jk(int i) {
-        this.f800a = new iu(i);
+        this.f798a = new iu(i);
     }
 
     @Override // com.xiaomi.push.jm
     public int a(byte[] bArr, int i, int i2) {
-        byte[] m450a = this.f800a.m450a();
-        if (i2 > this.f800a.a() - this.a) {
-            i2 = this.f800a.a() - this.a;
+        byte[] m459a = this.f798a.m459a();
+        if (i2 > this.f798a.a() - this.a) {
+            i2 = this.f798a.a() - this.a;
         }
         if (i2 > 0) {
-            System.arraycopy(m450a, this.a, bArr, i, i2);
+            System.arraycopy(m459a, this.a, bArr, i, i2);
             this.a += i2;
         }
         return i2;
@@ -25,10 +25,10 @@ public class jk extends jm {
 
     @Override // com.xiaomi.push.jm
     public void a(byte[] bArr, int i, int i2) {
-        this.f800a.write(bArr, i, i2);
+        this.f798a.write(bArr, i, i2);
     }
 
     public int a_() {
-        return this.f800a.size();
+        return this.f798a.size();
     }
 }

@@ -11,12 +11,12 @@ import com.baidu.searchbox.ugc.emoji.edittextrule.AtRule;
 import com.baidu.searchbox.ugc.emoji.edittextrule.TopicRule;
 import com.baidu.searchbox.ugc.model.AtUserInfoItem;
 import com.baidu.searchbox.ugc.model.TopicItem;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class EmojiconHandler {
     private static final SparseIntArray EMOJISMAP = new SparseIntArray(120);
     private static AddTopicItemListener mAddTopicItemListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface AddTopicItemListener {
         void onAddTopicItem(int i, int i2);
     }

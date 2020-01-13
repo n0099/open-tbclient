@@ -1,10 +1,10 @@
 package com.baidu.swan.pms.b.b;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     @NonNull
-    public com.baidu.swan.pms.b.b cwQ;
+    public com.baidu.swan.pms.b.b cxb;
     @NonNull
     public String downloadUrl;
     @NonNull
@@ -15,6 +15,6 @@ public class a {
         this.downloadUrl = str;
         this.size = j;
         this.md5 = str2;
-        this.cwQ = bVar;
+        this.cxb = bVar;
     }
 }

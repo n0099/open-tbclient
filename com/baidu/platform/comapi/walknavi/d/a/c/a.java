@@ -4,7 +4,7 @@ import com.baidu.platform.comapi.walknavi.d.a.a.b;
 import com.baidu.tbadk.core.atomData.FrsArActivityConfig;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static b a(JSONObject jSONObject) {
         b bVar = new b();

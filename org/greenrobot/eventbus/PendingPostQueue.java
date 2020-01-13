@@ -1,5 +1,5 @@
 package org.greenrobot.eventbus;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class PendingPostQueue {
     private PendingPost head;
     private PendingPost tail;

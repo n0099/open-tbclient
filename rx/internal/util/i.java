@@ -6,37 +6,37 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import rx.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class i implements k {
-    private volatile boolean ndG;
-    private List<k> niM;
+    private volatile boolean nMF;
+    private List<k> nRJ;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.niM = new LinkedList(Arrays.asList(kVarArr));
+        this.nRJ = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.niM = new LinkedList();
-        this.niM.add(kVar);
+        this.nRJ = new LinkedList();
+        this.nRJ.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.ndG;
+        return this.nMF;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.ndG) {
+            if (!this.nMF) {
                 synchronized (this) {
-                    if (!this.ndG) {
-                        List list = this.niM;
+                    if (!this.nMF) {
+                        List list = this.nRJ;
                         if (list == null) {
                             list = new LinkedList();
-                            this.niM = list;
+                            this.nRJ = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.ndG) {
+        if (!this.nMF) {
             synchronized (this) {
-                List<k> list = this.niM;
-                if (!this.ndG && list != null) {
+                List<k> list = this.nRJ;
+                if (!this.nMF && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,19 +63,19 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.ndG) {
+        if (!this.nMF) {
             synchronized (this) {
-                if (!this.ndG) {
-                    this.ndG = true;
-                    List<k> list = this.niM;
-                    this.niM = null;
-                    q(list);
+                if (!this.nMF) {
+                    this.nMF = true;
+                    List<k> list = this.nRJ;
+                    this.nRJ = null;
+                    r(list);
                 }
             }
         }
     }
 
-    private static void q(Collection<k> collection) {
+    private static void r(Collection<k> collection) {
         if (collection != null) {
             ArrayList arrayList = null;
             for (k kVar : collection) {
@@ -87,7 +87,7 @@ public final class i implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.fF(arrayList);
+            rx.exceptions.a.fG(arrayList);
         }
     }
 }

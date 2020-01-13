@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class h {
-    private String cFz;
-    private String dSG;
-    private boolean dSH;
-    private long dSI = -1;
-    private long dSJ = -1;
-    private long dSK = 0;
-    private long dSL = 0;
+    private String cFL;
+    private String dSP;
+    private boolean dSQ;
+    private long dSR = -1;
+    private long dSS = -1;
+    private long dST = 0;
+    private long dSU = 0;
 
-    public String aUw() {
-        return this.dSG;
+    public String aUQ() {
+        return this.dSP;
     }
 
-    public void vZ(String str) {
-        this.dSG = str;
+    public void wd(String str) {
+        this.dSP = str;
     }
 
     public String getOriginUrl() {
-        return this.cFz;
+        return this.cFL;
     }
 
-    public void wa(String str) {
-        this.cFz = str;
+    public void we(String str) {
+        this.cFL = str;
     }
 
-    public boolean aUx() {
-        return this.dSH;
+    public boolean aUR() {
+        return this.dSQ;
     }
 
-    public void hp(boolean z) {
-        this.dSH = z;
+    public void hu(boolean z) {
+        this.dSQ = z;
     }
 
-    public long aUy() {
-        return this.dSI;
+    public long aUS() {
+        return this.dSR;
     }
 
-    public void ce(long j) {
-        this.dSI = j;
+    public void cj(long j) {
+        this.dSR = j;
     }
 
-    public long aUz() {
-        return this.dSJ;
+    public long aUT() {
+        return this.dSS;
     }
 
-    public void cf(long j) {
-        this.dSJ = j;
+    public void ck(long j) {
+        this.dSS = j;
     }
 
     public long getTotalLength() {
-        return this.dSK;
+        return this.dST;
     }
 
     public void setTotalLength(long j) {
-        this.dSK = j;
+        this.dST = j;
     }
 
-    public void cg(long j) {
-        this.dSL = j;
+    public void cl(long j) {
+        this.dSU = j;
     }
 
-    public long aUA() {
-        return this.dSL;
+    public long aUU() {
+        return this.dSU;
     }
 }

@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    protected volatile int cYH;
-    protected volatile HashMap<Long, Integer> keH = new HashMap<>();
+    protected volatile int cYR;
+    protected volatile HashMap<Long, Integer> kik = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.cYH = i;
+        this.cYR = i;
     }
 
-    public void IQ(String str) {
+    public void Ja(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.keH.size() >= this.cYH) {
-                    cJt();
+                if (this.kik.size() >= this.cYR) {
+                    cKx();
                 }
                 this.mWeight++;
-                this.keH.put(valueOf, Integer.valueOf(this.mWeight));
+                this.kik.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void cJt() {
+    public void cKx() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.keH.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.kik.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,19 +47,19 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.keH.remove(l2);
+                this.kik.remove(l2);
             } else {
-                this.keH.clear();
+                this.kik.clear();
             }
         }
     }
 
-    public boolean IR(String str) {
+    public boolean Jb(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.keH.get(valueOf) != null;
+                z = this.kik.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -68,18 +68,18 @@ public class d {
         }
     }
 
-    public boolean IS(String str) {
+    public boolean Jc(String str) {
         try {
-            return this.keH.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.kik.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void cJs() {
+    public void cKw() {
         synchronized (this) {
-            this.keH.clear();
+            this.kik.clear();
         }
     }
 }

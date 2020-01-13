@@ -3,32 +3,32 @@ package com.baidu.tieba.recapp.download.http;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g {
-    protected h jCJ = new h();
-    protected i jCK = new i();
-    private LinkedList<e> rg = new LinkedList<>();
-    private e jCL = null;
+    protected h jGl = new h();
+    protected i jGm = new i();
+    private LinkedList<e> re = new LinkedList<>();
+    private e jGn = null;
 
-    public h cAd() {
-        return this.jCJ;
+    public h cBk() {
+        return this.jGl;
     }
 
-    public i cAe() {
-        return this.jCK;
+    public i cBl() {
+        return this.jGm;
     }
 
-    public List<e> ga() {
-        return Collections.unmodifiableList(this.rg);
+    public List<e> fZ() {
+        return Collections.unmodifiableList(this.re);
     }
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.rg.add(eVar);
+            this.re.add(eVar);
         }
     }
 
     public void b(e eVar) {
-        this.jCL = eVar;
+        this.jGn = eVar;
     }
 }

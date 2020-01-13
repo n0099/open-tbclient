@@ -1,32 +1,17 @@
 package com.tb.airbnb.lottie.a.b;
 
-import android.support.annotation.FloatRange;
-import com.tb.airbnb.lottie.a.b.a;
-import java.util.Collections;
-/* loaded from: classes2.dex */
-public class n<K, A> extends a<K, A> {
-    private final A mNB;
-
-    public n(A a) {
-        super(Collections.emptyList());
-        this.mNB = a;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class n extends f<com.tb.airbnb.lottie.model.b> {
+    public n(List<com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.b>> list) {
+        super(list);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.tb.airbnb.lottie.a.b.a
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-    }
-
-    @Override // com.tb.airbnb.lottie.a.b.a
-    public void b(a.InterfaceC0687a interfaceC0687a) {
-    }
-
-    @Override // com.tb.airbnb.lottie.a.b.a
-    public A getValue() {
-        return this.mNB;
-    }
-
-    @Override // com.tb.airbnb.lottie.a.b.a
-    public A a(com.tb.airbnb.lottie.a.a<K> aVar, float f) {
-        return this.mNB;
+    /* renamed from: h */
+    public com.tb.airbnb.lottie.model.b a(com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.b> aVar, float f) {
+        return aVar.km;
     }
 }

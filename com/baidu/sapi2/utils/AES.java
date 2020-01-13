@@ -5,7 +5,7 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AES implements com.baidu.sapi2.c {
     private static final String a = "UTF-8";
     private static final String b = "AES/CBC/NoPadding";

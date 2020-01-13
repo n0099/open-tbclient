@@ -2,14 +2,14 @@ package com.google.android.exoplayer2.upstream;
 
 import android.net.Uri;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class g {
-    public final long fIt;
+    public final long fLD;
     public final int flags;
     public final String key;
     public final long length;
-    public final byte[] mBk;
-    public final long mBl;
+    public final byte[] mFb;
+    public final long mFc;
     public final Uri uri;
 
     public g(Uri uri, int i) {
@@ -33,27 +33,27 @@ public final class g {
         com.google.android.exoplayer2.util.a.checkArgument(j2 >= 0);
         com.google.android.exoplayer2.util.a.checkArgument(j3 > 0 || j3 == -1);
         this.uri = uri;
-        this.mBk = bArr;
-        this.mBl = j;
-        this.fIt = j2;
+        this.mFb = bArr;
+        this.mFc = j;
+        this.fLD = j2;
         this.length = j3;
         this.key = str;
         this.flags = i;
     }
 
-    public boolean LC(int i) {
+    public boolean LL(int i) {
         return (this.flags & i) == i;
     }
 
     public String toString() {
-        return "DataSpec[" + this.uri + ", " + Arrays.toString(this.mBk) + ", " + this.mBl + ", " + this.fIt + ", " + this.length + ", " + this.key + ", " + this.flags + "]";
+        return "DataSpec[" + this.uri + ", " + Arrays.toString(this.mFb) + ", " + this.mFc + ", " + this.fLD + ", " + this.length + ", " + this.key + ", " + this.flags + "]";
     }
 
-    public g gC(long j) {
+    public g gH(long j) {
         return W(j, this.length != -1 ? this.length - j : -1L);
     }
 
     public g W(long j, long j2) {
-        return (j == 0 && this.length == j2) ? this : new g(this.uri, this.mBk, this.mBl + j, this.fIt + j, j2, this.key, this.flags);
+        return (j == 0 && this.length == j2) ? this : new g(this.uri, this.mFb, this.mFc + j, this.fLD + j, j2, this.key, this.flags);
     }
 }

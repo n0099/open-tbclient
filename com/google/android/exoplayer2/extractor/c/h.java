@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.extractor.c;
 import android.util.Log;
 import java.nio.ByteBuffer;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class h {
     public static byte[] a(UUID uuid, byte[] bArr) {
         return a(uuid, null, bArr);
@@ -18,7 +18,7 @@ public final class h {
         }
         ByteBuffer allocate = ByteBuffer.allocate(i);
         allocate.putInt(i);
-        allocate.putInt(com.google.android.exoplayer2.extractor.c.a.mdk);
+        allocate.putInt(com.google.android.exoplayer2.extractor.c.a.mgZ);
         allocate.putInt(z ? 16777216 : 0);
         allocate.putLong(uuid.getMostSignificantBits());
         allocate.putLong(uuid.getLeastSignificantBits());
@@ -36,35 +36,35 @@ public final class h {
         return allocate.array();
     }
 
-    public static UUID aq(byte[] bArr) {
-        a ar = ar(bArr);
-        if (ar == null) {
+    public static UUID ap(byte[] bArr) {
+        a aq = aq(bArr);
+        if (aq == null) {
             return null;
         }
-        return ar.uuid;
+        return aq.uuid;
     }
 
-    private static a ar(byte[] bArr) {
+    private static a aq(byte[] bArr) {
         com.google.android.exoplayer2.util.l lVar = new com.google.android.exoplayer2.util.l(bArr);
-        if (lVar.dwW() < 32) {
+        if (lVar.dyg() < 32) {
             return null;
         }
         lVar.setPosition(0);
-        if (lVar.readInt() == lVar.dwV() + 4 && lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mdk) {
-            int Ju = com.google.android.exoplayer2.extractor.c.a.Ju(lVar.readInt());
-            if (Ju > 1) {
-                Log.w("PsshAtomUtil", "Unsupported pssh version: " + Ju);
+        if (lVar.readInt() == lVar.dyf() + 4 && lVar.readInt() == com.google.android.exoplayer2.extractor.c.a.mgZ) {
+            int JD = com.google.android.exoplayer2.extractor.c.a.JD(lVar.readInt());
+            if (JD > 1) {
+                Log.w("PsshAtomUtil", "Unsupported pssh version: " + JD);
                 return null;
             }
             UUID uuid = new UUID(lVar.readLong(), lVar.readLong());
-            if (Ju == 1) {
-                lVar.skipBytes(lVar.dxg() * 16);
+            if (JD == 1) {
+                lVar.skipBytes(lVar.dyq() * 16);
             }
-            int dxg = lVar.dxg();
-            if (dxg == lVar.dwV()) {
-                byte[] bArr2 = new byte[dxg];
-                lVar.D(bArr2, 0, dxg);
-                return new a(uuid, Ju, bArr2);
+            int dyq = lVar.dyq();
+            if (dyq == lVar.dyf()) {
+                byte[] bArr2 = new byte[dyq];
+                lVar.C(bArr2, 0, dyq);
+                return new a(uuid, JD, bArr2);
             }
             return null;
         }
@@ -72,16 +72,16 @@ public final class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
-        private final byte[] mfT;
+        private final byte[] mjK;
         private final UUID uuid;
         private final int version;
 
         public a(UUID uuid, int i, byte[] bArr) {
             this.uuid = uuid;
             this.version = i;
-            this.mfT = bArr;
+            this.mjK = bArr;
         }
     }
 }

@@ -44,7 +44,7 @@ public class TbConfig {
     public static final int POST_IMAGE_QUALITY = 85;
     public static final int POST_IMAGE_SMALL = 1500;
     public static final boolean PROMOTED_DEFAULT = true;
-    public static final String SDK_VERSION = "3.3.0";
+    public static final String SDK_VERSION = "3.5.0";
     public static final String ST_TYPE_USE = "use";
     private static int SUBAPP_VERSION = 0;
     private static String SUBAPP_VERSION_NAME = null;
@@ -68,6 +68,7 @@ public class TbConfig {
     public static final int WEBP_FAILURE_MAX = 5;
     public static final String WEB_VIEW_JUMP2NATIVE = "jump_tieba_native=1";
     private static boolean isInitAppServerMap;
+    public static ISdkInitCallback sdkInitCallback;
     public static String SERVER_ADDRESS = "https://tiebac.baidu.com/";
     public static String SERVER_HOST = TbDomainConfig.DOMAIN_HTTPS_SERVER_HOST;
     public static String LOGIN_FULL_ADDRESS = SERVER_ADDRESS + "c/s/login";
@@ -91,6 +92,8 @@ public class TbConfig {
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static String UPLOAD_IMG_URL = SERVER_ADDRESS + "c/s/uploadPicture";
     public static String PACKAGE_NAME = "";
+    public static String FILE_PROVIDER_AUTHORITIES = "";
+    public static String FILE_OUTPUT_FILE_ROOT_PATH = "";
     private static Map<Integer, String> mapAppServer = new HashMap();
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
 
@@ -210,6 +213,11 @@ public class TbConfig {
     public static void setFromHost(String str) {
         Log.i("TbConfig", "setFromHost:" + str);
         FROM_HOST = str;
+    }
+
+    public static void setImEnvDebug(boolean z) {
+        Log.i("TbConfig", "setImEnvDebug:" + z);
+        IM_ENV_DEBUG = z;
     }
 
     public static String getCurrentFromHost() {

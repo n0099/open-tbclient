@@ -3,7 +3,7 @@ package com.vivo.push.util;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class g {
     public static String a(byte[] bArr) {
         int length = bArr.length;

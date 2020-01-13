@@ -1,11 +1,11 @@
 package com.baidu.d.a;
 
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
 
     /* renamed from: com.baidu.d.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class C0059a {
         public static final int GenericDraweeHierarchy_actualImageScaleType = 11;
         public static final int GenericDraweeHierarchy_backgroundImage = 12;

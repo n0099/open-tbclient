@@ -46,7 +46,7 @@ import com.baidu.spswitch.view.SPSwitchRootLinearLayout;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UgcPublishPanel implements View.OnClickListener, View.OnTouchListener, NoProGuard, IPublishView, IUgcPublishPanel {
     public ImageView mAtIv;
     private Activity mContext;
@@ -131,11 +131,11 @@ public class UgcPublishPanel implements View.OnClickListener, View.OnTouchListen
     }
 
     private void initPluginEmotionPanel(View view) {
-        List<String> Dy = b.aY(AppRuntime.getAppContext()).Dy();
+        List<String> DU = b.aY(AppRuntime.getAppContext()).DU();
         BDEmotionBagLayout bDEmotionBagLayout = new BDEmotionBagLayout(AppRuntime.getAppContext());
         bDEmotionBagLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, DeviceUtil.ScreenInfo.dp2px(getContext(), 260.0f)));
-        bDEmotionBagLayout.setEmotionList(Dy);
-        ((ViewPager) this.mPanelRoot.findViewById(c.C0183c.vp_emotion_type)).setAdapter(new EmotionPagerAdapter(bDEmotionBagLayout));
+        bDEmotionBagLayout.setEmotionList(DU);
+        ((ViewPager) this.mPanelRoot.findViewById(c.C0185c.vp_emotion_type)).setAdapter(new EmotionPagerAdapter(bDEmotionBagLayout));
     }
 
     private void initListeners() {
@@ -340,14 +340,14 @@ public class UgcPublishPanel implements View.OnClickListener, View.OnTouchListen
 
     @Override // com.baidu.searchbox.ugc.view.IUgcPublishPanel
     public boolean isInputEdited() {
-        e.W(this.mInput);
+        e.aa(this.mInput);
         return !TextUtils.equals(this.mDefalutInput, this.mInput.getText().toString());
     }
 
     @Override // com.baidu.searchbox.ugc.view.IUgcPublishPanel
     public void hideInputPanel() {
         if (this.mInput != null) {
-            e.W(this.mInput);
+            e.aa(this.mInput);
         }
     }
 

@@ -1,8 +1,8 @@
 package kotlin.reflect;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface KParameter extends a {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum Kind {
         INSTANCE,
         EXTENSION_RECEIVER,

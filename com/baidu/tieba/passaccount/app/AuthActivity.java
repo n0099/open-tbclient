@@ -26,11 +26,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AuthActivity extends BaseActivity {
     private String authToken;
     private String bduss;
-    private SapiResult ist = new SapiResult();
+    private SapiResult ivX = new SapiResult();
     private String tpl;
     private int type;
 
@@ -40,13 +40,13 @@ public class AuthActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            PassManagerStatic.cgC();
+            PassManagerStatic.chK();
             init();
             setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
-            this.ist.setResultCode(-202);
-            this.ist.setResultMsg("网络连接失败，请检查网络设置");
+            this.ivX.setResultCode(-202);
+            this.ivX.setResultMsg("网络连接失败，请检查网络设置");
             p(false, null);
         }
     }
@@ -60,21 +60,21 @@ public class AuthActivity extends BaseActivity {
             this.authToken = getIntent().getStringExtra("EXTRA_AUTH_TOKEN");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.authToken) || TextUtils.isEmpty(this.tpl)) {
-                this.ist.setResultCode(-204);
-                this.ist.setResultMsg("参数错误");
+                this.ivX.setResultCode(-204);
+                this.ivX.setResultMsg("参数错误");
                 p(false, null);
             }
         } else if (this.type == 1 || this.type == 2) {
             this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.bduss)) {
-                this.ist.setResultCode(-204);
-                this.ist.setResultMsg("参数错误");
+                this.ivX.setResultCode(-204);
+                this.ivX.setResultMsg("参数错误");
                 p(false, null);
             }
         } else {
-            this.ist.setResultCode(-204);
-            this.ist.setResultMsg("参数错误");
+            this.ivX.setResultCode(-204);
+            this.ivX.setResultMsg("参数错误");
             p(false, null);
         }
     }
@@ -83,7 +83,7 @@ public class AuthActivity extends BaseActivity {
         return new String(Base64.decode(str.getBytes(), 0));
     }
 
-    private String cgn() {
+    private String chv() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new PassNameValuePair("adapter", URLEncoder.encode("3", "UTF-8")));
@@ -118,7 +118,7 @@ public class AuthActivity extends BaseActivity {
         return str;
     }
 
-    private List<PassNameValuePair> cgo() {
+    private List<PassNameValuePair> chw() {
         Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
         String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
         ArrayList arrayList = new ArrayList();
@@ -164,11 +164,11 @@ public class AuthActivity extends BaseActivity {
                 public void onPageFinished(WebView webView, String str) {
                 }
             });
-            this.sapiWebView.loadUrl(cgn());
+            this.sapiWebView.loadUrl(chv());
         } else if (this.type == 1) {
             setTitleText(a.g.sapi_sdk_title_modify_pwd);
             SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
-            this.sapiWebView.loadUrl(getModifyPwdUrl(), cgo());
+            this.sapiWebView.loadUrl(getModifyPwdUrl(), chw());
             this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.AuthActivity.4
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
                 public void onSuccess() {
@@ -196,8 +196,8 @@ public class AuthActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        this.ist.setResultCode(-301);
-        this.ist.setResultMsg("流程已结束");
+        this.ivX.setResultCode(-301);
+        this.ivX.setResultMsg("流程已结束");
         p(false, null);
     }
 
@@ -213,13 +213,13 @@ public class AuthActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void p(boolean z, String str) {
         if (this.type == 0) {
-            b.cgH().r(z, str);
+            b.chP().r(z, str);
         } else if (this.type == 1) {
-            b.cgH().oU(z);
+            b.chP().pg(z);
         } else if (this.type == 2) {
-            b.cgH().oV(z);
+            b.chP().ph(z);
         } else {
-            b.cgH().a((AuthVerifyData.c) null);
+            b.chP().a((AuthVerifyData.c) null);
         }
         finish();
     }

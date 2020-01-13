@@ -1,7 +1,7 @@
 package com.google.zxing.client.result;
 
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class SMSParsedResult extends ParsedResult {
     private final String body;
     private final String[] numbers;

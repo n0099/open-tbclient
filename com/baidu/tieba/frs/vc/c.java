@@ -8,30 +8,30 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.frs.FrsFragment;
 import java.net.URLEncoder;
 import tbclient.PopInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private a gGs;
-    private final FrsFragment gkN;
+    private a gJH;
+    private final FrsFragment gnW;
 
     public c(FrsFragment frsFragment) {
-        this.gkN = frsFragment;
+        this.gnW = frsFragment;
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.gkN != null && this.gkN.bBI() != null && this.gkN.bBI().getForum() != null && !StringUtils.isNull(this.gkN.bBI().getForum().getName()) && this.gkN.bBI().enterFrsDialogInfo != null && bHG() && this.gGs == null) {
-            this.gGs = new a();
-            this.gGs.execute(new Void[0]);
+        if (TbadkCoreApplication.isLogin() && this.gnW != null && this.gnW.bCK() != null && this.gnW.bCK().getForum() != null && !StringUtils.isNull(this.gnW.bCK().getForum().getName()) && this.gnW.bCK().enterFrsDialogInfo != null && bII() && this.gJH == null) {
+            this.gJH = new a();
+            this.gJH.execute(new Void[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bHG() {
-        PopInfo popInfo = this.gkN.bBI().enterFrsDialogInfo;
-        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.gkN.bBI().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
+    public boolean bII() {
+        PopInfo popInfo = this.gnW.bCK().enterFrsDialogInfo;
+        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.gnW.bCK().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends BdAsyncTask<Void, Void, Boolean> {
         private a() {
         }
@@ -40,10 +40,10 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
-            com.baidu.adp.lib.cache.l<String> sx = com.baidu.tbadk.core.c.a.aBV().sx("tb.enter_frs_dialog_list");
-            String encode = URLEncoder.encode(c.this.gkN.bBI().getForum().getName());
-            if (sx.get(encode) == null) {
-                sx.setForever(encode, "1");
+            com.baidu.adp.lib.cache.l<String> sA = com.baidu.tbadk.core.c.a.aCo().sA("tb.enter_frs_dialog_list");
+            String encode = URLEncoder.encode(c.this.gnW.bCK().getForum().getName());
+            if (sA.get(encode) == null) {
+                sA.setForever(encode, "1");
                 return true;
             }
             return false;
@@ -53,11 +53,11 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (bool.booleanValue() && c.this.bHG() && c.this.gkN.isAdded()) {
-                final PopInfo popInfo = c.this.gkN.bBI().enterFrsDialogInfo;
-                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.gkN.getActivity());
-                aVar.sy(popInfo.title);
-                aVar.sz(popInfo.v_title);
+            if (bool.booleanValue() && c.this.bII() && c.this.gnW.isAdded()) {
+                final PopInfo popInfo = c.this.gnW.bCK().enterFrsDialogInfo;
+                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.gnW.getActivity());
+                aVar.sB(popInfo.title);
+                aVar.sC(popInfo.v_title);
                 aVar.isShowTitleAndMessage();
                 aVar.b(popInfo.ok_info, new a.b() { // from class: com.baidu.tieba.frs.vc.c.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -72,13 +72,13 @@ public class c {
                     /* JADX WARN: Multi-variable type inference failed */
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        ba.aEa().b(c.this.gkN.getPageContext(), new String[]{popInfo.ahead_url});
+                        ba.aEt().b(c.this.gnW.getPageContext(), new String[]{popInfo.ahead_url});
                         if (aVar2 != null) {
                             aVar2.dismiss();
                         }
                     }
                 });
-                aVar.b(c.this.gkN.getPageContext()).aBW();
+                aVar.b(c.this.gnW.getPageContext()).aCp();
             }
         }
     }

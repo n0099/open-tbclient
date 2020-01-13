@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MemoryUtils {
     private static final int BUFFER_SIZE = 8192;
     private static final boolean DEBUG = false;

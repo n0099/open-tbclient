@@ -1,9 +1,10 @@
 package com.opensource.svgaplayer;
 
 import kotlin.jvm.internal.Lambda;
+import kotlin.k;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
-public final class SVGAVideoEntity$prepare$$inlined$let$lambda$1 extends Lambda implements kotlin.jvm.a.a<kotlin.g> {
+/* loaded from: classes.dex */
+public final class SVGAVideoEntity$prepare$$inlined$let$lambda$1 extends Lambda implements kotlin.jvm.a.a<k> {
     final /* synthetic */ kotlin.jvm.a.a $callback$inlined;
     final /* synthetic */ f this$0;
 
@@ -17,9 +18,9 @@ public final class SVGAVideoEntity$prepare$$inlined$let$lambda$1 extends Lambda 
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.a.a
-    public /* bridge */ /* synthetic */ kotlin.g invoke() {
+    public /* bridge */ /* synthetic */ k invoke() {
         invoke2();
-        return kotlin.g.mYA;
+        return k.nAT;
     }
 
     @Override // kotlin.jvm.a.a

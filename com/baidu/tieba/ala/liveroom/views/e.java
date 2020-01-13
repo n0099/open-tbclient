@@ -10,7 +10,7 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
@@ -24,11 +24,11 @@ import com.baidu.live.tbadk.log.LogManager;
 /* loaded from: classes2.dex */
 public class e {
     private int count;
-    private ViewGroup fhJ;
-    private ImageView fhK;
-    private TextView fhL;
-    private String fhM;
-    private Runnable fhN = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.e.1
+    private ViewGroup fkX;
+    private ImageView fkY;
+    private TextView fkZ;
+    private String fla;
+    private Runnable flb = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.e.1
         @Override // java.lang.Runnable
         public void run() {
             e.this.mHandler.removeCallbacks(this);
@@ -36,37 +36,37 @@ public class e {
                 e.this.mHandler.removeCallbacksAndMessages(null);
                 return;
             }
-            e.this.isShowLocation = e.this.boD();
-            e.this.boH();
+            e.this.isShowLocation = e.this.bpD();
+            e.this.bpH();
             e.this.mHandler.postDelayed(this, 3000L);
             e.d(e.this);
         }
     };
-    private CustomMessageListener fhO = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.baidu.tieba.ala.liveroom.views.e.2
+    private CustomMessageListener flc = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.baidu.tieba.ala.liveroom.views.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
-                e.this.isShowLocation = e.this.boD();
+                e.this.isShowLocation = e.this.bpD();
                 if (e.this.isShowLocation) {
-                    e.this.fhL.setText(a.i.ala_live_prepare_locating);
+                    e.this.fkZ.setText(a.i.ala_live_prepare_locating);
                 } else {
-                    e.this.fhL.setText(a.i.ala_live_prepare_locate_title);
+                    e.this.fkZ.setText(a.i.ala_live_prepare_locate_title);
                 }
             }
-            e.this.mHandler.postDelayed(e.this.fhN, 3000L);
+            e.this.mHandler.postDelayed(e.this.flb, 3000L);
         }
     };
-    private CustomMessageListener fhP = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.baidu.tieba.ala.liveroom.views.e.3
+    private CustomMessageListener fld = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO) { // from class: com.baidu.tieba.ala.liveroom.views.e.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            e.this.isShowLocation = e.this.boD();
-            e.this.boH();
-            if (e.this.boD()) {
+            e.this.isShowLocation = e.this.bpD();
+            e.this.bpH();
+            if (e.this.bpD()) {
                 LocationInfo locationInfo = e.this.mLocation.getLocationInfo();
                 if (locationInfo == null || StringUtils.isNull(locationInfo.getCurCityName())) {
-                    e.this.fhL.setText(a.i.ala_live_prepare_locate_fail);
+                    e.this.fkZ.setText(a.i.ala_live_prepare_locate_fail);
                 }
             }
         }
@@ -85,45 +85,45 @@ public class e {
     public e(TbPageContext tbPageContext) {
         this.isShowLocation = true;
         this.mPageContext = tbPageContext;
-        this.isShowLocation = boD();
-        MessageManager.getInstance().registerListener(this.fhO);
-        MessageManager.getInstance().registerListener(this.fhP);
+        this.isShowLocation = bpD();
+        MessageManager.getInstance().registerListener(this.flc);
+        MessageManager.getInstance().registerListener(this.fld);
         this.mHandler = new Handler();
     }
 
-    public void aj(ViewGroup viewGroup) {
-        this.fhJ = viewGroup;
-        this.fhK = (ImageView) viewGroup.findViewById(a.g.ala_live_prepare_locate_img);
-        this.fhL = (TextView) viewGroup.findViewById(a.g.ala_live_prepare_locate_tv);
+    public void an(ViewGroup viewGroup) {
+        this.fkX = viewGroup;
+        this.fkY = (ImageView) viewGroup.findViewById(a.g.ala_live_prepare_locate_img);
+        this.fkZ = (TextView) viewGroup.findViewById(a.g.ala_live_prepare_locate_tv);
         this.mLocation = LocationManager.getInstance().buildLocation();
         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isHaokan()) {
             if (!checkPermission()) {
-                boG();
+                bpG();
             } else {
-                boH();
+                bpH();
             }
         } else {
-            boH();
+            bpH();
         }
-        this.fhJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.e.4
+        this.fkX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.boE();
+                e.this.bpE();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean boD() {
+    public boolean bpD() {
         return UtilHelper.isSystemLocationProviderEnabled(this.mPageContext.getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bkE() {
+    public boolean blA() {
         boolean z = false;
         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
-            com.baidu.live.c.oI().getBoolean("has_request_location", false);
-            com.baidu.live.c.oI().putBoolean("has_request_location", true);
+            com.baidu.live.c.oJ().getBoolean("has_request_location", false);
+            com.baidu.live.c.oJ().putBoolean("has_request_location", true);
             z = true;
         }
         Activity pageActivity = this.mPageContext.getPageActivity();
@@ -144,25 +144,25 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void boE() {
+    public void bpE() {
         if (this.isShowLocation) {
             LogManager.getLiveRecordLogger().doClickLiveLocationAlreadyButtonLog("");
         } else {
             LogManager.getLiveRecordLogger().doClickLiveLocationAllowButtonLog("");
         }
-        if (!bkE()) {
+        if (!blA()) {
             this.isShowLocation = !this.isShowLocation;
-            boF();
+            bpF();
         }
     }
 
-    private void boF() {
-        boH();
+    private void bpF() {
+        bpH();
     }
 
-    private void boG() {
-        if (!com.baidu.live.c.oI().getBoolean("has_master_show_location_dialog", false)) {
-            com.baidu.live.c.oI().putBoolean("has_master_show_location_dialog", true);
+    private void bpG() {
+        if (!com.baidu.live.c.oJ().getBoolean("has_master_show_location_dialog", false)) {
+            com.baidu.live.c.oJ().putBoolean("has_master_show_location_dialog", true);
             BdAlertDialog bdAlertDialog = new BdAlertDialog(this.mPageContext.getPageActivity());
             bdAlertDialog.setCanceledOnTouchOutside(false);
             bdAlertDialog.setTitle(a.i.sdk_open_permission_title);
@@ -174,7 +174,7 @@ public class e {
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog2) {
                     bdAlertDialog2.dismiss();
-                    e.this.bkE();
+                    e.this.blA();
                 }
             }).setNegativeButton(a.i.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.e.5
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
@@ -187,37 +187,37 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void boH() {
+    public void bpH() {
         if (this.isShowLocation) {
             if (this.mLocation != null) {
                 LocationInfo locationInfo = this.mLocation.getLocationInfo();
                 if (locationInfo != null && !StringUtils.isNull(locationInfo.getCurCityName())) {
-                    this.fhL.setText(locationInfo.getCurCityName());
-                    this.fhM = locationInfo.getCurCityName();
+                    this.fkZ.setText(locationInfo.getCurCityName());
+                    this.fla = locationInfo.getCurCityName();
                 } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba()) {
-                    this.fhL.setText(a.i.ala_live_prepare_locating);
+                    this.fkZ.setText(a.i.ala_live_prepare_locating);
                 } else {
-                    this.fhL.setText(a.i.ala_live_prepare_locate_opened_title);
+                    this.fkZ.setText(a.i.ala_live_prepare_locate_opened_title);
                 }
             } else {
-                this.fhL.setText(a.i.ala_live_prepare_locate_opened_title);
+                this.fkZ.setText(a.i.ala_live_prepare_locate_opened_title);
             }
         } else {
-            this.fhL.setText(a.i.ala_live_prepare_locate_title);
+            this.fkZ.setText(a.i.ala_live_prepare_locate_title);
         }
-        this.fhK.setSelected(!this.isShowLocation);
-        this.fhL.setTextColor(this.isShowLocation ? this.mPageContext.getResources().getColor(a.d.sdk_cp_cont_g) : this.mPageContext.getResources().getColor(a.d.sdk_cp_cont_i_alpha50));
+        this.fkY.setSelected(!this.isShowLocation);
+        this.fkZ.setTextColor(this.isShowLocation ? this.mPageContext.getResources().getColor(a.d.sdk_cp_cont_g) : this.mPageContext.getResources().getColor(a.d.sdk_cp_cont_i_alpha50));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void boI() {
-        this.isShowLocation = boD();
-        boH();
+    public void bpI() {
+        this.isShowLocation = bpD();
+        bpH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String boJ() {
-        return this.fhM;
+    public String bpJ() {
+        return this.fla;
     }
 
     public boolean isShowLocation() {
@@ -225,8 +225,8 @@ public class e {
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.fhO);
-        MessageManager.getInstance().unRegisterListener(this.fhP);
+        MessageManager.getInstance().unRegisterListener(this.flc);
+        MessageManager.getInstance().unRegisterListener(this.fld);
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }

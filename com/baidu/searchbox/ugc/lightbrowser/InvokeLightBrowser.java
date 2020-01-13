@@ -3,7 +3,7 @@ package com.baidu.searchbox.ugc.lightbrowser;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.searchbox.browser.ILightBrowser;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class InvokeLightBrowser implements ILightBrowser {
     @Override // com.baidu.searchbox.browser.ILightBrowser
     public void open(Context context, String str) {

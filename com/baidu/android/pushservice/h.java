@@ -22,7 +22,7 @@ import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.coloros.mcssdk.mode.CommandMessage;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h {
     private static h c;
     private Context a;

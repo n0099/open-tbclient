@@ -13,19 +13,19 @@ import com.baidu.tieba.barselect.a.d;
 import com.baidu.tieba.barselect.data.e;
 import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.view.VoteCountDownView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class VoteCountDownCard extends LinearLayout {
-    private VoteCountDownView fBa;
-    private TextView fBb;
-    private TextView fBc;
-    private TextView fBd;
-    private VoteCountDownView.a fBe;
-    private a fwY;
-    private f fww;
-    private e fxP;
+    private a fAj;
+    private e fBa;
+    private VoteCountDownView fEl;
+    private TextView fEm;
+    private TextView fEn;
+    private TextView fEo;
+    private VoteCountDownView.a fEp;
+    private f fzH;
     private Context mContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void onRefresh();
     }
@@ -36,12 +36,12 @@ public class VoteCountDownCard extends LinearLayout {
 
     public VoteCountDownCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fBe = new VoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteCountDownCard.1
+        this.fEp = new VoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteCountDownCard.1
             @Override // com.baidu.tieba.view.VoteCountDownView.a
             public void onFinished() {
-                VoteCountDownCard.this.brX();
-                if (VoteCountDownCard.this.fwY != null) {
-                    VoteCountDownCard.this.fwY.onRefresh();
+                VoteCountDownCard.this.bsZ();
+                if (VoteCountDownCard.this.fAj != null) {
+                    VoteCountDownCard.this.fAj.onRefresh();
                 }
             }
         };
@@ -54,61 +54,61 @@ public class VoteCountDownCard extends LinearLayout {
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         setBackgroundResource(R.drawable.bar_select_bg_shadow_and_radius);
         LayoutInflater.from(getContext()).inflate(R.layout.vote_count_down_card, (ViewGroup) this, true);
-        na();
+        nb();
         int dimens = l.getDimens(this.mContext, R.dimen.tbds56);
         int dimens2 = l.getDimens(this.mContext, R.dimen.tbds52);
         setPadding(dimens, dimens2, dimens, dimens2);
     }
 
-    private void na() {
-        this.fBd = (TextView) findViewById(R.id.count_down_view_title);
-        this.fBa = (VoteCountDownView) findViewById(R.id.count_down_view);
-        this.fBb = (TextView) findViewById(R.id.candidate_num);
-        this.fBc = (TextView) findViewById(R.id.totel_vote_num);
+    private void nb() {
+        this.fEo = (TextView) findViewById(R.id.count_down_view_title);
+        this.fEl = (VoteCountDownView) findViewById(R.id.count_down_view);
+        this.fEm = (TextView) findViewById(R.id.candidate_num);
+        this.fEn = (TextView) findViewById(R.id.totel_vote_num);
     }
 
     public void setData(f fVar) {
-        this.fww = fVar;
-        if (this.fww == null || this.fww.brA() == null) {
+        this.fzH = fVar;
+        if (this.fzH == null || this.fzH.bsC() == null) {
             setVisibility(8);
             return;
         }
-        this.fxP = this.fww.brA();
-        if (this.fxP.getStatus() != d.fAA) {
+        this.fBa = this.fzH.bsC();
+        if (this.fBa.getStatus() != d.fDL) {
             setVisibility(8);
             return;
         }
-        long brv = this.fxP.brv();
-        if (this.fBe != null) {
-            this.fBa.setOnCountDownFinished(this.fBe);
+        long bsx = this.fBa.bsx();
+        if (this.fEp != null) {
+            this.fEl.setOnCountDownFinished(this.fEp);
         }
-        this.fBa.setData(brv * 1000);
-        this.fBb.setText("候选人" + this.fxP.brr());
-        this.fBc.setText("投票数" + this.fxP.brs() + "");
+        this.fEl.setData(bsx * 1000);
+        this.fEm.setText("候选人" + this.fBa.bst());
+        this.fEn.setText("投票数" + this.fBa.bsu() + "");
     }
 
-    public void oT(int i) {
-        am.setViewTextColor(this.fBd, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.fBb, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.fBc, R.color.cp_cont_b, 1, i);
+    public void oU(int i) {
+        am.setViewTextColor(this.fEo, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.fEm, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.fEn, R.color.cp_cont_b, 1, i);
         am.setBackgroundResource(this, R.drawable.bar_select_bg_shadow_and_radius, i);
-        if (this.fBa != null) {
-            this.fBa.oT(i);
+        if (this.fEl != null) {
+            this.fEl.oU(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void brX() {
-        this.fBd.setText(getResources().getString(R.string.vote_finished_tip));
+    public void bsZ() {
+        this.fEo.setText(getResources().getString(R.string.vote_finished_tip));
     }
 
     public void setOnRefreshListener(a aVar) {
-        this.fwY = aVar;
+        this.fAj = aVar;
     }
 
     public void onDestroy() {
-        if (this.fBa != null) {
-            this.fBa.onDestroy();
+        if (this.fEl != null) {
+            this.fEl.onDestroy();
         }
     }
 }

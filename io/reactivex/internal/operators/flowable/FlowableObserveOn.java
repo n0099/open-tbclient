@@ -2,31 +2,36 @@ package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
-import io.reactivex.internal.a.f;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicLong;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableObserveOn<T> extends a<T, T> {
     final boolean delayError;
     final int prefetch;
     final v scheduler;
 
+    public FlowableObserveOn(io.reactivex.g<T> gVar, v vVar, boolean z, int i) {
+        super(gVar);
+        this.scheduler = vVar;
+        this.delayError = z;
+        this.prefetch = i;
+    }
+
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
-        v.c dDP = this.scheduler.dDP();
+        v.c dHW = this.scheduler.dHW();
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.mTG.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, dDP, this.delayError, this.prefetch));
+            this.nvK.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, dHW, this.delayError, this.prefetch));
         } else {
-            this.mTG.a((j) new ObserveOnSubscriber(cVar, dDP, this.delayError, this.prefetch));
+            this.nvK.a((j) new ObserveOnSubscriber(cVar, dHW, this.delayError, this.prefetch));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static abstract class BaseObserveOnSubscriber<T> extends BasicIntQueueSubscription<T> implements j<T>, Runnable {
         private static final long serialVersionUID = -8241002408341274697L;
         volatile boolean cancelled;
@@ -37,9 +42,9 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         boolean outputFused;
         final int prefetch;
         long produced;
-        f<T> queue;
+        io.reactivex.internal.a.g<T> queue;
         final AtomicLong requested = new AtomicLong();
-        d s;
+        org.a.d s;
         int sourceMode;
         final v.c worker;
 
@@ -75,7 +80,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         @Override // org.a.c
         public final void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.error = th;
@@ -113,7 +118,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
 
         final void trySchedule() {
             if (getAndIncrement() == 0) {
-                this.worker.C(this);
+                this.worker.D(this);
             }
         }
 
@@ -171,18 +176,18 @@ public final class FlowableObserveOn<T> extends a<T, T> {
             return 0;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public final void clear() {
             this.queue.clear();
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public final boolean isEmpty() {
             return this.queue.isEmpty();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ObserveOnSubscriber<T> extends BaseObserveOnSubscriber<T> implements j<T> {
         private static final long serialVersionUID = -4547113800637756442L;
         final org.a.c<? super T> actual;
@@ -193,7 +198,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 if (dVar instanceof io.reactivex.internal.a.d) {
@@ -223,13 +228,13 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         void runSync() {
             int i = 1;
             org.a.c<? super T> cVar = this.actual;
-            f<T> fVar = this.queue;
+            io.reactivex.internal.a.g<T> gVar = this.queue;
             long j = this.produced;
             while (true) {
                 long j2 = this.requested.get();
                 while (j != j2) {
                     try {
-                        Object obj = (T) fVar.poll();
+                        Object obj = (T) gVar.poll();
                         if (!this.cancelled) {
                             if (obj == null) {
                                 cVar.onComplete();
@@ -250,7 +255,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                     }
                 }
                 if (!this.cancelled) {
-                    if (fVar.isEmpty()) {
+                    if (gVar.isEmpty()) {
                         cVar.onComplete();
                         this.worker.dispose();
                         return;
@@ -275,7 +280,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         void runAsync() {
             long j;
             org.a.c<? super T> cVar = this.actual;
-            f<T> fVar = this.queue;
+            io.reactivex.internal.a.g<T> gVar = this.queue;
             long j2 = this.produced;
             int i = 1;
             while (true) {
@@ -283,7 +288,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                 while (j2 != j3) {
                     boolean z = this.done;
                     try {
-                        Object obj = (T) fVar.poll();
+                        Object obj = (T) gVar.poll();
                         boolean z2 = obj == null;
                         if (!checkTerminated(z, z2, cVar)) {
                             if (z2) {
@@ -306,13 +311,13 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                     } catch (Throwable th) {
                         io.reactivex.exceptions.a.I(th);
                         this.s.cancel();
-                        fVar.clear();
+                        gVar.clear();
                         cVar.onError(th);
                         this.worker.dispose();
                         return;
                     }
                 }
-                if (j2 != j3 || !checkTerminated(this.done, fVar.isEmpty(), cVar)) {
+                if (j2 != j3 || !checkTerminated(this.done, gVar.isEmpty(), cVar)) {
                     int i2 = get();
                     if (i == i2) {
                         this.produced = j2;
@@ -352,7 +357,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
             }
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public T poll() throws Exception {
             T poll = this.queue.poll();
             if (poll != null && this.sourceMode != 1) {
@@ -368,7 +373,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ObserveOnConditionalSubscriber<T> extends BaseObserveOnSubscriber<T> {
         private static final long serialVersionUID = 644624475404284533L;
         final io.reactivex.internal.a.a<? super T> actual;
@@ -380,7 +385,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 if (dVar instanceof io.reactivex.internal.a.d) {
@@ -410,13 +415,13 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         void runSync() {
             int i = 1;
             io.reactivex.internal.a.a<? super T> aVar = this.actual;
-            f<T> fVar = this.queue;
+            io.reactivex.internal.a.g<T> gVar = this.queue;
             long j = this.produced;
             while (true) {
                 long j2 = this.requested.get();
                 while (j != j2) {
                     try {
-                        Object obj = (T) fVar.poll();
+                        Object obj = (T) gVar.poll();
                         if (!this.cancelled) {
                             if (obj == null) {
                                 aVar.onComplete();
@@ -437,7 +442,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                     }
                 }
                 if (!this.cancelled) {
-                    if (fVar.isEmpty()) {
+                    if (gVar.isEmpty()) {
                         aVar.onComplete();
                         this.worker.dispose();
                         return;
@@ -462,7 +467,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         void runAsync() {
             int i = 1;
             io.reactivex.internal.a.a<? super T> aVar = this.actual;
-            f<T> fVar = this.queue;
+            io.reactivex.internal.a.g<T> gVar = this.queue;
             long j = this.produced;
             long j2 = this.consumed;
             while (true) {
@@ -470,7 +475,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                 while (j != j3) {
                     boolean z = this.done;
                     try {
-                        Object obj = (T) fVar.poll();
+                        Object obj = (T) gVar.poll();
                         boolean z2 = obj == null;
                         if (!checkTerminated(z, z2, aVar)) {
                             if (z2) {
@@ -490,13 +495,13 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                     } catch (Throwable th) {
                         io.reactivex.exceptions.a.I(th);
                         this.s.cancel();
-                        fVar.clear();
+                        gVar.clear();
                         aVar.onError(th);
                         this.worker.dispose();
                         return;
                     }
                 }
-                if (j != j3 || !checkTerminated(this.done, fVar.isEmpty(), aVar)) {
+                if (j != j3 || !checkTerminated(this.done, gVar.isEmpty(), aVar)) {
                     int i2 = get();
                     if (i == i2) {
                         this.produced = j;
@@ -537,7 +542,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
             }
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public T poll() throws Exception {
             T poll = this.queue.poll();
             if (poll != null && this.sourceMode != 1) {

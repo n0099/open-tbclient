@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class i {
-    private static i cHr;
+    private static i cHD;
     private int mIsAbstractOn = 1;
     private int mUploadImageQuality = 0;
     private int mAddImageWater = 0;
@@ -12,44 +12,44 @@ public class i {
     private boolean mIsShowImages = true;
     private int mViewImageQuality = 0;
 
-    public static i axf() {
+    public static i axy() {
         i iVar;
-        if (cHr == null) {
+        if (cHD == null) {
             synchronized (i.class) {
-                if (cHr == null) {
-                    cHr = new i();
+                if (cHD == null) {
+                    cHD = new i();
                 }
-                iVar = cHr;
+                iVar = cHD;
             }
             return iVar;
         }
-        return cHr;
+        return cHD;
     }
 
     private i() {
     }
 
     public void initSetting() {
-        this.mUploadImageQuality = com.baidu.tbadk.core.sharedPref.b.aCY().getInt(SharedPrefConfig.PREFS_IMAGE_QUALITY, 0);
-        this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.aCY().getInt(SharedPrefConfig.PREFS_ABSTRACT_STATE, 0);
-        this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.aCY().getInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, 0);
-        this.mIsShowImages = com.baidu.tbadk.core.sharedPref.b.aCY().getBoolean(SharedPrefConfig.PREFS_SHOW_IMAGES, true);
+        this.mUploadImageQuality = com.baidu.tbadk.core.sharedPref.b.aDr().getInt(SharedPrefConfig.PREFS_IMAGE_QUALITY, 0);
+        this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.aDr().getInt(SharedPrefConfig.PREFS_ABSTRACT_STATE, 0);
+        this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.aDr().getInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, 0);
+        this.mIsShowImages = com.baidu.tbadk.core.sharedPref.b.aDr().getBoolean(SharedPrefConfig.PREFS_SHOW_IMAGES, true);
     }
 
     public int getUploadImageQuality() {
-        this.mUploadImageQuality = com.baidu.tbadk.core.sharedPref.b.aCY().getInt(SharedPrefConfig.PREFS_IMAGE_QUALITY, 0);
+        this.mUploadImageQuality = com.baidu.tbadk.core.sharedPref.b.aDr().getInt(SharedPrefConfig.PREFS_IMAGE_QUALITY, 0);
         return this.mUploadImageQuality;
     }
 
     public void setImageWaterType(int i) {
         if (this.mAddImageWater != i) {
             this.mAddImageWater = i;
-            com.baidu.tbadk.core.sharedPref.b.aCY().putInt(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.PREFS_ADD_IMAGE_WATER, i);
+            com.baidu.tbadk.core.sharedPref.b.aDr().putInt(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.PREFS_ADD_IMAGE_WATER, i);
         }
     }
 
     public int getImageWaterType() {
-        this.mAddImageWater = com.baidu.tbadk.core.sharedPref.b.aCY().getInt(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.PREFS_ADD_IMAGE_WATER, 2);
+        this.mAddImageWater = com.baidu.tbadk.core.sharedPref.b.aDr().getInt(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.PREFS_ADD_IMAGE_WATER, 2);
         return this.mAddImageWater;
     }
 
@@ -68,16 +68,16 @@ public class i {
     public void setShowImages(boolean z) {
         if (this.mIsShowImages != z) {
             this.mIsShowImages = z;
-            com.baidu.tbadk.core.sharedPref.b.aCY().putBoolean(SharedPrefConfig.PREFS_SHOW_IMAGES, z);
+            com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean(SharedPrefConfig.PREFS_SHOW_IMAGES, z);
         }
     }
 
     public void setViewImageQuality(int i) {
         if (this.mViewImageQuality != i) {
             this.mViewImageQuality = i;
-            com.baidu.tbadk.core.sharedPref.b.aCY().putInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, i);
-            ar.aDX().updateFrsShowBigImage();
-            ar.aDX().updateUrlQuality();
+            com.baidu.tbadk.core.sharedPref.b.aDr().putInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, i);
+            ar.aEq().updateFrsShowBigImage();
+            ar.aEq().updateUrlQuality();
         }
     }
 

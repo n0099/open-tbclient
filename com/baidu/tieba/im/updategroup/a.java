@@ -2,27 +2,27 @@ package com.baidu.tieba.im.updategroup;
 
 import android.view.View;
 import com.baidu.tbadk.core.dialog.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    void CX(String str);
+    void Dh(String str);
 
     void b(a.b bVar);
 
-    boolean bQV();
+    View bRD();
 
-    View bQu();
+    boolean bSe();
 
-    View bRf();
+    View bSo();
 
-    int bVA();
+    String bWG();
 
-    boolean bVB();
+    View bWH();
 
-    String bVx();
+    void bWI();
 
-    View bVy();
+    int bWJ();
 
-    void bVz();
+    boolean bWK();
 
     void c(a.b bVar);
 
@@ -40,5 +40,5 @@ public interface a {
 
     void showDialog();
 
-    void vC();
+    void vT();
 }

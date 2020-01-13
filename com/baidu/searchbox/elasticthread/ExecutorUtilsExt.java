@@ -3,10 +3,9 @@ package com.baidu.searchbox.elasticthread;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import java.util.concurrent.Executor;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ExecutorUtilsExt {
     private static final boolean DEBUG = false;
     private static final String ELASTIC_TASK_NAME_PREFIX = "elastic_";
@@ -41,7 +40,7 @@ public class ExecutorUtilsExt {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            str = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
+            str = "default";
             Log.w(TAG, "received an empty task name ");
         }
         ElasticConfig.updateConfig();
@@ -85,7 +84,7 @@ public class ExecutorUtilsExt {
 
     private static String getStandardTaskName(@NonNull String str, @NonNull String str2) {
         if (TextUtils.isEmpty(str)) {
-            str = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
+            str = "default";
         }
         String str3 = str2 + str;
         if (str3.length() > 256) {

@@ -6,40 +6,40 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class p {
-    private String bsu;
-    private int cAT;
-    private JSONObject cAU;
-    private List<f> cAV = new ArrayList();
+    private String bti;
+    private int cBe;
+    private JSONObject cBf;
+    private List<f> cBg = new ArrayList();
     private int mThreshold;
 
     public p(String str, JSONObject jSONObject) {
-        this.bsu = str;
-        this.cAU = jSONObject;
+        this.bti = str;
+        this.cBf = jSONObject;
     }
 
     public String getSign() {
-        return this.bsu;
+        return this.bti;
     }
 
-    public int atc() {
+    public int atv() {
         return this.mThreshold;
     }
 
-    public int atd() {
-        return this.cAT;
+    public int atw() {
+        return this.cBe;
     }
 
-    public List<f> ate() {
-        return this.cAV;
+    public List<f> atx() {
+        return this.cBg;
     }
 
-    public boolean atf() {
+    public boolean aty() {
         try {
-            JSONObject jSONObject = this.cAU;
+            JSONObject jSONObject = this.cBf;
             this.mThreshold = jSONObject.getInt("threshold");
-            this.cAT = jSONObject.getInt("timeup");
+            this.cBe = jSONObject.getInt("timeup");
             JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -63,9 +63,9 @@ public class p {
                         fVar.iF(jSONObject2.getInt("limitCnt"));
                     }
                     if (jSONObject2.has("idtype")) {
-                        fVar.qE(jSONObject2.getString("idtype"));
+                        fVar.qH(jSONObject2.getString("idtype"));
                     }
-                    this.cAV.add(fVar);
+                    this.cBg.add(fVar);
                 }
             }
             return true;

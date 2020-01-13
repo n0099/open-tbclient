@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class g implements com.baidu.platform.comapi.wnplatform.c.c {
     final /* synthetic */ f a;
 

@@ -6,7 +6,7 @@ import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class WebSettings implements Observer {
     public static final int LOAD_CACHE_ELSE_NETWORK = 1;
     public static final int LOAD_CACHE_ONLY = 3;
@@ -28,7 +28,7 @@ public abstract class WebSettings implements Observer {
     public boolean mEnableJsPrompt = true;
     private boolean mAdblockEnable = false;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class CodeCacheSetting {
         public String id;
         public int maxCount;
@@ -36,14 +36,14 @@ public abstract class WebSettings implements Observer {
         public int sizeLimit;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum FlingAlgorithm {
         FAST,
         QUADRATIC,
         CUBIC
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum ImgQuality {
         NO_COMPRESS,
         LOW_COMPRESS,
@@ -51,7 +51,7 @@ public abstract class WebSettings implements Observer {
         HIGHT_COMPRESS
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum LayoutAlgorithm {
         NORMAL,
         SINGLE_COLUMN,
@@ -59,14 +59,14 @@ public abstract class WebSettings implements Observer {
         TEXT_AUTOSIZING
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum PluginState {
         ON,
         ON_DEMAND,
         OFF
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum ProxyType {
         NO_PROXY,
         SPDY_PROXY,
@@ -74,14 +74,14 @@ public abstract class WebSettings implements Observer {
         SPDYANDOVERSEAS_PROXY
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum RemoveAdLevel {
         DISABLE,
         LOW_LEVEL,
         HIGH_LEVEL
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum RenderPriority {
         NORMAL,
         HIGH,
@@ -89,7 +89,7 @@ public abstract class WebSettings implements Observer {
     }
 
     @Deprecated
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum TextSize {
         SMALLEST(50),
         SMALLER(75),
@@ -106,7 +106,7 @@ public abstract class WebSettings implements Observer {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum ZoomDensity {
         FAR(150),
         MEDIUM(100),

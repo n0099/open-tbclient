@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispatcher {
     public static final String ACTION_KEY = "action";
     public static final String DISPATCHER_NOT_FIRST_LEVEL = "dispatcher_not_first_level";
@@ -17,7 +17,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     private static final boolean DEBUG = UnitedSchemeConstants.DEBUG;
     private static final String TAG = UnitedSchemeBaseDispatcher.class.getSimpleName();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ConfirmDialogCallback {
         void onCancel();
 

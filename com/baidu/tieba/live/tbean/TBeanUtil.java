@@ -3,7 +3,7 @@ package com.baidu.tieba.live.tbean;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.CharacterStyle;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.baidu.tieba.live.tbean.data.SettingData;

@@ -1,5 +1,5 @@
 package com.coloros.mcssdk.mode;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SptDataMessage extends Message {
     private String appID;
     private String content;

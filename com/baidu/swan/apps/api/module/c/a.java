@@ -18,23 +18,23 @@ import com.baidu.swan.apps.y.f;
 import java.io.File;
 import java.net.URLConnection;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends c {
     public a(@NonNull b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b eQ(String str) {
+    public com.baidu.swan.apps.api.b.b eT(String str) {
         Uri fromFile;
         if (DEBUG) {
             Log.d("Api-Base", "handle: " + str);
         }
-        if (GS()) {
+        if (Ho()) {
             com.baidu.swan.apps.console.c.e("Api-Base", "Api-Base does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.b.b(1001, "Api-Base does not supported when app is invisible.");
         }
-        Pair<com.baidu.swan.apps.api.b.b, JSONObject> ag = com.baidu.swan.apps.api.c.b.ag("Api-Base", str);
-        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) ag.first;
+        Pair<com.baidu.swan.apps.api.b.b, JSONObject> ah = com.baidu.swan.apps.api.c.b.ah("Api-Base", str);
+        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) ah.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Base", "parse fail");
@@ -42,10 +42,10 @@ public class a extends c {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) ag.second;
+        JSONObject jSONObject = (JSONObject) ah.second;
         String optString = jSONObject.optString("filePath");
-        String bf = com.baidu.swan.apps.storage.b.bf(optString, e.ZU());
-        if (TextUtils.isEmpty(optString) || com.baidu.swan.apps.storage.b.lI(optString) != PathType.BD_FILE || TextUtils.isEmpty(bf)) {
+        String bg = com.baidu.swan.apps.storage.b.bg(optString, e.aar());
+        if (TextUtils.isEmpty(optString) || com.baidu.swan.apps.storage.b.lL(optString) != PathType.BD_FILE || TextUtils.isEmpty(bg)) {
             com.baidu.swan.apps.console.c.e("Api-Base", "a valid filePath is required");
             return new com.baidu.swan.apps.api.b.b(202, "a valid filePath is required");
         }
@@ -54,27 +54,27 @@ public class a extends c {
             com.baidu.swan.apps.console.c.e("Api-Base", "cb is required");
             return new com.baidu.swan.apps.api.b.b(202, "cb is required");
         }
-        File file = new File(bf);
+        File file = new File(bg);
         if (!file.exists() || file.isDirectory()) {
             com.baidu.swan.apps.console.c.e("Api-Base", "file not exists");
             return new com.baidu.swan.apps.api.b.b(1001, "file not exists");
         }
-        SwanAppActivity TQ = f.Uf().TQ();
-        if (TQ == null) {
+        SwanAppActivity Un = f.UC().Un();
+        if (Un == null) {
             com.baidu.swan.apps.console.c.e("Api-Base", "activity null");
             return new com.baidu.swan.apps.api.b.b(1001, "activity null");
         }
-        ActivityResultDispatcher resultDispatcher = TQ.getResultDispatcher();
+        ActivityResultDispatcher resultDispatcher = Un.getResultDispatcher();
         Intent intent = new Intent();
         if (com.baidu.swan.apps.as.a.hasNougat()) {
-            fromFile = FileProvider.getUriForFile(TQ, TQ.getPackageName() + ".swan.fileprovider", file);
+            fromFile = FileProvider.getUriForFile(Un, Un.getPackageName() + ".swan.fileprovider", file);
             intent.setFlags(3);
         } else {
             fromFile = Uri.fromFile(file);
         }
         intent.setAction("android.intent.action.SEND");
         intent.putExtra("android.intent.extra.STREAM", fromFile);
-        intent.setType(eR(bf));
+        intent.setType(eU(bg));
         resultDispatcher.addConsumer(new ActivityResultConsumer() { // from class: com.baidu.swan.apps.api.module.c.a.1
             @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
             public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent2) {
@@ -89,7 +89,7 @@ public class a extends c {
         return new com.baidu.swan.apps.api.b.b(0);
     }
 
-    private String eR(String str) {
+    private String eU(String str) {
         int lastIndexOf = str.lastIndexOf("/");
         if (lastIndexOf > 0) {
             String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));

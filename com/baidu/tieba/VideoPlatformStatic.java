@@ -24,24 +24,24 @@ import com.baidu.tieba.j.m;
 import com.tencent.connect.common.Constants;
 import org.apache.http.HttpHost;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener dTj = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener dTs = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.t.e.cMk().cMf();
-            com.baidu.tieba.t.b.cMe().cMf();
+            com.baidu.tieba.t.e.cNp().cNk();
+            com.baidu.tieba.t.b.cNj().cNk();
         }
     };
 
     static {
-        aUN();
-        MessageManager.getInstance().registerListener(dTj);
-        aUO();
+        aVh();
+        MessageManager.getInstance().registerListener(dTs);
+        aVi();
     }
 
-    private static void aUN() {
+    private static void aVh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new CustomMessageTask.CustomRunnable<l>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -53,7 +53,7 @@ public class VideoPlatformStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aUO() {
+    private static void aVi() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003388, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -74,7 +74,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static int wm(String str) {
+    public static int wq(String str) {
         if (str.contains("127.0.0.1")) {
             return 1;
         }
@@ -169,7 +169,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String wn(String str) {
+    public static String wr(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }
@@ -197,14 +197,14 @@ public class VideoPlatformStatic {
         return str;
     }
 
-    public static JSONObject aUP() {
+    public static JSONObject aVj() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());
             jSONObject.put("clientIp", com.baidu.tbadk.core.util.d.getIp());
             jSONObject.put("clientTimestamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("deviceId", UtilHelper.getDeviceId());
-            jSONObject.put("network", aUQ());
+            jSONObject.put("network", aVk());
             jSONObject.put("osType", AlaLiveBaseInfo.mOSType);
             jSONObject.put("osVer", Build.VERSION.RELEASE);
             if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
@@ -224,7 +224,7 @@ public class VideoPlatformStatic {
         return jSONObject;
     }
 
-    public static String aUQ() {
+    public static String aVk() {
         if (j.isWifiNet()) {
             return "WIFI";
         }

@@ -5,7 +5,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.content.ShapeStroke;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class q extends a {
     private final com.airbnb.lottie.model.layer.a fG;
     @Nullable
@@ -39,9 +39,9 @@ public class q extends a {
     @Override // com.airbnb.lottie.a.a.a, com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
         super.a((q) t, (com.airbnb.lottie.e.c<q>) cVar);
-        if (t == com.airbnb.lottie.k.eM) {
+        if (t == com.airbnb.lottie.k.eL) {
             this.fW.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fk) {
+        } else if (t == com.airbnb.lottie.k.fj) {
             if (cVar == null) {
                 this.fN = null;
                 return;

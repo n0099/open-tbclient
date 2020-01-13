@@ -7,7 +7,7 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SwipeDismissTouchListener implements View.OnTouchListener {
     private int a;
     private int b;
@@ -26,7 +26,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     private boolean o;
     private boolean p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface DismissCallbacks {
         boolean canDismiss(Object obj);
 

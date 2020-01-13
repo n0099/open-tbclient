@@ -1,23 +1,23 @@
 package com.google.android.exoplayer2.extractor.c;
 
 import com.google.android.exoplayer2.util.v;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class d {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        public final int[] lZm;
-        public final long[] lZn;
         public final int maximumSize;
-        public final long[] meC;
-        public final int[] meD;
+        public final int[] mde;
+        public final long[] mdf;
+        public final long[] mit;
+        public final int[] miu;
 
         private a(long[] jArr, int[] iArr, int i, long[] jArr2, int[] iArr2) {
-            this.lZn = jArr;
-            this.lZm = iArr;
+            this.mdf = jArr;
+            this.mde = iArr;
             this.maximumSize = i;
-            this.meC = jArr2;
-            this.meD = iArr2;
+            this.mit = jArr2;
+            this.miu = iArr2;
         }
     }
 
@@ -28,7 +28,7 @@ final class d {
         int i4 = 0;
         while (i3 < length) {
             i3++;
-            i4 = v.dY(iArr[i3], i2) + i4;
+            i4 = v.dW(iArr[i3], i2) + i4;
         }
         long[] jArr2 = new long[i4];
         int[] iArr2 = new int[i4];

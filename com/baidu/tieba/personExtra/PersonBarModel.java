@@ -9,11 +9,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PersonBarModel extends BdBaseModel {
-    private static final String dXx = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, dXx);
-    private int jfp;
+    private static final String dXG = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, dXG);
+    private int jiS;
     private b mData;
     private String mId;
     private boolean mIsHost;
@@ -42,26 +42,26 @@ public class PersonBarModel extends BdBaseModel {
         this.mSex = i;
     }
 
-    public boolean bUI() {
+    public boolean bVR() {
         return this.mIsHost;
     }
 
     public void setCurrentPageIndex(int i) {
-        this.jfp = i;
+        this.jiS = i;
     }
 
-    public b ctw() {
+    public b cuD() {
         return this.mData;
     }
 
-    public void ctu() {
+    public void cuB() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(1002002);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!bUI()) {
+        if (!bVR()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -81,17 +81,17 @@ public class PersonBarModel extends BdBaseModel {
         return false;
     }
 
-    public void Go(String str) {
-        if (this.jfp == 1 && this.mIsHost) {
+    public void Gy(String str) {
+        if (this.jiS == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    l<String> sx = com.baidu.tbadk.core.c.a.aBV().sx("tb.my_pages");
-                    if (sx != null) {
-                        sx.set(str2, str, 604800000L);
+                    l<String> sA = com.baidu.tbadk.core.c.a.aCo().sA("tb.my_pages");
+                    if (sA != null) {
+                        sA.set(str2, str, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

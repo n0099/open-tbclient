@@ -4,15 +4,15 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.Surface;
 import com.baidu.swan.apps.r.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a extends d {
 
     /* renamed from: com.baidu.swan.apps.r.e.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0265a {
-        void QT();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0267a {
+        void Rp();
 
-        void eM(int i);
+        void eN(int i);
 
         void onEnded();
 
@@ -25,17 +25,17 @@ public interface a extends d {
         void onPrepared();
     }
 
-    void QU();
+    void Rq();
 
-    void QV();
+    void Rr();
 
-    boolean QW();
+    boolean Rs();
 
-    void a(@NonNull InterfaceC0265a interfaceC0265a);
+    void a(@NonNull InterfaceC0267a interfaceC0267a);
 
     boolean c(String str, String str2, String str3, boolean z);
 
-    void cu(boolean z);
+    void cz(boolean z);
 
     Context getContext();
 

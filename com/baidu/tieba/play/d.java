@@ -1,29 +1,29 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    void Ab(int i);
+    void Ag(int i);
 
-    void GA(String str);
+    void GK(String str);
 
-    String cvS();
+    String cwZ();
 
-    void cvT();
+    void cxa();
 
-    boolean cvU();
+    boolean cxb();
 
-    boolean cvV();
+    boolean cxc();
 
-    boolean cvW();
+    boolean cxd();
 
-    boolean cvX();
+    boolean cxe();
 
-    int cvY();
+    int cxf();
 
-    void cvZ();
+    void cxg();
 
-    j cwa();
+    j cxh();
 
-    void eu(long j);
+    void ez(long j);
 
     void onCompletion();
 
@@ -33,7 +33,7 @@ public interface d {
 
     void onStart();
 
-    String wg(String str);
+    String wk(String str);
 
-    void wl(String str);
+    void wp(String str);
 }

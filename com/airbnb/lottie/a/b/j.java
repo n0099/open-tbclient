@@ -2,7 +2,7 @@ package com.airbnb.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class j extends f<PointF> {
     private final PointF gK;
 
@@ -16,12 +16,12 @@ public class j extends f<PointF> {
     /* renamed from: e */
     public PointF a(com.airbnb.lottie.e.a<PointF> aVar, float f) {
         PointF pointF;
-        if (aVar.kn == null || aVar.ko == null) {
+        if (aVar.km == null || aVar.kn == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        PointF pointF2 = aVar.kn;
-        PointF pointF3 = aVar.ko;
-        if (this.gE == null || (pointF = (PointF) this.gE.b(aVar.ed, aVar.kq.floatValue(), pointF2, pointF3, f, bS(), getProgress())) == null) {
+        PointF pointF2 = aVar.km;
+        PointF pointF3 = aVar.kn;
+        if (this.gE == null || (pointF = (PointF) this.gE.b(aVar.ec, aVar.kp.floatValue(), pointF2, pointF3, f, bS(), getProgress())) == null) {
             this.gK.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
             return this.gK;
         }

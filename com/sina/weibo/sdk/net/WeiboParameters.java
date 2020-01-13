@@ -8,7 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.LinkedHashMap;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WeiboParameters {
     private static final String DEFAULT_CHARSET = "UTF-8";
     private String mAnonymousCookie;

@@ -57,9 +57,9 @@ public class d {
         }
     }
 
-    public static String go() {
-        String gp = gp();
-        return gp + gq();
+    public static String gn() {
+        String go = go();
+        return go + gp();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x00b0  */
@@ -67,7 +67,7 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String gp() {
+    private static String go() {
         HttpGet httpGet;
         long currentTimeMillis;
         String str;
@@ -255,7 +255,7 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String gq() {
+    private static String gp() {
         InputStream inputStream;
         Exception e;
         byte[] bArr;

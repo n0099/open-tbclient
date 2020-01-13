@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 abstract class BaseFragmentActivityApi16 extends BaseFragmentActivityApi14 {
     boolean mStartedActivityFromFragment;
 

@@ -12,7 +12,7 @@ import com.baidu.swan.apps.as.ah;
 import com.baidu.swan.apps.as.ai;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class o extends ab {
     public o(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openApp");
@@ -34,7 +34,7 @@ public class o extends ab {
             Log.i("OpenAppAction", "params is " + b.toString());
         }
         final String optString2 = b.optString("open");
-        eVar.aac().d("scope_open_app", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
+        eVar.aaz().d("scope_open_app", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: c */
@@ -60,21 +60,21 @@ public class o extends ab {
         if (eVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.runtime.e.ZS() == null && com.baidu.swan.apps.runtime.e.ZS().DR() == null) {
+        if (com.baidu.swan.apps.runtime.e.aap() == null && com.baidu.swan.apps.runtime.e.aap().En() == null) {
             return false;
         }
-        String SW = com.baidu.swan.apps.runtime.e.ZS().DR().SW();
-        if (TextUtils.isEmpty(SW)) {
-            SW = "NA";
+        String Tt = com.baidu.swan.apps.runtime.e.aap().En().Tt();
+        if (TextUtils.isEmpty(Tt)) {
+            Tt = "NA";
         }
-        JSONObject jSONObject = eVar.bOE;
+        JSONObject jSONObject = eVar.bPo;
         if (jSONObject == null || jSONObject.keys() == null) {
             return false;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray(FaceBaseDTO.KEY_BUSINESS_SCENE);
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         for (int i = 0; i < length; i++) {
-            if (SW.equals(optJSONArray.optString(i))) {
+            if (Tt.equals(optJSONArray.optString(i))) {
                 return true;
             }
         }
@@ -90,7 +90,7 @@ public class o extends ab {
             int optInt = optJSONObject.optInt("launch_count", -1);
             int optInt2 = optJSONObject.optInt("daily_duration", -1);
             if (optInt >= 0 || optInt2 >= 0) {
-                return ah.aep() >= optInt || ah.aeq() >= ((long) (optInt2 * 60000));
+                return ah.aeI() >= optInt || ah.aeJ() >= ((long) (optInt2 * 60000));
             }
             return false;
         }
@@ -112,7 +112,7 @@ public class o extends ab {
             }
             return;
         }
-        boolean aq = !a ? ai.aq(context, jSONObject.optString(LaunchParams.SRC_TYPE_DOWNLOAD)) : false;
-        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aq ? 0 : 1001, aq ? "下载APP成功" : "下载APP失败").toString());
+        boolean ar = !a ? ai.ar(context, jSONObject.optString(LaunchParams.SRC_TYPE_DOWNLOAD)) : false;
+        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(ar ? 0 : 1001, ar ? "下载APP成功" : "下载APP失败").toString());
     }
 }

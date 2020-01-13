@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b cSq = new a();
-    private static final b cSr = new c();
-    private static final boolean cSs;
+    private static final b cSA = new a();
+    private static final b cSB = new c();
+    private static final boolean cSC;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface b {
-        void R(String str, String str2, String str3);
+        void S(String str, String str2, String str3);
     }
 
     /* loaded from: classes.dex */
@@ -24,7 +24,7 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void R(String str, String str2, String str3) {
+        public void S(String str, String str2, String str3) {
             if (str2 != null) {
                 str3 = "code:" + str2 + " message:" + str3;
             }
@@ -38,7 +38,7 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void R(String str, String str2, String str3) {
+        public void S(String str, String str2, String str3) {
             an anVar = new an("c10729");
             anVar.cp("obj_param1", str);
             anVar.cp(TiebaInitialize.Params.OBJ_PARAM2, str2);
@@ -49,24 +49,24 @@ public class e {
         }
     }
 
-    public static void R(String str, String str2, String str3) {
-        if (cSs) {
-            cSq.R(str, str2, str3);
+    public static void S(String str, String str2, String str3) {
+        if (cSC) {
+            cSA.S(str, str2, str3);
         }
-        cSr.R(str, str2, str3);
+        cSB.S(str, str2, str3);
     }
 
     public static void debug(String str) {
-        if (cSs) {
-            cSq.R(null, null, str);
+        if (cSC) {
+            cSA.S(null, null, str);
         }
     }
 
-    public static void S(String str, String str2, String str3) {
+    public static void T(String str, String str2, String str3) {
         debug(str3);
     }
 
     static {
-        cSs = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        cSC = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

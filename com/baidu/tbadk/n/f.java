@@ -7,29 +7,29 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class f extends g {
     public long costTime;
-    public long dzc;
-    public long dzd;
-    public long dze;
-    public int dzf;
-    public int dzg;
-    private a dzh = null;
-    private final Handler dzi = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.n.f.1
+    public long dzk;
+    public long dzl;
+    public long dzm;
+    public int dzn;
+    public int dzo;
+    private a dzp = null;
+    private final Handler dzq = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.n.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f.this.dzh = new a();
-            f.this.dzh.setSelfExecute(true);
-            f.this.dzh.execute(new String[0]);
+            f.this.dzp = new a();
+            f.this.dzp.setSelfExecute(true);
+            f.this.dzp.execute(new String[0]);
         }
     };
-    public long qE;
+    public long qB;
 
-    public void aOt() {
-        this.dzi.sendEmptyMessage(0);
+    public void aOM() {
+        this.dzq.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOu() {
-        j jVar = (j) m.aOA().mw(this.mSubType);
+    public void aON() {
+        j jVar = (j) m.aOT().mw(this.mSubType);
         if (jVar != null) {
             jVar.c(this);
         }
@@ -44,8 +44,8 @@ public class f extends g {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            f.this.dzg = m.aOA().getCpuUsageStatistic();
-            f.this.aOu();
+            f.this.dzo = m.aOT().getCpuUsageStatistic();
+            f.this.aON();
             return Boolean.TRUE;
         }
 

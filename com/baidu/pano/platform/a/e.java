@@ -1,7 +1,7 @@
 package com.baidu.pano.platform.a;
 
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e implements s {
     private int a;
     private int b;

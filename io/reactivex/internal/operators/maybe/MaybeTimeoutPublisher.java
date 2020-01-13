@@ -9,7 +9,7 @@ import io.reactivex.o;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
     final o<? extends T> fallback;
     final org.a.b<U> other;
@@ -22,7 +22,7 @@ public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
         this.source.a(timeoutMainMaybeObserver);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class TimeoutMainMaybeObserver<T, U> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -5955289211445418871L;
         final m<? super T> actual;
@@ -70,7 +70,7 @@ public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
             if (getAndSet(DisposableHelper.DISPOSED) != DisposableHelper.DISPOSED) {
                 this.actual.onError(th);
             } else {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
 
@@ -86,7 +86,7 @@ public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
             if (DisposableHelper.dispose(this)) {
                 this.actual.onError(th);
             } else {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
 
@@ -101,7 +101,7 @@ public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class TimeoutOtherMaybeObserver<T, U> extends AtomicReference<d> implements j<Object> {
         private static final long serialVersionUID = 8663801314800248617L;
         final TimeoutMainMaybeObserver<T, U> parent;
@@ -133,7 +133,7 @@ public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class TimeoutFallbackMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements m<T> {
         private static final long serialVersionUID = 8663801314800248617L;
         final m<? super T> actual;

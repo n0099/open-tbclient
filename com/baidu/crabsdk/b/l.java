@@ -11,22 +11,22 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class l {
-    private static ActivityManager Qj;
+    private static ActivityManager Qn;
     private static Context mContext;
 
     public static String A() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (Qj == null) {
+        if (Qn == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            Qj.getMemoryInfo(memoryInfo2);
+            Qn.getMemoryInfo(memoryInfo2);
             sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\navailMem: ").append(com.baidu.crabsdk.c.c.r(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.r(memoryInfo2.threshold)).append("\n");
-            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = Qj.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = Qn.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
                 sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.r(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.r(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.r(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
@@ -38,7 +38,7 @@ public final class l {
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            Qj = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            Qn = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class w extends z {
     private static final String[] PROJECTION = {IMConstants.MSG_ROW_ID, "_data"};
     private final ContentResolver mContentResolver;
@@ -26,22 +26,22 @@ public class w extends z {
     protected com.facebook.imagepipeline.g.e h(ImageRequest imageRequest) throws IOException {
         com.facebook.imagepipeline.g.e T;
         InputStream createInputStream;
-        Uri dpN = imageRequest.dpN();
-        if (!com.facebook.common.util.d.C(dpN)) {
-            return (!com.facebook.common.util.d.D(dpN) || (T = T(dpN)) == null) ? f(this.mContentResolver.openInputStream(dpN), -1) : T;
+        Uri dra = imageRequest.dra();
+        if (!com.facebook.common.util.d.C(dra)) {
+            return (!com.facebook.common.util.d.D(dra) || (T = T(dra)) == null) ? f(this.mContentResolver.openInputStream(dra), -1) : T;
         }
-        if (dpN.toString().endsWith("/photo")) {
-            createInputStream = this.mContentResolver.openInputStream(dpN);
-        } else if (dpN.toString().endsWith("/display_photo")) {
+        if (dra.toString().endsWith("/photo")) {
+            createInputStream = this.mContentResolver.openInputStream(dra);
+        } else if (dra.toString().endsWith("/display_photo")) {
             try {
-                createInputStream = this.mContentResolver.openAssetFileDescriptor(dpN, "r").createInputStream();
+                createInputStream = this.mContentResolver.openAssetFileDescriptor(dra, "r").createInputStream();
             } catch (IOException e) {
-                throw new IOException("Contact photo does not exist: " + dpN);
+                throw new IOException("Contact photo does not exist: " + dra);
             }
         } else {
-            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, dpN);
+            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, dra);
             if (createInputStream == null) {
-                throw new IOException("Contact photo does not exist: " + dpN);
+                throw new IOException("Contact photo does not exist: " + dra);
             }
         }
         return f(createInputStream, -1);
@@ -75,7 +75,7 @@ public class w extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dph() {
+    protected String dqr() {
         return "LocalContentUriFetchProducer";
     }
 }

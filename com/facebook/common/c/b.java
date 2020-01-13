@@ -3,14 +3,14 @@ package com.facebook.common.c;
 import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b implements c {
-    public static final b lEi = new b();
-    private String lEj = "unknown";
-    private int lEk = 5;
+    public static final b lHG = new b();
+    private String lHH = "unknown";
+    private int lHI = 5;
 
-    public static b dit() {
-        return lEi;
+    public static b dju() {
+        return lHG;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.lEk <= i;
+        return this.lHI <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -52,7 +52,7 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void fa(String str, String str2) {
+    public void fc(String str, String str2) {
         p(6, str, str2);
     }
 
@@ -62,16 +62,16 @@ public class b implements c {
     }
 
     private void p(int i, String str, String str2) {
-        Log.println(i, Os(str), str2);
+        Log.println(i, OC(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, Os(str), g(str2, th));
+        Log.println(i, OC(str), g(str2, th));
     }
 
-    private String Os(String str) {
-        if (this.lEj != null) {
-            return this.lEj + ":" + str;
+    private String OC(String str) {
+        if (this.lHH != null) {
+            return this.lHH + ":" + str;
         }
         return str;
     }

@@ -6,38 +6,38 @@ import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.l;
 /* loaded from: classes2.dex */
 public class h {
-    private i eAj;
-    private com.baidu.tieba.ala.guardclub.model.l eAk;
+    private i eBu;
+    private com.baidu.tieba.ala.guardclub.model.l eBv;
 
     public h(BaseActivity baseActivity, long j, long j2, long j3, boolean z, boolean z2, boolean z3, boolean z4, String str, BdUniqueId bdUniqueId, l.a aVar) {
-        this.eAj = new i(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
-        this.eAk = new com.baidu.tieba.ala.guardclub.model.l(j3, z3, aVar);
-        this.eAj.setOtherParams(str);
-        this.eAk.j(this.eAj);
-        this.eAj.a(this.eAk);
+        this.eBu = new i(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
+        this.eBv = new com.baidu.tieba.ala.guardclub.model.l(j3, z3, aVar);
+        this.eBu.setOtherParams(str);
+        this.eBv.j(this.eBu);
+        this.eBu.a(this.eBv);
     }
 
-    public void il(boolean z) {
-        this.eAj.il(z);
+    public void iv(boolean z) {
+        this.eBu.iv(z);
     }
 
-    public void rC() {
-        if (this.eAj != null) {
-            this.eAj.rC();
+    public void rP() {
+        if (this.eBu != null) {
+            this.eBu.rP();
         }
     }
 
     public View getView() {
-        return this.eAj.getView();
+        return this.eBu.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void anO() {
-        if (this.eAk != null) {
-            this.eAk.onDestory();
+    public void aoh() {
+        if (this.eBv != null) {
+            this.eBv.onDestory();
         }
-        if (this.eAj != null) {
-            this.eAj.bcx();
+        if (this.eBu != null) {
+            this.eBu.bcS();
         }
     }
 }

@@ -1,5 +1,5 @@
 package io.reactivex;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class a implements e {
     protected abstract void b(c cVar);
 
@@ -13,12 +13,12 @@ public abstract class a implements e {
     public final void a(c cVar) {
         io.reactivex.internal.functions.a.h(cVar, "s is null");
         try {
-            b(io.reactivex.d.a.a(this, cVar));
+            b(io.reactivex.e.a.a(this, cVar));
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
             io.reactivex.exceptions.a.I(th);
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
             throw G(th);
         }
     }

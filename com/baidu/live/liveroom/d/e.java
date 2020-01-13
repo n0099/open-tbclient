@@ -3,46 +3,46 @@ package com.baidu.live.liveroom.d;
 import android.content.Context;
 /* loaded from: classes2.dex */
 public class e {
-    private static volatile e aro = null;
-    private b arp;
-    private b arq;
+    private static volatile e asa = null;
+    private b asb;
+    private b asc;
 
     private e() {
     }
 
-    public static e wc() {
-        if (aro == null) {
+    public static e wt() {
+        if (asa == null) {
             synchronized (e.class) {
-                if (aro == null) {
-                    aro = new e();
+                if (asa == null) {
+                    asa = new e();
                 }
             }
         }
-        return aro;
+        return asa;
     }
 
     public void a(b bVar) {
-        this.arp = bVar;
+        this.asb = bVar;
     }
 
     public void b(b bVar) {
-        this.arq = bVar;
+        this.asc = bVar;
     }
 
-    public boolean wd() {
-        return this.arp != null;
+    public boolean wu() {
+        return this.asb != null;
     }
 
     public a aD(Context context) {
-        if (this.arp != null) {
-            return this.arp.aC(context);
+        if (this.asb != null) {
+            return this.asb.aC(context);
         }
         return null;
     }
 
     public a aE(Context context) {
-        if (this.arq != null) {
-            return this.arq.aC(context);
+        if (this.asc != null) {
+            return this.asc.aC(context);
         }
         return null;
     }

@@ -9,10 +9,10 @@ import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.mainTab.b {
-    private AlaGameFrsLiveTabVideoFragment eyb = new AlaGameFrsLiveTabVideoFragment();
+    private AlaGameFrsLiveTabVideoFragment ezo = new AlaGameFrsLiveTabVideoFragment();
 
     public a() {
-        aNf().frag = this.eyb;
+        aNy().frag = this.ezo;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -21,7 +21,7 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c aNe() {
+    public c aNx() {
         c cVar = new c();
         cVar.type = 3;
         cVar.textResId = R.string.ala_live;
@@ -31,26 +31,26 @@ public class a extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator dW(Context context) {
-        this.dwU = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.dwU.setTextSize(2.0f);
-        return this.dwU;
+        this.dxc = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.dxc.setTextSize(2.0f);
+        return this.dxc;
     }
 
     public void setForumId(String str) {
-        if (this.eyb != null) {
-            this.eyb.setForumId(str);
+        if (this.ezo != null) {
+            this.ezo.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.eyb != null) {
-            this.eyb.setForumName(str);
+        if (this.ezo != null) {
+            this.ezo.setForumName(str);
         }
     }
 
-    public void ii(boolean z) {
-        if (this.eyb != null) {
-            this.eyb.ii(z);
+    public void is(boolean z) {
+        if (this.ezo != null) {
+            this.ezo.is(z);
         }
     }
 }

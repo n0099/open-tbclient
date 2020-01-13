@@ -13,7 +13,7 @@ import android.graphics.drawable.Drawable;
 import android.support.design.R;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.graphics.drawable.DrawableWrapper;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class ShadowDrawableWrapper extends DrawableWrapper {
     static final double COS_45 = Math.cos(Math.toRadians(45.0d));
     static final float SHADOW_BOTTOM_SCALE = 1.0f;
@@ -157,7 +157,7 @@ class ShadowDrawableWrapper extends DrawableWrapper {
         float f2 = this.mCornerRadius;
         boolean z = this.mContentBounds.width() - (2.0f * f2) > 0.0f;
         boolean z2 = this.mContentBounds.height() - (2.0f * f2) > 0.0f;
-        float f3 = this.mRawShadowSize - (this.mRawShadowSize * SHADOW_TOP_SCALE);
+        float f3 = this.mRawShadowSize - (this.mRawShadowSize * 0.25f);
         float f4 = f2 / ((this.mRawShadowSize - (this.mRawShadowSize * 0.5f)) + f2);
         float f5 = f2 / (f3 + f2);
         float f6 = f2 / (f2 + (this.mRawShadowSize - (this.mRawShadowSize * 1.0f)));

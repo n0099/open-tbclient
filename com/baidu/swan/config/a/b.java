@@ -2,7 +2,7 @@ package com.baidu.swan.config.a;
 
 import com.baidu.swan.config.e;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.config.core.b.a {
     @Override // com.baidu.swan.config.core.b.c
     public void bj(JSONObject jSONObject) {
@@ -15,14 +15,14 @@ public class b extends com.baidu.swan.config.core.b.a {
     private void bk(JSONObject jSONObject) {
         JSONObject bi = bi(jSONObject);
         if (bi != null) {
-            e.agp().al(bi);
+            e.agI().al(bi);
         }
     }
 
     private void bl(JSONObject jSONObject) {
         JSONObject bi = bi(jSONObject);
         if (bi != null) {
-            e.agp().am(bi);
+            e.agI().am(bi);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.google.zxing;
 
 import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class BinaryBitmap {
     private final Binarizer binarizer;
     private BitMatrix matrix;

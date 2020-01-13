@@ -8,11 +8,11 @@ import android.os.Message;
 import com.baidu.android.pushservice.i.k;
 import com.baidu.android.pushservice.i.l;
 @TargetApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PushJobService extends JobService {
     private Handler a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class a extends Handler {
         private final JobService a;
 

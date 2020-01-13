@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import android.os.Looper;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CookieSyncManager implements Runnable {
     private static String TAG = "CookieSyncManager";
     private static boolean sGetInstanceAllowed = false;

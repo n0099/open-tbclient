@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.text.g;
 import android.text.Layout;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class e extends com.google.android.exoplayer2.text.b {
     public final long endTime;
     public final long startTime;
@@ -22,20 +22,20 @@ final class e extends com.google.android.exoplayer2.text.b {
         this.endTime = j2;
     }
 
-    public boolean dvU() {
-        return this.mub == Float.MIN_VALUE && this.mue == Float.MIN_VALUE;
+    public boolean dxf() {
+        return this.mxO == Float.MIN_VALUE && this.mxR == Float.MIN_VALUE;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private long endTime;
-        private Layout.Alignment mua;
-        private float mub;
-        private int muc;
-        private int mud;
-        private float mue;
-        private int muf;
-        private SpannableStringBuilder mxB;
+        private SpannableStringBuilder mBq;
+        private Layout.Alignment mxN;
+        private float mxO;
+        private int mxP;
+        private int mxQ;
+        private float mxR;
+        private int mxS;
         private long startTime;
         private float width;
 
@@ -46,65 +46,65 @@ final class e extends com.google.android.exoplayer2.text.b {
         public void reset() {
             this.startTime = 0L;
             this.endTime = 0L;
-            this.mxB = null;
-            this.mua = null;
-            this.mub = Float.MIN_VALUE;
-            this.muc = Integer.MIN_VALUE;
-            this.mud = Integer.MIN_VALUE;
-            this.mue = Float.MIN_VALUE;
-            this.muf = Integer.MIN_VALUE;
+            this.mBq = null;
+            this.mxN = null;
+            this.mxO = Float.MIN_VALUE;
+            this.mxP = Integer.MIN_VALUE;
+            this.mxQ = Integer.MIN_VALUE;
+            this.mxR = Float.MIN_VALUE;
+            this.mxS = Integer.MIN_VALUE;
             this.width = Float.MIN_VALUE;
         }
 
-        public e dvV() {
-            if (this.mue != Float.MIN_VALUE && this.muf == Integer.MIN_VALUE) {
-                dvW();
+        public e dxg() {
+            if (this.mxR != Float.MIN_VALUE && this.mxS == Integer.MIN_VALUE) {
+                dxh();
             }
-            return new e(this.startTime, this.endTime, this.mxB, this.mua, this.mub, this.muc, this.mud, this.mue, this.muf, this.width);
+            return new e(this.startTime, this.endTime, this.mBq, this.mxN, this.mxO, this.mxP, this.mxQ, this.mxR, this.mxS, this.width);
         }
 
-        public a gw(long j) {
+        public a gB(long j) {
             this.startTime = j;
             return this;
         }
 
-        public a gx(long j) {
+        public a gC(long j) {
             this.endTime = j;
             return this;
         }
 
         public a f(SpannableStringBuilder spannableStringBuilder) {
-            this.mxB = spannableStringBuilder;
+            this.mBq = spannableStringBuilder;
             return this;
         }
 
         public a b(Layout.Alignment alignment) {
-            this.mua = alignment;
+            this.mxN = alignment;
             return this;
         }
 
         public a bA(float f) {
-            this.mub = f;
+            this.mxO = f;
             return this;
         }
 
-        public a Lp(int i) {
-            this.muc = i;
+        public a Ly(int i) {
+            this.mxP = i;
             return this;
         }
 
-        public a Lq(int i) {
-            this.mud = i;
+        public a Lz(int i) {
+            this.mxQ = i;
             return this;
         }
 
         public a bB(float f) {
-            this.mue = f;
+            this.mxR = f;
             return this;
         }
 
-        public a Lr(int i) {
-            this.muf = i;
+        public a LA(int i) {
+            this.mxS = i;
             return this;
         }
 
@@ -113,23 +113,23 @@ final class e extends com.google.android.exoplayer2.text.b {
             return this;
         }
 
-        private a dvW() {
-            if (this.mua == null) {
-                this.muf = Integer.MIN_VALUE;
+        private a dxh() {
+            if (this.mxN == null) {
+                this.mxS = Integer.MIN_VALUE;
             } else {
-                switch (AnonymousClass1.mxA[this.mua.ordinal()]) {
+                switch (AnonymousClass1.mBp[this.mxN.ordinal()]) {
                     case 1:
-                        this.muf = 0;
+                        this.mxS = 0;
                         break;
                     case 2:
-                        this.muf = 1;
+                        this.mxS = 1;
                         break;
                     case 3:
-                        this.muf = 2;
+                        this.mxS = 2;
                         break;
                     default:
-                        Log.w("WebvttCueBuilder", "Unrecognized alignment: " + this.mua);
-                        this.muf = 0;
+                        Log.w("WebvttCueBuilder", "Unrecognized alignment: " + this.mxN);
+                        this.mxS = 0;
                         break;
                 }
             }
@@ -139,21 +139,21 @@ final class e extends com.google.android.exoplayer2.text.b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.google.android.exoplayer2.text.g.e$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] mxA = new int[Layout.Alignment.values().length];
+        static final /* synthetic */ int[] mBp = new int[Layout.Alignment.values().length];
 
         static {
             try {
-                mxA[Layout.Alignment.ALIGN_NORMAL.ordinal()] = 1;
+                mBp[Layout.Alignment.ALIGN_NORMAL.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                mxA[Layout.Alignment.ALIGN_CENTER.ordinal()] = 2;
+                mBp[Layout.Alignment.ALIGN_CENTER.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                mxA[Layout.Alignment.ALIGN_OPPOSITE.ordinal()] = 3;
+                mBp[Layout.Alignment.ALIGN_OPPOSITE.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }

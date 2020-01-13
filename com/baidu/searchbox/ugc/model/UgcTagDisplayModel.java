@@ -14,7 +14,7 @@ import com.baidu.searchbox.ugc.utils.UgcConfigUrl;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UgcTagDisplayModel implements Serializable {
     public static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = UgcTagDisplayModel.class.getSimpleName();
@@ -22,7 +22,7 @@ public class UgcTagDisplayModel implements Serializable {
     public String tagNum;
     public String tagScheme;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface UgcTagRequestCallback {
         void onFailed(String str);
 

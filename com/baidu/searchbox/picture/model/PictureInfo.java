@@ -3,7 +3,7 @@ package com.baidu.searchbox.picture.model;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PictureInfo {
     public int count;
     public int index;

@@ -10,8 +10,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableDebounceTimed<T> extends a<T, T> {
     final v scheduler;
     final long timeout;
@@ -19,17 +18,17 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.dDP()));
+        this.nvK.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.dHW()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class DebounceTimedSubscriber<T> extends AtomicLong implements j<T>, d {
+    /* loaded from: classes5.dex */
+    public static final class DebounceTimedSubscriber<T> extends AtomicLong implements j<T>, org.a.d {
         private static final long serialVersionUID = -9102637559663639004L;
         final org.a.c<? super T> actual;
         boolean done;
         volatile long index;
-        d s;
+        org.a.d s;
         final long timeout;
         io.reactivex.disposables.b timer;
         final TimeUnit unit;
@@ -43,7 +42,7 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -69,7 +68,7 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;
@@ -126,7 +125,7 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class DebounceEmitter<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, Runnable {
         private static final long serialVersionUID = 6812032969491025141L;
         final long idx;

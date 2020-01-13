@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SVGImageView extends ImageView {
     private static Method setLayerTypeMethod = null;
 
@@ -71,8 +71,8 @@ public class SVGImageView extends ImageView {
         if (svg == null) {
             throw new IllegalArgumentException("Null value passed to setSVG()");
         }
-        dgJ();
-        setImageDrawable(new PictureDrawable(svg.dfY()));
+        dhL();
+        setImageDrawable(new PictureDrawable(svg.dha()));
     }
 
     @Override // android.widget.ImageView
@@ -102,7 +102,7 @@ public class SVGImageView extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b extends AsyncTask<Integer, Integer, Picture> {
         private b() {
         }
@@ -113,7 +113,7 @@ public class SVGImageView extends ImageView {
         /* renamed from: f */
         public Picture doInBackground(Integer... numArr) {
             try {
-                return SVG.I(SVGImageView.this.getContext(), numArr[0].intValue()).dfY();
+                return SVG.J(SVGImageView.this.getContext(), numArr[0].intValue()).dha();
             } catch (SVGParseException e) {
                 Log.e("SVGImageView", String.format("Error loading resource 0x%x: %s", numArr, e.getMessage()));
                 return null;
@@ -126,14 +126,14 @@ public class SVGImageView extends ImageView {
         /* renamed from: a */
         public void onPostExecute(Picture picture) {
             if (picture != null) {
-                SVGImageView.this.dgJ();
+                SVGImageView.this.dhL();
                 SVGImageView.this.setImageDrawable(new PictureDrawable(picture));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends AsyncTask<String, Integer, Picture> {
         private a() {
         }
@@ -144,7 +144,7 @@ public class SVGImageView extends ImageView {
         /* renamed from: R */
         public Picture doInBackground(String... strArr) {
             try {
-                return SVG.a(SVGImageView.this.getContext().getAssets(), strArr[0]).dfY();
+                return SVG.a(SVGImageView.this.getContext().getAssets(), strArr[0]).dha();
             } catch (SVGParseException e) {
                 Log.e("SVGImageView", "Error loading file " + strArr + ": " + e.getMessage());
                 return null;
@@ -163,14 +163,14 @@ public class SVGImageView extends ImageView {
         /* renamed from: a */
         public void onPostExecute(Picture picture) {
             if (picture != null) {
-                SVGImageView.this.dgJ();
+                SVGImageView.this.dhL();
                 SVGImageView.this.setImageDrawable(new PictureDrawable(picture));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c extends AsyncTask<InputStream, Integer, Picture> {
         private c() {
         }
@@ -183,12 +183,12 @@ public class SVGImageView extends ImageView {
         public Picture doInBackground(InputStream... inputStreamArr) {
             try {
                 try {
-                    Picture dfY = SVG.n(inputStreamArr[0]).dfY();
+                    Picture dha = SVG.n(inputStreamArr[0]).dha();
                     try {
                         inputStreamArr[0].close();
-                        return dfY;
+                        return dha;
                     } catch (IOException e) {
-                        return dfY;
+                        return dha;
                     }
                 } catch (SVGParseException e2) {
                     Log.e("SVGImageView", "Parse error loading URI: " + e2.getMessage());
@@ -213,14 +213,14 @@ public class SVGImageView extends ImageView {
         /* renamed from: a */
         public void onPostExecute(Picture picture) {
             if (picture != null) {
-                SVGImageView.this.dgJ();
+                SVGImageView.this.dhL();
                 SVGImageView.this.setImageDrawable(new PictureDrawable(picture));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgJ() {
+    public void dhL() {
         if (setLayerTypeMethod != null) {
             try {
                 setLayerTypeMethod.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);

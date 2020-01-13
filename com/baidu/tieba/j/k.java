@@ -10,35 +10,35 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private String bno = "";
-    private long ikR;
-    private long ikS;
-    private long ikT;
-    private boolean ikU;
+    private String boc = "";
+    private boolean ioA;
+    private long iox;
+    private long ioy;
+    private long ioz;
 
-    public void cef() {
-        this.ikU = true;
-        this.ikR = SystemClock.elapsedRealtime();
+    public void cfo() {
+        this.ioA = true;
+        this.iox = SystemClock.elapsedRealtime();
     }
 
-    public void ceg() {
-        this.ikS = SystemClock.elapsedRealtime();
+    public void cfp() {
+        this.ioy = SystemClock.elapsedRealtime();
     }
 
-    public void ceh() {
-        this.ikT = SystemClock.elapsedRealtime();
+    public void cfq() {
+        this.ioz = SystemClock.elapsedRealtime();
     }
 
     public void a(String str, long j, long j2, com.baidu.tieba.play.a.a aVar) {
-        a(str, j, j2, this.bno, aVar);
+        a(str, j, j2, this.boc, aVar);
     }
 
     public void a(String str, long j, long j2, String str2, com.baidu.tieba.play.a.a aVar) {
-        if (this.ikU) {
-            this.ikU = false;
+        if (this.ioA) {
+            this.ioA = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.ikS - this.ikR;
-            long j4 = elapsedRealtime - this.ikT;
+            long j3 = this.ioy - this.iox;
+            long j4 = elapsedRealtime - this.ioz;
             long j5 = j4 + j3;
             if (com.baidu.adp.lib.util.j.netType() == 2 || j3 <= 17500) {
                 an anVar = new an("c13171");
@@ -51,17 +51,17 @@ public class k {
                 anVar.Z("ptype", com.baidu.adp.lib.util.j.netType());
                 anVar.cp("tid", str);
                 anVar.cp("cuid", TbadkCoreApplication.getInst().getCuid());
-                anVar.Z("obj_id", af.mC(EI(str2)) ? 1 : 0);
+                anVar.Z("obj_id", af.mC(ES(str2)) ? 1 : 0);
                 anVar.s(ETAG.KEY_TIME_STAMP, System.currentTimeMillis());
                 TiebaStatic.log(anVar);
                 if (aVar != null) {
-                    aVar.a(str2, j3, j4, j5, j2, j, str, af.mC(EI(str2)) ? 1 : 0);
+                    aVar.a(str2, j3, j4, j5, j2, j, str, af.mC(ES(str2)) ? 1 : 0);
                 }
             }
         }
     }
 
-    private int EI(String str) {
+    private int ES(String str) {
         if ("frs".equals(str)) {
             return 2;
         }
@@ -78,6 +78,6 @@ public class k {
     }
 
     public void setPageTypeForPerfStat(String str) {
-        this.bno = str;
+        this.boc = str;
     }
 }

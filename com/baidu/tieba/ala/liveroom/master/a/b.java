@@ -1,19 +1,19 @@
 package com.baidu.tieba.ala.liveroom.master.a;
 /* loaded from: classes2.dex */
 public interface b {
-    void auh();
+    void auA();
 
-    void b(com.baidu.tieba.ala.liveroom.data.d dVar);
+    void b(com.baidu.tieba.ala.liveroom.data.e eVar);
 
-    void bjl();
+    void bjX();
 
-    void bjm();
+    void bjY();
 
-    void bjn();
+    void bjZ();
 
-    void bjo();
+    void bka();
 
     void d(short s);
 
-    void qa(int i);
+    void qf(int i);
 }

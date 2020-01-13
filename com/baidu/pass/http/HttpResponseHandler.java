@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HttpResponseHandler extends Handler {
     protected static final String DEFAULT_CHARSET = "UTF-8";
     protected static final int FAILURE_MESSAGE = 1;

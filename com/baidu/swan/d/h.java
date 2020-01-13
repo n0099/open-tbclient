@@ -3,17 +3,17 @@ package com.baidu.swan.d;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class h {
-    public static String qS(String str) {
-        int atx = a.atx();
-        int aty = a.aty();
+    public static String qV(String str) {
+        int atQ = a.atQ();
+        int atR = a.atR();
         int densityDpi = a.getDensityDpi();
         String os = a.getOS();
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(atx);
+        stringBuffer.append(atQ);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(aty);
+        stringBuffer.append(atR);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(os);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);

@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.process.a.b.a;
 
 import android.os.Bundle;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends a<Bundle> {
-    private String bEd;
+    private String bEO;
 
     public b(String str) {
-        this.bEd = str;
+        this.bEO = str;
     }
 
-    public String XV() {
-        return this.bEd;
+    public String Ys() {
+        return this.bEO;
     }
 }

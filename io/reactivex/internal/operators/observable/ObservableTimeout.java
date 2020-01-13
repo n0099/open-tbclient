@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.observable;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.internal.operators.observable.ObservableTimeoutTimed;
@@ -10,14 +10,14 @@ import io.reactivex.u;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.operators.observable.a<T, T> {
     final h<? super T, ? extends t<V>> itemTimeoutIndicator;
-    final t<U> mVs;
+    final t<U> nxB;
     final t<? extends T> other;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a extends ObservableTimeoutTimed.b {
         void onTimeoutError(long j, Throwable th);
     }
@@ -27,17 +27,17 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
         if (this.other == null) {
             TimeoutObserver timeoutObserver = new TimeoutObserver(uVar, this.itemTimeoutIndicator);
             uVar.onSubscribe(timeoutObserver);
-            timeoutObserver.startFirstTimeout(this.mVs);
+            timeoutObserver.startFirstTimeout(this.nxB);
             this.source.subscribe(timeoutObserver);
             return;
         }
         TimeoutFallbackObserver timeoutFallbackObserver = new TimeoutFallbackObserver(uVar, this.itemTimeoutIndicator, this.other);
         uVar.onSubscribe(timeoutFallbackObserver);
-        timeoutFallbackObserver.startFirstTimeout(this.mVs);
+        timeoutFallbackObserver.startFirstTimeout(this.nxB);
         this.source.subscribe(timeoutFallbackObserver);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class TimeoutObserver<T> extends AtomicLong implements io.reactivex.disposables.b, a, u<T> {
         private static final long serialVersionUID = 3764492702657003550L;
         final u<? super T> actual;
@@ -95,7 +95,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 this.actual.onError(th);
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u
@@ -121,7 +121,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 this.actual.onError(th);
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.disposables.b
@@ -136,7 +136,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class TimeoutFallbackObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, a, u<T> {
         private static final long serialVersionUID = -7508389464265974549L;
         final u<? super T> actual;
@@ -198,7 +198,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 this.task.dispose();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u
@@ -227,7 +227,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 this.actual.onError(th);
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.disposables.b
@@ -244,7 +244,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class TimeoutConsumer extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<Object> {
         private static final long serialVersionUID = 8708641127342403073L;
         final long idx;
@@ -277,7 +277,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 this.parent.onTimeoutError(this.idx, th);
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u

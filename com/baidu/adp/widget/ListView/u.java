@@ -17,7 +17,7 @@ public class u extends RecyclerView.Adapter<v.a> implements q<m> {
     private SparseArray<Integer> mViewTypes = new SparseArray<>();
     private List<m> mLists = new ArrayList();
     private RecyclerView mRecyclerView = null;
-    private int Bu = -1;
+    private int Bz = -1;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -28,7 +28,7 @@ public class u extends RecyclerView.Adapter<v.a> implements q<m> {
         if (this.mRecyclerView == null) {
             this.mRecyclerView = (RecyclerView) viewGroup;
         }
-        m item = getItem(this.Bu);
+        m item = getItem(this.Bz);
         if (this.mDelegateAdapters == null || (aVar = this.mDelegateAdapters.get(i)) == null) {
             return null;
         }
@@ -66,7 +66,7 @@ public class u extends RecyclerView.Adapter<v.a> implements q<m> {
         m item;
         BdUniqueId type;
         Integer num;
-        this.Bu = i;
+        this.Bz = i;
         if (this.mDelegateAdapters == null || this.mDelegateAdapters.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.mViewTypes.get(type.getId())) == null) {
             return -1;
         }
@@ -166,8 +166,8 @@ public class u extends RecyclerView.Adapter<v.a> implements q<m> {
             } else {
                 aVar = this.mDelegateAdapters.valueAt(itemViewType);
             }
-            if (aVar != null && aVar.jV() != null) {
-                aVar.jV().a(view, item, aVar.getType(), viewGroup, i, j);
+            if (aVar != null && aVar.jU() != null) {
+                aVar.jU().a(view, item, aVar.getType(), viewGroup, i, j);
             }
         }
     }
@@ -184,9 +184,9 @@ public class u extends RecyclerView.Adapter<v.a> implements q<m> {
         } else {
             aVar = this.mDelegateAdapters.valueAt(itemViewType);
         }
-        if (aVar == null || aVar.jW() == null) {
+        if (aVar == null || aVar.jV() == null) {
             return false;
         }
-        return aVar.jW().b(view, item, aVar.getType(), viewGroup, i, j);
+        return aVar.jV().b(view, item, aVar.getType(), viewGroup, i, j);
     }
 }

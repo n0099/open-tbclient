@@ -1,7 +1,7 @@
 package com.google.zxing.pdf417.decoder;
 
 import java.util.Formatter;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 class DetectionResultColumn {
     private static final int MAX_NEARBY_DISTANCE = 5;
     private final BoundingBox boundingBox;

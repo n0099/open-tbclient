@@ -9,7 +9,7 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g extends ab {
     public g(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getStorageSync");
@@ -31,17 +31,17 @@ public class g extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        String string = eVar.aaa().acv().getString(optString, "");
+        String string = eVar.aax().acS().getString(optString, "");
         try {
-            JSONObject fG = fG(string);
-            if (fG == null) {
-                fG = new JSONObject();
+            JSONObject fJ = fJ(string);
+            if (fJ == null) {
+                fJ = new JSONObject();
                 if (TextUtils.isEmpty(string)) {
                     string = "";
                 }
-                fG.put("data", string);
+                fJ.put("data", string);
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(fG, 0);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(fJ, 0);
             return true;
         } catch (JSONException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
@@ -52,7 +52,7 @@ public class g extends ab {
         }
     }
 
-    private JSONObject fG(String str) {
+    private JSONObject fJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

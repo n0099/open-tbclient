@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.mixed;
 
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.b;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MaybeFlatMapPublisher<T, R> extends g<R> {
     final h<? super T, ? extends b<? extends R>> mapper;
     final o<T> source;
@@ -22,7 +22,7 @@ public final class MaybeFlatMapPublisher<T, R> extends g<R> {
         this.source.a(new FlatMapPublisherSubscriber(cVar, this.mapper));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapPublisherSubscriber<T, R> extends AtomicReference<d> implements j<R>, m<T>, d {
         private static final long serialVersionUID = -8948264376121066672L;
         final c<? super R> downstream;

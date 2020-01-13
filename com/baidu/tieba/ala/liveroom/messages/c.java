@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.utils.p;
+import com.baidu.live.utils.q;
 /* loaded from: classes2.dex */
 public class c extends HttpMessage {
     private long liveId;
@@ -16,8 +16,8 @@ public class c extends HttpMessage {
     }
 
     public void setParams() {
-        String yu = p.yu();
+        String yN = q.yN();
         addParam("live_id", this.liveId);
-        addParam("scene_from", yu);
+        addParam("scene_from", yN);
     }
 }

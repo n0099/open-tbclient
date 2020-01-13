@@ -6,7 +6,7 @@ import com.google.android.exoplayer2.util.l;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SpliceScheduleCommand extends SpliceCommand {
     public static final Parcelable.Creator<SpliceScheduleCommand> CREATOR = new Parcelable.Creator<SpliceScheduleCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceScheduleCommand.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -18,21 +18,21 @@ public final class SpliceScheduleCommand extends SpliceCommand {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ki */
+        /* renamed from: Kr */
         public SpliceScheduleCommand[] newArray(int i) {
             return new SpliceScheduleCommand[i];
         }
     };
     public final List<b> events;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         public final boolean autoReturn;
         public final int availNum;
         public final int availsExpected;
         public final long breakDurationUs;
         public final List<a> componentSpliceList;
-        public final long mlZ;
+        public final long mpO;
         public final boolean outOfNetworkIndicator;
         public final boolean programSpliceFlag;
         public final boolean spliceEventCancelIndicator;
@@ -45,7 +45,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             this.outOfNetworkIndicator = z2;
             this.programSpliceFlag = z3;
             this.componentSpliceList = Collections.unmodifiableList(list);
-            this.mlZ = j2;
+            this.mpO = j2;
             this.autoReturn = z4;
             this.breakDurationUs = j3;
             this.uniqueProgramId = i;
@@ -64,7 +64,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 arrayList.add(a.aG(parcel));
             }
             this.componentSpliceList = Collections.unmodifiableList(arrayList);
-            this.mlZ = parcel.readLong();
+            this.mpO = parcel.readLong();
             this.autoReturn = parcel.readByte() == 1;
             this.breakDurationUs = parcel.readLong();
             this.uniqueProgramId = parcel.readInt();
@@ -141,7 +141,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             for (int i = 0; i < size; i++) {
                 this.componentSpliceList.get(i).aC(parcel);
             }
-            parcel.writeLong(this.mlZ);
+            parcel.writeLong(this.mpO);
             parcel.writeByte((byte) (this.autoReturn ? 1 : 0));
             parcel.writeLong(this.breakDurationUs);
             parcel.writeInt(this.uniqueProgramId);
@@ -155,14 +155,14 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        public final int mlW;
-        public final long mlZ;
+        public final int mpL;
+        public final long mpO;
 
         private a(int i, long j) {
-            this.mlW = i;
-            this.mlZ = j;
+            this.mpL = i;
+            this.mpO = j;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -172,8 +172,8 @@ public final class SpliceScheduleCommand extends SpliceCommand {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void aC(Parcel parcel) {
-            parcel.writeInt(this.mlW);
-            parcel.writeLong(this.mlZ);
+            parcel.writeInt(this.mpL);
+            parcel.writeLong(this.mpO);
         }
     }
 

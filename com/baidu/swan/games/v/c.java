@@ -5,27 +5,27 @@ import android.util.Base64;
 import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.swan.apps.ap.e;
 import com.baidu.swan.games.v.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    protected com.baidu.swan.games.e.b cfI;
-    protected b coc = new b();
+    protected com.baidu.swan.games.e.b cfV;
+    protected b cop = new b();
 
     public c(com.baidu.swan.games.e.b bVar) {
-        this.cfI = bVar;
+        this.cfV = bVar;
     }
 
     @NonNull
-    public d po(String str) {
+    public d pr(String str) {
         Object obj = null;
         if (str == null) {
-            return d.pr("parameter error: the key cannot be null.");
+            return d.pu("parameter error: the key cannot be null.");
         }
-        String string = this.coc.getString(str, null);
+        String string = this.cop.getString(str, null);
         if (string != null) {
-            obj = this.cfI.c(Base64.decode(string, 2), true);
+            obj = this.cfV.c(Base64.decode(string, 2), true);
         }
         if (obj == null) {
-            obj = d.ang();
+            obj = d.anz();
         }
         return d.V(obj);
     }
@@ -34,52 +34,52 @@ public class c {
     public d a(String str, JsSerializeValue jsSerializeValue) {
         if (str == null) {
             a(jsSerializeValue);
-            return d.pr("parameter error: the key cannot be null.");
+            return d.pu("parameter error: the key cannot be null.");
         } else if (jsSerializeValue == null) {
             return d.V(null);
         } else {
-            byte[] a = this.cfI.a(jsSerializeValue, true);
+            byte[] a = this.cfV.a(jsSerializeValue, true);
             a(jsSerializeValue);
             if (a == null) {
-                return d.pr("parameter error: the data parse failed.");
+                return d.pu("parameter error: the data parse failed.");
             }
             String encodeToString = Base64.encodeToString(a, 2);
-            String string = this.coc.getString(str, null);
+            String string = this.cop.getString(str, null);
             int length = str.getBytes().length;
-            if (this.coc.acy() - this.coc.acx() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
-                return d.pr("storage error: the storage space insufficient.");
+            if (this.cop.acV() - this.cop.acU() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
+                return d.pu("storage error: the storage space insufficient.");
             }
-            boolean putString = this.coc.putString(str, encodeToString);
-            e.bTz.update();
-            return putString ? d.V(null) : d.pr("storage error: the storage is invalid.");
+            boolean putString = this.cop.putString(str, encodeToString);
+            e.bTL.update();
+            return putString ? d.V(null) : d.pu("storage error: the storage is invalid.");
         }
     }
 
     @NonNull
-    public d pp(String str) {
+    public d ps(String str) {
         if (str == null) {
-            return d.pr("parameter error: the key cannot be null.");
+            return d.pu("parameter error: the key cannot be null.");
         }
-        this.coc.remove(str);
-        e.bTz.update();
+        this.cop.remove(str);
+        e.bTL.update();
         return d.V(null);
     }
 
     @NonNull
-    public d ane() {
-        this.coc.anb();
-        e.bTz.update();
+    public d anx() {
+        this.cop.anu();
+        e.bTL.update();
         return d.V(null);
     }
 
     @NonNull
     public com.baidu.swan.games.v.a.c getStorageInfoSync() {
-        String[] ana = this.coc.ana();
+        String[] ant = this.cop.ant();
         com.baidu.swan.games.v.a.c cVar = new com.baidu.swan.games.v.a.c();
-        cVar.keys = ana;
-        cVar.currentSize = this.coc.acx() / 1024;
-        cVar.limitSize = this.coc.acy() / 1024;
-        cVar.errMsg = com.baidu.swan.games.v.a.a.pq("getStorageInfoSync");
+        cVar.keys = ant;
+        cVar.currentSize = this.cop.acU() / 1024;
+        cVar.limitSize = this.cop.acV() / 1024;
+        cVar.errMsg = com.baidu.swan.games.v.a.a.pt("getStorageInfoSync");
         return cVar;
     }
 

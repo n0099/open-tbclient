@@ -1,10 +1,10 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class jl extends jm {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f801a;
+    private byte[] f799a;
     private int b;
 
     @Override // com.xiaomi.push.jm
@@ -19,7 +19,7 @@ public final class jl extends jm {
             i2 = b;
         }
         if (i2 > 0) {
-            System.arraycopy(this.f801a, this.a, bArr, i, i2);
+            System.arraycopy(this.f799a, this.a, bArr, i, i2);
             a(i2);
         }
         return i2;
@@ -41,7 +41,7 @@ public final class jl extends jm {
 
     @Override // com.xiaomi.push.jm
     public byte[] a() {
-        return this.f801a;
+        return this.f799a;
     }
 
     @Override // com.xiaomi.push.jm
@@ -51,7 +51,7 @@ public final class jl extends jm {
 
     @Override // com.xiaomi.push.jm
     public void b(byte[] bArr, int i, int i2) {
-        this.f801a = bArr;
+        this.f799a = bArr;
         this.a = i;
         this.b = i + i2;
     }

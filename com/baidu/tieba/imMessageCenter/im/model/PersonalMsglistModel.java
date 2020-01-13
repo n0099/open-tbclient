@@ -32,17 +32,17 @@ import com.baidu.tieba.imMessageCenter.LoadPersonalDraftMessage;
 import com.baidu.tieba.imMessageCenter.LoadPersonalHistoryMessage;
 import com.baidu.tieba.imMessageCenter.PersonalSaveDraftMessage;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     private int followStatus;
-    private String hHH;
-    private CardStatus hHI;
-    private ChatMessage hHJ;
-    private boolean hHK;
+    private String hLk;
+    private CardStatus hLl;
+    private ChatMessage hLm;
+    private boolean hLn;
     private int isFriend;
     private CustomMessageListener mCustomMessageListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public enum CardStatus {
         APPLY,
         WAIT,
@@ -64,7 +64,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001146) {
                         boolean processHistory = PersonalMsglistModel.this.processHistory(customResponsedMessage);
                         if ((customResponsedMessage.getOrginalMessage() instanceof LoadHistoryMessage) && processHistory && (callback = ((LoadHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                            callback.bPw();
+                            callback.bQF();
                         }
                     }
                 }
@@ -87,7 +87,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001146) {
                         boolean processHistory = PersonalMsglistModel.this.processHistory(customResponsedMessage);
                         if ((customResponsedMessage.getOrginalMessage() instanceof LoadHistoryMessage) && processHistory && (callback = ((LoadHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                            callback.bPw();
+                            callback.bQF();
                         }
                     }
                 }
@@ -129,8 +129,8 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
         aVar.limit = 20;
-        aVar.hBe = null;
-        aVar.hBf = null;
+        aVar.hEH = null;
+        aVar.hEI = null;
         aVar.id = this.mUser.getUserIdLong() + "";
         LoadPersonalHistoryMessage loadPersonalHistoryMessage = new LoadPersonalHistoryMessage(aVar);
         loadPersonalHistoryMessage.setCallback(dVar);
@@ -151,8 +151,8 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                 j = this.mDatas.getChatMessages().get(0).getMsgId();
                 j2 = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            aVar.hBe = String.valueOf(j);
-            aVar.hBf = String.valueOf(j2);
+            aVar.hEH = String.valueOf(j);
+            aVar.hEI = String.valueOf(j2);
             aVar.id = this.mUser.getUserIdLong() + "";
             super.sendMessage(new LoadPersonalHistoryMessage(aVar));
         }
@@ -206,7 +206,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(m.bRS().dq(String.valueOf(PersonalMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(m.bTb().ds(String.valueOf(PersonalMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -220,7 +220,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(m.bRS().dp(String.valueOf(PersonalMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(m.bTb().dr(String.valueOf(PersonalMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -239,12 +239,12 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected boolean onAfterLoadFromDb() {
-        ImMessageCenterPojo aW;
-        if (getUser() == null || (aW = b.bTW().aW(getUser().getUserId(), 2)) == null) {
+        ImMessageCenterPojo aX;
+        if (getUser() == null || (aX = b.bVf().aX(getUser().getUserId(), 2)) == null) {
             return false;
         }
-        dZ(aW.getRead_msgId());
-        bWz();
+        ee(aX.getRead_msgId());
+        bXI();
         return true;
     }
 
@@ -254,26 +254,26 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
             if (getUser() != null) {
                 LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
                 LinkedList linkedList = new LinkedList();
-                this.hHK = false;
+                this.hLn = false;
                 for (ChatMessage chatMessage : listMessage) {
                     if (chatMessage instanceof PersonalChatMessage) {
                         if (chatMessage.getMsgType() == 22) {
-                            if (this.hHJ == null) {
-                                this.hHJ = chatMessage;
-                            } else if (this.hHJ.getMsgId() < chatMessage.getMsgId()) {
-                                this.hHJ = chatMessage;
+                            if (this.hLm == null) {
+                                this.hLm = chatMessage;
+                            } else if (this.hLm.getMsgId() < chatMessage.getMsgId()) {
+                                this.hLm = chatMessage;
                             }
                         } else if (chatMessage.getToUserId() == getUser().getUserIdLong()) {
                             linkedList.add(chatMessage);
                         } else if (chatMessage.getUserId() == getUser().getUserIdLong()) {
-                            this.hHK = true;
+                            this.hLn = true;
                             linkedList.add(chatMessage);
                         }
                     }
                 }
                 processMsgFromServerCommon(linkedList);
                 if (ChatStatusManager.getInst().getIsOpen(0)) {
-                    bWx();
+                    bXG();
                 }
             }
         }
@@ -281,14 +281,14 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected boolean onAfterProcessMsgFromServer() {
-        if (this.hHJ == null || this.mDatas == null || this.mDatas.getChatMessages() == null || this.mDatas.getChatMessages().size() == 0 || e.r(this.hHJ)) {
+        if (this.hLm == null || this.mDatas == null || this.mDatas.getChatMessages() == null || this.mDatas.getChatMessages().size() == 0 || e.r(this.hLm)) {
             return false;
         }
-        dZ(com.baidu.tieba.im.chat.b.e.f(this.hHJ));
+        ee(com.baidu.tieba.im.chat.b.e.f(this.hLm));
         return true;
     }
 
-    private void dZ(long j) {
+    private void ee(long j) {
         if (j > 0) {
             for (ChatMessage chatMessage : this.mDatas.getChatMessages()) {
                 if (chatMessage != null && chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus().shortValue() == 3) {
@@ -314,12 +314,12 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         this.followStatus = i;
     }
 
-    public String bWw() {
-        return this.hHH;
+    public String bXF() {
+        return this.hLk;
     }
 
-    public void Dh(String str) {
-        this.hHH = str;
+    public void Dr(String str) {
+        this.hLk = str;
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
@@ -333,29 +333,29 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return cacheInfo;
     }
 
-    public void bWx() {
-        if (this.hHK) {
-            bWz();
-            this.hHK = false;
+    public void bXG() {
+        if (this.hLn) {
+            bXI();
+            this.hLn = false;
         }
     }
 
-    public CardStatus bWy() {
-        return this.hHI;
+    public CardStatus bXH() {
+        return this.hLl;
     }
 
     public void a(CardStatus cardStatus) {
-        this.hHI = cardStatus;
+        this.hLl = cardStatus;
     }
 
-    private void bWz() {
-        ImMessageCenterPojo aW;
+    private void bXI() {
+        ImMessageCenterPojo aX;
         if (getUser() != null) {
             long userIdLong = getUser().getUserIdLong();
-            if (userIdLong != 0 && (aW = b.bTW().aW(getUser().getUserId(), 2)) != null) {
-                long bWA = bWA();
-                if (bWA > aW.getSent_msgId()) {
-                    RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(com.baidu.tieba.im.util.d.dY(bWA), userIdLong);
+            if (userIdLong != 0 && (aX = b.bVf().aX(getUser().getUserId(), 2)) != null) {
+                long bXJ = bXJ();
+                if (bXJ > aX.getSent_msgId()) {
+                    RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(com.baidu.tieba.im.util.d.ed(bXJ), userIdLong);
                     if (!MessageManager.getInstance().getSocketClient().a(requestPersonalMsgReadMessage)) {
                         MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);
                     }
@@ -364,7 +364,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         }
     }
 
-    private long bWA() {
+    private long bXJ() {
         if (this.mDatas == null || this.mDatas.getChatMessages() == null || this.mDatas.getChatMessages().size() == 0) {
             return -1L;
         }
@@ -377,13 +377,13 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return -1L;
     }
 
-    public void Di(final String str) {
+    public void Ds(final String str) {
         ac.b(new ab<CommonMsgPojo>() { // from class: com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: bWB */
+            /* renamed from: bXK */
             public CommonMsgPojo doInBackground() {
-                return m.bRS().aU(PersonalMsglistModel.this.getUser().getUserId(), 23);
+                return m.bTb().aV(PersonalMsglistModel.this.getUser().getUserId(), 23);
             }
         }, new l<CommonMsgPojo>() { // from class: com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel.5
             /* JADX DEBUG: Method merged with bridge method */
@@ -402,7 +402,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
                         /* JADX WARN: Can't rename method to resolve collision */
                         @Override // com.baidu.tbadk.util.ab
                         public Boolean doInBackground() {
-                            return Boolean.valueOf(m.bRS().a(e.n(personalChatMessage), linkedList, false));
+                            return Boolean.valueOf(m.bTb().a(e.n(personalChatMessage), linkedList, false));
                         }
                     }, new l<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel.5.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -422,6 +422,6 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected long getMaxMid() {
-        return b.bTW().aZ(String.valueOf(com.baidu.tieba.im.sendmessage.a.hDt), -1);
+        return b.bVf().ba(String.valueOf(com.baidu.tieba.im.sendmessage.a.hGW), -1);
     }
 }

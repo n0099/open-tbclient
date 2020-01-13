@@ -1,5 +1,5 @@
 package com.baidu.mario.gldraw2d.params;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum ScaleType {
     FIT_XY,
     FIT_CENTER,

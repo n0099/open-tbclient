@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.source.hls;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface e {
-    com.google.android.exoplayer2.upstream.e KR(int i);
+    com.google.android.exoplayer2.upstream.e La(int i);
 }

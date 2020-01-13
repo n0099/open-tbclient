@@ -11,19 +11,19 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import kotlin.NoWhenBranchMatchedException;
-import kotlin.jvm.internal.p;
+import kotlin.jvm.internal.q;
 import kotlin.text.l;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public final class SVGAVideoShapeEntity {
-    private Matrix lzE;
-    private Type mLO;
-    private Map<String, ? extends Object> mLP;
-    private a mLQ;
-    private Path mLR;
+    private Matrix lDc;
+    private Type nlq;
+    private Map<String, ? extends Object> nlr;
+    private a nls;
+    private Path nlt;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public enum Type {
         shape,
         rect,
@@ -31,129 +31,129 @@ public final class SVGAVideoShapeEntity {
         keep
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public static final class a {
-        private float bvn;
         private int fill;
-        private int mLS;
-        private int mLV;
-        private String mLT = "butt";
-        private String mLU = "miter";
-        private float[] mLW = new float[0];
+        private int nlu;
+        private int nlx;
+        private float strokeWidth;
+        private String nlv = "butt";
+        private String nlw = "miter";
+        private float[] nly = new float[0];
 
-        public final void Mx(int i) {
+        public final void Nh(int i) {
             this.fill = i;
         }
 
-        public final int dAp() {
+        public final int dEi() {
             return this.fill;
         }
 
-        public final void My(int i) {
-            this.mLS = i;
+        public final void Ni(int i) {
+            this.nlu = i;
         }
 
-        public final int dAq() {
-            return this.mLS;
+        public final int dEj() {
+            return this.nlu;
         }
 
         public final void bF(float f) {
-            this.bvn = f;
+            this.strokeWidth = f;
         }
 
         public final float getStrokeWidth() {
-            return this.bvn;
+            return this.strokeWidth;
         }
 
-        public final void Qy(String str) {
-            p.j(str, "<set-?>");
-            this.mLT = str;
+        public final void QV(String str) {
+            q.j(str, "<set-?>");
+            this.nlv = str;
         }
 
-        public final String dAr() {
-            return this.mLT;
+        public final String dEk() {
+            return this.nlv;
         }
 
-        public final void Qz(String str) {
-            p.j(str, "<set-?>");
-            this.mLU = str;
+        public final void QW(String str) {
+            q.j(str, "<set-?>");
+            this.nlw = str;
         }
 
-        public final String dAs() {
-            return this.mLU;
+        public final String dEl() {
+            return this.nlw;
         }
 
-        public final void Mz(int i) {
-            this.mLV = i;
+        public final void Nj(int i) {
+            this.nlx = i;
         }
 
-        public final int dAt() {
-            return this.mLV;
+        public final int dEm() {
+            return this.nlx;
         }
 
-        public final float[] dAu() {
-            return this.mLW;
+        public final float[] dEn() {
+            return this.nly;
         }
 
         public final void l(float[] fArr) {
-            p.j(fArr, "<set-?>");
-            this.mLW = fArr;
+            q.j(fArr, "<set-?>");
+            this.nly = fArr;
         }
     }
 
-    public final a dAk() {
-        return this.mLQ;
+    public final a dEd() {
+        return this.nls;
     }
 
-    public final Matrix dAl() {
-        return this.lzE;
+    public final Matrix dEe() {
+        return this.lDc;
     }
 
     public SVGAVideoShapeEntity(JSONObject jSONObject) {
-        p.j(jSONObject, "obj");
-        this.mLO = Type.shape;
-        dx(jSONObject);
-        dy(jSONObject);
-        dz(jSONObject);
-        dA(jSONObject);
+        q.j(jSONObject, "obj");
+        this.nlq = Type.shape;
+        dQ(jSONObject);
+        dR(jSONObject);
+        dS(jSONObject);
+        dT(jSONObject);
     }
 
     public SVGAVideoShapeEntity(ShapeEntity shapeEntity) {
-        p.j(shapeEntity, "obj");
-        this.mLO = Type.shape;
+        q.j(shapeEntity, "obj");
+        this.nlq = Type.shape;
         a(shapeEntity);
         b(shapeEntity);
         c(shapeEntity);
         d(shapeEntity);
     }
 
-    public final boolean dAm() {
-        return this.mLO == Type.keep;
+    public final boolean dEf() {
+        return this.nlq == Type.keep;
     }
 
-    public final Path dAn() {
-        return this.mLR;
+    public final Path dEg() {
+        return this.nlt;
     }
 
-    private final void dx(JSONObject jSONObject) {
+    private final void dQ(JSONObject jSONObject) {
         String optString = jSONObject.optString("type");
         if (optString != null) {
-            if (!l.D(optString, "shape", true)) {
-                if (!l.D(optString, "rect", true)) {
-                    if (!l.D(optString, "ellipse", true)) {
-                        if (l.D(optString, "keep", true)) {
-                            this.mLO = Type.keep;
+            if (!l.E(optString, "shape", true)) {
+                if (!l.E(optString, "rect", true)) {
+                    if (!l.E(optString, "ellipse", true)) {
+                        if (l.E(optString, "keep", true)) {
+                            this.nlq = Type.keep;
                             return;
                         }
                         return;
                     }
-                    this.mLO = Type.ellipse;
+                    this.nlq = Type.ellipse;
                     return;
                 }
-                this.mLO = Type.rect;
+                this.nlq = Type.rect;
                 return;
             }
-            this.mLO = Type.shape;
+            this.nlq = Type.shape;
         }
     }
 
@@ -161,7 +161,7 @@ public final class SVGAVideoShapeEntity {
         Type type;
         ShapeEntity.ShapeType shapeType = shapeEntity.type;
         if (shapeType != null) {
-            switch (d.mLX[shapeType.ordinal()]) {
+            switch (d.nlz[shapeType.ordinal()]) {
                 case 1:
                     type = Type.shape;
                     break;
@@ -177,16 +177,16 @@ public final class SVGAVideoShapeEntity {
                 default:
                     throw new NoWhenBranchMatchedException();
             }
-            this.mLO = type;
+            this.nlq = type;
         }
     }
 
-    private final void dy(JSONObject jSONObject) {
+    private final void dR(JSONObject jSONObject) {
         HashMap hashMap = new HashMap();
         JSONObject optJSONObject = jSONObject.optJSONObject("args");
         if (optJSONObject != null) {
             Iterator<String> keys = optJSONObject.keys();
-            p.i(keys, "values.keys()");
+            q.i(keys, "values.keys()");
             while (keys.hasNext()) {
                 String next = keys.next();
                 Object obj = optJSONObject.get(next);
@@ -194,7 +194,7 @@ public final class SVGAVideoShapeEntity {
                     hashMap.put(next, obj);
                 }
             }
-            this.mLP = hashMap;
+            this.nlr = hashMap;
         }
     }
 
@@ -256,38 +256,38 @@ public final class SVGAVideoShapeEntity {
             }
             hashMap.put("cornerRadius", f9);
         }
-        this.mLP = hashMap;
+        this.nlr = hashMap;
     }
 
-    private final void dz(JSONObject jSONObject) {
+    private final void dS(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("styles");
         if (optJSONObject != null) {
             a aVar = new a();
             JSONArray optJSONArray = optJSONObject.optJSONArray("fill");
             if (optJSONArray != null && optJSONArray.length() == 4) {
-                aVar.Mx(Color.argb((int) (optJSONArray.optDouble(3) * 255), (int) (optJSONArray.optDouble(0) * 255), (int) (optJSONArray.optDouble(1) * 255), (int) (optJSONArray.optDouble(2) * 255)));
+                aVar.Nh(Color.argb((int) (optJSONArray.optDouble(3) * 255), (int) (optJSONArray.optDouble(0) * 255), (int) (optJSONArray.optDouble(1) * 255), (int) (optJSONArray.optDouble(2) * 255)));
             }
             JSONArray optJSONArray2 = optJSONObject.optJSONArray("stroke");
             if (optJSONArray2 != null && optJSONArray2.length() == 4) {
-                aVar.My(Color.argb((int) (optJSONArray2.optDouble(3) * 255), (int) (optJSONArray2.optDouble(0) * 255), (int) (optJSONArray2.optDouble(1) * 255), (int) (optJSONArray2.optDouble(2) * 255)));
+                aVar.Ni(Color.argb((int) (optJSONArray2.optDouble(3) * 255), (int) (optJSONArray2.optDouble(0) * 255), (int) (optJSONArray2.optDouble(1) * 255), (int) (optJSONArray2.optDouble(2) * 255)));
             }
             aVar.bF((float) optJSONObject.optDouble("strokeWidth", 0.0d));
             String optString = optJSONObject.optString("lineCap", "butt");
-            p.i(optString, "it.optString(\"lineCap\", \"butt\")");
-            aVar.Qy(optString);
+            q.i(optString, "it.optString(\"lineCap\", \"butt\")");
+            aVar.QV(optString);
             String optString2 = optJSONObject.optString("lineJoin", "miter");
-            p.i(optString2, "it.optString(\"lineJoin\", \"miter\")");
-            aVar.Qz(optString2);
-            aVar.Mz(optJSONObject.optInt("miterLimit", 0));
+            q.i(optString2, "it.optString(\"lineJoin\", \"miter\")");
+            aVar.QW(optString2);
+            aVar.Nj(optJSONObject.optInt("miterLimit", 0));
             JSONArray optJSONArray3 = optJSONObject.optJSONArray("lineDash");
             if (optJSONArray3 != null) {
                 aVar.l(new float[optJSONArray3.length()]);
                 int length = optJSONArray3.length();
                 for (int i = 0; i < length; i++) {
-                    aVar.dAu()[i] = (float) optJSONArray3.optDouble(i, 0.0d);
+                    aVar.dEn()[i] = (float) optJSONArray3.optDouble(i, 0.0d);
                 }
             }
-            this.mLQ = aVar;
+            this.nls = aVar;
         }
     }
 
@@ -304,7 +304,7 @@ public final class SVGAVideoShapeEntity {
                 Float f3 = rGBAColor.g;
                 int floatValue3 = (int) ((f3 != null ? f3.floatValue() : 0.0f) * 255);
                 Float f4 = rGBAColor.b;
-                aVar.Mx(Color.argb(floatValue, floatValue2, floatValue3, (int) ((f4 != null ? f4.floatValue() : 0.0f) * 255)));
+                aVar.Nh(Color.argb(floatValue, floatValue2, floatValue3, (int) ((f4 != null ? f4.floatValue() : 0.0f) * 255)));
             }
             ShapeEntity.ShapeStyle.RGBAColor rGBAColor2 = shapeStyle.stroke;
             if (rGBAColor2 != null) {
@@ -315,65 +315,65 @@ public final class SVGAVideoShapeEntity {
                 Float f7 = rGBAColor2.g;
                 int floatValue6 = (int) ((f7 != null ? f7.floatValue() : 0.0f) * 255);
                 Float f8 = rGBAColor2.b;
-                aVar.My(Color.argb(floatValue4, floatValue5, floatValue6, (int) ((f8 != null ? f8.floatValue() : 0.0f) * 255)));
+                aVar.Ni(Color.argb(floatValue4, floatValue5, floatValue6, (int) ((f8 != null ? f8.floatValue() : 0.0f) * 255)));
             }
             Float f9 = shapeStyle.strokeWidth;
             aVar.bF(f9 != null ? f9.floatValue() : 0.0f);
             ShapeEntity.ShapeStyle.LineCap lineCap = shapeStyle.lineCap;
             if (lineCap != null) {
-                switch (d.mLY[lineCap.ordinal()]) {
+                switch (d.nlA[lineCap.ordinal()]) {
                     case 1:
-                        aVar.Qy("butt");
+                        aVar.QV("butt");
                         break;
                     case 2:
-                        aVar.Qy("round");
+                        aVar.QV("round");
                         break;
                     case 3:
-                        aVar.Qy("square");
+                        aVar.QV("square");
                         break;
                 }
             }
             ShapeEntity.ShapeStyle.LineJoin lineJoin = shapeStyle.lineJoin;
             if (lineJoin != null) {
-                switch (d.mLZ[lineJoin.ordinal()]) {
+                switch (d.nlB[lineJoin.ordinal()]) {
                     case 1:
-                        aVar.Qz("bevel");
+                        aVar.QW("bevel");
                         break;
                     case 2:
-                        aVar.Qz("miter");
+                        aVar.QW("miter");
                         break;
                     case 3:
-                        aVar.Qz("round");
+                        aVar.QW("round");
                         break;
                 }
             }
             Float f10 = shapeStyle.miterLimit;
-            aVar.Mz((int) (f10 != null ? f10.floatValue() : 0.0f));
+            aVar.Nj((int) (f10 != null ? f10.floatValue() : 0.0f));
             aVar.l(new float[3]);
             Float f11 = shapeStyle.lineDashI;
             if (f11 != null) {
-                aVar.dAu()[0] = f11.floatValue();
+                aVar.dEn()[0] = f11.floatValue();
             }
             Float f12 = shapeStyle.lineDashII;
             if (f12 != null) {
-                aVar.dAu()[1] = f12.floatValue();
+                aVar.dEn()[1] = f12.floatValue();
             }
             Float f13 = shapeStyle.lineDashIII;
             if (f13 != null) {
-                aVar.dAu()[2] = f13.floatValue();
+                aVar.dEn()[2] = f13.floatValue();
             }
-            this.mLQ = aVar;
+            this.nls = aVar;
         }
     }
 
-    private final void dA(JSONObject jSONObject) {
+    private final void dT(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("transform");
         if (optJSONObject != null) {
             Matrix matrix = new Matrix();
             double optDouble = optJSONObject.optDouble(Config.APP_VERSION_CODE, 1.0d);
             double optDouble2 = optJSONObject.optDouble("b", 0.0d);
             matrix.setValues(new float[]{(float) optDouble, (float) optJSONObject.optDouble("c", 0.0d), (float) optJSONObject.optDouble("tx", 0.0d), (float) optDouble2, (float) optJSONObject.optDouble("d", 1.0d), (float) optJSONObject.optDouble(Config.EXCEPTION_CRASH_CHANNEL, 0.0d), (float) 0.0d, (float) 0.0d, (float) 1.0d});
-            this.lzE = matrix;
+            this.lDc = matrix;
         }
     }
 
@@ -404,46 +404,46 @@ public final class SVGAVideoShapeEntity {
             fArr[7] = 0.0f;
             fArr[8] = 1.0f;
             matrix.setValues(fArr);
-            this.lzE = matrix;
+            this.lDc = matrix;
         }
     }
 
-    public final void dAo() {
-        if (this.mLR == null) {
-            e.dAv().reset();
-            if (this.mLO == Type.shape) {
-                Map<String, ? extends Object> map = this.mLP;
+    public final void dEh() {
+        if (this.nlt == null) {
+            e.dEo().reset();
+            if (this.nlq == Type.shape) {
+                Map<String, ? extends Object> map = this.nlr;
                 Object obj = map != null ? map.get("d") : null;
                 if (!(obj instanceof String)) {
                     obj = null;
                 }
                 String str = (String) obj;
                 if (str != null) {
-                    new b(str).c(e.dAv());
+                    new b(str).c(e.dEo());
                 }
-            } else if (this.mLO == Type.ellipse) {
-                Map<String, ? extends Object> map2 = this.mLP;
+            } else if (this.nlq == Type.ellipse) {
+                Map<String, ? extends Object> map2 = this.nlr;
                 Object obj2 = map2 != null ? map2.get(Config.EVENT_HEAT_X) : null;
                 if (!(obj2 instanceof Number)) {
                     obj2 = null;
                 }
                 Number number = (Number) obj2;
                 if (number != null) {
-                    Map<String, ? extends Object> map3 = this.mLP;
+                    Map<String, ? extends Object> map3 = this.nlr;
                     Object obj3 = map3 != null ? map3.get("y") : null;
                     if (!(obj3 instanceof Number)) {
                         obj3 = null;
                     }
                     Number number2 = (Number) obj3;
                     if (number2 != null) {
-                        Map<String, ? extends Object> map4 = this.mLP;
+                        Map<String, ? extends Object> map4 = this.nlr;
                         Object obj4 = map4 != null ? map4.get("radiusX") : null;
                         if (!(obj4 instanceof Number)) {
                             obj4 = null;
                         }
                         Number number3 = (Number) obj4;
                         if (number3 != null) {
-                            Map<String, ? extends Object> map5 = this.mLP;
+                            Map<String, ? extends Object> map5 = this.nlr;
                             Object obj5 = map5 != null ? map5.get("radiusY") : null;
                             if (!(obj5 instanceof Number)) {
                                 obj5 = null;
@@ -454,7 +454,7 @@ public final class SVGAVideoShapeEntity {
                                 float floatValue2 = number2.floatValue();
                                 float floatValue3 = number3.floatValue();
                                 float floatValue4 = number4.floatValue();
-                                e.dAv().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
+                                e.dEo().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
                             } else {
                                 return;
                             }
@@ -467,36 +467,36 @@ public final class SVGAVideoShapeEntity {
                 } else {
                     return;
                 }
-            } else if (this.mLO == Type.rect) {
-                Map<String, ? extends Object> map6 = this.mLP;
+            } else if (this.nlq == Type.rect) {
+                Map<String, ? extends Object> map6 = this.nlr;
                 Object obj6 = map6 != null ? map6.get(Config.EVENT_HEAT_X) : null;
                 if (!(obj6 instanceof Number)) {
                     obj6 = null;
                 }
                 Number number5 = (Number) obj6;
                 if (number5 != null) {
-                    Map<String, ? extends Object> map7 = this.mLP;
+                    Map<String, ? extends Object> map7 = this.nlr;
                     Object obj7 = map7 != null ? map7.get("y") : null;
                     if (!(obj7 instanceof Number)) {
                         obj7 = null;
                     }
                     Number number6 = (Number) obj7;
                     if (number6 != null) {
-                        Map<String, ? extends Object> map8 = this.mLP;
+                        Map<String, ? extends Object> map8 = this.nlr;
                         Object obj8 = map8 != null ? map8.get("width") : null;
                         if (!(obj8 instanceof Number)) {
                             obj8 = null;
                         }
                         Number number7 = (Number) obj8;
                         if (number7 != null) {
-                            Map<String, ? extends Object> map9 = this.mLP;
+                            Map<String, ? extends Object> map9 = this.nlr;
                             Object obj9 = map9 != null ? map9.get("height") : null;
                             if (!(obj9 instanceof Number)) {
                                 obj9 = null;
                             }
                             Number number8 = (Number) obj9;
                             if (number8 != null) {
-                                Map<String, ? extends Object> map10 = this.mLP;
+                                Map<String, ? extends Object> map10 = this.nlr;
                                 Object obj10 = map10 != null ? map10.get("cornerRadius") : null;
                                 Number number9 = obj10 instanceof Number ? obj10 : null;
                                 if (number9 != null) {
@@ -505,7 +505,7 @@ public final class SVGAVideoShapeEntity {
                                     float floatValue7 = number7.floatValue();
                                     float floatValue8 = number8.floatValue();
                                     float floatValue9 = number9.floatValue();
-                                    e.dAv().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
+                                    e.dEo().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
                                 } else {
                                     return;
                                 }
@@ -522,10 +522,10 @@ public final class SVGAVideoShapeEntity {
                     return;
                 }
             }
-            this.mLR = new Path();
-            Path path = this.mLR;
+            this.nlt = new Path();
+            Path path = this.nlt;
             if (path != null) {
-                path.set(e.dAv());
+                path.set(e.dEo());
             }
         }
     }

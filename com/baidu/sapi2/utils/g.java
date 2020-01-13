@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface g {
     public static final int a = 10001;
     public static final int b = 10002;

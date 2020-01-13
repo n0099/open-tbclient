@@ -1,6 +1,6 @@
 package kotlin.jvm.internal;
-/* loaded from: classes4.dex */
-public class FunctionReference extends CallableReference implements FunctionBase, kotlin.reflect.e {
+/* loaded from: classes5.dex */
+public class FunctionReference extends CallableReference implements p, kotlin.reflect.e {
     private final int arity;
 
     public FunctionReference(int i) {
@@ -12,7 +12,7 @@ public class FunctionReference extends CallableReference implements FunctionBase
         this.arity = i;
     }
 
-    @Override // kotlin.jvm.internal.FunctionBase
+    @Override // kotlin.jvm.internal.p
     public int getArity() {
         return this.arity;
     }
@@ -26,7 +26,7 @@ public class FunctionReference extends CallableReference implements FunctionBase
 
     @Override // kotlin.jvm.internal.CallableReference
     protected kotlin.reflect.b computeReflected() {
-        return s.a(this);
+        return t.a(this);
     }
 
     @Override // kotlin.reflect.e
@@ -49,7 +49,7 @@ public class FunctionReference extends CallableReference implements FunctionBase
         return getReflected().isInfix();
     }
 
-    @Override // kotlin.reflect.e
+    @Override // kotlin.jvm.internal.CallableReference, kotlin.reflect.b
     public boolean isSuspend() {
         return getReflected().isSuspend();
     }
@@ -61,7 +61,7 @@ public class FunctionReference extends CallableReference implements FunctionBase
         if (obj instanceof FunctionReference) {
             FunctionReference functionReference = (FunctionReference) obj;
             if (getOwner() != null ? getOwner().equals(functionReference.getOwner()) : functionReference.getOwner() == null) {
-                if (getName().equals(functionReference.getName()) && getSignature().equals(functionReference.getSignature()) && p.h(getBoundReceiver(), functionReference.getBoundReceiver())) {
+                if (getName().equals(functionReference.getName()) && getSignature().equals(functionReference.getSignature()) && q.h(getBoundReceiver(), functionReference.getBoundReceiver())) {
                     return true;
                 }
             }

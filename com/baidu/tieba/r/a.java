@@ -13,13 +13,13 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static final List<String> jZf = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+    private static final List<String> kcI = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
 
-    public static String Iq(String str) {
+    public static String IA(String str) {
         return "enterfourm_att_" + str;
     }
 
-    public static String Ir(String str) {
+    public static String IB(String str) {
         return "enterfourm_rec_" + str;
     }
 
@@ -79,8 +79,8 @@ public class a {
     public static an b(String str, String str2, boolean z, int i, int i2) {
         an anVar = new an(str2);
         anVar.cp("page_type", str).Z("ad_exp", z ? 1 : 0).Z("ad_exp_cnt", i).Z("obj_floor", 0).Z("obj_adlocate", i2);
-        if (str != null && jZf.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhF);
+        if (str != null && kcI.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhR);
         }
         return anVar;
     }
@@ -102,11 +102,11 @@ public class a {
     public static an a(boolean z, bj bjVar, String str, String str2, int i, int i2, boolean z2, String str3, String str4, boolean z3, String str5, int i3) {
         an anVar = new an(str2);
         anVar.cp("page_type", str).Z("obj_floor", i2).Z("obj_isad", z2 ? 1 : 0).cp("obj_id", a(z2, str3, z3, str5, bjVar.getId(), bjVar.getBaijiahaoData())).cp("tid", bjVar.getTid()).Z("thread_type", z2 ? -1 : bjVar.getThreadType()).Z("obj_adlocate", i3);
-        if (!aq.isEmpty(bjVar.aAX())) {
-            anVar.cp("list_strategy", bjVar.aAX());
+        if (!aq.isEmpty(bjVar.aBq())) {
+            anVar.cp("list_strategy", bjVar.aBq());
         }
-        if (str != null && jZf.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().dhF)) {
-            anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhF);
+        if (str != null && kcI.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().dhR)) {
+            anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhR);
         } else if (!aq.isEmpty(bjVar.mRecomAbTag)) {
             anVar.cp(TiebaInitialize.Params.AB_TAG, bjVar.mRecomAbTag);
         }
@@ -116,11 +116,11 @@ public class a {
         if (bjVar.getFid() > 0) {
             anVar.s("fid", bjVar.getFid());
         }
-        if (!StringUtils.isNull(bjVar.aBk())) {
-            anVar.cp("first_dir", bjVar.aBk());
+        if (!StringUtils.isNull(bjVar.aBD())) {
+            anVar.cp("first_dir", bjVar.aBD());
         }
-        if (!StringUtils.isNull(bjVar.aBl())) {
-            anVar.cp("second_dir", bjVar.aBl());
+        if (!StringUtils.isNull(bjVar.aBE())) {
+            anVar.cp("second_dir", bjVar.aBE());
         }
         if (bjVar.getBaijiahaoData() != null) {
             anVar.cp("ugc_vid", bjVar.getBaijiahaoData().oriUgcVid);
@@ -139,8 +139,8 @@ public class a {
             str3 = str4;
         }
         Z.cp("obj_id", str3).Z("obj_adlocate", i3);
-        if (str != null && jZf.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhF);
+        if (str != null && kcI.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhR);
         }
         if (z) {
             anVar.Z("obj_locate", i);

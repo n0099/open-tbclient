@@ -10,19 +10,19 @@ import com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment;
 import com.baidu.tieba.pb.videopb.fragment.ReplyFragment;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
-    private List<String> iTR;
+    private List<String> iXu;
     private ArrayList<BaseFragment> mFragments;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.iTR == null) {
-            this.iTR = new ArrayList();
+        if (this.iXu == null) {
+            this.iXu = new ArrayList();
         }
-        this.iTR.clear();
-        this.iTR.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-        this.iTR.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+        this.iXu.clear();
+        this.iXu.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+        this.iXu.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         if (this.mFragments == null) {
             this.mFragments = new ArrayList<>();
         }
@@ -33,10 +33,10 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return zl(i);
+        return zq(i);
     }
 
-    public BaseFragment zl(int i) {
+    public BaseFragment zq(int i) {
         if (this.mFragments == null || i >= this.mFragments.size()) {
             return null;
         }
@@ -53,13 +53,13 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        if (this.iTR == null || i < 0 || i >= this.iTR.size()) {
+        if (this.iXu == null || i < 0 || i >= this.iXu.size()) {
             return null;
         }
-        return this.iTR.get(i);
+        return this.iXu.get(i);
     }
 
-    public ArrayList<BaseFragment> cqz() {
+    public ArrayList<BaseFragment> crG() {
         return this.mFragments;
     }
 }

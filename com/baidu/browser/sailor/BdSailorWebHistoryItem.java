@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Picture;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebHistoryItem;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BdSailorWebHistoryItem implements INoProGuard {
     private WebHistoryItem mItem;
 

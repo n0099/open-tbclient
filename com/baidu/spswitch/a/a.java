@@ -1,19 +1,19 @@
 package com.baidu.spswitch.a;
 
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a {
-    private final View aUQ;
-    private boolean aUR;
+    private final View aVI;
+    private boolean aVJ;
 
     public a(View view) {
-        this.aUQ = view;
+        this.aVI = view;
     }
 
     public void onSoftInputShowing(boolean z) {
-        this.aUR = z;
-        if (!z && this.aUQ.getVisibility() == 4) {
-            this.aUQ.setVisibility(8);
+        this.aVJ = z;
+        if (!z && this.aVI.getVisibility() == 4) {
+            this.aVI.setVisibility(8);
         }
     }
 }

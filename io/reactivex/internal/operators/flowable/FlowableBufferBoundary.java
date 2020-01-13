@@ -1,8 +1,7 @@
 package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.b.h;
-import io.reactivex.g;
+import io.reactivex.c.h;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
@@ -13,8 +12,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Open, Close> extends a<T, U> {
     final h<? super Open, ? extends org.a.b<? extends Close>> bufferClose;
     final org.a.b<? extends Open> bufferOpen;
@@ -24,11 +22,11 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
     protected void a(org.a.c<? super U> cVar) {
         BufferBoundarySubscriber bufferBoundarySubscriber = new BufferBoundarySubscriber(cVar, this.bufferOpen, this.bufferClose, this.bufferSupplier);
         cVar.onSubscribe(bufferBoundarySubscriber);
-        this.mTG.a((j) bufferBoundarySubscriber);
+        this.nvK.a((j) bufferBoundarySubscriber);
     }
 
-    /* loaded from: classes4.dex */
-    static final class BufferBoundarySubscriber<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class BufferBoundarySubscriber<T, C extends Collection<? super T>, Open, Close> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -8466418554264089604L;
         final org.a.c<? super C> actual;
         final h<? super Open, ? extends org.a.b<? extends Close>> bufferClose;
@@ -38,10 +36,10 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         volatile boolean done;
         long emitted;
         long index;
-        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(g.dDL());
+        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dHR());
         final io.reactivex.disposables.a subscribers = new io.reactivex.disposables.a();
         final AtomicLong requested = new AtomicLong();
-        final AtomicReference<d> upstream = new AtomicReference<>();
+        final AtomicReference<org.a.d> upstream = new AtomicReference<>();
         Map<Long, C> buffers = new LinkedHashMap();
         final AtomicThrowable errors = new AtomicThrowable();
 
@@ -53,7 +51,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.setOnce(this.upstream, dVar)) {
                 BufferOpenSubscriber bufferOpenSubscriber = new BufferOpenSubscriber(this);
                 this.subscribers.a(bufferOpenSubscriber);
@@ -85,7 +83,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -239,8 +237,8 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
             }
         }
 
-        /* loaded from: classes4.dex */
-        static final class BufferOpenSubscriber<Open> extends AtomicReference<d> implements io.reactivex.disposables.b, j<Open> {
+        /* loaded from: classes5.dex */
+        static final class BufferOpenSubscriber<Open> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<Open> {
             private static final long serialVersionUID = -8498650778633225126L;
             final BufferBoundarySubscriber<?, ?, Open, ?> parent;
 
@@ -249,7 +247,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
             }
 
             @Override // io.reactivex.j, org.a.c
-            public void onSubscribe(d dVar) {
+            public void onSubscribe(org.a.d dVar) {
                 SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
             }
 
@@ -283,8 +281,8 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class BufferCloseSubscriber<T, C extends Collection<? super T>> extends AtomicReference<d> implements io.reactivex.disposables.b, j<Object> {
+    /* loaded from: classes5.dex */
+    public static final class BufferCloseSubscriber<T, C extends Collection<? super T>> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<Object> {
         private static final long serialVersionUID = -8498650778633225126L;
         final long index;
         final BufferBoundarySubscriber<T, C, ?, ?> parent;
@@ -295,13 +293,13 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            d dVar = get();
+            org.a.d dVar = get();
             if (dVar != SubscriptionHelper.CANCELLED) {
                 lazySet(SubscriptionHelper.CANCELLED);
                 dVar.cancel();
@@ -316,7 +314,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
                 this.parent.boundaryError(this, th);
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c

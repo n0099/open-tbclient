@@ -5,49 +5,49 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.util.Base64Encoder;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private String OP;
-    private String OQ;
-    private String OR;
-    private String OT;
     private String OU;
+    private String OV;
+    private String OW;
+    private String OX;
+    private String OY;
 
     public c() {
         init();
     }
 
     private void init() {
-        this.OP = Build.MODEL;
-        if (TextUtils.isEmpty(this.OP)) {
-            this.OP = "NUL";
+        this.OU = Build.MODEL;
+        if (TextUtils.isEmpty(this.OU)) {
+            this.OU = "NUL";
         } else {
-            this.OP = this.OP.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            this.OU = this.OU.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
         }
-        this.OQ = Build.MANUFACTURER;
-        if (TextUtils.isEmpty(this.OQ)) {
-            this.OQ = "NUL";
+        this.OV = Build.MANUFACTURER;
+        if (TextUtils.isEmpty(this.OV)) {
+            this.OV = "NUL";
         } else {
-            this.OQ = this.OQ.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            this.OV = this.OV.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
         }
-        this.OR = Build.VERSION.RELEASE;
-        if (TextUtils.isEmpty(this.OR)) {
-            this.OR = "0.0";
+        this.OW = Build.VERSION.RELEASE;
+        if (TextUtils.isEmpty(this.OW)) {
+            this.OW = "0.0";
         } else {
-            this.OR = this.OR.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            this.OW = this.OW.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
         }
-        this.OT = nk();
-        this.OU = new String(Base64Encoder.B64Encode(this.OT.getBytes()));
+        this.OX = nl();
+        this.OY = new String(Base64Encoder.B64Encode(this.OX.getBytes()));
     }
 
-    private String nk() {
-        String str = this.OP;
-        String str2 = this.OR;
+    private String nl() {
+        String str = this.OU;
+        String str2 = this.OW;
         int i = Build.VERSION.SDK_INT;
-        return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.OQ;
+        return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.OV;
     }
 
     public String getDeviceInfo() {
-        return this.OT;
+        return this.OX;
     }
 }

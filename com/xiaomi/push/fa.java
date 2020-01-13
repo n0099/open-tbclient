@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.MiPushClient;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum fa {
     COMMAND_REGISTER("register"),
     COMMAND_UNREGISTER("unregister"),
@@ -17,10 +17,10 @@ public enum fa {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f337a;
+    public final String f335a;
 
     fa(String str) {
-        this.f337a = str;
+        this.f335a = str;
     }
 
     public static int a(String str) {
@@ -28,7 +28,7 @@ public enum fa {
         int i = -1;
         if (!TextUtils.isEmpty(str)) {
             for (fa faVar : values()) {
-                if (faVar.f337a.equals(str)) {
+                if (faVar.f335a.equals(str)) {
                     i = eu.a(faVar);
                 }
             }

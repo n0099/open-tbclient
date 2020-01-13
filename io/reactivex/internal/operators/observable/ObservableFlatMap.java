@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.h;
-import io.reactivex.internal.a.e;
+import io.reactivex.c.h;
 import io.reactivex.internal.a.f;
+import io.reactivex.internal.a.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -14,7 +14,7 @@ import java.util.Queue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableFlatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final boolean delayErrors;
@@ -28,7 +28,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class MergeObserver<T, U> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -2117620485640801370L;
         final u<? super U> actual;
@@ -42,7 +42,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
         final h<? super T, ? extends t<? extends U>> mapper;
         final int maxConcurrency;
         final AtomicReference<InnerObserver<?, ?>[]> observers;
-        volatile e<U> queue;
+        volatile f<U> queue;
         io.reactivex.disposables.b s;
         Queue<t<? extends U>> sources;
         long uniqueId;
@@ -188,16 +188,16 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                         return true;
                     }
                 } else {
-                    e<U> eVar = this.queue;
-                    if (eVar == null) {
+                    f<U> fVar = this.queue;
+                    if (fVar == null) {
                         if (this.maxConcurrency == Integer.MAX_VALUE) {
-                            eVar = new io.reactivex.internal.queue.a<>(this.bufferSize);
+                            fVar = new io.reactivex.internal.queue.a<>(this.bufferSize);
                         } else {
-                            eVar = new SpscArrayQueue<>(this.maxConcurrency);
+                            fVar = new SpscArrayQueue<>(this.maxConcurrency);
                         }
-                        this.queue = eVar;
+                        this.queue = fVar;
                     }
-                    if (!eVar.offer(call)) {
+                    if (!fVar.offer(call)) {
                         onError(new IllegalStateException("Scalar queue full?!"));
                         return true;
                     } else if (getAndIncrement() != 0) {
@@ -221,12 +221,12 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                     return;
                 }
             } else {
-                f fVar = innerObserver.queue;
-                if (fVar == null) {
-                    fVar = new io.reactivex.internal.queue.a(this.bufferSize);
-                    innerObserver.queue = fVar;
+                g gVar = innerObserver.queue;
+                if (gVar == null) {
+                    gVar = new io.reactivex.internal.queue.a(this.bufferSize);
+                    innerObserver.queue = gVar;
                 }
-                fVar.offer(u);
+                gVar.offer(u);
                 if (getAndIncrement() != 0) {
                     return;
                 }
@@ -237,12 +237,12 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             } else if (this.errors.addThrowable(th)) {
                 this.done = true;
                 drain();
             } else {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
 
@@ -260,7 +260,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
             if (!this.cancelled) {
                 this.cancelled = true;
                 if (disposeAll() && (terminate = this.errors.terminate()) != null && terminate != ExceptionHelper.TERMINATED) {
-                    io.reactivex.d.a.onError(terminate);
+                    io.reactivex.e.a.onError(terminate);
                 }
             }
         }
@@ -288,10 +288,10 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
             u<? super U> uVar = this.actual;
             int i2 = 1;
             while (!checkTerminate()) {
-                e<U> eVar = this.queue;
-                if (eVar != null) {
+                f<U> fVar = this.queue;
+                if (fVar != null) {
                     while (!checkTerminate()) {
-                        Object obj = (U) eVar.poll();
+                        Object obj = (U) fVar.poll();
                         if (obj != null) {
                             uVar.onNext(obj);
                         } else if (obj == null) {
@@ -300,7 +300,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                     return;
                 }
                 boolean z2 = this.done;
-                e<U> eVar2 = this.queue;
+                f<U> fVar2 = this.queue;
                 InnerObserver<?, ?>[] innerObserverArr = this.observers.get();
                 int length = innerObserverArr.length;
                 if (this.maxConcurrency != Integer.MAX_VALUE) {
@@ -310,7 +310,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                 } else {
                     i = 0;
                 }
-                if (z2 && ((eVar2 == null || eVar2.isEmpty()) && length == 0 && i == 0)) {
+                if (z2 && ((fVar2 == null || fVar2.isEmpty()) && length == 0 && i == 0)) {
                     Throwable terminate = this.errors.terminate();
                     if (terminate != ExceptionHelper.TERMINATED) {
                         if (terminate == null) {
@@ -346,11 +346,11 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                         if (!checkTerminate()) {
                             InnerObserver<T, U> innerObserver = innerObserverArr[i5];
                             while (!checkTerminate()) {
-                                f<U> fVar = innerObserver.queue;
-                                if (fVar != null) {
+                                g<U> gVar = innerObserver.queue;
+                                if (gVar != null) {
                                     while (true) {
                                         try {
-                                            Object obj2 = (U) fVar.poll();
+                                            Object obj2 = (U) gVar.poll();
                                             if (obj2 == null) {
                                                 break;
                                             }
@@ -373,8 +373,8 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                                     }
                                 }
                                 boolean z4 = innerObserver.done;
-                                f<U> fVar2 = innerObserver.queue;
-                                if (z4 && (fVar2 == null || fVar2.isEmpty())) {
+                                g<U> gVar2 = innerObserver.queue;
+                                if (z4 && (gVar2 == null || gVar2.isEmpty())) {
                                     removeInner(innerObserver);
                                     if (checkTerminate()) {
                                         return;
@@ -450,14 +450,14 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class InnerObserver<T, U> extends AtomicReference<io.reactivex.disposables.b> implements u<U> {
         private static final long serialVersionUID = -4606175640614850599L;
         volatile boolean done;
         int fusionMode;
         final long id;
         final MergeObserver<T, U> parent;
-        volatile f<U> queue;
+        volatile g<U> queue;
 
         InnerObserver(MergeObserver<T, U> mergeObserver, long j) {
             this.id = j;
@@ -500,7 +500,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                 this.parent.drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u

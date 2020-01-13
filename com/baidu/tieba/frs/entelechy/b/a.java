@@ -4,7 +4,7 @@ import com.baidu.adp.widget.ListView.r;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.entelechy.a.af;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface a {
     af a(FrsFragment frsFragment, r rVar, boolean z);
 
@@ -14,5 +14,5 @@ public interface a {
 
     c b(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
 
-    b bEb();
+    b bFd();
 }

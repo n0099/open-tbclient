@@ -1,7 +1,7 @@
 package com.facebook.drawee.drawable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface j {
-    void bo(float f);
+    void bn(float f);
 
     void k(float[] fArr);
 
@@ -9,7 +9,7 @@ public interface j {
 
     void setRadius(float f);
 
-    void uS(boolean z);
+    void ve(boolean z);
 
-    void uT(boolean z);
+    void vf(boolean z);
 }

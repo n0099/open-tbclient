@@ -17,7 +17,7 @@ import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i extends a implements f {
     public i(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/request");
@@ -30,9 +30,9 @@ public class i extends a implements f {
     @Override // com.baidu.swan.apps.network.a, com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (a(eVar, unitedSchemeEntity)) {
-            String fq = com.baidu.swan.apps.api.module.g.c.fq(eVar.id);
-            if (a(eVar, unitedSchemeEntity, callbackHandler, fq)) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(fs(fq), 0));
+            String ft = com.baidu.swan.apps.api.module.g.c.ft(eVar.id);
+            if (a(eVar, unitedSchemeEntity, callbackHandler, ft)) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(fv(ft), 0));
                 return true;
             }
             return false;
@@ -46,29 +46,29 @@ public class i extends a implements f {
         Pair<Request, Integer> j = com.baidu.swan.apps.api.module.g.b.j(b, str);
         Request request = (Request) j.first;
         if (request == null) {
-            unitedSchemeEntity.result = fl(((Integer) j.second).intValue());
+            unitedSchemeEntity.result = fm(((Integer) j.second).intValue());
             return false;
         }
         final String S = com.baidu.swan.apps.api.module.g.b.S(b);
         final String T = com.baidu.swan.apps.api.module.g.b.T(b);
-        final int appFrameType = eVar.DR().getAppFrameType();
+        final int appFrameType = eVar.En().getAppFrameType();
         final String httpUrl = request.url().toString();
         final long currentTimeMillis = System.currentTimeMillis();
-        final String acl = com.baidu.swan.apps.statistic.f.acl();
-        final String page = ai.aeB().getPage();
+        final String acI = com.baidu.swan.apps.statistic.f.acI();
+        final String page = ai.aeU().getPage();
         final String optString = b.optString("cb");
         final long currentTimeMillis2 = System.currentTimeMillis();
         com.baidu.swan.apps.statistic.f.H(httpUrl, appFrameType);
-        eVar.aae().a(request, new Callback() { // from class: com.baidu.swan.apps.network.i.1
+        eVar.aaB().a(request, new Callback() { // from class: com.baidu.swan.apps.network.i.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (i.DEBUG) {
                     Log.d("RequestAction", "onFailure: " + iOException.getMessage());
                 }
-                SwanAppNetworkUtils.a(eVar.aae().Wj(), str);
+                SwanAppNetworkUtils.a(eVar.aaB().WG(), str);
                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
                 if (SwanAppNetworkUtils.isNetworkConnected(null)) {
-                    com.baidu.swan.apps.statistic.f.a(0, httpUrl, appFrameType, iOException.getMessage(), acl, page, currentTimeMillis2, System.currentTimeMillis());
+                    com.baidu.swan.apps.statistic.f.a(0, httpUrl, appFrameType, iOException.getMessage(), acI, page, currentTimeMillis2, System.currentTimeMillis());
                 }
             }
 
@@ -98,7 +98,7 @@ public class i extends a implements f {
                 if (i.DEBUG) {
                     Log.d("RequestAction", "onResponse: respCode: " + code + ", url=" + httpUrl + ", msg=" + message);
                 }
-                com.baidu.swan.apps.statistic.f.a(code, httpUrl, appFrameType, message, acl, page, currentTimeMillis2, System.currentTimeMillis());
+                com.baidu.swan.apps.statistic.f.a(code, httpUrl, appFrameType, message, acI, page, currentTimeMillis2, System.currentTimeMillis());
             }
         });
         return true;

@@ -1,7 +1,7 @@
 package com.baidu.swan.games.glsurface.a.a;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     @V8JavascriptField
     public double clientX;

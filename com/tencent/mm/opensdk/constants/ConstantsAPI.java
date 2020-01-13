@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface ConstantsAPI {
     public static final String ACTION_HANDLE_APP_REGISTER = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
     public static final String ACTION_HANDLE_APP_UNREGISTER = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
@@ -33,7 +33,7 @@ public interface ConstantsAPI {
     public static final String CONTENT = "_mmessage_content";
     public static final String SDK_VERSION = "_mmessage_sdkVersion";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class AppSupportContentFlag {
         public static final long MMAPP_SUPPORT_AUDIO = 16;
         public static final long MMAPP_SUPPORT_DOC = 64;
@@ -50,7 +50,7 @@ public interface ConstantsAPI {
         public static final long MMAPP_SUPPORT_XLSX = 2048;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class OpenWebviewType {
         public static final int TYPE_INVOICE_AUTH_INSERT = 2;
         public static final int TYPE_NONTAX_PAY = 3;
@@ -58,7 +58,7 @@ public interface ConstantsAPI {
         public static final int TYPE_SUBSCRIBE_MESSAGE = 1;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Token {
         public static final String WX_LAUNCH_PARAM_KEY = "launchParam";
         public static final String WX_TOKEN_KEY = "wx_token_key";
@@ -67,7 +67,7 @@ public interface ConstantsAPI {
         public static final String WX_TOKEN_VALUE_MSG = "com.tencent.mm.openapi.token";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class WXApp {
         public static final String WXAPP_BROADCAST_PERMISSION = "com.tencent.mm.permission.MM_MESSAGE";
         public static final String WXAPP_MSG_ENTRY_CLASSNAME = "com.tencent.mm.plugin.base.stub.WXEntryActivity";

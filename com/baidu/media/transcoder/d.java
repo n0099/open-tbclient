@@ -1,7 +1,7 @@
 package com.baidu.media.transcoder;
 
 import android.util.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static int a = 1;
 

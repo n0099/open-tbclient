@@ -8,29 +8,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends a {
-    private static a hsE;
-    public static String hsg = "tb_oficial_msg_";
+    public static String hvJ = "tb_oficial_msg_";
+    private static a hwh;
 
     private l() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
     }
 
-    public static synchronized l bRQ() {
+    public static synchronized l bSZ() {
         l lVar;
         synchronized (l.class) {
-            if (hsE == null) {
-                hsE = new l();
+            if (hwh == null) {
+                hwh = new l();
             }
-            lVar = (l) hsE;
+            lVar = (l) hwh;
         }
         return lVar;
     }
 
-    public static List<String> bRR() {
+    public static List<String> bTa() {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = h.bRG().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time" + MediaQueryParam.SORT_ASC, new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+            cursor = h.bSP().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time" + MediaQueryParam.SORT_ASC, new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));

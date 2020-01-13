@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class e {
-    public static void Ah(int i) {
+    public static void Am(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -21,7 +21,7 @@ public class e {
         TiebaStatic.log(new an("c12493").Z("obj_type", i2));
     }
 
-    public static void Ai(int i) {
+    public static void An(int i) {
         int i2;
         int i3 = 2;
         if (i == -100) {
@@ -43,11 +43,11 @@ public class e {
         TiebaStatic.log(new an("c12029").Z("obj_type", i2).Z("obj_param1", j.isWifiNet() ? 0 : 1).Z(TiebaInitialize.Params.OBJ_PARAM2, i3));
     }
 
-    public static void GJ(String str) {
+    public static void GT(String str) {
         TiebaStatic.log(new an("c12026").cp("tid", str));
     }
 
-    public static void Aj(int i) {
+    public static void Ao(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -170,7 +170,7 @@ public class e {
         }
     }
 
-    public static void cy(int i, int i2) {
+    public static void cx(int i, int i2) {
         switch (i2) {
             case -10040:
                 TiebaStatic.log(new an("c12511").Z("obj_locate", 6));

@@ -31,58 +31,58 @@ import com.baidu.tieba.tbadkCore.util.f;
 import com.baidu.tieba.view.VoteCountDownView;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private i iOk;
-    private TextView iOl;
-    private View iOm;
-    private TextView iOn;
-    private TextView iOo;
-    private TextView iOp;
-    private View iOq;
-    private TextView iOr;
-    private VoteCountDownView iOs;
-    private View iOt;
-    private TextView iOu;
-    private TextView iOv;
-    private TextView iOw;
-    private f izv;
+    private f iCZ;
+    private i iRO;
+    private TextView iRP;
+    private View iRQ;
+    private TextView iRR;
+    private TextView iRS;
+    private TextView iRT;
+    private View iRU;
+    private TextView iRV;
+    private VoteCountDownView iRW;
+    private View iRX;
+    private TextView iRY;
+    private TextView iRZ;
+    private TextView iSa;
     private TbPageContext mPageContext;
     private View mRootView;
     private int status;
-    private VoteCountDownView.a fBe = new VoteCountDownView.a() { // from class: com.baidu.tieba.pb.pb.main.view.a.1
+    private VoteCountDownView.a fEp = new VoteCountDownView.a() { // from class: com.baidu.tieba.pb.pb.main.view.a.1
         @Override // com.baidu.tieba.view.VoteCountDownView.a
         public void onFinished() {
             if (a.this.mRootView != null) {
-                if (a.this.izv == null || a.this.izv.iwh == null) {
+                if (a.this.iCZ == null || a.this.iCZ.izL == null) {
                     a.this.mRootView.setVisibility(8);
                     return;
                 }
-                a.this.izv.iwh.setStatus(3);
-                a.this.setData(a.this.izv);
+                a.this.iCZ.izL.setStatus(3);
+                a.this.setData(a.this.iCZ);
             }
         }
     };
-    private View.OnClickListener dmK = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.a.2
+    private View.OnClickListener dmY = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.pb_jump_to_vote_page) {
-                if (a.this.izv != null && a.this.mPageContext != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(a.this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(a.this.izv.getForumId(), 0L), 3)));
+                if (a.this.iCZ != null && a.this.mPageContext != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(a.this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(a.this.iCZ.getForumId(), 0L), 3)));
                 }
-            } else if (view.getId() == R.id.pb_vote_button && bc.checkUpIsLogin(a.this.mPageContext.getPageActivity()) && a.this.izv != null && a.this.iOk != null && a.this.izv.chK() != null) {
-                if (a.this.iOk.brx()) {
-                    new an("c13444").cp("forum_id", a.this.izv.getForumId()).aDT();
+            } else if (view.getId() == R.id.pb_vote_button && bc.checkUpIsLogin(a.this.mPageContext.getPageActivity()) && a.this.iCZ != null && a.this.iRO != null && a.this.iCZ.ciS() != null) {
+                if (a.this.iRO.bsz()) {
+                    new an("c13444").cp("forum_id", a.this.iCZ.getForumId()).aEm();
                     e eVar = new e();
-                    eVar.setThreadId(com.baidu.adp.lib.f.b.toLong(a.this.izv.getThreadId(), 0L));
-                    eVar.setForumId(com.baidu.adp.lib.f.b.toLong(a.this.izv.getForumId(), 0L));
+                    eVar.setThreadId(com.baidu.adp.lib.f.b.toLong(a.this.iCZ.getThreadId(), 0L));
+                    eVar.setForumId(com.baidu.adp.lib.f.b.toLong(a.this.iCZ.getForumId(), 0L));
                     String str = "";
-                    PostData E = a.this.E(a.this.izv);
-                    if (E != null && E.azE() != null) {
-                        str = E.azE().getUserId();
+                    PostData E = a.this.E(a.this.iCZ);
+                    if (E != null && E.azX() != null) {
+                        str = E.azX().getUserId();
                     }
-                    eVar.em(com.baidu.adp.lib.f.b.toLong(str, 0L));
-                    eVar.yk(2);
+                    eVar.er(com.baidu.adp.lib.f.b.toLong(str, 0L));
+                    eVar.yp(2);
                     eVar.r(a.this.mPageContext.getUniqueId());
                     CustomMessage customMessage = new CustomMessage(2921411);
                     customMessage.setData(eVar);
@@ -93,19 +93,19 @@ public class a {
             }
         }
     };
-    private HttpMessageListener fwy = new HttpMessageListener(CmdConfigHttp.CMD_BAR_VOTE) { // from class: com.baidu.tieba.pb.pb.main.view.a.3
+    private HttpMessageListener fzJ = new HttpMessageListener(CmdConfigHttp.CMD_BAR_VOTE) { // from class: com.baidu.tieba.pb.pb.main.view.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             String errorString;
             if (httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage() != null) {
                 int error = httpResponsedMessage.getError();
-                if ((httpResponsedMessage instanceof CommitVoteResMsg) && a.this.izv != null && a.this.izv.iwh != null && a.this.mPageContext != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.mPageContext.getUniqueId()) {
+                if ((httpResponsedMessage instanceof CommitVoteResMsg) && a.this.iCZ != null && a.this.iCZ.izL != null && a.this.mPageContext != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.mPageContext.getUniqueId()) {
                     if (error == 0) {
                         l.showToast(TbadkCoreApplication.getInst(), (int) R.string.bar_manager_vote_success);
-                        a.this.izv.iwh.yp(a.this.izv.iwh.cir() + 1);
-                        a.this.izv.iwh.jR(false);
-                        a.this.setData(a.this.izv);
+                        a.this.iCZ.izL.yu(a.this.iCZ.izL.cjz() + 1);
+                        a.this.iCZ.izL.kc(false);
+                        a.this.setData(a.this.iCZ);
                     } else if (error == 3250023) {
                         com.baidu.tieba.tbadkCore.util.f.a(error, "", (f.a) null);
                     } else if (error == 3250021) {
@@ -139,90 +139,90 @@ public class a {
             return null;
         }
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.bar_manager_select_view, (ViewGroup) null);
-        this.iOl = (TextView) this.mRootView.findViewById(R.id.pb_bar_manager_select_warn);
-        this.iOm = this.mRootView.findViewById(R.id.pb_vote_button_container);
-        this.iOr = (TextView) this.mRootView.findViewById(R.id.pb_count_down_title);
-        this.iOo = (TextView) this.mRootView.findViewById(R.id.pb_vote_button);
-        this.iOn = (TextView) this.mRootView.findViewById(R.id.pb_vote_num);
-        this.iOp = (TextView) this.mRootView.findViewById(R.id.pb_bar_manager_ueg_tip);
-        this.iOq = this.mRootView.findViewById(R.id.pb_count_down_container);
-        this.iOs = (VoteCountDownView) this.mRootView.findViewById(R.id.pb_vote_count_down_view);
-        this.iOt = this.mRootView.findViewById(R.id.pb_vote_rule);
-        this.iOu = (TextView) this.mRootView.findViewById(R.id.pb_vote_rule_title);
-        this.iOv = (TextView) this.mRootView.findViewById(R.id.pb_vote_rule_content);
-        this.iOw = (TextView) this.mRootView.findViewById(R.id.pb_jump_to_vote_page);
-        MessageManager.getInstance().registerListener(this.fwy);
+        this.iRP = (TextView) this.mRootView.findViewById(R.id.pb_bar_manager_select_warn);
+        this.iRQ = this.mRootView.findViewById(R.id.pb_vote_button_container);
+        this.iRV = (TextView) this.mRootView.findViewById(R.id.pb_count_down_title);
+        this.iRS = (TextView) this.mRootView.findViewById(R.id.pb_vote_button);
+        this.iRR = (TextView) this.mRootView.findViewById(R.id.pb_vote_num);
+        this.iRT = (TextView) this.mRootView.findViewById(R.id.pb_bar_manager_ueg_tip);
+        this.iRU = this.mRootView.findViewById(R.id.pb_count_down_container);
+        this.iRW = (VoteCountDownView) this.mRootView.findViewById(R.id.pb_vote_count_down_view);
+        this.iRX = this.mRootView.findViewById(R.id.pb_vote_rule);
+        this.iRY = (TextView) this.mRootView.findViewById(R.id.pb_vote_rule_title);
+        this.iRZ = (TextView) this.mRootView.findViewById(R.id.pb_vote_rule_content);
+        this.iSa = (TextView) this.mRootView.findViewById(R.id.pb_jump_to_vote_page);
+        MessageManager.getInstance().registerListener(this.fzJ);
         setData(fVar);
         return this.mRootView;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
         if (this.mRootView != null) {
-            if (fVar == null || fVar.iwh == null) {
+            if (fVar == null || fVar.izL == null) {
                 this.mRootView.setVisibility(8);
                 return;
             }
-            this.izv = fVar;
-            this.iOk = fVar.iwh;
-            if (this.iOk.getStatus() != 0) {
-                this.status = this.iOk.getStatus();
+            this.iCZ = fVar;
+            this.iRO = fVar.izL;
+            if (this.iRO.getStatus() != 0) {
+                this.status = this.iRO.getStatus();
                 if (this.status == 2) {
-                    this.iOm.setVisibility(8);
-                    this.iOq.setVisibility(0);
-                    this.iOs.setOnCountDownFinished(this.fBe);
-                    this.iOs.setData(this.iOk.ciq() * 1000);
-                    this.iOw.setVisibility(8);
+                    this.iRQ.setVisibility(8);
+                    this.iRU.setVisibility(0);
+                    this.iRW.setOnCountDownFinished(this.fEp);
+                    this.iRW.setData(this.iRO.cjy() * 1000);
+                    this.iSa.setVisibility(8);
                 } else if (this.status == 3) {
-                    this.iOm.setVisibility(0);
-                    this.iOo.setOnClickListener(this.dmK);
-                    this.iOq.setVisibility(8);
-                    this.iOw.setVisibility(0);
-                    this.iOw.setOnClickListener(this.dmK);
-                    this.iOn.setText(this.iOk.cir() + "票");
+                    this.iRQ.setVisibility(0);
+                    this.iRS.setOnClickListener(this.dmY);
+                    this.iRU.setVisibility(8);
+                    this.iSa.setVisibility(0);
+                    this.iSa.setOnClickListener(this.dmY);
+                    this.iRR.setText(this.iRO.cjz() + "票");
                 } else if (this.status == 4 || this.status == 5) {
-                    this.iOm.setVisibility(0);
-                    this.iOo.setEnabled(false);
-                    this.iOq.setVisibility(8);
-                    this.iOw.setVisibility(0);
-                    this.iOw.setOnClickListener(this.dmK);
-                    this.iOn.setText(this.iOk.cir() + "票");
+                    this.iRQ.setVisibility(0);
+                    this.iRS.setEnabled(false);
+                    this.iRU.setVisibility(8);
+                    this.iSa.setVisibility(0);
+                    this.iSa.setOnClickListener(this.dmY);
+                    this.iRR.setText(this.iRO.cjz() + "票");
                 } else if (this.status == 6) {
-                    this.iOm.setVisibility(0);
-                    this.iOo.setEnabled(false);
-                    this.iOq.setVisibility(8);
-                    this.iOn.setText(this.iOk.cir() + "票");
-                    this.iOw.setVisibility(8);
+                    this.iRQ.setVisibility(0);
+                    this.iRS.setEnabled(false);
+                    this.iRU.setVisibility(8);
+                    this.iRR.setText(this.iRO.cjz() + "票");
+                    this.iSa.setVisibility(8);
                 } else {
                     this.mRootView.setVisibility(8);
                     return;
                 }
-                if (this.iOk.cis() != null && !v.isEmpty(this.iOk.cis())) {
-                    StringBuilder sb = new StringBuilder(this.iOk.cis().get(0));
+                if (this.iRO.cjA() != null && !v.isEmpty(this.iRO.cjA())) {
+                    StringBuilder sb = new StringBuilder(this.iRO.cjA().get(0));
                     int i = 1;
-                    while (i < this.iOk.cis().size()) {
-                        StringBuilder append = sb.append("\n").append(this.iOk.cis().get(i));
+                    while (i < this.iRO.cjA().size()) {
+                        StringBuilder append = sb.append("\n").append(this.iRO.cjA().get(i));
                         i++;
                         sb = append;
                     }
-                    this.iOv.setText(sb);
+                    this.iRZ.setText(sb);
                 }
-                oT(TbadkCoreApplication.getInst().getSkinType());
+                oU(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
 
-    public void oT(int i) {
-        am.setViewTextColor(this.iOn, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.iOl, R.color.cp_cont_d, 1, i);
-        am.setViewTextColor(this.iOp, R.color.cp_cont_d, 1, i);
-        am.setViewTextColor(this.iOu, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.iOv, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.iOw, R.color.cp_link_tip_c, 1, i);
-        am.setViewTextColor(this.iOr, R.color.cp_cont_b, 1, i);
-        am.setBackgroundResource(this.iOo, R.drawable.pb_vote_button_bg, i);
-        am.setBackgroundColor(this.iOt, R.color.cp_bg_line_e, i);
-        if (this.iOs != null) {
-            this.iOs.oT(i);
+    public void oU(int i) {
+        am.setViewTextColor(this.iRR, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.iRP, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.iRT, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.iRY, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.iRZ, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.iSa, R.color.cp_link_tip_c, 1, i);
+        am.setViewTextColor(this.iRV, R.color.cp_cont_b, 1, i);
+        am.setBackgroundResource(this.iRS, R.drawable.pb_vote_button_bg, i);
+        am.setBackgroundColor(this.iRX, R.color.cp_bg_line_e, i);
+        if (this.iRW != null) {
+            this.iRW.oU(i);
         }
     }
 
@@ -235,27 +235,27 @@ public class a {
         if (fVar == null) {
             return null;
         }
-        if (fVar.chU() != null) {
-            return fVar.chU();
+        if (fVar.cjc() != null) {
+            return fVar.cjc();
         }
-        if (!v.isEmpty(fVar.chM())) {
-            Iterator<PostData> it = fVar.chM().iterator();
+        if (!v.isEmpty(fVar.ciU())) {
+            Iterator<PostData> it = fVar.ciU().iterator();
             while (it.hasNext()) {
                 postData = it.next();
-                if (postData != null && postData.cIt() == 1) {
+                if (postData != null && postData.cJx() == 1) {
                     break;
                 }
             }
         }
         postData = null;
         if (postData == null) {
-            postData = fVar.chR();
+            postData = fVar.ciZ();
         }
         if (postData == null) {
             postData = a(fVar);
         }
-        if (postData != null && postData.azE() != null && postData.azE().getUserTbVipInfoData() != null && postData.azE().getUserTbVipInfoData().getvipIntro() != null) {
-            postData.azE().getGodUserData().setIntro(postData.azE().getUserTbVipInfoData().getvipIntro());
+        if (postData != null && postData.azX() != null && postData.azX().getUserTbVipInfoData() != null && postData.azX().getUserTbVipInfoData().getvipIntro() != null) {
+            postData.azX().getGodUserData().setIntro(postData.azX().getUserTbVipInfoData().getvipIntro());
             return postData;
         }
         return postData;
@@ -263,20 +263,20 @@ public class a {
 
     private PostData a(com.baidu.tieba.pb.data.f fVar) {
         MetaData metaData;
-        if (fVar == null || fVar.chK() == null || fVar.chK().azE() == null) {
+        if (fVar == null || fVar.ciS() == null || fVar.ciS().azX() == null) {
             return null;
         }
         PostData postData = new PostData();
-        MetaData azE = fVar.chK().azE();
-        String userId = azE.getUserId();
-        HashMap<String, MetaData> userMap = fVar.chK().getUserMap();
+        MetaData azX = fVar.ciS().azX();
+        String userId = azX.getUserId();
+        HashMap<String, MetaData> userMap = fVar.ciS().getUserMap();
         if (userMap == null || (metaData = userMap.get(userId)) == null || metaData.getUserId() == null) {
-            metaData = azE;
+            metaData = azX;
         }
-        postData.Cl(1);
-        postData.setId(fVar.chK().azU());
-        postData.setTitle(fVar.chK().getTitle());
-        postData.setTime(fVar.chK().getCreateTime());
+        postData.Cq(1);
+        postData.setId(fVar.ciS().aAn());
+        postData.setTitle(fVar.ciS().getTitle());
+        postData.setTime(fVar.ciS().getCreateTime());
         postData.a(metaData);
         return postData;
     }

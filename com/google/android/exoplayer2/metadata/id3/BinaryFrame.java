@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.metadata.id3;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class BinaryFrame extends Id3Frame {
     public static final Parcelable.Creator<BinaryFrame> CREATOR = new Parcelable.Creator<BinaryFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.BinaryFrame.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public final class BinaryFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: JV */
+        /* renamed from: Ke */
         public BinaryFrame[] newArray(int i) {
             return new BinaryFrame[i];
         }

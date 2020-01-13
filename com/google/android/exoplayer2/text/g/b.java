@@ -6,18 +6,18 @@ import com.google.android.exoplayer2.util.l;
 import com.google.android.exoplayer2.util.v;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class b extends com.google.android.exoplayer2.text.c {
-    private static final int mxs = v.Qg("payl");
-    private static final int mxt = v.Qg("sttg");
-    private static final int mxu = v.Qg("vttc");
-    private final l mhR;
-    private final e.a mxv;
+    private static final int mBh = v.Qr("payl");
+    private static final int mBi = v.Qr("sttg");
+    private static final int mBj = v.Qr("vttc");
+    private final e.a mBk;
+    private final l mlH;
 
     public b() {
         super("Mp4WebvttDecoder");
-        this.mhR = new l();
-        this.mxv = new e.a();
+        this.mlH = new l();
+        this.mBk = new e.a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,17 +25,17 @@ public final class b extends com.google.android.exoplayer2.text.c {
     @Override // com.google.android.exoplayer2.text.c
     /* renamed from: g */
     public c b(byte[] bArr, int i, boolean z) throws SubtitleDecoderException {
-        this.mhR.G(bArr, i);
+        this.mlH.G(bArr, i);
         ArrayList arrayList = new ArrayList();
-        while (this.mhR.dwV() > 0) {
-            if (this.mhR.dwV() < 8) {
+        while (this.mlH.dyf() > 0) {
+            if (this.mlH.dyf() < 8) {
                 throw new SubtitleDecoderException("Incomplete Mp4Webvtt Top Level box header found.");
             }
-            int readInt = this.mhR.readInt();
-            if (this.mhR.readInt() == mxu) {
-                arrayList.add(a(this.mhR, this.mxv, readInt - 8));
+            int readInt = this.mlH.readInt();
+            if (this.mlH.readInt() == mBj) {
+                arrayList.add(a(this.mlH, this.mBk, readInt - 8));
             } else {
-                this.mhR.skipBytes(readInt - 8);
+                this.mlH.skipBytes(readInt - 8);
             }
         }
         return new c(arrayList);
@@ -53,12 +53,12 @@ public final class b extends com.google.android.exoplayer2.text.c {
             String str = new String(lVar.data, lVar.getPosition(), i2);
             lVar.skipBytes(i2);
             i = (i - 8) - i2;
-            if (readInt2 == mxt) {
+            if (readInt2 == mBi) {
                 f.a(str, aVar);
-            } else if (readInt2 == mxs) {
+            } else if (readInt2 == mBh) {
                 f.a((String) null, str.trim(), aVar, Collections.emptyList());
             }
         }
-        return aVar.dvV();
+        return aVar.dxg();
     }
 }

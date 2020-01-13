@@ -10,7 +10,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.statistic.f;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DomainErrorView extends CommonEmptyView {
     public DomainErrorView(Context context) {
         super(context);
@@ -24,7 +24,7 @@ public class DomainErrorView extends CommonEmptyView {
         super(context, attributeSet, i);
     }
 
-    public void kl(String str) {
+    public void ko(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         } else {
@@ -39,7 +39,7 @@ public class DomainErrorView extends CommonEmptyView {
         setIcon(a.e.aiapps_empty_icon_error);
         setTitle(a.h.aiapps_emptyview_domain_error_title);
         setSubTitle(String.format("不支持跳转非业务域名，请重新配置\n%s", str));
-        this.mSubTitle.setPadding(af.T(70.0f), 0, af.T(70.0f), 0);
-        f.b(new com.baidu.swan.apps.statistic.a.d().e(new com.baidu.swan.apps.ap.a().aB(5L).aC(41L).mh("domain not in white list--" + str)).lv(f.ga(0)).lw(e.ZU()).be("errorDomain", str).be("path", ai.aeB().getPage()));
+        this.mSubTitle.setPadding(af.S(70.0f), 0, af.S(70.0f), 0);
+        f.b(new com.baidu.swan.apps.statistic.a.d().e(new com.baidu.swan.apps.ap.a().aE(5L).aF(41L).mk("domain not in white list--" + str)).ly(f.gb(0)).lz(e.aar()).bf("errorDomain", str).bf("path", ai.aeU().getPage()));
     }
 }

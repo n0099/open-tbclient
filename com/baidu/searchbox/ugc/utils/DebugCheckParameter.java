@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ugc.model.ReferenceDt;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DebugCheckParameter {
     public static final boolean DEBUG = AppConfig.isDebug();
 

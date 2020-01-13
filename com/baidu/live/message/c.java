@@ -3,18 +3,18 @@ package com.baidu.live.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes2.dex */
 public class c extends HttpMessage {
-    private long arv;
+    private long ash;
     private String mRequestType;
 
     public c(long j, String str) {
         super(1021050);
-        this.arv = 0L;
-        this.arv = j;
+        this.ash = 0L;
+        this.ash = j;
         this.mRequestType = str;
     }
 
     public void setParams() {
-        addParam("live_id", this.arv);
+        addParam("live_id", this.ash);
         addParam("query_type", "live_realtime_status");
         addParam("request_type", this.mRequestType);
     }

@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.extractor;
 import com.google.android.exoplayer2.Format;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface m {
     int a(f fVar, int i, boolean z) throws IOException, InterruptedException;
 
@@ -13,18 +13,18 @@ public interface m {
 
     void h(Format format);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        public final int lYJ;
-        public final int lYK;
-        public final int lZM;
-        public final byte[] lZN;
+        public final int mcB;
+        public final int mcC;
+        public final int mdE;
+        public final byte[] mdF;
 
         public a(int i, byte[] bArr, int i2, int i3) {
-            this.lZM = i;
-            this.lZN = bArr;
-            this.lYJ = i2;
-            this.lYK = i3;
+            this.mdE = i;
+            this.mdF = bArr;
+            this.mcB = i2;
+            this.mcC = i3;
         }
 
         public boolean equals(Object obj) {
@@ -35,11 +35,11 @@ public interface m {
                 return false;
             }
             a aVar = (a) obj;
-            return this.lZM == aVar.lZM && this.lYJ == aVar.lYJ && this.lYK == aVar.lYK && Arrays.equals(this.lZN, aVar.lZN);
+            return this.mdE == aVar.mdE && this.mcB == aVar.mcB && this.mcC == aVar.mcC && Arrays.equals(this.mdF, aVar.mdF);
         }
 
         public int hashCode() {
-            return (((((this.lZM * 31) + Arrays.hashCode(this.lZN)) * 31) + this.lYJ) * 31) + this.lYK;
+            return (((((this.mdE * 31) + Arrays.hashCode(this.mdF)) * 31) + this.mcB) * 31) + this.mcC;
         }
     }
 }

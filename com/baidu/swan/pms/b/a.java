@@ -8,11 +8,11 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private String appId;
-    private String cwO;
-    private long cwP = 0;
+    private String cwZ;
+    private long cxa = 0;
     private String downloadUrl;
     private String md5;
     private String sign;
@@ -29,7 +29,7 @@ public class a {
         aVar.appId = jSONObject.optString("appKey");
         JSONObject optJSONObject = jSONObject.optJSONObject("packageInfo");
         if (optJSONObject != null) {
-            aVar.cwO = optJSONObject.optString("bundle_id");
+            aVar.cwZ = optJSONObject.optString("bundle_id");
             aVar.downloadUrl = optJSONObject.optString("download_url");
             aVar.md5 = optJSONObject.optString("md5");
             aVar.sign = optJSONObject.optString("sign");
@@ -54,7 +54,7 @@ public class a {
         int columnIndex9 = cursor.getColumnIndex(IMConstants.MSG_ROW_ID);
         String string = cursor.getString(columnIndex2);
         if (!TextUtils.isEmpty(string)) {
-            aVar.cwO = string;
+            aVar.cwZ = string;
             aVar.appId = cursor.getString(columnIndex);
             aVar.versionName = cursor.getString(columnIndex3);
             aVar.versionCode = cursor.getInt(columnIndex4);
@@ -62,23 +62,23 @@ public class a {
             aVar.md5 = cursor.getString(columnIndex6);
             aVar.sign = cursor.getString(columnIndex7);
             aVar.downloadUrl = cursor.getString(columnIndex8);
-            aVar.cwP = cursor.getLong(columnIndex9);
+            aVar.cxa = cursor.getLong(columnIndex9);
         }
         return aVar;
     }
 
-    public boolean Ni() {
-        return (TextUtils.isEmpty(this.appId) || TextUtils.isEmpty(this.cwO) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.sign) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
+    public boolean NE() {
+        return (TextUtils.isEmpty(this.appId) || TextUtils.isEmpty(this.cwZ) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.sign) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
     }
 
     @NonNull
     public String toString() {
-        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.cwO + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.cwP + '}';
+        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.cwZ + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.cxa + '}';
     }
 
     @NonNull
-    public String Oo() {
-        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.cwO + "', versionCode=" + this.versionCode + ", md5='" + this.md5 + "'}";
+    public String OK() {
+        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.cwZ + "', versionCode=" + this.versionCode + ", md5='" + this.md5 + "'}";
     }
 
     public String getAppId() {
@@ -86,7 +86,7 @@ public class a {
     }
 
     public String getBundleId() {
-        return this.cwO;
+        return this.cwZ;
     }
 
     public int getVersionCode() {

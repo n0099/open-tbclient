@@ -11,12 +11,12 @@ import org.json.JSONObject;
 public class b {
     private boolean isHost = false;
     private AlaUserInfoData user_info = new AlaUserInfoData();
-    private g fot = new g();
-    private m fou = new m();
-    private List<AlaLiveInfoData> fov = new ArrayList();
-    private List<l> fow = new ArrayList();
+    private g frD = new g();
+    private m frE = new m();
+    private List<AlaLiveInfoData> frF = new ArrayList();
+    private List<l> frG = new ArrayList();
 
-    public AlaUserInfoData bpA() {
+    public AlaUserInfoData bqB() {
         return this.user_info;
     }
 
@@ -40,16 +40,16 @@ public class b {
                 for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
                     l lVar = new l();
                     lVar.parseJson(optJSONArray.getJSONObject(i));
-                    this.fow.add(lVar);
+                    this.frG.add(lVar);
                 }
                 JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
                 for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
                     AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                     alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
-                    this.fov.add(alaLiveInfoData);
+                    this.frF.add(alaLiveInfoData);
                 }
-                this.fot.parserJson(jSONObject2.optJSONObject("media"));
-                this.fou.parserJson(jSONObject2.optJSONObject("privacy_set"));
+                this.frD.parserJson(jSONObject2.optJSONObject("media"));
+                this.frE.parserJson(jSONObject2.optJSONObject("privacy_set"));
             } catch (Exception e) {
             }
         }

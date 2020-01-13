@@ -1,14 +1,14 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.h;
-import io.reactivex.internal.a.f;
+import io.reactivex.c.h;
+import io.reactivex.internal.a.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableSwitchMap<T, R> extends a<T, R> {
     final int bufferSize;
     final boolean delayErrors;
@@ -21,7 +21,7 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class SwitchMapObserver<T, R> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         static final SwitchMapInnerObserver<Object, Object> CANCELLED = new SwitchMapInnerObserver<>(null, -1, 1);
         private static final long serialVersionUID = -3491074160481096299L;
@@ -91,7 +91,7 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u
@@ -126,7 +126,7 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
         }
 
         void drain() {
-            f<R> fVar;
+            g<R> gVar;
             boolean z;
             Object obj;
             if (getAndIncrement() == 0) {
@@ -157,9 +157,9 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
                         }
                     }
                     SwitchMapInnerObserver<T, R> switchMapInnerObserver = atomicReference.get();
-                    if (switchMapInnerObserver != null && (fVar = switchMapInnerObserver.queue) != null) {
+                    if (switchMapInnerObserver != null && (gVar = switchMapInnerObserver.queue) != null) {
                         if (switchMapInnerObserver.done) {
-                            boolean isEmpty = fVar.isEmpty();
+                            boolean isEmpty = gVar.isEmpty();
                             if (z2) {
                                 if (isEmpty) {
                                     atomicReference.compareAndSet(switchMapInnerObserver, null);
@@ -181,7 +181,7 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
                             } else {
                                 boolean z5 = switchMapInnerObserver.done;
                                 try {
-                                    obj = (Object) fVar.poll();
+                                    obj = (Object) gVar.poll();
                                     z = z4;
                                 } catch (Throwable th2) {
                                     io.reactivex.exceptions.a.I(th2);
@@ -230,19 +230,19 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SwitchMapInnerObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements u<R> {
         private static final long serialVersionUID = 3837284832786408377L;
         final int bufferSize;
         volatile boolean done;
         final long index;
         final SwitchMapObserver<T, R> parent;
-        volatile f<R> queue;
+        volatile g<R> queue;
 
         SwitchMapInnerObserver(SwitchMapObserver<T, R> switchMapObserver, long j, int i) {
             this.parent = switchMapObserver;

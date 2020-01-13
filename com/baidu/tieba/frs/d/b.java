@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public boolean gDW = false;
-    public int gDX = 0;
-    public String gDY = null;
-    public int gDZ = -1;
-    public int gEa = -1;
-    public int gEb = -1;
+    public boolean gHl = false;
+    public int gHm = 0;
+    public String gHn = null;
+    public int gHo = -1;
+    public int gHp = -1;
+    public int gHq = -1;
 }

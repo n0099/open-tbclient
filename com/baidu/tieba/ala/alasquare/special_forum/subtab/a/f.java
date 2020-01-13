@@ -5,53 +5,52 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ala.alasquare.subtablist.c.h;
 /* loaded from: classes2.dex */
-public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.subtablist.b.b> {
-    private a enA;
-    private a enB;
+public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
+    private a eoG;
+    private a eoH;
 
     public f(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.enA = new a(getTbPageContext());
-        this.enB = new a(getTbPageContext());
+        this.eoG = new a(getTbPageContext());
+        this.eoH = new a(getTbPageContext());
         ViewGroup viewGroup2 = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup2.addView(this.enA.getView());
+        viewGroup2.addView(this.eoG.getView());
         viewGroup2.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds6), -1));
-        viewGroup2.addView(this.enB.getView());
+        viewGroup2.addView(this.eoH.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.enA.onChangeSkinType(tbPageContext, i);
-        this.enB.onChangeSkinType(tbPageContext, i);
+        this.eoG.onChangeSkinType(tbPageContext, i);
+        this.eoH.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return R.layout.ala_special_recommend_list_live_row;
+        return R.layout.ala_special_game_list_live_row;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
-    public void a(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar) {
-        if (bVar != null) {
-            this.enA.b(bVar.ehC);
-            this.enB.b(bVar.ehD);
+    public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar) {
+        if (eVar != null) {
+            this.eoG.a(eVar.ehD);
+            this.eoH.a(eVar.ehE);
         }
     }
 
-    public void a(com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, int i) {
-        if (bVar != null) {
-            this.enA.a(bVar.ehC, i);
-            this.enB.a(bVar.ehD, i);
+    public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, String str) {
+        if (eVar != null) {
+            this.eoG.a(eVar.ehD, str);
+            this.eoH.a(eVar.ehE, str);
         }
     }
 
-    public void d(h hVar) {
-        this.enA.c(hVar);
-        this.enB.c(hVar);
+    public void c(com.baidu.tieba.ala.alasquare.subtablist.c.h hVar) {
+        this.eoG.b(hVar);
+        this.eoH.b(hVar);
     }
 
     @Override // android.view.View.OnClickListener

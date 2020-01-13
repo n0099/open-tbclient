@@ -3,7 +3,7 @@ package com.baidu.swan.pms.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PMSAppInfo implements Parcelable {
     public static final Parcelable.Creator<PMSAppInfo> CREATOR = new Parcelable.Creator<PMSAppInfo>() { // from class: com.baidu.swan.pms.model.PMSAppInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -151,20 +151,20 @@ public class PMSAppInfo implements Parcelable {
         return this.orientation;
     }
 
-    public boolean aqY() {
+    public boolean arr() {
         return this.pendingErrCode != 0;
     }
 
-    public boolean agr() {
+    public boolean agK() {
         return (System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge;
     }
 
     public void h(f fVar) {
         if (fVar != null) {
-            this.appId = fVar.cwO;
+            this.appId = fVar.cwZ;
             this.versionCode = fVar.versionCode;
             this.versionName = fVar.versionName;
-            this.type = fVar.cwY;
+            this.type = fVar.cxj;
             this.pkgSize = fVar.size;
         }
     }
@@ -174,7 +174,7 @@ public class PMSAppInfo implements Parcelable {
             this.appId = gVar.appId;
             this.versionCode = gVar.versionCode;
             this.versionName = gVar.versionName;
-            this.type = gVar.cwY;
+            this.type = gVar.cxj;
             this.pkgSize = gVar.size;
         }
     }
@@ -190,14 +190,14 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void aqZ() {
+    public void ars() {
         if (this.maxAge <= 0) {
             this.maxAge = DEFAULT_SWAN_APP_PKG_MAX_AGE;
         }
         this.createTime = System.currentTimeMillis();
     }
 
-    public boolean Ni() {
+    public boolean NE() {
         return !TextUtils.isEmpty(this.appKey) && this.appSign > 0;
     }
 }

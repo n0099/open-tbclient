@@ -24,43 +24,43 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class l implements HttpDataSource {
-    private static final Pattern mBN = Pattern.compile("^bytes (\\d+)-(\\d+)/(\\d+)$");
-    private static final AtomicReference<byte[]> mBO = new AtomicReference<>();
+    private static final Pattern mFF = Pattern.compile("^bytes (\\d+)-(\\d+)/(\\d+)$");
+    private static final AtomicReference<byte[]> mFG = new AtomicReference<>();
     private long bytesRead;
     private g dataSpec;
     private InputStream inputStream;
-    private final boolean mBP;
-    private final int mBQ;
-    private final int mBR;
-    private final com.google.android.exoplayer2.util.n<String> mBS;
-    private final HttpDataSource.b mBT;
-    private final HttpDataSource.b mBU = new HttpDataSource.b();
-    private HttpURLConnection mBV;
-    private long mBW;
-    private long mBX;
-    private long mBY;
-    private final q<? super l> mBd;
-    private boolean mBe;
+    private final q<? super l> mEV;
+    private boolean mEW;
+    private final boolean mFH;
+    private final int mFI;
+    private final int mFJ;
+    private final com.google.android.exoplayer2.util.n<String> mFK;
+    private final HttpDataSource.b mFL;
+    private final HttpDataSource.b mFM = new HttpDataSource.b();
+    private HttpURLConnection mFN;
+    private long mFO;
+    private long mFP;
+    private long mFQ;
     private final String userAgent;
 
     public l(String str, com.google.android.exoplayer2.util.n<String> nVar, q<? super l> qVar, int i, int i2, boolean z, HttpDataSource.b bVar) {
         this.userAgent = com.google.android.exoplayer2.util.a.checkNotEmpty(str);
-        this.mBS = nVar;
-        this.mBd = qVar;
-        this.mBQ = i;
-        this.mBR = i2;
-        this.mBP = z;
-        this.mBT = bVar;
+        this.mFK = nVar;
+        this.mEV = qVar;
+        this.mFI = i;
+        this.mFJ = i2;
+        this.mFH = z;
+        this.mFL = bVar;
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
     public Uri getUri() {
-        if (this.mBV == null) {
+        if (this.mFN == null) {
             return null;
         }
-        return Uri.parse(this.mBV.getURL().toString());
+        return Uri.parse(this.mFN.getURL().toString());
     }
 
     @Override // com.google.android.exoplayer2.upstream.e
@@ -68,52 +68,52 @@ public class l implements HttpDataSource {
         long j = 0;
         this.dataSpec = gVar;
         this.bytesRead = 0L;
-        this.mBY = 0L;
+        this.mFQ = 0L;
         try {
-            this.mBV = b(gVar);
+            this.mFN = b(gVar);
             try {
-                int responseCode = this.mBV.getResponseCode();
+                int responseCode = this.mFN.getResponseCode();
                 if (responseCode < 200 || responseCode > 299) {
-                    Map<String, List<String>> headerFields = this.mBV.getHeaderFields();
-                    dwI();
+                    Map<String, List<String>> headerFields = this.mFN.getHeaderFields();
+                    dxT();
                     HttpDataSource.InvalidResponseCodeException invalidResponseCodeException = new HttpDataSource.InvalidResponseCodeException(responseCode, headerFields, gVar);
                     if (responseCode == 416) {
                         invalidResponseCodeException.initCause(new DataSourceException(0));
                     }
                     throw invalidResponseCodeException;
                 }
-                String contentType = this.mBV.getContentType();
-                if (this.mBS != null && !this.mBS.bz(contentType)) {
-                    dwI();
+                String contentType = this.mFN.getContentType();
+                if (this.mFK != null && !this.mFK.bA(contentType)) {
+                    dxT();
                     throw new HttpDataSource.InvalidContentTypeException(contentType, gVar);
                 }
-                if (responseCode == 200 && gVar.fIt != 0) {
-                    j = gVar.fIt;
+                if (responseCode == 200 && gVar.fLD != 0) {
+                    j = gVar.fLD;
                 }
-                this.mBW = j;
-                if (!gVar.LC(1)) {
+                this.mFO = j;
+                if (!gVar.LL(1)) {
                     if (gVar.length != -1) {
-                        this.mBX = gVar.length;
+                        this.mFP = gVar.length;
                     } else {
-                        long i = i(this.mBV);
-                        this.mBX = i != -1 ? i - this.mBW : -1L;
+                        long i = i(this.mFN);
+                        this.mFP = i != -1 ? i - this.mFO : -1L;
                     }
                 } else {
-                    this.mBX = gVar.length;
+                    this.mFP = gVar.length;
                 }
                 try {
-                    this.inputStream = this.mBV.getInputStream();
-                    this.mBe = true;
-                    if (this.mBd != null) {
-                        this.mBd.a(this, gVar);
+                    this.inputStream = this.mFN.getInputStream();
+                    this.mEW = true;
+                    if (this.mEV != null) {
+                        this.mEV.a(this, gVar);
                     }
-                    return this.mBX;
+                    return this.mFP;
                 } catch (IOException e) {
-                    dwI();
+                    dxT();
                     throw new HttpDataSource.HttpDataSourceException(e, gVar, 1);
                 }
             } catch (IOException e2) {
-                dwI();
+                dxT();
                 throw new HttpDataSource.HttpDataSourceException("Unable to connect to " + gVar.uri.toString(), e2, gVar, 1);
             }
         } catch (IOException e3) {
@@ -124,7 +124,7 @@ public class l implements HttpDataSource {
     @Override // com.google.android.exoplayer2.upstream.e
     public int read(byte[] bArr, int i, int i2) throws HttpDataSource.HttpDataSourceException {
         try {
-            dwH();
+            dxS();
             return readInternal(bArr, i, i2);
         } catch (IOException e) {
             throw new HttpDataSource.HttpDataSourceException(e, this.dataSpec, 2);
@@ -135,7 +135,7 @@ public class l implements HttpDataSource {
     public void close() throws HttpDataSource.HttpDataSourceException {
         try {
             if (this.inputStream != null) {
-                a(this.mBV, dwG());
+                a(this.mFN, dxR());
                 try {
                     this.inputStream.close();
                 } catch (IOException e) {
@@ -144,34 +144,34 @@ public class l implements HttpDataSource {
             }
         } finally {
             this.inputStream = null;
-            dwI();
-            if (this.mBe) {
-                this.mBe = false;
-                if (this.mBd != null) {
-                    this.mBd.by(this);
+            dxT();
+            if (this.mEW) {
+                this.mEW = false;
+                if (this.mEV != null) {
+                    this.mEV.bz(this);
                 }
             }
         }
     }
 
-    protected final long dwG() {
-        return this.mBX == -1 ? this.mBX : this.mBX - this.bytesRead;
+    protected final long dxR() {
+        return this.mFP == -1 ? this.mFP : this.mFP - this.bytesRead;
     }
 
     private HttpURLConnection b(g gVar) throws IOException {
         URL url = new URL(gVar.uri.toString());
-        byte[] bArr = gVar.mBk;
-        long j = gVar.fIt;
+        byte[] bArr = gVar.mFb;
+        long j = gVar.fLD;
         long j2 = gVar.length;
-        boolean LC = gVar.LC(1);
-        if (!this.mBP) {
-            return a(url, bArr, j, j2, LC, true);
+        boolean LL = gVar.LL(1);
+        if (!this.mFH) {
+            return a(url, bArr, j, j2, LL, true);
         }
         int i = 0;
         while (true) {
             int i2 = i + 1;
             if (i <= 20) {
-                HttpURLConnection a = a(url, bArr, j, j2, LC, false);
+                HttpURLConnection a = a(url, bArr, j, j2, LL, false);
                 int responseCode = a.getResponseCode();
                 if (responseCode != 300 && responseCode != 301 && responseCode != 302 && responseCode != 303) {
                     if (bArr != null) {
@@ -194,14 +194,14 @@ public class l implements HttpDataSource {
 
     private HttpURLConnection a(URL url, byte[] bArr, long j, long j2, boolean z, boolean z2) throws IOException {
         HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-        httpURLConnection.setConnectTimeout(this.mBQ);
-        httpURLConnection.setReadTimeout(this.mBR);
-        if (this.mBT != null) {
-            for (Map.Entry<String, String> entry : this.mBT.dwK().entrySet()) {
+        httpURLConnection.setConnectTimeout(this.mFI);
+        httpURLConnection.setReadTimeout(this.mFJ);
+        if (this.mFL != null) {
+            for (Map.Entry<String, String> entry : this.mFL.dxV().entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
         }
-        for (Map.Entry<String, String> entry2 : this.mBU.dwK().entrySet()) {
+        for (Map.Entry<String, String> entry2 : this.mFM.dxV().entrySet()) {
             httpURLConnection.setRequestProperty(entry2.getKey(), entry2.getValue());
         }
         if (j != 0 || j2 != -1) {
@@ -258,7 +258,7 @@ public class l implements HttpDataSource {
         }
         String headerField2 = httpURLConnection.getHeaderField(Headers.CONTENT_RANGE);
         if (!TextUtils.isEmpty(headerField2)) {
-            Matcher matcher = mBN.matcher(headerField2);
+            Matcher matcher = mFF.matcher(headerField2);
             if (matcher.find()) {
                 try {
                     long parseLong = (Long.parseLong(matcher.group(2)) - Long.parseLong(matcher.group(1))) + 1;
@@ -280,26 +280,26 @@ public class l implements HttpDataSource {
         return j;
     }
 
-    private void dwH() throws IOException {
-        if (this.mBY != this.mBW) {
-            byte[] andSet = mBO.getAndSet(null);
+    private void dxS() throws IOException {
+        if (this.mFQ != this.mFO) {
+            byte[] andSet = mFG.getAndSet(null);
             if (andSet == null) {
                 andSet = new byte[4096];
             }
-            while (this.mBY != this.mBW) {
-                int read = this.inputStream.read(andSet, 0, (int) Math.min(this.mBW - this.mBY, andSet.length));
+            while (this.mFQ != this.mFO) {
+                int read = this.inputStream.read(andSet, 0, (int) Math.min(this.mFO - this.mFQ, andSet.length));
                 if (Thread.interrupted()) {
                     throw new InterruptedIOException();
                 }
                 if (read == -1) {
                     throw new EOFException();
                 }
-                this.mBY += read;
-                if (this.mBd != null) {
-                    this.mBd.h(this, read);
+                this.mFQ += read;
+                if (this.mEV != null) {
+                    this.mEV.h(this, read);
                 }
             }
-            mBO.set(andSet);
+            mFG.set(andSet);
         }
     }
 
@@ -307,8 +307,8 @@ public class l implements HttpDataSource {
         if (i2 == 0) {
             return 0;
         }
-        if (this.mBX != -1) {
-            long j = this.mBX - this.bytesRead;
+        if (this.mFP != -1) {
+            long j = this.mFP - this.bytesRead;
             if (j == 0) {
                 return -1;
             }
@@ -316,14 +316,14 @@ public class l implements HttpDataSource {
         }
         int read = this.inputStream.read(bArr, i, i2);
         if (read == -1) {
-            if (this.mBX != -1) {
+            if (this.mFP != -1) {
                 throw new EOFException();
             }
             return -1;
         }
         this.bytesRead += read;
-        if (this.mBd != null) {
-            this.mBd.h(this, read);
+        if (this.mEV != null) {
+            this.mEV.h(this, read);
         }
         return read;
     }
@@ -350,14 +350,14 @@ public class l implements HttpDataSource {
         }
     }
 
-    private void dwI() {
-        if (this.mBV != null) {
+    private void dxT() {
+        if (this.mFN != null) {
             try {
-                this.mBV.disconnect();
+                this.mFN.disconnect();
             } catch (Exception e) {
                 Log.e("DefaultHttpDataSource", "Unexpected error while disconnecting", e);
             }
-            this.mBV = null;
+            this.mFN = null;
         }
     }
 }

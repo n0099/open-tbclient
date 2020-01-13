@@ -4,7 +4,7 @@ import android.os.Message;
 import com.baidu.mapsdkplatform.comapi.synchronization.c.c;
 import com.baidu.mapsdkplatform.comapi.synchronization.data.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
     final /* synthetic */ g a;
 

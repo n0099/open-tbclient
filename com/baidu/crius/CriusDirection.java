@@ -2,7 +2,7 @@ package com.baidu.crius;
 
 import com.baidu.crius.proguard.annotations.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public enum CriusDirection {
     INHERIT(0),
     LTR(1),

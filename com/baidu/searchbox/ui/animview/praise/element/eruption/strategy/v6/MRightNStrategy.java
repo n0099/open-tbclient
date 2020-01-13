@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.v6;
 
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.BaseEruptionStrategy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MRightNStrategy extends BaseEruptionStrategy {
     private static final int ELEMENT_STRATEGY_COUNTS = 3;
     private final int[] mSectionCount = {2, 1, 0, 0};

@@ -19,7 +19,7 @@ import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
@@ -387,6 +387,7 @@ public class BdAlertDialog {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
+        ShowUtil.windowCount++;
         if (this.mDialog != null) {
             if (z) {
                 ShowUtil.showDialog(this.mDialog, this.mActivity);
@@ -490,6 +491,9 @@ public class BdAlertDialog {
     public void dismiss() {
         if (this.mDialog != null) {
             ShowUtil.dismissDialog(this.mDialog, this.mActivity);
+            if (ShowUtil.windowCount > 0) {
+                ShowUtil.windowCount--;
+            }
         }
     }
 

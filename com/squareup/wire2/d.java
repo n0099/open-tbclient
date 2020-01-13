@@ -3,7 +3,7 @@ package com.squareup.wire2;
 import java.io.IOException;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public final class d {
     private final BufferedSink sink;
 
@@ -12,7 +12,7 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int MC(int i) {
+    public static int Np(int i) {
         return varint32Size(a(i, FieldEncoding.VARINT));
     }
 
@@ -119,7 +119,7 @@ public final class d {
         this.sink.write(byteString);
     }
 
-    public void Gb(String str) throws IOException {
+    public void Gl(String str) throws IOException {
         this.sink.writeUtf8(str);
     }
 

@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ac {
-    public boolean iGU;
-    public String iHc;
-    public boolean iHg;
-    public boolean iGR = false;
-    public boolean iGS = false;
-    public boolean iGT = false;
-    public boolean iGV = false;
-    public boolean iGW = false;
-    public boolean iGX = false;
-    public boolean iGY = false;
-    public boolean iGZ = false;
-    public boolean iHa = false;
-    public boolean iHb = false;
+    public String iKG;
+    public boolean iKK;
+    public boolean iKy;
+    public boolean iKv = false;
+    public boolean iKw = false;
+    public boolean iKx = false;
+    public boolean iKz = false;
+    public boolean iKA = false;
+    public boolean iKB = false;
+    public boolean iKC = false;
+    public boolean iKD = false;
+    public boolean iKE = false;
+    public boolean iKF = false;
     public boolean isHostOnly = false;
-    public boolean iHd = false;
+    public boolean iKH = false;
     public boolean hS = false;
-    public boolean iHe = false;
-    public boolean iHf = false;
+    public boolean iKI = false;
+    public boolean iKJ = false;
 }

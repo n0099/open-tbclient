@@ -9,13 +9,13 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CircleView extends View {
-    private static int cQW = 360;
-    private static int cQX = 100;
-    private int awe;
-    private int cQY;
-    private Paint cQZ;
-    private Paint cRa;
-    private RectF cRb;
+    private static int cRg = 360;
+    private static int cRh = 100;
+    private int awQ;
+    private int cRi;
+    private Paint cRj;
+    private Paint cRk;
+    private RectF cRl;
     private int mValue;
     private int mWidth;
 
@@ -44,24 +44,24 @@ public class CircleView extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.ds100);
-        this.awe = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.cQY = getResources().getDimensionPixelSize(R.dimen.ds2);
-        this.cQZ = new Paint();
-        this.cQZ.setStrokeWidth(this.awe);
-        this.cQZ.setColor(getResources().getColor(R.color.cp_cont_g));
-        this.cQZ.setStyle(Paint.Style.STROKE);
-        this.cQZ.setAntiAlias(true);
-        this.cRa = new Paint();
-        this.cRa.setStrokeWidth(this.cQY);
-        this.cRa.setColor(getResources().getColor(R.color.common_color_10042));
-        this.cRa.setStyle(Paint.Style.STROKE);
-        this.cRa.setAntiAlias(true);
-        this.cRb = new RectF(this.awe, this.awe, this.mWidth + this.awe, this.mWidth + this.awe);
+        this.awQ = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.cRi = getResources().getDimensionPixelSize(R.dimen.ds2);
+        this.cRj = new Paint();
+        this.cRj.setStrokeWidth(this.awQ);
+        this.cRj.setColor(getResources().getColor(R.color.cp_cont_g));
+        this.cRj.setStyle(Paint.Style.STROKE);
+        this.cRj.setAntiAlias(true);
+        this.cRk = new Paint();
+        this.cRk.setStrokeWidth(this.cRi);
+        this.cRk.setColor(getResources().getColor(R.color.common_color_10042));
+        this.cRk.setStyle(Paint.Style.STROKE);
+        this.cRk.setAntiAlias(true);
+        this.cRl = new RectF(this.awQ, this.awQ, this.mWidth + this.awQ, this.mWidth + this.awQ);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.cRb, 0.0f, cQW, false, this.cRa);
-        canvas.drawArc(this.cRb, 270.0f, (cQW * this.mValue) / cQX, false, this.cQZ);
+        canvas.drawArc(this.cRl, 0.0f, cRg, false, this.cRk);
+        canvas.drawArc(this.cRl, 270.0f, (cRg * this.mValue) / cRh, false, this.cRj);
     }
 }

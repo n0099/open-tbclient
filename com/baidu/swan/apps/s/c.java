@@ -6,17 +6,17 @@ import com.baidu.swan.apps.component.components.f.a;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a.InterfaceC0220a bsn;
+    private static a.InterfaceC0222a btb;
 
-    public static void a(a.InterfaceC0220a interfaceC0220a) {
-        bsn = interfaceC0220a;
+    public static void a(a.InterfaceC0222a interfaceC0222a) {
+        btb = interfaceC0222a;
     }
 
     public static void a(EditText editText, int i) {
-        if (editText != null && bsn != null) {
+        if (editText != null && btb != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -28,7 +28,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            bsn.b(String.valueOf(editText.getTag()), jSONObject);
+            btb.b(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 
@@ -45,19 +45,19 @@ public class c {
     }
 
     private static void a(EditText editText, String str, int i) {
-        if (editText != null && bsn != null) {
+        if (editText != null && btb != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
                 jSONObject.put("eventName", str);
                 jSONObject.put("cursorOffset", editText.getText().length());
-                jSONObject.put("keyboardHeight", af.V(i));
+                jSONObject.put("keyboardHeight", af.U(i));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
-            bsn.b(String.valueOf(editText.getTag()), jSONObject);
+            btb.b(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

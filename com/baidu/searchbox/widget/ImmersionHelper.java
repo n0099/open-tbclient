@@ -24,7 +24,7 @@ import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.widget.graphics.Palette;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ImmersionHelper {
     private static final int DEFAULT_FLAG = 5120;
     public static final int HIDE_NAV_FLAG = 5120;
@@ -309,7 +309,7 @@ public class ImmersionHelper {
         return 5380;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class ImmersionConfig {
         private int mCustomStatusBarViewBg;
         private boolean mIsShowNavBar;
@@ -317,7 +317,7 @@ public class ImmersionHelper {
         private int mStatusBarColor;
         private boolean mUseLightStatusBar;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public static class Builder {
             private int customStatBarViewBg;
             private int statusBarColor;

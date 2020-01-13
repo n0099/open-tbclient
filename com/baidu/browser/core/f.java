@@ -9,21 +9,21 @@ import android.util.Log;
 import com.baidu.browser.core.util.BdLog;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class f {
-    private static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> HJ = new ConcurrentHashMap<>();
-    private static volatile boolean HL = false;
-    private static a HK = new a(com.baidu.browser.core.async.b.bF("PreferenceQueue").getLooper());
+    private static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> HO = new ConcurrentHashMap<>();
+    private static volatile boolean HQ = false;
+    private static a HP = new a(com.baidu.browser.core.async.b.bF("PreferenceQueue").getLooper());
 
     static {
-        HK.sendEmptyMessageDelayed(0, 15000L);
+        HP.sendEmptyMessageDelayed(0, 15000L);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(String str, String str2, Object obj) {
         if (str != null) {
-            if (HJ.containsKey(str)) {
-                ConcurrentHashMap<String, Object> concurrentHashMap = HJ.get(str);
+            if (HO.containsKey(str)) {
+                ConcurrentHashMap<String, Object> concurrentHashMap = HO.get(str);
                 if (concurrentHashMap != null) {
                     if (obj != null) {
                         concurrentHashMap.put(str2, obj);
@@ -33,12 +33,12 @@ public final class f {
                 } else if (obj != null && str2 != null) {
                     ConcurrentHashMap<String, Object> concurrentHashMap2 = new ConcurrentHashMap<>();
                     concurrentHashMap2.put(str2, obj);
-                    HJ.put(str, concurrentHashMap2);
+                    HO.put(str, concurrentHashMap2);
                 }
             } else if (obj != null && str2 != null) {
                 ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
                 concurrentHashMap3.put(str2, obj);
-                HJ.put(str, concurrentHashMap3);
+                HO.put(str, concurrentHashMap3);
             }
         }
     }
@@ -46,7 +46,7 @@ public final class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void clear(String str) {
         ConcurrentHashMap<String, Object> concurrentHashMap;
-        if (str != null && (concurrentHashMap = HJ.get(str)) != null) {
+        if (str != null && (concurrentHashMap = HO.get(str)) != null) {
             concurrentHashMap.clear();
         }
     }
@@ -54,13 +54,13 @@ public final class f {
     /* JADX INFO: Access modifiers changed from: private */
     public static void apply() {
         int i;
-        if (!HL) {
-            HL = true;
+        if (!HQ) {
+            HQ = true;
             try {
                 Context baseContext = b.lY().getBaseContext();
-                BdLog.d("BdPreferenceQueueWorker", "pending work category: " + HJ.size());
-                for (String str : HJ.keySet()) {
-                    ConcurrentHashMap<String, Object> concurrentHashMap = HJ.get(str);
+                BdLog.d("BdPreferenceQueueWorker", "pending work category: " + HO.size());
+                for (String str : HO.keySet()) {
+                    ConcurrentHashMap<String, Object> concurrentHashMap = HO.get(str);
                     if (concurrentHashMap == null || concurrentHashMap.size() <= 0) {
                         i = 0;
                     } else {
@@ -96,26 +96,26 @@ public final class f {
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                HL = false;
+                HQ = false;
             }
         }
     }
 
     public static void mc() {
         Log.d("BdPreferenceQueueWorker", "wait to finish");
-        HK.removeMessages(0);
+        HP.removeMessages(0);
         apply();
         md();
     }
 
     public static void md() {
-        if (!HK.hasMessages(0)) {
-            HK.sendEmptyMessageDelayed(0, 15000L);
+        if (!HP.hasMessages(0)) {
+            HP.sendEmptyMessageDelayed(0, 15000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends Handler {
         private a(Looper looper) {
             super(looper);
@@ -126,7 +126,7 @@ public final class f {
             switch (message.what) {
                 case 0:
                     f.apply();
-                    f.HK.sendEmptyMessageDelayed(0, 15000L);
+                    f.HP.sendEmptyMessageDelayed(0, 15000L);
                     return;
                 default:
                     return;

@@ -7,7 +7,7 @@ import com.google.android.exoplayer2.util.s;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SpliceInsertCommand extends SpliceCommand {
     public static final Parcelable.Creator<SpliceInsertCommand> CREATOR = new Parcelable.Creator<SpliceInsertCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceInsertCommand.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kg */
+        /* renamed from: Kp */
         public SpliceInsertCommand[] newArray(int i) {
             return new SpliceInsertCommand[i];
         }
@@ -122,7 +122,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
                     if (!z10) {
                         j6 = TimeSignalCommand.e(lVar, j);
                     }
-                    emptyList.add(new a(readUnsignedByte3, j6, sVar.gF(j6)));
+                    emptyList.add(new a(readUnsignedByte3, j6, sVar.gK(j6)));
                     i4 = i5 + 1;
                 }
             }
@@ -146,25 +146,25 @@ public final class SpliceInsertCommand extends SpliceCommand {
             j2 = j5;
             z = z3;
         }
-        return new SpliceInsertCommand(readUnsignedInt, z4, z5, z6, z2, j3, sVar.gF(j3), emptyList, z, j2, i, i2, i3);
+        return new SpliceInsertCommand(readUnsignedInt, z4, z5, z6, z2, j3, sVar.gK(j3), emptyList, z, j2, i, i2, i3);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        public final int mlW;
-        public final long mlX;
-        public final long mlY;
+        public final int mpL;
+        public final long mpM;
+        public final long mpN;
 
         private a(int i, long j, long j2) {
-            this.mlW = i;
-            this.mlX = j;
-            this.mlY = j2;
+            this.mpL = i;
+            this.mpM = j;
+            this.mpN = j2;
         }
 
         public void aC(Parcel parcel) {
-            parcel.writeInt(this.mlW);
-            parcel.writeLong(this.mlX);
-            parcel.writeLong(this.mlY);
+            parcel.writeInt(this.mpL);
+            parcel.writeLong(this.mpM);
+            parcel.writeLong(this.mpN);
         }
 
         public static a aD(Parcel parcel) {

@@ -3,26 +3,26 @@ package com.google.android.exoplayer2.audio;
 import com.google.android.exoplayer2.audio.AudioProcessor;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class h implements AudioProcessor {
-    private boolean lWv;
-    private int lWr = -1;
+    private boolean mal;
+    private int mah = -1;
     private int channelCount = -1;
-    private int lWM = 0;
+    private int maE = 0;
     private ByteBuffer buffer = EMPTY_BUFFER;
-    private ByteBuffer lWu = EMPTY_BUFFER;
+    private ByteBuffer mak = EMPTY_BUFFER;
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public boolean ae(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
         if (i3 != 3 && i3 != 2 && i3 != Integer.MIN_VALUE && i3 != 1073741824) {
             throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
         }
-        if (this.lWr == i && this.channelCount == i2 && this.lWM == i3) {
+        if (this.mah == i && this.channelCount == i2 && this.maE == i3) {
             return false;
         }
-        this.lWr = i;
+        this.mah = i;
         this.channelCount = i2;
-        this.lWM = i3;
+        this.maE = i3;
         if (i3 == 2) {
             this.buffer = EMPTY_BUFFER;
         }
@@ -31,22 +31,22 @@ final class h implements AudioProcessor {
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public boolean isActive() {
-        return (this.lWM == 0 || this.lWM == 2) ? false : true;
+        return (this.maE == 0 || this.maE == 2) ? false : true;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public int drm() {
+    public int dsy() {
         return this.channelCount;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public int drn() {
+    public int dsz() {
         return 2;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public int dro() {
-        return this.lWr;
+    public int dsA() {
+        return this.mah;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -56,7 +56,7 @@ final class h implements AudioProcessor {
         int position = byteBuffer.position();
         int limit = byteBuffer.limit();
         int i2 = limit - position;
-        switch (this.lWM) {
+        switch (this.maE) {
             case Integer.MIN_VALUE:
                 i = (i2 / 3) * 2;
                 break;
@@ -74,7 +74,7 @@ final class h implements AudioProcessor {
         } else {
             this.buffer.clear();
         }
-        switch (this.lWM) {
+        switch (this.maE) {
             case Integer.MIN_VALUE:
                 while (position < limit) {
                     this.buffer.put(byteBuffer.get(position + 1));
@@ -100,38 +100,38 @@ final class h implements AudioProcessor {
         }
         byteBuffer.position(byteBuffer.limit());
         this.buffer.flip();
-        this.lWu = this.buffer;
+        this.mak = this.buffer;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public void drp() {
-        this.lWv = true;
+    public void dsB() {
+        this.mal = true;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public ByteBuffer drq() {
-        ByteBuffer byteBuffer = this.lWu;
-        this.lWu = EMPTY_BUFFER;
+    public ByteBuffer dsC() {
+        ByteBuffer byteBuffer = this.mak;
+        this.mak = EMPTY_BUFFER;
         return byteBuffer;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public boolean ati() {
-        return this.lWv && this.lWu == EMPTY_BUFFER;
+    public boolean atB() {
+        return this.mal && this.mak == EMPTY_BUFFER;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public void flush() {
-        this.lWu = EMPTY_BUFFER;
-        this.lWv = false;
+        this.mak = EMPTY_BUFFER;
+        this.mal = false;
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
     public void reset() {
         flush();
         this.buffer = EMPTY_BUFFER;
-        this.lWr = -1;
+        this.mah = -1;
         this.channelCount = -1;
-        this.lWM = 0;
+        this.maE = 0;
     }
 }

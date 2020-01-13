@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DragView extends FrameLayout {
     public static final int BASE_ALPHA = 20;
     public static final float BASE_BACKGROUND_ALPHA_DISTANCE = 300.0f;
@@ -28,7 +28,7 @@ public class DragView extends FrameLayout {
     private int mTopMinValue;
     private ViewDragHelper mViewDragHelper;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnCloseListener {
         void onClose();
 
@@ -195,7 +195,7 @@ public class DragView extends FrameLayout {
         this.mTopMinValue = i;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class OnSimpleCloseListener implements OnCloseListener {
         @Override // com.baidu.searchbox.picture.component.view.DragView.OnCloseListener
         public void onClose() {

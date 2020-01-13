@@ -11,7 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.p;
 import com.airbnb.lottie.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c extends a {
     private final Rect dst;
     @Nullable
@@ -51,19 +51,19 @@ public class c extends a {
         Bitmap bitmap = getBitmap();
         if (bitmap != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, bitmap.getWidth()), Math.min(rectF.bottom, bitmap.getHeight()));
-            this.iW.mapRect(rectF);
+            this.iV.mapRect(rectF);
         }
     }
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.J(this.iX.getRefId());
+        return this.lottieDrawable.J(this.iW.getRefId());
     }
 
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
         super.a((c) t, (com.airbnb.lottie.e.c<c>) cVar);
-        if (t == k.fk) {
+        if (t == k.fj) {
             if (cVar == null) {
                 this.fN = null;
             } else {

@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.ReportGroup.DataReq;
 import protobuf.ReportGroup.ReportGroupReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RequestReportGroupMessage extends TbSocketMessage {
     private long mGroupId;
     private int mReportType;

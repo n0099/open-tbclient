@@ -8,7 +8,7 @@ import android.support.v4.app.NotificationCompat;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static void a(Context context, int i, boolean z) {
         long j = KeepJobService.JOB_CHECK_PERIODIC;

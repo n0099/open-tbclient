@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.d;
 import android.content.Context;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j extends c {
     protected String d;
 

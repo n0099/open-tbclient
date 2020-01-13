@@ -2,8 +2,7 @@ package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
 import io.reactivex.aa;
-import io.reactivex.b.h;
-import io.reactivex.g;
+import io.reactivex.c.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -12,8 +11,7 @@ import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
     final boolean delayErrors;
     final h<? super T, ? extends aa<? extends R>> mapper;
@@ -21,18 +19,18 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.mTG.a((j) new FlatMapSingleSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.nvK.a((j) new FlatMapSingleSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
-    /* loaded from: classes4.dex */
-    static final class FlatMapSingleSubscriber<T, R> extends AtomicInteger implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class FlatMapSingleSubscriber<T, R> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = 8600231336733376951L;
         final org.a.c<? super R> actual;
         volatile boolean cancelled;
         final boolean delayErrors;
         final h<? super T, ? extends aa<? extends R>> mapper;
         final int maxConcurrency;
-        d s;
+        org.a.d s;
         final AtomicLong requested = new AtomicLong();
         final io.reactivex.disposables.a set = new io.reactivex.disposables.a();
         final AtomicThrowable errors = new AtomicThrowable();
@@ -47,7 +45,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -85,7 +83,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -159,7 +157,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(g.dDL());
+                aVar = new io.reactivex.internal.queue.a<>(io.reactivex.g.dHR());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }
@@ -177,7 +175,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         void drain() {
@@ -337,7 +335,7 @@ public final class FlowableFlatMapSingle<T, R> extends a<T, R> {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<R> {
             private static final long serialVersionUID = -502562646270949838L;
 

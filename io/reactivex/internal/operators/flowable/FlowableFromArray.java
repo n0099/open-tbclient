@@ -1,11 +1,10 @@
 package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.g;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes4.dex */
-public final class FlowableFromArray<T> extends g<T> {
+/* loaded from: classes5.dex */
+public final class FlowableFromArray<T> extends io.reactivex.g<T> {
     final T[] array;
 
     @Override // io.reactivex.g
@@ -17,7 +16,7 @@ public final class FlowableFromArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static abstract class BaseArraySubscription<T> extends BasicQueueSubscription<T> {
         private static final long serialVersionUID = -2252972430506210021L;
         final T[] array;
@@ -37,7 +36,7 @@ public final class FlowableFromArray<T> extends g<T> {
             return i & 1;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public final T poll() {
             int i = this.index;
             T[] tArr = this.array;
@@ -48,12 +47,12 @@ public final class FlowableFromArray<T> extends g<T> {
             return (T) io.reactivex.internal.functions.a.h(tArr[i], "array element is null");
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public final boolean isEmpty() {
             return this.index == this.array.length;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public final void clear() {
             this.index = this.array.length;
         }
@@ -75,7 +74,7 @@ public final class FlowableFromArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ArraySubscription<T> extends BaseArraySubscription<T> {
         private static final long serialVersionUID = 2587302975077663557L;
         final org.a.c<? super T> actual;
@@ -151,7 +150,7 @@ public final class FlowableFromArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ArrayConditionalSubscription<T> extends BaseArraySubscription<T> {
         private static final long serialVersionUID = 2587302975077663557L;
         final io.reactivex.internal.a.a<? super T> actual;

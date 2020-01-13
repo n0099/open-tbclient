@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.as.af;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static int D(String str, int i) {
         int i2;

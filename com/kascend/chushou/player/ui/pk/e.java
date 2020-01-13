@@ -1,0 +1,35 @@
+package com.kascend.chushou.player.ui.pk;
+
+import android.os.Handler;
+import android.os.Looper;
+/* loaded from: classes4.dex */
+public class e {
+    private static final e ndD = new e();
+    private Handler b = new Handler(Looper.getMainLooper());
+
+    public static e dCT() {
+        return ndD;
+    }
+
+    private e() {
+    }
+
+    public void a(c cVar, long j) {
+        this.b.postDelayed(cVar, j);
+    }
+
+    public void a(c cVar) {
+        this.b.postDelayed(cVar, cVar.c);
+    }
+
+    public void b(c cVar) {
+        this.b.postDelayed(cVar, cVar.f);
+    }
+
+    public void c(c cVar) {
+        if (cVar != null) {
+            cVar.a();
+            this.b.removeCallbacks(cVar);
+        }
+    }
+}

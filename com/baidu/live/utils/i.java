@@ -1,6 +1,6 @@
 package com.baidu.live.utils;
 
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -40,18 +40,18 @@ public class i {
         return new SimpleDateFormat("mm:ss").format(new Date((l.longValue() * 1000) - 28800000));
     }
 
-    public static String cF(int i) {
+    public static String cG(int i) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHH");
         Date date = new Date();
         date.setHours(date.getHours() - i);
         return simpleDateFormat.format(date);
     }
 
-    public static String yp() {
+    public static String yF() {
         return new SimpleDateFormat("HH").format(new Date());
     }
 
-    public static String yq() {
+    public static String yG() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH");
         Date date = new Date();
         date.setHours(date.getHours() - 1);

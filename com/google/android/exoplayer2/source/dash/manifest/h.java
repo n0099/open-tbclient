@@ -3,181 +3,181 @@ package com.google.android.exoplayer2.source.dash.manifest;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.google.android.exoplayer2.util.v;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class h {
-    final f mqJ;
-    final long mqK;
+    final f muy;
+    final long muz;
     final long timescale;
 
     public h(f fVar, long j, long j2) {
-        this.mqJ = fVar;
+        this.muy = fVar;
         this.timescale = j;
-        this.mqK = j2;
+        this.muz = j2;
     }
 
     public f a(g gVar) {
-        return this.mqJ;
+        return this.muy;
     }
 
-    public long duE() {
-        return v.h(this.mqK, TimeUtils.NANOS_PER_MS, this.timescale);
+    public long dvP() {
+        return v.h(this.muz, TimeUtils.NANOS_PER_MS, this.timescale);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class e extends h {
-        final long mqQ;
-        final long mqR;
+        final long muF;
+        final long muG;
 
         public e(f fVar, long j, long j2, long j3, long j4) {
             super(fVar, j, j2);
-            this.mqQ = j3;
-            this.mqR = j4;
+            this.muF = j3;
+            this.muG = j4;
         }
 
         public e() {
             this(null, 1L, 0L, 0L, 0L);
         }
 
-        public f duF() {
-            if (this.mqR <= 0) {
+        public f dvQ() {
+            if (this.muG <= 0) {
                 return null;
             }
-            return new f(null, this.mqQ, this.mqR);
+            return new f(null, this.muF, this.muG);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class a extends h {
         final long duration;
-        final int mqL;
-        final List<d> mqM;
+        final int muA;
+        final List<d> muB;
 
         public abstract f a(g gVar, int i);
 
-        public abstract int gn(long j);
+        public abstract int gs(long j);
 
         public a(f fVar, long j, long j2, int i, long j3, List<d> list) {
             super(fVar, j, j2);
-            this.mqL = i;
+            this.muA = i;
             this.duration = j3;
-            this.mqM = list;
+            this.muB = list;
         }
 
         public int U(long j, long j2) {
-            int duy = duy();
-            int gn = gn(j2);
-            if (gn != 0) {
-                if (this.mqM == null) {
-                    int i = this.mqL + ((int) (j / ((this.duration * TimeUtils.NANOS_PER_MS) / this.timescale)));
-                    if (i >= duy) {
-                        return gn == -1 ? i : Math.min(i, (duy + gn) - 1);
+            int dvJ = dvJ();
+            int gs = gs(j2);
+            if (gs != 0) {
+                if (this.muB == null) {
+                    int i = this.muA + ((int) (j / ((this.duration * TimeUtils.NANOS_PER_MS) / this.timescale)));
+                    if (i >= dvJ) {
+                        return gs == -1 ? i : Math.min(i, (dvJ + gs) - 1);
                     }
-                    return duy;
+                    return dvJ;
                 }
-                int i2 = (duy + gn) - 1;
-                int i3 = duy;
+                int i2 = (dvJ + gs) - 1;
+                int i3 = dvJ;
                 while (i3 <= i2) {
                     int i4 = ((i2 - i3) / 2) + i3;
-                    long KQ = KQ(i4);
-                    if (KQ < j) {
+                    long KZ = KZ(i4);
+                    if (KZ < j) {
                         i3 = i4 + 1;
-                    } else if (KQ <= j) {
+                    } else if (KZ <= j) {
                         return i4;
                     } else {
                         i2 = i4 - 1;
                     }
                 }
-                if (i3 != duy) {
+                if (i3 != dvJ) {
                     i3 = i2;
                 }
                 return i3;
             }
-            return duy;
+            return dvJ;
         }
 
         public final long H(int i, long j) {
-            if (this.mqM != null) {
-                return (this.mqM.get(i - this.mqL).duration * TimeUtils.NANOS_PER_MS) / this.timescale;
+            if (this.muB != null) {
+                return (this.muB.get(i - this.muA).duration * TimeUtils.NANOS_PER_MS) / this.timescale;
             }
-            int gn = gn(j);
-            return (gn == -1 || i != (gn + duy()) + (-1)) ? (this.duration * TimeUtils.NANOS_PER_MS) / this.timescale : j - KQ(i);
+            int gs = gs(j);
+            return (gs == -1 || i != (gs + dvJ()) + (-1)) ? (this.duration * TimeUtils.NANOS_PER_MS) / this.timescale : j - KZ(i);
         }
 
-        public final long KQ(int i) {
+        public final long KZ(int i) {
             long j;
-            if (this.mqM != null) {
-                j = this.mqM.get(i - this.mqL).startTime - this.mqK;
+            if (this.muB != null) {
+                j = this.muB.get(i - this.muA).startTime - this.muz;
             } else {
-                j = (i - this.mqL) * this.duration;
+                j = (i - this.muA) * this.duration;
             }
             return v.h(j, TimeUtils.NANOS_PER_MS, this.timescale);
         }
 
-        public int duy() {
-            return this.mqL;
+        public int dvJ() {
+            return this.muA;
         }
 
-        public boolean duz() {
-            return this.mqM != null;
+        public boolean dvK() {
+            return this.muB != null;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b extends a {
-        final List<f> mqN;
+        final List<f> muC;
 
         public b(f fVar, long j, long j2, int i, long j3, List<d> list, List<f> list2) {
             super(fVar, j, j2, i, j3, list);
-            this.mqN = list2;
+            this.muC = list2;
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.h.a
         public f a(g gVar, int i) {
-            return this.mqN.get(i - this.mqL);
+            return this.muC.get(i - this.muA);
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.h.a
-        public int gn(long j) {
-            return this.mqN.size();
+        public int gs(long j) {
+            return this.muC.size();
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.h.a
-        public boolean duz() {
+        public boolean dvK() {
             return true;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c extends a {
-        final j mqO;
-        final j mqP;
+        final j muD;
+        final j muE;
 
         public c(f fVar, long j, long j2, int i, long j3, List<d> list, j jVar, j jVar2) {
             super(fVar, j, j2, i, j3, list);
-            this.mqO = jVar;
-            this.mqP = jVar2;
+            this.muD = jVar;
+            this.muE = jVar2;
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.h
         public f a(g gVar) {
-            return this.mqO != null ? new f(this.mqO.a(gVar.lUU.id, 0, gVar.lUU.bitrate, 0L), 0L, -1L) : super.a(gVar);
+            return this.muD != null ? new f(this.muD.a(gVar.lYL.id, 0, gVar.lYL.bitrate, 0L), 0L, -1L) : super.a(gVar);
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.h.a
         public f a(g gVar, int i) {
             long j;
-            if (this.mqM != null) {
-                j = this.mqM.get(i - this.mqL).startTime;
+            if (this.muB != null) {
+                j = this.muB.get(i - this.muA).startTime;
             } else {
-                j = (i - this.mqL) * this.duration;
+                j = (i - this.muA) * this.duration;
             }
-            return new f(this.mqP.a(gVar.lUU.id, i, gVar.lUU.bitrate, j), 0L, -1L);
+            return new f(this.muE.a(gVar.lYL.id, i, gVar.lYL.bitrate, j), 0L, -1L);
         }
 
         @Override // com.google.android.exoplayer2.source.dash.manifest.h.a
-        public int gn(long j) {
-            if (this.mqM != null) {
-                return this.mqM.size();
+        public int gs(long j) {
+            if (this.muB != null) {
+                return this.muB.size();
             }
             if (j != -9223372036854775807L) {
                 return (int) v.X(j, (this.duration * TimeUtils.NANOS_PER_MS) / this.timescale);
@@ -186,7 +186,7 @@ public abstract class h {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class d {
         final long duration;
         final long startTime;

@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
     public static final Parcelable.Creator<DrmInitData> CREATOR = new Parcelable.Creator<DrmInitData>() { // from class: com.google.android.exoplayer2.drm.DrmInitData.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Je */
+        /* renamed from: Jn */
         public DrmInitData[] newArray(int i) {
             return new DrmInitData[i];
         }
@@ -61,11 +61,11 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
         this.schemeDataCount = this.schemeDatas.length;
     }
 
-    public SchemeData Jd(int i) {
+    public SchemeData Jm(int i) {
         return this.schemeDatas[i];
     }
 
-    public DrmInitData OS(@Nullable String str) {
+    public DrmInitData Pd(@Nullable String str) {
         return v.h(this.schemeType, str) ? this : new DrmInitData(str, false, this.schemeDatas);
     }
 
@@ -92,8 +92,8 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(SchemeData schemeData, SchemeData schemeData2) {
-        if (com.google.android.exoplayer2.b.lTB.equals(schemeData.uuid)) {
-            return com.google.android.exoplayer2.b.lTB.equals(schemeData2.uuid) ? 0 : 1;
+        if (com.google.android.exoplayer2.b.lXs.equals(schemeData.uuid)) {
+            return com.google.android.exoplayer2.b.lXs.equals(schemeData2.uuid) ? 0 : 1;
         }
         return schemeData.uuid.compareTo(schemeData2.uuid);
     }
@@ -109,7 +109,7 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
         parcel.writeTypedArray(this.schemeDatas, 0);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SchemeData implements Parcelable {
         public static final Parcelable.Creator<SchemeData> CREATOR = new Parcelable.Creator<SchemeData>() { // from class: com.google.android.exoplayer2.drm.DrmInitData.SchemeData.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -121,7 +121,7 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Jf */
+            /* renamed from: Jo */
             public SchemeData[] newArray(int i) {
                 return new SchemeData[i];
             }
@@ -151,7 +151,7 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
         }
 
         public boolean a(UUID uuid) {
-            return com.google.android.exoplayer2.b.lTB.equals(this.uuid) || uuid.equals(this.uuid);
+            return com.google.android.exoplayer2.b.lXs.equals(this.uuid) || uuid.equals(this.uuid);
         }
 
         public boolean a(SchemeData schemeData) {

@@ -18,7 +18,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends ab {
     public b(j jVar) {
         super(jVar, "/swanAPI/getCommonSysInfo");
@@ -37,7 +37,7 @@ public class b extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.aac().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.c.b.1
+        eVar.aaz().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -61,20 +61,20 @@ public class b extends ab {
 
     private void a(Context context, String str, CallbackHandler callbackHandler) {
         Context appContext = AppRuntime.getAppContext();
-        String bn = com.baidu.swan.apps.w.a.Rp().bn(appContext);
-        String aey = ai.aey();
+        String bn = com.baidu.swan.apps.w.a.RL().bn(appContext);
+        String aeR = ai.aeR();
         String cb = com.baidu.swan.bdprivate.a.a.cb(context);
-        String bm = com.baidu.swan.apps.w.a.Rp().bm(appContext);
-        String cookie = com.baidu.swan.apps.w.a.RI().FH().getCookie(".baidu.com");
+        String bm = com.baidu.swan.apps.w.a.RL().bm(appContext);
+        String cookie = com.baidu.swan.apps.w.a.Se().Gd().getCookie(".baidu.com");
         String cookieValue = ag.getCookieValue(cookie, "BAIDUID");
         String cookieValue2 = ag.getCookieValue(cookie, "H_WISE_SIDS");
         if (DEBUG) {
-            Log.d("GetSysInfoAction", "cuid = " + bn + ", imei = " + aey + ", zid = " + cb + ", uid = " + bm + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
+            Log.d("GetSysInfoAction", "cuid = " + bn + ", imei = " + aeR + ", zid = " + cb + ", uid = " + bm + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("cuid", bn);
-            jSONObject.put("imei", aey);
+            jSONObject.put("imei", aeR);
             jSONObject.put("zid", cb);
             jSONObject.put("uid", bm);
             jSONObject.put("baidu_id", cookieValue);

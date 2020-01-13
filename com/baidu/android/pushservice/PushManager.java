@@ -14,11 +14,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PushManager {
     private static final String TAG = "PushManager";
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface SyncCallback {
         void onSyncResult(int i);
     }

@@ -12,7 +12,7 @@ import android.support.v7.view.menu.MenuView;
 import android.support.v7.view.menu.SubMenuBuilder;
 import android.view.ViewGroup;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BottomNavigationPresenter implements MenuPresenter {
     private int mId;
     private MenuBuilder mMenu;
@@ -101,7 +101,7 @@ public class BottomNavigationPresenter implements MenuPresenter {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.design.internal.BottomNavigationPresenter.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

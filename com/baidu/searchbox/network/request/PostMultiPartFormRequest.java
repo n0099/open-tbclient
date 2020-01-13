@@ -12,7 +12,7 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormRequestBuilder> {
     private List<PostBytes> bytes;
     private List<PostFile> files;
@@ -77,7 +77,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormR
         return this.okRequestBuilder.post(requestBody).build();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class PostFile {
         private String contentType;
         private File file;
@@ -108,7 +108,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormR
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class PostBytes {
         private byte[] bytes;
         private String contentType;
@@ -131,7 +131,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormR
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class PostMultiPartFormRequestBuilder extends HttpRequestParasBuilder<PostMultiPartFormRequestBuilder> {
         private List<PostBytes> postBytes;
         private List<PostFile> postFiles;

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.webkit.internal.ETAG;
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class b<T> extends a<T> {
     protected abstract String q();
 

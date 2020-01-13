@@ -3,46 +3,46 @@ package com.baidu.swan.menu;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import com.baidu.swan.menu.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i {
-    private com.baidu.swan.menu.viewpager.b cuP;
-    private int cuV;
-    private f cva;
+    private com.baidu.swan.menu.viewpager.b cva;
+    private int cvg;
+    private f cvl;
     private boolean mEnable;
     private Drawable mIcon;
     private int mIconResId;
     private int mId;
     private String mTitle;
     private boolean mIsVisible = true;
-    private int cuW = 0;
-    private int cuX = -1;
-    public int cuY = 0;
-    private long cuZ = 0;
+    private int cvh = 0;
+    private int cvi = -1;
+    public int cvj = 0;
+    private long cvk = 0;
 
     public i(int i, int i2, int i3, boolean z) {
-        this.cuV = -1;
+        this.cvg = -1;
         this.mIconResId = -1;
         this.mEnable = true;
         this.mId = i;
-        this.cuV = i2;
+        this.cvg = i2;
         this.mIconResId = i3;
         this.mEnable = z;
     }
 
-    public int aqg() {
-        return this.cuY;
+    public int aqz() {
+        return this.cvj;
     }
 
     public void id(int i) {
-        this.cuY = i;
+        this.cvj = i;
     }
 
-    public long aqh() {
-        return this.cuZ;
+    public long aqA() {
+        return this.cvk;
     }
 
-    public void aY(long j) {
-        this.cuZ = j;
+    public void bb(long j) {
+        this.cvk = j;
     }
 
     public int getItemId() {
@@ -50,7 +50,7 @@ public class i {
     }
 
     public void ie(int i) {
-        this.cuV = i;
+        this.cvg = i;
     }
 
     public void setIconResId(int i) {
@@ -65,10 +65,10 @@ public class i {
         if (this.mTitle != null) {
             return this.mTitle;
         }
-        if (this.cuV <= 0) {
+        if (this.cvg <= 0) {
             return null;
         }
-        return context.getResources().getString(this.cuV);
+        return context.getResources().getString(this.cvg);
     }
 
     public Drawable dx(Context context) {
@@ -81,8 +81,8 @@ public class i {
         return context.getResources().getDrawable(this.mIconResId);
     }
 
-    public int aqi() {
-        return this.cuW;
+    public int aqB() {
+        return this.cvh;
     }
 
     public boolean isVisible() {
@@ -90,23 +90,23 @@ public class i {
     }
 
     public int getTitleColor() {
-        return this.cuX == -1 ? g.a.aiapp_menu_item_text : this.cuX;
+        return this.cvi == -1 ? g.a.aiapp_menu_item_text : this.cvi;
     }
 
     public void a(f fVar) {
-        this.cva = fVar;
+        this.cvl = fVar;
     }
 
-    public f aqj() {
-        return this.cva;
+    public f aqC() {
+        return this.cvl;
     }
 
     public void b(com.baidu.swan.menu.viewpager.b bVar) {
-        this.cuP = bVar;
+        this.cva = bVar;
     }
 
-    public com.baidu.swan.menu.viewpager.b aqk() {
-        return this.cuP;
+    public com.baidu.swan.menu.viewpager.b aqD() {
+        return this.cva;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -114,6 +114,6 @@ public class i {
         if (iVar == null) {
             return null;
         }
-        return new i(iVar.mId, iVar.cuV, iVar.mIconResId, iVar.mEnable);
+        return new i(iVar.mId, iVar.cvg, iVar.mIconResId, iVar.mEnable);
     }
 }

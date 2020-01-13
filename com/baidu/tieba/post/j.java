@@ -3,125 +3,125 @@ package com.baidu.tieba.post;
 import com.baidu.adp.lib.util.StringUtils;
 import java.util.HashMap;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class j implements com.baidu.tieba.j.h {
-    private HashMap<String, com.baidu.tieba.j.f> cR;
-    private String ikn;
+    private HashMap<String, com.baidu.tieba.j.f> cQ;
+    private String inT;
     private String mUuid;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     private static class a {
-        private static final com.baidu.tieba.j.h jwb = new j();
+        private static final com.baidu.tieba.j.h jzD = new j();
     }
 
-    public static com.baidu.tieba.j.h cxC() {
-        return a.jwb;
+    public static com.baidu.tieba.j.h cyJ() {
+        return a.jzD;
     }
 
     private j() {
-        this.cR = new HashMap<>();
+        this.cQ = new HashMap<>();
     }
 
     @Override // com.baidu.tieba.j.h
-    public void cdL() {
+    public void ceU() {
         this.mUuid = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.j.h
-    public void aJ(int i, String str) {
-        cxD().p(this.mUuid, i, str);
+    public void aP(int i, String str) {
+        cyK().p(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void aK(int i, String str) {
-        cxD().q(this.mUuid, i, str);
+    public void aQ(int i, String str) {
+        cyK().q(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void aL(int i, String str) {
-        cxD().r(this.mUuid, i, str);
+    public void aR(int i, String str) {
+        cyK().r(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void cdM() {
-        cxD().Ew(this.mUuid);
+    public void ceV() {
+        cyK().EG(this.mUuid);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void j(int i, int i2, String str) {
-        cxD().e(this.mUuid, i, i2, str);
+    public void l(int i, int i2, String str) {
+        cyK().e(this.mUuid, i, i2, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void cdN() {
-        cxD().Ex(this.mUuid);
-        eB(this.mUuid);
+    public void ceW() {
+        cyK().EH(this.mUuid);
+        eE(this.mUuid);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void aM(int i, String str) {
-        cxD().s(this.mUuid, i, str);
+    public void aS(int i, String str) {
+        cyK().s(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.j.h
-    public void EA(String str) {
-        if (!StringUtils.isNull(this.ikn)) {
-            if (Ey(this.ikn) || Ez(this.ikn)) {
-                eB(this.ikn);
+    public void EK(String str) {
+        if (!StringUtils.isNull(this.inT)) {
+            if (EI(this.inT) || EJ(this.inT)) {
+                eE(this.inT);
             } else {
-                com.baidu.tieba.j.d.Ev(this.ikn);
-                this.cR.remove(this.mUuid);
+                com.baidu.tieba.j.d.EF(this.inT);
+                this.cQ.remove(this.mUuid);
             }
-            cdL();
-            cxD().dK(this.ikn, str);
-            this.ikn = null;
+            ceU();
+            cyK().dM(this.inT, str);
+            this.inT = null;
         }
     }
 
     @Override // com.baidu.tieba.j.h
-    public void cdO() {
-        this.ikn = this.mUuid;
+    public void ceX() {
+        this.inT = this.mUuid;
     }
 
     @Override // com.baidu.tieba.j.h
-    public void EB(String str) {
-        cxD().dL(this.mUuid, str);
-        if (Ey(this.mUuid) || Ez(this.mUuid)) {
-            eB(this.mUuid);
+    public void EL(String str) {
+        cyK().dN(this.mUuid, str);
+        if (EI(this.mUuid) || EJ(this.mUuid)) {
+            eE(this.mUuid);
         } else {
-            com.baidu.tieba.j.d.Ev(this.mUuid);
-            this.cR.remove(this.mUuid);
+            com.baidu.tieba.j.d.EF(this.mUuid);
+            this.cQ.remove(this.mUuid);
         }
         this.mUuid = null;
     }
 
-    public boolean Ey(String str) {
-        return cxD().Ey(str);
+    public boolean EI(String str) {
+        return cyK().EI(str);
     }
 
-    public boolean Ez(String str) {
-        return cxD().Ez(str);
+    public boolean EJ(String str) {
+        return cyK().EJ(str);
     }
 
-    public void eB(String str) {
-        com.baidu.tieba.j.f fVar = this.cR.get(str);
+    public void eE(String str) {
+        com.baidu.tieba.j.f fVar = this.cQ.get(str);
         if (fVar != null) {
-            fVar.eB(str);
-            this.cR.remove(str);
+            fVar.eE(str);
+            this.cQ.remove(str);
         }
     }
 
-    private com.baidu.tieba.j.f cxD() {
-        com.baidu.tieba.j.f fVar = this.cR.get(this.mUuid);
+    private com.baidu.tieba.j.f cyK() {
+        com.baidu.tieba.j.f fVar = this.cQ.get(this.mUuid);
         if (fVar == null) {
-            return cxE();
+            return cyL();
         }
         return fVar;
     }
 
-    private com.baidu.tieba.j.f cxE() {
+    private com.baidu.tieba.j.f cyL() {
         i iVar = new i(this.mUuid);
-        this.cR.put(this.mUuid, iVar);
+        this.cQ.put(this.mUuid, iVar);
         return iVar;
     }
 }

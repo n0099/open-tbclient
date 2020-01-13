@@ -5,8 +5,7 @@ import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.NoSuchElementException;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableElementAt<T> extends a<T, T> {
     final T defaultValue;
     final boolean errorOnFewer;
@@ -14,10 +13,10 @@ public final class FlowableElementAt<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new ElementAtSubscriber(cVar, this.index, this.defaultValue, this.errorOnFewer));
+        this.nvK.a((j) new ElementAtSubscriber(cVar, this.index, this.defaultValue, this.errorOnFewer));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ElementAtSubscriber<T> extends DeferredScalarSubscription<T> implements j<T> {
         private static final long serialVersionUID = 4066607327284737757L;
         long count;
@@ -25,7 +24,7 @@ public final class FlowableElementAt<T> extends a<T, T> {
         boolean done;
         final boolean errorOnFewer;
         final long index;
-        d s;
+        org.a.d s;
 
         ElementAtSubscriber(org.a.c<? super T> cVar, long j, T t, boolean z) {
             super(cVar);
@@ -35,7 +34,7 @@ public final class FlowableElementAt<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -60,7 +59,7 @@ public final class FlowableElementAt<T> extends a<T, T> {
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;

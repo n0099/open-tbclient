@@ -23,12 +23,12 @@ import org.apache.http.entity.BasicHttpEntity;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicHttpResponse;
 import org.apache.http.message.BasicStatusLine;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j implements i {
     private final a a;
     private final SSLSocketFactory b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         String a(String str);
     }

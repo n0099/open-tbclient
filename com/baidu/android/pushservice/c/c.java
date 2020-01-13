@@ -18,12 +18,12 @@ import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.live.tbadk.data.Config;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     private static volatile C0040c a;
     private static final Object b = new Object();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         actionId,
         actionName,
@@ -36,7 +36,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b implements DatabaseErrorHandler {
         private b() {
         }
@@ -107,7 +107,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.pushservice.c.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class C0040c extends SQLiteOpenHelper {
         private static final String a = "CREATE TABLE PushShareInfo (" + e.PushInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.PushPriority.name() + " LONG NOT NULL DEFAULT ((0)), " + e.PushVersion.name() + " INTEGER DEFAULT ((0)), " + e.PushChannelID.name() + " TEXT, " + e.PushNewChannelID.name() + " TEXT, " + e.PushCurPkgName.name() + " TEXT, " + e.PushWebAppBindInfo.name() + " TEXT, " + e.PushLightAppBindInfo.name() + " TEXT, " + e.PushSDKClientBindInfo.name() + " TEXT, " + e.PushClientsBindInfo.name() + " TEXT, " + e.PushSelfBindInfo.name() + " TEXT);";
         private static final String b = "CREATE TABLE PushVerifInfo (" + f.verifId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + f.msgId.name() + " TEXT NOT NULL, " + f.md5Infos.name() + " TEXT NOT NULL, " + f.appId.name() + " TEXT, " + f.time.name() + " TEXT);";
@@ -161,7 +161,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum d {
         MsgInfoId,
         appId,
@@ -174,7 +174,7 @@ public class c {
         ackRet
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum e {
         PushInfoId,
         PushPriority,
@@ -189,7 +189,7 @@ public class c {
         PushSelfBindInfo
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum f {
         verifId,
         msgId,

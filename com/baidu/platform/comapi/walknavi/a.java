@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
     public abstract boolean ready();
 

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 @TargetApi(19)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k implements i, l {
     private final MergePaths gi;
     private final String name;

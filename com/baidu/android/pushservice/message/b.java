@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.message;
 import android.content.Context;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends c {
     public b(Context context) {
         super(context);

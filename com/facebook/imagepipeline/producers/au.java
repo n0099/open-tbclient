@@ -4,38 +4,38 @@ import android.util.Pair;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class au<T> implements aj<T> {
-    private final aj<T> lQz;
-    private final int lSq;
+    private final aj<T> lUn;
+    private final int lWe;
     private final Executor mExecutor;
     @GuardedBy("this")
-    private final ConcurrentLinkedQueue<Pair<k<T>, ak>> lSs = new ConcurrentLinkedQueue<>();
+    private final ConcurrentLinkedQueue<Pair<k<T>, ak>> lWg = new ConcurrentLinkedQueue<>();
     @GuardedBy("this")
-    private int lSr = 0;
+    private int lWf = 0;
 
     static /* synthetic */ int b(au auVar) {
-        int i = auVar.lSr;
-        auVar.lSr = i - 1;
+        int i = auVar.lWf;
+        auVar.lWf = i - 1;
         return i;
     }
 
     public au(int i, Executor executor, aj<T> ajVar) {
-        this.lSq = i;
+        this.lWe = i;
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
-        this.lQz = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.lUn = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<T> kVar, ak akVar) {
         boolean z;
-        akVar.doY().fc(akVar.getId(), "ThrottlingProducer");
+        akVar.dqi().fe(akVar.getId(), "ThrottlingProducer");
         synchronized (this) {
-            if (this.lSr >= this.lSq) {
-                this.lSs.add(Pair.create(kVar, akVar));
+            if (this.lWf >= this.lWe) {
+                this.lWg.add(Pair.create(kVar, akVar));
                 z = true;
             } else {
-                this.lSr++;
+                this.lWf++;
                 z = false;
             }
         }
@@ -45,12 +45,12 @@ public class au<T> implements aj<T> {
     }
 
     void g(k<T> kVar, ak akVar) {
-        akVar.doY().a(akVar.getId(), "ThrottlingProducer", null);
-        this.lQz.c(new a(kVar), akVar);
+        akVar.dqi().a(akVar.getId(), "ThrottlingProducer", null);
+        this.lUn.c(new a(kVar), akVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends n<T, T> {
         private a(k<T> kVar) {
             super(kVar);
@@ -58,28 +58,28 @@ public class au<T> implements aj<T> {
 
         @Override // com.facebook.imagepipeline.producers.b
         protected void f(T t, int i) {
-            dpj().g(t, i);
-            if (Iv(i)) {
-                dpL();
+            dqt().g(t, i);
+            if (IE(i)) {
+                dqY();
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
         protected void C(Throwable th) {
-            dpj().D(th);
-            dpL();
+            dqt().D(th);
+            dqY();
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
-        protected void dnL() {
-            dpj().dim();
-            dpL();
+        protected void doR() {
+            dqt().djn();
+            dqY();
         }
 
-        private void dpL() {
+        private void dqY() {
             final Pair pair;
             synchronized (au.this) {
-                pair = (Pair) au.this.lSs.poll();
+                pair = (Pair) au.this.lWg.poll();
                 if (pair == null) {
                     au.b(au.this);
                 }

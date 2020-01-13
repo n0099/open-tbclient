@@ -1,7 +1,7 @@
 package com.baidu.searchbox.network.statistics;
 
 import com.baidu.searchbox.network.core.Headers;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface NetworkStat<T> {
     void onConnect(T t, long j, String str);
 

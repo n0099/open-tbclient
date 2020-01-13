@@ -34,7 +34,6 @@ import com.baidu.searchbox.ugc.model.HttpRequestPublishModule;
 import com.baidu.searchbox.ugc.model.ImageStruct;
 import com.baidu.searchbox.ugc.model.PublishModels;
 import com.baidu.searchbox.ugc.model.PublishRequestModel;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.searchbox.ugc.model.UGCTarget;
 import com.baidu.searchbox.ugc.provider.listener.OnVideoShareListener;
 import com.baidu.searchbox.ugc.request.PublishRequestManager;
@@ -54,7 +53,7 @@ import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class VideoBasePublishPresenter extends BasePublishPresenter implements EmojiconEditText.TextNumbersChangedListener {
     protected static final int MINI_VIDEO = 1;
     protected static final int UGC_VIDEO = 0;
@@ -210,7 +209,7 @@ public class VideoBasePublishPresenter extends BasePublishPresenter implements E
 
     public void initDraftData(EmojiconEditText emojiconEditText) {
         if (this.mInfo != null) {
-            if (!TextUtils.equals(PublishType.TYPE_VIDEO_SHARE, this.mInfo.publishType)) {
+            if (!TextUtils.equals("9", this.mInfo.publishType)) {
                 this.mDraftKey = DraftUtils.getDraftKey(this.mInfo);
                 this.mDraftData = DraftUtils.getDraft(this.mDraftKey);
             }
@@ -452,7 +451,7 @@ public class VideoBasePublishPresenter extends BasePublishPresenter implements E
                 e.printStackTrace();
             }
         }
-        if (this.mSourceType == 1 && TextUtils.isEmpty(this.mUgcCallback) && TextUtils.equals("tiny", this.mSourceFrom) && this.mInfo != null && !TextUtils.equals(PublishType.TYPE_VIDEO_SHARE, this.mInfo.publishType) && publishResultInfo.data != null && publishResultInfo.data.subData != null) {
+        if (this.mSourceType == 1 && TextUtils.isEmpty(this.mUgcCallback) && TextUtils.equals("tiny", this.mSourceFrom) && this.mInfo != null && !TextUtils.equals("9", this.mInfo.publishType) && publishResultInfo.data != null && publishResultInfo.data.subData != null) {
             BaseRouter.invoke(this.mPublishView.getContext(), getSchemeUrl(publishResultInfo.data.subData.vid));
         }
         if (this.mOnVideoShareListener != null && publishResultInfo.data != null && publishResultInfo.data.subData != null && (onVideoShareListener = this.mOnVideoShareListener.get()) != null) {

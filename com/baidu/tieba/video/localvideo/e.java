@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=4, 116=4] */
     /* JADX WARN: Removed duplicated region for block: B:53:0x0163  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<d> fz(Context context) {
+    public static List<d> fA(Context context) {
         Cursor cursor;
         Cursor cursor2;
         String videoPath;
@@ -90,7 +90,7 @@ public class e {
                         cursor2 = null;
                     }
                     cursor.moveToNext();
-                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && JN(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
+                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && JX(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
                         videoPath = dVar.getVideoPath();
                         String substring2 = videoPath.substring(0, videoPath.lastIndexOf("/"));
                         if (!videoPath.contains("/DCIM/") && ((substring2 == null || !substring2.equals("/sdcard")) && (file = new File(videoPath)) != null && file.exists())) {
@@ -133,11 +133,11 @@ public class e {
         return arrayList;
     }
 
-    public static int Jv(String str) {
-        return VideoConvertUtil.Jv(str);
+    public static int JF(String str) {
+        return VideoConvertUtil.JF(str);
     }
 
-    public static d JL(String str) {
+    public static d JV(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -182,7 +182,7 @@ public class e {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static d JM(String str) {
+    public static d JW(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -216,13 +216,13 @@ public class e {
         return dVar;
     }
 
-    public static String Ju(String str) {
-        return VideoConvertUtil.Ju(str);
+    public static String JE(String str) {
+        return VideoConvertUtil.JE(str);
     }
 
     public static void b(String str, List<d> list, boolean z) {
         File[] listFiles;
-        d JL;
+        d JV;
         if (list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
             for (File file : listFiles) {
                 if (file != null && !StringUtils.isNull(file.getPath())) {
@@ -232,8 +232,8 @@ public class e {
                             if (file.exists()) {
                                 file.delete();
                             }
-                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (JL = JL(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && JL.getDuration() >= 1000 && JN(JL.getMimeType())) {
-                            list.add(JL);
+                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (JV = JV(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && JV.getDuration() >= 1000 && JX(JV.getMimeType())) {
+                            list.add(JV);
                         }
                     } else if (file.isDirectory() && !path.contains("/.") && z) {
                         b(path, list, z);
@@ -247,7 +247,7 @@ public class e {
         Collections.sort(list, new a());
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a implements Comparator<d> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -264,7 +264,7 @@ public class e {
         }
     }
 
-    public static boolean JN(String str) {
+    public static boolean JX(String str) {
         return MimeType.Video.MP4.equals(str) || "video/ext-mp4".equals(str);
     }
 }

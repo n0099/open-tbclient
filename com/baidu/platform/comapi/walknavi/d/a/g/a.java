@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.d.a.g;
 
 import android.util.Log;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     private static int a = 5;
 

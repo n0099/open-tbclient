@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Log implements com.baidu.sapi2.c {
     public static final String TAG = "SAPI";
     public static boolean enabled;

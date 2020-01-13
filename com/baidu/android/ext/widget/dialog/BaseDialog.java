@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import com.baidu.searchbox.widget.ImmersionHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BaseDialog extends Dialog {
     private boolean mImmersionEnabled;
 

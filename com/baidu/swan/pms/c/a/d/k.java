@@ -1,38 +1,38 @@
 package com.baidu.swan.pms.c.a.d;
 
 import com.baidu.android.imsdk.utils.HanziToPinyin;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class k extends com.baidu.swan.pms.c.a.b {
-    private f cxD;
+    private f cxO;
     private boolean mIsAttached;
 
     public k(f fVar, boolean z) {
-        this.cxD = fVar;
+        this.cxO = fVar;
         this.mIsAttached = z;
     }
 
     @Override // com.baidu.swan.pms.c.a.b
-    public void eL(boolean z) {
+    public void eQ(boolean z) {
         if (!this.mIsAttached) {
             if (z) {
-                this.cxD.cxs.cxr.currentSize = 0L;
-                this.cxD.iq(0);
+                this.cxO.cxD.cxC.currentSize = 0L;
+                this.cxO.iq(0);
             }
-            d.arm().j(this.cxD);
+            d.arF().j(this.cxO);
         }
     }
 
     @Override // com.baidu.swan.pms.c.a.b
-    public f arh() {
-        return this.cxD;
+    public f arA() {
+        return this.cxO;
     }
 
     @Override // com.baidu.swan.pms.c.a.b
     public boolean a(f fVar) {
-        if (this.cxD == fVar) {
+        if (this.cxO == fVar) {
             return true;
         }
-        return this.cxD.k(fVar);
+        return this.cxO.k(fVar);
     }
 
     @Override // com.baidu.swan.pms.c.a.b

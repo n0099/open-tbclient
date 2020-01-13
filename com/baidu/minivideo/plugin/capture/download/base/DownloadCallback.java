@@ -1,7 +1,7 @@
 package com.baidu.minivideo.plugin.capture.download.base;
 
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class DownloadCallback {
     public void onStarted() {
     }

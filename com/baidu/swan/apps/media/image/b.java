@@ -6,7 +6,7 @@ import android.net.Uri;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     private final Bitmap bitmap;
     private boolean cached;
@@ -48,18 +48,18 @@ public final class b {
         this.tile = true;
     }
 
-    public static b fe(int i) {
+    public static b ff(int i) {
         return new b(i);
     }
 
-    public static b iU(String str) {
+    public static b iX(String str) {
         if (str == null) {
             throw new NullPointerException("Asset name must not be null");
         }
-        return iV("file:///android_asset/" + str);
+        return iY("file:///android_asset/" + str);
     }
 
-    public static b iV(String str) {
+    public static b iY(String str) {
         if (str == null) {
             throw new NullPointerException("Uri must not be null");
         }
@@ -79,15 +79,15 @@ public final class b {
         return new b(bitmap, true);
     }
 
-    public b Vc() {
-        return cK(true);
+    public b Vz() {
+        return cP(true);
     }
 
-    public b Vd() {
-        return cK(false);
+    public b VA() {
+        return cP(false);
     }
 
-    public b cK(boolean z) {
+    public b cP(boolean z) {
         this.tile = z;
         return this;
     }

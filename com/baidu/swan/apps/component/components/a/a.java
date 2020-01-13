@@ -9,19 +9,20 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import com.airbnb.lottie.LottieAnimationView;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.statistic.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimationView, b> {
     @NonNull
-    private String bdn;
+    private String beb;
 
     public a(@Nullable Context context, @NonNull b bVar, @NonNull String str) {
         super(context, bVar);
-        this.bdn = str;
+        this.beb = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,13 +38,13 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     /* renamed from: a */
-    public void Y(@NonNull LottieAnimationView lottieAnimationView) {
-        super.Y(lottieAnimationView);
+    public void ac(@NonNull LottieAnimationView lottieAnimationView) {
+        super.ac(lottieAnimationView);
         try {
-            b bVar = (b) HV();
+            b bVar = (b) Ir();
             lottieAnimationView.loop(bVar.loop);
             lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
-            lottieAnimationView.setAnimation(new JSONObject(this.bdn));
+            lottieAnimationView.setAnimation(new JSONObject(this.beb));
             if (bVar.autoPlay) {
                 lottieAnimationView.playAnimation();
             }
@@ -51,7 +52,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
                 d(lottieAnimationView, bVar);
             }
         } catch (IllegalStateException | JSONException e) {
-            ah(this.bdn, e.ZU());
+            ai(this.beb, e.aar());
         }
     }
 
@@ -80,12 +81,12 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
     }
 
     private void c(@NonNull LottieAnimationView lottieAnimationView, @NonNull b bVar) {
-        if (HZ()) {
+        if (Iv()) {
             if (DEBUG) {
                 Log.d("Component-AnimationView", "renderAction");
             }
             String str = bVar.action;
-            if (TextUtils.equals(str, "play")) {
+            if (TextUtils.equals(str, AlaStaticKeys.ALA_STATIC_VALUE_PLAY)) {
                 lottieAnimationView.resumeAnimation();
             } else if (TextUtils.equals(str, "pause")) {
                 lottieAnimationView.pauseAnimation();
@@ -100,9 +101,9 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
         final JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", bVar.bdi);
+            jSONObject.put("wvID", bVar.bdW);
             jSONObject.put("vtype", "ended");
-            jSONObject2.putOpt("animationViewId", bVar.bdh);
+            jSONObject2.putOpt("animationViewId", bVar.bdV);
             jSONObject.put("data", jSONObject2.toString());
         } catch (JSONException e) {
             if (DEBUG) {
@@ -116,7 +117,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                com.baidu.swan.apps.view.b.b.a.a(bVar.bdi, bVar.bdh, "animateview", "ended", jSONObject);
+                com.baidu.swan.apps.view.b.b.a.a(bVar.bdW, bVar.bdV, "animateview", "ended", jSONObject);
                 c.d("Component-AnimationView", "progress: " + lottieAnimationView.getProgress());
             }
 
@@ -131,7 +132,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
         });
     }
 
-    public static void ah(String str, String str2) {
+    public static void ai(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("json", str);
@@ -149,6 +150,6 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
         if (DEBUG) {
             Log.d("Component-AnimationView", "reportLottieAnimationCrash: " + jSONObject2);
         }
-        new a.C0285a(10009).ln(jSONObject2).lm(e.ZU()).Tz();
+        new a.C0287a(10009).lq(jSONObject2).lp(e.aar()).TW();
     }
 }

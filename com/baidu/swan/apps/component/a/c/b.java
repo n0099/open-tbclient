@@ -6,11 +6,11 @@ import com.baidu.swan.apps.as.af;
 import com.baidu.swan.apps.console.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.apps.component.a.d.b {
-    public boolean bcK;
-    public String bcL;
-    public String bcM;
+    public String bdA;
+    public String bdB;
+    public boolean bdz;
     public double fontSize;
     public String fontWeight;
     public int lineSpace;
@@ -21,11 +21,11 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
     public b(String str, @NonNull String str2) {
         super(str, str2);
         this.text = "";
-        this.bcK = false;
+        this.bdz = false;
         this.textAlign = "";
         this.fontWeight = "";
-        this.bcL = "";
-        this.bcM = "";
+        this.bdA = "";
+        this.bdB = "";
     }
 
     @Override // com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
@@ -33,7 +33,7 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             this.text = jSONObject.optString("text");
-            HN();
+            Ij();
         }
     }
 
@@ -41,28 +41,28 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
     public void Y(JSONObject jSONObject) {
         super.Y(jSONObject);
         this.text = jSONObject.optString("text", this.text);
-        HN();
+        Ij();
     }
 
-    private void HN() {
-        if (this.bcR != null) {
+    private void Ij() {
+        if (this.bdG != null) {
             try {
-                this.textColor = Color.parseColor(this.bcR.optString("color"));
-                this.bcK = true;
+                this.textColor = Color.parseColor(this.bdG.optString("color"));
+                this.bdz = true;
             } catch (Exception e) {
                 c.w("Component-Model-TextView", "text color occurs exception");
-                this.bcK = false;
+                this.bdz = false;
             }
-            this.fontSize = this.bcR.optDouble("fontSize", 0.0d);
-            this.lineSpace = af.T((float) this.bcR.optDouble("lineSpace", 0.0d));
-            this.textAlign = this.bcR.optString("textAlign");
-            this.fontWeight = this.bcR.optString("fontWeight");
-            this.bcL = this.bcR.optString("whiteSpace");
-            this.bcM = this.bcR.optString("lineBreak");
+            this.fontSize = this.bdG.optDouble("fontSize", 0.0d);
+            this.lineSpace = af.S((float) this.bdG.optDouble("lineSpace", 0.0d));
+            this.textAlign = this.bdG.optString("textAlign");
+            this.fontWeight = this.bdG.optString("fontWeight");
+            this.bdA = this.bdG.optString("whiteSpace");
+            this.bdB = this.bdG.optString("lineBreak");
         }
     }
 
-    public void fY(String str) {
+    public void gb(String str) {
         this.text = str;
     }
 }

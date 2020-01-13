@@ -3,7 +3,7 @@ package kotlin.text;
 import java.util.Iterator;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class k {
     /* JADX INFO: Access modifiers changed from: private */
     public static final int i(Iterable<? extends e> iterable) {
@@ -36,11 +36,11 @@ public final class k {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final kotlin.b.c a(MatchResult matchResult) {
-        return new kotlin.b.c(matchResult.start(), matchResult.end() - 1);
+        return kotlin.b.d.eu(matchResult.start(), matchResult.end());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final kotlin.b.c a(MatchResult matchResult, int i) {
-        return new kotlin.b.c(matchResult.start(i), matchResult.end(i) - 1);
+        return kotlin.b.d.eu(matchResult.start(i), matchResult.end(i));
     }
 }

@@ -12,10 +12,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 /* loaded from: classes2.dex */
 public class GuardClubRankTabView extends LinearLayout {
-    private a eDD;
+    private a eEO;
     private MotionEvent mMotionEvent;
 
     /* loaded from: classes2.dex */
@@ -29,18 +29,18 @@ public class GuardClubRankTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.eDD = aVar;
+        this.eEO = aVar;
     }
 
     public void setSelect(int i) {
         View childAt;
         if (i >= 0 && i < getChildCount() && (childAt = getChildAt(i)) != null && !childAt.isSelected()) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
-                br(getChildAt(i2));
+                bv(getChildAt(i2));
             }
-            bq(childAt);
-            if (this.eDD != null) {
-                this.eDD.bI(i);
+            bu(childAt);
+            if (this.eEO != null) {
+                this.eEO.bI(i);
             }
         }
     }
@@ -48,7 +48,7 @@ public class GuardClubRankTabView extends LinearLayout {
     public void setNames(String... strArr) {
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.e.sdk_ds30);
         for (String str : strArr) {
-            addView(ap(str, dimensionPixelOffset), new LinearLayout.LayoutParams(-2, -1));
+            addView(aq(str, dimensionPixelOffset), new LinearLayout.LayoutParams(-2, -1));
         }
     }
 
@@ -75,11 +75,11 @@ public class GuardClubRankTabView extends LinearLayout {
 
     private void init() {
         setClickable(true);
-        tQ();
+        uh();
         setOrientation(0);
     }
 
-    private void tQ() {
+    private void uh() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(0);
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.e.sdk_ds28));
@@ -87,7 +87,7 @@ public class GuardClubRankTabView extends LinearLayout {
         setBackgroundDrawable(gradientDrawable);
     }
 
-    private TextView ap(String str, int i) {
+    private TextView aq(String str, int i) {
         TextView textView = new TextView(getContext());
         textView.setGravity(17);
         textView.setIncludeFontPadding(false);
@@ -105,14 +105,14 @@ public class GuardClubRankTabView extends LinearLayout {
         return textView;
     }
 
-    private void bq(View view) {
+    private void bu(View view) {
         view.setSelected(true);
         if (view instanceof TextView) {
             ((TextView) view).setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize28));
         }
     }
 
-    private void br(View view) {
+    private void bv(View view) {
         view.setSelected(false);
         if (view instanceof TextView) {
             ((TextView) view).setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize24));

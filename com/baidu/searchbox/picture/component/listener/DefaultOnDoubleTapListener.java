@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import com.baidu.searchbox.picture.component.view.Attacher;
 import com.facebook.drawee.generic.a;
 import com.facebook.drawee.view.DraweeView;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DefaultOnDoubleTapListener implements GestureDetector.OnDoubleTapListener {
     private Attacher mAttacher;
 

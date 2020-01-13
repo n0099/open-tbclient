@@ -3,7 +3,7 @@ package com.airbnb.lottie.c;
 import android.graphics.PointF;
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.content.f u(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {

@@ -12,20 +12,20 @@ public class e {
         TbConfig.setLiveEnterFrom(AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_SDK);
         com.baidu.g.b.a.aL(TbadkCoreApplication.getInst()).a(new com.baidu.g.b.b.b());
         com.baidu.g.b.a.aL(TbadkCoreApplication.getInst()).a(new com.baidu.live.widget.a());
-        oK();
         oL();
+        oM();
     }
 
-    public static void oK() {
+    public static void oL() {
         AccountHelper.setOnSyncAccountCallback(new OnSyncAccountCallback() { // from class: com.baidu.live.e.1
             @Override // com.baidu.live.tbadk.account.OnSyncAccountCallback
             public void onSyncAccount(boolean z) {
-                l.uL().aP(z);
+                l.vc().aR(z);
             }
         });
     }
 
-    public static void oL() {
+    public static void oM() {
         com.baidu.live.a.a.d(TbadkCoreApplication.getInst().getApp());
     }
 }

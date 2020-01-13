@@ -11,7 +11,7 @@ import android.util.Property;
 import android.view.View;
 import java.lang.reflect.Field;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ViewUtils {
     static final Property<View, Rect> CLIP_BOUNDS;
     private static final ViewUtilsImpl IMPL;

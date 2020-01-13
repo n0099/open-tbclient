@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum y {
     DEFAULT(1),
     INDOOR(2),

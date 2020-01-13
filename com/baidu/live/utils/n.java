@@ -1,115 +1,136 @@
 package com.baidu.live.utils;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.data.ak;
-import com.baidu.live.tbadk.TbConfig;
-import com.baidu.live.tbadk.browser.BrowserHelper;
+import com.baidu.live.data.AlaFeedDiversionData;
+import com.baidu.live.data.AlaFrequencyData;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.webkit.internal.ETAG;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class n {
-    public static long ayO;
+    private static int startEveryLive = 0;
+    private static int everyDayUser = 0;
+    private static int everyDayDevice = 0;
+    private static int deviceNotClick = 0;
+    private static boolean azu = false;
+    private static HashMap<Long, Integer> azv = new HashMap<>();
 
-    public static void g(String str, long j) {
-        b(str, j, false);
-    }
-
-    public static void b(String str, long j, boolean z) {
-        com.baidu.live.message.h hVar = new com.baidu.live.message.h();
-        hVar.aej = str;
-        hVar.liveId = j;
-        hVar.arP = z;
-        hVar.setParams();
-        MessageManager.getInstance().sendMessage(hVar);
-    }
-
-    public static void k(Context context, String str, String str2) {
-        ak akVar = com.baidu.live.r.a.wA().asy;
-        if (akVar != null && akVar.aaL != null) {
-            String str3 = akVar.aaL.acs;
-            if (!TextUtils.isEmpty(str3)) {
-                BrowserHelper.startInternalWebActivity(context, str3 + (str3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "feed_id=" + str + "&live_id=" + str2 + "&subapp_type=" + TbConfig.getSubappType());
+    private static void init() {
+        if (com.baidu.live.s.a.wR().asq.Zc != null) {
+            AlaFeedDiversionData alaFeedDiversionData = com.baidu.live.s.a.wR().asq.Zc;
+            if (alaFeedDiversionData.frequencyData != null) {
+                AlaFrequencyData alaFrequencyData = alaFeedDiversionData.frequencyData;
+                startEveryLive = alaFrequencyData.startEveryLive;
+                everyDayUser = alaFrequencyData.everyDayUser;
+                everyDayDevice = alaFrequencyData.everyDayDevice;
+                deviceNotClick = alaFrequencyData.deviceNotClick;
             }
         }
     }
 
-    public static String a(String str, String str2, long j, boolean z, int i, String str3, String str4, String str5, String str6, String str7) {
-        ak akVar = com.baidu.live.r.a.wA().asy;
-        if (akVar == null || akVar.aaL == null) {
-            return "";
+    private static boolean K(long j) {
+        if (startEveryLive <= 0) {
+            init();
         }
-        String str8 = akVar.aaL.acr;
-        if (TextUtils.isEmpty(str8)) {
-            return "";
+        if (startEveryLive <= 0) {
+            return false;
         }
-        String str9 = akVar.aaL.appKey;
-        StringBuffer stringBuffer = new StringBuffer(str8);
-        stringBuffer.append(str8.contains("?") ? ETAG.ITEM_SEPARATOR : "?");
-        stringBuffer.append("from=");
-        if (z) {
-            stringBuffer.append("self");
-        } else {
-            stringBuffer.append("guest");
+        if (azv.containsKey(Long.valueOf(j)) && azv.get(Long.valueOf(j)).intValue() >= startEveryLive) {
+            return false;
         }
-        stringBuffer.append("&feed_id=").append(str).append("&live_id=").append(str2).append("&_client_type=2").append("&subapp_type=").append(TbConfig.getSubappType()).append("&app_key=").append(str9);
-        if (TbadkCoreApplication.getInst().isHaokan()) {
-            stringBuffer.append("&backURL=").append("baiduhaokan://");
-            if (!z) {
-                try {
-                    String format = String.format("baiduhaokan://video/live/?room_id=%s&tab=%s&tag=%s&source=%s", Long.valueOf(j), str5, str6, str7);
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("debug_goods_back_scheme", "");
-                    Map<String, Object> process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap);
-                    if (process.containsKey("debug_goods_back_scheme")) {
-                        format = (String) process.get("debug_goods_back_scheme");
-                    }
-                    stringBuffer.append("&back_scheme=" + URLEncoder.encode(format, "utf-8"));
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-            }
-        } else if (TbadkCoreApplication.getInst().isQuanmin()) {
-            stringBuffer.append("&backURL=").append("bdminivideo://");
-            if (!z) {
-                try {
-                    String format2 = String.format("bdminivideo://video/live?room_id=%s&tab=%s&tag=%s&source=%s", Long.valueOf(j), str5, str6, str7);
-                    HashMap hashMap2 = new HashMap();
-                    hashMap2.put("debug_goods_back_scheme", "");
-                    Map<String, Object> process2 = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap2);
-                    if (process2.containsKey("debug_goods_back_scheme")) {
-                        format2 = (String) process2.get("debug_goods_back_scheme");
-                    }
-                    stringBuffer.append("&back_scheme=" + URLEncoder.encode(format2, "utf-8"));
-                } catch (UnsupportedEncodingException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        } else if (TbadkCoreApplication.getInst().isTieba()) {
-            stringBuffer.append("&backURL=").append("bdtiebalive://");
-            if (!z) {
-                try {
-                    stringBuffer.append("&back_scheme=" + URLEncoder.encode(String.format("bdtiebalive://video/live?live_id=%s&tab=%s&tag=%s&source=%s", str2, str5, str6, str7), "utf-8"));
-                } catch (UnsupportedEncodingException e3) {
-                    e3.printStackTrace();
-                }
-            }
-        } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            stringBuffer.append("&backURL=").append("baiduboxapp://");
-            if (!z) {
-                try {
-                    stringBuffer.append("&back_scheme=" + URLEncoder.encode(String.format("baiduboxapp://v33/live/enterTiebaRoom?params={\"roomId\":\"%s\"}", Long.valueOf(j)), "utf-8"));
-                } catch (UnsupportedEncodingException e4) {
-                    e4.printStackTrace();
-                }
+        return true;
+    }
+
+    private static boolean yK() {
+        if (everyDayUser <= 0 || everyDayDevice <= 0) {
+            init();
+        }
+        JSONObject optJSONObject = yM().optJSONObject(j.b(new Date()));
+        if (optJSONObject == null) {
+            optJSONObject = new JSONObject();
+        }
+        long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
+        return ((currentAccountId > 0L ? 1 : (currentAccountId == 0L ? 0 : -1)) > 0 ? optJSONObject.optInt(new StringBuilder().append("uid_").append(currentAccountId).toString()) : 0) < everyDayUser && optJSONObject.optInt("dev") < everyDayDevice;
+    }
+
+    private static boolean yL() {
+        if (deviceNotClick <= 0) {
+            init();
+        }
+        return com.baidu.live.c.oJ().getInt("feed_diversion_noclick_frequency", 0) < deviceNotClick;
+    }
+
+    public static void L(long j) {
+        Integer num = 0;
+        if (azv.containsKey(Long.valueOf(j))) {
+            num = azv.get(Long.valueOf(j));
+        }
+        azv.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
+        JSONObject yM = yM();
+        String b = j.b(new Date());
+        JSONObject optJSONObject = yM.optJSONObject(b);
+        if (optJSONObject == null) {
+            optJSONObject = new JSONObject();
+        }
+        long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
+        if (currentAccountId > 0) {
+            try {
+                String str = "uid_" + currentAccountId;
+                optJSONObject.put(str, optJSONObject.optInt(str) + 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
-        return stringBuffer.toString();
+        try {
+            optJSONObject.put("dev", optJSONObject.optInt("dev") + 1);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(b, optJSONObject);
+        } catch (JSONException e3) {
+            e3.printStackTrace();
+        }
+        com.baidu.live.c.oJ().putString("feed_diversion_show_frequency", jSONObject.toString());
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:13:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:6:0x001c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static JSONObject yM() {
+        JSONObject jSONObject;
+        String string = com.baidu.live.c.oJ().getString("feed_diversion_show_frequency", "");
+        if (!TextUtils.isEmpty(string)) {
+            try {
+                jSONObject = new JSONObject(string);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (jSONObject != null) {
+                return new JSONObject();
+            }
+            return jSONObject;
+        }
+        jSONObject = null;
+        if (jSONObject != null) {
+        }
+    }
+
+    public static void bp(boolean z) {
+        com.baidu.live.c.oJ().putInt("feed_diversion_noclick_frequency", z ? 0 : com.baidu.live.c.oJ().getInt("feed_diversion_noclick_frequency", 0) + 1);
+    }
+
+    public static boolean M(long j) {
+        boolean K;
+        if (!azu && (K = K(j))) {
+            azu = (yK() && yL()) ? false : true;
+            return K & (azu ? false : true);
+        }
+        return false;
     }
 }

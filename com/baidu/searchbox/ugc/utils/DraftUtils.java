@@ -3,13 +3,12 @@ package com.baidu.searchbox.ugc.utils;
 import android.text.TextUtils;
 import com.baidu.searchbox.ugc.draft.DraftData;
 import com.baidu.searchbox.ugc.draft.DraftSPWrapper;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.searchbox.ugc.model.UGCTarget;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
 import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DraftUtils {
     public static String generateSPKey(String... strArr) {
         StringBuilder sb = new StringBuilder();
@@ -159,7 +158,7 @@ public class DraftUtils {
                 }
                 break;
             case 57:
-                if (str.equals(PublishType.TYPE_VIDEO_SHARE)) {
+                if (str.equals("9")) {
                     c = 6;
                     break;
                 }

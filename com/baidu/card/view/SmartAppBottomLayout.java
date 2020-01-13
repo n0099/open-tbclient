@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SmartAppBottomLayout extends LinearLayout implements m<a> {
-    private static final int JX = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds58);
-    private HeadImageView Oj;
-    private TextView Ok;
+    private static final int Kc = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+    private HeadImageView Oo;
+    private TextView Op;
     private int mSkinType;
     private View mView;
 
@@ -40,28 +40,28 @@ public class SmartAppBottomLayout extends LinearLayout implements m<a> {
     private void initUI(Context context) {
         this.mView = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.Oj = (HeadImageView) this.mView.findViewById(R.id.ai_smart_app_icon);
-        this.Ok = (TextView) this.mView.findViewById(R.id.ai_smart_app_text);
-        this.Oj.setIsBigV(false);
-        this.Oj.setIsGod(false);
-        this.Oj.setShowV(false);
+        this.Oo = (HeadImageView) this.mView.findViewById(R.id.ai_smart_app_icon);
+        this.Op = (TextView) this.mView.findViewById(R.id.ai_smart_app_text);
+        this.Oo.setIsBigV(false);
+        this.Oo.setIsGod(false);
+        this.Oo.setShowV(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(a aVar) {
-        bj axx = aVar.axx();
-        if (axx != null && axx.aAq() != null) {
-            if (!TextUtils.isEmpty(axx.aAq().avatar)) {
-                this.Oj.startLoad(axx.aAq().avatar, 10, false);
+        bj axQ = aVar.axQ();
+        if (axQ != null && axQ.aAJ() != null) {
+            if (!TextUtils.isEmpty(axQ.aAJ().avatar)) {
+                this.Oo.startLoad(axQ.aAJ().avatar, 10, false);
             } else {
-                am.setImageResource(this.Oj, R.drawable.icon_avatar_smallapp_tie);
+                am.setImageResource(this.Oo, R.drawable.icon_avatar_smallapp_tie);
             }
-            if (axx.aAq() != null && !TextUtils.isEmpty(axx.aAq().name)) {
-                au.a(this.Ok, axx.aAq().name, (int) R.string.ai_smart_app, (int) R.dimen.tbds0, 1, JX, false);
+            if (axQ.aAJ() != null && !TextUtils.isEmpty(axQ.aAJ().name)) {
+                au.a(this.Op, axQ.aAJ().name, (int) R.string.ai_smart_app, (int) R.dimen.tbds0, 1, Kc, false);
             } else {
-                this.Ok.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
+                this.Op.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
             }
         }
     }
@@ -69,7 +69,7 @@ public class SmartAppBottomLayout extends LinearLayout implements m<a> {
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            am.setViewTextColor(this.Ok, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.Op, (int) R.color.cp_cont_d);
         }
     }
 }

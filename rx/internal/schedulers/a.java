@@ -13,40 +13,40 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.g;
 import rx.internal.util.RxThreadFactory;
 import rx.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a extends rx.g implements h {
-    private static final long nhq;
-    static final C0736a nhs;
-    final ThreadFactory aME;
-    final AtomicReference<C0736a> mWe = new AtomicReference<>(nhs);
-    private static final TimeUnit mWy = TimeUnit.SECONDS;
-    static final c nhr = new c(RxThreadFactory.NONE);
+    private static final long nQo;
+    static final C0790a nQq;
+    final ThreadFactory aNw;
+    final AtomicReference<C0790a> nyn = new AtomicReference<>(nQq);
+    private static final TimeUnit nyH = TimeUnit.SECONDS;
+    static final c nQp = new c(RxThreadFactory.NONE);
 
     static {
-        nhr.unsubscribe();
-        nhs = new C0736a(null, 0L, null);
-        nhs.shutdown();
-        nhq = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
+        nQp.unsubscribe();
+        nQq = new C0790a(null, 0L, null);
+        nQq.shutdown();
+        nQo = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.schedulers.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C0736a {
-        private final ThreadFactory aME;
-        private final long mWB;
-        private final ConcurrentLinkedQueue<c> mWC;
-        private final ScheduledExecutorService mWE;
-        private final Future<?> mWF;
-        private final rx.subscriptions.b nht;
+    /* loaded from: classes5.dex */
+    public static final class C0790a {
+        private final ThreadFactory aNw;
+        private final rx.subscriptions.b nQr;
+        private final long nyK;
+        private final ConcurrentLinkedQueue<c> nyL;
+        private final ScheduledExecutorService nyN;
+        private final Future<?> nyO;
 
-        C0736a(final ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
+        C0790a(final ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
             ScheduledFuture<?> scheduledFuture;
             ScheduledExecutorService scheduledExecutorService = null;
-            this.aME = threadFactory;
-            this.mWB = timeUnit != null ? timeUnit.toNanos(j) : 0L;
-            this.mWC = new ConcurrentLinkedQueue<>();
-            this.nht = new rx.subscriptions.b();
+            this.aNw = threadFactory;
+            this.nyK = timeUnit != null ? timeUnit.toNanos(j) : 0L;
+            this.nyL = new ConcurrentLinkedQueue<>();
+            this.nQr = new rx.subscriptions.b();
             if (timeUnit != null) {
                 ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new ThreadFactory() { // from class: rx.internal.schedulers.a.a.1
                     @Override // java.util.concurrent.ThreadFactory
@@ -61,45 +61,45 @@ public final class a extends rx.g implements h {
                 scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(new Runnable() { // from class: rx.internal.schedulers.a.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        C0736a.this.dEg();
+                        C0790a.this.dIq();
                     }
-                }, this.mWB, this.mWB, TimeUnit.NANOSECONDS);
+                }, this.nyK, this.nyK, TimeUnit.NANOSECONDS);
             } else {
                 scheduledFuture = null;
             }
-            this.mWE = scheduledExecutorService;
-            this.mWF = scheduledFuture;
+            this.nyN = scheduledExecutorService;
+            this.nyO = scheduledFuture;
         }
 
-        c dGF() {
-            if (this.nht.isUnsubscribed()) {
-                return a.nhr;
+        c dNg() {
+            if (this.nQr.isUnsubscribed()) {
+                return a.nQp;
             }
-            while (!this.mWC.isEmpty()) {
-                c poll = this.mWC.poll();
+            while (!this.nyL.isEmpty()) {
+                c poll = this.nyL.poll();
                 if (poll != null) {
                     return poll;
                 }
             }
-            c cVar = new c(this.aME);
-            this.nht.add(cVar);
+            c cVar = new c(this.aNw);
+            this.nQr.add(cVar);
             return cVar;
         }
 
         void a(c cVar) {
-            cVar.gT(now() + this.mWB);
-            this.mWC.offer(cVar);
+            cVar.hf(now() + this.nyK);
+            this.nyL.offer(cVar);
         }
 
-        void dEg() {
-            if (!this.mWC.isEmpty()) {
+        void dIq() {
+            if (!this.nyL.isEmpty()) {
                 long now = now();
-                Iterator<c> it = this.mWC.iterator();
+                Iterator<c> it = this.nyL.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.dEh() <= now) {
-                        if (this.mWC.remove(next)) {
-                            this.nht.a(next);
+                    if (next.dIr() <= now) {
+                        if (this.nyL.remove(next)) {
+                            this.nQr.a(next);
                         }
                     } else {
                         return;
@@ -114,76 +114,76 @@ public final class a extends rx.g implements h {
 
         void shutdown() {
             try {
-                if (this.mWF != null) {
-                    this.mWF.cancel(true);
+                if (this.nyO != null) {
+                    this.nyO.cancel(true);
                 }
-                if (this.mWE != null) {
-                    this.mWE.shutdownNow();
+                if (this.nyN != null) {
+                    this.nyN.shutdownNow();
                 }
             } finally {
-                this.nht.unsubscribe();
+                this.nQr.unsubscribe();
             }
         }
     }
 
     public a(ThreadFactory threadFactory) {
-        this.aME = threadFactory;
+        this.aNw = threadFactory;
         start();
     }
 
     @Override // rx.internal.schedulers.h
     public void start() {
-        C0736a c0736a = new C0736a(this.aME, nhq, mWy);
-        if (!this.mWe.compareAndSet(nhs, c0736a)) {
-            c0736a.shutdown();
+        C0790a c0790a = new C0790a(this.aNw, nQo, nyH);
+        if (!this.nyn.compareAndSet(nQq, c0790a)) {
+            c0790a.shutdown();
         }
     }
 
     @Override // rx.internal.schedulers.h
     public void shutdown() {
-        C0736a c0736a;
+        C0790a c0790a;
         do {
-            c0736a = this.mWe.get();
-            if (c0736a == nhs) {
+            c0790a = this.nyn.get();
+            if (c0790a == nQq) {
                 return;
             }
-        } while (!this.mWe.compareAndSet(c0736a, nhs));
-        c0736a.shutdown();
+        } while (!this.nyn.compareAndSet(c0790a, nQq));
+        c0790a.shutdown();
     }
 
     @Override // rx.g
     public g.a createWorker() {
-        return new b(this.mWe.get());
+        return new b(this.nyn.get());
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class b extends g.a implements rx.functions.a {
-        private final C0736a nhx;
-        private final c nhy;
-        private final rx.subscriptions.b nhw = new rx.subscriptions.b();
+        private final C0790a nQv;
+        private final c nQw;
+        private final rx.subscriptions.b nQu = new rx.subscriptions.b();
         final AtomicBoolean once = new AtomicBoolean();
 
-        b(C0736a c0736a) {
-            this.nhx = c0736a;
-            this.nhy = c0736a.dGF();
+        b(C0790a c0790a) {
+            this.nQv = c0790a;
+            this.nQw = c0790a.dNg();
         }
 
         @Override // rx.k
         public void unsubscribe() {
             if (this.once.compareAndSet(false, true)) {
-                this.nhy.c(this);
+                this.nQw.c(this);
             }
-            this.nhw.unsubscribe();
+            this.nQu.unsubscribe();
         }
 
         @Override // rx.functions.a
         public void call() {
-            this.nhx.a(this.nhy);
+            this.nQv.a(this.nQw);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.nhw.isUnsubscribed();
+            return this.nQu.isUnsubscribed();
         }
 
         @Override // rx.g.a
@@ -193,10 +193,10 @@ public final class a extends rx.g implements h {
 
         @Override // rx.g.a
         public k a(final rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            if (this.nhw.isUnsubscribed()) {
-                return rx.subscriptions.e.dHK();
+            if (this.nQu.isUnsubscribed()) {
+                return rx.subscriptions.e.dOl();
             }
-            ScheduledAction b = this.nhy.b(new rx.functions.a() { // from class: rx.internal.schedulers.a.b.1
+            ScheduledAction b = this.nQw.b(new rx.functions.a() { // from class: rx.internal.schedulers.a.b.1
                 @Override // rx.functions.a
                 public void call() {
                     if (!b.this.isUnsubscribed()) {
@@ -204,28 +204,28 @@ public final class a extends rx.g implements h {
                     }
                 }
             }, j, timeUnit);
-            this.nhw.add(b);
-            b.addParent(this.nhw);
+            this.nQu.add(b);
+            b.addParent(this.nQu);
             return b;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class c extends g {
-        private long mWI;
+        private long nyR;
 
         c(ThreadFactory threadFactory) {
             super(threadFactory);
-            this.mWI = 0L;
+            this.nyR = 0L;
         }
 
-        public long dEh() {
-            return this.mWI;
+        public long dIr() {
+            return this.nyR;
         }
 
-        public void gT(long j) {
-            this.mWI = j;
+        public void hf(long j) {
+            this.nyR = j;
         }
     }
 }

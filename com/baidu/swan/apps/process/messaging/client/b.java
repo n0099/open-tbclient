@@ -10,24 +10,24 @@ import com.baidu.swan.apps.process.messaging.c;
 import com.baidu.swan.apps.runtime.d;
 import java.util.ArrayDeque;
 import java.util.Deque;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> bED = new ArrayDeque();
+    private final Deque<Message> bFo = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void Yb() {
-        a Yi = a.Yi();
-        while (Yi.Ym() && !this.bED.isEmpty()) {
-            Message peek = this.bED.peek();
+    public void Yy() {
+        a YF = a.YF();
+        while (YF.YJ() && !this.bFo.isEmpty()) {
+            Message peek = this.bFo.peek();
             if (peek == null || z(peek)) {
-                this.bED.poll();
+                this.bFo.poll();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void kb(String str) {
+    public void ke(String str) {
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message Yc = cVar.Yc();
-        Yc.arg1 = SwanAppProcessInfo.current().index;
-        if (d.ZP().Yw() && (Yc.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) Yc.obj;
+        Message Yz = cVar.Yz();
+        Yz.arg1 = SwanAppProcessInfo.current().index;
+        if (d.aam().YT() && (Yz.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) Yz.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.ZP().getAppId());
+                bundle.putString("ai_apps_id", d.aam().getAppId());
             }
         }
-        if (!z(Yc) && cVar.isSticky()) {
-            this.bED.offer(Yc);
-            a.Yi().Yk();
+        if (!z(Yz) && cVar.isSticky()) {
+            this.bFo.offer(Yz);
+            a.YF().YH();
         }
     }
 
     private boolean z(Message message) {
-        a Yi = a.Yi();
-        if (message != null && Yi.Ym()) {
+        a YF = a.YF();
+        if (message != null && YF.YJ()) {
             try {
-                Yi.Yj().send(message);
+                YF.YG().send(message);
                 return true;
             } catch (RemoteException e) {
-                Yi.Yn();
+                YF.YK();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.ResponseCreateGroupActivityMessage;
 import com.baidu.tieba.im.util.DialogUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CreateGroupActivityActivity extends BaseActivity implements View.OnClickListener {
-    private a hwh;
-    private CreateGroupActivityModel hwi;
-    private boolean hwj = false;
-    private c hlW = new c(CmdConfigSocket.CMD_CREATE_GROUP_ACTIVITY) { // from class: com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity.1
+    private a hzK;
+    private CreateGroupActivityModel hzL;
+    private boolean hzM = false;
+    private c hpz = new c(CmdConfigSocket.CMD_CREATE_GROUP_ACTIVITY) { // from class: com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -31,7 +31,7 @@ public class CreateGroupActivityActivity extends BaseActivity implements View.On
                 if (socketResponsedMessage instanceof ResponseCreateGroupActivityMessage) {
                     ResponseCreateGroupActivityMessage responseCreateGroupActivityMessage = (ResponseCreateGroupActivityMessage) socketResponsedMessage;
                     if (responseCreateGroupActivityMessage.getError() == 0) {
-                        if (CreateGroupActivityActivity.this.hwj) {
+                        if (CreateGroupActivityActivity.this.hzM) {
                             CreateGroupActivityActivity.this.showToast(R.string.group_activity_edit_succ);
                         } else {
                             CreateGroupActivityActivity.this.showToast(R.string.group_activity_create_succ);
@@ -53,126 +53,126 @@ public class CreateGroupActivityActivity extends BaseActivity implements View.On
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initListener();
-        this.hwi = new CreateGroupActivityModel(this);
-        this.hwh = new a(this);
-        if (this.hwi.bSP() != null) {
+        this.hzL = new CreateGroupActivityModel(this);
+        this.hzK = new a(this);
+        if (this.hzL.bTY() != null) {
             if (bundle != null) {
-                this.hwi.bSP().setGroupId(bundle.getLong("gid", 0L));
-                this.hwj = bundle.getBoolean(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
-                if (this.hwj) {
-                    this.hwi.bSP().setActivityId(bundle.getInt("aid", 0));
-                    this.hwi.bSP().setgActivityTitle(bundle.getString("name"));
-                    this.hwi.bSP().setgActivityArea(bundle.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
-                    this.hwi.bSP().setgActivityContent(bundle.getString("content"));
-                    this.hwi.bSP().setgActivityTime(bundle.getLong("time", 0L));
+                this.hzL.bTY().setGroupId(bundle.getLong("gid", 0L));
+                this.hzM = bundle.getBoolean(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
+                if (this.hzM) {
+                    this.hzL.bTY().setActivityId(bundle.getInt("aid", 0));
+                    this.hzL.bTY().setgActivityTitle(bundle.getString("name"));
+                    this.hzL.bTY().setgActivityArea(bundle.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
+                    this.hzL.bTY().setgActivityContent(bundle.getString("content"));
+                    this.hzL.bTY().setgActivityTime(bundle.getLong("time", 0L));
                 }
             } else if (getIntent() != null) {
-                this.hwi.bSP().setGroupId(getIntent().getLongExtra("gid", 0L));
-                this.hwj = getIntent().getBooleanExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
-                if (this.hwj) {
-                    this.hwi.bSP().setActivityId(getIntent().getIntExtra("aid", 0));
-                    this.hwi.bSP().setgActivityTitle(getIntent().getStringExtra("name"));
-                    this.hwi.bSP().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
-                    this.hwi.bSP().setgActivityContent(getIntent().getStringExtra("content"));
-                    this.hwi.bSP().setgActivityTime(getIntent().getLongExtra("time", 0L));
+                this.hzL.bTY().setGroupId(getIntent().getLongExtra("gid", 0L));
+                this.hzM = getIntent().getBooleanExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
+                if (this.hzM) {
+                    this.hzL.bTY().setActivityId(getIntent().getIntExtra("aid", 0));
+                    this.hzL.bTY().setgActivityTitle(getIntent().getStringExtra("name"));
+                    this.hzL.bTY().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
+                    this.hzL.bTY().setgActivityContent(getIntent().getStringExtra("content"));
+                    this.hzL.bTY().setgActivityTime(getIntent().getLongExtra("time", 0L));
                 }
             }
         }
-        this.hwh.a(this.hwi.bSP(), this.hwj);
+        this.hzK.a(this.hzL.bTY(), this.hzM);
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         initListener();
-        if (this.hwi == null) {
-            this.hwi = new CreateGroupActivityModel(this);
+        if (this.hzL == null) {
+            this.hzL = new CreateGroupActivityModel(this);
         }
         if (intent == null) {
             intent = getIntent();
         }
-        if (intent != null && this.hwi.bSP() != null) {
-            this.hwi.bSP().setGroupId(intent.getLongExtra("gid", 0L));
-            this.hwj = getIntent().getBooleanExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
-            if (this.hwj) {
-                this.hwi.bSP().setActivityId(intent.getIntExtra("aid", 0));
-                this.hwi.bSP().setgActivityTitle(getIntent().getStringExtra("name"));
-                this.hwi.bSP().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
-                this.hwi.bSP().setgActivityContent(getIntent().getStringExtra("content"));
-                this.hwi.bSP().setgActivityTime(getIntent().getLongExtra("time", 0L));
+        if (intent != null && this.hzL.bTY() != null) {
+            this.hzL.bTY().setGroupId(intent.getLongExtra("gid", 0L));
+            this.hzM = getIntent().getBooleanExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_ISEDIT, false);
+            if (this.hzM) {
+                this.hzL.bTY().setActivityId(intent.getIntExtra("aid", 0));
+                this.hzL.bTY().setgActivityTitle(getIntent().getStringExtra("name"));
+                this.hzL.bTY().setgActivityArea(getIntent().getStringExtra(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
+                this.hzL.bTY().setgActivityContent(getIntent().getStringExtra("content"));
+                this.hzL.bTY().setgActivityTime(getIntent().getLongExtra("time", 0L));
             }
         }
-        if (this.hwh == null) {
-            this.hwh = new a(this);
+        if (this.hzK == null) {
+            this.hzK = new a(this);
         }
-        this.hwh.a(this.hwi.bSP(), this.hwj);
+        this.hzK.a(this.hzL.bTY(), this.hzM);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         long j = 0;
-        if (this.hwi.bSP() != null) {
-            j = this.hwi.bSP().getGroupId();
+        if (this.hzL.bTY() != null) {
+            j = this.hzL.bTY().getGroupId();
         }
         bundle.putLong("gid", j);
-        bundle.putString("name", this.hwh.getTitle());
-        bundle.putString("content", this.hwh.getContent());
-        bundle.putString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.hwh.bSU());
-        bundle.putLong("time", this.hwh.getTime());
+        bundle.putString("name", this.hzK.getTitle());
+        bundle.putString("content", this.hzK.getContent());
+        bundle.putString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.hzK.bUd());
+        bundle.putLong("time", this.hzK.getTime());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.hwh != null) {
-            this.hwh.onChangeSkinType(i);
+        if (this.hzK != null) {
+            this.hzK.onChangeSkinType(i);
         }
     }
 
     private void initListener() {
-        registerListener(this.hlW);
+        registerListener(this.hpz);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.hwi.cancelMessage();
-        this.hwh.destroy();
-        MessageManager.getInstance().unRegisterListener(this.hlW);
+        this.hzL.cancelMessage();
+        this.hzK.destroy();
+        MessageManager.getInstance().unRegisterListener(this.hpz);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hwh.bSS()) {
-            bSO();
-        } else if (view == this.hwh.bST() && this.hwi != null && this.hwi.bSP() != null) {
-            long time = this.hwh.getTime();
-            if ((!this.hwj || this.hwh.bSV()) && 1000 * time < System.currentTimeMillis()) {
+        if (view == this.hzK.bUb()) {
+            bTX();
+        } else if (view == this.hzK.bUc() && this.hzL != null && this.hzL.bTY() != null) {
+            long time = this.hzK.getTime();
+            if ((!this.hzM || this.hzK.bUe()) && 1000 * time < System.currentTimeMillis()) {
                 showToast(R.string.group_activity_time_val);
                 return;
             }
-            this.hwi.bSP().setgActivityArea(this.hwh.bSU());
-            this.hwi.bSP().setgActivityContent(this.hwh.getContent());
-            this.hwi.bSP().setgActivityTime(time);
-            this.hwi.bSP().setgActivityTitle(this.hwh.getTitle());
+            this.hzL.bTY().setgActivityArea(this.hzK.bUd());
+            this.hzL.bTY().setgActivityContent(this.hzK.getContent());
+            this.hzL.bTY().setgActivityTime(time);
+            this.hzL.bTY().setgActivityTitle(this.hzK.getTitle());
             showProgressBar();
-            this.hwi.nr(this.hwj);
+            this.hzL.nD(this.hzM);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            bSO();
+            bTX();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void bSO() {
-        DialogUtil.quitCreateGroupActivity(getPageContext().getPageActivity(), this.hwj, new a.b() { // from class: com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity.2
+    private void bTX() {
+        DialogUtil.quitCreateGroupActivity(getPageContext().getPageActivity(), this.hzM, new a.b() { // from class: com.baidu.tieba.im.groupActivity.CreateGroupActivityActivity.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();

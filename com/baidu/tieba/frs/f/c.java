@@ -13,19 +13,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static void y(l lVar) {
-        HashMap<Integer, bj> bEu;
-        if (lVar != null && lVar.bCy() != null && (bEu = lVar.bCy().bEu()) != null) {
+        HashMap<Integer, bj> bFw;
+        if (lVar != null && lVar.bDA() != null && (bFw = lVar.bDA().bFw()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bj> entry : bEu.entrySet()) {
+            for (Map.Entry<Integer, bj> entry : bFw.entrySet()) {
                 bj value = entry.getValue();
                 if (value != null && (value instanceof AdvertAppInfo)) {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.download.e.czU().C(arrayList);
+            com.baidu.tieba.recapp.download.e.cBb().C(arrayList);
         }
     }
 
@@ -44,10 +44,10 @@ public class c {
                 }
             }
             if (z) {
-                com.baidu.adp.lib.f.e.gy().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
+                com.baidu.adp.lib.f.e.gx().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        l.this.bCm();
+                        l.this.bDo();
                     }
                 }, TimeUnit.SECONDS.toMillis(2L));
             }

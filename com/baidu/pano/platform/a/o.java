@@ -2,7 +2,7 @@ package com.baidu.pano.platform.a;
 
 import com.baidu.pano.platform.a.w;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o implements Runnable {
     final /* synthetic */ String a;
     final /* synthetic */ long b;

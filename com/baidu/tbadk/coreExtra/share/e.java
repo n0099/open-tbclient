@@ -25,108 +25,108 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes.dex */
 public class e {
-    private b dlZ;
-    private c dma;
-    private a dmd;
+    private b dmp;
+    private c dmq;
+    private a dmt;
     private final Context mContext;
-    private String dmb = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
-    private String dmc = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.dmb;
-    private a.InterfaceC0374a dme = new a.InterfaceC0374a() { // from class: com.baidu.tbadk.coreExtra.share.e.1
-        @Override // com.baidu.tbadk.coreExtra.share.a.InterfaceC0374a
+    private String dmr = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
+    private String dms = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.dmr;
+    private a.InterfaceC0376a dmu = new a.InterfaceC0376a() { // from class: com.baidu.tbadk.coreExtra.share.e.1
+        @Override // com.baidu.tbadk.coreExtra.share.a.InterfaceC0376a
         public void d(ShareItem shareItem) {
-            e.this.dma.a(e.this.a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
+            e.this.dmq.a(e.this.a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
         }
     };
 
     public e(Context context, b bVar) {
         d dVar;
-        this.dlZ = null;
-        this.dma = null;
+        this.dmp = null;
+        this.dmq = null;
         this.mContext = context;
-        this.dlZ = bVar;
+        this.dmp = bVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG, d.class);
         if (runTask.getData() != null && (dVar = (d) runTask.getData()) != null) {
-            this.dma = dVar.a(this.mContext, this.dlZ);
+            this.dmq = dVar.a(this.mContext, this.dmp);
         }
     }
 
     public static boolean dQ(Context context) {
-        return aJF();
+        return aJZ();
     }
 
-    public static boolean aJF() {
+    public static boolean aJZ() {
         return TbadkCoreApplication.getInst().appResponseToCmd(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG);
     }
 
     public static String cv(String str, String str2) {
-        return V(str, "copy", str2);
+        return W(str, "copy", str2);
     }
 
     public void e(ShareItem shareItem) {
-        if (this.dma != null && shareItem != null) {
+        if (this.dmq != null && shareItem != null) {
             if (StringUtils.isNull(shareItem.tid)) {
-                shareItem.content = b(shareItem.content, 80, 20, shareItem.dlQ ? this.dmb : "");
+                shareItem.content = b(shareItem.content, 80, 20, shareItem.dmg ? this.dmr : "");
             }
-            if (shareItem.canShareBySmartApp && !aq.isEmpty(shareItem.dlT)) {
-                shareItem.imageUri = Uri.parse(shareItem.dlT);
-                this.dma.a(a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
-            } else if (shareItem.canShareBySmartApp && aq.isEmpty(shareItem.dlT) && !aq.isEmpty(shareItem.tid) && !"0".equals(shareItem.tid)) {
-                if (this.dmd == null) {
-                    this.dmd = new a();
-                    this.dmd.a(this.dme);
+            if (shareItem.canShareBySmartApp && !aq.isEmpty(shareItem.dmj)) {
+                shareItem.imageUri = Uri.parse(shareItem.dmj);
+                this.dmq.a(a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
+            } else if (shareItem.canShareBySmartApp && aq.isEmpty(shareItem.dmj) && !aq.isEmpty(shareItem.tid) && !"0".equals(shareItem.tid)) {
+                if (this.dmt == null) {
+                    this.dmt = new a();
+                    this.dmt.a(this.dmu);
                 }
-                this.dmd.b(shareItem);
+                this.dmt.b(shareItem);
             } else {
                 if (shareItem.typeShareToSmallApp == 4) {
-                    if (this.dmd == null) {
-                        this.dmd = new a();
+                    if (this.dmt == null) {
+                        this.dmt = new a();
                     }
-                    this.dmd.b(shareItem);
+                    this.dmt.b(shareItem);
                 }
-                this.dma.a(a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
+                this.dmq.a(a(shareItem, LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND), 3, false);
             }
         }
     }
 
     public void f(ShareItem shareItem) {
-        if (this.dma != null && shareItem != null) {
-            shareItem.content = b(shareItem.content, 80, 20, shareItem.dlQ ? this.dmb : "");
-            this.dma.a(a(shareItem, LogConfig.LIVE_SHARE_WEIXIN_TIMELINE), 2, false);
+        if (this.dmq != null && shareItem != null) {
+            shareItem.content = b(shareItem.content, 80, 20, shareItem.dmg ? this.dmr : "");
+            this.dmq.a(a(shareItem, LogConfig.LIVE_SHARE_WEIXIN_TIMELINE), 2, false);
         }
     }
 
     public void g(ShareItem shareItem) {
-        if (this.dma != null && shareItem != null) {
-            shareItem.content = b(shareItem.content, 80, 32, shareItem.dlQ ? this.dmb : "");
-            this.dma.a(a(shareItem, LogConfig.LIVE_SHARE_QQ_FRIEND), 8, true);
+        if (this.dmq != null && shareItem != null) {
+            shareItem.content = b(shareItem.content, 80, 32, shareItem.dmg ? this.dmr : "");
+            this.dmq.a(a(shareItem, LogConfig.LIVE_SHARE_QQ_FRIEND), 8, true);
         }
     }
 
     public void h(ShareItem shareItem) {
-        if (this.dma != null) {
-            shareItem.content = b(shareItem.content, 80, 32, shareItem.dlQ ? this.dmb : "");
-            this.dma.a(a(shareItem, Constants.SOURCE_QZONE), 4, true);
+        if (this.dmq != null) {
+            shareItem.content = b(shareItem.content, 80, 32, shareItem.dmg ? this.dmr : "");
+            this.dmq.a(a(shareItem, Constants.SOURCE_QZONE), 4, true);
         }
     }
 
     public void i(ShareItem shareItem) {
-        if (this.dma != null) {
-            shareItem.content = b(shareItem.content, 140, 20, shareItem.dlQ ? this.dmb : "");
-            this.dma.a(a(shareItem, "tencent_weibo"), 5, true);
+        if (this.dmq != null) {
+            shareItem.content = b(shareItem.content, 140, 20, shareItem.dmg ? this.dmr : "");
+            this.dmq.a(a(shareItem, "tencent_weibo"), 5, true);
         }
     }
 
     public void j(ShareItem shareItem) {
-        if (this.dma != null) {
-            shareItem.content = b(shareItem.content, 140, 20, shareItem.dlQ ? this.dmc : "");
-            this.dma.a(a(shareItem, "sina_weibo"), 6, true);
+        if (this.dmq != null) {
+            shareItem.content = b(shareItem.content, 140, 20, shareItem.dmg ? this.dms : "");
+            this.dmq.a(a(shareItem, "sina_weibo"), 6, true);
         }
     }
 
     public void k(ShareItem shareItem) {
-        if (this.dma != null) {
-            shareItem.content = b(shareItem.content, 140, 20, shareItem.dlQ ? this.dmb : "");
-            this.dma.a(a(shareItem, "renren"), 7, true);
+        if (this.dmq != null) {
+            shareItem.content = b(shareItem.content, 140, 20, shareItem.dmg ? this.dmr : "");
+            this.dmq.a(a(shareItem, "renren"), 7, true);
         }
     }
 
@@ -146,7 +146,7 @@ public class e {
         if (shareItem == null) {
             return null;
         }
-        if ((shareItem.imageUri == null || shareItem.imageUri.equals("")) && shareItem.aJC() == null) {
+        if ((shareItem.imageUri == null || shareItem.imageUri.equals("")) && shareItem.aJW() == null) {
             String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             if (str.startsWith(LogConfig.LIVE_SHARE_HK_WEIXIN_FRIEND)) {
                 str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
@@ -155,21 +155,21 @@ public class e {
         }
         if (shareItem.imageUri != null && !shareItem.imageUri.equals("")) {
             String uri = shareItem.imageUri.toString();
-            if (!uc(uri) && !ud(uri)) {
+            if (!uh(uri) && !ui(uri)) {
                 shareItem.imageUri = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
                 shareItem.imageUri = Uri.parse(uri);
                 cw(uri, "sfc=" + str);
             }
         }
-        if (shareItem.dlR) {
-            shareItem.linkUrl = V(shareItem.linkUrl, str, shareItem.tid);
+        if (shareItem.dmh) {
+            shareItem.linkUrl = W(shareItem.linkUrl, str, shareItem.tid);
             return shareItem;
         }
         return shareItem;
     }
 
-    protected boolean uc(String str) {
+    protected boolean uh(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("file://")) {
             try {
                 File file = new File(new URI(str));
@@ -181,7 +181,7 @@ public class e {
         return false;
     }
 
-    private static String V(String str, String str2, String str3) {
+    private static String W(String str, String str2, String str3) {
         String md5;
         if (aq.isEmpty(str)) {
             str = "http://tieba.baidu.com/";
@@ -207,9 +207,9 @@ public class e {
         return str + str3 + str2;
     }
 
-    private boolean ud(String str) {
+    private boolean ui(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
-        if (ba.aEa().UrlValidated(str)) {
+        if (ba.aEt().UrlValidated(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

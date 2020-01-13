@@ -1,5 +1,5 @@
 package com.google.gson.stream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum JsonToken {
     BEGIN_ARRAY,
     END_ARRAY,

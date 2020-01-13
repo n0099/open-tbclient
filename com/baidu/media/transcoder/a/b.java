@@ -9,7 +9,7 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.view.Surface;
 @TargetApi(17)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     private EGLDisplay a = EGL14.EGL_NO_DISPLAY;
     private EGLContext b = EGL14.EGL_NO_CONTEXT;

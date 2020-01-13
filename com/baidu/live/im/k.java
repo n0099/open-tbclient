@@ -1,93 +1,93 @@
 package com.baidu.live.im;
 
 import com.baidu.live.data.AlaLiveMarkData;
-import com.baidu.live.data.ak;
-import com.baidu.live.data.av;
+import com.baidu.live.data.ao;
+import com.baidu.live.data.az;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class k {
-    private List<AlaLiveMarkData> anN;
-    private boolean aon;
-    private String aoo;
+    private List<AlaLiveMarkData> aoA;
+    private boolean aoZ;
+    private String apa;
 
-    public static k uF() {
-        return a.aop;
+    public static k uW() {
+        return a.apb;
     }
 
-    public av[] uG() {
-        return aO(false);
+    public az[] uX() {
+        return aQ(false);
     }
 
-    public av[] aO(boolean z) {
+    public az[] aQ(boolean z) {
         ArrayList arrayList;
-        av[] avVarArr;
-        ak akVar = com.baidu.live.r.a.wA().asy;
-        if (akVar == null || akVar.aaK == null || !akVar.aaK.ach || akVar.aaH == null) {
+        az[] azVarArr;
+        ao aoVar = com.baidu.live.s.a.wR().atk;
+        if (aoVar == null || aoVar.aaX == null || !aoVar.aaX.acv || aoVar.aaU == null) {
             arrayList = null;
         } else {
-            av[] avVarArr2 = akVar.aaH.abw;
-            arrayList = (avVarArr2 == null || avVarArr2.length <= 0) ? null : new ArrayList(Arrays.asList(avVarArr2));
-            if (com.baidu.live.r.a.wA().arE != null && com.baidu.live.r.a.wA().arE.YO && ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled()) && (avVarArr = akVar.aaH.abC) != null && avVarArr.length > 0)) {
+            az[] azVarArr2 = aoVar.aaU.abH;
+            arrayList = (azVarArr2 == null || azVarArr2.length <= 0) ? null : new ArrayList(Arrays.asList(azVarArr2));
+            if (com.baidu.live.s.a.wR().asq != null && com.baidu.live.s.a.wR().asq.Za && ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled()) && (azVarArr = aoVar.aaU.abN) != null && azVarArr.length > 0)) {
                 if (arrayList == null) {
-                    arrayList = new ArrayList(Arrays.asList(avVarArr));
+                    arrayList = new ArrayList(Arrays.asList(azVarArr));
                 } else {
-                    arrayList.addAll(z ? 0 : arrayList.size(), Arrays.asList(avVarArr));
+                    arrayList.addAll(z ? 0 : arrayList.size(), Arrays.asList(azVarArr));
                 }
             }
         }
         if (arrayList == null || arrayList.isEmpty()) {
             return null;
         }
-        return (av[]) arrayList.toArray(new av[arrayList.size()]);
+        return (az[]) arrayList.toArray(new az[arrayList.size()]);
     }
 
-    public boolean uH() {
-        return this.aon;
+    public boolean uY() {
+        return this.aoZ;
     }
 
     public void setSwitchStatus(boolean z) {
-        this.aon = z;
+        this.aoZ = z;
     }
 
-    public String uI() {
-        return this.aoo;
+    public String uZ() {
+        return this.apa;
     }
 
     public void setSelectId(String str) {
-        this.aoo = str;
+        this.apa = str;
     }
 
-    public List<AlaLiveMarkData> uJ() {
-        return this.anN;
+    public List<AlaLiveMarkData> va() {
+        return this.aoA;
     }
 
-    public void D(List<AlaLiveMarkData> list) {
-        if (this.anN == null) {
-            this.anN = new ArrayList();
+    public void C(List<AlaLiveMarkData> list) {
+        if (this.aoA == null) {
+            this.aoA = new ArrayList();
         }
-        this.anN.clear();
+        this.aoA.clear();
         if (list != null && !list.isEmpty()) {
-            this.anN.addAll(list);
+            this.aoA.addAll(list);
         }
     }
 
     public void release() {
-        this.aon = false;
-        this.aoo = null;
-        if (this.anN != null) {
-            this.anN.clear();
+        this.aoZ = false;
+        this.apa = null;
+        if (this.aoA != null) {
+            this.aoA.clear();
         }
     }
 
     private k() {
-        this.aon = false;
+        this.aoZ = false;
     }
 
     /* loaded from: classes2.dex */
     private static class a {
-        private static final k aop = new k();
+        private static final k apb = new k();
     }
 }

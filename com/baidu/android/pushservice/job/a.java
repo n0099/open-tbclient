@@ -9,14 +9,14 @@ import android.os.Build;
 import android.os.SystemClock;
 import com.baidu.android.pushservice.i.l;
 @TargetApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static C0043a a;
     private static boolean b;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class C0043a {
         private final Context a;
         private final JobScheduler b;

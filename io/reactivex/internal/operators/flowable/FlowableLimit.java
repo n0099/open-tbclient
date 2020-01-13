@@ -4,22 +4,21 @@ import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableLimit<T> extends a<T, T> {
     final long n;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new LimitSubscriber(cVar, this.n));
+        this.nvK.a((j) new LimitSubscriber(cVar, this.n));
     }
 
-    /* loaded from: classes4.dex */
-    static final class LimitSubscriber<T> extends AtomicLong implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class LimitSubscriber<T> extends AtomicLong implements j<T>, org.a.d {
         private static final long serialVersionUID = 2288246011222124525L;
         final org.a.c<? super T> actual;
         long remaining;
-        d upstream;
+        org.a.d upstream;
 
         LimitSubscriber(org.a.c<? super T> cVar, long j) {
             this.actual = cVar;
@@ -28,7 +27,7 @@ public final class FlowableLimit<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.upstream, dVar)) {
                 if (this.remaining == 0) {
                     dVar.cancel();
@@ -61,7 +60,7 @@ public final class FlowableLimit<T> extends a<T, T> {
                 this.actual.onError(th);
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c

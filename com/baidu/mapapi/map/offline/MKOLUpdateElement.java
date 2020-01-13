@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map.offline;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MKOLUpdateElement {
     public static final int DOWNLOADING = 1;
     public static final int FINISHED = 4;

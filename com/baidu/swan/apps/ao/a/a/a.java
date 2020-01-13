@@ -15,7 +15,7 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/startAccelerometer");
@@ -59,10 +59,10 @@ public class a extends ab {
                 return false;
             }
             c.i("accelerometer", " init ");
-            com.baidu.swan.apps.ao.a.a acU = com.baidu.swan.apps.ao.a.a.acU();
-            acU.init(context, a.C0214a.fI(optParamsAsJo.optString("interval")));
-            acU.a(new a.InterfaceC0192a() { // from class: com.baidu.swan.apps.ao.a.a.a.1
-                @Override // com.baidu.swan.apps.ao.a.a.InterfaceC0192a
+            com.baidu.swan.apps.ao.a.a adr = com.baidu.swan.apps.ao.a.a.adr();
+            adr.init(context, a.C0216a.fL(optParamsAsJo.optString("interval")));
+            adr.a(new a.InterfaceC0194a() { // from class: com.baidu.swan.apps.ao.a.a.a.1
+                @Override // com.baidu.swan.apps.ao.a.a.InterfaceC0194a
                 public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
                         c.e("accelerometer", "illegal accelerometers");
@@ -76,7 +76,7 @@ public class a extends ab {
                     }
                 }
             });
-            acU.acV();
+            adr.ads();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

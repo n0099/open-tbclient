@@ -17,17 +17,17 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.data.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class e {
-    private static com.baidu.tieba.publisher.service.a dRP;
+    private static com.baidu.tieba.publisher.service.a dRY;
     private static com.baidu.tbadk.core.util.b.a mPermissionJudgement;
     private static IPublisherManagerInterface mPublisherInterfaceManager;
 
-    public static com.baidu.tieba.publisher.service.a aUe() {
-        if (dRP == null) {
-            dRP = new com.baidu.tieba.publisher.service.a();
+    public static com.baidu.tieba.publisher.service.a aUy() {
+        if (dRY == null) {
+            dRY = new com.baidu.tieba.publisher.service.a();
         }
-        return dRP;
+        return dRY;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -41,8 +41,8 @@ public class e {
         }
         mPermissionJudgement.clearRequestPermissionList();
         mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        mPermissionJudgement.a(new a.InterfaceC0366a() { // from class: com.baidu.tieba.e.1
-            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0366a
+        mPermissionJudgement.a(new a.InterfaceC0368a() { // from class: com.baidu.tieba.e.1
+            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0368a
             public void onPermissionsGranted() {
                 if (e.el(activity)) {
                     UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
@@ -73,8 +73,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.1.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dqV != null) {
-                                hVar.dqV.onSuccess();
+                            if (hVar.drg != null) {
+                                hVar.drg.onSuccess();
                             }
                         }
 
@@ -99,8 +99,8 @@ public class e {
         }
         mPermissionJudgement.clearRequestPermissionList();
         mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        mPermissionJudgement.a(new a.InterfaceC0366a() { // from class: com.baidu.tieba.e.2
-            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0366a
+        mPermissionJudgement.a(new a.InterfaceC0368a() { // from class: com.baidu.tieba.e.2
+            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0368a
             public void onPermissionsGranted() {
                 if (e.el(activity)) {
                     UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
@@ -131,8 +131,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.2.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dqV != null) {
-                                hVar.dqV.onSuccess();
+                            if (hVar.drg != null) {
+                                hVar.drg.onSuccess();
                             }
                         }
 
@@ -157,8 +157,8 @@ public class e {
         }
         mPermissionJudgement.clearRequestPermissionList();
         mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        mPermissionJudgement.a(new a.InterfaceC0366a() { // from class: com.baidu.tieba.e.3
-            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0366a
+        mPermissionJudgement.a(new a.InterfaceC0368a() { // from class: com.baidu.tieba.e.3
+            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0368a
             public void onPermissionsGranted() {
                 if (e.el(activity)) {
                     UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
@@ -177,34 +177,34 @@ public class e {
                         ugcSchemeModel.placeTitle = TbadkCoreApplication.getInst().getString(R.string.publisher_forward_place_title);
                     }
                     ugcSchemeModel.sourceFrom = "tieba";
-                    if (!StringUtils.isNull(hVar.dqW)) {
-                        ugcSchemeModel.forwardContent = hVar.dqW;
+                    if (!StringUtils.isNull(hVar.drh)) {
+                        ugcSchemeModel.forwardContent = hVar.drh;
                     }
-                    if (hVar.dqX != null) {
+                    if (hVar.dri != null) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("title", hVar.dqX.title);
-                            jSONObject.put("ref_type", hVar.dqX.ref_type);
-                            jSONObject.put("thumbpic", hVar.dqX.thumbpic);
-                            jSONObject.put("channel", hVar.dqX.channel);
-                            jSONObject.put("url", hVar.dqX.url);
-                            jSONObject.put("account_type", hVar.dqX.drg);
-                            jSONObject.put("id", hVar.dqX.id);
-                            jSONObject.put("nid", hVar.dqX.nid);
-                            jSONObject.put("video_duration", hVar.dqX.video_duration);
-                            jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, hVar.dqX.avatar);
-                            jSONObject.put("tid", hVar.dqX.tid);
+                            jSONObject.put("title", hVar.dri.title);
+                            jSONObject.put("ref_type", hVar.dri.ref_type);
+                            jSONObject.put("thumbpic", hVar.dri.thumbpic);
+                            jSONObject.put("channel", hVar.dri.channel);
+                            jSONObject.put("url", hVar.dri.url);
+                            jSONObject.put("account_type", hVar.dri.drr);
+                            jSONObject.put("id", hVar.dri.id);
+                            jSONObject.put("nid", hVar.dri.nid);
+                            jSONObject.put("video_duration", hVar.dri.video_duration);
+                            jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, hVar.dri.avatar);
+                            jSONObject.put("tid", hVar.dri.tid);
                             ugcSchemeModel.referenceDt = jSONObject.toString();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-                    if (hVar.dqY != null) {
+                    if (hVar.drj != null) {
                         try {
                             JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("share_type", hVar.dqY.drd);
-                            jSONObject2.put("forward_rel_id", hVar.dqY.dre);
-                            jSONObject2.put("forward_is_comment", hVar.dqY.drf);
+                            jSONObject2.put("share_type", hVar.drj.dro);
+                            jSONObject2.put("forward_rel_id", hVar.drj.drp);
+                            jSONObject2.put("forward_is_comment", hVar.drj.drq);
                             ugcSchemeModel.ext = jSONObject2.toString();
                         } catch (JSONException e2) {
                             e2.printStackTrace();
@@ -214,8 +214,8 @@ public class e {
                     UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.3.1
                         @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
                         public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dqV != null) {
-                                hVar.dqV.onSuccess();
+                            if (hVar.drg != null) {
+                                hVar.drg.onSuccess();
                             }
                         }
 

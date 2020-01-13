@@ -1,5 +1,5 @@
 package com.baidu.down.common.intercepter;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class InterceptResult {
     public static final int RET_CANCEL = 3;
     public static final int RET_CONTINUE = 0;

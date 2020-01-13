@@ -1,7 +1,7 @@
 package com.baidu.lbsapi.model;
 
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BaiduPoiPanoData extends BaiduPanoData {
     private float d;
     private float c = 0.0f;

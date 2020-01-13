@@ -11,13 +11,13 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.bdprivate.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private View bZT;
-    private TextView bZV;
-    private EditText bZW;
-    private String bZX;
-    private boolean bZY;
+    private View caf;
+    private TextView cah;
+    private EditText cai;
+    private String caj;
+    private boolean cak;
     private Context mContext;
     private String mErrorMessage;
     private RelativeLayout mRootView;
@@ -39,113 +39,113 @@ public class InvoiceInfoItemView extends RelativeLayout {
         this.mContext = context;
         inflate(context, b.f.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(b.e.item_root_view);
-        this.mRootView.setBackground(getResources().getDrawable(b.C0306b.invoice_edit_view_bg));
-        this.bZV = (TextView) findViewById(b.e.invoice_info_desc);
-        this.bZW = (EditText) findViewById(b.e.invoice_info_content);
-        this.bZT = findViewById(b.e.divider_line);
-        this.bZV.setTextColor(getResources().getColor(b.C0306b.invoice_info_desc));
-        this.bZW.setTextColor(getResources().getColor(b.C0306b.invoice_info_content));
-        this.bZW.setHintTextColor(getResources().getColor(b.C0306b.invoice_info_content_hint));
-        this.bZT.setBackground(getResources().getDrawable(b.C0306b.invoice_info_item_divider_line));
+        this.mRootView.setBackground(getResources().getDrawable(b.C0308b.invoice_edit_view_bg));
+        this.cah = (TextView) findViewById(b.e.invoice_info_desc);
+        this.cai = (EditText) findViewById(b.e.invoice_info_content);
+        this.caf = findViewById(b.e.divider_line);
+        this.cah.setTextColor(getResources().getColor(b.C0308b.invoice_info_desc));
+        this.cai.setTextColor(getResources().getColor(b.C0308b.invoice_info_content));
+        this.cai.setHintTextColor(getResources().getColor(b.C0308b.invoice_info_content_hint));
+        this.caf.setBackground(getResources().getDrawable(b.C0308b.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.bZY = aVar.bZY;
-            this.bZV.setText(aVar.mDesc);
-            this.bZW.setHint(aVar.caa);
-            if (!aVar.cab) {
-                this.bZW.setSingleLine();
+            this.cak = aVar.cak;
+            this.cah.setText(aVar.mDesc);
+            this.cai.setHint(aVar.cam);
+            if (!aVar.can) {
+                this.cai.setSingleLine();
             } else {
-                aVar.bZZ |= 131072;
+                aVar.cal |= 131072;
             }
-            this.bZW.setInputType(aVar.bZZ);
-            if (!TextUtils.isEmpty(aVar.cac)) {
-                this.bZW.setKeyListener(DigitsKeyListener.getInstance(aVar.cac));
+            this.cai.setInputType(aVar.cal);
+            if (!TextUtils.isEmpty(aVar.cao)) {
+                this.cai.setKeyListener(DigitsKeyListener.getInstance(aVar.cao));
             }
-            this.bZX = aVar.bZX;
+            this.caj = aVar.caj;
             this.mErrorMessage = aVar.mErrorMessage;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.bZW != null) {
-            return this.bZW.getText().toString().trim();
+        if (this.cai != null) {
+            return this.cai.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.bZW != null) {
-            this.bZW.setText(charSequence);
+        if (this.cai != null) {
+            this.cai.setText(charSequence);
         }
     }
 
-    public boolean agb() {
-        return this.bZY;
+    public boolean agu() {
+        return this.cak;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.bZW != null && textWatcher != null) {
-            this.bZW.addTextChangedListener(textWatcher);
+        if (this.cai != null && textWatcher != null) {
+            this.cai.addTextChangedListener(textWatcher);
         }
     }
 
     public void a(TextWatcher textWatcher) {
-        if (this.bZW != null) {
-            this.bZW.removeTextChangedListener(textWatcher);
+        if (this.cai != null) {
+            this.cai.removeTextChangedListener(textWatcher);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        private String bZX;
-        private boolean bZY = false;
-        private int bZZ = 1;
-        private String caa;
-        private boolean cab;
-        private String cac;
+        private String caj;
+        private boolean cak = false;
+        private int cal = 1;
+        private String cam;
+        private boolean can;
+        private String cao;
         private String mDesc;
         private String mErrorMessage;
 
-        public a ee(boolean z) {
-            this.bZY = z;
+        public a ej(boolean z) {
+            this.cak = z;
             return this;
         }
 
-        public a mW(String str) {
+        public a mZ(String str) {
             this.mDesc = str;
             return this;
         }
 
         public a he(int i) {
-            this.bZZ = i;
-            return this;
-        }
-
-        public a mX(String str) {
-            this.caa = str;
-            return this;
-        }
-
-        public a mY(String str) {
-            this.bZX = str;
-            return this;
-        }
-
-        public a mZ(String str) {
-            this.mErrorMessage = str;
-            return this;
-        }
-
-        public a ef(boolean z) {
-            this.cab = z;
+            this.cal = i;
             return this;
         }
 
         public a na(String str) {
-            this.cac = str;
+            this.cam = str;
+            return this;
+        }
+
+        public a nb(String str) {
+            this.caj = str;
+            return this;
+        }
+
+        public a nc(String str) {
+            this.mErrorMessage = str;
+            return this;
+        }
+
+        public a ek(boolean z) {
+            this.can = z;
+            return this;
+        }
+
+        public a nd(String str) {
+            this.cao = str;
             return this;
         }
     }

@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.offline;
 
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DownloadException extends IOException {
     public DownloadException(String str) {
         super(str);

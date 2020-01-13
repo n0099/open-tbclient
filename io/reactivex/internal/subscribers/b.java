@@ -3,7 +3,7 @@ package io.reactivex.internal.subscribers;
 import io.reactivex.internal.a.d;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class b<T, R> implements d<R>, j<T> {
     protected final org.a.c<? super R> actual;
     protected boolean done;
@@ -22,24 +22,23 @@ public abstract class b<T, R> implements d<R>, j<T> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (dDR()) {
+            if (dIb()) {
                 this.actual.onSubscribe(this);
-                dDS();
+                dIc();
             }
         }
     }
 
-    protected boolean dDR() {
+    protected boolean dIb() {
         return true;
     }
 
-    protected void dDS() {
+    protected void dIc() {
     }
 
-    @Override // org.a.c
     public void onError(Throwable th) {
         if (this.done) {
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
             return;
         }
         this.done = true;
@@ -53,7 +52,6 @@ public abstract class b<T, R> implements d<R>, j<T> {
         onError(th);
     }
 
-    @Override // org.a.c
     public void onComplete() {
         if (!this.done) {
             this.done = true;
@@ -62,7 +60,7 @@ public abstract class b<T, R> implements d<R>, j<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int MF(int i) {
+    public final int Ns(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;
@@ -85,17 +83,17 @@ public abstract class b<T, R> implements d<R>, j<T> {
         this.s.cancel();
     }
 
-    @Override // io.reactivex.internal.a.f
+    @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
         return this.qs.isEmpty();
     }
 
-    @Override // io.reactivex.internal.a.f
+    @Override // io.reactivex.internal.a.g
     public void clear() {
         this.qs.clear();
     }
 
-    @Override // io.reactivex.internal.a.f
+    @Override // io.reactivex.internal.a.g
     public final boolean offer(R r) {
         throw new UnsupportedOperationException("Should not be called!");
     }

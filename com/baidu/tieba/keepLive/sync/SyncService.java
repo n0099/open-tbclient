@@ -17,7 +17,7 @@ import com.baidu.live.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SyncService extends Service {
     private static final Object syncLock = new Object();
     private static a syncAdapter = null;
@@ -62,7 +62,7 @@ public class SyncService extends Service {
         return null;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class a extends AbstractThreadedSyncAdapter {
         public a(Context context, boolean z) {
             super(context, z);

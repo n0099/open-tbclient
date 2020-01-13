@@ -13,9 +13,9 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AiAppsShareActivity extends Activity {
-    private CustomMessageListener dcK = new CustomMessageListener(2921376) { // from class: com.baidu.tieba.aiapps.apps.share.AiAppsShareActivity.1
+    private CustomMessageListener dcU = new CustomMessageListener(2921376) { // from class: com.baidu.tieba.aiapps.apps.share.AiAppsShareActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -41,7 +41,7 @@ public class AiAppsShareActivity extends Activity {
         try {
             aVar.ct(new JSONObject(stringExtra));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this, aVar, false)));
-            MessageManager.getInstance().registerListener(this.dcK);
+            MessageManager.getInstance().registerListener(this.dcU);
         } catch (JSONException e) {
             finish();
         }
@@ -50,7 +50,7 @@ public class AiAppsShareActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.dcK);
+        MessageManager.getInstance().unRegisterListener(this.dcU);
     }
 
     @Override // android.app.Activity

@@ -4,10 +4,10 @@ import android.app.Activity;
 import com.baidu.sapi2.permissions.AlertDialogInterface;
 import com.baidu.sapi2.result.AddressManageResult;
 import com.baidu.sapi2.views.CustomAlertDialog;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class AddressManageCallback {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class VoiceRecognitionResult {
         public abstract void onVoiceResult(String str);
 

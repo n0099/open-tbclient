@@ -19,172 +19,172 @@ import com.baidu.tieba.video.record.VideoEffectButtonLayout;
 import com.baidu.tieba.video.record.VideoEffectLayout;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoControllerLayout extends RelativeLayout implements View.OnClickListener, View.OnTouchListener, com.baidu.tieba.video.editvideo.b, VideoEffectButtonLayout.a {
-    private i kwi;
-    private AnimatorSet kxZ;
-    private ImageView kyK;
-    private RelativeLayout kyL;
-    private VideoRecordButton kyM;
-    private ImageView kyN;
-    private long kyO;
-    private boolean kyP;
-    private List<ObjectAnimator> kyQ;
-    private a kyR;
-    private boolean kyS;
-    private boolean kyT;
-    private List<e> kyU;
-    private List<e> kyV;
-    private List<StickerItem> kyW;
-    private List<e> kyX;
-    private VideoEffectLayout kyY;
-    private AnimatorSet kya;
+    private AnimatorSet kBB;
+    private AnimatorSet kBC;
+    private VideoEffectLayout kCA;
+    private ImageView kCm;
+    private RelativeLayout kCn;
+    private VideoRecordButton kCo;
+    private ImageView kCp;
+    private long kCq;
+    private boolean kCr;
+    private List<ObjectAnimator> kCs;
+    private a kCt;
+    private boolean kCu;
+    private boolean kCv;
+    private List<e> kCw;
+    private List<e> kCx;
+    private List<StickerItem> kCy;
+    private List<e> kCz;
+    private i kzK;
     private int mCurrentTab;
     private Handler mHandler;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void cPf();
+        void cQA();
 
-        void cPq();
+        void cQB();
 
-        void cPr();
+        void cQi();
 
-        void cPs();
+        void cQt();
 
-        void cPt();
+        void cQu();
 
-        void cPu();
+        void cQv();
 
-        void cPv();
+        void cQw();
 
-        void cPw();
+        void cQx();
 
-        void cPx();
+        void cQy();
 
-        void cPy();
+        void cQz();
     }
 
     public VideoControllerLayout(Context context) {
         super(context);
-        this.kyO = 0L;
-        this.kyP = false;
-        this.kyS = true;
-        this.kyU = new ArrayList();
-        this.kyV = new ArrayList();
-        this.kyW = new ArrayList();
-        this.kyX = new ArrayList();
+        this.kCq = 0L;
+        this.kCr = false;
+        this.kCu = true;
+        this.kCw = new ArrayList();
+        this.kCx = new ArrayList();
+        this.kCy = new ArrayList();
+        this.kCz = new ArrayList();
         this.mHandler = new Handler();
         init();
     }
 
     public VideoControllerLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kyO = 0L;
-        this.kyP = false;
-        this.kyS = true;
-        this.kyU = new ArrayList();
-        this.kyV = new ArrayList();
-        this.kyW = new ArrayList();
-        this.kyX = new ArrayList();
+        this.kCq = 0L;
+        this.kCr = false;
+        this.kCu = true;
+        this.kCw = new ArrayList();
+        this.kCx = new ArrayList();
+        this.kCy = new ArrayList();
+        this.kCz = new ArrayList();
         this.mHandler = new Handler();
         init();
     }
 
     public VideoControllerLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kyO = 0L;
-        this.kyP = false;
-        this.kyS = true;
-        this.kyU = new ArrayList();
-        this.kyV = new ArrayList();
-        this.kyW = new ArrayList();
-        this.kyX = new ArrayList();
+        this.kCq = 0L;
+        this.kCr = false;
+        this.kCu = true;
+        this.kCw = new ArrayList();
+        this.kCx = new ArrayList();
+        this.kCy = new ArrayList();
+        this.kCz = new ArrayList();
         this.mHandler = new Handler();
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.record_controller_layout, this);
-        this.kyY = (VideoEffectLayout) findViewById(R.id.layout_effect);
-        this.kyL = (RelativeLayout) findViewById(R.id.layout_record);
-        this.kyK = (ImageView) findViewById(R.id.delete_video);
-        this.kyK.setOnClickListener(this);
-        this.kyM = (VideoRecordButton) findViewById(R.id.layout_record_button);
-        this.kyM.setOnTouchListener(this);
-        this.kyN = (ImageView) findViewById(R.id.confirm_video);
-        this.kyN.setOnClickListener(this);
-        this.kyX.add(0, new e(3, getResources().getString(R.string.music_normal), new MusicData("-100", 1, getResources().getString(R.string.music_normal)), R.drawable.icon_video_mute));
-        this.kyX.add(1, new e(3, getResources().getString(R.string.music_cloud), new MusicData("-200", 2, getResources().getString(R.string.music_cloud)), R.drawable.icon_video_cloudmusic));
+        this.kCA = (VideoEffectLayout) findViewById(R.id.layout_effect);
+        this.kCn = (RelativeLayout) findViewById(R.id.layout_record);
+        this.kCm = (ImageView) findViewById(R.id.delete_video);
+        this.kCm.setOnClickListener(this);
+        this.kCo = (VideoRecordButton) findViewById(R.id.layout_record_button);
+        this.kCo.setOnTouchListener(this);
+        this.kCp = (ImageView) findViewById(R.id.confirm_video);
+        this.kCp.setOnClickListener(this);
+        this.kCz.add(0, new e(3, getResources().getString(R.string.music_normal), new MusicData("-100", 1, getResources().getString(R.string.music_normal)), R.drawable.icon_video_mute));
+        this.kCz.add(1, new e(3, getResources().getString(R.string.music_cloud), new MusicData("-200", 2, getResources().getString(R.string.music_cloud)), R.drawable.icon_video_cloudmusic));
     }
 
     public void setRecordController(i iVar) {
-        this.kwi = iVar;
-        DA(1);
+        this.kzK = iVar;
+        DG(1);
     }
 
     public void setEffectChoosedListener(VideoEffectLayout.a aVar) {
-        if (this.kyY != null) {
-            this.kyY.setListener(aVar);
+        if (this.kCA != null) {
+            this.kCA.setListener(aVar);
         }
     }
 
-    public void DA(int i) {
-        this.kwi.setStatus(i);
-        if (this.kyR != null) {
-            this.kyR.cPy();
+    public void DG(int i) {
+        this.kzK.setStatus(i);
+        if (this.kCt != null) {
+            this.kCt.cQB();
         }
         if (i == 1) {
-            this.kyK.setVisibility(8);
-            this.kyN.setVisibility(8);
+            this.kCm.setVisibility(8);
+            this.kCp.setVisibility(8);
         } else if (i == 3) {
-            this.kyK.setImageResource(R.drawable.video_back_selector);
-            this.kyN.setImageResource(R.drawable.icon_video_confirm_d);
+            this.kCm.setImageResource(R.drawable.video_back_selector);
+            this.kCp.setImageResource(R.drawable.icon_video_confirm_d);
         } else if (i == 4) {
-            this.kyK.setImageResource(R.drawable.video_back_selector);
-            this.kyN.setImageResource(R.drawable.video_confirm_selector);
+            this.kCm.setImageResource(R.drawable.video_back_selector);
+            this.kCp.setImageResource(R.drawable.video_confirm_selector);
         } else if (i == 5) {
-            this.kyK.setImageResource(R.drawable.video_delete_selector);
-            if (this.kwi != null && this.kwi.getVideoDuration() >= 3000.0f) {
-                this.kyN.setImageResource(R.drawable.video_confirm_selector);
+            this.kCm.setImageResource(R.drawable.video_delete_selector);
+            if (this.kzK != null && this.kzK.getVideoDuration() >= 3000.0f) {
+                this.kCp.setImageResource(R.drawable.video_confirm_selector);
             } else {
-                this.kyN.setImageResource(R.drawable.icon_video_confirm_d);
+                this.kCp.setImageResource(R.drawable.icon_video_confirm_d);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.kyK) {
-            if (this.kyR != null) {
-                this.kyR.cPx();
+        if (view == this.kCm) {
+            if (this.kCt != null) {
+                this.kCt.cQA();
             }
-            int status = this.kwi.getStatus();
-            if (this.kwi != null && this.kwi.getVideoDuration() > 0 && status > 2) {
+            int status = this.kzK.getStatus();
+            if (this.kzK != null && this.kzK.getVideoDuration() > 0 && status > 2) {
                 if (status == 5) {
                     TiebaStatic.log("c12299");
-                    this.kwi.cPb();
-                    ey(this.kyU);
-                    ey(this.kyV);
-                    ey(this.kyW);
-                    if (this.kwi.getVideoDuration() >= 3000.0f) {
-                        DA(4);
+                    this.kzK.cQe();
+                    ey(this.kCw);
+                    ey(this.kCx);
+                    ey(this.kCy);
+                    if (this.kzK.getVideoDuration() >= 3000.0f) {
+                        DG(4);
                         return;
                     } else {
-                        DA(this.kwi.getVideoDuration() > 0 ? 3 : 1);
+                        DG(this.kzK.getVideoDuration() > 0 ? 3 : 1);
                         return;
                     }
                 }
-                this.kwi.cPa();
-                DA(5);
+                this.kzK.cQd();
+                DG(5);
             }
-        } else if (view == this.kyN) {
+        } else if (view == this.kCp) {
             TiebaStatic.log("c12300");
-            if (this.kwi != null && this.kwi.getStatus() > 2 && this.kyR != null) {
-                if (this.kwi.getVideoDuration() >= 3000.0f) {
-                    this.kyR.cPv();
+            if (this.kzK != null && this.kzK.getStatus() > 2 && this.kCt != null) {
+                if (this.kzK.getVideoDuration() >= 3000.0f) {
+                    this.kCt.cQy();
                 } else {
-                    this.kyR.cPw();
+                    this.kCt.cQz();
                 }
             }
         }
@@ -197,118 +197,118 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cL(final boolean z) {
-        if (this.kwi.getProgress() >= 100) {
-            if (this.kyR != null) {
-                this.kyR.cPv();
+    public void cQ(final boolean z) {
+        if (this.kzK.getProgress() >= 100) {
+            if (this.kCt != null) {
+                this.kCt.cQy();
                 return;
             }
             return;
         }
-        if (this.kyY.getCurrentBeautyItem() != null) {
-            this.kyU.add(this.kyY.getCurrentBeautyItem());
+        if (this.kCA.getCurrentBeautyItem() != null) {
+            this.kCw.add(this.kCA.getCurrentBeautyItem());
         }
-        if (this.kyY.getCurrentFilterItem() != null) {
-            this.kyV.add(this.kyY.getCurrentFilterItem());
+        if (this.kCA.getCurrentFilterItem() != null) {
+            this.kCx.add(this.kCA.getCurrentFilterItem());
         }
-        if (this.kyY.getCurrentStickItem() != null) {
-            this.kyW.add(this.kyY.getCurrentStickItem());
+        if (this.kCA.getCurrentStickItem() != null) {
+            this.kCy.add(this.kCA.getCurrentStickItem());
         }
-        DA(2);
-        if (this.kyY.getVisibility() == 0) {
+        DG(2);
+        if (this.kCA.getVisibility() == 0) {
             a(new m() { // from class: com.baidu.tieba.video.record.VideoControllerLayout.1
                 @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (VideoControllerLayout.this.kwi.getStatus() == 6 || VideoControllerLayout.this.kwi.isRecording()) {
-                        VideoControllerLayout.this.tg(z);
+                    if (VideoControllerLayout.this.kzK.getStatus() == 6 || VideoControllerLayout.this.kzK.isRecording()) {
+                        VideoControllerLayout.this.ts(z);
                     }
                 }
             });
         } else {
-            tg(z);
+            ts(z);
         }
-        if (this.kwi != null) {
-            this.kwi.startRecord();
+        if (this.kzK != null) {
+            this.kzK.startRecord();
         }
-        if (this.kyR != null) {
-            this.kyR.cPq();
+        if (this.kCt != null) {
+            this.kCt.cQt();
         }
     }
 
     public void stopRecord() {
-        cPC();
-        int status = this.kwi.getStatus();
-        if (this.kwi != null) {
-            if (!this.kwi.bby() && this.kwi.isRecording()) {
-                this.kwi.stopRecord();
+        cQF();
+        int status = this.kzK.getStatus();
+        if (this.kzK != null) {
+            if (!this.kzK.bbT() && this.kzK.isRecording()) {
+                this.kzK.stopRecord();
             }
-            cPB();
+            cQE();
         }
-        if (this.kyR != null) {
-            this.kyR.cPf();
+        if (this.kCt != null) {
+            this.kCt.cQi();
             if (status == 6) {
-                this.kyR.cPs();
+                this.kCt.cQv();
             }
         }
     }
 
-    public void cPB() {
-        if (this.kwi != null) {
-            if (this.kwi.getVideoDuration() >= 3000.0f) {
-                DA(4);
-            } else if (this.kwi.getVideoDuration() > 0) {
-                DA(3);
+    public void cQE() {
+        if (this.kzK != null) {
+            if (this.kzK.getVideoDuration() >= 3000.0f) {
+                DG(4);
+            } else if (this.kzK.getVideoDuration() > 0) {
+                DG(3);
             } else {
-                DA(1);
+                DG(1);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tg(boolean z) {
-        if (this.kya != null && this.kya.isRunning()) {
-            this.kya.cancel();
+    public void ts(boolean z) {
+        if (this.kBC != null && this.kBC.isRunning()) {
+            this.kBC.cancel();
         }
-        if (this.kxZ == null) {
-            this.kxZ = new AnimatorSet();
-            this.kxZ.playTogether(ObjectAnimator.ofFloat(this.kyK, "alpha", 1.0f, 0.0f), ObjectAnimator.ofFloat(this.kyN, "alpha", 1.0f, 0.0f));
-            this.kxZ.addListener(new m() { // from class: com.baidu.tieba.video.record.VideoControllerLayout.2
+        if (this.kBB == null) {
+            this.kBB = new AnimatorSet();
+            this.kBB.playTogether(ObjectAnimator.ofFloat(this.kCm, "alpha", 1.0f, 0.0f), ObjectAnimator.ofFloat(this.kCp, "alpha", 1.0f, 0.0f));
+            this.kBB.addListener(new m() { // from class: com.baidu.tieba.video.record.VideoControllerLayout.2
                 @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (!this.kzL) {
-                        VideoControllerLayout.this.kyK.setVisibility(8);
-                        VideoControllerLayout.this.kyN.setVisibility(8);
+                    if (!this.kDn) {
+                        VideoControllerLayout.this.kCm.setVisibility(8);
+                        VideoControllerLayout.this.kCp.setVisibility(8);
                     }
                 }
             });
-            this.kxZ.setDuration(300L);
+            this.kBB.setDuration(300L);
         }
-        this.kxZ.start();
-        if (this.kwi.getStatus() != 6) {
-            this.kyM.tg(z);
+        this.kBB.start();
+        if (this.kzK.getStatus() != 6) {
+            this.kCo.ts(z);
         }
     }
 
-    public void cPC() {
-        if (this.kwi == null || this.kwi.isRecording() || this.kwi.getStatus() == 6) {
-            if (this.kxZ != null && this.kxZ.isRunning()) {
-                this.kxZ.cancel();
+    public void cQF() {
+        if (this.kzK == null || this.kzK.isRecording() || this.kzK.getStatus() == 6) {
+            if (this.kBB != null && this.kBB.isRunning()) {
+                this.kBB.cancel();
             }
-            if (this.kya == null) {
-                this.kya = new AnimatorSet();
-                this.kya.playTogether(ObjectAnimator.ofFloat(this.kyK, "alpha", 0.0f, 1.0f), ObjectAnimator.ofFloat(this.kyN, "alpha", 0.0f, 1.0f));
-                this.kya.setDuration(300L);
+            if (this.kBC == null) {
+                this.kBC = new AnimatorSet();
+                this.kBC.playTogether(ObjectAnimator.ofFloat(this.kCm, "alpha", 0.0f, 1.0f), ObjectAnimator.ofFloat(this.kCp, "alpha", 0.0f, 1.0f));
+                this.kBC.setDuration(300L);
             }
-            this.kyK.setVisibility(0);
-            this.kyN.setVisibility(0);
-            this.kya.start();
-            if (this.kwi.getStatus() != 7 && this.kwi.getStatus() != 6) {
-                this.kyM.cPC();
+            this.kCm.setVisibility(0);
+            this.kCp.setVisibility(0);
+            this.kBC.start();
+            if (this.kzK.getStatus() != 7 && this.kzK.getStatus() != 6) {
+                this.kCo.cQF();
                 return;
             }
-            this.kyM.getTvTip().setVisibility(8);
+            this.kCo.getTvTip().setVisibility(8);
             if (this.mCurrentTab == 2) {
-                this.kyM.getLayer1().setVisibility(0);
+                this.kCo.getLayer1().setVisibility(0);
             }
         }
     }
@@ -330,24 +330,24 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     private void e(View view, MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.kyR != null) {
-                    this.kyR.cPx();
+                if (this.kCt != null) {
+                    this.kCt.cQA();
                 }
-                if (this.kwi.getStatus() != 7 && this.kwi.getStatus() != 6) {
-                    if (this.kwi != null && this.kwi.cOZ()) {
-                        this.kyT = true;
-                        com.baidu.tbadk.core.util.e.aDg().showToast(R.string.music_is_downloading);
+                if (this.kzK.getStatus() != 7 && this.kzK.getStatus() != 6) {
+                    if (this.kzK != null && this.kzK.cQc()) {
+                        this.kCv = true;
+                        com.baidu.tbadk.core.util.e.aDz().showToast(R.string.music_is_downloading);
                         return;
                     }
                     final long currentTimeMillis = System.currentTimeMillis();
-                    this.kyO = currentTimeMillis;
-                    this.kyP = true;
+                    this.kCq = currentTimeMillis;
+                    this.kCr = true;
                     this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.video.record.VideoControllerLayout.3
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (VideoControllerLayout.this.kyP && VideoControllerLayout.this.kyO == currentTimeMillis) {
+                            if (VideoControllerLayout.this.kCr && VideoControllerLayout.this.kCq == currentTimeMillis) {
                                 TiebaStatic.log("c12297");
-                                VideoControllerLayout.this.cL(true);
+                                VideoControllerLayout.this.cQ(true);
                             }
                         }
                     }, 200L);
@@ -356,17 +356,17 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 return;
             case 1:
             case 3:
-                if (this.kyT) {
-                    this.kyT = false;
+                if (this.kCv) {
+                    this.kCv = false;
                     return;
                 }
-                this.kyP = false;
-                if (this.kwi.isRecording() || this.kwi.getStatus() == 6) {
+                this.kCr = false;
+                if (this.kzK.isRecording() || this.kzK.getStatus() == 6) {
                     TiebaStatic.log("c12298");
                     stopRecord();
                     return;
-                } else if (this.kwi.getStatus() != 8) {
-                    cL(false);
+                } else if (this.kzK.getStatus() != 8) {
+                    cQ(false);
                     return;
                 } else {
                     return;
@@ -380,154 +380,154 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     private void f(View view, MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.kwi.getStatus() == 6) {
-                    this.kwi.setStatus(1);
-                    if (this.kyR != null) {
-                        this.kyR.cPs();
-                        this.kyR.cPf();
+                if (this.kzK.getStatus() == 6) {
+                    this.kzK.setStatus(1);
+                    if (this.kCt != null) {
+                        this.kCt.cQv();
+                        this.kCt.cQi();
                     }
-                    this.kyM.getTvTip().setText("");
-                    this.kyM.getTvTip().setVisibility(8);
+                    this.kCo.getTvTip().setText("");
+                    this.kCo.getTvTip().setVisibility(8);
                     return;
-                } else if (this.kyY.getVisibility() == 0) {
+                } else if (this.kCA.getVisibility() == 0) {
                     a((m) null);
                     return;
-                } else if (this.kyR != null) {
-                    this.kyR.cPr();
-                    this.kyM.cPN();
+                } else if (this.kCt != null) {
+                    this.kCt.cQu();
+                    this.kCo.cQQ();
                     return;
                 } else {
                     return;
                 }
             case 1:
-                this.kyM.cPO();
+                this.kCo.cQR();
                 return;
             default:
                 return;
         }
     }
 
-    public void cPl() {
-        if (this.kyY.getVisibility() == 0) {
+    public void cQo() {
+        if (this.kCA.getVisibility() == 0) {
             a((m) null);
         }
-        tg(false);
-        this.kyM.getLayer1().setVisibility(8);
-        this.kyM.getTvTip().setText(getResources().getText(R.string.video_record_button_cancel));
-        this.kyM.getTvTip().setVisibility(0);
-        if (this.kyR != null) {
-            this.kyR.cPq();
+        ts(false);
+        this.kCo.getLayer1().setVisibility(8);
+        this.kCo.getTvTip().setText(getResources().getText(R.string.video_record_button_cancel));
+        this.kCo.getTvTip().setVisibility(0);
+        if (this.kCt != null) {
+            this.kCt.cQt();
         }
     }
 
-    public void cPD() {
-        if (this.kwi.getStatus() == 6) {
+    public void cQG() {
+        if (this.kzK.getStatus() == 6) {
             if (this.mCurrentTab == 2) {
-                DA(7);
-                this.kyM.setAlpha(1.0f);
-                this.kyK.setVisibility(8);
-                this.kyN.setVisibility(8);
-                this.kyM.getTvTip().setText(getResources().getString(R.string.video_record_button_pasue));
-                if (this.kwi != null) {
-                    this.kwi.startRecord();
+                DG(7);
+                this.kCo.setAlpha(1.0f);
+                this.kCm.setVisibility(8);
+                this.kCp.setVisibility(8);
+                this.kCo.getTvTip().setText(getResources().getString(R.string.video_record_button_pasue));
+                if (this.kzK != null) {
+                    this.kzK.startRecord();
                     return;
                 }
                 return;
             }
-            this.kyM.getTvTip().setVisibility(8);
-            if (this.kyR != null) {
-                this.kyR.cPr();
+            this.kCo.getTvTip().setVisibility(8);
+            if (this.kCt != null) {
+                this.kCt.cQu();
             }
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void cPm() {
-        if (cPG() && this.kyY.getCurrentEffectLayout() == 3) {
+    public void cQp() {
+        if (cQJ() && this.kCA.getCurrentEffectLayout() == 3) {
             a((m) null);
             return;
         }
-        if (!cPG()) {
-            cPF();
+        if (!cQJ()) {
+            cQI();
         }
-        this.kyY.cPm();
+        this.kCA.cQp();
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void cPn() {
-        if (cPG() && this.kyY.getCurrentEffectLayout() == 0) {
+    public void cQq() {
+        if (cQJ() && this.kCA.getCurrentEffectLayout() == 0) {
             a((m) null);
             return;
         }
-        if (!cPG()) {
-            cPF();
+        if (!cQJ()) {
+            cQI();
         }
-        this.kyY.cPn();
+        this.kCA.cQq();
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void cPo() {
-        if (cPG() && this.kyY.getCurrentEffectLayout() == 1) {
+    public void cQr() {
+        if (cQJ() && this.kCA.getCurrentEffectLayout() == 1) {
             a((m) null);
             return;
         }
-        if (!cPG()) {
-            cPF();
+        if (!cQJ()) {
+            cQI();
         }
-        this.kyY.cPo();
+        this.kCA.cQr();
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void cPp() {
-        if (cPG() && this.kyY.getCurrentEffectLayout() == 2) {
+    public void cQs() {
+        if (cQJ() && this.kCA.getCurrentEffectLayout() == 2) {
             a((m) null);
             return;
         }
-        if (!cPG()) {
-            cPF();
+        if (!cQJ()) {
+            cQI();
         }
-        this.kyY.cPp();
+        this.kCA.cQs();
     }
 
-    private void cPE() {
-        if (v.isEmpty(this.kyQ)) {
-            this.kyQ = new ArrayList();
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyY, "translationY", 1000.0f, 0.0f));
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyL, "translationY", 0.0f, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds100)));
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyM.getLayer3(), "scaleX", 0.766f, 0.585f));
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyM.getLayer3(), "scaleY", 0.766f, 0.585f));
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyM.getLayer2(), "scaleX", 1.0f, 0.82f));
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyM.getLayer2(), "scaleY", 1.0f, 0.82f));
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyN, "scaleX", 1.0f, 0.7f));
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyN, "scaleY", 1.0f, 0.7f));
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyK, "scaleX", 1.0f, 0.7f));
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyK, "scaleY", 1.0f, 0.7f));
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyN, "alpha", 1.0f, 0.0f));
-            this.kyQ.add(ObjectAnimator.ofFloat(this.kyK, "alpha", 1.0f, 0.0f));
+    private void cQH() {
+        if (v.isEmpty(this.kCs)) {
+            this.kCs = new ArrayList();
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCA, "translationY", 1000.0f, 0.0f));
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCn, "translationY", 0.0f, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds100)));
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCo.getLayer3(), "scaleX", 0.766f, 0.585f));
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCo.getLayer3(), "scaleY", 0.766f, 0.585f));
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCo.getLayer2(), "scaleX", 1.0f, 0.82f));
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCo.getLayer2(), "scaleY", 1.0f, 0.82f));
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCp, "scaleX", 1.0f, 0.7f));
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCp, "scaleY", 1.0f, 0.7f));
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCm, "scaleX", 1.0f, 0.7f));
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCm, "scaleY", 1.0f, 0.7f));
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCp, "alpha", 1.0f, 0.0f));
+            this.kCs.add(ObjectAnimator.ofFloat(this.kCm, "alpha", 1.0f, 0.0f));
         }
     }
 
-    private void cPF() {
+    private void cQI() {
         int i = 0;
-        if (this.kyY.getVisibility() != 0) {
-            this.kyY.setVisibility(0);
-            cPE();
-            this.kyN.setEnabled(false);
-            this.kyK.setEnabled(false);
+        if (this.kCA.getVisibility() != 0) {
+            this.kCA.setVisibility(0);
+            cQH();
+            this.kCp.setEnabled(false);
+            this.kCm.setEnabled(false);
             while (true) {
                 int i2 = i;
-                if (i2 < this.kyQ.size()) {
-                    ObjectAnimator objectAnimator = this.kyQ.get(i2);
+                if (i2 < this.kCs.size()) {
+                    ObjectAnimator objectAnimator = this.kCs.get(i2);
                     if (objectAnimator != null) {
                         objectAnimator.cancel();
                         objectAnimator.setDuration(500L);
                         objectAnimator.removeAllListeners();
-                        if (i2 == this.kyQ.size() - 1) {
+                        if (i2 == this.kCs.size() - 1) {
                             objectAnimator.addListener(new m() { // from class: com.baidu.tieba.video.record.VideoControllerLayout.4
                                 @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                                 public void onAnimationStart(Animator animator) {
-                                    if (VideoControllerLayout.this.kyR != null) {
-                                        VideoControllerLayout.this.kyR.cPt();
+                                    if (VideoControllerLayout.this.kCt != null) {
+                                        VideoControllerLayout.this.kCt.cQw();
                                     }
                                 }
                             });
@@ -543,33 +543,33 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     public void a(final m mVar) {
-        if (this.kyY.getVisibility() != 8) {
-            cPE();
-            this.kyN.setEnabled(true);
-            this.kyK.setEnabled(true);
-            if (this.kwi.getStatus() == 6 || this.kwi.isRecording()) {
-                this.kyK.setVisibility(8);
-                this.kyN.setVisibility(8);
+        if (this.kCA.getVisibility() != 8) {
+            cQH();
+            this.kCp.setEnabled(true);
+            this.kCm.setEnabled(true);
+            if (this.kzK.getStatus() == 6 || this.kzK.isRecording()) {
+                this.kCm.setVisibility(8);
+                this.kCp.setVisibility(8);
             } else {
-                DA(this.kwi.getStatus());
+                DG(this.kzK.getStatus());
             }
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.kyQ.size()) {
-                    ObjectAnimator objectAnimator = this.kyQ.get(i2);
+                if (i2 < this.kCs.size()) {
+                    ObjectAnimator objectAnimator = this.kCs.get(i2);
                     if (objectAnimator != null) {
                         objectAnimator.setDuration(500L);
                         objectAnimator.cancel();
                         objectAnimator.removeAllListeners();
-                        if (i2 == this.kyQ.size() - 1) {
+                        if (i2 == this.kCs.size() - 1) {
                             objectAnimator.addListener(new m() { // from class: com.baidu.tieba.video.record.VideoControllerLayout.5
                                 @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                                 public void onAnimationEnd(Animator animator) {
-                                    if (!this.kzL) {
-                                        VideoControllerLayout.this.kyY.setVisibility(8);
-                                        if (VideoControllerLayout.this.kyR != null) {
-                                            VideoControllerLayout.this.kyR.cPu();
+                                    if (!this.kDn) {
+                                        VideoControllerLayout.this.kCA.setVisibility(8);
+                                        if (VideoControllerLayout.this.kCt != null) {
+                                            VideoControllerLayout.this.kCt.cQx();
                                         }
                                         if (mVar != null) {
                                             mVar.onAnimationEnd(animator);
@@ -589,83 +589,83 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     }
 
     public void setRecordControlListener(a aVar) {
-        this.kyR = aVar;
+        this.kCt = aVar;
     }
 
     public void setCurrentTab(int i) {
         this.mCurrentTab = i;
         switch (this.mCurrentTab) {
             case 1:
-                this.kyK.setVisibility(4);
-                this.kyN.setVisibility(4);
-                this.kyM.getLayer1().setVisibility(8);
+                this.kCm.setVisibility(4);
+                this.kCp.setVisibility(4);
+                this.kCo.getLayer1().setVisibility(8);
                 return;
             case 2:
-                if (this.kwi.getStatus() != 1) {
-                    this.kyK.setVisibility(0);
-                    this.kyN.setVisibility(0);
+                if (this.kzK.getStatus() != 1) {
+                    this.kCm.setVisibility(0);
+                    this.kCp.setVisibility(0);
                 }
-                this.kyM.getLayer1().setVisibility(0);
+                this.kCo.getLayer1().setVisibility(0);
                 return;
             default:
                 return;
         }
     }
 
-    public boolean cPG() {
-        return this.kyY.getVisibility() == 0;
+    public boolean cQJ() {
+        return this.kCA.getVisibility() == 0;
     }
 
     public void setStickerItems(List<StickerItem> list) {
-        if (this.kyY != null) {
-            this.kyY.setStickerItems(list);
+        if (this.kCA != null) {
+            this.kCA.setStickerItems(list);
         }
     }
 
     public void b(StickerItem stickerItem) {
-        if (this.kyY != null) {
-            this.kyY.c(stickerItem);
+        if (this.kCA != null) {
+            this.kCA.c(stickerItem);
         }
     }
 
     public void setDownLoadSticker(StickerItem stickerItem) {
-        if (this.kyY != null) {
-            this.kyY.setDownLoadStrick(stickerItem);
+        if (this.kCA != null) {
+            this.kCA.setDownLoadStrick(stickerItem);
         }
     }
 
-    public boolean cPH() {
-        if (this.kyY != null) {
-            return this.kyY.cPH();
+    public boolean cQK() {
+        if (this.kCA != null) {
+            return this.kCA.cQK();
         }
         return false;
     }
 
     public void setHasLocalVideo(boolean z) {
-        this.kyS = z;
+        this.kCu = z;
     }
 
     public List<e> getChoosedBeautyList() {
-        return this.kyU;
+        return this.kCw;
     }
 
     public List<e> getChoosedFilterList() {
-        return this.kyV;
+        return this.kCx;
     }
 
     public List<StickerItem> getChoosedStickerList() {
-        return this.kyW;
+        return this.kCy;
     }
 
     @Override // com.baidu.tieba.video.editvideo.b
     public void setMusicData(List<MusicData> list) {
         if (list != null && list.size() > 0) {
             for (MusicData musicData : list) {
-                this.kyX.add(new e(3, musicData.name, musicData, -1));
+                this.kCz.add(new e(3, musicData.name, musicData, -1));
             }
         }
-        if (this.kyY != null) {
-            this.kyY.setMusicList(this.kyX);
+        if (this.kCA != null) {
+            this.kCA.setMusicList(this.kCz);
         }
     }
 
@@ -673,15 +673,15 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
     public void u(String str, int i, String str2) {
     }
 
-    public void cPI() {
-        if (this.kyY != null) {
-            this.kyY.cPI();
+    public void cQL() {
+        if (this.kCA != null) {
+            this.kCA.cQL();
         }
     }
 
-    public void cOz() {
-        if (this.kyY != null) {
-            this.kyY.cOz();
+    public void cPC() {
+        if (this.kCA != null) {
+            this.kCA.cPC();
         }
     }
 }

@@ -9,12 +9,12 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected long eeP;
-    protected com.baidu.adp.lib.b.a hmL;
-    protected com.baidu.adp.lib.b.b hmM;
-    private boolean hmS;
-    private boolean hmT;
-    protected int hmU;
+    protected long eeX;
+    protected com.baidu.adp.lib.b.a hqo;
+    protected com.baidu.adp.lib.b.b hqp;
+    private boolean hqv;
+    private boolean hqw;
+    protected int hqx;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.v$a] */
@@ -25,44 +25,44 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.hmL = null;
-        this.hmM = null;
-        this.eeP = 0L;
-        this.hmS = false;
-        this.hmT = false;
+        this.hqo = null;
+        this.hqp = null;
+        this.eeX = 0L;
+        this.hqv = false;
+        this.hqw = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.b.a aVar) {
-        this.hmL = aVar;
+        this.hqo = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.hmM = bVar;
+        this.hqp = bVar;
     }
 
-    private void bPx() {
-        this.eeP = System.currentTimeMillis() / 1000;
+    private void bQG() {
+        this.eeX = System.currentTimeMillis() / 1000;
     }
 
-    public boolean bPy() {
-        return this.hmS;
+    public boolean bQH() {
+        return this.hqv;
     }
 
-    public void mO(boolean z) {
-        this.hmS = z;
+    public void na(boolean z) {
+        this.hqv = z;
     }
 
-    public boolean bPz() {
-        return this.hmT;
+    public boolean bQI() {
+        return this.hqw;
     }
 
-    public void mP(boolean z) {
-        this.hmT = z;
+    public void nb(boolean z) {
+        this.hqw = z;
     }
 
-    public void vP(int i) {
-        this.hmU = i;
+    public void vU(int i) {
+        this.hqx = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -70,21 +70,21 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        bPx();
+        bQG();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends v.a {
-        private T hmV;
+        private T hqy;
 
         public a(View view, T t) {
             super(view);
-            this.hmV = t;
+            this.hqy = t;
         }
 
-        public T bPA() {
-            return this.hmV;
+        public T bQJ() {
+            return this.hqy;
         }
     }
 }

@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BdTouchDelegate extends TouchDelegate {
     private Map<View, ExpandBounds> mDelegateViewExpandMap;
 
@@ -96,7 +96,7 @@ public class BdTouchDelegate extends TouchDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class ExpandBounds {
         public Rect bounds;
         public int expandBottom;

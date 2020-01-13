@@ -2,21 +2,21 @@ package org.java_websocket.d;
 
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b implements a {
-    private final String ncQ;
+    private final String nLP;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.ncQ = str;
+        this.nLP = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean Rs(String str) {
+    public boolean Sn(String str) {
         for (String str2 : str.replaceAll(HanziToPinyin.Token.SEPARATOR, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.ncQ.equals(str2)) {
+            if (this.nLP.equals(str2)) {
                 return true;
             }
         }
@@ -24,18 +24,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String dFP() {
-        return this.ncQ;
+    public String dMq() {
+        return this.nLP;
     }
 
     @Override // org.java_websocket.d.a
-    public a dFQ() {
-        return new b(dFP());
+    public a dMr() {
+        return new b(dMq());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return dFP();
+        return dMq();
     }
 
     public boolean equals(Object obj) {
@@ -45,10 +45,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.ncQ.equals(((b) obj).ncQ);
+        return this.nLP.equals(((b) obj).nLP);
     }
 
     public int hashCode() {
-        return this.ncQ.hashCode();
+        return this.nLP.hashCode();
     }
 }

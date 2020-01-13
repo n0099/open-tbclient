@@ -13,7 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLConnection;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static int a(int i, int i2, int i3, int i4) {
         float f = 1.0f;

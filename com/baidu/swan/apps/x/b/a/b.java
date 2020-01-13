@@ -2,9 +2,9 @@ package com.baidu.swan.apps.x.b.a;
 
 import android.os.Bundle;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class b<ValueT> {
-    private final ValueT btX;
+    private final ValueT buM;
 
     protected abstract ValueT a(Bundle bundle, String str, ValueT valuet);
 
@@ -15,18 +15,18 @@ public abstract class b<ValueT> {
     }
 
     public b(ValueT valuet) {
-        this.btX = valuet;
+        this.buM = valuet;
     }
 
     public ValueT a(c cVar, String str) {
-        return a(cVar, str, (String) this.btX);
+        return a(cVar, str, (String) this.buM);
     }
 
     public ValueT a(c cVar, String str, ValueT valuet) {
-        return a(cVar.Tt(), str, (String) valuet);
+        return a(cVar.TQ(), str, (String) valuet);
     }
 
     public void b(c cVar, String str, ValueT valuet) {
-        b(cVar.Tt(), str, (String) valuet);
+        b(cVar.TQ(), str, (String) valuet);
     }
 }

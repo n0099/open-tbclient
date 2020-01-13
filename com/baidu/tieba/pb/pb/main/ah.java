@@ -7,19 +7,19 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.ag;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ah extends m<ae, ag> {
-    private ag.a iHD;
-    private com.baidu.tieba.pb.data.f izv;
+    private com.baidu.tieba.pb.data.f iCZ;
+    private ag.a iLh;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ah(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
-        this.iHD = new ag.a() { // from class: com.baidu.tieba.pb.pb.main.ah.1
+        this.iLh = new ag.a() { // from class: com.baidu.tieba.pb.pb.main.ah.1
             @Override // com.baidu.tieba.pb.pb.main.ag.a
             public void b(ae aeVar) {
                 if (aeVar != null) {
-                    com.baidu.tieba.pb.c.a.a(ah.this.izv, aeVar, aeVar.locate, 5);
+                    com.baidu.tieba.pb.c.a.a(ah.this.iCZ, aeVar, aeVar.locate, 5);
                 }
             }
         };
@@ -28,9 +28,9 @@ public class ah extends m<ae, ag> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bF */
+    /* renamed from: bJ */
     public ag b(ViewGroup viewGroup) {
-        return new ag(this.iyA.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.iHD);
+        return new ag(this.iCe.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_page_news, viewGroup, false), this.iLh);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class ah extends m<ae, ag> {
         super.a(i, view, viewGroup, (ViewGroup) aeVar, (ae) agVar);
         if (aeVar != null) {
             aeVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.iyA.getUniqueId(), this.izv, aeVar, aeVar.locate, 5);
+            com.baidu.tieba.pb.c.a.a(this.iCe.getUniqueId(), this.iCZ, aeVar, aeVar.locate, 5);
             agVar.a(aeVar);
             agVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -48,6 +48,6 @@ public class ah extends m<ae, ag> {
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.izv = fVar;
+        this.iCZ = fVar;
     }
 }

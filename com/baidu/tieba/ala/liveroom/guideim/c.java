@@ -4,17 +4,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 class c {
-    boolean eXi = false;
+    boolean eZH = false;
     String date = "";
-    int eBn = 0;
+    int eCy = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("hasInput", this.eXi);
+            jSONObject.put("hasInput", this.eZH);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.eBn);
+            jSONObject.put("times", this.eCy);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

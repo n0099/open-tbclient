@@ -11,38 +11,38 @@ import com.baidu.tbadk.core.data.al;
 import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c extends a {
-    private OriginalThreadCardView fFs;
-    private int fmV;
-    private int iBF;
+    private OriginalThreadCardView fIC;
+    private int fqf;
+    private int iFj;
 
     public c(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.fmV = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
-        this.iBF = i;
+        this.fqf = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
+        this.iFj = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        if (this.fFs == null) {
-            this.fFs = new OriginalThreadCardView(this.cQU.getPageActivity());
-            this.fFs.fGc = this.iBF;
-            this.fFs.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
+        if (this.fIC == null) {
+            this.fIC = new OriginalThreadCardView(this.cRe.getPageActivity());
+            this.fIC.fJm = this.iFj;
+            this.fIC.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
                 @Override // com.baidu.tieba.card.OriginalThreadCardView.a
                 public void a(OriginalThreadInfo originalThreadInfo) {
-                    if (c.this.iNU != null) {
-                        c.this.iNU.a(c.this.fFs, new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
+                    if (c.this.iRy != null) {
+                        c.this.iRy.a(c.this.fIC, new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
                             @Override // com.baidu.tbadk.core.data.a
-                            public bj axx() {
-                                if (c.this.iNV != null) {
-                                    return c.this.iNV.ayn();
+                            public bj axQ() {
+                                if (c.this.iRz != null) {
+                                    return c.this.iRz.ayG();
                                 }
                                 return null;
                             }
 
                             @Override // com.baidu.tbadk.core.data.a
-                            public al axz() {
+                            public al axS() {
                                 return null;
                             }
 
@@ -55,20 +55,20 @@ public class c extends a {
                 }
             });
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = this.fmV;
-            layoutParams.leftMargin = this.fmV;
-            layoutParams.rightMargin = this.fmV;
-            this.fFs.setLayoutParams(layoutParams);
-            this.fFs.onChangeSkinType();
+            layoutParams.bottomMargin = this.fqf;
+            layoutParams.leftMargin = this.fqf;
+            layoutParams.rightMargin = this.fqf;
+            this.fIC.setLayoutParams(layoutParams);
+            this.fIC.onChangeSkinType();
         }
-        return this.fFs;
+        return this.fIC;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void f(OriginalThreadInfo originalThreadInfo) {
-        this.iNV = originalThreadInfo;
-        if (this.fFs != null) {
-            this.fFs.b(this.iNV);
+        this.iRz = originalThreadInfo;
+        if (this.fIC != null) {
+            this.fIC.b(this.iRz);
         }
     }
 
@@ -76,8 +76,8 @@ public class c extends a {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.fFs != null) {
-                this.fFs.onChangeSkinType();
+            if (this.fIC != null) {
+                this.fIC.onChangeSkinType();
             }
         }
     }

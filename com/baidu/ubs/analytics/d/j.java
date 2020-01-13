@@ -2,35 +2,35 @@ package com.baidu.ubs.analytics.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class j {
     private static int bn = 1000;
-    private static boolean kSA = true;
+    private static boolean kWb = true;
 
     public static void c(boolean z) {
-        kSA = z;
+        kWb = z;
     }
 
-    public static void KV(String str) {
-        if (kSA) {
+    public static void Lf(String str) {
+        if (kWb) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (kSA) {
+        if (kWb) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
-    public static void Lc(String str) {
-        if (kSA) {
+    public static void Lm(String str) {
+        if (kWb) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (kSA) {
+        if (kWb) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }

@@ -1,47 +1,47 @@
 package com.baidu.mario.a.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private String aFW = "/sdcard/AR/video/arvideo.mp4";
-    private int aFX = 0;
-    private long aFY = 0;
-    private boolean aFZ = true;
+    private String aGO = "/sdcard/AR/video/arvideo.mp4";
+    private int aGP = 0;
+    private long aGQ = 0;
+    private boolean aGR = true;
     private int mVideoWidth = 720;
     private int mVideoHeight = 1280;
-    private String aGa = "video/avc";
-    private int aGb = 8294400;
-    private int aGc = 30;
-    private int aGd = 1;
-    private boolean aGe = false;
-    private String aGf = "audio/mp4a-latm";
-    private int aGg = 1;
-    private int aGh = 128000;
-    private int aGi = 16000;
-    private int aGj = 1024;
+    private String aGS = "video/avc";
+    private int aGT = 8294400;
+    private int aGU = 30;
+    private int aGV = 1;
+    private boolean aGW = false;
+    private String aGX = "audio/mp4a-latm";
+    private int aGY = 1;
+    private int aGZ = 128000;
+    private int aHa = 16000;
+    private int aHb = 1024;
 
-    public String AA() {
-        return this.aFW;
+    public String AW() {
+        return this.aGO;
     }
 
     public void setOutputFile(String str) {
         if (str != null && !str.isEmpty()) {
-            this.aFW = str;
+            this.aGO = str;
         }
     }
 
-    public int AB() {
-        return this.aFX;
+    public int AX() {
+        return this.aGP;
     }
 
-    public long AC() {
-        return this.aFY;
+    public long AY() {
+        return this.aGQ;
     }
 
-    public void S(long j) {
-        this.aFY = j;
+    public void V(long j) {
+        this.aGQ = j;
     }
 
-    public boolean AD() {
-        return this.aFZ;
+    public boolean AZ() {
+        return this.aGR;
     }
 
     public int getVideoWidth() {
@@ -60,59 +60,59 @@ public class d {
         this.mVideoHeight = i;
     }
 
-    public String AE() {
-        return this.aGa;
+    public String Ba() {
+        return this.aGS;
     }
 
-    public int AF() {
-        return this.aGb;
+    public int Bb() {
+        return this.aGT;
     }
 
-    public int AG() {
-        return this.aGc;
+    public int Bc() {
+        return this.aGU;
     }
 
-    public int AH() {
-        return this.aGd;
+    public int Bd() {
+        return this.aGV;
     }
 
-    public boolean AI() {
-        return this.aGe;
+    public boolean Be() {
+        return this.aGW;
     }
 
-    public void bw(boolean z) {
-        this.aGe = z;
+    public void bB(boolean z) {
+        this.aGW = z;
     }
 
-    public String AJ() {
-        return this.aGf;
+    public String Bf() {
+        return this.aGX;
     }
 
-    public int AK() {
-        return this.aGg;
-    }
-
-    public void cO(int i) {
-        this.aGg = i;
-    }
-
-    public int AL() {
-        return this.aGh;
-    }
-
-    public int AM() {
-        return this.aGi;
+    public int Bg() {
+        return this.aGY;
     }
 
     public void cP(int i) {
-        this.aGi = i;
+        this.aGY = i;
     }
 
-    public int AN() {
-        return this.aGj;
+    public int Bh() {
+        return this.aGZ;
+    }
+
+    public int Bi() {
+        return this.aHa;
     }
 
     public void cQ(int i) {
-        this.aGj = i;
+        this.aHa = i;
+    }
+
+    public int Bj() {
+        return this.aHb;
+    }
+
+    public void cR(int i) {
+        this.aHb = i;
     }
 }

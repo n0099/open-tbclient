@@ -19,43 +19,43 @@ import com.baidu.adp.lib.f.g;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends PopupWindow {
-    private ViewGroup ayy;
-    private View.OnClickListener dXO;
-    private View fTQ;
-    private a kKn;
-    private TextView kKo;
-    private TextView kKp;
+    private ViewGroup azh;
+    private View.OnClickListener dXX;
+    private View fWZ;
+    private a kNO;
+    private TextView kNP;
+    private TextView kNQ;
     private Context mContext;
     private View mLine;
     private final View.OnClickListener mOnClickListener;
     private int mStatusBarHeight;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onItemClick(int i);
     }
 
     public b(Context context) {
         super(context);
-        this.dXO = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.1
+        this.dXX = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == b.this.kKo) {
-                    if (b.this.kKn != null) {
-                        b.this.kKn.onItemClick(1);
+                if (view == b.this.kNP) {
+                    if (b.this.kNO != null) {
+                        b.this.kNO.onItemClick(1);
                     }
-                } else if (view == b.this.kKp && b.this.kKn != null) {
-                    b.this.kKn.onItemClick(0);
+                } else if (view == b.this.kNQ && b.this.kNO != null) {
+                    b.this.kNO.onItemClick(0);
                 }
-                b.this.yk();
+                b.this.yA();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.yk();
+                b.this.yA();
             }
         };
         this.mContext = context;
@@ -68,60 +68,60 @@ public class b extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View bwJ() {
-        bwK();
+    private View bxL() {
+        bxM();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
-        this.ayy = frameLayout2;
+        this.azh = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.fTQ);
-        this.ayy.setOnClickListener(this.mOnClickListener);
+        frameLayout.addView(this.fWZ);
+        this.azh.setOnClickListener(this.mOnClickListener);
         am.setBackgroundColor(this.mLine, R.color.cp_bg_line_c);
-        am.setBackgroundResource(this.fTQ, R.drawable.window_bg_profession_select);
+        am.setBackgroundResource(this.fWZ, R.drawable.window_bg_profession_select);
         return frameLayout;
     }
 
-    private void bwK() {
-        this.fTQ = LayoutInflater.from(this.mContext).inflate(R.layout.layout_profession_select, (ViewGroup) null);
-        this.kKo = (TextView) this.fTQ.findViewById(R.id.profession_select_title_profession);
-        this.mLine = this.fTQ.findViewById(R.id.profession_select_line);
-        this.kKp = (TextView) this.fTQ.findViewById(R.id.profession_select_title_all);
-        this.kKo.setOnClickListener(this.dXO);
-        this.kKp.setOnClickListener(this.dXO);
+    private void bxM() {
+        this.fWZ = LayoutInflater.from(this.mContext).inflate(R.layout.layout_profession_select, (ViewGroup) null);
+        this.kNP = (TextView) this.fWZ.findViewById(R.id.profession_select_title_profession);
+        this.mLine = this.fWZ.findViewById(R.id.profession_select_line);
+        this.kNQ = (TextView) this.fWZ.findViewById(R.id.profession_select_title_all);
+        this.kNP.setOnClickListener(this.dXX);
+        this.kNQ.setOnClickListener(this.dXX);
     }
 
     public void setData(List<com.baidu.tieba.write.b.a> list, int i) {
         if (list != null) {
-            View bwJ = bwJ();
+            View bxL = bxL();
             for (com.baidu.tieba.write.b.a aVar : list) {
-                if (aVar.kKm == 1) {
-                    this.kKo.setText(aVar.kKl);
+                if (aVar.kNN == 1) {
+                    this.kNP.setText(aVar.kNM);
                 } else {
-                    this.kKp.setText(aVar.kKl);
+                    this.kNQ.setText(aVar.kNM);
                 }
                 if (i == 1) {
-                    am.setViewTextColor(this.kKo, (int) R.color.common_color_10140);
-                    am.setViewTextColor(this.kKp, (int) R.color.cp_cont_j);
+                    am.setViewTextColor(this.kNP, (int) R.color.common_color_10140);
+                    am.setViewTextColor(this.kNQ, (int) R.color.cp_cont_j);
                 } else {
-                    am.setViewTextColor(this.kKp, (int) R.color.common_color_10140);
-                    am.setViewTextColor(this.kKo, (int) R.color.cp_cont_j);
+                    am.setViewTextColor(this.kNQ, (int) R.color.common_color_10140);
+                    am.setViewTextColor(this.kNP, (int) R.color.cp_cont_j);
                 }
             }
-            setContentView(bwJ);
+            setContentView(bxL);
         }
     }
 
     public void a(a aVar) {
-        this.kKn = aVar;
+        this.kNO = aVar;
     }
 
-    public void P(View view) {
+    public void R(View view) {
         if (view != null) {
             if (Build.VERSION.SDK_INT < 24) {
                 int[] iArr = new int[2];
                 view.getLocationInWindow(iArr);
                 if (g.showPopupWindowAsDropDown(this, view, iArr[0] - (view.getWidth() / 2), 0)) {
-                    ym();
+                    yC();
                     return;
                 }
                 return;
@@ -130,41 +130,41 @@ public class b extends PopupWindow {
             int[] iArr2 = new int[2];
             view.getLocationInWindow(iArr2);
             if (g.showPopupWindowAtLocation(this, view, 0, iArr2[0] + (view.getWidth() / 2), height)) {
-                ym();
+                yC();
             }
         }
     }
 
-    public void rN(int i) {
+    public void rS(int i) {
         this.mStatusBarHeight = i;
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        yk();
+        yA();
     }
 
-    public void yk() {
-        yn();
+    public void yA() {
+        yD();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yl() {
+    public void yB() {
         super.dismiss();
     }
 
-    private void ym() {
+    private void yC() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.fTQ.startAnimation(translateAnimation);
-        this.ayy.startAnimation(alphaAnimation);
+        this.fWZ.startAnimation(translateAnimation);
+        this.azh.startAnimation(alphaAnimation);
     }
 
-    private void yn() {
+    private void yD() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setFillAfter(true);
@@ -183,10 +183,10 @@ public class b extends PopupWindow {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                b.this.yl();
+                b.this.yB();
             }
         });
-        this.fTQ.startAnimation(translateAnimation);
-        this.ayy.startAnimation(alphaAnimation);
+        this.fWZ.startAnimation(translateAnimation);
+        this.azh.startAnimation(alphaAnimation);
     }
 }

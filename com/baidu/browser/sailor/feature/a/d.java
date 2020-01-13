@@ -9,7 +9,7 @@ import com.baidu.browser.sailor.lightapp.BdLightappConstants;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d {
     public static final String a = Environment.getExternalStorageDirectory() + "/DCIM/Camera";
     public static final String b = Environment.getExternalStorageDirectory() + "/baidu/SearchBox/com.baidu.searchbox.plugins.xsearch/lightapp_rec";

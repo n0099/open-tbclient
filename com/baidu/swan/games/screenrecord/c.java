@@ -8,19 +8,19 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.statistic.a.e;
 import com.baidu.swan.apps.statistic.f;
 import com.baidu.swan.games.screenrecord.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends EventTargetImpl implements com.baidu.mario.a.c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private int cnr;
-    private b.C0336b cns;
-    private String cnu;
+    private int cnF;
+    private b.C0338b cnG;
+    private String cnH;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.cnr = -1;
-        this.cns = new b.C0336b();
-        d.amG().amH().setGameRecordCallback(this);
+        this.cnF = -1;
+        this.cnG = new b.C0338b();
+        d.amZ().ana().setGameRecordCallback(this);
     }
 
     private void o(String str, Object obj) {
@@ -32,17 +32,17 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hE(int i) {
-        this.cnr = i;
+        this.cnF = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void pe(String str) {
-        this.cnu = str;
+    public void ph(String str) {
+        this.cnH = str;
     }
 
     @Override // com.baidu.mario.a.c
     public void onStart() {
-        o("start", this.cnr == -1 ? this.cns : new b.c(this.cnr));
+        o("start", this.cnF == -1 ? this.cnG : new b.c(this.cnF));
         e eVar = new e();
         eVar.mType = "start";
         f.a(eVar);
@@ -50,7 +50,7 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
 
     @Override // com.baidu.mario.a.c
     public void onPause() {
-        o("pause", this.cns);
+        o("pause", this.cnG);
         e eVar = new e();
         eVar.mType = "pause";
         f.a(eVar);
@@ -58,18 +58,18 @@ public class c extends EventTargetImpl implements com.baidu.mario.a.c {
 
     @Override // com.baidu.mario.a.c
     public void onResume() {
-        o("resume", this.cns);
+        o("resume", this.cnG);
         e eVar = new e();
         eVar.mType = "resume";
         f.a(eVar);
     }
 
     @Override // com.baidu.mario.a.c
-    public void m(int i, String str) {
+    public void p(int i, String str) {
         if (DEBUG) {
-            Log.d("GameRecorderApi", "schemeVideoPath:" + this.cnu);
+            Log.d("GameRecorderApi", "schemeVideoPath:" + this.cnH);
         }
-        o("stop", new b.d(this.cnu));
+        o("stop", new b.d(this.cnH));
         e eVar = new e();
         eVar.mType = "stop";
         eVar.n("dura", String.valueOf(i / 1000.0f));

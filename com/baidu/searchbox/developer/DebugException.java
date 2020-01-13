@@ -1,5 +1,5 @@
 package com.baidu.searchbox.developer;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DebugException extends RuntimeException {
     public static final String PREFIX = "ONLY DEBUG MODE CAN SEE THIS EXCEPTION: ";
 

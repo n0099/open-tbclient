@@ -2,7 +2,7 @@ package com.vivo.push.sdk;
 
 import com.vivo.push.util.p;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class b implements Runnable {
     final /* synthetic */ Method a;
     final /* synthetic */ Object b;

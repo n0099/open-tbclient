@@ -8,63 +8,63 @@ import android.widget.FrameLayout;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.swan.apps.res.widget.dialog.b {
-    private FrameLayout bjw;
-    private a bkx;
+    private FrameLayout bkl;
+    private a blm;
 
     protected d(Context context) {
         super(context);
     }
 
     public void a(a aVar) {
-        this.bkx = aVar;
+        this.blm = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View createContentView(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_ssl_certificate_dialog, viewGroup, false);
-        this.bjw = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
-        Mp();
+        this.bkl = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
+        ML();
         return inflate;
     }
 
-    private void Mp() {
-        if (this.bkx == null) {
+    private void ML() {
+        if (this.blm == null) {
             return;
         }
-        this.bjw.addView(this.bkx.contentView);
+        this.bkl.addView(this.blm.contentView);
     }
 
-    /* loaded from: classes9.dex */
-    public static class a extends b.C0270b {
+    /* loaded from: classes10.dex */
+    public static class a extends b.C0272b {
         private View contentView;
 
         public a(Context context) {
             super(context);
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0270b, com.baidu.swan.apps.res.widget.dialog.g.a
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0272b, com.baidu.swan.apps.res.widget.dialog.g.a
         protected g bT(Context context) {
             return new d(context);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        /* renamed from: en */
-        public a em(int i) {
-            super.em(i);
+        /* renamed from: eo */
+        public a en(int i) {
+            super.en(i);
             return this;
         }
 
-        public a af(View view) {
+        public a aj(View view) {
             this.contentView = view;
             return this;
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0270b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g Mq() {
-            d dVar = (d) super.Mq();
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0272b, com.baidu.swan.apps.res.widget.dialog.g.a
+        public g MM() {
+            d dVar = (d) super.MM();
             dVar.a(this);
             return dVar;
         }

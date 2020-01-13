@@ -205,11 +205,11 @@ public class ChatSessionManagerImpl extends ChatMsgManagerImpl {
                             }
                             LogUtils.d(TAG, "FXF triggerChatSessionChange " + state + HanziToPinyin.Token.SEPARATOR + z + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                             LogUtils.d(TAG, "FXF triggerChatSessionChange lastmsg is: " + chatSession.getLastMsg());
-                            next.onChatSessionUpdate(chatSession.m13clone(), z);
+                            next.onChatSessionUpdate(chatSession.m14clone(), z);
                         } else {
                             int state2 = SyncAllMessage.getInstance(mContext).getState();
                             boolean z2 = state2 == 0;
-                            next.onChatSessionUpdate(chatSession.m13clone(), z2);
+                            next.onChatSessionUpdate(chatSession.m14clone(), z2);
                             LogUtils.d(TAG, "FXF triggerChatSessionChange " + state2 + HanziToPinyin.Token.SEPARATOR + z2 + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                         }
                     } catch (CloneNotSupportedException e) {

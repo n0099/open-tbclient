@@ -3,27 +3,27 @@ package GetSticker;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import tbclient.CommonReq;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 1)
 
     /* renamed from: common  reason: collision with root package name */
-    public final CommonReq f959common;
+    public final CommonReq f955common;
 
     private DataReq(Builder builder, boolean z) {
         super(builder);
         if (z) {
-            this.f959common = builder.f960common;
+            this.f955common = builder.f956common;
         } else {
-            this.f959common = builder.f960common;
+            this.f955common = builder.f956common;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class Builder extends Message.Builder<DataReq> {
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonReq f960common;
+        public CommonReq f956common;
 
         public Builder() {
         }
@@ -31,7 +31,7 @@ public final class DataReq extends Message {
         public Builder(DataReq dataReq) {
             super(dataReq);
             if (dataReq != null) {
-                this.f960common = dataReq.f959common;
+                this.f956common = dataReq.f955common;
             }
         }
 

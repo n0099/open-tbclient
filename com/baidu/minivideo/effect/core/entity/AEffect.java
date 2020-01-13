@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AEffect implements Parcelable {
     public static final String AE_ANIM_ONCE = "once";
     public static final String AE_ANIM_ORDER = "order";
@@ -27,7 +27,7 @@ public class AEffect implements Parcelable {
     public static final Parcelable.Creator<AEffect> CREATOR = new Parcelable.Creator<AEffect>() { // from class: com.baidu.minivideo.effect.core.entity.AEffect.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cU */
+        /* renamed from: cV */
         public AEffect[] newArray(int i) {
             return new AEffect[i];
         }
@@ -78,7 +78,7 @@ public class AEffect implements Parcelable {
         this.totalAnimGroup = parcel.createTypedArrayList(AEffectAnimatorGroup.CREATOR);
     }
 
-    private int W(Context context, String str) {
+    private int Y(Context context, String str) {
         try {
             return context.getResources().getIdentifier(str, "raw", context.getApplicationInfo().packageName);
         } catch (Exception e) {
@@ -98,7 +98,7 @@ public class AEffect implements Parcelable {
         }
     }
 
-    public Bitmap[] S(Context context, String str) {
+    public Bitmap[] U(Context context, String str) {
         int i = 0;
         ArrayList arrayList = new ArrayList();
         for (AEffectTextureParams aEffectTextureParams : this.textureParams) {
@@ -121,7 +121,7 @@ public class AEffect implements Parcelable {
         return bitmapArr;
     }
 
-    public List<Object> T(Context context, String str) {
+    public List<Object> V(Context context, String str) {
         int i = 0;
         ArrayList arrayList = new ArrayList();
         for (AEffectTextureParams aEffectTextureParams : this.textureParams) {
@@ -132,7 +132,7 @@ public class AEffect implements Parcelable {
         ArrayList arrayList2 = new ArrayList();
         if ("1".equals(this.resourceType)) {
             while (i < arrayList.size()) {
-                arrayList2.add(context.getResources().openRawResourceFd(W(context, ((AEffectTextureParams) arrayList.get(i)).value)));
+                arrayList2.add(context.getResources().openRawResourceFd(Y(context, ((AEffectTextureParams) arrayList.get(i)).value)));
                 i++;
             }
         } else {
@@ -144,15 +144,15 @@ public class AEffect implements Parcelable {
         return arrayList2;
     }
 
-    public String U(Context context, String str) {
-        return "1".equals(this.resourceType) ? b.a(context, W(context, this.fragmentShader)) : b.a(str + File.separator + this.fragmentShader);
+    public String W(Context context, String str) {
+        return "1".equals(this.resourceType) ? b.a(context, Y(context, this.fragmentShader)) : b.a(str + File.separator + this.fragmentShader);
     }
 
-    public String V(Context context, String str) {
-        return "1".equals(this.resourceType) ? b.a(context, W(context, this.vertexShader)) : b.a(str + File.separator + this.vertexShader);
+    public String X(Context context, String str) {
+        return "1".equals(this.resourceType) ? b.a(context, Y(context, this.vertexShader)) : b.a(str + File.separator + this.vertexShader);
     }
 
-    public void cT(int i) {
+    public void cU(int i) {
         ArrayList arrayList;
         AEffectAnimatorGroup aEffectAnimatorGroup;
         AEffectAnimatorGroup aEffectAnimatorGroup2;

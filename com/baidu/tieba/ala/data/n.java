@@ -5,64 +5,64 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class n {
-    public int euJ;
-    public long euK;
-    public long euL;
-    public long euM;
-    public String euN;
-    public long euO;
-    public boolean euP;
-    public boolean euQ;
+    public int evU;
+    public long evV;
+    public long evW;
+    public long evX;
+    public String evY;
+    public long evZ;
+    public boolean ewa;
+    public boolean ewb;
     public long userId;
     public String userName;
     public String userNickname;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.euJ = jSONObject.optInt("current_rank");
-            this.euK = jSONObject.optInt("current_charm_value");
-            this.euL = jSONObject.optInt("up_charm_value");
-            this.euM = jSONObject.optInt("down_charm_value");
+            this.evU = jSONObject.optInt("current_rank");
+            this.evV = jSONObject.optInt("current_charm_value");
+            this.evW = jSONObject.optInt("up_charm_value");
+            this.evX = jSONObject.optInt("down_charm_value");
             this.userId = JavaTypesHelper.toLong(jSONObject.optString("user_id"), 0L);
             this.userName = jSONObject.optString("user_name");
             this.userNickname = jSONObject.optString("user_nickname");
-            this.euN = jSONObject.optString("bd_portrait");
+            this.evY = jSONObject.optString("bd_portrait");
         }
     }
 
     public void a(g gVar) {
         if (gVar != null) {
-            this.euJ = gVar.rank;
-            this.euK = JavaTypesHelper.toLong(gVar.aao, 0L);
+            this.evU = gVar.rank;
+            this.evV = JavaTypesHelper.toLong(gVar.point, 0L);
             this.userId = gVar.user_id;
             this.userName = gVar.user_name;
             this.userNickname = gVar.user_nickname;
-            this.euN = gVar.avatar;
+            this.evY = gVar.avatar;
         }
     }
 
-    public void cz(long j) {
-        this.euL = j;
+    public void cE(long j) {
+        this.evW = j;
     }
 
-    public void cA(long j) {
-        this.euM = j;
+    public void cF(long j) {
+        this.evX = j;
     }
 
-    public void hY(boolean z) {
-        this.euP = z;
+    public void ii(boolean z) {
+        this.ewa = z;
     }
 
-    public boolean bbQ() {
-        return this.euP;
+    public boolean bcl() {
+        return this.ewa;
     }
 
-    public void hZ(boolean z) {
-        this.euQ = z;
+    public void ij(boolean z) {
+        this.ewb = z;
     }
 
-    public void cB(long j) {
-        this.euO = j;
+    public void cG(long j) {
+        this.evZ = j;
     }
 
     public String getNameShow() {
@@ -70,6 +70,6 @@ public class n {
     }
 
     public boolean isValid() {
-        return (StringHelper.isEmpty(getNameShow()) || StringHelper.isEmpty(this.euN)) ? false : true;
+        return (StringHelper.isEmpty(getNameShow()) || StringHelper.isEmpty(this.evY)) ? false : true;
     }
 }

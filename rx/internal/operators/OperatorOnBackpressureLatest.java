@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -22,7 +22,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class LatestEmitter<T> extends AtomicLong implements rx.e<T>, rx.f, rx.k {
         static final Object EMPTY = new Object();
         static final long NOT_REQUESTED = -4611686018427387904L;
@@ -190,12 +190,12 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> extends rx.j<T> {
-        private final LatestEmitter<T> ngf;
+        private final LatestEmitter<T> nPd;
 
         a(LatestEmitter<T> latestEmitter) {
-            this.ngf = latestEmitter;
+            this.nPd = latestEmitter;
         }
 
         @Override // rx.j
@@ -205,17 +205,17 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.ngf.onNext(t);
+            this.nPd.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.ngf.onError(th);
+            this.nPd.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.ngf.onCompleted();
+            this.nPd.onCompleted();
         }
 
         void requestMore(long j) {

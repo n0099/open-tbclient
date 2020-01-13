@@ -11,7 +11,7 @@ import com.baidu.fsg.base.utils.ResUtils;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -22,16 +22,16 @@ import com.baidu.megapp.ma.Util;
 import com.baidu.tieba.ala.guardthrone.f.a;
 /* loaded from: classes2.dex */
 public class GuardThroneActivity extends BaseFragmentActivity {
-    private String YP;
-    private String arr;
-    private a eDE;
-    private a eDF;
-    private boolean eDG;
+    private String Zb;
+    private String asd;
+    private a eEP;
+    private a eEQ;
+    private boolean eER;
     private boolean mIsHost;
     private String mLiveId;
     private int mTabId;
     private boolean isFinish = false;
-    CustomMessageListener anV = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.guardthrone.GuardThroneActivity.1
+    CustomMessageListener aeN = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.guardthrone.GuardThroneActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -48,18 +48,18 @@ public class GuardThroneActivity extends BaseFragmentActivity {
         if (str != null && str.contains("Flyme")) {
             getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(a.d.sdk_transparent)));
         }
-        bds();
+        bdN();
         initView();
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-            setContentView(this.eDF.getRootView());
+            setContentView(this.eEQ.getRootView());
         } else {
-            setContentView(this.eDE.getRootView());
+            setContentView(this.eEP.getRootView());
         }
         initListener();
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            h.Q(this.eDF.getRootView());
+            h.S(this.eEQ.getRootView());
         } else {
-            h.R(this.eDE.getRootView());
+            h.T(this.eEP.getRootView());
         }
     }
 
@@ -68,63 +68,63 @@ public class GuardThroneActivity extends BaseFragmentActivity {
         super.onConfigurationChanged(configuration);
         if (!this.isFinish) {
             if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-                this.eDE.getRootView().setVisibility(8);
-                this.eDF.getRootView().setVisibility(0);
-                setContentView(this.eDF.getRootView());
-                h.Q(this.eDF.getRootView());
+                this.eEP.getRootView().setVisibility(8);
+                this.eEQ.getRootView().setVisibility(0);
+                setContentView(this.eEQ.getRootView());
+                h.S(this.eEQ.getRootView());
             } else {
-                this.eDF.getRootView().setVisibility(8);
-                this.eDE.getRootView().setVisibility(0);
-                setContentView(this.eDE.getRootView());
-                h.R(this.eDE.getRootView());
+                this.eEQ.getRootView().setVisibility(8);
+                this.eEP.getRootView().setVisibility(0);
+                setContentView(this.eEP.getRootView());
+                h.T(this.eEP.getRootView());
             }
-            this.eDE.awu();
-            this.eDF.awu();
+            this.eEP.awN();
+            this.eEQ.awN();
         }
     }
 
-    private void bds() {
+    private void bdN() {
         this.mLiveId = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_LIVE_ID);
-        this.arr = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_ANCHOR_ID);
-        this.YP = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_GIFT_ID);
+        this.asd = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_ANCHOR_ID);
+        this.Zb = getIntent().getStringExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_GIFT_ID);
         this.mTabId = getIntent().getIntExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_TAB_ID, 1);
         this.mIsHost = getIntent().getBooleanExtra(AlaGuardThroneActivityConfig.GUARD_THRONE_IS_HOST, false);
     }
 
     private void initView() {
-        this.eDE = new com.baidu.tieba.ala.guardthrone.f.a(this, false, this.mIsHost);
-        this.eDE.e(this.mLiveId, this.arr, this.YP, this.mTabId);
-        this.eDF = new com.baidu.tieba.ala.guardthrone.f.a(this, true, this.mIsHost);
-        this.eDF.e(this.mLiveId, this.arr, this.YP, this.mTabId);
+        this.eEP = new com.baidu.tieba.ala.guardthrone.f.a(this, false, this.mIsHost);
+        this.eEP.e(this.mLiveId, this.asd, this.Zb, this.mTabId);
+        this.eEQ = new com.baidu.tieba.ala.guardthrone.f.a(this, true, this.mIsHost);
+        this.eEQ.e(this.mLiveId, this.asd, this.Zb, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-            this.eDE.getRootView().setVisibility(8);
-            this.eDF.getRootView().setVisibility(0);
+            this.eEP.getRootView().setVisibility(8);
+            this.eEQ.getRootView().setVisibility(0);
             return;
         }
-        this.eDF.getRootView().setVisibility(8);
-        this.eDE.getRootView().setVisibility(0);
+        this.eEQ.getRootView().setVisibility(8);
+        this.eEP.getRootView().setVisibility(0);
     }
 
     private void initListener() {
-        registerListener(this.anV);
+        registerListener(this.aeN);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.eDG = true;
+        this.eER = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!this.eDG) {
-            this.eDE.onResume();
-            this.eDF.onResume();
+        if (!this.eER) {
+            this.eEP.onResume();
+            this.eEQ.onResume();
         }
-        this.eDG = false;
+        this.eER = false;
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
@@ -146,26 +146,26 @@ public class GuardThroneActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.anV);
-        if (this.eDE != null) {
-            this.eDE.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.aeN);
+        if (this.eEP != null) {
+            this.eEP.onDestroy();
         }
-        if (this.eDF != null) {
-            this.eDF.onDestroy();
+        if (this.eEQ != null) {
+            this.eEQ.onDestroy();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        Animation bdG;
+        Animation beb;
         if (!this.isFinish) {
             this.isFinish = true;
             if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-                bdG = this.eDF.bdG();
+                beb = this.eEQ.beb();
             } else {
-                bdG = this.eDE.bdG();
+                beb = this.eEP.beb();
             }
-            bdG.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.guardthrone.GuardThroneActivity.2
+            beb.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.guardthrone.GuardThroneActivity.2
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
                 }
@@ -187,7 +187,7 @@ public class GuardThroneActivity extends BaseFragmentActivity {
         }
     }
 
-    public void bdt() {
+    public void bdO() {
         super.finish();
     }
 

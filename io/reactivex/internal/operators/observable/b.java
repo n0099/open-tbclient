@@ -1,23 +1,23 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.t;
 import io.reactivex.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class b<T, U> extends io.reactivex.internal.operators.observable.a<T, U> {
-    final h<? super T, ? extends U> mVe;
+    final h<? super T, ? extends U> nxn;
 
     public b(t<T> tVar, h<? super T, ? extends U> hVar) {
         super(tVar);
-        this.mVe = hVar;
+        this.nxn = hVar;
     }
 
     @Override // io.reactivex.q
     public void a(u<? super U> uVar) {
-        this.source.subscribe(new a(uVar, this.mVe));
+        this.source.subscribe(new a(uVar, this.nxn));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class a<T, U> extends io.reactivex.internal.observers.a<T, U> {
         final h<? super T, ? extends U> mapper;
 
@@ -43,12 +43,12 @@ public final class b<T, U> extends io.reactivex.internal.operators.observable.a<
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return MF(i);
+            return Ns(i);
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public U poll() throws Exception {
-            T poll = this.mTv.poll();
+            T poll = this.nvB.poll();
             if (poll != null) {
                 return (U) io.reactivex.internal.functions.a.h(this.mapper.apply(poll), "The mapper function returned a null value.");
             }

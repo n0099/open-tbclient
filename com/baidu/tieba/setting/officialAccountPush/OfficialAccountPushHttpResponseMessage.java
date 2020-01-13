@@ -4,7 +4,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessage {
     public ArrayList<OfficialAccountPushInfo> official_list;
 

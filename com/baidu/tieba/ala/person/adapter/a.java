@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.live.data.AlaLiveInfoData;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.person.view.e;
 import java.util.ArrayList;
@@ -14,9 +14,9 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private InterfaceC0461a fkF;
-    private c fkG;
-    private b fkH;
+    private InterfaceC0465a fnP;
+    private c fnQ;
+    private b fnR;
     private int mFromType;
     private List mList;
     private int mSkinType;
@@ -24,7 +24,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.ala.person.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0461a {
+    public interface InterfaceC0465a {
         void a(com.baidu.tieba.ala.person.a.b bVar, View view);
     }
 
@@ -93,9 +93,9 @@ public class a extends BaseAdapter {
                     view = LayoutInflater.from(this.context).inflate(a.h.ala_person_card_list_item_layout, (ViewGroup) null);
                     cVar = new com.baidu.tieba.ala.person.view.b(view, this.mFromType);
                 }
-                cVar.a(this.fkF);
-                cVar.a(this.fkH);
-                cVar.a(this.fkG);
+                cVar.a(this.fnP);
+                cVar.a(this.fnR);
+                cVar.a(this.fnQ);
                 view.setTag(cVar);
             }
         } else {
@@ -115,9 +115,9 @@ public class a extends BaseAdapter {
                     com.baidu.tieba.ala.person.a.b bVar = (com.baidu.tieba.ala.person.a.b) obj;
                     if (str.equals(bVar.id)) {
                         if (z) {
-                            bVar.eGw = 1;
+                            bVar.eHG = 1;
                         } else {
-                            bVar.eGw = 0;
+                            bVar.eHG = 0;
                         }
                         notifyDataSetChanged();
                         return;
@@ -131,15 +131,15 @@ public class a extends BaseAdapter {
         this.mSkinType = i;
     }
 
-    public void a(InterfaceC0461a interfaceC0461a) {
-        this.fkF = interfaceC0461a;
+    public void a(InterfaceC0465a interfaceC0465a) {
+        this.fnP = interfaceC0465a;
     }
 
     public void a(c cVar) {
-        this.fkG = cVar;
+        this.fnQ = cVar;
     }
 
     public void a(b bVar) {
-        this.fkH = bVar;
+        this.fnR = bVar;
     }
 }

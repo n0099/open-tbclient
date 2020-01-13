@@ -26,7 +26,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CrabSDK {
     public static final int ANR_CLOSE = 0;
     public static final int ANR_OBSERVER_LOGCAT = 1;
@@ -47,11 +47,11 @@ public class CrabSDK {
     }
 
     public static void disableBlockCatch() {
-        if (b.nr() == null) {
+        if (b.ns() == null) {
             com.baidu.crabsdk.c.a.w("Block Monitor has never been enabled!");
             return;
         }
-        b.nr().stop();
+        b.ns().stop();
         c.aq(R);
         c.stop();
     }
@@ -75,7 +75,7 @@ public class CrabSDK {
             return;
         }
         setUploadLimitOfBlockInOneday(i);
-        if (h.nM()) {
+        if (h.nN()) {
             b.ao(R).start();
             c.aq(R);
             c.start();
@@ -88,7 +88,7 @@ public class CrabSDK {
     }
 
     public static HashMap<String, String> getUsersCustomKV() {
-        return s.nA();
+        return s.nB();
     }
 
     public static void init(Application application, String str) {
@@ -165,7 +165,7 @@ public class CrabSDK {
         if (z) {
             initCrashSwitch(application);
             initCollector(application);
-            f.nG().e(application);
+            f.nH().e(application);
             initAnrCollector(application, str);
         }
     }
@@ -199,13 +199,13 @@ public class CrabSDK {
 
     public static void resumeAnrWatchThread(int i) {
         try {
-            Thread nx = com.baidu.crabsdk.b.c.nx();
-            if (nx == null) {
+            Thread ny = com.baidu.crabsdk.b.c.ny();
+            if (ny == null) {
                 initAnrCollector(R, a.d);
                 com.baidu.crabsdk.c.a.v("ANR watch thread is null, init anrCollector again");
             } else if (a.I == 0) {
                 a.I = i;
-                new Thread(nx).start();
+                new Thread(ny).start();
             } else {
                 com.baidu.crabsdk.c.a.cd("ANR watch thread is running");
             }
@@ -344,7 +344,7 @@ public class CrabSDK {
     }
 
     public static void setUsersCustomKV(String str, String str2) {
-        s.nA().put(str, str2);
+        s.nB().put(str, str2);
     }
 
     public static void setUsersCustomKV(HashMap<String, String> hashMap) {
@@ -372,7 +372,7 @@ public class CrabSDK {
     }
 
     private static void uploadRecord(Application application) {
-        if (!h.nI() || a.D) {
+        if (!h.nJ() || a.D) {
             return;
         }
         k.a(true, (Context) application);

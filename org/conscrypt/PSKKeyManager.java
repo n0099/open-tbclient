@@ -5,7 +5,7 @@ import javax.crypto.SecretKey;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLEngine;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface PSKKeyManager extends KeyManager {
     public static final int MAX_IDENTITY_HINT_LENGTH_BYTES = 128;
     public static final int MAX_IDENTITY_LENGTH_BYTES = 128;

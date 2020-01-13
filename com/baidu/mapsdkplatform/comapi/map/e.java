@@ -39,7 +39,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     private static int O;
     private static int P;
@@ -115,7 +115,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     private Queue<a> au = new LinkedList();
     List<l> h = new ArrayList();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public long a;
         public int b;

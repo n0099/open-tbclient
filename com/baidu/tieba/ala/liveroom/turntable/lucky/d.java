@@ -6,14 +6,14 @@ public class d extends HttpMessage {
     private String liveId;
 
     public d() {
-        super(1021155);
+        super(1021157);
     }
 
     public String getLiveId() {
         return this.liveId;
     }
 
-    public void dB(String str) {
+    public void dD(String str) {
         this.liveId = str;
         addParam("live_id", str);
     }

@@ -13,9 +13,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends b {
-    private static Method lQy;
+    private static Method lUk;
 
     @Override // com.facebook.imagepipeline.i.b, com.facebook.imagepipeline.i.e
     public /* bridge */ /* synthetic */ com.facebook.common.references.a a(com.facebook.imagepipeline.g.e eVar, Bitmap.Config config, @Nullable Rect rect) {
@@ -39,7 +39,7 @@ public class c extends b {
 
     @Override // com.facebook.imagepipeline.i.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        return a(aVar, i, b(aVar, i) ? null : lQw, options);
+        return a(aVar, i, b(aVar, i) ? null : lUi, options);
     }
 
     private static MemoryFile a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, @Nullable byte[] bArr) throws IOException {
@@ -92,20 +92,20 @@ public class c extends b {
         }
     }
 
-    private synchronized Method doW() {
-        if (lQy == null) {
+    private synchronized Method dqf() {
+        if (lUk == null) {
             try {
-                lQy = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
+                lUk = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
             } catch (Exception e) {
                 throw l.u(e);
             }
         }
-        return lQy;
+        return lUk;
     }
 
     private FileDescriptor a(MemoryFile memoryFile) {
         try {
-            return (FileDescriptor) doW().invoke(memoryFile, new Object[0]);
+            return (FileDescriptor) dqf().invoke(memoryFile, new Object[0]);
         } catch (Exception e) {
             throw l.u(e);
         }
@@ -116,7 +116,7 @@ public class c extends b {
         try {
             try {
                 memoryFile = a(aVar, i, bArr);
-                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.lEU.decodeFileDescriptor(a(memoryFile), null, options), "BitmapFactory returned null");
+                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.lIs.decodeFileDescriptor(a(memoryFile), null, options), "BitmapFactory returned null");
             } catch (IOException e) {
                 throw l.u(e);
             }

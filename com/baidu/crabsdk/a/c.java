@@ -6,33 +6,33 @@ import android.os.Looper;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private static c Pg;
-    private static Context Ph;
-    private static ExecutorService Pi;
+    private static c Pk;
+    private static Context Pl;
+    private static ExecutorService Pm;
     private static boolean al = false;
-    public l Pe;
-    public p Pf;
+    public l Pi;
+    public p Pj;
 
     private c(Context context) {
-        Ph = context;
-        this.Pf = new p(Looper.getMainLooper().getThread(), a.U);
-        this.Pe = new l(new d(this), context);
-        if (Pi == null) {
-            Pi = Executors.newSingleThreadExecutor();
+        Pl = context;
+        this.Pj = new p(Looper.getMainLooper().getThread(), a.U);
+        this.Pi = new l(new d(this), context);
+        if (Pm == null) {
+            Pm = Executors.newSingleThreadExecutor();
         }
     }
 
     public static c aq(Context context) {
-        if (Pg == null) {
+        if (Pk == null) {
             synchronized (c.class) {
-                if (Pg == null) {
-                    Pg = new c(context);
+                if (Pk == null) {
+                    Pk = new c(context);
                 }
             }
         }
-        return Pg;
+        return Pk;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,15 +42,15 @@ public class c {
         if (c.isEmpty()) {
             return;
         }
-        a nq = a.nq();
-        nq.OZ = c;
-        nq.a(j, j2, j3, j4);
+        a nr = a.nr();
+        nr.Pe = c;
+        nr.a(j, j2, j3, j4);
     }
 
     public static void start() {
         al = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.Pk.start();
+            e.Po.start();
             com.baidu.crabsdk.c.a.cb("start FrameMonitor...");
         }
     }
@@ -58,7 +58,7 @@ public class c {
     public static void stop() {
         al = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.Pk.stop();
+            e.Po.stop();
         }
     }
 }

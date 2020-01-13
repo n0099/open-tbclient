@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk;
 
 import android.app.Activity;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 /* loaded from: classes2.dex */
 public class ActivityPendingTransitionFactory {
     public static final int TYPE_BIG_IMAGE = 2;

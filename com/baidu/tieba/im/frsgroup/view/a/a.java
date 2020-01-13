@@ -8,17 +8,17 @@ import com.baidu.tieba.im.frsgroup.g;
 import com.baidu.tieba.im.frsgroup.h;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> aoz = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
 
-    public List<com.baidu.adp.widget.ListView.a> aZO() {
-        return this.aoz;
+    public List<com.baidu.adp.widget.ListView.a> ban() {
+        return this.apl;
     }
 
     public a(BaseActivity baseActivity) {
-        this.aoz.add(new e(baseActivity.getPageContext(), GroupInfoData.TYPE_FRS_GROUP));
-        this.aoz.add(new com.baidu.tieba.im.frsgroup.a(baseActivity.getPageContext(), GroupPermData.TYPE_FRS_CREATE_GROUP));
-        this.aoz.add(new g(baseActivity.getPageContext(), h.huw));
+        this.apl.add(new e(baseActivity.getPageContext(), GroupInfoData.TYPE_FRS_GROUP));
+        this.apl.add(new com.baidu.tieba.im.frsgroup.a(baseActivity.getPageContext(), GroupPermData.TYPE_FRS_CREATE_GROUP));
+        this.apl.add(new g(baseActivity.getPageContext(), h.hxZ));
     }
 }

@@ -1,30 +1,30 @@
 package com.baidu.swan.games.loading;
 
 import android.annotation.SuppressLint;
-import kotlin.c;
 import kotlin.d;
+import kotlin.e;
 import kotlin.jvm.internal.PropertyReference1Impl;
-import kotlin.jvm.internal.s;
+import kotlin.jvm.internal.t;
 import kotlin.reflect.j;
 @SuppressLint({"SwanCommentErr"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
-    static final /* synthetic */ j[] clD = {s.a(new PropertyReference1Impl(s.M(a.class), "loadingTips", "getLoadingTips()[Ljava/lang/String;"))};
-    private final c clE = d.b(SwanLoadingTips$loadingTips$2.INSTANCE);
-    private int clF;
+    static final /* synthetic */ j[] clQ = {t.a(new PropertyReference1Impl(t.N(a.class), "loadingTips", "getLoadingTips()[Ljava/lang/String;"))};
+    private final d clR = e.b(SwanLoadingTips$loadingTips$2.INSTANCE);
+    private int clS;
 
-    private final String[] ame() {
-        c cVar = this.clE;
-        j jVar = clD[0];
-        return (String[]) cVar.getValue();
+    private final String[] amx() {
+        d dVar = this.clR;
+        j jVar = clQ[0];
+        return (String[]) dVar.getValue();
     }
 
-    public final String amf() {
-        String[] ame = ame();
-        if (ame != null) {
-            if (!(ame.length == 0)) {
-                String str = ame[this.clF % ame.length];
-                this.clF++;
+    public final String amy() {
+        String[] amx = amx();
+        if (amx != null) {
+            if (!(amx.length == 0)) {
+                String str = amx[this.clS % amx.length];
+                this.clS++;
                 return str;
             }
         }

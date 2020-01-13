@@ -38,51 +38,51 @@ import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private y dCz;
-    private View.OnTouchListener dpy;
-    private com.baidu.tieba.f.a gHa;
-    private DataRes.Builder gRG;
-    private final com.baidu.tieba.homepage.concern.a gRJ;
-    private final com.baidu.tieba.homepage.concern.c.a gRK;
-    private int gRL;
-    private BigdaySwipeRefreshLayout gRz;
-    private final BdTypeRecyclerView gnE;
+    private y dCJ;
+    private View.OnTouchListener dpJ;
+    private com.baidu.tieba.f.a gKp;
+    private BigdaySwipeRefreshLayout gUT;
+    private DataRes.Builder gVa;
+    private final com.baidu.tieba.homepage.concern.a gVd;
+    private final com.baidu.tieba.homepage.concern.c.a gVe;
+    private int gVf;
+    private final BdTypeRecyclerView gqN;
     private boolean hasMore;
     private String pageTag;
-    private a gRE = null;
-    private final LinkedList<m> gRF = new LinkedList<>();
+    private a gUY = null;
+    private final LinkedList<m> gUZ = new LinkedList<>();
     private boolean mIsLoading = false;
-    private boolean gRH = false;
-    private boolean gRI = false;
+    private boolean gVb = false;
+    private boolean gVc = false;
     private boolean mIsBackground = false;
-    private CustomMessageListener cVS = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.concern.c.1
+    private CustomMessageListener cWc = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.concern.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                if (data.djy == null) {
+                if (data.djO == null) {
                     if (!data.isSucc) {
-                        BdToast.a(TbadkCoreApplication.getInst().getContext(), updateAttentionMessage.getData().errorString, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).aCb();
+                        BdToast.a(TbadkCoreApplication.getInst().getContext(), updateAttentionMessage.getData().errorString, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).aCu();
                     } else if (!data.isAttention) {
-                        Iterator it = c.this.gRF.iterator();
+                        Iterator it = c.this.gUZ.iterator();
                         while (it.hasNext()) {
                             Object next = it.next();
-                            if ((next instanceof com.baidu.tieba.card.data.c) && au.a(((com.baidu.tieba.card.data.c) next).axx(), data.toUid)) {
+                            if ((next instanceof com.baidu.tieba.card.data.c) && au.a(((com.baidu.tieba.card.data.c) next).axQ(), data.toUid)) {
                                 it.remove();
                             }
                         }
-                        if (c.this.gRF.size() < 9) {
-                            c.this.axo();
+                        if (c.this.gUZ.size() < 9) {
+                            c.this.axH();
                             return;
                         }
-                        c.this.setList(c.this.gRF);
-                        c.this.gRJ.notifyDataSetChanged();
-                        if (c.this.gRE != null) {
-                            c.this.gRE.Q(false, false);
+                        c.this.setList(c.this.gUZ);
+                        c.this.gVd.notifyDataSetChanged();
+                        if (c.this.gUY != null) {
+                            c.this.gUY.Q(false, false);
                         }
                     }
                 }
@@ -90,15 +90,15 @@ public class c {
         }
     };
     RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.homepage.concern.c.2
-        private int gRP = 0;
+        private int gVj = 0;
 
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            if (c.this.dCz != null && !c.this.mIsBackground) {
-                c.this.dCz.l(recyclerView, i);
+            if (c.this.dCJ != null && !c.this.mIsBackground) {
+                c.this.dCJ.l(recyclerView, i);
             }
             if (i == 0) {
-                r.bsy().aZg();
+                r.btA().aZA();
             }
         }
 
@@ -116,56 +116,56 @@ public class c {
         }
 
         public void onScroll(int i, int i2) {
-            if (c.this.dCz != null && !c.this.mIsBackground) {
-                c.this.dCz.onScroll(this.gRP, i);
+            if (c.this.dCJ != null && !c.this.mIsBackground) {
+                c.this.dCJ.onScroll(this.gVj, i);
             }
-            this.gRP = i;
+            this.gVj = i;
         }
     };
-    private View.OnTouchListener dne = new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.c.3
+    private View.OnTouchListener dnp = new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.c.3
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (c.this.dpy != null) {
-                c.this.dpy.onTouch(view, motionEvent);
+            if (c.this.dpJ != null) {
+                c.this.dpJ.onTouch(view, motionEvent);
             }
-            if (c.this.gHa != null) {
-                c.this.gHa.onTouchEvent(motionEvent);
+            if (c.this.gKp != null) {
+                c.this.gKp.onTouchEvent(motionEvent);
                 return false;
             }
             return false;
         }
     };
-    private CustomMessageListener gRM = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.concern.c.7
+    private CustomMessageListener gVg = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.concern.c.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             c.this.h(customResponsedMessage);
         }
     };
-    private CustomMessageListener gCk = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.homepage.concern.c.8
+    private CustomMessageListener gFz = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.homepage.concern.c.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             c.this.h(customResponsedMessage);
         }
     };
-    private CustomMessageListener gRN = new CustomMessageListener(2921425) { // from class: com.baidu.tieba.homepage.concern.c.9
+    private CustomMessageListener gVh = new CustomMessageListener(2921425) { // from class: com.baidu.tieba.homepage.concern.c.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.this.bKB();
+            c.this.bLG();
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void BC(String str);
+        void BM(String str);
 
         void Q(boolean z, boolean z2);
 
-        void bKx();
+        void bLC();
 
-        void bKy();
+        void bLD();
 
         void onError(int i, String str);
     }
@@ -174,132 +174,132 @@ public class c {
         this.mIsBackground = z;
     }
 
-    public void lf(boolean z) {
+    public void lq(boolean z) {
         this.mIsBackground = z;
     }
 
     public c(e<?> eVar, BdTypeRecyclerView bdTypeRecyclerView, com.baidu.tieba.homepage.concern.a aVar, BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout) {
-        this.gnE = bdTypeRecyclerView;
-        this.gnE.setOnTouchListener(this.dne);
-        this.gHa = new com.baidu.tieba.f.a();
-        this.gRK = new com.baidu.tieba.homepage.concern.c.a();
-        this.gRJ = aVar;
+        this.gqN = bdTypeRecyclerView;
+        this.gqN.setOnTouchListener(this.dnp);
+        this.gKp = new com.baidu.tieba.f.a();
+        this.gVe = new com.baidu.tieba.homepage.concern.c.a();
+        this.gVd = aVar;
         bdTypeRecyclerView.setOnScrollListener(this.mOnScrollListener);
-        this.gRz = bigdaySwipeRefreshLayout;
+        this.gUT = bigdaySwipeRefreshLayout;
     }
 
     public void q(BdUniqueId bdUniqueId) {
-        this.gRM.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.gRM);
-        this.gCk.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.gCk);
-        this.gRN.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.gRN);
-        this.cVS.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.cVS);
+        this.gVg.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.gVg);
+        this.gFz.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.gFz);
+        this.gVh.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.gVh);
+        this.cWc.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.cWc);
     }
 
     public void setRecommendFrsNavigationAnimDispatcher(z zVar) {
         if (zVar != null) {
-            this.dCz = zVar.aPC();
-            this.dpy = zVar.aPD();
+            this.dCJ = zVar.aPV();
+            this.dpJ = zVar.aPW();
         }
     }
 
     public void update() {
-        if (this.gRF.size() == 0 && !this.gRH) {
-            axp();
+        if (this.gUZ.size() == 0 && !this.gVb) {
+            axI();
         } else {
-            axo();
+            axH();
         }
     }
 
-    public void bKz() {
-        axo();
+    public void bLE() {
+        axH();
     }
 
-    public void aZs() {
-        if (!isLoading() && this.hasMore && this.gRE != null) {
+    public void aZN() {
+        if (!isLoading() && this.hasMore && this.gUY != null) {
             setIsLoading(true);
-            this.gRE.BC(this.pageTag);
+            this.gUY.BM(this.pageTag);
         }
     }
 
     public void a(boolean z, DataRes dataRes, int i, String str) {
         setIsLoading(false);
         if (i != 0 || dataRes == null || !a(true, z, dataRes)) {
-            if (i == 0 && v.getCount(this.gRF) == 0 && this.gRE != null) {
-                this.gRE.bKy();
-                if (this.gRz != null) {
-                    this.gRz.setRefreshing(false);
+            if (i == 0 && v.getCount(this.gUZ) == 0 && this.gUY != null) {
+                this.gUY.bLD();
+                if (this.gUT != null) {
+                    this.gUT.setRefreshing(false);
                     return;
                 }
                 return;
-            } else if (this.gRF.size() > 0) {
-                if (this.gRE != null) {
-                    this.gRE.onError(1, str);
+            } else if (this.gUZ.size() > 0) {
+                if (this.gUY != null) {
+                    this.gUY.onError(1, str);
                 }
-            } else if (this.gRE != null) {
-                this.gRE.onError(2, str);
+            } else if (this.gUY != null) {
+                this.gUY.onError(2, str);
             }
         } else {
-            if (this.gRE != null) {
-                this.gRE.Q(z, false);
+            if (this.gUY != null) {
+                this.gUY.Q(z, false);
             }
-            bvZ();
+            bxb();
         }
-        if (this.gRz != null) {
-            this.gRz.setRefreshing(false);
+        if (this.gUT != null) {
+            this.gUT.setRefreshing(false);
         }
     }
 
-    public void mk(boolean z) {
+    public void mv(boolean z) {
         if (z) {
-            this.gRJ.notifyDataSetChanged();
+            this.gVd.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axo() {
-        if (this.gRE != null) {
-            this.gRE.bKx();
+    public void axH() {
+        if (this.gUY != null) {
+            this.gUY.bLC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
-        this.gRH = true;
+        this.gVb = true;
         if (dataRes != null) {
             if (a(false, true, dataRes)) {
-                if (this.gRE != null) {
-                    this.gRE.Q(false, true);
+                if (this.gUY != null) {
+                    this.gUY.Q(false, true);
                     return;
                 }
                 return;
             }
-            axo();
+            axH();
             return;
         }
-        axo();
+        axH();
     }
 
     private List<m> a(boolean z, DataRes.Builder builder, boolean z2) {
-        if (this.gRG == null) {
-            this.gRG = new DataRes.Builder();
+        if (this.gVa == null) {
+            this.gVa = new DataRes.Builder();
         }
         if (builder == null) {
             builder = new DataRes.Builder();
         }
-        com.baidu.tieba.homepage.personalize.model.c a2 = this.gRK.a(z, this.gRG, builder, z2 ? 0 : 1);
+        com.baidu.tieba.homepage.personalize.model.c a2 = this.gVe.a(z, this.gVa, builder, z2 ? 0 : 1);
         if (a2 == null) {
             return null;
         }
-        return a2.dOP;
+        return a2.dOX;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setList(List<m> list) {
-        this.gRJ.ad(list);
+        this.gVd.ac(list);
     }
 
     private boolean a(boolean z, boolean z2, DataRes dataRes) {
@@ -310,41 +310,41 @@ public class c {
         this.pageTag = dataRes.page_tag;
         LinkedList linkedList = new LinkedList();
         DataRes.Builder builder = new DataRes.Builder(dataRes);
-        this.gRL = builder.user_tips_type.intValue();
+        this.gVf = builder.user_tips_type.intValue();
         if (dataRes.req_unix != null) {
-            com.baidu.tbadk.core.sharedPref.b.aCY().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), dataRes.req_unix.longValue());
+            com.baidu.tbadk.core.sharedPref.b.aDr().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), dataRes.req_unix.longValue());
         }
         List<m> a2 = a(z, builder, z2);
-        this.gRI = false;
+        this.gVc = false;
         if (a2 != null && TbadkCoreApplication.isLogin()) {
-            if (3 == this.gRL) {
+            if (3 == this.gVf) {
                 if (v.isEmpty(a2)) {
                     a2.add(new com.baidu.tieba.homepage.concern.b.a());
-                    this.gRI = true;
+                    this.gVc = true;
                 } else if (v.getCount(a2) == 1 && (v.getItem(a2, 0) instanceof com.baidu.tieba.homepage.concern.b.b)) {
                     a2.add(new com.baidu.tieba.homepage.concern.b.a());
-                    this.gRI = true;
+                    this.gVc = true;
                 }
             }
             linkedList.addAll(a2);
         }
-        if (!aq.isEmpty(builder.user_tips) && 2 == this.gRL) {
+        if (!aq.isEmpty(builder.user_tips) && 2 == this.gVf) {
             com.baidu.tieba.homepage.concern.b.c cVar = new com.baidu.tieba.homepage.concern.b.c();
-            cVar.gSM = builder.user_tips_type.intValue();
+            cVar.gWg = builder.user_tips_type.intValue();
             cVar.tipString = builder.user_tips;
             if (builder.user_tips_type.intValue() == 4) {
-                cVar.gSN = true;
+                cVar.gWh = true;
             } else {
-                cVar.gSO = true;
+                cVar.gWi = true;
             }
             linkedList.add(cVar);
         }
         this.hasMore = builder.has_more.intValue() == 1;
         if (v.isEmpty(linkedList)) {
-            if (this.gRF.isEmpty()) {
+            if (this.gUZ.isEmpty()) {
                 return false;
             }
-            Iterator<m> it = this.gRF.iterator();
+            Iterator<m> it = this.gUZ.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     mVar = null;
@@ -356,40 +356,40 @@ public class c {
                 }
             }
             if (mVar != null) {
-                this.gRF.remove(mVar);
+                this.gUZ.remove(mVar);
             }
-            this.gRJ.ad(this.gRF);
+            this.gVd.ac(this.gUZ);
             return false;
         }
-        this.gRF.clear();
-        this.gRF.addAll(linkedList);
+        this.gUZ.clear();
+        this.gUZ.addAll(linkedList);
         if (z2) {
-            this.gRG.page_tag = dataRes.page_tag;
-            this.gRG.has_more = dataRes.has_more;
-            this.gRG.user_list = dataRes.user_list;
-            this.gRG.user_tips_type = dataRes.user_tips_type;
-            this.gRG.user_tips = dataRes.user_tips;
-            this.gRG.last_tips = dataRes.last_tips;
+            this.gVa.page_tag = dataRes.page_tag;
+            this.gVa.has_more = dataRes.has_more;
+            this.gVa.user_list = dataRes.user_list;
+            this.gVa.user_tips_type = dataRes.user_tips_type;
+            this.gVa.user_tips = dataRes.user_tips;
+            this.gVa.last_tips = dataRes.last_tips;
         }
-        this.gRG.banner_user_story = dataRes.banner_user_story;
-        this.gRG.banner_follow_live = dataRes.banner_follow_live;
-        this.gRG.top_tips = dataRes.top_tips;
-        this.gRG.top_user_info = dataRes.top_user_info;
-        if (this.gRL == 2 || this.gRL == 3) {
-            this.gRG.user_tips_type = dataRes.user_tips_type;
-            this.gRG.user_tips = dataRes.user_tips;
+        this.gVa.banner_user_story = dataRes.banner_user_story;
+        this.gVa.banner_follow_live = dataRes.banner_follow_live;
+        this.gVa.top_tips = dataRes.top_tips;
+        this.gVa.top_user_info = dataRes.top_user_info;
+        if (this.gVf == 2 || this.gVf == 3) {
+            this.gVa.user_tips_type = dataRes.user_tips_type;
+            this.gVa.user_tips = dataRes.user_tips;
         }
-        this.gRJ.ad(this.gRF);
+        this.gVd.ac(this.gUZ);
         return true;
     }
 
-    private void axp() {
+    private void axI() {
         ac.a(new ab<DataRes>() { // from class: com.baidu.tieba.homepage.concern.c.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: bKC */
+            /* renamed from: bLH */
             public DataRes doInBackground() {
-                l<byte[]> ch = com.baidu.tbadk.core.c.a.aBV().ch("tb.concern_page", TbadkCoreApplication.getCurrentAccount());
+                l<byte[]> ch = com.baidu.tbadk.core.c.a.aCo().ch("tb.concern_page", TbadkCoreApplication.getCurrentAccount());
                 if (ch == null) {
                     return null;
                 }
@@ -414,9 +414,9 @@ public class c {
         });
     }
 
-    private void bvZ() {
-        if (this.gRG != null) {
-            DataRes.Builder builder = new DataRes.Builder(this.gRG.build(true));
+    private void bxb() {
+        if (this.gVa != null) {
+            DataRes.Builder builder = new DataRes.Builder(this.gVa.build(true));
             if (builder.thread_info != null && builder.thread_info.size() > 30) {
                 builder.thread_info = builder.thread_info.subList(0, 30);
             }
@@ -430,7 +430,7 @@ public class c {
             public Object doInBackground() {
                 DataRes.Builder builder2 = new DataRes.Builder(builder.build(true));
                 try {
-                    com.baidu.tbadk.core.c.a.aBV().ch("tb.concern_page", TbadkCoreApplication.getCurrentAccount()).setForever("0", builder2.build(true).toByteArray());
+                    com.baidu.tbadk.core.c.a.aCo().ch("tb.concern_page", TbadkCoreApplication.getCurrentAccount()).setForever("0", builder2.build(true).toByteArray());
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e);
@@ -441,7 +441,7 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.gRE = aVar;
+        this.gUY = aVar;
     }
 
     private boolean isLoading() {
@@ -456,17 +456,17 @@ public class c {
         return this.hasMore;
     }
 
-    public boolean bKA() {
-        return this.gRI;
+    public boolean bLF() {
+        return this.gVc;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(CustomResponsedMessage<?> customResponsedMessage) {
         ThreadInfo threadInfo;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.gRG != null && v.getCount(this.gRG.thread_info) != 0 && v.getCount(this.gRF) != 0) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.gVa != null && v.getCount(this.gVa.thread_info) != 0 && v.getCount(this.gUZ) != 0) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
             if (!StringUtils.isNull(optString)) {
-                Iterator<m> it = this.gRF.iterator();
+                Iterator<m> it = this.gUZ.iterator();
                 boolean z = false;
                 while (true) {
                     if (!it.hasNext()) {
@@ -475,13 +475,13 @@ public class c {
                     m next = it.next();
                     if (next instanceof com.baidu.tieba.card.data.c) {
                         com.baidu.tieba.card.data.c cVar = (com.baidu.tieba.card.data.c) next;
-                        if (cVar.axx() != null && cVar.axx().getTid() != null) {
-                            if (cVar.axx().getTid().equals(optString)) {
+                        if (cVar.axQ() != null && cVar.axQ().getTid() != null) {
+                            if (cVar.axQ().getTid().equals(optString)) {
                                 z = true;
                                 it.remove();
                             } else if (z) {
-                                if (this.gRJ != null) {
-                                    this.gRJ.ad(this.gRF);
+                                if (this.gVd != null) {
+                                    this.gVd.ac(this.gUZ);
                                 }
                             }
                         }
@@ -489,11 +489,11 @@ public class c {
                     z = z;
                 }
                 long j = com.baidu.adp.lib.f.b.toLong(optString, 0L);
-                for (int i = 0; i < this.gRG.thread_info.size(); i++) {
-                    ConcernData concernData = this.gRG.thread_info.get(i);
+                for (int i = 0; i < this.gVa.thread_info.size(); i++) {
+                    ConcernData concernData = this.gVa.thread_info.get(i);
                     if (concernData != null && (threadInfo = concernData.thread_list) != null && threadInfo.tid != null && threadInfo.tid.longValue() == j) {
-                        this.gRG.thread_info.remove(i);
-                        bvZ();
+                        this.gVa.thread_info.remove(i);
+                        bxb();
                         return;
                     }
                 }
@@ -502,25 +502,25 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bKB() {
-        if (this.gRG != null && v.getCount(this.gRG.thread_info) != 0 && v.getCount(this.gRF) != 0) {
+    public void bLG() {
+        if (this.gVa != null && v.getCount(this.gVa.thread_info) != 0 && v.getCount(this.gUZ) != 0) {
             int i = 0;
             while (true) {
-                if (i >= this.gRF.size()) {
+                if (i >= this.gUZ.size()) {
                     break;
-                } else if (!(this.gRF.get(i) instanceof com.baidu.tieba.homepage.concern.b.b)) {
+                } else if (!(this.gUZ.get(i) instanceof com.baidu.tieba.homepage.concern.b.b)) {
                     i++;
                 } else {
-                    this.gRF.remove(i);
-                    if (this.gRJ != null) {
-                        this.gRJ.ad(this.gRF);
+                    this.gUZ.remove(i);
+                    if (this.gVd != null) {
+                        this.gVd.ac(this.gUZ);
                     }
                 }
             }
-            for (int i2 = 0; i2 < this.gRG.thread_info.size(); i2++) {
-                if (com.baidu.tieba.homepage.concern.b.b.a(this.gRG.thread_info.get(i2))) {
-                    this.gRG.thread_info.remove(i2);
-                    bvZ();
+            for (int i2 = 0; i2 < this.gVa.thread_info.size(); i2++) {
+                if (com.baidu.tieba.homepage.concern.b.b.a(this.gVa.thread_info.get(i2))) {
+                    this.gVa.thread_info.remove(i2);
+                    bxb();
                     return;
                 }
             }

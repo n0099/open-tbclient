@@ -6,19 +6,19 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
-    private volatile b bov;
+    private volatile b bpj;
 
-    private b OD() {
-        if (this.bov == null) {
+    private b OZ() {
+        if (this.bpj == null) {
             synchronized (SwanAppFavoriteProvider.class) {
-                if (this.bov == null) {
-                    this.bov = new b();
+                if (this.bpj == null) {
+                    this.bpj = new b();
                 }
             }
         }
-        return this.bov;
+        return this.bpj;
     }
 
     @Override // android.content.ContentProvider
@@ -29,28 +29,28 @@ public class SwanAppFavoriteProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return OD().query(uri, strArr, str, strArr2, str2);
+        return OZ().query(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return OD().getType(uri);
+        return OZ().getType(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return OD().insert(uri, contentValues);
+        return OZ().insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return OD().delete(uri, str, strArr);
+        return OZ().delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return OD().update(uri, contentValues, str, strArr);
+        return OZ().update(uri, contentValues, str, strArr);
     }
 }

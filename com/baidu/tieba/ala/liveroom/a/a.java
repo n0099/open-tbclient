@@ -7,88 +7,88 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.view.web.f;
 /* loaded from: classes2.dex */
 public class a implements c {
-    private boolean eCo;
-    private b eJJ;
-    private long eJK;
-    private String eJL;
-    private CustomMessageListener epv;
+    private boolean eDz;
+    private b eKU;
+    private long eKV;
+    private String eKW;
+    private CustomMessageListener eqH;
     private Activity mActivity;
 
     public a(Activity activity) {
         this.mActivity = activity;
-        baU();
+        bbp();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void setHost(boolean z) {
-        this.eCo = z;
+        this.eDz = z;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void d(long j, String str) {
-        this.eJK = j;
-        this.eJL = str;
-        if (this.eJL == null) {
-            this.eJL = "";
+        this.eKV = j;
+        this.eKW = str;
+        if (this.eKW == null) {
+            this.eKW = "";
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void aq(String str, int i) {
-        this.eJJ = new b(this.mActivity);
+    public void ar(String str, int i) {
+        this.eKU = new b(this.mActivity);
         f fVar = new f();
-        fVar.x(this.mActivity).a(this.eJJ).a(this.eJJ.baV().getSchemeCallback()).K(this.eJK).dY(this.eJL).bm(this.eCo);
-        com.baidu.live.view.web.a[] yO = fVar.yO();
-        for (com.baidu.live.view.web.a aVar : yO) {
-            this.eJJ.baV().addJavascriptInterface(aVar, aVar.getName());
+        fVar.x(this.mActivity).a(this.eKU).a(this.eKU.bbq().getSchemeCallback()).N(this.eKV).ea(this.eKW).br(this.eDz);
+        com.baidu.live.view.web.a[] zk = fVar.zk();
+        for (com.baidu.live.view.web.a aVar : zk) {
+            this.eKU.bbq().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.eJJ.ar(str, i);
+        this.eKU.as(str, i);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void resume() {
-        if (this.eJJ != null && this.eJJ.isShowing() && this.eJJ.baV() != null) {
-            this.eJJ.baV().onResume();
+        if (this.eKU != null && this.eKU.isShowing() && this.eKU.bbq() != null) {
+            this.eKU.bbq().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void pause() {
-        if (this.eJJ != null && this.eJJ.isShowing() && this.eJJ.baV() != null) {
-            this.eJJ.baV().onPause();
+        if (this.eKU != null && this.eKU.isShowing() && this.eKU.bbq() != null) {
+            this.eKU.bbq().onPause();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void bN(int i) {
-        if (this.eJJ != null && this.eJJ.isShowing()) {
-            this.eJJ.bN(i);
+        if (this.eKU != null && this.eKU.isShowing()) {
+            this.eKU.bN(i);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void release() {
-        this.eJK = 0L;
-        this.eJL = "";
-        MessageManager.getInstance().unRegisterListener(this.epv);
-        if (this.eJJ != null) {
-            this.eJJ.baW();
-            if (this.eJJ.baV() != null) {
-                this.eJJ.baV().release();
+        this.eKV = 0L;
+        this.eKW = "";
+        MessageManager.getInstance().unRegisterListener(this.eqH);
+        if (this.eKU != null) {
+            this.eKU.bbr();
+            if (this.eKU.bbq() != null) {
+                this.eKU.bbq().release();
             }
         }
     }
 
-    private void baU() {
-        this.epv = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
+    private void bbp() {
+        this.eqH = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.eJJ != null && a.this.eJJ.isShowing()) {
-                    a.this.eJJ.dismiss();
+                if (a.this.eKU != null && a.this.eKU.isShowing()) {
+                    a.this.eKU.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.epv);
+        MessageManager.getInstance().registerListener(this.eqH);
     }
 }

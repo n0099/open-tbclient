@@ -11,16 +11,16 @@ import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlbumBox extends AbstractFullBox {
     public static final String TYPE = "albm";
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_6 = null;
     private String albumTitle;
     private String language;
     private int trackNumber;
@@ -70,7 +70,7 @@ public class AlbumBox extends AbstractFullBox {
     }
 
     public void setTrackNumber(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.MS(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.NM(i)));
         this.trackNumber = i;
     }
 

@@ -7,16 +7,16 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableConcatWithSingle<T> extends a<T, T> {
     final aa<? extends T> other;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new ConcatWithSubscriber(cVar, this.other));
+        this.nvK.a((j) new ConcatWithSubscriber(cVar, this.other));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ConcatWithSubscriber<T> extends SinglePostCompleteSubscriber<T, T> implements y<T> {
         private static final long serialVersionUID = -7346385463600070225L;
         aa<? extends T> other;

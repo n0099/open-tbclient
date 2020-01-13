@@ -17,7 +17,7 @@ import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.PushSocket;
 import java.io.IOException;
 @SuppressLint({"WorldReadableFiles", "InlinedApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static d a;
     private static LocalServerSocket e;

@@ -2,7 +2,7 @@ package org.greenrobot.eventbus;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class PendingPost {
     private static final List<PendingPost> pendingPostPool = new ArrayList();
     Object event;

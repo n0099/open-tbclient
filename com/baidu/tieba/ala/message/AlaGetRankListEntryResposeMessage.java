@@ -4,33 +4,33 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AlaGetRankListEntryResposeMessage extends JsonHttpResponsedMessage {
-    public int fjh;
-    public int fji;
-    public int fjj;
-    public int fjk;
-    public int fjl;
-    public int fjm;
+    public int fms;
+    public int fmt;
+    public int fmu;
+    public int fmv;
+    public int fmw;
+    public int fmx;
 
     public AlaGetRankListEntryResposeMessage() {
         super(1021069);
-        this.fjh = -1;
-        this.fji = -1;
-        this.fjj = -1;
-        this.fjk = -1;
-        this.fjl = -1;
-        this.fjm = -1;
+        this.fms = -1;
+        this.fmt = -1;
+        this.fmu = -1;
+        this.fmv = -1;
+        this.fmw = -1;
+        this.fmx = -1;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0) {
-            this.fjh = jSONObject.optInt("game-day");
-            this.fji = jSONObject.optInt("flower-week");
-            this.fjj = jSONObject.optInt("rich-week");
-            this.fjk = jSONObject.optInt("hot-week");
-            this.fjl = jSONObject.optInt("charm-week");
-            this.fjm = jSONObject.optInt("pk_rank_no");
+            this.fms = jSONObject.optInt("game-day");
+            this.fmt = jSONObject.optInt("flower-week");
+            this.fmu = jSONObject.optInt("rich-week");
+            this.fmv = jSONObject.optInt("hot-week");
+            this.fmw = jSONObject.optInt("charm-week");
+            this.fmx = jSONObject.optInt("pk_rank_no");
         }
     }
 }

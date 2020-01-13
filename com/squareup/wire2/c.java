@@ -6,22 +6,22 @@ import java.io.IOException;
 import java.net.ProtocolException;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public final class c {
-    private FieldEncoding mMu;
+    private FieldEncoding noz;
     private int recursionDepth;
     private final BufferedSource source;
     private long pos = 0;
     private long limit = Format.OFFSET_SAMPLE_RELATIVE;
     private int state = 2;
     private int tag = -1;
-    private long mMt = -1;
+    private long noy = -1;
 
     public c(BufferedSource bufferedSource) {
         this.source = bufferedSource;
     }
 
-    public long dAJ() throws IOException {
+    public long dFd() throws IOException {
         if (this.state != 2) {
             throw new IllegalStateException("Unexpected call to beginMessage()");
         }
@@ -30,19 +30,19 @@ public final class c {
         if (i > 65) {
             throw new IOException("Wire recursion limit exceeded");
         }
-        long j = this.mMt;
-        this.mMt = -1L;
+        long j = this.noy;
+        this.noy = -1L;
         this.state = 6;
         return j;
     }
 
-    public void gP(long j) throws IOException {
+    public void hb(long j) throws IOException {
         if (this.state != 6) {
             throw new IllegalStateException("Unexpected call to endMessage()");
         }
         int i = this.recursionDepth - 1;
         this.recursionDepth = i;
-        if (i < 0 || this.mMt != -1) {
+        if (i < 0 || this.noy != -1) {
             throw new IllegalStateException("No corresponding call to beginMessage()");
         }
         if (this.pos != this.limit && this.recursionDepth != 0) {
@@ -51,7 +51,7 @@ public final class c {
         this.limit = j;
     }
 
-    public int dAK() throws IOException {
+    public int dFe() throws IOException {
         if (this.state == 7) {
             this.state = 2;
             return this.tag;
@@ -59,43 +59,43 @@ public final class c {
             throw new IllegalStateException("Unexpected call to nextTag()");
         } else {
             while (this.pos < this.limit && !this.source.exhausted()) {
-                int dAN = dAN();
-                if (dAN == 0) {
+                int dFh = dFh();
+                if (dFh == 0) {
                     throw new ProtocolException("Unexpected tag 0");
                 }
-                this.tag = dAN >> 3;
-                int i = dAN & 7;
+                this.tag = dFh >> 3;
+                int i = dFh & 7;
                 switch (i) {
                     case 0:
-                        this.mMu = FieldEncoding.VARINT;
+                        this.noz = FieldEncoding.VARINT;
                         this.state = 0;
                         return this.tag;
                     case 1:
-                        this.mMu = FieldEncoding.FIXED64;
+                        this.noz = FieldEncoding.FIXED64;
                         this.state = 1;
                         return this.tag;
                     case 2:
-                        this.mMu = FieldEncoding.LENGTH_DELIMITED;
+                        this.noz = FieldEncoding.LENGTH_DELIMITED;
                         this.state = 2;
-                        int dAN2 = dAN();
-                        if (dAN2 < 0) {
-                            throw new ProtocolException("Negative length: " + dAN2);
+                        int dFh2 = dFh();
+                        if (dFh2 < 0) {
+                            throw new ProtocolException("Negative length: " + dFh2);
                         }
-                        if (this.mMt != -1) {
+                        if (this.noy != -1) {
                             throw new IllegalStateException();
                         }
-                        this.mMt = this.limit;
-                        this.limit = dAN2 + this.pos;
-                        if (this.limit > this.mMt) {
+                        this.noy = this.limit;
+                        this.limit = dFh2 + this.pos;
+                        if (this.limit > this.noy) {
                             throw new EOFException();
                         }
                         return this.tag;
                     case 3:
-                        MA(this.tag);
+                        Nn(this.tag);
                     case 4:
                         throw new ProtocolException("Unexpected end group");
                     case 5:
-                        this.mMu = FieldEncoding.FIXED32;
+                        this.noz = FieldEncoding.FIXED32;
                         this.state = 5;
                         return this.tag;
                     default:
@@ -106,18 +106,18 @@ public final class c {
         }
     }
 
-    public FieldEncoding dAL() {
-        return this.mMu;
+    public FieldEncoding dFf() {
+        return this.noz;
     }
 
-    private void MA(int i) throws IOException {
+    private void Nn(int i) throws IOException {
         while (this.pos < this.limit && !this.source.exhausted()) {
-            int dAN = dAN();
-            if (dAN == 0) {
+            int dFh = dFh();
+            if (dFh == 0) {
                 throw new ProtocolException("Unexpected tag 0");
             }
-            int i2 = dAN >> 3;
-            int i3 = dAN & 7;
+            int i2 = dFh >> 3;
+            int i3 = dFh & 7;
             switch (i3) {
                 case 0:
                     this.state = 0;
@@ -128,12 +128,12 @@ public final class c {
                     readFixed64();
                     break;
                 case 2:
-                    int dAN2 = dAN();
-                    this.pos += dAN2;
-                    this.source.skip(dAN2);
+                    int dFh2 = dFh();
+                    this.pos += dFh2;
+                    this.source.skip(dFh2);
                     break;
                 case 3:
-                    MA(i2);
+                    Nn(i2);
                     break;
                 case 4:
                     if (i2 != i) {
@@ -151,24 +151,24 @@ public final class c {
         throw new EOFException();
     }
 
-    public ByteString dAM() throws IOException {
-        return this.source.readByteString(dAO());
+    public ByteString dFg() throws IOException {
+        return this.source.readByteString(dFi());
     }
 
     public String readString() throws IOException {
-        return this.source.readUtf8(dAO());
+        return this.source.readUtf8(dFi());
     }
 
     public int readVarint32() throws IOException {
         if (this.state != 0 && this.state != 2) {
             throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.state);
         }
-        int dAN = dAN();
-        MB(0);
-        return dAN;
+        int dFh = dFh();
+        No(0);
+        return dFh;
     }
 
-    private int dAN() throws IOException {
+    private int dFh() throws IOException {
         this.pos++;
         byte readByte = this.source.readByte();
         if (readByte < 0) {
@@ -218,7 +218,7 @@ public final class c {
             this.pos++;
             j |= (readByte & Byte.MAX_VALUE) << i;
             if ((this.source.readByte() & 128) == 0) {
-                MB(0);
+                No(0);
                 return j;
             }
         }
@@ -232,7 +232,7 @@ public final class c {
         this.source.require(4L);
         this.pos += 4;
         int readIntLe = this.source.readIntLe();
-        MB(5);
+        No(5);
         return readIntLe;
     }
 
@@ -243,19 +243,19 @@ public final class c {
         this.source.require(8L);
         this.pos += 8;
         long readLongLe = this.source.readLongLe();
-        MB(1);
+        No(1);
         return readLongLe;
     }
 
-    private void MB(int i) throws IOException {
+    private void No(int i) throws IOException {
         if (this.state == i) {
             this.state = 6;
         } else if (this.pos > this.limit) {
             throw new IOException("Expected to end at " + this.limit + " but was " + this.pos);
         } else {
             if (this.pos == this.limit) {
-                this.limit = this.mMt;
-                this.mMt = -1L;
+                this.limit = this.noy;
+                this.noy = -1L;
                 this.state = 6;
                 return;
             }
@@ -263,7 +263,7 @@ public final class c {
         }
     }
 
-    private long dAO() throws IOException {
+    private long dFi() throws IOException {
         if (this.state != 2) {
             throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.state);
         }
@@ -271,8 +271,8 @@ public final class c {
         this.source.require(j);
         this.state = 6;
         this.pos = this.limit;
-        this.limit = this.mMt;
-        this.mMt = -1L;
+        this.limit = this.noy;
+        this.noy = -1L;
         return j;
     }
 }

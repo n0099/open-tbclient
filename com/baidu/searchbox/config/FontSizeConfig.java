@@ -3,7 +3,7 @@ package com.baidu.searchbox.config;
 import android.content.Context;
 import com.baidu.android.app.event.EventBusWrapper;
 import com.baidu.searchbox.config.eventmessage.FontSizeChangeMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FontSizeConfig {
     public static final String FONT_SIZE_COOKIE = "fontsize";
     public static final String FONT_TIPS_IS_OLDER_AGE_KEY = "font_tips_is_older_age_key";
@@ -24,7 +24,7 @@ public class FontSizeConfig {
     public static final int WEB_VIEW_TEXT_SIZE_SMALL = 82;
     public static final int WEB_VIEW_TEXT_SIZE_VERY_BIG = 118;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface IFontChangeable {
         void onFontSizeChanged(int i);
     }

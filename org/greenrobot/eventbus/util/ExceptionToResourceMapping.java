@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.greenrobot.eventbus.EventBus;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ExceptionToResourceMapping {
     public final Map<Class<? extends Throwable>, Integer> throwableToMsgIdMap = new HashMap();
 

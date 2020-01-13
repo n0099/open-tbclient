@@ -1,35 +1,14 @@
 package com.baidu.live.l;
 
-import android.content.Context;
+import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes2.dex */
-public class a {
-    public String aej;
-    public long asr;
-    public Context context;
-    public boolean isHost;
-    public int liveType;
-    public String otherParams;
-    public String portrait;
-    public long userId;
-    public String userName;
+public class a extends HttpMessage {
+    private int mType;
 
-    public a(Context context, int i, long j, boolean z, String str) {
-        this.context = context;
-        this.liveType = i;
-        this.userId = j;
-        this.isHost = z;
-        this.portrait = str;
-        this.otherParams = "";
-    }
-
-    public a(Context context, int i, long j, boolean z, String str, String str2, String str3, long j2) {
-        this.context = context;
-        this.liveType = i;
-        this.userId = j;
-        this.isHost = z;
-        this.portrait = str;
-        this.otherParams = str2;
-        this.aej = str3;
-        this.asr = j2;
+    public a(int i) {
+        super(1021031);
+        this.mType = 1;
+        this.mType = i;
+        addParam("block_type", i);
     }
 }

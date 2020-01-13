@@ -1,7 +1,7 @@
 package com.baidu.b.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
-    public static d nh() {
+    public static d ni() {
         return new c();
     }
 }

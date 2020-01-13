@@ -12,9 +12,9 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        if (a.aOU() != null) {
+        if (a.aPn() != null) {
             try {
-                return a.aOU().onBind(intent);
+                return a.aPn().onBind(intent);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -26,9 +26,9 @@ public class GameCenterDownloadService extends Service {
     public void onCreate() {
         super.onCreate();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PROXY_GAME_DOWNLOAD_SERVICE_READY, this));
-        if (a.aOU() != null) {
+        if (a.aPn() != null) {
             try {
-                a.aOU().onCreate();
+                a.aPn().onCreate();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -38,9 +38,9 @@ public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (a.aOU() != null) {
+        if (a.aPn() != null) {
             try {
-                a.aOU().onStart(intent, i);
+                a.aPn().onStart(intent, i);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -49,9 +49,9 @@ public class GameCenterDownloadService extends Service {
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
-        if (a.aOU() != null) {
+        if (a.aPn() != null) {
             try {
-                return a.aOU().onStartCommand(intent, i, i2);
+                return a.aPn().onStartCommand(intent, i, i2);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -62,9 +62,9 @@ public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public void onRebind(Intent intent) {
         super.onRebind(intent);
-        if (a.aOU() != null) {
+        if (a.aPn() != null) {
             try {
-                a.aOU().onRebind(intent);
+                a.aPn().onRebind(intent);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -73,9 +73,9 @@ public class GameCenterDownloadService extends Service {
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        if (a.aOU() != null) {
+        if (a.aPn() != null) {
             try {
-                return a.aOU().onUnbind(intent);
+                return a.aPn().onUnbind(intent);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -86,9 +86,9 @@ public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (a.aOU() != null) {
+        if (a.aPn() != null) {
             try {
-                a.aOU().onDestroy();
+                a.aPn().onDestroy();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -98,16 +98,16 @@ public class GameCenterDownloadService extends Service {
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
-        if (a.aOU() != null) {
-            a.aOU().onLowMemory();
+        if (a.aPn() != null) {
+            a.aPn().onLowMemory();
         }
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (a.aOU() != null) {
-            a.aOU().onConfigurationChanged(configuration);
+        if (a.aPn() != null) {
+            a.aPn().onConfigurationChanged(configuration);
         }
     }
 }

@@ -1,28 +1,14 @@
 package com.baidu.tieba.ala.alasquare.live_tab.b;
 
-import com.baidu.tbadk.core.data.bj;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes2.dex */
-public class e {
-    private boolean ehr = false;
-    public bj ehu;
+public class e extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId ehC = BdUniqueId.gen();
+    public com.baidu.tieba.ala.alasquare.a.a ehD;
+    public com.baidu.tieba.ala.alasquare.a.a ehE;
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.ehr = jSONObject.optInt("need_show") == 1;
-            JSONObject optJSONObject = jSONObject.optJSONObject("live_info");
-            if (optJSONObject != null) {
-                this.ehu = new bj();
-                this.ehu.parserJson(optJSONObject);
-            }
-        }
-    }
-
-    public boolean isValid() {
-        return (this.ehu == null || this.ehu.azX() == null || this.ehu.azX().live_id <= 0) ? false : true;
-    }
-
-    public boolean aZN() {
-        return this.ehr && this.ehu != null;
+    @Override // com.baidu.adp.widget.ListView.m
+    public BdUniqueId getType() {
+        return ehC;
     }
 }

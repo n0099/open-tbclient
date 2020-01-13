@@ -25,7 +25,7 @@ import org.java_websocket.c.h;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class a extends org.java_websocket.a implements Runnable, WebSocket {
     private CountDownLatch closeLatch;
     private CountDownLatch connectLatch;
@@ -219,9 +219,9 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             InputStream inputStream = this.socket.getInputStream();
             this.ostream = this.socket.getOutputStream();
             sendHandshake();
-            this.writeThread = new Thread(new RunnableC0720a());
+            this.writeThread = new Thread(new RunnableC0774a());
             this.writeThread.start();
-            byte[] bArr = new byte[c.nbZ];
+            byte[] bArr = new byte[c.nKY];
             while (!isClosing() && !isClosed() && (read = inputStream.read(bArr)) != -1) {
                 try {
                     this.engine.l(ByteBuffer.wrap(bArr, 0, read));
@@ -232,7 +232,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
                     this.engine.closeConnection(1006, e2.getMessage());
                 }
             }
-            this.engine.dFr();
+            this.engine.dLS();
             this.connectReadThread = null;
         } catch (Exception e3) {
             onWebsocketError(this.engine, e3);
@@ -264,7 +264,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         }
         int port = getPort();
         d dVar = new d();
-        dVar.Ro(rawPath);
+        dVar.Sj(rawPath);
         dVar.put("Host", this.uri.getHost() + ((port == 80 || port == 443) ? "" : ":" + port));
         if (this.headers != null) {
             for (Map.Entry<String, String> entry : this.headers.entrySet()) {
@@ -364,9 +364,9 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
     }
 
     /* renamed from: org.java_websocket.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private class RunnableC0720a implements Runnable {
-        private RunnableC0720a() {
+    /* loaded from: classes5.dex */
+    private class RunnableC0774a implements Runnable {
+        private RunnableC0774a() {
         }
 
         @Override // java.lang.Runnable
@@ -375,11 +375,11 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             while (!Thread.interrupted()) {
                 try {
                     try {
-                        ByteBuffer take = a.this.engine.nca.take();
+                        ByteBuffer take = a.this.engine.nKZ.take();
                         a.this.ostream.write(take.array(), 0, take.limit());
                         a.this.ostream.flush();
                     } catch (InterruptedException e) {
-                        for (ByteBuffer byteBuffer : a.this.engine.nca) {
+                        for (ByteBuffer byteBuffer : a.this.engine.nKZ) {
                             a.this.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
                             a.this.ostream.flush();
                         }
@@ -491,6 +491,6 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         if (iOException instanceof SSLException) {
             onError(iOException);
         }
-        this.engine.dFr();
+        this.engine.dLS();
     }
 }

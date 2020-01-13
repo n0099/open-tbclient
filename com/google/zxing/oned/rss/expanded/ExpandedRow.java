@@ -2,7 +2,7 @@ package com.google.zxing.oned.rss.expanded;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 final class ExpandedRow {
     private final List<ExpandedPair> pairs;
     private final int rowNumber;

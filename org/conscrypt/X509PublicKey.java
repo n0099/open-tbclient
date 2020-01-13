@@ -2,7 +2,7 @@ package org.conscrypt;
 
 import java.security.PublicKey;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class X509PublicKey implements PublicKey {
     private static final long serialVersionUID = -8610156854731664298L;
     private final String algorithm;

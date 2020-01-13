@@ -8,7 +8,7 @@ import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.y.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/closeInput");
@@ -16,17 +16,17 @@ public class a extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        SwanEditText QY = b.QX().QY();
-        if (QY == null) {
+        SwanEditText Ru = b.Rt().Ru();
+        if (Ru == null) {
             com.baidu.swan.apps.console.c.e("closeInput", "input组件不存在");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
             return false;
-        } else if (f.Uf().DP() == null) {
+        } else if (f.UC().El() == null) {
             com.baidu.swan.apps.console.c.e("closeInput", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            QY.clearFocus();
+            Ru.clearFocus();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }

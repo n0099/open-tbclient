@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.ab;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class l extends ab {
     public l(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/setStorage");
@@ -31,13 +31,13 @@ public class l extends ab {
             return false;
         }
         String optString2 = optParamsAsJo.optString("data");
-        com.baidu.swan.apps.storage.c aaa = eVar.aaa();
-        if (!aaa.available() && aaa.acv().getString(optString, "").length() < optString2.length()) {
+        com.baidu.swan.apps.storage.c aax = eVar.aax();
+        if (!aax.available() && aax.acS().getString(optString, "").length() < optString2.length()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not available");
             return false;
         }
-        aaa.acv().putString(optString, optString2);
-        com.baidu.swan.apps.ap.e.bTz.update();
+        aax.acS().putString(optString, optString2);
+        com.baidu.swan.apps.ap.e.bTL.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

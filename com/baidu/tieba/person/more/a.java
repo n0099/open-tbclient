@@ -6,21 +6,21 @@ import com.baidu.tieba.card.z;
 import com.baidu.tieba.personCenter.data.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> aoz = new ArrayList();
-    private BdTypeListView efM;
-    private com.baidu.tieba.personCenter.a.c jca;
+    private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
+    private BdTypeListView efW;
+    private com.baidu.tieba.personCenter.a.c jfD;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, z<g> zVar) {
-        this.efM = bdTypeListView;
-        this.jca = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.jdc);
-        this.jca.c(zVar);
-        this.aoz.add(this.jca);
-        this.efM.addAdapters(this.aoz);
+        this.efW = bdTypeListView;
+        this.jfD = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.jgF);
+        this.jfD.c(zVar);
+        this.apl.add(this.jfD);
+        this.efW.addAdapters(this.apl);
     }
 
     public void notifyDataSetChanged() {
-        this.jca.notifyDataSetChanged();
+        this.jfD.notifyDataSetChanged();
     }
 }

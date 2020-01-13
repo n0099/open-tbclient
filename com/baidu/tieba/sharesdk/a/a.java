@@ -20,7 +20,7 @@ import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     Context context;
     BdUniqueId pageId;
@@ -50,47 +50,47 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         return bdUniqueId;
     }
 
-    protected void Ib(String str) {
-        bt(str, R.drawable.icon_toast_game_error);
+    protected void Il(String str) {
+        bu(str, R.drawable.icon_toast_game_error);
     }
 
-    protected void Ic(String str) {
-        bt(str, R.drawable.icon_toast_game_ok);
+    protected void Im(String str) {
+        bu(str, R.drawable.icon_toast_game_ok);
     }
 
-    protected void bt(String str, int i) {
-        BdToast.a(getAppContext(), (CharSequence) str, i, false).aCb();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void BA(int i) {
-        aU(i, null);
+    protected void bu(String str, int i) {
+        BdToast.a(getAppContext(), (CharSequence) str, i, false).aCu();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aU(int i, String str) {
+    public void BF(int i) {
+        ba(i, null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void ba(int i, String str) {
         if (i == 1) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_success, new Object[0]);
             }
-            Ic(str);
+            Im(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_cancel, new Object[0]);
             }
-            Ib(str);
+            Il(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.share_failed, new Object[0]);
             }
-            Ib(str);
+            Il(str);
         }
         if (!TextUtils.isEmpty(this.tid)) {
-            BB(i);
+            BG(i);
         }
     }
 
-    public void BB(int i) {
+    public void BG(int i) {
         ShareEvent shareEvent = new ShareEvent();
         shareEvent.status = i;
         shareEvent.tid = this.tid;
@@ -107,17 +107,17 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap cEO() {
+    public Bitmap cFS() {
         return BitmapHelper.getCashBitmap(R.drawable.tb_launcher_icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap BC(int i) {
+    public Bitmap BH(int i) {
         return BitmapHelper.getCashBitmap(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap Id(String str) {
+    public Bitmap In(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 
@@ -142,7 +142,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean uc(String str) {
+    public boolean uh(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

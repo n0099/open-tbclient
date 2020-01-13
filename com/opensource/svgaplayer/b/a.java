@@ -1,5 +1,5 @@
 package com.opensource.svgaplayer.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public final class a {
     private final float value;
     private final float x;

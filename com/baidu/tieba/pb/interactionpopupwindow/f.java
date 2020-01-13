@@ -10,7 +10,7 @@ public interface f<V extends g, D extends IBaseDialogData> {
 
     void show();
 
-    boolean xp();
+    boolean xF();
 
-    boolean xq();
+    boolean xG();
 }

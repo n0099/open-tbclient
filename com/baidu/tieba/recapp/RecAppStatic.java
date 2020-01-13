@@ -21,12 +21,12 @@ import com.baidu.tieba.recapp.h;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class RecAppStatic {
     static {
-        r.jBx.set(new t());
+        r.jEZ.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.aVp().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+        com.baidu.tieba.ad.a.aVI().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -75,9 +75,9 @@ public class RecAppStatic {
                 return 3;
             }
         });
-        com.baidu.tieba.InjectPlugin.a.e.aSP().a(1, new f());
-        com.baidu.tieba.InjectPlugin.a.e.aSP().a(2, new d());
-        bj.cNA.set(true);
+        com.baidu.tieba.InjectPlugin.a.e.aTj().a(1, new f());
+        com.baidu.tieba.InjectPlugin.a.e.aTj().a(2, new d());
+        bj.cNK.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(NewWebVideoActivityConfig.class, NewWebVideoActivity.class);
@@ -91,13 +91,13 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.czz().czC();
-        b.czz().czA();
+        b.cAG().cAJ();
+        b.cAG().cAH();
         com.baidu.c.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.c.a.a.a(new p());
         com.baidu.c.a.a.a(new q());
         if (BdLog.isDebugMode()) {
         }
-        com.baidu.tieba.ad.download.b.a.dVt.set(new com.baidu.tieba.recapp.download.b());
+        com.baidu.tieba.ad.download.b.a.dVC.set(new com.baidu.tieba.recapp.download.b());
     }
 }

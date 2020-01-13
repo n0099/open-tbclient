@@ -2,14 +2,14 @@ package com.baidu.swan.apps.runtime;
 
 import android.content.ContextWrapper;
 import android.support.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class f extends ContextWrapper {
     public f(e eVar) {
         super(eVar);
     }
 
     @NonNull
-    public e aao() {
+    public e aaL() {
         return (e) getBaseContext();
     }
 

@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g extends m<com.baidu.tbadk.core.data.l, h> {
     private int from;
-    private com.baidu.tieba.pb.data.f izO;
-    private boolean izP;
+    private com.baidu.tieba.pb.data.f iDs;
+    private boolean iDt;
 
     public g(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
@@ -22,9 +22,9 @@ public class g extends m<com.baidu.tbadk.core.data.l, h> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bA */
+    /* renamed from: bE */
     public h b(ViewGroup viewGroup) {
-        h hVar = new h(LayoutInflater.from(this.mContext).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.iAW.ckE());
+        h hVar = new h(LayoutInflater.from(this.mContext).inflate(R.layout.bjh_recommend_item, (ViewGroup) null), this.iEA.clM());
         a(hVar);
         return hVar;
     }
@@ -33,16 +33,16 @@ public class g extends m<com.baidu.tbadk.core.data.l, h> {
         if (hVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (hVar.mSkinType != skinType) {
-                com.baidu.tbadk.core.util.am.setBackgroundColor(hVar.gOH, R.color.cp_bg_line_c, skinType);
-                com.baidu.tbadk.core.util.am.setBackgroundColor(hVar.iAb, R.color.cp_bg_line_c, skinType);
-                com.baidu.tbadk.core.util.am.setViewTextColor(hVar.iAd, R.color.cp_link_tip_a, 1, skinType);
-                com.baidu.tbadk.core.util.am.setViewTextColor(hVar.amJ, R.color.cp_cont_b, 1, skinType);
-                hVar.izY.setImageDrawable(SvgManager.aDW().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
-                com.baidu.tbadk.core.util.am.setViewTextColor(hVar.izZ, R.color.cp_cont_a, 1, skinType);
-                com.baidu.tbadk.core.util.am.setViewTextColor(hVar.iAe, R.color.cp_cont_d, 1, skinType);
-                com.baidu.tbadk.core.util.am.setViewTextColor(hVar.iAf, R.color.cp_cont_d, 1, skinType);
-                com.baidu.tbadk.core.util.am.b(hVar.hTy, R.color.cp_bg_line_e, R.color.cp_bg_line_c, skinType);
-                com.baidu.tbadk.core.util.f.a.aEt().kk(0).h(R.color.cp_bg_line_d_alpha0, R.color.cp_cont_b).kp(com.baidu.adp.lib.util.l.getDimens(this.iAW.ckE(), R.dimen.tbds10)).aM(hVar.izW);
+                com.baidu.tbadk.core.util.am.setBackgroundColor(hVar.gSb, R.color.cp_bg_line_c, skinType);
+                com.baidu.tbadk.core.util.am.setBackgroundColor(hVar.iDF, R.color.cp_bg_line_c, skinType);
+                com.baidu.tbadk.core.util.am.setViewTextColor(hVar.iDH, R.color.cp_link_tip_a, 1, skinType);
+                com.baidu.tbadk.core.util.am.setViewTextColor(hVar.anw, R.color.cp_cont_b, 1, skinType);
+                hVar.iDC.setImageDrawable(SvgManager.aEp().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+                com.baidu.tbadk.core.util.am.setViewTextColor(hVar.iDD, R.color.cp_cont_a, 1, skinType);
+                com.baidu.tbadk.core.util.am.setViewTextColor(hVar.iDI, R.color.cp_cont_d, 1, skinType);
+                com.baidu.tbadk.core.util.am.setViewTextColor(hVar.iDJ, R.color.cp_cont_d, 1, skinType);
+                com.baidu.tbadk.core.util.am.b(hVar.hXc, R.color.cp_bg_line_e, R.color.cp_bg_line_c, skinType);
+                com.baidu.tbadk.core.util.f.a.aEM().kk(0).h(R.color.cp_bg_line_d_alpha0, R.color.cp_cont_b).kp(com.baidu.adp.lib.util.l.getDimens(this.iEA.clM(), R.dimen.tbds10)).aQ(hVar.iDA);
             }
             hVar.mSkinType = skinType;
         }
@@ -60,12 +60,12 @@ public class g extends m<com.baidu.tbadk.core.data.l, h> {
         a(hVar);
         hVar.a(lVar);
         hVar.setBjhFrom(this.from);
-        hVar.pr(this.izP);
-        if (this.izO != null) {
-            hVar.Fn(this.izO.getThreadId());
-            hVar.ps(this.izO.cih());
-            if (this.izO.chK() != null && this.izO.chK().getBaijiahaoData() != null) {
-                hVar.setNid(this.izO.chK().getBaijiahaoData().oriUgcNid);
+        hVar.pD(this.iDt);
+        if (this.iDs != null) {
+            hVar.Fx(this.iDs.getThreadId());
+            hVar.pE(this.iDs.cjp());
+            if (this.iDs.ciS() != null && this.iDs.ciS().getBaijiahaoData() != null) {
+                hVar.setNid(this.iDs.ciS().getBaijiahaoData().oriUgcNid);
             }
             if (this.from == 2) {
                 i2 = 1;
@@ -73,27 +73,27 @@ public class g extends m<com.baidu.tbadk.core.data.l, h> {
                 i2 = this.from == 3 ? 3 : 4;
             }
             if (lVar.threadType == 40) {
-                com.baidu.tbadk.core.util.an.tb("c13536").cp("tid", lVar.getTid()).s("fid", lVar.getFid()).Z("obj_source", i2).Z("obj_locate", lVar.getFloorNum()).cp("obj_id", this.izO.getThreadId()).Z("obj_type", lVar.aBy() ? 1 : 0).aDT();
+                com.baidu.tbadk.core.util.an.tf("c13536").cp("tid", lVar.getTid()).s("fid", lVar.getFid()).Z("obj_source", i2).Z("obj_locate", lVar.getFloorNum()).cp("obj_id", this.iDs.getThreadId()).Z("obj_type", lVar.aBR() ? 1 : 0).aEm();
             } else {
-                com.baidu.tbadk.core.util.an.tb("c13533").cp("tid", lVar.getTid()).s("fid", lVar.getFid()).Z("obj_source", i2).Z("obj_locate", lVar.getFloorNum()).cp("obj_id", this.izO.getThreadId()).aDT();
+                com.baidu.tbadk.core.util.an.tf("c13533").cp("tid", lVar.getTid()).s("fid", lVar.getFid()).Z("obj_source", i2).Z("obj_locate", lVar.getFloorNum()).cp("obj_id", this.iDs.getThreadId()).aEm();
             }
-            if (this.izO.cih()) {
+            if (this.iDs.cjp()) {
                 com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c13588");
-                if (lVar.aBq() != null) {
-                    anVar.cp("fid", lVar.aBq().getForumId());
+                if (lVar.aBJ() != null) {
+                    anVar.cp("fid", lVar.aBJ().getForumId());
                 }
                 anVar.cp("tid", lVar.getTid());
                 anVar.cp("obj_param1", lVar.mRecomWeight);
                 anVar.cp("obj_source", lVar.mRecomSource);
                 anVar.Z("obj_locate", lVar.getFloorNum());
                 anVar.s(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
-                anVar.cp("obj_id", this.izO.getThreadId());
+                anVar.cp("obj_id", this.iDs.getThreadId());
                 anVar.cp("uid", TbadkCoreApplication.getCurrentAccount());
-                if (lVar.axx().getBaijiahaoData() != null) {
-                    anVar.cp("obj_param4", lVar.axx().getBaijiahaoData().oriUgcNid);
-                    anVar.cp("obj_param5", lVar.axx().getBaijiahaoData().oriUgcVid);
+                if (lVar.axQ().getBaijiahaoData() != null) {
+                    anVar.cp("obj_param4", lVar.axQ().getBaijiahaoData().oriUgcNid);
+                    anVar.cp("obj_param5", lVar.axQ().getBaijiahaoData().oriUgcVid);
                 }
-                anVar.Z("obj_param6", lVar.aBG());
+                anVar.Z("obj_param6", lVar.aBZ());
                 anVar.cp(TiebaInitialize.Params.AB_TAG, lVar.mRecomAbTag);
                 anVar.cp("extra", lVar.mRecomExtra);
                 TiebaStatic.log(anVar);
@@ -105,14 +105,14 @@ public class g extends m<com.baidu.tbadk.core.data.l, h> {
     }
 
     public void setPbData(com.baidu.tieba.pb.data.f fVar) {
-        this.izO = fVar;
+        this.iDs = fVar;
     }
 
     public void setFrom(int i) {
         this.from = i;
     }
 
-    public void pr(boolean z) {
-        this.izP = z;
+    public void pD(boolean z) {
+        this.iDt = z;
     }
 }

@@ -4,7 +4,7 @@ import android.location.Location;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g extends Handler {
     final /* synthetic */ e a;
 

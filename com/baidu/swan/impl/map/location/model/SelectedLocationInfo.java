@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SelectedLocationInfo implements Parcelable {
     private static final String ADDRESS = "address";
     public static final Parcelable.Creator<SelectedLocationInfo> CREATOR = new Parcelable.Creator<SelectedLocationInfo>() { // from class: com.baidu.swan.impl.map.location.model.SelectedLocationInfo.1

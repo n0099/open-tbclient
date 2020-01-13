@@ -1,21 +1,21 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.al;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class an implements Runnable {
     final /* synthetic */ al.b a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ al f130a;
+    final /* synthetic */ al f128a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(al alVar, al.b bVar) {
-        this.f130a = alVar;
+        this.f128a = alVar;
         this.a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f130a.a(this.a);
+        this.f128a.a(this.a);
     }
 }

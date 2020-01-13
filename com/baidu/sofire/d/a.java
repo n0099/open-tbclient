@@ -2,7 +2,7 @@ package com.baidu.sofire.d;
 
 import com.baidu.sofire.i.d;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public String a;
     public String b;

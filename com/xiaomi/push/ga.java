@@ -7,41 +7,41 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ga implements ge {
     private String a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<ga> f405a;
+    private List<ga> f403a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String[] f406a;
+    private String[] f404a;
     private String b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String[] f407b;
+    private String[] f405b;
     private String c;
 
     public ga(String str, String str2, String[] strArr, String[] strArr2) {
-        this.f406a = null;
-        this.f407b = null;
-        this.f405a = null;
+        this.f404a = null;
+        this.f405b = null;
+        this.f403a = null;
         this.a = str;
         this.b = str2;
-        this.f406a = strArr;
-        this.f407b = strArr2;
+        this.f404a = strArr;
+        this.f405b = strArr2;
     }
 
     public ga(String str, String str2, String[] strArr, String[] strArr2, String str3, List<ga> list) {
-        this.f406a = null;
-        this.f407b = null;
-        this.f405a = null;
+        this.f404a = null;
+        this.f405b = null;
+        this.f403a = null;
         this.a = str;
         this.b = str2;
-        this.f406a = strArr;
-        this.f407b = strArr2;
+        this.f404a = strArr;
+        this.f405b = strArr2;
         this.c = str3;
-        this.f405a = list;
+        this.f403a = list;
     }
 
     public static ga a(Bundle bundle) {
@@ -81,7 +81,7 @@ public class ga implements ge {
         }
         Parcelable[] parcelableArr = new Parcelable[gaVarArr.length];
         for (int i = 0; i < gaVarArr.length; i++) {
-            parcelableArr[i] = gaVarArr[i].m286a();
+            parcelableArr[i] = gaVarArr[i].m295a();
         }
         return parcelableArr;
     }
@@ -92,25 +92,25 @@ public class ga implements ge {
         bundle.putString("ext_ns", this.b);
         bundle.putString("ext_text", this.c);
         Bundle bundle2 = new Bundle();
-        if (this.f406a != null && this.f406a.length > 0) {
-            for (int i = 0; i < this.f406a.length; i++) {
-                bundle2.putString(this.f406a[i], this.f407b[i]);
+        if (this.f404a != null && this.f404a.length > 0) {
+            for (int i = 0; i < this.f404a.length; i++) {
+                bundle2.putString(this.f404a[i], this.f405b[i]);
             }
         }
         bundle.putBundle("attributes", bundle2);
-        if (this.f405a != null && this.f405a.size() > 0) {
-            bundle.putParcelableArray("children", a(this.f405a));
+        if (this.f403a != null && this.f403a.size() > 0) {
+            bundle.putParcelableArray("children", a(this.f403a));
         }
         return bundle;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m286a() {
+    public Parcelable m295a() {
         return a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m287a() {
+    public String m296a() {
         return this.a;
     }
 
@@ -118,10 +118,10 @@ public class ga implements ge {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        if (this.f406a != null) {
-            for (int i = 0; i < this.f406a.length; i++) {
-                if (str.equals(this.f406a[i])) {
-                    return this.f407b[i];
+        if (this.f404a != null) {
+            for (int i = 0; i < this.f404a.length; i++) {
+                if (str.equals(this.f404a[i])) {
+                    return this.f405b[i];
                 }
             }
         }
@@ -129,7 +129,7 @@ public class ga implements ge {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m288a(String str) {
+    public void m297a(String str) {
         if (TextUtils.isEmpty(str)) {
             this.c = str;
         } else {
@@ -152,20 +152,20 @@ public class ga implements ge {
         if (!TextUtils.isEmpty(this.b)) {
             sb.append(HanziToPinyin.Token.SEPARATOR).append("xmlns=").append("\"").append(this.b).append("\"");
         }
-        if (this.f406a != null && this.f406a.length > 0) {
-            for (int i = 0; i < this.f406a.length; i++) {
-                if (!TextUtils.isEmpty(this.f407b[i])) {
-                    sb.append(HanziToPinyin.Token.SEPARATOR).append(this.f406a[i]).append("=\"").append(go.a(this.f407b[i])).append("\"");
+        if (this.f404a != null && this.f404a.length > 0) {
+            for (int i = 0; i < this.f404a.length; i++) {
+                if (!TextUtils.isEmpty(this.f405b[i])) {
+                    sb.append(HanziToPinyin.Token.SEPARATOR).append(this.f404a[i]).append("=\"").append(go.a(this.f405b[i])).append("\"");
                 }
             }
         }
         if (!TextUtils.isEmpty(this.c)) {
             sb.append(">").append(this.c).append("</").append(this.a).append(">");
-        } else if (this.f405a == null || this.f405a.size() <= 0) {
+        } else if (this.f403a == null || this.f403a.size() <= 0) {
             sb.append("/>");
         } else {
             sb.append(">");
-            for (ga gaVar : this.f405a) {
+            for (ga gaVar : this.f403a) {
                 sb.append(gaVar.d());
             }
             sb.append("</").append(this.a).append(">");

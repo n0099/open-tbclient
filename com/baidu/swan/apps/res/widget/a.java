@@ -9,7 +9,7 @@ import com.baidu.searchbox.widget.ImmersionHelper;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.as.x;
 import com.baidu.swan.apps.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static boolean DEBUG = b.DEBUG;
     public static final int DEFAULT_POP_DIALOG_COLOR = Color.parseColor("#80000000");

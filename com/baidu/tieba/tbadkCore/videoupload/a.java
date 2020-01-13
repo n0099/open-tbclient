@@ -8,61 +8,61 @@ import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int keR = 524288;
-    private static int keS = 6144000;
-    private static int keT = 524288;
-    private h kdc;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b keU;
+    private static int kiu = 524288;
+    private static int kiv = 6144000;
+    private static int kiw = 524288;
+    private h kgF;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b kix;
 
     public a(h hVar) {
-        this.kdc = hVar;
+        this.kgF = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.keU = new d(str2, keT, this.kdc);
+                this.kix = new d(str2, kiw, this.kgF);
             } else {
-                this.keU = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, keR, keS, this.kdc);
+                this.kix = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, kiu, kiv, this.kgF);
             }
-            this.keU.a(eVar);
-            return this.keU.bv(str2, i);
+            this.kix.a(eVar);
+            return this.kix.bw(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.kdc != null) {
-                this.kdc.j(306, -4399, com.baidu.tieba.j.a.r(e));
+            if (this.kgF != null) {
+                this.kgF.l(306, -4399, com.baidu.tieba.j.a.r(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.keU != null) {
-            this.keU.cancel();
+        if (this.kix != null) {
+            this.kix.cancel();
         }
     }
 
-    public static void Cx(int i) {
+    public static void CC(int i) {
         if (i <= 0) {
-            keT = 524288;
+            kiw = 524288;
         } else {
-            keT = i;
+            kiw = i;
         }
     }
 
-    public static void Cy(int i) {
+    public static void CD(int i) {
         if (i <= 0) {
-            keR = 524288;
+            kiu = 524288;
         } else {
-            keR = i;
+            kiu = i;
         }
     }
 
-    public static void Cz(int i) {
+    public static void CE(int i) {
         if (i <= 0) {
-            keS = 6144000;
+            kiv = 6144000;
         } else {
-            keS = i;
+            kiv = i;
         }
     }
 }

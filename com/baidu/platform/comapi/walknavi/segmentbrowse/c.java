@@ -11,7 +11,7 @@ import com.baidu.mapapi.model.inner.MapBound;
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.widget.e;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static int a;
     private static a f;

@@ -6,17 +6,17 @@ import com.baidu.android.imsdk.BuildConfig;
 import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.io.FileOutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BdLog {
-    private static FileOutputStream In;
+    private static FileOutputStream Is;
     private static boolean sDebug = true;
-    private static boolean Io = false;
-    private static String Ip = Environment.getExternalStorageDirectory() + File.separator + BuildConfig.FLAVOR + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
-    private static String Iq = Ip + "baiduliulanqi_log.txt";
-    private static String Ir = Ip + "baiduliulanqi_lasttime_log.txt";
-    private static boolean Is = false;
+    private static boolean It = false;
+    private static String Iu = Environment.getExternalStorageDirectory() + File.separator + BuildConfig.FLAVOR + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+    private static String Iv = Iu + "baiduliulanqi_log.txt";
+    private static String Iw = Iu + "baiduliulanqi_lasttime_log.txt";
+    private static boolean Ix = false;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private enum LogLevel {
         DEBUG,
         ERROR,
@@ -89,23 +89,23 @@ public final class BdLog {
                     break;
                 }
         }
-        if (Io) {
-            J(str, str2);
+        if (It) {
+            I(str, str2);
         }
     }
 
-    private static void J(String str, String str2) {
+    private static void I(String str, String str2) {
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(Ip);
+                File file = new File(Iu);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (In == null) {
-                    In = new FileOutputStream(Iq);
+                if (Is == null) {
+                    Is = new FileOutputStream(Iv);
                 }
-                In.write((str + " : " + str2).getBytes("UTF-8"));
-                In.write("\n".getBytes());
+                Is.write((str + " : " + str2).getBytes("UTF-8"));
+                Is.write("\n".getBytes());
             } catch (Exception e) {
                 e.printStackTrace();
             }

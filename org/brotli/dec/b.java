@@ -2,19 +2,19 @@ package org.brotli.dec;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b extends InputStream {
     private byte[] buffer;
     private int bufferOffset;
-    private int naC;
-    private final j naD;
+    private int nJC;
+    private final j nJD;
 
     public b(InputStream inputStream) throws IOException {
         this(inputStream, 16384, null);
     }
 
     public b(InputStream inputStream, int i, byte[] bArr) throws IOException {
-        this.naD = new j();
+        this.nJD = new j();
         if (i <= 0) {
             throw new IllegalArgumentException("Bad buffer size:" + i);
         }
@@ -22,12 +22,12 @@ public class b extends InputStream {
             throw new IllegalArgumentException("source is null");
         }
         this.buffer = new byte[i];
-        this.naC = 0;
+        this.nJC = 0;
         this.bufferOffset = 0;
         try {
-            j.a(this.naD, inputStream);
+            j.a(this.nJD, inputStream);
             if (bArr != null) {
-                d.a(this.naD, bArr);
+                d.a(this.nJD, bArr);
             }
         } catch (BrotliRuntimeException e) {
             throw new IOException("Brotli decoder initialization failed", e);
@@ -36,15 +36,15 @@ public class b extends InputStream {
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        j.j(this.naD);
+        j.j(this.nJD);
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        if (this.bufferOffset >= this.naC) {
-            this.naC = read(this.buffer, 0, this.buffer.length);
+        if (this.bufferOffset >= this.nJC) {
+            this.nJC = read(this.buffer, 0, this.buffer.length);
             this.bufferOffset = 0;
-            if (this.naC == -1) {
+            if (this.nJC == -1) {
                 return -1;
             }
         }
@@ -68,7 +68,7 @@ public class b extends InputStream {
         if (i2 == 0) {
             return 0;
         }
-        int max = Math.max(this.naC - this.bufferOffset, 0);
+        int max = Math.max(this.nJC - this.bufferOffset, 0);
         if (max != 0) {
             max = Math.min(max, i2);
             System.arraycopy(this.buffer, this.bufferOffset, bArr, i, max);
@@ -80,15 +80,15 @@ public class b extends InputStream {
             }
         }
         try {
-            this.naD.output = bArr;
-            this.naD.nbO = i;
-            this.naD.nbP = i2;
-            this.naD.nbQ = 0;
-            d.i(this.naD);
-            if (this.naD.nbQ == 0) {
+            this.nJD.output = bArr;
+            this.nJD.nKO = i;
+            this.nJD.nKP = i2;
+            this.nJD.nKQ = 0;
+            d.i(this.nJD);
+            if (this.nJD.nKQ == 0) {
                 return -1;
             }
-            return max + this.naD.nbQ;
+            return max + this.nJD.nKQ;
         } catch (BrotliRuntimeException e) {
             throw new IOException("Brotli stream decoding failed", e);
         }

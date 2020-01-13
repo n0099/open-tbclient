@@ -2,7 +2,7 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface BaseNotifyDataAdapter {
     int getDefaultNotifyIcon();
 

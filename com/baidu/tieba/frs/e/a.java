@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends b {
-    private ValueAnimator gEY;
-    private ValueAnimator gEZ;
+    private ValueAnimator gIn;
+    private ValueAnimator gIo;
 
     public a(g gVar, Intent intent) {
         super(gVar, intent);
@@ -20,27 +20,27 @@ public class a extends b {
     }
 
     private void init() {
-        this.gEY = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.gEY.setDuration(270L);
-        this.gEY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.e.a.1
+        this.gIn = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.gIn.setDuration(270L);
+        this.gIn.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.e.a.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning()) {
-                    a.this.gFi.mRootView.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    a.this.gIx.mRootView.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.gEY.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.e.a.2
+        this.gIn.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.e.a.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                a.this.gFi.mRootView.setAlpha(1.0f);
+                a.this.gIx.mRootView.setAlpha(1.0f);
                 a.this.mState = 2;
-                if (a.this.gFj != null) {
-                    a.this.gFj.onStateChanged(a.this.mState);
+                if (a.this.gIy != null) {
+                    a.this.gIy.onStateChanged(a.this.mState);
                 }
             }
 
@@ -52,27 +52,27 @@ public class a extends b {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.gEZ = ValueAnimator.ofFloat(1.0f, 0.0f);
-        this.gEZ.setDuration(500L);
-        this.gEZ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.e.a.3
+        this.gIo = ValueAnimator.ofFloat(1.0f, 0.0f);
+        this.gIo.setDuration(500L);
+        this.gIo.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.e.a.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning()) {
-                    a.this.gFi.mRootView.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    a.this.gIx.mRootView.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.gEZ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.e.a.4
+        this.gIo.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.e.a.4
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                a.this.gFi.mRootView.setAlpha(0.0f);
+                a.this.gIx.mRootView.setAlpha(0.0f);
                 a.this.mState = 0;
-                if (a.this.gFj != null) {
-                    a.this.gFj.onStateChanged(a.this.mState);
+                if (a.this.gIy != null) {
+                    a.this.gIy.onStateChanged(a.this.mState);
                 }
             }
 
@@ -88,59 +88,59 @@ public class a extends b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.e.b
-    public void bHj() {
+    public void bIl() {
         if (this.mState == 0) {
             this.mState = 1;
-            if (this.gFj != null) {
-                this.gFj.onStateChanged(this.mState);
+            if (this.gIy != null) {
+                this.gIy.onStateChanged(this.mState);
             }
-            this.gEY.start();
-            bHn();
-            bHm();
-            bHl();
-            if (this.gFk) {
-                bHo();
+            this.gIn.start();
+            bIp();
+            bIo();
+            bIn();
+            if (this.gIz) {
+                bIq();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.e.b
-    public void bHk() {
+    public void bIm() {
         if (this.mState == 2) {
             this.mState = 3;
-            if (this.gFj != null) {
-                this.gFj.onStateChanged(this.mState);
+            if (this.gIy != null) {
+                this.gIy.onStateChanged(this.mState);
             }
-            this.gEZ.start();
+            this.gIo.start();
         }
     }
 
-    private void bHl() {
+    private void bIn() {
         if (this.mIntent != null) {
             ArrayList<Integer> integerArrayListExtra = this.mIntent.getIntegerArrayListExtra("info_forum_head_background_color");
             if (integerArrayListExtra != null && integerArrayListExtra.size() == 6) {
-                this.gFi.gFu.setGradientColor(integerArrayListExtra.get(0).intValue(), integerArrayListExtra.get(1).intValue(), integerArrayListExtra.get(2).intValue(), integerArrayListExtra.get(3).intValue(), integerArrayListExtra.get(4).intValue(), integerArrayListExtra.get(5).intValue());
+                this.gIx.gIJ.setGradientColor(integerArrayListExtra.get(0).intValue(), integerArrayListExtra.get(1).intValue(), integerArrayListExtra.get(2).intValue(), integerArrayListExtra.get(3).intValue(), integerArrayListExtra.get(4).intValue(), integerArrayListExtra.get(5).intValue());
             }
             String stringExtra = this.mIntent.getStringExtra("info_forum_head_background_vector");
             if (!aq.isEmpty(stringExtra)) {
-                this.gFi.gFA.startLoad(stringExtra, 10, false);
+                this.gIx.gIP.startLoad(stringExtra, 10, false);
             }
-            this.gFi.erd.post(new Runnable() { // from class: com.baidu.tieba.frs.e.a.5
+            this.gIx.esp.post(new Runnable() { // from class: com.baidu.tieba.frs.e.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    final float min = Math.min(269.0f / a.this.gFi.erd.getWidth(), 141.0f / a.this.gFi.erd.getHeight());
-                    final float left = 516.0f - ((a.this.gFi.erd.getLeft() + a.this.gFi.erd.getRight()) / 2.0f);
-                    final float top = 529.0f - ((a.this.gFi.erd.getTop() + a.this.gFi.erd.getBottom()) / 2.0f);
+                    final float min = Math.min(269.0f / a.this.gIx.esp.getWidth(), 141.0f / a.this.gIx.esp.getHeight());
+                    final float left = 516.0f - ((a.this.gIx.esp.getLeft() + a.this.gIx.esp.getRight()) / 2.0f);
+                    final float top = 529.0f - ((a.this.gIx.esp.getTop() + a.this.gIx.esp.getBottom()) / 2.0f);
                     ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                     ofFloat.setDuration(220L);
                     ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.e.a.5.1
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                            a.this.gFi.erd.setScaleX((((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - min)) + min);
-                            a.this.gFi.erd.setScaleY((((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - min)) + min);
-                            a.this.gFi.erd.setTranslationX(left - (((Float) valueAnimator.getAnimatedValue()).floatValue() * left));
-                            a.this.gFi.erd.setTranslationY(top - (((Float) valueAnimator.getAnimatedValue()).floatValue() * top));
+                            a.this.gIx.esp.setScaleX((((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - min)) + min);
+                            a.this.gIx.esp.setScaleY((((Float) valueAnimator.getAnimatedValue()).floatValue() * (1.0f - min)) + min);
+                            a.this.gIx.esp.setTranslationX(left - (((Float) valueAnimator.getAnimatedValue()).floatValue() * left));
+                            a.this.gIx.esp.setTranslationY(top - (((Float) valueAnimator.getAnimatedValue()).floatValue() * top));
                         }
                     });
                     ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.e.a.5.2
@@ -150,10 +150,10 @@ public class a extends b {
 
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            a.this.gFi.erd.setScaleX(1.0f);
-                            a.this.gFi.erd.setScaleY(1.0f);
-                            a.this.gFi.erd.setTranslationX(0.0f);
-                            a.this.gFi.erd.setTranslationY(0.0f);
+                            a.this.gIx.esp.setScaleX(1.0f);
+                            a.this.gIx.esp.setScaleY(1.0f);
+                            a.this.gIx.esp.setTranslationX(0.0f);
+                            a.this.gIx.esp.setTranslationY(0.0f);
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
@@ -170,25 +170,25 @@ public class a extends b {
         }
     }
 
-    private void bHm() {
+    private void bIo() {
         final Rect rect;
         if (this.mIntent != null && (rect = (Rect) this.mIntent.getParcelableExtra("info_forum_name_rect")) != null) {
             String stringExtra = this.mIntent.getStringExtra("info_forum_name_text");
             if (!aq.isEmpty(stringExtra)) {
-                this.gFi.gFw.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar), stringExtra));
-                this.gFi.gFw.post(new Runnable() { // from class: com.baidu.tieba.frs.e.a.6
+                this.gIx.gIL.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar), stringExtra));
+                this.gIx.gIL.post(new Runnable() { // from class: com.baidu.tieba.frs.e.a.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        final float left = rect.left - a.this.gFi.gFw.getLeft();
-                        final float top = rect.top - a.this.gFi.gFw.getTop();
+                        final float left = rect.left - a.this.gIx.gIL.getLeft();
+                        final float top = rect.top - a.this.gIx.gIL.getTop();
                         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                         ofFloat.setDuration(220L);
                         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.e.a.6.1
                             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                                 if (valueAnimator.isRunning()) {
-                                    a.this.gFi.gFw.setTranslationX(left - (((Float) valueAnimator.getAnimatedValue()).floatValue() * left));
-                                    a.this.gFi.gFw.setTranslationY(top - (((Float) valueAnimator.getAnimatedValue()).floatValue() * top));
+                                    a.this.gIx.gIL.setTranslationX(left - (((Float) valueAnimator.getAnimatedValue()).floatValue() * left));
+                                    a.this.gIx.gIL.setTranslationY(top - (((Float) valueAnimator.getAnimatedValue()).floatValue() * top));
                                 }
                             }
                         });
@@ -199,8 +199,8 @@ public class a extends b {
 
                             @Override // android.animation.Animator.AnimatorListener
                             public void onAnimationEnd(Animator animator) {
-                                a.this.gFi.gFw.setTranslationX(0.0f);
-                                a.this.gFi.gFw.setTranslationY(0.0f);
+                                a.this.gIx.gIL.setTranslationX(0.0f);
+                                a.this.gIx.gIL.setTranslationY(0.0f);
                             }
 
                             @Override // android.animation.Animator.AnimatorListener
@@ -218,25 +218,25 @@ public class a extends b {
         }
     }
 
-    private void bHn() {
+    private void bIp() {
         final Rect rect;
         if (this.mIntent != null && (rect = (Rect) this.mIntent.getParcelableExtra("info_forum_image_rect")) != null) {
             String stringExtra = this.mIntent.getStringExtra("info_forum_image_url");
             if (!aq.isEmpty(stringExtra)) {
-                this.gFi.gFv.startLoad(stringExtra, 10, false);
-                this.gFi.gFv.post(new Runnable() { // from class: com.baidu.tieba.frs.e.a.7
+                this.gIx.gIK.startLoad(stringExtra, 10, false);
+                this.gIx.gIK.post(new Runnable() { // from class: com.baidu.tieba.frs.e.a.7
                     @Override // java.lang.Runnable
                     public void run() {
-                        final float left = rect.left - a.this.gFi.gFv.getLeft();
-                        final float top = rect.top - a.this.gFi.gFv.getTop();
+                        final float left = rect.left - a.this.gIx.gIK.getLeft();
+                        final float top = rect.top - a.this.gIx.gIK.getTop();
                         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                         ofFloat.setDuration(220L);
                         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.e.a.7.1
                             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                                 if (valueAnimator.isRunning()) {
-                                    a.this.gFi.gFv.setTranslationX(left - (((Float) valueAnimator.getAnimatedValue()).floatValue() * left));
-                                    a.this.gFi.gFv.setTranslationY(top - (((Float) valueAnimator.getAnimatedValue()).floatValue() * top));
+                                    a.this.gIx.gIK.setTranslationX(left - (((Float) valueAnimator.getAnimatedValue()).floatValue() * left));
+                                    a.this.gIx.gIK.setTranslationY(top - (((Float) valueAnimator.getAnimatedValue()).floatValue() * top));
                                 }
                             }
                         });
@@ -247,8 +247,8 @@ public class a extends b {
 
                             @Override // android.animation.Animator.AnimatorListener
                             public void onAnimationEnd(Animator animator) {
-                                a.this.gFi.gFv.setTranslationX(0.0f);
-                                a.this.gFi.gFv.setTranslationY(0.0f);
+                                a.this.gIx.gIK.setTranslationX(0.0f);
+                                a.this.gIx.gIK.setTranslationY(0.0f);
                             }
 
                             @Override // android.animation.Animator.AnimatorListener
@@ -266,9 +266,9 @@ public class a extends b {
         }
     }
 
-    private void bHo() {
+    private void bIq() {
         if (this.mIntent != null) {
-            this.gFi.gFy.post(new Runnable() { // from class: com.baidu.tieba.frs.e.a.8
+            this.gIx.gIN.post(new Runnable() { // from class: com.baidu.tieba.frs.e.a.8
                 @Override // java.lang.Runnable
                 public void run() {
                     ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -279,10 +279,10 @@ public class a extends b {
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
                             if (valueAnimator.isRunning()) {
                                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                                a.this.gFi.gFy.setTranslationY((-dimens) * floatValue);
-                                a.this.gFi.gFy.setScaleX((floatValue / 2.0f) + 0.5f);
-                                a.this.gFi.gFy.setScaleY((floatValue / 2.0f) + 0.5f);
-                                a.this.gFi.gFy.setAlpha(floatValue);
+                                a.this.gIx.gIN.setTranslationY((-dimens) * floatValue);
+                                a.this.gIx.gIN.setScaleX((floatValue / 2.0f) + 0.5f);
+                                a.this.gIx.gIN.setScaleY((floatValue / 2.0f) + 0.5f);
+                                a.this.gIx.gIN.setAlpha(floatValue);
                             }
                         }
                     });
@@ -293,10 +293,10 @@ public class a extends b {
 
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            a.this.gFi.gFy.setTranslationY(-dimens);
-                            a.this.gFi.gFy.setScaleX(1.0f);
-                            a.this.gFi.gFy.setScaleY(1.0f);
-                            a.this.gFi.gFy.setAlpha(1.0f);
+                            a.this.gIx.gIN.setTranslationY(-dimens);
+                            a.this.gIx.gIN.setScaleX(1.0f);
+                            a.this.gIx.gIN.setScaleY(1.0f);
+                            a.this.gIx.gIN.setAlpha(1.0f);
                         }
 
                         @Override // android.animation.Animator.AnimatorListener

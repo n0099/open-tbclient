@@ -19,65 +19,65 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RoundCornerFrameLayout extends FrameLayout {
-    private float Oc;
-    private Paint Oe;
-    private ImageView Of;
-    private ColorFilter Og;
-    private ColorFilter Oh;
-    private RectF jE;
+    private float Oh;
+    private Paint Oi;
+    private ImageView Oj;
+    private ColorFilter Ok;
+    private ColorFilter Ol;
+    private RectF jD;
     private Bitmap mMaskBitmap;
     private int mSkinType;
 
     public RoundCornerFrameLayout(Context context) {
         super(context);
-        this.Of = null;
+        this.Oj = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Of = null;
+        this.Oj = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Of = null;
+        this.Oj = null;
         this.mSkinType = 3;
         init();
     }
 
     private void init() {
         setWillNotDraw(false);
-        this.jE = new RectF();
-        this.Oc = getResources().getDimension(R.dimen.tbds10);
-        this.Oe = new Paint();
-        this.Oe.setStrokeWidth(0.0f);
-        this.Oe.setStrokeCap(Paint.Cap.ROUND);
-        this.Oe.setAntiAlias(true);
-        this.Oe.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.Of = new ImageView(getContext());
-        this.Of.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.jD = new RectF();
+        this.Oh = getResources().getDimension(R.dimen.tbds10);
+        this.Oi = new Paint();
+        this.Oi.setStrokeWidth(0.0f);
+        this.Oi.setStrokeCap(Paint.Cap.ROUND);
+        this.Oi.setAntiAlias(true);
+        this.Oi.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.Oj = new ImageView(getContext());
+        this.Oj.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }
 
     public void setCorner(float f) {
-        this.Oc = f;
+        this.Oh = f;
         if (this.mMaskBitmap != null) {
             this.mMaskBitmap.recycle();
-            nf();
+            ng();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.Of != null && this.mSkinType != i) {
+        if (this.Oj != null && this.mSkinType != i) {
             this.mSkinType = i;
-            this.Og = new q(am.getColor(R.color.cp_bg_line_d));
-            this.Oh = new q(am.getColor(R.color.cp_bg_line_e));
-            this.Of.setColorFilter(this.Og);
+            this.Ok = new q(am.getColor(R.color.cp_bg_line_d));
+            this.Ol = new q(am.getColor(R.color.cp_bg_line_e));
+            this.Oj.setColorFilter(this.Ok);
         }
     }
 
@@ -87,19 +87,19 @@ public class RoundCornerFrameLayout extends FrameLayout {
             if (this.mMaskBitmap != null && !this.mMaskBitmap.isRecycled()) {
                 this.mMaskBitmap.recycle();
             }
-            nf();
+            ng();
         }
     }
 
     public void ag(boolean z) {
-        if (this.Of != null) {
-            this.Of.setColorFilter(z ? this.Oh : this.Og);
+        if (this.Oj != null) {
+            this.Oj.setColorFilter(z ? this.Ol : this.Ok);
         }
     }
 
-    private void nf() {
+    private void ng() {
         if (getMeasuredHeight() > 0 && getMeasuredWidth() > 0) {
-            this.jE.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.jD.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
             try {
                 this.mMaskBitmap = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
             } catch (OutOfMemoryError e) {
@@ -117,11 +117,11 @@ public class RoundCornerFrameLayout extends FrameLayout {
             }
             Canvas canvas = new Canvas(this.mMaskBitmap);
             canvas.drawColor(ViewCompat.MEASURED_STATE_MASK);
-            this.Oe.setColor(-1);
-            canvas.drawRoundRect(this.jE, this.Oc, this.Oc, this.Oe);
-            this.Of.setImageBitmap(this.mMaskBitmap);
-            if (this.Of.getParent() == null) {
-                addView(this.Of);
+            this.Oi.setColor(-1);
+            canvas.drawRoundRect(this.jD, this.Oh, this.Oh, this.Oi);
+            this.Oj.setImageBitmap(this.mMaskBitmap);
+            if (this.Oj.getParent() == null) {
+                addView(this.Oj);
             }
         }
     }
@@ -129,22 +129,22 @@ public class RoundCornerFrameLayout extends FrameLayout {
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        if (this.Of != null && view != this.Of) {
-            if (this.Of.getParent() != null) {
-                ((ViewGroup) this.Of.getParent()).removeView(this.Of);
+        if (this.Oj != null && view != this.Oj) {
+            if (this.Oj.getParent() != null) {
+                ((ViewGroup) this.Oj.getParent()).removeView(this.Oj);
             }
-            super.addView(this.Of);
+            super.addView(this.Oj);
         }
     }
 
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (this.Of != null) {
-            if (this.Of.getParent() != null) {
-                ((ViewGroup) this.Of.getParent()).removeView(this.Of);
+        if (this.Oj != null) {
+            if (this.Oj.getParent() != null) {
+                ((ViewGroup) this.Oj.getParent()).removeView(this.Oj);
             }
-            super.addView(this.Of);
+            super.addView(this.Oj);
         }
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MultiViewPager extends ViewPager {
     public MultiViewPager(Context context) {
         super(context);

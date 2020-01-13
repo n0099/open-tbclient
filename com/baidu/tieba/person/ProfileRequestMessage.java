@@ -146,7 +146,7 @@ public class ProfileRequestMessage extends NetMessage {
             double equipmentDensity = l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp());
             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-            int viewImageQuality = i.axf().getViewImageQuality();
+            int viewImageQuality = i.axy().getViewImageQuality();
             builder.scr_w = Integer.valueOf(equipmentWidth);
             builder.scr_h = Integer.valueOf(equipmentHeight);
             builder.scr_dip = Double.valueOf(equipmentDensity);

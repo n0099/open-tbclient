@@ -1,16 +1,16 @@
 package com.google.android.exoplayer2.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class d {
-    public int lYO;
-    public int lYP;
-    public int lYQ;
-    public int lYR;
-    public int lYS;
-    public int lYT;
-    public int lYU;
-    public int lYV;
-    public int lYW;
+    public int mcG;
+    public int mcH;
+    public int mcI;
+    public int mcJ;
+    public int mcK;
+    public int mcL;
+    public int mcM;
+    public int mcN;
+    public int mcO;
 
-    public synchronized void dsa() {
+    public synchronized void dtm() {
     }
 }

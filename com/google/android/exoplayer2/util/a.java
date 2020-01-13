@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.util;
 
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static void checkArgument(boolean z) {
         if (!z) {

@@ -8,8 +8,10 @@ import org.json.JSONObject;
 public class AlaLiveSwitchData extends BaseData {
     public static final String SWITCH_DEFAULT_VALUE = "0";
     public static int isHotLive;
+    public static String liveActivityType;
     public boolean isHot;
     public String mActivityPolling;
+    public String mActivityTaskWatch;
     public String mAudience;
     public String mCashGift;
     public String mDayList;
@@ -17,6 +19,7 @@ public class AlaLiveSwitchData extends BaseData {
     public String mFirstCharge;
     public String mFollowBtn;
     public String mGiftPanel;
+    public String mGmsgGetLiveStatus;
     public String mGuardFans;
     public String mGuardThrone;
     public String mLiveSwitch;
@@ -26,12 +29,13 @@ public class AlaLiveSwitchData extends BaseData {
     public String mRedPkg;
     public String mRotaryTable;
     public String mShareBtn;
+    public String mVideoGoodslist;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mEventPolling = jSONObject.optString("l_eventpolling");
-            this.mCashGift = jSONObject.optString("l_cashgift");
+            this.mCashGift = jSONObject.optString("f_cashgift");
             this.mFollowBtn = jSONObject.optString("s_followBtn");
             this.mRankHour = jSONObject.optString("s_rankHour");
             this.mQuickGift = jSONObject.optString("s_quickGift");
@@ -47,6 +51,9 @@ public class AlaLiveSwitchData extends BaseData {
             this.mShareBtn = jSONObject.optString("s_shareBtn");
             this.mRedPkg = jSONObject.optString("f_live_effect_redpacket");
             this.mGuardThrone = jSONObject.optString("s_guard_seat");
+            this.mVideoGoodslist = jSONObject.optString("f_video_goodslist");
+            this.mActivityTaskWatch = jSONObject.optString("f_activity_task_watch");
+            this.mGmsgGetLiveStatus = jSONObject.optString("f_gmsg_getLiveStatus");
         }
     }
 
@@ -54,7 +61,7 @@ public class AlaLiveSwitchData extends BaseData {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("l_eventpolling", this.mEventPolling);
-            jSONObject.put("l_cashgift", this.mCashGift);
+            jSONObject.put("f_cashgift", this.mCashGift);
             jSONObject.put("s_followBtn", this.mFollowBtn);
             jSONObject.put("s_rankHour", this.mRankHour);
             jSONObject.put("s_quickGift", this.mQuickGift);
@@ -70,10 +77,25 @@ public class AlaLiveSwitchData extends BaseData {
             jSONObject.put("s_shareBtn", this.mShareBtn);
             jSONObject.put("f_live_effect_redpacket", this.mRedPkg);
             jSONObject.put("s_guard_seat", this.mGuardThrone);
+            jSONObject.put("f_video_goodslist", this.mVideoGoodslist);
+            jSONObject.put("f_activity_task_watch", this.mActivityTaskWatch);
+            jSONObject.put("f_gmsg_getLiveStatus", this.mGmsgGetLiveStatus);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return jSONObject;
+    }
+
+    public boolean isActivityTaskWatchUnabled() {
+        return TextUtils.equals(this.mActivityTaskWatch, "0");
+    }
+
+    public boolean isGmsgGetLiveStatusUnabled() {
+        return TextUtils.equals(this.mGmsgGetLiveStatus, "0");
+    }
+
+    public boolean isVideoGoodslistUnabled() {
+        return TextUtils.equals(this.mVideoGoodslist, "0");
     }
 
     public boolean isEventPollingUnabled() {

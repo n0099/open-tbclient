@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PermissionsHelperActivity extends Activity {
     private static final int a = 8000;
     private static final int b = 8001;

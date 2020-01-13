@@ -8,16 +8,16 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class gk {
     private static gk a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Object> f423a = new ConcurrentHashMap();
+    private Map<String, Object> f421a = new ConcurrentHashMap();
     private Map<String, Object> b = new ConcurrentHashMap();
 
     private gk() {
-        m297a();
+        m306a();
     }
 
     public static synchronized gk a() {
@@ -41,7 +41,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m295a() {
+    private ClassLoader[] m304a() {
         ClassLoader[] classLoaderArr = {gk.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {
@@ -53,14 +53,14 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m296a(String str, String str2) {
-        return this.f423a.get(a(str, str2));
+    public Object m305a(String str, String str2) {
+        return this.f421a.get(a(str, str2));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    protected void m297a() {
+    protected void m306a() {
         try {
-            for (ClassLoader classLoader : m295a()) {
+            for (ClassLoader classLoader : m304a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                 while (resources.hasMoreElements()) {
                     InputStream openStream = resources.nextElement().openStream();
@@ -104,13 +104,13 @@ public class gk {
                                 newPullParser.next();
                                 String nextText6 = newPullParser.nextText();
                                 String a3 = a(nextText4, nextText5);
-                                if (!this.f423a.containsKey(a3)) {
+                                if (!this.f421a.containsKey(a3)) {
                                     try {
                                         Class<?> cls2 = Class.forName(nextText6);
                                         if (gj.class.isAssignableFrom(cls2)) {
-                                            this.f423a.put(a3, cls2.newInstance());
+                                            this.f421a.put(a3, cls2.newInstance());
                                         } else if (ge.class.isAssignableFrom(cls2)) {
-                                            this.f423a.put(a3, cls2);
+                                            this.f421a.put(a3, cls2);
                                         }
                                     } catch (ClassNotFoundException e2) {
                                         e2.printStackTrace();
@@ -135,6 +135,6 @@ public class gk {
         if (!(obj instanceof gj) && !(obj instanceof Class)) {
             throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
         }
-        this.f423a.put(a(str, str2), obj);
+        this.f421a.put(a(str, str2), obj);
     }
 }

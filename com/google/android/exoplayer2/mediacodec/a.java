@@ -9,16 +9,16 @@ import com.baidu.mobstat.Config;
 import com.google.android.exoplayer2.util.i;
 import com.google.android.exoplayer2.util.v;
 @TargetApi(16)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    public final boolean lXv;
+    public final boolean mbn;
     private final String mimeType;
-    public final boolean mkM;
-    private final MediaCodecInfo.CodecCapabilities mkN;
+    public final boolean moB;
+    private final MediaCodecInfo.CodecCapabilities moC;
     public final String name;
     public final boolean secure;
 
-    public static a OW(String str) {
+    public static a Ph(String str) {
         return new a(str, null, null, false, false);
     }
 
@@ -30,94 +30,94 @@ public final class a {
         boolean z3 = false;
         this.name = (String) com.google.android.exoplayer2.util.a.checkNotNull(str);
         this.mimeType = str2;
-        this.mkN = codecCapabilities;
-        this.mkM = (z || codecCapabilities == null || !a(codecCapabilities)) ? false : true;
-        this.lXv = codecCapabilities != null && c(codecCapabilities);
+        this.moC = codecCapabilities;
+        this.moB = (z || codecCapabilities == null || !a(codecCapabilities)) ? false : true;
+        this.mbn = codecCapabilities != null && c(codecCapabilities);
         if (z2 || (codecCapabilities != null && e(codecCapabilities))) {
             z3 = true;
         }
         this.secure = z3;
     }
 
-    public MediaCodecInfo.CodecProfileLevel[] dto() {
-        return (this.mkN == null || this.mkN.profileLevels == null) ? new MediaCodecInfo.CodecProfileLevel[0] : this.mkN.profileLevels;
+    public MediaCodecInfo.CodecProfileLevel[] duz() {
+        return (this.moC == null || this.moC.profileLevels == null) ? new MediaCodecInfo.CodecProfileLevel[0] : this.moC.profileLevels;
     }
 
-    public boolean OU(String str) {
-        MediaCodecInfo.CodecProfileLevel[] dto;
+    public boolean Pf(String str) {
+        MediaCodecInfo.CodecProfileLevel[] duz;
         if (str == null || this.mimeType == null) {
             return true;
         }
-        String PU = i.PU(str);
-        if (PU == null) {
+        String Qf = i.Qf(str);
+        if (Qf == null) {
             return true;
         }
-        if (!this.mimeType.equals(PU)) {
-            OX("codec.mime " + str + ", " + PU);
+        if (!this.mimeType.equals(Qf)) {
+            Pi("codec.mime " + str + ", " + Qf);
             return false;
         }
-        Pair<Integer, Integer> Pe = MediaCodecUtil.Pe(str);
-        if (Pe == null) {
+        Pair<Integer, Integer> Pp = MediaCodecUtil.Pp(str);
+        if (Pp == null) {
             return true;
         }
-        for (MediaCodecInfo.CodecProfileLevel codecProfileLevel : dto()) {
-            if (codecProfileLevel.profile == ((Integer) Pe.first).intValue() && codecProfileLevel.level >= ((Integer) Pe.second).intValue()) {
+        for (MediaCodecInfo.CodecProfileLevel codecProfileLevel : duz()) {
+            if (codecProfileLevel.profile == ((Integer) Pp.first).intValue() && codecProfileLevel.level >= ((Integer) Pp.second).intValue()) {
                 return true;
             }
         }
-        OX("codec.profileLevel, " + str + ", " + PU);
+        Pi("codec.profileLevel, " + str + ", " + Qf);
         return false;
     }
 
     @TargetApi(21)
     public boolean a(int i, int i2, double d) {
-        if (this.mkN == null) {
-            OX("sizeAndRate.caps");
+        if (this.moC == null) {
+            Pi("sizeAndRate.caps");
             return false;
         }
-        MediaCodecInfo.VideoCapabilities videoCapabilities = this.mkN.getVideoCapabilities();
+        MediaCodecInfo.VideoCapabilities videoCapabilities = this.moC.getVideoCapabilities();
         if (videoCapabilities == null) {
-            OX("sizeAndRate.vCaps");
+            Pi("sizeAndRate.vCaps");
             return false;
         }
         if (!a(videoCapabilities, i, i2, d)) {
             if (i >= i2 || !a(videoCapabilities, i2, i, d)) {
-                OX("sizeAndRate.support, " + i + Config.EVENT_HEAT_X + i2 + Config.EVENT_HEAT_X + d);
+                Pi("sizeAndRate.support, " + i + Config.EVENT_HEAT_X + i2 + Config.EVENT_HEAT_X + d);
                 return false;
             }
-            OY("sizeAndRate.rotated, " + i + Config.EVENT_HEAT_X + i2 + Config.EVENT_HEAT_X + d);
+            Pj("sizeAndRate.rotated, " + i + Config.EVENT_HEAT_X + i2 + Config.EVENT_HEAT_X + d);
         }
         return true;
     }
 
     @TargetApi(21)
-    public Point dM(int i, int i2) {
-        if (this.mkN == null) {
-            OX("align.caps");
+    public Point dK(int i, int i2) {
+        if (this.moC == null) {
+            Pi("align.caps");
             return null;
         }
-        MediaCodecInfo.VideoCapabilities videoCapabilities = this.mkN.getVideoCapabilities();
+        MediaCodecInfo.VideoCapabilities videoCapabilities = this.moC.getVideoCapabilities();
         if (videoCapabilities == null) {
-            OX("align.vCaps");
+            Pi("align.vCaps");
             return null;
         }
         int widthAlignment = videoCapabilities.getWidthAlignment();
         int heightAlignment = videoCapabilities.getHeightAlignment();
-        return new Point(widthAlignment * v.dY(i, widthAlignment), heightAlignment * v.dY(i2, heightAlignment));
+        return new Point(widthAlignment * v.dW(i, widthAlignment), heightAlignment * v.dW(i2, heightAlignment));
     }
 
     @TargetApi(21)
-    public boolean JN(int i) {
-        if (this.mkN == null) {
-            OX("sampleRate.caps");
+    public boolean JW(int i) {
+        if (this.moC == null) {
+            Pi("sampleRate.caps");
             return false;
         }
-        MediaCodecInfo.AudioCapabilities audioCapabilities = this.mkN.getAudioCapabilities();
+        MediaCodecInfo.AudioCapabilities audioCapabilities = this.moC.getAudioCapabilities();
         if (audioCapabilities == null) {
-            OX("sampleRate.aCaps");
+            Pi("sampleRate.aCaps");
             return false;
         } else if (!audioCapabilities.isSampleRateSupported(i)) {
-            OX("sampleRate.support, " + i);
+            Pi("sampleRate.support, " + i);
             return false;
         } else {
             return true;
@@ -125,29 +125,29 @@ public final class a {
     }
 
     @TargetApi(21)
-    public boolean JO(int i) {
-        if (this.mkN == null) {
-            OX("channelCount.caps");
+    public boolean JX(int i) {
+        if (this.moC == null) {
+            Pi("channelCount.caps");
             return false;
         }
-        MediaCodecInfo.AudioCapabilities audioCapabilities = this.mkN.getAudioCapabilities();
+        MediaCodecInfo.AudioCapabilities audioCapabilities = this.moC.getAudioCapabilities();
         if (audioCapabilities == null) {
-            OX("channelCount.aCaps");
+            Pi("channelCount.aCaps");
             return false;
         } else if (x(this.name, this.mimeType, audioCapabilities.getMaxInputChannelCount()) < i) {
-            OX("channelCount.support, " + i);
+            Pi("channelCount.support, " + i);
             return false;
         } else {
             return true;
         }
     }
 
-    private void OX(String str) {
-        Log.d("MediaCodecInfo", "NoSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mDm + "]");
+    private void Pi(String str) {
+        Log.d("MediaCodecInfo", "NoSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mHc + "]");
     }
 
-    private void OY(String str) {
-        Log.d("MediaCodecInfo", "AssumedSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mDm + "]");
+    private void Pj(String str) {
+        Log.d("MediaCodecInfo", "AssumedSupport [" + str + "] [" + this.name + ", " + this.mimeType + "] [" + v.mHc + "]");
     }
 
     private static int x(String str, String str2, int i) {

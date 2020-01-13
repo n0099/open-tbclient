@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import java.util.RandomAccess;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a mYD = new a(null);
+    public static final a nAW = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -49,35 +49,35 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C0717d(this, i, i2);
+        return new C0761d(this, i, i2);
     }
 
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private static final class C0717d<E> extends d<E> implements RandomAccess {
-        private int mYF;
-        private final d<E> mYG;
-        private final int mYH;
+    /* loaded from: classes5.dex */
+    private static final class C0761d<E> extends d<E> implements RandomAccess {
+        private int nAY;
+        private final d<E> nAZ;
+        private final int nBa;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C0717d(d<? extends E> dVar, int i, int i2) {
-            kotlin.jvm.internal.p.j(dVar, "list");
-            this.mYG = dVar;
-            this.mYH = i;
-            d.mYD.ar(this.mYH, i2, this.mYG.size());
-            this.mYF = i2 - this.mYH;
+        public C0761d(d<? extends E> dVar, int i, int i2) {
+            kotlin.jvm.internal.q.j(dVar, "list");
+            this.nAZ = dVar;
+            this.nBa = i;
+            d.nAW.ar(this.nBa, i2, this.nAZ.size());
+            this.nAY = i2 - this.nBa;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.mYD.ej(i, this.mYF);
-            return this.mYG.get(this.mYH + i);
+            d.nAW.ek(i, this.nAY);
+            return this.nAZ.get(this.nBa + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.mYF;
+            return this.nAY;
         }
     }
 
@@ -87,18 +87,18 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return mYD.a(this, (Collection) obj);
+            return nAW.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return mYD.j(this);
+        return nAW.j(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements Iterator<E> {
         private int index;
 
@@ -136,7 +136,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private class c extends d<E>.b implements ListIterator<E> {
         @Override // java.util.ListIterator
         public void add(E e) {
@@ -150,7 +150,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.mYD.ek(i, d.this.size());
+            d.nAW.el(i, d.this.size());
             setIndex(i);
         }
 
@@ -180,7 +180,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private a() {
         }
@@ -189,13 +189,13 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             this();
         }
 
-        public final void ej(int i, int i2) {
+        public final void ek(int i, int i2) {
             if (i < 0 || i >= i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void ek(int i, int i2) {
+        public final void el(int i, int i2) {
             if (i < 0 || i > i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
@@ -211,7 +211,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
         }
 
         public final int j(Collection<?> collection) {
-            kotlin.jvm.internal.p.j(collection, "c");
+            kotlin.jvm.internal.q.j(collection, "c");
             int i = 1;
             Iterator<?> it = collection.iterator();
             while (it.hasNext()) {
@@ -222,15 +222,15 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
         }
 
         public final boolean a(Collection<?> collection, Collection<?> collection2) {
-            kotlin.jvm.internal.p.j(collection, "c");
-            kotlin.jvm.internal.p.j(collection2, "other");
+            kotlin.jvm.internal.q.j(collection, "c");
+            kotlin.jvm.internal.q.j(collection2, "other");
             if (collection.size() != collection2.size()) {
                 return false;
             }
             Iterator<?> it = collection2.iterator();
             Iterator<?> it2 = collection.iterator();
             while (it2.hasNext()) {
-                if (!kotlin.jvm.internal.p.h(it2.next(), it.next())) {
+                if (!kotlin.jvm.internal.q.h(it2.next(), it.next())) {
                     return false;
                 }
             }
@@ -242,7 +242,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     public int indexOf(Object obj) {
         int i = 0;
         for (E e : this) {
-            if (kotlin.jvm.internal.p.h(e, obj)) {
+            if (kotlin.jvm.internal.q.h(e, obj)) {
                 return i;
             }
             i++;
@@ -254,7 +254,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     public int lastIndexOf(Object obj) {
         ListIterator<E> listIterator = listIterator(size());
         while (listIterator.hasPrevious()) {
-            if (kotlin.jvm.internal.p.h(listIterator.previous(), obj)) {
+            if (kotlin.jvm.internal.q.h(listIterator.previous(), obj)) {
                 return listIterator.nextIndex();
             }
         }

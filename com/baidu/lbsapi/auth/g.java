@@ -22,7 +22,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g {
     private Context a;
     private String b = null;

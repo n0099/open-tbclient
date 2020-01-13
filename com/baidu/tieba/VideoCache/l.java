@@ -2,33 +2,33 @@ package com.baidu.tieba.VideoCache;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class l {
-    private static l dSX;
-    private ExecutorService aUi = Executors.newFixedThreadPool(10);
+    private static l dTg;
+    private ExecutorService aVa = Executors.newFixedThreadPool(10);
 
-    public static l aUC() {
-        if (dSX == null) {
+    public static l aUW() {
+        if (dTg == null) {
             synchronized (l.class) {
-                if (dSX == null) {
-                    dSX = new l();
+                if (dTg == null) {
+                    dTg = new l();
                 }
             }
         }
-        return dSX;
+        return dTg;
     }
 
     public void n(Runnable runnable) {
-        if (this.aUi != null) {
-            this.aUi.execute(runnable);
+        if (this.aVa != null) {
+            this.aVa.execute(runnable);
         }
     }
 
     public void destroy() {
-        if (this.aUi != null) {
-            this.aUi.shutdown();
-            this.aUi = null;
-            dSX = null;
+        if (this.aVa != null) {
+            this.aVa.shutdown();
+            this.aVa = null;
+            dTg = null;
         }
     }
 }

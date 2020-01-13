@@ -15,12 +15,12 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DiscoverDelegateStatic extends b {
-    private static boolean fKO = false;
+    private static boolean fNX = false;
 
     static {
-        if (!fKO) {
+        if (!fNX) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_REFRESH_TABS));
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, new CustomMessageTask.CustomRunnable<BaseFragment>() { // from class: com.baidu.tieba.discover.DiscoverDelegateStatic.1
@@ -40,7 +40,7 @@ public class DiscoverDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c aNe() {
+    public c aNx() {
         c cVar = new c();
         cVar.frag = new DiscoverFragment();
         cVar.type = 10;
@@ -51,18 +51,18 @@ public class DiscoverDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator dW(Context context) {
-        this.dwU = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.dxc = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.dxq = this.dwU;
+        aVar.dxy = this.dxc;
         aVar.offsetX = l.dip2px(context, 3.0f);
         aVar.bgDayRes = R.drawable.icon_news_down_bar_one;
-        this.dwU.a("emotion", aVar);
-        return this.dwU;
+        this.dxc.a("emotion", aVar);
+        return this.dxc;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        fKO = true;
+        fNX = true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

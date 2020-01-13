@@ -2,11 +2,11 @@ package com.baidu.swan.game.ad.d;
 
 import com.baidu.swan.game.ad.a.b;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static void a(AdElementInfo adElementInfo, b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.ahG()) {
+            for (String str : adElementInfo.ahZ()) {
                 a(l(str, 0, 0), bVar);
             }
             for (String str2 : adElementInfo.getThirdImpressionTrackingUrls()) {
@@ -52,6 +52,6 @@ public class a {
     }
 
     private static void a(String str, b bVar) {
-        bVar.nr(str);
+        bVar.nu(str);
     }
 }

@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ad extends b {
     private RelativeLayout a;
     private TextView b;
@@ -14,9 +14,9 @@ public class ad extends b {
     public ad(Context context, View view) {
         this.b = null;
         this.c = null;
-        this.a = (RelativeLayout) view.findViewById(R.raw.lottie_refresh_light);
-        this.b = (TextView) this.a.findViewById(R.raw.lottie_tab_forum);
-        this.c = (TextView) this.a.findViewById(R.raw.lottie_tab_forum_1);
+        this.a = (RelativeLayout) view.findViewById(R.raw.lottie_pull_refresh_1);
+        this.b = (TextView) this.a.findViewById(R.raw.lottie_refresh_dark);
+        this.c = (TextView) this.a.findViewById(R.raw.lottie_refresh_light);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

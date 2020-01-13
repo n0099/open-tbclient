@@ -1,19 +1,19 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscribers.SinglePostCompleteSubscriber;
 import io.reactivex.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableOnErrorReturn<T> extends a<T, T> {
     final h<? super Throwable, ? extends T> valueSupplier;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new OnErrorReturnSubscriber(cVar, this.valueSupplier));
+        this.nvK.a((j) new OnErrorReturnSubscriber(cVar, this.valueSupplier));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class OnErrorReturnSubscriber<T> extends SinglePostCompleteSubscriber<T, T> {
         private static final long serialVersionUID = -3740826063558713822L;
         final h<? super Throwable, ? extends T> valueSupplier;

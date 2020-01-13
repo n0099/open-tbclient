@@ -2,7 +2,7 @@ package com.google.zxing.aztec.encoder;
 
 import com.google.zxing.common.BitArray;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class Token {
     static final Token EMPTY = new SimpleToken(null, 0, 0);
     private final Token previous;

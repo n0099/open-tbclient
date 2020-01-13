@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.GetBawuInfoResIdl;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
     private String cacheKey;
     private boolean isNeedUpdateCache;

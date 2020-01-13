@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public static boolean a = true;
     private com.baidu.platform.comapi.walknavi.d.b d;
@@ -22,7 +22,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public b b = new b();
     private com.baidu.platform.comapi.walknavi.d.a.b f = new com.baidu.platform.comapi.walknavi.d.a.b(com.baidu.platform.comapi.wnplatform.o.b.a.a());
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(b bVar);
     }
@@ -250,7 +250,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
         this.o = aVar;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b {
         public String a;
         public String b;

@@ -2,7 +2,7 @@ package com.baidu.swan.config.core.b;
 
 import com.baidu.swan.config.core.ConfigNode;
 import com.baidu.swan.config.e;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static c b(ConfigNode configNode) {
         Class<? extends c> processor;

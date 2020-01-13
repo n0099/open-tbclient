@@ -50,7 +50,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: py */
+    /* renamed from: pC */
     public b clone() {
         try {
             return (b) super.clone();
@@ -92,7 +92,7 @@ public class b implements Cloneable {
         this.mInLive = str;
     }
 
-    public BdUniqueId pz() {
+    public BdUniqueId pD() {
         return this.mPageId;
     }
 
@@ -112,7 +112,7 @@ public class b implements Cloneable {
         return this.isGod;
     }
 
-    public String pA() {
+    public String pE() {
         return this.metaKey;
     }
 }

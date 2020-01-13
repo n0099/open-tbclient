@@ -28,8 +28,8 @@ public class a {
     }
 
     public static void a(Context context, int i, Map<String, String> map) {
-        Set<String> cR = b.cR(i);
-        if (a.containsAll(cR)) {
+        Set<String> cS = b.cS(i);
+        if (a.containsAll(cS)) {
             return;
         }
         c();
@@ -37,7 +37,7 @@ public class a {
             b.a();
         }
         try {
-            for (String str : cR) {
+            for (String str : cS) {
                 a(str, context, map);
             }
         } catch (SecurityException e) {
@@ -97,7 +97,7 @@ public class a {
     }
 
     public static boolean a(int i) {
-        return a.containsAll(b.cR(i));
+        return a.containsAll(b.cS(i));
     }
 
     public static String b() {
@@ -111,7 +111,7 @@ public class a {
                 public void run() {
                     String str = Utils.e() + File.separator + "cybermedia" + File.separator + "libs";
                     com.baidu.cyberplayer.sdk.Utils.deleteMismatchChildFile(str, "cyber-media-dex", SDKVersion.VERSION);
-                    for (String str2 : b.cR(Integer.MAX_VALUE)) {
+                    for (String str2 : b.cS(Integer.MAX_VALUE)) {
                         com.baidu.cyberplayer.sdk.Utils.deleteMismatchChildFile(str, str2, b.b(str2));
                     }
                     CyberCfgManager.getInstance().setPrefLong(CyberCfgManager.LAST_CHECK_UNUSED_LIBS_TIME, System.currentTimeMillis());

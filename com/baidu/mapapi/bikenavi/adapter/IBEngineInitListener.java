@@ -1,5 +1,5 @@
 package com.baidu.mapapi.bikenavi.adapter;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface IBEngineInitListener {
     void engineInitFail();
 

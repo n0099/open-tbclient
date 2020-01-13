@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ugc.utils;
 
 import com.baidu.searchbox.publisher.base.PublisherConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UgcServerApiUtils {
     public static final String DEFAULT_PUBLISHER_USER_AGENT = "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 8.1.0; MI 8 MIUI/V10.0.11.0.OEACNFH) baiduboxapp/11.7.0.0 (Baidu; P1 8.1.0)";
     public static final String DEFAULT_REFERER = "https://quanmin.baidu.com/";

@@ -1,8 +1,8 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.TbPageContext;
+import android.app.Activity;
 /* loaded from: classes2.dex */
 public class m {
-    public TbPageContext pageContext;
-    public String userId;
+    public l WE;
+    public Activity activity;
 }

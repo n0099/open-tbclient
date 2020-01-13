@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import okio.BufferedSource;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface c<T> extends e {
     void E(T t);
 
@@ -22,5 +22,5 @@ public interface c<T> extends e {
 
     void a(T t, com.baidu.swan.pms.model.a aVar);
 
-    Map<String, Object> aqI();
+    Map<String, Object> arb();
 }

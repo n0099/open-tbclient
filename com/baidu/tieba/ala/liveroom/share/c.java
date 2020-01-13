@@ -4,8 +4,9 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.k;
-import com.baidu.live.q.a;
+import com.baidu.live.data.l;
+import com.baidu.live.data.m;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.view.BlueCircleProgressDialog;
@@ -13,10 +14,10 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.tieba.model.a;
 /* loaded from: classes2.dex */
 public class c {
-    private BlueCircleProgressDialog aya;
-    private com.baidu.live.tieba.model.a fdS;
-    private k fdT;
-    private a.InterfaceC0092a fdU = new a.InterfaceC0092a() { // from class: com.baidu.tieba.ala.liveroom.share.c.1
+    private BlueCircleProgressDialog ayJ;
+    private com.baidu.live.tieba.model.a fgY;
+    private l fgZ;
+    private a.InterfaceC0093a fha = new a.InterfaceC0093a() { // from class: com.baidu.tieba.ala.liveroom.share.c.1
     };
     private TbPageContext mPageContext;
 
@@ -24,36 +25,41 @@ public class c {
         this.mPageContext = tbPageContext;
     }
 
-    public void c(k kVar, boolean z) {
+    public void c(l lVar, boolean z) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), a.i.sdk_neterror);
-        } else if (kVar != null && kVar.VP != null && kVar.mLiveInfo != null) {
-            this.fdT = kVar;
-            LogManager.getMigrateFromTiebaLogger().doClickShareLog(kVar.VP.userId + "", kVar.mLiveInfo.live_id + "");
+        } else if (lVar != null && lVar.Wf != null && lVar.mLiveInfo != null) {
+            this.fgZ = lVar;
+            LogManager.getMigrateFromTiebaLogger().doClickShareLog(lVar.Wf.userId + "", lVar.mLiveInfo.live_id + "");
             if (TbadkCoreApplication.IS_SDK) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2913077, this.fdT));
+                m mVar = new m();
+                if (this.mPageContext != null) {
+                    mVar.activity = this.mPageContext.getPageActivity();
+                }
+                mVar.WE = this.fgZ;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2913077, mVar));
             }
         }
     }
 
-    private void bnJ() {
-        if (this.aya != null) {
-            this.aya.setDialogVisiable(false);
+    private void boJ() {
+        if (this.ayJ != null) {
+            this.ayJ.setDialogVisiable(false);
         }
     }
 
-    public void oS() {
-        bnJ();
-        if (this.fdS != null) {
-            this.fdS.xo();
+    public void oZ() {
+        boJ();
+        if (this.fgY != null) {
+            this.fgY.xE();
         }
     }
 
     public void onDestroy() {
-        bnJ();
-        if (this.fdS != null) {
-            this.fdS.xo();
-            this.fdS.onDestroy();
+        boJ();
+        if (this.fgY != null) {
+            this.fgY.xE();
+            this.fgY.onDestroy();
         }
     }
 }

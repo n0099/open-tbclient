@@ -3,7 +3,7 @@ package com.baidu.live.gift;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
-    private int adw;
+    private int adL;
     private int isLandScape;
     public String zipDownloadUrl;
     public String zipMD5;
@@ -15,7 +15,7 @@ public class e {
             this.zipDownloadUrl = jSONObject.optString("zip_url");
             this.zipName = jSONObject.optString("zip_name");
             this.isLandScape = jSONObject.optInt("is_landscape");
-            this.adw = jSONObject.optInt("need_download");
+            this.adL = jSONObject.optInt("need_download");
         }
     }
 
@@ -23,7 +23,7 @@ public class e {
         return this.isLandScape == 1;
     }
 
-    public boolean qn() {
-        return this.adw == 1;
+    public boolean qu() {
+        return this.adL == 1;
     }
 }

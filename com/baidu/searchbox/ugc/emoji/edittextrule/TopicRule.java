@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TopicRule extends HighlightAndDeleteRule {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = "TopicRule";
@@ -31,7 +31,7 @@ public class TopicRule extends HighlightAndDeleteRule {
     protected TopicMapSizeChangeListener mTopicMapSizeChangeListener;
     private final StringBuilder mTopicPatternStrBuilder;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface TopicMapSizeChangeListener {
         void onSizeChange(int i);
     }

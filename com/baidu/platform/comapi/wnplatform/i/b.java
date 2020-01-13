@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.wnplatform.i;
 import android.os.Bundle;
 import android.os.Handler;
 import com.baidu.mapsdkplatform.comapi.map.MessageCenter;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends com.baidu.platform.comapi.walknavi.a {
     private a a = null;
     private int b = 1;

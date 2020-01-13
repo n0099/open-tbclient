@@ -9,9 +9,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public static boolean tb(boolean z) {
+    public static boolean tn(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -33,7 +33,7 @@ public class a {
         return true;
     }
 
-    public static int tc(boolean z) {
+    public static int to(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -73,14 +73,14 @@ public class a {
         }
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(i, cameraInfo);
-        int as = as(activity);
+        int at = at(activity);
         if (cameraInfo.facing == 1) {
-            return (360 - ((cameraInfo.orientation + as) % 360)) % 360;
+            return (360 - ((cameraInfo.orientation + at) % 360)) % 360;
         }
-        return ((cameraInfo.orientation - as) + 360) % 360;
+        return ((cameraInfo.orientation - at) + 360) % 360;
     }
 
-    public static int as(Activity activity) {
+    public static int at(Activity activity) {
         switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
             case 0:
             default:
@@ -99,7 +99,7 @@ public class a {
         Camera.Size size;
         boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0611a());
+        Collections.sort(supportedPreviewSizes, new C0616a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -136,9 +136,9 @@ public class a {
     }
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    private static class C0611a implements Comparator<Camera.Size> {
-        private C0611a() {
+    /* loaded from: classes8.dex */
+    private static class C0616a implements Comparator<Camera.Size> {
+        private C0616a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

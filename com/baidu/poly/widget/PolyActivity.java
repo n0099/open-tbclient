@@ -9,16 +9,16 @@ import com.baidu.poly.widget.l;
 import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import com.coloros.mcssdk.mode.CommandMessage;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PolyActivity extends Activity {
-    private static com.baidu.poly.c.a.c aKC;
-    private static a.b aMP;
-    private static PolyActivity aMQ;
+    private static com.baidu.poly.c.a.c aLu;
+    private static a.b aNH;
+    private static PolyActivity aNI;
     private static boolean n;
-    private l aMR;
-    private Bundle aMS;
+    private l aNJ;
+    private Bundle aNK;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     class a implements l.k {
         a() {
         }
@@ -30,26 +30,26 @@ public class PolyActivity extends Activity {
     }
 
     private static void E() {
-        if (aMQ != null) {
-            if (aMP != null) {
+        if (aNI != null) {
+            if (aNH != null) {
                 String a2 = com.baidu.poly.util.a.a(2, null, "repeat_pay_cancel");
-                aMP.onResult(2, a2);
+                aNH.onResult(2, a2);
                 com.baidu.poly.a.g.c.b(2, a2);
             }
-            aMQ.finish();
+            aNI.finish();
         }
     }
 
     private void F() {
-        this.aMS = getIntent().getBundleExtra("pay_arguements");
+        this.aNK = getIntent().getBundleExtra("pay_arguements");
     }
 
     public static void a(Context context, com.baidu.poly.c.a.c cVar, a.b bVar, Bundle bundle) {
         if (n) {
             E();
         }
-        aKC = cVar;
-        aMP = bVar;
+        aLu = cVar;
+        aNH = bVar;
         Intent intent = new Intent(context, PolyActivity.class);
         intent.putExtra("pay_arguements", bundle);
         if (!(context instanceof Activity)) {
@@ -60,21 +60,21 @@ public class PolyActivity extends Activity {
     }
 
     private void clear() {
-        this.aMR = null;
-        aKC = null;
-        this.aMS = null;
-        aMP = null;
+        this.aNJ = null;
+        aLu = null;
+        this.aNK = null;
+        aNH = null;
         n = false;
-        aMQ = null;
+        aNI = null;
     }
 
     private Bundle k(Bundle bundle) {
         if (bundle == null) {
             return new Bundle();
         }
-        com.baidu.poly.a.g.c.aLP = bundle.getString("bduss");
-        com.baidu.poly.a.g.c.aLQ = bundle.getString("tpOrderId");
-        com.baidu.poly.a.g.c.aLT = bundle.getString("nativeAppId");
+        com.baidu.poly.a.g.c.aMH = bundle.getString("bduss");
+        com.baidu.poly.a.g.c.aMI = bundle.getString("tpOrderId");
+        com.baidu.poly.a.g.c.aML = bundle.getString("nativeAppId");
         bundle.putString(CashierData.DEVICE_TYPE, "ANDROID");
         bundle.putString("channel", "cashiersdk");
         bundle.putString(CommandMessage.SDK_VERSION, "2.6.0");
@@ -104,10 +104,10 @@ public class PolyActivity extends Activity {
         super.onActivityResult(i, i2, intent);
         if (i == 200) {
             if (i2 == -1) {
-                com.baidu.poly.a.i.a.BP().a((Context) this, intent.getExtras(), this.aMR, true);
+                com.baidu.poly.a.i.a.Cl().a((Context) this, intent.getExtras(), this.aNJ, true);
                 return;
             }
-            l lVar = this.aMR;
+            l lVar = this.aNJ;
             if (lVar != null) {
                 lVar.a(3, "pay canceled , back from H5. ");
             }
@@ -116,7 +116,7 @@ public class PolyActivity extends Activity {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        l lVar = this.aMR;
+        l lVar = this.aNJ;
         if (lVar == null) {
             super.onBackPressed();
             return;
@@ -130,7 +130,7 @@ public class PolyActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         n = true;
-        aMQ = this;
+        aNI = this;
         com.baidu.poly.a.g.c.o();
         super.onCreate(bundle);
         overridePendingTransition(0, 0);
@@ -162,10 +162,10 @@ public class PolyActivity extends Activity {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && this.aMR == null && !isFinishing()) {
-            this.aMR = new l(this);
-            setContentView(this.aMR);
-            this.aMR.a(aMP).l(k(this.aMS)).a(new com.baidu.poly.a.i.c(new com.baidu.poly.a.i.b(this, aKC))).a(new a()).BR();
+        if (z && this.aNJ == null && !isFinishing()) {
+            this.aNJ = new l(this);
+            setContentView(this.aNJ);
+            this.aNJ.a(aNH).l(k(this.aNK)).a(new com.baidu.poly.a.i.c(new com.baidu.poly.a.i.b(this, aLu))).a(new a()).Cn();
         }
     }
 }

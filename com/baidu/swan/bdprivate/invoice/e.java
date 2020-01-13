@@ -1,11 +1,11 @@
 package com.baidu.swan.bdprivate.invoice;
 
 import com.baidu.swan.bdprivate.invoice.model.InvoiceInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface e {
-    boolean afV();
+    boolean ago();
 
-    boolean afW();
+    boolean agp();
 
     InvoiceInfo getInvoiceInfo();
 }

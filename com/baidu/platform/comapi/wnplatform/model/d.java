@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends a {
     private int a = 0;
     private int b = 0;

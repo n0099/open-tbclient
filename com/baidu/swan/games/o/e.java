@@ -2,10 +2,10 @@ package com.baidu.swan.games.o;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends JSEvent {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         @V8JavascriptField
         public boolean devhook;
@@ -20,8 +20,8 @@ public class e extends JSEvent {
 
     private Object p(com.baidu.swan.apps.x.b.b bVar) {
         a aVar = new a();
-        aVar.scene = bVar.SW();
-        aVar.devhook = bVar.Ti();
+        aVar.scene = bVar.Tt();
+        aVar.devhook = bVar.TF();
         return aVar;
     }
 }

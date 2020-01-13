@@ -8,39 +8,39 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.m;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class k extends com.google.android.exoplayer2.a implements Handler.Callback {
-    private final m mkT;
-    private final Handler mlL;
-    private boolean mlt;
-    private boolean mlu;
-    private final j mum;
-    private final g mun;
-    private int muo;
-    private Format mup;
-    private f muq;
-    private h mur;
-    private i mus;
-    private i mut;
-    private int muu;
+    private final m moI;
+    private final Handler mpA;
+    private boolean mpi;
+    private boolean mpj;
+    private final j mxZ;
+    private final g mya;
+    private int myb;
+    private Format myc;
+    private f myd;
+    private h mye;
+    private i myf;
+    private i myg;
+    private int myh;
 
     public k(j jVar, Looper looper) {
-        this(jVar, looper, g.muk);
+        this(jVar, looper, g.mxX);
     }
 
     public k(j jVar, Looper looper, g gVar) {
         super(3);
-        this.mum = (j) com.google.android.exoplayer2.util.a.checkNotNull(jVar);
-        this.mlL = looper == null ? null : new Handler(looper, this);
-        this.mun = gVar;
-        this.mkT = new m();
+        this.mxZ = (j) com.google.android.exoplayer2.util.a.checkNotNull(jVar);
+        this.mpA = looper == null ? null : new Handler(looper, this);
+        this.mya = gVar;
+        this.moI = new m();
     }
 
     @Override // com.google.android.exoplayer2.t
     public int e(Format format) {
-        if (this.mun.i(format)) {
+        if (this.mya.i(format)) {
             return a((com.google.android.exoplayer2.drm.a<?>) null, format.drmInitData) ? 4 : 2;
-        } else if (com.google.android.exoplayer2.util.i.PR(format.sampleMimeType)) {
+        } else if (com.google.android.exoplayer2.util.i.Qc(format.sampleMimeType)) {
             return 1;
         } else {
             return 0;
@@ -50,100 +50,100 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a
     public void a(Format[] formatArr, long j) throws ExoPlaybackException {
-        this.mup = formatArr[0];
-        if (this.muq != null) {
-            this.muo = 1;
+        this.myc = formatArr[0];
+        if (this.myd != null) {
+            this.myb = 1;
         } else {
-            this.muq = this.mun.p(this.mup);
+            this.myd = this.mya.p(this.myc);
         }
     }
 
     @Override // com.google.android.exoplayer2.a
     protected void j(long j, boolean z) {
-        dvp();
-        this.mlt = false;
-        this.mlu = false;
-        if (this.muo != 0) {
-            dvn();
+        dwA();
+        this.mpi = false;
+        this.mpj = false;
+        if (this.myb != 0) {
+            dwy();
             return;
         }
-        CE();
-        this.muq.flush();
+        Da();
+        this.myd.flush();
     }
 
     @Override // com.google.android.exoplayer2.s
     public void N(long j, long j2) throws ExoPlaybackException {
         boolean z;
-        if (!this.mlu) {
-            if (this.mut == null) {
-                this.muq.gs(j);
+        if (!this.mpj) {
+            if (this.myg == null) {
+                this.myd.gx(j);
                 try {
-                    this.mut = this.muq.drZ();
+                    this.myg = this.myd.dtl();
                 } catch (SubtitleDecoderException e) {
                     throw ExoPlaybackException.createForRenderer(e, getIndex());
                 }
             }
             if (getState() == 2) {
-                if (this.mus != null) {
-                    long dvo = dvo();
+                if (this.myf != null) {
+                    long dwz = dwz();
                     z = false;
-                    while (dvo <= j) {
-                        this.muu++;
-                        dvo = dvo();
+                    while (dwz <= j) {
+                        this.myh++;
+                        dwz = dwz();
                         z = true;
                     }
                 } else {
                     z = false;
                 }
-                if (this.mut != null) {
-                    if (this.mut.drT()) {
-                        if (!z && dvo() == Format.OFFSET_SAMPLE_RELATIVE) {
-                            if (this.muo == 2) {
-                                dvn();
+                if (this.myg != null) {
+                    if (this.myg.dtf()) {
+                        if (!z && dwz() == Format.OFFSET_SAMPLE_RELATIVE) {
+                            if (this.myb == 2) {
+                                dwy();
                             } else {
-                                CE();
-                                this.mlu = true;
+                                Da();
+                                this.mpj = true;
                             }
                         }
-                    } else if (this.mut.lYY <= j) {
-                        if (this.mus != null) {
-                            this.mus.release();
+                    } else if (this.myg.mcQ <= j) {
+                        if (this.myf != null) {
+                            this.myf.release();
                         }
-                        this.mus = this.mut;
-                        this.mut = null;
-                        this.muu = this.mus.gt(j);
+                        this.myf = this.myg;
+                        this.myg = null;
+                        this.myh = this.myf.gy(j);
                         z = true;
                     }
                 }
                 if (z) {
-                    fn(this.mus.gu(j));
+                    fn(this.myf.gz(j));
                 }
-                if (this.muo != 2) {
-                    while (!this.mlt) {
+                if (this.myb != 2) {
+                    while (!this.mpi) {
                         try {
-                            if (this.mur == null) {
-                                this.mur = this.muq.drY();
-                                if (this.mur == null) {
+                            if (this.mye == null) {
+                                this.mye = this.myd.dtk();
+                                if (this.mye == null) {
                                     return;
                                 }
                             }
-                            if (this.muo == 1) {
-                                this.mur.setFlags(4);
-                                this.muq.bu(this.mur);
-                                this.mur = null;
-                                this.muo = 2;
+                            if (this.myb == 1) {
+                                this.mye.setFlags(4);
+                                this.myd.bv(this.mye);
+                                this.mye = null;
+                                this.myb = 2;
                                 return;
                             }
-                            int a = a(this.mkT, (com.google.android.exoplayer2.a.e) this.mur, false);
+                            int a = a(this.moI, (com.google.android.exoplayer2.a.e) this.mye, false);
                             if (a == -4) {
-                                if (this.mur.drT()) {
-                                    this.mlt = true;
+                                if (this.mye.dtf()) {
+                                    this.mpi = true;
                                 } else {
-                                    this.mur.subsampleOffsetUs = this.mkT.lUU.subsampleOffsetUs;
-                                    this.mur.dse();
+                                    this.mye.subsampleOffsetUs = this.moI.lYL.subsampleOffsetUs;
+                                    this.mye.dtq();
                                 }
-                                this.muq.bu(this.mur);
-                                this.mur = null;
+                                this.myd.bv(this.mye);
+                                this.mye = null;
                             } else if (a == -3) {
                                 return;
                             }
@@ -157,15 +157,15 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
     }
 
     @Override // com.google.android.exoplayer2.a
-    protected void dqm() {
-        this.mup = null;
-        dvp();
-        dvm();
+    protected void dry() {
+        this.myc = null;
+        dwA();
+        dwx();
     }
 
     @Override // com.google.android.exoplayer2.s
-    public boolean ati() {
-        return this.mlu;
+    public boolean atB() {
+        return this.mpj;
     }
 
     @Override // com.google.android.exoplayer2.s
@@ -173,44 +173,44 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
         return true;
     }
 
-    private void CE() {
-        this.mur = null;
-        this.muu = -1;
-        if (this.mus != null) {
-            this.mus.release();
-            this.mus = null;
+    private void Da() {
+        this.mye = null;
+        this.myh = -1;
+        if (this.myf != null) {
+            this.myf.release();
+            this.myf = null;
         }
-        if (this.mut != null) {
-            this.mut.release();
-            this.mut = null;
+        if (this.myg != null) {
+            this.myg.release();
+            this.myg = null;
         }
     }
 
-    private void dvm() {
-        CE();
-        this.muq.release();
-        this.muq = null;
-        this.muo = 0;
+    private void dwx() {
+        Da();
+        this.myd.release();
+        this.myd = null;
+        this.myb = 0;
     }
 
-    private void dvn() {
-        dvm();
-        this.muq = this.mun.p(this.mup);
+    private void dwy() {
+        dwx();
+        this.myd = this.mya.p(this.myc);
     }
 
-    private long dvo() {
-        return (this.muu == -1 || this.muu >= this.mus.dvl()) ? Format.OFFSET_SAMPLE_RELATIVE : this.mus.KW(this.muu);
+    private long dwz() {
+        return (this.myh == -1 || this.myh >= this.myf.dww()) ? Format.OFFSET_SAMPLE_RELATIVE : this.myf.Lf(this.myh);
     }
 
     private void fn(List<b> list) {
-        if (this.mlL != null) {
-            this.mlL.obtainMessage(0, list).sendToTarget();
+        if (this.mpA != null) {
+            this.mpA.obtainMessage(0, list).sendToTarget();
         } else {
             fo(list);
         }
     }
 
-    private void dvp() {
+    private void dwA() {
         fn(Collections.emptyList());
     }
 
@@ -226,6 +226,6 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
     }
 
     private void fo(List<b> list) {
-        this.mum.fe(list);
+        this.mxZ.fe(list);
     }
 }

@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.drm;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class UnsupportedDrmException extends Exception {
     public static final int REASON_INSTANTIATION_ERROR = 2;
     public static final int REASON_UNSUPPORTED_SCHEME = 1;

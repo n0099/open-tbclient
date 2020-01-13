@@ -4,41 +4,41 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CreateGroupActivityModel extends BdBaseModel<BaseActivity> {
-    private GroupActivityData hwl;
-    RequestCreateGroupActivityMessage hwm;
+    private GroupActivityData hzO;
+    RequestCreateGroupActivityMessage hzP;
     private BaseActivity mActivity;
 
     public CreateGroupActivityModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.hwl = new GroupActivityData();
+        this.hzO = new GroupActivityData();
         this.mActivity = baseActivity;
     }
 
-    public GroupActivityData bSP() {
-        return this.hwl;
+    public GroupActivityData bTY() {
+        return this.hzO;
     }
 
-    public void nr(boolean z) {
-        if (this.hwl != null) {
-            this.hwm = new RequestCreateGroupActivityMessage();
-            this.hwm.setCommitType(z ? 1 : 0);
+    public void nD(boolean z) {
+        if (this.hzO != null) {
+            this.hzP = new RequestCreateGroupActivityMessage();
+            this.hzP.setCommitType(z ? 1 : 0);
             if (z) {
-                this.hwm.setActivityId(this.hwl.getActivityId());
+                this.hzP.setActivityId(this.hzO.getActivityId());
             }
-            this.hwm.setgActivityArea(this.hwl.getgActivityArea());
-            this.hwm.setgActivityContent(this.hwl.getgActivityContent());
-            this.hwm.setgActivityTime(this.hwl.getgActivityTime());
-            this.hwm.setgActivityTitle(this.hwl.getgActivityTitle());
-            this.hwm.setGroupId(this.hwl.getGroupId());
-            this.mActivity.sendMessage(this.hwm);
+            this.hzP.setgActivityArea(this.hzO.getgActivityArea());
+            this.hzP.setgActivityContent(this.hzO.getgActivityContent());
+            this.hzP.setgActivityTime(this.hzO.getgActivityTime());
+            this.hzP.setgActivityTitle(this.hzO.getgActivityTitle());
+            this.hzP.setGroupId(this.hzO.getGroupId());
+            this.mActivity.sendMessage(this.hzP);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.hwm != null) {
+        if (this.hzP != null) {
         }
     }
 

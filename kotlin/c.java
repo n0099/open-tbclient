@@ -1,5 +1,4 @@
 package kotlin;
-/* loaded from: classes4.dex */
-public interface c<T> {
-    T getValue();
+/* loaded from: classes5.dex */
+public interface c<R> {
 }

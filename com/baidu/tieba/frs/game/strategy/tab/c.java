@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs.game.strategy.tab;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface c {
-    e ti(int i);
+    e tn(int i);
 }

@@ -8,29 +8,29 @@ import java.util.Collections;
 import java.util.Comparator;
 /* loaded from: classes2.dex */
 public class c {
-    public b adu;
+    public b adJ;
     public ArrayList<String> unZipFilesPathList;
     public String upZipDirPath;
 
     public String getDynamicGiftId() {
-        if (this.adu == null) {
+        if (this.adJ == null) {
             return null;
         }
-        return this.adu.giftId;
+        return this.adJ.giftId;
     }
 
     public boolean isLandScapeZip() {
-        if (this.adu == null || this.adu.ads == null) {
+        if (this.adJ == null || this.adJ.adH == null) {
             return false;
         }
-        return this.adu.ads.isLandScape();
+        return this.adJ.adH.isLandScape();
     }
 
-    public boolean qn() {
-        if (this.adu == null || this.adu.ads == null) {
+    public boolean qu() {
+        if (this.adJ == null || this.adJ.adH == null) {
             return false;
         }
-        return this.adu.ads.qn();
+        return this.adJ.adH.qu();
     }
 
     public ArrayList<String> getDynamicGiftPicPathList() {

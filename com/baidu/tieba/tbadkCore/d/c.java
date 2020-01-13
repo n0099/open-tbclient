@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c {
-    private static HashMap<String, e> kdl;
+    private static HashMap<String, e> kgO;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.tbadkCore.d.c.1
@@ -17,11 +17,11 @@ public class c {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    c.Co(1);
+                    c.Ct(1);
                 }
             }
         });
-        kdl = new HashMap<>();
+        kgO = new HashMap<>();
     }
 
     public static void A(String str, String str2, boolean z) {
@@ -29,8 +29,8 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!kdl.containsKey(str3)) {
-            kdl.put(str3, new e(str, str2, z));
+        if (!kgO.containsKey(str3)) {
+            kgO.put(str3, new e(str, str2, z));
         }
     }
 
@@ -39,40 +39,40 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!kdl.containsKey(str3)) {
-            kdl.put(str3, new e(str, str2, z));
+        if (!kgO.containsKey(str3)) {
+            kgO.put(str3, new e(str, str2, z));
         }
-        return kdl.get(str3);
+        return kgO.get(str3);
     }
 
-    public static void cIO() {
+    public static void cJS() {
     }
 
-    public static void Co(int i) {
-        for (String str : kdl.keySet()) {
-            a(kdl.get(str), i);
+    public static void Ct(int i) {
+        for (String str : kgO.keySet()) {
+            a(kgO.get(str), i);
         }
     }
 
     public static void a(e eVar, int i) {
-        d dVar = eVar.kdp;
-        d dVar2 = eVar.kdq;
-        d dVar3 = eVar.kdr;
+        d dVar = eVar.kgS;
+        d dVar2 = eVar.kgT;
+        d dVar3 = eVar.kgU;
         if (dVar.num + dVar2.num + dVar3.num >= i) {
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
             aVar.append("act", eVar.type);
-            aVar.append("httpTimeCost", String.valueOf(dVar.kdm));
+            aVar.append("httpTimeCost", String.valueOf(dVar.kgP));
             aVar.append("httpNum", String.valueOf(dVar.num));
-            aVar.append("httpFailnum", String.valueOf(dVar.kdn));
+            aVar.append("httpFailnum", String.valueOf(dVar.kgQ));
             aVar.append("httpSize", String.valueOf(dVar.size));
-            aVar.append("socketTimeCost", String.valueOf(dVar2.kdm));
+            aVar.append("socketTimeCost", String.valueOf(dVar2.kgP));
             aVar.append("socketNum", String.valueOf(dVar2.num));
-            aVar.append("socketFailnum", String.valueOf(dVar2.kdn));
+            aVar.append("socketFailnum", String.valueOf(dVar2.kgQ));
             aVar.append("socketSize", String.valueOf(dVar2.size));
-            aVar.append("abortTimeCost", String.valueOf(dVar3.kdm));
+            aVar.append("abortTimeCost", String.valueOf(dVar3.kgP));
             aVar.append("abortNum", String.valueOf(dVar3.num));
             aVar.append("netType", eVar.netType);
-            aVar.append("isJson", eVar.kdo ? "1" : "0");
+            aVar.append("isJson", eVar.kgR ? "1" : "0");
             BdStatisticsManager.getInstance().debug("frs", aVar);
             dVar.reset();
             dVar2.reset();

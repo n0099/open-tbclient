@@ -1,7 +1,7 @@
 package kotlin.sequences;
 
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class SequencesKt___SequencesKt$onEach$1 extends Lambda implements kotlin.jvm.a.b<T, T> {
     final /* synthetic */ kotlin.jvm.a.b $action;
 

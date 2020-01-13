@@ -8,11 +8,11 @@ import com.baidu.tieba.video.editvideo.b.b;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a ksb;
-    private b ksc;
-    b.a ksd;
+    private com.baidu.tieba.video.editvideo.data.a kvE;
+    private b kvF;
+    b.a kvG;
     private Context mContext;
 
     public a(Context context) {
@@ -20,49 +20,49 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.ksb = aVar;
+        this.kvE = aVar;
     }
 
-    public boolean cNg() {
-        return (this.ksb == null || "normal".equalsIgnoreCase(this.ksb.value)) ? false : true;
+    public boolean cOl() {
+        return (this.kvE == null || "normal".equalsIgnoreCase(this.kvE.value)) ? false : true;
     }
 
-    public void JC(String str) {
-        if ((this.ksc == null || !this.ksc.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String cNi = cNi();
+    public void JM(String str) {
+        if ((this.kvF == null || !this.kvF.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String cOn = cOn();
             String str2 = "normal";
-            if (this.ksb != null) {
-                str2 = this.ksb.value;
+            if (this.kvE != null) {
+                str2 = this.kvE.value;
             }
-            this.ksc = new b(this.mContext, str, cNi, str2);
-            if (this.ksd != null) {
-                this.ksc.a(this.ksd);
+            this.kvF = new b(this.mContext, str, cOn, str2);
+            if (this.kvG != null) {
+                this.kvF.a(this.kvG);
             }
-            this.ksc.cNj();
+            this.kvF.cOo();
         }
     }
 
-    public boolean cNh() {
-        if (this.ksc != null) {
-            return this.ksc.isRunning();
+    public boolean cOm() {
+        if (this.kvF != null) {
+            return this.kvF.isRunning();
         }
         return false;
     }
 
     public void interruptProcess() {
-        if (this.ksc != null) {
-            this.ksc.cNk();
+        if (this.kvF != null) {
+            this.kvF.cOp();
         }
     }
 
     public void a(b.a aVar) {
-        this.ksd = aVar;
-        if (this.ksc != null) {
-            this.ksc.a(this.ksd);
+        this.kvG = aVar;
+        if (this.kvF != null) {
+            this.kvF.a(this.kvG);
         }
     }
 
-    public static List<com.baidu.tieba.video.editvideo.data.a> fy(Context context) {
+    public static List<com.baidu.tieba.video.editvideo.data.a> fz(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             context = TbadkCoreApplication.getInst();
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String cNi() {
-        return com.baidu.tieba.video.c.kqg + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String cOn() {
+        return com.baidu.tieba.video.c.ktJ + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

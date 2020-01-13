@@ -21,7 +21,7 @@ import com.tencent.open.SocialOperation;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
     static String b;
     static String c;
@@ -223,7 +223,7 @@ public class f {
             }
             f = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
-            e = com.baidu.searchbox.aps.megapp_interface.BuildConfig.VERSION_NAME;
+            e = "1.0.0";
             f = 1;
         }
     }

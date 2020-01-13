@@ -1,7 +1,7 @@
 package com.baidu.minivideo.plugin.capture.download.base;
 
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DownloadStatus {
     public static final int STATUS_CANCELED = 107;
     public static final int STATUS_COMPLETED = 105;

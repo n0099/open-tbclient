@@ -19,7 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CompressImageUtil {
     private static final int COMPRESS_MAX = 100;
     private static final int DEFAULT_COMPRESS_VALUE = 40;

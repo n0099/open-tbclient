@@ -5,7 +5,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.util.Pair;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class h<T> {
     @Nullable
     T first;

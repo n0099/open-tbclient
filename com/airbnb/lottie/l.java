@@ -2,7 +2,7 @@ package com.airbnb.lottie;
 
 import android.support.annotation.Nullable;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class l<V> {
     @Nullable
     private final Throwable exception;

@@ -24,75 +24,75 @@ import com.baidu.tbadk.k.h;
 import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.HotThread.tinfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends c<ChosenPostActivity> {
-    private NavigationBar dXE;
-    private g eoy;
-    private NoNetworkView ewC;
-    private ChosenPostActivity fIN;
-    private BdListView fIO;
-    private com.baidu.tieba.chosen.posts.a fIP;
-    private com.baidu.tbadk.mvc.g.a fIQ;
-    private boolean fIR;
-    private h fIS;
-    int fIT;
+    private NavigationBar dXN;
+    private g epL;
+    private NoNetworkView exO;
+    private ChosenPostActivity fLX;
+    private BdListView fLY;
+    private com.baidu.tieba.chosen.posts.a fLZ;
+    private com.baidu.tbadk.mvc.g.a fMa;
+    private boolean fMb;
+    private h fMc;
+    int fMd;
     private com.baidu.tbadk.core.view.h mPullView;
     private View mRootView;
     int paddingHorizontal;
 
-    protected com.baidu.tbadk.core.view.h bti() {
+    protected com.baidu.tbadk.core.view.h buk() {
         if (this.mPullView == null) {
-            this.mPullView = new com.baidu.tbadk.core.view.h(this.fIN.getPageContext());
+            this.mPullView = new com.baidu.tbadk.core.view.h(this.fLX.getPageContext());
         }
         return this.mPullView;
     }
 
     public b(ChosenPostActivity chosenPostActivity) {
         super(chosenPostActivity.getPageContext());
-        this.fIR = false;
-        this.fIN = chosenPostActivity;
+        this.fMb = false;
+        this.fLX = chosenPostActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View bci() {
-        this.mRootView = this.fIN.getLayoutInflater().inflate(R.layout.chosen_post_activity, (ViewGroup) null);
+    public View bcD() {
+        this.mRootView = this.fLX.getLayoutInflater().inflate(R.layout.chosen_post_activity, (ViewGroup) null);
         return this.mRootView;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void btj() {
-        this.fIT = this.fIN.getResources().getDimensionPixelSize(R.dimen.ds108);
-        this.paddingHorizontal = this.fIN.getResources().getDimensionPixelSize(R.dimen.ds150);
-        this.dXE = (NavigationBar) getView().findViewById(R.id.chosen_post_navigation_bar);
-        this.dXE.setTitleText(R.string.recommend_frs_hot_thread_title);
-        this.dXE.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.fIO = (BdListView) getView().findViewById(R.id.chosen_post_list);
-        this.ewC = (NoNetworkView) getView().findViewById(R.id.view_no_network);
-        this.fIP = new com.baidu.tieba.chosen.posts.a(this.fIN.getPageContext(), new Class[]{com.baidu.tieba.chosen.posts.a.c.class, com.baidu.tieba.chosen.posts.a.b.class, com.baidu.tieba.chosen.posts.a.a.class}, new int[]{R.layout.chosen_picture_layout, R.layout.chosen_no_picture_layout, R.layout.chosen_image_text_layout}, this.fIN.aOf());
-        this.fIO.setAdapter((ListAdapter) this.fIP);
-        this.mPullView = bti();
-        this.fIO.setPullRefresh(this.mPullView);
+    public void bul() {
+        this.fMd = this.fLX.getResources().getDimensionPixelSize(R.dimen.ds108);
+        this.paddingHorizontal = this.fLX.getResources().getDimensionPixelSize(R.dimen.ds150);
+        this.dXN = (NavigationBar) getView().findViewById(R.id.chosen_post_navigation_bar);
+        this.dXN.setTitleText(R.string.recommend_frs_hot_thread_title);
+        this.dXN.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.fLY = (BdListView) getView().findViewById(R.id.chosen_post_list);
+        this.exO = (NoNetworkView) getView().findViewById(R.id.view_no_network);
+        this.fLZ = new com.baidu.tieba.chosen.posts.a(this.fLX.getPageContext(), new Class[]{com.baidu.tieba.chosen.posts.a.c.class, com.baidu.tieba.chosen.posts.a.b.class, com.baidu.tieba.chosen.posts.a.a.class}, new int[]{R.layout.chosen_picture_layout, R.layout.chosen_no_picture_layout, R.layout.chosen_image_text_layout}, this.fLX.aOy());
+        this.fLY.setAdapter((ListAdapter) this.fLZ);
+        this.mPullView = buk();
+        this.fLY.setPullRefresh(this.mPullView);
         this.mPullView.setListPullRefreshListener(new g.c() { // from class: com.baidu.tieba.chosen.posts.b.1
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
-                b.this.fIN.btd().kh(z);
+                b.this.fLX.buf().ks(z);
             }
         });
-        this.fIO.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.chosen.posts.b.2
+        this.fLY.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.chosen.posts.b.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                tinfo item = b.this.fIP.getItem(i);
+                tinfo item = b.this.fLZ.getItem(i);
                 if (item != null) {
                     TiebaStatic.eventStat(b.this.getActivity(), "kantie_5", null, 1, "threadId", item.thread_id);
                     b.this.getPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(b.this.getActivity()).createNormalCfg(String.valueOf(item.thread_id), null, null)));
                 }
             }
         });
-        this.fIO.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.chosen.posts.b.3
+        this.fLY.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.chosen.posts.b.3
             @Override // android.widget.AdapterView.OnItemLongClickListener
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int i, long j) {
                 final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(b.this.getActivity());
-                aVar.sz(b.this.getActivity().getString(R.string.chosen_post_dialog_text));
+                aVar.sC(b.this.getActivity().getString(R.string.chosen_post_dialog_text));
                 aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.chosen.posts.b.3.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -104,50 +104,50 @@ public class b extends c<ChosenPostActivity> {
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         aVar.dismiss();
                         com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4101, null, null, null);
-                        bVar.setExtra(b.this.fIP.getItem(i));
-                        bVar.setUniqueId(b.this.fIN.getUniqueId());
-                        b.this.fIN.aOf().dispatchMvcEvent(bVar);
+                        bVar.setExtra(b.this.fLZ.getItem(i));
+                        bVar.setUniqueId(b.this.fLX.getUniqueId());
+                        b.this.fLX.aOy().dispatchMvcEvent(bVar);
                     }
                 });
-                aVar.b(b.this.fIN.getPageContext());
-                aVar.aBW();
+                aVar.b(b.this.fLX.getPageContext());
+                aVar.aCp();
                 return true;
             }
         });
-        this.fIO.setExOnSrollToBottomListener(new BdListView.f() { // from class: com.baidu.tieba.chosen.posts.b.4
+        this.fLY.setExOnSrollToBottomListener(new BdListView.f() { // from class: com.baidu.tieba.chosen.posts.b.4
             @Override // com.baidu.adp.widget.ListView.BdListView.f
             public void v(BdListView bdListView) {
                 if (l.isNetOk()) {
-                    b.this.fIN.btd().bth();
-                } else if (b.this.fIQ != null) {
-                    b.this.fIQ.lw();
-                    b.this.fIQ.ms(R.string.no_more_msg);
+                    b.this.fLX.buf().buj();
+                } else if (b.this.fMa != null) {
+                    b.this.fMa.display();
+                    b.this.fMa.ms(R.string.no_more_msg);
                 }
             }
         });
-        this.fIQ = new com.baidu.tbadk.mvc.g.a(this.fIN);
-        this.fIQ.createView();
-        getListView().setNextPage(this.fIQ);
-        this.eoy = new com.baidu.tbadk.k.g(getActivity());
-        this.eoy.onChangeSkinType();
-        this.eoy.attachView(getView(), true);
-        this.fIN.btd().btg();
+        this.fMa = new com.baidu.tbadk.mvc.g.a(this.fLX);
+        this.fMa.createView();
+        getListView().setNextPage(this.fMa);
+        this.epL = new com.baidu.tbadk.k.g(getActivity());
+        this.epL.onChangeSkinType();
+        this.epL.attachView(getView(), true);
+        this.fLX.buf().bui();
     }
 
     public Activity getActivity() {
-        return this.fIN.getPageContext().getPageActivity();
+        return this.fLX.getPageContext().getPageActivity();
     }
 
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        switch (bVar.aNy()) {
+        switch (bVar.aNR()) {
             case 4097:
-                this.fIR = false;
+                this.fMb = false;
                 break;
             case 4098:
-                this.fIR = true;
+                this.fMb = true;
                 break;
             case 4099:
-                a(bVar.aNz());
+                a(bVar.aNS());
                 break;
             case 4102:
                 c(bVar);
@@ -159,39 +159,39 @@ public class b extends c<ChosenPostActivity> {
     private void c(com.baidu.tbadk.mvc.c.b bVar) {
         Object extra = bVar.getExtra();
         if (extra instanceof Long) {
-            this.fIP.de(((Long) extra).longValue());
-            if (this.fIP.getCount() <= 5) {
-                btk();
+            this.fLZ.dj(((Long) extra).longValue());
+            if (this.fLZ.getCount() <= 5) {
+                bum();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ErrorData errorData) {
-        if (this.eoy != null) {
-            this.eoy.dettachView(getView());
+        if (this.epL != null) {
+            this.epL.dettachView(getView());
         }
-        if (errorData != null && this.fIP.aOc() <= 0) {
+        if (errorData != null && this.fLZ.aOv() <= 0) {
             showNetRefreshView(getView(), getPageContext().getResources().getString(R.string.net_error_text, errorData.getError_msg(), Integer.valueOf(errorData.getError_code())), true);
         }
-        this.fIO.completePullRefreshPostDelayed(0L);
-        if (this.fIQ != null) {
-            this.fIQ.ms(R.string.no_more_msg);
+        this.fLY.completePullRefreshPostDelayed(0L);
+        if (this.fMa != null) {
+            this.fMa.ms(R.string.no_more_msg);
         }
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.dXE != null) {
-            this.dXE.onChangeSkinType(tbPageContext, i);
+        if (this.dXN != null) {
+            this.dXN.onChangeSkinType(tbPageContext, i);
         }
-        if (this.fIP != null) {
-            this.fIP.b(tbPageContext, i);
+        if (this.fLZ != null) {
+            this.fLZ.b(tbPageContext, i);
         }
-        if (this.fIQ != null) {
-            this.fIQ.b(tbPageContext, i);
+        if (this.fMa != null) {
+            this.fMa.b(tbPageContext, i);
         }
-        if (this.ewC != null) {
-            this.ewC.onChangeSkinType(tbPageContext, i);
+        if (this.exO != null) {
+            this.exO.onChangeSkinType(tbPageContext, i);
         }
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
@@ -202,18 +202,18 @@ public class b extends c<ChosenPostActivity> {
     public void c(com.baidu.tbadk.mvc.d.b bVar) {
         if (bVar instanceof com.baidu.tbadk.mvc.d.a) {
             com.baidu.tbadk.mvc.d.a aVar = (com.baidu.tbadk.mvc.d.a) bVar;
-            if (aVar.aOa()) {
-                this.fIQ.lw();
-                if (aVar.aNY()) {
-                    this.fIQ.mr(R.string.loading);
-                } else if (!aVar.aNZ()) {
-                    this.fIQ.ms(R.string.no_more_msg);
+            if (aVar.aOt()) {
+                this.fMa.display();
+                if (aVar.aOr()) {
+                    this.fMa.mr(R.string.loading);
+                } else if (!aVar.aOs()) {
+                    this.fMa.ms(R.string.no_more_msg);
                 }
             } else {
-                this.fIQ.hide();
+                this.fMa.hide();
             }
             if (!aVar.isPullRefreshing()) {
-                this.fIO.completePullRefreshPostDelayed(0L);
+                this.fLY.completePullRefreshPostDelayed(0L);
             }
         }
     }
@@ -221,57 +221,57 @@ public class b extends c<ChosenPostActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof com.baidu.tieba.chosen.posts.request.b) {
-            List<tinfo> btm = ((com.baidu.tieba.chosen.posts.request.b) aVar).btm();
-            if (btm != null && btm.size() > 0) {
-                this.fIO.setVisibility(0);
+            List<tinfo> buo = ((com.baidu.tieba.chosen.posts.request.b) aVar).buo();
+            if (buo != null && buo.size() > 0) {
+                this.fLY.setVisibility(0);
             }
-            if (this.eoy != null) {
-                this.eoy.dettachView(getView());
+            if (this.epL != null) {
+                this.epL.dettachView(getView());
             }
-            if (this.fIR) {
-                this.fIP.aK(btm);
+            if (this.fMb) {
+                this.fLZ.aJ(buo);
                 return;
             }
-            this.fIP.aL(btm);
-            if (btm != null) {
-                BdToast a2 = BdToast.a(getActivity(), getActivity().getString(R.string.chosen_post_recommend, new Object[]{Integer.valueOf(btm.size())}), 0);
+            this.fLZ.aK(buo);
+            if (buo != null) {
+                BdToast a2 = BdToast.a(getActivity(), getActivity().getString(R.string.chosen_post_recommend, new Object[]{Integer.valueOf(buo.size())}), 0);
                 a2.jN(48);
-                a2.setOffsetY(this.fIT);
+                a2.setOffsetY(this.fMd);
                 a2.setPaddingHorizontal(this.paddingHorizontal);
-                a2.aCa().aCb();
+                a2.aCt().aCu();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btk() {
+    public void bum() {
         com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4100, null, null, null);
-        bVar.setUniqueId(this.fIN.getUniqueId());
-        this.fIN.aOf().dispatchMvcEvent(bVar);
+        bVar.setUniqueId(this.fLX.getUniqueId());
+        this.fLX.aOy().dispatchMvcEvent(bVar);
     }
 
     public BdListView getListView() {
-        return this.fIO;
+        return this.fLY;
     }
 
     private void showNetRefreshView(View view, String str, boolean z) {
-        if (this.fIS == null) {
-            this.fIS = new h(getPageContext().getPageActivity(), new a());
+        if (this.fMc == null) {
+            this.fMc = new h(getPageContext().getPageActivity(), new a());
         }
-        this.fIS.setSubText(str);
-        this.fIS.attachView(view, z);
-        this.fIS.showRefreshButton();
+        this.fMc.setSubText(str);
+        this.fMc.attachView(view, z);
+        this.fMc.showRefreshButton();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideNetRefreshView(View view) {
-        if (this.fIS != null) {
-            this.fIS.dettachView(view);
+        if (this.fMc != null) {
+            this.fMc.dettachView(view);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         private a() {
         }
@@ -279,8 +279,8 @@ public class b extends c<ChosenPostActivity> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b.this.hideNetRefreshView(b.this.getView());
-            b.this.eoy.attachView(b.this.getView(), true);
-            b.this.btk();
+            b.this.epL.attachView(b.this.getView(), true);
+            b.this.bum();
         }
     }
 

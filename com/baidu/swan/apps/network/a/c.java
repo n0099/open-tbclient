@@ -7,15 +7,15 @@ import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c implements Interceptor {
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Request request = chain.request();
-        String mC = ai.mC(d.NK().Oh());
-        if (TextUtils.isEmpty(mC)) {
-            mC = "";
+        String mF = ai.mF(d.Og().OD());
+        if (TextUtils.isEmpty(mF)) {
+            mF = "";
         }
-        return chain.proceed(request.newBuilder().header("User-Agent", mC).build());
+        return chain.proceed(request.newBuilder().header("User-Agent", mF).build());
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.searchbox.ugc.utils.SelectUtil;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlbumProviderImpl implements IAlbumInterface {
     private static final String COMMENT_VALUE = "comment";
     UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();

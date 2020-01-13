@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.net;
 
 import com.sina.weibo.sdk.exception.WeiboException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface RequestListener {
     void onComplete(String str);
 

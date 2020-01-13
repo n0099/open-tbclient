@@ -8,7 +8,7 @@ import com.baidu.tieba.ad.download.d;
 import com.baidu.tieba.ad.download.mvp.b;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.ad.download.mvp.a<b, AdDownloadData> {
     public a(@NonNull b bVar, @NonNull AdDownloadData adDownloadData, String str) {
         super(bVar, adDownloadData, str);
@@ -20,25 +20,25 @@ public class a extends com.baidu.tieba.ad.download.mvp.a<b, AdDownloadData> {
     public void a(AdDownloadData adDownloadData) {
         if (adDownloadData != null) {
             DownloadStatus currentState = adDownloadData.getCurrentState();
-            DownloadCacheKey wC = d.aVA().wC(adDownloadData.adId());
+            DownloadCacheKey wG = d.aVT().wG(adDownloadData.adId());
             switch (currentState) {
                 case STATUS_NONE:
-                    if (wC != null) {
-                        d.aVA().c(wC, null);
+                    if (wG != null) {
+                        d.aVT().c(wG, null);
                         return;
                     }
                     return;
                 case STATUS_DOWNLOADING:
-                    d.aVA().wz(adDownloadData.adId());
+                    d.aVT().wD(adDownloadData.adId());
                     return;
                 case STATUS_PAUSED:
-                    d.aVA().wA(adDownloadData.adId());
+                    d.aVT().wE(adDownloadData.adId());
                     return;
                 case STATUS_SUCCESS:
-                    if (wC != null) {
+                    if (wG != null) {
                         String downloadFilePath = adDownloadData.extra().getDownloadFilePath();
                         if (!TextUtils.isEmpty(downloadFilePath) && new File(downloadFilePath).exists()) {
-                            d.aVA().a(aVC().getRealView().getContext(), wC, adDownloadData.extra().getDownloadFilePath());
+                            d.aVT().a(aVV().getRealView().getContext(), wG, adDownloadData.extra().getDownloadFilePath());
                             return;
                         }
                         adDownloadData.extra().setStatus(DownloadStatus.STATUS_NONE);
@@ -47,7 +47,7 @@ public class a extends com.baidu.tieba.ad.download.mvp.a<b, AdDownloadData> {
                     }
                     return;
                 case STATUS_INSTALL_SUCCESS:
-                    d.aVA().aM(aVC().getRealView().getContext(), adDownloadData.pkgName());
+                    d.aVT().aN(aVV().getRealView().getContext(), adDownloadData.pkgName());
                     return;
                 default:
                     return;

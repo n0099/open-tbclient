@@ -2,7 +2,7 @@ package com.baidu.tieba.VideoCache;
 
 import java.io.Serializable;
 import java.util.Comparator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AccessTimeComparator implements Serializable, Comparator<d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
@@ -10,10 +10,10 @@ public class AccessTimeComparator implements Serializable, Comparator<d> {
         if (dVar == null || dVar2 == null) {
             return 0;
         }
-        long aUs = dVar.aUs();
-        long aUs2 = dVar2.aUs();
-        int i = aUs > aUs2 ? 1 : 0;
-        if (aUs < aUs2) {
+        long aUM = dVar.aUM();
+        long aUM2 = dVar2.aUM();
+        int i = aUM > aUM2 ? 1 : 0;
+        if (aUM < aUM2) {
             return -1;
         }
         return i;

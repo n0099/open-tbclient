@@ -3,14 +3,14 @@ package com.baidu.swan.config.c;
 import com.baidu.swan.config.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.swan.config.core.a.a {
     @Override // com.baidu.swan.config.core.a.c
-    public JSONObject agu() {
+    public JSONObject agN() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("version", c.agv().agw());
+            jSONObject2.put("version", c.agO().agP());
             jSONObject.put("base_info", jSONObject2);
         } catch (JSONException e) {
             if (e.DEBUG) {

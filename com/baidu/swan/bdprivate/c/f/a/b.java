@@ -2,7 +2,7 @@ package com.baidu.swan.bdprivate.c.f.a;
 
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -13,6 +13,6 @@ public class b extends a {
     @Override // com.baidu.swan.bdprivate.c.f.a.a
     @NonNull
     protected String getUrl() {
-        return com.baidu.swan.apps.h.a.Il();
+        return com.baidu.swan.apps.h.a.IH();
     }
 }

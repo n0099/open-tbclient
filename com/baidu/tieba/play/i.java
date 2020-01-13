@@ -5,19 +5,19 @@ import android.content.Context;
 public interface i {
     String W(String str, boolean z);
 
-    void aG(Context context, String str);
-
     void aH(Context context, String str);
+
+    void aI(Context context, String str);
 
     void clearCache(Context context);
 
     void d(Context context, String str, int i);
 
-    String wg(String str);
+    String wk(String str);
 
-    String wh(String str);
+    String wl(String str);
 
-    void wi(String str);
+    void wm(String str);
 
-    String wj(String str);
+    String wn(String str);
 }

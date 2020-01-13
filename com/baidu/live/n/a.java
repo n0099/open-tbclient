@@ -1,24 +1,20 @@
 package com.baidu.live.n;
+
+import android.view.ViewGroup;
+import com.baidu.live.data.l;
 /* loaded from: classes2.dex */
-public class a {
-    private b asu;
-    private c asv;
+public interface a {
+    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 
-    public static a ww() {
-        return C0085a.asw;
-    }
+    void b(ViewGroup.LayoutParams layoutParams);
 
-    public void a(c cVar) {
-        this.asv = cVar;
-    }
+    void bN(int i);
 
-    public b wx() {
-        return this.asu;
-    }
+    boolean h(l lVar);
 
-    /* renamed from: com.baidu.live.n.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0085a {
-        private static final a asw = new a();
-    }
+    void release();
+
+    void setCanVisible(boolean z);
+
+    void tz();
 }

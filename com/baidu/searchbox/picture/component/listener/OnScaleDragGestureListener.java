@@ -1,5 +1,5 @@
 package com.baidu.searchbox.picture.component.listener;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface OnScaleDragGestureListener {
     void onDrag(float f, float f2);
 

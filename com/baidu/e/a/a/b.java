@@ -4,13 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
-    private static int Tb = 0;
-    private static boolean Tc = false;
-    private static boolean Te = false;
+    private static int Tf = 0;
+    private static boolean Tg = false;
+    private static boolean Th = false;
 
-    public static int ox() {
+    public static int oy() {
         try {
             return Integer.valueOf(Build.VERSION.SDK).intValue();
         } catch (NumberFormatException e) {

@@ -10,16 +10,16 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import com.baidu.spswitch.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.spswitch.b.b.isDebug();
-    private static int aVf = 0;
-    private static int aVg = 0;
-    private static int aVh = 0;
-    private static int aVi = 0;
-    private static int aVj = 0;
+    private static int aVX = 0;
+    private static int aVY = 0;
+    private static int aVZ = 0;
+    private static int aWa = 0;
+    private static int aWb = 0;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void onSoftInputShowing(boolean z);
     }
@@ -31,7 +31,7 @@ public class e {
         return bVar2;
     }
 
-    public static void V(View view) {
+    public static void Z(View view) {
         view.requestFocus();
         ((InputMethodManager) view.getContext().getSystemService("input_method")).showSoftInput(view, 0);
     }
@@ -40,54 +40,54 @@ public class e {
         view.postDelayed(new Runnable() { // from class: com.baidu.spswitch.b.e.1
             @Override // java.lang.Runnable
             public void run() {
-                e.V(view);
+                e.Z(view);
             }
         }, j);
     }
 
-    public static void W(View view) {
+    public static void aa(View view) {
         ((InputMethodManager) view.getContext().getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     public static int be(Context context) {
-        if (aVf == 0) {
-            aVf = context.getResources().getDimensionPixelSize(c.a.min_softinput_height);
+        if (aVX == 0) {
+            aVX = context.getResources().getDimensionPixelSize(c.a.min_softinput_height);
         }
-        return aVf;
+        return aVX;
     }
 
     public static int bf(Context context) {
-        if (aVg == 0) {
-            aVg = context.getResources().getDimensionPixelSize(c.a.max_softinput_height);
+        if (aVY == 0) {
+            aVY = context.getResources().getDimensionPixelSize(c.a.max_softinput_height);
         }
-        return aVg;
+        return aVY;
     }
 
     public static int a(Resources resources) {
-        if (aVh == 0) {
-            aVh = resources.getDimensionPixelSize(c.a.min_panel_height);
+        if (aVZ == 0) {
+            aVZ = resources.getDimensionPixelSize(c.a.min_panel_height);
         }
-        return aVh;
+        return aVZ;
     }
 
     public static int b(Resources resources) {
-        if (aVi == 0) {
-            aVi = resources.getDimensionPixelSize(c.a.max_panel_height);
+        if (aWa == 0) {
+            aWa = resources.getDimensionPixelSize(c.a.max_panel_height);
         }
-        return aVi;
+        return aWa;
     }
 
     public static int bg(Context context) {
-        if (aVj == 0) {
-            aVj = d.k(context, a(context.getResources()));
+        if (aWb == 0) {
+            aWb = d.k(context, a(context.getResources()));
         }
-        return aVj;
+        return aWb;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean l(Context context, int i) {
-        if (aVj != i && i >= 0) {
-            aVj = i;
+        if (aWb != i && i >= 0) {
+            aWb = i;
             if (DEBUG) {
                 Log.d("SoftInputUtil", "save softInput height: " + i);
             }
@@ -100,21 +100,21 @@ public class e {
         return Math.min(b(context.getResources()), Math.max(a(context.getResources()), bg(context)));
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     private static class b implements ViewTreeObserver.OnGlobalLayoutListener {
-        private final com.baidu.spswitch.b aVk;
-        private final a aVl;
-        private int aVm = 0;
-        private boolean aVn;
-        private int aVo;
+        private final com.baidu.spswitch.b aWc;
+        private final a aWd;
+        private int aWe = 0;
+        private boolean aWf;
+        private int aWg;
         private final Activity mActivity;
         private final ViewGroup mContentView;
 
         public b(Activity activity, ViewGroup viewGroup, com.baidu.spswitch.b bVar, a aVar) {
             this.mActivity = activity;
-            this.aVl = aVar;
+            this.aWd = aVar;
             this.mContentView = viewGroup;
-            this.aVk = bVar;
+            this.aWc = bVar;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -127,7 +127,7 @@ public class e {
                     Log.d("SoftInputUtil", "SoftInputUtil, user root view not ready so ignore layout changed");
                 }
                 i = -1;
-            } else if (c.bc(this.mContentView.getContext()) || (g.C(this.mActivity) && g.D(this.mActivity))) {
+            } else if (c.bc(this.mContentView.getContext()) || (g.D(this.mActivity) && g.E(this.mActivity))) {
                 childAt.getWindowVisibleDisplayFrame(rect);
                 i = rect.bottom - rect.top;
                 if (e.DEBUG) {
@@ -143,12 +143,12 @@ public class e {
                 if (e.DEBUG) {
                     Log.d("SoftInputUtil", "displayHeight: " + i);
                 }
+                dA(i);
                 dz(i);
-                dy(i);
             }
         }
 
-        private void dy(int i) {
+        private void dz(int i) {
             boolean z;
             if (e.DEBUG) {
                 Log.d("SoftInputUtil", "###### calculateSoftInputShowing ######");
@@ -158,44 +158,44 @@ public class e {
             if (c.bc(this.mContentView.getContext())) {
                 z = height > i;
             } else {
-                if (this.aVo == 0) {
-                    z = this.aVn;
+                if (this.aWg == 0) {
+                    z = this.aWf;
                 } else {
-                    z = i < this.aVo - e.be(getContext());
+                    z = i < this.aWg - e.be(getContext());
                 }
-                this.aVo = Math.max(this.aVo, height);
+                this.aWg = Math.max(this.aWg, height);
             }
             if (e.DEBUG) {
-                Log.d("SoftInputUtil", "maxOverlayLayoutHeight: " + this.aVo + ", isSoftInputShowing : " + z + ", mLastSoftInputShowing : " + this.aVn);
+                Log.d("SoftInputUtil", "maxOverlayLayoutHeight: " + this.aWg + ", isSoftInputShowing : " + z + ", mLastSoftInputShowing : " + this.aWf);
             }
-            if (this.aVn != z) {
+            if (this.aWf != z) {
                 if (e.DEBUG) {
                     Log.d("SoftInputUtil", String.format("displayHeight %d, actionBarOverlayLayoutHeight %d, softinput showing: %B", Integer.valueOf(i), Integer.valueOf(height), Boolean.valueOf(z)));
                 }
-                this.aVk.onSoftInputShowing(z);
-                if (this.aVl != null) {
-                    this.aVl.onSoftInputShowing(z);
+                this.aWc.onSoftInputShowing(z);
+                if (this.aWd != null) {
+                    this.aWd.onSoftInputShowing(z);
                 }
             }
-            this.aVn = z;
+            this.aWf = z;
         }
 
-        private void dz(int i) {
+        private void dA(int i) {
             int abs;
             View view;
             if (e.DEBUG) {
                 Log.d("SoftInputUtil", "****** calculateSoftInputHeight ******");
             }
             if (e.DEBUG) {
-                Log.d("SoftInputUtil", "displayHeight: " + i + ", previousDisplayHeight: " + this.aVm);
+                Log.d("SoftInputUtil", "displayHeight: " + i + ", previousDisplayHeight: " + this.aWe);
             }
-            if (this.aVm == 0) {
-                this.aVm = i;
+            if (this.aWe == 0) {
+                this.aWe = i;
                 int bh = e.bh(getContext());
                 if (e.DEBUG) {
                     Log.d("SoftInputUtil", "previous display height = 0, refresh Height : " + bh);
                 }
-                this.aVk.du(bh);
+                this.aWc.dv(bh);
             }
             if (c.bc(this.mContentView.getContext())) {
                 int height = ((View) this.mContentView.getParent()).getHeight() - i;
@@ -204,28 +204,28 @@ public class e {
                 }
                 abs = height;
             } else {
-                abs = Math.abs(i - this.aVm);
+                abs = Math.abs(i - this.aWe);
             }
             if (abs <= e.be(getContext())) {
                 if (e.DEBUG) {
                     Log.d("SoftInputUtil", "softInputHeight is invalid, too small. softInputHeight: " + abs);
                 }
                 if (Math.abs(abs) == f.getStatusBarHeight(this.mContentView.getContext())) {
-                    this.aVm -= abs;
+                    this.aWe -= abs;
                     return;
                 }
                 return;
             }
-            Log.d("SoftInputUtil", String.format("pre display height: %d, display height: %d, softinput: %d ", Integer.valueOf(this.aVm), Integer.valueOf(i), Integer.valueOf(abs)));
+            Log.d("SoftInputUtil", String.format("pre display height: %d, display height: %d, softinput: %d ", Integer.valueOf(this.aWe), Integer.valueOf(i), Integer.valueOf(abs)));
             if (e.l(getContext(), abs)) {
                 int bh2 = e.bh(getContext());
-                if (this.aVk.getHeight() != bh2) {
+                if (this.aWc.getHeight() != bh2) {
                     if (e.DEBUG) {
                         Log.d("SoftInputUtil", "panel height changed, new height: " + bh2);
                     }
-                    this.aVk.du(bh2);
+                    this.aWc.dv(bh2);
                 } else if (e.DEBUG) {
-                    Log.d("SoftInputUtil", "panel no need to refresh, panelHeight: " + this.aVk.getHeight() + ", validPanelHeight: " + bh2);
+                    Log.d("SoftInputUtil", "panel no need to refresh, panelHeight: " + this.aWc.getHeight() + ", validPanelHeight: " + bh2);
                 }
             }
         }

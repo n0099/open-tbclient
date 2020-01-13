@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.OperationCanceledException;
 import android.support.v4.os.CancellationSignal;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ContentResolverCompat {
     private ContentResolverCompat() {
     }

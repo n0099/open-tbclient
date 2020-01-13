@@ -7,7 +7,7 @@ import io.reactivex.u;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableIntervalRange extends q<Long> {
     final long end;
     final long initialDelay;
@@ -22,15 +22,15 @@ public final class ObservableIntervalRange extends q<Long> {
         uVar.onSubscribe(intervalRangeObserver);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c dDP = vVar.dDP();
-            intervalRangeObserver.setResource(dDP);
-            dDP.b(intervalRangeObserver, this.initialDelay, this.period, this.unit);
+            v.c dHW = vVar.dHW();
+            intervalRangeObserver.setResource(dHW);
+            dHW.b(intervalRangeObserver, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalRangeObserver.setResource(vVar.a(intervalRangeObserver, this.initialDelay, this.period, this.unit));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class IntervalRangeObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, Runnable {
         private static final long serialVersionUID = 1891866368734007884L;
         final u<? super Long> actual;

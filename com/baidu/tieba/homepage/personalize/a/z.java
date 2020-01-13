@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.an;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.o, com.baidu.tieba.card.a.a<com.baidu.tieba.card.q>> {
     private TbPageContext<?> mPageContext;
 
@@ -17,25 +17,25 @@ public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
 
     /* JADX INFO: Access modifiers changed from: protected */
     public z(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.o.fIm);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.o.fLw);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ar */
+    /* renamed from: av */
     public com.baidu.tieba.card.a.a b(ViewGroup viewGroup) {
         com.baidu.tieba.card.q qVar = new com.baidu.tieba.card.q(this.mPageContext);
-        qVar.ah("c10718", "c10719", "c10742");
+        qVar.ai("c10718", "c10719", "c10742");
         return new com.baidu.tieba.card.a.a(qVar);
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.o oVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.btc().a(oVar);
-        aVar.btc().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.r.bsy().c(new an("c10718").cp("obj_id", String.valueOf(oVar.fIn)));
+        aVar.bue().a(oVar);
+        aVar.bue().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        com.baidu.tieba.card.r.btA().c(new an("c10718").cp("obj_id", String.valueOf(oVar.fLx)));
         return aVar.getView();
     }
 }

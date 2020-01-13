@@ -5,7 +5,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaLocationData;
 import com.baidu.live.data.AlaRelationData;
 import com.baidu.live.data.PersonUserData;
-import com.baidu.live.data.u;
+import com.baidu.live.data.w;
 import com.baidu.tieba.ala.person.a.b;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,20 +13,20 @@ import org.json.JSONObject;
 public class a {
     public static PersonUserData a(b bVar) {
         PersonUserData personUserData = new PersonUserData();
-        personUserData.user_info = new u();
+        personUserData.user_info = new w();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.Zc = bVar.metaKey;
+        personUserData.user_info.Zq = bVar.metaKey;
         personUserData.user_info.user_id = bVar.id;
         personUserData.user_info.user_name = bVar.name;
         personUserData.user_info.user_nickname = bVar.name_show;
         personUserData.user_info.description = bVar.intro;
         personUserData.user_info.portrait = bVar.portrait;
-        personUserData.relation_info.follow_status = bVar.eGw;
+        personUserData.relation_info.follow_status = bVar.eHG;
         return personUserData;
     }
 
-    public static String at(int i, String str) {
+    public static String az(int i, String str) {
         String str2;
         String str3;
         String str4 = null;
@@ -59,7 +59,7 @@ public class a {
         return null;
     }
 
-    public static String zc(String str) {
+    public static String zl(String str) {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -75,7 +75,7 @@ public class a {
         return null;
     }
 
-    public static String cW(long j) {
+    public static String db(long j) {
         return j / 10000 > 0 ? j(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 

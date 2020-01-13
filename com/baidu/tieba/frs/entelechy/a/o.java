@@ -12,36 +12,36 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class o extends com.baidu.tieba.frs.h<bi, c<com.baidu.tieba.frs.entelechy.view.b>> implements com.baidu.tieba.card.x, com.baidu.tieba.frs.d.d {
-    public static int grH = 5;
-    public static int grI = 10;
-    public static int grJ = 15;
-    private com.baidu.tieba.card.z<bj> eHX;
+    public static int guQ = 5;
+    public static int guR = 10;
+    public static int guS = 15;
+    private com.baidu.tieba.card.z<bj> eJh;
     private String forumName;
-    private com.baidu.tieba.frs.d.b gre;
+    private com.baidu.tieba.frs.d.b gun;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(bj bjVar, String str) {
         if (bjVar != null) {
-            int aAQ = bjVar.aAQ();
+            int aBj = bjVar.aBj();
             an anVar = new an(str);
-            anVar.cp("obj_locate", ta(aAQ));
+            anVar.cp("obj_locate", tf(aBj));
             anVar.cp("tid", bjVar.getTid());
             anVar.Z("obj_type", 2);
             TiebaStatic.log(anVar);
         }
     }
 
-    private String ta(int i) {
-        if (i == grH) {
+    private String tf(int i) {
+        if (i == guQ) {
             return "3";
         }
-        if (i == grI) {
+        if (i == guR) {
             return "10";
         }
-        if (i != grJ) {
+        if (i != guS) {
             return "";
         }
         return "11";
@@ -50,8 +50,8 @@ public class o extends com.baidu.tieba.frs.h<bi, c<com.baidu.tieba.frs.entelechy
     /* JADX INFO: Access modifiers changed from: protected */
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.gre = new com.baidu.tieba.frs.d.b();
-        this.eHX = new com.baidu.tieba.card.z<bj>() { // from class: com.baidu.tieba.frs.entelechy.a.o.1
+        this.gun = new com.baidu.tieba.frs.d.b();
+        this.eJh = new com.baidu.tieba.card.z<bj>() { // from class: com.baidu.tieba.frs.entelechy.a.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
@@ -63,16 +63,16 @@ public class o extends com.baidu.tieba.frs.h<bi, c<com.baidu.tieba.frs.entelechy
                     } else if (view.getId() == R.id.image_user || view.getId() == R.id.pendant_image_user) {
                         o.this.g(bjVar, TbadkCoreStatisticKey.FRS_PHOTO_LIVE_VIEW_PAGER_PORTRAIT);
                     } else if (view.getId() == R.id.card_divider_tv) {
-                        com.baidu.tieba.frs.f.h.a(o.this.gre, bjVar.axy());
+                        com.baidu.tieba.frs.f.h.a(o.this.gun, bjVar.axR());
                     }
                     if (view.getId() == R.id.card_home_page_normal_thread_user_name || (view instanceof HeadImageView) || (view instanceof HeadPendantView)) {
-                        com.baidu.tieba.frs.d.a.a(bjVar, 2, o.this.mPageId, o.this.gre, o.this.getTbPageTag());
+                        com.baidu.tieba.frs.d.a.a(bjVar, 2, o.this.mPageId, o.this.gun, o.this.getTbPageTag());
                     } else if (view.getId() == R.id.frame_video) {
-                        com.baidu.tieba.frs.d.a.a(bjVar, 4, o.this.mPageId, o.this.gre, o.this.getTbPageTag());
+                        com.baidu.tieba.frs.d.a.a(bjVar, 4, o.this.mPageId, o.this.gun, o.this.getTbPageTag());
                     } else if (view.getId() == R.id.thread_info_commont_container) {
-                        com.baidu.tieba.frs.d.a.a(bjVar, 5, o.this.mPageId, o.this.gre, o.this.getTbPageTag());
+                        com.baidu.tieba.frs.d.a.a(bjVar, 5, o.this.mPageId, o.this.gun, o.this.getTbPageTag());
                     } else {
-                        com.baidu.tieba.frs.d.a.a(bjVar, 1, o.this.mPageId, o.this.gre, o.this.getTbPageTag());
+                        com.baidu.tieba.frs.d.a.a(bjVar, 1, o.this.mPageId, o.this.gun, o.this.getTbPageTag());
                     }
                 }
             }
@@ -83,7 +83,7 @@ public class o extends com.baidu.tieba.frs.h<bi, c<com.baidu.tieba.frs.entelechy
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aM */
+    /* renamed from: aQ */
     public c b(ViewGroup viewGroup) {
         com.baidu.tieba.frs.entelechy.view.b bVar = new com.baidu.tieba.frs.entelechy.view.b(this.mPageContext, this.mPageId);
         bVar.m(this.mPageId);
@@ -91,18 +91,18 @@ public class o extends com.baidu.tieba.frs.h<bi, c<com.baidu.tieba.frs.entelechy
         return new c(bVar);
     }
 
-    private com.baidu.tieba.play.y am(bj bjVar) {
+    private com.baidu.tieba.play.y an(bj bjVar) {
         com.baidu.tieba.play.y yVar = null;
         if (bjVar != null) {
             yVar = new com.baidu.tieba.play.y();
-            yVar.mLocate = ta(bjVar.aAQ());
-            yVar.fGQ = this.gre.gDY;
-            yVar.OC = bjVar.getTid();
+            yVar.mLocate = tf(bjVar.aBj());
+            yVar.fKa = this.gun.gHn;
+            yVar.OG = bjVar.getTid();
             yVar.mAbTag = bjVar.mRecomAbTag;
-            if (bjVar.azV() != null) {
-                yVar.jsl = bjVar.azV().video_md5;
+            if (bjVar.aAo() != null) {
+                yVar.jvN = bjVar.aAo().video_md5;
             }
-            bjVar.aAO();
+            bjVar.aBh();
         }
         return yVar;
     }
@@ -111,13 +111,13 @@ public class o extends com.baidu.tieba.frs.h<bi, c<com.baidu.tieba.frs.entelechy
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bi biVar, c cVar) {
-        if (cVar == null || cVar.btc() == null) {
+        if (cVar == null || cVar.bue() == null) {
             return null;
         }
-        cVar.btc().setVideoStatsData(am(biVar.cMR));
-        cVar.btc().a(biVar.cMR);
-        cVar.btc().c(this.eHX);
-        com.baidu.tieba.frs.d.a.a(biVar.cMR, this.mPageId, this.gre, getTbPageTag());
+        cVar.bue().setVideoStatsData(an(biVar.cNb));
+        cVar.bue().a(biVar.cNb);
+        cVar.bue().c(this.eJh);
+        com.baidu.tieba.frs.d.a.a(biVar.cNb, this.mPageId, this.gun, getTbPageTag());
         return cVar.getView();
     }
 
@@ -127,11 +127,11 @@ public class o extends com.baidu.tieba.frs.h<bi, c<com.baidu.tieba.frs.entelechy
     }
 
     @Override // com.baidu.tieba.card.x
-    public void pm(int i) {
+    public void po(int i) {
     }
 
     @Override // com.baidu.tieba.frs.d.d
-    public com.baidu.tieba.frs.d.b bEr() {
-        return this.gre;
+    public com.baidu.tieba.frs.d.b bFt() {
+        return this.gun;
     }
 }

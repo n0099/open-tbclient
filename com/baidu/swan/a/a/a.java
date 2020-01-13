@@ -1,7 +1,7 @@
 package com.baidu.swan.a.a;
 
 import com.baidu.swan.pms.c.d.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends f {
     private int mVersionCode;
     private String mVersionName;

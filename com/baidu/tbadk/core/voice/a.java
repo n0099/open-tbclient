@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String aFY() {
+    public static String aGr() {
         return q.guid();
     }
 
-    public static String tG(String str) {
+    public static String tK(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -24,8 +24,8 @@ public class a {
         return m.getStoreFile(str, 1);
     }
 
-    public static String tH(String str) {
-        return f.getFilePath(tG(str));
+    public static String tL(String str) {
+        return f.getFilePath(tK(str));
     }
 
     public static boolean delFile(String str) {

@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import javax.net.SocketFactory;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RequestClient implements Call.Factory, Cloneable {
     public static final int BAD_NETWORK_QUALITY = 2;
     public static final int GOOD_NETWORK_QUALITY = 1;
@@ -182,7 +182,7 @@ public class RequestClient implements Call.Factory, Cloneable {
         return new Builder(this);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class Builder {
         int connectTimeout;
         Context context;

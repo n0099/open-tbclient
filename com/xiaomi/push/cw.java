@@ -3,22 +3,22 @@ package com.xiaomi.push;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class cw extends cq {
     cq a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ cu f217a;
+    final /* synthetic */ cu f215a;
     final /* synthetic */ cq b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cw(cu cuVar, String str, cq cqVar) {
         super(str);
-        this.f217a = cuVar;
+        this.f215a = cuVar;
         this.b = cqVar;
         this.a = this.b;
-        this.f203b = this.f203b;
+        this.f201b = this.f201b;
         if (this.b != null) {
             this.f = this.b.f;
         }
@@ -32,7 +32,7 @@ public class cw extends cq {
             arrayList.addAll(this.a.a(true));
         }
         synchronized (cu.b) {
-            cq cqVar = cu.b.get(this.f203b);
+            cq cqVar = cu.b.get(this.f201b);
             if (cqVar != null) {
                 Iterator<String> it = cqVar.a(true).iterator();
                 while (it.hasNext()) {
@@ -41,8 +41,8 @@ public class cw extends cq {
                         arrayList.add(next);
                     }
                 }
-                arrayList.remove(this.f203b);
-                arrayList.add(this.f203b);
+                arrayList.remove(this.f201b);
+                arrayList.add(this.f201b);
             }
         }
         return arrayList;

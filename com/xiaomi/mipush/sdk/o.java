@@ -3,7 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.ComponentName;
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o {
     private static int a = -1;
 
@@ -30,7 +30,7 @@ public class o {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m95a(Context context) {
+    public static boolean m104a(Context context) {
         Object a2 = com.xiaomi.push.at.a(com.xiaomi.push.at.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
         Object a3 = com.xiaomi.push.at.a("com.google.android.gms.common.ConnectionResult", "SUCCESS");
         if (a3 == null || !(a3 instanceof Integer)) {

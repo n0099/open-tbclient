@@ -2,18 +2,18 @@ package kotlin.sequences;
 
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
-import kotlin.jvm.internal.p;
-import kotlin.sequences.f;
-/* loaded from: classes4.dex */
+import kotlin.jvm.internal.q;
+import kotlin.sequences.j;
+/* loaded from: classes5.dex */
 final class SequencesKt___SequencesKt$minus$1$iterator$1 extends Lambda implements kotlin.jvm.a.b<T, Boolean> {
     final /* synthetic */ Ref.BooleanRef $removed;
-    final /* synthetic */ f.a this$0;
+    final /* synthetic */ j.b this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SequencesKt___SequencesKt$minus$1$iterator$1(f.a aVar, Ref.BooleanRef booleanRef) {
+    public SequencesKt___SequencesKt$minus$1$iterator$1(j.b bVar, Ref.BooleanRef booleanRef) {
         super(1);
-        this.this$0 = aVar;
+        this.this$0 = bVar;
         this.$removed = booleanRef;
     }
 
@@ -27,7 +27,7 @@ final class SequencesKt___SequencesKt$minus$1$iterator$1 extends Lambda implemen
     @Override // kotlin.jvm.a.b
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2(T t) {
-        if (this.$removed.element || !p.h(t, this.this$0.mZx)) {
+        if (this.$removed.element || !q.h(t, this.this$0.nCg)) {
             return 1;
         }
         this.$removed.element = true;

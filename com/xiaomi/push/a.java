@@ -1,16 +1,16 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static final a a = new a(new byte[0]);
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile int f115a = 0;
+    private volatile int f113a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private final byte[] f116a;
+    private final byte[] f114a;
 
     private a(byte[] bArr) {
-        this.f116a = bArr;
+        this.f114a = bArr;
     }
 
     public static a a(byte[] bArr) {
@@ -24,14 +24,14 @@ public final class a {
     }
 
     public int a() {
-        return this.f116a.length;
+        return this.f114a.length;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m108a() {
-        int length = this.f116a.length;
+    public byte[] m117a() {
+        int length = this.f114a.length;
         byte[] bArr = new byte[length];
-        System.arraycopy(this.f116a, 0, bArr, 0, length);
+        System.arraycopy(this.f114a, 0, bArr, 0, length);
         return bArr;
     }
 
@@ -41,12 +41,12 @@ public final class a {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            int length = this.f116a.length;
-            if (length != aVar.f116a.length) {
+            int length = this.f114a.length;
+            if (length != aVar.f114a.length) {
                 return false;
             }
-            byte[] bArr = this.f116a;
-            byte[] bArr2 = aVar.f116a;
+            byte[] bArr = this.f114a;
+            byte[] bArr2 = aVar.f114a;
             for (int i = 0; i < length; i++) {
                 if (bArr[i] != bArr2[i]) {
                     return false;
@@ -58,10 +58,10 @@ public final class a {
     }
 
     public int hashCode() {
-        int i = this.f115a;
+        int i = this.f113a;
         if (i == 0) {
-            byte[] bArr = this.f116a;
-            int length = this.f116a.length;
+            byte[] bArr = this.f114a;
+            int length = this.f114a.length;
             int i2 = 0;
             i = length;
             while (i2 < length) {
@@ -71,7 +71,7 @@ public final class a {
             if (i == 0) {
                 i = 1;
             }
-            this.f115a = i;
+            this.f113a = i;
         }
         return i;
     }

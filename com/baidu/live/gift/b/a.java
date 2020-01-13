@@ -14,18 +14,18 @@ import java.util.List;
 public class a {
     private static final String DIR_PATH = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/" + TbConfig.getTempDirName() + "/" + AlaDynamicGiftLocalInfoConfig.DIR_NAME + "/";
 
-    public static String dr(String str) {
+    public static String dt(String str) {
         return DIR_PATH + str;
     }
 
-    public static void ds(String str) {
-        String dr = dr(str);
-        if (!StringUtils.isNull(dr)) {
-            com.baidu.live.f.a.cleanDir(new File(dr));
+    public static void du(String str) {
+        String dt = dt(str);
+        if (!StringUtils.isNull(dt)) {
+            com.baidu.live.f.a.cleanDir(new File(dt));
         }
     }
 
-    public static void sI() {
+    public static void sY() {
         com.baidu.live.f.a.cleanDir(new File(DIR_PATH));
     }
 
@@ -48,14 +48,14 @@ public class a {
         }
         String str5 = DIR_PATH + str3;
         String str6 = AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX + str3;
-        if (!com.baidu.live.f.b.e(str5, com.baidu.live.f.b.cO(str6)) || dt(str)) {
+        if (!com.baidu.live.f.b.e(str5, com.baidu.live.f.b.cQ(str6)) || dv(str)) {
             return false;
         }
         com.baidu.live.f.b.a(str, str2, str5, str6, str3, str4, 19, z);
         return true;
     }
 
-    public static boolean dt(String str) {
+    public static boolean dv(String str) {
         List<DownloadData> downloadList = FileSerialDownLoader.getInstance().getDownloadList();
         if (ListUtils.isEmpty(downloadList) || StringUtils.isNull(str)) {
             return false;
@@ -72,7 +72,7 @@ public class a {
         return false;
     }
 
-    public static void sJ() {
+    public static void sZ() {
         com.baidu.live.f.b.bj(19);
     }
 }

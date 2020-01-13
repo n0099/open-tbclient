@@ -8,50 +8,50 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PreviewViewContainer extends FrameLayout {
-    private b kwX;
-    private View kxe;
+    private View kAG;
+    private b kAz;
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kxe = null;
+        this.kAG = null;
     }
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kxe = null;
+        this.kAG = null;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.kwX != null) {
-            this.kwX.handleTouchEvent(motionEvent);
+        if (this.kAz != null) {
+            this.kAz.handleTouchEvent(motionEvent);
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setZoomHelper(b bVar) {
         if (bVar != null) {
-            this.kwX = bVar;
+            this.kAz = bVar;
         }
     }
 
-    public void cOW() {
+    public void cPZ() {
         setFaceFailIdentifyLayoutVisiable(true);
     }
 
-    public void cOX() {
+    public void cQa() {
         setFaceFailIdentifyLayoutVisiable(false);
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
-        if (this.kxe == null) {
-            this.kxe = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
+        if (this.kAG == null) {
+            this.kAG = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.kxe, layoutParams);
+            addView(this.kAG, layoutParams);
         }
-        this.kxe.setVisibility(z ? 0 : 8);
+        this.kAG.setVisibility(z ? 0 : 8);
     }
 }

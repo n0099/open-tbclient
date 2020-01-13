@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c implements d, l, a.InterfaceC0010a, com.airbnb.lottie.model.f {
     private final List<b> contents;
     @Nullable

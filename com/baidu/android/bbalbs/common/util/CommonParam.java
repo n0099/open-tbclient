@@ -1,7 +1,7 @@
 package com.baidu.android.bbalbs.common.util;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CommonParam {
     private static final String a = CommonParam.class.getSimpleName();
 

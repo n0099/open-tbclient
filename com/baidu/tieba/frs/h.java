@@ -15,19 +15,19 @@ import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int gix;
-    protected static final int giy;
-    protected static final int giz;
-    protected com.baidu.adp.widget.ListView.r fRq;
-    protected FrsViewData giA;
-    protected d giB;
-    protected int giC;
-    protected f giD;
-    private boolean giE;
-    private boolean giF;
-    protected com.baidu.tieba.card.z giG;
+    protected static final int glG;
+    protected static final int glH;
+    protected static final int glI;
+    protected com.baidu.adp.widget.ListView.r fUA;
+    protected FrsViewData glJ;
+    protected d glK;
+    protected int glL;
+    protected f glM;
+    private boolean glN;
+    private boolean glO;
+    protected com.baidu.tieba.card.z glP;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
@@ -35,16 +35,16 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        gix = resources.getDimensionPixelSize(R.dimen.ds8);
-        giy = resources.getDimensionPixelSize(R.dimen.ds16);
-        giz = resources.getDimensionPixelSize(R.dimen.ds1);
+        glG = resources.getDimensionPixelSize(R.dimen.ds8);
+        glH = resources.getDimensionPixelSize(R.dimen.ds16);
+        glI = resources.getDimensionPixelSize(R.dimen.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.giF = false;
+        this.glO = false;
         this.mTbPageTag = null;
         a(tbPageContext, bdUniqueId2);
     }
@@ -53,7 +53,7 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.giF = false;
+        this.glO = false;
         this.mTbPageTag = null;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
@@ -69,26 +69,26 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.giB = null;
-        this.zH = null;
-        this.zI = null;
-        if (this.giD != null) {
-            this.giD.destory();
-            this.giD = null;
+        this.glK = null;
+        this.zL = null;
+        this.zM = null;
+        if (this.glM != null) {
+            this.glM.destory();
+            this.glM = null;
         }
     }
 
     public void a(com.baidu.adp.widget.ListView.r rVar) {
-        this.fRq = rVar;
+        this.fUA = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.fRq = (com.baidu.adp.widget.ListView.r) viewGroup;
+        this.fUA = (com.baidu.adp.widget.ListView.r) viewGroup;
         if (t instanceof bi) {
-            ((bi) t).cMR.jr(2);
+            ((bi) t).cNb.jr(2);
             return null;
         }
         return null;
@@ -99,23 +99,23 @@ public abstract class h<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     }
 
     public void b(FrsViewData frsViewData) {
-        this.giA = frsViewData;
+        this.glJ = frsViewData;
     }
 
     public void a(d dVar) {
-        this.giB = dVar;
+        this.glK = dVar;
     }
 
-    public void sp(int i) {
-        this.giC = i;
+    public void su(int i) {
+        this.glL = i;
     }
 
     public void a(f fVar) {
-        this.giD = fVar;
+        this.glM = fVar;
     }
 
-    public boolean bAV() {
-        return this.giE;
+    public boolean bBX() {
+        return this.glN;
     }
 
     public View t(ViewGroup viewGroup, int i) {

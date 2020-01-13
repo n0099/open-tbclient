@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g extends Thread {
     final /* synthetic */ String a;
     final /* synthetic */ boolean b;

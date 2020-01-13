@@ -4,7 +4,6 @@ import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ugc.model.PublishType;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
@@ -21,7 +20,7 @@ import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class i {
     public static final String a = TextUtils.join("", new String[]{"b", Config.APP_VERSION_CODE, "i", "d", "u", "v", Config.OS, "i", "c", "e", "3", "5", "h", "y", "1", "2"});
-    public static final String b = TextUtils.join("", new String[]{"b", Config.APP_VERSION_CODE, "i", "d", "u", "f", Config.APP_VERSION_CODE, "c", "e", "D", "z", ExifInterface.GPS_DIRECTION_TRUE, PublishType.TYPE_VIDEO_SHARE, PublishType.TYPE_VIDEO_SHARE, "1", "1"});
+    public static final String b = TextUtils.join("", new String[]{"b", Config.APP_VERSION_CODE, "i", "d", "u", "f", Config.APP_VERSION_CODE, "c", "e", "D", "z", ExifInterface.GPS_DIRECTION_TRUE, "9", "9", "1", "1"});
 
     /* loaded from: classes3.dex */
     public static class a {

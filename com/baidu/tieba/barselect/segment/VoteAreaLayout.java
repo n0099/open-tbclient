@@ -19,13 +19,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.TrapezoidButton;
 import com.baidu.tieba.view.RoundAndShadowLinearLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class VoteAreaLayout extends CardBasicLayout {
-    private RoundAndShadowLinearLayout fAo;
-    private View fAp;
-    private TextView fAq;
-    private TrapezoidButton fAr;
-    private TextView fAs;
+    private View fDA;
+    private TextView fDB;
+    private TrapezoidButton fDC;
+    private TextView fDD;
+    private RoundAndShadowLinearLayout fDz;
     private Context mContext;
 
     public VoteAreaLayout(Context context) {
@@ -46,35 +46,35 @@ public class VoteAreaLayout extends CardBasicLayout {
         setMinimumHeight(l.getDimens(getContext(), R.dimen.tbds90));
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         LayoutInflater.from(getContext()).inflate(R.layout.vote_area_layout, (ViewGroup) this, true);
-        na();
+        nb();
     }
 
-    private void na() {
-        this.fAo = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
-        this.fAo.setRadius(l.getDimens(this.mContext, R.dimen.tbds8));
-        this.fAq = (TextView) findViewById(R.id.vote_num);
-        this.fAr = (TrapezoidButton) findViewById(R.id.vote_button);
-        this.fAs = (TextView) findViewById(R.id.vote_button_tv);
-        this.fAp = findViewById(R.id.button_container);
+    private void nb() {
+        this.fDz = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
+        this.fDz.setRadius(l.getDimens(this.mContext, R.dimen.tbds8));
+        this.fDB = (TextView) findViewById(R.id.vote_num);
+        this.fDC = (TrapezoidButton) findViewById(R.id.vote_button);
+        this.fDD = (TextView) findViewById(R.id.vote_button_tv);
+        this.fDA = findViewById(R.id.button_container);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, final f fVar) {
         super.setData(i, fVar);
-        if (this.fww == null || this.fAh == null || this.status < 0) {
+        if (this.fzH == null || this.fDs == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.fAq.setText(aq.numFormatOverWan(this.fAh.bro()) + "票");
-        this.fAs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
+        this.fDB.setText(aq.numFormatOverWan(this.fDs.bsq()) + "票");
+        this.fDD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if ((VoteAreaLayout.this.mContext instanceof Activity) && bc.checkUpIsLogin(VoteAreaLayout.this.mContext)) {
-                    new an("c13441").aDT();
-                    if (VoteAreaLayout.this.fAh != null && fVar != null && fVar.brA() != null) {
-                        if (fVar.brA().brx()) {
+                    new an("c13441").aEm();
+                    if (VoteAreaLayout.this.fDs != null && fVar != null && fVar.bsC() != null) {
+                        if (fVar.bsC().bsz()) {
                             if (fVar.getFid() != 0 && fVar.getUniqueId() != null) {
-                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.fAh.getUid(), fVar.getFid(), VoteAreaLayout.this.fAh.getTid(), 1);
+                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.fDs.getUid(), fVar.getFid(), VoteAreaLayout.this.fDs.getTid(), 1);
                                 commitVoteReqMsg.setTag(fVar.getUniqueId());
                                 MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                                 return;
@@ -86,17 +86,17 @@ public class VoteAreaLayout extends CardBasicLayout {
                 }
             }
         });
-        if (this.fAh.brq()) {
-            this.fAs.setEnabled(false);
+        if (this.fDs.bss()) {
+            this.fDD.setEnabled(false);
         } else {
-            this.fAs.setEnabled(true);
+            this.fDD.setEnabled(true);
         }
     }
 
-    public void oT(int i) {
-        am.setViewTextColor(this.fAq, R.color.cp_link_tip_b, 1, i);
-        am.a(this.fAp, (int) R.color.cp_link_tip_b, 0.2f, i);
-        am.setViewTextColor(this.fAs, R.color.cp_cont_a, 1, i);
-        am.setBackgroundResource(this.fAs, R.drawable.bar_select_bg_gradient, i);
+    public void oU(int i) {
+        am.setViewTextColor(this.fDB, R.color.cp_link_tip_b, 1, i);
+        am.a(this.fDA, (int) R.color.cp_link_tip_b, 0.2f, i);
+        am.setViewTextColor(this.fDD, R.color.cp_cont_a, 1, i);
+        am.setBackgroundResource(this.fDD, R.drawable.bar_select_bg_gradient, i);
     }
 }

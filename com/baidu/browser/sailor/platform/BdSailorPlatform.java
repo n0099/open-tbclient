@@ -36,7 +36,7 @@ import java.lang.ref.SoftReference;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BdSailorPlatform implements INoProGuard {
     public static final int APP_STATE_BACKGROUND = 0;
     public static final int APP_STATE_FOREGROUND = 1;
@@ -64,7 +64,7 @@ public final class BdSailorPlatform implements INoProGuard {
     private boolean mHasInit = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends BroadcastReceiver {
         private a() {
         }
@@ -288,7 +288,7 @@ public final class BdSailorPlatform implements INoProGuard {
         com.baidu.browser.sailor.webkit.a mq = com.baidu.browser.sailor.webkit.a.mq();
         try {
             mq.e();
-            mq.Jj.clearCache(z);
+            mq.Jp.clearCache(z);
         } catch (Exception e) {
             Log.printStackTrace(e);
         }

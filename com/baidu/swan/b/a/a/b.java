@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.b.d.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 

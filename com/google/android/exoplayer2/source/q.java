@@ -1,15 +1,15 @@
 package com.google.android.exoplayer2.source;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface q {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a<T extends q> {
         void a(T t);
     }
 
-    long dtI();
+    long duT();
 
-    long dtJ();
+    long duU();
 
-    boolean ga(long j);
+    boolean gf(long j);
 }

@@ -1,7 +1,7 @@
 package com.baidu.c.a.e;
 
 import android.graphics.Color;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static int cy(String str) {
         if (str == null || str.length() == 0) {

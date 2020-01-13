@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.liveroom.activeview;
 import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 /* loaded from: classes2.dex */
-public class AlaActiveRootView extends FrameLayout {
+public class AlaActiveRootView extends FrameLayout implements com.baidu.live.g.b {
     public AlaActiveRootView(Context context) {
         super(context);
         init();
@@ -71,5 +71,13 @@ public class AlaActiveRootView extends FrameLayout {
         setBackgroundColor(0);
         setId(a.g.ala_liveroom_active_view);
         setMinimumWidth(getResources().getDimensionPixelOffset(a.e.sdk_ds104));
+    }
+
+    public void setViewTouchable(boolean z) {
+    }
+
+    @Override // com.baidu.live.g.b
+    public View getOverlayView() {
+        return this;
     }
 }

@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     protected static final Comparator<byte[]> a = new c();
     private List<byte[]> b = new LinkedList();

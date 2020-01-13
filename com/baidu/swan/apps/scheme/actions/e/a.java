@@ -11,7 +11,7 @@ import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/hideLoading");
@@ -27,25 +27,25 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
             return false;
         }
-        com.baidu.swan.apps.core.d.e DP = ((SwanAppActivity) context).DP();
-        if (DP == null) {
+        com.baidu.swan.apps.core.d.e El = ((SwanAppActivity) context).El();
+        if (El == null) {
             com.baidu.swan.apps.console.c.e("hideLoading", "none fragmentManger");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragmentManger");
             return false;
         }
-        com.baidu.swan.apps.core.d.b LB = DP.LB();
-        if (!(LB instanceof a.InterfaceC0271a)) {
+        com.baidu.swan.apps.core.d.b LX = El.LX();
+        if (!(LX instanceof a.InterfaceC0273a)) {
             com.baidu.swan.apps.console.c.e("hideLoading", "fragment not support");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
             return false;
-        } else if (LB.getContext() == null) {
+        } else if (LX.getContext() == null) {
             com.baidu.swan.apps.console.c.e("hideLoading", "fragment has detached");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment has detached");
             return false;
         } else {
-            com.baidu.swan.apps.res.widget.floatlayer.a DK = ((a.InterfaceC0271a) LB).DK();
-            if (DK != null && (DK.getView() instanceof LoadingView)) {
-                DK.reset();
+            com.baidu.swan.apps.res.widget.floatlayer.a Eg = ((a.InterfaceC0273a) LX).Eg();
+            if (Eg != null && (Eg.getView() instanceof LoadingView)) {
+                Eg.reset();
             }
             com.baidu.swan.apps.console.c.i("hideLoading", "hide loading success");
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

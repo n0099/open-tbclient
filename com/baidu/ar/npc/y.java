@@ -1,7 +1,7 @@
 package com.baidu.ar.npc;
 
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class y implements View.OnClickListener {
     final /* synthetic */ BaiduArView a;
 

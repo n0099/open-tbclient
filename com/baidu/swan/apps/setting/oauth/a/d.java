@@ -4,7 +4,7 @@ import android.app.Activity;
 import okhttp3.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends g<JSONObject> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     protected final Activity mActivity;
@@ -14,16 +14,16 @@ public class d extends g<JSONObject> {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean abt() {
-        com.baidu.swan.apps.runtime.e ZS = com.baidu.swan.apps.runtime.e.ZS();
-        if (ZS != null) {
+    protected boolean abQ() {
+        com.baidu.swan.apps.runtime.e aap = com.baidu.swan.apps.runtime.e.aap();
+        if (aap != null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", ZS.id);
+                jSONObject.put("ma_id", aap.id);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            bb("data", jSONObject.toString());
+            bc("data", jSONObject.toString());
             return true;
         }
         return true;
@@ -39,6 +39,6 @@ public class d extends g<JSONObject> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.w.a.Rw().h(this.mActivity, gVar.abO());
+        return com.baidu.swan.apps.w.a.RS().h(this.mActivity, gVar.acl());
     }
 }

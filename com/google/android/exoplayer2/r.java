@@ -1,12 +1,12 @@
 package com.google.android.exoplayer2;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface r {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void EJ(int i);
+        void EO(int i);
 
         void a(ExoPlaybackException exoPlaybackException);
 
@@ -16,20 +16,20 @@ public interface r {
 
         void a(x xVar, Object obj);
 
-        void cXM();
+        void cYP();
 
         void onRepeatModeChanged(int i);
 
-        void tN(boolean z);
+        void tZ(boolean z);
 
-        void tO(boolean z);
+        void ua(boolean z);
 
-        void y(boolean z, int i);
+        void z(boolean z, int i);
     }
 
     void B(int i, long j);
 
-    int IF(int i);
+    int IO(int i);
 
     void a(b bVar);
 
@@ -37,29 +37,29 @@ public interface r {
 
     void b(b bVar);
 
-    int cXu();
+    int cYx();
 
-    long dqA();
+    boolean drD();
 
-    com.google.android.exoplayer2.b.g dqB();
+    boolean drE();
 
-    x dqC();
+    q drF();
 
-    boolean dqr();
+    int drH();
 
-    boolean dqs();
+    int drI();
 
-    q dqt();
+    int drJ();
 
-    int dqv();
+    int drK();
 
-    int dqw();
+    boolean drL();
 
-    int dqx();
+    long drM();
 
-    int dqy();
+    com.google.android.exoplayer2.b.g drN();
 
-    boolean dqz();
+    x drO();
 
     long getBufferedPosition();
 
@@ -75,11 +75,11 @@ public interface r {
 
     void stop();
 
-    void vi(boolean z);
+    void vu(boolean z);
 
-    void vj(boolean z);
+    void vv(boolean z);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class a implements b {
         @Override // com.google.android.exoplayer2.r.b
         public void a(x xVar, Object obj) {
@@ -90,11 +90,11 @@ public interface r {
         }
 
         @Override // com.google.android.exoplayer2.r.b
-        public void tN(boolean z) {
+        public void tZ(boolean z) {
         }
 
         @Override // com.google.android.exoplayer2.r.b
-        public void y(boolean z, int i) {
+        public void z(boolean z, int i) {
         }
 
         @Override // com.google.android.exoplayer2.r.b
@@ -102,7 +102,7 @@ public interface r {
         }
 
         @Override // com.google.android.exoplayer2.r.b
-        public void tO(boolean z) {
+        public void ua(boolean z) {
         }
 
         @Override // com.google.android.exoplayer2.r.b
@@ -110,7 +110,7 @@ public interface r {
         }
 
         @Override // com.google.android.exoplayer2.r.b
-        public void EJ(int i) {
+        public void EO(int i) {
         }
 
         @Override // com.google.android.exoplayer2.r.b
@@ -118,7 +118,7 @@ public interface r {
         }
 
         @Override // com.google.android.exoplayer2.r.b
-        public void cXM() {
+        public void cYP() {
         }
     }
 }

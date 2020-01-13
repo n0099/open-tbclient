@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.webkit.net.BdNetEngine;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class e {
     public String h = null;
     public int i = 3;

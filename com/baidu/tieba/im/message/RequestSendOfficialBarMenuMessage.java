@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.SendMenuMsg.DataReq;
 import protobuf.SendMenuMsg.SendMenuMsgReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class RequestSendOfficialBarMenuMessage extends TbSocketMessage {
     private String forum_id;
     private String rid;

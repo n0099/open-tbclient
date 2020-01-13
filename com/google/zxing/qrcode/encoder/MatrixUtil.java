@@ -6,7 +6,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitArray;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Version;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 final class MatrixUtil {
     private static final int TYPE_INFO_MASK_PATTERN = 21522;
     private static final int TYPE_INFO_POLY = 1335;

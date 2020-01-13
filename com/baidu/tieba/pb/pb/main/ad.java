@@ -5,16 +5,16 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ad {
-    private NavigationBarCoverTip gIb;
-    private int gIc;
+    private NavigationBarCoverTip gLo;
+    private int gLp;
     private com.baidu.adp.base.e mContext;
     private TextView mTipView;
 
     public ad(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
         this.mContext = eVar;
-        this.gIb = navigationBarCoverTip;
+        this.gLo = navigationBarCoverTip;
         init();
     }
 
@@ -28,26 +28,26 @@ public class ad {
         this.mTipView.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
     }
 
-    public void FB(String str) {
-        if (this.gIb != null) {
-            if (com.baidu.tbadk.core.util.aq.isEmpty(str) || this.gIc > 0) {
+    public void FL(String str) {
+        if (this.gLo != null) {
+            if (com.baidu.tbadk.core.util.aq.isEmpty(str) || this.gLp > 0) {
                 onDestory();
-                this.gIb.setVisibility(8);
+                this.gLo.setVisibility(8);
                 return;
             }
-            this.gIb.setVisibility(0);
-            this.gIc++;
+            this.gLo.setVisibility(0);
+            this.gLp++;
             this.mTipView.setText(str);
             com.baidu.tbadk.core.util.am.setViewTextColor(this.mTipView, (int) R.color.cp_cont_a);
-            this.gIb.removeAllViews();
-            this.gIb.addView(this.mTipView);
-            this.gIb.h(this.mContext.getPageActivity(), 5000);
+            this.gLo.removeAllViews();
+            this.gLo.addView(this.mTipView);
+            this.gLo.h(this.mContext.getPageActivity(), 5000);
         }
     }
 
     public void onDestory() {
-        if (this.gIb != null) {
-            this.gIb.onDestroy();
+        if (this.gLo != null) {
+            this.gLo.onDestroy();
         }
     }
 }

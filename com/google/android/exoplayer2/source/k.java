@@ -2,10 +2,10 @@ package com.google.android.exoplayer2.source;
 
 import com.google.android.exoplayer2.source.q;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface k extends q {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a extends q.a<k> {
         void a(k kVar);
     }
@@ -14,22 +14,22 @@ public interface k extends q {
 
     void a(a aVar, long j);
 
-    void dtF() throws IOException;
+    void duQ() throws IOException;
 
-    u dtG();
+    u duR();
 
-    long dtH();
-
-    @Override // com.google.android.exoplayer2.source.q
-    long dtI();
+    long duS();
 
     @Override // com.google.android.exoplayer2.source.q
-    long dtJ();
-
-    void fY(long j);
-
-    long fZ(long j);
+    long duT();
 
     @Override // com.google.android.exoplayer2.source.q
-    boolean ga(long j);
+    long duU();
+
+    void gd(long j);
+
+    long ge(long j);
+
+    @Override // com.google.android.exoplayer2.source.q
+    boolean gf(long j);
 }

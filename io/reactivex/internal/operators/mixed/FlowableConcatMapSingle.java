@@ -1,10 +1,10 @@
 package io.reactivex.internal.operators.mixed;
 
 import io.reactivex.aa;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.g;
-import io.reactivex.internal.a.e;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -18,19 +18,19 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableConcatMapSingle<T, R> extends g<R> {
     final ErrorMode errorMode;
-    final g<T> mTG;
     final h<? super T, ? extends aa<? extends R>> mapper;
+    final g<T> nvK;
     final int prefetch;
 
     @Override // io.reactivex.g
     protected void a(c<? super R> cVar) {
-        this.mTG.a((j) new ConcatMapSingleSubscriber(cVar, this.mapper, this.prefetch, this.errorMode));
+        this.nvK.a((j) new ConcatMapSingleSubscriber(cVar, this.mapper, this.prefetch, this.errorMode));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ConcatMapSingleSubscriber<T, R> extends AtomicInteger implements j<T>, d {
         static final int STATE_ACTIVE = 1;
         static final int STATE_INACTIVE = 0;
@@ -45,7 +45,7 @@ public final class FlowableConcatMapSingle<T, R> extends g<R> {
         R item;
         final h<? super T, ? extends aa<? extends R>> mapper;
         final int prefetch;
-        final e<T> queue;
+        final f<T> queue;
         volatile int state;
         d upstream;
         final AtomicLong requested = new AtomicLong();
@@ -89,7 +89,7 @@ public final class FlowableConcatMapSingle<T, R> extends g<R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -130,7 +130,7 @@ public final class FlowableConcatMapSingle<T, R> extends g<R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         /* JADX DEBUG: Type inference failed for r0v20. Raw type applied. Possible types: R, ? super R */
@@ -138,21 +138,21 @@ public final class FlowableConcatMapSingle<T, R> extends g<R> {
             if (getAndIncrement() == 0) {
                 c<? super R> cVar = this.downstream;
                 ErrorMode errorMode = this.errorMode;
-                e<T> eVar = this.queue;
+                f<T> fVar = this.queue;
                 AtomicThrowable atomicThrowable = this.errors;
                 AtomicLong atomicLong = this.requested;
                 int i = this.prefetch - (this.prefetch >> 1);
                 int i2 = 1;
                 while (true) {
                     if (this.cancelled) {
-                        eVar.clear();
+                        fVar.clear();
                         this.item = null;
                     } else {
                         int i3 = this.state;
                         if (atomicThrowable.get() == null || (errorMode != ErrorMode.IMMEDIATE && (errorMode != ErrorMode.BOUNDARY || i3 != 0))) {
                             if (i3 == 0) {
                                 boolean z = this.done;
-                                T poll = eVar.poll();
+                                T poll = fVar.poll();
                                 boolean z2 = poll == null;
                                 if (z && z2) {
                                     Throwable terminate = atomicThrowable.terminate();
@@ -178,7 +178,7 @@ public final class FlowableConcatMapSingle<T, R> extends g<R> {
                                     } catch (Throwable th) {
                                         io.reactivex.exceptions.a.I(th);
                                         this.upstream.cancel();
-                                        eVar.clear();
+                                        fVar.clear();
                                         atomicThrowable.addThrowable(th);
                                         cVar.onError(atomicThrowable.terminate());
                                         return;
@@ -201,14 +201,14 @@ public final class FlowableConcatMapSingle<T, R> extends g<R> {
                     }
                     i2 = addAndGet;
                 }
-                eVar.clear();
+                fVar.clear();
                 this.item = null;
                 cVar.onError(atomicThrowable.terminate());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class ConcatMapSingleObserver<R> extends AtomicReference<io.reactivex.disposables.b> implements y<R> {
             private static final long serialVersionUID = -3051469169682093892L;
             final ConcatMapSingleSubscriber<?, R> parent;

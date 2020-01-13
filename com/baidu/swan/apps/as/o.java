@@ -12,15 +12,15 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class o {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Pattern bUd = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-    private static HashMap<String, Integer> bUe = new HashMap<>();
-    private static HashMap<String, Integer> bUf = new HashMap<>();
-    private static HashMap<String, String> bUg = new HashMap<>();
-    public static HashMap<String, String> bUh = new HashMap<>();
-    private static final Pattern bUi;
+    private static final Pattern bUp = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    private static HashMap<String, Integer> bUq = new HashMap<>();
+    private static HashMap<String, Integer> bUr = new HashMap<>();
+    private static HashMap<String, String> bUs = new HashMap<>();
+    public static HashMap<String, String> bUt = new HashMap<>();
+    private static final Pattern bUu;
 
     static {
         h("application/andrew-inset", "ez", 5);
@@ -341,19 +341,19 @@ public final class o {
         h("audio/aac", "aac", 1);
         h("application/vnd.rn-realmedia", "rm", 0);
         h("message/rfc822", "mht", 11);
-        bUi = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        bUu = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void h(String str, String str2, int i) {
-        bUe.put(str2, Integer.valueOf(i));
-        bUf.put(str, Integer.valueOf(i));
-        bUg.put(str2, str);
-        if (!bUh.containsKey(str)) {
-            bUh.put(str, str2);
+        bUq.put(str2, Integer.valueOf(i));
+        bUr.put(str, Integer.valueOf(i));
+        bUs.put(str2, str);
+        if (!bUt.containsKey(str)) {
+            bUt.put(str, str2);
         }
     }
 
-    public static String mq(String str) {
+    public static String mt(String str) {
         int lastIndexOf;
         if (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -361,16 +361,16 @@ public final class o {
         return str.substring(lastIndexOf + 1);
     }
 
-    public static String mr(String str) {
+    public static String mu(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return bUg.get(str);
+        return bUs.get(str);
     }
 
-    public static String ms(String str) {
+    public static String mv(String str) {
         try {
-            Matcher matcher = bUd.matcher(str);
+            Matcher matcher = bUp.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }

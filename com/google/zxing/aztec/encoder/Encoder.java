@@ -4,7 +4,7 @@ import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonEncoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Encoder {
     public static final int DEFAULT_AZTEC_LAYERS = 0;
     public static final int DEFAULT_EC_PERCENT = 33;

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.websocket;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IWebSocketClient {
     void close(int i, String str);
 

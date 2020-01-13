@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class c {
     private static Map<String, d> a = new HashMap();
 

@@ -3,7 +3,7 @@ package com.baidu.mapsdkplatform.comapi.synchronization.render;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class LinkPointPolyLineInfo implements Parcelable {
     public static final Parcelable.Creator<LinkPointPolyLineInfo> CREATOR = new a();
     private long a;

@@ -9,10 +9,10 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    public long ts = 0;
-    public String tt = null;
+    public long tt = 0;
+    public String tu = null;
 
-    public boolean hi() {
+    public boolean hh() {
         String str = null;
         d dVar = new d(BdStatsConstant.CONFIG_FILE_PATH, BdStatsConstant.SWITCHS_CONFIG_FILENAME, DiskFileOperate.Action.READ);
         dVar.setSdCard(false);
@@ -26,8 +26,8 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.ts = jSONObject.getLong("time");
-            this.tt = jSONObject.getString("data");
+            this.tt = jSONObject.getLong("time");
+            this.tu = jSONObject.getString("data");
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -2,7 +2,7 @@ package com.baidu.mapsdkplatform.comjni.tools;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class b implements Parcelable.Creator<ParcelItem> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

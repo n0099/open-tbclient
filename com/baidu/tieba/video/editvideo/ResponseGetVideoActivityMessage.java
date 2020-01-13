@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ResponseGetVideoActivityMessage extends JsonHttpResponsedMessage {
     private List<VideoTitleData> mAllVideoTitleList;
     private VideoTitleData mVideoTitleData;

@@ -4,16 +4,16 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.data.FeatureCardGod;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public int gwI;
-    public ScoreCardInfo gwK;
+    public int gzS;
+    public ScoreCardInfo gzU;
     public boolean hasMore;
-    public List<bj> gwJ = new ArrayList();
-    public List<FeatureCardHot> gwL = new ArrayList();
-    public List<FeatureCardTopic> gwM = new ArrayList();
-    public List<b> gwN = new ArrayList();
-    public List<FeatureCardCompetition> gwO = new ArrayList();
-    public List<FeatureCardGod> gwP = new ArrayList();
-    public List<FeatureCardGame> gwQ = new ArrayList();
+    public List<bj> gzT = new ArrayList();
+    public List<FeatureCardHot> gzV = new ArrayList();
+    public List<FeatureCardTopic> gzW = new ArrayList();
+    public List<b> gzX = new ArrayList();
+    public List<FeatureCardCompetition> gzY = new ArrayList();
+    public List<FeatureCardGod> gzZ = new ArrayList();
+    public List<FeatureCardGame> gAa = new ArrayList();
 }

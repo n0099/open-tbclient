@@ -5,24 +5,23 @@ import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.NoSuchElementException;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableSingle<T> extends a<T, T> {
     final T defaultValue;
     final boolean failOnEmpty;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new SingleElementSubscriber(cVar, this.defaultValue, this.failOnEmpty));
+        this.nvK.a((j) new SingleElementSubscriber(cVar, this.defaultValue, this.failOnEmpty));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class SingleElementSubscriber<T> extends DeferredScalarSubscription<T> implements j<T> {
         private static final long serialVersionUID = -5526049321428043809L;
         final T defaultValue;
         boolean done;
         final boolean failOnEmpty;
-        d s;
+        org.a.d s;
 
         SingleElementSubscriber(org.a.c<? super T> cVar, T t, boolean z) {
             super(cVar);
@@ -31,7 +30,7 @@ public final class FlowableSingle<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -55,7 +54,7 @@ public final class FlowableSingle<T> extends a<T, T> {
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;

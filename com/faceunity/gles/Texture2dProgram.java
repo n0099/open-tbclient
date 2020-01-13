@@ -2,12 +2,11 @@ package com.faceunity.gles;
 
 import android.opengl.GLES20;
 import android.util.Log;
-import com.baidu.ala.recorder.video.gles.GlUtil;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Texture2dProgram {
-    private ProgramType lTq;
+    private ProgramType lXh;
     private float mColorAdjust;
     private float[] mKernel = new float[9];
     private int mProgramHandle;
@@ -21,7 +20,7 @@ public class Texture2dProgram {
     private int muTexMatrixLoc;
     private int muTexOffsetLoc;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum ProgramType {
         TEXTURE_2D,
         TEXTURE_EXT,
@@ -30,7 +29,7 @@ public class Texture2dProgram {
     }
 
     public Texture2dProgram(ProgramType programType) {
-        this.lTq = programType;
+        this.lXh = programType;
         switch (programType) {
             case TEXTURE_2D:
                 this.mTextureTarget = 3553;
@@ -54,7 +53,7 @@ public class Texture2dProgram {
         if (this.mProgramHandle == 0) {
             throw new RuntimeException("Unable to create program");
         }
-        Log.d(GlUtil.TAG, "Created program " + this.mProgramHandle + " (" + programType + ")");
+        Log.d("Grafika", "Created program " + this.mProgramHandle + " (" + programType + ")");
         this.maPositionLoc = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
         d.checkLocation(this.maPositionLoc, "aPosition");
         this.maTextureCoordLoc = GLES20.glGetAttribLocation(this.mProgramHandle, "aTextureCoord");
@@ -79,7 +78,7 @@ public class Texture2dProgram {
     }
 
     public void release() {
-        Log.d(GlUtil.TAG, "deleting program " + this.mProgramHandle);
+        Log.d("Grafika", "deleting program " + this.mProgramHandle);
         GLES20.glDeleteProgram(this.mProgramHandle);
         this.mProgramHandle = -1;
     }

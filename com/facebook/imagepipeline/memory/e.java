@@ -1,16 +1,16 @@
 package com.facebook.imagepipeline.memory;
 
 import android.util.SparseIntArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private static final SparseIntArray lPR = new SparseIntArray(0);
+    private static final SparseIntArray lTD = new SparseIntArray(0);
 
-    private static int dor() {
+    private static int dpA() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         return min > 16777216 ? (min / 4) * 3 : min / 2;
     }
 
-    public static r dox() {
-        return new r(0, dor(), lPR);
+    public static r dpG() {
+        return new r(0, dpA(), lTD);
     }
 }

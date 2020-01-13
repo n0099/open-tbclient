@@ -7,50 +7,30 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes.dex */
 public class a {
-    private String sR;
-    protected String tc;
-    protected String te;
-    protected i tf;
-    private StringBuffer sS = new StringBuffer();
+    private String sS;
+    protected String td;
+    protected String tf;
+    protected i tg;
     private StringBuffer sT = new StringBuffer();
-    private int sU = 0;
+    private StringBuffer sU = new StringBuffer();
     private int sV = 0;
-    private long sM = 0;
-    private long sW = 0;
-    protected long sX = 0;
-    private long sY = 0;
+    private int sW = 0;
+    private long sN = 0;
+    private long sX = 0;
+    protected long sY = 0;
     private long sZ = 0;
-    protected int tb = 50;
-    protected final String td = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+    private long tb = 0;
+    protected int tc = 50;
+    protected final String te = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     protected boolean mUseSdCard = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
 
     public a(i iVar) {
-        this.tf = iVar;
+        this.tg = iVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
-        if (aVar != null) {
-            try {
-                try {
-                    this.sS.append(aVar.toString());
-                    this.sS.append("\r\n");
-                    this.sU++;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
-            }
-        }
-        if (this.tf != null) {
-            this.tf.g(this);
-        }
-        this.sM = System.currentTimeMillis();
-    }
-
-    public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
@@ -64,51 +44,71 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.tf != null) {
-            this.tf.g(this);
+        if (this.tg != null) {
+            this.tg.g(this);
         }
-        this.sW = System.currentTimeMillis();
+        this.sN = System.currentTimeMillis();
     }
 
-    public int gK() {
-        return this.sU;
+    public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
+        if (aVar != null) {
+            try {
+                try {
+                    this.sU.append(aVar.toString());
+                    this.sU.append("\r\n");
+                    this.sW++;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+            } catch (OutOfMemoryError e2) {
+                e2.printStackTrace();
+            }
+        }
+        if (this.tg != null) {
+            this.tg.g(this);
+        }
+        this.sX = System.currentTimeMillis();
     }
 
-    public int gL() {
+    public int gJ() {
         return this.sV;
     }
 
-    public long gM() {
-        return this.sX;
-    }
-
-    public void l(long j) {
-        this.sX = j;
-    }
-
-    public long gN() {
-        return this.sM;
-    }
-
-    public long gO() {
+    public int gK() {
         return this.sW;
     }
 
-    public String gP() {
-        if (TextUtils.isEmpty(this.te)) {
+    public long gL() {
+        return this.sY;
+    }
+
+    public void l(long j) {
+        this.sY = j;
+    }
+
+    public long gM() {
+        return this.sN;
+    }
+
+    public long gN() {
+        return this.sX;
+    }
+
+    public String gO() {
+        if (TextUtils.isEmpty(this.tf)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.tc);
+            sb.append(this.td);
             sb.append(BdStatisticsManager.getInstance().getProcessName());
             sb.append("Writing");
             sb.append(BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
-            this.te = sb.toString();
+            this.tf = sb.toString();
         }
-        return this.te;
+        return this.tf;
     }
 
-    public String gQ() {
+    public String gP() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.tc);
+        sb.append(this.td);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -116,45 +116,45 @@ public class a {
         return sb.toString();
     }
 
-    public long gR() {
-        return this.sY;
-    }
-
-    public long gS() {
+    public long gQ() {
         return this.sZ;
     }
 
-    public void m(long j) {
-        this.sY = j;
+    public long gR() {
+        return this.tb;
     }
 
-    public void n(long j) {
+    public void m(long j) {
         this.sZ = j;
     }
 
-    public synchronized void gT() {
-        this.sS = new StringBuffer();
-        this.sU = 0;
-        this.sY = 0L;
+    public void n(long j) {
+        this.tb = j;
     }
 
-    public synchronized void gU() {
+    public synchronized void gS() {
         this.sT = new StringBuffer();
         this.sV = 0;
         this.sZ = 0L;
     }
 
+    public synchronized void gT() {
+        this.sU = new StringBuffer();
+        this.sW = 0;
+        this.tb = 0L;
+    }
+
     public void aB(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.sR = str;
+            this.sS = str;
         }
     }
 
-    public String gV() {
-        return this.sR;
+    public String gU() {
+        return this.sS;
     }
 
-    public boolean gW() {
+    public boolean gV() {
         return this.isUploading;
     }
 
@@ -162,28 +162,28 @@ public class a {
         this.isUploading = z;
     }
 
-    public String gX() {
+    public String gW() {
         return BdStatsConstant.FILE_OMP;
     }
 
-    public StringBuffer gY() {
-        return this.sS;
-    }
-
-    public StringBuffer gZ() {
+    public StringBuffer gX() {
         return this.sT;
     }
 
-    public boolean ha() {
+    public StringBuffer gY() {
+        return this.sU;
+    }
+
+    public boolean gZ() {
         return this.mUseSdCard;
     }
 
-    public boolean hb() {
+    public boolean ha() {
         return this.mMustSuccess;
     }
 
-    public String hc() {
-        return this.tc;
+    public String hb() {
+        return this.td;
     }
 
     public static String aC(String str) {

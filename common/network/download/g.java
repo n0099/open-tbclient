@@ -11,7 +11,7 @@ public class g {
     public void onFail(Exception exc) {
     }
 
-    public void ak(File file) {
+    public void am(File file) {
     }
 
     public void j(int i, int i2) {
@@ -41,7 +41,7 @@ public class g {
         });
     }
 
-    public final void eh(final int i, final int i2) {
+    public final void ei(final int i, final int i2) {
         this.mHandler.post(new Runnable() { // from class: common.network.download.g.2
             @Override // java.lang.Runnable
             public void run() {
@@ -50,11 +50,11 @@ public class g {
         });
     }
 
-    public final void al(final File file) {
+    public final void an(final File file) {
         this.mHandler.post(new Runnable() { // from class: common.network.download.g.3
             @Override // java.lang.Runnable
             public void run() {
-                g.this.ak(file);
+                g.this.am(file);
             }
         });
     }

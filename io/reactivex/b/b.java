@@ -1,5 +1,12 @@
 package io.reactivex.b;
-/* loaded from: classes4.dex */
-public interface b<T1, T2> {
-    void i(T1 t1, T2 t2) throws Exception;
+
+import io.reactivex.g;
+/* loaded from: classes5.dex */
+public abstract class b<K, T> extends g<T> {
+    final K key;
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public b(K k) {
+        this.key = k;
+    }
 }

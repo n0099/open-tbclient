@@ -7,9 +7,9 @@ import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CompletableTakeUntilCompletable extends a {
-    final a mTD;
+    final a nvH;
     final e other;
 
     @Override // io.reactivex.a
@@ -17,10 +17,10 @@ public final class CompletableTakeUntilCompletable extends a {
         TakeUntilMainObserver takeUntilMainObserver = new TakeUntilMainObserver(cVar);
         cVar.onSubscribe(takeUntilMainObserver);
         this.other.a(takeUntilMainObserver.other);
-        this.mTD.a(takeUntilMainObserver);
+        this.nvH.a(takeUntilMainObserver);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class TakeUntilMainObserver extends AtomicReference<b> implements c, b {
         private static final long serialVersionUID = 3533011714830024923L;
         final c downstream;
@@ -64,7 +64,7 @@ public final class CompletableTakeUntilCompletable extends a {
                 this.downstream.onError(th);
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         void innerComplete() {
@@ -80,10 +80,10 @@ public final class CompletableTakeUntilCompletable extends a {
                 this.downstream.onError(th);
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         static final class OtherObserver extends AtomicReference<b> implements c {
             private static final long serialVersionUID = 5176264485428790318L;
             final TakeUntilMainObserver parent;

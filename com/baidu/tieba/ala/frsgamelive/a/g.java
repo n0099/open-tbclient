@@ -7,48 +7,47 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class g {
-    private final List<com.baidu.adp.widget.ListView.a> aoz = new ArrayList();
-    private com.baidu.adp.base.e cRq;
-    private BdTypeListView efM;
-    private f ewd;
-    private c ewe;
-    private a ewf;
-    private b ewg;
+    private final List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
+    private com.baidu.adp.base.e cRA;
+    private BdTypeListView efW;
+    private f exo;
+    private c exp;
+    private a exq;
+    private b exr;
 
     public g(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView, boolean z) {
-        this.cRq = eVar;
-        this.efM = bdTypeListView;
-        m24if(z);
+        this.cRA = eVar;
+        this.efW = bdTypeListView;
+        ip(z);
     }
 
-    /* renamed from: if  reason: not valid java name */
-    private void m24if(boolean z) {
+    private void ip(boolean z) {
         if (z) {
-            this.ewe = new c((TbPageContext) this.cRq, com.baidu.tieba.ala.gamelist.b.a.enP);
-            this.aoz.add(this.ewe);
+            this.exp = new c((TbPageContext) this.cRA, com.baidu.tieba.ala.gamelist.b.a.epd);
+            this.apl.add(this.exp);
         } else {
-            this.ewd = new f((TbPageContext) this.cRq, com.baidu.tieba.ala.gamelist.b.a.enP);
-            this.aoz.add(this.ewd);
+            this.exo = new f((TbPageContext) this.cRA, com.baidu.tieba.ala.gamelist.b.a.epd);
+            this.apl.add(this.exo);
         }
-        this.ewf = new a((TbPageContext) this.cRq, com.baidu.tieba.ala.frsgamelive.b.a.ewi);
-        this.ewg = new b((TbPageContext) this.cRq, com.baidu.tieba.ala.frsgamelive.b.b.ewj);
-        this.aoz.add(this.ewf);
-        this.aoz.add(this.ewg);
-        this.efM.addAdapters(this.aoz);
+        this.exq = new a((TbPageContext) this.cRA, com.baidu.tieba.ala.frsgamelive.b.a.exu);
+        this.exr = new b((TbPageContext) this.cRA, com.baidu.tieba.ala.frsgamelive.b.b.exv);
+        this.apl.add(this.exq);
+        this.apl.add(this.exr);
+        this.efW.addAdapters(this.apl);
     }
 
     public void setDatas(List<m> list) {
-        if (this.efM != null) {
-            this.efM.setData(list);
+        if (this.efW != null) {
+            this.efW.setData(list);
         }
     }
 
     public void b(com.baidu.tieba.ala.d dVar) {
-        if (this.ewd != null) {
-            this.ewd.a(dVar);
+        if (this.exo != null) {
+            this.exo.a(dVar);
         }
-        if (this.ewe != null) {
-            this.ewe.a(dVar);
+        if (this.exp != null) {
+            this.exp.a(dVar);
         }
     }
 }

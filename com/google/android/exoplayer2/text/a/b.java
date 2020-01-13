@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.text.a;
 
 import android.support.annotation.NonNull;
 import android.text.Layout;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class b extends com.google.android.exoplayer2.text.b implements Comparable<b> {
     public final int priority;
 

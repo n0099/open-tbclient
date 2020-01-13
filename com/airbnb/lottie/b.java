@@ -1,7 +1,7 @@
 package com.airbnb.lottie;
 
 import android.graphics.Typeface;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     public Typeface D(String str) {
         return null;

@@ -10,19 +10,19 @@ import com.baidu.tieba.ala.liveroom.operation.b;
 import com.baidu.tieba.ala.liveroom.praise.DetailPraiseView;
 /* loaded from: classes2.dex */
 public class a {
-    private DetailPraiseView fdd;
-    private b fde;
+    private DetailPraiseView fgj;
+    private b fgk;
     private TbPageContext mTbPageContext;
     private String otherParams;
-    private DetailPraiseView.a fdf = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
+    private DetailPraiseView.a fgl = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
         @Override // com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.a
-        public void bnv() {
-            if (a.this.fde != null) {
-                a.this.fde.m(a.this.fdd, 12);
+        public void bov() {
+            if (a.this.fgk != null) {
+                a.this.fgk.m(a.this.fgj, 12);
             }
         }
     };
-    private CustomMessageListener eqn = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
+    private CustomMessageListener erA = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,41 +38,41 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.eqn);
+        MessageManager.getInstance().registerListener(this.erA);
     }
 
     public void b(b bVar) {
-        this.fde = bVar;
+        this.fgk = bVar;
     }
 
-    public void jx(boolean z) {
-        if (this.fdd != null) {
-            this.fdd.setShowPraise(z);
+    public void jI(boolean z) {
+        if (this.fgj != null) {
+            this.fgj.setShowPraise(z);
         }
     }
 
     public void setPraiseEnable(boolean z) {
-        if (this.fdd != null) {
-            this.fdd.setPraiseEnable(z);
+        if (this.fgj != null) {
+            this.fgj.setPraiseEnable(z);
         }
     }
 
-    public void ag(ViewGroup viewGroup) {
+    public void ak(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.fdd == null) {
-                this.fdd = new DetailPraiseView(this.mTbPageContext.getPageActivity());
+            if (this.fgj == null) {
+                this.fgj = new DetailPraiseView(this.mTbPageContext.getPageActivity());
             }
-            this.fdd.setOnDoubleClickListener(this.fdf);
-            if (this.fdd.getParent() != null) {
-                ((ViewGroup) this.fdd.getParent()).removeView(this.fdd);
+            this.fgj.setOnDoubleClickListener(this.fgl);
+            if (this.fgj.getParent() != null) {
+                ((ViewGroup) this.fgj.getParent()).removeView(this.fgj);
             }
-            viewGroup.addView(this.fdd, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.fgj, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
-    public void bdn() {
-        if (this.fdd != null) {
-            this.fdd.bdn();
+    public void bdI() {
+        if (this.fgj != null) {
+            this.fgj.bdI();
         }
     }
 }

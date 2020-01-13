@@ -15,6 +15,7 @@ import com.baidu.live.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
+import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class AlaCameraManager implements ICameraStatusHandler {
     private static final int CAMERA_FLUSHLIGHT_OFF = 2;
@@ -231,10 +232,14 @@ public class AlaCameraManager implements ICameraStatusHandler {
 
     private ICameraOperator createCameraOperator(boolean z, VideoBeautyType videoBeautyType) {
         if (z && Build.VERSION.SDK_INT >= 19) {
-            if (videoBeautyType == VideoBeautyType.BEAUTY_FACEUNITY && FUCameraOperator.isValid()) {
+            if (videoBeautyType == VideoBeautyType.DUMIX_AR) {
+                this.mNeedBeauty = false;
+                return new DuArCameraOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback, this.mMainHandler);
+            } else if (videoBeautyType == VideoBeautyType.BEAUTY_FACEUNITY && FUCameraOperator.isValid()) {
                 return new FUCameraOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback, this.mMainHandler);
+            } else {
+                return new BaoBaoCameraOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback, this.mMainHandler);
             }
-            return new BaoBaoCameraOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback, this.mMainHandler);
         }
         this.mNeedBeauty = false;
         return new CPUCaremaOperator(this.mActivity, this.mCamera, this.mSurfaceHolder, this, this.mVideoDataCallback);
@@ -397,6 +402,18 @@ public class AlaCameraManager implements ICameraStatusHandler {
     public void setPreviewFps(int i) {
         if (this.mCameraOperator != null) {
             this.mCameraOperator.setPreviewFps(i);
+        }
+    }
+
+    public void setDefBeautyParams(HashMap<String, Object> hashMap) {
+        if (this.mCameraOperator instanceof DuArCameraOperator) {
+            ((DuArCameraOperator) this.mCameraOperator).setDefBeautyParams(hashMap);
+        }
+    }
+
+    public void onBeautyChanged(float f, HashMap<String, Object> hashMap) {
+        if (this.mCameraOperator instanceof DuArCameraOperator) {
+            ((DuArCameraOperator) this.mCameraOperator).onBeautyChanged(f, hashMap);
         }
     }
 }

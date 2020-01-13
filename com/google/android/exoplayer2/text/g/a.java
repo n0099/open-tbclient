@@ -6,20 +6,20 @@ import com.google.android.exoplayer2.util.l;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class a {
-    private static final Pattern mxp = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
-    private final l mxq = new l();
-    private final StringBuilder mxr = new StringBuilder();
+    private static final Pattern mBd = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
+    private final l mBe = new l();
+    private final StringBuilder mBf = new StringBuilder();
 
     public d W(l lVar) {
-        this.mxr.setLength(0);
+        this.mBf.setLength(0);
         int position = lVar.getPosition();
         aa(lVar);
-        this.mxq.G(lVar.data, lVar.getPosition());
-        this.mxq.setPosition(position);
-        String a = a(this.mxq, this.mxr);
-        if (a == null || !"{".equals(b(this.mxq, this.mxr))) {
+        this.mBe.G(lVar.data, lVar.getPosition());
+        this.mBe.setPosition(position);
+        String a = a(this.mBe, this.mBf);
+        if (a == null || !"{".equals(b(this.mBe, this.mBf))) {
             return null;
         }
         d dVar = new d();
@@ -27,12 +27,12 @@ final class a {
         boolean z = false;
         String str = null;
         while (!z) {
-            int position2 = this.mxq.getPosition();
-            str = b(this.mxq, this.mxr);
+            int position2 = this.mBe.getPosition();
+            str = b(this.mBe, this.mBf);
             z = str == null || "}".equals(str);
             if (!z) {
-                this.mxq.setPosition(position2);
-                a(this.mxq, dVar, this.mxr);
+                this.mBe.setPosition(position2);
+                a(this.mBe, dVar, this.mBf);
             }
         }
         if ("}".equals(str)) {
@@ -43,7 +43,7 @@ final class a {
 
     private static String a(l lVar, StringBuilder sb) {
         Y(lVar);
-        if (lVar.dwV() >= 5 && "::cue".equals(lVar.LG(5))) {
+        if (lVar.dyf() >= 5 && "::cue".equals(lVar.LP(5))) {
             int position = lVar.getPosition();
             String b = b(lVar, sb);
             if (b != null) {
@@ -65,15 +65,15 @@ final class a {
 
     private static String X(l lVar) {
         int position = lVar.getPosition();
-        int dwW = lVar.dwW();
+        int dyg = lVar.dyg();
         int i = position;
         boolean z = false;
-        while (i < dwW && !z) {
+        while (i < dyg && !z) {
             int i2 = i + 1;
             z = ((char) lVar.data[i]) == ')';
             i = i2;
         }
-        return lVar.LG((i - 1) - lVar.getPosition()).trim();
+        return lVar.LP((i - 1) - lVar.getPosition()).trim();
     }
 
     private static void a(l lVar, d dVar, StringBuilder sb) {
@@ -93,21 +93,21 @@ final class a {
                     }
                 }
                 if ("color".equals(d)) {
-                    dVar.Ln(com.google.android.exoplayer2.util.d.PP(c));
+                    dVar.Lw(com.google.android.exoplayer2.util.d.Qa(c));
                 } else if ("background-color".equals(d)) {
-                    dVar.Lo(com.google.android.exoplayer2.util.d.PP(c));
+                    dVar.Lx(com.google.android.exoplayer2.util.d.Qa(c));
                 } else if ("text-decoration".equals(d)) {
                     if ("underline".equals(c)) {
-                        dVar.vz(true);
+                        dVar.vL(true);
                     }
                 } else if ("font-family".equals(d)) {
-                    dVar.PH(c);
+                    dVar.PS(c);
                 } else if ("font-weight".equals(d)) {
                     if ("bold".equals(c)) {
-                        dVar.vA(true);
+                        dVar.vM(true);
                     }
                 } else if ("font-style".equals(d) && "italic".equals(c)) {
-                    dVar.vB(true);
+                    dVar.vN(true);
                 }
             }
         }
@@ -115,14 +115,14 @@ final class a {
 
     static void Y(l lVar) {
         boolean z = true;
-        while (lVar.dwV() > 0 && z) {
+        while (lVar.dyf() > 0 && z) {
             z = Z(lVar) || ab(lVar);
         }
     }
 
     static String b(l lVar, StringBuilder sb) {
         Y(lVar);
-        if (lVar.dwV() == 0) {
+        if (lVar.dyf() == 0) {
             return null;
         }
         String d = d(lVar, sb);
@@ -173,23 +173,23 @@ final class a {
 
     private static boolean ab(l lVar) {
         int position = lVar.getPosition();
-        int dwW = lVar.dwW();
+        int dyg = lVar.dyg();
         byte[] bArr = lVar.data;
-        if (position + 2 <= dwW) {
+        if (position + 2 <= dyg) {
             int i = position + 1;
             if (bArr[position] == 47) {
                 int i2 = i + 1;
                 if (bArr[i] == 42) {
                     while (true) {
                         int i3 = i2;
-                        if (i3 + 1 < dwW) {
+                        if (i3 + 1 < dyg) {
                             i2 = i3 + 1;
                             if (((char) bArr[i3]) == '*' && ((char) bArr[i2]) == '/') {
-                                dwW = i2 + 1;
-                                i2 = dwW;
+                                dyg = i2 + 1;
+                                i2 = dyg;
                             }
                         } else {
-                            lVar.skipBytes(dwW - lVar.getPosition());
+                            lVar.skipBytes(dyg - lVar.getPosition());
                             return true;
                         }
                     }
@@ -203,8 +203,8 @@ final class a {
         boolean z = false;
         sb.setLength(0);
         int position = lVar.getPosition();
-        int dwW = lVar.dwW();
-        while (position < dwW && !z) {
+        int dyg = lVar.dyg();
+        while (position < dyg && !z) {
             char c = (char) lVar.data[position];
             if ((c >= 'A' && c <= 'Z') || ((c >= 'a' && c <= 'z') || ((c >= '0' && c <= '9') || c == '#' || c == '-' || c == '.' || c == '_'))) {
                 position++;
@@ -221,9 +221,9 @@ final class a {
         if (!"".equals(str)) {
             int indexOf = str.indexOf(91);
             if (indexOf != -1) {
-                Matcher matcher = mxp.matcher(str.substring(indexOf));
+                Matcher matcher = mBd.matcher(str.substring(indexOf));
                 if (matcher.matches()) {
-                    dVar.PG(matcher.group(1));
+                    dVar.PR(matcher.group(1));
                 }
                 str = str.substring(0, indexOf);
             }
@@ -231,10 +231,10 @@ final class a {
             String str2 = split[0];
             int indexOf2 = str2.indexOf(35);
             if (indexOf2 != -1) {
-                dVar.PF(str2.substring(0, indexOf2));
-                dVar.PE(str2.substring(indexOf2 + 1));
+                dVar.PQ(str2.substring(0, indexOf2));
+                dVar.PP(str2.substring(indexOf2 + 1));
             } else {
-                dVar.PF(str2);
+                dVar.PQ(str2);
             }
             if (split.length > 1) {
                 dVar.S((String[]) Arrays.copyOfRange(split, 1, split.length));

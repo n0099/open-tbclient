@@ -1,21 +1,21 @@
 package org.java_websocket.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e extends g implements i {
-    private short ncN;
-    private String ncO;
+    private short nLM;
+    private String nLN;
 
     @Override // org.java_websocket.c.h
-    public String dFN() {
-        return this.ncO;
+    public String dMo() {
+        return this.nLN;
     }
 
     @Override // org.java_websocket.c.i
-    public void Rp(String str) {
-        this.ncO = str;
+    public void Sk(String str) {
+        this.nLN = str;
     }
 
     @Override // org.java_websocket.c.i
     public void j(short s) {
-        this.ncN = s;
+        this.nLM = s;
     }
 }

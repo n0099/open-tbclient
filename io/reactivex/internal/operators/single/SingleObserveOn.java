@@ -7,7 +7,7 @@ import io.reactivex.v;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleObserveOn<T> extends w<T> {
     final v scheduler;
     final aa<T> source;
@@ -17,7 +17,7 @@ public final class SingleObserveOn<T> extends w<T> {
         this.source.a(new ObserveOnSingleObserver(yVar, this.scheduler));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ObserveOnSingleObserver<T> extends AtomicReference<b> implements b, y<T>, Runnable {
         private static final long serialVersionUID = 3528003840217436037L;
         final y<? super T> actual;
@@ -40,13 +40,13 @@ public final class SingleObserveOn<T> extends w<T> {
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             this.value = t;
-            DisposableHelper.replace(this, this.scheduler.B(this));
+            DisposableHelper.replace(this, this.scheduler.C(this));
         }
 
         @Override // io.reactivex.y
         public void onError(Throwable th) {
             this.error = th;
-            DisposableHelper.replace(this, this.scheduler.B(this));
+            DisposableHelper.replace(this, this.scheduler.C(this));
         }
 
         /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */

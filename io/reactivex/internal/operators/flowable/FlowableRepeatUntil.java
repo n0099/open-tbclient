@@ -1,31 +1,29 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.b.e;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableRepeatUntil<T> extends a<T, T> {
-    final e mUi;
+    final io.reactivex.c.e nws;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RepeatSubscriber(cVar, this.mUi, subscriptionArbiter, this.mTG).subscribeNext();
+        new RepeatSubscriber(cVar, this.nws, subscriptionArbiter, this.nvK).subscribeNext();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class RepeatSubscriber<T> extends AtomicInteger implements j<T> {
         private static final long serialVersionUID = -7098360935104053232L;
         final org.a.c<? super T> actual;
         long produced;
         final SubscriptionArbiter sa;
         final org.a.b<? extends T> source;
-        final e stop;
+        final io.reactivex.c.e stop;
 
-        RepeatSubscriber(org.a.c<? super T> cVar, e eVar, SubscriptionArbiter subscriptionArbiter, org.a.b<? extends T> bVar) {
+        RepeatSubscriber(org.a.c<? super T> cVar, io.reactivex.c.e eVar, SubscriptionArbiter subscriptionArbiter, org.a.b<? extends T> bVar) {
             this.actual = cVar;
             this.sa = subscriptionArbiter;
             this.source = bVar;
@@ -33,7 +31,7 @@ public final class FlowableRepeatUntil<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             this.sa.setSubscription(dVar);
         }
 

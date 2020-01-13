@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ugc.provider.listener;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface OnVideoClipListener {
     void onClipFailed(String str);
 

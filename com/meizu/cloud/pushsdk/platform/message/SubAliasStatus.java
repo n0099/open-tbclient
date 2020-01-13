@@ -4,7 +4,7 @@ import com.coloros.mcssdk.mode.CommandMessage;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SubAliasStatus extends BasicPushStatus {
     private String alias;
     private String pushId;

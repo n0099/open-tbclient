@@ -10,7 +10,7 @@ import com.baidu.searchbox.suspensionball.ioc.SuspensionBallRuntime;
 import com.baidu.ubc.Flow;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SuspensionBallShowHelper {
     private static final boolean DEBUG = AppConfig.isDebug();
     public static final int DEFAULT_STRATEGY = 1;

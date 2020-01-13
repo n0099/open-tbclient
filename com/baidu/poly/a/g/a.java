@@ -6,11 +6,11 @@ import com.baidu.poly.util.e;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private long aLM = System.currentTimeMillis();
-    private String aLN = e.getNetworkType();
-    private JSONObject aLO;
+    private long aME = System.currentTimeMillis();
+    private String aMF = e.getNetworkType();
+    private JSONObject aMG;
     private String action;
     private String content;
 
@@ -18,7 +18,7 @@ public class a {
         this.action = str;
     }
 
-    public JSONObject BM() {
+    public JSONObject Ci() {
         if (TextUtils.isEmpty(this.action)) {
             com.baidu.poly.util.c.j("statistics action can not null");
             return null;
@@ -26,16 +26,16 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(Config.APP_VERSION_CODE, this.action);
-            jSONObject.put("t", this.aLM);
-            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.aLN);
-            if (this.aLO != null) {
-                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.aLO);
+            jSONObject.put("t", this.aME);
+            jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.aMF);
+            if (this.aMG != null) {
+                jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.aMG);
             } else if (!TextUtils.isEmpty(this.content)) {
                 jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.content);
             }
             return jSONObject;
         } catch (JSONException e) {
-            if (com.baidu.poly.util.c.aMK) {
+            if (com.baidu.poly.util.c.aNC) {
                 e.printStackTrace();
                 return jSONObject;
             }
@@ -44,11 +44,11 @@ public class a {
     }
 
     public a J(JSONObject jSONObject) {
-        this.aLO = jSONObject;
+        this.aMG = jSONObject;
         return this;
     }
 
-    public a ex(String str) {
+    public a eA(String str) {
         this.content = str;
         return this;
     }

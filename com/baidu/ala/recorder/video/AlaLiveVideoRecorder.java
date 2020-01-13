@@ -10,6 +10,7 @@ import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.camera.AlaCameraRecorder;
 import com.baidu.ala.recorder.video.camera.ICameraStatusHandler;
 import com.baidu.ala.recorder.video.screen.AlaScreenRecorder;
+import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler {
     private Context mContext;
@@ -24,7 +25,7 @@ public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder,
 
     public void init(VideoRecorderType videoRecorderType, VideoBeautyType videoBeautyType) {
         if (videoRecorderType == VideoRecorderType.CAMERA) {
-            this.mRealRecorder = new AlaCameraRecorder(this.mContext, this.mHandler, true, videoBeautyType);
+            this.mRealRecorder = new AlaCameraRecorder(this.mContext, this.mHandler, videoBeautyType != null, videoBeautyType);
         } else if (videoRecorderType == VideoRecorderType.SCREEN) {
             AlaScreenRecorder alaScreenRecorder = AlaScreenRecorder.getInstance();
             alaScreenRecorder.init(this.mContext, this.mHandler);
@@ -223,6 +224,13 @@ public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder,
     }
 
     @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onStickerItemSelected(Object obj) {
+        if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
+            ((AlaCameraRecorder) this.mRealRecorder).onStickerItemSelected(obj);
+        }
+    }
+
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
     public void onGiftEffectItemSelected(String str) {
         if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
             ((AlaCameraRecorder) this.mRealRecorder).onGiftEffectItemSelected(str);
@@ -287,6 +295,20 @@ public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder,
         }
     }
 
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onChinSelected(float f) {
+        if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
+            ((AlaCameraRecorder) this.mRealRecorder).onChinSelected(f);
+        }
+    }
+
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onNoseSelected(float f) {
+        if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
+            ((AlaCameraRecorder) this.mRealRecorder).onNoseSelected(f);
+        }
+    }
+
     @Override // com.baidu.ala.recorder.video.camera.ICameraStatusHandler
     public boolean hasAdvancedBeauty() {
         if (this.mRealRecorder == null || !(this.mRealRecorder instanceof AlaCameraRecorder)) {
@@ -317,6 +339,18 @@ public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder,
     public void setPreviewFps(int i) {
         if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
             ((AlaCameraRecorder) this.mRealRecorder).setPreviewFps(i);
+        }
+    }
+
+    public void setDefBeautyParams(HashMap<String, Object> hashMap) {
+        if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
+            ((AlaCameraRecorder) this.mRealRecorder).setDefBeautyParams(hashMap);
+        }
+    }
+
+    public void onBeautyChanged(float f, HashMap<String, Object> hashMap) {
+        if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
+            ((AlaCameraRecorder) this.mRealRecorder).onBeautyChanged(f, hashMap);
         }
     }
 }

@@ -16,7 +16,7 @@ import android.widget.TabWidget;
 import android.widget.TextView;
 import com.baidu.android.common.ui.R;
 import com.baidu.android.util.devices.DeviceUtil;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BadgeView extends TextView {
     private boolean mHideOnNull;
 

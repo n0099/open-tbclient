@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.suspension.activity.SuspensionViewAdapter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SuspensionBallAdapter extends SuspensionViewAdapter {
     private static long sClickTimeInterval = 1000;
     private static long sPreClickTime;

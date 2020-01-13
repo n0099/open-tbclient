@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class TrustedCertificateIndex {
     private final Map<X500Principal, List<TrustAnchor>> subjectToTrustAnchors = new HashMap();
 

@@ -3,44 +3,44 @@ package com.baidu.tbadk.core.data;
 import android.content.Intent;
 /* loaded from: classes.dex */
 public class ax {
-    private String cMc;
-    private String cMd;
-    private String cMe;
-    private String cMf;
+    private String cMm;
+    private String cMn;
+    private String cMo;
+    private String cMp;
 
     public void s(bj bjVar) {
         if (bjVar != null) {
-            this.cMc = bjVar.mRecomWeight;
-            this.cMd = bjVar.mRecomSource;
-            this.cMe = bjVar.mRecomAbTag;
-            this.cMf = bjVar.mRecomExtra;
+            this.cMm = bjVar.mRecomWeight;
+            this.cMn = bjVar.mRecomSource;
+            this.cMo = bjVar.mRecomAbTag;
+            this.cMp = bjVar.mRecomExtra;
         }
     }
 
     public void R(Intent intent) {
         if (intent != null) {
-            this.cMc = intent.getStringExtra("recom_weight");
-            this.cMd = intent.getStringExtra("recom_source");
-            this.cMe = intent.getStringExtra("recom_abtag");
-            this.cMf = intent.getStringExtra("recom_extra");
+            this.cMm = intent.getStringExtra("recom_weight");
+            this.cMn = intent.getStringExtra("recom_source");
+            this.cMo = intent.getStringExtra("recom_abtag");
+            this.cMp = intent.getStringExtra("recom_extra");
         }
     }
 
     public void S(Intent intent) {
         if (intent != null) {
-            intent.putExtra("recom_weight", this.cMc);
-            intent.putExtra("recom_source", this.cMd);
-            intent.putExtra("recom_abtag", this.cMe);
-            intent.putExtra("recom_extra", this.cMf);
+            intent.putExtra("recom_weight", this.cMm);
+            intent.putExtra("recom_source", this.cMn);
+            intent.putExtra("recom_abtag", this.cMo);
+            intent.putExtra("recom_extra", this.cMp);
         }
     }
 
     public void b(com.baidu.tieba.play.y yVar) {
         if (yVar != null) {
-            yVar.jsi = this.cMc;
-            yVar.mSource = this.cMd;
-            yVar.mAbTag = this.cMe;
-            yVar.mExtra = this.cMf;
+            yVar.jvJ = this.cMm;
+            yVar.mSource = this.cMn;
+            yVar.mAbTag = this.cMo;
+            yVar.mExtra = this.cMp;
         }
     }
 }

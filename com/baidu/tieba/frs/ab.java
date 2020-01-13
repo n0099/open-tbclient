@@ -2,20 +2,20 @@ package com.baidu.tieba.frs;
 
 import android.support.v4.util.LongSparseArray;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ab {
-    private static final ab gmU = new ab();
-    private LongSparseArray<LinkedList<String>> gmT = new LongSparseArray<>();
+    private static final ab gqd = new ab();
+    private LongSparseArray<LinkedList<String>> gqc = new LongSparseArray<>();
 
     private ab() {
     }
 
-    public static ab bDc() {
-        return gmU;
+    public static ab bEe() {
+        return gqd;
     }
 
-    public void dq(long j) {
-        LinkedList<String> linkedList = this.gmT.get(j);
+    public void dv(long j) {
+        LinkedList<String> linkedList = this.gqc.get(j);
         if (linkedList != null) {
             linkedList.clear();
         }

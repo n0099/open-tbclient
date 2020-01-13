@@ -12,13 +12,13 @@ import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.apps.api.a.c {
     public b(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b eU(String str) {
+    public com.baidu.swan.apps.api.b.b eX(String str) {
         if (DEBUG) {
             Log.d("Api-Modal", "start show modal");
         }
@@ -27,7 +27,7 @@ public class b extends com.baidu.swan.apps.api.a.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.api.module.e.b$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class AnonymousClass1 implements c.a {
         AnonymousClass1() {
         }
@@ -42,7 +42,7 @@ public class b extends com.baidu.swan.apps.api.a.c {
                 @Override // java.lang.Runnable
                 public void run() {
                     g.a aVar = new g.a(b.this.getContext());
-                    aVar.e(jSONObject.optString("title")).kr(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).dr(false);
+                    aVar.e(jSONObject.optString("title")).ku(jSONObject.optString("content")).a(new com.baidu.swan.apps.view.c.a()).dw(false);
                     if (jSONObject.optBoolean("showCancel", true)) {
                         aVar.G(jSONObject.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
                         String optString2 = jSONObject.optString("cancelText");
@@ -81,7 +81,7 @@ public class b extends com.baidu.swan.apps.api.a.c {
                             }
                         }
                     });
-                    aVar.ZC();
+                    aVar.ZZ();
                 }
             });
             return new com.baidu.swan.apps.api.b.b(0);

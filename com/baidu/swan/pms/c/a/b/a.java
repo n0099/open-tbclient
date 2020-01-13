@@ -3,7 +3,7 @@ package com.baidu.swan.pms.c.a.b;
 import android.util.Log;
 import com.baidu.swan.pms.d;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public Integer u(Map<String, Object> map) {
         if (map == null || map.isEmpty()) {

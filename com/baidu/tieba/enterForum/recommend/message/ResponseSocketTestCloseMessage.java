@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.recommend.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.TestClose.TestCloseResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ResponseSocketTestCloseMessage extends SocketResponsedMessage {
     public ResponseSocketTestCloseMessage() {
         super(309633);

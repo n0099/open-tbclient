@@ -9,9 +9,9 @@ import com.baidu.swan.pms.model.g;
 import com.baidu.swan.pms.model.h;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a {
-    private static volatile a cwz;
+    private static volatile a cwK;
 
     public abstract boolean P(String str, String str2, String str3);
 
@@ -21,17 +21,17 @@ public abstract class a {
 
     public abstract boolean a(f fVar, List<g> list, d dVar, com.baidu.swan.pms.model.b bVar, PMSAppInfo pMSAppInfo);
 
-    public abstract Map<String, f> aqN();
+    public abstract Map<String, f> arg();
 
-    public abstract Map<String, PMSAppInfo> aqO();
+    public abstract Map<String, PMSAppInfo> arh();
 
     public abstract <T extends e> boolean b(Class<T> cls, String str);
 
-    public abstract void bS(String str, String str2);
+    public abstract void bT(String str, String str2);
 
-    public abstract h bT(String str, String str2);
+    public abstract h bU(String str, String str2);
 
-    public abstract com.baidu.swan.pms.b.a bU(@NonNull String str, @NonNull String str2);
+    public abstract com.baidu.swan.pms.b.a bV(@NonNull String str, @NonNull String str2);
 
     public abstract <T extends e> T c(Class<T> cls, String str);
 
@@ -45,20 +45,20 @@ public abstract class a {
 
     public abstract boolean m(PMSAppInfo pMSAppInfo);
 
-    public abstract PMSAppInfo pW(String str);
+    public abstract PMSAppInfo pZ(String str);
 
-    public abstract boolean pX(String str);
+    public abstract boolean qa(String str);
 
-    public abstract void pY(String str);
+    public abstract void qb(String str);
 
-    public static a aqM() {
-        if (cwz == null) {
+    public static a arf() {
+        if (cwK == null) {
             synchronized (a.class) {
-                if (cwz == null) {
-                    cwz = new b();
+                if (cwK == null) {
+                    cwK = new b();
                 }
             }
         }
-        return cwz;
+        return cwK;
     }
 }

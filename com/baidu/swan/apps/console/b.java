@@ -9,29 +9,29 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.as.aa;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.storage.c.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.IF().putBoolean(str, z);
+            a.Jb().putBoolean(str, z);
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0223b.class, q(str, z));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0225b.class, q(str, z));
         }
     }
 
-    public static void bT(boolean z) {
-        e ZS = e.ZS();
-        if (ZS != null) {
-            putBoolean(gg(ZS.getAppKey()), z);
+    public static void bY(boolean z) {
+        e aap = e.aap();
+        if (aap != null) {
+            putBoolean(gj(aap.getAppKey()), z);
         }
     }
 
-    public static boolean gf(String str) {
-        return !TextUtils.isEmpty(str) && a.IF().getBoolean(gg(str), false);
+    public static boolean gi(String str) {
+        return !TextUtils.isEmpty(str) && a.Jb().getBoolean(gj(str), false);
     }
 
-    private static String gg(String str) {
-        String bm = com.baidu.swan.apps.w.a.Rp().bm(com.baidu.swan.apps.w.a.Rk());
+    private static String gj(String str) {
+        String bm = com.baidu.swan.apps.w.a.RL().bm(com.baidu.swan.apps.w.a.RG());
         return "consoleSwitch" + str + (TextUtils.isEmpty(bm) ? "" : aa.toHash(bm.getBytes(), false));
     }
 
@@ -42,7 +42,7 @@ public class b {
         return bundle;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends g {
         private a() {
             super("searchbox_sconsole_sp");
@@ -50,26 +50,26 @@ public class b {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.swan.apps.console.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public static final class C0222a {
-            private static final a beE = new a();
+        /* loaded from: classes10.dex */
+        public static final class C0224a {
+            private static final a bfu = new a();
         }
 
-        public static a IF() {
-            return C0222a.beE;
+        public static a Jb() {
+            return C0224a.bfu;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.console.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0223b extends ProviderDelegation {
-        private C0223b() {
+    /* loaded from: classes10.dex */
+    public static class C0225b extends ProviderDelegation {
+        private C0225b() {
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
-            a.IF().putBoolean(bundle.getString("key"), bundle.getBoolean("value"));
+            a.Jb().putBoolean(bundle.getString("key"), bundle.getBoolean("value"));
             return Bundle.EMPTY;
         }
     }

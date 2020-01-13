@@ -5,12 +5,12 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.util.Log;
 import com.baidu.swan.apps.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private Context mContext;
     private static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = b.DEBUG;
-    private static SharedPreferences cbk = null;
+    private static SharedPreferences cbx = null;
 
     private a(Context context) {
         this.mContext = null;
@@ -22,10 +22,10 @@ public class a {
     }
 
     private static SharedPreferences dm(Context context) {
-        if (cbk == null) {
-            cbk = context.getSharedPreferences("downgradefile", 0);
+        if (cbx == null) {
+            cbx = context.getSharedPreferences("downgradefile", 0);
         }
-        return cbk;
+        return cbx;
     }
 
     private int dn(Context context) {
@@ -37,7 +37,7 @@ public class a {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static int m21do(Context context) {
+    public static int m24do(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
         } catch (PackageManager.NameNotFoundException e) {
@@ -57,42 +57,42 @@ public class a {
         edit.apply();
     }
 
-    public void agH() {
-        int m21do = m21do(this.mContext);
+    public void aha() {
+        int m24do = m24do(this.mContext);
         int dn = dn(this.mContext);
         if (DEBUG) {
-            Log.d(TAG, "处理升级逻辑：newVersionCode=" + m21do + " /oldVersionCode=" + dn);
+            Log.d(TAG, "处理升级逻辑：newVersionCode=" + m24do + " /oldVersionCode=" + dn);
         }
         if (dn == 0) {
-            hf(m21do);
-            s(this.mContext, m21do);
+            hf(m24do);
+            s(this.mContext, m24do);
             t(this.mContext, dn);
-        } else if (m21do > dn) {
-            ab(m21do, dn);
-            s(this.mContext, m21do);
+        } else if (m24do > dn) {
+            af(m24do, dn);
+            s(this.mContext, m24do);
             t(this.mContext, dn);
-        } else if (m21do < dn) {
-            ag(m21do, dn);
-            s(this.mContext, m21do);
+        } else if (m24do < dn) {
+            ak(m24do, dn);
+            s(this.mContext, m24do);
             t(this.mContext, dn);
         } else {
-            agI();
+            ahb();
         }
     }
 
-    private void ab(int i, int i2) {
-        com.baidu.swan.apps.ar.a.ab(i2, i);
-        com.baidu.swan.e.b.atN();
+    private void af(int i, int i2) {
+        com.baidu.swan.apps.ar.a.af(i2, i);
+        com.baidu.swan.e.b.aug();
     }
 
-    private void ag(int i, int i2) {
+    private void ak(int i, int i2) {
     }
 
     private void hf(int i) {
-        com.baidu.swan.apps.ar.a.ab(0, i);
+        com.baidu.swan.apps.ar.a.af(0, i);
     }
 
-    private void agI() {
+    private void ahb() {
         if (DEBUG) {
             Log.d(TAG, "新旧版本一样:" + dn(this.mContext));
         }

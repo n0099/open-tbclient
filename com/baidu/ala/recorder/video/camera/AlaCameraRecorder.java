@@ -19,6 +19,7 @@ import com.baidu.ala.recorder.video.VideoFormat;
 import com.baidu.live.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class AlaCameraRecorder extends TextureView implements TextureView.SurfaceTextureListener, IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler {
     private static final String LOG_TAG = "ala_camera_recorder";
@@ -381,6 +382,13 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
     }
 
     @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onStickerItemSelected(Object obj) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onStickerItemSelected(obj);
+        }
+    }
+
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
     public void onGiftEffectItemSelected(String str) {
         if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
             this.mCameraMgr.getFaceUnityOperator().onGiftEffectItemSelected(str);
@@ -445,6 +453,20 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
         }
     }
 
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onChinSelected(float f) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onChinSelected(f);
+        }
+    }
+
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onNoseSelected(float f) {
+        if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
+            this.mCameraMgr.getFaceUnityOperator().onNoseSelected(f);
+        }
+    }
+
     @Override // com.baidu.ala.recorder.video.camera.ICameraStatusHandler
     public boolean hasAdvancedBeauty() {
         if (this.mCameraMgr != null) {
@@ -476,6 +498,18 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
     public void setPreviewFps(int i) {
         if (this.mCameraMgr != null) {
             this.mCameraMgr.setPreviewFps(i);
+        }
+    }
+
+    public void setDefBeautyParams(HashMap<String, Object> hashMap) {
+        if (this.mCameraMgr != null) {
+            this.mCameraMgr.setDefBeautyParams(hashMap);
+        }
+    }
+
+    public void onBeautyChanged(float f, HashMap<String, Object> hashMap) {
+        if (this.mCameraMgr != null) {
+            this.mCameraMgr.onBeautyChanged(f, hashMap);
         }
     }
 

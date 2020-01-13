@@ -10,11 +10,11 @@ import android.view.View;
 import android.widget.PopupWindow;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class PopupWindowCompat {
     static final PopupWindowCompatBaseImpl IMPL;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static class PopupWindowCompatBaseImpl {
         private static Method sGetWindowLayoutTypeMethod;
         private static boolean sGetWindowLayoutTypeMethodAttempted;
@@ -75,7 +75,7 @@ public final class PopupWindowCompat {
     }
 
     @RequiresApi(19)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static class PopupWindowCompatApi19Impl extends PopupWindowCompatBaseImpl {
         PopupWindowCompatApi19Impl() {
         }
@@ -87,7 +87,7 @@ public final class PopupWindowCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static class PopupWindowCompatApi21Impl extends PopupWindowCompatApi19Impl {
         private static final String TAG = "PopupWindowCompatApi21";
         private static Field sOverlapAnchorField;
@@ -129,7 +129,7 @@ public final class PopupWindowCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static class PopupWindowCompatApi23Impl extends PopupWindowCompatApi21Impl {
         PopupWindowCompatApi23Impl() {
         }

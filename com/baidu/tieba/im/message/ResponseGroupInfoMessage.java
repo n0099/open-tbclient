@@ -16,7 +16,7 @@ import protobuf.GroupInfo;
 import protobuf.Photo;
 import protobuf.QueryGroupDetail.QueryGroupDetailResIdl;
 import protobuf.UserInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
     private static final String CACHE_KEY_PREFIX = "group_info";
     private QueryGroupDetailResIdl mResData;
@@ -45,13 +45,13 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
         setError(this.mResData.error.errorno.intValue());
         setErrorString(this.mResData.error.usermsg);
         if (getError() == 0) {
-            this.selfData.wy(this.mResData.data.canJoinGroupNum.intValue());
-            this.selfData.nA(this.mResData.data.isGroupManager.intValue() != 0);
-            this.selfData.nB(this.mResData.data.hideRecommendGroup.intValue() != 0);
-            this.selfData.nz(this.mResData.data.isJoin.intValue() != 0);
-            this.selfData.wx(this.mResData.data.joinGroupNum.intValue());
+            this.selfData.wD(this.mResData.data.canJoinGroupNum.intValue());
+            this.selfData.nM(this.mResData.data.isGroupManager.intValue() != 0);
+            this.selfData.nN(this.mResData.data.hideRecommendGroup.intValue() != 0);
+            this.selfData.nL(this.mResData.data.isJoin.intValue() != 0);
+            this.selfData.wC(this.mResData.data.joinGroupNum.intValue());
             this.selfData.setMemGroup(this.mResData.data.group.isMemberGroup.intValue() == 1);
-            this.selfData.nC(this.mResData.data.canCreateMember.intValue() == 1);
+            this.selfData.nO(this.mResData.data.canCreateMember.intValue() == 1);
             GroupInfo groupInfo = this.mResData.data.group;
             GroupData groupData = new GroupData();
             GroupInfo2GroupData(groupInfo, groupData);
@@ -142,7 +142,7 @@ public class ResponseGroupInfoMessage extends TbSocketReponsedMessage {
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.aBV().sw("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + this.selfData.getGroup().getGroupId(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.aCo().sz("tb.im_groupactivity"), CACHE_KEY_PREFIX + str + this.selfData.getGroup().getGroupId(), bArr);
         }
     }
 }

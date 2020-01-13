@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0387a dOg;
-    private long dOh;
-    private long dOi;
-    private boolean dOj;
-    private boolean dOk;
+    private InterfaceC0389a dOo;
+    private long dOp;
+    private long dOq;
+    private boolean dOr;
+    private boolean dOs;
     private float mDownX;
     private float mDownY;
     private int mMaximumVelocity;
@@ -21,10 +21,10 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.widget.viewpager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0387a {
-        void aSy();
+    public interface InterfaceC0389a {
+        void aSS();
 
-        void aSz();
+        void aST();
 
         void u(float f, float f2);
     }
@@ -48,40 +48,40 @@ public class a {
             case 0:
                 this.mDownX = motionEvent.getX();
                 this.mDownY = motionEvent.getY();
-                this.dOh = System.currentTimeMillis();
-                this.dOj = true;
+                this.dOp = System.currentTimeMillis();
+                this.dOr = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.dOh < 100 && currentTimeMillis - this.dOi < 500) {
-                    this.dOk = true;
+                if (currentTimeMillis - this.dOp < 100 && currentTimeMillis - this.dOq < 500) {
+                    this.dOs = true;
                 } else {
-                    this.dOk = false;
+                    this.dOs = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                 if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.mDownY - motionEvent.getY()) > 50.0f) {
-                    this.dOk = false;
-                    this.dOj = false;
+                    this.dOs = false;
+                    this.dOr = false;
                 }
-                if (this.dOk) {
-                    if (this.dOg != null) {
-                        this.dOg.u(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.dOs) {
+                    if (this.dOo != null) {
+                        this.dOo.u(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.mDownY - motionEvent.getY()) && this.dOg != null) {
-                    this.dOg.aSz();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.mDownY - motionEvent.getY()) && this.dOo != null) {
+                    this.dOo.aST();
                 }
-                if (!this.dOk && this.dOj && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.mDownY - motionEvent.getY()) < 30.0f) {
+                if (!this.dOs && this.dOr && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.mDownY - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.viewpager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.dOk && a.this.dOj && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.mDownY - motionEvent.getY()) < 30.0f && a.this.dOg != null) {
-                                a.this.dOg.aSy();
+                            if (!a.this.dOs && a.this.dOr && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.mDownY - motionEvent.getY()) < 30.0f && a.this.dOo != null) {
+                                a.this.dOo.aSS();
                             }
                         }
                     }, 300L);
                 }
-                this.dOi = currentTimeMillis;
+                this.dOq = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
@@ -91,8 +91,8 @@ public class a {
         return true;
     }
 
-    public void setEventListener(InterfaceC0387a interfaceC0387a) {
-        this.dOg = interfaceC0387a;
+    public void setEventListener(InterfaceC0389a interfaceC0389a) {
+        this.dOo = interfaceC0389a;
     }
 
     private void releaseVelocityTracker() {

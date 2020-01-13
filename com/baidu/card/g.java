@@ -1,23 +1,23 @@
 package com.baidu.card;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g extends al {
-    private boolean JL;
+    private boolean JR;
 
     public g(Context context) {
         super(context);
-        this.JL = false;
+        this.JR = false;
     }
 
     public g(Context context, boolean z) {
         super(context);
-        this.JL = false;
-        this.JL = z;
+        this.JR = false;
+        this.JR = z;
     }
 
     @Override // com.baidu.card.al
     protected com.baidu.tieba.play.operableVideoView.a mK() {
-        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.Mf, this.JL);
+        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.Mk, this.JR);
     }
 }

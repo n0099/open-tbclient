@@ -25,9 +25,9 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends ab {
-    private String bwB;
+    private String bxo;
     private String mCallback;
     private int mCount;
 
@@ -37,11 +37,11 @@ public class b extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final e eVar) {
-        if (eVar == null || eVar.ZO() == null) {
+        if (eVar == null || eVar.aal() == null) {
             com.baidu.swan.apps.console.c.e("chooseImage", "illegal swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
-        } else if (eVar.GS()) {
+        } else if (eVar.Ho()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -64,14 +64,14 @@ public class b extends ab {
                 com.baidu.swan.apps.console.c.e("chooseImage", "count format error");
                 this.mCount = 9;
             }
-            this.bwB = v(parseString.optJSONArray("sizeType"));
+            this.bxo = w(parseString.optJSONArray("sizeType"));
             JSONArray optJSONArray = parseString.optJSONArray("sourceType");
-            String w = w(optJSONArray);
-            com.baidu.swan.apps.console.c.i("chooseImage", "sizeType: " + this.bwB + ",sourceType: " + w);
-            if (TextUtils.equals(w, "album")) {
-                a(context, unitedSchemeEntity, callbackHandler, eVar, x(optJSONArray));
+            String x = x(optJSONArray);
+            com.baidu.swan.apps.console.c.i("chooseImage", "sizeType: " + this.bxo + ",sourceType: " + x);
+            if (TextUtils.equals(x, "album")) {
+                a(context, unitedSchemeEntity, callbackHandler, eVar, y(optJSONArray));
             } else {
-                eVar.aac().b(eVar.ZO(), PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.media.chooser.a.b.1
+                eVar.aaz().b(eVar.aal(), PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.media.chooser.a.b.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.as.d.b
                     /* renamed from: a */
@@ -94,7 +94,7 @@ public class b extends ab {
     public void n(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final e eVar) {
         com.baidu.swan.apps.af.a.a(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new com.baidu.swan.apps.af.b() { // from class: com.baidu.swan.apps.media.chooser.a.b.2
             @Override // com.baidu.swan.apps.af.b
-            public void fl(String str) {
+            public void fo(String str) {
                 if (b.DEBUG) {
                     Log.d("SwanAppAction", str + "");
                 }
@@ -102,7 +102,7 @@ public class b extends ab {
             }
 
             @Override // com.baidu.swan.apps.af.b
-            public void q(int i, String str) {
+            public void t(int i, String str) {
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), b.this.mCallback);
             }
         });
@@ -111,7 +111,7 @@ public class b extends ab {
     private void a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final e eVar, final boolean z) {
         com.baidu.swan.apps.af.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.af.b() { // from class: com.baidu.swan.apps.media.chooser.a.b.3
             @Override // com.baidu.swan.apps.af.b
-            public void fl(String str) {
+            public void fo(String str) {
                 if (b.DEBUG) {
                     Log.d("SwanAppAction", str + "");
                 }
@@ -119,7 +119,7 @@ public class b extends ab {
             }
 
             @Override // com.baidu.swan.apps.af.b
-            public void q(int i, String str) {
+            public void t(int i, String str) {
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), b.this.mCallback);
             }
         });
@@ -135,7 +135,7 @@ public class b extends ab {
                     if (b.DEBUG) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
-                            Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).UZ());
+                            Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).Vw());
                         }
                     }
                     com.baidu.swan.apps.console.c.i("chooseImage", "choose success");
@@ -144,7 +144,7 @@ public class b extends ab {
                 com.baidu.swan.apps.media.chooser.b.e.clear();
             }
         };
-        com.baidu.swan.apps.media.chooser.b.b.a(eVar.ZO(), eVar.id, new com.baidu.swan.apps.media.chooser.c.b() { // from class: com.baidu.swan.apps.media.chooser.a.b.5
+        com.baidu.swan.apps.media.chooser.b.b.a(eVar.aal(), eVar.id, new com.baidu.swan.apps.media.chooser.c.b() { // from class: com.baidu.swan.apps.media.chooser.a.b.5
             @Override // com.baidu.swan.apps.media.chooser.c.b
             public void r(File file) {
                 com.baidu.swan.apps.console.c.i("chooseImage", "capture success");
@@ -152,15 +152,15 @@ public class b extends ab {
                 imageModel.setSize(file.length());
                 com.baidu.swan.apps.media.chooser.b.e.e(imageModel);
                 Bundle bundle = new Bundle();
-                bundle.putString("swanTmpPath", f.Uf().TM().acC());
-                bundle.putBoolean("compressed", TextUtils.equals(b.this.bwB, "compressed"));
+                bundle.putString("swanTmpPath", f.UC().Uj().acZ());
+                bundle.putBoolean("compressed", TextUtils.equals(b.this.bxo, "compressed"));
                 bundle.putString("swanAppId", eVar.id);
-                bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.UW());
-                com.baidu.swan.apps.media.chooser.b.d.b(eVar.ZO(), bundle, dVar);
+                bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.Vt());
+                com.baidu.swan.apps.media.chooser.b.d.b(eVar.aal(), bundle, dVar);
             }
 
             @Override // com.baidu.swan.apps.media.chooser.c.b
-            public void iM(String str) {
+            public void iP(String str) {
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), b.this.mCallback);
             }
         });
@@ -173,12 +173,12 @@ public class b extends ab {
         bundle.putBoolean("isShowCamera", z);
         bundle.putInt("count", this.mCount);
         bundle.putString("mode", "single");
-        bundle.putBoolean("compressed", TextUtils.equals(this.bwB, "compressed"));
+        bundle.putBoolean("compressed", TextUtils.equals(this.bxo, "compressed"));
         bundle.putString("swanAppId", eVar.id);
-        bundle.putString("swanTmpPath", f.Uf().TM().acC());
+        bundle.putString("swanTmpPath", f.UC().Uj().acZ());
         com.baidu.swan.apps.media.chooser.b.d.a(context, bundle, new com.baidu.swan.apps.media.chooser.c.c() { // from class: com.baidu.swan.apps.media.chooser.a.b.6
             @Override // com.baidu.swan.apps.media.chooser.c.c
-            public void V(List list) {
+            public void U(List list) {
                 if (list == null || list.size() <= 0) {
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1002, "choose file list is error").toString(), b.this.mCallback);
                     return;
@@ -188,14 +188,14 @@ public class b extends ab {
             }
 
             @Override // com.baidu.swan.apps.media.chooser.c.c
-            public void iL(String str) {
+            public void iO(String str) {
                 com.baidu.swan.apps.console.c.i("chooseImage", str);
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1002, str).toString(), b.this.mCallback);
             }
         });
     }
 
-    private String v(JSONArray jSONArray) {
+    private String w(JSONArray jSONArray) {
         boolean z = true;
         if (jSONArray == null || jSONArray.length() != 1 || !TextUtils.equals("original", jSONArray.optString(0))) {
             z = false;
@@ -203,7 +203,7 @@ public class b extends ab {
         return z ? "original" : "compressed";
     }
 
-    private String w(JSONArray jSONArray) {
+    private String x(JSONArray jSONArray) {
         boolean z = true;
         if (jSONArray == null || jSONArray.length() != 1 || !TextUtils.equals("camera", jSONArray.optString(0))) {
             z = false;
@@ -211,7 +211,7 @@ public class b extends ab {
         return z ? "camera" : "album";
     }
 
-    private boolean x(JSONArray jSONArray) {
+    private boolean y(JSONArray jSONArray) {
         if (jSONArray == null || jSONArray.length() == 0) {
             return true;
         }

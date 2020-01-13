@@ -9,7 +9,7 @@ import android.view.animation.Interpolator;
 import java.util.ArrayList;
 import java.util.Iterator;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ViewPropertyAnimatorCompatSet {
     private Interpolator mInterpolator;
     private boolean mIsStarted;

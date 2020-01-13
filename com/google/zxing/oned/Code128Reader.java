@@ -10,7 +10,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Code128Reader extends OneDReader {
     private static final int CODE_CODE_A = 101;
     private static final int CODE_CODE_B = 100;
@@ -47,11 +47,11 @@ public final class Code128Reader extends OneDReader {
                 i = i3;
             } else {
                 if (i3 == 5) {
-                    float f = MAX_AVG_VARIANCE;
+                    float f = 0.25f;
                     int i6 = -1;
                     int i7 = 103;
                     while (i7 <= 105) {
-                        float patternMatchVariance = patternMatchVariance(iArr, CODE_PATTERNS[i7], MAX_INDIVIDUAL_VARIANCE);
+                        float patternMatchVariance = patternMatchVariance(iArr, CODE_PATTERNS[i7], 0.7f);
                         if (patternMatchVariance < f) {
                             i6 = i7;
                         } else {
@@ -85,10 +85,10 @@ public final class Code128Reader extends OneDReader {
 
     private static int decodeCode(BitArray bitArray, int[] iArr, int i) throws NotFoundException {
         recordPattern(bitArray, i, iArr);
-        float f = MAX_AVG_VARIANCE;
+        float f = 0.25f;
         int i2 = -1;
         for (int i3 = 0; i3 < CODE_PATTERNS.length; i3++) {
-            float patternMatchVariance = patternMatchVariance(iArr, CODE_PATTERNS[i3], MAX_INDIVIDUAL_VARIANCE);
+            float patternMatchVariance = patternMatchVariance(iArr, CODE_PATTERNS[i3], 0.7f);
             if (patternMatchVariance < f) {
                 i2 = i3;
                 f = patternMatchVariance;

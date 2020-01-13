@@ -21,6 +21,7 @@ public interface MessageConfig {
     public static final int ERROR_RESPONSED_MESSAGE_CREATE = -1002;
     public static final int ERROR_TASK_CANCELED = -1000;
     public static final int ERROR_TASK_OUTTIME = -1001;
+    public static final int GITT_NO_DATA = -1100;
     public static final int HTTP_CONNECT_TIME_OUT_MS_2G = 18000;
     public static final int HTTP_CONNECT_TIME_OUT_MS_3G = 10000;
     public static final int HTTP_CONNECT_TIME_OUT_MS_WIFI = 5000;

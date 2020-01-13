@@ -9,34 +9,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
-    private d TV;
+    private d Um;
     private int mSkinType = 0;
     private int mPrimaryPosition = -1;
-    private final List<d> TU = new ArrayList();
+    private final List<d> Ul = new ArrayList();
 
     public void setData(List<d> list) {
-        this.TU.clear();
+        this.Ul.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.TU.addAll(list);
+            this.Ul.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.TU.size();
+        return this.Ul.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.TU, i);
-        if (dVar != null && dVar.uj() != null) {
-            View uj = dVar.uj();
-            if (uj.getParent() != null) {
-                ((ViewGroup) uj.getParent()).removeView(uj);
+        d dVar = (d) ListUtils.getItem(this.Ul, i);
+        if (dVar != null && dVar.uA() != null) {
+            View uA = dVar.uA();
+            if (uA.getParent() != null) {
+                ((ViewGroup) uA.getParent()).removeView(uA);
             }
             dVar.onChangeSkinType(this.mSkinType);
-            viewGroup.addView(uj);
+            viewGroup.addView(uA);
             return dVar;
         }
         return null;
@@ -52,12 +52,12 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
             this.mPrimaryPosition = i;
             if (obj instanceof d) {
                 d dVar = (d) obj;
-                if (this.TV != viewGroup) {
-                    if (this.TV != null) {
-                        this.TV.enterBackground();
+                if (this.Um != viewGroup) {
+                    if (this.Um != null) {
+                        this.Um.enterBackground();
                     }
                     dVar.enterForeground();
-                    this.TV = dVar;
+                    this.Um = dVar;
                 }
             }
         }
@@ -65,12 +65,12 @@ public class AlaAudienceLiveRoomBottomPanelAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
-        return (obj instanceof d) && ((d) obj).uj() == view;
+        return (obj instanceof d) && ((d) obj).uA() == view;
     }
 
-    public void oM() {
-        if (this.TV != null) {
-            this.TV.enterForeground();
+    public void oT() {
+        if (this.Um != null) {
+            this.Um.enterForeground();
         }
     }
 

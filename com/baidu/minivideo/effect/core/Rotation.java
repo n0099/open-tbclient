@@ -1,5 +1,5 @@
 package com.baidu.minivideo.effect.core;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 enum Rotation {
     NORMAL,
     ROTATION_90,

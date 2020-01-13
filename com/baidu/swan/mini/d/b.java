@@ -9,25 +9,25 @@ import com.baidu.swan.ubc.s;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a cws = new a();
+    private a cwD = new a();
 
-    public void I(int i, @Nullable String str) {
-        this.cws.record(i, str);
+    public void K(int i, @Nullable String str) {
+        this.cwD.record(i, str);
     }
 
     public void l(@NonNull String str, int i, @Nullable String str2) {
-        this.cws.k(str, i, str2);
+        this.cwD.k(str, i, str2);
     }
 
     public void f(@NonNull final String str, @Nullable final Map<String, String> map) {
         m.postOnComputation(new Runnable() { // from class: com.baidu.swan.mini.d.b.1
             @Override // java.lang.Runnable
             public void run() {
-                JSONArray pS = b.this.cws.pS(str);
-                if (pS != null) {
+                JSONArray pV = b.this.cwD.pV(str);
+                if (pV != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("from", "swan");
@@ -37,7 +37,7 @@ public class b {
                                 jSONObject2.put(str2, map.get(str2));
                             }
                         }
-                        jSONObject2.put("info", pS);
+                        jSONObject2.put("info", pV);
                         jSONObject.put("ext", jSONObject2);
                         b.this.j("1181", jSONObject);
                     } catch (Exception e) {

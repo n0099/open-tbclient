@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static final boolean a;
 

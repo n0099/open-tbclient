@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.b;
 
 import com.google.android.exoplayer2.source.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class d extends b {
     private final Object data;
     private final int reason;
@@ -21,17 +21,17 @@ public final class d extends b {
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public int duK() {
+    public int dvV() {
         return 0;
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public int duL() {
+    public int dvW() {
         return this.reason;
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public Object duM() {
+    public Object dvX() {
         return this.data;
     }
 }

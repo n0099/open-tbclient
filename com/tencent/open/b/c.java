@@ -13,7 +13,7 @@ import android.view.WindowManager;
 import com.baidu.mobstat.Config;
 import com.baidu.webkit.internal.ETAG;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     private static String d;
     static String a = null;

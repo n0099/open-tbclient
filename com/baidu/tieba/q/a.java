@@ -1,7 +1,7 @@
 package com.baidu.tieba.q;
 /* loaded from: classes.dex */
 public interface a {
-    void X(String str, String str2, String str3);
+    void Y(String str, String str2, String str3);
 
     void a(long j, String str, String str2, long j2);
 

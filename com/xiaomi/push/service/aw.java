@@ -4,17 +4,17 @@ import com.xiaomi.push.ff;
 import com.xiaomi.push.fx;
 import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class aw extends XMPushService.i {
     private ff a;
 
     /* renamed from: a  reason: collision with other field name */
-    private XMPushService f880a;
+    private XMPushService f878a;
 
     public aw(XMPushService xMPushService, ff ffVar) {
         super(4);
-        this.f880a = null;
-        this.f880a = xMPushService;
+        this.f878a = null;
+        this.f878a = xMPushService;
         this.a = ffVar;
     }
 
@@ -27,11 +27,11 @@ public class aw extends XMPushService.i {
     public void a() {
         try {
             if (this.a != null) {
-                this.f880a.a(this.a);
+                this.f878a.a(this.a);
             }
         } catch (fx e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f880a.a(10, e);
+            this.f878a.a(10, e);
         }
     }
 }

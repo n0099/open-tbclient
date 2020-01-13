@@ -453,7 +453,7 @@ public class BdFileHelper {
         return saveFile(null, str, bArr);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [521=4, 522=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [521=4] */
     public static byte[] getFileData(String str, String str2) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;

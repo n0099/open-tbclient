@@ -6,20 +6,20 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class n {
-    private static TelephonyManager Qn;
-    private static ConnectivityManager Qo;
+    private static TelephonyManager Qr;
+    private static ConnectivityManager Qs;
     private static Context mContext;
 
     public static String D() {
         NetworkInfo activeNetworkInfo;
         StringBuilder sb = new StringBuilder();
         try {
-            if (Qo == null) {
-                Qo = (ConnectivityManager) mContext.getSystemService("connectivity");
+            if (Qs == null) {
+                Qs = (ConnectivityManager) mContext.getSystemService("connectivity");
             }
-            activeNetworkInfo = Qo.getActiveNetworkInfo();
+            activeNetworkInfo = Qs.getActiveNetworkInfo();
         } catch (RuntimeException e) {
             com.baidu.crabsdk.c.a.f("getNetworkInfo", e);
         }
@@ -30,10 +30,10 @@ public final class n {
             sb.append("type: ").append(activeNetworkInfo.getTypeName()).append("\n");
             if (activeNetworkInfo.getType() == 0) {
                 sb.append("subType: ").append(activeNetworkInfo.getSubtypeName()).append("\n");
-                if (Qn == null) {
-                    Qn = (TelephonyManager) mContext.getSystemService("phone");
+                if (Qr == null) {
+                    Qr = (TelephonyManager) mContext.getSystemService("phone");
                 }
-                sb.append("isRoaming: ").append(Qn.isNetworkRoaming() ? "yes" : NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\n");
+                sb.append("isRoaming: ").append(Qr.isNetworkRoaming() ? "yes" : NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\n");
             }
         } else {
             sb.append("type: none\n");
@@ -43,10 +43,10 @@ public final class n {
 
     public static String E() {
         try {
-            if (Qo == null) {
-                Qo = (ConnectivityManager) mContext.getSystemService("connectivity");
+            if (Qs == null) {
+                Qs = (ConnectivityManager) mContext.getSystemService("connectivity");
             }
-            NetworkInfo activeNetworkInfo = Qo.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = Qs.getActiveNetworkInfo();
             return activeNetworkInfo == null ? RomUtils.UNKNOWN : !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
         } catch (RuntimeException e) {
             return RomUtils.UNKNOWN;

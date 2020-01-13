@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.searchbox.net.update.CommandPostData;
 import org.json.JSONException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class SwitchListener extends AbstractCommandListener<SwitchData> {
     private static final String VERSION_POSTFIX = "_version";
 

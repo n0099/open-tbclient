@@ -24,7 +24,7 @@ import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import com.baidu.platform.comapi.wnplatform.walkmap.WNaviBaiduMap;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static IWTTSPlayer b;
     private static com.baidu.platform.comapi.wnplatform.m.c h = new d();

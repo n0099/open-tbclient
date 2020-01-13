@@ -8,11 +8,11 @@ import android.graphics.RectF;
 import android.support.v4.internal.view.SupportMenu;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 /* loaded from: classes2.dex */
 public class RoundProgressBar extends View {
-    private float aim;
-    private int ain;
+    private float aiU;
+    private int aiV;
     private int max;
     private Paint paint;
     private int progress;
@@ -36,10 +36,10 @@ public class RoundProgressBar extends View {
         this.roundColor = obtainStyledAttributes.getColor(a.k.RoundProgressBar_srp_roundColor, SupportMenu.CATEGORY_MASK);
         this.roundWidth = obtainStyledAttributes.getDimension(a.k.RoundProgressBar_srp_roundWidth, 5.0f);
         this.progressColor = obtainStyledAttributes.getColor(a.k.RoundProgressBar_srp_progressColor, -16711936);
-        this.aim = obtainStyledAttributes.getDimension(a.k.RoundProgressBar_srp_progressWidth, this.roundWidth);
+        this.aiU = obtainStyledAttributes.getDimension(a.k.RoundProgressBar_srp_progressWidth, this.roundWidth);
         this.max = obtainStyledAttributes.getInteger(a.k.RoundProgressBar_srp_max, 100);
         this.style = obtainStyledAttributes.getInt(a.k.RoundProgressBar_srp_style, 0);
-        this.ain = obtainStyledAttributes.getInt(a.k.RoundProgressBar_srp_startAngle, 90);
+        this.aiV = obtainStyledAttributes.getInt(a.k.RoundProgressBar_srp_startAngle, 90);
         obtainStyledAttributes.recycle();
     }
 
@@ -61,7 +61,7 @@ public class RoundProgressBar extends View {
                 break;
         }
         canvas.drawCircle(width, width, i, this.paint);
-        this.paint.setStrokeWidth(this.aim);
+        this.paint.setStrokeWidth(this.aiU);
         this.paint.setColor(this.progressColor);
         RectF rectF = new RectF(width - i, width - i, width + i, width + i);
         float f2 = (float) ((360.0d * this.progress) / this.max);
@@ -71,10 +71,10 @@ public class RoundProgressBar extends View {
         switch (this.style) {
             case 0:
                 this.paint.setStrokeCap(Paint.Cap.ROUND);
-                canvas.drawArc(rectF, this.ain, f, false, this.paint);
+                canvas.drawArc(rectF, this.aiV, f, false, this.paint);
                 return;
             case 1:
-                canvas.drawArc(rectF, this.ain, f, true, this.paint);
+                canvas.drawArc(rectF, this.aiV, f, true, this.paint);
                 return;
             default:
                 return;

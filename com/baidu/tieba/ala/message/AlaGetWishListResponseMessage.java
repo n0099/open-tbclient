@@ -7,13 +7,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AlaGetWishListResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<c> cRE;
-    private String fjq;
-    private long fjr;
+    private ArrayList<c> cRO;
+    private long fmB;
+    private String mTips;
 
     public AlaGetWishListResponseMessage(int i) {
-        super(1021161);
-        this.cRE = new ArrayList<>();
+        super(1021165);
+        this.cRO = new ArrayList<>();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,27 +22,27 @@ public class AlaGetWishListResponseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
-            this.fjq = optJSONObject.optString("tips");
-            this.fjr = optJSONObject.optLong("sys_time");
+            this.mTips = optJSONObject.optString("tips");
+            this.fmB = optJSONObject.optLong("sys_time");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     c cVar = new c();
                     cVar.parserJson(optJSONArray.getJSONObject(i2));
-                    this.cRE.add(cVar);
+                    this.cRO.add(cVar);
                 }
             }
         }
     }
 
     public ArrayList<c> getData() {
-        return this.cRE;
+        return this.cRO;
     }
 
     public String getTips() {
-        return this.fjq;
+        return this.mTips;
     }
 
     public long getSysTime() {
-        return this.fjr;
+        return this.fmB;
     }
 }

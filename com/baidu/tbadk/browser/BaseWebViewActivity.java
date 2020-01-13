@@ -162,14 +162,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         initWebView();
         this.mView = new f(this);
         initData();
-        this.mView.awU();
-        this.mView.g(this.mOnRefreshClickListener);
-        this.mView.fe(this.mIsLogin);
-        this.mView.fe(isNeedShowMenuItem());
+        this.mView.axn();
+        this.mView.f(this.mOnRefreshClickListener);
+        this.mView.fj(this.mIsLogin);
+        this.mView.fj(isNeedShowMenuItem());
         if (!StringUtils.isNull(this.mUrlTitle)) {
-            this.mView.rV(this.mUrlTitle);
+            this.mView.rY(this.mUrlTitle);
         }
-        if (!this.mView.awS() && UtilHelper.canUseStyleImmersiveSticky() && !isTranslucent()) {
+        if (!this.mView.axl() && UtilHelper.canUseStyleImmersiveSticky() && !isTranslucent()) {
             bc.addStateBarViewSpace(this.mView.mRoot, R.color.cp_link_tip_b, false);
         }
         if (!this.mIsTranslucent) {
@@ -177,7 +177,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         }
         registerListener(this.webviewLoginListener);
         if (isNeedShowADItem()) {
-            this.mView.ff(true);
+            this.mView.fk(true);
         }
     }
 
@@ -193,7 +193,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
         if (this.mView != null) {
-            this.mView.fe(z);
+            this.mView.fj(z);
         }
     }
 
@@ -241,7 +241,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 return;
             }
             if (this.mUrl.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
-                this.mView.fg(false);
+                this.mView.fl(false);
             }
             this.mHandler.postDelayed(this.mRunnable, 500L);
         }
@@ -337,7 +337,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         dismissAllPopupWindow();
         hideListMenu();
         if (this.mView != null) {
-            this.mView.apm();
+            this.mView.apF();
         }
     }
 
@@ -398,12 +398,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (context == null || str == null || (parse = Uri.parse(str)) == null) {
             return null;
         }
-        List<String> aGC = com.baidu.tbadk.coreExtra.data.f.aGC();
-        if (v.isEmpty(aGC)) {
+        List<String> aGV = com.baidu.tbadk.coreExtra.data.f.aGV();
+        if (v.isEmpty(aGV)) {
             return null;
         }
         String scheme = parse.getScheme();
-        Iterator<String> it = aGC.iterator();
+        Iterator<String> it = aGV.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -413,7 +413,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 break;
             }
         }
-        if (scheme != null && !scheme.equals(SHOUBAI_SCHEME) && !scheme.equals(com.baidu.tbadk.BdToken.f.cDQ)) {
+        if (scheme != null && !scheme.equals(SHOUBAI_SCHEME) && !scheme.equals(com.baidu.tbadk.BdToken.f.cEb)) {
             z = z && "1".equals(parse.getQueryParameter(KEY_FOR_NATIVE_CHECK));
         }
         if (z) {
@@ -487,7 +487,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             shareItem.imageUri = Uri.parse(str4);
         }
-        shareItem.dlu = true;
+        shareItem.dlK = true;
         shareItem.extData = this.mUrl;
         Bundle bundle = new Bundle();
         bundle.putString(TiebaInitialize.Params.OBJ_URL, shareItem.linkUrl);
@@ -526,14 +526,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                         shareItem.topic = optString5;
                     }
                     if (!aq.isEmpty(optString6)) {
-                        shareItem.dlK = optString6;
+                        shareItem.dma = optString6;
                     }
                     if (!aq.isEmpty(optString7)) {
-                        shareItem.dlL = optString7;
+                        shareItem.dmb = optString7;
                     }
                     shareItem.shareType = jSONObject.optInt("shareimg");
                     if (!aq.isEmpty(optString8) && "1".equals(optString8)) {
-                        shareItem.dly = true;
+                        shareItem.dlO = true;
                         shareItem.title = optString + HanziToPinyin.Token.SEPARATOR + optString2;
                     }
                     String optString9 = jSONObject.optString("extdata");
@@ -591,12 +591,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         super.onClick(view);
         int id = view.getId();
         if (id == R.id.webview_more_pop_item_share_friend_layout) {
-            this.mView.apm();
+            this.mView.apF();
             loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
-            com.baidu.adp.lib.f.e.gy().post(this.mShareRunnable);
+            com.baidu.adp.lib.f.e.gx().post(this.mShareRunnable);
             this.mShareResultToFe = true;
         } else if (id == R.id.webview_more_pop_item_open_browser_layout) {
-            this.mView.apm();
+            this.mView.apF();
             String shareInfoUrl = getShareInfoUrl();
             Activity pageActivity = getPageContext().getPageActivity();
             if (aq.isEmpty(shareInfoUrl)) {
@@ -604,7 +604,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             }
             com.baidu.tbadk.browser.a.startExternWebActivity(pageActivity, shareInfoUrl);
         } else if (id == R.id.webview_more_pop_item_copy_link_layout) {
-            this.mView.apm();
+            this.mView.apF();
             String shareInfoUrl2 = getShareInfoUrl();
             if (aq.isEmpty(shareInfoUrl2)) {
                 shareInfoUrl2 = this.mUrl;
@@ -726,14 +726,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str2;
         boolean z;
         String str3 = "";
-        a.b rX = com.baidu.tbadk.core.a.a.axg().rX(TbadkCoreApplication.getCurrentBduss());
-        if (rX != null) {
-            if (rX.mBduss != null) {
-                str3 = rX.mBduss;
+        a.b sa = com.baidu.tbadk.core.a.a.axz().sa(TbadkCoreApplication.getCurrentBduss());
+        if (sa != null) {
+            if (sa.mBduss != null) {
+                str3 = sa.mBduss;
             }
-            if (rX.mPtoken != null) {
+            if (sa.mPtoken != null) {
                 str = str3;
-                str2 = rX.mPtoken;
+                str2 = sa.mPtoken;
                 ag.a aVar = new ag.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

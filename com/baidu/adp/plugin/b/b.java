@@ -10,35 +10,35 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static final Map<String, b> xt = new HashMap();
-    private static final Object xu = new Object();
-    private static DateFormat xv = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
+    private static final Map<String, b> xx = new HashMap();
+    private static final Object xy = new Object();
+    private static DateFormat xz = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
     private long startTime;
     private String type;
-    private LinkedList<a> xw = new LinkedList<>();
+    private LinkedList<a> xA = new LinkedList<>();
 
     private static b aV(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "Default";
         }
-        if (!xt.containsKey(str)) {
-            synchronized (xu) {
-                if (!xt.containsKey(str)) {
+        if (!xx.containsKey(str)) {
+            synchronized (xy) {
+                if (!xx.containsKey(str)) {
                     b bVar = new b(str);
-                    xt.put(str, bVar);
+                    xx.put(str, bVar);
                     return bVar;
                 }
             }
         }
-        return xt.get(str);
+        return xx.get(str);
     }
 
-    public static b iR() {
+    public static b iQ() {
         return aV("plugin_load");
     }
 
-    public static void y(String str, String str2) {
-        iR().trace(str, str2);
+    public static void x(String str, String str2) {
+        iQ().trace(str, str2);
     }
 
     b(String str) {
@@ -46,30 +46,30 @@ public class b {
     }
 
     public void trace(String str, String str2) {
+        iR();
         iS();
-        iT();
-        this.xw.add(new a(str, str2));
+        this.xA.add(new a(str, str2));
     }
 
-    private void iS() {
+    private void iR() {
         if (this.startTime == 0) {
             this.startTime = System.currentTimeMillis();
         }
     }
 
-    private void iT() {
-        while (this.xw.size() >= 70) {
-            this.xw.poll();
+    private void iS() {
+        while (this.xA.size() >= 70) {
+            this.xA.poll();
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("trace_" + this.type + "{begin@" + xv.format(new Date(this.startTime)) + "->");
-        for (int i = 0; i < this.xw.size(); i++) {
-            a aVar = this.xw.get(i);
-            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.xx, xv.format(new Date(aVar.time))));
-            if (i < this.xw.size() - 1) {
+        sb.append("trace_" + this.type + "{begin@" + xz.format(new Date(this.startTime)) + "->");
+        for (int i = 0; i < this.xA.size(); i++) {
+            a aVar = this.xA.get(i);
+            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.xB, xz.format(new Date(aVar.time))));
+            if (i < this.xA.size() - 1) {
                 sb.append("->");
             }
         }
@@ -82,11 +82,11 @@ public class b {
     public static class a {
         private String method;
         private long time;
-        private String xx;
+        private String xB;
 
         a(String str, String str2, long j) {
             this.method = str;
-            this.xx = str2;
+            this.xB = str2;
             this.time = j;
         }
 

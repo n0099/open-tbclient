@@ -1,9 +1,9 @@
 package io.reactivex.internal.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class c {
-    public static void dEj() {
-        if (io.reactivex.d.a.dEm()) {
-            if ((Thread.currentThread() instanceof io.reactivex.internal.schedulers.g) || io.reactivex.d.a.dEn()) {
+    public static void dIt() {
+        if (io.reactivex.e.a.dIw()) {
+            if ((Thread.currentThread() instanceof io.reactivex.internal.schedulers.g) || io.reactivex.e.a.dIx()) {
                 throw new IllegalStateException("Attempt to block on a Scheduler " + Thread.currentThread().getName() + " that doesn't support blocking operators as they may lead to deadlock");
             }
         }

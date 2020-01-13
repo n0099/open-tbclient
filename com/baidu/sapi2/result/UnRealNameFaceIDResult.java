@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UnRealNameFaceIDResult extends SapiResult {
     public String callBackKey;
     public boolean juniorRealNameSuc;

@@ -8,7 +8,7 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.WebModifyPwdCallback;
 import com.baidu.sapi2.result.WebModifyPwdResult;
 import com.baidu.sapi2.utils.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ModifyPwdActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     private WebModifyPwdResult r = new WebModifyPwdResult();

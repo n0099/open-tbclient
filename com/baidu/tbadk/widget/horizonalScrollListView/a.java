@@ -1,7 +1,7 @@
 package com.baidu.tbadk.widget.horizonalScrollListView;
 
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public String forumAvatar;
     public long forumId;

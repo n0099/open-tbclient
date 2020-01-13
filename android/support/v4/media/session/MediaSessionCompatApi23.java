@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.media.session.MediaSessionCompatApi21;
 @RequiresApi(23)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class MediaSessionCompatApi23 {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Callback extends MediaSessionCompatApi21.Callback {
         void onPlayFromUri(Uri uri, Bundle bundle);
     }
@@ -20,7 +20,7 @@ class MediaSessionCompatApi23 {
         return new CallbackProxy(callback);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static class CallbackProxy<T extends Callback> extends MediaSessionCompatApi21.CallbackProxy<T> {
         public CallbackProxy(T t) {
             super(t);

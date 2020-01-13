@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.UserInfo;
 import protobuf.UserPermission;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataRes extends Message {
     public static final Integer DEFAULT_MEMBERNUM = 0;
     public static final List<UserInfo> DEFAULT_USERLIST = Collections.emptyList();
@@ -38,7 +38,7 @@ public final class DataRes extends Message {
         this.permission = builder.permission;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Integer memberNum;
         public UserPermission permission;

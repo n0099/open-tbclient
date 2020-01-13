@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface d {
-    public static final b gre = new b();
+    public static final b gun = new b();
 
-    b bEr();
+    b bFt();
 }

@@ -6,6 +6,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AlaBroadcastGiftToastData extends BaseData {
     public static final int BROAD_TYPE_REDPACKET = 3;
+    public static final int BROAD_TYPE_TURNTABLE_GIFT = 4;
+    public static final int BROAD_TYPE_TURNTABLE_SUCCESS = 5;
     public static final int GIFT_BROADCAST = 1;
     public static final int GUARD_CLUB_UPGRADE = 2;
     public static final int HOUR_RANK_CONFIRM = 2;
@@ -40,7 +42,7 @@ public class AlaBroadcastGiftToastData extends BaseData {
             this.msg_id = jSONObject.optLong("msg_id", 0L);
             this.gift_url = jSONObject.optString("gift_url");
             this.broad_type = jSONObject.optInt("broad_type", 1);
-            if (this.broad_type == 2 && (optJSONObject = jSONObject.optJSONObject("ext")) != null) {
+            if ((this.broad_type == 2 || this.broad_type == 4 || this.broad_type == 5) && (optJSONObject = jSONObject.optJSONObject("ext")) != null) {
                 this.subjectName = optJSONObject.optString("subject_name");
                 this.keywords = optJSONObject.optString("keywords");
             }

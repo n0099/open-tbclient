@@ -6,18 +6,18 @@ import com.google.gson.stream.a;
 import com.google.gson.stream.b;
 import java.io.IOException;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class JSONArrayAdapter extends TypeAdapter<JSONArray> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public void write(b bVar, JSONArray jSONArray) throws IOException {
-        bVar.Qs(jSONArray.toString());
+        bVar.QD(jSONArray.toString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public JSONArray read(a aVar) throws IOException {
-        if (aVar.dyA() == JsonToken.BEGIN_ARRAY) {
+        if (aVar.dzJ() == JsonToken.BEGIN_ARRAY) {
             return JSONParser.readJSONArray(aVar);
         }
         return null;

@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.source;
 
 import com.google.android.exoplayer2.x;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class j extends x {
     protected final x timeline;
 
@@ -10,8 +10,8 @@ public abstract class j extends x {
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int dqZ() {
-        return this.timeline.dqZ();
+    public int dsl() {
+        return this.timeline.dsl();
     }
 
     @Override // com.google.android.exoplayer2.x
@@ -25,13 +25,13 @@ public abstract class j extends x {
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int vn(boolean z) {
-        return this.timeline.vn(z);
+    public int vz(boolean z) {
+        return this.timeline.vz(z);
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int vo(boolean z) {
-        return this.timeline.vo(z);
+    public int vA(boolean z) {
+        return this.timeline.vA(z);
     }
 
     @Override // com.google.android.exoplayer2.x
@@ -40,8 +40,8 @@ public abstract class j extends x {
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int dra() {
-        return this.timeline.dra();
+    public int dsm() {
+        return this.timeline.dsm();
     }
 
     @Override // com.google.android.exoplayer2.x
@@ -50,7 +50,7 @@ public abstract class j extends x {
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int bt(Object obj) {
-        return this.timeline.bt(obj);
+    public int bu(Object obj) {
+        return this.timeline.bu(obj);
     }
 }

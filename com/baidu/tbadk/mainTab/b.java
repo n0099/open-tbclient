@@ -3,10 +3,10 @@ package com.baidu.tbadk.mainTab;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected c dwT = aNe();
-    protected TbFragmentTabIndicator dwU;
+    protected c dxb = aNx();
+    protected TbFragmentTabIndicator dxc;
 
-    public abstract c aNe();
+    public abstract c aNx();
 
     public abstract TbFragmentTabIndicator dW(Context context);
 
@@ -18,7 +18,7 @@ public abstract class b {
     public void onRemove() {
     }
 
-    public c aNf() {
-        return this.dwT;
+    public c aNy() {
+        return this.dxb;
     }
 }

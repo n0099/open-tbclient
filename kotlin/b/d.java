@@ -1,4 +1,4 @@
 package kotlin.b;
-/* loaded from: classes4.dex */
-public final class d extends f {
+/* loaded from: classes5.dex */
+public final class d extends g {
 }

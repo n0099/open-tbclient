@@ -7,47 +7,47 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d {
-    private static d lLd;
-    private int lLe;
+    private static d lOO;
+    private int lOP;
     @Nullable
-    private List<c.a> lLf;
-    private final c.a lLg = new a();
+    private List<c.a> lOQ;
+    private final c.a lOR = new a();
 
     private d() {
-        dlh();
+        dmm();
     }
 
     public void eY(@Nullable List<c.a> list) {
-        this.lLf = list;
-        dlh();
+        this.lOQ = list;
+        dmm();
     }
 
     public c t(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.lLe];
-        int a = a(this.lLe, inputStream, bArr);
-        c p = this.lLg.p(bArr, a);
-        if (p == null || p == c.lLb) {
-            if (this.lLf != null) {
-                for (c.a aVar : this.lLf) {
+        byte[] bArr = new byte[this.lOP];
+        int a = a(this.lOP, inputStream, bArr);
+        c p = this.lOR.p(bArr, a);
+        if (p == null || p == c.lOM) {
+            if (this.lOQ != null) {
+                for (c.a aVar : this.lOQ) {
                     c p2 = aVar.p(bArr, a);
-                    if (p2 != null && p2 != c.lLb) {
+                    if (p2 != null && p2 != c.lOM) {
                         return p2;
                     }
                 }
             }
-            return c.lLb;
+            return c.lOM;
         }
         return p;
     }
 
-    private void dlh() {
-        this.lLe = this.lLg.getHeaderSize();
-        if (this.lLf != null) {
-            for (c.a aVar : this.lLf) {
-                this.lLe = Math.max(this.lLe, aVar.getHeaderSize());
+    private void dmm() {
+        this.lOP = this.lOR.getHeaderSize();
+        if (this.lOQ != null) {
+            for (c.a aVar : this.lOQ) {
+                this.lOP = Math.max(this.lOP, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d dli() {
+    public static synchronized d dmn() {
         d dVar;
         synchronized (d.class) {
-            if (lLd == null) {
-                lLd = new d();
+            if (lOO == null) {
+                lOO = new d();
             }
-            dVar = lLd;
+            dVar = lOO;
         }
         return dVar;
     }
 
     public static c u(InputStream inputStream) throws IOException {
-        return dli().t(inputStream);
+        return dmn().t(inputStream);
     }
 
     public static c v(InputStream inputStream) {

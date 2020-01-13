@@ -1,19 +1,19 @@
 package kotlin.collections;
 
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes4.dex */
-final class ArraysKt___ArraysKt$withIndex$3 extends Lambda implements kotlin.jvm.a.a<aj> {
-    final /* synthetic */ short[] receiver$0;
+/* loaded from: classes5.dex */
+final class ArraysKt___ArraysKt$withIndex$3 extends Lambda implements kotlin.jvm.a.a<ap> {
+    final /* synthetic */ short[] $this_withIndex;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     ArraysKt___ArraysKt$withIndex$3(short[] sArr) {
         super(0);
-        this.receiver$0 = sArr;
+        this.$this_withIndex = sArr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.a
-    public final aj invoke() {
-        return kotlin.jvm.internal.i.b(this.receiver$0);
+    public final ap invoke() {
+        return kotlin.jvm.internal.i.b(this.$this_withIndex);
     }
 }

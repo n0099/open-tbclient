@@ -13,74 +13,74 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.view.web.f;
 /* loaded from: classes2.dex */
 public class b implements com.baidu.live.b.b {
-    private c epu;
-    private CustomMessageListener epv;
-    private PopupWindow.OnDismissListener epw;
+    private c eqG;
+    private CustomMessageListener eqH;
+    private PopupWindow.OnDismissListener eqI;
     private Activity mContext;
 
     public b(Activity activity) {
         this.mContext = activity;
-        baU();
+        bbp();
     }
 
     @Override // com.baidu.live.b.b
     public void c(String str, long j, long j2) {
-        this.epu = new c(this.mContext);
-        this.epu.setOnDismissListener(this.epw);
-        this.epu.baV().setBackgroundColor(xl(str));
+        this.eqG = new c(this.mContext);
+        this.eqG.setOnDismissListener(this.eqI);
+        this.eqG.bbq().setBackgroundColor(xq(str));
         f fVar = new f();
-        fVar.x(this.mContext).a(this.epu).a(this.epu.baV().getSchemeCallback());
-        com.baidu.live.view.web.a[] yO = fVar.yO();
-        for (com.baidu.live.view.web.a aVar : yO) {
-            this.epu.baV().addJavascriptInterface(aVar, aVar.getName());
+        fVar.x(this.mContext).a(this.eqG).a(this.eqG.bbq().getSchemeCallback());
+        com.baidu.live.view.web.a[] zk = fVar.zk();
+        for (com.baidu.live.view.web.a aVar : zk) {
+            this.eqG.bbq().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.epu.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
+        this.eqG.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
     }
 
     @Override // com.baidu.live.b.b
     public void resume() {
-        if (this.epu != null && this.epu.isShowing() && this.epu.baV() != null) {
-            this.epu.baV().onResume();
+        if (this.eqG != null && this.eqG.isShowing() && this.eqG.bbq() != null) {
+            this.eqG.bbq().onResume();
         }
     }
 
     @Override // com.baidu.live.b.b
     public void pause() {
-        if (this.epu != null && this.epu.isShowing() && this.epu.baV() != null) {
-            this.epu.baV().onPause();
+        if (this.eqG != null && this.eqG.isShowing() && this.eqG.bbq() != null) {
+            this.eqG.bbq().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.epu != null) {
-            this.epu.baW();
+        if (this.eqG != null) {
+            this.eqG.bbr();
         }
     }
 
-    public void th() {
+    public void tz() {
         dismiss();
     }
 
     @Override // com.baidu.live.b.b
     public void release() {
-        th();
-        MessageManager.getInstance().unRegisterListener(this.epv);
+        tz();
+        MessageManager.getInstance().unRegisterListener(this.eqH);
     }
 
-    private void baU() {
-        this.epv = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
+    private void bbp() {
+        this.eqH = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.epu != null && b.this.epu.isShowing()) {
-                    b.this.epu.dismiss();
+                if (b.this.eqG != null && b.this.eqG.isShowing()) {
+                    b.this.eqG.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.epv);
+        MessageManager.getInstance().registerListener(this.eqH);
     }
 
-    private int xl(String str) {
+    private int xq(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

@@ -5,13 +5,13 @@ import com.baidu.ala.player.StreamConfig;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.google.android.exoplayer2.ParserException;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class c {
-    private static final byte[] mCx = {0, 0, 0, 1};
-    private static final int[] mCy = {96000, 88200, 64000, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 24000, 22050, 16000, 12000, RequestResponseCode.REQUEST_LOGIN_PB_AT, 8000, 7350};
-    private static final int[] mCz = {0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
+    private static final byte[] mGo = {0, 0, 0, 1};
+    private static final int[] mGp = {96000, 88200, 64000, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 24000, 22050, 16000, 12000, RequestResponseCode.REQUEST_LOGIN_PB_AT, 8000, 7350};
+    private static final int[] mGq = {0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
 
-    public static Pair<Integer, Integer> av(byte[] bArr) throws ParserException {
+    public static Pair<Integer, Integer> au(byte[] bArr) throws ParserException {
         return a(new k(bArr), false);
     }
 
@@ -69,21 +69,21 @@ public final class c {
                     throw new ParserException("Unsupported audio object type: " + j);
             }
         }
-        int i = mCz[readBits];
+        int i = mGq[readBits];
         a.checkArgument(i != -1);
         return Pair.create(Integer.valueOf(k), Integer.valueOf(i));
     }
 
-    public static byte[] dV(int i, int i2) {
+    public static byte[] dT(int i, int i2) {
         int i3 = -1;
-        for (int i4 = 0; i4 < mCy.length; i4++) {
-            if (i == mCy[i4]) {
+        for (int i4 = 0; i4 < mGp.length; i4++) {
+            if (i == mGp[i4]) {
                 i3 = i4;
             }
         }
         int i5 = -1;
-        for (int i6 = 0; i6 < mCz.length; i6++) {
-            if (i2 == mCz[i6]) {
+        for (int i6 = 0; i6 < mGq.length; i6++) {
+            if (i2 == mGq[i6]) {
                 i5 = i6;
             }
         }
@@ -97,14 +97,14 @@ public final class c {
         return new byte[]{(byte) (((i << 3) & 248) | ((i2 >> 1) & 7)), (byte) (((i2 << 7) & 128) | ((i3 << 3) & 120))};
     }
 
-    public static byte[] y(byte[] bArr, int i, int i2) {
-        byte[] bArr2 = new byte[mCx.length + i2];
-        System.arraycopy(mCx, 0, bArr2, 0, mCx.length);
-        System.arraycopy(bArr, i, bArr2, mCx.length, i2);
+    public static byte[] x(byte[] bArr, int i, int i2) {
+        byte[] bArr2 = new byte[mGo.length + i2];
+        System.arraycopy(mGo, 0, bArr2, 0, mGo.length);
+        System.arraycopy(bArr, i, bArr2, mGo.length, i2);
         return bArr2;
     }
 
-    public static byte[][] aw(byte[] bArr) {
+    public static byte[][] av(byte[] bArr) {
         if (!C(bArr, 0)) {
             return null;
         }
@@ -112,7 +112,7 @@ public final class c {
         int i = 0;
         do {
             arrayList.add(Integer.valueOf(i));
-            i = B(bArr, i + mCx.length);
+            i = B(bArr, i + mGo.length);
         } while (i != -1);
         byte[][] bArr2 = new byte[arrayList.size()];
         int i2 = 0;
@@ -127,7 +127,7 @@ public final class c {
     }
 
     private static int B(byte[] bArr, int i) {
-        int length = bArr.length - mCx.length;
+        int length = bArr.length - mGo.length;
         for (int i2 = i; i2 <= length; i2++) {
             if (C(bArr, i2)) {
                 return i2;
@@ -137,11 +137,11 @@ public final class c {
     }
 
     private static boolean C(byte[] bArr, int i) {
-        if (bArr.length - i <= mCx.length) {
+        if (bArr.length - i <= mGo.length) {
             return false;
         }
-        for (int i2 = 0; i2 < mCx.length; i2++) {
-            if (bArr[i + i2] != mCx[i2]) {
+        for (int i2 = 0; i2 < mGo.length; i2++) {
+            if (bArr[i + i2] != mGo[i2]) {
                 return false;
             }
         }
@@ -162,29 +162,29 @@ public final class c {
             return kVar.readBits(24);
         }
         a.checkArgument(readBits < 13);
-        return mCy[readBits];
+        return mGp[readBits];
     }
 
     private static void a(k kVar, int i, int i2) {
-        kVar.JG(1);
-        if (kVar.dsM()) {
-            kVar.JG(14);
+        kVar.JP(1);
+        if (kVar.dtY()) {
+            kVar.JP(14);
         }
-        boolean dsM = kVar.dsM();
+        boolean dtY = kVar.dtY();
         if (i2 == 0) {
             throw new UnsupportedOperationException();
         }
         if (i == 6 || i == 20) {
-            kVar.JG(3);
+            kVar.JP(3);
         }
-        if (dsM) {
+        if (dtY) {
             if (i == 22) {
-                kVar.JG(16);
+                kVar.JP(16);
             }
             if (i == 17 || i == 19 || i == 20 || i == 23) {
-                kVar.JG(3);
+                kVar.JP(3);
             }
-            kVar.JG(1);
+            kVar.JP(1);
         }
     }
 }

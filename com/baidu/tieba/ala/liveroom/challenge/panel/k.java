@@ -3,23 +3,25 @@ package com.baidu.tieba.ala.liveroom.challenge.panel;
 public interface k {
     void be(int i);
 
-    void bih();
+    void biU();
 
-    void bii();
+    void biV();
 
-    void bij();
+    void biW();
 
-    void bik();
+    void biX();
 
-    void bil();
+    void biY();
 
-    void bj(int i, int i2);
+    void bm(int i, int i2);
 
-    void cM(long j);
+    void cR(long j);
 
-    void cN(long j);
+    void cS(long j);
 
-    void pt();
+    void i(int i, int i2, String str);
+
+    void px();
 
     void removeView();
 

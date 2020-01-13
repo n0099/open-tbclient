@@ -19,9 +19,9 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f {
-    private static final Map<String, m<e>> eg = new HashMap();
+    private static final Map<String, m<e>> ef = new HashMap();
 
     public static m<e> E(Context context, String str) {
         return com.airbnb.lottie.network.b.H(context, str);
@@ -208,8 +208,8 @@ public class f {
                 }
             });
         }
-        if (eg.containsKey(str)) {
-            return eg.get(str);
+        if (ef.containsKey(str)) {
+            return ef.get(str);
         }
         m<e> mVar = new m<>(callable);
         mVar.a(new i<e>() { // from class: com.airbnb.lottie.f.7
@@ -220,7 +220,7 @@ public class f {
                 if (str != null) {
                     com.airbnb.lottie.model.g.cl().a(str, eVar);
                 }
-                f.eg.remove(str);
+                f.ef.remove(str);
             }
         });
         mVar.c(new i<Throwable>() { // from class: com.airbnb.lottie.f.2
@@ -228,10 +228,10 @@ public class f {
             @Override // com.airbnb.lottie.i
             /* renamed from: g */
             public void onResult(Throwable th) {
-                f.eg.remove(str);
+                f.ef.remove(str);
             }
         });
-        eg.put(str, mVar);
+        ef.put(str, mVar);
         return mVar;
     }
 }

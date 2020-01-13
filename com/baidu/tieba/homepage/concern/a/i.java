@@ -16,23 +16,23 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, af<com.baidu.tieba.card.data.k>> implements com.baidu.tieba.a.f {
-    private z<com.baidu.tieba.card.data.k> Jy;
-    private String La;
-    private boolean Nf;
-    private com.baidu.adp.widget.ListView.r Ol;
-    public BdUniqueId dwY;
+    private z<com.baidu.tieba.card.data.k> JE;
+    private String Lg;
+    private boolean Nj;
+    private com.baidu.adp.widget.ListView.r Oq;
+    public BdUniqueId dxg;
     private TbPageContext<?> mPageContext;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.Nf = true;
-        this.Jy = new z<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.i.1
+        this.Nj = true;
+        this.JE = new z<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (view != null && kVar != null && kVar.axx() != null && !StringUtils.isNull(kVar.axx().getTid())) {
+                if (view != null && kVar != null && kVar.axQ() != null && !StringUtils.isNull(kVar.axQ().getTid())) {
                     i.this.b(view, kVar);
                 }
             }
@@ -41,7 +41,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void b(com.baidu.adp.widget.ListView.r rVar) {
-        this.Ol = rVar;
+        this.Oq = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,8 +54,8 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             anVar.Z("obj_locate", 4);
             if (kVar != null) {
                 anVar.cp("tid", kVar.tid);
-                if (kVar.cMR != null && kVar.cMR.aBe() != null) {
-                    anVar.cp("pid", kVar.cMR.aBe().getId());
+                if (kVar.cNb != null && kVar.cNb.aBx() != null) {
+                    anVar.cp("pid", kVar.cNb.aBx().getId());
                 }
             }
             TiebaStatic.log(anVar);
@@ -64,8 +64,8 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             anVar2.Z("obj_locate", 2);
             if (kVar != null) {
                 anVar2.cp("tid", kVar.tid);
-                if (kVar.cMR != null && kVar.cMR.aBe() != null) {
-                    anVar2.cp("pid", kVar.cMR.aBe().getId());
+                if (kVar.cNb != null && kVar.cNb.aBx() != null) {
+                    anVar2.cp("pid", kVar.cNb.aBx().getId());
                 }
             }
             TiebaStatic.log(anVar2);
@@ -74,8 +74,8 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             anVar3.Z("obj_locate", 1);
             if (kVar != null) {
                 anVar3.cp("tid", kVar.tid);
-                if (kVar.cMR != null && kVar.cMR.aBe() != null) {
-                    anVar3.cp("pid", kVar.cMR.aBe().getId());
+                if (kVar.cNb != null && kVar.cNb.aBx() != null) {
+                    anVar3.cp("pid", kVar.cNb.aBx().getId());
                 }
             }
             TiebaStatic.log(anVar3);
@@ -84,8 +84,8 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             anVar4.Z("obj_locate", 5);
             if (kVar != null) {
                 anVar4.cp("tid", kVar.tid);
-                if (kVar.cMR != null && kVar.cMR.aBe() != null) {
-                    anVar4.cp("pid", kVar.cMR.aBe().getId());
+                if (kVar.cNb != null && kVar.cNb.aBx() != null) {
+                    anVar4.cp("pid", kVar.cNb.aBx().getId());
                 }
             }
             TiebaStatic.log(anVar4);
@@ -94,8 +94,8 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             anVar5.Z("obj_locate", 3);
             if (kVar != null) {
                 anVar5.cp("tid", kVar.tid);
-                if (kVar.cMR != null && kVar.cMR.aBe() != null) {
-                    anVar5.cp("pid", kVar.cMR.aBe().getId());
+                if (kVar.cNb != null && kVar.cNb.aBx() != null) {
+                    anVar5.cp("pid", kVar.cNb.aBx().getId());
                 }
             }
             TiebaStatic.log(anVar5);
@@ -105,17 +105,17 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aI */
+    /* renamed from: aM */
     public af b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
         com.baidu.card.k kVar = new com.baidu.card.k(this.mPageContext.getPageActivity());
-        kVar.setFromCDN(this.Nf);
+        kVar.setFromCDN(this.Nj);
         kVar.setForm(ImageViewerConfig.FROM_CONCERN);
         aVar.a((com.baidu.card.h) kVar);
-        ad a = aVar.a(false, viewGroup, this.Ol);
+        ad a = aVar.a(false, viewGroup, this.Oq);
         a.aM(1);
         af afVar = new af(a);
-        afVar.setPageId(this.dwY);
+        afVar.setPageId(this.dxg);
         a(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.homepage.concern.a.i.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -123,11 +123,11 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                     af afVar2 = (af) view.getTag();
                     com.baidu.tieba.card.data.k kVar2 = (com.baidu.tieba.card.data.k) mVar;
                     kVar2.objType = 1;
-                    if (i.this.Jy != null) {
-                        i.this.Jy.a(afVar2.getView(), kVar2);
+                    if (i.this.JE != null) {
+                        i.this.JE.a(afVar2.getView(), kVar2);
                     }
                     au.a((com.baidu.tbadk.core.data.a) kVar2, view.getContext(), 1, false);
-                    afVar2.mT().b(new a.C0050a(1));
+                    afVar2.mU().b(new a.C0050a(1));
                 }
             }
         });
@@ -138,23 +138,23 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, af<com.baidu.tieba.card.data.k> afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cMR == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cNb == null) {
             return null;
         }
-        kVar.rh(kVar.position + 1);
-        com.baidu.tieba.card.r.bsy().c(new an("c13424"));
-        afVar.mT().setPosition(i);
-        if (afVar.mT() instanceof com.baidu.tieba.a.e) {
-            afVar.mT().setPage(this.La);
+        kVar.rm(kVar.position + 1);
+        com.baidu.tieba.card.r.btA().c(new an("c13424"));
+        afVar.mU().setPosition(i);
+        if (afVar.mU() instanceof com.baidu.tieba.a.e) {
+            afVar.mU().setPage(this.Lg);
         }
         afVar.b((af<com.baidu.tieba.card.data.k>) kVar);
-        afVar.mT().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        afVar.mT().a(this.Jy);
+        afVar.mU().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        afVar.mU().a(this.JE);
         return afVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wq(String str) {
-        this.La = str;
+    public void wu(String str) {
+        this.Lg = str;
     }
 }

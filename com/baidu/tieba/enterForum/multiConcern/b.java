@@ -1,5 +1,5 @@
 package com.baidu.tieba.enterForum.multiConcern;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public String avatar;
     public long followNum;

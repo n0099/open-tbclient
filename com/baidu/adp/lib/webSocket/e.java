@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 /* loaded from: classes.dex */
 public class e {
-    private static com.baidu.adp.lib.webSocket.b uB;
+    private static com.baidu.adp.lib.webSocket.b uE;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -20,11 +20,11 @@ public class e {
 
         String getLocalDnsBak();
 
-        String hJ();
+        String hI();
 
-        long hK();
+        long hJ();
 
-        int hL();
+        int hK();
 
         boolean isConnected();
 
@@ -35,8 +35,8 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(String str, int i, l lVar, boolean z) throws Exception {
-        if (uB != null) {
-            return uB.a(str, i, lVar);
+        if (uE != null) {
+            return uE.a(str, i, lVar);
         }
         if (z) {
             return new b(str, i, lVar);
@@ -50,35 +50,35 @@ public class e {
         private InputStream mInputStream;
         private OutputStream mOutputStream;
         private Socket mSocket;
-        private long uD;
-        private String uE;
-        private String uF;
-        private String uG;
+        private long uG;
+        private String uH;
+        private String uI;
+        private String uJ;
 
         public c(String str, int i, l lVar) throws Exception {
             this.mSocket = null;
             this.mInputStream = null;
             this.mOutputStream = null;
             this.mData = null;
-            this.uD = 0L;
-            this.uE = null;
-            this.uF = null;
-            this.uG = null;
+            this.uG = 0L;
+            this.uH = null;
+            this.uI = null;
+            this.uJ = null;
             this.mSocket = new Socket();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
             if (inetSocketAddress.getAddress() != null) {
-                this.uE = inetSocketAddress.getAddress().getHostAddress();
-                this.uD = System.currentTimeMillis() - currentTimeMillis;
+                this.uH = inetSocketAddress.getAddress().getHostAddress();
+                this.uG = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.mSocket.connect(inetSocketAddress, lVar.ie());
-            this.mSocket.setSoTimeout(lVar.id());
+            this.mSocket.connect(inetSocketAddress, lVar.id());
+            this.mSocket.setSoTimeout(lVar.ic());
             this.mSocket.setTcpNoDelay(lVar.getTcpNoDelay());
             this.mInputStream = this.mSocket.getInputStream();
             this.mOutputStream = this.mSocket.getOutputStream();
             this.mData = new byte[1024];
-            this.uF = com.baidu.adp.lib.util.l.getLocalDns();
-            this.uG = com.baidu.adp.lib.util.l.getLocalDnsBak();
+            this.uI = com.baidu.adp.lib.util.l.getLocalDns();
+            this.uJ = com.baidu.adp.lib.util.l.getLocalDnsBak();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
@@ -132,106 +132,106 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String hJ() {
-            return this.uE;
+        public String hI() {
+            return this.uH;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long hK() {
-            return this.uD;
-        }
-
-        @Override // com.baidu.adp.lib.webSocket.e.a
-        public String getLocalDns() {
-            return this.uF;
-        }
-
-        @Override // com.baidu.adp.lib.webSocket.e.a
-        public String getLocalDnsBak() {
+        public long hJ() {
             return this.uG;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int hL() {
+        public String getLocalDns() {
+            return this.uI;
+        }
+
+        @Override // com.baidu.adp.lib.webSocket.e.a
+        public String getLocalDnsBak() {
+            return this.uJ;
+        }
+
+        @Override // com.baidu.adp.lib.webSocket.e.a
+        public int hK() {
             return 0;
         }
     }
 
     /* loaded from: classes.dex */
     static class b implements a {
-        private SocketChannel uC;
-        private long uD;
-        private String uE;
-        private String uF;
-        private String uG;
+        private SocketChannel uF;
+        private long uG;
+        private String uH;
+        private String uI;
+        private String uJ;
 
         public b(String str, int i, l lVar) throws Exception {
-            this.uC = null;
-            this.uD = 0L;
-            this.uE = null;
             this.uF = null;
-            this.uG = null;
-            this.uC = SocketChannel.open();
+            this.uG = 0L;
+            this.uH = null;
+            this.uI = null;
+            this.uJ = null;
+            this.uF = SocketChannel.open();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
             if (inetSocketAddress.getAddress() != null) {
-                this.uE = inetSocketAddress.getAddress().getHostAddress();
-                this.uD = System.currentTimeMillis() - currentTimeMillis;
+                this.uH = inetSocketAddress.getAddress().getHostAddress();
+                this.uG = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.uC.socket().connect(inetSocketAddress, lVar.ie());
-            this.uC.socket().setSoTimeout(lVar.id());
-            this.uC.socket().setTcpNoDelay(lVar.getTcpNoDelay());
-            this.uF = com.baidu.adp.lib.util.l.getLocalDns();
-            this.uG = com.baidu.adp.lib.util.l.getLocalDnsBak();
+            this.uF.socket().connect(inetSocketAddress, lVar.id());
+            this.uF.socket().setSoTimeout(lVar.ic());
+            this.uF.socket().setTcpNoDelay(lVar.getTcpNoDelay());
+            this.uI = com.baidu.adp.lib.util.l.getLocalDns();
+            this.uJ = com.baidu.adp.lib.util.l.getLocalDnsBak();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public void close() throws IOException {
-            if (this.uC != null) {
-                this.uC.close();
+            if (this.uF != null) {
+                this.uF.close();
             }
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public boolean isConnected() {
-            if (this.uC != null) {
-                return this.uC.isConnected();
+            if (this.uF != null) {
+                return this.uF.isConnected();
             }
             return false;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int read(ByteBuffer byteBuffer) throws Exception {
-            return this.uC.read(byteBuffer);
+            return this.uF.read(byteBuffer);
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int write(ByteBuffer byteBuffer) throws Exception {
-            return this.uC.write(byteBuffer);
+            return this.uF.write(byteBuffer);
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String hJ() {
-            return this.uE;
+        public String hI() {
+            return this.uH;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long hK() {
-            return this.uD;
-        }
-
-        @Override // com.baidu.adp.lib.webSocket.e.a
-        public String getLocalDns() {
-            return this.uF;
-        }
-
-        @Override // com.baidu.adp.lib.webSocket.e.a
-        public String getLocalDnsBak() {
+        public long hJ() {
             return this.uG;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int hL() {
+        public String getLocalDns() {
+            return this.uI;
+        }
+
+        @Override // com.baidu.adp.lib.webSocket.e.a
+        public String getLocalDnsBak() {
+            return this.uJ;
+        }
+
+        @Override // com.baidu.adp.lib.webSocket.e.a
+        public int hK() {
             return 0;
         }
     }

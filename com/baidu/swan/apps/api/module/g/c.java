@@ -13,23 +13,23 @@ import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected static final Set<String> aZN = i.K("localhost", "127.0.0.1");
+    protected static final Set<String> baF = i.K("localhost", "127.0.0.1");
 
-    public static String fq(String str) {
+    public static String ft(String str) {
         return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
     }
 
-    public static HttpUrl fr(String str) {
+    public static HttpUrl fu(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if (d.ZP().ZO() == null) {
+        if (d.aam().aal() == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if (com.baidu.swan.apps.ah.a.a.XJ() || a(parse)) {
+        } else if (com.baidu.swan.apps.ah.a.a.Yg() || a(parse)) {
             return parse;
         } else {
             return null;
@@ -37,12 +37,12 @@ public class c {
     }
 
     public static boolean a(@Nullable HttpUrl httpUrl) {
-        boolean aaT = com.baidu.swan.apps.aj.a.b.aaT();
-        if (!com.baidu.swan.apps.w.a.Rn().Ex()) {
-            aaT = false;
+        boolean abq = com.baidu.swan.apps.aj.a.b.abq();
+        if (!com.baidu.swan.apps.w.a.RJ().ET()) {
+            abq = false;
         }
         if (httpUrl != null) {
-            return (!aaT || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !aZN.contains(httpUrl.host().toLowerCase());
+            return (!abq || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !baF.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -70,7 +70,7 @@ public class c {
         return jSONObject;
     }
 
-    public static JSONObject fs(String str) {
+    public static JSONObject fv(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -84,7 +84,7 @@ public class c {
         return jSONObject;
     }
 
-    public static String Hg() {
-        return y.ael() == 2 ? y.mw("https://smartapps.cn/%s/%s/page-frame.html") : y.mw("https://smartapp.baidu.com/%s/%s/page-frame.html");
+    public static String HC() {
+        return y.aeE() == 2 ? y.mz("https://smartapps.cn/%s/%s/page-frame.html") : y.mz("https://smartapp.baidu.com/%s/%s/page-frame.html");
     }
 }

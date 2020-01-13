@@ -1,5 +1,5 @@
 package javax.annotation.meta;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum When {
     ALWAYS,
     UNKNOWN,

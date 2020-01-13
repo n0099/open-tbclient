@@ -1,5 +1,5 @@
 package com.baidu.searchbox.publisher.plugin;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UgcPluginInfo {
     public static final String INVOKE_FROM_SEARCHBOX = "searchbox:";
     public static final String INVOKE_METHOD_CAPTURE = "startCapture";

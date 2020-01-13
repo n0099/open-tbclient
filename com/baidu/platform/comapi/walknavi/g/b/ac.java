@@ -8,7 +8,7 @@ import com.baidu.mapapi.walknavi.model.BaseNpcModel;
 import com.baidu.platform.comapi.walknavi.g.b.c;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ac implements c.d {
     final /* synthetic */ BaseNpcModel a;
     final /* synthetic */ c b;

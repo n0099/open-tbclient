@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NativeLoader {
     private static Context b;
     private static NativeLoader e;
@@ -26,7 +26,7 @@ public class NativeLoader {
     private static String h = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         ARMEABI("armeabi"),
         ARMV7("armeabi-v7a"),

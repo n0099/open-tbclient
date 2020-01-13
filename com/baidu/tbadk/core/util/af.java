@@ -29,12 +29,12 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 /* loaded from: classes.dex */
 public class af {
-    private static af cVB;
-    private a[] cVz;
+    private static af cVL;
+    private a[] cVJ;
     private Drawable[] drawables;
     private boolean hasDayDefault;
     private boolean hasNightDefault;
-    private boolean cVA = true;
+    private boolean cVK = true;
     private int pullview_backgroundColor_day = -1315344;
     private int pullview_backgroundColor_night = -14670029;
     private PorterDuffColorFilter nightColorSkin = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
@@ -47,27 +47,27 @@ public class af {
     }
 
     private af() {
-        fz(com.baidu.tbadk.core.sharedPref.b.aCY().getBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, this.cVA));
+        fE(com.baidu.tbadk.core.sharedPref.b.aDr().getBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, this.cVK));
     }
 
-    public static af aDJ() {
+    public static af aEc() {
         synchronized (af.class) {
-            if (cVB == null) {
-                cVB = new af();
+            if (cVL == null) {
+                cVL = new af();
             }
         }
-        return cVB;
+        return cVL;
     }
 
     public void saveOrUpdateImages(final String str, final String str2, String str3, String str4, String str5) {
         int i = -1315344;
         int i2 = -14670029;
         if (TextUtils.isEmpty(str4) || TextUtils.isEmpty(str5)) {
-            com.baidu.tbadk.core.sharedPref.b.aCY().putInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY, -1315344);
-            com.baidu.tbadk.core.sharedPref.b.aCY().putInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT, -14670029);
+            com.baidu.tbadk.core.sharedPref.b.aDr().putInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY, -1315344);
+            com.baidu.tbadk.core.sharedPref.b.aDr().putInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT, -14670029);
         } else {
-            int i3 = com.baidu.tbadk.core.sharedPref.b.aCY().getInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY, -1315344);
-            int i4 = com.baidu.tbadk.core.sharedPref.b.aCY().getInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT, -14670029);
+            int i3 = com.baidu.tbadk.core.sharedPref.b.aDr().getInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY, -1315344);
+            int i4 = com.baidu.tbadk.core.sharedPref.b.aDr().getInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT, -14670029);
             try {
                 i = Color.parseColor(str4);
             } catch (Exception e) {
@@ -77,39 +77,39 @@ public class af {
             } catch (Exception e2) {
             }
             if (i3 != i || i2 != i4) {
-                com.baidu.tbadk.core.sharedPref.b.aCY().putInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY, i);
-                com.baidu.tbadk.core.sharedPref.b.aCY().putInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT, i2);
+                com.baidu.tbadk.core.sharedPref.b.aDr().putInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY, i);
+                com.baidu.tbadk.core.sharedPref.b.aDr().putInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT, i2);
                 this.pullview_backgroundColor_day = i;
                 this.pullview_backgroundColor_night = i2;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE));
             }
         }
         if (TextUtils.isEmpty(str)) {
-            com.baidu.tbadk.core.sharedPref.b.aCY().putBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, true);
-            fz(true);
-            com.baidu.adp.lib.f.h.gz().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.core.util.af.1
+            com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, true);
+            fE(true);
+            com.baidu.adp.lib.f.h.gy().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.core.util.af.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.tbadk.core.sharedPref.b.aCY().remove(SharedPrefConfig.PULL_IMAGE_URL);
-                    com.baidu.tbadk.core.sharedPref.b.aCY().remove(SharedPrefConfig.PULL_IAMGE_NUM);
-                    com.baidu.tbadk.core.sharedPref.b.aCY().remove(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY);
-                    com.baidu.tbadk.core.sharedPref.b.aCY().remove(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT);
+                    com.baidu.tbadk.core.sharedPref.b.aDr().remove(SharedPrefConfig.PULL_IMAGE_URL);
+                    com.baidu.tbadk.core.sharedPref.b.aDr().remove(SharedPrefConfig.PULL_IAMGE_NUM);
+                    com.baidu.tbadk.core.sharedPref.b.aDr().remove(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY);
+                    com.baidu.tbadk.core.sharedPref.b.aDr().remove(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT);
                     af.this.deletePullDir();
                     af.this.buildDrawables();
                 }
             });
             return;
         }
-        com.baidu.tbadk.core.sharedPref.b.aCY().putBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, false);
-        fz(false);
-        String string = com.baidu.tbadk.core.sharedPref.b.aCY().getString(SharedPrefConfig.PULL_IMAGE_URL, "");
+        com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean(SharedPrefConfig.PULL_VIEW_SHOULD_SHOW_3D_LOADING, false);
+        fE(false);
+        String string = com.baidu.tbadk.core.sharedPref.b.aDr().getString(SharedPrefConfig.PULL_IMAGE_URL, "");
         final int i5 = com.baidu.adp.lib.f.b.toInt(str3, 0);
         if (str.equals(string)) {
             if (isImagesExist(i5)) {
                 buildDrawablesAsync();
                 return;
             } else if (isZipFileExist()) {
-                com.baidu.adp.lib.f.h.gz().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.core.util.af.2
+                com.baidu.adp.lib.f.h.gy().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.core.util.af.2
                     @Override // java.lang.Runnable
                     public void run() {
                         File zipFile = af.this.getZipFile();
@@ -134,7 +134,7 @@ public class af {
     }
 
     public void buildDrawablesAsync() {
-        com.baidu.adp.lib.f.h.gz().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.core.util.af.3
+        com.baidu.adp.lib.f.h.gy().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.core.util.af.3
             @Override // java.lang.Runnable
             public void run() {
                 af.this.buildDrawables();
@@ -163,27 +163,27 @@ public class af {
 
     public AnimationDrawable getDefaultAnimationDrawable(int i) {
         a[] aVarArr;
-        if (this.cVz == null) {
-            this.cVz = new a[this.defaultResources.length];
+        if (this.cVJ == null) {
+            this.cVJ = new a[this.defaultResources.length];
             for (int i2 = 0; i2 < this.defaultResources.length; i2++) {
-                this.cVz[i2] = new a();
+                this.cVJ[i2] = new a();
             }
         }
         boolean z = i == 1 || i == 4;
         if (z && !this.hasNightDefault) {
             this.hasNightDefault = true;
             for (int i3 = 0; i3 < this.defaultResources.length; i3++) {
-                this.cVz[i3].nightDrawable = new BitmapDrawable(am.getBitmap565Quality(this.defaultResources[i3]));
+                this.cVJ[i3].nightDrawable = new BitmapDrawable(am.getBitmap565Quality(this.defaultResources[i3]));
             }
         }
         if (!z && !this.hasDayDefault) {
             this.hasDayDefault = true;
             for (int i4 = 0; i4 < this.defaultResources.length; i4++) {
-                this.cVz[i4].dayDrawable = new BitmapDrawable(am.getBitmap565Quality(this.defaultResources[i4]));
+                this.cVJ[i4].dayDrawable = new BitmapDrawable(am.getBitmap565Quality(this.defaultResources[i4]));
             }
         }
         AnimationDrawable animationDrawable = new AnimationDrawable();
-        for (a aVar : this.cVz) {
+        for (a aVar : this.cVJ) {
             if (aVar != null) {
                 Drawable drawable = z ? aVar.nightDrawable : aVar.dayDrawable;
                 if (drawable != null) {
@@ -208,10 +208,10 @@ public class af {
     /* JADX INFO: Access modifiers changed from: private */
     public void buildDrawables() {
         boolean z = false;
-        String string = com.baidu.tbadk.core.sharedPref.b.aCY().getString(SharedPrefConfig.PULL_IMAGE_URL, "");
-        int i = com.baidu.tbadk.core.sharedPref.b.aCY().getInt(SharedPrefConfig.PULL_IAMGE_NUM, 0);
-        this.pullview_backgroundColor_day = com.baidu.tbadk.core.sharedPref.b.aCY().getInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY, -1315344);
-        this.pullview_backgroundColor_night = com.baidu.tbadk.core.sharedPref.b.aCY().getInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT, -14670029);
+        String string = com.baidu.tbadk.core.sharedPref.b.aDr().getString(SharedPrefConfig.PULL_IMAGE_URL, "");
+        int i = com.baidu.tbadk.core.sharedPref.b.aDr().getInt(SharedPrefConfig.PULL_IAMGE_NUM, 0);
+        this.pullview_backgroundColor_day = com.baidu.tbadk.core.sharedPref.b.aDr().getInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY, -1315344);
+        this.pullview_backgroundColor_night = com.baidu.tbadk.core.sharedPref.b.aDr().getInt(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT, -14670029);
         if (!TextUtils.isEmpty(string)) {
             if (i > 0 && isImagesExist(i)) {
                 this.drawables = new Drawable[i];
@@ -369,7 +369,7 @@ public class af {
     }
 
     private void startDownloadAsync(final String str, final String str2, final int i) {
-        com.baidu.adp.lib.f.h.gz().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.core.util.af.4
+        com.baidu.adp.lib.f.h.gy().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.tbadk.core.util.af.4
             @Override // java.lang.Runnable
             public void run() {
                 af.this.startDownload(str, str2, i);
@@ -380,15 +380,15 @@ public class af {
     /* JADX INFO: Access modifiers changed from: private */
     public void startDownload(String str, String str2, int i) {
         deletePullDir();
-        com.baidu.tbadk.core.sharedPref.b.aCY().remove(SharedPrefConfig.PULL_IMAGE_URL);
-        com.baidu.tbadk.core.sharedPref.b.aCY().remove(SharedPrefConfig.PULL_IAMGE_NUM);
-        com.baidu.tbadk.core.sharedPref.b.aCY().remove(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY);
-        com.baidu.tbadk.core.sharedPref.b.aCY().remove(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT);
+        com.baidu.tbadk.core.sharedPref.b.aDr().remove(SharedPrefConfig.PULL_IMAGE_URL);
+        com.baidu.tbadk.core.sharedPref.b.aDr().remove(SharedPrefConfig.PULL_IAMGE_NUM);
+        com.baidu.tbadk.core.sharedPref.b.aDr().remove(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_DAY);
+        com.baidu.tbadk.core.sharedPref.b.aDr().remove(SharedPrefConfig.PULL_VIEW_BACKGROUND_COLOR_NIGHT);
         downloadZipFile(str);
         File zipFile = getZipFile();
         if (checkFileMd5(zipFile, str2)) {
-            com.baidu.tbadk.core.sharedPref.b.aCY().putString(SharedPrefConfig.PULL_IMAGE_URL, str);
-            com.baidu.tbadk.core.sharedPref.b.aCY().putInt(SharedPrefConfig.PULL_IAMGE_NUM, i);
+            com.baidu.tbadk.core.sharedPref.b.aDr().putString(SharedPrefConfig.PULL_IMAGE_URL, str);
+            com.baidu.tbadk.core.sharedPref.b.aDr().putInt(SharedPrefConfig.PULL_IAMGE_NUM, i);
             decompressZipFile(zipFile);
             buildDrawables();
             return;
@@ -538,11 +538,11 @@ public class af {
         }
     }
 
-    public boolean aDK() {
-        return this.cVA;
+    public boolean aEd() {
+        return this.cVK;
     }
 
-    public void fz(boolean z) {
-        this.cVA = z;
+    public void fE(boolean z) {
+        this.cVK = z;
     }
 }

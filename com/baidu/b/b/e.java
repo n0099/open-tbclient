@@ -12,26 +12,26 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     private Context mContext = AppRuntime.getAppContext();
     private static boolean DEBUG = AppConfig.isDebug();
     private static String TAG = "networkparam";
-    private static HashMap<String, Integer> OV = new HashMap<>();
+    private static HashMap<String, Integer> OZ = new HashMap<>();
 
     static {
-        OV.put("WIFI", 1);
-        OV.put("3GNET", 21);
-        OV.put("3GWAP", 22);
-        OV.put("CMNET", 31);
-        OV.put("UNINET", 32);
-        OV.put("CTNET", 33);
-        OV.put("CMWAP", 41);
-        OV.put("UNIWAP", 42);
-        OV.put("CTWAP", 43);
+        OZ.put("WIFI", 1);
+        OZ.put("3GNET", 21);
+        OZ.put("3GWAP", 22);
+        OZ.put("CMNET", 31);
+        OZ.put("UNINET", 32);
+        OZ.put("CTNET", 33);
+        OZ.put("CMWAP", 41);
+        OZ.put("UNIWAP", 42);
+        OZ.put("CTWAP", 43);
     }
 
-    public String no() {
+    public String np() {
         long j;
         String str;
         if (!DEBUG) {
@@ -44,7 +44,7 @@ public class e {
         int subType = connectManager.getSubType();
         if (!TextUtils.isEmpty(netType)) {
             String upperCase = netType.toUpperCase();
-            Integer num = OV.get(upperCase);
+            Integer num = OZ.get(upperCase);
             if (num == null) {
                 num = 5;
             }
@@ -61,20 +61,20 @@ public class e {
 
     public String h(String str, boolean z) {
         if (z) {
-            String no = no();
-            if (TextUtils.equals(no, "5_0")) {
+            String np = np();
+            if (TextUtils.equals(np, "5_0")) {
                 return UrlUtil.addParam(str, "network", PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).getString("last network type", "5_0"));
             }
-            if (!TextUtils.isEmpty(no)) {
-                if (!TextUtils.equals(no, "5_0")) {
+            if (!TextUtils.isEmpty(np)) {
+                if (!TextUtils.equals(np, "5_0")) {
                     SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).edit();
-                    edit.putString("last network type", no);
+                    edit.putString("last network type", np);
                     edit.commit();
                 }
-                return UrlUtil.addParam(str, "network", no);
+                return UrlUtil.addParam(str, "network", np);
             }
             return str;
         }
-        return UrlUtil.addParam(str, "network", no());
+        return UrlUtil.addParam(str, "network", np());
     }
 }

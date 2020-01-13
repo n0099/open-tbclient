@@ -2,7 +2,7 @@ package kotlin.text;
 
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class StringsKt__IndentKt$prependIndent$1 extends Lambda implements kotlin.jvm.a.b<String, String> {
     final /* synthetic */ String $indent;
 
@@ -15,7 +15,7 @@ final class StringsKt__IndentKt$prependIndent$1 extends Lambda implements kotlin
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(String str) {
-        kotlin.jvm.internal.p.j(str, AdvanceSetting.NETWORK_TYPE);
+        kotlin.jvm.internal.q.j(str, AdvanceSetting.NETWORK_TYPE);
         if (l.isBlank(str)) {
             return str.length() < this.$indent.length() ? this.$indent : str;
         }

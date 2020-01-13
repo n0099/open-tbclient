@@ -1,72 +1,68 @@
 package com.baidu.swan.apps.ao.i;
 
 import android.content.Context;
-import android.os.Build;
+import android.provider.Settings;
 import android.util.Log;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.as.ai;
-import com.baidu.swan.apps.as.l;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
-import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ab {
-    private static final boolean DEBUG = b.DEBUG;
-
     public a(j jVar) {
-        super(jVar, "/swanAPI/getSystemRiskInfo");
+        super(jVar, "/swanAPI/getAutoRotationSync");
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.adaptation.a.e Rp = com.baidu.swan.apps.w.a.Rp();
-        JSONObject jSONObject = new JSONObject();
-        if (context == null) {
+        if (eVar == null) {
+            c.e("getAutoRotationSync", "none swanApp");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+            if (DEBUG) {
+                Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
+                return false;
+            }
+            return false;
+        } else if (context == null) {
+            c.e("getAutoRotationSync", "none context");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+            if (DEBUG) {
+                Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
+                return false;
+            }
+            return false;
+        } else {
             try {
-                context = com.baidu.swan.apps.w.a.Rk();
-            } catch (JSONException e) {
-                e.printStackTrace();
+                int i = Settings.System.getInt(context.getApplicationContext().getContentResolver(), "accelerometer_rotation");
+                if (DEBUG) {
+                    Log.d("SwanAppAction", "getAutoRotationSync --- isRotateOn: " + i);
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("isRotateOn", i != 0);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                    return true;
+                } catch (JSONException e) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
+                    if (DEBUG) {
+                        Log.e("SwanAppAction", "getAutoRotationSync --- json exception");
+                        return false;
+                    }
+                    return false;
+                }
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    e2.printStackTrace();
+                    Log.e("SwanAppAction", "getAutoRotationSync --- can't get setting");
+                    return false;
+                }
+                return false;
             }
         }
-        jSONObject.put("userid", Rp == null ? "" : Rp.bm(context));
-        jSONObject.put("zid", Rp == null ? "" : com.baidu.swan.apps.w.a.Sb().cb(context));
-        jSONObject.put("idfa", "");
-        jSONObject.put("imei", ai.aey());
-        jSONObject.put("appkey", eVar == null ? "" : eVar.getAppKey());
-        jSONObject.put("os", PraiseDataPassUtil.KEY_FROM_OS);
-        jSONObject.put("osVersion", Build.VERSION.RELEASE);
-        jSONObject.put("hostName", context.getPackageName());
-        jSONObject.put("hostVersion", ai.getVersionName());
-        jSONObject.put("model", Build.MODEL);
-        jSONObject.put("uuid", com.baidu.swan.uuid.b.dD(context).getUUID());
-        jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        jSONObject.put("cuid", Rp == null ? "" : Rp.bn(context));
-        if (DEBUG) {
-            Log.d("GetSystemRiskInfoAction", jSONObject.toString());
-        }
-        String md5 = com.baidu.swan.uuid.b.b.toMd5(UUID.randomUUID().toString().getBytes(), false);
-        String p = l.p(md5, jSONObject.toString(), "AES/CTR/NoPadding", "4c6579b50ff05adb");
-        String H = l.H("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", md5, "RSA/ECB/PKCS1Padding");
-        if (DEBUG) {
-            Log.d("GetSystemRiskInfoAction", "aesKey=" + md5 + ", aesValue=" + p + ", rsaKey=" + H);
-        }
-        JSONObject jSONObject2 = new JSONObject();
-        JSONObject jSONObject3 = new JSONObject();
-        try {
-            jSONObject3.put("key", H);
-            jSONObject3.put("value", p);
-            jSONObject2.put("content", jSONObject3);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
-        return true;
     }
 }

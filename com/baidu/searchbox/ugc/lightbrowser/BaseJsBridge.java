@@ -5,7 +5,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BaseJsBridge {
     private WeakReference<Activity> mActivityRef;
     CallbackHandler mCallbackHandler;

@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.net.Uri;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface d {
     Bitmap decodeRegion(Rect rect, int i);
 

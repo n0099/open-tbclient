@@ -1,0 +1,221 @@
+package tv.chushou.zues.widget.adapterview.recyclerview.a;
+
+import android.content.res.ColorStateList;
+import android.support.annotation.ColorInt;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.util.SparseArray;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
+import tv.chushou.zues.widget.adapterview.d;
+import tv.chushou.zues.widget.adapterview.e;
+import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
+/* loaded from: classes4.dex */
+public abstract class a<T> extends RecyclerView.Adapter<View$OnLongClickListenerC0805a> {
+    private List<T> data;
+    private d nWe;
+    private e nWf;
+    private int nhj;
+
+    public abstract void a(View$OnLongClickListenerC0805a view$OnLongClickListenerC0805a, T t);
+
+    public a(@LayoutRes int i, d dVar) {
+        this(null, i, dVar);
+    }
+
+    public a(List<T> list, @LayoutRes int i, d dVar) {
+        if (list == null) {
+            this.data = new ArrayList();
+        } else {
+            this.data = list;
+        }
+        this.nhj = i;
+        this.nWe = dVar;
+    }
+
+    public a(List<T> list, @LayoutRes int i, d dVar, e eVar) {
+        if (list == null) {
+            this.data = new ArrayList();
+        } else {
+            this.data = list;
+        }
+        this.nhj = i;
+        this.nWe = dVar;
+        this.nWf = eVar;
+    }
+
+    public void fI(List<T> list) {
+        this.data.clear();
+        if (list != null) {
+            this.data.addAll(list);
+            notifyDataSetChanged();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    /* renamed from: F */
+    public View$OnLongClickListenerC0805a onCreateViewHolder(ViewGroup viewGroup, int i) {
+        return new View$OnLongClickListenerC0805a(LayoutInflater.from(viewGroup.getContext()).inflate(MW(i), viewGroup, false), this.nWe, this.nWf);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public int MW(int i) {
+        return this.nhj;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    /* renamed from: a */
+    public void onBindViewHolder(View$OnLongClickListenerC0805a view$OnLongClickListenerC0805a, int i) {
+        a(view$OnLongClickListenerC0805a, (View$OnLongClickListenerC0805a) this.data.get(i), i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    /* renamed from: a */
+    public void onBindViewHolder(@NonNull View$OnLongClickListenerC0805a view$OnLongClickListenerC0805a, int i, @NonNull List<Object> list) {
+        onBindViewHolder(view$OnLongClickListenerC0805a, i);
+    }
+
+    public T getItem(int i) {
+        if (this.data == null || i >= this.data.size()) {
+            return null;
+        }
+        return this.data.get(i);
+    }
+
+    public void a(View$OnLongClickListenerC0805a view$OnLongClickListenerC0805a, T t, int i) {
+        a(view$OnLongClickListenerC0805a, (View$OnLongClickListenerC0805a) t);
+    }
+
+    @Override // android.support.v7.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        if (this.data == null) {
+            return 0;
+        }
+        return this.data.size();
+    }
+
+    /* renamed from: tv.chushou.zues.widget.adapterview.recyclerview.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public static class View$OnLongClickListenerC0805a extends RecyclerView.ViewHolder implements View.OnLongClickListener {
+        private final View.OnClickListener mOnClickListener;
+        private d nWe;
+        private e nWf;
+        private SparseArray<View> nht;
+
+        public View$OnLongClickListenerC0805a(View view, d dVar, e eVar) {
+            super(view);
+            this.mOnClickListener = new tv.chushou.zues.a() { // from class: tv.chushou.zues.widget.adapterview.recyclerview.a.a.a.1
+                @Override // tv.chushou.zues.a
+                public void dx(View view2) {
+                    if (View$OnLongClickListenerC0805a.this.nWe != null) {
+                        View$OnLongClickListenerC0805a.this.nWe.onItemClick(view2, View$OnLongClickListenerC0805a.this.getLayoutPosition());
+                    }
+                }
+            };
+            this.nWe = dVar;
+            this.nWf = eVar;
+            this.nht = new SparseArray<>();
+            view.setOnClickListener(this.mOnClickListener);
+            view.setOnLongClickListener(this);
+        }
+
+        public <V extends View> V Ol(int i) {
+            V v = (V) this.nht.get(i);
+            if (v == null) {
+                V v2 = (V) this.itemView.findViewById(i);
+                this.nht.put(i, v2);
+                return v2;
+            }
+            return v;
+        }
+
+        public View$OnLongClickListenerC0805a a(int i, CharSequence charSequence) {
+            TextView textView = (TextView) Ol(i);
+            if (textView != null) {
+                textView.setText(charSequence);
+            }
+            return this;
+        }
+
+        public View$OnLongClickListenerC0805a eC(int i, @ColorInt int i2) {
+            TextView textView = (TextView) Ol(i);
+            if (textView != null) {
+                textView.setTextColor(i2);
+            }
+            return this;
+        }
+
+        public View$OnLongClickListenerC0805a a(int i, ColorStateList colorStateList) {
+            TextView textView = (TextView) Ol(i);
+            if (textView != null) {
+                textView.setTextColor(colorStateList);
+            }
+            return this;
+        }
+
+        public View$OnLongClickListenerC0805a eD(int i, @DrawableRes int i2) {
+            ImageView imageView = (ImageView) Ol(i);
+            if (imageView != null) {
+                imageView.setImageResource(i2);
+            }
+            return this;
+        }
+
+        public View$OnLongClickListenerC0805a a(int i, String str, int i2, int i3, int i4) {
+            FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) Ol(i);
+            if (frescoThumbnailView != null) {
+                frescoThumbnailView.i(str, i2, i3, i4);
+            }
+            return this;
+        }
+
+        public View$OnLongClickListenerC0805a a(int i, String str, int i2, int i3, int i4, int i5, boolean z, boolean z2) {
+            FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) Ol(i);
+            if (frescoThumbnailView != null) {
+                frescoThumbnailView.setGray(z);
+                frescoThumbnailView.setAnim(z2);
+                frescoThumbnailView.a(str, i2, i3, i4, i5);
+            }
+            return this;
+        }
+
+        public View$OnLongClickListenerC0805a a(boolean z, int... iArr) {
+            for (int i : iArr) {
+                View Ol = Ol(i);
+                if (Ol != null) {
+                    Ol.setVisibility(z ? 0 : 8);
+                }
+            }
+            return this;
+        }
+
+        public View$OnLongClickListenerC0805a s(int... iArr) {
+            for (int i : iArr) {
+                View Ol = Ol(i);
+                if (Ol != null) {
+                    Ol.setOnClickListener(this.mOnClickListener);
+                }
+            }
+            return this;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view) {
+            if (this.nWf != null) {
+                this.nWf.B(view, getLayoutPosition());
+                return false;
+            }
+            return false;
+        }
+    }
+}

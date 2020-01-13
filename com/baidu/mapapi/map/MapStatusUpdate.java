@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MapStatusUpdate {
     private static final String p = MapStatusUpdate.class.getSimpleName();
     int a;

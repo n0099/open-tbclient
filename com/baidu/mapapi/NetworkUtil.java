@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NetworkUtil {
     public static NetworkInfo getActiveNetworkInfo(Context context) {
         try {

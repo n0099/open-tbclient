@@ -6,7 +6,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
     public AlaLiveInfoCoreData infoCoreData;
     public AlaLiveInfoListCoreData listCoreData;

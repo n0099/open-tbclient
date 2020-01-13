@@ -11,48 +11,48 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private boolean acJ;
-    private com.baidu.live.entereffect.c.a acK;
-    private List<com.baidu.live.entereffect.a.a> acL;
+    private boolean acY;
+    private com.baidu.live.entereffect.c.a acZ;
+    private List<com.baidu.live.entereffect.a.a> ada;
 
-    public static a pZ() {
-        return C0076a.acN;
+    public static a qg() {
+        return C0076a.adc;
     }
 
-    public void qa() {
-        if (!this.acJ || this.acL == null || this.acL.isEmpty()) {
+    public void qh() {
+        if (!this.acY || this.ada == null || this.ada.isEmpty()) {
             release();
-            this.acJ = true;
-            if (this.acK == null) {
-                this.acK = new com.baidu.live.entereffect.c.a();
-                this.acK.a(new b.a() { // from class: com.baidu.live.entereffect.a.1
+            this.acY = true;
+            if (this.acZ == null) {
+                this.acZ = new com.baidu.live.entereffect.c.a();
+                this.acZ.a(new b.a() { // from class: com.baidu.live.entereffect.a.1
                     @Override // com.baidu.live.entereffect.c.b.a
                     public void a(boolean z, List<com.baidu.live.entereffect.a.a> list) {
                         if (z) {
-                            c.qe().p(list);
+                            c.ql().p(list);
                         }
                     }
                 });
             }
-            this.acK.qa();
+            this.acZ.qh();
         }
     }
 
     public void n(List<com.baidu.live.entereffect.a.a> list) {
         if (list != null && !list.isEmpty()) {
-            if (this.acL == null) {
-                this.acL = new ArrayList();
+            if (this.ada == null) {
+                this.ada = new ArrayList();
             }
-            this.acL.clear();
-            this.acL.addAll(list);
-        } else if (this.acL != null) {
-            this.acL.clear();
+            this.ada.clear();
+            this.ada.addAll(list);
+        } else if (this.ada != null) {
+            this.ada.clear();
         }
     }
 
     public boolean a(com.baidu.live.im.data.a aVar) {
         JSONObject jSONObject;
-        if (aVar == null || aVar.vc()) {
+        if (aVar == null || aVar.vt()) {
             return false;
         }
         try {
@@ -76,15 +76,15 @@ public class a {
         }
     }
 
-    public com.baidu.live.entereffect.a.a cP(String str) {
-        return c.qe().cP(str);
+    public com.baidu.live.entereffect.a.a cR(String str) {
+        return c.ql().cR(str);
     }
 
-    public void cQ(String str) {
-        if (this.acL != null && !this.acL.isEmpty() && !TextUtils.isEmpty(str)) {
-            for (com.baidu.live.entereffect.a.a aVar : this.acL) {
+    public void cS(String str) {
+        if (this.ada != null && !this.ada.isEmpty() && !TextUtils.isEmpty(str)) {
+            for (com.baidu.live.entereffect.a.a aVar : this.ada) {
                 if (aVar.id.equals(str)) {
-                    c.qe().a(aVar);
+                    c.ql().a(aVar);
                     return;
                 }
             }
@@ -97,9 +97,9 @@ public class a {
         }
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
-            com.baidu.live.entereffect.a.a p = com.baidu.live.entereffect.b.a.p(jSONArray.optJSONObject(i));
-            if (p != null) {
-                arrayList.add(p);
+            com.baidu.live.entereffect.a.a o = com.baidu.live.entereffect.b.a.o(jSONArray.optJSONObject(i));
+            if (o != null) {
+                arrayList.add(o);
             }
         }
         return arrayList;
@@ -116,7 +116,7 @@ public class a {
             } else {
                 jSONObject = new JSONObject(aVar.getContent());
             }
-            return com.baidu.live.entereffect.b.a.cR(jSONObject.optString("rmb_live_enter_effect"));
+            return com.baidu.live.entereffect.b.a.cT(jSONObject.optString("rmb_live_enter_effect"));
         } catch (JSONException e) {
             BdLog.e(e);
             return null;
@@ -124,13 +124,13 @@ public class a {
     }
 
     private void release() {
-        this.acJ = false;
-        c.qe().release();
-        if (this.acK != null) {
-            this.acK.release();
+        this.acY = false;
+        c.ql().release();
+        if (this.acZ != null) {
+            this.acZ.release();
         }
-        if (this.acL != null) {
-            this.acL.clear();
+        if (this.ada != null) {
+            this.ada.clear();
         }
     }
 
@@ -141,6 +141,6 @@ public class a {
     /* renamed from: com.baidu.live.entereffect.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0076a {
-        private static a acN = new a();
+        private static a adc = new a();
     }
 }

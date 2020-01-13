@@ -3,14 +3,14 @@ package com.baidu.tieba.signall;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private int jSP = -1;
+    private int jWr = -1;
     private String errorMsg = null;
     private String userMsg = null;
 
     public int getErrorNumber() {
-        return this.jSP;
+        return this.jWr;
     }
 
     public String getUserMsg() {
@@ -20,7 +20,7 @@ public class a {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.jSP = jSONObject.optInt("errno");
+                this.jWr = jSONObject.optInt("errno");
                 this.errorMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 this.userMsg = jSONObject.optString("usermsg");
             } catch (Exception e) {

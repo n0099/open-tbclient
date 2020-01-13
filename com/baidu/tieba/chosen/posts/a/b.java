@@ -15,23 +15,23 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import tbclient.HotThread.tinfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TextView cGB;
-    private TextView fIX;
-    private TextView fIY;
-    private TextView fJc;
-    private LinearLayout fJd;
+    private TextView cGN;
+    private TextView fMh;
+    private TextView fMi;
+    private TextView fMm;
+    private LinearLayout fMn;
     private TextView subTextView;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.cGB = (TextView) view.findViewById(R.id.chosen_no_picture_title);
-        this.fIX = (TextView) view.findViewById(R.id.chosen_no_picture_praise);
-        this.fIY = (TextView) view.findViewById(R.id.chosen_no_picture_comment);
-        this.fJc = (TextView) view.findViewById(R.id.chosen_no_picture_head);
+        this.cGN = (TextView) view.findViewById(R.id.chosen_no_picture_title);
+        this.fMh = (TextView) view.findViewById(R.id.chosen_no_picture_praise);
+        this.fMi = (TextView) view.findViewById(R.id.chosen_no_picture_comment);
+        this.fMm = (TextView) view.findViewById(R.id.chosen_no_picture_head);
         this.subTextView = (TextView) view.findViewById(R.id.chosen_no_picture_sub);
-        this.fJd = (LinearLayout) view.findViewById(R.id.chosen_no_picture_comment_line);
+        this.fMn = (LinearLayout) view.findViewById(R.id.chosen_no_picture_comment_line);
     }
 
     @Override // com.baidu.tieba.tbadkCore.q
@@ -48,18 +48,18 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     public void ag(final tinfo tinfoVar) {
         super.ag(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.fJc.setVisibility(8);
+            this.fMm.setVisibility(8);
         } else {
-            this.fJc.setVisibility(0);
-            this.fJc.setText(tinfoVar.title);
+            this.fMm.setVisibility(0);
+            this.fMm.setText(tinfoVar.title);
         }
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.fJd.setVisibility(8);
+            this.fMn.setVisibility(8);
         } else {
-            this.fJd.setVisibility(0);
-            this.cGB.setVisibility(0);
-            this.cGB.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.cGB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
+            this.fMn.setVisibility(0);
+            this.cGN.setVisibility(0);
+            this.cGN.setText(UtilHelper.getFixedText(getContext().getString(R.string.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+            this.cGN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     String str = tinfoVar.forum_name;
@@ -70,16 +70,16 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 }
             });
             if (tinfoVar.zan_num == null) {
-                this.fIX.setVisibility(8);
+                this.fMh.setVisibility(8);
             } else {
-                this.fIX.setVisibility(0);
-                this.fIX.setText(tinfoVar.zan_num + "");
+                this.fMh.setVisibility(0);
+                this.fMh.setText(tinfoVar.zan_num + "");
             }
             if (tinfoVar.reply_num == null) {
-                this.fIY.setVisibility(8);
+                this.fMi.setVisibility(8);
             } else {
-                this.fIY.setVisibility(0);
-                this.fIY.setText(tinfoVar.reply_num + "");
+                this.fMi.setVisibility(0);
+                this.fMi.setText(tinfoVar.reply_num + "");
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {

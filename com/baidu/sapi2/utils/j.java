@@ -3,7 +3,7 @@ package com.baidu.sapi2.utils;
 import android.view.View;
 import com.baidu.sapi2.SapiWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class j implements View.OnClickListener {
     final /* synthetic */ SapiWebView a;
     final /* synthetic */ View b;

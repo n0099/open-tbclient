@@ -2,7 +2,7 @@ package com.baidu.tieba.pbextra.praise;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PraiseListActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PraiseListActivityConfig.class, PraiseListActivity.class);

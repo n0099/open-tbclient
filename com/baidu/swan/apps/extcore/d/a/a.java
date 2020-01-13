@@ -13,7 +13,7 @@ import com.baidu.swan.apps.t.e;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/debug/downloadExtension");
@@ -42,7 +42,7 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal cb");
             return false;
         }
-        eVar.aac().b(context, "mapp_cts_debug", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.d.a.a.1
+        eVar.aaz().b(context, "mapp_cts_debug", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.d.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -63,7 +63,7 @@ public class a extends ab {
         final JSONObject jSONObject = new JSONObject();
         com.baidu.swan.apps.t.e.b(str, new e.b() { // from class: com.baidu.swan.apps.extcore.d.a.a.2
             @Override // com.baidu.swan.apps.t.e.b
-            public void cG(int i) {
+            public void cH(int i) {
             }
 
             @Override // com.baidu.swan.apps.t.e.b
@@ -73,16 +73,16 @@ public class a extends ab {
                     return;
                 }
                 try {
-                    File Pj = com.baidu.swan.apps.extcore.d.b.Pj();
-                    File Ph = com.baidu.swan.apps.extcore.d.b.Ph();
-                    if (Pj.exists() && com.baidu.swan.d.c.unzipFile(Pj.getPath(), Ph.getPath())) {
+                    File PF = com.baidu.swan.apps.extcore.d.b.PF();
+                    File PD = com.baidu.swan.apps.extcore.d.b.PD();
+                    if (PF.exists() && com.baidu.swan.d.c.unzipFile(PF.getPath(), PD.getPath())) {
                         com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "download success");
-                        com.baidu.swan.apps.res.widget.b.d.q(com.baidu.swan.apps.w.a.Rk(), a.h.aiapps_debug_extension_core_download_success).showToast();
+                        com.baidu.swan.apps.res.widget.b.d.q(com.baidu.swan.apps.w.a.RG(), a.h.aiapps_debug_extension_core_download_success).showToast();
                         jSONObject.put("status", 0);
                         callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
                     } else {
                         com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "download failed");
-                        com.baidu.swan.apps.res.widget.b.d.q(com.baidu.swan.apps.w.a.Rk(), a.h.aiapps_debug_extension_core_download_failed).showToast();
+                        com.baidu.swan.apps.res.widget.b.d.q(com.baidu.swan.apps.w.a.RG(), a.h.aiapps_debug_extension_core_download_failed).showToast();
                         jSONObject.put("status", -1);
                         callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 1001).toString());
                     }
@@ -101,7 +101,7 @@ public class a extends ab {
                 }
                 try {
                     com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "download failed");
-                    com.baidu.swan.apps.res.widget.b.d.q(com.baidu.swan.apps.w.a.Rk(), a.h.aiapps_debug_extension_core_download_failed).showToast();
+                    com.baidu.swan.apps.res.widget.b.d.q(com.baidu.swan.apps.w.a.RG(), a.h.aiapps_debug_extension_core_download_failed).showToast();
                     jSONObject.put("status", -1);
                 } catch (JSONException e) {
                     e.printStackTrace();

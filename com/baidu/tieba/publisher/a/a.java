@@ -10,7 +10,7 @@ import com.baidu.searchbox.ugc.model.AtSelectEvent;
 import com.baidu.searchbox.ugc.model.AtUserInfoItem;
 import com.baidu.searchbox.ugc.service.AtService;
 import com.baidu.tbadk.core.atomData.AtListActivityConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a implements AtService {
     @Override // com.baidu.searchbox.ugc.service.AtService
     public void open(Context context) {

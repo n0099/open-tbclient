@@ -2,7 +2,7 @@ package com.baidu.mapsdkplatform.comjni.map.basemap;
 
 import android.os.Bundle;
 import android.util.LongSparseArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BaseMapCallback {
     private static LongSparseArray<b> a = new LongSparseArray<>();
 

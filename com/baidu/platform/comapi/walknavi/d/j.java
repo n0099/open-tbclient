@@ -1,12 +1,12 @@
 package com.baidu.platform.comapi.walknavi.d;
 
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j {
     private static boolean a = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         static final d a = new b();
     }
@@ -23,7 +23,7 @@ public class j {
         a = z;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class b implements d {
         private b() {
         }

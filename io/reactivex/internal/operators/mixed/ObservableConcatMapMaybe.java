@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.mixed;
 
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.disposables.b;
-import io.reactivex.internal.a.e;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.internal.util.ErrorMode;
@@ -12,21 +12,21 @@ import io.reactivex.q;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableConcatMapMaybe<T, R> extends q<R> {
     final ErrorMode errorMode;
-    final q<T> mUU;
     final h<? super T, ? extends o<? extends R>> mapper;
+    final q<T> nxd;
     final int prefetch;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
-        if (!a.a(this.mUU, this.mapper, uVar)) {
-            this.mUU.subscribe(new ConcatMapMaybeMainObserver(uVar, this.mapper, this.prefetch, this.errorMode));
+        if (!a.a(this.nxd, this.mapper, uVar)) {
+            this.nxd.subscribe(new ConcatMapMaybeMainObserver(uVar, this.mapper, this.prefetch, this.errorMode));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ConcatMapMaybeMainObserver<T, R> extends AtomicInteger implements b, u<T> {
         static final int STATE_ACTIVE = 1;
         static final int STATE_INACTIVE = 0;
@@ -40,7 +40,7 @@ public final class ObservableConcatMapMaybe<T, R> extends q<R> {
         final ConcatMapMaybeObserver<R> inner = new ConcatMapMaybeObserver<>(this);
         R item;
         final h<? super T, ? extends o<? extends R>> mapper;
-        final e<T> queue;
+        final f<T> queue;
         volatile int state;
         b upstream;
 
@@ -75,7 +75,7 @@ public final class ObservableConcatMapMaybe<T, R> extends q<R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u
@@ -120,7 +120,7 @@ public final class ObservableConcatMapMaybe<T, R> extends q<R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         /* JADX DEBUG: Type inference failed for r0v15. Raw type applied. Possible types: R, ? super R */
@@ -128,19 +128,19 @@ public final class ObservableConcatMapMaybe<T, R> extends q<R> {
             if (getAndIncrement() == 0) {
                 u<? super R> uVar = this.downstream;
                 ErrorMode errorMode = this.errorMode;
-                e<T> eVar = this.queue;
+                f<T> fVar = this.queue;
                 AtomicThrowable atomicThrowable = this.errors;
                 int i = 1;
                 while (true) {
                     if (this.cancelled) {
-                        eVar.clear();
+                        fVar.clear();
                         this.item = null;
                     } else {
                         int i2 = this.state;
                         if (atomicThrowable.get() == null || (errorMode != ErrorMode.IMMEDIATE && (errorMode != ErrorMode.BOUNDARY || i2 != 0))) {
                             if (i2 == 0) {
                                 boolean z = this.done;
-                                T poll = eVar.poll();
+                                T poll = fVar.poll();
                                 boolean z2 = poll == null;
                                 if (z && z2) {
                                     Throwable terminate = atomicThrowable.terminate();
@@ -159,7 +159,7 @@ public final class ObservableConcatMapMaybe<T, R> extends q<R> {
                                     } catch (Throwable th) {
                                         io.reactivex.exceptions.a.I(th);
                                         this.upstream.dispose();
-                                        eVar.clear();
+                                        fVar.clear();
                                         atomicThrowable.addThrowable(th);
                                         uVar.onError(atomicThrowable.terminate());
                                         return;
@@ -178,14 +178,14 @@ public final class ObservableConcatMapMaybe<T, R> extends q<R> {
                     }
                     i = addAndGet;
                 }
-                eVar.clear();
+                fVar.clear();
                 this.item = null;
                 uVar.onError(atomicThrowable.terminate());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class ConcatMapMaybeObserver<R> extends AtomicReference<b> implements m<R> {
             private static final long serialVersionUID = -3051469169682093892L;
             final ConcatMapMaybeMainObserver<?, R> parent;

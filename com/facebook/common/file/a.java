@@ -1,9 +1,9 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a {
-    public static String lDZ = null;
+    public static String lHx = null;
 
     public static void a(File file, b bVar) {
         File[] b;
@@ -22,10 +22,10 @@ public class a {
                     bVar.aa(file2);
                     String path = file2.getPath();
                     if (path != null) {
-                        if (lDZ == null) {
-                            lDZ = path;
-                        } else if (path.length() > lDZ.length()) {
-                            lDZ = path;
+                        if (lHx == null) {
+                            lHx = path;
+                        } else if (path.length() > lHx.length()) {
+                            lHx = path;
                         }
                     }
                 }
@@ -68,19 +68,19 @@ public class a {
         int length = strArr.length;
         File[] fileArr = new File[length];
         for (int i = 0; i < length; i++) {
-            fileArr[i] = new File(eY(path, strArr[i]));
+            fileArr[i] = new File(fa(path, strArr[i]));
         }
         return fileArr;
     }
 
-    private static String eY(String str, String str2) {
+    private static String fa(String str, String str2) {
         if (str.isEmpty()) {
             return str2;
         }
-        return str2.isEmpty() ? str : eZ(str, str2);
+        return str2.isEmpty() ? str : fb(str, str2);
     }
 
-    private static String eZ(String str, String str2) {
+    private static String fb(String str, String str2) {
         boolean z = true;
         int length = str.length();
         boolean z2 = length > 0 && str.charAt(length + (-1)) == File.separatorChar;

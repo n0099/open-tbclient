@@ -1,13 +1,13 @@
 package com.google.android.exoplayer2.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class o {
-    public static int dW(int i, int i2) {
+    public static int dU(int i, int i2) {
         int i3 = 1;
         while (true) {
             int i4 = i3;
             if (i4 <= 2) {
                 int i5 = (i + i4) % 3;
-                if (dX(i5, i2)) {
+                if (dV(i5, i2)) {
                     return i5;
                 }
                 i3 = i4 + 1;
@@ -17,7 +17,7 @@ public final class o {
         }
     }
 
-    public static boolean dX(int i, int i2) {
+    public static boolean dV(int i, int i2) {
         switch (i) {
             case 0:
                 return true;

@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.a;
 /* loaded from: classes2.dex */
 public interface c {
-    void aq(String str, int i);
+    void ar(String str, int i);
 
     void bN(int i);
 

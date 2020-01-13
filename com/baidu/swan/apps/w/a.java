@@ -38,193 +38,193 @@ import com.baidu.swan.bdprivate.a.w;
 import com.baidu.swan.bdprivate.invoice.g;
 import com.baidu.swan.menu.b;
 import com.baidu.tieba.aiapps.apps.share.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    public static Application Rk() {
+    public static Application RG() {
         return AppRuntime.getApplication();
     }
 
-    public static k Rl() {
-        return e.aYy();
+    public static k RH() {
+        return e.aYS();
     }
 
-    public static ad Rm() {
+    public static ad RI() {
         return new j();
     }
 
-    public static d Rn() {
+    public static d RJ() {
         return new com.baidu.swan.facade.requred.webview.a();
     }
 
-    public static b Ro() {
-        return com.baidu.tieba.aiapps.apps.g.b.aXW();
+    public static b RK() {
+        return com.baidu.tieba.aiapps.apps.g.b.aYq();
     }
 
-    public static com.baidu.swan.apps.adaptation.a.e Rp() {
-        return w.afh();
+    public static com.baidu.swan.apps.adaptation.a.e RL() {
+        return w.afA();
     }
 
-    public static l Rq() {
-        return com.baidu.swan.bdprivate.address.b.aft();
+    public static l RM() {
+        return com.baidu.swan.bdprivate.address.b.afM();
     }
 
-    public static c Rr() {
-        return g.afX();
+    public static c RN() {
+        return g.agq();
     }
 
-    public static com.baidu.swan.apps.w.b.j Rs() {
-        return com.baidu.tieba.aiapps.apps.barcode.c.aWY();
+    public static com.baidu.swan.apps.w.b.j RO() {
+        return com.baidu.tieba.aiapps.apps.barcode.c.aXs();
     }
 
-    public static s Rt() {
-        return com.baidu.tieba.aiapps.apps.d.b.aXd();
+    public static s RP() {
+        return com.baidu.tieba.aiapps.apps.d.b.aXx();
     }
 
-    public static f Ru() {
-        return com.baidu.tieba.aiapps.apps.i.b.aXY();
+    public static f RQ() {
+        return com.baidu.tieba.aiapps.apps.i.b.aYs();
     }
 
-    public static com.baidu.swan.apps.w.b.g Rv() {
-        return com.baidu.swan.impl.map.e.aoT();
+    public static com.baidu.swan.apps.w.b.g RR() {
+        return com.baidu.swan.impl.map.e.apn();
     }
 
-    public static o Rw() {
-        return com.baidu.tieba.aiapps.apps.b.c.aXb();
+    public static o RS() {
+        return com.baidu.tieba.aiapps.apps.b.c.aXv();
     }
 
-    public static com.baidu.swan.apps.w.b.l Rx() {
+    public static com.baidu.swan.apps.w.b.l RT() {
         return new com.baidu.tieba.aiapps.apps.media.video.a();
     }
 
-    public static com.baidu.swan.apps.w.b.e Ry() {
-        return com.baidu.tieba.aiapps.apps.media.b.e.aXl();
+    public static com.baidu.swan.apps.w.b.e RU() {
+        return com.baidu.tieba.aiapps.apps.media.b.e.aXF();
     }
 
-    public static u Rz() {
-        return com.baidu.tieba.aiapps.apps.media.a.b.aXj();
+    public static u RV() {
+        return com.baidu.tieba.aiapps.apps.media.a.b.aXD();
     }
 
-    public static h RA() {
-        return com.baidu.tieba.aiapps.apps.j.c.aYr();
+    public static h RW() {
+        return com.baidu.tieba.aiapps.apps.j.c.aYL();
     }
 
-    public static m RB() {
-        return com.baidu.tieba.aiapps.apps.q.d.aYG();
+    public static m RX() {
+        return com.baidu.tieba.aiapps.apps.q.d.aZa();
     }
 
-    public static q RC() {
-        return com.baidu.tieba.aiapps.apps.c.b.aXc();
+    public static q RY() {
+        return com.baidu.tieba.aiapps.apps.c.b.aXw();
     }
 
-    public static com.baidu.swan.apps.w.b.f RD() {
-        return com.baidu.tieba.aiapps.apps.f.b.aXi();
+    public static com.baidu.swan.apps.w.b.f RZ() {
+        return com.baidu.tieba.aiapps.apps.f.b.aXC();
     }
 
-    public static n RE() {
+    public static n Sa() {
         return new com.baidu.swan.apps.adaptation.implementation.c();
     }
 
-    public static t RF() {
+    public static t Sb() {
         return new com.baidu.swan.apps.adaptation.implementation.e();
     }
 
-    public static com.baidu.swan.apps.adaptation.a.a RG() {
-        return com.baidu.tieba.aiapps.apps.n.c.aYA();
+    public static com.baidu.swan.apps.adaptation.a.a Sc() {
+        return com.baidu.tieba.aiapps.apps.n.c.aYU();
     }
 
-    public static com.baidu.swan.apps.adaptation.a.j RH() {
+    public static com.baidu.swan.apps.adaptation.a.j Sd() {
         return new com.baidu.swan.apps.adaptation.implementation.a();
     }
 
-    public static p RI() {
+    public static p Se() {
         return new com.baidu.swan.bdprivate.b.d();
     }
 
-    public static i RJ() {
-        return com.baidu.tieba.aiapps.apps.bgmusic.a.aWZ();
+    public static i Sf() {
+        return com.baidu.tieba.aiapps.apps.bgmusic.a.aXt();
     }
 
-    public static ab RK() {
+    public static ab Sg() {
         return new com.baidu.swan.apps.adaptation.implementation.g();
     }
 
-    public static com.baidu.swan.apps.w.b.d RL() {
-        return com.baidu.swan.facade.a.f.agG();
+    public static com.baidu.swan.apps.w.b.d Sh() {
+        return com.baidu.swan.facade.a.f.agZ();
     }
 
-    public static aj RM() {
-        return com.baidu.swan.facade.requred.a.a.b.agQ();
+    public static aj Si() {
+        return com.baidu.swan.facade.requred.a.a.b.ahj();
     }
 
-    public static x RN() {
-        return com.baidu.tieba.aiapps.apps.e.b.aXf();
+    public static x Sj() {
+        return com.baidu.tieba.aiapps.apps.e.b.aXz();
     }
 
-    public static ac RO() {
+    public static ac Sk() {
         return new com.baidu.swan.apps.adaptation.implementation.i();
     }
 
-    public static z RP() {
-        return com.baidu.swan.facade.requred.openstat.c.agR();
+    public static z Sl() {
+        return com.baidu.swan.facade.requred.openstat.c.ahk();
     }
 
-    public static ah RQ() {
+    public static ah Sm() {
         return new com.baidu.swan.apps.adaptation.implementation.m();
     }
 
-    public static com.baidu.swan.apps.w.b.i RR() {
-        return com.baidu.tieba.aiapps.apps.o.b.aYC();
+    public static com.baidu.swan.apps.w.b.i Sn() {
+        return com.baidu.tieba.aiapps.apps.o.b.aYW();
     }
 
-    public static y RS() {
+    public static y So() {
         return new y.a();
     }
 
-    public static com.baidu.swan.apps.adaptation.a.k RT() {
+    public static com.baidu.swan.apps.adaptation.a.k Sp() {
         return new com.baidu.swan.apps.adaptation.implementation.h();
     }
 
-    public static r RU() {
+    public static r Sq() {
         return new com.baidu.swan.apps.adaptation.implementation.d();
     }
 
-    public static ae RV() {
+    public static ae Sr() {
         return new com.baidu.swan.apps.adaptation.implementation.k();
     }
 
-    public static al RW() {
+    public static al Ss() {
         return new com.baidu.swan.facade.requred.webview.c();
     }
 
-    public static v RX() {
+    public static v St() {
         return new com.baidu.tieba.aiapps.apps.widget.a();
     }
 
-    public static aa RY() {
+    public static aa Su() {
         return new com.baidu.swan.apps.adaptation.implementation.f();
     }
 
-    public static com.baidu.swan.apps.adaptation.a.h RZ() {
+    public static com.baidu.swan.apps.adaptation.a.h Sv() {
         return new com.baidu.swan.apps.setting.oauth.f();
     }
 
-    public static ag Sa() {
+    public static ag Sw() {
         return new com.baidu.swan.apps.adaptation.implementation.l();
     }
 
-    public static com.baidu.swan.apps.w.b.m Sb() {
-        return com.baidu.tieba.aiapps.apps.r.c.aYI();
+    public static com.baidu.swan.apps.w.b.m Sx() {
+        return com.baidu.tieba.aiapps.apps.r.c.aZc();
     }
 
-    public static com.baidu.swan.apps.adaptation.a.w Sc() {
+    public static com.baidu.swan.apps.adaptation.a.w Sy() {
         return new com.baidu.swan.facade.init.a.a();
     }
 
-    public static ai Sd() {
+    public static ai Sz() {
         return new com.baidu.swan.apps.adaptation.implementation.n();
     }
 
-    public static ak Se() {
-        return com.baidu.swan.b.d.e.aiz();
+    public static ak SA() {
+        return com.baidu.swan.b.d.e.aiS();
     }
 }

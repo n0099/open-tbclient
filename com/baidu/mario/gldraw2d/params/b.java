@@ -1,44 +1,44 @@
 package com.baidu.mario.gldraw2d.params;
 
 import android.opengl.Matrix;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements Cloneable {
-    private float[] aEs;
-    private boolean aEt;
-    private boolean aEu;
-    private float[] kH = new float[16];
+    private float[] aFk;
+    private boolean aFl;
+    private boolean aFm;
+    private float[] kE = new float[16];
     private long mTimestamp;
 
     public b() {
-        Matrix.setIdentityM(this.kH, 0);
-        this.aEs = new float[16];
-        Matrix.setIdentityM(this.aEs, 0);
-        this.aEt = false;
-        this.aEu = false;
+        Matrix.setIdentityM(this.kE, 0);
+        this.aFk = new float[16];
+        Matrix.setIdentityM(this.aFk, 0);
+        this.aFl = false;
+        this.aFm = false;
     }
 
-    public float[] zB() {
-        return this.kH;
+    public float[] zX() {
+        return this.kE;
     }
 
     public void e(float[] fArr) {
-        this.kH = fArr;
+        this.kE = fArr;
     }
 
-    public float[] zC() {
-        return this.aEs;
+    public float[] zY() {
+        return this.aFk;
     }
 
     public void f(float[] fArr) {
-        this.aEs = fArr;
+        this.aFk = fArr;
     }
 
-    public boolean zD() {
-        return this.aEt;
+    public boolean zZ() {
+        return this.aFl;
     }
 
-    public boolean zE() {
-        return this.aEu;
+    public boolean Aa() {
+        return this.aFm;
     }
 
     public void setTimestamp(long j) {
@@ -46,7 +46,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: zF */
+    /* renamed from: Ab */
     public b clone() {
         b bVar = null;
         try {
@@ -55,8 +55,8 @@ public class b implements Cloneable {
             e.printStackTrace();
         }
         if (bVar != null) {
-            bVar.e((float[]) this.kH.clone());
-            bVar.f((float[]) this.aEs.clone());
+            bVar.e((float[]) this.kE.clone());
+            bVar.f((float[]) this.aFk.clone());
         }
         return bVar;
     }

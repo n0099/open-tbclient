@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
@@ -9,7 +9,7 @@ import io.reactivex.q;
 import io.reactivex.u;
 import io.reactivex.y;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final aa<T> source;
@@ -19,7 +19,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
         this.source.a(new FlatMapIterableObserver(uVar, this.mapper));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapIterableObserver<T, R> extends BasicIntQueueDisposable<R> implements y<T> {
         private static final long serialVersionUID = -8938804753851907758L;
         final u<? super R> actual;
@@ -112,17 +112,17 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
             return 0;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public void clear() {
             this.it = null;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public boolean isEmpty() {
             return this.it == null;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public R poll() throws Exception {
             Iterator<? extends R> it = this.it;
             if (it != null) {

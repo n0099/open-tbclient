@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CommonUserLikeButton extends TextView implements b {
-    private boolean dfA;
-    private a dfK;
-    protected String dfw;
-    protected String dfx;
-    protected boolean dfy;
-    private View.OnClickListener dfz;
+    protected String dfI;
+    protected String dfJ;
+    protected boolean dfK;
+    private View.OnClickListener dfL;
+    private boolean dfM;
+    private a dfW;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -25,28 +25,28 @@ public class CommonUserLikeButton extends TextView implements b {
 
     public CommonUserLikeButton(Context context) {
         super(context);
-        this.dfw = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.dfx = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.dfy = false;
-        this.dfA = false;
+        this.dfI = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.dfJ = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.dfK = false;
+        this.dfM = false;
         init();
     }
 
     public CommonUserLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dfw = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.dfx = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.dfy = false;
-        this.dfA = false;
+        this.dfI = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.dfJ = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.dfK = false;
+        this.dfM = false;
         init();
     }
 
     public CommonUserLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dfw = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.dfx = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.dfy = false;
-        this.dfA = false;
+        this.dfI = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
+        this.dfJ = TbadkCoreApplication.getInst().getString(R.string.attention);
+        this.dfK = false;
+        this.dfM = false;
         init();
     }
 
@@ -58,45 +58,45 @@ public class CommonUserLikeButton extends TextView implements b {
         setGravity(17);
     }
 
-    public void fI(boolean z) {
-        this.dfy = z;
+    public void fN(boolean z) {
+        this.dfK = z;
         if (z) {
             setClickable(false);
-            setText(this.dfw);
+            setText(this.dfI);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.dfx);
+            setText(this.dfJ);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds10), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void k(boolean z, int i) {
-        fI(z);
+    public void l(boolean z, int i) {
+        fN(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void lg(int i) {
-        if (this.dfK != null) {
-            this.dfK.lh(i);
+        if (this.dfW != null) {
+            this.dfW.lh(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void aW(View view) {
-        if (this.dfz != null) {
-            this.dfz.onClick(view);
+    public void ba(View view) {
+        if (this.dfL != null) {
+            this.dfL.onClick(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void h(View.OnClickListener onClickListener) {
+    public void g(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dfy) {
+        if (this.dfK) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             am.setViewTextColor(this, (int) R.color.cp_cont_d);
             setBackgroundDrawable(null);
@@ -104,7 +104,7 @@ public class CommonUserLikeButton extends TextView implements b {
         }
         setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
         am.setViewTextColor(this, (int) R.color.btn_forum_focus_color);
-        if (this.dfA) {
+        if (this.dfM) {
             am.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
         } else {
             am.setBackgroundResource(this, R.drawable.btn_focus_border_bg);
@@ -113,19 +113,19 @@ public class CommonUserLikeButton extends TextView implements b {
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void b(boolean z, int i, boolean z2) {
-        k(z, i);
+        l(z, i);
     }
 
     public void setFanNumCallBack(a aVar) {
-        this.dfK = aVar;
+        this.dfW = aVar;
     }
 
     public void setAfterOnClickListener(View.OnClickListener onClickListener) {
-        this.dfz = onClickListener;
+        this.dfL = onClickListener;
     }
 
     public void setBackGroundIsTransMode(boolean z) {
-        this.dfA = z;
+        this.dfM = z;
         am.setBackgroundResource(this, R.drawable.btn_transparent_focus_border_bg);
     }
 }

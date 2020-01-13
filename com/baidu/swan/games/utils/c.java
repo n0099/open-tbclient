@@ -6,46 +6,46 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.storage.c.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private long coB;
-    private long coC;
-    private static c coy = new c();
-    private static String coz = "banner_ad_close_btn_show_key";
-    private static String coA = "banner_ad_close_duration_key";
+    private static c coL = new c();
+    private static String coM = "banner_ad_close_btn_show_key";
+    private static String coN = "banner_ad_close_duration_key";
+    private long coO;
+    private long coP;
 
     private c() {
     }
 
-    public static c anm() {
-        return coy;
+    public static c anF() {
+        return coL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pu(String str) {
-        h.acE().putBoolean(coz, "1".equals(str));
+    public void px(String str) {
+        h.adb().putBoolean(coM, "1".equals(str));
     }
 
-    public boolean ann() {
-        return h.acE().getBoolean(coz, true);
+    public boolean anG() {
+        return h.adb().getBoolean(coM, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pv(String str) {
-        h.acE().putString(coA, str);
+    public void py(String str) {
+        h.adb().putString(coN, str);
     }
 
-    private long ano() {
-        String string = h.acE().getString(coA, "1");
+    private long anH() {
+        String string = h.adb().getString(coN, "1");
         return string != null ? Long.valueOf(string).longValue() * 60 * 60 * 1000 : BdKVCache.MILLS_1Hour;
     }
 
-    public void bM(String str, String str2) {
-        h.acE().putString(str, str2);
+    public void bN(String str, String str2) {
+        h.adb().putString(str, str2);
     }
 
-    private long pw(String str) {
-        String string = h.acE().getString(str, "0");
+    private long pz(String str) {
+        String string = h.adb().getString(str, "0");
         if (string != null) {
             return Long.valueOf(string).longValue();
         }
@@ -53,67 +53,67 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aV(long j) {
-        h.acE().putLong("banner_ad_start_show_key", j);
+    public void aY(long j) {
+        h.adb().putLong("banner_ad_start_show_key", j);
     }
 
-    public long anp() {
-        return h.acE().getLong("banner_ad_start_show_key", 5L) * 1000;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aW(long j) {
-        h.acE().putLong("banner_ad_repeat_show_key", j);
-    }
-
-    public long anq() {
-        return h.acE().getLong("banner_ad_repeat_show_key", 120L) * 1000;
+    public long anI() {
+        return h.adb().getLong("banner_ad_start_show_key", 5L) * 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aX(long j) {
-        h.acE().putLong("banner_ad_close_key", j);
+    public void aZ(long j) {
+        h.adb().putLong("banner_ad_repeat_show_key", j);
     }
 
-    public long anr() {
-        return h.acE().getLong("banner_ad_close_key", 60L) * 1000;
+    public long anJ() {
+        return h.adb().getLong("banner_ad_repeat_show_key", 120L) * 1000;
     }
 
-    public void ans() {
-        this.coB = System.currentTimeMillis();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ba(long j) {
+        h.adb().putLong("banner_ad_close_key", j);
     }
 
-    public void ant() {
-        this.coC = System.currentTimeMillis();
+    public long anK() {
+        return h.adb().getLong("banner_ad_close_key", 60L) * 1000;
     }
 
-    public boolean px(String str) {
-        return System.currentTimeMillis() - pw(str) <= ano();
+    public void anL() {
+        this.coO = System.currentTimeMillis();
     }
 
-    public boolean anu() {
-        return this.coB != 0 && System.currentTimeMillis() - this.coB <= anp();
+    public void anM() {
+        this.coP = System.currentTimeMillis();
     }
 
-    public boolean anv() {
-        return this.coC != 0 && System.currentTimeMillis() - this.coC <= anq();
+    public boolean pA(String str) {
+        return System.currentTimeMillis() - pz(str) <= anH();
     }
 
-    public void anw() {
-        e ZS = e.ZS();
-        if (ZS != null && com.baidu.swan.apps.w.a.Rw() != null && com.baidu.swan.apps.w.a.RI() != null) {
-            ZS.aaf().getRequest().cookieManager(com.baidu.swan.apps.w.a.RI().FH()).url(com.baidu.swan.apps.w.a.Rw().FC()).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.1
+    public boolean anN() {
+        return this.coO != 0 && System.currentTimeMillis() - this.coO <= anI();
+    }
+
+    public boolean anO() {
+        return this.coP != 0 && System.currentTimeMillis() - this.coP <= anJ();
+    }
+
+    public void anP() {
+        e aap = e.aap();
+        if (aap != null && com.baidu.swan.apps.w.a.RS() != null && com.baidu.swan.apps.w.a.Se() != null) {
+            aap.aaC().getRequest().cookieManager(com.baidu.swan.apps.w.a.Se().Gd()).url(com.baidu.swan.apps.w.a.RS().FY()).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onSuccess(String str, int i) {
                     JSONObject optJSONObject;
                     try {
                         if (com.baidu.swan.games.network.c.O(str, i) && (optJSONObject = new JSONObject(str).optJSONObject("data")) != null) {
-                            c.this.pu(optJSONObject.optString("show", "1"));
-                            c.this.pv(optJSONObject.optString("duration", "1"));
-                            c.this.aV(optJSONObject.optLong("startNoBannerADGap", 5L));
-                            c.this.aW(optJSONObject.optLong("bannerShowSuccGap", 120L));
-                            c.this.aX(optJSONObject.optLong("preventBannerADShowingGap", 60L));
+                            c.this.px(optJSONObject.optString("show", "1"));
+                            c.this.py(optJSONObject.optString("duration", "1"));
+                            c.this.aY(optJSONObject.optLong("startNoBannerADGap", 5L));
+                            c.this.aZ(optJSONObject.optLong("bannerShowSuccGap", 120L));
+                            c.this.ba(optJSONObject.optLong("preventBannerADShowingGap", 60L));
                         }
                     } catch (JSONException e) {
                     }

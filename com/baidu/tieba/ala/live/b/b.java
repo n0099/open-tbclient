@@ -7,7 +7,7 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.pay.PayConfig;
@@ -22,11 +22,11 @@ public class b extends a {
     private HttpMessageListener mHttpMessageListener;
 
     static {
-        rG();
+        rT();
     }
 
-    public b(TbPageContext tbPageContext, a.InterfaceC0433a interfaceC0433a) {
-        super(tbPageContext, PayChannelType.NUOMI, interfaceC0433a);
+    public b(TbPageContext tbPageContext, a.InterfaceC0436a interfaceC0436a) {
+        super(tbPageContext, PayChannelType.NUOMI, interfaceC0436a);
         this.mHttpMessageListener = new HttpMessageListener(0) { // from class: com.baidu.tieba.ala.live.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -56,18 +56,18 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void bdK() {
+    public void bef() {
         HttpMessage httpMessage = new HttpMessage(1003412);
         httpMessage.setTag(getUniqueId());
-        httpMessage.addParam("pay_id", bdL());
+        httpMessage.addParam("pay_id", beg());
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void ye(String str) {
+    public void yj(String str) {
     }
 
-    private static void rG() {
+    private static void rT() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003411, TbConfig.SERVER_ADDRESS + TbConfig.GET_NUOMI_ORDER);
         tbHttpMessageTask.setResponsedClass(GetNuomiOrderHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -88,7 +88,7 @@ public class b extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(GetNuomiOrderHttpResponsedMessage getNuomiOrderHttpResponsedMessage) {
         String errorString;
-        HashMap<String, String> bdI = getNuomiOrderHttpResponsedMessage.bdI();
+        HashMap<String, String> bed = getNuomiOrderHttpResponsedMessage.bed();
         if (getNuomiOrderHttpResponsedMessage.hasError() || getNuomiOrderHttpResponsedMessage.getError() != 0) {
             if (StringUtils.isNull(getNuomiOrderHttpResponsedMessage.getErrorString())) {
                 errorString = this.mPageContext.getResources().getString(a.i.sdk_neterror);
@@ -96,10 +96,10 @@ public class b extends a {
                 errorString = getNuomiOrderHttpResponsedMessage.getErrorString();
             }
             a(getNuomiOrderHttpResponsedMessage.getError(), errorString, null, null, null, false);
-        } else if (bdI == null) {
+        } else if (bed == null) {
             a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), null, null, null, false);
         } else {
-            a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), getNuomiOrderHttpResponsedMessage.getOrderId(), bdI, null, true);
+            a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), getNuomiOrderHttpResponsedMessage.getOrderId(), bed, null, true);
         }
     }
 

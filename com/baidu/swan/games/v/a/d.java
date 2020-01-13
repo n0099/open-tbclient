@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     private final Object data;
     private final String error;
@@ -19,14 +19,14 @@ public class d {
         return this.error == null;
     }
 
-    public String bK(String str, String str2) {
+    public String bL(String str, String str2) {
         if (isSuccess()) {
-            return a.pq(str);
+            return a.pt(str);
         }
-        return a.L(str, str2, anf());
+        return a.L(str, str2, any());
     }
 
-    public String anf() {
+    public String any() {
         return this.error;
     }
 
@@ -34,7 +34,7 @@ public class d {
         return this.data;
     }
 
-    public static Object ang() {
+    public static Object anz() {
         return new JsObject();
     }
 
@@ -70,7 +70,7 @@ public class d {
         return new d(null, obj);
     }
 
-    public static d pr(@NonNull String str) {
+    public static d pu(@NonNull String str) {
         return new d(str, null);
     }
 
@@ -78,7 +78,7 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String L = a.L(str, str2, dVar.anf());
+        String L = a.L(str, str2, dVar.any());
         bVar.throwJSException(JSExceptionType.Error, L);
         return L;
     }

@@ -2,7 +2,7 @@ package com.baidu.live.utils;
 
 import android.content.Context;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes2.dex */
 public class g {
@@ -15,7 +15,7 @@ public class g {
     }
 
     public static int aH(Context context) {
-        return context.getResources().getDimensionPixelSize(a.e.sdk_ds142) * 2;
+        return context.getResources().getDimensionPixelSize(a.e.sdk_ds220);
     }
 
     public static int aI(Context context) {

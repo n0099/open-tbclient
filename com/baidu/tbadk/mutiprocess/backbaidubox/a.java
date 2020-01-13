@@ -10,7 +10,7 @@ public class a implements b<BackBaiduBoxViewEvent> {
         if (backBaiduBoxViewEvent == null) {
             return false;
         }
-        d.aPf().setShow(backBaiduBoxViewEvent.isShow);
+        d.aPy().setShow(backBaiduBoxViewEvent.isShow);
         return true;
     }
 }

@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class v {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -36,14 +36,14 @@ public class v {
             } else if (TextUtils.equals(lowerCase, "meizu")) {
                 cz(context);
             } else {
-                Map<String, ComponentName> aeg = aeg();
-                if (aeg.containsKey(lowerCase)) {
-                    a(context, aeg.get(lowerCase));
+                Map<String, ComponentName> aez = aez();
+                if (aez.containsKey(lowerCase)) {
+                    a(context, aez.get(lowerCase));
                     return;
                 }
-                Map<String, String> aeh = aeh();
-                if (aeh.containsKey(lowerCase)) {
-                    an(context, aeh.get(lowerCase));
+                Map<String, String> aeA = aeA();
+                if (aeA.containsKey(lowerCase)) {
+                    ap(context, aeA.get(lowerCase));
                 } else {
                     cA(context);
                 }
@@ -51,7 +51,7 @@ public class v {
         }
     }
 
-    private static Map<String, ComponentName> aeg() {
+    private static Map<String, ComponentName> aez() {
         HashMap hashMap = new HashMap();
         hashMap.put("huawei", new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity"));
         hashMap.put("letv", new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.PermissionAndApps"));
@@ -60,7 +60,7 @@ public class v {
         return hashMap;
     }
 
-    private static Map<String, String> aeh() {
+    private static Map<String, String> aeA() {
         HashMap hashMap = new HashMap();
         hashMap.put("oppo", "com.coloros.safecenter");
         hashMap.put("vivo", "com.bairenkeji.icaller");
@@ -69,17 +69,17 @@ public class v {
     }
 
     private static void cy(Context context) {
-        String aei = aei();
+        String aeB = aeB();
         if (DEBUG) {
-            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + aei);
+            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + aeB);
         }
         Intent intent = new Intent();
-        if ("V10".equals(aei) || "V9".equals(aei) || "V8".equals(aei)) {
+        if ("V10".equals(aeB) || "V9".equals(aeB) || "V8".equals(aeB)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             context.startActivity(intent);
-        } else if ("V7".equals(aei) || "V6".equals(aei)) {
+        } else if ("V7".equals(aeB) || "V6".equals(aeB)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
@@ -89,7 +89,7 @@ public class v {
         }
     }
 
-    private static String aei() {
+    private static String aeB() {
         Throwable th;
         BufferedReader bufferedReader;
         String str = null;
@@ -150,7 +150,7 @@ public class v {
         }
     }
 
-    private static void an(Context context, String str) {
+    private static void ap(Context context, String str) {
         PackageInfo packageInfo = getPackageInfo(context, str);
         if (packageInfo == null) {
             cA(context);
@@ -217,7 +217,7 @@ public class v {
         }
     }
 
-    public static boolean ao(Context context, String str) {
+    public static boolean aq(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 throw new IllegalArgumentException("context or permission is null");

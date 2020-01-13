@@ -101,6 +101,7 @@ public interface RequestResponseCode {
     public static final int REQUEST_RECORDER_VIDEO = 13010;
     public static final int REQUEST_REGIST = 12007;
     public static final int REQUEST_SAPI_CODE = 22002;
+    public static final int REQUEST_SDK_INSTALL_APK_PERMISSION = 25051;
     public static final int REQUEST_SDK_RENAME = 25050;
     public static final int REQUEST_SDK_WEB_VIEW = 25048;
     public static final int REQUEST_SELECT_FORUM = 25018;

@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import tbclient.BawuRoleInfoPub;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BawuMemberInfoView extends RelativeLayout {
-    private TextView fqP;
-    private HeadImageView geA;
-    private ImageView geB;
-    private TextView geC;
-    private BawuRoleInfoPub geD;
+    private TextView ftZ;
+    private HeadImageView ghJ;
+    private ImageView ghK;
+    private TextView ghL;
+    private BawuRoleInfoPub ghM;
     private Context mContext;
     private View mRootView;
 
@@ -49,68 +49,68 @@ public class BawuMemberInfoView extends RelativeLayout {
 
     public void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.bawu_member_info_item_layout, this);
-        this.geA = (HeadImageView) this.mRootView.findViewById(R.id.imageview_bawu_member);
-        this.geA.setIsRound(true);
-        this.geA.setBorderColor(am.getColor(R.color.common_color_10043));
-        this.geA.setBorderWidth(l.getDimens(this.mContext, R.dimen.ds1));
+        this.ghJ = (HeadImageView) this.mRootView.findViewById(R.id.imageview_bawu_member);
+        this.ghJ.setIsRound(true);
+        this.ghJ.setBorderColor(am.getColor(R.color.common_color_10043));
+        this.ghJ.setBorderWidth(l.getDimens(this.mContext, R.dimen.ds1));
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.BawuMemberInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (BawuMemberInfoView.this.geD != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(BawuMemberInfoView.this.mContext, "" + BawuMemberInfoView.this.geD.user_id, BawuMemberInfoView.this.geD.user_name)));
+                if (BawuMemberInfoView.this.ghM != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(BawuMemberInfoView.this.mContext, "" + BawuMemberInfoView.this.ghM.user_id, BawuMemberInfoView.this.ghM.user_name)));
                 }
             }
         });
-        this.geB = (ImageView) this.mRootView.findViewById(R.id.imageview_level_icon);
-        this.fqP = (TextView) this.mRootView.findViewById(R.id.textview_user_name);
-        this.geC = (TextView) this.mRootView.findViewById(R.id.textview_user_level);
+        this.ghK = (ImageView) this.mRootView.findViewById(R.id.imageview_level_icon);
+        this.ftZ = (TextView) this.mRootView.findViewById(R.id.textview_user_name);
+        this.ghL = (TextView) this.mRootView.findViewById(R.id.textview_user_level);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub) {
         String str;
         if (bawuRoleInfoPub != null) {
-            this.geD = bawuRoleInfoPub;
+            this.ghM = bawuRoleInfoPub;
             if (bawuRoleInfoPub.baijiahao_info != null && !TextUtils.isEmpty(bawuRoleInfoPub.baijiahao_info.avatar)) {
                 str = bawuRoleInfoPub.baijiahao_info.avatar;
             } else {
                 str = bawuRoleInfoPub.portrait;
             }
-            this.geA.startLoad(str, 12, false);
-            this.fqP.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+            this.ghJ.startLoad(str, 12, false);
+            this.ftZ.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
             if (StringUtils.isNull(bawuRoleInfoPub.level_name)) {
-                this.geC.setVisibility(8);
+                this.ghL.setVisibility(8);
             } else {
-                this.geC.setText(bawuRoleInfoPub.level_name);
-                this.geC.setVisibility(0);
+                this.ghL.setText(bawuRoleInfoPub.level_name);
+                this.ghL.setVisibility(0);
             }
             int smallGradeResourceIdNew = BitmapHelper.getSmallGradeResourceIdNew(bawuRoleInfoPub.user_level.intValue());
             if (smallGradeResourceIdNew == 0) {
-                this.geB.setVisibility(8);
+                this.ghK.setVisibility(8);
                 return;
             }
-            this.geB.setContentDescription(this.mContext.getString(R.string.degree) + bawuRoleInfoPub.user_level);
-            am.setImageResource(this.geB, smallGradeResourceIdNew);
-            this.geB.setVisibility(0);
+            this.ghK.setContentDescription(this.mContext.getString(R.string.degree) + bawuRoleInfoPub.user_level);
+            am.setImageResource(this.ghK, smallGradeResourceIdNew);
+            this.ghK.setVisibility(0);
         }
     }
 
     public HeadImageView getPhotoView() {
-        return this.geA;
+        return this.ghJ;
     }
 
     public TextView getUserNameView() {
-        return this.fqP;
+        return this.ftZ;
     }
 
     public ImageView getLevelIcon() {
-        return this.geB;
+        return this.ghK;
     }
 
     public TextView getLevelNameView() {
-        return this.geC;
+        return this.ghL;
     }
 
     public BawuRoleInfoPub getMemberData() {
-        return this.geD;
+        return this.ghM;
     }
 }

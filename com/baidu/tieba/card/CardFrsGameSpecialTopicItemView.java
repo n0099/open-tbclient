@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
-    private View fCD;
-    private View fCE;
-    private RelativeLayout fDd;
-    private TbImageView fDe;
-    private TextView fDf;
-    private TextView fDg;
-    private TextView fDh;
+    private View fFO;
+    private View fFP;
+    private RelativeLayout fGo;
+    private TbImageView fGp;
+    private TextView fGq;
+    private TextView fGr;
+    private TextView fGs;
     private String mForumId;
     public int mSkinType;
 
@@ -48,18 +48,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-        this.fDd = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
-        this.fDe = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
-        this.fDf = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
-        this.fDg = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
-        this.fDh = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
-        this.fCD = findViewById(R.id.divider_line_1);
-        this.fCE = findViewById(R.id.divider_line_2);
+        this.fGo = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
+        this.fGp = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
+        this.fGq = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
+        this.fGr = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
+        this.fGs = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
+        this.fFO = findViewById(R.id.divider_line_1);
+        this.fFP = findViewById(R.id.divider_line_2);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fDd.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fGo.getLayoutParams();
         layoutParams.width = (dimensionPixelSize * 21) / 9;
         layoutParams.height = dimensionPixelSize;
-        this.fDd.setLayoutParams(layoutParams);
+        this.fGo.setLayoutParams(layoutParams);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -69,7 +69,7 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
                     TiebaStatic.log(new an("c13047").Z("obj_locate", 5).cp("fid", CardFrsGameSpecialTopicItemView.this.mForumId));
-                    ba.aEa().a((TbPageContext) com.baidu.adp.base.i.ab(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+                    ba.aEt().a((TbPageContext) com.baidu.adp.base.i.ab(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
                 }
             }
         });
@@ -80,29 +80,29 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     }
 
     public TbImageView getSpecialTopicPicView() {
-        return this.fDe;
+        return this.fGp;
     }
 
     public TextView getSpecialTopicNameView() {
-        return this.fDf;
+        return this.fGq;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
-        return this.fDh;
+        return this.fGs;
     }
 
     public TextView getSpecialTopicDscView() {
-        return this.fDg;
+        return this.fGr;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.setBackgroundResource(this.fCD, R.color.cp_bg_line_e);
-            am.setBackgroundResource(this.fCE, R.color.cp_bg_line_e);
-            am.setViewTextColor(this.fDf, R.color.cp_cont_a, 1);
-            am.setViewTextColor(this.fDg, R.color.cp_cont_a, 1);
-            am.setViewTextColor(this.fDh, R.color.cp_cont_a, 1);
+            am.setBackgroundResource(this.fFO, R.color.cp_bg_line_e);
+            am.setBackgroundResource(this.fFP, R.color.cp_bg_line_e);
+            am.setViewTextColor(this.fGq, R.color.cp_cont_a, 1);
+            am.setViewTextColor(this.fGr, R.color.cp_cont_a, 1);
+            am.setViewTextColor(this.fGs, R.color.cp_cont_a, 1);
         }
     }
 }

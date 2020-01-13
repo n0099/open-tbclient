@@ -23,10 +23,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ConcurrentNavigableMap;
 import java.util.concurrent.ConcurrentSkipListMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class b {
     private final Map<Type, InstanceCreator<?>> instanceCreators;
-    private final com.google.gson.internal.b.b mFE = com.google.gson.internal.b.b.dyU();
+    private final com.google.gson.internal.b.b mJw = com.google.gson.internal.b.b.dzZ();
 
     public b(Map<Type, InstanceCreator<?>> map) {
         this.instanceCreators = map;
@@ -67,7 +67,7 @@ public final class b {
         try {
             final Constructor<? super T> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
             if (!declaredConstructor.isAccessible()) {
-                this.mFE.b(declaredConstructor);
+                this.mJw.b(declaredConstructor);
             }
             return new f<T>() { // from class: com.google.gson.internal.b.8
                 /* JADX WARN: Type inference failed for: r0v5, types: [T, java.lang.Object] */
@@ -192,13 +192,13 @@ public final class b {
 
     private <T> f<T> d(final Type type, final Class<? super T> cls) {
         return new f<T>() { // from class: com.google.gson.internal.b.6
-            private final j mFI = j.dyv();
+            private final j mJA = j.dzE();
 
             /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
             @Override // com.google.gson.internal.f
             public T construct() {
                 try {
-                    return this.mFI.newInstance(cls);
+                    return this.mJA.newInstance(cls);
                 } catch (Exception e) {
                     throw new RuntimeException("Unable to invoke no-args constructor for " + type + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e);
                 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.publisher.export.interfaces;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.publisher.export.interfaces";
     public static final String BUILD_TYPE = "release";

@@ -2,44 +2,44 @@ package rx.internal.operators;
 
 import rx.exceptions.CompositeException;
 import rx.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class s<T> implements h.a<T> {
-    final rx.h<T> nhg;
-    final rx.functions.b<? super T> nhh;
-    final rx.functions.b<Throwable> nhi;
+    final rx.h<T> nQe;
+    final rx.functions.b<? super T> nQf;
+    final rx.functions.b<Throwable> nQg;
 
     public s(rx.h<T> hVar, rx.functions.b<? super T> bVar, rx.functions.b<Throwable> bVar2) {
-        this.nhg = hVar;
-        this.nhh = bVar;
-        this.nhi = bVar2;
+        this.nQe = hVar;
+        this.nQf = bVar;
+        this.nQg = bVar2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     /* renamed from: b */
     public void call(rx.i<? super T> iVar) {
-        a aVar = new a(iVar, this.nhh, this.nhi);
+        a aVar = new a(iVar, this.nQf, this.nQg);
         iVar.add(aVar);
-        this.nhg.a(aVar);
+        this.nQe.a(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> extends rx.i<T> {
         final rx.i<? super T> actual;
-        final rx.functions.b<? super T> nhh;
-        final rx.functions.b<Throwable> nhi;
+        final rx.functions.b<? super T> nQf;
+        final rx.functions.b<Throwable> nQg;
 
         a(rx.i<? super T> iVar, rx.functions.b<? super T> bVar, rx.functions.b<Throwable> bVar2) {
             this.actual = iVar;
-            this.nhh = bVar;
-            this.nhi = bVar2;
+            this.nQf = bVar;
+            this.nQg = bVar2;
         }
 
         @Override // rx.i
         public void onSuccess(T t) {
             try {
-                this.nhh.call(t);
+                this.nQf.call(t);
                 this.actual.onSuccess(t);
             } catch (Throwable th) {
                 rx.exceptions.a.a(th, this, t);
@@ -49,7 +49,7 @@ public final class s<T> implements h.a<T> {
         @Override // rx.i
         public void onError(Throwable th) {
             try {
-                this.nhi.call(th);
+                this.nQg.call(th);
                 this.actual.onError(th);
             } catch (Throwable th2) {
                 rx.exceptions.a.I(th2);

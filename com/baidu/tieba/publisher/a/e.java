@@ -5,26 +5,26 @@ import android.util.Log;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tbadk.TbConfig;
 import com.facebook.imagepipeline.c.q;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class e implements com.facebook.common.internal.j<q> {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private final ActivityManager jxg;
+    private final ActivityManager jAI;
 
     public e(ActivityManager activityManager) {
-        this.jxg = activityManager;
+        this.jAI = activityManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: cyp */
+    /* renamed from: czw */
     public q get() {
-        return new q(cyq(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        return new q(czx(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
-    private int cyq() {
+    private int czx() {
         int i = 4194304;
-        if (this.jxg != null) {
-            int min = Math.min(this.jxg.getMemoryClass() * 1048576, Integer.MAX_VALUE);
+        if (this.jAI != null) {
+            int min = Math.min(this.jAI.getMemoryClass() * 1048576, Integer.MAX_VALUE);
             if (min >= 33554432) {
                 if (min < 67108864) {
                     i = TbConfig.THREAD_GIF_MIN_USE_MEMORY;

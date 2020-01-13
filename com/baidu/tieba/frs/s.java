@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ba;
 import com.baidu.tbadk.core.data.bc;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class s extends h<ba, a> {
-    private com.baidu.tieba.frs.view.d gmj;
+    private com.baidu.tieba.frs.view.d gps;
 
     public s(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -19,10 +19,10 @@ public class s extends h<ba, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aH */
+    /* renamed from: aL */
     public a b(ViewGroup viewGroup) {
-        this.gmj = new com.baidu.tieba.frs.view.d(this.mPageContext, this.mPageId);
-        return new a(this.gmj);
+        this.gps = new com.baidu.tieba.frs.view.d(this.mPageContext, this.mPageId);
+        return new a(this.gps);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,38 +30,38 @@ public class s extends h<ba, a> {
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ba baVar, a aVar) {
         super.a(i, view, viewGroup, (ViewGroup) baVar, (ba) aVar);
-        this.gmj = aVar.gmk;
-        ArrayList<bc> ayM = baVar.ayM();
-        if (ayM.size() <= 0) {
+        this.gps = aVar.gpt;
+        ArrayList<bc> azf = baVar.azf();
+        if (azf.size() <= 0) {
             return null;
         }
         t tVar = new t();
         tVar.showTopDivider = true;
         tVar.mGroupTitle = baVar.getTitle();
-        for (int i2 = 0; i2 != ayM.size(); i2++) {
-            bc bcVar = ayM.get(i2);
+        for (int i2 = 0; i2 != azf.size(); i2++) {
+            bc bcVar = azf.get(i2);
             if (bcVar != null) {
                 ao aoVar = new ao();
                 aoVar.metaData.setUserId(bcVar.getUid());
-                aoVar.metaData.setUserName(bcVar.ayR());
+                aoVar.metaData.setUserName(bcVar.azk());
                 aoVar.metaData.setPortrait(bcVar.getPortrait());
                 aoVar.metaData.getGodUserData().setIsLike(bcVar.getIsLike() == 1);
-                aoVar.metaData.getGodUserData().setIntro(bcVar.ayS());
+                aoVar.metaData.getGodUserData().setIntro(bcVar.azl());
                 tVar.a(aoVar);
             }
         }
-        this.gmj.onChangeSkinType(this.mPageContext, this.mSkinType);
-        aVar.gmk.a(tVar);
+        this.gps.onChangeSkinType(this.mPageContext, this.mSkinType);
+        aVar.gpt.a(tVar);
         return aVar.getView();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends v.a {
-        public com.baidu.tieba.frs.view.d gmk;
+        public com.baidu.tieba.frs.view.d gpt;
 
         public a(com.baidu.tieba.frs.view.d dVar) {
             super(dVar.getView());
-            this.gmk = dVar;
+            this.gpt = dVar;
         }
     }
 }

@@ -29,10 +29,10 @@ import com.baidu.webkit.sdk.performance.PagePerformanceTiming;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import java.io.BufferedWriter;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface WebViewProvider {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ScrollDelegate {
         int computeHorizontalScrollOffset();
 
@@ -47,7 +47,7 @@ public interface WebViewProvider {
         int computeVerticalScrollRange();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ViewDelegate {
         boolean dispatchKeyEvent(KeyEvent keyEvent);
 

@@ -3,18 +3,18 @@ package com.baidu.tieba.pb.pb.godreply.usertips;
 import android.content.Context;
 import android.content.SharedPreferences;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static AtomicBoolean iyN;
+    private static AtomicBoolean iCr;
 
     public static boolean fj(Context context) {
         if (context == null) {
             return false;
         }
-        if (iyN == null) {
-            iyN = new AtomicBoolean(context.getSharedPreferences("god_reply_user_tips", 0).getBoolean("has_click_leaderboard", false));
+        if (iCr == null) {
+            iCr = new AtomicBoolean(context.getSharedPreferences("god_reply_user_tips", 0).getBoolean("has_click_leaderboard", false));
         }
-        return iyN.get();
+        return iCr.get();
     }
 
     public static void k(Context context, boolean z) {
@@ -27,9 +27,9 @@ public class b {
                 edit.commit();
             }
         }
-        if (iyN == null) {
-            iyN = new AtomicBoolean();
+        if (iCr == null) {
+            iCr = new AtomicBoolean();
         }
-        iyN.set(z);
+        iCr.set(z);
     }
 }

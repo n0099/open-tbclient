@@ -4,9 +4,9 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a kdi;
-    private final int kdj = 10;
-    private final int kdk = 3000;
+    private com.baidu.adp.lib.stats.a kgL;
+    private final int kgM = 10;
+    private final int kgN = 3000;
     public String mLogType = null;
     public boolean mIsJson = false;
 
@@ -17,45 +17,45 @@ public class b {
     public void aB(String str, boolean z) {
         this.mLogType = str;
         this.mIsJson = z;
-        this.kdi = new com.baidu.adp.lib.stats.a("dbg");
+        this.kgL = new com.baidu.adp.lib.stats.a("dbg");
         c.A(str, getNetType(), z);
     }
 
     public void start() {
-        this.kdi.startTimer();
+        this.kgL.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e cIN;
-        if (this.kdi != null && (cIN = cIN()) != null) {
+        e cJR;
+        if (this.kgL != null && (cJR = cJR()) != null) {
             if (z) {
-                if (cIN.kdp != null) {
-                    cIN.kdp.num++;
+                if (cJR.kgS != null) {
+                    cJR.kgS.num++;
                     if (z2) {
-                        cIN.kdp.kdm += j2;
-                        cIN.kdp.size += j;
+                        cJR.kgS.kgP += j2;
+                        cJR.kgS.size += j;
                     } else {
-                        cIN.kdp.kdn++;
+                        cJR.kgS.kgQ++;
                     }
                 } else {
                     return;
                 }
-            } else if (cIN.kdq != null) {
-                cIN.kdq.num++;
+            } else if (cJR.kgT != null) {
+                cJR.kgT.num++;
                 if (z2) {
-                    cIN.kdq.kdm += j3;
-                    cIN.kdq.size += j;
+                    cJR.kgT.kgP += j3;
+                    cJR.kgT.size += j;
                     j2 = j3;
                 } else {
-                    cIN.kdq.kdn++;
+                    cJR.kgT.kgQ++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.kdi = null;
+            this.kgL = null;
             if (z2) {
-                c.a(cIN, 10);
+                c.a(cJR, 10);
             }
             if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > 3000) {
@@ -74,19 +74,19 @@ public class b {
     }
 
     public void destory() {
-        e cIN;
-        if (this.kdi != null && (cIN = cIN()) != null && cIN.kdr != null) {
-            long timeCost = this.kdi.getTimeCost();
+        e cJR;
+        if (this.kgL != null && (cJR = cJR()) != null && cJR.kgU != null) {
+            long timeCost = this.kgL.getTimeCost();
             if (timeCost > 3000) {
-                d dVar = cIN.kdr;
-                dVar.kdm = timeCost + dVar.kdm;
-                cIN.kdr.num++;
-                c.a(cIN, 10);
+                d dVar = cJR.kgU;
+                dVar.kgP = timeCost + dVar.kgP;
+                cJR.kgU.num++;
+                c.a(cJR, 10);
             }
         }
     }
 
-    private e cIN() {
+    private e cJR() {
         return c.B(this.mLogType, getNetType(), this.mIsJson);
     }
 

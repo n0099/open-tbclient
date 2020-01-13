@@ -1,5 +1,5 @@
 package com.baidu.searchbox.publisher.video.interfaces;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.publisher.video.interfaces";
     public static final String BUILD_TYPE = "release";

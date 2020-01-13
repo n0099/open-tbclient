@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static void a(com.baidu.swan.games.binding.model.c cVar, boolean z, Object obj) {
         com.baidu.swan.games.binding.model.a f = com.baidu.swan.games.binding.model.a.f(cVar);
@@ -23,7 +23,7 @@ public class b {
         return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, hG(jSTypeMismatchException.requiredType), hG(jSTypeMismatchException.actualType));
     }
 
-    public static String bL(@NonNull String str, @NonNull String str2) {
+    public static String bM(@NonNull String str, @NonNull String str2) {
         return String.format("%s: %s", str, str2);
     }
 

@@ -2,7 +2,7 @@ package com.baidu.sapi2.share;
 
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.share.ShareService;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class r implements Runnable {
     final /* synthetic */ ShareService.a a;
 

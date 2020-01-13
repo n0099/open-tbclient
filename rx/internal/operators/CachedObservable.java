@@ -4,36 +4,36 @@ import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CachedObservable<T> extends rx.d<T> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> extends rx.internal.util.c implements rx.e<T> {
-        static final ReplayProducer<?>[] ndQ = new ReplayProducer[0];
+        static final ReplayProducer<?>[] nMP = new ReplayProducer[0];
         volatile boolean isConnected;
-        boolean mTN;
-        final rx.d<? extends T> ndN;
-        final rx.subscriptions.d ndO;
-        volatile ReplayProducer<?>[] ndP;
+        final rx.d<? extends T> nMM;
+        final rx.subscriptions.d nMN;
+        volatile ReplayProducer<?>[] nMO;
+        boolean nvR;
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.CachedObservable$ReplayProducer<?>[] */
         /* JADX WARN: Multi-variable type inference failed */
         public void a(ReplayProducer<T> replayProducer) {
-            synchronized (this.ndO) {
-                ReplayProducer<?>[] replayProducerArr = this.ndP;
+            synchronized (this.nMN) {
+                ReplayProducer<?>[] replayProducerArr = this.nMO;
                 int length = replayProducerArr.length;
                 ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length + 1];
                 System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, length);
                 replayProducerArr2[length] = replayProducer;
-                this.ndP = replayProducerArr2;
+                this.nMO = replayProducerArr2;
             }
         }
 
         public void b(ReplayProducer<T> replayProducer) {
             int i = 0;
-            synchronized (this.ndO) {
-                ReplayProducer<?>[] replayProducerArr = this.ndP;
+            synchronized (this.nMN) {
+                ReplayProducer<?>[] replayProducerArr = this.nMO;
                 int length = replayProducerArr.length;
                 while (true) {
                     if (i >= length) {
@@ -47,13 +47,13 @@ public final class CachedObservable<T> extends rx.d<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        this.ndP = ndQ;
+                        this.nMO = nMP;
                         return;
                     }
                     ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length - 1];
                     System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, i);
                     System.arraycopy(replayProducerArr, i + 1, replayProducerArr2, i, (length - i) - 1);
-                    this.ndP = replayProducerArr2;
+                    this.nMO = replayProducerArr2;
                 }
             }
         }
@@ -75,14 +75,14 @@ public final class CachedObservable<T> extends rx.d<T> {
                     a.this.onCompleted();
                 }
             };
-            this.ndO.f(jVar);
-            this.ndN.a((rx.j<? super Object>) jVar);
+            this.nMN.f(jVar);
+            this.nMM.a((rx.j<? super Object>) jVar);
             this.isConnected = true;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (!this.mTN) {
+            if (!this.nvR) {
                 add(NotificationLite.next(t));
                 dispatch();
             }
@@ -90,32 +90,32 @@ public final class CachedObservable<T> extends rx.d<T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.mTN) {
-                this.mTN = true;
+            if (!this.nvR) {
+                this.nvR = true;
                 add(NotificationLite.error(th));
-                this.ndO.unsubscribe();
+                this.nMN.unsubscribe();
                 dispatch();
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.mTN) {
-                this.mTN = true;
-                add(NotificationLite.dGr());
-                this.ndO.unsubscribe();
+            if (!this.nvR) {
+                this.nvR = true;
+                add(NotificationLite.dMS());
+                this.nMN.unsubscribe();
                 dispatch();
             }
         }
 
         void dispatch() {
-            for (ReplayProducer<?> replayProducer : this.ndP) {
+            for (ReplayProducer<?> replayProducer : this.nMO) {
                 replayProducer.replay();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class CachedSubscribe<T> extends AtomicBoolean implements d.a<T> {
         private static final long serialVersionUID = -2817751667698696782L;
         final a<T> state;
@@ -141,7 +141,7 @@ public final class CachedObservable<T> extends rx.d<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class ReplayProducer<T> extends AtomicLong implements rx.f, rx.k {
         private static final long serialVersionUID = -2557562030197141021L;
         final rx.j<? super T> child;
@@ -208,7 +208,7 @@ public final class CachedObservable<T> extends rx.d<T> {
                             if (size != 0) {
                                 Object[] objArr = this.currentBuffer;
                                 if (objArr == null) {
-                                    objArr = this.state.dEk();
+                                    objArr = this.state.dIu();
                                     this.currentBuffer = objArr;
                                 }
                                 int length = objArr.length - 1;
@@ -216,7 +216,7 @@ public final class CachedObservable<T> extends rx.d<T> {
                                 int i2 = this.currentIndexInBuffer;
                                 if (j == 0) {
                                     Object obj = objArr[i2];
-                                    if (NotificationLite.bV(obj)) {
+                                    if (NotificationLite.cd(obj)) {
                                         jVar.onCompleted();
                                         unsubscribe();
                                         return;

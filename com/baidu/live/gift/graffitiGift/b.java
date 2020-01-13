@@ -9,10 +9,11 @@ import android.graphics.Rect;
 import android.os.Handler;
 import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.gift.a.c;
 import com.baidu.live.gift.g;
 import com.baidu.live.gift.l;
 import com.baidu.live.gift.m;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
@@ -21,19 +22,19 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    private com.baidu.live.gift.a.b akK;
-    private AlaGiftGraffitiShowView akM;
-    private PointF akP;
-    private a akQ;
+    private PointF alC;
+    private a alD;
+    private c alx;
+    private AlaGiftGraffitiShowView alz;
     private Context mContext;
-    private boolean akL = true;
-    private int akN = 0;
-    private int akO = 0;
+    private boolean aly = true;
+    private int alA = 0;
+    private int alB = 0;
     private Handler mHandler = new Handler();
-    private Runnable akR = new Runnable() { // from class: com.baidu.live.gift.graffitiGift.b.2
+    private Runnable alE = new Runnable() { // from class: com.baidu.live.gift.graffitiGift.b.2
         @Override // java.lang.Runnable
         public void run() {
-            b.this.sT();
+            b.this.tj();
         }
     };
 
@@ -43,75 +44,75 @@ public class b {
     }
 
     public b(AlaGiftGraffitiShowView alaGiftGraffitiShowView, Context context) {
-        this.akM = alaGiftGraffitiShowView;
+        this.alz = alaGiftGraffitiShowView;
         this.mContext = context;
     }
 
     public boolean isReady() {
-        return this.akL;
+        return this.aly;
     }
 
-    public void j(com.baidu.live.gift.a.b bVar) {
-        if (bVar != null && bVar.aiC.adW != null) {
-            this.akL = false;
-            this.akK = k(bVar);
-            this.akM.setOffsetY(this.akO);
-            if (this.akK.aiC.adW.aez == 0) {
-                this.akM.sS();
-                sU();
+    public void j(c cVar) {
+        if (cVar != null && cVar.ajo.ael != null) {
+            this.aly = false;
+            this.alx = k(cVar);
+            this.alz.setOffsetY(this.alB);
+            if (this.alx.ajo.ael.afi == 0) {
+                this.alz.ti();
+                tk();
             } else {
-                sW();
+                tm();
             }
-            this.akM.setGiftItem(this.akK);
+            this.alz.setGiftItem(this.alx);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sU() {
-        if (this.akK == null || this.akK.aiC.adW == null) {
-            this.akN = 0;
+    public void tk() {
+        if (this.alx == null || this.alx.ajo.ael == null) {
+            this.alA = 0;
             return;
         }
-        if (this.akN < this.akK.aiC.adW.aeB.size()) {
-            List<PointF> list = this.akK.aiC.adW.aeB;
-            int i = this.akN;
-            this.akN = i + 1;
+        if (this.alA < this.alx.ajo.ael.afk.size()) {
+            List<PointF> list = this.alx.ajo.ael.afk;
+            int i = this.alA;
+            this.alA = i + 1;
             PointF pointF = list.get(i);
-            TbImageView tbImageView = new TbImageView(this.akM.getContext());
-            tbImageView.startLoad(bG(this.akN - 1), 10, false);
+            TbImageView tbImageView = new TbImageView(this.alz.getContext());
+            tbImageView.startLoad(bG(this.alA - 1), 10, false);
             tbImageView.setDefaultBgResource(a.d.sdk_transparent);
             tbImageView.setIsNight(false);
             tbImageView.setAutoChangeStyle(false);
-            this.akM.b(tbImageView, (int) pointF.x, (int) pointF.y, this.akK.aiC.adW.aeD.left, (int) this.akP.y);
-            if (az(this.mContext) && sX()) {
+            this.alz.b(tbImageView, (int) pointF.x, (int) pointF.y, this.alx.ajo.ael.afm.left, (int) this.alC.y);
+            if (az(this.mContext) && tn()) {
                 this.mHandler.removeCallbacksAndMessages(null);
                 return;
             } else {
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.live.gift.graffitiGift.b.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.sU();
+                        b.this.tk();
                     }
-                }, 30L);
+                }, 80L);
                 return;
             }
         }
-        this.mHandler.postDelayed(this.akR, 2000L);
+        this.mHandler.postDelayed(this.alE, 2000L);
     }
 
     private String bG(int i) {
-        if (sV()) {
-            if (this.akK != null && this.akK.aeE != null) {
+        if (tl()) {
+            if (this.alx != null && this.alx.afn != null) {
                 int i2 = 0;
                 int i3 = -1;
                 while (true) {
                     int i4 = i2;
-                    if (i4 < this.akK.aeE.size()) {
-                        m mVar = this.akK.aeE.get(i4);
-                        if (i3 < i && i <= mVar.rg() + i3) {
-                            return mVar.rf();
+                    if (i4 < this.alx.afn.size()) {
+                        m mVar = this.alx.afn.get(i4);
+                        if (i3 < i && i <= mVar.rs() + i3) {
+                            return mVar.rr();
                         }
-                        i3 += mVar.rg();
+                        i3 += mVar.rs();
                         i2 = i4 + 1;
                     } else {
                         return getThumbnailUrl();
@@ -126,71 +127,71 @@ public class b {
     }
 
     private String getThumbnailUrl() {
-        if (this.akK == null || this.akK.aiC == null) {
+        if (this.alx == null || this.alx.ajo == null) {
             return null;
         }
-        return this.akK.aiC.qA();
+        return this.alx.ajo.qH();
     }
 
-    private boolean sV() {
-        return (this.akK == null || this.akK.aeE == null || this.akK.aeE.size() <= 0) ? false : true;
+    private boolean tl() {
+        return (this.alx == null || this.alx.afn == null || this.alx.afn.size() <= 0) ? false : true;
     }
 
-    private com.baidu.live.gift.a.b k(com.baidu.live.gift.a.b bVar) {
+    private c k(c cVar) {
         int i;
         Rect rect;
-        if (bVar == null) {
+        if (cVar == null) {
             return null;
         }
-        com.baidu.live.gift.a.b clone = bVar.clone();
-        clone.aiC = new g(bVar.aiC);
-        l lVar = bVar.aiC.adW;
-        if (lVar.aeE != null && lVar.aeE.size() > 0 && clone.aeE != null) {
-            clone.aeE.addAll(lVar.aeE);
+        c clone = cVar.clone();
+        clone.ajo = new g(cVar.ajo);
+        l lVar = cVar.ajo.ael;
+        if (lVar.afn != null && lVar.afn.size() > 0 && clone.afn != null) {
+            clone.afn.addAll(lVar.afn);
         }
         float dip2px = BdUtilHelper.dip2px(this.mContext, 1.0f);
-        float f = ((int) (32.0f * dip2px)) / lVar.aeA;
-        clone.aiC.adW.aez = lVar.aez;
-        clone.aiC.adW.aeC = lVar.aeC;
+        float f = ((int) (32.0f * dip2px)) / lVar.afj;
+        clone.ajo.ael.afi = lVar.afi;
+        clone.ajo.ael.afl = lVar.afl;
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.mContext);
-        clone.aiC.adW.aet = screenDimensions[0];
-        clone.aiC.adW.aeu = screenDimensions[1];
-        float ceil = (lVar.aeD.left * f) + ((float) Math.ceil((clone.aiC.adW.aet - (lVar.aet * f)) / 2.0d));
-        float ceil2 = ((float) Math.ceil((clone.aiC.adW.aeu - (lVar.aeu * f)) / 2.0d)) + (lVar.aeD.top * f);
-        float width = lVar.aeD.width() * f;
-        float height = lVar.aeD.height() * f;
+        clone.ajo.ael.afc = screenDimensions[0];
+        clone.ajo.ael.afd = screenDimensions[1];
+        float ceil = (lVar.afm.left * f) + ((float) Math.ceil((clone.ajo.ael.afc - (lVar.afc * f)) / 2.0d));
+        float ceil2 = ((float) Math.ceil((clone.ajo.ael.afd - (lVar.afd * f)) / 2.0d)) + (lVar.afm.top * f);
+        float width = lVar.afm.width() * f;
+        float height = lVar.afm.height() * f;
         float ceil3 = (32.0f * dip2px) + ((float) Math.ceil(i / 2)) + (10.0f * dip2px);
         if (ceil2 >= ceil3) {
             ceil3 = ceil2;
         }
-        clone.aiC.adW.aeD = new Rect((int) ceil, (int) ceil3, (int) width, (int) height);
+        clone.ajo.ael.afm = new Rect((int) ceil, (int) ceil3, (int) width, (int) height);
         ArrayList arrayList = new ArrayList();
-        PointF pointF = lVar.aeB.get(0);
-        this.akP = new PointF(pointF.x * f, pointF.y * f);
-        PointF pointF2 = new PointF(this.akP.x, this.akP.y);
-        Iterator<PointF> it = lVar.aeB.iterator();
+        PointF pointF = lVar.afk.get(0);
+        this.alC = new PointF(pointF.x * f, pointF.y * f);
+        PointF pointF2 = new PointF(this.alC.x, this.alC.y);
+        Iterator<PointF> it = lVar.afk.iterator();
         while (true) {
             PointF pointF3 = pointF2;
             if (it.hasNext()) {
                 PointF next = it.next();
                 PointF pointF4 = new PointF(next.x * f, next.y * f);
-                this.akP = this.akP.y > pointF4.y ? pointF4 : this.akP;
+                this.alC = this.alC.y > pointF4.y ? pointF4 : this.alC;
                 pointF2 = pointF3.y < pointF4.y ? pointF4 : pointF3;
                 arrayList.add(pointF4);
             } else {
-                clone.aiC.adW.aeB = arrayList;
-                this.akO = (int) ((((rect.top + this.akP.y) - (i / 2)) - this.akM.getInfoView().getHeight()) - (10.0f * dip2px));
+                clone.ajo.ael.afk = arrayList;
+                this.alB = (int) ((((rect.top + this.alC.y) - (i / 2)) - this.alz.getInfoView().getHeight()) - (10.0f * dip2px));
                 return clone;
             }
         }
     }
 
-    private void sW() {
-        this.akM.sS();
+    private void tm() {
+        this.alz.ti();
         PropertyValuesHolder ofKeyframe = PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 3.0f * 1.3f), Keyframe.ofFloat(0.05f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.1f, 3.0f * 1.3f), Keyframe.ofFloat(0.15f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.2f, 3.0f * 1.3f), Keyframe.ofFloat(0.25f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.3f, 3.0f * 1.3f), Keyframe.ofFloat(0.35f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.4f, 3.0f * 1.3f), Keyframe.ofFloat(0.45f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.5f, 3.0f * 1.3f), Keyframe.ofFloat(0.55f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.6f, 3.0f * 1.3f), Keyframe.ofFloat(0.65f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.7f, 3.0f * 1.3f), Keyframe.ofFloat(0.75f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.8f, 3.0f * 1.3f), Keyframe.ofFloat(0.85f, (-3.0f) * 1.3f), Keyframe.ofFloat(0.9f, 3.0f * 1.3f), Keyframe.ofFloat(0.95f, (-3.0f) * 1.3f), Keyframe.ofFloat(1.0f, 1.3f * 3.0f));
-        int size = this.akK.aiC.adW.aeB.size();
+        int size = this.alx.ajo.ael.afk.size();
         for (int i = 0; i < size; i++) {
-            TbImageView tbImageView = new TbImageView(this.akM.getContext());
+            TbImageView tbImageView = new TbImageView(this.alz.getContext());
             tbImageView.setIsNight(false);
             tbImageView.setAutoChangeStyle(false);
             tbImageView.setDefaultBgResource(a.d.sdk_transparent);
@@ -200,25 +201,25 @@ public class b {
             ofPropertyValuesHolder.setRepeatCount(-1);
             ofPropertyValuesHolder.setDuration(5000L);
             ofPropertyValuesHolder.start();
-            PointF pointF = this.akK.aiC.adW.aeB.get(i);
-            this.akM.b(tbImageView, (int) pointF.x, (int) pointF.y, this.akK.aiC.adW.aeD.left, (int) this.akP.y);
+            PointF pointF = this.alx.ajo.ael.afk.get(i);
+            this.alz.b(tbImageView, (int) pointF.x, (int) pointF.y, this.alx.ajo.ael.afm.left, (int) this.alC.y);
         }
-        this.mHandler.removeCallbacks(this.akR);
-        this.mHandler.postDelayed(this.akR, 5000L);
+        this.mHandler.removeCallbacks(this.alE);
+        this.mHandler.postDelayed(this.alE, 5000L);
     }
 
     public void a(a aVar) {
-        this.akQ = aVar;
+        this.alD = aVar;
     }
 
-    public void sT() {
-        this.akN = 0;
-        this.akL = true;
-        if (this.akM != null) {
-            this.akM.sS();
+    public void tj() {
+        this.alA = 0;
+        this.aly = true;
+        if (this.alz != null) {
+            this.alz.ti();
         }
-        if (this.akQ != null) {
-            this.akQ.onEnd();
+        if (this.alD != null) {
+            this.alD.onEnd();
         }
     }
 
@@ -227,24 +228,24 @@ public class b {
             this.mHandler.removeCallbacksAndMessages(null);
             this.mHandler = null;
         }
-        if (this.akM != null) {
-            this.akM.sS();
-            this.akM = null;
+        if (this.alz != null) {
+            this.alz.ti();
+            this.alz = null;
         }
-        this.akQ = null;
+        this.alD = null;
     }
 
     private boolean az(Context context) {
         return context != null && UtilHelper.getRealScreenOrientation(context) == 2;
     }
 
-    private boolean sX() {
-        return (this.akK == null || this.akK.userId == null || !this.akK.userId.equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+    private boolean tn() {
+        return (this.alx == null || this.alx.userId == null || !this.alx.userId.equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
     }
 
-    public void ra() {
-        if (sX()) {
-            sT();
+    public void rm() {
+        if (tn()) {
+            tj();
         }
     }
 }

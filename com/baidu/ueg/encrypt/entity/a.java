@@ -1,19 +1,19 @@
 package com.baidu.ueg.encrypt.entity;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private EncryptAlgorithm kSD;
-    private String kSE;
+    private EncryptAlgorithm kWe;
+    private String kWf;
 
     public a(EncryptAlgorithm encryptAlgorithm, String str) {
-        this.kSD = encryptAlgorithm;
-        this.kSE = str;
+        this.kWe = encryptAlgorithm;
+        this.kWf = str;
     }
 
-    public EncryptAlgorithm cVy() {
-        return this.kSD;
+    public EncryptAlgorithm cWB() {
+        return this.kWe;
     }
 
-    public String cVz() {
-        return this.kSE;
+    public String cWC() {
+        return this.kWf;
     }
 }

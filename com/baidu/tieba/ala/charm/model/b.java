@@ -11,41 +11,41 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.charm.ALaCharmCardActivity;
 /* loaded from: classes2.dex */
 public class b extends BdBaseModel<ALaCharmCardActivity> {
-    private g ers;
-    private a ert;
-    private NetMessageListener eru;
+    private g esD;
+    private a esE;
+    private NetMessageListener esF;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void aa(int i, String str);
+        void ac(int i, String str);
 
         void b(g gVar);
     }
 
     public b(TbPageContext<ALaCharmCardActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.eru = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
+        this.esF = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
             @Override // com.baidu.live.adp.framework.listener.NetMessageListener
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && (responsedMessage instanceof OnlineListHttpResponseMessage)) {
                     int error = responsedMessage.getError();
                     g gVar = null;
                     if (responsedMessage instanceof OnlineListHttpResponseMessage) {
-                        gVar = ((OnlineListHttpResponseMessage) responsedMessage).bbm();
+                        gVar = ((OnlineListHttpResponseMessage) responsedMessage).bbH();
                     }
                     if (error == 0) {
-                        b.this.ers = gVar;
-                        if (b.this.ert != null) {
-                            b.this.ert.b(b.this.ers);
+                        b.this.esD = gVar;
+                        if (b.this.esE != null) {
+                            b.this.esE.b(b.this.esD);
                         }
-                    } else if (b.this.ert != null) {
-                        b.this.ert.aa(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (b.this.esE != null) {
+                        b.this.esE.ac(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.ert = aVar;
-        MessageManager.getInstance().registerListener(this.eru);
+        this.esE = aVar;
+        MessageManager.getInstance().registerListener(this.esF);
         com.baidu.live.tieba.f.a.a.a(1021008, "ala/live/getAudienceInfo", OnlineListHttpResponseMessage.class, false, true, true, true);
     }
 
@@ -66,7 +66,7 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eru);
+        MessageManager.getInstance().unRegisterListener(this.esF);
         MessageManager.getInstance().unRegisterTask(1021008);
         cancelMessage();
     }

@@ -23,7 +23,7 @@ import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class QrCodeService extends AbstractService {
     private static QrCodeService a;
     private HttpClientWrap b;

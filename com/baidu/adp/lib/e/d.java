@@ -11,7 +11,7 @@ public class d {
     private static int sr = 0;
     private static Object syncLock = new Object();
 
-    public static com.baidu.adp.lib.stats.a gt() {
+    public static com.baidu.adp.lib.stats.a gs() {
         return BdStatisticsManager.getInstance().getStatsItem("dbg");
     }
 
@@ -27,7 +27,7 @@ public class d {
                 int i = sj + 1;
                 sj = i;
                 if (i + so > 100) {
-                    gu();
+                    gt();
                 }
             }
         }
@@ -45,24 +45,24 @@ public class d {
                 int i = so + 1;
                 so = i;
                 if (i + sj > 100) {
-                    gu();
+                    gt();
                 }
             }
         }
     }
 
-    public static void gu() {
+    public static void gt() {
         if (sj + so > 10) {
-            com.baidu.adp.lib.stats.a gt = gt();
-            gt.append("act", "allStat");
-            gt.append("diskTaskCostTime", String.valueOf(sm));
-            gt.append("diskCostTime", String.valueOf(sl));
-            gt.append("diskNum", String.valueOf(sj));
-            gt.append("netTaskCostTime", String.valueOf(sr));
-            gt.append("netCostTime", String.valueOf(sq));
-            gt.append("netNum", String.valueOf(so));
-            gt.append("isWifi", "1");
-            BdStatisticsManager.getInstance().debug("img", gt);
+            com.baidu.adp.lib.stats.a gs = gs();
+            gs.append("act", "allStat");
+            gs.append("diskTaskCostTime", String.valueOf(sm));
+            gs.append("diskCostTime", String.valueOf(sl));
+            gs.append("diskNum", String.valueOf(sj));
+            gs.append("netTaskCostTime", String.valueOf(sr));
+            gs.append("netCostTime", String.valueOf(sq));
+            gs.append("netNum", String.valueOf(so));
+            gs.append("isWifi", "1");
+            BdStatisticsManager.getInstance().debug("img", gs);
             sl = 0;
             sj = 0;
             sq = 0;

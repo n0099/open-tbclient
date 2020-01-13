@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PrefOperate {
     public static void loadMetaDataConfig(Context context) {
         SendStrategyEnum sendStrategyEnum = SendStrategyEnum.APP_START;

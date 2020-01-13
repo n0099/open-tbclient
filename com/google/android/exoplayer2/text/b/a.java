@@ -2,14 +2,14 @@ package com.google.android.exoplayer2.text.b;
 
 import com.google.android.exoplayer2.util.l;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a extends com.google.android.exoplayer2.text.c {
-    private final b mvG;
+    private final b mzt;
 
     public a(List<byte[]> list) {
         super("DvbDecoder");
         l lVar = new l(list.get(0));
-        this.mvG = new b(lVar.readUnsignedShort(), lVar.readUnsignedShort());
+        this.mzt = new b(lVar.readUnsignedShort(), lVar.readUnsignedShort());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,8 +18,8 @@ public final class a extends com.google.android.exoplayer2.text.c {
     /* renamed from: c */
     public c b(byte[] bArr, int i, boolean z) {
         if (z) {
-            this.mvG.reset();
+            this.mzt.reset();
         }
-        return new c(this.mvG.A(bArr, i));
+        return new c(this.mzt.A(bArr, i));
     }
 }

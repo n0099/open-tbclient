@@ -1,8 +1,8 @@
 package rx.internal.util.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class j<E> extends l<E> {
-    protected static final long niU = ae.l(j.class, "consumerIndex");
+    protected static final long nRR = ae.l(j.class, "consumerIndex");
     private volatile long consumerIndex;
 
     public j(int i) {
@@ -10,12 +10,12 @@ public abstract class j<E> extends l<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long dEb() {
+    public final long dIl() {
         return this.consumerIndex;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean ah(long j, long j2) {
-        return ae.njb.a(this, niU, j, j2);
+    public final boolean am(long j, long j2) {
+        return ae.nRY.a(this, nRR, j, j2);
     }
 }

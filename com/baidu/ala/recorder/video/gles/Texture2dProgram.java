@@ -11,12 +11,14 @@ import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class Texture2dProgram {
     private static final String FRAGMENT_SHADER_2D = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvoid main() {\n    gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";
+    private static final String FRAGMENT_SHADER_2D_STICKER = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvarying vec2 vTextureCoord2;\nuniform sampler2D sTexture2;\nuniform int stickerEnable;\nbool isOutRect(vec2 coord) {\n    return coord.x < 0.0 || coord.x > 1.0 || coord.y < 0.0 || coord.y > 1.0;\n}\nvoid main() {\n    vec4 texture1 = texture2D(sTexture, vTextureCoord);\n    vec4 texture2 = texture2D(sTexture2, vTextureCoord2);\n    bool isOut1 = isOutRect(vTextureCoord);\n    bool isOut2 = isOutRect(vTextureCoord2);\nif (0 == stickerEnable) {\n    gl_FragColor = texture1;\n} else if (isOut2) {\n    gl_FragColor = texture1;\n} else {\n    gl_FragColor = mix(texture1, texture2, texture2.a);\n}}\n";
     private static final String FRAGMENT_SHADER_EXT = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";
     private static final String FRAGMENT_SHADER_EXT_BW = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    vec4 tc = texture2D(sTexture, vTextureCoord);\n    float color = tc.r * 0.3 + tc.g * 0.59 + tc.b * 0.11;\n    gl_FragColor = vec4(color, color, color, 1.0);\n}\n";
     private static final String FRAGMENT_SHADER_EXT_FILT = "#extension GL_OES_EGL_image_external : require\n#define KERNEL_SIZE 9\nprecision highp float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nuniform float uKernel[KERNEL_SIZE];\nuniform vec2 uTexOffset[KERNEL_SIZE];\nuniform float uColorAdjust;\nvoid main() {\n    int i = 0;\n    vec4 sum = vec4(0.0);\n    if (vTextureCoord.x < vTextureCoord.y - 0.005) {\n        for (i = 0; i < KERNEL_SIZE; i++) {\n            vec4 texc = texture2D(sTexture, vTextureCoord + uTexOffset[i]);\n            sum += texc * uKernel[i];\n        }\n    sum += uColorAdjust;\n    } else if (vTextureCoord.x > vTextureCoord.y + 0.005) {\n        sum = texture2D(sTexture, vTextureCoord);\n    } else {\n        sum.r = 1.0;\n    }\n    gl_FragColor = sum;\n}\n";
     public static final int KERNEL_SIZE = 9;
     private static final String TAG = "Grafika";
     private static final String VERTEX_SHADER = "uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
+    private static final String VERTEX_SHADER_STICKER = "uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nuniform mat4 uTexMatrix2;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nattribute vec4 aTextureCoord2;varying vec2 vTextureCoord2;void main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n    vTextureCoord2 = (uTexMatrix2 * aTextureCoord2).xy;\n}\n";
     int height;
     private float mColorAdjust;
     private int mParamsLocation2;
@@ -24,16 +26,25 @@ public class Texture2dProgram {
     private int mProgramHandle;
     private ProgramType mProgramType;
     private int mSingleStepOffsetLocation;
+    private Sticker mSticker;
+    private int mStickerEnableLoc;
     private float[] mTexOffset;
     private int mTextureTarget;
     private int maPositionLoc;
     private int maTextureCoordLoc;
+    private int maTextureCoordLoc2;
     private int muColorAdjustLoc;
     private int muKernelLoc;
     private int muMVPMatrixLoc;
     private int muTexMatrixLoc;
+    private int muTexMatrixLoc2;
     private int muTexOffsetLoc;
+    private float[] texMatrix2;
+    private int textureLocation;
+    private int textureLocation2;
     int width;
+    private static final float[] FULL_RECTANGLE_TEX_COORDS = {0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
+    private static FloatBuffer vc2 = GlUtil.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
     private int mInputWidth = 480;
     private int mInputHeight = 368;
     private float[] mKernel = new float[9];
@@ -47,7 +58,12 @@ public class Texture2dProgram {
         TEXTURE_EXT,
         TEXTURE_EXT_BW,
         TEXTURE_EXT_FILT,
-        TEXTURE_EXT_MAGIC_2
+        TEXTURE_EXT_MAGIC_2,
+        TEXTURE_2D_STICKER
+    }
+
+    public void setSticker(Sticker sticker) {
+        this.mSticker = sticker;
     }
 
     public void setInputWH(int i, int i2) {
@@ -57,6 +73,8 @@ public class Texture2dProgram {
     }
 
     public Texture2dProgram(ProgramType programType) {
+        this.textureLocation2 = 0;
+        this.textureLocation = 0;
         this.mSingleStepOffsetLocation = -1;
         this.mParamsLocation2 = -1;
         this.mPowerLevelId = -1;
@@ -65,6 +83,10 @@ public class Texture2dProgram {
             case TEXTURE_2D:
                 this.mTextureTarget = 3553;
                 this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER_2D);
+                break;
+            case TEXTURE_2D_STICKER:
+                this.mTextureTarget = 3553;
+                this.mProgramHandle = GlUtil.createProgram(VERTEX_SHADER_STICKER, FRAGMENT_SHADER_2D_STICKER);
                 break;
             case TEXTURE_EXT:
                 this.mTextureTarget = 36197;
@@ -99,10 +121,18 @@ public class Texture2dProgram {
         this.maPositionLoc = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
         GlUtil.checkLocation(this.maPositionLoc, "aPosition");
         this.maTextureCoordLoc = GLES20.glGetAttribLocation(this.mProgramHandle, "aTextureCoord");
+        this.textureLocation = GLES20.glGetUniformLocation(this.mProgramHandle, "sTexture");
+        if (programType == ProgramType.TEXTURE_2D_STICKER) {
+            this.mStickerEnableLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "stickerEnable");
+            this.maTextureCoordLoc2 = GLES20.glGetAttribLocation(this.mProgramHandle, "aTextureCoord2");
+            this.textureLocation2 = GLES20.glGetUniformLocation(this.mProgramHandle, "sTexture2");
+            GlUtil.checkLocation(this.maTextureCoordLoc2, "aTextureCoord2");
+        }
         GlUtil.checkLocation(this.maTextureCoordLoc, "aTextureCoord");
         this.muMVPMatrixLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "uMVPMatrix");
         GlUtil.checkLocation(this.muMVPMatrixLoc, "uMVPMatrix");
         this.muTexMatrixLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexMatrix");
+        this.muTexMatrixLoc2 = GLES20.glGetUniformLocation(this.mProgramHandle, "uTexMatrix2");
         GlUtil.checkLocation(this.muTexMatrixLoc, "uTexMatrix");
         this.muKernelLoc = GLES20.glGetUniformLocation(this.mProgramHandle, "uKernel");
         if (this.muKernelLoc < 0) {
@@ -301,11 +331,32 @@ public class Texture2dProgram {
     }
 
     public void draw(float[] fArr, FloatBuffer floatBuffer, int i, int i2, int i3, int i4, float[] fArr2, FloatBuffer floatBuffer2, int i5, int i6) {
+        boolean z;
         GlUtil.checkGlError("draw start");
         GLES20.glUseProgram(this.mProgramHandle);
         GlUtil.checkGlError("glUseProgram");
         GLES20.glActiveTexture(33984);
         GLES20.glBindTexture(this.mTextureTarget, i5);
+        GLES20.glUniform1i(this.textureLocation, 0);
+        boolean z2 = (this.maTextureCoordLoc2 == 0 || this.mSticker == null) ? false : true;
+        int i7 = 0;
+        if (z2) {
+            this.texMatrix2 = this.mSticker.getMatrix();
+            int texture = this.mSticker.getTexture();
+            z = (texture != 0) & z2;
+            i7 = texture;
+        } else {
+            z = z2;
+        }
+        this.mSticker = null;
+        if (this.mStickerEnableLoc != 0) {
+            GLES20.glUniform1i(this.mStickerEnableLoc, z ? 1 : 0);
+        }
+        if (z) {
+            GLES20.glActiveTexture(33985);
+            GLES20.glBindTexture(3553, i7);
+            GLES20.glUniform1i(this.textureLocation2, 1);
+        }
         runPendingOnDrawTasks();
         GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
         GlUtil.checkGlError("glUniformMatrix4fv");
@@ -319,6 +370,14 @@ public class Texture2dProgram {
         GlUtil.checkGlError("glEnableVertexAttribArray");
         GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i6, (Buffer) floatBuffer2);
         GlUtil.checkGlError("glVertexAttribPointer");
+        if (z) {
+            GLES20.glUniformMatrix4fv(this.muTexMatrixLoc2, 1, false, this.texMatrix2, 0);
+            GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc2);
+            GlUtil.checkGlError("glEnableVertexAttribArray2");
+            vc2.position(0);
+            GLES20.glVertexAttribPointer(this.maTextureCoordLoc2, 2, 5126, false, i6, (Buffer) vc2);
+            GlUtil.checkGlError("glVertexAttribPointer2");
+        }
         if (this.muKernelLoc >= 0) {
             GLES20.glUniform1fv(this.muKernelLoc, 9, this.mKernel, 0);
             GLES20.glUniform2fv(this.muTexOffsetLoc, 9, this.mTexOffset, 0);
@@ -328,6 +387,9 @@ public class Texture2dProgram {
         GlUtil.checkGlError("glDrawArrays");
         GLES20.glDisableVertexAttribArray(this.maPositionLoc);
         GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
+        if (this.maTextureCoordLoc2 != 0) {
+            GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc2);
+        }
         GLES20.glBindTexture(this.mTextureTarget, 0);
         GLES20.glUseProgram(0);
     }

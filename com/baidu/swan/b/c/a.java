@@ -2,7 +2,7 @@ package com.baidu.swan.b.c;
 
 import android.support.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.swan.b.d.a {
     public a() {
         super("echo");

@@ -7,18 +7,18 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static LinkedList<Integer> xw;
+    private static LinkedList<Integer> xA;
 
-    public static int aPk() {
-        return aN(null);
+    public static int aPD() {
+        return aM(null);
     }
 
-    public static int aN(List<Integer> list) {
-        if (xw == null) {
+    public static int aM(List<Integer> list) {
+        if (xA == null) {
             generate();
         }
-        Integer aO = aO(list);
-        return aO != null ? aO.intValue() : R.color.cp_atp_a;
+        Integer aN = aN(list);
+        return aN != null ? aN.intValue() : R.color.cp_atp_a;
     }
 
     public static int mB(int i) {
@@ -28,30 +28,30 @@ public class f {
     }
 
     private static void generate() {
-        xw = new LinkedList<>();
-        xw.offer(Integer.valueOf((int) R.color.cp_atp_a));
-        xw.offer(Integer.valueOf((int) R.color.cp_atp_b));
-        xw.offer(Integer.valueOf((int) R.color.cp_atp_c));
-        xw.offer(Integer.valueOf((int) R.color.cp_atp_d));
-        xw.offer(Integer.valueOf((int) R.color.cp_atp_e));
+        xA = new LinkedList<>();
+        xA.offer(Integer.valueOf((int) R.color.cp_atp_a));
+        xA.offer(Integer.valueOf((int) R.color.cp_atp_b));
+        xA.offer(Integer.valueOf((int) R.color.cp_atp_c));
+        xA.offer(Integer.valueOf((int) R.color.cp_atp_d));
+        xA.offer(Integer.valueOf((int) R.color.cp_atp_e));
     }
 
-    private static Integer aO(List<Integer> list) {
-        Integer peek = xw.peek();
+    private static Integer aN(List<Integer> list) {
+        Integer peek = xA.peek();
         if (list == null || list.size() == 0) {
-            xw.offer(xw.poll());
+            xA.offer(xA.poll());
             return peek;
         } else if (list.size() > 4) {
-            xw.offer(xw.poll());
+            xA.offer(xA.poll());
             return peek;
         } else {
             int i = 0;
             while (true) {
-                if (i >= xw.size()) {
+                if (i >= xA.size()) {
                     i = 0;
                     break;
                 }
-                Integer num = xw.get(i);
+                Integer num = xA.get(i);
                 boolean z = false;
                 for (Integer num2 : list) {
                     z = num2.intValue() == num.intValue() ? true : z;
@@ -61,8 +61,8 @@ public class f {
                 }
                 i++;
             }
-            Integer remove = xw.remove(i);
-            xw.offer(remove);
+            Integer remove = xA.remove(i);
+            xA.offer(remove);
             return remove;
         }
     }

@@ -1,9 +1,9 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-/* loaded from: classes4.dex */
-public abstract class m implements Iterator<Character> {
-    public abstract char dEB();
+/* loaded from: classes5.dex */
+public abstract class m implements Iterator<Byte> {
+    public abstract byte nextByte();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -11,9 +11,9 @@ public abstract class m implements Iterator<Character> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.util.Iterator
-    /* renamed from: dEA */
-    public final Character next() {
-        return Character.valueOf(dEB());
+    public final Byte next() {
+        return Byte.valueOf(nextByte());
     }
 }

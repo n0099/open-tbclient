@@ -8,10 +8,10 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.GridLayoutAnimationController;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class GameVideoGridView extends BdGridView {
-    private Animation gVQ;
-    private GridLayoutAnimationController gVR;
+    private Animation gZo;
+    private GridLayoutAnimationController gZp;
     private int mMaxHeight;
 
     public GameVideoGridView(Context context, AttributeSet attributeSet, int i) {
@@ -33,15 +33,15 @@ public class GameVideoGridView extends BdGridView {
     }
 
     private void init() {
-        if (this.gVQ == null) {
-            this.gVQ = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
+        if (this.gZo == null) {
+            this.gZo = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
         }
-        if (this.gVR == null) {
-            this.gVR = new GridLayoutAnimationController(this.gVQ);
-            this.gVR.setColumnDelay(0.4f);
-            this.gVR.setRowDelay(0.2f);
-            this.gVR.setDirection(0);
-            this.gVR.setDirectionPriority(0);
+        if (this.gZp == null) {
+            this.gZp = new GridLayoutAnimationController(this.gZo);
+            this.gZp.setColumnDelay(0.4f);
+            this.gZp.setRowDelay(0.2f);
+            this.gZp.setDirection(0);
+            this.gZp.setDirectionPriority(0);
         }
     }
 
@@ -57,17 +57,17 @@ public class GameVideoGridView extends BdGridView {
         super.onMeasure(i, i2);
     }
 
-    public void bLA() {
-        if (this.gVR != null) {
-            setLayoutAnimation(this.gVR);
-            this.gVR.start();
+    public void bMI() {
+        if (this.gZp != null) {
+            setLayoutAnimation(this.gZp);
+            this.gZp.start();
             startLayoutAnimation();
         }
     }
 
     public void onDestroy() {
-        if (this.gVQ != null) {
-            this.gVQ.cancel();
+        if (this.gZo != null) {
+            this.gZo.cancel();
         }
     }
 }

@@ -25,7 +25,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method ilr;
+    private static Method ioX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -39,7 +39,7 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().cep();
+                    ((c.a) context).getSplash().cfy();
                 }
                 performExtractions = performExtractions(file2, file);
                 b(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
@@ -47,7 +47,7 @@ final class b {
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().cep();
+                ((c.a) context).getSplash().cfy();
             }
             performExtractions = performExtractions(file2, file);
             b(context, getTimeStamp(file2), zipCrc, performExtractions.size() + 1);
@@ -242,9 +242,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (ilr != null) {
+        if (ioX != null) {
             try {
-                ilr.invoke(editor, new Object[0]);
+                ioX.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -255,9 +255,9 @@ final class b {
 
     static {
         try {
-            ilr = SharedPreferences.Editor.class.getMethod(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, new Class[0]);
+            ioX = SharedPreferences.Editor.class.getMethod(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, new Class[0]);
         } catch (NoSuchMethodException e) {
-            ilr = null;
+            ioX = null;
         }
     }
 }

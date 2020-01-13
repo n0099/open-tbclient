@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.SmartAppList.SmartAppListResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FrsListProgramListHttpResponseMessage extends TbHttpResponsedMessage {
     public boolean hasMore;
     public ArrayList<b> smart_app_list;

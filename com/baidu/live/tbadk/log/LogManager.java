@@ -2,7 +2,9 @@ package com.baidu.live.tbadk.log;
 
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.log.bdimpl.MobileBaiduFeedDiversionLogger;
 import com.baidu.live.tbadk.log.defimpl.DefaultCommonLogger;
+import com.baidu.live.tbadk.log.defimpl.DefaultFeedDiversionLogger;
 import com.baidu.live.tbadk.log.defimpl.DefaultFirstChargeLogger;
 import com.baidu.live.tbadk.log.defimpl.DefaultGiftLogger;
 import com.baidu.live.tbadk.log.defimpl.DefaultGuardClubLogger;
@@ -127,6 +129,10 @@ public class LogManager {
             return new QuanminFirstChargeLogger();
         }
         return new DefaultFirstChargeLogger();
+    }
+
+    public static IFeedDiversionLogger getFeedDiversionLogger() {
+        return TbadkCoreApplication.getInst().isMobileBaidu() ? new MobileBaiduFeedDiversionLogger() : new DefaultFeedDiversionLogger();
     }
 
     public static LiveOtherParamsEntity parseLiveOtherParamsEntity(String str) {

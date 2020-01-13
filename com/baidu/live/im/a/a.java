@@ -12,16 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private BdPageContext aoA;
-    private BdTypeListView aoB;
-    private f aoC;
-    private c aoD;
-    private g aoE;
-    private d aoF;
-    private e aoG;
-    private boolean aoH;
-    private List<AbsDelegateAdapter> aoz = new ArrayList();
-    private CustomMessageListener aoI = new CustomMessageListener(0) { // from class: com.baidu.live.im.a.a.1
+    private BdPageContext apm;
+    private BdTypeListView apn;
+    private f apo;
+    private c apq;
+    private g apr;
+    private d aps;
+    private e apt;
+    private boolean apu;
+    private List<AbsDelegateAdapter> apl = new ArrayList();
+    private CustomMessageListener apv = new CustomMessageListener(0) { // from class: com.baidu.live.im.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,41 +30,41 @@ public class a {
     };
 
     public a(BdPageContext bdPageContext, BdTypeListView bdTypeListView) {
-        this.aoA = bdPageContext;
-        this.aoB = bdTypeListView;
-        uR();
+        this.apm = bdPageContext;
+        this.apn = bdTypeListView;
+        vi();
     }
 
-    public void uQ() {
-        MessageManager.getInstance().registerListener(2913069, this.aoI);
+    public void vh() {
+        MessageManager.getInstance().registerListener(2913069, this.apv);
     }
 
-    private void uR() {
-        this.aoC = new f(this.aoA.getPageActivity());
-        this.aoD = new c(this.aoA.getPageActivity());
-        this.aoE = new g(this.aoA.getPageActivity());
-        this.aoF = new d(this.aoA.getPageActivity());
-        this.aoG = new e(this.aoA.getPageActivity());
-        this.aoz.add(this.aoC);
-        this.aoz.add(this.aoD);
-        this.aoz.add(this.aoE);
-        this.aoz.add(this.aoF);
-        this.aoz.add(this.aoG);
-        this.aoB.addAdapters(this.aoz);
+    private void vi() {
+        this.apo = new f(this.apm.getPageActivity());
+        this.apq = new c(this.apm.getPageActivity());
+        this.apr = new g(this.apm.getPageActivity());
+        this.aps = new d(this.apm.getPageActivity());
+        this.apt = new e(this.apm.getPageActivity());
+        this.apl.add(this.apo);
+        this.apl.add(this.apq);
+        this.apl.add(this.apr);
+        this.apl.add(this.aps);
+        this.apl.add(this.apt);
+        this.apn.addAdapters(this.apl);
     }
 
     public void setMode(boolean z) {
-        this.aoC.setMode(z);
+        this.apo.setMode(z);
     }
 
     public void setDatas(List<IAdapterData> list) {
-        if (this.aoB != null) {
-            this.aoB.setData(list);
+        if (this.apn != null) {
+            this.apn.setData(list);
         }
     }
 
     public void a(String str, String str2, boolean z, String str3) {
-        for (AbsDelegateAdapter absDelegateAdapter : this.aoz) {
+        for (AbsDelegateAdapter absDelegateAdapter : this.apl) {
             if (absDelegateAdapter instanceof b) {
                 ((b) absDelegateAdapter).a(str, str2, z, str3);
             }
@@ -72,33 +72,33 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.aoB != null && (this.aoB.getAdapter() instanceof BaseAdapter)) {
-            this.aoB.getAdapter().notifyDataSetChanged();
+        if (this.apn != null && (this.apn.getAdapter() instanceof BaseAdapter)) {
+            this.apn.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void setFromMaster(boolean z) {
-        this.aoH = z;
-        if (this.aoH) {
-            if (this.aoC != null) {
-                this.aoC.aQ(true);
+        this.apu = z;
+        if (this.apu) {
+            if (this.apo != null) {
+                this.apo.aS(true);
             }
-            if (this.aoD != null) {
-                this.aoD.aQ(true);
+            if (this.apq != null) {
+                this.apq.aS(true);
             }
-            if (this.aoE != null) {
-                this.aoE.aQ(true);
+            if (this.apr != null) {
+                this.apr.aS(true);
             }
-            if (this.aoF != null) {
-                this.aoF.aQ(true);
+            if (this.aps != null) {
+                this.aps.aS(true);
             }
-            if (this.aoG != null) {
-                this.aoG.aQ(true);
+            if (this.apt != null) {
+                this.apt.aS(true);
             }
         }
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.aoI);
+        MessageManager.getInstance().unRegisterListener(this.apv);
     }
 }

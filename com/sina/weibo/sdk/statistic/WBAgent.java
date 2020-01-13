@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WBAgent {
     public static final String TAG = "WBAgent";
 

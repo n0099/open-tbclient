@@ -2,7 +2,7 @@ package com.baidu.pano.platform.a.a;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class k extends ByteArrayOutputStream {
     private final b a;
 

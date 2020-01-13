@@ -1,7 +1,7 @@
 package com.baidu.mapapi.common;
 
 import com.baidu.mapsdkplatform.comapi.util.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SysOSUtil {
     public static float getDensity() {
         return f.y;

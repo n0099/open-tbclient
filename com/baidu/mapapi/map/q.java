@@ -4,7 +4,7 @@ import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q implements ValueAnimator.AnimatorUpdateListener {
     final /* synthetic */ ViewGroup.LayoutParams a;
     final /* synthetic */ SwipeDismissTouchListener b;

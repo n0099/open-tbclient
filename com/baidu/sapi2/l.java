@@ -13,7 +13,7 @@ import com.baidu.sapi2.utils.SapiDeviceInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class l implements SapiCallback<SapiResult> {
     final /* synthetic */ int a;
     final /* synthetic */ ExtendSysWebViewMethodCallback b;

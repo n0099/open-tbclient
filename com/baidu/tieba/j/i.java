@@ -1,17 +1,17 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface i {
-    void EC(String str);
+    void EM(String str);
 
-    void ED(String str);
+    void EN(String str);
 
-    String EE(String str);
+    String EO(String str);
 
-    boolean EF(String str);
+    boolean EP(String str);
 
-    void EG(String str);
+    void EQ(String str);
 
-    void Tz();
+    void TW();
 
     String a(int i, int i2, int i3, String str, boolean z, long j, String str2);
 
@@ -21,29 +21,29 @@ public interface i {
 
     void a(String str, long j, long j2, long j3, long j4, long j5, String str2, int i);
 
-    void cdP();
+    void ceY();
 
-    void cdQ();
+    void ceZ();
 
-    void cdR();
+    void cfa();
 
-    void cdS();
+    void cfb();
 
-    void cdT();
+    void cfc();
 
-    void cdU();
+    void cfd();
 
-    String cdV();
+    String cfe();
 
-    String cdW();
+    String cff();
 
-    void k(int i, int i2, String str);
+    void m(int i, int i2, String str);
 
-    void oB(boolean z);
+    void oN(boolean z);
 
-    void oC(boolean z);
+    void oO(boolean z);
 
-    void xW(int i);
+    void yb(int i);
 
-    void xX(int i);
+    void yc(int i);
 }

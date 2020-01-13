@@ -3,29 +3,29 @@ package com.baidu.tieba.frs.aggregation;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class i {
-    private VideoAggregationModel.a gpF = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
+    private VideoAggregationModel.a gsO = new VideoAggregationModel.a() { // from class: com.baidu.tieba.frs.aggregation.i.1
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
         public void f(List<g> list, boolean z, boolean z2) {
-            if (i.this.gpL != null) {
-                i.this.gpL.hideLoadingView();
+            if (i.this.gsU != null) {
+                i.this.gsU.hideLoadingView();
                 i.this.mHasMore = z2;
-                i.this.gpL.e(list, z, z2);
+                i.this.gsU.e(list, z, z2);
             }
         }
 
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
-        public void nD(String str) {
-            if (i.this.gpL != null) {
-                i.this.gpL.hideLoadingView();
-                i.this.gpL.showMsg(str);
-                i.this.gpL.Py();
+        public void nG(String str) {
+            if (i.this.gsU != null) {
+                i.this.gsU.hideLoadingView();
+                i.this.gsU.showMsg(str);
+                i.this.gsU.PU();
             }
         }
     };
-    private d gpL;
-    private VideoAggregationModel gpM;
+    private d gsU;
+    private VideoAggregationModel gsV;
     private String mFrom;
     private boolean mHasMore;
     private String mId;
@@ -35,53 +35,53 @@ public class i {
 
     public i(TbPageContext tbPageContext, d dVar) {
         this.mPageContext = tbPageContext;
-        this.gpL = dVar;
-        this.gpM = new VideoAggregationModel(tbPageContext, this.gpF);
+        this.gsU = dVar;
+        this.gsV = new VideoAggregationModel(tbPageContext, this.gsO);
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.gpM != null) {
-            this.gpM.setId(this.mId);
+        if (this.gsV != null) {
+            this.gsV.setId(this.mId);
         }
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.gpM != null) {
-            this.gpM.setFrom(str);
+        if (this.gsV != null) {
+            this.gsV.setFrom(str);
         }
     }
 
-    public void AK(String str) {
+    public void AU(String str) {
         this.st_type = str;
-        if (this.gpM != null) {
-            this.gpM.AK(str);
+        if (this.gsV != null) {
+            this.gsV.AU(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.gpM != null) {
-            this.gpM.setLocation(str);
+        if (this.gsV != null) {
+            this.gsV.setLocation(str);
         }
     }
 
-    public void bDO() {
-        if (this.gpM != null) {
-            this.gpM.bDO();
+    public void bEQ() {
+        if (this.gsV != null) {
+            this.gsV.bEQ();
         }
     }
 
-    public void bDQ() {
-        if (this.gpM != null && this.mHasMore) {
-            this.gpM.LoadData();
+    public void bES() {
+        if (this.gsV != null && this.mHasMore) {
+            this.gsV.LoadData();
         }
     }
 
-    public void bDP() {
-        if (this.gpM != null) {
-            this.gpM.cancelLoadData();
+    public void bER() {
+        if (this.gsV != null) {
+            this.gsV.cancelLoadData();
         }
     }
 }

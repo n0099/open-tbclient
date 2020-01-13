@@ -2,7 +2,6 @@ package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
-import io.reactivex.g;
 import io.reactivex.internal.queue.MpscLinkedQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -13,28 +12,27 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
-public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.internal.operators.flowable.a<T, g<T>> {
+/* loaded from: classes5.dex */
+public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.internal.operators.flowable.a<T, io.reactivex.g<T>> {
     final int capacityHint;
     final Callable<? extends org.a.b<B>> other;
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super g<T>> cVar) {
-        this.mTG.a((j) new WindowBoundaryMainSubscriber(cVar, this.capacityHint, this.other));
+    protected void a(org.a.c<? super io.reactivex.g<T>> cVar) {
+        this.nvK.a((j) new WindowBoundaryMainSubscriber(cVar, this.capacityHint, this.other));
     }
 
-    /* loaded from: classes4.dex */
-    static final class WindowBoundaryMainSubscriber<T, B> extends AtomicInteger implements j<T>, Runnable, d {
+    /* loaded from: classes5.dex */
+    static final class WindowBoundaryMainSubscriber<T, B> extends AtomicInteger implements j<T>, Runnable, org.a.d {
         static final a<Object, Object> BOUNDARY_DISPOSED = new a<>(null);
         static final Object NEXT_WINDOW = new Object();
         private static final long serialVersionUID = 2233020065421370272L;
         final int capacityHint;
         volatile boolean done;
-        final org.a.c<? super g<T>> downstream;
+        final org.a.c<? super io.reactivex.g<T>> downstream;
         long emitted;
         final Callable<? extends org.a.b<B>> other;
-        d upstream;
+        org.a.d upstream;
         UnicastProcessor<T> window;
         final AtomicReference<a<T, B>> boundarySubscriber = new AtomicReference<>();
         final AtomicInteger windows = new AtomicInteger(1);
@@ -43,14 +41,14 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
         final AtomicBoolean stopWindows = new AtomicBoolean();
         final AtomicLong requested = new AtomicLong();
 
-        WindowBoundaryMainSubscriber(org.a.c<? super g<T>> cVar, int i, Callable<? extends org.a.b<B>> callable) {
+        WindowBoundaryMainSubscriber(org.a.c<? super io.reactivex.g<T>> cVar, int i, Callable<? extends org.a.b<B>> callable) {
             this.downstream = cVar;
             this.capacityHint = i;
             this.other = callable;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.upstream, dVar)) {
                 this.upstream = dVar;
                 this.downstream.onSubscribe(this);
@@ -74,7 +72,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -128,7 +126,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         void innerComplete() {
@@ -141,7 +139,7 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
         /* JADX WARN: Multi-variable type inference failed */
         void drain() {
             if (getAndIncrement() == 0) {
-                org.a.c<? super g<T>> cVar = this.downstream;
+                org.a.c<? super io.reactivex.g<T>> cVar = this.downstream;
                 MpscLinkedQueue<Object> mpscLinkedQueue = this.queue;
                 AtomicThrowable atomicThrowable = this.errors;
                 long j = this.emitted;
@@ -228,13 +226,13 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T, B> extends io.reactivex.subscribers.a<B> {
         boolean done;
-        final WindowBoundaryMainSubscriber<T, B> mUy;
+        final WindowBoundaryMainSubscriber<T, B> nwH;
 
         a(WindowBoundaryMainSubscriber<T, B> windowBoundaryMainSubscriber) {
-            this.mUy = windowBoundaryMainSubscriber;
+            this.nwH = windowBoundaryMainSubscriber;
         }
 
         @Override // org.a.c
@@ -242,25 +240,25 @@ public final class FlowableWindowBoundarySupplier<T, B> extends io.reactivex.int
             if (!this.done) {
                 this.done = true;
                 dispose();
-                this.mUy.innerNext(this);
+                this.nwH.innerNext(this);
             }
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;
-            this.mUy.innerError(th);
+            this.nwH.innerError(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.mUy.innerComplete();
+                this.nwH.innerComplete();
             }
         }
     }

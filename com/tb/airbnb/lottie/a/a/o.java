@@ -1,71 +1,116 @@
 package com.tb.airbnb.lottie.a.a;
 
+import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.a;
-import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
-public class o implements k, a.InterfaceC0687a {
-    private boolean fV;
+import java.util.ListIterator;
+/* loaded from: classes5.dex */
+public class o implements d, i, j, l, a.InterfaceC0730a {
     private final com.tb.airbnb.lottie.f lottieDrawable;
-    @Nullable
-    private q mMT;
-    private final com.tb.airbnb.lottie.a.b.a<?, Path> mNq;
     private final String name;
+    private final com.tb.airbnb.lottie.model.layer.a noU;
+    private final com.tb.airbnb.lottie.a.b.a<Float, Float> npr;
+    private final com.tb.airbnb.lottie.a.b.a<Float, Float> nps;
+    private final com.tb.airbnb.lottie.a.b.o npt;
+    private c npu;
+    private final Matrix matrix = new Matrix();
     private final Path path = new Path();
 
-    public o(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.k kVar) {
-        this.name = kVar.getName();
+    public o(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.g gVar) {
         this.lottieDrawable = fVar;
-        this.mNq = kVar.dCj().dBq();
-        aVar.a(this.mNq);
-        this.mNq.b(this);
+        this.noU = aVar;
+        this.name = gVar.getName();
+        this.npr = gVar.dGh().dFE();
+        aVar.a(this.npr);
+        this.npr.b(this);
+        this.nps = gVar.dGi().dFE();
+        aVar.a(this.nps);
+        this.nps.b(this);
+        this.npt = gVar.dGj().dFN();
+        this.npt.a(aVar);
+        this.npt.a(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0687a
-    public void bC() {
-        invalidate();
-    }
-
-    private void invalidate() {
-        this.fV = false;
-        this.lottieDrawable.invalidateSelf();
-    }
-
-    @Override // com.tb.airbnb.lottie.a.a.b
-    public void b(List<b> list, List<b> list2) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < list.size()) {
-                b bVar = list.get(i2);
-                if ((bVar instanceof q) && ((q) bVar).dBh() == ShapeTrimPath.Type.Simultaneously) {
-                    this.mMT = (q) bVar;
-                    this.mMT.a(this);
-                }
-                i = i2 + 1;
-            } else {
-                return;
+    @Override // com.tb.airbnb.lottie.a.a.i
+    public void a(ListIterator<b> listIterator) {
+        if (this.npu == null) {
+            while (listIterator.hasPrevious() && listIterator.previous() != this) {
             }
+            ArrayList arrayList = new ArrayList();
+            while (listIterator.hasPrevious()) {
+                arrayList.add(listIterator.previous());
+                listIterator.remove();
+            }
+            Collections.reverse(arrayList);
+            this.npu = new c(this.lottieDrawable, this.noU, "Repeater", arrayList, null);
         }
-    }
-
-    @Override // com.tb.airbnb.lottie.a.a.k
-    public Path bF() {
-        if (this.fV) {
-            return this.path;
-        }
-        this.path.reset();
-        this.path.set(this.mNq.getValue());
-        this.path.setFillType(Path.FillType.EVEN_ODD);
-        com.tb.airbnb.lottie.c.f.a(this.path, this.mMT);
-        this.fV = true;
-        return this.path;
     }
 
     @Override // com.tb.airbnb.lottie.a.a.b
     public String getName() {
         return this.name;
+    }
+
+    @Override // com.tb.airbnb.lottie.a.a.b
+    public void b(List<b> list, List<b> list2) {
+        this.npu.b(list, list2);
+    }
+
+    @Override // com.tb.airbnb.lottie.a.a.l
+    public Path bF() {
+        Path bF = this.npu.bF();
+        this.path.reset();
+        float floatValue = this.npr.getValue().floatValue();
+        float floatValue2 = this.nps.getValue().floatValue();
+        for (int i = ((int) floatValue) - 1; i >= 0; i--) {
+            this.matrix.set(this.npt.j(i + floatValue2));
+            this.path.addPath(bF, this.matrix);
+        }
+        return this.path;
+    }
+
+    @Override // com.tb.airbnb.lottie.a.a.d
+    public void a(Canvas canvas, Matrix matrix, int i) {
+        float floatValue = this.npr.getValue().floatValue();
+        float floatValue2 = this.nps.getValue().floatValue();
+        float floatValue3 = this.npt.dFA().getValue().floatValue() / 100.0f;
+        float floatValue4 = this.npt.dFB().getValue().floatValue() / 100.0f;
+        for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
+            this.matrix.set(matrix);
+            this.matrix.preConcat(this.npt.j(i2 + floatValue2));
+            this.npu.a(canvas, this.matrix, (int) (i * com.tb.airbnb.lottie.d.e.lerp(floatValue3, floatValue4, i2 / floatValue)));
+        }
+    }
+
+    @Override // com.tb.airbnb.lottie.a.a.d
+    public void a(RectF rectF, Matrix matrix) {
+        this.npu.a(rectF, matrix);
+    }
+
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0730a
+    public void bC() {
+        this.lottieDrawable.invalidateSelf();
+    }
+
+    @Override // com.tb.airbnb.lottie.model.f
+    public void a(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2) {
+        com.tb.airbnb.lottie.d.e.a(eVar, i, list, eVar2, this);
+    }
+
+    @Override // com.tb.airbnb.lottie.model.f
+    public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
+        if (!this.npt.b(t, cVar)) {
+            if (t == com.tb.airbnb.lottie.j.eW) {
+                this.npr.a(cVar);
+            } else if (t == com.tb.airbnb.lottie.j.eX) {
+                this.nps.a(cVar);
+            }
+        }
     }
 }

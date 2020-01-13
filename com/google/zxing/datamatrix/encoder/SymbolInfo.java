@@ -3,7 +3,7 @@ package com.google.zxing.datamatrix.encoder;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.idl.authority.AuthorityState;
 import com.google.zxing.Dimension;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SymbolInfo {
     static final SymbolInfo[] PROD_SYMBOLS;
     private static SymbolInfo[] symbols;

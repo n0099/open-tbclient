@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.person.hosttabpanel.d;
 
 import android.view.View;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hosttabpanel.b.e> {
@@ -31,11 +31,11 @@ public class f extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
 
     /* loaded from: classes2.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        public f flS;
+        public f fpb;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.flS = fVar;
+            this.fpb = fVar;
         }
     }
 }

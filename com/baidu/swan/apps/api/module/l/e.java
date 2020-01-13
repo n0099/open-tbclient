@@ -19,22 +19,22 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends com.baidu.swan.apps.api.a.c {
     public e(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b fN(String str) {
+    public com.baidu.swan.apps.api.b.b fQ(String str) {
         if (DEBUG) {
             Log.d("Api-UbcFlowJar", "start handle ubc");
         }
-        com.baidu.swan.apps.runtime.e ZS = com.baidu.swan.apps.runtime.e.ZS();
-        if (ZS == null) {
+        com.baidu.swan.apps.runtime.e aap = com.baidu.swan.apps.runtime.e.aap();
+        if (aap == null) {
             return new com.baidu.swan.apps.api.b.b(1001, "swan app is null");
         }
-        Pair<com.baidu.swan.apps.api.b.b, JSONObject> ag = com.baidu.swan.apps.api.c.b.ag("Api-UbcFlowJar", str);
-        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) ag.first;
+        Pair<com.baidu.swan.apps.api.b.b, JSONObject> ah = com.baidu.swan.apps.api.c.b.ah("Api-UbcFlowJar", str);
+        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) ah.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-UbcFlowJar", "parse fail");
@@ -42,7 +42,7 @@ public class e extends com.baidu.swan.apps.api.a.c {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) ag.second;
+        JSONObject jSONObject = (JSONObject) ah.second;
         String optString = jSONObject.optString("flowId");
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.b.b(201, "empty flowId");
@@ -82,16 +82,16 @@ public class e extends com.baidu.swan.apps.api.a.c {
         }
         switch (c) {
             case 0:
-                a(jSONObject, ZS);
+                a(jSONObject, aap);
                 break;
             case 1:
-                q(jSONObject.optJSONArray("data"));
-                break;
-            case 2:
                 r(jSONObject.optJSONArray("data"));
                 break;
-            case 3:
+            case 2:
                 s(jSONObject.optJSONArray("data"));
+                break;
+            case 3:
+                t(jSONObject.optJSONArray("data"));
                 break;
             case 4:
                 W(jSONObject);
@@ -104,18 +104,18 @@ public class e extends com.baidu.swan.apps.api.a.c {
 
     public static void a(JSONObject jSONObject, com.baidu.swan.apps.runtime.e eVar) {
         int i;
-        com.baidu.swan.apps.core.g.a NZ = com.baidu.swan.apps.core.k.d.NK().NZ();
-        if (!(NZ instanceof com.baidu.swan.apps.core.g.e)) {
+        com.baidu.swan.apps.core.g.a Ov = com.baidu.swan.apps.core.k.d.Og().Ov();
+        if (!(Ov instanceof com.baidu.swan.apps.core.g.e)) {
             i = 0;
         } else {
-            i = ((com.baidu.swan.apps.core.g.e) NZ).Mu();
+            i = ((com.baidu.swan.apps.core.g.e) Ov).MQ();
             if (DEBUG) {
                 Log.d("Api-UbcFlowJar", "ID_PERFORMANCED_FLOW CodeCache status: " + i);
             }
         }
-        com.baidu.swan.apps.statistic.c.dF(true);
-        com.baidu.swan.apps.statistic.c.acc();
-        HybridUbcFlow jx = f.jx("startup");
+        com.baidu.swan.apps.statistic.c.dK(true);
+        com.baidu.swan.apps.statistic.c.acz();
+        HybridUbcFlow jA = f.jA("startup");
         JSONObject optJSONObject = jSONObject.optJSONObject("ext");
         String str = "0";
         String str2 = "";
@@ -124,65 +124,65 @@ public class e extends com.baidu.swan.apps.api.a.c {
             str2 = optJSONObject.optString("hasRelaunch");
         }
         if (TextUtils.equals(str, "1")) {
-            HybridUbcFlow.SubmitStrategy Xb = jx.Xb();
-            if (Xb == HybridUbcFlow.SubmitStrategy.HYBRID) {
-                jx.a(HybridUbcFlow.SubmitStrategy.HYBRID_WEB);
-            } else if (Xb == HybridUbcFlow.SubmitStrategy.RELAUNCH) {
-                jx.a(HybridUbcFlow.SubmitStrategy.RELAUNCH_WEB);
+            HybridUbcFlow.SubmitStrategy Xy = jA.Xy();
+            if (Xy == HybridUbcFlow.SubmitStrategy.HYBRID) {
+                jA.a(HybridUbcFlow.SubmitStrategy.HYBRID_WEB);
+            } else if (Xy == HybridUbcFlow.SubmitStrategy.RELAUNCH) {
+                jA.a(HybridUbcFlow.SubmitStrategy.RELAUNCH_WEB);
             }
         }
         if (TextUtils.equals(str2, "none")) {
             if (TextUtils.equals(str, "1")) {
-                jx.WS();
+                jA.Xp();
             } else {
-                jx.WR();
+                jA.Xo();
             }
         }
-        a(jx, eVar, str);
-        jx.aR("codecache", String.valueOf(i)).aa(p(jSONObject.optJSONArray("data"))).WP();
+        a(jA, eVar, str);
+        jA.aS("codecache", String.valueOf(i)).Z(q(jSONObject.optJSONArray("data"))).Xm();
     }
 
     private static void a(final HybridUbcFlow hybridUbcFlow, com.baidu.swan.apps.runtime.e eVar, final String str) {
         long j;
         if (hybridUbcFlow != null && eVar != null) {
-            if (!com.baidu.swan.apps.core.k.d.NK().Oj()) {
+            if (!com.baidu.swan.apps.core.k.d.Og().OF()) {
                 if (TextUtils.equals(str, "1")) {
-                    hybridUbcFlow.WS();
+                    hybridUbcFlow.Xp();
                     return;
                 } else {
-                    hybridUbcFlow.WR();
+                    hybridUbcFlow.Xo();
                     return;
                 }
             }
-            long EG = com.baidu.swan.apps.w.a.Rn().EG();
-            if (EG > 0) {
-                b.a DR = eVar.DR();
+            long Fc = com.baidu.swan.apps.w.a.RJ().Fc();
+            if (Fc > 0) {
+                b.a En = eVar.En();
                 boolean z = false;
-                if (DR != null) {
-                    long currentTimeMillis = System.currentTimeMillis() - DR.Tk();
-                    if (currentTimeMillis >= EG) {
+                if (En != null) {
+                    long currentTimeMillis = System.currentTimeMillis() - En.TH();
+                    if (currentTimeMillis >= Fc) {
                         z = true;
                         j = 0;
                     } else {
-                        j = EG - currentTimeMillis;
+                        j = Fc - currentTimeMillis;
                     }
                 } else {
                     j = 0;
                 }
                 if (z) {
                     if (TextUtils.equals(str, "1")) {
-                        hybridUbcFlow.WS();
+                        hybridUbcFlow.Xp();
                     } else {
-                        hybridUbcFlow.WR();
+                        hybridUbcFlow.Xo();
                     }
                 } else if (j > 0) {
                     m.b(new Runnable() { // from class: com.baidu.swan.apps.api.module.l.e.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (TextUtils.equals(str, "1")) {
-                                hybridUbcFlow.WS();
+                                hybridUbcFlow.Xp();
                             } else {
-                                hybridUbcFlow.WR();
+                                hybridUbcFlow.Xo();
                             }
                         }
                     }, "waitFcp", j, TimeUnit.MILLISECONDS);
@@ -196,21 +196,21 @@ public class e extends com.baidu.swan.apps.api.a.c {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("ext")) != null) {
             String optString = optJSONObject.optString("routeId");
             if (!TextUtils.isEmpty(optString)) {
-                HybridUbcFlow aO = f.aO("route", optString);
+                HybridUbcFlow aP = f.aP("route", optString);
                 if (TextUtils.equals(optJSONObject.optString("hasWebView"), "1")) {
-                    aO.a(HybridUbcFlow.SubmitStrategy.ROUTE_WEB);
+                    aP.a(HybridUbcFlow.SubmitStrategy.ROUTE_WEB);
                 }
-                aO.aa(p(jSONObject.optJSONArray("data"))).WP();
+                aP.Z(q(jSONObject.optJSONArray("data"))).Xm();
             }
         }
     }
 
-    public static List<UbcFlowEvent> p(JSONArray jSONArray) {
+    public static List<UbcFlowEvent> q(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
             UbcFlowEvent X = X(jSONArray.optJSONObject(i));
             if (X != null) {
-                X.jM("FE");
+                X.jP("FE");
                 arrayList.add(X);
             }
         }
@@ -223,10 +223,10 @@ public class e extends com.baidu.swan.apps.api.a.c {
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        return new UbcFlowEvent(optString).an(optLong);
+        return new UbcFlowEvent(optString).aq(optLong);
     }
 
-    public static void q(JSONArray jSONArray) {
+    public static void r(JSONArray jSONArray) {
         if (jSONArray != null) {
             if (DEBUG) {
                 Log.d("Api-UbcFlowJar", "SearchFlowEvent from FE, data: " + jSONArray);
@@ -240,7 +240,7 @@ public class e extends com.baidu.swan.apps.api.a.c {
                     SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
                     searchFlowEvent.timestamp = Long.valueOf(optString3).longValue();
                     searchFlowEvent.data = optString2;
-                    searchFlowEvent.bQK = SearchFlowEvent.EventType.END;
+                    searchFlowEvent.bRu = SearchFlowEvent.EventType.END;
                     com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
                 }
             } catch (NumberFormatException e) {
@@ -251,10 +251,10 @@ public class e extends com.baidu.swan.apps.api.a.c {
         }
     }
 
-    public static void r(JSONArray jSONArray) {
+    public static void s(JSONArray jSONArray) {
         long longValue;
-        com.baidu.swan.apps.core.d.d LC = com.baidu.swan.apps.y.f.Uf().LC();
-        if (LC != null) {
+        com.baidu.swan.apps.core.d.d LY = com.baidu.swan.apps.y.f.UC().LY();
+        if (LY != null) {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(0);
                 if (jSONObject != null) {
@@ -266,10 +266,10 @@ public class e extends com.baidu.swan.apps.api.a.c {
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
-                        LC.a(new g(string, longValue));
+                        LY.a(new g(string, longValue));
                     }
                     longValue = 0;
-                    LC.a(new g(string, longValue));
+                    LY.a(new g(string, longValue));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -277,7 +277,7 @@ public class e extends com.baidu.swan.apps.api.a.c {
         }
     }
 
-    public static void s(@Nullable JSONArray jSONArray) {
+    public static void t(@Nullable JSONArray jSONArray) {
         if (DEBUG) {
             Log.d("Api-UbcFlowJar", "FlowJarAction-671: " + (jSONArray == null ? "null" : jSONArray));
         }
@@ -287,9 +287,9 @@ public class e extends com.baidu.swan.apps.api.a.c {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (TextUtils.equals(jSONObject.optString("type"), "feTraceError")) {
-                        com.baidu.swan.apps.an.a.abU().aX(jSONObject);
+                        com.baidu.swan.apps.an.a.acr().aX(jSONObject);
                     } else {
-                        com.baidu.swan.apps.an.a.abU().aW(jSONObject);
+                        com.baidu.swan.apps.an.a.acr().aW(jSONObject);
                     }
                 } catch (JSONException e) {
                     if (DEBUG) {

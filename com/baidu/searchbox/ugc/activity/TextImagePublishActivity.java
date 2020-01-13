@@ -45,7 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TextImagePublishActivity extends PublishBaseActivity implements EmojiconEditText.TextNumbersChangedListener, PhotoChooseView.StartAlbumListener {
     public static final boolean DEBUG = false;
     private static final int MAX_COUNT = 9;
@@ -344,7 +344,7 @@ public class TextImagePublishActivity extends PublishBaseActivity implements Emo
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class DraftOnPositiveClickListener implements DialogInterface.OnClickListener {
         private SaveDraftTask mSaveDraftTask;
         private UgcSchemeModel mUgcSchemeModel;
@@ -370,7 +370,7 @@ public class TextImagePublishActivity extends PublishBaseActivity implements Emo
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class DraftOnNegativeClickListener implements DialogInterface.OnClickListener {
         private String mDraftKey;
         private UgcSchemeModel mUgcSchemeModel;
@@ -410,7 +410,7 @@ public class TextImagePublishActivity extends PublishBaseActivity implements Emo
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class SaveDraftTask implements Runnable {
         String inputStr;
 

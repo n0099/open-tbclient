@@ -2,21 +2,21 @@ package com.baidu.afd.videopaster;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c implements a {
-    private final int CF;
-    private int CJ;
-    private HashMap CK;
+    private final int CK;
+    private int CO;
+    private HashMap CP;
     private final int height;
     private final String pid;
     private final int refreshCount;
     private final int width;
 
     private c(int i, int i2, String str, int i3, int i4, int i5) {
-        this.CF = i;
+        this.CK = i;
         this.refreshCount = i2;
         this.pid = str;
-        this.CJ = i3;
+        this.CO = i3;
         this.width = i4;
         this.height = i5;
     }
@@ -36,27 +36,27 @@ public class c implements a {
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public String kC() {
+    public String kD() {
         return this.pid;
     }
 
     @Override // com.baidu.afd.videopaster.a
-    public int kp() {
-        return this.CF;
-    }
-
-    @Override // com.baidu.afd.videopaster.a
-    public int kr() {
-        return this.CJ;
-    }
-
-    @Override // com.baidu.afd.videopaster.a
-    public Map<String, String> ks() {
+    public int kq() {
         return this.CK;
     }
 
     @Override // com.baidu.afd.videopaster.a
+    public int ks() {
+        return this.CO;
+    }
+
+    @Override // com.baidu.afd.videopaster.a
+    public Map<String, String> kt() {
+        return this.CP;
+    }
+
+    @Override // com.baidu.afd.videopaster.a
     public void j(HashMap hashMap) {
-        this.CK = hashMap;
+        this.CP = hashMap;
     }
 }

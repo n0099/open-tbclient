@@ -15,7 +15,7 @@ import com.huawei.hms.support.api.hwid.HuaweiId;
 import com.huawei.hms.support.api.hwid.HuaweiIdSignInOptions;
 import com.huawei.hms.support.api.hwid.SignInHuaweiId;
 import com.huawei.hms.support.api.hwid.SignInResult;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     private static final int REQUEST_HMS_RESOLVE_ERROR = 1000;
     private static final int REQUEST_SIGN_IN_AUTH = 1003;

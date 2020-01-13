@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.b.c;
 
 import java.io.Closeable;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class l implements Closeable {
     public abstract com.meizu.cloud.pushsdk.b.g.c a();
 

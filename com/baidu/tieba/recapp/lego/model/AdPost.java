@@ -10,7 +10,7 @@ import com.baidu.tieba.recapp.c.a;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert, b, a {
     public PostAdBaseData.a adData;
     public PostAdBaseData.b feedData;
@@ -79,7 +79,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return 21;
         }
         if (this.adData.type == 2) {
-            return this.adData.AG(i);
+            return this.adData.AL(i);
         }
         return 0;
     }

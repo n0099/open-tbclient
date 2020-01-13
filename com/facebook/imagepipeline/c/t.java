@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class t implements n {
-    private static t lMS = null;
+    private static t lQE = null;
 
     private t() {
     }
 
-    public static synchronized t dlM() {
+    public static synchronized t dmR() {
         t tVar;
         synchronized (t.class) {
-            if (lMS == null) {
-                lMS = new t();
+            if (lQE == null) {
+                lQE = new t();
             }
-            tVar = lMS;
+            tVar = lQE;
         }
         return tVar;
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dlE() {
+    public void dmJ() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -26,11 +26,11 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dlF() {
+    public void dmK() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dlG() {
+    public void dmL() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -38,7 +38,7 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dlH() {
+    public void dmM() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
@@ -46,19 +46,19 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dlI() {
+    public void dmN() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dlJ() {
+    public void dmO() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dlK() {
+    public void dmP() {
     }
 
     @Override // com.facebook.imagepipeline.c.n
-    public void dlL() {
+    public void dmQ() {
     }
 
     @Override // com.facebook.imagepipeline.c.n

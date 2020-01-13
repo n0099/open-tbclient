@@ -7,7 +7,7 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapView;
 import java.lang.ref.SoftReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     SoftReference<MapView> a = null;
     private BaiduMap b;

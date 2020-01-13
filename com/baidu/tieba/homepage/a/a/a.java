@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONObject;
 import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a implements b, j {
     protected boolean mHasMore;
     protected List<Object> mThreadList;

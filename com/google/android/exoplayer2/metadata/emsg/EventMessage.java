@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.util.v;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class EventMessage implements Metadata.Entry {
     public static final Parcelable.Creator<EventMessage> CREATOR = new Parcelable.Creator<EventMessage>() { // from class: com.google.android.exoplayer2.metadata.emsg.EventMessage.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -17,7 +17,7 @@ public final class EventMessage implements Metadata.Entry {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: JT */
+        /* renamed from: Kc */
         public EventMessage[] newArray(int i) {
             return new EventMessage[i];
         }

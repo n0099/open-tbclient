@@ -4,8 +4,7 @@ import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableRepeat<T> extends a<T, T> {
     final long count;
 
@@ -17,10 +16,10 @@ public final class FlowableRepeat<T> extends a<T, T> {
         if (this.count != Format.OFFSET_SAMPLE_RELATIVE) {
             j = this.count - 1;
         }
-        new RepeatSubscriber(cVar, j, subscriptionArbiter, this.mTG).subscribeNext();
+        new RepeatSubscriber(cVar, j, subscriptionArbiter, this.nvK).subscribeNext();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class RepeatSubscriber<T> extends AtomicInteger implements j<T> {
         private static final long serialVersionUID = -7098360935104053232L;
         final org.a.c<? super T> actual;
@@ -37,7 +36,7 @@ public final class FlowableRepeat<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             this.sa.setSubscription(dVar);
         }
 

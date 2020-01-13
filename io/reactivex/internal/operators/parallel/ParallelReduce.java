@@ -1,17 +1,17 @@
 package io.reactivex.internal.operators.parallel;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.b.c;
+import io.reactivex.c.c;
 import io.reactivex.internal.subscribers.DeferredScalarSubscriber;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.parallel.a;
 import java.util.concurrent.Callable;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ParallelReduce<T, R> extends a<R> {
-    final Callable<R> mTO;
-    final a<? extends T> mVD;
+    final Callable<R> nvS;
+    final a<? extends T> nxM;
     final c<R, ? super T, R> reducer;
 
     @Override // io.reactivex.parallel.a
@@ -21,14 +21,14 @@ public final class ParallelReduce<T, R> extends a<R> {
             org.a.c<? super Object>[] cVarArr2 = new org.a.c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.mTO.call(), "The initialSupplier returned a null value"), this.reducer);
+                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.nvS.call(), "The initialSupplier returned a null value"), this.reducer);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.I(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.mVD.a(cVarArr2);
+            this.nxM.a(cVarArr2);
         }
     }
 
@@ -39,11 +39,11 @@ public final class ParallelReduce<T, R> extends a<R> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int dDW() {
-        return this.mVD.dDW();
+    public int dIg() {
+        return this.nxM.dIg();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ParallelReduceSubscriber<T, R> extends DeferredScalarSubscriber<T, R> {
         private static final long serialVersionUID = 8200530050639449080L;
         R accumulator;
@@ -81,7 +81,7 @@ public final class ParallelReduce<T, R> extends a<R> {
         @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;

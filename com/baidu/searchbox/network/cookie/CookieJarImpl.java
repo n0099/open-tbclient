@@ -7,7 +7,7 @@ import com.baidu.searchbox.network.core.Request;
 import com.baidu.searchbox.network.core.internal.Util;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CookieJarImpl implements CookieJar {
     @Override // com.baidu.searchbox.network.core.CookieJar
     public void saveFromResponse(Request request, List<Cookie> list) {

@@ -3,7 +3,7 @@ package com.baidu.mapapi;
 import android.content.Context;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SDKInitializer {
     public static final String SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR = "network error";
     public static final String SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_ERROR = "permission check error";

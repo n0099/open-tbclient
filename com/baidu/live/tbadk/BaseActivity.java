@@ -34,7 +34,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.SwipeBackLayout;
 import com.baidu.live.adp.widget.listview.IPreLoadListView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.BDLayoutInflateFactory;
 import com.baidu.live.tbadk.core.BDLayoutMode;
 import com.baidu.live.tbadk.core.ICheckPermissionCallback;
@@ -190,6 +190,9 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        if (BdBaseApplication.getInst() == null && TbConfig.sdkInitCallback != null) {
+            TbConfig.sdkInitCallback.initSdk();
+        }
         if (this.isAddSwipeBackLayout) {
             this.mSwipeBackLayout = new SwipeBackLayout(getPageContext().getPageActivity());
             this.mSwipeBackLayout.attachToActivity(getPageContext().getPageActivity());

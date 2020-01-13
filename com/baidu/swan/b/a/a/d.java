@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends com.baidu.swan.b.d.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -24,10 +24,10 @@ public class d extends com.baidu.swan.b.d.a {
             bVar.onFail(31010, "package name is empty");
         } else {
             com.baidu.swan.b.a.f.c.a(optString, "openApp", null, null, null);
-            if (!com.baidu.swan.b.a.c.a.as(AppRuntime.getAppContext(), optString)) {
+            if (!com.baidu.swan.b.a.c.a.at(AppRuntime.getAppContext(), optString)) {
                 bVar.onFail(31011, "app is not installed");
                 com.baidu.swan.b.a.f.c.a(optString, "openApp", LivenessStat.TYPE_FACE_MATCH_FAIL, String.valueOf(31011), null);
-            } else if (com.baidu.swan.b.a.c.a.at(AppRuntime.getAppContext(), optString)) {
+            } else if (com.baidu.swan.b.a.c.a.au(AppRuntime.getAppContext(), optString)) {
                 bVar.K(null);
                 com.baidu.swan.b.a.f.c.a(optString, "openApp", "success", null, null);
             } else {

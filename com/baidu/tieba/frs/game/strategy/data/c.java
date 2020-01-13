@@ -5,10 +5,10 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.v;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public int guA;
-    public List<m> guB;
+    public int gxK;
+    public List<m> gxL;
     public boolean hasMore;
     public String key;
     public int labelId;
@@ -19,9 +19,9 @@ public class c {
         if (v.isEmpty(list)) {
             return 0;
         }
-        if (v.isEmpty(this.guB)) {
-            this.guB = new LinkedList();
-            this.guB.addAll(list);
+        if (v.isEmpty(this.gxL)) {
+            this.gxL = new LinkedList();
+            this.gxL.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             m mVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.guB.size()) {
+                if (i2 >= this.gxL.size()) {
                     z = false;
                     break;
                 }
-                m mVar2 = this.guB.get(i2);
+                m mVar2 = this.gxL.get(i2);
                 if (mVar != null && (mVar instanceof b) && mVar2 != null && (mVar2 instanceof b)) {
-                    bj axx = ((b) mVar).axx();
-                    bj axx2 = ((b) mVar2).axx();
-                    if (axx != null && axx2 != null && axx.getTid() != null && axx2.getTid() != null && axx.getTid().equals(axx2.getTid())) {
+                    bj axQ = ((b) mVar).axQ();
+                    bj axQ2 = ((b) mVar2).axQ();
+                    if (axQ != null && axQ2 != null && axQ.getTid() != null && axQ2.getTid() != null && axQ.getTid().equals(axQ2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            v.addAll(this.guB, 0, linkedList);
+            v.addAll(this.gxL, 0, linkedList);
         }
         return linkedList.size();
     }

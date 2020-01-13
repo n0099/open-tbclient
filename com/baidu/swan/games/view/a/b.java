@@ -4,17 +4,17 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.statistic.f;
 import com.baidu.swan.apps.x.b.b;
 import com.baidu.swan.games.u.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static void bN(String str, String str2) {
+    public static void bO(String str, String str2) {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.ZS() != null && e.ZS().DR() != null) {
-            b.a DR = e.ZS().DR();
-            aVar.mFrom = f.ga(DR.getAppFrameType());
-            aVar.mAppId = DR.getAppId();
-            aVar.mSource = DR.SW();
+        if (e.aap() != null && e.aap().En() != null) {
+            b.a En = e.aap().En();
+            aVar.mFrom = f.gb(En.getAppFrameType());
+            aVar.mAppId = En.getAppId();
+            aVar.mSource = En.Tt();
         }
         f.a("916", aVar);
     }
@@ -23,31 +23,31 @@ public class b {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.ZS() != null && e.ZS().DR() != null) {
-            b.a DR = e.ZS().DR();
-            aVar.mFrom = f.ga(DR.getAppFrameType());
-            aVar.mAppId = DR.getAppId();
-            aVar.mSource = DR.SW();
+        if (e.aap() != null && e.aap().En() != null) {
+            b.a En = e.aap().En();
+            aVar.mFrom = f.gb(En.getAppFrameType());
+            aVar.mAppId = En.getAppId();
+            aVar.mSource = En.Tt();
         }
         aVar.mErrorCode = str3;
         f.a("916", aVar);
     }
 
-    public static void pA(String str) {
+    public static void pD(String str) {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = "show";
-        if (e.ZS() != null && e.ZS().DR() != null) {
-            b.a DR = e.ZS().DR();
-            aVar.mFrom = f.ga(DR.getAppFrameType());
-            aVar.mAppId = DR.getAppId();
-            aVar.mSource = DR.SW();
+        if (e.aap() != null && e.aap().En() != null) {
+            b.a En = e.aap().En();
+            aVar.mFrom = f.gb(En.getAppFrameType());
+            aVar.mAppId = En.getAppId();
+            aVar.mSource = En.Tt();
         }
-        aVar.n("early", anP() ? "0" : "1");
+        aVar.n("early", aoi() ? "0" : "1");
         f.a("916", aVar);
     }
 
-    private static boolean anP() {
-        return d.amX() > 0 && com.baidu.swan.games.glsurface.a.b.alM() && System.currentTimeMillis() - d.amX() > 6000;
+    private static boolean aoi() {
+        return d.anq() > 0 && com.baidu.swan.games.glsurface.a.b.amf() && System.currentTimeMillis() - d.anq() > 6000;
     }
 }

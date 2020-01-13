@@ -6,8 +6,8 @@ public class b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static Bundle Ca() {
-            return IPCServiceManager.Ca();
+        public static Bundle Cw() {
+            return IPCServiceManager.Cw();
         }
     }
 }

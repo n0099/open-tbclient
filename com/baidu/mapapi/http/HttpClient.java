@@ -16,7 +16,7 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HttpClient {
     public static boolean isHttpsEnable = false;
     HttpURLConnection a;
@@ -27,7 +27,7 @@ public class HttpClient {
     private String f;
     private ProtoResultCallback g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum HttpStateError {
         NO_ERROR,
         NETWORK_ERROR,
@@ -36,7 +36,7 @@ public class HttpClient {
         SERVER_ERROR
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class ProtoResultCallback {
         public abstract void onFailed(HttpStateError httpStateError);
 

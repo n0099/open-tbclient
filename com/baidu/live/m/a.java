@@ -1,20 +1,35 @@
 package com.baidu.live.m;
 
-import android.view.ViewGroup;
-import com.baidu.live.data.k;
+import android.content.Context;
 /* loaded from: classes2.dex */
-public interface a {
-    void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+public class a {
+    public String aeS;
+    public long atd;
+    public Context context;
+    public boolean isHost;
+    public int liveType;
+    public String otherParams;
+    public String portrait;
+    public long userId;
+    public String userName;
 
-    void a(k kVar);
+    public a(Context context, int i, long j, boolean z, String str) {
+        this.context = context;
+        this.liveType = i;
+        this.userId = j;
+        this.isHost = z;
+        this.portrait = str;
+        this.otherParams = "";
+    }
 
-    void b(ViewGroup.LayoutParams layoutParams);
-
-    void bN(int i);
-
-    void release();
-
-    void setCanVisible(boolean z);
-
-    void th();
+    public a(Context context, int i, long j, boolean z, String str, String str2, String str3, long j2) {
+        this.context = context;
+        this.liveType = i;
+        this.userId = j;
+        this.isHost = z;
+        this.portrait = str;
+        this.otherParams = str2;
+        this.aeS = str3;
+        this.atd = j2;
+    }
 }

@@ -5,25 +5,25 @@ import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.util.Log;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private f aFj;
-    private volatile boolean aGk = false;
+    private f aGb;
+    private volatile boolean aHc = false;
     private MediaMuxer mMediaMuxer;
 
-    public boolean AO() {
-        return this.aGk;
+    public boolean Bk() {
+        return this.aHc;
     }
 
     public boolean a(String str, int i, f fVar) {
-        if (!com.baidu.mario.a.c.a.eh(str)) {
-            com.baidu.mario.a.c.a.eg(str);
+        if (!com.baidu.mario.a.c.a.ek(str)) {
+            com.baidu.mario.a.c.a.ej(str);
         }
         try {
             this.mMediaMuxer = new MediaMuxer(str, i);
-            this.aFj = fVar;
-            this.aGk = false;
+            this.aGb = fVar;
+            this.aHc = false;
             return true;
         } catch (Exception e) {
             Log.e(TAG, "initMovieMuxer init error!!!");
@@ -51,18 +51,18 @@ public class e {
         return i;
     }
 
-    public synchronized void AP() {
+    public synchronized void Bl() {
         boolean z = true;
         synchronized (this) {
             try {
                 this.mMediaMuxer.start();
-                this.aGk = true;
+                this.aHc = true;
             } catch (Exception e) {
                 Log.e(TAG, "startMuxer error!!!");
                 z = false;
             }
-            if (this.aFj != null) {
-                this.aFj.bt(z);
+            if (this.aGb != null) {
+                this.aGb.by(z);
             }
         }
     }
@@ -79,24 +79,24 @@ public class e {
         return false;
     }
 
-    public synchronized void AQ() {
+    public synchronized void Bm() {
         boolean z = false;
         synchronized (this) {
             try {
                 this.mMediaMuxer.stop();
-                this.aGk = false;
+                this.aHc = false;
                 z = true;
             } catch (Exception e) {
                 Log.e(TAG, "stopMuxer error!!!");
             }
-            if (this.aFj != null) {
-                this.aFj.bu(z);
+            if (this.aGb != null) {
+                this.aGb.bz(z);
             }
         }
     }
 
-    public void AR() {
-        if (!this.aGk) {
+    public void Bn() {
+        if (!this.aHc) {
             this.mMediaMuxer.release();
             this.mMediaMuxer = null;
         }

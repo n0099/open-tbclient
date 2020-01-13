@@ -13,11 +13,11 @@ import java.io.FileInputStream;
 import java.lang.reflect.Method;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     private static final String SPLASH = File.separator;
-    private static final String cBQ = "zeus" + SPLASH + "libs" + SPLASH;
-    private Method cBS;
+    private static final String cCb = "zeus" + SPLASH + "libs" + SPLASH;
+    private Method cCd;
     private Context mContext;
     private JSONObject mJson_elf;
     private JSONObject mJson_meta;
@@ -34,12 +34,12 @@ public class d {
     private int mOffset_7z = 0;
     private boolean mHooked = false;
     private String mTempPath = null;
-    private boolean cBR = false;
+    private boolean cCc = false;
 
     private void init() {
         try {
-            System.load(aue() + "libzeuslzma.so");
-            this.cBR = true;
+            System.load(aux() + "libzeuslzma.so");
+            this.cCc = true;
         } catch (Throwable th) {
         }
     }
@@ -49,37 +49,37 @@ public class d {
         init();
     }
 
-    private boolean atX() {
+    private boolean auq() {
         try {
             byte[] bArr = new byte[64];
-            new FileInputStream(aud()).read(bArr);
+            new FileInputStream(auw()).read(bArr);
             return new String(bArr, "UTF-8").startsWith("zeusmeta");
         } catch (Exception e) {
             return false;
         }
     }
 
-    public boolean atY() {
-        if (atX()) {
-            if (this.cBR && atZ() && isEnoughSpace(this.m7zTotal)) {
+    public boolean aur() {
+        if (auq()) {
+            if (this.cCc && aus() && isEnoughSpace(this.m7zTotal)) {
                 hook(true);
-                return aua() && auc() && aub();
+                return aut() && auv() && auu();
             }
             return false;
         }
         return true;
     }
 
-    private boolean atZ() {
+    private boolean aus() {
         FileInputStream fileInputStream;
         Throwable th;
         FileInputStream fileInputStream2 = null;
-        String aud = aud();
-        if (!new File(aud).exists()) {
+        String auw = auw();
+        if (!new File(auw).exists()) {
             return false;
         }
         try {
-            fileInputStream = new FileInputStream(aud);
+            fileInputStream = new FileInputStream(auw);
             try {
                 byte[] bArr = new byte[512];
                 fileInputStream.read(bArr);
@@ -109,7 +109,7 @@ public class d {
                 this.m7zSizes = new int[this.m7zCount];
                 this.m7zOffsets = new int[this.m7zCount];
                 this.m7zSzOffsets = new int[this.m7zCount];
-                this.m7zFile = aud();
+                this.m7zFile = auw();
                 JSONArray jSONArray2 = this.mJson_meta.getJSONArray("offsets");
                 JSONArray jSONArray3 = this.mJson_meta.getJSONArray("szoffsets");
                 this.m7zOffsets[0] = 0;
@@ -154,8 +154,8 @@ public class d {
         }
     }
 
-    private boolean aua() {
-        File file = new File(aue());
+    private boolean aut() {
+        File file = new File(aux());
         if (file.exists()) {
             return true;
         }
@@ -180,7 +180,7 @@ public class d {
         }
     }
 
-    private boolean aub() {
+    private boolean auu() {
         if (this.m7zCount > 0 && this.m7zTotal > 0) {
             int i = this.m7zCount;
             int i2 = this.m7zTotal;
@@ -192,8 +192,8 @@ public class d {
                 this.mMinAddr = 0;
                 this.mMaxAddr = this.m7zTotal;
             }
-            String str2 = aue() + GlobalConstants.LIB_ZEUS_CHROMIUM;
-            String str3 = aue() + GlobalConstants.LIB_ZEUS_CHROMIUM + ".tmp";
+            String str2 = aux() + GlobalConstants.LIB_ZEUS_CHROMIUM;
+            String str3 = aux() + GlobalConstants.LIB_ZEUS_CHROMIUM + ".tmp";
             int doInit = doInit(this.mTempPath, str3, this.m7zTotal, this.mMinAddr, this.mMaxAddr, this.mHooked ? 1 : 0);
             if (doInit != 0) {
                 return false;
@@ -211,15 +211,15 @@ public class d {
             }
             deleteDir(new File(this.mTempPath));
             if (!this.mHooked) {
-                doInit = auf();
+                doInit = auy();
             }
             return doInit == 0;
         }
         return true;
     }
 
-    private boolean auc() {
-        this.mTempPath = aue() + "temp";
+    private boolean auv() {
+        this.mTempPath = aux() + "temp";
         File file = new File(this.mTempPath);
         return file.exists() ? deleteDir(file) : file.mkdirs();
     }
@@ -235,12 +235,12 @@ public class d {
         }
     }
 
-    private String aud() {
-        return aue() + SPLASH + GlobalConstants.LIB_ZEUS_CHROMIUM;
+    private String auw() {
+        return aux() + SPLASH + GlobalConstants.LIB_ZEUS_CHROMIUM;
     }
 
-    private String aue() {
-        return this.mContext.getFilesDir() + SPLASH + cBQ;
+    private String aux() {
+        return this.mContext.getFilesDir() + SPLASH + cCb;
     }
 
     private boolean deleteDir(File file) {
@@ -291,16 +291,16 @@ public class d {
 
     private void a(AssetManager assetManager, String str, int i, int i2, int i3) {
         SevenZipUtils sevenZipUtils = SevenZipUtils.getInstance();
-        if (this.cBS == null) {
+        if (this.cCd == null) {
             try {
-                this.cBS = SevenZipUtils.class.getDeclaredMethod("decodeAndMerge", AssetManager.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                this.cCd = SevenZipUtils.class.getDeclaredMethod("decodeAndMerge", AssetManager.class, String.class, Integer.TYPE, Integer.TYPE, Integer.TYPE);
             } catch (Exception e) {
             }
         }
-        if (this.cBS != null) {
+        if (this.cCd != null) {
             try {
-                this.cBS.setAccessible(true);
-                this.cBS.invoke(sevenZipUtils, assetManager, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
+                this.cCd.setAccessible(true);
+                this.cCd.invoke(sevenZipUtils, assetManager, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
             } catch (Exception e2) {
             }
         }
@@ -317,7 +317,7 @@ public class d {
         }
     }
 
-    private int auf() {
+    private int auy() {
         SevenZipUtils sevenZipUtils = SevenZipUtils.getInstance();
         try {
             Method declaredMethod = SevenZipUtils.class.getDeclaredMethod("submit", new Class[0]);

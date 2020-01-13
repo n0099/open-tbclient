@@ -9,7 +9,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.t.e;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends ab {
     public f(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/debugSwanCore");
@@ -30,24 +30,24 @@ public class f extends ab {
             }
             com.baidu.swan.apps.t.e.a(optString, new e.b() { // from class: com.baidu.swan.apps.scheme.actions.f.1
                 @Override // com.baidu.swan.apps.t.e.b
-                public void cG(int i) {
+                public void cH(int i) {
                 }
 
                 @Override // com.baidu.swan.apps.t.e.b
                 public void onSuccess() {
-                    File Pj = com.baidu.swan.apps.swancore.c.a.Pj();
-                    File Ph = com.baidu.swan.apps.swancore.c.a.Ph();
-                    if (Pj.exists() && com.baidu.swan.d.c.unzipFile(Pj.getPath(), Ph.getPath())) {
-                        com.baidu.swan.apps.ah.a.a.da(true);
-                        Toast.makeText(com.baidu.swan.apps.w.a.Rk(), a.h.aiapps_debug_swan_core_download_success, 1).show();
+                    File PF = com.baidu.swan.apps.swancore.c.a.PF();
+                    File PD = com.baidu.swan.apps.swancore.c.a.PD();
+                    if (PF.exists() && com.baidu.swan.d.c.unzipFile(PF.getPath(), PD.getPath())) {
+                        com.baidu.swan.apps.ah.a.a.df(true);
+                        Toast.makeText(com.baidu.swan.apps.w.a.RG(), a.h.aiapps_debug_swan_core_download_success, 1).show();
                         return;
                     }
-                    Toast.makeText(com.baidu.swan.apps.w.a.Rk(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
+                    Toast.makeText(com.baidu.swan.apps.w.a.RG(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
                 }
 
                 @Override // com.baidu.swan.apps.t.e.b
                 public void onFailed() {
-                    Toast.makeText(com.baidu.swan.apps.w.a.Rk(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
+                    Toast.makeText(com.baidu.swan.apps.w.a.RG(), a.h.aiapps_debug_swan_core_download_failed, 1).show();
                 }
             });
             return true;

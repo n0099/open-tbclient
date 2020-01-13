@@ -1,8 +1,8 @@
 package com.baidu.swan.games.p;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [29=5] */
-    public static final Integer oY(String str) {
+    public static final Integer pb(String str) {
         if (str != null) {
             switch (str.hashCode()) {
                 case -1727084929:

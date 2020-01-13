@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class h {
-    private String EL;
-    private String bCy;
-    private int cAC;
-    private JSONObject cAD;
-    private String cAE;
-    private boolean cAF;
+    private String ER;
+    private String bDj;
+    private int cAN;
+    private JSONObject cAO;
+    private String cAP;
+    private boolean cAQ;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -20,30 +20,30 @@ public class h {
 
     public h(String str, String str2, int i) {
         this.mContent = "";
-        this.cAF = false;
-        this.EL = "";
+        this.cAQ = false;
+        this.ER = "";
         this.mId = str;
-        this.bCy = str;
-        this.cAC = -1;
+        this.bDj = str;
+        this.cAN = -1;
         this.mContent = str2;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.cAD = new JSONObject(this.mContent);
+            this.cAO = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public h(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.cAF = false;
-        this.EL = "";
+        this.cAQ = false;
+        this.ER = "";
         this.mId = str;
-        this.bCy = str;
-        this.cAC = -1;
-        this.cAD = jSONObject;
+        this.bDj = str;
+        this.cAN = -1;
+        this.cAO = jSONObject;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
@@ -52,29 +52,29 @@ public class h {
 
     public h(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.cAF = false;
-        this.EL = "";
+        this.cAQ = false;
+        this.ER = "";
         this.mId = str2;
-        this.bCy = str;
-        this.cAC = i;
+        this.bDj = str;
+        this.cAN = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.cAD = new JSONObject(this.mContent);
+            this.cAO = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public h(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.cAF = false;
-        this.EL = "";
+        this.cAQ = false;
+        this.ER = "";
         this.mId = str2;
-        this.bCy = str;
-        this.cAC = i;
+        this.bDj = str;
+        this.cAN = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -86,7 +86,7 @@ public class h {
         }
         if (!TextUtils.isEmpty(this.mContent)) {
             try {
-                this.cAD = new JSONObject(this.mContent);
+                this.cAO = new JSONObject(this.mContent);
             } catch (JSONException e) {
             }
         }
@@ -96,12 +96,12 @@ public class h {
         return this.mId;
     }
 
-    public String WL() {
-        return this.bCy;
+    public String Xi() {
+        return this.bDj;
     }
 
-    public int asM() {
-        return this.cAC;
+    public int atf() {
+        return this.cAN;
     }
 
     public String getContent() {
@@ -116,8 +116,8 @@ public class h {
         return this.mOption;
     }
 
-    public String asN() {
-        return this.cAE;
+    public String atg() {
+        return this.cAP;
     }
 
     public void setCategory(String str) {
@@ -128,29 +128,29 @@ public class h {
         return this.mCategory;
     }
 
-    public JSONObject asO() {
-        return this.cAD;
+    public JSONObject ath() {
+        return this.cAO;
     }
 
     public String getFileName() {
-        return this.EL;
+        return this.ER;
     }
 
-    public String asP() {
-        return this.cAD != null ? this.cAD.optString("bizId") : "";
+    public String ati() {
+        return this.cAO != null ? this.cAO.optString("bizId") : "";
     }
 
-    public void eS(boolean z) {
-        this.cAF = z;
+    public void eX(boolean z) {
+        this.cAQ = z;
     }
 
-    public boolean asK() {
-        return this.cAF;
+    public boolean atd() {
+        return this.cAQ;
     }
 
-    public void asQ() {
-        if (this.mId != null && this.mId.equals(this.bCy) && d.asz().qy(this.mId)) {
-            this.cAE = s.atk().WD();
+    public void atj() {
+        if (this.mId != null && this.mId.equals(this.bDj) && d.asS().qB(this.mId)) {
+            this.cAP = s.atD().Xa();
         }
     }
 }

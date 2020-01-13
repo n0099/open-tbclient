@@ -6,7 +6,7 @@ import com.baidu.searchbox.network.core.MediaType;
 import com.baidu.searchbox.network.core.Request;
 import com.baidu.searchbox.network.core.RequestBody;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PutFormRequest extends HttpParaRequest<PutFormRequestBuilder> {
     public PutFormRequest(PutFormRequestBuilder putFormRequestBuilder) {
         super(putFormRequestBuilder);
@@ -41,7 +41,7 @@ public class PutFormRequest extends HttpParaRequest<PutFormRequestBuilder> {
         return this.okRequestBuilder.put(requestBody).build();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class PutFormRequestBuilder extends HttpRequestParasBuilder<PutFormRequestBuilder> {
         public PutFormRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);

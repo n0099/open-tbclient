@@ -11,21 +11,21 @@ import com.baidu.live.adp.base.IScrollableHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.bottompanel.AlaAudienceLiveRoomBottomPanelView;
 import com.baidu.live.liveroom.c.e;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UrlManager;
 /* loaded from: classes2.dex */
 public class a {
-    private FrameLayout Uf;
-    private ImageView Ug;
-    private TextView Uh;
-    private AlaAudienceLiveRoomBottomPanelView.a Ui;
-    private e Uj;
+    private FrameLayout Uv;
+    private ImageView Uw;
+    private TextView Ux;
+    private AlaAudienceLiveRoomBottomPanelView.a Uy;
+    private e Uz;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.Ug && a.this.Ui != null) {
-                a.this.Ui.oO();
+            if (view == a.this.Uw && a.this.Uy != null) {
+                a.this.Uy.oV();
             }
         }
     };
@@ -35,7 +35,7 @@ public class a {
 
     public a(Context context, AlaAudienceLiveRoomBottomPanelView.a aVar) {
         this.mContext = context;
-        this.Ui = aVar;
+        this.Uy = aVar;
         createView();
     }
 
@@ -43,21 +43,21 @@ public class a {
         if (this.mRootView == null) {
             this.mRootView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.h.sdk_live_room_bottom_panel_shell_layout, (ViewGroup) null);
         }
-        this.Uf = (FrameLayout) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_top_layout);
-        this.Ug = (ImageView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_back_btn);
-        this.Ug.setOnClickListener(this.mClickListener);
+        this.Uv = (FrameLayout) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_top_layout);
+        this.Uw = (ImageView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_back_btn);
+        this.Uw.setOnClickListener(this.mClickListener);
         this.mTitleView = (TextView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_title);
-        this.Uh = (TextView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_entry);
+        this.Ux = (TextView) this.mRootView.findViewById(a.g.ala_live_room_bottom_panel_entry);
         if (this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
-        this.Uh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.2
+        this.Ux.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.bottompanel.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.Uj != null && !StringUtils.isNull(a.this.Uj.uk())) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{a.this.Uj.uk()}, true);
+                if (a.this.Uz != null && !StringUtils.isNull(a.this.Uz.uB())) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{a.this.Uz.uB()}, true);
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.r.a.wA().arE.Xz}, true);
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(a.this.mContext), new String[]{com.baidu.live.s.a.wR().asq.XS}, true);
                 }
             }
         });
@@ -68,9 +68,9 @@ public class a {
     }
 
     public void reset() {
-        if (this.Uj != null && this.Uj.uj() != null && this.mRootView.indexOfChild(this.Uj.uj()) >= 0) {
-            this.mRootView.removeView(this.Uj.uj());
+        if (this.Uz != null && this.Uz.uA() != null && this.mRootView.indexOfChild(this.Uz.uA()) >= 0) {
+            this.mRootView.removeView(this.Uz.uA());
         }
-        this.Uj = null;
+        this.Uz = null;
     }
 }

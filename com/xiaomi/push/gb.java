@@ -4,14 +4,14 @@ import android.os.Bundle;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class gb extends gd {
     private a a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Map<String, String> f408a;
+    private final Map<String, String> f406a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static final a a = new a("get");
         public static final a b = new a("set");
@@ -20,10 +20,10 @@ public class gb extends gd {
         public static final a e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
-        private String f409a;
+        private String f407a;
 
         private a(String str) {
-            this.f409a = str;
+            this.f407a = str;
         }
 
         public static a a(String str) {
@@ -50,19 +50,19 @@ public class gb extends gd {
         }
 
         public String toString() {
-            return this.f409a;
+            return this.f407a;
         }
     }
 
     public gb() {
         this.a = a.a;
-        this.f408a = new HashMap();
+        this.f406a = new HashMap();
     }
 
     public gb(Bundle bundle) {
         super(bundle);
         this.a = a.a;
-        this.f408a = new HashMap();
+        this.f406a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
             this.a = a.a(bundle.getString("ext_iq_type"));
         }
@@ -98,7 +98,7 @@ public class gb extends gd {
         if (k() != null) {
             sb.append("chid=\"").append(go.a(k())).append("\" ");
         }
-        for (Map.Entry<String, String> entry : this.f408a.entrySet()) {
+        for (Map.Entry<String, String> entry : this.f406a.entrySet()) {
             sb.append(go.a(entry.getKey())).append("=\"");
             sb.append(go.a(entry.getValue())).append("\" ");
         }
@@ -114,7 +114,7 @@ public class gb extends gd {
         sb.append(o());
         gh a2 = a();
         if (a2 != null) {
-            sb.append(a2.m293a());
+            sb.append(a2.m302a());
         }
         sb.append("</iq>");
         return sb.toString();
@@ -129,7 +129,7 @@ public class gb extends gd {
     }
 
     public synchronized void a(Map<String, String> map) {
-        this.f408a.putAll(map);
+        this.f406a.putAll(map);
     }
 
     @Override // com.xiaomi.push.gd

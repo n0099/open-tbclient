@@ -2,22 +2,22 @@ package com.google.android.exoplayer2.source.dash.manifest;
 
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e {
     public final String id;
-    public final List<a> mqA;
-    public final long mqz;
+    public final long muo;
+    public final List<a> mup;
 
     public e(String str, long j, List<a> list) {
         this.id = str;
-        this.mqz = j;
-        this.mqA = Collections.unmodifiableList(list);
+        this.muo = j;
+        this.mup = Collections.unmodifiableList(list);
     }
 
-    public int KO(int i) {
-        int size = this.mqA.size();
+    public int KX(int i) {
+        int size = this.mup.size();
         for (int i2 = 0; i2 < size; i2++) {
-            if (this.mqA.get(i2).type == i) {
+            if (this.mup.get(i2).type == i) {
                 return i2;
             }
         }

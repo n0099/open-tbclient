@@ -12,7 +12,7 @@ import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
 import com.baidu.mapsdkplatform.comapi.util.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements PermissionCheck.c {
     private static a f;
     private Context b;

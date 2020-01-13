@@ -4,33 +4,33 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private static c cBM;
-    private boolean cBN = false;
+    private static c cBX;
+    private boolean cBY = false;
     private List<a> mListeners = new ArrayList();
 
     private c() {
     }
 
-    public static c atS() {
-        if (cBM == null) {
+    public static c aul() {
+        if (cBX == null) {
             synchronized (c.class) {
-                if (cBM == null) {
-                    cBM = new c();
+                if (cBX == null) {
+                    cBX = new c();
                 }
             }
         }
-        return cBM;
+        return cBX;
     }
 
-    public synchronized void atT() {
-        if (!this.cBN) {
-            if (b.atM()) {
-                atU();
+    public synchronized void aum() {
+        if (!this.cBY) {
+            if (b.auf()) {
+                aun();
             } else {
-                this.cBN = true;
-                com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.atP(), b.atO()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.e.c.1
+                this.cBY = true;
+                com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.aui(), b.auh()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.e.c.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.a.e
                     /* renamed from: j */
@@ -39,12 +39,12 @@ public class c {
                     }
 
                     @Override // com.baidu.swan.a.e
-                    public void A(int i, String str) {
-                        c.this.cBN = false;
+                    public void C(int i, String str) {
+                        c.this.cBY = false;
                         if (i == 1010) {
-                            c.this.atU();
+                            c.this.aun();
                         } else {
-                            c.this.atV();
+                            c.this.auo();
                         }
                     }
 
@@ -71,7 +71,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void atU() {
+    public synchronized void aun() {
         for (a aVar : this.mListeners) {
             aVar.onSuccess();
         }
@@ -79,7 +79,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void atV() {
+    public synchronized void auo() {
         for (a aVar : this.mListeners) {
             aVar.onFail();
         }
@@ -96,10 +96,10 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void g(com.baidu.swan.a.a.c cVar) {
         if (e.k(cVar)) {
-            b.eV(true);
+            b.fa(true);
             h(cVar);
         } else {
-            b.eV(false);
+            b.fa(false);
             i(cVar);
         }
     }
@@ -112,31 +112,31 @@ public class c {
 
             @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
             public void onInstallFinish(int i, String str) {
-                if (!c.this.atW()) {
-                    c.this.cBN = false;
-                    c.this.atV();
+                if (!c.this.aup()) {
+                    c.this.cBY = false;
+                    c.this.auo();
                     return;
                 }
                 b.W(cVar.versionName, cVar.versionCode);
-                c.this.cBN = false;
-                c.this.atU();
+                c.this.cBY = false;
+                c.this.aun();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized boolean atW() {
-        return new d(AppRuntime.getAppContext()).atY();
+    public synchronized boolean aup() {
+        return new d(AppRuntime.getAppContext()).aur();
     }
 
     private synchronized void i(com.baidu.swan.a.a.c cVar) {
-        if (e.unzipFile(cVar.filePath, b.bmi)) {
+        if (e.unzipFile(cVar.filePath, b.bmY)) {
             b.W(cVar.versionName, cVar.versionCode);
-            this.cBN = false;
-            atU();
+            this.cBY = false;
+            aun();
         } else {
-            this.cBN = false;
-            atV();
+            this.cBY = false;
+            auo();
         }
     }
 }

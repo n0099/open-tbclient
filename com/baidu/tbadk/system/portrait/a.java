@@ -11,43 +11,43 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends BaseAdapter {
-    private TbPageContext<?> cQU;
-    private ArrayList<b> dBJ;
-    private int dBL;
-    private int dBM;
+    private TbPageContext<?> cRe;
+    private ArrayList<b> dBT;
+    private int dBV;
+    private int dBW;
     private int padding;
-    private int dBC = -1;
+    private int dBM = -1;
     private int rowSize = 0;
-    private int dab = am.getColor(R.color.common_color_10043);
-    private int dBK = am.getColor(R.color.cp_link_tip_a);
+    private int dal = am.getColor(R.color.common_color_10043);
+    private int dBU = am.getColor(R.color.cp_link_tip_a);
 
     public a(TbPageContext<?> tbPageContext) {
-        this.dBJ = null;
-        this.cQU = null;
+        this.dBT = null;
+        this.cRe = null;
         this.padding = 0;
-        this.cQU = tbPageContext;
-        this.dBJ = new ArrayList<>();
-        this.dBL = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds1);
-        this.dBM = l.getDimens(this.cQU.getPageActivity(), R.dimen.ds4);
-        this.padding = l.getDimens(this.cQU.getPageActivity(), R.dimen.ds36);
+        this.cRe = tbPageContext;
+        this.dBT = new ArrayList<>();
+        this.dBV = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds1);
+        this.dBW = l.getDimens(this.cRe.getPageActivity(), R.dimen.ds4);
+        this.padding = l.getDimens(this.cRe.getPageActivity(), R.dimen.ds36);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dBJ != null) {
-            return this.dBJ.size();
+        if (this.dBT != null) {
+            return this.dBT.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.dBJ == null || i >= this.dBJ.size()) {
+        if (this.dBT == null || i >= this.dBT.size()) {
             return null;
         }
-        return this.dBJ.get(i);
+        return this.dBT.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,37 +57,37 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0383a c0383a;
+        C0385a c0385a;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = LayoutInflater.from(this.cQU.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
-            c0383a = new C0383a();
-            c0383a.doQ = (LinearLayout) view.findViewById(R.id.photo_container);
-            c0383a.dBN = (TbImageView) view.findViewById(R.id.photo);
+            view = LayoutInflater.from(this.cRe.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
+            c0385a = new C0385a();
+            c0385a.dpb = (LinearLayout) view.findViewById(R.id.photo_container);
+            c0385a.dBX = (TbImageView) view.findViewById(R.id.photo);
         } else {
-            c0383a = (C0383a) view.getTag();
+            c0385a = (C0385a) view.getTag();
         }
         if (my(i) == 1) {
-            c0383a.doQ.setPadding(0, this.padding, 0, 0);
+            c0385a.dpb.setPadding(0, this.padding, 0, 0);
         } else if (my(i) == 2) {
-            c0383a.doQ.setPadding(0, 0, 0, this.padding);
+            c0385a.dpb.setPadding(0, 0, 0, this.padding);
         } else {
-            c0383a.doQ.setPadding(0, 0, 0, 0);
+            c0385a.dpb.setPadding(0, 0, 0, 0);
         }
-        c0383a.dBN.setDrawerType(0);
-        c0383a.dBN.setBorderSurroundContent(true);
-        c0383a.dBN.setDrawBorder(true);
+        c0385a.dBX.setDrawerType(0);
+        c0385a.dBX.setBorderSurroundContent(true);
+        c0385a.dBX.setDrawBorder(true);
         if (itemViewType == 0) {
-            c0383a.dBN.setBorderColor(this.dab);
-            c0383a.dBN.setBorderWidth(this.dBL);
+            c0385a.dBX.setBorderColor(this.dal);
+            c0385a.dBX.setBorderWidth(this.dBV);
         } else {
-            c0383a.dBN.setBorderColor(this.dBK);
-            c0383a.dBN.setBorderWidth(this.dBM);
+            c0385a.dBX.setBorderColor(this.dBU);
+            c0385a.dBX.setBorderWidth(this.dBW);
         }
-        c0383a.dBN.setDefaultResource(R.drawable.transparent_bg);
-        c0383a.dBN.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        c0383a.dBN.startLoad(this.dBJ.get(i).getUrl(), 10, false);
-        view.setTag(c0383a);
+        c0385a.dBX.setDefaultResource(R.drawable.transparent_bg);
+        c0385a.dBX.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        c0385a.dBX.startLoad(this.dBT.get(i).getUrl(), 10, false);
+        view.setTag(c0385a);
         return view;
     }
 
@@ -103,7 +103,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return i == this.dBC ? 1 : 0;
+        return i == this.dBM ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -112,7 +112,7 @@ public class a extends BaseAdapter {
     }
 
     public void F(ArrayList<b> arrayList) {
-        this.dBJ = arrayList;
+        this.dBT = arrayList;
         if (arrayList != null) {
             if (arrayList.size() % 4 == 0) {
                 this.rowSize = arrayList.size() / 4;
@@ -123,16 +123,16 @@ public class a extends BaseAdapter {
     }
 
     public void mz(int i) {
-        this.dBC = i;
+        this.dBM = i;
     }
 
     /* renamed from: com.baidu.tbadk.system.portrait.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    private class C0383a {
-        TbImageView dBN;
-        LinearLayout doQ;
+    /* loaded from: classes6.dex */
+    private class C0385a {
+        TbImageView dBX;
+        LinearLayout dpb;
 
-        private C0383a() {
+        private C0385a() {
         }
     }
 }

@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.h;
-import io.reactivex.internal.a.f;
+import io.reactivex.c.h;
+import io.reactivex.internal.a.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.internal.util.ErrorMode;
@@ -10,24 +10,24 @@ import io.reactivex.u;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableConcatMap<T, U> extends a<T, U> {
     final int bufferSize;
-    final ErrorMode mVb;
     final h<? super T, ? extends t<? extends U>> mapper;
+    final ErrorMode nxk;
 
     @Override // io.reactivex.q
     public void a(u<? super U> uVar) {
         if (!ObservableScalarXMap.a(this.source, uVar, this.mapper)) {
-            if (this.mVb == ErrorMode.IMMEDIATE) {
+            if (this.nxk == ErrorMode.IMMEDIATE) {
                 this.source.subscribe(new SourceObserver(new io.reactivex.observers.b(uVar), this.mapper, this.bufferSize));
             } else {
-                this.source.subscribe(new ConcatMapDelayErrorObserver(uVar, this.mapper, this.bufferSize, this.mVb == ErrorMode.END));
+                this.source.subscribe(new ConcatMapDelayErrorObserver(uVar, this.mapper, this.bufferSize, this.nxk == ErrorMode.END));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class SourceObserver<T, U> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 8828587559905699186L;
         volatile boolean active;
@@ -38,7 +38,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
         int fusionMode;
         final InnerObserver<U> inner;
         final h<? super T, ? extends t<? extends U>> mapper;
-        f<T> queue;
+        g<T> queue;
         io.reactivex.disposables.b s;
 
         SourceObserver(u<? super U> uVar, h<? super T, ? extends t<? extends U>> hVar, int i) {
@@ -87,7 +87,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;
@@ -165,7 +165,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class InnerObserver<U> extends AtomicReference<io.reactivex.disposables.b> implements u<U> {
             private static final long serialVersionUID = -7449079488798789337L;
             final u<? super U> actual;
@@ -203,7 +203,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ConcatMapDelayErrorObserver<T, R> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -6951100001833242599L;
         volatile boolean active;
@@ -215,7 +215,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
         final AtomicThrowable error = new AtomicThrowable();
         final h<? super T, ? extends t<? extends R>> mapper;
         final DelayErrorInnerObserver<R> observer;
-        f<T> queue;
+        g<T> queue;
         int sourceMode;
         final boolean tillTheEnd;
 
@@ -268,7 +268,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u
@@ -292,22 +292,22 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
         void drain() {
             if (getAndIncrement() == 0) {
                 u<? super R> uVar = this.actual;
-                f<T> fVar = this.queue;
+                g<T> gVar = this.queue;
                 AtomicThrowable atomicThrowable = this.error;
                 while (true) {
                     if (!this.active) {
                         if (this.cancelled) {
-                            fVar.clear();
+                            gVar.clear();
                             return;
                         } else if (!this.tillTheEnd && atomicThrowable.get() != null) {
-                            fVar.clear();
+                            gVar.clear();
                             this.cancelled = true;
                             uVar.onError(atomicThrowable.terminate());
                             return;
                         } else {
                             boolean z = this.done;
                             try {
-                                T poll = fVar.poll();
+                                T poll = gVar.poll();
                                 boolean z2 = poll == null;
                                 if (z && z2) {
                                     this.cancelled = true;
@@ -340,7 +340,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
                                         io.reactivex.exceptions.a.I(th2);
                                         this.cancelled = true;
                                         this.d.dispose();
-                                        fVar.clear();
+                                        gVar.clear();
                                         atomicThrowable.addThrowable(th2);
                                         uVar.onError(atomicThrowable.terminate());
                                         return;
@@ -364,7 +364,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class DelayErrorInnerObserver<R> extends AtomicReference<io.reactivex.disposables.b> implements u<R> {
             private static final long serialVersionUID = 2620149119579502636L;
             final u<? super R> actual;
@@ -396,7 +396,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
                     concatMapDelayErrorObserver.drain();
                     return;
                 }
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
 
             @Override // io.reactivex.u

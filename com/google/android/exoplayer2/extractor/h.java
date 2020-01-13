@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.extractor;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface h {
-    e[] dss();
+    e[] dtE();
 }

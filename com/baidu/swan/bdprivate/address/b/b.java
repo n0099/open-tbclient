@@ -1,7 +1,7 @@
 package com.baidu.swan.bdprivate.address.b;
 
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void K(String str, int i);
 
@@ -9,7 +9,7 @@ public interface b {
 
     void M(String str, int i);
 
-    void afs();
+    void afL();
 
     void b(List<com.baidu.swan.bdprivate.address.c.b> list, int i);
 

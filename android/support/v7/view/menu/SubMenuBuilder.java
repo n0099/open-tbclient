@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     private MenuItemImpl mItem;
     private MenuBuilder mParentMenu;

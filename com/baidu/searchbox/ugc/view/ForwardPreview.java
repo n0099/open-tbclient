@@ -16,7 +16,7 @@ import com.baidu.searchbox.ugc.utils.UiBaseUtils;
 import com.baidu.searchbox.ui.BdBaseImageView;
 import com.baidu.searchbox.ui.drawable.BdPlaceHolderDrawable;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ForwardPreview extends LinearLayout {
     public static final boolean DEBUG = AppConfig.isDebug();
     private LinearLayout mAttachmentContainer;

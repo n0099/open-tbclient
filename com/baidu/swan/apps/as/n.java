@@ -4,16 +4,16 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class n {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String bUb = "aiapps_folder" + File.separator + "feed_back_record.txt";
+    private static final String bUn = "aiapps_folder" + File.separator + "feed_back_record.txt";
 
     public static void E(@NonNull final String str, final boolean z) {
         m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.as.n.1
             @Override // java.lang.Runnable
             public void run() {
-                String str2 = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + n.bUb;
+                String str2 = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + n.bUn;
                 if (n.DEBUG) {
                     Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + str);
                 }

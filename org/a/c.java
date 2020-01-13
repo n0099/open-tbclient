@@ -1,5 +1,5 @@
 package org.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface c<T> {
     void onComplete();
 

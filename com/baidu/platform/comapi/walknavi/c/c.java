@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.c;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends Handler {
     final /* synthetic */ b a;
 

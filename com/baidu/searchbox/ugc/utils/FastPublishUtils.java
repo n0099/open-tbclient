@@ -22,7 +22,7 @@ import com.baidu.searchbox.unitedscheme.NullableCallbackHandler;
 import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FastPublishUtils {
     private static final String FORWARD_SUCCESS = "1";
     private static final boolean DEBUG = AppConfig.isDebug();

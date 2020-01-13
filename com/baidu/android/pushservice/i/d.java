@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.i;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
     private static int c = 1000;
     private static final Object f = new Object();

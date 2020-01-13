@@ -1,7 +1,7 @@
 package com.baidu.ar.npc;
 
 import android.graphics.Bitmap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class m implements Runnable {
     final /* synthetic */ Bitmap a;
     final /* synthetic */ l b;

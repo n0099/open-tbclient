@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BdLightappKernelClient implements INoProGuard, com.baidu.browser.sailor.feature.a.e, com.baidu.browser.sailor.feature.b, BdLightappKernelJsCallback.a {
     private static final String JSACTION_KEY = "jsaction_key";
     public static final long SDCARD_NEED_SPACE = 10485760;
@@ -204,7 +204,7 @@ public abstract class BdLightappKernelClient implements INoProGuard, com.baidu.b
         Intent intent;
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str2, str3);
         bdLightappKernelJsCallback.setCallbackListener(this);
-        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.IC)) {
+        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.II)) {
             bdLightappKernelJsCallback.sendCallBackWithRetCode(2);
             return;
         }
@@ -247,7 +247,7 @@ public abstract class BdLightappKernelClient implements INoProGuard, com.baidu.b
     public void cloudaLaunchGallery(String str, String str2, String str3) {
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str2, str3);
         bdLightappKernelJsCallback.setCallbackListener(this);
-        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.IC)) {
+        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.II)) {
             bdLightappKernelJsCallback.sendCallBackWithRetCode(2);
             return;
         }

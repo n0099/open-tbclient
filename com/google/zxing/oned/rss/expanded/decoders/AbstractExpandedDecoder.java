@@ -5,7 +5,7 @@ import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractExpandedDecoder {
     private final GeneralAppIdDecoder generalDecoder;
     private final BitArray information;
@@ -61,9 +61,9 @@ public abstract class AbstractExpandedDecoder {
                             case 61:
                                 return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_WPA_STATE);
                             case 62:
-                                return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_START_GROUP);
+                                return new AI013x0x1xDecoder(bitArray, "310", "17");
                             case 63:
-                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_START_GROUP);
+                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, "17");
                             default:
                                 throw new IllegalStateException("unknown decoder: " + bitArray);
                         }

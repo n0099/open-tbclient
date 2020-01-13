@@ -9,28 +9,28 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private a.InterfaceC0497a gxT;
-    private SpannableTextView gyK;
+    private SpannableTextView gBU;
+    private a.InterfaceC0501a gBd;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.game_sub_comment_view, (ViewGroup) null);
-        this.gyK = (SpannableTextView) this.mRootView.findViewById(R.id.sub_comment_tv);
-        am.setViewTextColor(this.gyK, (int) R.color.cp_cont_f);
+        this.gBU = (SpannableTextView) this.mRootView.findViewById(R.id.sub_comment_tv);
+        am.setViewTextColor(this.gBU, (int) R.color.cp_cont_f);
     }
 
     public void f(final d dVar) {
         if (dVar != null && dVar.userName != null) {
-            this.gyK.f(dVar);
-            this.gyK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
+            this.gBU.f(dVar);
+            this.gBU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.gxT != null) {
-                        b.this.gxT.c(dVar);
+                    if (b.this.gBd != null) {
+                        b.this.gBd.c(dVar);
                     }
                 }
             });
@@ -41,22 +41,22 @@ public class b {
         return this.mRootView;
     }
 
-    public void setClickListener(a.InterfaceC0497a interfaceC0497a) {
-        this.gxT = interfaceC0497a;
-        this.gyK.setClickListener(interfaceC0497a);
+    public void setClickListener(a.InterfaceC0501a interfaceC0501a) {
+        this.gBd = interfaceC0501a;
+        this.gBU.setClickListener(interfaceC0501a);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a extends v.a {
-        private b gyM;
+        private b gBW;
 
         public a(b bVar) {
             super(bVar.getRootView());
-            this.gyM = bVar;
+            this.gBW = bVar;
         }
 
         public void f(d dVar) {
-            this.gyM.f(dVar);
+            this.gBW.f(dVar);
         }
     }
 }

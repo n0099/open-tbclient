@@ -6,50 +6,50 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g {
-    private BaseFragmentActivity gms;
-    private d iSq;
+    private BaseFragmentActivity gpB;
+    private d iVT;
     private int mSkinType = 3;
 
     public g(BaseFragmentActivity baseFragmentActivity) {
-        this.gms = baseFragmentActivity;
+        this.gpB = baseFragmentActivity;
     }
 
     public void b(com.baidu.tieba.pb.data.f fVar, String str) {
-        if (fVar != null && fVar.chK() != null) {
+        if (fVar != null && fVar.ciS() != null) {
             c(fVar, str);
         }
     }
 
     private void c(com.baidu.tieba.pb.data.f fVar, String str) {
         if (fVar != null) {
-            if (this.iSq == null) {
-                this.iSq = new d(LayoutInflater.from(this.gms.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
+            if (this.iVT == null) {
+                this.iVT = new d(LayoutInflater.from(this.gpB.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.iSq.a(fVar, str);
+            this.iVT.a(fVar, str);
         }
     }
 
-    public View cpK() {
-        if (this.iSq == null) {
+    public View cqR() {
+        if (this.iVT == null) {
             return null;
         }
-        return this.iSq.mRootView;
+        return this.iVT.mRootView;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.iSq != null) {
-                this.iSq.aJJ();
+            if (this.iVT != null) {
+                this.iVT.aKd();
             }
             this.mSkinType = i;
         }
     }
 
     public void e(BdTypeListView bdTypeListView) {
-        if (this.iSq != null) {
-            bdTypeListView.removeHeaderView(this.iSq.mRootView);
+        if (this.iVT != null) {
+            bdTypeListView.removeHeaderView(this.iVT.mRootView);
         }
     }
 }

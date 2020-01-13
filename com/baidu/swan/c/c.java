@@ -1,10 +1,10 @@
 package com.baidu.swan.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private static boolean cBv = true;
-    private static String cBw;
+    private static boolean cBG = true;
+    private static String cBH;
 
-    public static void atv() {
-        cBw = null;
+    public static void atO() {
+        cBH = null;
     }
 }

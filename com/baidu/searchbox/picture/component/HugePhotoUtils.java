@@ -6,7 +6,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class HugePhotoUtils {
     private static final int EGL_CONTEXT_CLIENT_VERSION = 12440;
 

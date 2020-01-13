@@ -19,7 +19,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class HttpsHelper {
     private SSLSocketFactory mSSLSocketFactory;
 
@@ -57,7 +57,7 @@ public final class HttpsHelper {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static class CustomX509TrustManager implements X509TrustManager {
         private List<X509TrustManager> mTrustManagers = new ArrayList();
 

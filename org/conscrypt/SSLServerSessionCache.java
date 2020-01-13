@@ -1,7 +1,7 @@
 package org.conscrypt;
 
 import javax.net.ssl.SSLSession;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 interface SSLServerSessionCache {
     byte[] getSessionData(byte[] bArr);
 

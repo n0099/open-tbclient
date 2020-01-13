@@ -11,11 +11,11 @@ public interface t {
 
     void onDestroy();
 
-    View qX();
+    View rj();
 
-    View qY();
+    View rk();
 
-    void qZ();
+    void rl();
 
-    void ra();
+    void rm();
 }

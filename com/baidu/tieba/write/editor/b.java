@@ -2,49 +2,49 @@ package com.baidu.tieba.write.editor;
 
 import android.content.Context;
 import com.baidu.tbadk.editortools.l;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends l {
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.dta = false;
-        this.dsZ = 3;
-        this.dsh = new EditorInfoContainer(context, str);
-        this.dtb = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
+        this.dtl = false;
+        this.dtk = 3;
+        this.dss = new EditorInfoContainer(context, str);
+        this.dtm = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
     public void setFrom(String str) {
-        if (this.dsh instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dsh).setFrom(str);
+        if (this.dss instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dss).setFrom(str);
         }
     }
 
-    public void bz(String str, int i) {
-        if (this.dsh instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dsh).bz(str, i);
+    public void bA(String str, int i) {
+        if (this.dss instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dss).bA(str, i);
         }
     }
 
-    public void ty(boolean z) {
-        if (this.dsh instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dsh).ty(z);
+    public void tK(boolean z) {
+        if (this.dss instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dss).tK(z);
         }
     }
 
-    public void bwa() {
-        if (this.dsh instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dsh).bwa();
+    public void bxc() {
+        if (this.dss instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dss).bxc();
         }
     }
 
-    public void cSr() {
-        if (this.dsh instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dsh).cSr();
+    public void cTu() {
+        if (this.dss instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dss).cTu();
         }
     }
 
-    public void cSv() {
-        if (this.dsh instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dsh).hide();
+    public void cTy() {
+        if (this.dss instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dss).hide();
         }
     }
 }

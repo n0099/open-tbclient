@@ -16,7 +16,7 @@ import com.baidu.pano.platform.comapi.map.InnerPanoramaView;
 import com.baidu.pano.platform.plugin.indooralbum.IndoorAlbumPlugin;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PanoramaView extends FrameLayout {
     public static final int COORDTYPE_BD09LL = 2;
     public static final int COORDTYPE_BD09MC = 3;
@@ -325,7 +325,7 @@ public class PanoramaView extends FrameLayout {
         this.a.a(this.b);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum ImageDefinition {
         ImageDefinitionLow(3),
         ImageDefinitionMiddle(4),

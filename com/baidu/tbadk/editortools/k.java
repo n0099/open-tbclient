@@ -7,9 +7,9 @@ import com.baidu.tieba.R;
 public class k extends l {
     public k(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_add_title), 30, i);
-        this.dsU = R.drawable.icon_pure_more_title40_svg;
-        this.dsW = true;
-        this.dsX = false;
-        this.dtb = new int[]{56};
+        this.dtf = R.drawable.icon_pure_more_title40_svg;
+        this.dth = true;
+        this.dti = false;
+        this.dtm = new int[]{56};
     }
 }

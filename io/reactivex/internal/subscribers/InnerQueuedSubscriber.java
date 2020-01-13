@@ -1,12 +1,12 @@
 package io.reactivex.internal.subscribers;
 
-import io.reactivex.internal.a.f;
+import io.reactivex.internal.a.g;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.i;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implements j<T>, d {
     private static final long serialVersionUID = 22876611072430776L;
     volatile boolean done;
@@ -15,7 +15,7 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
     final c<T> parent;
     final int prefetch;
     long produced;
-    volatile f<T> queue;
+    volatile g<T> queue;
 
     public InnerQueuedSubscriber(c<T> cVar, int i) {
         this.parent = cVar;
@@ -42,7 +42,7 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
                     return;
                 }
             }
-            this.queue = i.ML(this.prefetch);
+            this.queue = i.Ny(this.prefetch);
             i.a(dVar, this.prefetch);
         }
     }
@@ -104,7 +104,7 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
         this.done = true;
     }
 
-    public f<T> queue() {
+    public g<T> queue() {
         return this.queue;
     }
 }

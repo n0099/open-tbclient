@@ -7,13 +7,13 @@ import android.util.LongSparseArray;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 @SuppressLint({"NewApi"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class g {
-    private static g HM;
-    private LongSparseArray<WeakReference<Bitmap>> HN = new LongSparseArray<>();
+    private static g HR;
+    private LongSparseArray<WeakReference<Bitmap>> HS = new LongSparseArray<>();
     private Context mContext;
     private static final String LOG_TAG = g.class.getSimpleName();
-    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> HO = new HashMap<>();
+    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> HU = new HashMap<>();
 
     private g() {
     }
@@ -21,10 +21,10 @@ public final class g {
     public static synchronized g mf() {
         g gVar;
         synchronized (g.class) {
-            if (HM == null) {
-                HM = new g();
+            if (HR == null) {
+                HR = new g();
             }
-            gVar = HM;
+            gVar = HR;
         }
         return gVar;
     }
@@ -40,13 +40,13 @@ public final class g {
     }
 
     @Deprecated
-    public static int H(String str, String str2) {
+    public static int G(String str, String str2) {
         com.baidu.browser.core.util.e<String, Integer> eVar;
-        I(str2, str);
-        com.baidu.browser.core.util.e<String, Integer> eVar2 = HO.get(str);
+        H(str2, str);
+        com.baidu.browser.core.util.e<String, Integer> eVar2 = HU.get(str);
         if (eVar2 == null) {
             com.baidu.browser.core.util.e<String, Integer> eVar3 = new com.baidu.browser.core.util.e<>(100);
-            HO.put(str, eVar3);
+            HU.put(str, eVar3);
             eVar = eVar3;
         } else {
             eVar = eVar2;
@@ -68,6 +68,6 @@ public final class g {
         return num.intValue();
     }
 
-    public static void I(String str, String str2) {
+    public static void H(String str, String str2) {
     }
 }

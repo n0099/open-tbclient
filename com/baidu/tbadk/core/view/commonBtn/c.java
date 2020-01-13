@@ -7,63 +7,63 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends a {
-    private boolean dfu;
+    private boolean dfG;
 
     public c() {
-        this.dfh = R.color.cp_link_tip_a;
-        this.dfu = true;
+        this.dft = R.color.cp_link_tip_a;
+        this.dfG = true;
     }
 
     public void lb(@ColorRes int i) {
-        this.dfh = i;
-        this.dfu = true;
-        this.dfs = true;
-        if (this.dft != null) {
-            this.dft.aFG();
+        this.dft = i;
+        this.dfG = true;
+        this.dfE = true;
+        if (this.dfF != null) {
+            this.dfF.aFZ();
         }
     }
 
     public void lc(@ColorRes int i) {
-        this.dfh = i;
-        this.dfj = R.color.cp_btn_a;
-        this.dfu = false;
-        this.dfs = true;
-        if (this.dft != null) {
-            this.dft.aFG();
+        this.dft = i;
+        this.dfv = R.color.cp_btn_a;
+        this.dfG = false;
+        this.dfE = true;
+        if (this.dfF != null) {
+            this.dfF.aFZ();
         }
     }
 
-    public void aFJ() {
-        this.dfh = R.color.cp_cont_a;
-        this.dfj = R.color.cp_btn_j;
-        this.dfu = false;
-        this.dfs = true;
-        if (this.dft != null) {
-            this.dft.aFG();
+    public void aGc() {
+        this.dft = R.color.cp_cont_a;
+        this.dfv = R.color.cp_btn_j;
+        this.dfG = false;
+        this.dfE = true;
+        if (this.dfF != null) {
+            this.dfF.aFZ();
         }
     }
 
     public void ld(@ColorRes int i) {
-        this.dfh = i;
-        this.dfj = R.color.cp_btn_c;
-        this.dfu = false;
-        if (this.dft != null) {
-            this.dft.aFG();
+        this.dft = i;
+        this.dfv = R.color.cp_btn_c;
+        this.dfG = false;
+        if (this.dfF != null) {
+            this.dfF.aFZ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.a
-    public Drawable am(float f) {
-        return ao(f);
+    public Drawable al(float f) {
+        return an(f);
     }
 
-    private Drawable ao(float f) {
+    private Drawable an(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.dfu) {
-            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.n(this.dfs ? am.getColor(this.dfh) : this.dfh, 0.08f));
+        if (this.dfG) {
+            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.n(this.dfE ? am.getColor(this.dft) : this.dft, 0.08f));
         } else {
-            gradientDrawable.setColor(am.getColor(this.dfj));
+            gradientDrawable.setColor(am.getColor(this.dfv));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

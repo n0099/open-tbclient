@@ -1,5 +1,5 @@
 package com.opensource.svgaplayer.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public final class c {
     private final double height;
     private final double width;

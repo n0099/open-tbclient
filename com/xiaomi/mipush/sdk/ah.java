@@ -3,16 +3,16 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class ah implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String[] f39a;
+    final /* synthetic */ String[] f37a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(String[] strArr, Context context) {
-        this.f39a = strArr;
+        this.f37a = strArr;
         this.a = context;
     }
 
@@ -21,7 +21,7 @@ final class ah implements Runnable {
         String[] strArr;
         PackageInfo packageInfo;
         try {
-            for (String str : this.f39a) {
+            for (String str : this.f37a) {
                 if (!TextUtils.isEmpty(str) && (packageInfo = this.a.getPackageManager().getPackageInfo(str, 4)) != null) {
                     MiPushClient.awakePushServiceByPackageInfo(this.a, packageInfo);
                 }

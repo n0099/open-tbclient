@@ -1,22 +1,22 @@
 package com.baidu.swan.apps.process.a.b.c;
 
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class c implements a<com.baidu.swan.apps.process.a.b.a.b> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bEd;
+    private String bEO;
 
     @Override // com.baidu.swan.apps.process.a.b.c.a
-    public String XV() {
-        if (!TextUtils.isEmpty(this.bEd)) {
-            return this.bEd;
+    public String Ys() {
+        if (!TextUtils.isEmpty(this.bEO)) {
+            return this.bEO;
         }
         StringBuilder sb = new StringBuilder();
         sb.append(System.currentTimeMillis()).append("").append(hashCode());
-        this.bEd = sb.toString();
-        if (DEBUG && com.baidu.swan.apps.process.a.b.d.a.jY(this.bEd)) {
+        this.bEO = sb.toString();
+        if (DEBUG && com.baidu.swan.apps.process.a.b.d.a.kb(this.bEO)) {
             throw new RuntimeException("illegal observer id");
         }
-        return this.bEd;
+        return this.bEO;
     }
 }

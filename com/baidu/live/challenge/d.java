@@ -4,9 +4,9 @@ import com.baidu.android.imsdk.db.TableDefine;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
-    public boolean Ve;
-    public long Vf;
-    public long Vg;
+    public boolean Vu;
+    public long Vv;
+    public long Vw;
     public long alaId;
     public String avatar;
     public long charmCount;
@@ -20,9 +20,9 @@ public class d {
             this.userName = jSONObject.optString("user_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
             this.charmCount = jSONObject.optLong("charm_count");
-            this.Ve = jSONObject.optInt("can_challenge") == 1;
-            this.Vf = jSONObject.optLong("challenge_end_time");
-            this.Vg = jSONObject.optLong("challenge_time");
+            this.Vu = jSONObject.optInt("can_challenge") == 1;
+            this.Vv = jSONObject.optLong("challenge_end_time");
+            this.Vw = jSONObject.optLong("challenge_time");
         }
     }
 

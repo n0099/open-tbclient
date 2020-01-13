@@ -6,24 +6,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 /* loaded from: classes2.dex */
 public class c {
-    private TextView eGm;
-    private TextView eGn;
-    private TextView eGo;
-    private View eGp;
-    private LinearLayout eGq;
-    private LinearLayout eGr;
+    private LinearLayout eHA;
+    private LinearLayout eHB;
+    private TextView eHw;
+    private TextView eHx;
+    private TextView eHy;
+    private View eHz;
     protected Context mContext;
     private View mRootView;
 
     public c(Context context) {
         this.mContext = context;
-        initView(bdY());
+        initView(bet());
     }
 
-    public View bdY() {
+    public View bet() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_top_header, (ViewGroup) null);
         }
@@ -31,42 +31,42 @@ public class c {
     }
 
     public void initView(View view) {
-        this.eGr = (LinearLayout) view.findViewById(a.g.ala_person_center_current_exp_panel);
-        this.eGm = (TextView) view.findViewById(a.g.ala_person_center_current_exp_txt);
-        this.eGn = (TextView) view.findViewById(a.g.ala_person_center_current_level);
-        this.eGo = (TextView) view.findViewById(a.g.ala_person_center_next_level);
-        this.eGq = (LinearLayout) view.findViewById(a.g.ala_person_center_next_level_bg);
-        this.eGp = view.findViewById(a.g.ala_person_center_current_level_bg);
+        this.eHB = (LinearLayout) view.findViewById(a.g.ala_person_center_current_exp_panel);
+        this.eHw = (TextView) view.findViewById(a.g.ala_person_center_current_exp_txt);
+        this.eHx = (TextView) view.findViewById(a.g.ala_person_center_current_level);
+        this.eHy = (TextView) view.findViewById(a.g.ala_person_center_next_level);
+        this.eHA = (LinearLayout) view.findViewById(a.g.ala_person_center_next_level_bg);
+        this.eHz = view.findViewById(a.g.ala_person_center_current_level_bg);
     }
 
     public void i(long j, int i) {
-        long j2 = com.baidu.tieba.ala.live.personcenter.a.eFy[i - 1];
+        long j2 = com.baidu.tieba.ala.live.personcenter.a.eGI[i - 1];
         int i2 = i + 1;
-        this.eGm.setText(this.mContext.getResources().getString(a.i.sdk_prc_current_exp, String.valueOf(j + "/" + j2)));
-        this.eGn.setText(this.mContext.getResources().getString(a.i.sdk_prc_current_level, String.valueOf(i)));
+        this.eHw.setText(this.mContext.getResources().getString(a.i.sdk_prc_current_exp, String.valueOf(j + "/" + j2)));
+        this.eHx.setText(this.mContext.getResources().getString(a.i.sdk_prc_current_level, String.valueOf(i)));
         if (i2 > 40) {
-            this.eGo.setText("");
+            this.eHy.setText("");
         } else {
-            this.eGo.setText(this.mContext.getResources().getString(a.i.sdk_prc_next_level, String.valueOf(i2)));
+            this.eHy.setText(this.mContext.getResources().getString(a.i.sdk_prc_next_level, String.valueOf(i2)));
         }
         if (j2 != 0) {
-            ViewGroup.LayoutParams layoutParams = this.eGp.getLayoutParams();
-            layoutParams.width = (int) ((this.eGq.getLayoutParams().width * j) / j2);
-            this.eGp.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams = this.eHz.getLayoutParams();
+            layoutParams.width = (int) ((this.eHA.getLayoutParams().width * j) / j2);
+            this.eHz.setLayoutParams(layoutParams);
         }
     }
 
     public void b(AlaPersonCenterExpActivity alaPersonCenterExpActivity, int i) {
-        alaPersonCenterExpActivity.getLayoutMode().onModeChanged(this.eGr);
+        alaPersonCenterExpActivity.getLayoutMode().onModeChanged(this.eHB);
         if (i == 1) {
-            this.eGm.setAlpha(0.7f);
-            this.eGm.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
-            this.eGn.setAlpha(0.7f);
-            this.eGn.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
-            this.eGo.setAlpha(0.7f);
-            this.eGo.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
-            this.eGp.setAlpha(0.7f);
-            this.eGp.setBackgroundDrawable(this.mContext.getResources().getDrawable(a.f.sdk_prc_current_level_bg));
+            this.eHw.setAlpha(0.7f);
+            this.eHw.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
+            this.eHx.setAlpha(0.7f);
+            this.eHx.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
+            this.eHy.setAlpha(0.7f);
+            this.eHy.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_g));
+            this.eHz.setAlpha(0.7f);
+            this.eHz.setBackgroundDrawable(this.mContext.getResources().getDrawable(a.f.sdk_prc_current_level_bg));
         }
     }
 }

@@ -1,7 +1,7 @@
 package io.reactivex.internal.observers;
 
 import io.reactivex.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     static final int DISPOSED = 4;
     static final int FUSED_CONSUMED = 32;
@@ -45,7 +45,7 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
 
     public final void error(Throwable th) {
         if ((get() & 54) != 0) {
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
             return;
         }
         lazySet(2);
@@ -59,7 +59,7 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
         }
     }
 
-    @Override // io.reactivex.internal.a.f
+    @Override // io.reactivex.internal.a.g
     public final T poll() throws Exception {
         if (get() == 16) {
             T t = this.value;
@@ -70,12 +70,12 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
         return null;
     }
 
-    @Override // io.reactivex.internal.a.f
+    @Override // io.reactivex.internal.a.g
     public final boolean isEmpty() {
         return get() != 16;
     }
 
-    @Override // io.reactivex.internal.a.f
+    @Override // io.reactivex.internal.a.g
     public final void clear() {
         lazySet(32);
         this.value = null;

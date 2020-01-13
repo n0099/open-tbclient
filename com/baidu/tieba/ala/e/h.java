@@ -13,41 +13,41 @@ import com.baidu.tieba.ala.message.AlaGetWishListResponseMessage;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class h extends BdBaseModel {
-    private a edo;
-    private HttpMessageListener fjS;
+    private a edw;
+    private HttpMessageListener fnc;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void Z(int i, String str);
-
         void a(ArrayList<com.baidu.tieba.ala.data.c> arrayList, String str, long j);
+
+        void ab(int i, String str);
     }
 
     public h(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.fjS = new HttpMessageListener(1021161) { // from class: com.baidu.tieba.ala.e.h.1
+        this.fnc = new HttpMessageListener(1021165) { // from class: com.baidu.tieba.ala.e.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021161 && (httpResponsedMessage instanceof AlaGetWishListResponseMessage)) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021165 && (httpResponsedMessage instanceof AlaGetWishListResponseMessage)) {
                     AlaGetWishListResponseMessage alaGetWishListResponseMessage = (AlaGetWishListResponseMessage) httpResponsedMessage;
-                    if (h.this.edo != null) {
+                    if (h.this.edw != null) {
                         if (alaGetWishListResponseMessage.getError() != 0 || !alaGetWishListResponseMessage.isSuccess()) {
-                            h.this.edo.Z(alaGetWishListResponseMessage.getError(), alaGetWishListResponseMessage.getErrorString());
+                            h.this.edw.ab(alaGetWishListResponseMessage.getError(), alaGetWishListResponseMessage.getErrorString());
                         } else {
-                            h.this.edo.a(alaGetWishListResponseMessage.getData(), alaGetWishListResponseMessage.getTips(), alaGetWishListResponseMessage.getSysTime());
+                            h.this.edw.a(alaGetWishListResponseMessage.getData(), alaGetWishListResponseMessage.getTips(), alaGetWishListResponseMessage.getSysTime());
                         }
                     }
                 }
             }
         };
-        this.edo = aVar;
+        this.edw = aVar;
         initTasks();
-        registerListener(this.fjS);
+        registerListener(this.fnc);
     }
 
     private void initTasks() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021161, TbConfig.SERVER_HOST + "liveserver/wishlist/getwishlist");
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021165, TbConfig.SERVER_HOST + "liveserver/wishlist/getwishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -56,14 +56,14 @@ public class h extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void yX(String str) {
-        HttpMessage httpMessage = new HttpMessage(1021161);
+    public void zg(String str) {
+        HttpMessage httpMessage = new HttpMessage(1021165);
         httpMessage.addParam("anchor_id", str);
         sendMessage(httpMessage);
     }
 
-    public void bpd() {
-        sendMessage(new HttpMessage(1021161));
+    public void bqe() {
+        sendMessage(new HttpMessage(1021165));
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -77,7 +77,7 @@ public class h extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fjS);
-        MessageManager.getInstance().unRegisterTask(1021161);
+        MessageManager.getInstance().unRegisterListener(this.fnc);
+        MessageManager.getInstance().unRegisterTask(1021165);
     }
 }

@@ -15,26 +15,26 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean iWw;
+    private boolean iZZ;
     private boolean isBJH;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.iWw = false;
+        this.iZZ = false;
         this.isBJH = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iWw = false;
+        this.iZZ = false;
         this.isBJH = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iWw = false;
+        this.iZZ = false;
         this.isBJH = false;
     }
 
@@ -42,12 +42,12 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
         this.isBJH = z;
     }
 
-    public void fI(boolean z) {
-        this.iWw = z;
+    public void fN(boolean z) {
+        this.iZZ = z;
         if (z) {
             if (this.isBJH) {
                 setText(R.string.followed);
-                com.baidu.tbadk.core.util.f.a.aEt().kk(0).kr(1).ah(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).kl(R.color.cp_bg_line_c).aM(this);
+                com.baidu.tbadk.core.util.f.a.aEM().kk(0).kr(1).ag(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).kl(R.color.cp_bg_line_c).aQ(this);
                 am.setViewTextColor(this, R.color.cp_cont_b, 1);
                 return;
             }
@@ -58,7 +58,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
             am.setViewTextColor(this, R.color.cp_cont_e, 1);
         } else if (this.isBJH) {
             setText(R.string.attention);
-            com.baidu.tbadk.core.util.f.a.c(com.baidu.tbadk.core.util.f.a.b.aEu().kk(0).kr(1).ah(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).b("TL_BR", R.color.cp_link_tip_b, R.color.cp_link_tip_a).aEw(), com.baidu.tbadk.core.util.f.a.b.aEu().kk(0).kr(1).ah(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).b("TL_BR", R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).aEw()).aM(this);
+            com.baidu.tbadk.core.util.f.a.c(com.baidu.tbadk.core.util.f.a.b.aEN().kk(0).kr(1).ag(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).b("TL_BR", R.color.cp_link_tip_b, R.color.cp_link_tip_a).aEP(), com.baidu.tbadk.core.util.f.a.b.aEN().kk(0).kr(1).ag(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).b("TL_BR", R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).aEP()).aQ(this);
             am.setViewTextColor(this, R.color.cp_cont_a, 1);
         } else {
             setText(R.string.attention);
@@ -70,13 +70,13 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void k(boolean z, int i) {
-        fI(z);
+    public void l(boolean z, int i) {
+        fN(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void b(boolean z, int i, boolean z2) {
-        k(z, i);
+        l(z, i);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -84,7 +84,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void aW(View view) {
+    public void ba(View view) {
         if (!this.isBJH) {
             TiebaStatic.log(new an("c12503").cp("obj_locate", "4"));
             if (!aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
@@ -94,7 +94,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
                 anVar.cp("obj_source", TbadkCoreApplication.getInst().getTaskId());
                 TiebaStatic.log(anVar);
             }
-            if (!this.iWw) {
+            if (!this.iZZ) {
                 Context context = getContext();
                 if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.m.a)) {
                     String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
@@ -108,7 +108,7 @@ public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.vie
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void h(View.OnClickListener onClickListener) {
+    public void g(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 }

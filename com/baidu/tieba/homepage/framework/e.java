@@ -1,5 +1,5 @@
 package com.baidu.tieba.homepage.framework;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface e {
-    void uQ(int i);
+    void uV(int i);
 }

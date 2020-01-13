@@ -1,7 +1,7 @@
 package com.baidu.sofire.i;
 
 import java.util.zip.CRC32;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class e {
     public static long a(String str) {
         CRC32 crc32 = new CRC32();

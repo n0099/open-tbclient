@@ -120,7 +120,7 @@ public final class a {
                     c.install(classLoader, list);
                     return;
                 } else {
-                    C0534a.install(classLoader, list, file);
+                    C0539a.install(classLoader, list, file);
                     return;
                 }
             }
@@ -236,7 +236,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0534a {
+    public static final class C0539a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void install(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             Object obj = a.findField(classLoader, "pathList").get(classLoader);

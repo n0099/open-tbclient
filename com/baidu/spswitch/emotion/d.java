@@ -7,10 +7,10 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a extends ImageSpan {
         public a(Context context, Bitmap bitmap) {
             super(context, bitmap);
@@ -47,7 +47,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b extends ImageSpan {
         public b(Context context, Bitmap bitmap) {
             super(context, bitmap);

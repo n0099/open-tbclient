@@ -1,17 +1,17 @@
 package com.caverock.androidsvg;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    boolean lyR;
+    boolean lCp;
     int pos;
     long value;
 
     public a(boolean z, long j, int i) {
-        this.lyR = z;
+        this.lCp = z;
         this.value = j;
         this.pos = i;
     }
 
-    public int dfV() {
+    public int dgX() {
         return this.pos;
     }
 

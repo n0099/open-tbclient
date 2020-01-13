@@ -1,5 +1,5 @@
 package com.vivo.push.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SubscribeAppInfo {
     public static final int SUBSCIRBE = 1;
     public static final int SUBSCIRBE_CANCLE = 2;

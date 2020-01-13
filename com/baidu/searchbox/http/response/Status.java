@@ -1,5 +1,5 @@
 package com.baidu.searchbox.http.response;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Status {
     public static final int HTTP_ACCEPTED = 202;
     public static final int HTTP_BAD_GATEWAY = 502;

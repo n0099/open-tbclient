@@ -4,28 +4,28 @@ import android.util.Log;
 import com.baidu.swan.apps.as.ai;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile b bRq;
-    private ArrayList<com.baidu.swan.apps.swancore.a.a> bRr = new ArrayList<>();
-    private ArrayList<com.baidu.swan.apps.swancore.a.a> bRs = new ArrayList<>();
+    public static volatile b bSa;
+    private ArrayList<com.baidu.swan.apps.swancore.a.a> bSb = new ArrayList<>();
+    private ArrayList<com.baidu.swan.apps.swancore.a.a> bSc = new ArrayList<>();
 
-    public static b acQ() {
-        if (bRq == null) {
+    public static b adn() {
+        if (bSa == null) {
             synchronized (b.class) {
-                if (bRq == null) {
-                    bRq = new b();
+                if (bSa == null) {
+                    bSa = new b();
                 }
             }
         }
-        return bRq;
+        return bSa;
     }
 
-    public void gw(int i) {
+    public void gx(int i) {
         synchronized (b.class) {
-            a.gq(i);
-            gx(i);
+            a.gr(i);
+            gy(i);
         }
     }
 
@@ -35,7 +35,7 @@ public final class b {
             Log.d("PresetSwanCoreUpdater", "updateSwanCoreAsync start.");
         }
         synchronized (b.class) {
-            if (!a.gm(i)) {
+            if (!a.gn(i)) {
                 if (DEBUG) {
                     Log.d("PresetSwanCoreUpdater", "updateSwanCoreAsync isNeedUpdateStatus = false.");
                 }
@@ -43,9 +43,9 @@ public final class b {
                 return;
             }
             if (i == 1) {
-                arrayList = this.bRs;
+                arrayList = this.bSc;
             } else {
-                arrayList = this.bRr;
+                arrayList = this.bSb;
             }
             if (arrayList.isEmpty()) {
                 new Thread(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.b.1
@@ -54,8 +54,8 @@ public final class b {
                         if (b.DEBUG) {
                             Log.d("PresetSwanCoreUpdater", "onPresetUpdate start.");
                         }
-                        a.gq(i);
-                        b.this.gx(i);
+                        a.gr(i);
+                        b.this.gy(i);
                         if (b.DEBUG) {
                             Log.d("PresetSwanCoreUpdater", "onPresetUpdate end.");
                         }
@@ -70,20 +70,20 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gx(int i) {
+    public void gy(int i) {
         synchronized (b.class) {
             if (i == 0) {
-                Iterator<com.baidu.swan.apps.swancore.a.a> it = this.bRr.iterator();
+                Iterator<com.baidu.swan.apps.swancore.a.a> it = this.bSb.iterator();
                 while (it.hasNext()) {
                     a(it.next());
                 }
-                this.bRr.clear();
+                this.bSb.clear();
             } else if (i == 1) {
-                Iterator<com.baidu.swan.apps.swancore.a.a> it2 = this.bRs.iterator();
+                Iterator<com.baidu.swan.apps.swancore.a.a> it2 = this.bSc.iterator();
                 while (it2.hasNext()) {
                     a(it2.next());
                 }
-                this.bRs.clear();
+                this.bSc.clear();
             }
         }
     }
@@ -93,7 +93,7 @@ public final class b {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.swancore.d.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    aVar.OW();
+                    aVar.Ps();
                 }
             });
         }

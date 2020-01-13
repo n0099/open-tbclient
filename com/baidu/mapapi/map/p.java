@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.mapapi.map.SwipeDismissTouchListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class p extends AnimatorListenerAdapter {
     final /* synthetic */ ViewGroup.LayoutParams a;
     final /* synthetic */ int b;

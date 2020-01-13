@@ -351,11 +351,11 @@ public class m {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean sP(String str) {
+    public static boolean sS(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean sQ(String str) {
+    public static boolean sT(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -1765,7 +1765,7 @@ public class m {
                 str2 = ".gif";
             }
             if (com.baidu.adp.lib.util.l.isDataWebpFormat(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
-                bArr = com.baidu.adp.lib.util.d.ht().Bitmap2Bytes(decodeByteArray, 100);
+                bArr = com.baidu.adp.lib.util.d.hs().Bitmap2Bytes(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
             String nameMd5FromUrl = as.getNameMd5FromUrl(str);
@@ -1878,7 +1878,7 @@ public class m {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String sR(String str) {
+    public static String sU(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1886,7 +1886,7 @@ public class m {
         return parse.getLastPathSegment();
     }
 
-    public static String sS(String str) {
+    public static String sV(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1894,7 +1894,7 @@ public class m {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void sT(@NonNull String str) {
+    public static void sW(@NonNull String str) {
         if (str != null) {
             C(new File(CACHE_DIR + "/" + str));
         }

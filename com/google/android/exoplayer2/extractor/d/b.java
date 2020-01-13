@@ -8,13 +8,13 @@ import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class b extends h {
-    private com.google.android.exoplayer2.util.f mgE;
-    private a mgF;
+    private com.google.android.exoplayer2.util.f mkv;
+    private a mkw;
 
     public static boolean A(l lVar) {
-        return lVar.dwV() >= 5 && lVar.readUnsignedByte() == 127 && lVar.readUnsignedInt() == 1179402563;
+        return lVar.dyf() >= 5 && lVar.readUnsignedByte() == 127 && lVar.readUnsignedInt() == 1179402563;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,18 +22,18 @@ final class b extends h {
     public void reset(boolean z) {
         super.reset(z);
         if (z) {
-            this.mgE = null;
-            this.mgF = null;
+            this.mkv = null;
+            this.mkw = null;
         }
     }
 
-    private static boolean as(byte[] bArr) {
+    private static boolean ar(byte[] bArr) {
         return bArr[0] == -1;
     }
 
     @Override // com.google.android.exoplayer2.extractor.d.h
     protected long B(l lVar) {
-        if (as(lVar.data)) {
+        if (ar(lVar.data)) {
             return C(lVar);
         }
         return -1L;
@@ -42,18 +42,18 @@ final class b extends h {
     @Override // com.google.android.exoplayer2.extractor.d.h
     protected boolean a(l lVar, long j, h.a aVar) throws IOException, InterruptedException {
         byte[] bArr = lVar.data;
-        if (this.mgE == null) {
-            this.mgE = new com.google.android.exoplayer2.util.f(bArr, 17);
-            byte[] copyOfRange = Arrays.copyOfRange(bArr, 9, lVar.dwW());
+        if (this.mkv == null) {
+            this.mkv = new com.google.android.exoplayer2.util.f(bArr, 17);
+            byte[] copyOfRange = Arrays.copyOfRange(bArr, 9, lVar.dyg());
             copyOfRange[4] = Byte.MIN_VALUE;
-            aVar.lUU = Format.a(null, "audio/flac", null, -1, this.mgE.dwO(), this.mgE.channels, this.mgE.sampleRate, Collections.singletonList(copyOfRange), null, 0, null);
+            aVar.lYL = Format.a(null, "audio/flac", null, -1, this.mkv.dxY(), this.mkv.channels, this.mkv.sampleRate, Collections.singletonList(copyOfRange), null, 0, null);
         } else if ((bArr[0] & Byte.MAX_VALUE) == 3) {
-            this.mgF = new a();
-            this.mgF.D(lVar);
-        } else if (as(bArr)) {
-            if (this.mgF != null) {
-                this.mgF.fQ(j);
-                aVar.mhe = this.mgF;
+            this.mkw = new a();
+            this.mkw.D(lVar);
+        } else if (ar(bArr)) {
+            if (this.mkw != null) {
+                this.mkw.fV(j);
+                aVar.mkV = this.mkw;
                 return false;
             }
             return false;
@@ -74,7 +74,7 @@ final class b extends h {
             case 6:
             case 7:
                 lVar.skipBytes(4);
-                lVar.dxk();
+                lVar.dyu();
                 int readUnsignedByte = i == 6 ? lVar.readUnsignedByte() : lVar.readUnsignedShort();
                 lVar.setPosition(0);
                 return readUnsignedByte + 1;
@@ -92,68 +92,68 @@ final class b extends h {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private class a implements f, com.google.android.exoplayer2.extractor.l {
-        private long[] mgG;
-        private long[] mgH;
-        private long mgI = -1;
-        private long mgJ = -1;
+        private long[] mkx;
+        private long[] mky;
+        private long mkz = -1;
+        private long mkA = -1;
 
         public a() {
         }
 
-        public void fQ(long j) {
-            this.mgI = j;
+        public void fV(long j) {
+            this.mkz = j;
         }
 
         public void D(l lVar) {
             lVar.skipBytes(1);
-            int dwZ = lVar.dwZ() / 18;
-            this.mgG = new long[dwZ];
-            this.mgH = new long[dwZ];
-            for (int i = 0; i < dwZ; i++) {
-                this.mgG[i] = lVar.readLong();
-                this.mgH[i] = lVar.readLong();
+            int dyj = lVar.dyj() / 18;
+            this.mkx = new long[dyj];
+            this.mky = new long[dyj];
+            for (int i = 0; i < dyj; i++) {
+                this.mkx[i] = lVar.readLong();
+                this.mky[i] = lVar.readLong();
                 lVar.skipBytes(2);
             }
         }
 
         @Override // com.google.android.exoplayer2.extractor.d.f
         public long u(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
-            if (this.mgJ >= 0) {
-                long j = -(this.mgJ + 2);
-                this.mgJ = -1L;
+            if (this.mkA >= 0) {
+                long j = -(this.mkA + 2);
+                this.mkA = -1L;
                 return j;
             }
             return -1L;
         }
 
         @Override // com.google.android.exoplayer2.extractor.d.f
-        public long fP(long j) {
-            long fS = b.this.fS(j);
-            this.mgJ = this.mgG[v.a(this.mgG, fS, true, true)];
-            return fS;
+        public long fU(long j) {
+            long fX = b.this.fX(j);
+            this.mkA = this.mkx[v.a(this.mkx, fX, true, true)];
+            return fX;
         }
 
         @Override // com.google.android.exoplayer2.extractor.d.f
-        public com.google.android.exoplayer2.extractor.l dsI() {
+        public com.google.android.exoplayer2.extractor.l dtU() {
             return this;
         }
 
         @Override // com.google.android.exoplayer2.extractor.l
-        public boolean dsp() {
+        public boolean dtB() {
             return true;
         }
 
         @Override // com.google.android.exoplayer2.extractor.l
-        public long fI(long j) {
-            int a = v.a(this.mgG, b.this.fS(j), true, true);
-            return this.mgH[a] + this.mgI;
+        public long fN(long j) {
+            int a = v.a(this.mkx, b.this.fX(j), true, true);
+            return this.mky[a] + this.mkz;
         }
 
         @Override // com.google.android.exoplayer2.extractor.l
-        public long drc() {
-            return b.this.mgE.dwP();
+        public long dso() {
+            return b.this.mkv.dxZ();
         }
     }
 }

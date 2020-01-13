@@ -7,37 +7,37 @@ import tbclient.FloatStrategy;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class a {
-    private DataRes cEO;
+    private DataRes cFa;
     public boolean isNewUser = false;
-    public String cEP = "";
-    private final ArrayList<com.baidu.tbadk.BdToken.b> cEQ = new ArrayList<>();
-    private final ArrayList<FloatStrategy> cER = new ArrayList<>();
+    public String cFb = "";
+    private final ArrayList<com.baidu.tbadk.BdToken.b> cFc = new ArrayList<>();
+    private final ArrayList<FloatStrategy> cFd = new ArrayList<>();
 
-    public ArrayList<com.baidu.tbadk.BdToken.b> avE() {
-        return this.cEQ;
+    public ArrayList<com.baidu.tbadk.BdToken.b> avX() {
+        return this.cFc;
     }
 
-    public ArrayList<FloatStrategy> avF() {
-        return this.cER;
+    public ArrayList<FloatStrategy> avY() {
+        return this.cFd;
     }
 
     public void a(DataRes dataRes) {
-        this.cEO = dataRes;
-        this.cEQ.clear();
-        this.cER.clear();
+        this.cFa = dataRes;
+        this.cFc.clear();
+        this.cFd.clear();
         if (dataRes != null) {
             this.isNewUser = dataRes.is_new_user.intValue() == 1;
-            this.cEP = dataRes.active_url;
-            this.cER.addAll(dataRes.float_list);
-            for (MissionInfo missionInfo : this.cEO.mission_list) {
+            this.cFb = dataRes.active_url;
+            this.cFd.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.cFa.mission_list) {
                 if (missionInfo != null) {
                     com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
-                        com.baidu.tbadk.core.f.a.aCV().a(missionInfo);
+                        com.baidu.tbadk.core.f.a.aDo().a(missionInfo);
                     } else if (missionInfo.tasktype.intValue() == 9) {
-                        p.avs().q(bVar);
-                    } else if (bVar.aut()) {
-                        this.cEQ.add(bVar);
+                        p.avL().q(bVar);
+                    } else if (bVar.auM()) {
+                        this.cFc.add(bVar);
                     }
                 }
             }

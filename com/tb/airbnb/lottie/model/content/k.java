@@ -1,43 +1,32 @@
 package com.tb.airbnb.lottie.model.content;
 
-import com.tb.airbnb.lottie.a.a.o;
-import com.tb.airbnb.lottie.model.a.h;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
+import com.tb.airbnb.lottie.a.a.p;
+/* loaded from: classes5.dex */
 public class k implements b {
     private final int index;
-    private final com.tb.airbnb.lottie.model.a.h mOJ;
     private final String name;
+    private final com.tb.airbnb.lottie.model.a.h nqE;
 
-    private k(String str, int i, com.tb.airbnb.lottie.model.a.h hVar) {
+    public k(String str, int i, com.tb.airbnb.lottie.model.a.h hVar) {
         this.name = str;
         this.index = i;
-        this.mOJ = hVar;
+        this.nqE = hVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.tb.airbnb.lottie.model.a.h dCj() {
-        return this.mOJ;
+    public com.tb.airbnb.lottie.model.a.h dGl() {
+        return this.nqE;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
     public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar) {
-        return new o(fVar, aVar, this);
+        return new p(fVar, aVar, this);
     }
 
     public String toString() {
-        return "ShapePath{name=" + this.name + ", index=" + this.index + ", hasAnimation=" + this.mOJ.hasAnimation() + '}';
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static class a {
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static k z(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {
-            return new k(jSONObject.optString("nm"), jSONObject.optInt("ind"), h.a.k(jSONObject.optJSONObject("ks"), eVar));
-        }
+        return "ShapePath{name=" + this.name + ", index=" + this.index + '}';
     }
 }

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
 import com.baidu.android.common.ui.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BoxScrollView extends ScrollView {
     private static final boolean DEBUG = false;
     private static final String TAG = "BoxScrollView";

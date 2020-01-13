@@ -1,9 +1,8 @@
 package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.exceptions.MissingBackpressureException;
-import io.reactivex.internal.a.f;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
 import io.reactivex.internal.subscriptions.EmptySubscription;
@@ -14,17 +13,16 @@ import java.util.Iterator;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableFlattenIterable<T, R> extends a<T, R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final int prefetch;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
-        if (this.mTG instanceof Callable) {
+        if (this.nvK instanceof Callable) {
             try {
-                Object call = ((Callable) this.mTG).call();
+                Object call = ((Callable) this.nvK).call();
                 if (call == null) {
                     EmptySubscription.complete(cVar);
                     return;
@@ -43,10 +41,10 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                 return;
             }
         }
-        this.mTG.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
+        this.nvK.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class FlattenIterableSubscriber<T, R> extends BasicIntQueueSubscription<R> implements j<T> {
         private static final long serialVersionUID = -3096000382929934955L;
         final org.a.c<? super R> actual;
@@ -58,8 +56,8 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
         final int limit;
         final h<? super T, ? extends Iterable<? extends R>> mapper;
         final int prefetch;
-        f<T> queue;
-        d s;
+        io.reactivex.internal.a.g<T> queue;
+        org.a.d s;
         final AtomicReference<Throwable> error = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
 
@@ -71,7 +69,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 if (dVar instanceof io.reactivex.internal.a.d) {
@@ -115,7 +113,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -158,7 +156,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
             long j;
             if (getAndIncrement() == 0) {
                 org.a.c<?> cVar = this.actual;
-                f<T> fVar = this.queue;
+                io.reactivex.internal.a.g<T> gVar = this.queue;
                 boolean z = this.fusionMode != 1;
                 Iterator<? extends R> it2 = this.current;
                 int i = 1;
@@ -166,8 +164,8 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                     if (it2 == null) {
                         boolean z2 = this.done;
                         try {
-                            T poll = fVar.poll();
-                            if (!checkTerminated(z2, poll == null, cVar, fVar)) {
+                            T poll = gVar.poll();
+                            if (!checkTerminated(z2, poll == null, cVar, gVar)) {
                                 if (poll != null) {
                                     try {
                                         it = this.mapper.apply(poll).iterator();
@@ -184,10 +182,10 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                                         j = j3;
                                                         it2 = it;
                                                         break;
-                                                    } else if (!checkTerminated(this.done, false, cVar, fVar)) {
+                                                    } else if (!checkTerminated(this.done, false, cVar, gVar)) {
                                                         try {
                                                             cVar.onNext((Object) io.reactivex.internal.functions.a.h(it.next(), "The iterator returned a null value"));
-                                                            if (!checkTerminated(this.done, false, cVar, fVar)) {
+                                                            if (!checkTerminated(this.done, false, cVar, gVar)) {
                                                                 j3++;
                                                                 try {
                                                                     if (!it.hasNext()) {
@@ -221,7 +219,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                                     }
                                                 }
                                                 if (j == j2) {
-                                                    if (checkTerminated(this.done, fVar.isEmpty() && it2 == null, cVar, fVar)) {
+                                                    if (checkTerminated(this.done, gVar.isEmpty() && it2 == null, cVar, gVar)) {
                                                         return;
                                                     }
                                                 }
@@ -258,7 +256,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                             ExceptionHelper.addThrowable(this.error, th4);
                             Throwable terminate = ExceptionHelper.terminate(this.error);
                             this.current = null;
-                            fVar.clear();
+                            gVar.clear();
                             cVar.onError(terminate);
                             return;
                         }
@@ -285,17 +283,17 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
             }
         }
 
-        boolean checkTerminated(boolean z, boolean z2, org.a.c<?> cVar, f<?> fVar) {
+        boolean checkTerminated(boolean z, boolean z2, org.a.c<?> cVar, io.reactivex.internal.a.g<?> gVar) {
             if (this.cancelled) {
                 this.current = null;
-                fVar.clear();
+                gVar.clear();
                 return true;
             }
             if (z) {
                 if (this.error.get() != null) {
                     Throwable terminate = ExceptionHelper.terminate(this.error);
                     this.current = null;
-                    fVar.clear();
+                    gVar.clear();
                     cVar.onError(terminate);
                     return true;
                 } else if (z2) {
@@ -306,18 +304,18 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
             return false;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public void clear() {
             this.current = null;
             this.queue.clear();
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public boolean isEmpty() {
             return this.current == null && this.queue.isEmpty();
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public R poll() throws Exception {
             Iterator<? extends R> it = this.current;
             while (true) {

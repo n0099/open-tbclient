@@ -4,16 +4,16 @@ import android.util.SparseIntArray;
 import com.facebook.imagepipeline.memory.BasePool;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class j extends BasePool<byte[]> implements com.facebook.common.memory.a {
-    private final int[] lPV;
+    private final int[] lTH;
 
     public j(com.facebook.common.memory.c cVar, r rVar, s sVar) {
         super(cVar, rVar, sVar);
-        SparseIntArray sparseIntArray = rVar.lQm;
-        this.lPV = new int[sparseIntArray.size()];
+        SparseIntArray sparseIntArray = rVar.lTY;
+        this.lTH = new int[sparseIntArray.size()];
         for (int i = 0; i < sparseIntArray.size(); i++) {
-            this.lPV[i] = sparseIntArray.keyAt(i);
+            this.lTH[i] = sparseIntArray.keyAt(i);
         }
         initialize();
     }
@@ -21,32 +21,32 @@ public class j extends BasePool<byte[]> implements com.facebook.common.memory.a 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: Il */
-    public byte[] Ib(int i) {
+    /* renamed from: Iu */
+    public byte[] Ik(int i) {
         return new byte[i];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: ai */
-    public void bm(byte[] bArr) {
+    /* renamed from: ah */
+    public void bn(byte[] bArr) {
         com.facebook.common.internal.g.checkNotNull(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int Id(int i) {
+    public int Im(int i) {
         return i;
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int Ic(int i) {
+    protected int Il(int i) {
         int[] iArr;
         if (i <= 0) {
             throw new BasePool.InvalidSizeException(Integer.valueOf(i));
         }
-        for (int i2 : this.lPV) {
+        for (int i2 : this.lTH) {
             if (i2 >= i) {
                 return i2;
             }
@@ -57,8 +57,8 @@ public class j extends BasePool<byte[]> implements com.facebook.common.memory.a 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: aj */
-    public int bn(byte[] bArr) {
+    /* renamed from: ai */
+    public int bo(byte[] bArr) {
         com.facebook.common.internal.g.checkNotNull(bArr);
         return bArr.length;
     }

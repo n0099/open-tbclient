@@ -10,9 +10,8 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.util.Log;
 import android.view.Surface;
-import com.baidu.ala.recorder.video.gles.GlUtil;
 @TargetApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     private EGLConfig mEGLConfig;
     private EGLContext mEGLContext;
@@ -63,7 +62,7 @@ public final class a {
         }
         int[] iArr2 = new int[1];
         EGL14.eglQueryContext(this.mEGLDisplay, this.mEGLContext, 12440, iArr2, 0);
-        Log.d(GlUtil.TAG, "EGLContext created, client version " + iArr2[0]);
+        Log.d("Grafika", "EGLContext created, client version " + iArr2[0]);
     }
 
     private EGLConfig getConfig(int i, int i2) {
@@ -90,7 +89,7 @@ public final class a {
         if (EGL14.eglChooseConfig(this.mEGLDisplay, iArr, 0, eGLConfigArr, 0, eGLConfigArr.length, new int[1], 0)) {
             return eGLConfigArr[0];
         }
-        Log.w(GlUtil.TAG, "unable to find RGB8888 / " + i2 + " EGLConfig");
+        Log.w("Grafika", "unable to find RGB8888 / " + i2 + " EGLConfig");
         return null;
     }
 
@@ -109,7 +108,7 @@ public final class a {
     protected void finalize() throws Throwable {
         try {
             if (this.mEGLDisplay != EGL14.EGL_NO_DISPLAY) {
-                Log.w(GlUtil.TAG, "WARNING: EglCore was not explicitly released -- state may be leaked");
+                Log.w("Grafika", "WARNING: EglCore was not explicitly released -- state may be leaked");
                 release();
             }
         } finally {
@@ -135,7 +134,7 @@ public final class a {
 
     public void makeCurrent(EGLSurface eGLSurface) {
         if (this.mEGLDisplay == EGL14.EGL_NO_DISPLAY) {
-            Log.d(GlUtil.TAG, "NOTE: makeCurrent w/o display");
+            Log.d("Grafika", "NOTE: makeCurrent w/o display");
         }
         if (!EGL14.eglMakeCurrent(this.mEGLDisplay, eGLSurface, eGLSurface, this.mEGLContext)) {
             throw new RuntimeException("eglMakeCurrent failed");

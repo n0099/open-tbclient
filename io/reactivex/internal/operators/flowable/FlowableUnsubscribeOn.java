@@ -4,21 +4,25 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicBoolean;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableUnsubscribeOn<T> extends a<T, T> {
     final v scheduler;
 
-    @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new UnsubscribeSubscriber(cVar, this.scheduler));
+    public FlowableUnsubscribeOn(io.reactivex.g<T> gVar, v vVar) {
+        super(gVar);
+        this.scheduler = vVar;
     }
 
-    /* loaded from: classes4.dex */
-    static final class UnsubscribeSubscriber<T> extends AtomicBoolean implements j<T>, d {
+    @Override // io.reactivex.g
+    protected void a(org.a.c<? super T> cVar) {
+        this.nvK.a((j) new UnsubscribeSubscriber(cVar, this.scheduler));
+    }
+
+    /* loaded from: classes5.dex */
+    static final class UnsubscribeSubscriber<T> extends AtomicBoolean implements j<T>, org.a.d {
         private static final long serialVersionUID = 1015244841293359600L;
         final org.a.c<? super T> actual;
-        d s;
+        org.a.d s;
         final v scheduler;
 
         UnsubscribeSubscriber(org.a.c<? super T> cVar, v vVar) {
@@ -27,7 +31,7 @@ public final class FlowableUnsubscribeOn<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -44,7 +48,7 @@ public final class FlowableUnsubscribeOn<T> extends a<T, T> {
         @Override // org.a.c
         public void onError(Throwable th) {
             if (get()) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             } else {
                 this.actual.onError(th);
             }
@@ -65,11 +69,11 @@ public final class FlowableUnsubscribeOn<T> extends a<T, T> {
         @Override // org.a.d
         public void cancel() {
             if (compareAndSet(false, true)) {
-                this.scheduler.B(new a());
+                this.scheduler.C(new a());
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         final class a implements Runnable {
             a() {
             }

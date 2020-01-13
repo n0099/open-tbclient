@@ -2,16 +2,16 @@ package com.facebook.imagepipeline.memory;
 
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class p {
-    private final com.facebook.common.memory.c lNP;
-    private final r lQa;
-    private final s lQb;
-    private final r lQc;
-    private final r lQd;
-    private final s lQe;
-    private final r lQf;
-    private final s lQg;
+    private final com.facebook.common.memory.c lRB;
+    private final r lTM;
+    private final s lTN;
+    private final r lTO;
+    private final r lTP;
+    private final s lTQ;
+    private final r lTR;
+    private final s lTS;
 
     private p(a aVar) {
         r rVar;
@@ -22,107 +22,107 @@ public class p {
         s sVar2;
         r rVar4;
         s sVar3;
-        if (aVar.lQa == null) {
-            rVar = e.dox();
+        if (aVar.lTM == null) {
+            rVar = e.dpG();
         } else {
-            rVar = aVar.lQa;
+            rVar = aVar.lTM;
         }
-        this.lQa = rVar;
-        if (aVar.lQb == null) {
-            sVar = n.doC();
+        this.lTM = rVar;
+        if (aVar.lTN == null) {
+            sVar = n.dpL();
         } else {
-            sVar = aVar.lQb;
+            sVar = aVar.lTN;
         }
-        this.lQb = sVar;
-        if (aVar.lQc == null) {
-            rVar2 = g.dox();
+        this.lTN = sVar;
+        if (aVar.lTO == null) {
+            rVar2 = g.dpG();
         } else {
-            rVar2 = aVar.lQc;
+            rVar2 = aVar.lTO;
         }
-        this.lQc = rVar2;
-        if (aVar.lNP == null) {
-            cVar = com.facebook.common.memory.d.diu();
+        this.lTO = rVar2;
+        if (aVar.lRB == null) {
+            cVar = com.facebook.common.memory.d.djv();
         } else {
-            cVar = aVar.lNP;
+            cVar = aVar.lRB;
         }
-        this.lNP = cVar;
-        if (aVar.lQd == null) {
-            rVar3 = h.dox();
+        this.lRB = cVar;
+        if (aVar.lTP == null) {
+            rVar3 = h.dpG();
         } else {
-            rVar3 = aVar.lQd;
+            rVar3 = aVar.lTP;
         }
-        this.lQd = rVar3;
-        if (aVar.lQe == null) {
-            sVar2 = n.doC();
+        this.lTP = rVar3;
+        if (aVar.lTQ == null) {
+            sVar2 = n.dpL();
         } else {
-            sVar2 = aVar.lQe;
+            sVar2 = aVar.lTQ;
         }
-        this.lQe = sVar2;
-        if (aVar.lQf == null) {
-            rVar4 = f.dox();
+        this.lTQ = sVar2;
+        if (aVar.lTR == null) {
+            rVar4 = f.dpG();
         } else {
-            rVar4 = aVar.lQf;
+            rVar4 = aVar.lTR;
         }
-        this.lQf = rVar4;
-        if (aVar.lQg == null) {
-            sVar3 = n.doC();
+        this.lTR = rVar4;
+        if (aVar.lTS == null) {
+            sVar3 = n.dpL();
         } else {
-            sVar3 = aVar.lQg;
+            sVar3 = aVar.lTS;
         }
-        this.lQg = sVar3;
+        this.lTS = sVar3;
     }
 
-    public r doF() {
-        return this.lQa;
+    public r dpO() {
+        return this.lTM;
     }
 
-    public s doG() {
-        return this.lQb;
+    public s dpP() {
+        return this.lTN;
     }
 
-    public com.facebook.common.memory.c dmB() {
-        return this.lNP;
+    public com.facebook.common.memory.c dnI() {
+        return this.lRB;
     }
 
-    public r doH() {
-        return this.lQd;
+    public r dpQ() {
+        return this.lTP;
     }
 
-    public s doI() {
-        return this.lQe;
+    public s dpR() {
+        return this.lTQ;
     }
 
-    public r doJ() {
-        return this.lQc;
+    public r dpS() {
+        return this.lTO;
     }
 
-    public r doK() {
-        return this.lQf;
+    public r dpT() {
+        return this.lTR;
     }
 
-    public s doL() {
-        return this.lQg;
+    public s dpU() {
+        return this.lTS;
     }
 
-    public static a doM() {
+    public static a dpV() {
         return new a();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        private com.facebook.common.memory.c lNP;
-        private r lQa;
-        private s lQb;
-        private r lQc;
-        private r lQd;
-        private s lQe;
-        private r lQf;
-        private s lQg;
+        private com.facebook.common.memory.c lRB;
+        private r lTM;
+        private s lTN;
+        private r lTO;
+        private r lTP;
+        private s lTQ;
+        private r lTR;
+        private s lTS;
 
         private a() {
         }
 
-        public p doN() {
+        public p dpW() {
             return new p(this);
         }
     }

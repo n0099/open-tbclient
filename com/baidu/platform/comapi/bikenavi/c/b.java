@@ -21,7 +21,7 @@ import com.baidu.platform.comapi.wnplatform.h.e;
 import com.baidu.platform.comapi.wnplatform.o.f;
 import com.baidu.tieba.R;
 import java.math.BigDecimal;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends com.baidu.platform.comapi.wnplatform.n.a {
     LatLng a;
     LatLng b;
@@ -200,7 +200,7 @@ public class b extends com.baidu.platform.comapi.wnplatform.n.a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CountDownTimer {
         Activity a;
         com.baidu.platform.comapi.walknavi.widget.a b;

@@ -8,21 +8,21 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.extcore.a;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.g.c.a, com.baidu.swan.games.g.d.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c bpB;
+    private static volatile c bqp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c Pa() {
-        if (bpB == null) {
+    public static c Pw() {
+        if (bqp == null) {
             synchronized (c.class) {
-                if (bpB == null) {
-                    bpB = new c();
+                if (bqp == null) {
+                    bqp = new c();
                 }
             }
         }
-        return bpB;
+        return bqp;
     }
 
     private c() {
@@ -31,9 +31,9 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.g.c.
 
     @Override // com.baidu.swan.apps.extcore.b.b
     @Nullable
-    public ExtensionCore Of() {
+    public ExtensionCore OB() {
         if (ProcessUtils.isMainProcess()) {
-            return Pe();
+            return PA();
         }
         Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
@@ -45,13 +45,13 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.g.c.
         return extensionCore;
     }
 
-    /* loaded from: classes9.dex */
-    private static class a extends a.C0246a {
+    /* loaded from: classes10.dex */
+    private static class a extends a.C0248a {
         private a() {
         }
 
-        @Override // com.baidu.swan.apps.extcore.a.C0246a
-        protected int DH() {
+        @Override // com.baidu.swan.apps.extcore.a.C0248a
+        protected int Ed() {
             return 1;
         }
     }

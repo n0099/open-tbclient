@@ -1,6 +1,6 @@
 package com.google.android.exoplayer2.source;
 
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class BehindLiveWindowException extends IOException {
 }

@@ -14,12 +14,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
-    boolean fLb;
+    boolean fOk;
 
     public c(boolean z) {
-        this.fLb = z;
+        this.fOk = z;
         setPriority(4);
     }
 
@@ -33,7 +33,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         String str;
         StringBuilder sb2;
         l<String> a = BdCacheService.fz().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-        if (this.fLb) {
+        if (this.fOk) {
             String str2 = a.get("dnsproxycachedata");
             if (str2 != null) {
                 DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) DnsProxyResponseData.objectWithJsonStr(str2, DnsProxyResponseData.class);
@@ -60,7 +60,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             e.printStackTrace();
         }
         if (collectionArr != null && collectionArr.length == 1 && (collection = collectionArr[0]) != null) {
-            String bub = new a().bub();
+            String bvd = new a().bvd();
             StringBuilder sb3 = new StringBuilder();
             for (String str3 : collection) {
                 if (sb3.length() > 0) {
@@ -68,12 +68,12 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 }
                 sb3.append(str3);
             }
-            String str4 = "http://" + bub + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
-            com.baidu.adp.lib.network.http.f fVar = new com.baidu.adp.lib.network.http.f();
-            com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(fVar);
-            fVar.fY().setUrl(str4);
+            String str4 = "http://" + bvd + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
+            com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
+            com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
+            eVar.fX().setUrl(str4);
             cVar.c(-1, -1, -1);
-            byte[] bArr = fVar.fZ().retBytes;
+            byte[] bArr = eVar.fY().retBytes;
             StringBuilder sb4 = null;
             if (bArr != null) {
                 try {
@@ -118,7 +118,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                             }
                         }
                     }
-                    b.bud().h(hashSet);
+                    b.bvf().h(hashSet);
                     publishProgress(hashMap3);
                     a.setForever("dnsproxycachedata", str);
                     sb2 = sb5;
@@ -130,13 +130,13 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                     sb2 = null;
                 }
                 sb4 = sb2;
-            } else if (fVar.gb() != null) {
-                sb = fVar.gb().exception;
+            } else if (eVar.ga() != null) {
+                sb = eVar.ga().exception;
             } else {
                 StringBuilder sb7 = new StringBuilder();
-                List<com.baidu.adp.lib.network.http.d> ga = fVar.ga();
-                if (ga != null) {
-                    for (com.baidu.adp.lib.network.http.d dVar : ga) {
+                List<com.baidu.adp.lib.network.http.d> fZ = eVar.fZ();
+                if (fZ != null) {
+                    for (com.baidu.adp.lib.network.http.d dVar : fZ) {
                         if (dVar != null && !TextUtils.isEmpty(dVar.exception)) {
                             if (sb7.length() > 0) {
                                 sb7.append(Constants.ACCEPT_TIME_SEPARATOR_SP);

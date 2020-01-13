@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ugc.emoji;
 
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Emojicon implements Serializable {
     private static final long serialVersionUID = 1;
     private String emoji;

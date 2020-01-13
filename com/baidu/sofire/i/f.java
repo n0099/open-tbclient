@@ -6,7 +6,7 @@ import android.os.Message;
 import com.baidu.sofire.rp.receiver.Receiver;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class f {
     private static Lock b = new ReentrantLock();
     private static f c = null;

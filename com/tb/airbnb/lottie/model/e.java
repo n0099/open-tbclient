@@ -1,31 +1,108 @@
 package com.tb.airbnb.lottie.model;
 
-import android.content.res.Resources;
-import com.tb.airbnb.lottie.e;
-import java.io.InputStream;
-/* loaded from: classes2.dex */
-public final class e extends b<InputStream> {
-    private final com.tb.airbnb.lottie.h loadedListener;
-    private final Resources mNO;
+import android.support.annotation.CheckResult;
+import android.support.annotation.Nullable;
+import android.support.annotation.RestrictTo;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class e {
+    private final List<String> hA;
+    @Nullable
+    private f npS;
 
-    public e(Resources resources, com.tb.airbnb.lottie.h hVar) {
-        this.mNO = resources;
-        this.loadedListener = hVar;
+    public e(String... strArr) {
+        this.hA = Arrays.asList(strArr);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: b */
-    public com.tb.airbnb.lottie.e doInBackground(InputStream... inputStreamArr) {
-        return e.a.a(this.mNO, inputStreamArr[0]);
+    private e(e eVar) {
+        this.hA = new ArrayList(eVar.hA);
+        this.npS = eVar.npS;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: i */
-    public void onPostExecute(com.tb.airbnb.lottie.e eVar) {
-        this.loadedListener.onCompositionLoaded(eVar);
+    @CheckResult
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public e Rm(String str) {
+        e eVar = new e(this);
+        eVar.hA.add(str);
+        return eVar;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public e a(f fVar) {
+        e eVar = new e(this);
+        eVar.npS = fVar;
+        return eVar;
+    }
+
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public f dFC() {
+        return this.npS;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public boolean c(String str, int i) {
+        if (P(str)) {
+            return true;
+        }
+        if (i >= this.hA.size()) {
+            return false;
+        }
+        return this.hA.get(i).equals(str) || this.hA.get(i).equals("**") || this.hA.get(i).equals("*");
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public int d(String str, int i) {
+        if (P(str)) {
+            return 0;
+        }
+        if (this.hA.get(i).equals("**")) {
+            return (i != this.hA.size() + (-1) && this.hA.get(i + 1).equals(str)) ? 2 : 0;
+        }
+        return 1;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public boolean e(String str, int i) {
+        if (i >= this.hA.size()) {
+            return false;
+        }
+        boolean z = i == this.hA.size() + (-1);
+        String str2 = this.hA.get(i);
+        if (!str2.equals("**")) {
+            return (z || (i == this.hA.size() + (-2) && ck())) && (str2.equals(str) || str2.equals("*"));
+        }
+        if (!z && this.hA.get(i + 1).equals(str)) {
+            return i == this.hA.size() + (-2) || (i == this.hA.size() + (-3) && ck());
+        } else if (z) {
+            return true;
+        } else {
+            if (i + 1 >= this.hA.size() - 1) {
+                return this.hA.get(i + 1).equals(str);
+            }
+            return false;
+        }
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public boolean f(String str, int i) {
+        if (str.equals("__container")) {
+            return true;
+        }
+        return i < this.hA.size() + (-1) || this.hA.get(i).equals("**");
+    }
+
+    private boolean P(String str) {
+        return str.equals("__container");
+    }
+
+    private boolean ck() {
+        return this.hA.get(this.hA.size() - 1).equals("**");
+    }
+
+    public String toString() {
+        return "KeyPath{keys=" + this.hA + ",resolved=" + (this.npS != null) + '}';
     }
 }

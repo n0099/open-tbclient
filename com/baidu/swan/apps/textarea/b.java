@@ -4,36 +4,36 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private a bTf;
+    private a bTr;
     private View rootView;
     private int rootViewVisibleHeight;
-    private int bTe = 0;
-    private int bmZ = 200;
+    private int bTq = 0;
+    private int bnN = 200;
 
     private b(final String str, Activity activity) {
         this.rootView = activity.getWindow().getDecorView();
         this.rootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.textarea.b.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
-                if (b.this.bTf != null) {
-                    b.this.bTf.ga(str);
+                if (b.this.bTr != null) {
+                    b.this.bTr.gd(str);
                 }
                 Rect rect = new Rect();
                 b.this.rootView.getWindowVisibleDisplayFrame(rect);
                 int height = rect.height();
-                if (b.this.rootViewVisibleHeight == b.this.bTe) {
+                if (b.this.rootViewVisibleHeight == b.this.bTq) {
                     b.this.rootViewVisibleHeight = height;
                 } else if (b.this.rootViewVisibleHeight != height) {
-                    if (b.this.rootViewVisibleHeight - height > b.this.bmZ) {
-                        if (b.this.bTf != null) {
-                            b.this.bTf.y(str, b.this.rootViewVisibleHeight - height);
+                    if (b.this.rootViewVisibleHeight - height > b.this.bnN) {
+                        if (b.this.bTr != null) {
+                            b.this.bTr.y(str, b.this.rootViewVisibleHeight - height);
                         }
                         b.this.rootViewVisibleHeight = height;
-                    } else if (height - b.this.rootViewVisibleHeight > b.this.bmZ) {
-                        if (b.this.bTf != null) {
-                            b.this.bTf.z(str, height - b.this.rootViewVisibleHeight);
+                    } else if (height - b.this.rootViewVisibleHeight > b.this.bnN) {
+                        if (b.this.bTr != null) {
+                            b.this.bTr.z(str, height - b.this.rootViewVisibleHeight);
                         }
                         b.this.rootViewVisibleHeight = height;
                     }
@@ -43,7 +43,7 @@ public class b {
     }
 
     private void a(a aVar) {
-        this.bTf = aVar;
+        this.bTr = aVar;
     }
 
     public static void a(String str, Activity activity, a aVar) {

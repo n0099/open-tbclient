@@ -3,33 +3,32 @@ package kotlin;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.p;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
-public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
+import kotlin.jvm.internal.q;
+/* loaded from: classes5.dex */
+final class SafePublicationLazyImpl<T> implements Serializable, d<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> mYy = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> nAR = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
-    private final Object f956final;
+    private final Object f954final;
     private volatile kotlin.jvm.a.a<? extends T> initializer;
 
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
-        p.j(aVar, "initializer");
+        q.j(aVar, "initializer");
         this.initializer = aVar;
-        this._value = f.mYz;
-        this.f956final = f.mYz;
+        this._value = j.nAS;
+        this.f954final = j.nAS;
     }
 
-    @Override // kotlin.c
+    @Override // kotlin.d
     public T getValue() {
         T t = (T) this._value;
-        if (t == f.mYz) {
+        if (t == j.nAS) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (Companion.dEw().compareAndSet(this, f.mYz, invoke)) {
+                if (nAR.compareAndSet(this, j.nAS, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -40,7 +39,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != f.mYz;
+        return this._value != j.nAS;
     }
 
     public String toString() {
@@ -51,18 +50,13 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
         return new InitializedLazyImpl(getValue());
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private a() {
         }
 
         public /* synthetic */ a(o oVar) {
             this();
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> dEw() {
-            return SafePublicationLazyImpl.mYy;
         }
     }
 }

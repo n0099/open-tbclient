@@ -5,7 +5,7 @@ import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.Context;
 import android.text.ClipboardManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class aj {
     protected static Context sTheApp;
 
@@ -18,7 +18,7 @@ public abstract class aj {
         return com.baidu.swan.apps.as.a.hasHoneycomb() ? new a() : new b();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private static class b extends aj {
         private static ClipboardManager sInstance = null;
 
@@ -38,7 +38,7 @@ public abstract class aj {
     }
 
     @TargetApi(11)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private static class a extends aj {
         private static android.content.ClipboardManager sInstance = null;
         private static ClipData sClipData = null;

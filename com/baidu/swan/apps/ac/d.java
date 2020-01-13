@@ -5,43 +5,43 @@ import android.graphics.Rect;
 import android.util.Log;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
-    boolean bAM;
-    long bAO;
-    private WeakReference<Bitmap> bAQ;
+    private WeakReference<Bitmap> bBC;
+    boolean bBz;
     String id;
     boolean isFirstPage;
     Rect rect;
+    long remainTime;
     String url;
     private static final String TAG = f.TAG;
     private static final boolean DEBUG = com.baidu.swan.apps.runtime.e.DEBUG;
-    int bAP = 0;
+    int bBB = 0;
     long startTime = System.currentTimeMillis();
-    int bAN = 0;
+    int bBA = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str, String str2, long j, boolean z) {
         this.id = str;
         this.url = str2;
-        this.bAO = j;
+        this.remainTime = j;
         this.isFirstPage = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long VS() {
-        if (this.bAO > 0) {
-            this.bAO -= System.currentTimeMillis() - this.startTime;
+    public long Wp() {
+        if (this.remainTime > 0) {
+            this.remainTime -= System.currentTimeMillis() - this.startTime;
         }
-        return this.bAO;
+        return this.remainTime;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void pause() {
-        if (this.bAO > 0) {
-            this.bAO -= System.currentTimeMillis() - this.startTime;
+        if (this.remainTime > 0) {
+            this.remainTime -= System.currentTimeMillis() - this.startTime;
             if (DEBUG) {
-                Log.d(TAG, "pause, left " + this.bAO + "ms");
+                Log.d(TAG, "pause, left " + this.remainTime + "ms");
             }
         }
     }
@@ -52,22 +52,22 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void VT() {
-        this.bAN = 1;
+    public void Wq() {
+        this.bBA = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void VU() {
-        this.bAN = 2;
+    public void Wr() {
+        this.bBA = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isChecked() {
-        return this.bAN == 2;
+        return this.bBA == 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void k(Bitmap bitmap) {
-        this.bAQ = new WeakReference<>(bitmap);
+        this.bBC = new WeakReference<>(bitmap);
     }
 }

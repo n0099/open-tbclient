@@ -1,51 +1,24 @@
 package com.baidu.live.utils;
 
-import android.text.TextUtils;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.live.r.a;
+import com.baidu.live.tbadk.util.ScreenHelper;
 /* loaded from: classes2.dex */
 public class p {
-    private static String ayP = "";
-
-    public static String yu() {
-        if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            return "ala_subapp_shoubai_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isHaokan()) {
-            return "ala_subapp_haokan_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
-            return "ala_subapp_quanmin_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isTieba()) {
-            return "ala_tieba_android_consume";
-        }
-        return "";
+    public static int aK(Context context) {
+        return context.getResources().getDimensionPixelOffset(a.e.sdk_ds176);
     }
 
-    public static String yv() {
-        if (!TextUtils.isEmpty(ayP)) {
-            return ayP;
-        }
-        if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            return "ala_subapp_shoubai_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isHaokan()) {
-            return "ala_subapp_haokan_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isQuanmin()) {
-            return "ala_subapp_quanmin_android_consume";
-        }
-        if (TbadkCoreApplication.getInst().isTieba()) {
-            return "ala_tieba_android_consume";
-        }
-        return "";
+    public static int u(Activity activity) {
+        return ScreenHelper.getRealScreenWidth(activity);
     }
 
-    public static void dR(String str) {
-        ayP = str;
+    public static int v(Activity activity) {
+        return (u(activity) * 9) / 16;
     }
 
-    public static String yw() {
-        return ayP;
+    public static int w(Activity activity) {
+        return aK(activity) + v(activity);
     }
 }

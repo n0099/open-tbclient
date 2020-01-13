@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g extends b {
     public static int a = 0;
     public static int b = 10;

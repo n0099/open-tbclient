@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.QueryForumDetail.QueryForumDetailResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ResponseOfficialBarInfoMessage extends TbSocketReponsedMessage {
     private String authen;
     private String portrait;

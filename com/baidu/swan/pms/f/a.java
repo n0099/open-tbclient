@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [61=5] */
     public static String toMd5(File file, boolean z) {

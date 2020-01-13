@@ -26,24 +26,24 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class h {
-    private static h dqC = null;
-    private int dqz;
-    private com.baidu.adp.framework.client.socket.link.a dqA = null;
-    private UpdateClientInfoMessage dqB = null;
-    private int dqD = 0;
-    private final com.baidu.adp.framework.client.socket.link.a nV = new com.baidu.adp.framework.client.socket.link.a() { // from class: com.baidu.tbadk.coreExtra.d.h.1
+    private static h dqN = null;
+    private int dqK;
+    private com.baidu.adp.framework.client.socket.link.a dqL = null;
+    private UpdateClientInfoMessage dqM = null;
+    private int dqO = 0;
+    private final com.baidu.adp.framework.client.socket.link.a nS = new com.baidu.adp.framework.client.socket.link.a() { // from class: com.baidu.tbadk.coreExtra.d.h.1
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void a(k.a aVar) {
-            if (h.this.dqA != null) {
-                h.this.dqA.a(aVar);
+            if (h.this.dqL != null) {
+                h.this.dqL.a(aVar);
             }
         }
 
         @Override // com.baidu.adp.framework.client.socket.link.a
         public boolean onClose(int i, String str) {
             com.baidu.tbadk.lcs.a.d(0, 2, 0, 0, 0);
-            if (h.this.dqA != null) {
-                h.this.dqA.onClose(i, str);
+            if (h.this.dqL != null) {
+                h.this.dqL.onClose(i, str);
             }
             return false;
         }
@@ -51,50 +51,50 @@ public class h {
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void onConnected(Map<String, String> map) {
             com.baidu.tbadk.lcs.a.d(0, 1, 0, 0, 0);
-            if (h.this.dqA != null) {
-                h.this.dqA.onConnected(map);
+            if (h.this.dqL != null) {
+                h.this.dqL.onConnected(map);
             }
             com.baidu.adp.framework.client.socket.i.debug("TbOnline", 1001, 0, "begin_online", 0, "begin online");
-            if (m.aOA().aOB() && h.b(h.this) < 10) {
+            if (m.aOT().aOU() && h.b(h.this) < 10) {
                 com.baidu.adp.framework.client.socket.i.perfWebSocketConTime();
             }
             com.baidu.tbadk.lcs.a.d(1001, 0, 0, 3, 0);
-            h.this.dqB = h.this.aKN();
-            MessageManager.getInstance().sendMessage(h.this.dqB);
+            h.this.dqM = h.this.aLg();
+            MessageManager.getInstance().sendMessage(h.this.dqM);
         }
 
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void a(com.baidu.adp.lib.webSocket.c cVar) {
-            if (h.this.dqA != null) {
-                h.this.dqA.a(cVar);
+            if (h.this.dqL != null) {
+                h.this.dqL.a(cVar);
             }
         }
 
         @Override // com.baidu.adp.framework.client.socket.link.a
         public void onTextMessage(String str) {
-            if (h.this.dqA != null) {
-                h.this.dqA.onTextMessage(str);
+            if (h.this.dqL != null) {
+                h.this.dqL.onTextMessage(str);
             }
         }
     };
 
     static /* synthetic */ int b(h hVar) {
-        int i = hVar.dqD + 1;
-        hVar.dqD = i;
+        int i = hVar.dqO + 1;
+        hVar.dqO = i;
         return i;
     }
 
-    public static synchronized h aKM() {
+    public static synchronized h aLf() {
         h hVar;
         synchronized (h.class) {
-            if (dqC == null) {
+            if (dqN == null) {
                 synchronized (h.class) {
-                    if (dqC == null) {
-                        dqC = new h();
+                    if (dqN == null) {
+                        dqN = new h();
                     }
                 }
             }
-            hVar = dqC;
+            hVar = dqN;
         }
         return hVar;
     }
@@ -107,7 +107,7 @@ public class h {
             public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
                 int i;
                 if (!(socketResponsedMessage instanceof ResponseOnlineMessage)) {
-                    h.this.e(socketResponsedMessage.getCmd(), -1, null);
+                    h.this.f(socketResponsedMessage.getCmd(), -1, null);
                     return null;
                 }
                 ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
@@ -119,23 +119,23 @@ public class h {
                     j = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getClientLogID();
                 }
                 if (responseOnlineMessage.getError() != 0) {
-                    h.this.e(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
-                    com.baidu.adp.framework.client.socket.i.debug("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + h.this.dqz);
+                    h.this.f(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
+                    com.baidu.adp.framework.client.socket.i.debug("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + h.this.dqK);
                     return null;
                 }
-                h.this.aKQ();
-                com.baidu.adp.framework.client.socket.i.debug("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + h.this.dqz);
+                h.this.aLj();
+                com.baidu.adp.framework.client.socket.i.debug("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + h.this.dqK);
                 return socketResponsedMessage;
             }
         });
     }
 
     public void init() {
-        MessageManager.getInstance().getSocketClient().a(this.nV);
+        MessageManager.getInstance().getSocketClient().a(this.nS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public UpdateClientInfoMessage aKN() {
+    public UpdateClientInfoMessage aLg() {
         String valueOf;
         UpdateClientInfoMessage updateClientInfoMessage = new UpdateClientInfoMessage();
         updateClientInfoMessage.addUserInfo("_client_type", "2");
@@ -157,7 +157,7 @@ public class h {
         if (NetTypeFixedSwitch.isOn()) {
             updateClientInfoMessage.addUserInfo("net_type", String.valueOf(com.baidu.adp.lib.util.j.netType()));
         } else {
-            String str = new x().aDB().aEb().aEe().mNetType;
+            String str = new x().aDU().aEu().aEx().mNetType;
             if (str != null) {
                 updateClientInfoMessage.addUserInfo("net_type", str);
             }
@@ -176,7 +176,7 @@ public class h {
         stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         stringBuffer.append(String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
         updateClientInfoMessage.addUserInfo("_phone_screen", stringBuffer.toString());
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIw().aIz() > 0) {
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aIT() > 0) {
             updateClientInfoMessage.addUserInfo("_msg_status", "0");
         } else {
             updateClientInfoMessage.addUserInfo("_msg_status", "1");
@@ -189,10 +189,10 @@ public class h {
         }
         try {
             if (TbadkCoreApplication.isLogin()) {
-                a.b rX = com.baidu.tbadk.core.a.a.axg().rX(TbadkCoreApplication.getCurrentBduss());
+                a.b sa = com.baidu.tbadk.core.a.a.axz().sa(TbadkCoreApplication.getCurrentBduss());
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
-                if (rX != null) {
-                    updateClientInfoMessage.setBduss(rX.mBduss, c);
+                if (sa != null) {
+                    updateClientInfoMessage.setBduss(sa.mBduss, c);
                 } else {
                     updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss(), c);
                 }
@@ -203,8 +203,8 @@ public class h {
         int dip2px = l.dip2px(TbadkCoreApplication.getInst().getContext(), 70.0f);
         updateClientInfoMessage.setHeight(l.dip2px(TbadkCoreApplication.getInst().getContext(), 70.0f));
         updateClientInfoMessage.setWidth(dip2px);
-        if (com.baidu.tbadk.coreExtra.b.a.aGl().aGm()) {
-            updateClientInfoMessage.setPub_env(Integer.valueOf(com.baidu.tbadk.coreExtra.b.a.aGl().aGn()));
+        if (com.baidu.tbadk.coreExtra.b.a.aGE().aGF()) {
+            updateClientInfoMessage.setPub_env(Integer.valueOf(com.baidu.tbadk.coreExtra.b.a.aGE().aGG()));
         }
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
             updateClientInfoMessage.setPub_env(Integer.valueOf(com.baidu.adp.lib.f.b.toInt(TbSingleton.getInstance().getPubEnvValue(), 0)));
@@ -217,33 +217,33 @@ public class h {
         return updateClientInfoMessage;
     }
 
-    public boolean aKO() {
-        return this.dqz >= 5;
+    public boolean aLh() {
+        return this.dqK >= 5;
     }
 
-    public void aKP() {
-        this.dqz++;
-        if (aKO()) {
+    public void aLi() {
+        this.dqK++;
+        if (aLh()) {
             BdSocketLinkService.setAvailable(false);
             NoNetworkView.updateUI();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKQ() {
-        this.dqz = 0;
+    public void aLj() {
+        this.dqK = 0;
         MessageManager.getInstance().getSocketClient().unBlockMessageQueue();
         NoNetworkView.updateUI();
         BdSocketLinkService.stopReConnStrategy("online succ");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e(int i, int i2, String str) {
-        aKP();
+    public void f(int i, int i2, String str) {
+        aLi();
         BdSocketLinkService.close(8, "online error = " + i2);
     }
 
     public void a(com.baidu.adp.framework.client.socket.link.a aVar) {
-        this.dqA = aVar;
+        this.dqL = aVar;
     }
 }

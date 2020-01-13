@@ -8,7 +8,7 @@ import java.security.spec.ECGenParameterSpec;
 import java.security.spec.ECParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import org.conscrypt.NativeRef;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ECParameters extends AlgorithmParametersSpi {
     private OpenSSLECGroupContext curve;
 

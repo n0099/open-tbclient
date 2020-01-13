@@ -5,47 +5,47 @@ import android.support.v4.app.ActivityCompat;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
-    private Map<String, com.baidu.m.a> cCb;
+    private Map<String, com.baidu.m.a> cCm;
 
     private a() {
-        this.cCb = new HashMap();
+        this.cCm = new HashMap();
     }
 
     /* renamed from: com.baidu.m.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private static class C0103a {
-        private static final a cCc = new a();
+    /* loaded from: classes5.dex */
+    private static class C0105a {
+        private static final a cCn = new a();
     }
 
-    public static a aui() {
-        return C0103a.cCc;
+    public static a auB() {
+        return C0105a.cCn;
     }
 
     public boolean a(com.baidu.m.a aVar, String str) {
         if (aVar == null || str == null) {
             return false;
         }
-        for (Map.Entry<String, com.baidu.m.a> entry : this.cCb.entrySet()) {
+        for (Map.Entry<String, com.baidu.m.a> entry : this.cCm.entrySet()) {
             entry.getValue().stop();
         }
-        this.cCb.clear();
-        this.cCb.put(str, aVar);
+        this.cCm.clear();
+        this.cCm.put(str, aVar);
         return true;
     }
 
-    public void qX(String str) {
+    public void ra(String str) {
         com.baidu.m.a aVar;
-        if (str != null && (aVar = this.cCb.get(str)) != null) {
+        if (str != null && (aVar = this.cCm.get(str)) != null) {
             aVar.stop();
-            this.cCb.remove(str);
+            this.cCm.remove(str);
         }
     }
 
-    public com.baidu.m.a qY(String str) {
+    public com.baidu.m.a rb(String str) {
         com.baidu.m.a aVar;
-        if (str == null || (aVar = this.cCb.get(str)) == null) {
+        if (str == null || (aVar = this.cCm.get(str)) == null) {
             return null;
         }
         return aVar;

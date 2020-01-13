@@ -5,14 +5,14 @@ import android.preference.PreferenceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.webkit.internal.GlobalConstants;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private static final String cBL = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
-    public static final String bmi = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+    private static final String cBW = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
+    public static final String bmY = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
 
-    public static boolean atM() {
+    public static boolean auf() {
         if (PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_t7_success", false)) {
-            return atQ() || atR();
+            return auj() || auk();
         }
         return false;
     }
@@ -23,32 +23,32 @@ public class b {
     }
 
     @SuppressLint({"ApplySharedPref"})
-    public static void atN() {
+    public static void aug() {
         PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putBoolean("swan_t7_success", false).commit();
     }
 
-    public static int atO() {
+    public static int auh() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("swan_sailor_version_code", 0);
     }
 
-    public static String atP() {
+    public static String aui() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sailor_version_name", "");
     }
 
-    public static boolean atQ() {
-        return new File(new StringBuilder().append(cBL).append(File.separator).append(GlobalConstants.LIB_ZEUS_CHROMIUM).toString()).exists() && Np();
+    public static boolean auj() {
+        return new File(new StringBuilder().append(cBW).append(File.separator).append(GlobalConstants.LIB_ZEUS_CHROMIUM).toString()).exists() && NL();
     }
 
-    public static boolean atR() {
-        return new File(new StringBuilder().append(bmi).append(File.separator).append(GlobalConstants.LIB_ZEUS_V8).toString()).exists() && !Np();
+    public static boolean auk() {
+        return new File(new StringBuilder().append(bmY).append(File.separator).append(GlobalConstants.LIB_ZEUS_V8).toString()).exists() && !NL();
     }
 
-    public static boolean Np() {
+    public static boolean NL() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 
     @SuppressLint({"ApplySharedPref"})
-    public static void eV(boolean z) {
+    public static void fa(boolean z) {
         PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putBoolean("swan_full_install", z).commit();
     }
 }

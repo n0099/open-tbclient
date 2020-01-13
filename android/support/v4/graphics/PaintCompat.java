@@ -5,7 +5,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.util.Pair;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class PaintCompat {
     private static final String EM_STRING = "m";
     private static final String TOFU_STRING = "\udfffd";

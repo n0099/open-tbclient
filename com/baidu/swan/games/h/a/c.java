@@ -2,9 +2,9 @@ package com.baidu.swan.games.h.a;
 
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private int cjK;
+    private int cjX;
     @V8JavascriptField
     public String digest;
     @V8JavascriptField
@@ -14,9 +14,9 @@ public class c {
     public int size;
 
     public c() {
-        this.cjK = 0;
-        int i = this.cjK;
-        this.cjK = i + 1;
+        this.cjX = 0;
+        int i = this.cjX;
+        this.cjX = i + 1;
         this.mID = i;
     }
 

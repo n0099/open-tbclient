@@ -1,13 +1,13 @@
 package com.google.android.exoplayer2.upstream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface b {
     void a(a aVar);
 
     void a(a[] aVarArr);
 
-    a dwt();
+    a dxE();
 
-    int dwu();
+    int dxF();
 
     void trim();
 }

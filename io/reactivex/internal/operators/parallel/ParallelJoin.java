@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.parallel;
 import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.g;
-import io.reactivex.internal.a.e;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -15,26 +15,26 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ParallelJoin<T> extends g<T> {
     final boolean delayErrors;
-    final a<? extends T> mVD;
+    final a<? extends T> nxM;
     final int prefetch;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         JoinSubscriptionBase joinSubscription;
         if (this.delayErrors) {
-            joinSubscription = new JoinSubscriptionDelayError(cVar, this.mVD.dDW(), this.prefetch);
+            joinSubscription = new JoinSubscriptionDelayError(cVar, this.nxM.dIg(), this.prefetch);
         } else {
-            joinSubscription = new JoinSubscription(cVar, this.mVD.dDW(), this.prefetch);
+            joinSubscription = new JoinSubscription(cVar, this.nxM.dIg(), this.prefetch);
         }
         cVar.onSubscribe(joinSubscription);
-        this.mVD.a(joinSubscription.subscribers);
+        this.nxM.a(joinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class JoinSubscriptionBase<T> extends AtomicInteger implements d {
         private static final long serialVersionUID = 3100232009247827843L;
         final c<? super T> actual;
@@ -94,7 +94,7 @@ public final class ParallelJoin<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class JoinSubscription<T> extends JoinSubscriptionBase<T> {
         private static final long serialVersionUID = 6312374661811000451L;
 
@@ -118,7 +118,7 @@ public final class ParallelJoin<T> extends g<T> {
                         this.actual.onError(missingBackpressureException);
                         return;
                     } else {
-                        io.reactivex.d.a.onError(missingBackpressureException);
+                        io.reactivex.e.a.onError(missingBackpressureException);
                         return;
                     }
                 }
@@ -141,7 +141,7 @@ public final class ParallelJoin<T> extends g<T> {
                 cancelAll();
                 drain();
             } else if (th != this.errors.get()) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
 
@@ -205,8 +205,8 @@ public final class ParallelJoin<T> extends g<T> {
                             break;
                         }
                         JoinInnerSubscriber<T> joinInnerSubscriber = joinInnerSubscriberArr[i3];
-                        e<T> eVar = joinInnerSubscriber.queue;
-                        if (eVar != null && (obj = (T) eVar.poll()) != null) {
+                        f<T> fVar = joinInnerSubscriber.queue;
+                        if (fVar != null && (obj = (T) fVar.poll()) != null) {
                             z2 = false;
                             cVar.onNext(obj);
                             joinInnerSubscriber.requestOne();
@@ -234,8 +234,8 @@ public final class ParallelJoin<T> extends g<T> {
                     int i4 = 0;
                     while (true) {
                         if (i4 < length) {
-                            e<T> eVar2 = joinInnerSubscriberArr[i4].queue;
-                            if (eVar2 == null || eVar2.isEmpty()) {
+                            f<T> fVar2 = joinInnerSubscriberArr[i4].queue;
+                            if (fVar2 == null || fVar2.isEmpty()) {
                                 i4++;
                             } else {
                                 z4 = false;
@@ -261,7 +261,7 @@ public final class ParallelJoin<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class JoinSubscriptionDelayError<T> extends JoinSubscriptionBase<T> {
         private static final long serialVersionUID = -5737965195918321883L;
 
@@ -369,8 +369,8 @@ public final class ParallelJoin<T> extends g<T> {
                             break;
                         }
                         JoinInnerSubscriber<T> joinInnerSubscriber = joinInnerSubscriberArr[i2];
-                        e<T> eVar = joinInnerSubscriber.queue;
-                        if (eVar != null && (obj = (T) eVar.poll()) != null) {
+                        f<T> fVar = joinInnerSubscriber.queue;
+                        if (fVar != null && (obj = (T) fVar.poll()) != null) {
                             z2 = false;
                             cVar.onNext(obj);
                             joinInnerSubscriber.requestOne();
@@ -392,8 +392,8 @@ public final class ParallelJoin<T> extends g<T> {
                     int i3 = 0;
                     while (true) {
                         if (i3 < length) {
-                            e<T> eVar2 = joinInnerSubscriberArr[i3].queue;
-                            if (eVar2 == null || eVar2.isEmpty()) {
+                            f<T> fVar2 = joinInnerSubscriberArr[i3].queue;
+                            if (fVar2 == null || fVar2.isEmpty()) {
                                 i3++;
                             } else {
                                 z4 = false;
@@ -430,14 +430,14 @@ public final class ParallelJoin<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class JoinInnerSubscriber<T> extends AtomicReference<d> implements j<T> {
         private static final long serialVersionUID = 8410034718427740355L;
         final int limit;
         final JoinSubscriptionBase<T> parent;
         final int prefetch;
         long produced;
-        volatile e<T> queue;
+        volatile f<T> queue;
 
         JoinInnerSubscriber(JoinSubscriptionBase<T> joinSubscriptionBase, int i) {
             this.parent = joinSubscriptionBase;
@@ -489,14 +489,14 @@ public final class ParallelJoin<T> extends g<T> {
             return SubscriptionHelper.cancel(this);
         }
 
-        e<T> getQueue() {
-            e<T> eVar = this.queue;
-            if (eVar == null) {
+        f<T> getQueue() {
+            f<T> fVar = this.queue;
+            if (fVar == null) {
                 SpscArrayQueue spscArrayQueue = new SpscArrayQueue(this.prefetch);
                 this.queue = spscArrayQueue;
                 return spscArrayQueue;
             }
-            return eVar;
+            return fVar;
         }
     }
 }

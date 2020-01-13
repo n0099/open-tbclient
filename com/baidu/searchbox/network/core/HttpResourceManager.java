@@ -3,7 +3,7 @@ package com.baidu.searchbox.network.core;
 import android.content.Context;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class HttpResourceManager {
     private static final String PUBLIC_SUFFIX_RESOURCE = "publicsuffixes.bin";
     private static volatile HttpResourceManager singleton = null;

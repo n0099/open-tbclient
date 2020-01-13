@@ -11,7 +11,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ViewUtility implements com.baidu.sapi2.c {
     private static boolean a(Activity activity, boolean z) {
         try {

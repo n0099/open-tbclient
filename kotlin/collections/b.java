@@ -2,12 +2,12 @@ package kotlin.collections;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State mYB = State.NotReady;
-    private T mYC;
+    private State nAU = State.NotReady;
+    private T nAV;
 
-    protected abstract void dEy();
+    protected abstract void dIO();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -16,14 +16,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.h(this.mYB, State.Failed)) {
-            switch (this.mYB) {
+        if (this.nAU != State.Failed) {
+            switch (this.nAU) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return dEx();
+                    return dIN();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -32,26 +32,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.mYB = State.NotReady;
-            return this.mYC;
+            this.nAU = State.NotReady;
+            return this.nAV;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean dEx() {
-        this.mYB = State.Failed;
-        dEy();
-        return kotlin.jvm.internal.p.h(this.mYB, State.Ready);
+    private final boolean dIN() {
+        this.nAU = State.Failed;
+        dIO();
+        return this.nAU == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bM(T t) {
-        this.mYC = t;
-        this.mYB = State.Ready;
+    public final void bQ(T t) {
+        this.nAV = t;
+        this.nAU = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.mYB = State.Done;
+        this.nAU = State.Done;
     }
 }

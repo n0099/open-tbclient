@@ -5,16 +5,17 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class y {
-    public String OC;
-    public String cKC;
-    public String fGQ;
-    public String jsi;
-    public String jsj;
-    public String jsk;
-    public String jsl;
-    public String jsm;
-    public String jsn;
-    public String jso;
+    public String OG;
+    public String cKN;
+    public String fKa;
+    public String jvJ;
+    public String jvK;
+    public String jvL;
+    public int jvM;
+    public String jvN;
+    public String jvO;
+    public String jvP;
+    public String jvQ;
     public String mAbTag;
     public String mExtra;
     public String mFloor;
@@ -30,11 +31,11 @@ public class y {
             if (!StringUtils.isNull(this.mLocate)) {
                 anVar.cp("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.OC)) {
-                anVar.cp("tid", this.OC);
+            if (!StringUtils.isNull(this.OG)) {
+                anVar.cp("tid", this.OG);
             }
-            if (!StringUtils.isNull(this.fGQ)) {
-                anVar.cp("fid", this.fGQ);
+            if (!StringUtils.isNull(this.fKa)) {
+                anVar.cp("fid", this.fKa);
             }
             if (!StringUtils.isNull(this.mUid)) {
                 anVar.cp("uid", this.mUid);
@@ -44,41 +45,44 @@ public class y {
             } else {
                 anVar.Z("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.jsi)) {
-                anVar.cp("obj_param1", this.jsi);
+            if (!StringUtils.isNull(this.jvJ)) {
+                anVar.cp("obj_param1", this.jvJ);
             } else {
                 anVar.Z("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.jsj)) {
-                anVar.cp(TiebaInitialize.Params.OBJ_PARAM2, this.jsj);
+            if (!StringUtils.isNull(this.jvK)) {
+                anVar.cp(TiebaInitialize.Params.OBJ_PARAM2, this.jvK);
             }
-            if (!StringUtils.isNull(this.jsk)) {
-                anVar.cp(TiebaInitialize.Params.OBJ_PARAM3, this.jsk);
+            if (!StringUtils.isNull(this.jvL)) {
+                anVar.cp(TiebaInitialize.Params.OBJ_PARAM3, this.jvL);
             }
-            if (!StringUtils.isNull(this.cKC)) {
-                anVar.cp("obj_id", this.cKC);
+            if (this.jvM > 0) {
+                anVar.Z("obj_param5", this.jvM);
+            }
+            if (!StringUtils.isNull(this.cKN)) {
+                anVar.cp("obj_id", this.cKN);
             }
             if (!StringUtils.isNull(this.mAbTag)) {
                 anVar.cp(TiebaInitialize.Params.AB_TAG, this.mAbTag);
             } else {
                 anVar.Z(TiebaInitialize.Params.AB_TAG, 0);
             }
-            if (!StringUtils.isNull(this.jsm)) {
-                anVar.cp("topic_type", this.jsm);
+            if (!StringUtils.isNull(this.jvO)) {
+                anVar.cp("topic_type", this.jvO);
             }
             if (!StringUtils.isNull(this.mExtra)) {
                 anVar.cp("extra", this.mExtra);
             } else {
                 anVar.Z("extra", 0);
             }
-            if (!StringUtils.isNull(this.jsn)) {
-                anVar.cp("is_vertical", this.jsn);
+            if (!StringUtils.isNull(this.jvP)) {
+                anVar.cp("is_vertical", this.jvP);
             }
             if (!StringUtils.isNull(this.mFloor)) {
                 anVar.cp("obj_floor", this.mFloor);
             }
-            if (!StringUtils.isNull(this.jso)) {
-                anVar.cp("resource_id", this.jso);
+            if (!StringUtils.isNull(this.jvQ)) {
+                anVar.cp("resource_id", this.jvQ);
             }
             anVar.cp("obj_param4", StringUtils.isNull(this.mNid) ? "" : this.mNid);
             anVar.cp("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
@@ -86,23 +90,23 @@ public class y {
         return anVar;
     }
 
-    public y cwO() {
+    public y cxV() {
         y yVar = new y();
         yVar.mLocate = this.mLocate;
         yVar.mType = this.mType;
-        yVar.OC = this.OC;
-        yVar.fGQ = this.fGQ;
+        yVar.OG = this.OG;
+        yVar.fKa = this.fKa;
         yVar.mUid = this.mUid;
         yVar.mSource = this.mSource;
-        yVar.jsi = this.jsi;
-        yVar.jsj = this.jsj;
-        yVar.jsk = this.jsk;
-        yVar.cKC = this.cKC;
+        yVar.jvJ = this.jvJ;
+        yVar.jvK = this.jvK;
+        yVar.jvL = this.jvL;
+        yVar.cKN = this.cKN;
         yVar.mAbTag = this.mAbTag;
-        yVar.jsl = this.jsl;
-        yVar.jsm = this.jsm;
+        yVar.jvN = this.jvN;
+        yVar.jvO = this.jvO;
         yVar.mFloor = this.mFloor;
-        yVar.jso = this.jso;
+        yVar.jvQ = this.jvQ;
         yVar.mNid = this.mNid;
         yVar.mVid = this.mVid;
         return yVar;

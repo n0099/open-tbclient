@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import java.util.Comparator;
 import org.apache.http.NameValuePair;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class cn implements Comparator<NameValuePair> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator

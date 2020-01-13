@@ -13,10 +13,10 @@ import com.baidu.tieba.ala.person.a.e;
 import com.baidu.tieba.ala.person.messages.PlaybacksResponseMessage;
 /* loaded from: classes2.dex */
 public class b extends BdBaseModel {
-    private int aht;
-    private int fmo;
-    private a fmp;
-    private HttpMessageListener fmq;
+    private int aic;
+    private HttpMessageListener fpA;
+    private int fpy;
+    private a fpz;
     private String uid;
 
     /* loaded from: classes2.dex */
@@ -28,29 +28,29 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.aht = -1;
-        this.fmq = new HttpMessageListener(1021027) { // from class: com.baidu.tieba.ala.person.c.b.1
+        this.aic = -1;
+        this.fpA = new HttpMessageListener(1021027) { // from class: com.baidu.tieba.ala.person.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021027 && b.this.fmp != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021027 && b.this.fpz != null) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof PlaybacksResponseMessage)) {
-                        b.this.fmp.onFail(httpResponsedMessage.getErrorString());
+                        b.this.fpz.onFail(httpResponsedMessage.getErrorString());
                         return;
                     }
                     PlaybacksResponseMessage playbacksResponseMessage = (PlaybacksResponseMessage) httpResponsedMessage;
                     if (playbacksResponseMessage.getError() != 0) {
-                        b.this.fmp.onFail(httpResponsedMessage.getErrorString());
+                        b.this.fpz.onFail(httpResponsedMessage.getErrorString());
                         return;
                     }
-                    b.this.fmo = playbacksResponseMessage.fmi.fkM.has_more;
-                    b.this.fmp.a(playbacksResponseMessage.fmi);
+                    b.this.fpy = playbacksResponseMessage.fpr.fnW.has_more;
+                    b.this.fpz.a(playbacksResponseMessage.fpr);
                 }
             }
         };
-        this.fmq.setSelfListener(true);
-        this.fmq.setTag(getUniqueId());
-        registerListener(this.fmq);
+        this.fpA.setSelfListener(true);
+        this.fpA.setTag(getUniqueId());
+        registerListener(this.fpA);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -58,21 +58,21 @@ public class b extends BdBaseModel {
         if (TextUtils.isEmpty(this.uid)) {
             return false;
         }
-        return za(this.uid);
+        return zj(this.uid);
     }
 
     public void setCurrentPage(int i) {
-        this.aht = i;
+        this.aic = i;
     }
 
-    public boolean za(String str) {
-        this.aht++;
+    public boolean zj(String str) {
+        this.aic++;
         if (!TextUtils.isEmpty(str) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
             HttpMessage httpMessage = new HttpMessage(1021027);
             httpMessage.addParam("user_id", str);
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
             httpMessage.addParam("ps", "20");
-            httpMessage.addParam(Config.PACKAGE_NAME, this.aht);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.aic);
             httpMessage.addParam("need_records", 1);
             sendMessage(httpMessage);
             return true;
@@ -91,6 +91,6 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.fmp = aVar;
+        this.fpz = aVar;
     }
 }

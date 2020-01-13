@@ -6,7 +6,7 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.sdk.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b implements Runnable {
     final /* synthetic */ BdSailorPlatform a;
 

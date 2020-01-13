@@ -8,15 +8,15 @@ import java.util.List;
 import okhttp3.Dns;
 /* loaded from: classes.dex */
 public class c implements Dns {
-    private BDHttpDns mRJ;
+    private BDHttpDns ntQ;
 
     public c(BDHttpDns bDHttpDns) {
-        this.mRJ = bDHttpDns;
+        this.ntQ = bDHttpDns;
     }
 
     @Override // okhttp3.Dns
     public List<InetAddress> lookup(String str) throws UnknownHostException {
-        ArrayList<String> lR = this.mRJ.f(str, false).lR();
+        ArrayList<String> lR = this.ntQ.f(str, false).lR();
         if (lR == null) {
             throw new UnknownHostException(str);
         }

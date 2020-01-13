@@ -7,7 +7,7 @@ import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver;
 import com.baidu.mapsdkplatform.comjni.engine.AppEngine;
 import com.baidu.webkit.net.BdNetEngine;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
     static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
     public static boolean b = false;

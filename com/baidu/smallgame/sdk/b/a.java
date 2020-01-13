@@ -1,7 +1,7 @@
 package com.baidu.smallgame.sdk.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void Ds();
+    void DO();
 
     void a(b bVar);
 }

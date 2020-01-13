@@ -11,7 +11,7 @@ import com.baidu.pass.biometrics.base.utils.StatService;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LivenessStat {
     public static final int DEFAULT_INT_NUM = 0;
     public static final String KEY_NAME_LIVENESS_STAT = "living_recog";

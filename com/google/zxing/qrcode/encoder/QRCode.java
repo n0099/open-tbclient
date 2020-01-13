@@ -3,7 +3,7 @@ package com.google.zxing.qrcode.encoder;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Mode;
 import com.google.zxing.qrcode.decoder.Version;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class QRCode {
     public static final int NUM_MASK_PATTERNS = 8;
     private ErrorCorrectionLevel ecLevel;

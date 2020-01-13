@@ -27,7 +27,7 @@ import com.sina.weibo.sdk.auth.sso.SsoHandler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     private static final int SUCCESS_RESULTCODE = -1;
     private static final String TAG = "SinaSSOLoginActivity";

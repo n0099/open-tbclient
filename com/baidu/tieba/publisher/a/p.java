@@ -11,25 +11,25 @@ import com.facebook.imagepipeline.d.h;
 import com.facebook.imagepipeline.memory.BasePool;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class p {
     public static void fk(Context context) {
-        h.a gn = com.facebook.imagepipeline.a.a.a.gn(context);
-        b.a gj = com.facebook.cache.disk.b.gj(context);
-        gj.ag(new File(PathUtils.getImageCacheDirectoryBaseForFresco(context)));
-        gn.c(gj.dhW());
-        gn.uZ(true);
-        gn.b(new e((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)));
-        com.facebook.drawee.a.a.c.a(context, gn.dmK(), com.facebook.drawee.a.a.b.djd().a(new a()).djf());
+        h.a go = com.facebook.imagepipeline.a.a.a.go(context);
+        b.a gk = com.facebook.cache.disk.b.gk(context);
+        gk.ag(new File(PathUtils.getImageCacheDirectoryBaseForFresco(context)));
+        go.c(gk.diX());
+        go.vl(true);
+        go.b(new e((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)));
+        com.facebook.drawee.a.a.c.a(context, go.dnR(), com.facebook.drawee.a.a.b.dke().a(new a()).dkg());
         BasePool.a(new BasePool.b() { // from class: com.baidu.tieba.publisher.a.p.1
             @Override // com.facebook.imagepipeline.memory.BasePool.b
             public void onFailed() {
-                com.facebook.drawee.a.a.c.dji().dmm();
+                com.facebook.drawee.a.a.c.dkj().dnt();
             }
         });
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     private static class a extends com.baidu.d.a.b {
         private a() {
         }
@@ -43,8 +43,8 @@ public class p {
         public Drawable b(com.facebook.imagepipeline.g.c cVar) {
             if (cVar instanceof com.facebook.imagepipeline.g.d) {
                 com.facebook.imagepipeline.g.d dVar = (com.facebook.imagepipeline.g.d) cVar;
-                BitmapDrawable bitmapDrawable = new BitmapDrawable((Resources) null, dVar.dnV());
-                return (dVar.dnZ() == 0 || dVar.dnZ() == -1) ? bitmapDrawable : new com.facebook.drawee.drawable.i(bitmapDrawable, dVar.dnZ());
+                BitmapDrawable bitmapDrawable = new BitmapDrawable((Resources) null, dVar.dpb());
+                return (dVar.dpf() == 0 || dVar.dpf() == -1) ? bitmapDrawable : new com.facebook.drawee.drawable.i(bitmapDrawable, dVar.dpf());
             }
             return null;
         }

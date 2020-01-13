@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.framework;
 
 import android.view.KeyEvent;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    void GX();
+    void Ht();
 
-    void GY();
+    void Hu();
 
-    void PE();
+    void Qa();
 
-    void PF();
+    void Qb();
 
-    void PG();
+    void Qc();
 
     void onActivityPaused();
 

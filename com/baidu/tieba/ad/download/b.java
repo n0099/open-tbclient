@@ -4,39 +4,39 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private Map<DownloadCacheKey, AdDownloadData> dVh;
+    private Map<DownloadCacheKey, AdDownloadData> dVq;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static final class a {
-        private static final b dVi = new b();
+        private static final b dVr = new b();
     }
 
     private b() {
-        this.dVh = new HashMap();
+        this.dVq = new HashMap();
     }
 
-    public static b aVx() {
-        return a.dVi;
+    public static b aVQ() {
+        return a.dVr;
     }
 
     public void a(@NonNull DownloadCacheKey downloadCacheKey, @NonNull AdDownloadData adDownloadData) {
-        if (this.dVh.get(downloadCacheKey) == null) {
-            this.dVh.put(downloadCacheKey, adDownloadData);
+        if (this.dVq.get(downloadCacheKey) == null) {
+            this.dVq.put(downloadCacheKey, adDownloadData);
         }
     }
 
     public AdDownloadData b(@NonNull DownloadCacheKey downloadCacheKey) {
-        return this.dVh.get(downloadCacheKey);
+        return this.dVq.get(downloadCacheKey);
     }
 
-    public Map<DownloadCacheKey, AdDownloadData> wy(String str) {
-        HashMap hashMap = new HashMap(this.dVh.size());
+    public Map<DownloadCacheKey, AdDownloadData> wC(String str) {
+        HashMap hashMap = new HashMap(this.dVq.size());
         if (TextUtils.isEmpty(str)) {
             return hashMap;
         }
-        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.dVh.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.dVq.entrySet()) {
             if (entry.getKey() != null && entry.getKey().samePackage(str)) {
                 hashMap.put(entry.getKey(), entry.getValue());
             }

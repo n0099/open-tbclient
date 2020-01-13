@@ -8,7 +8,7 @@ import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.TransitRoutePlanOption;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j extends com.baidu.platform.base.a implements e {
     private OnGetRoutePlanResultListener b = null;
 

@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class IllegalSeekPositionException extends IllegalStateException {
     public final long positionMs;
     public final x timeline;

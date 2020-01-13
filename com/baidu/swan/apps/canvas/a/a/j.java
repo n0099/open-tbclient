@@ -10,10 +10,10 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bbD;
+    private String bcu;
     private Bitmap mBitmap;
     private int mHeight;
     private Matrix mMatrix;
@@ -22,20 +22,20 @@ public class j extends a {
     private int mY;
 
     public j(String str) {
-        this.bbD = str;
+        this.bcu = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
     }
 
-    public boolean HG() {
+    public boolean Ic() {
         try {
-            JSONObject jSONObject = new JSONObject(this.bbD);
-            this.mX = com.baidu.swan.apps.as.af.T((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.mY = com.baidu.swan.apps.as.af.T((float) jSONObject.optDouble("y"));
-            this.mWidth = com.baidu.swan.apps.as.af.T((float) jSONObject.optDouble("width"));
-            this.mHeight = com.baidu.swan.apps.as.af.T((float) jSONObject.optDouble("height"));
+            JSONObject jSONObject = new JSONObject(this.bcu);
+            this.mX = com.baidu.swan.apps.as.af.S((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.mY = com.baidu.swan.apps.as.af.S((float) jSONObject.optDouble("y"));
+            this.mWidth = com.baidu.swan.apps.as.af.S((float) jSONObject.optDouble("width"));
+            this.mHeight = com.baidu.swan.apps.as.af.S((float) jSONObject.optDouble("height"));
             String optString = jSONObject.optString("data");
             boolean z = !TextUtils.isEmpty(optString);
             if (z) {

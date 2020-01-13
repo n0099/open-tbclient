@@ -1,5 +1,6 @@
 package com.baidu.tieba.sdk.e;
 
+import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
@@ -11,7 +12,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
-    public void excute(Map<String, String> map, SchemeCallback schemeCallback) {
+    public void excute(Context context, Map<String, String> map, SchemeCallback schemeCallback) {
         String str = map.get("room_id");
         String str2 = map.get("live_id");
         String str3 = map.get("username");
@@ -57,11 +58,11 @@ public class a implements ILiveScheme {
             e.printStackTrace();
         }
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.tieba.sdk.a.cBx().a(TbadkCoreApplication.getInst(), str, "1".equals(str4), str7, jSONObject);
+            com.baidu.tieba.sdk.a.cCD().a(context != null ? context : TbadkCoreApplication.getInst(), str, "1".equals(str4), str7, jSONObject);
         } else if (!TextUtils.isEmpty(str2)) {
-            com.baidu.tieba.sdk.a.cBx().a(TbadkCoreApplication.getInst(), Long.parseLong(str2), "1".equals(str4), str7, jSONObject);
+            com.baidu.tieba.sdk.a.cCD().a(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str2), "1".equals(str4), str7, jSONObject);
         } else if (!TextUtils.isEmpty(str3)) {
-            com.baidu.tieba.sdk.a.cBx().b(TbadkCoreApplication.getInst(), str3, "1".equals(str4), str7, jSONObject);
+            com.baidu.tieba.sdk.a.cCD().b(context != null ? context : TbadkCoreApplication.getInst(), str3, "1".equals(str4), str7, jSONObject);
         }
     }
 }

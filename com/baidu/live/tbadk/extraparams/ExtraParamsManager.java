@@ -1,6 +1,7 @@
 package com.baidu.live.tbadk.extraparams;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import com.baidu.live.tbadk.extraparams.interfaces.IExtraParams;
@@ -22,6 +23,7 @@ public class ExtraParamsManager {
     public static final String KEY_GET_DECRYPT_USERID = "get_decrypt_userid";
     public static final String KEY_GET_ENCRYPTION_USERID = "get_encryption_userid";
     public static final String KEY_GET_SAVE_FLOW_STATUS = "get_save_flow_status";
+    public static final String KEY_GET_TOP_ACTIVITY = "get_top_activity";
     public static final String KEY_GET_USER_AGENT = "get_user_agent";
     public static final String KEY_GET_WALLET_SDK_UA = "getWalletSdkUa";
     public static final String KEY_GO_FEED_BACK = "goFeedBack";
@@ -349,5 +351,69 @@ public class ExtraParamsManager {
     /* loaded from: classes2.dex */
     public static class InstanceHolder {
         private static final ExtraParamsManager sInst = new ExtraParamsManager();
+    }
+
+    public static String getBase64(String str) {
+        IExtraParams buildParamsExtra;
+        if (TextUtils.isEmpty(str) || (buildParamsExtra = getInstance().buildParamsExtra()) == null) {
+            return "";
+        }
+        try {
+            HashMap hashMap = new HashMap();
+            hashMap.put(KEY_GET_BASE64, str);
+            Map<String, Object> process = buildParamsExtra.process(hashMap);
+            if (!process.containsKey(KEY_GET_BASE64) || !(process.get(KEY_GET_BASE64) instanceof String)) {
+                return "";
+            }
+            return (String) process.get(KEY_GET_BASE64);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
+    public static Object doProcessObject(String str, Object obj) {
+        try {
+            HashMap hashMap = new HashMap();
+            hashMap.put(str, obj);
+            Map<String, Object> process = getInstance().buildParamsExtra().process(hashMap);
+            if (process == null || !process.containsKey(str)) {
+                return null;
+            }
+            return process.get(str);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String doProcessString(String str, Object obj) {
+        try {
+            HashMap hashMap = new HashMap();
+            hashMap.put(str, obj);
+            Map<String, Object> process = getInstance().buildParamsExtra().process(hashMap);
+            if (process == null || !process.containsKey(str)) {
+                return null;
+            }
+            return (String) process.get(str);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static <E> E doProcessGeneric(String str, Object obj, Class<E> cls) {
+        try {
+            HashMap hashMap = new HashMap();
+            hashMap.put(str, obj);
+            Map<String, Object> process = getInstance().buildParamsExtra().process(hashMap);
+            if (process == null || !process.containsKey(str)) {
+                return null;
+            }
+            return (E) process.get(str);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

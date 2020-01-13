@@ -2,14 +2,13 @@ package com.baidu.sofire.i;
 
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ugc.model.PublishType;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class o {
-    private static final String[] a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", PublishType.TYPE_VIDEO_SHARE, Config.APP_VERSION_CODE, "b", "c", "d", "e", "f"};
+    private static final String[] a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", Config.APP_VERSION_CODE, "b", "c", "d", "e", "f"};
 
     private static String c(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();

@@ -10,12 +10,12 @@ import com.facebook.common.internal.g;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
-    private static final Pools.SynchronizedPool<ByteBuffer> lSO = new Pools.SynchronizedPool<>(12);
+    private static final Pools.SynchronizedPool<ByteBuffer> lWD = new Pools.SynchronizedPool<>(12);
 
     @SuppressLint({"NewApi"})
-    public static int ac(@Nullable Bitmap bitmap) {
+    public static int ad(@Nullable Bitmap bitmap) {
         if (bitmap == null) {
             return 0;
         }
@@ -35,7 +35,7 @@ public final class a {
     public static Pair<Integer, Integer> y(InputStream inputStream) {
         Pair<Integer, Integer> pair = null;
         g.checkNotNull(inputStream);
-        ByteBuffer acquire = lSO.acquire();
+        ByteBuffer acquire = lWD.acquire();
         if (acquire == null) {
             acquire = ByteBuffer.allocate(16384);
         }
@@ -49,13 +49,13 @@ public final class a {
             }
             return pair;
         } finally {
-            lSO.release(acquire);
+            lWD.release(acquire);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.facebook.d.a$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config = new int[Bitmap.Config.values().length];
 

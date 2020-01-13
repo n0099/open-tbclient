@@ -1,54 +1,54 @@
 package com.google.android.exoplayer2.extractor.f;
 
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class o {
-    private boolean miD;
-    private final int mjK;
-    private boolean mjL;
-    public byte[] mjM;
-    public int mjN;
+    private boolean mmr;
+    public byte[] mnA;
+    public int mnB;
+    private final int mny;
+    private boolean mnz;
 
     public o(int i, int i2) {
-        this.mjK = i;
-        this.mjM = new byte[i2 + 3];
-        this.mjM[2] = 1;
+        this.mny = i;
+        this.mnA = new byte[i2 + 3];
+        this.mnA[2] = 1;
     }
 
     public void reset() {
-        this.miD = false;
-        this.mjL = false;
+        this.mmr = false;
+        this.mnz = false;
     }
 
     public boolean aW() {
-        return this.mjL;
+        return this.mnz;
     }
 
-    public void JL(int i) {
-        com.google.android.exoplayer2.util.a.checkState(!this.miD);
-        this.miD = i == this.mjK;
-        if (this.miD) {
-            this.mjN = 3;
-            this.mjL = false;
+    public void JU(int i) {
+        com.google.android.exoplayer2.util.a.checkState(!this.mmr);
+        this.mmr = i == this.mny;
+        if (this.mmr) {
+            this.mnB = 3;
+            this.mnz = false;
         }
     }
 
-    public void t(byte[] bArr, int i, int i2) {
-        if (this.miD) {
+    public void s(byte[] bArr, int i, int i2) {
+        if (this.mmr) {
             int i3 = i2 - i;
-            if (this.mjM.length < this.mjN + i3) {
-                this.mjM = Arrays.copyOf(this.mjM, (this.mjN + i3) * 2);
+            if (this.mnA.length < this.mnB + i3) {
+                this.mnA = Arrays.copyOf(this.mnA, (this.mnB + i3) * 2);
             }
-            System.arraycopy(bArr, i, this.mjM, this.mjN, i3);
-            this.mjN = i3 + this.mjN;
+            System.arraycopy(bArr, i, this.mnA, this.mnB, i3);
+            this.mnB = i3 + this.mnB;
         }
     }
 
-    public boolean JM(int i) {
-        if (this.miD) {
-            this.mjN -= i;
-            this.miD = false;
-            this.mjL = true;
+    public boolean JV(int i) {
+        if (this.mmr) {
+            this.mnB -= i;
+            this.mmr = false;
+            this.mnz = true;
             return true;
         }
         return false;

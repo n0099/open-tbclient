@@ -3,7 +3,7 @@ package android.support.v4.view;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.support.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface TintableBackgroundView {
     @Nullable
     ColorStateList getSupportBackgroundTintList();

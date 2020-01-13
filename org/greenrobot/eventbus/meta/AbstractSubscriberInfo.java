@@ -3,7 +3,7 @@ package org.greenrobot.eventbus.meta;
 import org.greenrobot.eventbus.EventBusException;
 import org.greenrobot.eventbus.SubscriberMethod;
 import org.greenrobot.eventbus.ThreadMode;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractSubscriberInfo implements SubscriberInfo {
     private final boolean shouldCheckSuperclass;
     private final Class subscriberClass;

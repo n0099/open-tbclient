@@ -6,31 +6,31 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public final class a {
-    public static <T> List<T> dAU() {
+    public static <T> List<T> dFo() {
         return new MutableOnWriteList(Collections.emptyList());
     }
 
-    public static <K, V> Map<K, V> dAV() {
+    public static <K, V> Map<K, V> dFp() {
         return new LinkedHashMap();
     }
 
-    public static <T> List<T> r(String str, List<T> list) {
+    public static <T> List<T> s(String str, List<T> list) {
         if (list == null) {
             throw new NullPointerException(str + " == null");
         }
         return (list == Collections.emptyList() || (list instanceof ImmutableList)) ? new MutableOnWriteList(list) : new ArrayList(list);
     }
 
-    public static <K, V> Map<K, V> o(String str, Map<K, V> map) {
+    public static <K, V> Map<K, V> p(String str, Map<K, V> map) {
         if (map == null) {
             throw new NullPointerException(str + " == null");
         }
         return new LinkedHashMap(map);
     }
 
-    public static <T> List<T> s(String str, List<T> list) {
+    public static <T> List<T> t(String str, List<T> list) {
         if (list == null) {
             throw new NullPointerException(str + " == null");
         }
@@ -47,7 +47,7 @@ public final class a {
         return list;
     }
 
-    public static <K, V> Map<K, V> p(String str, Map<K, V> map) {
+    public static <K, V> Map<K, V> q(String str, Map<K, V> map) {
         if (map == null) {
             throw new NullPointerException(str + " == null");
         }
@@ -75,7 +75,7 @@ public final class a {
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    public static void fu(List<?> list) {
+    public static void fv(List<?> list) {
         if (list == null) {
             throw new NullPointerException("list == null");
         }
@@ -87,7 +87,7 @@ public final class a {
         }
     }
 
-    public static void C(Map<?, ?> map) {
+    public static void E(Map<?, ?> map) {
         if (map == null) {
             throw new NullPointerException("map == null");
         }

@@ -9,18 +9,18 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k extends Lifecycle {
-    private final WeakReference<j> cf;
-    private android.arch.a.b.a<i, a> cd = new android.arch.a.b.a<>();
-    private int cg = 0;
+    private final WeakReference<j> ce;
+    private android.arch.a.b.a<i, a> cc = new android.arch.a.b.a<>();
+    private int cf = 0;
+    private boolean cg = false;
     private boolean ch = false;
-    private boolean ci = false;
-    private ArrayList<Lifecycle.State> cj = new ArrayList<>();
-    private Lifecycle.State ce = Lifecycle.State.INITIALIZED;
+    private ArrayList<Lifecycle.State> ci = new ArrayList<>();
+    private Lifecycle.State cd = Lifecycle.State.INITIALIZED;
 
     public k(@NonNull j jVar) {
-        this.cf = new WeakReference<>(jVar);
+        this.ce = new WeakReference<>(jVar);
     }
 
     @MainThread
@@ -33,70 +33,70 @@ public class k extends Lifecycle {
     }
 
     private void b(Lifecycle.State state) {
-        if (this.ce != state) {
-            this.ce = state;
-            if (this.ch || this.cg != 0) {
-                this.ci = true;
+        if (this.cd != state) {
+            this.cd = state;
+            if (this.cg || this.cf != 0) {
+                this.ch = true;
                 return;
             }
-            this.ch = true;
+            this.cg = true;
             sync();
-            this.ch = false;
+            this.cg = false;
         }
     }
 
     private boolean av() {
-        if (this.cd.size() == 0) {
+        if (this.cc.size() == 0) {
             return true;
         }
-        Lifecycle.State state = this.cd.ar().getValue().ce;
-        Lifecycle.State state2 = this.cd.as().getValue().ce;
-        return state == state2 && this.ce == state2;
+        Lifecycle.State state = this.cc.ar().getValue().cd;
+        Lifecycle.State state2 = this.cc.as().getValue().cd;
+        return state == state2 && this.cd == state2;
     }
 
     private Lifecycle.State c(i iVar) {
-        Map.Entry<i, a> h = this.cd.h(iVar);
-        return a(a(this.ce, h != null ? h.getValue().ce : null), !this.cj.isEmpty() ? this.cj.get(this.cj.size() - 1) : null);
+        Map.Entry<i, a> h = this.cc.h(iVar);
+        return a(a(this.cd, h != null ? h.getValue().cd : null), !this.ci.isEmpty() ? this.ci.get(this.ci.size() - 1) : null);
     }
 
     @Override // android.arch.lifecycle.Lifecycle
     public void a(@NonNull i iVar) {
         j jVar;
-        a aVar = new a(iVar, this.ce == Lifecycle.State.DESTROYED ? Lifecycle.State.DESTROYED : Lifecycle.State.INITIALIZED);
-        if (this.cd.c(iVar, aVar) == null && (jVar = this.cf.get()) != null) {
-            boolean z = this.cg != 0 || this.ch;
+        a aVar = new a(iVar, this.cd == Lifecycle.State.DESTROYED ? Lifecycle.State.DESTROYED : Lifecycle.State.INITIALIZED);
+        if (this.cc.c(iVar, aVar) == null && (jVar = this.ce.get()) != null) {
+            boolean z = this.cf != 0 || this.cg;
             Lifecycle.State c = c(iVar);
-            this.cg++;
-            while (aVar.ce.compareTo(c) < 0 && this.cd.contains(iVar)) {
-                c(aVar.ce);
-                aVar.b(jVar, e(aVar.ce));
+            this.cf++;
+            while (aVar.cd.compareTo(c) < 0 && this.cc.contains(iVar)) {
+                c(aVar.cd);
+                aVar.b(jVar, e(aVar.cd));
                 aw();
                 c = c(iVar);
             }
             if (!z) {
                 sync();
             }
-            this.cg--;
+            this.cf--;
         }
     }
 
     private void aw() {
-        this.cj.remove(this.cj.size() - 1);
+        this.ci.remove(this.ci.size() - 1);
     }
 
     private void c(Lifecycle.State state) {
-        this.cj.add(state);
+        this.ci.add(state);
     }
 
     @Override // android.arch.lifecycle.Lifecycle
     public void b(@NonNull i iVar) {
-        this.cd.remove(iVar);
+        this.cc.remove(iVar);
     }
 
     @Override // android.arch.lifecycle.Lifecycle
     @NonNull
     public Lifecycle.State au() {
-        return this.ce;
+        return this.cd;
     }
 
     static Lifecycle.State c(Lifecycle.Event event) {
@@ -152,25 +152,25 @@ public class k extends Lifecycle {
     /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: android.arch.a.b.a<android.arch.lifecycle.i, android.arch.lifecycle.k$a> */
     /* JADX WARN: Multi-variable type inference failed */
     private void g(j jVar) {
-        android.arch.a.b.b<i, a>.d aq = this.cd.aq();
-        while (aq.hasNext() && !this.ci) {
+        android.arch.a.b.b<i, a>.d aq = this.cc.aq();
+        while (aq.hasNext() && !this.ch) {
             Map.Entry next = aq.next();
             a aVar = (a) next.getValue();
-            while (aVar.ce.compareTo(this.ce) < 0 && !this.ci && this.cd.contains(next.getKey())) {
-                c(aVar.ce);
-                aVar.b(jVar, e(aVar.ce));
+            while (aVar.cd.compareTo(this.cd) < 0 && !this.ch && this.cc.contains(next.getKey())) {
+                c(aVar.cd);
+                aVar.b(jVar, e(aVar.cd));
                 aw();
             }
         }
     }
 
     private void h(j jVar) {
-        Iterator<Map.Entry<i, a>> descendingIterator = this.cd.descendingIterator();
-        while (descendingIterator.hasNext() && !this.ci) {
+        Iterator<Map.Entry<i, a>> descendingIterator = this.cc.descendingIterator();
+        while (descendingIterator.hasNext() && !this.ch) {
             Map.Entry<i, a> next = descendingIterator.next();
             a value = next.getValue();
-            while (value.ce.compareTo(this.ce) > 0 && !this.ci && this.cd.contains(next.getKey())) {
-                Lifecycle.Event d = d(value.ce);
+            while (value.cd.compareTo(this.cd) > 0 && !this.ch && this.cc.contains(next.getKey())) {
+                Lifecycle.Event d = d(value.cd);
                 c(c(d));
                 value.b(jVar, d);
                 aw();
@@ -179,22 +179,22 @@ public class k extends Lifecycle {
     }
 
     private void sync() {
-        j jVar = this.cf.get();
+        j jVar = this.ce.get();
         if (jVar == null) {
             Log.w("LifecycleRegistry", "LifecycleOwner is garbage collected, you shouldn't try dispatch new events from it.");
             return;
         }
         while (!av()) {
-            this.ci = false;
-            if (this.ce.compareTo(this.cd.ar().getValue().ce) < 0) {
+            this.ch = false;
+            if (this.cd.compareTo(this.cc.ar().getValue().cd) < 0) {
                 h(jVar);
             }
-            Map.Entry<i, a> as = this.cd.as();
-            if (!this.ci && as != null && this.ce.compareTo(as.getValue().ce) > 0) {
+            Map.Entry<i, a> as = this.cc.as();
+            if (!this.ch && as != null && this.cd.compareTo(as.getValue().cd) > 0) {
                 g(jVar);
             }
         }
-        this.ci = false;
+        this.ch = false;
     }
 
     static Lifecycle.State a(@NonNull Lifecycle.State state, @Nullable Lifecycle.State state2) {
@@ -202,21 +202,21 @@ public class k extends Lifecycle {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
-        Lifecycle.State ce;
-        h cl;
+        Lifecycle.State cd;
+        h ck;
 
         a(i iVar, Lifecycle.State state) {
-            this.cl = m.i(iVar);
-            this.ce = state;
+            this.ck = m.i(iVar);
+            this.cd = state;
         }
 
         void b(j jVar, Lifecycle.Event event) {
             Lifecycle.State c = k.c(event);
-            this.ce = k.a(this.ce, c);
-            this.cl.a(jVar, event);
-            this.ce = c;
+            this.cd = k.a(this.cd, c);
+            this.ck.a(jVar, event);
+            this.cd = c;
         }
     }
 }

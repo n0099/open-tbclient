@@ -1,5 +1,5 @@
 package android.support.v7.widget;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class RtlSpacingHelper {
     public static final int UNDEFINED = Integer.MIN_VALUE;
     private int mLeft = 0;

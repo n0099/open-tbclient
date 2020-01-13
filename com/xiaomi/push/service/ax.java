@@ -10,35 +10,35 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ax {
     private static ax a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f881a = null;
+    private static String f879a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f882a;
+    private Context f880a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f885a;
+    private boolean f883a;
     private Messenger b;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<Message> f884a = new ArrayList();
+    private List<Message> f882a = new ArrayList();
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f886b = false;
+    private boolean f884b = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private Messenger f883a = new Messenger(new ay(this, Looper.getMainLooper()));
+    private Messenger f881a = new Messenger(new ay(this, Looper.getMainLooper()));
 
     private ax(Context context) {
-        this.f885a = false;
-        this.f882a = context.getApplicationContext();
+        this.f883a = false;
+        this.f880a = context.getApplicationContext();
         if (a()) {
             com.xiaomi.channel.commonutils.logger.b.c("use miui push service");
-            this.f885a = true;
+            this.f883a = true;
         }
     }
 
@@ -57,27 +57,27 @@ public class ax {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private synchronized void m510a(Intent intent) {
-        if (this.f886b) {
+    private synchronized void m519a(Intent intent) {
+        if (this.f884b) {
             Message a2 = a(intent);
-            if (this.f884a.size() >= 50) {
-                this.f884a.remove(0);
+            if (this.f882a.size() >= 50) {
+                this.f882a.remove(0);
             }
-            this.f884a.add(a2);
+            this.f882a.add(a2);
         } else if (this.b == null) {
-            Context context = this.f882a;
+            Context context = this.f880a;
             az azVar = new az(this);
-            Context context2 = this.f882a;
+            Context context2 = this.f880a;
             context.bindService(intent, azVar, 1);
-            this.f886b = true;
-            this.f884a.clear();
-            this.f884a.add(a(intent));
+            this.f884b = true;
+            this.f882a.clear();
+            this.f882a.add(a(intent));
         } else {
             try {
                 this.b.send(a(intent));
             } catch (RemoteException e) {
                 this.b = null;
-                this.f886b = false;
+                this.f884b = false;
             }
         }
     }
@@ -87,7 +87,7 @@ public class ax {
             return false;
         }
         try {
-            PackageInfo packageInfo = this.f882a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
+            PackageInfo packageInfo = this.f880a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
             if (packageInfo != null) {
                 return packageInfo.versionCode >= 104;
             }
@@ -98,12 +98,12 @@ public class ax {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m511a(Intent intent) {
+    public boolean m520a(Intent intent) {
         try {
-            if (com.xiaomi.push.l.m469a() || Build.VERSION.SDK_INT < 26) {
-                this.f882a.startService(intent);
+            if (com.xiaomi.push.l.m478a() || Build.VERSION.SDK_INT < 26) {
+                this.f880a.startService(intent);
             } else {
-                m510a(intent);
+                m519a(intent);
             }
             return true;
         } catch (Exception e) {

@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static o<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> a(h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> hVar, final n nVar) {
         nVar.a(hVar);
@@ -7,18 +7,18 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.imagepipeline.c.r
             /* renamed from: i */
-            public void bh(com.facebook.cache.common.b bVar) {
+            public void bi(com.facebook.cache.common.b bVar) {
                 n.this.p(bVar);
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dlv() {
-                n.this.dlF();
+            public void dmA() {
+                n.this.dmK();
             }
 
             @Override // com.facebook.imagepipeline.c.r
-            public void dlw() {
-                n.this.dlE();
+            public void dmB() {
+                n.this.dmJ();
             }
         });
     }

@@ -8,5 +8,5 @@ public interface r {
 
     void onDestroy();
 
-    View rp();
+    View rB();
 }

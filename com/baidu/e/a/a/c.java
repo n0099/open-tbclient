@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class c {
     public static boolean delete(File file) {
         if (file == null) {
@@ -97,7 +97,7 @@ public class c {
         }
     }
 
-    public static boolean oy() {
+    public static boolean oz() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
@@ -143,7 +143,7 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [617=4] */
-    public static boolean M(String str, String str2) {
+    public static boolean L(String str, String str2) {
         FileInputStream fileInputStream;
         FileOutputStream fileOutputStream = null;
         try {

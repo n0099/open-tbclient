@@ -6,21 +6,21 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import com.baidu.swan.apps.api.module.a.b;
 import okhttp3.OkHttpClient;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class t implements com.baidu.swan.apps.adaptation.a.g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public com.baidu.swan.apps.adaptation.a.c Ff() {
+    public com.baidu.swan.apps.adaptation.a.c FB() {
         return new a();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public OkHttpClient Fh() {
+    public OkHttpClient FD() {
         return new OkHttpClient.Builder().build();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private class a implements com.baidu.swan.apps.adaptation.a.c {
         private a() {
         }
@@ -51,7 +51,7 @@ public class t implements com.baidu.swan.apps.adaptation.a.g {
 
         @Override // com.baidu.swan.apps.adaptation.a.c
         @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.d E(Activity activity) {
+        public com.baidu.swan.apps.setting.oauth.a.d F(Activity activity) {
             return new q(activity);
         }
 
@@ -63,7 +63,7 @@ public class t implements com.baidu.swan.apps.adaptation.a.g {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public com.baidu.swan.apps.adaptation.a.b Fg() {
+    public com.baidu.swan.apps.adaptation.a.b FC() {
         return new m();
     }
 }

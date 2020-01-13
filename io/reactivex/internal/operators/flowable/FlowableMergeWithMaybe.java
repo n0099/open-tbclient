@@ -1,7 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.g;
-import io.reactivex.internal.a.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -12,8 +10,7 @@ import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableMergeWithMaybe<T> extends a<T, T> {
     final o<? extends T> other;
 
@@ -21,12 +18,12 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
     protected void a(org.a.c<? super T> cVar) {
         MergeWithObserver mergeWithObserver = new MergeWithObserver(cVar);
         cVar.onSubscribe(mergeWithObserver);
-        this.mTG.a((j) mergeWithObserver);
+        this.nvK.a((j) mergeWithObserver);
         this.other.a(mergeWithObserver.otherObserver);
     }
 
-    /* loaded from: classes4.dex */
-    static final class MergeWithObserver<T> extends AtomicInteger implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class MergeWithObserver<T> extends AtomicInteger implements j<T>, org.a.d {
         static final int OTHER_STATE_CONSUMED_OR_EMPTY = 2;
         static final int OTHER_STATE_HAS_VALUE = 1;
         private static final long serialVersionUID = -4592979584110982903L;
@@ -36,13 +33,13 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
         long emitted;
         volatile boolean mainDone;
         volatile int otherState;
-        volatile e<T> queue;
+        volatile io.reactivex.internal.a.f<T> queue;
         T singleItem;
-        final AtomicReference<d> mainSubscription = new AtomicReference<>();
+        final AtomicReference<org.a.d> mainSubscription = new AtomicReference<>();
         final OtherObserver<T> otherObserver = new OtherObserver<>(this);
         final AtomicThrowable error = new AtomicThrowable();
         final AtomicLong requested = new AtomicLong();
-        final int prefetch = g.dDL();
+        final int prefetch = io.reactivex.g.dHR();
         final int limit = this.prefetch - (this.prefetch >> 2);
 
         MergeWithObserver(org.a.c<? super T> cVar) {
@@ -50,7 +47,7 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             SubscriptionHelper.setOnce(this.mainSubscription, dVar, this.prefetch);
         }
 
@@ -59,8 +56,8 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
             if (compareAndSet(0, 1)) {
                 long j = this.emitted;
                 if (this.requested.get() != j) {
-                    e<T> eVar = this.queue;
-                    if (eVar == null || eVar.isEmpty()) {
+                    io.reactivex.internal.a.f<T> fVar = this.queue;
+                    if (fVar == null || fVar.isEmpty()) {
                         this.emitted = j + 1;
                         this.actual.onNext(t);
                         int i = this.consumed + 1;
@@ -71,7 +68,7 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
                             this.consumed = i;
                         }
                     } else {
-                        eVar.offer(t);
+                        fVar.offer(t);
                     }
                 } else {
                     getOrCreateQueue().offer(t);
@@ -95,7 +92,7 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -151,7 +148,7 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         void otherComplete() {
@@ -159,14 +156,14 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
             drain();
         }
 
-        e<T> getOrCreateQueue() {
-            e<T> eVar = this.queue;
-            if (eVar == null) {
-                SpscArrayQueue spscArrayQueue = new SpscArrayQueue(g.dDL());
+        io.reactivex.internal.a.f<T> getOrCreateQueue() {
+            io.reactivex.internal.a.f<T> fVar = this.queue;
+            if (fVar == null) {
+                SpscArrayQueue spscArrayQueue = new SpscArrayQueue(io.reactivex.g.dHR());
                 this.queue = spscArrayQueue;
                 return spscArrayQueue;
             }
-            return eVar;
+            return fVar;
         }
 
         void drain() {
@@ -203,8 +200,8 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
                             j++;
                         } else {
                             boolean z = this.mainDone;
-                            e<T> eVar = this.queue;
-                            Object obj = eVar != null ? (Object) eVar.poll() : (Object) null;
+                            io.reactivex.internal.a.f<T> fVar = this.queue;
+                            Object obj = fVar != null ? (Object) fVar.poll() : (Object) null;
                             boolean z2 = obj == null;
                             if (z && z2 && i4 == 2) {
                                 this.queue = null;
@@ -237,8 +234,8 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
                         return;
                     } else {
                         boolean z3 = this.mainDone;
-                        e<T> eVar2 = this.queue;
-                        boolean z4 = eVar2 == null || eVar2.isEmpty();
+                        io.reactivex.internal.a.f<T> fVar2 = this.queue;
+                        boolean z4 = fVar2 == null || fVar2.isEmpty();
                         if (z3 && z4 && this.otherState == 2) {
                             this.queue = null;
                             cVar.onComplete();
@@ -252,7 +249,7 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
             } while (i != 0);
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         static final class OtherObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements m<T> {
             private static final long serialVersionUID = -2935427570954647017L;
             final MergeWithObserver<T> parent;

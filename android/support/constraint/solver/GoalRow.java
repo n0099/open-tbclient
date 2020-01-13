@@ -1,0 +1,13 @@
+package android.support.constraint.solver;
+/* loaded from: classes5.dex */
+public class GoalRow extends ArrayRow {
+    public GoalRow(Cache cache) {
+        super(cache);
+    }
+
+    @Override // android.support.constraint.solver.ArrayRow, android.support.constraint.solver.LinearSystem.Row
+    public void addError(SolverVariable solverVariable) {
+        super.addError(solverVariable);
+        solverVariable.usageInRowCount--;
+    }
+}

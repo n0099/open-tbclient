@@ -2,7 +2,7 @@ package kotlin.reflect;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface b<R> extends a {
     R call(Object... objArr);
 
@@ -21,4 +21,6 @@ public interface b<R> extends a {
     boolean isFinal();
 
     boolean isOpen();
+
+    boolean isSuspend();
 }

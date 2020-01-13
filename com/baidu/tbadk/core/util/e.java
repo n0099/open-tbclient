@@ -18,7 +18,7 @@ public class e {
         }
     };
 
-    public static e aDg() {
+    public static e aDz() {
         return new e();
     }
 

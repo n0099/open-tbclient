@@ -2,16 +2,16 @@ package com.baidu.crabsdk.a;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> PI = new LinkedHashMap<>();
-    private Thread PJ;
+    private static final LinkedHashMap<Long, String> PN = new LinkedHashMap<>();
+    private Thread PO;
     private int V;
 
     private p(Thread thread, int i, long j) {
         super(j);
         this.V = a.V;
-        this.PJ = thread;
+        this.PO = thread;
         this.V = i;
     }
 
@@ -21,10 +21,10 @@ public final class p extends n {
 
     public static ArrayList<String> c(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (PI) {
-            for (Long l : PI.keySet()) {
+        synchronized (PN) {
+            for (Long l : PN.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(PI.get(l));
+                    arrayList.add(PN.get(l));
                 }
             }
         }
@@ -36,14 +36,14 @@ public final class p extends n {
     @Override // com.baidu.crabsdk.a.n
     public final void n() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.PJ.getStackTrace()) {
+        for (StackTraceElement stackTraceElement : this.PO.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (PI) {
-            if (PI.size() == this.V && this.V > 0) {
-                PI.remove(PI.keySet().iterator().next());
+        synchronized (PN) {
+            if (PN.size() == this.V && this.V > 0) {
+                PN.remove(PN.keySet().iterator().next());
             }
-            PI.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            PN.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

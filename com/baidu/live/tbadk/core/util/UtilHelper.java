@@ -49,7 +49,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.CloseUtil;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.imageview.BdImage;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.browser.BrowserHelper;
@@ -494,6 +494,7 @@ public class UtilHelper {
         }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [843=4] */
     public static boolean isARM() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
@@ -523,18 +524,18 @@ public class UtilHelper {
                 CloseUtil.close(randomAccessFile);
                 throw th;
             }
-            if (randomAccessFile.read(bArr) >= 1) {
-                String str = new String(bArr);
-                int indexOf = str.indexOf(0);
-                if (indexOf != -1) {
-                    str = str.substring(0, indexOf);
-                }
-                if (str.toLowerCase().contains("arm")) {
-                    CloseUtil.close(randomAccessFile);
-                    return true;
-                }
+            if (randomAccessFile.read(bArr) < 1) {
                 CloseUtil.close(randomAccessFile);
                 return false;
+            }
+            String str = new String(bArr);
+            int indexOf = str.indexOf(0);
+            if (indexOf != -1) {
+                str = str.substring(0, indexOf);
+            }
+            if (str.toLowerCase().contains("arm")) {
+                CloseUtil.close(randomAccessFile);
+                return true;
             }
             CloseUtil.close(randomAccessFile);
             return false;

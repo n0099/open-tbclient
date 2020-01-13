@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.message.PublicMsg;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h extends b {
     public h(Context context) {
         super(context);

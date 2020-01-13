@@ -7,7 +7,7 @@ import com.baidu.searchbox.picture.model.LightPictureUgcModel;
 import com.baidu.searchbox.picture.model.PictureInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LaunchParams extends BaseConfig {
     private static final int FLAG_ALL = 15;
     private static final int FLAG_DOWNLOAD = 2;
@@ -196,7 +196,7 @@ public class LaunchParams extends BaseConfig {
         return this.mFlags;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Builder {
         private ArrayList<Integer> mAnimaData;
         private boolean mDownloadEnabled;

@@ -1,12 +1,12 @@
 package com.baidu.tieba.frs.smartapp;
 
 import tbclient.SmartApp;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public String avatar;
-    public Integer cEl;
-    public String gDh;
-    public Long gDi;
+    public Integer cEx;
+    public String gGw;
+    public Long gGx;
     public String h5_url;
     public String id;
     public String link;
@@ -16,14 +16,14 @@ public class b {
     public void a(SmartApp smartApp) {
         if (smartApp != null) {
             this.name = smartApp.name;
-            this.gDh = smartApp._abstract;
+            this.gGw = smartApp._abstract;
             this.avatar = smartApp.avatar;
             this.h5_url = smartApp.h5_url;
             this.pic = smartApp.pic;
             this.id = smartApp.id;
             this.link = smartApp.link;
-            this.cEl = smartApp.is_game;
-            this.gDi = smartApp.swan_app_id;
+            this.cEx = smartApp.is_game;
+            this.gGx = smartApp.swan_app_id;
         }
     }
 }

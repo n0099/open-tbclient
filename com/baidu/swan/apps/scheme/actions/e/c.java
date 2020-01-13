@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends ab {
     public c(j jVar) {
         super(jVar, "/swanAPI/showActionSheet");
@@ -36,7 +36,7 @@ public class c extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (eVar != null && eVar.GS()) {
+        if (eVar != null && eVar.Ho()) {
             if (DEBUG) {
                 Log.d("ShowActionSheet", "ShowActionSheet does not supported when app is invisible.");
             }
@@ -83,7 +83,7 @@ public class c extends ab {
         }
         if (!TextUtils.isEmpty(optString)) {
             if (optString.length() == 4 && optString.charAt(0) == '#') {
-                optString = SwanAppConfigData.kG(optString);
+                optString = SwanAppConfigData.kJ(optString);
             }
             i = Color.parseColor(optString);
             if (!arrayList.isEmpty()) {
@@ -91,7 +91,7 @@ public class c extends ab {
                 return false;
             }
             final int color = i == -1 ? context.getResources().getColor(a.c.aiapps_action_sheet_item_color) : i;
-            g.a b = new f(context).dp(true).dw(true).du(true).dv(false).dr(true).a(new com.baidu.swan.apps.view.c.a()).fB(context.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider)).fK(a.e.aiapps_action_sheet_bg).fI(a.c.aiapps_action_sheet_cancel_text).d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.2
+            g.a b = new f(context).du(true).dB(true).dz(true).dA(false).dw(true).a(new com.baidu.swan.apps.view.c.a()).fC(context.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider)).fL(a.e.aiapps_action_sheet_bg).fJ(a.c.aiapps_action_sheet_cancel_text).d(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.2
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i3) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
@@ -132,19 +132,19 @@ public class c extends ab {
                     return view;
                 }
             });
-            b.aj(inflate);
-            b.ZA();
-            b.fC(r(context, arrayList.size()));
-            final g Mq = b.Mq();
-            Window window = Mq.getWindow();
+            b.an(inflate);
+            b.ZX();
+            b.fD(r(context, arrayList.size()));
+            final g MM = b.MM();
+            Window window = MM.getWindow();
             if (window != null) {
                 window.setGravity(80);
                 window.setDimAmount(0.65f);
                 window.setLayout(af.cG(context), -2);
                 window.setWindowAnimations(a.i.action_sheet_animation);
             }
-            Mq.setEnableImmersion(false);
-            Mq.setCanceledOnTouchOutside(true);
+            MM.setEnableImmersion(false);
+            MM.setCanceledOnTouchOutside(true);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.scheme.actions.e.c.4
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
@@ -152,7 +152,7 @@ public class c extends ab {
                     try {
                         jSONObject.put("tapIndex", i3);
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                        Mq.dismiss();
+                        MM.dismiss();
                     } catch (JSONException e2) {
                         if (c.DEBUG) {
                             e2.printStackTrace();
@@ -161,7 +161,7 @@ public class c extends ab {
                     }
                 }
             });
-            Mq.show();
+            MM.show();
             return true;
         }
         i = -1;

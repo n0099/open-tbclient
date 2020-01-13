@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.forumtest.js;
 
 import android.webkit.JsPromptResult;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface b {
     boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult);
 }

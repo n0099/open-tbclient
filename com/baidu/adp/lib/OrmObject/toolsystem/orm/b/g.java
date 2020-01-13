@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
-    private Set<String> pj;
-    private Message pp;
+    private Set<String> pg;
+    private Message pj;
 
     public g(Message message) {
-        this.pp = message;
+        this.pj = message;
         List<Field> findFields = com.baidu.adp.lib.OrmObject.a.a.findFields(message.getClass());
-        this.pj = new HashSet();
+        this.pg = new HashSet();
         if (findFields != null && findFields.size() > 0) {
             for (Field field : findFields) {
                 if (field != null) {
-                    this.pj.add(field.getName());
+                    this.pg.add(field.getName());
                 }
             }
         }
@@ -26,16 +26,16 @@ public class g implements c {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        return this.pj;
+        return this.pg;
     }
 
     public Object Z(String str) {
-        return com.baidu.adp.lib.OrmObject.a.a.getValueForField(this.pp, str);
+        return com.baidu.adp.lib.OrmObject.a.a.getValueForField(this.pj, str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void e(String str, Object obj) {
-        com.baidu.adp.lib.OrmObject.a.a.setValueForField(this.pp, str, obj);
+        com.baidu.adp.lib.OrmObject.a.a.setValueForField(this.pj, str, obj);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c

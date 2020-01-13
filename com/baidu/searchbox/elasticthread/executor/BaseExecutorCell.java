@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.Format;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseExecutorCell implements Recordable {
     protected static final boolean DEBUG = false;
     protected int completedTaskCountInRecordLifeCycle;
@@ -20,7 +20,7 @@ public abstract class BaseExecutorCell implements Recordable {
     protected long recordEndTime = Format.OFFSET_SAMPLE_RELATIVE;
     protected Recordable.RecordStatus mRecordStatus = Recordable.RecordStatus.UNINITIATED;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public enum ExecutorType {
         ARTERY,
         DREDGE_NORMAL,

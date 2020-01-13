@@ -2,7 +2,7 @@ package com.baidu.searchbox.ugc.model;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ImageGroup implements Comparable<Object> {
     public static final String ALL_IMAGE_BUCKET_ID = String.valueOf(Integer.MIN_VALUE);
     private String bucketID;

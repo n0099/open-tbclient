@@ -2,8 +2,6 @@ package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
-import io.reactivex.g;
-import io.reactivex.internal.a.f;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.ExceptionHelper;
@@ -13,21 +11,20 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
-public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
+/* loaded from: classes5.dex */
+public final class FlowablePublish<T> extends io.reactivex.b.a<T> {
     final int bufferSize;
     final AtomicReference<PublishSubscriber<T>> current;
-    final g<T> mTG;
-    final org.a.b<T> mUc;
+    final io.reactivex.g<T> nvK;
+    final org.a.b<T> nwm;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mUc.subscribe(cVar);
+        this.nwm.subscribe(cVar);
     }
 
-    @Override // io.reactivex.a.a
-    public void a(io.reactivex.b.g<? super io.reactivex.disposables.b> gVar) {
+    @Override // io.reactivex.b.a
+    public void c(io.reactivex.c.g<? super io.reactivex.disposables.b> gVar) {
         PublishSubscriber<T> publishSubscriber;
         while (true) {
             publishSubscriber = this.current.get();
@@ -44,7 +41,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
         try {
             gVar.accept(publishSubscriber);
             if (z) {
-                this.mTG.a((j) publishSubscriber);
+                this.nvK.a((j) publishSubscriber);
             }
         } catch (Throwable th) {
             io.reactivex.exceptions.a.I(th);
@@ -52,17 +49,17 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class PublishSubscriber<T> extends AtomicInteger implements io.reactivex.disposables.b, j<T> {
         static final InnerSubscriber[] EMPTY = new InnerSubscriber[0];
         static final InnerSubscriber[] TERMINATED = new InnerSubscriber[0];
         private static final long serialVersionUID = -202316842419149694L;
         final int bufferSize;
         final AtomicReference<PublishSubscriber<T>> current;
-        volatile f<T> queue;
+        volatile io.reactivex.internal.a.g<T> queue;
         int sourceMode;
         volatile Object terminalEvent;
-        final AtomicReference<d> s = new AtomicReference<>();
+        final AtomicReference<org.a.d> s = new AtomicReference<>();
         final AtomicReference<InnerSubscriber<T>[]> subscribers = new AtomicReference<>(EMPTY);
         final AtomicBoolean shouldConnect = new AtomicBoolean();
 
@@ -85,7 +82,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.setOnce(this.s, dVar)) {
                 if (dVar instanceof io.reactivex.internal.a.d) {
                     io.reactivex.internal.a.d dVar2 = (io.reactivex.internal.a.d) dVar;
@@ -124,7 +121,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
                 dispatch();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -212,7 +209,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
                             i++;
                         }
                     } else {
-                        io.reactivex.d.a.onError(error);
+                        io.reactivex.e.a.onError(error);
                     }
                     return true;
                 }
@@ -231,8 +228,8 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
                 InnerSubscriber<T>[] innerSubscriberArr = atomicReference.get();
                 while (true) {
                     Object obj2 = this.terminalEvent;
-                    f<T> fVar = this.queue;
-                    boolean z2 = fVar == null || fVar.isEmpty();
+                    io.reactivex.internal.a.g<T> gVar = this.queue;
+                    boolean z2 = gVar == null || gVar.isEmpty();
                     if (!checkTerminated(obj2, z2)) {
                         if (!z2) {
                             int length = innerSubscriberArr.length;
@@ -249,7 +246,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
                             if (length == i2) {
                                 Object obj3 = this.terminalEvent;
                                 try {
-                                    t = fVar.poll();
+                                    t = gVar.poll();
                                 } catch (Throwable th) {
                                     io.reactivex.exceptions.a.I(th);
                                     this.s.get().cancel();
@@ -270,7 +267,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
                                 while (i3 < j) {
                                     Object obj4 = this.terminalEvent;
                                     try {
-                                        t2 = fVar.poll();
+                                        t2 = gVar.poll();
                                         obj = obj4;
                                     } catch (Throwable th2) {
                                         io.reactivex.exceptions.a.I(th2);
@@ -338,8 +335,8 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class InnerSubscriber<T> extends AtomicLong implements d {
+    /* loaded from: classes5.dex */
+    public static final class InnerSubscriber<T> extends AtomicLong implements org.a.d {
         private static final long serialVersionUID = -4453897557930727610L;
         final org.a.c<? super T> child;
         long emitted;

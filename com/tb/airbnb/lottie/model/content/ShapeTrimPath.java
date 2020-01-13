@@ -1,23 +1,20 @@
 package com.tb.airbnb.lottie.model.content;
 
-import com.baidu.mobstat.Config;
-import com.tb.airbnb.lottie.a.a.q;
-import com.tb.airbnb.lottie.model.a.b;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
+import com.tb.airbnb.lottie.a.a.r;
+/* loaded from: classes5.dex */
 public class ShapeTrimPath implements b {
-    private final Type mNr;
-    private final com.tb.airbnb.lottie.model.a.b mOG;
-    private final com.tb.airbnb.lottie.model.a.b mOK;
-    private final com.tb.airbnb.lottie.model.a.b mOL;
     private final String name;
+    private final Type npw;
+    private final com.tb.airbnb.lottie.model.a.b nqC;
+    private final com.tb.airbnb.lottie.model.a.b nqF;
+    private final com.tb.airbnb.lottie.model.a.b nqG;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public enum Type {
         Simultaneously,
         Individually;
 
-        static Type forId(int i) {
+        public static Type forId(int i) {
             switch (i) {
                 case 1:
                     return Simultaneously;
@@ -29,49 +26,40 @@ public class ShapeTrimPath implements b {
         }
     }
 
-    private ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
+    public ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.mNr = type;
-        this.mOK = bVar;
-        this.mOL = bVar2;
-        this.mOG = bVar3;
+        this.npw = type;
+        this.nqF = bVar;
+        this.nqG = bVar2;
+        this.nqC = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dBh() {
-        return this.mNr;
+    public Type dFu() {
+        return this.npw;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dCk() {
-        return this.mOL;
+    public com.tb.airbnb.lottie.model.a.b dGm() {
+        return this.nqG;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dCl() {
-        return this.mOK;
+    public com.tb.airbnb.lottie.model.a.b dGn() {
+        return this.nqF;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dCg() {
-        return this.mOG;
+    public com.tb.airbnb.lottie.model.a.b dGi() {
+        return this.nqC;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
     public com.tb.airbnb.lottie.a.a.b a(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar) {
-        return new q(aVar, this);
+        return new r(aVar, this);
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.mOK + ", end: " + this.mOL + ", offset: " + this.mOG + "}";
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static class a {
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static ShapeTrimPath B(JSONObject jSONObject, com.tb.airbnb.lottie.e eVar) {
-            return new ShapeTrimPath(jSONObject.optString("nm"), Type.forId(jSONObject.optInt("m", 1)), b.a.a(jSONObject.optJSONObject("s"), eVar, false), b.a.a(jSONObject.optJSONObject("e"), eVar, false), b.a.a(jSONObject.optJSONObject(Config.OS), eVar, false));
-        }
+        return "Trim Path: {start: " + this.nqF + ", end: " + this.nqG + ", offset: " + this.nqC + "}";
     }
 }

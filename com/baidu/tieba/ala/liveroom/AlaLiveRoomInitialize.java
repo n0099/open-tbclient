@@ -18,6 +18,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.framework.message.ResponsedMessage;
+import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.adp.framework.task.HttpMessageTask;
 import com.baidu.live.adp.lib.resourceloader.BdResourceLoader;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
@@ -28,6 +29,8 @@ import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.c;
 import com.baidu.live.data.AlaLivePersonData;
 import com.baidu.live.entereffect.http.EnterEffectDynamicListHttpResponsedMessage;
+import com.baidu.live.gift.u;
+import com.baidu.live.gift.v;
 import com.baidu.live.im.message.ImBarragePayResponseMessage;
 import com.baidu.live.liveroom.messages.AlaMGetLiveStatusHttpResponseMessage;
 import com.baidu.live.message.AlaGetLiveInfoHttpResponseMessage;
@@ -39,7 +42,8 @@ import com.baidu.live.message.GetLiveActivityHttpResponseMessage;
 import com.baidu.live.message.GetQuickGiftHttpResponseMessage;
 import com.baidu.live.message.GetVideoGoodsListHttpResponseMessage;
 import com.baidu.live.message.LiveSyncHttpResponseMessage;
-import com.baidu.live.q.a;
+import com.baidu.live.message.NotifyOfficialMsgHttpResponseMessage;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.ala.AlaLiveInfoCoreData;
@@ -67,60 +71,61 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class AlaLiveRoomInitialize {
-    private static HttpMessageListener eGt;
-    private static HttpMessageListener eJA;
-    private static CustomMessageListener eJB;
-    private static NetMessageListener eJC;
-    private static CustomMessageListener eJD;
-    private static CustomMessageListener eJx;
-    private static CustomMessageListener eJy;
-    private static CustomMessageListener eJz;
-    private static boolean eJu = false;
-    private static boolean eJv = false;
-    private static BdAlertDialog eJw = null;
-    private static BdUniqueId erl = BdUniqueId.gen();
+    private static HttpMessageListener eHD;
+    private static CustomMessageListener eKI;
+    private static CustomMessageListener eKJ;
+    private static CustomMessageListener eKK;
+    private static HttpMessageListener eKL;
+    private static CustomMessageListener eKM;
+    private static NetMessageListener eKN;
+    private static CustomMessageListener eKO;
+    private static boolean eKF = false;
+    private static boolean eKG = false;
+    private static BdAlertDialog eKH = null;
+    private static BdUniqueId esx = BdUniqueId.gen();
 
     static {
-        beB();
-        beC();
-        beD();
-        beE();
-        beF();
+        beX();
+        beY();
+        beZ();
+        bfa();
+        bfb();
         initTasks();
         initListeners();
-        beX();
-        eJx = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.1
+        bft();
+        bfu();
+        eKI = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                boolean unused = AlaLiveRoomInitialize.eJv = true;
-                AlaLiveRoomInitialize.beV();
+                boolean unused = AlaLiveRoomInitialize.eKG = true;
+                AlaLiveRoomInitialize.bfr();
             }
         };
-        eJy = new CustomMessageListener(2913020) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.6
+        eKJ = new CustomMessageListener(2913020) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             }
         };
-        eJz = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.7
+        eKK = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (!BdNetTypeUtil.isNetWorkAvailable() || !AlaLiveRoomInitialize.eJv || !AlaLiveRoomInitialize.eJu || MessageManager.getInstance().findTask(2913060) == null) {
+                if (!BdNetTypeUtil.isNetWorkAvailable() || !AlaLiveRoomInitialize.eKG || !AlaLiveRoomInitialize.eKF || MessageManager.getInstance().findTask(2913060) == null) {
                 }
             }
         };
-        eJA = new HttpMessageListener(1021117) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.8
+        eKL = new HttpMessageListener(1021117) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaPreLoadMarkImgResponseMessage) {
-                    AlaLiveRoomInitialize.bz(((AlaPreLoadMarkImgResponseMessage) httpResponsedMessage).bmu());
+                    AlaLiveRoomInitialize.bz(((AlaPreLoadMarkImgResponseMessage) httpResponsedMessage).bnt());
                 }
             }
         };
-        eJB = new CustomMessageListener(CmdConfigCustom.CMD_LIVE_VIDEO_CLOSED_QUERY) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.9
+        eKM = new CustomMessageListener(CmdConfigCustom.CMD_LIVE_VIDEO_CLOSED_QUERY) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -133,7 +138,7 @@ public class AlaLiveRoomInitialize {
                             com.baidu.live.liveroom.messages.a aVar2 = new com.baidu.live.liveroom.messages.a();
                             aVar2.setOriginData(originData);
                             aVar2.setListIds(ids);
-                            aVar2.setTag(AlaLiveRoomInitialize.erl);
+                            aVar2.setTag(AlaLiveRoomInitialize.esx);
                             aVar2.setParams();
                             MessageManager.getInstance().sendMessageFromBackground(aVar);
                         }
@@ -141,10 +146,10 @@ public class AlaLiveRoomInitialize {
                 }
             }
         };
-        eJC = new NetMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.10
+        eKN = new NetMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.11
             @Override // com.baidu.live.adp.framework.listener.NetMessageListener
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == AlaLiveRoomInitialize.erl) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == AlaLiveRoomInitialize.esx) {
                     List<Long> list = null;
                     if (responsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage) {
                         list = ((AlaMGetLiveStatusHttpResponseMessage) responsedMessage).getClosedIds();
@@ -155,53 +160,53 @@ public class AlaLiveRoomInitialize {
                 }
             }
         };
-        eGt = new HttpMessageListener(1021039) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.11
+        eHD = new HttpMessageListener(1021039) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.12
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null) {
-                    final AlaLivePersonData wg = httpResponsedMessage instanceof AlaGetUserInfoHttpResponseMessage ? ((AlaGetUserInfoHttpResponseMessage) httpResponsedMessage).wg() : null;
-                    if (wg != null && wg.mLiveInfo != null) {
-                        if (wg.mLiveInfo.live_id != c.oI().getLong("last_live_room_id", 0L) || wg.mLiveInfo.live_status != 1) {
-                            if (AlaLiveRoomInitialize.eJw != null) {
-                                AlaLiveRoomInitialize.eJw.dismiss();
+                    final AlaLivePersonData wx = httpResponsedMessage instanceof AlaGetUserInfoHttpResponseMessage ? ((AlaGetUserInfoHttpResponseMessage) httpResponsedMessage).wx() : null;
+                    if (wx != null && wx.mLiveInfo != null) {
+                        if (wx.mLiveInfo.live_id != c.oJ().getLong("last_live_room_id", 0L) || wx.mLiveInfo.live_status != 1) {
+                            if (AlaLiveRoomInitialize.eKH != null) {
+                                AlaLiveRoomInitialize.eKH.dismiss();
                             }
-                            BdAlertDialog unused = AlaLiveRoomInitialize.eJw = null;
-                            AlaLiveRoomInitialize.beW();
-                            AlaLiveRoomInitialize.beU();
+                            BdAlertDialog unused = AlaLiveRoomInitialize.eKH = null;
+                            AlaLiveRoomInitialize.bfs();
+                            AlaLiveRoomInitialize.bfq();
                             return;
                         }
-                        if (AlaLiveRoomInitialize.eJw == null || !AlaLiveRoomInitialize.eJw.isShowing()) {
-                            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.11.1
+                        if (AlaLiveRoomInitialize.eKH == null || !AlaLiveRoomInitialize.eKH.isShowing()) {
+                            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.12.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    AlaLiveRoomInitialize.b(wg);
+                                    AlaLiveRoomInitialize.b(wx);
                                 }
                             }, 100L);
                         }
-                        AlaLiveRoomInitialize.beU();
+                        AlaLiveRoomInitialize.bfq();
                     }
                 }
             }
         };
-        eJD = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE_STICKY) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.4
+        eKO = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE_STICKY) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                boolean unused = AlaLiveRoomInitialize.eJu = true;
-                if (AlaLiveRoomInitialize.eJv) {
+                boolean unused = AlaLiveRoomInitialize.eKF = true;
+                if (AlaLiveRoomInitialize.eKG) {
                 }
                 SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.4.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        MessageManager.getInstance().unRegisterListener(AlaLiveRoomInitialize.eJD);
+                        MessageManager.getInstance().unRegisterListener(AlaLiveRoomInitialize.eKO);
                     }
                 });
             }
         };
     }
 
-    private static void beB() {
+    private static void beX() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_SYNC, TbConfig.SERVER_ADDRESS + "ala/sys/sync");
         tbHttpMessageTask.setResponsedClass(AlaSyncHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -209,7 +214,7 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beC() {
+    private static void beY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021132, TbConfig.SERVER_HOST + "liveserver/sys/sync");
         tbHttpMessageTask.setResponsedClass(LiveSyncHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -217,76 +222,75 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beD() {
+    private static void beZ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021122, TbConfig.SERVER_ADDRESS + "ala/web/demo/getLiveActivity");
         tbHttpMessageTask.setResponsedClass(GetLiveActivityHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setRetry(10);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+        tbHttpMessageTask.setRetry(1);
         HashMap hashMap = new HashMap();
         hashMap.put("_client_version", TbConfig.getSubappVersionName());
         tbHttpMessageTask.setCommonParams(hashMap);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beE() {
+    private static void bfa() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021126, TbConfig.SERVER_ADDRESS + "ala/web/activityRank/getActivityPendantRank");
         tbHttpMessageTask.setResponsedClass(GetLiveActivityDynamicHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setRetry(10);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beF() {
+    private static void bfb() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021124, TbConfig.SERVER_ADDRESS + "ala/sdk/v1/open/getQuickGift");
         tbHttpMessageTask.setResponsedClass(GetQuickGiftHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setRetry(10);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     private static void initTasks() {
-        beG();
-        beH();
-        beI();
-        beJ();
-        beK();
+        bfc();
+        bfd();
+        bfe();
+        bff();
+        bfg();
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            bdZ();
-            beL();
+            beu();
+            bfh();
         }
-        beM();
-        beN();
-        beO();
-        beP();
-        beQ();
-        beR();
-        beS();
-        beT();
+        bfi();
+        bfj();
+        bfk();
+        bfl();
+        bfm();
+        bfn();
+        bfo();
+        bfp();
+        bfv();
     }
 
     private static void initListeners() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            MessageManager.getInstance().registerListener(eJx);
-            MessageManager.getInstance().registerListener(eJy);
-            MessageManager.getInstance().registerListener(eJz);
-            MessageManager.getInstance().registerListener(eJA);
-            MessageManager.getInstance().registerListener(eJC);
-            MessageManager.getInstance().registerListener(eJB);
-            MessageManager.getInstance().registerListener(eJD);
+            MessageManager.getInstance().registerListener(eKI);
+            MessageManager.getInstance().registerListener(eKJ);
+            MessageManager.getInstance().registerListener(eKK);
+            MessageManager.getInstance().registerListener(eKL);
+            MessageManager.getInstance().registerListener(eKN);
+            MessageManager.getInstance().registerListener(eKM);
+            MessageManager.getInstance().registerListener(eKO);
         }
     }
 
-    private static void beG() {
-        com.baidu.live.tieba.f.a.a.a(1021007, "ala/live/getLiveInfo", AlaGetLiveInfoHttpResponseMessage.class, false, true, true, true);
+    private static void bfc() {
+        com.baidu.live.tieba.f.a.a.a(1021007, "ala/live/getLiveInfo", AlaGetLiveInfoHttpResponseMessage.class, false, true, true, true).setRetry(1);
     }
 
-    private static void beH() {
-        com.baidu.live.tieba.f.a.a.a(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, "ala/live/mgetLiveStatus", AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
+    private static void bfd() {
+        com.baidu.live.tieba.f.a.a.a(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, "ala/live/mgetLiveStatus", AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true).setRetry(1);
     }
 
-    private static void beI() {
+    private static void bfe() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021036, TbConfig.SERVER_ADDRESS + "ala/live/closeLive");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -296,7 +300,7 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerStickyMode(1021036);
     }
 
-    private static void beJ() {
+    private static void bff() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003303, TbConfig.SERVER_ADDRESS + "ala/sys/strategy");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -306,7 +310,7 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerStickyMode(1003303);
     }
 
-    private static void beK() {
+    private static void bfg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021117, TbConfig.SERVER_ADDRESS + "ala/sys/getAllMarkPictList");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -314,7 +318,7 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bdZ() {
+    private static void beu() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021039, TbConfig.SERVER_ADDRESS + "ala/user/getUserInfoSDK");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -323,7 +327,7 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beL() {
+    private static void bfh() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021040, TbConfig.SERVER_ADDRESS + "ala/sys/reliveLog");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -331,7 +335,7 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beM() {
+    private static void bfi() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021127, TbConfig.SERVER_ADDRESS + "ala/live/activityTaskWatch");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -341,17 +345,17 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beN() {
+    private static void bfj() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021128, TbConfig.SERVER_ADDRESS + "ala/live/sendNoticeIm");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.live.j.a.init();
+        com.baidu.live.k.a.init();
     }
 
-    private static void beO() {
+    private static void bfk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021045, TbConfig.SERVER_ADDRESS + "ala/share/shareMsg");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -360,7 +364,7 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beP() {
+    private static void bfl() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT, TbConfig.SERVER_HOST + "liveserver/pay/barrage");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -370,7 +374,7 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beQ() {
+    private static void bfm() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO, TbConfig.SERVER_ADDRESS + "ala/sdk/v1/open/getRmbLiveEnterEffectList");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -379,7 +383,7 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beR() {
+    private static void bfn() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021144, TbConfig.SERVER_HOST + "liveserver/livegoods/getvideogoodslist");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -389,39 +393,41 @@ public class AlaLiveRoomInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beS() {
+    private static void bfo() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP, TbConfig.SERVER_HOST + "liveserver/sys/eventpolling");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        tbHttpMessageTask.setRetry(1);
         tbHttpMessageTask.setResponsedClass(EventPollingHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void beT() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021155, TbConfig.SERVER_HOST + "liveserver/rotaryTable/getLuckyMomentsInfoForMobile");
+    private static void bfp() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021157, TbConfig.SERVER_HOST + "liveserver/rotaryTable/getLuckyMomentsInfoForMobile");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+        tbHttpMessageTask.setRetry(1);
         tbHttpMessageTask.setResponsedClass(TurnTableLuckyMomentsResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void beU() {
-        SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.12
+    public static void bfq() {
+        SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.13
             @Override // java.lang.Runnable
             public void run() {
-                MessageManager.getInstance().unRegisterListener(AlaLiveRoomInitialize.eGt);
+                MessageManager.getInstance().unRegisterListener(AlaLiveRoomInitialize.eHD);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void beV() {
-        if (System.currentTimeMillis() - c.oI().getLong("ala_last_pre_load_marg_img_time", 0L) >= 21600000) {
+    public static void bfr() {
+        if (System.currentTimeMillis() - c.oJ().getLong("ala_last_pre_load_marg_img_time", 0L) >= 21600000) {
             MessageManager.getInstance().sendMessage(new HttpMessage(1021117));
         }
     }
@@ -429,7 +435,7 @@ public class AlaLiveRoomInitialize {
     /* JADX INFO: Access modifiers changed from: private */
     public static void bz(List<String> list) {
         if (!ListUtils.isEmpty(list)) {
-            c.oI().putLong("ala_last_pre_load_marg_img_time", System.currentTimeMillis());
+            c.oJ().putLong("ala_last_pre_load_marg_img_time", System.currentTimeMillis());
             for (String str : list) {
                 if (!TextUtils.isEmpty(str)) {
                     BdResourceLoader.getInstance().loadResource(str, 10, null, null);
@@ -439,7 +445,7 @@ public class AlaLiveRoomInitialize {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cI(long j) {
+    public static void cN(long j) {
         HttpMessage httpMessage = new HttpMessage(1021040);
         httpMessage.addParam("live_id", j);
         httpMessage.addParam("is_cancel", 1);
@@ -455,50 +461,50 @@ public class AlaLiveRoomInitialize {
     public static void b(final AlaLivePersonData alaLivePersonData) {
         final Activity currentActivity = BdActivityStack.getInst().currentActivity();
         if (currentActivity instanceof BdPageContextSupport) {
-            if (eJw != null) {
-                eJw.dismiss();
+            if (eKH != null) {
+                eKH.dismiss();
             }
-            eJw = new BdAlertDialog(currentActivity);
+            eKH = new BdAlertDialog(currentActivity);
             TbadkCoreApplication.getInst().getContext();
-            eJw.setMessageId(a.i.sdk_crash_reopen_tips);
-            eJw.setOnCalcelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.13
+            eKH.setMessageId(a.i.sdk_crash_reopen_tips);
+            eKH.setOnCalcelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.14
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    AlaLiveRoomInitialize.cI(AlaLivePersonData.this.mLiveInfo.live_id);
-                    BdAlertDialog unused = AlaLiveRoomInitialize.eJw = null;
+                    AlaLiveRoomInitialize.cN(AlaLivePersonData.this.mLiveInfo.live_id);
+                    BdAlertDialog unused = AlaLiveRoomInitialize.eKH = null;
                 }
             });
-            eJw.setPositiveButton(a.i.sdk_reconnect, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.2
+            eKH.setPositiveButton(a.i.sdk_reconnect, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.2
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
                     bdAlertDialog.dismiss();
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaMasterLiveRoomActivityConfig(currentActivity, alaLivePersonData)));
-                    AlaLiveRoomInitialize.beW();
-                    BdAlertDialog unused = AlaLiveRoomInitialize.eJw = null;
+                    AlaLiveRoomInitialize.bfs();
+                    BdAlertDialog unused = AlaLiveRoomInitialize.eKH = null;
                 }
             });
-            eJw.setNegativeButton(a.i.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.3
+            eKH.setNegativeButton(a.i.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.3
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
-                    AlaLiveRoomInitialize.beW();
+                    AlaLiveRoomInitialize.bfs();
                     bdAlertDialog.dismiss();
-                    AlaLiveRoomInitialize.cI(AlaLivePersonData.this.mLiveInfo.live_id);
-                    BdAlertDialog unused = AlaLiveRoomInitialize.eJw = null;
+                    AlaLiveRoomInitialize.cN(AlaLivePersonData.this.mLiveInfo.live_id);
+                    BdAlertDialog unused = AlaLiveRoomInitialize.eKH = null;
                 }
             });
-            eJw.isShowTitleAndMessage();
-            eJw.create(((BdPageContextSupport) currentActivity).getPageContext());
-            eJw.show();
+            eKH.isShowTitleAndMessage();
+            eKH.create(((BdPageContextSupport) currentActivity).getPageContext());
+            eKH.show();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void beW() {
-        c.oI().putLong("last_live_room_id", 0L);
-        c.oI().putString("last_live_room_from", "");
+    public static void bfs() {
+        c.oJ().putLong("last_live_room_id", 0L);
+        c.oJ().putString("last_live_room_from", "");
     }
 
-    private static void beX() {
+    private static void bft() {
         UrlManager.getInstance().addListener(new UrlManager.UrlDealListener() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.5
             @Override // com.baidu.live.tbadk.core.util.UrlManager.UrlDealListener
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -511,13 +517,13 @@ public class AlaLiveRoomInitialize {
                     return 3;
                 }
                 if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_ZM)) {
-                    long j = c.oI().getLong("zm_cert_id", 0L);
+                    long j = c.oJ().getLong("zm_cert_id", 0L);
                     if (j != 0) {
-                        com.baidu.live.i.b bVar = new com.baidu.live.i.b();
-                        bVar.dF(Long.toString(j));
+                        com.baidu.live.j.b bVar = new com.baidu.live.j.b();
+                        bVar.dH(Long.toString(j));
                         bVar.release();
                     }
-                    c.oI().putLong("zm_cert_id", 0L);
+                    c.oJ().putLong("zm_cert_id", 0L);
                     return 0;
                 }
                 if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT)) {
@@ -592,5 +598,25 @@ public class AlaLiveRoomInitialize {
                 return 3;
             }
         });
+    }
+
+    private static void bfu() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2913154, new CustomMessageTask.CustomRunnable<v>() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomInitialize.6
+            @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
+            public CustomResponsedMessage<u> run(CustomMessage<v> customMessage) {
+                return new CustomResponsedMessage<>(2913154, new com.baidu.tieba.ala.liveroom.p.b(customMessage.getData()));
+            }
+        });
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void bfv() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021176, TbConfig.SERVER_ADDRESS + "ala/notify/msgNotify");
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(NotifyOfficialMsgHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 }

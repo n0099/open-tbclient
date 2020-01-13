@@ -68,7 +68,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 import rx.functions.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BasePublishPresenter {
     private static final int THOUSAND_WORDS = 1000;
     private static final String VOTE_OPTION_IS_CHECKED = "1";
@@ -430,9 +430,9 @@ public class BasePublishPresenter {
     }
 
     protected void loadInnerEmotionPanel(SPSwitchPanelLinearLayout sPSwitchPanelLinearLayout, EmojiconEditText emojiconEditText) {
-        com.baidu.spswitch.b.a.DD().a(this.mPublishView.getContext(), sPSwitchPanelLinearLayout, emojiconEditText, UgcRuntime.getUgcInterface().getNightModeSwitcherState());
-        com.baidu.spswitch.b.a.DD().a(new a.InterfaceC0182a() { // from class: com.baidu.searchbox.ugc.presenter.BasePublishPresenter.9
-            @Override // com.baidu.spswitch.b.a.InterfaceC0182a
+        com.baidu.spswitch.b.a.DZ().a(this.mPublishView.getContext(), sPSwitchPanelLinearLayout, emojiconEditText, UgcRuntime.getUgcInterface().getNightModeSwitcherState());
+        com.baidu.spswitch.b.a.DZ().a(new a.InterfaceC0184a() { // from class: com.baidu.searchbox.ugc.presenter.BasePublishPresenter.9
+            @Override // com.baidu.spswitch.b.a.InterfaceC0184a
             public void onEmotionClick(EmotionType emotionType, int i, String str, String str2) {
                 if (!TextUtils.isEmpty(str)) {
                     UgcUBCUtils.emotionUbcStatistics(BasePublishPresenter.this.mSourceFrom, BasePublishPresenter.this.mPublishView.getContext() instanceof ForwardPublishActivity, str);
@@ -516,12 +516,12 @@ public class BasePublishPresenter {
     public void onDestroy(EmojiconEditText emojiconEditText) {
         this.mPublisherInterfaceManager = null;
         emojiconEditText.clearData();
-        com.baidu.spswitch.b.a.DD().dismiss();
+        com.baidu.spswitch.b.a.DZ().dismiss();
     }
 
     public void onBackPressed(EmojiconEditText emojiconEditText) {
         if (emojiconEditText != null) {
-            e.W(emojiconEditText);
+            e.aa(emojiconEditText);
         }
     }
 

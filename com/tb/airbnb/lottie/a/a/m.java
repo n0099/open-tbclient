@@ -2,44 +2,67 @@ package com.tb.airbnb.lottie.a.a;
 
 import android.graphics.Path;
 import android.graphics.PointF;
-import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.a;
+import com.tb.airbnb.lottie.model.content.PolystarShape;
 import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes2.dex */
-public class m implements k, a.InterfaceC0687a {
+/* loaded from: classes5.dex */
+public class m implements j, l, a.InterfaceC0730a {
     private boolean fV;
     private final com.tb.airbnb.lottie.f lottieDrawable;
-    @Nullable
-    private q mMT;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> mMV;
-    private final com.tb.airbnb.lottie.a.b.a<?, PointF> mMW;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> mNk;
     private final String name;
+    @Nullable
+    private r noZ;
+    private final com.tb.airbnb.lottie.a.b.a<?, PointF> npc;
+    private final PolystarShape.Type npj;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> npk;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> npl;
+    @Nullable
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> npm;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> npn;
+    @Nullable
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> npo;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> npp;
     private final Path path = new Path();
-    private final RectF rect = new RectF();
 
-    public m(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.f fVar2) {
-        this.name = fVar2.getName();
+    public m(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, PolystarShape polystarShape) {
         this.lottieDrawable = fVar;
-        this.mMW = fVar2.dBC().dBq();
-        this.mMV = fVar2.dBM().dBq();
-        this.mNk = fVar2.dCe().dBq();
-        aVar.a(this.mMW);
-        aVar.a(this.mMV);
-        aVar.a(this.mNk);
-        this.mMW.b(this);
-        this.mMV.b(this);
-        this.mNk.b(this);
+        this.name = polystarShape.getName();
+        this.npj = polystarShape.dGa();
+        this.npk = polystarShape.dGb().dFE();
+        this.npc = polystarShape.dFH().dFE();
+        this.npl = polystarShape.dFJ().dFE();
+        this.npn = polystarShape.dGd().dFE();
+        this.npp = polystarShape.dGf().dFE();
+        if (this.npj == PolystarShape.Type.Star) {
+            this.npm = polystarShape.dGc().dFE();
+            this.npo = polystarShape.dGe().dFE();
+        } else {
+            this.npm = null;
+            this.npo = null;
+        }
+        aVar.a(this.npk);
+        aVar.a(this.npc);
+        aVar.a(this.npl);
+        aVar.a(this.npn);
+        aVar.a(this.npp);
+        if (this.npj == PolystarShape.Type.Star) {
+            aVar.a(this.npm);
+            aVar.a(this.npo);
+        }
+        this.npk.b(this);
+        this.npc.b(this);
+        this.npl.b(this);
+        this.npn.b(this);
+        this.npp.b(this);
+        if (this.npj == PolystarShape.Type.Star) {
+            this.npm.b(this);
+            this.npo.b(this);
+        }
     }
 
-    @Override // com.tb.airbnb.lottie.a.a.b
-    public String getName() {
-        return this.name;
-    }
-
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0687a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0730a
     public void bC() {
         invalidate();
     }
@@ -56,9 +79,9 @@ public class m implements k, a.InterfaceC0687a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof q) && ((q) bVar).dBh() == ShapeTrimPath.Type.Simultaneously) {
-                    this.mMT = (q) bVar;
-                    this.mMT.a(this);
+                if ((bVar instanceof r) && ((r) bVar).dFu() == ShapeTrimPath.Type.Simultaneously) {
+                    this.noZ = (r) bVar;
+                    this.noZ.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -67,45 +90,197 @@ public class m implements k, a.InterfaceC0687a {
         }
     }
 
-    @Override // com.tb.airbnb.lottie.a.a.k
+    @Override // com.tb.airbnb.lottie.a.a.l
     public Path bF() {
         if (this.fV) {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.mMV.getValue();
-        float f = value.x / 2.0f;
-        float f2 = value.y / 2.0f;
-        float floatValue = this.mNk == null ? 0.0f : this.mNk.getValue().floatValue();
-        float min = Math.min(f, f2);
-        if (floatValue <= min) {
-            min = floatValue;
-        }
-        PointF value2 = this.mMW.getValue();
-        this.path.moveTo(value2.x + f, (value2.y - f2) + min);
-        this.path.lineTo(value2.x + f, (value2.y + f2) - min);
-        if (min > 0.0f) {
-            this.rect.set((value2.x + f) - (2.0f * min), (value2.y + f2) - (2.0f * min), value2.x + f, value2.y + f2);
-            this.path.arcTo(this.rect, 0.0f, 90.0f, false);
-        }
-        this.path.lineTo((value2.x - f) + min, value2.y + f2);
-        if (min > 0.0f) {
-            this.rect.set(value2.x - f, (value2.y + f2) - (2.0f * min), (value2.x - f) + (2.0f * min), value2.y + f2);
-            this.path.arcTo(this.rect, 90.0f, 90.0f, false);
-        }
-        this.path.lineTo(value2.x - f, (value2.y - f2) + min);
-        if (min > 0.0f) {
-            this.rect.set(value2.x - f, value2.y - f2, (value2.x - f) + (2.0f * min), (value2.y - f2) + (2.0f * min));
-            this.path.arcTo(this.rect, 180.0f, 90.0f, false);
-        }
-        this.path.lineTo((value2.x + f) - min, value2.y - f2);
-        if (min > 0.0f) {
-            this.rect.set((value2.x + f) - (2.0f * min), value2.y - f2, f + value2.x, (value2.y - f2) + (min * 2.0f));
-            this.path.arcTo(this.rect, 270.0f, 90.0f, false);
+        switch (this.npj) {
+            case Star:
+                bK();
+                break;
+            case Polygon:
+                bL();
+                break;
         }
         this.path.close();
-        com.tb.airbnb.lottie.c.f.a(this.path, this.mMT);
+        com.tb.airbnb.lottie.d.f.a(this.path, this.noZ);
         this.fV = true;
         return this.path;
+    }
+
+    @Override // com.tb.airbnb.lottie.a.a.b
+    public String getName() {
+        return this.name;
+    }
+
+    private void bK() {
+        float f;
+        float cos;
+        float sin;
+        double d;
+        float f2;
+        float f3;
+        float f4;
+        float f5;
+        float floatValue = this.npk.getValue().floatValue();
+        double radians = Math.toRadians((this.npl == null ? 0.0d : this.npl.getValue().floatValue()) - 90.0d);
+        float f6 = (float) (6.283185307179586d / floatValue);
+        float f7 = f6 / 2.0f;
+        float f8 = floatValue - ((int) floatValue);
+        double d2 = f8 != 0.0f ? radians + ((1.0f - f8) * f7) : radians;
+        float floatValue2 = this.npn.getValue().floatValue();
+        float floatValue3 = this.npm.getValue().floatValue();
+        if (this.npo == null) {
+            f = 0.0f;
+        } else {
+            f = this.npo.getValue().floatValue() / 100.0f;
+        }
+        float f9 = 0.0f;
+        if (this.npp != null) {
+            f9 = this.npp.getValue().floatValue() / 100.0f;
+        }
+        if (f8 != 0.0f) {
+            float f10 = floatValue3 + ((floatValue2 - floatValue3) * f8);
+            cos = (float) (f10 * Math.cos(d2));
+            sin = (float) (f10 * Math.sin(d2));
+            this.path.moveTo(cos, sin);
+            d = d2 + ((f6 * f8) / 2.0f);
+            f2 = f10;
+        } else {
+            cos = (float) (floatValue2 * Math.cos(d2));
+            sin = (float) (floatValue2 * Math.sin(d2));
+            this.path.moveTo(cos, sin);
+            d = d2 + f7;
+            f2 = 0.0f;
+        }
+        double ceil = Math.ceil(floatValue) * 2.0d;
+        int i = 0;
+        boolean z = false;
+        float f11 = sin;
+        float f12 = cos;
+        while (true) {
+            double d3 = d;
+            if (i < ceil) {
+                float f13 = z ? floatValue2 : floatValue3;
+                float f14 = (f2 == 0.0f || ((double) i) != ceil - 2.0d) ? f7 : (f6 * f8) / 2.0f;
+                if (f2 != 0.0f && i == ceil - 1.0d) {
+                    f13 = f2;
+                }
+                float cos2 = (float) (f13 * Math.cos(d3));
+                float sin2 = (float) (f13 * Math.sin(d3));
+                if (f == 0.0f && f9 == 0.0f) {
+                    this.path.lineTo(cos2, sin2);
+                } else {
+                    float atan2 = (float) (Math.atan2(f11, f12) - 1.5707963267948966d);
+                    float cos3 = (float) Math.cos(atan2);
+                    float sin3 = (float) Math.sin(atan2);
+                    float atan22 = (float) (Math.atan2(sin2, cos2) - 1.5707963267948966d);
+                    float cos4 = (float) Math.cos(atan22);
+                    float sin4 = (float) Math.sin(atan22);
+                    float f15 = z ? f : f9;
+                    float f16 = z ? f9 : f;
+                    float f17 = z ? floatValue3 : floatValue2;
+                    float f18 = z ? floatValue2 : floatValue3;
+                    float f19 = cos3 * f17 * f15 * 0.47829f;
+                    float f20 = f17 * f15 * 0.47829f * sin3;
+                    float f21 = f18 * f16 * 0.47829f * cos4;
+                    float f22 = f18 * f16 * 0.47829f * sin4;
+                    if (f8 != 0.0f) {
+                        if (i == 0) {
+                            f20 *= f8;
+                            f3 = f22;
+                            f4 = f19 * f8;
+                            f5 = f21;
+                        } else if (i == ceil - 1.0d) {
+                            float f23 = f21 * f8;
+                            f3 = f22 * f8;
+                            f4 = f19;
+                            f5 = f23;
+                        }
+                        this.path.cubicTo(f12 - f4, f11 - f20, f5 + cos2, f3 + sin2, cos2, sin2);
+                    }
+                    f3 = f22;
+                    f4 = f19;
+                    f5 = f21;
+                    this.path.cubicTo(f12 - f4, f11 - f20, f5 + cos2, f3 + sin2, cos2, sin2);
+                }
+                d = d3 + f14;
+                i++;
+                z = !z;
+                f11 = sin2;
+                f12 = cos2;
+            } else {
+                PointF value = this.npc.getValue();
+                this.path.offset(value.x, value.y);
+                this.path.close();
+                return;
+            }
+        }
+    }
+
+    private void bL() {
+        int floor = (int) Math.floor(this.npk.getValue().floatValue());
+        double radians = Math.toRadians((this.npl == null ? 0.0d : this.npl.getValue().floatValue()) - 90.0d);
+        float f = (float) (6.283185307179586d / floor);
+        float floatValue = this.npp.getValue().floatValue() / 100.0f;
+        float floatValue2 = this.npn.getValue().floatValue();
+        float cos = (float) (floatValue2 * Math.cos(radians));
+        float sin = (float) (floatValue2 * Math.sin(radians));
+        this.path.moveTo(cos, sin);
+        double d = radians + f;
+        double ceil = Math.ceil(floor);
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            float f2 = cos;
+            double d2 = d;
+            float f3 = sin;
+            if (i2 < ceil) {
+                cos = (float) (floatValue2 * Math.cos(d2));
+                sin = (float) (floatValue2 * Math.sin(d2));
+                if (floatValue != 0.0f) {
+                    float atan2 = (float) (Math.atan2(f3, f2) - 1.5707963267948966d);
+                    float cos2 = (float) Math.cos(atan2);
+                    float sin2 = (float) Math.sin(atan2);
+                    float atan22 = (float) (Math.atan2(sin, cos) - 1.5707963267948966d);
+                    this.path.cubicTo(f2 - (cos2 * ((floatValue2 * floatValue) * 0.25f)), f3 - (((floatValue2 * floatValue) * 0.25f) * sin2), cos + (((float) Math.cos(atan22)) * floatValue2 * floatValue * 0.25f), (((float) Math.sin(atan22)) * floatValue2 * floatValue * 0.25f) + sin, cos, sin);
+                } else {
+                    this.path.lineTo(cos, sin);
+                }
+                d = d2 + f;
+                i = i2 + 1;
+            } else {
+                PointF value = this.npc.getValue();
+                this.path.offset(value.x, value.y);
+                this.path.close();
+                return;
+            }
+        }
+    }
+
+    @Override // com.tb.airbnb.lottie.model.f
+    public void a(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2) {
+        com.tb.airbnb.lottie.d.e.a(eVar, i, list, eVar2, this);
+    }
+
+    @Override // com.tb.airbnb.lottie.model.f
+    public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
+        if (t == com.tb.airbnb.lottie.j.eY) {
+            this.npk.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.eZ) {
+            this.npl.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.eR) {
+            this.npc.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.fb && this.npm != null) {
+            this.npm.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.fd) {
+            this.npn.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.fe && this.npo != null) {
+            this.npo.a(cVar);
+        } else if (t == com.tb.airbnb.lottie.j.ff) {
+            this.npp.a(cVar);
+        }
     }
 }

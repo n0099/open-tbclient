@@ -5,25 +5,27 @@ import android.support.annotation.Nullable;
 import com.baidu.mapapi.map.WeightedLatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class a<K, A> {
-    private final List<? extends com.tb.airbnb.lottie.a.a<K>> gD;
+    private final List<? extends com.tb.airbnb.lottie.e.a<K>> gD;
     @Nullable
-    private com.tb.airbnb.lottie.a.a<K> mNv;
-    final List<InterfaceC0687a> listeners = new ArrayList();
+    protected com.tb.airbnb.lottie.e.c<A> npA;
+    @Nullable
+    private com.tb.airbnb.lottie.e.a<K> npB;
+    final List<InterfaceC0730a> listeners = new ArrayList();
     private boolean gC = false;
     private float progress = 0.0f;
 
     /* renamed from: com.tb.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0687a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0730a {
         void bC();
     }
 
-    abstract A a(com.tb.airbnb.lottie.a.a<K> aVar, float f);
+    abstract A a(com.tb.airbnb.lottie.e.a<K> aVar, float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(List<? extends com.tb.airbnb.lottie.a.a<K>> list) {
+    public a(List<? extends com.tb.airbnb.lottie.e.a<K>> list) {
         this.gD = list;
     }
 
@@ -31,8 +33,8 @@ public abstract class a<K, A> {
         this.gC = true;
     }
 
-    public void b(InterfaceC0687a interfaceC0687a) {
-        this.listeners.add(interfaceC0687a);
+    public void b(InterfaceC0730a interfaceC0730a) {
+        this.listeners.add(interfaceC0730a);
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
@@ -43,27 +45,28 @@ public abstract class a<K, A> {
         }
         if (f != this.progress) {
             this.progress = f;
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.listeners.size()) {
-                    this.listeners.get(i2).bC();
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
+            by();
+        }
+    }
+
+    public void by() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.listeners.size()) {
+                this.listeners.get(i2).bC();
+                i = i2 + 1;
+            } else {
+                return;
             }
         }
     }
 
-    private com.tb.airbnb.lottie.a.a<K> dBl() {
-        if (this.gD.isEmpty()) {
-            throw new IllegalStateException("There are no keyframes");
+    private com.tb.airbnb.lottie.e.a<K> dFy() {
+        if (this.npB != null && this.npB.n(this.progress)) {
+            return this.npB;
         }
-        if (this.mNv != null && this.mNv.n(this.progress)) {
-            return this.mNv;
-        }
-        com.tb.airbnb.lottie.a.a<K> aVar = this.gD.get(this.gD.size() - 1);
+        com.tb.airbnb.lottie.e.a<K> aVar = this.gD.get(this.gD.size() - 1);
         if (this.progress < aVar.di()) {
             for (int size = this.gD.size() - 1; size >= 0; size--) {
                 aVar = this.gD.get(size);
@@ -72,19 +75,28 @@ public abstract class a<K, A> {
                 }
             }
         }
-        this.mNv = aVar;
+        this.npB = aVar;
         return aVar;
     }
 
-    private float dBm() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public float bS() {
         if (this.gC) {
             return 0.0f;
         }
-        com.tb.airbnb.lottie.a.a<K> dBl = dBl();
-        if (dBl.dL()) {
+        com.tb.airbnb.lottie.e.a<K> dFy = dFy();
+        if (dFy.dL()) {
             return 0.0f;
         }
-        return dBl.kp.getInterpolation((this.progress - dBl.di()) / (dBl.bV() - dBl.di()));
+        return (this.progress - dFy.di()) / (dFy.bV() - dFy.di());
+    }
+
+    private float bT() {
+        com.tb.airbnb.lottie.e.a<K> dFy = dFy();
+        if (dFy.dL()) {
+            return 0.0f;
+        }
+        return dFy.ko.getInterpolation(bS());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
@@ -96,7 +108,7 @@ public abstract class a<K, A> {
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
-    private float bV() {
+    float bV() {
         if (this.gD.isEmpty()) {
             return 1.0f;
         }
@@ -104,10 +116,20 @@ public abstract class a<K, A> {
     }
 
     public A getValue() {
-        return a(dBl(), dBm());
+        return a(dFy(), bT());
     }
 
     public float getProgress() {
         return this.progress;
+    }
+
+    public void a(@Nullable com.tb.airbnb.lottie.e.c<A> cVar) {
+        if (this.npA != null) {
+            this.npA.b(null);
+        }
+        this.npA = cVar;
+        if (cVar != null) {
+            cVar.b(this);
+        }
     }
 }

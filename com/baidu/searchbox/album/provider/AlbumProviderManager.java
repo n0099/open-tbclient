@@ -2,7 +2,7 @@ package com.baidu.searchbox.album.provider;
 
 import android.support.annotation.NonNull;
 import com.baidu.searchbox.ugc.bridge.AlbumProviderImpl_Factory;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlbumProviderManager {
     @NonNull
     public static IAlbumInterface getAlbumProvider() {

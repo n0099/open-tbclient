@@ -36,7 +36,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 import rx.functions.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class PublisherManager implements IPublisherManagerInterface {
     public static boolean GLOBAL_DEBUG = false;
     private static final String TAG = PublisherManager.class.getSimpleName();

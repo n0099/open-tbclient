@@ -1,5 +1,5 @@
 package com.vivo.push.util;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class VivoPushException extends Exception {
     public static final int REASON_CODE_ACCESS = 10000;
     private int mReasonCode;

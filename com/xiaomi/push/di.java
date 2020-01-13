@@ -4,7 +4,7 @@ import android.util.Log;
 import com.xiaomi.push.al;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class di extends al.b {
     final /* synthetic */ dh a;
 
@@ -18,13 +18,13 @@ public class di extends al.b {
         List list;
         String str;
         String str2;
-        list = dh.f242a;
+        list = dh.f240a;
         if (list.isEmpty()) {
             return;
         }
         try {
             if (aa.d()) {
-                this.a.m207a();
+                this.a.m216a();
             } else {
                 str2 = this.a.b;
                 Log.w(str2, "SDCard is unavailable.");

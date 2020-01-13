@@ -2,7 +2,7 @@ package com.baidu.android.ext.widget.menu;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BdMenuItem {
     private static final int NO_ICON = 0;
     protected boolean mChecked;
@@ -18,7 +18,7 @@ public class BdMenuItem {
     protected boolean mShowTip;
     protected CharSequence mTitle;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnItemClickListener {
         void onClick(BdMenuItem bdMenuItem);
     }

@@ -1,7 +1,6 @@
 package org.greenrobot.eventbus;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
-public class AsyncPoster implements Runnable {
+/* loaded from: classes5.dex */
+class AsyncPoster implements Runnable {
     private final EventBus eventBus;
     private final PendingPostQueue queue = new PendingPostQueue();
 

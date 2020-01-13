@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImageViewerActivityStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<ImageViewerConfig>() { // from class: com.baidu.tieba.image.ImageViewerActivityStatic.1

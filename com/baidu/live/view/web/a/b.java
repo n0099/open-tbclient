@@ -7,10 +7,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.live.view.web.a {
-    private SchemeCallback aBx;
+    private SchemeCallback aCp;
 
     public b(SchemeCallback schemeCallback) {
-        this.aBx = schemeCallback;
+        this.aCp = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -19,13 +19,13 @@ public class b extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void dT(String str) {
+    public void dV(String str) {
         JSONObject jSONObject;
         JSONException e;
-        if (this.aBx != null) {
+        if (this.aCp != null) {
             String cuid = ExtraParamsManager.getInstance().buildParamsExtra().getCuid();
             if (TextUtils.isEmpty(cuid)) {
-                this.aBx.doJsCallback(0, "", null, str);
+                this.aCp.doJsCallback(0, "", null, str);
                 return;
             }
             if (TextUtils.isEmpty(cuid)) {
@@ -38,14 +38,14 @@ public class b extends com.baidu.live.view.web.a {
                     } catch (JSONException e2) {
                         e = e2;
                         e.printStackTrace();
-                        this.aBx.doJsCallback(1, "", jSONObject, str);
+                        this.aCp.doJsCallback(1, "", jSONObject, str);
                     }
                 } catch (JSONException e3) {
                     jSONObject = null;
                     e = e3;
                 }
             }
-            this.aBx.doJsCallback(1, "", jSONObject, str);
+            this.aCp.doJsCallback(1, "", jSONObject, str);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.android.util.media.model;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MediaClassMetadata {
     public Map<String, Field> fieldDatas;
     public String select;

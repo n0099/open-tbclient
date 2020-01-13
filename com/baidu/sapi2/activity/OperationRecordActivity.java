@@ -7,7 +7,7 @@ import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.SapiWebCallback;
 import com.baidu.sapi2.result.SapiResult;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OperationRecordActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     private SapiResult r = new SapiResult();

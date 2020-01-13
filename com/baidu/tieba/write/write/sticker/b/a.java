@@ -2,9 +2,9 @@ package com.baidu.tieba.write.write.sticker.b;
 
 import android.graphics.PointF;
 import android.view.MotionEvent;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public static PointF N(MotionEvent motionEvent) {
+    public static PointF M(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return null;
         }
@@ -13,7 +13,7 @@ public class a {
         return pointF;
     }
 
-    public static float O(MotionEvent motionEvent) {
+    public static float N(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return 0.0f;
         }
@@ -22,7 +22,7 @@ public class a {
         return (float) Math.sqrt((x * x) + (y * y));
     }
 
-    public static float P(MotionEvent motionEvent) {
+    public static float O(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return 0.0f;
         }

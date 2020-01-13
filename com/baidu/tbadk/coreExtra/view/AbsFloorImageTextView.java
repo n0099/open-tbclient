@@ -16,26 +16,26 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.util.ad;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.a.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
-    protected ImageUrlData dmk;
-    private c.a dml;
-    public com.baidu.tieba.pb.a.c dmm;
+    public com.baidu.tieba.pb.a.c dmA;
+    protected ImageUrlData dmy;
+    private c.a dmz;
     protected String mUserId;
-    protected static final int dmg = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds34);
-    protected static final int dmh = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds28);
+    protected static final int TOP = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds34);
+    protected static final int BOTTOM = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds28);
     protected static final int LEFT = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds44);
     protected static final int RIGHT = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds44);
-    protected static final int dmi = (l.getEquipmentWidth(TbadkApplication.getInst()) - LEFT) - RIGHT;
-    protected static final int dmj = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds42);
+    protected static final int dmw = (l.getEquipmentWidth(TbadkApplication.getInst()) - LEFT) - RIGHT;
+    protected static final int dmx = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds42);
 
     public abstract void a(ImageUrlData imageUrlData);
 
-    public abstract void u(boolean z, boolean z2);
+    public abstract void t(boolean z, boolean z2);
 
     public AbsFloorImageTextView(@NonNull Context context) {
         super(context);
-        this.dml = new c.a() { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.1
+        this.dmz = new c.a() { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.1
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 return false;
@@ -48,11 +48,11 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
 
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
-                AbsFloorImageTextView.this.aJG();
+                AbsFloorImageTextView.this.aKa();
                 return true;
             }
         };
-        this.dmm = new com.baidu.tieba.pb.a.c(this.dml) { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.2
+        this.dmA = new com.baidu.tieba.pb.a.c(this.dmz) { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.2
             @Override // com.baidu.tieba.pb.a.c, android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                 return false;
@@ -69,10 +69,10 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         this.mUserId = str;
     }
 
-    public void aJG() {
-        if (this.dmk != null) {
-            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.dmk.threadId), String.valueOf(this.dmk.postId), this.dmk.mIsSeeHost, this.dmk.mIsReserver, null);
-            if (this.dmk.isFirstPost) {
+    public void aKa() {
+        if (this.dmy != null) {
+            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.dmy.threadId), String.valueOf(this.dmy.postId), this.dmy.mIsSeeHost, this.dmy.mIsReserver, null);
+            if (this.dmy.isFirstPost) {
                 createHistoryCfg.setJumpToTopArea(true);
             } else {
                 createHistoryCfg.setJumpToCommentArea(true);
@@ -82,8 +82,8 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Pair<Integer, Integer> ue(String str) {
-        return ad.r(str, dmj, dmi);
+    public Pair<Integer, Integer> uj(String str) {
+        return ad.r(str, dmx, dmw);
     }
 
     protected void i(View view, int i) {

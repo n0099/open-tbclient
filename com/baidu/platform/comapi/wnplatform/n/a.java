@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.view.View;
 import com.baidu.mapapi.map.MapView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class a extends com.baidu.platform.comapi.walknavi.a implements com.baidu.platform.comapi.wnplatform.c.a, com.baidu.platform.comapi.wnplatform.h.a, com.baidu.platform.comapi.wnplatform.h.b, com.baidu.platform.comapi.wnplatform.i.a {
     public abstract void a(com.baidu.platform.comapi.walknavi.g.b.a aVar);
 

@@ -1,7 +1,6 @@
 package com.baidu.live.c;
 
 import android.content.Context;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.sapi2.dto.FaceBaseDTO;
@@ -28,7 +27,6 @@ public class g extends IntentConfig {
         getIntent().putExtra(IntentConfig.OTHER_PARAMS, str8);
         getIntent().putExtra("isJoinGuardClub", z3);
         getIntent().putExtra(VideoPlayActivityConfig.PAGE_FROM, i6);
-        setRequestCode(RequestResponseCode.REQUEST_ALA_GIFT_SELECTOR_PANEL);
         setIntentAction(IntentAction.ActivityForResult);
     }
 

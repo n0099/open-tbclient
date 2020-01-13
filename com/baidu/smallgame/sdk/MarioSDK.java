@@ -12,16 +12,16 @@ import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MarioSDK {
     private static final String TAG = "MarioSDK";
     private AREngineDelegate mAREngineDelegate;
     private b mMarioInitListener;
     private V8Engine mV8Engine;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
-        void Dp();
+        void DL();
     }
 
     public void setMarioInitListener(b bVar) {
@@ -74,7 +74,7 @@ public class MarioSDK {
         }
         MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
         if (bVar != null) {
-            bVar.Dp();
+            bVar.DL();
         }
         return marioSDK;
     }
@@ -121,26 +121,26 @@ public class MarioSDK {
         if (aVar.mFirstFrameListener != null) {
             aVar2.setFirstFrameListener(aVar.mFirstFrameListener);
         }
-        aVar2.setRenderMode(aVar.aTs);
+        aVar2.setRenderMode(aVar.aUk);
         if (aVar.mContext != null) {
             aVar2.setContext(aVar.mContext);
         }
-        if (aVar.aSU != null) {
-            aVar2.setRenderer(aVar.aSU);
+        if (aVar.aTM != null) {
+            aVar2.setRenderer(aVar.aTM);
         }
-        if (aVar.Do() != null) {
-            for (DebugConsole debugConsole : aVar.Do()) {
+        if (aVar.DK() != null) {
+            for (DebugConsole debugConsole : aVar.DK()) {
                 aVar2.addDebugConsole(debugConsole);
             }
         }
         return aVar2;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        private GLSurfaceView.Renderer aSU;
-        private List<DebugConsole> aTK = new ArrayList();
-        private int aTs;
+        private GLSurfaceView.Renderer aTM;
+        private List<DebugConsole> aUC = new ArrayList();
+        private int aUk;
         private Context mContext;
         private ArBridge.FirstFrameListener mFirstFrameListener;
         private SurfaceHolder mSurfaceHolder;
@@ -154,17 +154,17 @@ public class MarioSDK {
         }
 
         public void setRenderer(GLSurfaceView.Renderer renderer) {
-            this.aSU = renderer;
+            this.aTM = renderer;
         }
 
         public void addDebugConsole(DebugConsole debugConsole) {
             if (debugConsole != null) {
-                this.aTK.add(debugConsole);
+                this.aUC.add(debugConsole);
             }
         }
 
-        public List<DebugConsole> Do() {
-            return this.aTK;
+        public List<DebugConsole> DK() {
+            return this.aUC;
         }
 
         public void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener) {

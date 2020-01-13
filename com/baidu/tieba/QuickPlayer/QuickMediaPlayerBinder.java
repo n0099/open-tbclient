@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayerLocal;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     private static final String MODEL_MX4 = "MX4";
     private static final int STATE_ERROR = -1;

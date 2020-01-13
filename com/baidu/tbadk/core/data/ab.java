@@ -1,17 +1,17 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ab {
-    public int VF;
+    public int VV;
     public int accountType;
     public long beginTime;
-    public long cKO;
-    public String cKP;
-    public long cKQ;
-    public long cKR;
-    public int cKS;
-    public int cKT;
-    public int cKU;
-    public int cKV;
+    public long cKZ;
+    public String cLa;
+    public long cLb;
+    public long cLc;
+    public int cLd;
+    public int cLe;
+    public int cLf;
+    public int cLg;
     public String desc;
     public long endTime;
     public int id;

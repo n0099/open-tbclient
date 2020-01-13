@@ -3,27 +3,27 @@ package com.facebook.common.memory;
 import java.io.InputStream;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class h extends InputStream {
-    final PooledByteBuffer lEq;
-    int lEr;
+    final PooledByteBuffer lHO;
+    int lHP;
     int mOffset;
 
     public h(PooledByteBuffer pooledByteBuffer) {
         com.facebook.common.internal.g.checkArgument(!pooledByteBuffer.isClosed());
-        this.lEq = (PooledByteBuffer) com.facebook.common.internal.g.checkNotNull(pooledByteBuffer);
+        this.lHO = (PooledByteBuffer) com.facebook.common.internal.g.checkNotNull(pooledByteBuffer);
         this.mOffset = 0;
-        this.lEr = 0;
+        this.lHP = 0;
     }
 
     @Override // java.io.InputStream
     public int available() {
-        return this.lEq.size() - this.mOffset;
+        return this.lHO.size() - this.mOffset;
     }
 
     @Override // java.io.InputStream
     public void mark(int i) {
-        this.lEr = this.mOffset;
+        this.lHP = this.mOffset;
     }
 
     @Override // java.io.InputStream
@@ -36,10 +36,10 @@ public class h extends InputStream {
         if (available() <= 0) {
             return -1;
         }
-        PooledByteBuffer pooledByteBuffer = this.lEq;
+        PooledByteBuffer pooledByteBuffer = this.lHO;
         int i = this.mOffset;
         this.mOffset = i + 1;
-        return pooledByteBuffer.Hj(i) & 255;
+        return pooledByteBuffer.Ho(i) & 255;
     }
 
     @Override // java.io.InputStream
@@ -60,14 +60,14 @@ public class h extends InputStream {
             return 0;
         }
         int min = Math.min(available, i2);
-        this.lEq.c(this.mOffset, bArr, i, min);
+        this.lHO.c(this.mOffset, bArr, i, min);
         this.mOffset += min;
         return min;
     }
 
     @Override // java.io.InputStream
     public void reset() {
-        this.mOffset = this.lEr;
+        this.mOffset = this.lHP;
     }
 
     @Override // java.io.InputStream

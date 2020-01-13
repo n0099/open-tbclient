@@ -5,7 +5,7 @@ import com.baidu.android.common.security.Base64;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.pass.biometrics.base.debug.Log;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PassBioDataEncryptor {
     private static final String TAG = "PassBioDataEncryptor";
 

@@ -2,13 +2,13 @@ package com.baidu.tieba.im.data;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     private String content;
     private long create_time;
     private String forum_id;
-    private int hsc;
-    private int hsd;
+    private int hvF;
+    private int hvG;
     private String id;
     private int level;
     private String name;
@@ -31,8 +31,8 @@ public class b {
         this.level = i;
     }
 
-    public void vY(int i) {
-        this.hsc = i;
+    public void wd(int i) {
+        this.hvF = i;
     }
 
     public String getName() {
@@ -43,12 +43,12 @@ public class b {
         this.name = str;
     }
 
-    public int bRr() {
-        return this.hsd;
+    public int bSA() {
+        return this.hvG;
     }
 
-    public void vZ(int i) {
-        this.hsd = i;
+    public void we(int i) {
+        this.hvG = i;
     }
 
     public void setCreate_time(long j) {
@@ -67,7 +67,7 @@ public class b {
         this.content = str;
     }
 
-    public List<b> bRs() {
+    public List<b> bSB() {
         return this.sub_menu;
     }
 

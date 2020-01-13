@@ -18,7 +18,7 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class bo {
     private static final Proxy a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(BdNetEngine.URI_PROXY_CMWAP, 80));
     private static final Proxy b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(BdNetEngine.URI_PROXY_CTWAP, 80));

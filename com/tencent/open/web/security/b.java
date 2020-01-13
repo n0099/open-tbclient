@@ -10,10 +10,10 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends com.tencent.open.a {
     @Override // com.tencent.open.a
-    public void a(String str, String str2, List<String> list, a.C0699a c0699a) {
+    public void a(String str, String str2, List<String> list, a.C0739a c0739a) {
         f.a("openSDK_LOG.SecureJsBridge", "-->getResult, objectName: " + str + " | methodName: " + str2);
         int size = list.size();
         for (int i = 0; i < size; i++) {
@@ -26,12 +26,12 @@ public class b extends com.tencent.open.a {
         a.b bVar = this.a.get(str);
         if (bVar != null) {
             f.b("openSDK_LOG.SecureJsBridge", "-->handler != null");
-            bVar.call(str2, list, c0699a);
+            bVar.call(str2, list, c0739a);
             return;
         }
         f.b("openSDK_LOG.SecureJsBridge", "-->handler == null");
-        if (c0699a != null) {
-            c0699a.a();
+        if (c0739a != null) {
+            c0739a.a();
         }
     }
 

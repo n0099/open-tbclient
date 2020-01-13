@@ -7,8 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g extends BaseData {
-    private long VT = 5000;
-    private List<f> VU;
+    private long Wj = 5000;
+    private List<f> Wk;
     private long mAudienceCount;
 
     public long getCount() {
@@ -16,31 +16,31 @@ public class g extends BaseData {
     }
 
     public long getInterval() {
-        return this.VT;
+        return this.Wj;
     }
 
     public List<f> getList() {
-        return this.VU;
+        return this.Wk;
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mAudienceCount = jSONObject.optLong("audience_count");
-            this.VT = jSONObject.optLong("interval", 5L);
-            if (this.VT < 5) {
-                this.VT = 5000L;
+            this.Wj = jSONObject.optLong("interval", 5L);
+            if (this.Wj < 5) {
+                this.Wj = 5000L;
             } else {
-                this.VT *= 1000;
+                this.Wj *= 1000;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("initmacy_rank");
             if (optJSONArray != null) {
-                this.VU = new ArrayList();
+                this.Wk = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     f fVar = new f();
                     fVar.parserJson(optJSONObject);
-                    this.VU.add(fVar);
+                    this.Wk.add(fVar);
                 }
             }
         }

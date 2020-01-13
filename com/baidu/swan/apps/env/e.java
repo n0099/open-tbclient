@@ -11,26 +11,26 @@ import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.console.b;
 import com.baidu.swan.apps.env.c;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class e implements c.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c boW;
-    private volatile boolean boX;
+    private c bpK;
+    private volatile boolean bpL;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        static final e bpb = new e();
+        static final e bpP = new e();
     }
 
     private e() {
-        this.boX = false;
-        this.boW = new c(this);
-        com.baidu.swan.apps.extcore.cores.a.Pf().Pg();
+        this.bpL = false;
+        this.bpK = new c(this);
+        com.baidu.swan.apps.extcore.cores.a.PB().PC();
     }
 
-    public static e OR() {
-        return a.bpb;
+    public static e Pn() {
+        return a.bpP;
     }
 
     @Override // com.baidu.swan.apps.env.b
@@ -40,60 +40,60 @@ public final class e implements c.a {
     }
 
     public void p(Bundle bundle) {
-        if (!this.boX) {
+        if (!this.bpL) {
             synchronized (this) {
-                if (!this.boX) {
+                if (!this.bpL) {
                     q(bundle);
-                    this.boX = true;
+                    this.bpL = true;
                 }
             }
         }
     }
 
-    public c OS() {
-        return this.boW;
+    public c Po() {
+        return this.bpK;
     }
 
     private void q(Bundle bundle) {
         r(bundle);
-        SwanLauncher.OU().initEnv();
-        b.a.IF();
+        SwanLauncher.Pq().initEnv();
+        b.a.Jb();
     }
 
     private void r(final Bundle bundle) {
         if (DEBUG) {
             Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess");
         }
-        j RH = com.baidu.swan.apps.w.a.RH();
-        if (RH != null) {
-            final int Ek = RH.Ek();
+        j Sd = com.baidu.swan.apps.w.a.Sd();
+        if (Sd != null) {
+            final int EG = Sd.EG();
             if (DEBUG) {
-                Log.d("SwanAppEnv", "zygoteSwanProcess switch : " + Ek);
+                Log.d("SwanAppEnv", "zygoteSwanProcess switch : " + EG);
             }
-            if (!RH.El()) {
+            if (!Sd.EH()) {
                 if (bundle == null) {
                     bundle = new Bundle();
                 }
                 if (TextUtils.isEmpty(bundle.getString("bundle_key_preload_preload_scene"))) {
                     bundle.putString("bundle_key_preload_preload_scene", "0");
                 }
-                if (bundle.getBoolean("bundle_key_preload_delay", false) && RH.Em()) {
+                if (bundle.getBoolean("bundle_key_preload_delay", false) && Sd.EI()) {
                     if (DEBUG) {
-                        Log.d("SwanAppEnv", "zygoteSwanProcess delay - start. switch: " + Ek);
+                        Log.d("SwanAppEnv", "zygoteSwanProcess delay - start. switch: " + EG);
                     }
                     ai.b(new Runnable() { // from class: com.baidu.swan.apps.env.e.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (e.DEBUG) {
-                                Log.d("SwanAppEnv", "zygoteSwanProcess delay - run. switch: " + Ek);
+                                Log.d("SwanAppEnv", "zygoteSwanProcess delay - run. switch: " + EG);
                             }
                             com.baidu.swan.apps.process.messaging.service.b.b(e.this.requireContext(), bundle);
                         }
-                    }, com.baidu.swan.apps.w.a.RH().En());
+                    }, com.baidu.swan.apps.w.a.Sd().EJ());
                     return;
                 }
                 if (DEBUG) {
-                    Log.d("SwanAppEnv", "zygoteSwanProcess start. switch: " + Ek);
+                    Log.d("SwanAppEnv", "zygoteSwanProcess start. switch: " + EG);
                 }
                 com.baidu.swan.apps.process.messaging.service.b.b(requireContext(), bundle);
             }

@@ -1,7 +1,7 @@
 package com.baidu.swan.bdprivate.a;
 
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class k extends ActivityDelegation implements com.baidu.swan.apps.a.a {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {

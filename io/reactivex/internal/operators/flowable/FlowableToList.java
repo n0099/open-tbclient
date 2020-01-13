@@ -7,25 +7,24 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.Collection;
 import java.util.concurrent.Callable;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableToList<T, U extends Collection<? super T>> extends a<T, U> {
-    final Callable<U> mUu;
+    final Callable<U> nwD;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
         try {
-            this.mTG.a((j) new ToListSubscriber(cVar, (Collection) io.reactivex.internal.functions.a.h(this.mUu.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
+            this.nvK.a((j) new ToListSubscriber(cVar, (Collection) io.reactivex.internal.functions.a.h(this.nwD.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.I(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes4.dex */
-    static final class ToListSubscriber<T, U extends Collection<? super T>> extends DeferredScalarSubscription<U> implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class ToListSubscriber<T, U extends Collection<? super T>> extends DeferredScalarSubscription<U> implements j<T>, org.a.d {
         private static final long serialVersionUID = -8134157938864266736L;
-        d s;
+        org.a.d s;
 
         /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: U extends java.util.Collection<? super T> */
         /* JADX WARN: Multi-variable type inference failed */
@@ -35,7 +34,7 @@ public final class FlowableToList<T, U extends Collection<? super T>> extends a<
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);

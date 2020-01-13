@@ -16,18 +16,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.xml.sax.SAXException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SVG {
-    private ac lzg = null;
+    private ac lCE = null;
     private String title = "";
     private String desc = "";
-    private com.caverock.androidsvg.d lzh = null;
-    private float lzi = 96.0f;
-    private CSSParser.d lzj = new CSSParser.d();
-    Map<String, ai> lzk = new HashMap();
+    private com.caverock.androidsvg.d lCF = null;
+    private float lCG = 96.0f;
+    private CSSParser.d lCH = new CSSParser.d();
+    Map<String, ai> lCI = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum GradientSpread {
         pad,
         reflect,
@@ -35,7 +35,7 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Unit {
         px,
         em,
@@ -49,29 +49,29 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ac extends ao {
-        public n lzF;
-        public n lzG;
-        public n lzH;
-        public n lzI;
+        public n lDd;
+        public n lDe;
+        public n lDf;
+        public n lDg;
         public String version;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ad {
-        void Nv(String str);
+        void NF(String str);
 
-        Set<String> dgi();
+        Set<String> dhk();
 
-        String dgj();
+        String dhl();
 
-        Set<String> dgk();
+        Set<String> dhm();
 
-        Set<String> dgl();
+        Set<String> dhn();
 
-        Set<String> dgm();
+        Set<String> dho();
 
         void i(Set<String> set);
 
@@ -83,7 +83,7 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ag {
         void a(ak akVar) throws SAXException;
 
@@ -91,139 +91,139 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class aj extends i {
-        public n lzK;
-        public n lzL;
-        public n lzM;
-        public n lzN;
+        public n lDi;
+        public n lDj;
+        public n lDk;
+        public n lDl;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class an extends i {
-        public n lBe;
-        public n lBf;
-        public n lzs;
-        public n lzt;
-        public n lzu;
+        public n lCQ;
+        public n lCR;
+        public n lCS;
+        public n lEC;
+        public n lED;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ap extends k {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class aq extends ao implements r {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface au {
-        ay dgn();
+        ay dhp();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ay {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ba extends k {
-        public String Rz;
-        public n lzF;
-        public n lzG;
-        public n lzH;
-        public n lzI;
+        public String RC;
+        public n lDd;
+        public n lDe;
+        public n lDf;
+        public n lDg;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class bb extends ao implements r {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class c extends j {
-        public n lzs;
-        public n lzt;
-        public n lzu;
+        public n lCQ;
+        public n lCR;
+        public n lCS;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class d extends k implements r {
-        public Boolean lzv;
+        public Boolean lCT;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class g extends k implements r {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class h extends j {
-        public n lzA;
-        public n lzs;
-        public n lzt;
-        public n lzz;
+        public n lCQ;
+        public n lCR;
+        public n lCX;
+        public n lCY;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface l {
-        void c(Matrix matrix);
+        void setTransform(Matrix matrix);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class o extends j {
-        public n lzK;
-        public n lzL;
-        public n lzM;
-        public n lzN;
+        public n lDi;
+        public n lDj;
+        public n lDk;
+        public n lDl;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class p extends ao implements r {
-        public boolean lzO;
-        public n lzP;
-        public n lzQ;
-        public n lzR;
-        public n lzS;
-        public Float lzT;
+        public boolean lDm;
+        public n lDn;
+        public n lDo;
+        public n lDp;
+        public n lDq;
+        public Float lDr;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class q extends ae implements r {
-        public n lzF;
-        public n lzG;
-        public n lzH;
-        public n lzI;
-        public Boolean lzU;
-        public Boolean lzV;
+        public n lDd;
+        public n lDe;
+        public n lDf;
+        public n lDg;
+        public Boolean lDs;
+        public Boolean lDt;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface r {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class t extends j {
-        public u lzX;
-        public Float lzY;
+        public u lDv;
+        public Float lDw;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface v {
         void B(float f, float f2);
 
@@ -239,45 +239,45 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class w extends ao implements r {
-        public String Rz;
-        public Boolean lAd;
-        public Boolean lAe;
-        public Matrix lAf;
-        public n lzF;
-        public n lzG;
-        public n lzH;
-        public n lzI;
+        public String RC;
+        public Boolean lDB;
+        public Boolean lDC;
+        public Matrix lDD;
+        public n lDd;
+        public n lDe;
+        public n lDf;
+        public n lDg;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class x extends j {
         public float[] points;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class y extends x {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class z extends j {
-        public n lzA;
-        public n lzF;
-        public n lzG;
-        public n lzH;
-        public n lzI;
-        public n lzz;
+        public n lCX;
+        public n lCY;
+        public n lDd;
+        public n lDe;
+        public n lDf;
+        public n lDg;
     }
 
     public static SVG n(InputStream inputStream) throws SVGParseException {
         return new SVGParser().o(inputStream);
     }
 
-    public static SVG I(Context context, int i2) throws SVGParseException {
+    public static SVG J(Context context, int i2) throws SVGParseException {
         return e(context.getResources(), i2);
     }
 
@@ -307,74 +307,75 @@ public class SVG {
         }
     }
 
-    public Picture dfY() {
-        float bi;
-        n nVar = this.lzg.lzH;
+    public Picture dha() {
+        float bh;
+        n nVar = this.lCE.lDf;
         if (nVar != null) {
-            float bi2 = nVar.bi(this.lzi);
-            a aVar = this.lzg.lBg;
+            float bh2 = nVar.bh(this.lCG);
+            a aVar = this.lCE.lEE;
             if (aVar != null) {
-                bi = (aVar.height * bi2) / aVar.width;
+                bh = (aVar.height * bh2) / aVar.width;
             } else {
-                n nVar2 = this.lzg.lzI;
-                bi = nVar2 != null ? nVar2.bi(this.lzi) : bi2;
+                n nVar2 = this.lCE.lDg;
+                bh = nVar2 != null ? nVar2.bh(this.lCG) : bh2;
             }
-            return dq((int) Math.ceil(bi2), (int) Math.ceil(bi));
+            return m31do((int) Math.ceil(bh2), (int) Math.ceil(bh));
         }
-        return dq(512, 512);
+        return m31do(512, 512);
     }
 
-    public Picture dq(int i2, int i3) {
+    /* renamed from: do  reason: not valid java name */
+    public Picture m31do(int i2, int i3) {
         Picture picture = new Picture();
-        new com.caverock.androidsvg.c(picture.beginRecording(i2, i3), new a(0.0f, 0.0f, i2, i3), this.lzi).a(this, (a) null, (PreserveAspectRatio) null, false);
+        new com.caverock.androidsvg.c(picture.beginRecording(i2, i3), new a(0.0f, 0.0f, i2, i3), this.lCG).a(this, (a) null, (PreserveAspectRatio) null, false);
         picture.endRecording();
         return picture;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ac dfZ() {
-        return this.lzg;
+    public ac dhb() {
+        return this.lCE;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ac acVar) {
-        this.lzg = acVar;
+        this.lCE = acVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ak Nt(String str) {
+    public ak ND(String str) {
         if (str != null && str.length() > 1 && str.startsWith("#")) {
-            return Nu(str.substring(1));
+            return NE(str.substring(1));
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(CSSParser.d dVar) {
-        this.lzj.a(dVar);
+        this.lCH.a(dVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public List<CSSParser.c> dga() {
-        return this.lzj.dfR();
+    public List<CSSParser.c> dhc() {
+        return this.lCH.dgT();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean dgb() {
-        return !this.lzj.isEmpty();
+    public boolean dhd() {
+        return !this.lCH.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Cloneable {
         public float height;
-        public float lzm;
-        public float lzn;
+        public float lCK;
+        public float lCL;
         public float width;
 
         public a(float f, float f2, float f3, float f4) {
-            this.lzm = f;
-            this.lzn = f2;
+            this.lCK = f;
+            this.lCL = f2;
             this.width = f3;
             this.height = f4;
         }
@@ -383,111 +384,111 @@ public class SVG {
             return new a(f, f2, f3 - f, f4 - f2);
         }
 
-        public float dgd() {
-            return this.lzm + this.width;
+        public float dhf() {
+            return this.lCK + this.width;
         }
 
-        public float dge() {
-            return this.lzn + this.height;
+        public float dhg() {
+            return this.lCL + this.height;
         }
 
         public void a(a aVar) {
-            if (aVar.lzm < this.lzm) {
-                this.lzm = aVar.lzm;
+            if (aVar.lCK < this.lCK) {
+                this.lCK = aVar.lCK;
             }
-            if (aVar.lzn < this.lzn) {
-                this.lzn = aVar.lzn;
+            if (aVar.lCL < this.lCL) {
+                this.lCL = aVar.lCL;
             }
-            if (aVar.dgd() > dgd()) {
-                this.width = aVar.dgd() - this.lzm;
+            if (aVar.dhf() > dhf()) {
+                this.width = aVar.dhf() - this.lCK;
             }
-            if (aVar.dge() > dge()) {
-                this.height = aVar.dge() - this.lzn;
+            if (aVar.dhg() > dhg()) {
+                this.height = aVar.dhg() - this.lCL;
             }
         }
 
         public String toString() {
-            return "[" + this.lzm + HanziToPinyin.Token.SEPARATOR + this.lzn + HanziToPinyin.Token.SEPARATOR + this.width + HanziToPinyin.Token.SEPARATOR + this.height + "]";
+            return "[" + this.lCK + HanziToPinyin.Token.SEPARATOR + this.lCL + HanziToPinyin.Token.SEPARATOR + this.width + HanziToPinyin.Token.SEPARATOR + this.height + "]";
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Style implements Cloneable {
         public String clipPath;
-        public TextDirection lAA;
-        public TextAnchor lAB;
-        public Boolean lAC;
-        public b lAD;
-        public String lAE;
-        public String lAF;
-        public String lAG;
-        public Boolean lAH;
-        public Boolean lAI;
-        public al lAJ;
-        public Float lAK;
-        public FillRule lAL;
-        public String lAM;
-        public al lAN;
-        public Float lAO;
-        public al lAP;
-        public Float lAQ;
-        public VectorEffect lAR;
-        public long lAh = 0;
-        public al lAi;
-        public FillRule lAj;
-        public Float lAk;
-        public al lAl;
-        public Float lAm;
-        public n lAn;
-        public LineCaps lAo;
-        public LineJoin lAp;
-        public Float lAq;
-        public n[] lAr;
-        public n lAs;
-        public Float lAt;
-        public e lAu;
-        public List<String> lAv;
-        public n lAw;
-        public Integer lAx;
-        public FontStyle lAy;
-        public TextDecoration lAz;
+        public long lDF = 0;
+        public al lDG;
+        public FillRule lDH;
+        public Float lDI;
+        public al lDJ;
+        public Float lDK;
+        public n lDL;
+        public LineCaps lDM;
+        public LineJoin lDN;
+        public Float lDO;
+        public n[] lDP;
+        public n lDQ;
+        public Float lDR;
+        public e lDS;
+        public List<String> lDT;
+        public n lDU;
+        public Integer lDV;
+        public FontStyle lDW;
+        public TextDecoration lDX;
+        public TextDirection lDY;
+        public TextAnchor lDZ;
+        public Boolean lEa;
+        public b lEb;
+        public String lEc;
+        public String lEd;
+        public String lEe;
+        public Boolean lEf;
+        public Boolean lEg;
+        public al lEh;
+        public Float lEi;
+        public FillRule lEj;
+        public String lEk;
+        public al lEl;
+        public Float lEm;
+        public al lEn;
+        public Float lEo;
+        public VectorEffect lEp;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public enum FillRule {
             NonZero,
             EvenOdd
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public enum FontStyle {
             Normal,
             Italic,
             Oblique
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public enum LineCaps {
             Butt,
             Round,
             Square
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public enum LineJoin {
             Miter,
             Round,
             Bevel
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public enum TextAnchor {
             Start,
             Middle,
             End
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public enum TextDecoration {
             None,
             Underline,
@@ -496,83 +497,83 @@ public class SVG {
             Blink
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public enum TextDirection {
             LTR,
             RTL
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public enum VectorEffect {
             None,
             NonScalingStroke
         }
 
-        public static Style dgh() {
+        public static Style dhj() {
             Style style = new Style();
-            style.lAh = -1L;
-            style.lAi = e.lzx;
-            style.lAj = FillRule.NonZero;
-            style.lAk = Float.valueOf(1.0f);
-            style.lAl = null;
-            style.lAm = Float.valueOf(1.0f);
-            style.lAn = new n(1.0f);
-            style.lAo = LineCaps.Butt;
-            style.lAp = LineJoin.Miter;
-            style.lAq = Float.valueOf(4.0f);
-            style.lAr = null;
-            style.lAs = new n(0.0f);
-            style.lAt = Float.valueOf(1.0f);
-            style.lAu = e.lzx;
-            style.lAv = null;
-            style.lAw = new n(12.0f, Unit.pt);
-            style.lAx = 400;
-            style.lAy = FontStyle.Normal;
-            style.lAz = TextDecoration.None;
-            style.lAA = TextDirection.LTR;
-            style.lAB = TextAnchor.Start;
-            style.lAC = true;
-            style.lAD = null;
-            style.lAE = null;
-            style.lAF = null;
-            style.lAG = null;
-            style.lAH = Boolean.TRUE;
-            style.lAI = Boolean.TRUE;
-            style.lAJ = e.lzx;
-            style.lAK = Float.valueOf(1.0f);
+            style.lDF = -1L;
+            style.lDG = e.lCV;
+            style.lDH = FillRule.NonZero;
+            style.lDI = Float.valueOf(1.0f);
+            style.lDJ = null;
+            style.lDK = Float.valueOf(1.0f);
+            style.lDL = new n(1.0f);
+            style.lDM = LineCaps.Butt;
+            style.lDN = LineJoin.Miter;
+            style.lDO = Float.valueOf(4.0f);
+            style.lDP = null;
+            style.lDQ = new n(0.0f);
+            style.lDR = Float.valueOf(1.0f);
+            style.lDS = e.lCV;
+            style.lDT = null;
+            style.lDU = new n(12.0f, Unit.pt);
+            style.lDV = 400;
+            style.lDW = FontStyle.Normal;
+            style.lDX = TextDecoration.None;
+            style.lDY = TextDirection.LTR;
+            style.lDZ = TextAnchor.Start;
+            style.lEa = true;
+            style.lEb = null;
+            style.lEc = null;
+            style.lEd = null;
+            style.lEe = null;
+            style.lEf = Boolean.TRUE;
+            style.lEg = Boolean.TRUE;
+            style.lEh = e.lCV;
+            style.lEi = Float.valueOf(1.0f);
             style.clipPath = null;
-            style.lAL = FillRule.NonZero;
-            style.lAM = null;
-            style.lAN = null;
-            style.lAO = Float.valueOf(1.0f);
-            style.lAP = null;
-            style.lAQ = Float.valueOf(1.0f);
-            style.lAR = VectorEffect.None;
+            style.lEj = FillRule.NonZero;
+            style.lEk = null;
+            style.lEl = null;
+            style.lEm = Float.valueOf(1.0f);
+            style.lEn = null;
+            style.lEo = Float.valueOf(1.0f);
+            style.lEp = VectorEffect.None;
             return style;
         }
 
-        public void uJ(boolean z) {
-            this.lAH = Boolean.TRUE;
-            this.lAC = z ? Boolean.TRUE : Boolean.FALSE;
-            this.lAD = null;
+        public void uU(boolean z) {
+            this.lEf = Boolean.TRUE;
+            this.lEa = z ? Boolean.TRUE : Boolean.FALSE;
+            this.lEb = null;
             this.clipPath = null;
-            this.lAt = Float.valueOf(1.0f);
-            this.lAJ = e.lzx;
-            this.lAK = Float.valueOf(1.0f);
-            this.lAM = null;
-            this.lAN = null;
-            this.lAO = Float.valueOf(1.0f);
-            this.lAP = null;
-            this.lAQ = Float.valueOf(1.0f);
-            this.lAR = VectorEffect.None;
+            this.lDR = Float.valueOf(1.0f);
+            this.lEh = e.lCV;
+            this.lEi = Float.valueOf(1.0f);
+            this.lEk = null;
+            this.lEl = null;
+            this.lEm = Float.valueOf(1.0f);
+            this.lEn = null;
+            this.lEo = Float.valueOf(1.0f);
+            this.lEp = VectorEffect.None;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         public Object clone() {
             try {
                 Style style = (Style) super.clone();
-                if (this.lAr != null) {
-                    style.lAr = (n[]) this.lAr.clone();
+                if (this.lDP != null) {
+                    style.lDP = (n[]) this.lDP.clone();
                 }
                 return style;
             } catch (CloneNotSupportedException e) {
@@ -582,74 +583,74 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class al implements Cloneable {
         protected al() {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class e extends al {
-        public static final e lzx = new e(0);
-        public int lzw;
+        public static final e lCV = new e(0);
+        public int lCU;
 
         public e(int i) {
-            this.lzw = i;
+            this.lCU = i;
         }
 
         public String toString() {
-            return String.format("#%06x", Integer.valueOf(this.lzw));
+            return String.format("#%06x", Integer.valueOf(this.lCU));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class f extends al {
-        private static f lzy = new f();
+        private static f lCW = new f();
 
         private f() {
         }
 
-        public static f dgf() {
-            return lzy;
+        public static f dhh() {
+            return lCW;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class s extends al {
-        public String Rz;
-        public al lzW;
+        public String RC;
+        public al lDu;
 
         public s(String str, al alVar) {
-            this.Rz = str;
-            this.lzW = alVar;
+            this.RC = str;
+            this.lDu = alVar;
         }
 
         public String toString() {
-            return this.Rz + HanziToPinyin.Token.SEPARATOR + this.lzW;
+            return this.RC + HanziToPinyin.Token.SEPARATOR + this.lDu;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class n implements Cloneable {
-        Unit lzJ;
+        Unit lDh;
         float value;
 
         public n(float f, Unit unit) {
             this.value = 0.0f;
-            this.lzJ = Unit.px;
+            this.lDh = Unit.px;
             this.value = f;
-            this.lzJ = unit;
+            this.lDh = unit;
         }
 
         public n(float f) {
             this.value = 0.0f;
-            this.lzJ = Unit.px;
+            this.lDh = Unit.px;
             this.value = f;
-            this.lzJ = Unit.px;
+            this.lDh = Unit.px;
         }
 
         public float floatValue() {
@@ -657,50 +658,50 @@ public class SVG {
         }
 
         public float a(com.caverock.androidsvg.c cVar) {
-            switch (this.lzJ) {
+            switch (this.lDh) {
                 case px:
                     return this.value;
                 case em:
-                    return this.value * cVar.dgp();
+                    return this.value * cVar.dhr();
                 case ex:
-                    return this.value * cVar.dgq();
+                    return this.value * cVar.dhs();
                 case in:
-                    return this.value * cVar.dgo();
+                    return this.value * cVar.dhq();
                 case cm:
-                    return (this.value * cVar.dgo()) / 2.54f;
+                    return (this.value * cVar.dhq()) / 2.54f;
                 case mm:
-                    return (this.value * cVar.dgo()) / 25.4f;
+                    return (this.value * cVar.dhq()) / 25.4f;
                 case pt:
-                    return (this.value * cVar.dgo()) / 72.0f;
+                    return (this.value * cVar.dhq()) / 72.0f;
                 case pc:
-                    return (this.value * cVar.dgo()) / 6.0f;
+                    return (this.value * cVar.dhq()) / 6.0f;
                 case percent:
-                    a dgr = cVar.dgr();
-                    return dgr == null ? this.value : (dgr.width * this.value) / 100.0f;
+                    a dht = cVar.dht();
+                    return dht == null ? this.value : (dht.width * this.value) / 100.0f;
                 default:
                     return this.value;
             }
         }
 
         public float b(com.caverock.androidsvg.c cVar) {
-            if (this.lzJ == Unit.percent) {
-                a dgr = cVar.dgr();
-                if (dgr == null) {
+            if (this.lDh == Unit.percent) {
+                a dht = cVar.dht();
+                if (dht == null) {
                     return this.value;
                 }
-                return (dgr.height * this.value) / 100.0f;
+                return (dht.height * this.value) / 100.0f;
             }
             return a(cVar);
         }
 
         public float c(com.caverock.androidsvg.c cVar) {
-            if (this.lzJ == Unit.percent) {
-                a dgr = cVar.dgr();
-                if (dgr == null) {
+            if (this.lDh == Unit.percent) {
+                a dht = cVar.dht();
+                if (dht == null) {
                     return this.value;
                 }
-                float f = dgr.width;
-                float f2 = dgr.height;
+                float f = dht.width;
+                float f2 = dht.height;
                 if (f == f2) {
                     return (this.value * f) / 100.0f;
                 }
@@ -710,11 +711,11 @@ public class SVG {
         }
 
         public float a(com.caverock.androidsvg.c cVar, float f) {
-            return this.lzJ == Unit.percent ? (this.value * f) / 100.0f : a(cVar);
+            return this.lDh == Unit.percent ? (this.value * f) / 100.0f : a(cVar);
         }
 
-        public float bi(float f) {
-            switch (this.lzJ) {
+        public float bh(float f) {
+            switch (this.lDh) {
                 case px:
                     return this.value;
                 case em:
@@ -738,36 +739,36 @@ public class SVG {
             return this.value == 0.0f;
         }
 
-        public boolean dgg() {
+        public boolean dhi() {
             return this.value < 0.0f;
         }
 
         public String toString() {
-            return String.valueOf(this.value) + this.lzJ;
+            return String.valueOf(this.value) + this.lDh;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b {
-        public n lzo;
-        public n lzp;
-        public n lzq;
-        public n lzr;
+        public n lCM;
+        public n lCN;
+        public n lCO;
+        public n lCP;
 
         public b(n nVar, n nVar2, n nVar3, n nVar4) {
-            this.lzo = nVar;
-            this.lzp = nVar2;
-            this.lzq = nVar3;
-            this.lzr = nVar4;
+            this.lCM = nVar;
+            this.lCN = nVar2;
+            this.lCO = nVar3;
+            this.lCP = nVar4;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ak {
-        public SVG lBb;
-        public ag lBc;
+        public ag lEA;
+        public SVG lEz;
 
         protected ak() {
         }
@@ -778,208 +779,208 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ai extends ak {
         public String id = null;
-        public Boolean lAY = null;
-        public Style lAZ = null;
-        public Style lyK = null;
-        public List<String> lBa = null;
+        public Boolean lEw = null;
+        public Style lEx = null;
+        public Style lCi = null;
+        public List<String> lEy = null;
 
         protected ai() {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ah extends ai {
-        public a lAX = null;
+        public a lEv = null;
 
         protected ah() {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     protected static class af extends ah implements ad {
-        public Set<String> lAS = null;
-        public String lAT = null;
-        public Set<String> lAU = null;
-        public Set<String> lAV = null;
-        public Set<String> lAW = null;
+        public Set<String> lEq = null;
+        public String lEr = null;
+        public Set<String> lEs = null;
+        public Set<String> lEt = null;
+        public Set<String> lEu = null;
 
         protected af() {
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
         public void i(Set<String> set) {
-            this.lAS = set;
+            this.lEq = set;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public Set<String> dgi() {
-            return this.lAS;
+        public Set<String> dhk() {
+            return this.lEq;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public void Nv(String str) {
-            this.lAT = str;
+        public void NF(String str) {
+            this.lEr = str;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public String dgj() {
-            return this.lAT;
+        public String dhl() {
+            return this.lEr;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
         public void j(Set<String> set) {
-            this.lAU = set;
+            this.lEs = set;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public Set<String> dgk() {
-            return this.lAU;
+        public Set<String> dhm() {
+            return this.lEs;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
         public void k(Set<String> set) {
-            this.lAV = set;
+            this.lEt = set;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public Set<String> dgl() {
-            return this.lAV;
+        public Set<String> dhn() {
+            return this.lEt;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
         public void l(Set<String> set) {
-            this.lAW = set;
+            this.lEu = set;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public Set<String> dgm() {
-            return this.lAW;
+        public Set<String> dho() {
+            return this.lEu;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ae extends ah implements ad, ag {
-        public List<ak> ST = new ArrayList();
-        public Set<String> lAS = null;
-        public String lAT = null;
-        public Set<String> lAU = null;
-        public Set<String> lAV = null;
-        public Set<String> lAW = null;
+        public List<ak> SW = new ArrayList();
+        public Set<String> lEq = null;
+        public String lEr = null;
+        public Set<String> lEs = null;
+        public Set<String> lEt = null;
+        public Set<String> lEu = null;
 
         protected ae() {
         }
 
         @Override // com.caverock.androidsvg.SVG.ag
         public List<ak> getChildren() {
-            return this.ST;
+            return this.SW;
         }
 
         @Override // com.caverock.androidsvg.SVG.ag
         public void a(ak akVar) throws SAXException {
-            this.ST.add(akVar);
+            this.SW.add(akVar);
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
         public void i(Set<String> set) {
-            this.lAS = set;
+            this.lEq = set;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public Set<String> dgi() {
-            return this.lAS;
+        public Set<String> dhk() {
+            return this.lEq;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public void Nv(String str) {
-            this.lAT = str;
+        public void NF(String str) {
+            this.lEr = str;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public String dgj() {
-            return this.lAT;
+        public String dhl() {
+            return this.lEr;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
         public void j(Set<String> set) {
-            this.lAU = set;
+            this.lEs = set;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public Set<String> dgk() {
+        public Set<String> dhm() {
             return null;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
         public void k(Set<String> set) {
-            this.lAV = set;
+            this.lEt = set;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public Set<String> dgl() {
-            return this.lAV;
+        public Set<String> dhn() {
+            return this.lEt;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
         public void l(Set<String> set) {
-            this.lAW = set;
+            this.lEu = set;
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public Set<String> dgm() {
-            return this.lAW;
+        public Set<String> dho() {
+            return this.lEu;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class am extends ae {
-        public PreserveAspectRatio lBd = null;
+        public PreserveAspectRatio lEB = null;
 
         protected am() {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ao extends am {
-        public a lBg;
+        public a lEE;
 
         protected ao() {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class k extends ae implements l {
-        public Matrix lzE;
+        public Matrix lDc;
 
         @Override // com.caverock.androidsvg.SVG.l
-        public void c(Matrix matrix) {
-            this.lzE = matrix;
+        public void setTransform(Matrix matrix) {
+            this.lDc = matrix;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class j extends af implements l {
-        public Matrix lzE;
+        public Matrix lDc;
 
         protected j() {
         }
 
         @Override // com.caverock.androidsvg.SVG.l
-        public void c(Matrix matrix) {
-            this.lzE = matrix;
+        public void setTransform(Matrix matrix) {
+            this.lDc = matrix;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class av extends ae {
         protected av() {
         }
@@ -987,7 +988,7 @@ public class SVG {
         @Override // com.caverock.androidsvg.SVG.ae, com.caverock.androidsvg.SVG.ag
         public void a(ak akVar) throws SAXException {
             if (akVar instanceof au) {
-                this.ST.add(akVar);
+                this.SW.add(akVar);
                 return;
             }
             throw new SAXException("Text content elements cannot contain " + akVar + " elements.");
@@ -995,10 +996,10 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ax extends av {
-        public List<n> lBj;
-        public List<n> lBk;
+        public List<n> lEH;
+        public List<n> lEI;
         public List<n> x;
         public List<n> y;
 
@@ -1007,35 +1008,35 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class at extends ax implements ay, l {
-        public Matrix lzE;
+        public Matrix lDc;
 
         @Override // com.caverock.androidsvg.SVG.l
-        public void c(Matrix matrix) {
-            this.lzE = matrix;
+        public void setTransform(Matrix matrix) {
+            this.lDc = matrix;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class as extends ax implements au {
-        private ay lBh;
+        private ay lEF;
 
         public void a(ay ayVar) {
-            this.lBh = ayVar;
+            this.lEF = ayVar;
         }
 
         @Override // com.caverock.androidsvg.SVG.au
-        public ay dgn() {
-            return this.lBh;
+        public ay dhp() {
+            return this.lEF;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class az extends ak implements au {
-        private ay lBh;
+        private ay lEF;
         public String text;
 
         public az(String str) {
@@ -1048,65 +1049,65 @@ public class SVG {
         }
 
         @Override // com.caverock.androidsvg.SVG.au
-        public ay dgn() {
-            return this.lBh;
+        public ay dhp() {
+            return this.lEF;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ar extends av implements au {
-        public String Rz;
-        private ay lBh;
+        public String RC;
+        private ay lEF;
 
         public void a(ay ayVar) {
-            this.lBh = ayVar;
+            this.lEF = ayVar;
         }
 
         @Override // com.caverock.androidsvg.SVG.au
-        public ay dgn() {
-            return this.lBh;
+        public ay dhp() {
+            return this.lEF;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class aw extends av implements au {
-        public String Rz;
-        private ay lBh;
-        public n lBi;
+        public String RC;
+        private ay lEF;
+        public n lEG;
 
         public void a(ay ayVar) {
-            this.lBh = ayVar;
+            this.lEF = ayVar;
         }
 
         @Override // com.caverock.androidsvg.SVG.au
-        public ay dgn() {
-            return this.lBh;
+        public ay dhp() {
+            return this.lEF;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class i extends ai implements ag {
-        public String Rz;
-        public List<ak> ST = new ArrayList();
-        public Boolean lzB;
-        public Matrix lzC;
-        public GradientSpread lzD;
+        public String RC;
+        public List<ak> SW = new ArrayList();
+        public Boolean lCZ;
+        public Matrix lDa;
+        public GradientSpread lDb;
 
         protected i() {
         }
 
         @Override // com.caverock.androidsvg.SVG.ag
         public List<ak> getChildren() {
-            return this.ST;
+            return this.SW;
         }
 
         @Override // com.caverock.androidsvg.SVG.ag
         public void a(ak akVar) throws SAXException {
             if (akVar instanceof ab) {
-                this.ST.add(akVar);
+                this.SW.add(akVar);
                 return;
             }
             throw new SAXException("Gradient elements cannot contain " + akVar + " elements.");
@@ -1114,9 +1115,9 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ab extends ai implements ag {
-        public Float lAg;
+        public Float lDE;
 
         @Override // com.caverock.androidsvg.SVG.ag
         public List<ak> getChildren() {
@@ -1129,23 +1130,23 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class m extends am implements l {
-        public String Rz;
-        public Matrix lzE;
-        public n lzF;
-        public n lzG;
-        public n lzH;
-        public n lzI;
+        public String RC;
+        public Matrix lDc;
+        public n lDd;
+        public n lDe;
+        public n lDf;
+        public n lDg;
 
         @Override // com.caverock.androidsvg.SVG.l
-        public void c(Matrix matrix) {
-            this.lzE = matrix;
+        public void setTransform(Matrix matrix) {
+            this.lDc = matrix;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class aa extends ai implements ag {
         @Override // com.caverock.androidsvg.SVG.ag
         public List<ak> getChildren() {
@@ -1168,152 +1169,152 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public com.caverock.androidsvg.d dgc() {
-        return this.lzh;
+    public com.caverock.androidsvg.d dhe() {
+        return this.lCF;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class u implements v {
-        private float[] lAb;
-        private byte[] lzZ;
-        private int lAa = 0;
-        private int lAc = 0;
+        private byte[] lDx;
+        private float[] lDz;
+        private int lDy = 0;
+        private int lDA = 0;
 
         public u() {
-            this.lzZ = null;
-            this.lAb = null;
-            this.lzZ = new byte[8];
-            this.lAb = new float[16];
+            this.lDx = null;
+            this.lDz = null;
+            this.lDx = new byte[8];
+            this.lDz = new float[16];
         }
 
         public boolean isEmpty() {
-            return this.lAa == 0;
+            return this.lDy == 0;
         }
 
         private void d(byte b) {
-            if (this.lAa == this.lzZ.length) {
-                byte[] bArr = new byte[this.lzZ.length * 2];
-                System.arraycopy(this.lzZ, 0, bArr, 0, this.lzZ.length);
-                this.lzZ = bArr;
+            if (this.lDy == this.lDx.length) {
+                byte[] bArr = new byte[this.lDx.length * 2];
+                System.arraycopy(this.lDx, 0, bArr, 0, this.lDx.length);
+                this.lDx = bArr;
             }
-            byte[] bArr2 = this.lzZ;
-            int i = this.lAa;
-            this.lAa = i + 1;
+            byte[] bArr2 = this.lDx;
+            int i = this.lDy;
+            this.lDy = i + 1;
             bArr2[i] = b;
         }
 
-        private void GX(int i) {
-            if (this.lAb.length < this.lAc + i) {
-                float[] fArr = new float[this.lAb.length * 2];
-                System.arraycopy(this.lAb, 0, fArr, 0, this.lAb.length);
-                this.lAb = fArr;
+        private void Hc(int i) {
+            if (this.lDz.length < this.lDA + i) {
+                float[] fArr = new float[this.lDz.length * 2];
+                System.arraycopy(this.lDz, 0, fArr, 0, this.lDz.length);
+                this.lDz = fArr;
             }
         }
 
         @Override // com.caverock.androidsvg.SVG.v
         public void moveTo(float f, float f2) {
             d((byte) 0);
-            GX(2);
-            float[] fArr = this.lAb;
-            int i = this.lAc;
-            this.lAc = i + 1;
+            Hc(2);
+            float[] fArr = this.lDz;
+            int i = this.lDA;
+            this.lDA = i + 1;
             fArr[i] = f;
-            float[] fArr2 = this.lAb;
-            int i2 = this.lAc;
-            this.lAc = i2 + 1;
+            float[] fArr2 = this.lDz;
+            int i2 = this.lDA;
+            this.lDA = i2 + 1;
             fArr2[i2] = f2;
         }
 
         @Override // com.caverock.androidsvg.SVG.v
         public void B(float f, float f2) {
             d((byte) 1);
-            GX(2);
-            float[] fArr = this.lAb;
-            int i = this.lAc;
-            this.lAc = i + 1;
+            Hc(2);
+            float[] fArr = this.lDz;
+            int i = this.lDA;
+            this.lDA = i + 1;
             fArr[i] = f;
-            float[] fArr2 = this.lAb;
-            int i2 = this.lAc;
-            this.lAc = i2 + 1;
+            float[] fArr2 = this.lDz;
+            int i2 = this.lDA;
+            this.lDA = i2 + 1;
             fArr2[i2] = f2;
         }
 
         @Override // com.caverock.androidsvg.SVG.v
         public void b(float f, float f2, float f3, float f4, float f5, float f6) {
             d((byte) 2);
-            GX(6);
-            float[] fArr = this.lAb;
-            int i = this.lAc;
-            this.lAc = i + 1;
+            Hc(6);
+            float[] fArr = this.lDz;
+            int i = this.lDA;
+            this.lDA = i + 1;
             fArr[i] = f;
-            float[] fArr2 = this.lAb;
-            int i2 = this.lAc;
-            this.lAc = i2 + 1;
+            float[] fArr2 = this.lDz;
+            int i2 = this.lDA;
+            this.lDA = i2 + 1;
             fArr2[i2] = f2;
-            float[] fArr3 = this.lAb;
-            int i3 = this.lAc;
-            this.lAc = i3 + 1;
+            float[] fArr3 = this.lDz;
+            int i3 = this.lDA;
+            this.lDA = i3 + 1;
             fArr3[i3] = f3;
-            float[] fArr4 = this.lAb;
-            int i4 = this.lAc;
-            this.lAc = i4 + 1;
+            float[] fArr4 = this.lDz;
+            int i4 = this.lDA;
+            this.lDA = i4 + 1;
             fArr4[i4] = f4;
-            float[] fArr5 = this.lAb;
-            int i5 = this.lAc;
-            this.lAc = i5 + 1;
+            float[] fArr5 = this.lDz;
+            int i5 = this.lDA;
+            this.lDA = i5 + 1;
             fArr5[i5] = f5;
-            float[] fArr6 = this.lAb;
-            int i6 = this.lAc;
-            this.lAc = i6 + 1;
+            float[] fArr6 = this.lDz;
+            int i6 = this.lDA;
+            this.lDA = i6 + 1;
             fArr6[i6] = f6;
         }
 
         @Override // com.caverock.androidsvg.SVG.v
         public void l(float f, float f2, float f3, float f4) {
             d((byte) 3);
-            GX(4);
-            float[] fArr = this.lAb;
-            int i = this.lAc;
-            this.lAc = i + 1;
+            Hc(4);
+            float[] fArr = this.lDz;
+            int i = this.lDA;
+            this.lDA = i + 1;
             fArr[i] = f;
-            float[] fArr2 = this.lAb;
-            int i2 = this.lAc;
-            this.lAc = i2 + 1;
+            float[] fArr2 = this.lDz;
+            int i2 = this.lDA;
+            this.lDA = i2 + 1;
             fArr2[i2] = f2;
-            float[] fArr3 = this.lAb;
-            int i3 = this.lAc;
-            this.lAc = i3 + 1;
+            float[] fArr3 = this.lDz;
+            int i3 = this.lDA;
+            this.lDA = i3 + 1;
             fArr3[i3] = f3;
-            float[] fArr4 = this.lAb;
-            int i4 = this.lAc;
-            this.lAc = i4 + 1;
+            float[] fArr4 = this.lDz;
+            int i4 = this.lDA;
+            this.lDA = i4 + 1;
             fArr4[i4] = f4;
         }
 
         @Override // com.caverock.androidsvg.SVG.v
         public void a(float f, float f2, float f3, boolean z, boolean z2, float f4, float f5) {
             d((byte) ((z2 ? 1 : 0) | (z ? 2 : 0) | 4));
-            GX(5);
-            float[] fArr = this.lAb;
-            int i = this.lAc;
-            this.lAc = i + 1;
+            Hc(5);
+            float[] fArr = this.lDz;
+            int i = this.lDA;
+            this.lDA = i + 1;
             fArr[i] = f;
-            float[] fArr2 = this.lAb;
-            int i2 = this.lAc;
-            this.lAc = i2 + 1;
+            float[] fArr2 = this.lDz;
+            int i2 = this.lDA;
+            this.lDA = i2 + 1;
             fArr2[i2] = f2;
-            float[] fArr3 = this.lAb;
-            int i3 = this.lAc;
-            this.lAc = i3 + 1;
+            float[] fArr3 = this.lDz;
+            int i3 = this.lDA;
+            this.lDA = i3 + 1;
             fArr3[i3] = f3;
-            float[] fArr4 = this.lAb;
-            int i4 = this.lAc;
-            this.lAc = i4 + 1;
+            float[] fArr4 = this.lDz;
+            int i4 = this.lDA;
+            this.lDA = i4 + 1;
             fArr4[i4] = f4;
-            float[] fArr5 = this.lAb;
-            int i5 = this.lAc;
-            this.lAc = i5 + 1;
+            float[] fArr5 = this.lDz;
+            int i5 = this.lDA;
+            this.lDA = i5 + 1;
             fArr5[i5] = f5;
         }
 
@@ -1326,18 +1327,18 @@ public class SVG {
             int i;
             int i2 = 0;
             int i3 = 0;
-            while (i2 < this.lAa) {
-                byte b = this.lzZ[i2];
+            while (i2 < this.lDy) {
+                byte b = this.lDx[i2];
                 switch (b) {
                     case 0:
                         int i4 = i3 + 1;
                         i = i4 + 1;
-                        vVar.moveTo(this.lAb[i3], this.lAb[i4]);
+                        vVar.moveTo(this.lDz[i3], this.lDz[i4]);
                         break;
                     case 1:
                         int i5 = i3 + 1;
                         i = i5 + 1;
-                        vVar.B(this.lAb[i3], this.lAb[i5]);
+                        vVar.B(this.lDz[i3], this.lDz[i5]);
                         break;
                     case 2:
                         int i6 = i3 + 1;
@@ -1345,7 +1346,7 @@ public class SVG {
                         int i8 = i7 + 1;
                         int i9 = i8 + 1;
                         int i10 = i9 + 1;
-                        vVar.b(this.lAb[i3], this.lAb[i6], this.lAb[i7], this.lAb[i8], this.lAb[i9], this.lAb[i10]);
+                        vVar.b(this.lDz[i3], this.lDz[i6], this.lDz[i7], this.lDz[i8], this.lDz[i9], this.lDz[i10]);
                         i = i10 + 1;
                         break;
                     case 3:
@@ -1353,7 +1354,7 @@ public class SVG {
                         int i12 = i11 + 1;
                         int i13 = i12 + 1;
                         i = i13 + 1;
-                        vVar.l(this.lAb[i3], this.lAb[i11], this.lAb[i12], this.lAb[i13]);
+                        vVar.l(this.lDz[i3], this.lDz[i11], this.lDz[i12], this.lDz[i13]);
                         break;
                     case 4:
                     case 5:
@@ -1364,7 +1365,7 @@ public class SVG {
                         int i15 = i14 + 1;
                         int i16 = i15 + 1;
                         int i17 = i16 + 1;
-                        vVar.a(this.lAb[i3], this.lAb[i14], this.lAb[i15], (b & 2) != 0, (b & 1) != 0, this.lAb[i16], this.lAb[i17]);
+                        vVar.a(this.lDz[i3], this.lDz[i14], this.lDz[i15], (b & 2) != 0, (b & 1) != 0, this.lDz[i16], this.lDz[i17]);
                         i = i17 + 1;
                         break;
                     case 8:
@@ -1378,18 +1379,18 @@ public class SVG {
         }
     }
 
-    protected ak Nu(String str) {
+    protected ak NE(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
-        if (str.equals(this.lzg.id)) {
-            return this.lzg;
+        if (str.equals(this.lCE.id)) {
+            return this.lCE;
         }
-        if (this.lzk.containsKey(str)) {
-            return this.lzk.get(str);
+        if (this.lCI.containsKey(str)) {
+            return this.lCI.get(str);
         }
-        ai a2 = a(this.lzg, str);
-        this.lzk.put(str, a2);
+        ai a2 = a(this.lCE, str);
+        this.lCI.put(str, a2);
         return a2;
     }
 

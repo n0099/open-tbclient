@@ -1,25 +1,135 @@
 package com.baidu.live.gift.a;
+
+import com.baidu.live.gift.g;
+import com.baidu.live.gift.m;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 /* loaded from: classes2.dex */
-public class c {
-    public boolean agT;
-    public int ahK;
-    public int ahL;
-    public int ahM;
-    public String aiN;
-    public String aiO;
-    public int aiP;
-    public String aiQ;
-    public int aiS;
-    public boolean isNewUser;
-    public String mAppId;
-    public String mLiveId;
-    public String mOtherParams;
-    public String mUserId;
-    public String mUserName;
-    public String otherParams;
-    public boolean aiR = true;
-    public boolean afV = false;
-    public int afT = -1;
-    public boolean ahX = false;
-    public boolean aga = false;
+public class c implements Cloneable {
+    public g ajo;
+    public int ajq;
+    public long ajs;
+    public boolean aju;
+    public String ajv;
+    public String appId;
+    public String description;
+    public String giftId;
+    public String groupId;
+    public String liveId;
+    public String portrait;
+    private long sendTime;
+    public int sex;
+    public String userId;
+    public String userName;
+    public int userStatus;
+    public boolean ajn = false;
+    public String ajp = "";
+    public long ajr = 0;
+    public long fansCount = 0;
+    public String location = "";
+    public int priority = 1;
+    public long ajt = 0;
+    private boolean ajw = true;
+    public boolean ajx = false;
+    public List<m> afn = new ArrayList();
+
+    public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8) {
+        this.giftId = str;
+        this.ajs = j;
+        this.ajo = gVar;
+        this.userId = str2;
+        this.portrait = str3;
+        this.userName = str4;
+        this.liveId = str5;
+        this.groupId = str6;
+        this.aju = z;
+        this.ajv = str7;
+        this.appId = str8;
+        sE();
+    }
+
+    public c(String str, long j, g gVar, String str2, String str3, String str4, int i, int i2, String str5, int i3, String str6, String str7, boolean z, String str8, String str9) {
+        this.giftId = str;
+        this.ajs = j;
+        this.ajo = gVar;
+        this.userId = str2;
+        this.portrait = str3;
+        this.userName = str4;
+        this.ajq = i;
+        this.sex = i2;
+        this.description = str5;
+        this.userStatus = i3;
+        this.liveId = str6;
+        this.groupId = str7;
+        this.aju = z;
+        this.ajv = str8;
+        this.appId = str9;
+        sE();
+    }
+
+    public void A(long j) {
+        this.sendTime = j;
+    }
+
+    public long sD() {
+        return this.sendTime;
+    }
+
+    private void sE() {
+        this.ajp = this.userId + this.giftId + this.userName;
+    }
+
+    public String sF() {
+        return this.ajp;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: sG */
+    public c clone() {
+        try {
+            return (c) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean sH() {
+        return this.ajw;
+    }
+
+    public void aK(boolean z) {
+        this.ajw = z;
+    }
+
+    /* loaded from: classes2.dex */
+    public static class a implements Comparator<c> {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(c cVar, c cVar2) {
+            if (cVar != null && cVar2 != null) {
+                if (cVar.priority > cVar2.priority) {
+                    return 1;
+                }
+                if (cVar.priority < cVar2.priority) {
+                    return -1;
+                }
+                if (cVar.ajo != null && cVar2.ajo != null) {
+                    try {
+                        long parseLong = Long.parseLong(cVar.ajo.getPrice());
+                        long parseLong2 = Long.parseLong(cVar2.ajo.getPrice());
+                        if (parseLong <= parseLong2) {
+                            return parseLong < parseLong2 ? -1 : 0;
+                        }
+                        return 1;
+                    } catch (Exception e) {
+                        return 0;
+                    }
+                }
+            }
+            return 0;
+        }
+    }
 }

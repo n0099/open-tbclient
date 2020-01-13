@@ -22,13 +22,13 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private ImageView dAA;
-    private TextView dAB;
-    private View dAC;
-    private TextView dAD;
-    private TextView dAE;
-    private PluginStatus dAF;
-    private ShadowLayout dAG;
+    private ImageView dAK;
+    private TextView dAL;
+    private View dAM;
+    private TextView dAN;
+    private TextView dAO;
+    private PluginStatus dAP;
+    private ShadowLayout dAQ;
     private View mBack;
     private NavigationBar mNavigationBar;
 
@@ -51,11 +51,11 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.dAF = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.dAP = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.dAF = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.dAP = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.dAF == null) {
+        if (this.dAP == null) {
             finish();
             return;
         }
@@ -68,26 +68,26 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
         this.mBack.setOnClickListener(this);
         this.mNavigationBar.setTitleText(R.string.pluginstatus_tip_title);
-        this.dAA = (ImageView) findViewById(R.id.plugin_error_tip_image);
-        this.dAB = (TextView) findViewById(R.id.plugin_error_install_fail);
-        this.dAD = (TextView) findViewById(R.id.plugin_error_tip_resolve);
-        this.dAC = findViewById(R.id.plugin_error_parent);
-        this.dAG = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
-        this.dAE = (TextView) findViewById(R.id.plugin_error_btn);
-        this.dAE.setOnClickListener(this);
-        this.dAD.setText(getString(R.string.plugin_error_tips, new Object[]{this.dAF.getErrorMsg(), this.dAF.jM()}));
-        if (this.dAF.getErrorCode() == 5 || this.dAF.getErrorCode() == 1 || this.dAF.getErrorCode() == 100) {
-            this.dAE.setText(R.string.pluginstatus_btn_restartapp);
-            this.dAE.setVisibility(0);
+        this.dAK = (ImageView) findViewById(R.id.plugin_error_tip_image);
+        this.dAL = (TextView) findViewById(R.id.plugin_error_install_fail);
+        this.dAN = (TextView) findViewById(R.id.plugin_error_tip_resolve);
+        this.dAM = findViewById(R.id.plugin_error_parent);
+        this.dAQ = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
+        this.dAO = (TextView) findViewById(R.id.plugin_error_btn);
+        this.dAO.setOnClickListener(this);
+        this.dAN.setText(getString(R.string.plugin_error_tips, new Object[]{this.dAP.getErrorMsg(), this.dAP.jL()}));
+        if (this.dAP.getErrorCode() == 5 || this.dAP.getErrorCode() == 1 || this.dAP.getErrorCode() == 100) {
+            this.dAO.setText(R.string.pluginstatus_btn_restartapp);
+            this.dAO.setVisibility(0);
             return;
         }
-        this.dAE.setVisibility(8);
+        this.dAO.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.dAF);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.dAP);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -97,12 +97,12 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onClick(View view) {
         if (view == this.mBack) {
             finish();
-        } else if (view == this.dAE) {
-            if (this.dAF != null && this.dAF.getErrorCode() == 100) {
-                com.baidu.adp.plugin.b.a.iO().P(true);
+        } else if (view == this.dAO) {
+            if (this.dAP != null && this.dAP.getErrorCode() == 100) {
+                com.baidu.adp.plugin.b.a.iN().P(true);
             }
             showLoadingDialog(getResources().getString(R.string.waiting));
-            e.gy().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
+            e.gx().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
                     HashSet hashSet = new HashSet(10);
@@ -129,12 +129,12 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.setImageResource(this.dAA, R.drawable.new_pic_emotion_05);
-        am.setViewTextColor(this.dAB, (int) R.color.cp_cont_c);
-        am.setBackgroundColor(this.dAC, R.color.cp_bg_line_d);
-        am.setViewTextColor(this.dAD, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.dAE, (int) R.color.cp_cont_g);
-        am.setBackgroundResource(this.dAE, R.drawable.selector_blue_gradient_button);
-        this.dAG.setShadowColor(R.color.plugin_button_shadow_blue);
+        am.setImageResource(this.dAK, R.drawable.new_pic_emotion_05);
+        am.setViewTextColor(this.dAL, (int) R.color.cp_cont_c);
+        am.setBackgroundColor(this.dAM, R.color.cp_bg_line_d);
+        am.setViewTextColor(this.dAN, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.dAO, (int) R.color.cp_cont_g);
+        am.setBackgroundResource(this.dAO, R.drawable.selector_blue_gradient_button);
+        this.dAQ.setShadowColor(R.color.plugin_button_shadow_blue);
     }
 }

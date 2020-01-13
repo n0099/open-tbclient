@@ -23,61 +23,61 @@ import com.baidu.tieba.tbadkCore.util.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsTabInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private String fGQ;
-    private TextView fNU;
-    private View gsD;
-    private FrsNewAreaFragment gsE;
-    private TextView gsF;
-    private c gsG;
-    private List<w> gsH;
-    private int gsI = -1;
-    private boolean gsJ = false;
-    private boolean gsK = false;
-    private c.a gsL = new c.a() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.1
+    private String fKa;
+    private TextView fRd;
+    private View gvM;
+    private FrsNewAreaFragment gvN;
+    private TextView gvO;
+    private c gvP;
+    private List<w> gvQ;
+    private int gvR = -1;
+    private boolean gvS = false;
+    private boolean gvT = false;
+    private c.a gvU = new c.a() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.1
         @Override // com.baidu.tieba.frs.entelechy.c.a.c.a
         public void a(w wVar) {
             if (!j.isNetworkAvailableForImmediately()) {
-                a.this.gsE.showToast(R.string.neterror);
-                a.this.gsG.dismiss();
-                a.this.gsK = false;
+                a.this.gvN.showToast(R.string.neterror);
+                a.this.gvP.dismiss();
+                a.this.gvT = false;
             } else if (wVar == null) {
-                a.this.gsG.dismiss();
-                a.this.gsK = false;
-            } else if (a.this.gsI == wVar.gmF) {
-                a.this.gsG.dismiss();
-                a.this.gsK = false;
+                a.this.gvP.dismiss();
+                a.this.gvT = false;
+            } else if (a.this.gvR == wVar.gpO) {
+                a.this.gvP.dismiss();
+                a.this.gvT = false;
             } else {
-                a.this.gsJ = true;
-                a.this.AM(wVar.name);
-                if (a.this.gsE.bGQ() != null) {
-                    a.this.gsI = wVar.gmF;
-                    a.this.gsG.dismiss();
-                    a.this.gsK = false;
-                    if (a.this.gsI != 7) {
-                        aa.aPF();
-                        e.cJv();
+                a.this.gvS = true;
+                a.this.AW(wVar.name);
+                if (a.this.gvN.bHS() != null) {
+                    a.this.gvR = wVar.gpO;
+                    a.this.gvP.dismiss();
+                    a.this.gvT = false;
+                    if (a.this.gvR != 7) {
+                        aa.aPY();
+                        e.cKz();
                     } else {
-                        e.cJu();
+                        e.cKy();
                     }
-                    if (a.this.gsE.bGQ() != null && a.this.gsE.bGR() != null) {
-                        a.this.gsE.bGQ().tC(wVar.gmF);
-                        a.this.gsE.bGR().startPullRefresh();
-                        a.this.bEI();
+                    if (a.this.gvN.bHS() != null && a.this.gvN.bHT() != null) {
+                        a.this.gvN.bHS().tH(wVar.gpO);
+                        a.this.gvN.bHT().startPullRefresh();
+                        a.this.bFK();
                     }
                 }
             }
         }
     };
-    private View.OnClickListener gsM = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.2
+    private View.OnClickListener gvV = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!com.baidu.tieba.frs.a.bAp().bAq()) {
+            if (!com.baidu.tieba.frs.a.bBr().bBs()) {
                 if (!j.isNetworkAvailableForImmediately()) {
-                    a.this.gsE.showToast(R.string.neterror);
-                } else if (!v.isEmpty(a.this.gsH)) {
-                    a.this.a(a.this.gsH, view);
+                    a.this.gvN.showToast(R.string.neterror);
+                } else if (!v.isEmpty(a.this.gvQ)) {
+                    a.this.a(a.this.gvQ, view);
                 }
             }
         }
@@ -85,133 +85,133 @@ public class a {
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.3
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (a.this.fNU != null) {
-                Drawable a = SvgManager.aDW().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null);
+            if (a.this.fRd != null) {
+                Drawable a = SvgManager.aEp().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null);
                 if (a != null) {
                     a.setBounds(0, 0, a.getMinimumWidth(), a.getMinimumHeight());
                 }
-                a.this.fNU.setCompoundDrawables(null, null, a, null);
+                a.this.fRd.setCompoundDrawables(null, null, a, null);
             }
         }
     };
 
     public void setFid(String str) {
-        this.fGQ = str;
+        this.fKa = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AM(String str) {
-        this.fNU.setText(str);
+    public void AW(String str) {
+        this.fRd.setText(str);
     }
 
-    public void tb(int i) {
-        this.gsI = i;
+    public void tg(int i) {
+        this.gvR = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(List<w> list, View view) {
-        if (this.gsG == null) {
-            this.gsG = new c(this.gsE.getContext());
-            this.gsG.setOnDismissListener(this.mOnDismissListener);
-            this.gsG.a(this.gsL);
+        if (this.gvP == null) {
+            this.gvP = new c(this.gvN.getContext());
+            this.gvP.setOnDismissListener(this.mOnDismissListener);
+            this.gvP.a(this.gvU);
         }
-        this.gsG.setData(list, this.gsI);
-        this.gsG.P(view);
-        this.gsK = true;
-        this.fNU.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aDW().a(R.drawable.icon_pure_fold12_svg, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+        this.gvP.setData(list, this.gvR);
+        this.gvP.R(view);
+        this.gvT = true;
+        this.fRd.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.aEp().a(R.drawable.icon_pure_fold12_svg, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null), (Drawable) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bEI() {
+    public void bFK() {
         an anVar = new an("c11437");
-        anVar.Z("obj_type", this.gsI);
-        anVar.cp("fid", this.fGQ);
+        anVar.Z("obj_type", this.gvR);
+        anVar.cp("fid", this.fKa);
         TiebaStatic.log(anVar);
     }
 
     public a(FrsNewAreaFragment frsNewAreaFragment, RelativeLayout relativeLayout) {
         if (frsNewAreaFragment != null && relativeLayout != null) {
-            this.gsE = frsNewAreaFragment;
-            this.gsD = LayoutInflater.from(frsNewAreaFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
-            this.fNU = (TextView) this.gsD.findViewById(R.id.sort_tab_menu_button);
-            this.gsF = (TextView) this.gsD.findViewById(R.id.sort_tab_sort_name);
-            this.fNU.setOnClickListener(this.gsM);
+            this.gvN = frsNewAreaFragment;
+            this.gvM = LayoutInflater.from(frsNewAreaFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
+            this.fRd = (TextView) this.gvM.findViewById(R.id.sort_tab_menu_button);
+            this.gvO = (TextView) this.gvM.findViewById(R.id.sort_tab_sort_name);
+            this.fRd.setOnClickListener(this.gvV);
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
         Drawable a;
-        if (this.fNU != null) {
-            am.setViewTextColor(this.fNU, (int) R.color.cp_cont_j);
-            am.setBackgroundColor(this.fNU, R.color.transparent);
-            if (this.gsK) {
-                a = SvgManager.aDW().a(R.drawable.icon_pure_fold12_svg, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null);
+        if (this.fRd != null) {
+            am.setViewTextColor(this.fRd, (int) R.color.cp_cont_j);
+            am.setBackgroundColor(this.fRd, R.color.transparent);
+            if (this.gvT) {
+                a = SvgManager.aEp().a(R.drawable.icon_pure_fold12_svg, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null);
             } else {
-                a = SvgManager.aDW().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null);
+                a = SvgManager.aEp().a(R.drawable.icon_pure_unfold12_svg, R.color.cp_cont_c, (SvgManager.SvgResourceStateType) null);
             }
-            this.fNU.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, a, (Drawable) null);
+            this.fRd.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, a, (Drawable) null);
         }
-        am.setViewTextColor(this.gsF, (int) R.color.cp_cont_b);
-        am.setBackgroundColor(this.gsD, R.color.cp_bg_line_d);
-        if (this.gsG != null && this.gsK) {
-            this.gsG.bEM();
+        am.setViewTextColor(this.gvO, (int) R.color.cp_cont_b);
+        am.setBackgroundColor(this.gvM, R.color.cp_bg_line_d);
+        if (this.gvP != null && this.gvT) {
+            this.gvP.bFO();
         }
     }
 
     public void setData(List<FrsTabInfo> list, int i) {
         if (v.isEmpty(list)) {
-            bEK();
-        } else if (this.gsE != null && this.gsE.bGQ() != null) {
-            bEJ();
+            bFM();
+        } else if (this.gvN != null && this.gvN.bHS() != null) {
+            bFL();
             ArrayList arrayList = new ArrayList(list);
             if (!ck(arrayList)) {
-                if (!this.gsJ) {
-                    tc(i);
+                if (!this.gvS) {
+                    th(i);
                     return;
                 }
                 return;
             }
-            this.gsH = new ArrayList();
+            this.gvQ = new ArrayList();
             for (FrsTabInfo frsTabInfo : arrayList) {
                 if (frsTabInfo != null && frsTabInfo.tab_id != null && !StringUtils.isNull(frsTabInfo.tab_name)) {
                     w wVar = new w();
-                    wVar.gmF = frsTabInfo.tab_id.intValue();
+                    wVar.gpO = frsTabInfo.tab_id.intValue();
                     wVar.name = frsTabInfo.tab_name;
-                    this.gsH.add(wVar);
+                    this.gvQ.add(wVar);
                 }
             }
-            if (!this.gsJ) {
-                tc(i);
+            if (!this.gvS) {
+                th(i);
             }
         } else {
-            bEK();
+            bFM();
         }
     }
 
-    private void tc(int i) {
+    private void th(int i) {
         w wVar;
         boolean z;
         w wVar2 = null;
         if (i <= 0) {
-            w wVar3 = this.gsH.get(0);
+            w wVar3 = this.gvQ.get(0);
             if (wVar3 != null) {
-                tb(wVar3.gmF);
-                AM(wVar3.name);
-                if (this.gsE != null && this.gsE.bGQ() != null) {
-                    this.gsE.bGQ().tC(wVar3.gmF);
+                tg(wVar3.gpO);
+                AW(wVar3.name);
+                if (this.gvN != null && this.gvN.bHS() != null) {
+                    this.gvN.bHS().tH(wVar3.gpO);
                     return;
                 }
                 return;
             }
             return;
         }
-        int size = this.gsH.size();
+        int size = this.gvQ.size();
         int i2 = 0;
         while (true) {
             if (i2 < size) {
-                wVar2 = this.gsH.get(i2);
-                if (wVar2 == null || wVar2.gmF != i) {
+                wVar2 = this.gvQ.get(i2);
+                if (wVar2 == null || wVar2.gpO != i) {
                     i2++;
                 } else {
                     wVar = wVar2;
@@ -226,46 +226,46 @@ public class a {
         }
         if (!z) {
             if (TbadkCoreApplication.isLogin() && i == 6) {
-                AM(TbadkCoreApplication.getInst().getResources().getString(R.string.attention_users_thread));
+                AW(TbadkCoreApplication.getInst().getResources().getString(R.string.attention_users_thread));
                 return;
             }
-            w wVar4 = this.gsH.get(0);
+            w wVar4 = this.gvQ.get(0);
             if (wVar4 != null) {
-                tb(wVar4.gmF);
-                AM(wVar4.name);
-                if (this.gsE != null && this.gsE.bGQ() != null) {
-                    this.gsE.bGQ().tC(wVar4.gmF);
+                tg(wVar4.gpO);
+                AW(wVar4.name);
+                if (this.gvN != null && this.gvN.bHS() != null) {
+                    this.gvN.bHS().tH(wVar4.gpO);
                 }
             }
         } else if (wVar != null) {
-            tb(wVar.gmF);
-            AM(wVar.name);
-            if (this.gsE != null && this.gsE.bGQ() != null) {
-                this.gsE.bGQ().tC(wVar.gmF);
+            tg(wVar.gpO);
+            AW(wVar.name);
+            if (this.gvN != null && this.gvN.bHS() != null) {
+                this.gvN.bHS().tH(wVar.gpO);
             }
         }
     }
 
     private boolean ck(List<FrsTabInfo> list) {
-        if (!v.isEmpty(this.gsH) && v.getCount(list) == v.getCount(this.gsH)) {
+        if (!v.isEmpty(this.gvQ) && v.getCount(list) == v.getCount(this.gvQ)) {
             int i = 0;
             while (i < list.size()) {
-                i = (list.get(i) != null && this.gsH.get(i) == null) ? i + 1 : i + 1;
+                i = (list.get(i) != null && this.gvQ.get(i) == null) ? i + 1 : i + 1;
             }
             return false;
         }
         return true;
     }
 
-    private void bEJ() {
-        if (this.fNU != null) {
-            this.fNU.setVisibility(0);
+    private void bFL() {
+        if (this.fRd != null) {
+            this.fRd.setVisibility(0);
         }
     }
 
-    private void bEK() {
-        if (this.fNU != null) {
-            this.fNU.setVisibility(8);
+    private void bFM() {
+        if (this.fRd != null) {
+            this.fRd.setVisibility(8);
         }
     }
 }

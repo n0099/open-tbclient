@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g {
-    public static boolean gZx = false;
+    public static boolean hcV = false;
 
-    public static DataRes bMu() {
-        l<byte[]> ch = com.baidu.tbadk.core.c.a.aBV().ch("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+    public static DataRes bNC() {
+        l<byte[]> ch = com.baidu.tbadk.core.c.a.aCo().ch("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
         if (ch == null) {
             return null;
         }
@@ -28,8 +28,8 @@ public class g {
         }
     }
 
-    public static void bMv() {
-        l<byte[]> ch = com.baidu.tbadk.core.c.a.aBV().ch("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+    public static void bND() {
+        l<byte[]> ch = com.baidu.tbadk.core.c.a.aCo().ch("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
         if (ch != null) {
             ch.set("0", new byte[0], 0L);
         }

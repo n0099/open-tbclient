@@ -4,79 +4,79 @@ import com.baidu.mapapi.UIMsg;
 import com.google.android.exoplayer2.util.l;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class d {
-    private int mgP;
-    private boolean mgQ;
-    private final e mgw = new e();
-    private final l mgN = new l(new byte[UIMsg.m_AppUI.V_WM_WIFISTATECHANGE], 0);
-    private int mgO = -1;
+    private int mkG;
+    private boolean mkH;
+    private final e mkn = new e();
+    private final l mkE = new l(new byte[UIMsg.m_AppUI.V_WM_WIFISTATECHANGE], 0);
+    private int mkF = -1;
 
     public void reset() {
-        this.mgw.reset();
-        this.mgN.reset();
-        this.mgO = -1;
-        this.mgQ = false;
+        this.mkn.reset();
+        this.mkE.reset();
+        this.mkF = -1;
+        this.mkH = false;
     }
 
     public boolean y(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
         int i;
         com.google.android.exoplayer2.util.a.checkState(fVar != null);
-        if (this.mgQ) {
-            this.mgQ = false;
-            this.mgN.reset();
+        if (this.mkH) {
+            this.mkH = false;
+            this.mkE.reset();
         }
-        while (!this.mgQ) {
-            if (this.mgO < 0) {
-                if (!this.mgw.c(fVar, true)) {
+        while (!this.mkH) {
+            if (this.mkF < 0) {
+                if (!this.mkn.c(fVar, true)) {
                     return false;
                 }
-                int i2 = this.mgw.mcp;
-                if ((this.mgw.type & 1) == 1 && this.mgN.dwW() == 0) {
-                    i2 += JF(0);
-                    i = this.mgP + 0;
+                int i2 = this.mkn.mge;
+                if ((this.mkn.type & 1) == 1 && this.mkE.dyg() == 0) {
+                    i2 += JO(0);
+                    i = this.mkG + 0;
                 } else {
                     i = 0;
                 }
-                fVar.Jh(i2);
-                this.mgO = i;
+                fVar.Jq(i2);
+                this.mkF = i;
             }
-            int JF = JF(this.mgO);
-            int i3 = this.mgO + this.mgP;
-            if (JF > 0) {
-                if (this.mgN.capacity() < this.mgN.dwW() + JF) {
-                    this.mgN.data = Arrays.copyOf(this.mgN.data, this.mgN.dwW() + JF);
+            int JO = JO(this.mkF);
+            int i3 = this.mkF + this.mkG;
+            if (JO > 0) {
+                if (this.mkE.capacity() < this.mkE.dyg() + JO) {
+                    this.mkE.data = Arrays.copyOf(this.mkE.data, this.mkE.dyg() + JO);
                 }
-                fVar.readFully(this.mgN.data, this.mgN.dwW(), JF);
-                this.mgN.setLimit(JF + this.mgN.dwW());
-                this.mgQ = this.mgw.mgZ[i3 + (-1)] != 255;
+                fVar.readFully(this.mkE.data, this.mkE.dyg(), JO);
+                this.mkE.setLimit(JO + this.mkE.dyg());
+                this.mkH = this.mkn.mkQ[i3 + (-1)] != 255;
             }
-            this.mgO = i3 == this.mgw.mgX ? -1 : i3;
+            this.mkF = i3 == this.mkn.mkO ? -1 : i3;
         }
         return true;
     }
 
-    public e dsJ() {
-        return this.mgw;
+    public e dtV() {
+        return this.mkn;
     }
 
-    public l dsK() {
-        return this.mgN;
+    public l dtW() {
+        return this.mkE;
     }
 
-    public void dsL() {
-        if (this.mgN.data.length != 65025) {
-            this.mgN.data = Arrays.copyOf(this.mgN.data, Math.max((int) UIMsg.m_AppUI.V_WM_WIFISTATECHANGE, this.mgN.dwW()));
+    public void dtX() {
+        if (this.mkE.data.length != 65025) {
+            this.mkE.data = Arrays.copyOf(this.mkE.data, Math.max((int) UIMsg.m_AppUI.V_WM_WIFISTATECHANGE, this.mkE.dyg()));
         }
     }
 
-    private int JF(int i) {
+    private int JO(int i) {
         int i2 = 0;
-        this.mgP = 0;
-        while (this.mgP + i < this.mgw.mgX) {
-            int[] iArr = this.mgw.mgZ;
-            int i3 = this.mgP;
-            this.mgP = i3 + 1;
+        this.mkG = 0;
+        while (this.mkG + i < this.mkn.mkO) {
+            int[] iArr = this.mkn.mkQ;
+            int i3 = this.mkG;
+            this.mkG = i3 + 1;
             int i4 = iArr[i3 + i];
             i2 += i4;
             if (i4 != 255) {

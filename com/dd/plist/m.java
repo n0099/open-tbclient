@@ -1,5 +1,5 @@
 package com.dd.plist;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class m extends i {
     private byte[] bytes;
     private String name;

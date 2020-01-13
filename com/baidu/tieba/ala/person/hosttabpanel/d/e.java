@@ -6,47 +6,47 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hosttabpanel.b.d> {
-    private LinearLayout flI;
-    private LinearLayout flJ;
-    private TbImageView flK;
-    private TbImageView flL;
-    private TextView flM;
-    private TextView flN;
-    private TextView flO;
-    private TextView flP;
-    private final String flQ;
+    private LinearLayout foR;
+    private LinearLayout foS;
+    private TbImageView foT;
+    private TbImageView foU;
+    private TextView foV;
+    private TextView foW;
+    private TextView foX;
+    private TextView foY;
+    private final String foZ;
     private TbPageContext mPageContext;
     private View mRootView;
 
     public e(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.flQ = " | ";
+        this.foZ = " | ";
         this.mPageContext = tbPageContext;
         this.mRootView = getView();
-        this.flI = (LinearLayout) this.mRootView.findViewById(a.g.replay_item_one);
-        this.flJ = (LinearLayout) this.mRootView.findViewById(a.g.replay_item_two);
-        b(this.flI);
-        b(this.flJ);
-        this.flI.setOnClickListener(this);
-        this.flJ.setOnClickListener(this);
-        this.flK = (TbImageView) this.flI.findViewById(a.g.replay_cover);
-        this.flK.setDefaultErrorResource(0);
-        this.flK.setAutoChangeStyle(false);
-        this.flK.setDefaultBgResource(a.f.sdk_pic_bg_video_frs);
-        this.flM = (TextView) this.flI.findViewById(a.g.replay_title);
-        this.flO = (TextView) this.flI.findViewById(a.g.replay_info);
-        this.flL = (TbImageView) this.flJ.findViewById(a.g.replay_cover);
-        this.flL.setDefaultErrorResource(0);
-        this.flL.setAutoChangeStyle(false);
-        this.flL.setDefaultBgResource(a.f.sdk_pic_bg_video_frs);
-        this.flN = (TextView) this.flJ.findViewById(a.g.replay_title);
-        this.flP = (TextView) this.flJ.findViewById(a.g.replay_info);
+        this.foR = (LinearLayout) this.mRootView.findViewById(a.g.replay_item_one);
+        this.foS = (LinearLayout) this.mRootView.findViewById(a.g.replay_item_two);
+        b(this.foR);
+        b(this.foS);
+        this.foR.setOnClickListener(this);
+        this.foS.setOnClickListener(this);
+        this.foT = (TbImageView) this.foR.findViewById(a.g.replay_cover);
+        this.foT.setDefaultErrorResource(0);
+        this.foT.setAutoChangeStyle(false);
+        this.foT.setDefaultBgResource(a.f.sdk_pic_bg_video_frs);
+        this.foV = (TextView) this.foR.findViewById(a.g.replay_title);
+        this.foX = (TextView) this.foR.findViewById(a.g.replay_info);
+        this.foU = (TbImageView) this.foS.findViewById(a.g.replay_cover);
+        this.foU.setDefaultErrorResource(0);
+        this.foU.setAutoChangeStyle(false);
+        this.foU.setDefaultBgResource(a.f.sdk_pic_bg_video_frs);
+        this.foW = (TextView) this.foS.findViewById(a.g.replay_title);
+        this.foY = (TextView) this.foS.findViewById(a.g.replay_info);
     }
 
     private void b(LinearLayout linearLayout) {
@@ -66,32 +66,32 @@ public class e extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     @Override // com.baidu.live.tieba.b.a
     /* renamed from: a */
     public void onBindDataToView(com.baidu.tieba.ala.person.hosttabpanel.b.d dVar) {
-        if (dVar.fkJ != null) {
-            this.flI.setVisibility(0);
-            this.flK.startLoad(StringUtils.isNull(dVar.fkJ.getMedia_pic()) ? dVar.fkJ.getLiveCover() : dVar.fkJ.getMedia_pic(), 10, false);
-            this.flO.setText(String.format(this.mPageContext.getString(a.i.ala_person_audience), com.baidu.tieba.ala.person.d.a.cW(dVar.fkJ.join_count)) + " | " + StringHelper.getTimeInterval(dVar.fkJ.end_time));
-            this.flM.setText(dVar.fkJ.getLiveTitle());
-            this.flI.setTag(dVar.fkJ);
+        if (dVar.fnT != null) {
+            this.foR.setVisibility(0);
+            this.foT.startLoad(StringUtils.isNull(dVar.fnT.getMedia_pic()) ? dVar.fnT.getLiveCover() : dVar.fnT.getMedia_pic(), 10, false);
+            this.foX.setText(String.format(this.mPageContext.getString(a.i.ala_person_audience), com.baidu.tieba.ala.person.d.a.db(dVar.fnT.join_count)) + " | " + StringHelper.getTimeInterval(dVar.fnT.end_time));
+            this.foV.setText(dVar.fnT.getLiveTitle());
+            this.foR.setTag(dVar.fnT);
         } else {
-            this.flI.setVisibility(4);
+            this.foR.setVisibility(4);
         }
-        if (dVar.fkK != null) {
-            this.flJ.setVisibility(0);
-            this.flL.startLoad(StringUtils.isNull(dVar.fkK.getMedia_pic()) ? dVar.fkK.getLiveCover() : dVar.fkK.getMedia_pic(), 10, false);
-            this.flP.setText(String.format(this.mPageContext.getString(a.i.ala_person_audience), com.baidu.tieba.ala.person.d.a.cW(dVar.fkK.join_count)) + " | " + StringHelper.getTimeInterval(dVar.fkK.end_time));
-            this.flN.setText(dVar.fkK.getLiveTitle());
-            this.flJ.setTag(dVar.fkK);
+        if (dVar.fnU != null) {
+            this.foS.setVisibility(0);
+            this.foU.startLoad(StringUtils.isNull(dVar.fnU.getMedia_pic()) ? dVar.fnU.getLiveCover() : dVar.fnU.getMedia_pic(), 10, false);
+            this.foY.setText(String.format(this.mPageContext.getString(a.i.ala_person_audience), com.baidu.tieba.ala.person.d.a.db(dVar.fnU.join_count)) + " | " + StringHelper.getTimeInterval(dVar.fnU.end_time));
+            this.foW.setText(dVar.fnU.getLiveTitle());
+            this.foS.setTag(dVar.fnU);
             return;
         }
-        this.flJ.setVisibility(4);
+        this.foS.setVisibility(4);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.flI) {
-            ap(this.flI.getTag());
-        } else if (view == this.flJ) {
-            ap(this.flJ.getTag());
+        if (view == this.foR) {
+            ap(this.foR.getTag());
+        } else if (view == this.foS) {
+            ap(this.foS.getTag());
         }
     }
 
@@ -104,11 +104,11 @@ public class e extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
 
     /* loaded from: classes2.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        public e flR;
+        public e fpa;
 
         public a(e eVar) {
             super(eVar.getView());
-            this.flR = eVar;
+            this.fpa = eVar;
         }
     }
 }

@@ -8,7 +8,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BarrierPool {
     private static final String TAG = "BarrierPool";
     private final ArrayList<View> mBarriers;
@@ -26,7 +26,7 @@ public class BarrierPool {
     private Rect mValidRect;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public @interface BarrierType {
         public static final int MOTIONLESS = 0;
         public static final int MOVABLE = 1;
@@ -37,7 +37,7 @@ public class BarrierPool {
         this.mBarriers = new ArrayList<>();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     static class InstanceHolder {
         static BarrierPool INSTANCE = new BarrierPool();
 
@@ -340,7 +340,7 @@ public class BarrierPool {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class TargetInfo {
         boolean hasAvailableRect;
         int height;
@@ -355,7 +355,7 @@ public class BarrierPool {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Barrier<V extends View> {
         V item;
         Barrier<V> next;

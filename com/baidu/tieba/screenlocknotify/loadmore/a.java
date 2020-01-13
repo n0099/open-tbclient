@@ -4,18 +4,18 @@ import com.baidu.tieba.screenlocknotify.d;
 import java.util.ArrayList;
 import tbclient.GetMoreMsg.DataRes;
 import tbclient.GetMoreMsg.MsgContent;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private boolean mHasMore = true;
-    private ArrayList<d> jKR = null;
+    private ArrayList<d> jOs = null;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.mHasMore = dataRes.has_more.intValue() == 1;
             if (dataRes.msg_content != null && dataRes.msg_content.size() > 0) {
-                this.jKR = new ArrayList<>();
+                this.jOs = new ArrayList<>();
                 for (MsgContent msgContent : dataRes.msg_content) {
-                    this.jKR.add(new d(msgContent));
+                    this.jOs.add(new d(msgContent));
                 }
             }
         }
@@ -26,6 +26,6 @@ public class a {
     }
 
     public ArrayList<d> getItems() {
-        return this.jKR;
+        return this.jOs;
     }
 }

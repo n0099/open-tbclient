@@ -5,16 +5,16 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.ab;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends ab {
-    private c bzI;
-    private k bzJ;
-    private e bzK;
-    private d bzL;
-    private i bzM;
-    private b bzN;
-    private j bzO;
-    private h bzP;
+    private b bAA;
+    private j bAB;
+    private h bAC;
+    private c bAv;
+    private k bAw;
+    private e bAx;
+    private d bAy;
+    private i bAz;
 
     public f(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/video");
@@ -87,52 +87,52 @@ public class f extends ab {
         }
         switch (c) {
             case 0:
-                if (this.bzI == null) {
-                    this.bzI = new c("/swanAPI/video/open");
+                if (this.bAv == null) {
+                    this.bAv = new c("/swanAPI/video/open");
                 }
-                a = this.bzI.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.bAv.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 1:
-                if (this.bzJ == null) {
-                    this.bzJ = new k("/swanAPI/video/update");
+                if (this.bAw == null) {
+                    this.bAw = new k("/swanAPI/video/update");
                 }
-                a = this.bzJ.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.bAw.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 2:
-                if (this.bzP == null) {
-                    this.bzP = new h("/swanAPI/video/remove");
+                if (this.bAC == null) {
+                    this.bAC = new h("/swanAPI/video/remove");
                 }
-                a = this.bzP.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.bAC.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 3:
-                if (this.bzK == null) {
-                    this.bzK = new e("/swanAPI/video/play");
+                if (this.bAx == null) {
+                    this.bAx = new e("/swanAPI/video/play");
                 }
-                a = this.bzK.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.bAx.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 4:
-                if (this.bzL == null) {
-                    this.bzL = new d("/swanAPI/video/pause");
+                if (this.bAy == null) {
+                    this.bAy = new d("/swanAPI/video/pause");
                 }
-                a = this.bzL.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.bAy.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 5:
-                if (this.bzM == null) {
-                    this.bzM = new i("/swanAPI/video/seek");
+                if (this.bAz == null) {
+                    this.bAz = new i("/swanAPI/video/seek");
                 }
-                a = this.bzM.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.bAz.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 6:
-                if (this.bzN == null) {
-                    this.bzN = new b("/swanAPI/video/fullScreen");
+                if (this.bAA == null) {
+                    this.bAA = new b("/swanAPI/video/fullScreen");
                 }
-                a = this.bzN.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.bAA.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 7:
-                if (this.bzO == null) {
-                    this.bzO = new j("/swanAPI/video/sendDanmu");
+                if (this.bAB == null) {
+                    this.bAB = new j("/swanAPI/video/sendDanmu");
                 }
-                a = this.bzO.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.bAB.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             default:
                 a = false;

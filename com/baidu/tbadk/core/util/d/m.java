@@ -14,7 +14,7 @@ public class m implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     public m() {
         this.width = 0;
         this.height = 0;
-        aEr();
+        aEK();
     }
 
     public m(int i, int i2) {
@@ -25,16 +25,16 @@ public class m implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
             this.height = i2;
             return;
         }
-        aEr();
+        aEK();
     }
 
-    private void aEr() {
+    private void aEK() {
         this.width = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         this.height = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public boolean gv() {
+    public boolean gu() {
         return true;
     }
 
@@ -42,7 +42,7 @@ public class m implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(tr(str), com.baidu.tbadk.imageManager.c.aMZ().vb(tr(str)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(tv(str), com.baidu.tbadk.imageManager.c.aNs().vg(tv(str)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -65,7 +65,7 @@ public class m implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.af(i);
             aVar.ag(i2);
-            com.baidu.tbadk.imageManager.c.aMZ().c(tr(str), aVar);
+            com.baidu.tbadk.imageManager.c.aNs().c(tv(str), aVar);
         }
     }
 
@@ -77,12 +77,12 @@ public class m implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public BdAsyncTaskParallel gw() {
+    public BdAsyncTaskParallel gv() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public int gx() {
+    public int gw() {
         return 1;
     }
 
@@ -100,12 +100,12 @@ public class m implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         }
     }
 
-    public String tr(String str) {
-        ImageOperation aF = com.baidu.tbadk.img.effect.d.aF(this.width, this.height);
+    public String tv(String str) {
+        ImageOperation aJ = com.baidu.tbadk.img.effect.d.aJ(this.width, this.height);
         StringBuilder sb = new StringBuilder();
         sb.append("image_");
         sb.append(str);
-        sb.append(':').append(aF.actionName).append('=').append(aF.actionParam);
+        sb.append(':').append(aJ.actionName).append('=').append(aJ.actionParam);
         return sb.toString();
     }
 }

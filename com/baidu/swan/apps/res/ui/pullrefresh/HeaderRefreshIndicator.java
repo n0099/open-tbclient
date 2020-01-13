@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.as.af;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    public boolean bGO;
-    private int bGP;
-    private boolean bGQ;
+    private boolean bHA;
+    public boolean bHy;
+    private int bHz;
 
     public HeaderRefreshIndicator(Context context) {
         this(context, null);
@@ -17,27 +17,27 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
 
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bGO = false;
-        this.bGP = -1;
-        this.bGQ = false;
+        this.bHy = false;
+        this.bHz = -1;
+        this.bHA = false;
     }
 
-    public void Cm() {
-        if (!this.bGO) {
-            this.bGO = true;
-            this.bGQ = com.baidu.swan.apps.w.a.RG().getNightModeSwitcherState();
-            Zb();
+    public void CI() {
+        if (!this.bHy) {
+            this.bHy = true;
+            this.bHA = com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState();
+            Zy();
             setTextSize(1, 11.0f);
             setCompoundDrawablePadding(af.dip2px(getContext(), 5.0f));
             initCornerRadius(0);
         }
     }
 
-    public void Za() {
-        boolean nightModeSwitcherState = com.baidu.swan.apps.w.a.RG().getNightModeSwitcherState();
-        if (this.bGQ != nightModeSwitcherState) {
-            Zb();
-            this.bGQ = nightModeSwitcherState;
+    public void Zx() {
+        boolean nightModeSwitcherState = com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState();
+        if (this.bHA != nightModeSwitcherState) {
+            Zy();
+            this.bHA = nightModeSwitcherState;
         }
     }
 
@@ -49,10 +49,10 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Za();
+        Zx();
     }
 
-    public void Zb() {
+    public void Zy() {
         setBackground(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_bg));
         setTextColor(getResources().getColor(a.c.aiapps_pull_refresh_result_text_color));
         initDrawable(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, af.dip2px(getContext(), 11.0f), af.dip2px(getContext(), 11.0f));

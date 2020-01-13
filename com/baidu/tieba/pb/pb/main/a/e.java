@@ -16,109 +16,109 @@ import com.baidu.tieba.pb.pb.main.PbLandscapeListView;
 import com.baidu.tieba.pb.video.g;
 import com.baidu.tieba.pb.video.h;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
-    private h iMm;
-    private g iMn;
-    private boolean iMo = false;
-    private PbFragment iyA;
+    private PbFragment iCe;
+    private h iPQ;
+    private g iPR;
+    private boolean iPS = false;
 
     public e(PbFragment pbFragment) {
-        this.iyA = pbFragment;
+        this.iCe = pbFragment;
     }
 
     public void a(f fVar, PostData postData, BdTypeListView bdTypeListView, d dVar, FrameLayout frameLayout, com.baidu.tieba.pb.pb.main.view.c cVar, String str, long j) {
-        if (fVar != null && fVar.cih()) {
-            if (this.iMm == null) {
-                this.iMm = new h(this.iyA, cVar, fVar.chK().azV(), j);
-                this.iMm.a(fVar.chK().azV(), fVar.chK(), fVar.getForumId());
-                this.iMm.startPlay();
-            } else if (this.iMo) {
-                this.iMm.a(fVar.chK().azV(), fVar.chK(), fVar.getForumId());
-                this.iMm.startPlay();
+        if (fVar != null && fVar.cjp()) {
+            if (this.iPQ == null) {
+                this.iPQ = new h(this.iCe, cVar, fVar.ciS().aAo(), j);
+                this.iPQ.a(fVar.ciS().aAo(), fVar.ciS(), fVar.getForumId());
+                this.iPQ.startPlay();
+            } else if (this.iPS) {
+                this.iPQ.a(fVar.ciS().aAo(), fVar.ciS(), fVar.getForumId());
+                this.iPQ.startPlay();
             } else {
-                this.iMm.FW(fVar.getForumId());
+                this.iPQ.Gg(fVar.getForumId());
             }
-            com.baidu.tieba.pb.c.a.a(this.iyA.getUniqueId(), fVar, postData, 1, 1);
-            if (fVar.chL() != null && fVar.chL().size() >= 1) {
-                bj bjVar = fVar.chL().get(0);
-                this.iMm.aG(bjVar);
-                this.iMm.FX(bjVar.getTitle());
+            com.baidu.tieba.pb.c.a.a(this.iCe.getUniqueId(), fVar, postData, 1, 1);
+            if (fVar.ciT() != null && fVar.ciT().size() >= 1) {
+                bj bjVar = fVar.ciT().get(0);
+                this.iPQ.aH(bjVar);
+                this.iPQ.Gh(bjVar.getTitle());
             }
-            this.iMm.b(postData, fVar.chK(), fVar.cig());
-            this.iMo = false;
-            bdTypeListView.removeHeaderView(this.iMm.cpR());
-            bdTypeListView.addHeaderView(this.iMm.cpR(), 0);
-            if (this.iMm.aZU() != null && this.iMm.aZU().getParent() == null) {
-                frameLayout.addView(this.iMm.aZU());
+            this.iPQ.b(postData, fVar.ciS(), fVar.cjo());
+            this.iPS = false;
+            bdTypeListView.removeHeaderView(this.iPQ.cqY());
+            bdTypeListView.addHeaderView(this.iPQ.cqY(), 0);
+            if (this.iPQ.bat() != null && this.iPQ.bat().getParent() == null) {
+                frameLayout.addView(this.iPQ.bat());
             }
-            if (this.iMn == null) {
-                this.iMn = new g(this.iyA.getBaseFragmentActivity());
+            if (this.iPR == null) {
+                this.iPR = new g(this.iCe.getBaseFragmentActivity());
             }
-            this.iMn.b(fVar, str);
-            bdTypeListView.removeHeaderView(this.iMn.cpK());
-            bdTypeListView.addHeaderView(this.iMn.cpK(), 1);
+            this.iPR.b(fVar, str);
+            bdTypeListView.removeHeaderView(this.iPR.cqR());
+            bdTypeListView.addHeaderView(this.iPR.cqR(), 1);
             dVar.c(bdTypeListView);
             dVar.a(bdTypeListView, 2);
-            if (this.iMm != null) {
-                cVar.qo(false);
-                this.iMm.yW(TbadkCoreApplication.getInst().getSkinType());
+            if (this.iPQ != null) {
+                cVar.qA(false);
+                this.iPQ.zb(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            if (this.iMm != null) {
-                bdTypeListView.removeHeaderView(this.iMm.cpR());
+            if (this.iPQ != null) {
+                bdTypeListView.removeHeaderView(this.iPQ.cqY());
             }
-            if (this.iMn != null) {
-                this.iMn.e(bdTypeListView);
+            if (this.iPR != null) {
+                this.iPR.e(bdTypeListView);
             }
         }
     }
 
-    public void qf(boolean z) {
-        this.iMo = z;
+    public void qr(boolean z) {
+        this.iPS = z;
     }
 
-    public void S(View.OnClickListener onClickListener) {
-        if (this.iMm != null) {
-            this.iMm.S(onClickListener);
+    public void R(View.OnClickListener onClickListener) {
+        if (this.iPQ != null) {
+            this.iPQ.R(onClickListener);
         }
     }
 
     public void d(BdTypeListView bdTypeListView) {
-        if (this.iMm != null) {
+        if (this.iPQ != null) {
             TiebaStatic.log(new an("c11997").Z("obj_type", 1));
-            this.iMm.coj();
+            this.iPQ.cpq();
             bdTypeListView.smoothScrollToPosition(0);
         }
     }
 
-    public boolean yV(int i) {
-        if (this.iMm != null) {
-            return this.iMm.sU(i);
+    public boolean za(int i) {
+        if (this.iPQ != null) {
+            return this.iPQ.sZ(i);
         }
         return false;
     }
 
     public void a(PbLandscapeListView pbLandscapeListView, TextView textView, int i) {
         if (pbLandscapeListView != null) {
-            if (this.iMm != null && this.iMm.aZU() != null) {
+            if (this.iPQ != null && this.iPQ.bat() != null) {
                 if (textView != null) {
                     pbLandscapeListView.removeHeaderView(textView);
                     pbLandscapeListView.setTextViewAdded(false);
                 }
                 if (i != 1) {
-                    pbLandscapeListView.removeHeaderView(this.iMm.cpR());
-                    pbLandscapeListView.addHeaderView(this.iMm.cpR(), 0);
+                    pbLandscapeListView.removeHeaderView(this.iPQ.cqY());
+                    pbLandscapeListView.addHeaderView(this.iPQ.cqY(), 0);
                     return;
                 }
                 return;
             }
-            if (this.iMm != null) {
-                pbLandscapeListView.removeHeaderView(this.iMm.cpR());
+            if (this.iPQ != null) {
+                pbLandscapeListView.removeHeaderView(this.iPQ.cqY());
             }
             if (textView != null) {
                 pbLandscapeListView.removeHeaderView(textView);
@@ -127,101 +127,101 @@ public class e {
         }
     }
 
-    public boolean cnQ() {
-        return this.iMm != null && this.iMm.cnQ();
+    public boolean coX() {
+        return this.iPQ != null && this.iPQ.coX();
     }
 
-    public void cnR() {
-        if (this.iMm != null) {
-            this.iMm.onPause();
+    public void coY() {
+        if (this.iPQ != null) {
+            this.iPQ.onPause();
         }
     }
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.iMm != null) {
-            this.iMm.c(absListView, i);
+        if (this.iPQ != null) {
+            this.iPQ.c(absListView, i);
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (this.iMm != null) {
-            this.iMm.onScrollStateChanged(absListView, i);
+        if (this.iPQ != null) {
+            this.iPQ.onScrollStateChanged(absListView, i);
         }
     }
 
-    public void qd(boolean z) {
-        if (this.iMm != null) {
-            this.iMm.qd(z);
+    public void qp(boolean z) {
+        if (this.iPQ != null) {
+            this.iPQ.qp(z);
         }
     }
 
-    public void coj() {
-        if (this.iMm != null) {
-            this.iMm.coj();
+    public void cpq() {
+        if (this.iPQ != null) {
+            this.iPQ.cpq();
         }
     }
 
     public void destroy() {
-        if (this.iMm != null) {
-            this.iMm.destroy();
+        if (this.iPQ != null) {
+            this.iPQ.destroy();
         }
     }
 
     public void onPause() {
-        if (this.iMm != null) {
-            this.iMm.onPause();
+        if (this.iPQ != null) {
+            this.iPQ.onPause();
         }
     }
 
     public void onResume() {
-        if (this.iMm != null) {
-            this.iMm.onResume();
+        if (this.iPQ != null) {
+            this.iPQ.onResume();
         }
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.iMm != null) {
-            this.iMm.onConfigurationChanged(configuration);
+        if (this.iPQ != null) {
+            this.iPQ.onConfigurationChanged(configuration);
         }
     }
 
-    public void yW(int i) {
-        if (this.iMm != null) {
-            this.iMm.yW(i);
+    public void zb(int i) {
+        if (this.iPQ != null) {
+            this.iPQ.zb(i);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iMn != null) {
-            this.iMn.onChangeSkinType(i);
+        if (this.iPR != null) {
+            this.iPR.onChangeSkinType(i);
         }
     }
 
-    public View aZU() {
-        if (this.iMm != null) {
-            return this.iMm.aZU();
+    public View bat() {
+        if (this.iPQ != null) {
+            return this.iPQ.bat();
         }
         return null;
     }
 
-    public int cok() {
-        View aZU = aZU();
-        if (aZU != null) {
-            return aZU.getHeight();
+    public int cpr() {
+        View bat = bat();
+        if (bat != null) {
+            return bat.getHeight();
         }
         return 0;
     }
 
-    public int col() {
-        if (this.iMm != null) {
-            return this.iMm.col();
+    public int cps() {
+        if (this.iPQ != null) {
+            return this.iPQ.cps();
         }
         return 0;
     }
 
-    public boolean bfB() {
-        if (this.iMm != null) {
-            return this.iMm.bfB();
+    public boolean bgb() {
+        if (this.iPQ != null) {
+            return this.iPQ.bgb();
         }
         return false;
     }

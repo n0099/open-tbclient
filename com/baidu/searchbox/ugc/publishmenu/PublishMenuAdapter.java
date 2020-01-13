@@ -11,7 +11,7 @@ import com.baidu.searchbox.ugc.utils.ResourceUtils;
 import com.baidu.searchbox.ugc.utils.UgcUiUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PublishMenuAdapter extends BaseAdapter {
     private Context mContext;
     private List<ItemInfo> mList = new ArrayList();
@@ -59,7 +59,7 @@ public class PublishMenuAdapter extends BaseAdapter {
         return view;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     private class MyHolder {
         public ImageView iconIv;
         public TextView nameTv;

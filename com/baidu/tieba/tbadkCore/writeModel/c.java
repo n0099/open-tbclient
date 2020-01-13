@@ -26,9 +26,9 @@ public class c {
         toast.show();
     }
 
-    public static void f(Context context, String str, String str2, String str3) {
+    public static void g(Context context, String str, String str2, String str3) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.post_write_or_reply_lay, (ViewGroup) null);
-        inflate.setBackgroundDrawable(am.au(l.getDimens(context, R.dimen.tbds32), am.getColor(R.color.cp_hud_a)));
+        inflate.setBackgroundDrawable(am.ay(l.getDimens(context, R.dimen.tbds32), am.getColor(R.color.cp_hud_a)));
         View findViewById = inflate.findViewById(R.id.experience_score);
         TextView textView = (TextView) inflate.findViewById(R.id.success_text);
         am.setViewTextColor(textView, (int) R.color.cp_cont_a);
@@ -38,7 +38,7 @@ public class c {
         am.setViewTextColor(textView3, (int) R.color.cp_link_tip_d);
         ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
         if (imageView != null) {
-            imageView.setBackgroundDrawable(SvgManager.aDW().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
+            imageView.setBackgroundDrawable(SvgManager.aEp().a(R.drawable.icon_pure_toast_succeed40_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null));
         }
         if (StringUtils.isNull(str)) {
             str = context.getString(R.string.send_success);
@@ -60,9 +60,9 @@ public class c {
                 xVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 xVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cJa().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cKe().getLocationData();
             if (locationData != null) {
-                xVar.addPostData("name", locationData.cIY());
+                xVar.addPostData("name", locationData.cKc());
                 xVar.addPostData(IXAdRequestInfo.SN, locationData.getSn());
             }
         }

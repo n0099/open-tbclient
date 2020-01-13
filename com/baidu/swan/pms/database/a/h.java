@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class h extends b<com.baidu.swan.pms.model.h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b

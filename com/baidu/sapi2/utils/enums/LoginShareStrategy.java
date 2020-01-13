@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils.enums;
 
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum LoginShareStrategy {
     DISABLED("disabled"),
     SILENT("silent"),

@@ -6,9 +6,9 @@ import java.io.InputStream;
 import java.text.ParseException;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class l {
-    private static int Oj(String str) {
+    private static int Ot(String str) {
         String trim = str.trim();
         if (trim.length() == 0) {
             return 10;
@@ -25,7 +25,7 @@ public class l {
         return 11;
     }
 
-    private static int af(byte[] bArr) {
+    private static int ae(byte[] bArr) {
         int i = 3;
         if (bArr.length < 3 || (bArr[0] & 255) != 239 || (bArr[1] & 255) != 187 || (bArr[2] & 255) != 191) {
             i = 0;
@@ -34,7 +34,7 @@ public class l {
             if ((i < bArr.length && bArr[i] == 32) || bArr[i] == 9 || bArr[i] == 13 || bArr[i] == 10 || bArr[i] == 12) {
                 i++;
             } else {
-                return Oj(new String(bArr, i, Math.min(8, bArr.length - i)));
+                return Ot(new String(bArr, i, Math.min(8, bArr.length - i)));
             }
         }
     }
@@ -52,20 +52,20 @@ public class l {
         return byteArrayOutputStream.toByteArray();
     }
 
-    public static i Z(byte[] bArr) throws IOException, PropertyListFormatException, ParseException, ParserConfigurationException, SAXException {
-        switch (af(bArr)) {
+    public static i Y(byte[] bArr) throws IOException, PropertyListFormatException, ParseException, ParserConfigurationException, SAXException {
+        switch (ae(bArr)) {
             case 0:
-                return n.Z(bArr);
+                return n.Y(bArr);
             case 1:
-                return c.Z(bArr);
+                return c.Y(bArr);
             case 2:
-                return a.Z(bArr);
+                return a.Y(bArr);
             default:
                 throw new PropertyListFormatException("The given data is not a property list of a supported format.");
         }
     }
 
     public static i q(InputStream inputStream) throws IOException, PropertyListFormatException, ParseException, ParserConfigurationException, SAXException {
-        return Z(p(inputStream));
+        return Y(p(inputStream));
     }
 }

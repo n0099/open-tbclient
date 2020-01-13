@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends Dialog {
     private TextView a;
     private TextView b;
@@ -16,14 +16,14 @@ public class a extends Dialog {
     private TextView d;
     private LinearLayout e;
     private LinearLayout f;
-    private InterfaceC0137a g;
-    private InterfaceC0137a h;
+    private InterfaceC0139a g;
+    private InterfaceC0139a h;
     private boolean i;
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0137a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0139a {
         void a();
     }
 
@@ -44,12 +44,12 @@ public class a extends Dialog {
         this(activity, R.dimen.pass_liveness_face_round_width);
         View a = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.layout.abc_action_mode_bar, null);
         setContentView(a);
-        this.a = (TextView) a.findViewById(R.raw.par_banana);
-        this.b = (TextView) a.findViewById(R.raw.par_doctor_magic_center);
-        this.c = (TextView) a.findViewById(R.raw.par_firework);
-        this.d = (TextView) a.findViewById(R.raw.par_heart);
-        this.e = (LinearLayout) a.findViewById(R.raw.par_fire_flame);
-        this.f = (LinearLayout) a.findViewById(R.raw.par_heart_1);
+        this.a = (TextView) a.findViewById(R.raw.lottie_use_home_refresh_n);
+        this.b = (TextView) a.findViewById(R.raw.lottie_use_jinba_cj_n);
+        this.c = (TextView) a.findViewById(R.raw.lottie_use_message_cj_n_1);
+        this.d = (TextView) a.findViewById(R.raw.lottie_use_message_cj_n_2);
+        this.e = (LinearLayout) a.findViewById(R.raw.lottie_use_message_cj_n);
+        this.f = (LinearLayout) a.findViewById(R.raw.lottie_use_my_cj_n);
         this.c.setOnClickListener(new b(this));
         this.d.setOnClickListener(new c(this));
         this.i = false;
@@ -119,13 +119,13 @@ public class a extends Dialog {
         return this;
     }
 
-    public a a(InterfaceC0137a interfaceC0137a) {
-        this.g = interfaceC0137a;
+    public a a(InterfaceC0139a interfaceC0139a) {
+        this.g = interfaceC0139a;
         return this;
     }
 
-    public a b(InterfaceC0137a interfaceC0137a) {
-        this.h = interfaceC0137a;
+    public a b(InterfaceC0139a interfaceC0139a) {
+        this.h = interfaceC0139a;
         return this;
     }
 

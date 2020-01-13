@@ -1,7 +1,7 @@
 package org.greenrobot.eventbus.meta;
 
 import org.greenrobot.eventbus.SubscriberMethod;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SimpleSubscriberInfo extends AbstractSubscriberInfo {
     private final SubscriberMethodInfo[] methodInfos;
 

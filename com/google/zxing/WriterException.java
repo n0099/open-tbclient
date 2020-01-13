@@ -1,5 +1,5 @@
 package com.google.zxing;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WriterException extends Exception {
     public WriterException() {
     }

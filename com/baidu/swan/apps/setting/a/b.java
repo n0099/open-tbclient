@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends ab {
     public b(j jVar) {
         super(jVar, "/swanAPI/checkSession");
@@ -39,12 +39,12 @@ public class b extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             com.baidu.swan.games.u.c.i(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
             return false;
-        } else if (!eVar.aad().isLogin(context)) {
+        } else if (!eVar.aaA().isLogin(context)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in");
             com.baidu.swan.games.u.c.i(callbackHandler, unitedSchemeEntity.result.toString());
             return true;
         } else {
-            com.baidu.swan.apps.runtime.d.ZP().ZR().Ei().Ff().c((Activity) context, appKey).h(new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
+            com.baidu.swan.apps.runtime.d.aam().aao().EE().FB().c((Activity) context, appKey).h(new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
@@ -58,7 +58,7 @@ public class b extends ab {
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
                 }
-            }).abv();
+            }).abS();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

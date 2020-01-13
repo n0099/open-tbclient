@@ -8,26 +8,26 @@ import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     String appId;
     String appKey;
-    JSONArray beV;
-    String beW;
+    JSONArray bfL;
+    String bfM;
     String page;
 
     private c() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String dT(int i) {
-        if (this.beV == null) {
+    public String dU(int i) {
+        if (this.bfL == null) {
             return "";
         }
-        String optString = this.beV.optString(i);
+        String optString = this.bfL.optString(i);
         if (!TextUtils.isEmpty(optString)) {
-            return "http://" + optString + ":" + this.beW;
+            return "http://" + optString + ":" + this.bfM;
         }
         return "";
     }
@@ -35,10 +35,10 @@ public class c {
     public static c ae(JSONObject jSONObject) {
         c cVar = new c();
         try {
-            cVar.beV = jSONObject.getJSONArray(Contract.SCHEME_KEY_HOST);
+            cVar.bfL = jSONObject.getJSONArray(Contract.SCHEME_KEY_HOST);
             cVar.appKey = jSONObject.getString("appKey");
             cVar.appId = jSONObject.getString("appId");
-            cVar.beW = jSONObject.getString(ClientCookie.PORT_ATTR);
+            cVar.bfM = jSONObject.getString(ClientCookie.PORT_ATTR);
             cVar.page = Uri.decode(jSONObject.optString("url"));
             return cVar;
         } catch (JSONException e) {

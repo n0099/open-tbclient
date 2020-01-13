@@ -11,75 +11,75 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f<T> implements Runnable {
-    File bst;
-    e cxs;
-    T cxt;
-    AtomicBoolean cxu = new AtomicBoolean(false);
-    c<T> cxv;
-    private boolean cxw;
+    File bth;
+    e cxD;
+    T cxE;
+    AtomicBoolean cxF = new AtomicBoolean(false);
+    c<T> cxG;
+    private boolean cxH;
 
     public f(e eVar, T t, c<T> cVar) {
-        this.cxs = eVar;
-        this.cxt = t;
-        this.cxv = cVar;
+        this.cxD = eVar;
+        this.cxE = t;
+        this.cxG = cVar;
     }
 
-    public void eO(boolean z) {
-        if (this.cxu.get() != z) {
-            this.cxu.set(z);
+    public void eT(boolean z) {
+        if (this.cxF.get() != z) {
+            this.cxF.set(z);
         }
     }
 
     public boolean k(f<T> fVar) {
-        return (fVar == null || fVar.cxs == null || fVar.cxs.cxr == null || this.cxs == null || this.cxs.cxr == null || !this.cxs.cxr.equals(fVar.cxs.cxr)) ? false : true;
+        return (fVar == null || fVar.cxD == null || fVar.cxD.cxC == null || this.cxD == null || this.cxD.cxC == null || !this.cxD.cxC.equals(fVar.cxD.cxC)) ? false : true;
     }
 
-    public com.baidu.swan.pms.a.c<T> arn() {
-        return this.cxv;
+    public com.baidu.swan.pms.a.c<T> arG() {
+        return this.cxG;
     }
 
-    public T aro() {
-        return this.cxt;
+    public T arH() {
+        return this.cxE;
     }
 
-    public int arp() {
-        return this.cxs.cxr.state;
+    public int arI() {
+        return this.cxD.cxC.state;
     }
 
-    public void arq() {
+    public void arJ() {
         iq(1);
-        this.cxv.G(this.cxt);
+        this.cxG.G(this.cxE);
     }
 
-    public void arr() {
-        this.cxv.F(this.cxt);
+    public void arK() {
+        this.cxG.F(this.cxE);
     }
 
-    public void ars() {
+    public void arL() {
         iq(2);
-        this.cxv.W(this.cxt);
+        this.cxG.W(this.cxE);
     }
 
-    public void art() {
+    public void arM() {
         iq(10);
-        this.cxv.E(this.cxt);
+        this.cxG.E(this.cxE);
     }
 
-    public void aru() {
+    public void arN() {
         iq(3);
-        this.cxv.a((c<T>) this.cxt, this.cxs.cxq);
+        this.cxG.a((c<T>) this.cxE, this.cxD.cxB);
     }
 
     public boolean iq(int i) {
-        if (this.cxs.cxr.state != i) {
-            this.cxs.cxr.state = i;
+        if (this.cxD.cxC.state != i) {
+            this.cxD.cxC.state = i;
             if (i == 2 || i == 3 || i == 10) {
-                eO(true);
+                eT(true);
                 return true;
             }
-            eO(false);
+            eT(false);
             return true;
         }
         return false;
@@ -88,43 +88,43 @@ public class f<T> implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (com.baidu.swan.pms.d.DEBUG) {
-            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqG().getProcessName() + ": run:" + this.cxs.cxr.downloadUrl);
+            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqZ().getProcessName() + ": run:" + this.cxD.cxC.downloadUrl);
         }
         j jVar = new j(this);
         while (true) {
-            if (this.cxs.cxq == null || this.cxs.cxq.errorNo != 2200) {
-                if (this.cxu.get()) {
+            if (this.cxD.cxB == null || this.cxD.cxB.errorNo != 2200) {
+                if (this.cxF.get()) {
                     if (com.baidu.swan.pms.d.DEBUG) {
-                        Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqG().getProcessName() + ": stopped:" + this.cxs.cxr.downloadUrl);
+                        Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqZ().getProcessName() + ": stopped:" + this.cxD.cxC.downloadUrl);
                     }
-                    ars();
+                    arL();
                     return;
                 }
-                jVar.arz();
-                if (this.cxs.cxq != null) {
-                    switch (this.cxs.cxq.errorNo) {
+                jVar.arS();
+                if (this.cxD.cxB != null) {
+                    switch (this.cxD.cxB.errorNo) {
                         case PushConstants.EXPIRE_NOTIFICATION /* 2200 */:
                             if (com.baidu.swan.pms.d.DEBUG) {
-                                Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqG().getProcessName() + ": success download:" + this.cxs.cxr.downloadUrl);
+                                Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqZ().getProcessName() + ": success download:" + this.cxD.cxC.downloadUrl);
                             }
-                            art();
+                            arM();
                             return;
                         default:
-                            if (this.cxu.get()) {
+                            if (this.cxF.get()) {
                                 if (com.baidu.swan.pms.d.DEBUG) {
-                                    Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqG().getProcessName() + ": stopped:" + this.cxs.cxr.downloadUrl);
+                                    Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqZ().getProcessName() + ": stopped:" + this.cxD.cxC.downloadUrl);
                                 }
-                                ars();
+                                arL();
                                 return;
                             }
                             if (com.baidu.swan.pms.d.DEBUG) {
-                                Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqG().getProcessName() + ": retry download:" + this.cxs.cxr.downloadUrl);
+                                Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqZ().getProcessName() + ": retry download:" + this.cxD.cxC.downloadUrl);
                             }
-                            this.cxv.mRetryCount++;
-                            if (this.cxv.mRetryCount < 3) {
+                            this.cxG.mRetryCount++;
+                            if (this.cxG.mRetryCount < 3) {
                                 try {
-                                    if (!this.cxu.get()) {
-                                        Thread.sleep(this.cxv.mRetryCount * 1000);
+                                    if (!this.cxF.get()) {
+                                        Thread.sleep(this.cxG.mRetryCount * 1000);
                                         break;
                                     } else {
                                         break;
@@ -133,8 +133,8 @@ public class f<T> implements Runnable {
                                     break;
                                 }
                             } else {
-                                aru();
-                                a(this.cxs.cxq.errorNo, this.cxs.cxr);
+                                arN();
+                                a(this.cxD.cxB.errorNo, this.cxD.cxC);
                                 return;
                             }
                     }
@@ -146,23 +146,23 @@ public class f<T> implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean aqW() {
-        if (TextUtils.isEmpty(this.cxs.cxr.filePath)) {
-            this.bst = com.baidu.swan.pms.f.c.bW(this.cxv.I(this.cxt), this.cxs.cxr.md5);
-            if (this.bst == null) {
-                this.cxv.a((c<T>) this.cxt, new com.baidu.swan.pms.model.a(2203, "download : path not available"));
+    public boolean arp() {
+        if (TextUtils.isEmpty(this.cxD.cxC.filePath)) {
+            this.bth = com.baidu.swan.pms.f.c.bX(this.cxG.I(this.cxE), this.cxD.cxC.md5);
+            if (this.bth == null) {
+                this.cxG.a((c<T>) this.cxE, new com.baidu.swan.pms.model.a(2203, "download : path not available"));
                 return false;
             }
-            this.cxs.cxr.filePath = this.bst.getAbsolutePath();
+            this.cxD.cxC.filePath = this.bth.getAbsolutePath();
             return true;
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean bc(long j) {
+    public boolean bf(long j) {
         boolean z = false;
-        String I = this.cxv.I(this.cxt);
+        String I = this.cxG.I(this.cxE);
         if (I != null) {
             try {
                 StatFs statFs = new StatFs(I);
@@ -173,7 +173,7 @@ public class f<T> implements Runnable {
                 }
             } catch (Throwable th) {
                 if (com.baidu.swan.pms.d.DEBUG) {
-                    Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqG().getProcessName() + ": path exception or no space left." + th.toString());
+                    Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqZ().getProcessName() + ": path exception or no space left." + th.toString());
                 }
             }
         }
@@ -200,7 +200,7 @@ public class f<T> implements Runnable {
             }
             try {
                 if (eVar instanceof com.baidu.swan.pms.model.f) {
-                    jSONObject.put("appId", eVar.cwO);
+                    jSONObject.put("appId", eVar.cwZ);
                 }
             } catch (JSONException e3) {
                 e = e3;
@@ -212,39 +212,39 @@ public class f<T> implements Runnable {
     }
 
     public int hashCode() {
-        return Objects.hash(this.cxs.cxr);
+        return Objects.hash(this.cxD.cxC);
     }
 
-    public int arv() {
-        return new com.baidu.swan.pms.c.a.b.a().u(this.cxv.aqI()).intValue();
+    public int arO() {
+        return new com.baidu.swan.pms.c.a.b.a().u(this.cxG.arb()).intValue();
     }
 
     public String toString() {
-        return "downloadUrl:" + this.cxs.cxr.downloadUrl + ",versionName:" + this.cxs.cxr.versionName + ",versionCode:" + this.cxs.cxr.versionCode + "md5:" + this.cxs.cxr.md5 + "bundleId:" + this.cxs.cxr.cwO;
+        return "downloadUrl:" + this.cxD.cxC.downloadUrl + ",versionName:" + this.cxD.cxC.versionName + ",versionCode:" + this.cxD.cxC.versionCode + "md5:" + this.cxD.cxC.md5 + "bundleId:" + this.cxD.cxC.cwZ;
     }
 
-    public void arw() {
+    public void arP() {
         if (com.baidu.swan.pms.d.DEBUG) {
-            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqG().getProcessName() + ": onNotifyPending" + this);
+            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqZ().getProcessName() + ": onNotifyPending" + this);
         }
-        this.cxw = true;
-        eO(true);
+        this.cxH = true;
+        eT(true);
     }
 
-    public boolean arx() {
-        return this.cxw;
+    public boolean arQ() {
+        return this.cxH;
     }
 
-    public void eP(boolean z) {
+    public void eU(boolean z) {
         if (com.baidu.swan.pms.d.DEBUG) {
-            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqG().getProcessName() + ": onResetPending" + this);
+            Log.d("ThunderInfoTask", com.baidu.swan.pms.d.aqZ().getProcessName() + ": onResetPending" + this);
         }
         if (z) {
-            this.cxs.cxr.currentSize = 0L;
+            this.cxD.cxC.currentSize = 0L;
         }
         iq(0);
-        eO(false);
-        this.cxw = false;
+        eT(false);
+        this.cxH = false;
     }
 
     public boolean equals(Object obj) {

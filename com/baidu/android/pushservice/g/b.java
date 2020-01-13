@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.g;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     private String a;
     private String b;

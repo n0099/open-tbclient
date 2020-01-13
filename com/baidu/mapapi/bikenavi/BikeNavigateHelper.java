@@ -19,7 +19,7 @@ import com.baidu.mapsdkplatform.comapi.NativeLoader;
 import com.baidu.mapsdkplatform.comapi.map.VersionInfo;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BikeNavigateHelper {
     private static BikeNavigateHelper d;
     boolean a;

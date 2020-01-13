@@ -14,7 +14,7 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class a implements d, j, a.InterfaceC0010a {
     private final com.airbnb.lottie.model.layer.a fG;
     private final float[] fI;
@@ -248,11 +248,11 @@ public abstract class a implements d, j, a.InterfaceC0010a {
     @Override // com.airbnb.lottie.model.f
     @CallSuper
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (t == com.airbnb.lottie.k.eO) {
+        if (t == com.airbnb.lottie.k.eN) {
             this.fK.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eV) {
+        } else if (t == com.airbnb.lottie.k.eU) {
             this.fJ.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fk) {
+        } else if (t == com.airbnb.lottie.k.fj) {
             if (cVar == null) {
                 this.fN = null;
                 return;
@@ -265,7 +265,7 @@ public abstract class a implements d, j, a.InterfaceC0010a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.airbnb.lottie.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class C0009a {
         private final List<l> fO;
         @Nullable

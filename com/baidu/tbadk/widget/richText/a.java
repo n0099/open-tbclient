@@ -9,38 +9,38 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    public static final float dJm = l.getEquipmentDensity(TbadkCoreApplication.getInst());
-    protected TbImageView.c Nn;
-    protected boolean dJA;
-    public int dJK;
-    public int dJL;
-    public int dJM;
+    public static final float dJv = l.getEquipmentDensity(TbadkCoreApplication.getInst());
+    protected TbImageView.c Nr;
+    protected boolean dJJ;
+    public int dJT;
+    public int dJU;
+    public int dJV;
     public boolean mIsFromCDN;
-    protected float dJn = 0.0f;
-    protected float dJo = 0.0f;
-    protected int cZK = 0;
-    protected int dJp = 0;
+    protected float dJw = 0.0f;
+    protected float dJx = 0.0f;
+    protected int cZU = 0;
+    protected int dJy = 0;
     protected float mTextSize = 15.0f;
-    protected int dJq = -1;
-    protected int dJr = -1;
+    protected int dJz = -1;
+    protected int dJA = -1;
     protected int mTextColor = ViewCompat.MEASURED_STATE_MASK;
-    protected int dJs = 200;
-    protected int dJt = 200;
-    protected int dJu = 0;
-    protected int dJv = 0;
-    protected boolean dJw = false;
-    protected int dJx = -9989158;
-    protected ImageView.ScaleType dJy = ImageView.ScaleType.CENTER_CROP;
-    public boolean dJz = false;
-    public int dJB = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds16);
-    public int dJC = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-    public int dJD = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
-    protected int dJE = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-    protected int dJF = 0;
-    protected int dJG = -1;
-    protected int dJH = -1;
-    protected int dJI = -1;
-    protected boolean dJJ = false;
+    protected int dJB = 200;
+    protected int dJC = 200;
+    protected int dJD = 0;
+    protected int dJE = 0;
+    protected boolean dJF = false;
+    protected int dJG = -9989158;
+    protected ImageView.ScaleType dJH = ImageView.ScaleType.CENTER_CROP;
+    public boolean dJI = false;
+    public int dJK = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds16);
+    public int dJL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    public int dJM = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
+    protected int dJN = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    protected int dJO = 0;
+    protected int dJP = -1;
+    protected int dJQ = -1;
+    protected int dJR = -1;
+    protected boolean dJS = false;
 
     public a() {
     }
@@ -52,101 +52,101 @@ public class a {
     }
 
     public void b(TypedArray typedArray) {
-        this.dJp = typedArray.getDimensionPixelSize(5, 0);
-        this.cZK = typedArray.getDimensionPixelSize(2, 0);
-        this.dJn = typedArray.getFloat(12, 1.12f);
+        this.dJy = typedArray.getDimensionPixelSize(5, 0);
+        this.cZU = typedArray.getDimensionPixelSize(2, 0);
+        this.dJw = typedArray.getFloat(12, 1.12f);
         this.mTextSize = typedArray.getDimensionPixelSize(1, (int) this.mTextSize);
         this.mTextColor = typedArray.getColor(0, this.mTextColor);
-        this.dJs = typedArray.getDimensionPixelSize(8, this.dJs);
-        this.dJt = typedArray.getDimensionPixelSize(11, this.dJt);
-        this.dJu = typedArray.getResourceId(3, 0);
-        this.dJq = typedArray.getDimensionPixelSize(10, this.dJq);
-        this.dJr = typedArray.getDimensionPixelSize(4, this.dJr);
-        this.dJv = typedArray.getResourceId(9, 0);
-        this.dJw = typedArray.getBoolean(6, false);
-        this.dJH = this.dJp;
+        this.dJB = typedArray.getDimensionPixelSize(8, this.dJB);
+        this.dJC = typedArray.getDimensionPixelSize(11, this.dJC);
+        this.dJD = typedArray.getResourceId(3, 0);
+        this.dJz = typedArray.getDimensionPixelSize(10, this.dJz);
+        this.dJA = typedArray.getDimensionPixelSize(4, this.dJA);
+        this.dJE = typedArray.getResourceId(9, 0);
+        this.dJF = typedArray.getBoolean(6, false);
+        this.dJQ = this.dJy;
     }
 
     public void release() {
     }
 
-    public void aO(int i, int i2) {
-        this.dJq = i;
-        this.dJr = i2;
+    public void aS(int i, int i2) {
+        this.dJz = i;
+        this.dJA = i2;
     }
 
     public void mQ(int i) {
-        this.dJv = i;
-    }
-
-    public void mR(int i) {
-        this.dJs = i;
-    }
-
-    public void mS(int i) {
-        this.dJt = i;
-    }
-
-    public void mT(int i) {
-        this.dJu = i;
-    }
-
-    public void setSupportNoImage() {
-        this.dJz = true;
-    }
-
-    public void setLineSpacing(float f, float f2) {
-        this.dJn = f2;
-        this.dJo = f;
-    }
-
-    public void aP(int i, int i2) {
-        this.dJB = i;
-        this.dJC = i2;
-    }
-
-    public void mU(int i) {
-        this.dJD = i;
-    }
-
-    public void mV(int i) {
         this.dJE = i;
     }
 
+    public void mR(int i) {
+        this.dJB = i;
+    }
+
+    public void mS(int i) {
+        this.dJC = i;
+    }
+
+    public void mT(int i) {
+        this.dJD = i;
+    }
+
+    public void setSupportNoImage() {
+        this.dJI = true;
+    }
+
+    public void setLineSpacing(float f, float f2) {
+        this.dJw = f2;
+        this.dJx = f;
+    }
+
+    public void aT(int i, int i2) {
+        this.dJK = i;
+        this.dJL = i2;
+    }
+
+    public void mU(int i) {
+        this.dJM = i;
+    }
+
+    public void mV(int i) {
+        this.dJN = i;
+    }
+
     public void mW(int i) {
-        this.dJp = i;
+        this.dJy = i;
     }
 
     public void mX(int i) {
-        this.dJF = i;
+        this.dJO = i;
     }
 
     public void mY(int i) {
-        this.dJG = i;
+        this.dJP = i;
     }
 
     public void mZ(int i) {
-        this.dJH = i;
+        this.dJQ = i;
     }
 
     public void na(int i) {
-        this.dJI = i;
+        this.dJR = i;
     }
 
     public void setTextSize(int i) {
         this.mTextSize = i;
     }
 
-    public boolean aRe() {
-        return this.dJJ;
+    public boolean aRy() {
+        return this.dJS;
     }
 
-    public void gY(boolean z) {
+    public void hd(boolean z) {
+        this.dJS = z;
+    }
+
+    public void he(boolean z) {
         this.dJJ = z;
-    }
-
-    public void gZ(boolean z) {
-        this.dJA = z;
     }
 
     public int[] u(int i, int i2, int i3, int i4) {
@@ -157,14 +157,14 @@ public class a {
         int[] iArr = {imageResize[0], imageResize[1]};
         int i5 = iArr[0];
         int i6 = iArr[1];
-        if (!this.dJA || i3 <= i5 || dJm <= 1.0f) {
+        if (!this.dJJ || i3 <= i5 || dJv <= 1.0f) {
             i3 = i5;
         } else {
-            if (i5 * dJm <= i3) {
-                if (i5 * dJm > i3 * 0.68f) {
+            if (i5 * dJv <= i3) {
+                if (i5 * dJv > i3 * 0.68f) {
                     i3 = (int) (i3 * 0.68f);
                 } else {
-                    i3 = (int) (i5 * dJm);
+                    i3 = (int) (i5 * dJv);
                 }
             }
             if (iArr[0] > 0) {
@@ -175,30 +175,30 @@ public class a {
     }
 
     public void a(a aVar) {
-        this.dJn = aVar.dJn;
-        this.dJo = aVar.dJo;
-        this.cZK = aVar.cZK;
-        this.dJp = aVar.dJp;
-        this.mTextSize = aVar.mTextSize;
-        this.dJq = aVar.dJq;
-        this.dJr = aVar.dJr;
-        this.mTextColor = aVar.mTextColor;
-        this.dJs = aVar.dJs;
-        this.dJt = aVar.dJt;
-        this.dJu = aVar.dJu;
-        this.dJv = aVar.dJv;
         this.dJw = aVar.dJw;
-        this.mIsFromCDN = aVar.mIsFromCDN;
         this.dJx = aVar.dJx;
+        this.cZU = aVar.cZU;
+        this.dJy = aVar.dJy;
+        this.mTextSize = aVar.mTextSize;
         this.dJz = aVar.dJz;
         this.dJA = aVar.dJA;
+        this.mTextColor = aVar.mTextColor;
         this.dJB = aVar.dJB;
         this.dJC = aVar.dJC;
+        this.dJD = aVar.dJD;
         this.dJE = aVar.dJE;
         this.dJF = aVar.dJF;
+        this.mIsFromCDN = aVar.mIsFromCDN;
         this.dJG = aVar.dJG;
-        this.dJH = aVar.dJp;
         this.dJI = aVar.dJI;
         this.dJJ = aVar.dJJ;
+        this.dJK = aVar.dJK;
+        this.dJL = aVar.dJL;
+        this.dJN = aVar.dJN;
+        this.dJO = aVar.dJO;
+        this.dJP = aVar.dJP;
+        this.dJQ = aVar.dJy;
+        this.dJR = aVar.dJR;
+        this.dJS = aVar.dJS;
     }
 }

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.WindowManager;
 import com.baidu.searchbox.suspensionwindow.cancelwindow.CancelWindowManager;
 import com.baidu.searchbox.suspensionwindow.permission.PermissionUtil;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 class FloatPhone extends FloatView {
     private final Context mContext;
     private boolean mIsInited = false;

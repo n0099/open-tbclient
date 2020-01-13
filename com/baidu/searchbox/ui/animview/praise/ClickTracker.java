@@ -1,14 +1,14 @@
 package com.baidu.searchbox.ui.animview.praise;
 
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ClickTracker {
     private int mClickCounts;
     private long mFirstClickTimeMs;
     private int mLastClickCounts;
     private int mTotalClickCounts;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public enum SpeedLevel {
         V0(-1, "NONE"),
         V1(5, "V1"),

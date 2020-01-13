@@ -1,11 +1,11 @@
 package com.google.android.exoplayer2;
 
 import android.util.Pair;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class x {
-    public static final x lVD = new x() { // from class: com.google.android.exoplayer2.x.1
+    public static final x lZs = new x() { // from class: com.google.android.exoplayer2.x.1
         @Override // com.google.android.exoplayer2.x
-        public int dqZ() {
+        public int dsl() {
             return 0;
         }
 
@@ -15,7 +15,7 @@ public abstract class x {
         }
 
         @Override // com.google.android.exoplayer2.x
-        public int dra() {
+        public int dsm() {
             return 0;
         }
 
@@ -25,7 +25,7 @@ public abstract class x {
         }
 
         @Override // com.google.android.exoplayer2.x
-        public int bt(Object obj) {
+        public int bu(Object obj) {
             return -1;
         }
     };
@@ -34,64 +34,64 @@ public abstract class x {
 
     public abstract b a(int i, b bVar, boolean z, long j);
 
-    public abstract int bt(Object obj);
+    public abstract int bu(Object obj);
 
-    public abstract int dqZ();
+    public abstract int dsl();
 
-    public abstract int dra();
+    public abstract int dsm();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         public boolean isDynamic;
-        public long lUZ;
-        public Object lVE;
-        public long lVM;
-        public long lVN;
-        public boolean lVO;
-        public int lVP;
-        public int lVQ;
-        public long lVR;
-        public long lVS;
+        public long lYQ;
+        public long lZB;
+        public long lZC;
+        public boolean lZD;
+        public int lZE;
+        public int lZF;
+        public long lZG;
+        public long lZH;
+        public Object lZt;
 
         public b a(Object obj, long j, long j2, boolean z, boolean z2, long j3, long j4, int i, int i2, long j5) {
-            this.lVE = obj;
-            this.lVM = j;
-            this.lVN = j2;
-            this.lVO = z;
+            this.lZt = obj;
+            this.lZB = j;
+            this.lZC = j2;
+            this.lZD = z;
             this.isDynamic = z2;
-            this.lVR = j3;
-            this.lUZ = j4;
-            this.lVP = i;
-            this.lVQ = i2;
-            this.lVS = j5;
+            this.lZG = j3;
+            this.lYQ = j4;
+            this.lZE = i;
+            this.lZF = i2;
+            this.lZH = j5;
             return this;
         }
 
-        public long drh() {
-            return this.lVR;
+        public long dst() {
+            return this.lZG;
         }
 
-        public long drb() {
-            return com.google.android.exoplayer2.b.fk(this.lUZ);
+        public long dsn() {
+            return com.google.android.exoplayer2.b.fp(this.lYQ);
         }
 
-        public long dri() {
-            return this.lVS;
+        public long dsu() {
+            return this.lZH;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        public Object lUF;
-        public long lUZ;
-        public Object lVE;
-        private long lVF;
-        private long[] lVG;
-        private int[] lVH;
-        private int[] lVI;
-        private int[] lVJ;
-        private long[][] lVK;
-        private long lVL;
+        public long lYQ;
+        public Object lYw;
+        private long lZA;
+        public Object lZt;
+        private long lZu;
+        private long[] lZv;
+        private int[] lZw;
+        private int[] lZx;
+        private int[] lZy;
+        private long[][] lZz;
         public int windowIndex;
 
         public a a(Object obj, Object obj2, int i, long j, long j2) {
@@ -99,118 +99,118 @@ public abstract class x {
         }
 
         public a a(Object obj, Object obj2, int i, long j, long j2, long[] jArr, int[] iArr, int[] iArr2, int[] iArr3, long[][] jArr2, long j3) {
-            this.lVE = obj;
-            this.lUF = obj2;
+            this.lZt = obj;
+            this.lYw = obj2;
             this.windowIndex = i;
-            this.lUZ = j;
-            this.lVF = j2;
-            this.lVG = jArr;
-            this.lVH = iArr;
-            this.lVI = iArr2;
-            this.lVJ = iArr3;
-            this.lVK = jArr2;
-            this.lVL = j3;
+            this.lYQ = j;
+            this.lZu = j2;
+            this.lZv = jArr;
+            this.lZw = iArr;
+            this.lZx = iArr2;
+            this.lZy = iArr3;
+            this.lZz = jArr2;
+            this.lZA = j3;
             return this;
         }
 
-        public long drb() {
-            return com.google.android.exoplayer2.b.fk(this.lUZ);
+        public long dsn() {
+            return com.google.android.exoplayer2.b.fp(this.lYQ);
         }
 
-        public long drc() {
-            return this.lUZ;
+        public long dso() {
+            return this.lYQ;
         }
 
-        public long drd() {
-            return com.google.android.exoplayer2.b.fk(this.lVF);
+        public long dsp() {
+            return com.google.android.exoplayer2.b.fp(this.lZu);
         }
 
-        public long dre() {
-            return this.lVF;
+        public long dsq() {
+            return this.lZu;
         }
 
-        public int drf() {
-            if (this.lVG == null) {
+        public int dsr() {
+            if (this.lZv == null) {
                 return 0;
             }
-            return this.lVG.length;
+            return this.lZv.length;
         }
 
-        public long IL(int i) {
-            return this.lVG[i];
+        public long IU(int i) {
+            return this.lZv[i];
         }
 
-        public int IM(int i) {
-            return this.lVJ[i];
+        public int IV(int i) {
+            return this.lZy[i];
         }
 
-        public boolean IN(int i) {
-            return this.lVH[i] != -1 && this.lVJ[i] == this.lVH[i];
+        public boolean IW(int i) {
+            return this.lZw[i] != -1 && this.lZy[i] == this.lZw[i];
         }
 
-        public int fx(long j) {
-            if (this.lVG == null) {
+        public int fC(long j) {
+            if (this.lZv == null) {
                 return -1;
             }
-            int length = this.lVG.length - 1;
-            while (length >= 0 && (this.lVG[length] == Long.MIN_VALUE || this.lVG[length] > j)) {
+            int length = this.lZv.length - 1;
+            while (length >= 0 && (this.lZv[length] == Long.MIN_VALUE || this.lZv[length] > j)) {
                 length--;
             }
-            if (length < 0 || IN(length)) {
+            if (length < 0 || IW(length)) {
                 length = -1;
             }
             return length;
         }
 
-        public int fy(long j) {
-            if (this.lVG == null) {
+        public int fD(long j) {
+            if (this.lZv == null) {
                 return -1;
             }
             int i = 0;
-            while (i < this.lVG.length && this.lVG[i] != Long.MIN_VALUE && (j >= this.lVG[i] || IN(i))) {
+            while (i < this.lZv.length && this.lZv[i] != Long.MIN_VALUE && (j >= this.lZv[i] || IW(i))) {
                 i++;
             }
-            if (i >= this.lVG.length) {
+            if (i >= this.lZv.length) {
                 i = -1;
             }
             return i;
         }
 
-        public int IO(int i) {
-            return this.lVH[i];
+        public int IX(int i) {
+            return this.lZw[i];
         }
 
-        public boolean dF(int i, int i2) {
-            return i2 < this.lVI[i];
+        public boolean dD(int i, int i2) {
+            return i2 < this.lZx[i];
         }
 
-        public long dG(int i, int i2) {
-            if (i2 >= this.lVK[i].length) {
+        public long dE(int i, int i2) {
+            if (i2 >= this.lZz[i].length) {
                 return -9223372036854775807L;
             }
-            return this.lVK[i][i2];
+            return this.lZz[i][i2];
         }
 
-        public long drg() {
-            return this.lVL;
+        public long dss() {
+            return this.lZA;
         }
     }
 
     public final boolean isEmpty() {
-        return dqZ() == 0;
+        return dsl() == 0;
     }
 
     public int p(int i, int i2, boolean z) {
         switch (i2) {
             case 0:
-                if (i == vn(z)) {
+                if (i == vz(z)) {
                     return -1;
                 }
                 return i + 1;
             case 1:
                 return i;
             case 2:
-                return i == vn(z) ? vo(z) : i + 1;
+                return i == vz(z) ? vA(z) : i + 1;
             default:
                 throw new IllegalStateException();
         }
@@ -219,27 +219,27 @@ public abstract class x {
     public int q(int i, int i2, boolean z) {
         switch (i2) {
             case 0:
-                if (i == vo(z)) {
+                if (i == vA(z)) {
                     return -1;
                 }
                 return i - 1;
             case 1:
                 return i;
             case 2:
-                return i == vo(z) ? vn(z) : i - 1;
+                return i == vA(z) ? vz(z) : i - 1;
             default:
                 throw new IllegalStateException();
         }
     }
 
-    public int vn(boolean z) {
+    public int vz(boolean z) {
         if (isEmpty()) {
             return -1;
         }
-        return dqZ() - 1;
+        return dsl() - 1;
     }
 
-    public int vo(boolean z) {
+    public int vA(boolean z) {
         return isEmpty() ? -1 : 0;
     }
 
@@ -253,12 +253,12 @@ public abstract class x {
 
     public final int a(int i, a aVar, b bVar, int i2, boolean z) {
         int i3 = a(i, aVar).windowIndex;
-        if (a(i3, bVar).lVQ == i) {
+        if (a(i3, bVar).lZF == i) {
             int p = p(i3, i2, z);
             if (p == -1) {
                 return -1;
             }
-            return a(p, bVar).lVP;
+            return a(p, bVar).lZE;
         }
         return i + 1;
     }
@@ -276,22 +276,22 @@ public abstract class x {
     }
 
     public final Pair<Integer, Long> a(b bVar, a aVar, int i, long j, long j2) {
-        com.google.android.exoplayer2.util.a.ai(i, 0, dqZ());
+        com.google.android.exoplayer2.util.a.ai(i, 0, dsl());
         a(i, bVar, false, j2);
         if (j == -9223372036854775807L) {
-            j = bVar.drh();
+            j = bVar.dst();
             if (j == -9223372036854775807L) {
                 return null;
             }
         }
-        int i2 = bVar.lVP;
-        long dri = bVar.dri() + j;
-        long drc = a(i2, aVar).drc();
-        while (drc != -9223372036854775807L && dri >= drc && i2 < bVar.lVQ) {
-            dri -= drc;
+        int i2 = bVar.lZE;
+        long dsu = bVar.dsu() + j;
+        long dso = a(i2, aVar).dso();
+        while (dso != -9223372036854775807L && dsu >= dso && i2 < bVar.lZF) {
+            dsu -= dso;
             i2++;
-            drc = a(i2, aVar).drc();
+            dso = a(i2, aVar).dso();
         }
-        return Pair.create(Integer.valueOf(i2), Long.valueOf(dri));
+        return Pair.create(Integer.valueOf(i2), Long.valueOf(dsu));
     }
 }

@@ -3,7 +3,7 @@ package protobuf.CommitPusherCount;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class CommitPusherCountResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
@@ -21,7 +21,7 @@ public final class CommitPusherCountResIdl extends Message {
         this.data = builder.data;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class Builder extends Message.Builder<CommitPusherCountResIdl> {
         public DataRes data;
         public Error error;

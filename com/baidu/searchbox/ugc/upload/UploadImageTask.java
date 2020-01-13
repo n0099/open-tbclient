@@ -8,7 +8,7 @@ import com.baidu.searchbox.ugc.utils.FileUtils;
 import com.baidu.searchbox.ugc.utils.SelectUtil;
 import com.baidubce.services.bos.model.ObjectMetadata;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UploadImageTask extends UploadFileTask {
     private String imageType;
     private static String TAG = UploadImageTask.class.getSimpleName();

@@ -1,117 +1,128 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.b.h;
-import io.reactivex.g;
+import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes4.dex */
-public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T, U> {
-    final h<? super T, ? extends U> mapper;
+import io.reactivex.v;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes5.dex */
+public final class b<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
+    final long delay;
+    final boolean delayError;
+    final v scheduler;
+    final TimeUnit unit;
 
-    public b(g<T> gVar, h<? super T, ? extends U> hVar) {
+    public b(io.reactivex.g<T> gVar, long j, TimeUnit timeUnit, v vVar, boolean z) {
         super(gVar);
-        this.mapper = hVar;
+        this.delay = j;
+        this.unit = timeUnit;
+        this.scheduler = vVar;
+        this.delayError = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // io.reactivex.g
-    public void a(org.a.c<? super U> cVar) {
-        if (cVar instanceof io.reactivex.internal.a.a) {
-            this.mTG.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
-        } else {
-            this.mTG.a((j) new C0711b(cVar, this.mapper));
-        }
+    protected void a(org.a.c<? super T> cVar) {
+        this.nvK.a((j) new a(this.delayError ? cVar : new io.reactivex.subscribers.b<>(cVar), this.delay, this.unit, this.scheduler.dHW(), this.delayError));
     }
 
-    /* renamed from: io.reactivex.internal.operators.flowable.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    static final class C0711b<T, U> extends io.reactivex.internal.subscribers.b<T, U> {
-        final h<? super T, ? extends U> mapper;
+    /* loaded from: classes5.dex */
+    static final class a<T> implements j<T>, org.a.d {
+        final org.a.c<? super T> actual;
+        final long delay;
+        final boolean delayError;
+        org.a.d s;
+        final TimeUnit unit;
+        final v.c w;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public C0711b(org.a.c<? super U> cVar, h<? super T, ? extends U> hVar) {
-            super(cVar);
-            this.mapper = hVar;
+        a(org.a.c<? super T> cVar, long j, TimeUnit timeUnit, v.c cVar2, boolean z) {
+            this.actual = cVar;
+            this.delay = j;
+            this.unit = timeUnit;
+            this.w = cVar2;
+            this.delayError = z;
+        }
+
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
+            if (SubscriptionHelper.validate(this.s, dVar)) {
+                this.s = dVar;
+                this.actual.onSubscribe(this);
+            }
         }
 
         @Override // org.a.c
         public void onNext(T t) {
-            if (!this.done) {
-                if (this.sourceMode != 0) {
-                    this.actual.onNext(null);
-                    return;
-                }
-                try {
-                    this.actual.onNext(io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper function returned a null value."));
-                } catch (Throwable th) {
-                    J(th);
-                }
-            }
-        }
-
-        @Override // io.reactivex.internal.a.c
-        public int requestFusion(int i) {
-            return MF(i);
-        }
-
-        @Override // io.reactivex.internal.a.f
-        public U poll() throws Exception {
-            T poll = this.qs.poll();
-            if (poll != null) {
-                return (U) io.reactivex.internal.functions.a.h(this.mapper.apply(poll), "The mapper function returned a null value.");
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    static final class a<T, U> extends io.reactivex.internal.subscribers.a<T, U> {
-        final h<? super T, ? extends U> mapper;
-
-        a(io.reactivex.internal.a.a<? super U> aVar, h<? super T, ? extends U> hVar) {
-            super(aVar);
-            this.mapper = hVar;
+            this.w.c(new c(t), this.delay, this.unit);
         }
 
         @Override // org.a.c
-        public void onNext(T t) {
-            if (!this.done) {
-                if (this.sourceMode != 0) {
-                    this.actual.onNext(null);
-                    return;
-                }
+        public void onError(Throwable th) {
+            this.w.c(new RunnableC0755b(th), this.delayError ? this.delay : 0L, this.unit);
+        }
+
+        @Override // org.a.c
+        public void onComplete() {
+            this.w.c(new RunnableC0754a(), this.delay, this.unit);
+        }
+
+        @Override // org.a.d
+        public void request(long j) {
+            this.s.request(j);
+        }
+
+        @Override // org.a.d
+        public void cancel() {
+            this.s.cancel();
+            this.w.dispose();
+        }
+
+        /* loaded from: classes5.dex */
+        final class c implements Runnable {
+            private final T t;
+
+            c(T t) {
+                this.t = t;
+            }
+
+            /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */
+            @Override // java.lang.Runnable
+            public void run() {
+                a.this.actual.onNext((T) this.t);
+            }
+        }
+
+        /* renamed from: io.reactivex.internal.operators.flowable.b$a$b  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        final class RunnableC0755b implements Runnable {
+            private final Throwable nwc;
+
+            RunnableC0755b(Throwable th) {
+                this.nwc = th;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
                 try {
-                    this.actual.onNext(io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper function returned a null value."));
-                } catch (Throwable th) {
-                    J(th);
+                    a.this.actual.onError(this.nwc);
+                } finally {
+                    a.this.w.dispose();
                 }
             }
         }
 
-        @Override // io.reactivex.internal.a.a
-        public boolean tryOnNext(T t) {
-            if (this.done) {
-                return false;
+        /* renamed from: io.reactivex.internal.operators.flowable.b$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        final class RunnableC0754a implements Runnable {
+            RunnableC0754a() {
             }
-            try {
-                return this.actual.tryOnNext(io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper function returned a null value."));
-            } catch (Throwable th) {
-                J(th);
-                return true;
-            }
-        }
 
-        @Override // io.reactivex.internal.a.c
-        public int requestFusion(int i) {
-            return MF(i);
-        }
-
-        @Override // io.reactivex.internal.a.f
-        public U poll() throws Exception {
-            T poll = this.qs.poll();
-            if (poll != null) {
-                return (U) io.reactivex.internal.functions.a.h(this.mapper.apply(poll), "The mapper function returned a null value.");
+            @Override // java.lang.Runnable
+            public void run() {
+                try {
+                    a.this.actual.onComplete();
+                } finally {
+                    a.this.w.dispose();
+                }
             }
-            return null;
         }
     }
 }

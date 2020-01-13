@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.b;
 
 import com.baidu.mapsdkplatform.comapi.synchronization.c.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 /* synthetic */ class c {
     static final /* synthetic */ int[] a = new int[c.a.values().length];
 

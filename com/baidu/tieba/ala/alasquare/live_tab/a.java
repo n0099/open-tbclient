@@ -4,48 +4,46 @@ import android.content.Context;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.a.c;
 import com.baidu.tieba.ala.alasquare.live_tab.a.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private BdTypeRecyclerView Bn;
-    private List<com.baidu.adp.widget.ListView.a> aoz;
-    private c egY;
-    private d egZ;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b eha;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a ehb;
+    private BdTypeRecyclerView Bs;
+    private List<com.baidu.adp.widget.ListView.a> apl;
+    private d ehi;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b ehj;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a ehk;
     private Context mContext;
     private TbPageContext mPageContext;
+    private int tabType;
 
-    public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.Bn = bdTypeRecyclerView;
-        uR();
+        this.Bs = bdTypeRecyclerView;
+        this.tabType = i;
+        vi();
     }
 
-    private void uR() {
-        this.aoz = new ArrayList();
-        this.egY = new c(this.mPageContext);
-        this.egZ = new d(this.mPageContext);
-        this.eha = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.ehb = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.aoz.add(this.egY);
-        this.aoz.add(this.egZ);
-        this.aoz.add(this.eha);
-        this.aoz.add(this.ehb);
-        this.Bn.addAdapters(this.aoz);
+    private void vi() {
+        this.apl = new ArrayList();
+        this.ehi = new d(this.mPageContext, this.tabType);
+        this.ehj = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.ehk = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.apl.add(this.ehi);
+        this.apl.add(this.ehj);
+        this.apl.add(this.ehk);
+        this.Bs.addAdapters(this.apl);
     }
 
     public void setData(List<m> list) {
-        this.Bn.setData(list);
+        this.Bs.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Bn != null) {
-            this.Bn.getListAdapter().notifyDataSetChanged();
+        if (this.Bs != null) {
+            this.Bs.getListAdapter().notifyDataSetChanged();
         }
     }
 }

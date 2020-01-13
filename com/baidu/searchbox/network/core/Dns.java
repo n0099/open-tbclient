@@ -4,7 +4,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface Dns {
     public static final Dns SYSTEM = new Dns() { // from class: com.baidu.searchbox.network.core.Dns.1
         @Override // com.baidu.searchbox.network.core.Dns

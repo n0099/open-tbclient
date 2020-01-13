@@ -37,7 +37,6 @@ import com.baidu.media.duplayer.DuplayerCore;
 import com.baidu.media.duplayer.Keep;
 import com.baidu.media.duplayer.Utils;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.tencent.connect.common.Constants;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -164,7 +163,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                 hashMap.put("find_st_info", "6");
                 hashMap.put("init_audio", "7");
                 hashMap.put("init_video", "8");
-                hashMap.put(DpStatConstants.KEY_PREPARED, PublishType.TYPE_VIDEO_SHARE);
+                hashMap.put(DpStatConstants.KEY_PREPARED, "9");
                 hashMap.put("start_play", "10");
                 hashMap.put("frame_decoded", "11");
                 hashMap.put("render_pic", "12");
@@ -942,7 +941,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         }
         this.p = false;
         if (Thread.currentThread() == Looper.getMainLooper().getThread() || !Utils.d(CyberPlayerManager.getApplicationContext()) || CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_PLAYER_THREAD, true)) {
-            this.n = com.baidu.media.duplayer.a.b.AV().AX();
+            this.n = com.baidu.media.duplayer.a.b.Br().Bt();
             this.o = new f(this, this.n.getLooper());
             CyberLog.i("IjkMediaPlayer", "create player in main thread, use request handler. thread:" + Thread.currentThread().getName() + " request thread:" + this.n.getName() + " mRequestHandler:" + this.o);
             this.p = true;
@@ -980,7 +979,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     private synchronized void y() {
         if (this.p) {
-            com.baidu.media.duplayer.a.b.AV().a(this.n);
+            com.baidu.media.duplayer.a.b.Br().a(this.n);
             this.n = null;
         }
     }

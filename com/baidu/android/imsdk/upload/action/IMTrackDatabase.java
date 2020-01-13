@@ -32,8 +32,9 @@ public class IMTrackDatabase {
     private static DbOpenHelper dbOpenHelper = null;
     public static final Object myLock = new Object();
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    enum AckEnum {
+    public enum AckEnum {
         ackId,
         type,
         value,
@@ -44,8 +45,9 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "ack";
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    enum ConnectionEnum {
+    public enum ConnectionEnum {
         connectionId,
         startTime,
         stopTime,
@@ -58,8 +60,9 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "connection";
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    enum CrashEnum {
+    public enum CrashEnum {
         crashId,
         exception,
         timestamp,
@@ -69,8 +72,9 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "crash";
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    enum DbEnum {
+    public enum DbEnum {
         dbId,
         tableName,
         className,
@@ -85,8 +89,9 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "db";
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    enum MsgEnum {
+    public enum MsgEnum {
         msgId,
         msgCount,
         roomId,
@@ -99,8 +104,9 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "msg";
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    enum RequestEnum {
+    public enum RequestEnum {
         id,
         method,
         requestId,
@@ -113,8 +119,9 @@ public class IMTrackDatabase {
         static final String TABLE_NAME = "request";
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    enum UiEnum {
+    public enum UiEnum {
         uiId,
         category,
         page,

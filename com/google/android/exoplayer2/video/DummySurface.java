@@ -16,7 +16,7 @@ import android.util.Log;
 import android.view.Surface;
 import com.google.android.exoplayer2.util.v;
 @TargetApi(17)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DummySurface extends Surface {
     private static final int EGL_PROTECTED_CONTENT_EXT = 12992;
     private static final String TAG = "DummySurface";
@@ -26,12 +26,12 @@ public final class DummySurface extends Surface {
     private final a thread;
     private boolean threadReleased;
 
-    public static synchronized boolean gr(Context context) {
+    public static synchronized boolean gs(Context context) {
         boolean z;
         boolean z2 = true;
         synchronized (DummySurface.class) {
             if (!secureSupportedInitialized) {
-                secureSupported = (v.SDK_INT < 24 || !gs(context)) ? false : false;
+                secureSupported = (v.SDK_INT < 24 || !gt(context)) ? false : false;
                 secureSupportedInitialized = true;
             }
             z = secureSupported;
@@ -40,9 +40,9 @@ public final class DummySurface extends Surface {
     }
 
     public static DummySurface p(Context context, boolean z) {
-        dxw();
-        com.google.android.exoplayer2.util.a.checkState(!z || gr(context));
-        return new a().vF(z);
+        dyG();
+        com.google.android.exoplayer2.util.a.checkState(!z || gs(context));
+        return new a().vR(z);
     }
 
     private DummySurface(a aVar, SurfaceTexture surfaceTexture, boolean z) {
@@ -62,14 +62,14 @@ public final class DummySurface extends Surface {
         }
     }
 
-    private static void dxw() {
+    private static void dyG() {
         if (v.SDK_INT < 17) {
             throw new UnsupportedOperationException("Unsupported prior to API level 17");
         }
     }
 
     @TargetApi(24)
-    private static boolean gs(Context context) {
+    private static boolean gt(Context context) {
         String eglQueryString;
         if (v.SDK_INT >= 26 || !"samsung".equals(v.MANUFACTURER)) {
             return (v.SDK_INT >= 26 || context.getPackageManager().hasSystemFeature("android.hardware.vr.high_performance")) && (eglQueryString = EGL14.eglQueryString(EGL14.eglGetDisplay(0), 12373)) != null && eglQueryString.contains("EGL_EXT_protected_content");
@@ -78,30 +78,30 @@ public final class DummySurface extends Surface {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a extends HandlerThread implements SurfaceTexture.OnFrameAvailableListener, Handler.Callback {
-        private SurfaceTexture dQx;
+        private SurfaceTexture dQG;
         private Handler handler;
-        private DummySurface mDA;
-        private final int[] mDs;
-        private EGLDisplay mDt;
-        private EGLContext mDu;
-        private EGLSurface mDv;
-        private Error mDw;
-        private RuntimeException mDz;
+        private final int[] mHi;
+        private EGLDisplay mHj;
+        private EGLContext mHk;
+        private EGLSurface mHl;
+        private Error mHm;
+        private RuntimeException mHn;
+        private DummySurface mHo;
 
         public a() {
             super("dummySurface");
-            this.mDs = new int[1];
+            this.mHi = new int[1];
         }
 
-        public DummySurface vF(boolean z) {
+        public DummySurface vR(boolean z) {
             boolean z2 = false;
             start();
             this.handler = new Handler(getLooper(), this);
             synchronized (this) {
                 this.handler.obtainMessage(1, z ? 1 : 0, 0).sendToTarget();
-                while (this.mDA == null && this.mDz == null && this.mDw == null) {
+                while (this.mHo == null && this.mHn == null && this.mHm == null) {
                     try {
                         wait();
                     } catch (InterruptedException e) {
@@ -112,13 +112,13 @@ public final class DummySurface extends Surface {
             if (z2) {
                 Thread.currentThread().interrupt();
             }
-            if (this.mDz != null) {
-                throw this.mDz;
+            if (this.mHn != null) {
+                throw this.mHn;
             }
-            if (this.mDw != null) {
-                throw this.mDw;
+            if (this.mHm != null) {
+                throw this.mHm;
             }
-            return this.mDA;
+            return this.mHo;
         }
 
         public void release() {
@@ -138,26 +138,26 @@ public final class DummySurface extends Surface {
                 switch (message.what) {
                     case 1:
                         try {
-                            vG(message.arg1 != 0);
+                            vS(message.arg1 != 0);
                             synchronized (this) {
                                 notify();
                             }
                         } catch (Error e) {
                             Log.e(DummySurface.TAG, "Failed to initialize dummy surface", e);
-                            this.mDw = e;
+                            this.mHm = e;
                             synchronized (this) {
                                 notify();
                             }
                         } catch (RuntimeException e2) {
                             Log.e(DummySurface.TAG, "Failed to initialize dummy surface", e2);
-                            this.mDz = e2;
+                            this.mHn = e2;
                             synchronized (this) {
                                 notify();
                             }
                         }
                         break;
                     case 2:
-                        this.dQx.updateTexImage();
+                        this.dQG.updateTexImage();
                         break;
                     case 3:
                         try {
@@ -181,69 +181,69 @@ public final class DummySurface extends Surface {
             }
         }
 
-        private void vG(boolean z) {
+        private void vS(boolean z) {
             int[] iArr;
             int[] iArr2;
-            this.mDt = EGL14.eglGetDisplay(0);
-            com.google.android.exoplayer2.util.a.d(this.mDt != null, "eglGetDisplay failed");
+            this.mHj = EGL14.eglGetDisplay(0);
+            com.google.android.exoplayer2.util.a.d(this.mHj != null, "eglGetDisplay failed");
             int[] iArr3 = new int[2];
-            com.google.android.exoplayer2.util.a.d(EGL14.eglInitialize(this.mDt, iArr3, 0, iArr3, 1), "eglInitialize failed");
+            com.google.android.exoplayer2.util.a.d(EGL14.eglInitialize(this.mHj, iArr3, 0, iArr3, 1), "eglInitialize failed");
             EGLConfig[] eGLConfigArr = new EGLConfig[1];
             int[] iArr4 = new int[1];
-            com.google.android.exoplayer2.util.a.d(EGL14.eglChooseConfig(this.mDt, new int[]{12352, 4, 12324, 8, 12323, 8, 12322, 8, 12321, 8, 12325, 0, 12327, 12344, 12339, 4, 12344}, 0, eGLConfigArr, 0, 1, iArr4, 0) && iArr4[0] > 0 && eGLConfigArr[0] != null, "eglChooseConfig failed");
+            com.google.android.exoplayer2.util.a.d(EGL14.eglChooseConfig(this.mHj, new int[]{12352, 4, 12324, 8, 12323, 8, 12322, 8, 12321, 8, 12325, 0, 12327, 12344, 12339, 4, 12344}, 0, eGLConfigArr, 0, 1, iArr4, 0) && iArr4[0] > 0 && eGLConfigArr[0] != null, "eglChooseConfig failed");
             EGLConfig eGLConfig = eGLConfigArr[0];
             if (z) {
                 iArr = new int[]{12440, 2, DummySurface.EGL_PROTECTED_CONTENT_EXT, 1, 12344};
             } else {
                 iArr = new int[]{12440, 2, 12344};
             }
-            this.mDu = EGL14.eglCreateContext(this.mDt, eGLConfig, EGL14.EGL_NO_CONTEXT, iArr, 0);
-            com.google.android.exoplayer2.util.a.d(this.mDu != null, "eglCreateContext failed");
+            this.mHk = EGL14.eglCreateContext(this.mHj, eGLConfig, EGL14.EGL_NO_CONTEXT, iArr, 0);
+            com.google.android.exoplayer2.util.a.d(this.mHk != null, "eglCreateContext failed");
             if (z) {
                 iArr2 = new int[]{12375, 1, 12374, 1, DummySurface.EGL_PROTECTED_CONTENT_EXT, 1, 12344};
             } else {
                 iArr2 = new int[]{12375, 1, 12374, 1, 12344};
             }
-            this.mDv = EGL14.eglCreatePbufferSurface(this.mDt, eGLConfig, iArr2, 0);
-            com.google.android.exoplayer2.util.a.d(this.mDv != null, "eglCreatePbufferSurface failed");
-            com.google.android.exoplayer2.util.a.d(EGL14.eglMakeCurrent(this.mDt, this.mDv, this.mDv, this.mDu), "eglMakeCurrent failed");
-            GLES20.glGenTextures(1, this.mDs, 0);
-            this.dQx = new SurfaceTexture(this.mDs[0]);
-            this.dQx.setOnFrameAvailableListener(this);
-            this.mDA = new DummySurface(this, this.dQx, z);
+            this.mHl = EGL14.eglCreatePbufferSurface(this.mHj, eGLConfig, iArr2, 0);
+            com.google.android.exoplayer2.util.a.d(this.mHl != null, "eglCreatePbufferSurface failed");
+            com.google.android.exoplayer2.util.a.d(EGL14.eglMakeCurrent(this.mHj, this.mHl, this.mHl, this.mHk), "eglMakeCurrent failed");
+            GLES20.glGenTextures(1, this.mHi, 0);
+            this.dQG = new SurfaceTexture(this.mHi[0]);
+            this.dQG.setOnFrameAvailableListener(this);
+            this.mHo = new DummySurface(this, this.dQG, z);
         }
 
         /* JADX DEBUG: Incorrect finally slice size: {[IGET, INVOKE] complete}, expected: {[IGET] complete} */
         /* JADX WARN: Finally extract failed */
         private void releaseInternal() {
             try {
-                if (this.dQx != null) {
-                    this.dQx.release();
-                    GLES20.glDeleteTextures(1, this.mDs, 0);
+                if (this.dQG != null) {
+                    this.dQG.release();
+                    GLES20.glDeleteTextures(1, this.mHi, 0);
                 }
-                if (this.mDv != null) {
-                    EGL14.eglDestroySurface(this.mDt, this.mDv);
+                if (this.mHl != null) {
+                    EGL14.eglDestroySurface(this.mHj, this.mHl);
                 }
-                if (this.mDu != null) {
-                    EGL14.eglDestroyContext(this.mDt, this.mDu);
+                if (this.mHk != null) {
+                    EGL14.eglDestroyContext(this.mHj, this.mHk);
                 }
-                this.mDv = null;
-                this.mDu = null;
-                this.mDt = null;
-                this.mDA = null;
-                this.dQx = null;
+                this.mHl = null;
+                this.mHk = null;
+                this.mHj = null;
+                this.mHo = null;
+                this.dQG = null;
             } catch (Throwable th) {
-                if (this.mDv != null) {
-                    EGL14.eglDestroySurface(this.mDt, this.mDv);
+                if (this.mHl != null) {
+                    EGL14.eglDestroySurface(this.mHj, this.mHl);
                 }
-                if (this.mDu != null) {
-                    EGL14.eglDestroyContext(this.mDt, this.mDu);
+                if (this.mHk != null) {
+                    EGL14.eglDestroyContext(this.mHj, this.mHk);
                 }
-                this.mDv = null;
-                this.mDu = null;
-                this.mDt = null;
-                this.mDA = null;
-                this.dQx = null;
+                this.mHl = null;
+                this.mHk = null;
+                this.mHj = null;
+                this.mHo = null;
+                this.dQG = null;
                 throw th;
             }
         }

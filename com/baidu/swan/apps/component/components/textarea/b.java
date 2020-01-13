@@ -4,17 +4,17 @@ import com.baidu.swan.apps.as.af;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.baidu.swan.apps.component.a.a.b {
-    public int bec;
-    public String bed;
-    public String bee;
-    public boolean bef;
-    public boolean beh;
-    public boolean bei;
-    public boolean bej;
-    public int bek;
-    public boolean bel;
+    public int beS;
+    public String beT;
+    public String beU;
+    public boolean beV;
+    public boolean beW;
+    public boolean beX;
+    public boolean beY;
+    public int beZ;
+    public boolean bfa;
     public boolean fixed;
     public String hint;
     public int maxHeight;
@@ -22,8 +22,8 @@ public final class b extends com.baidu.swan.apps.component.a.a.b {
     public b() {
         super("textArea", "inputId");
         this.hint = "";
-        this.bed = "";
-        this.bee = "";
+        this.beT = "";
+        this.beU = "";
     }
 
     @Override // com.baidu.swan.apps.component.a.a.b, com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
@@ -33,88 +33,88 @@ public final class b extends com.baidu.swan.apps.component.a.a.b {
             this.text = jSONObject.optString("value");
             this.hint = jSONObject.optString("placeholder");
             ad(jSONObject);
-            this.bef = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
-            this.beh = jSONObject.optBoolean("autoHeight", false);
-            if (this.beh && this.bdl != null) {
-                this.bdl.setHeight(-2);
-                this.bdl.cQ(true);
+            this.beV = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
+            this.beW = jSONObject.optBoolean("autoHeight", false);
+            if (this.beW && this.bdZ != null) {
+                this.bdZ.setHeight(-2);
+                this.bdZ.cV(true);
             }
             this.fixed = jSONObject.optBoolean("fixed");
-            if (this.bdl != null) {
-                this.bdl.cR(this.fixed);
+            if (this.bdZ != null) {
+                this.bdZ.cW(this.fixed);
             }
-            this.bei = jSONObject.optBoolean("showConfirmBar", true);
-            this.bej = jSONObject.optBoolean("adjustPosition", true);
-            this.bel = jSONObject.optBoolean("disabled", false);
-            HN();
+            this.beX = jSONObject.optBoolean("showConfirmBar", true);
+            this.beY = jSONObject.optBoolean("adjustPosition", true);
+            this.bfa = jSONObject.optBoolean("disabled", false);
+            Ij();
         }
     }
 
     @Override // com.baidu.swan.apps.component.a.a.b, com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b
     public void Y(JSONObject jSONObject) {
         super.Y(jSONObject);
-        this.bel = jSONObject.optBoolean("disabled", this.bel);
+        this.bfa = jSONObject.optBoolean("disabled", this.bfa);
         this.hint = jSONObject.optString("placeholder", this.hint);
         this.text = jSONObject.optString("value", this.text);
-        this.bef = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.bef);
-        this.bei = jSONObject.optBoolean("showConfirmBar", this.bei);
-        this.bej = jSONObject.optBoolean("adjustPosition", this.bej);
+        this.beV = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.beV);
+        this.beX = jSONObject.optBoolean("showConfirmBar", this.beX);
+        this.beY = jSONObject.optBoolean("adjustPosition", this.beY);
         ac(jSONObject);
         ab(jSONObject);
         ad(jSONObject);
-        HN();
+        Ij();
     }
 
     private void ab(JSONObject jSONObject) {
         this.fixed = jSONObject.optBoolean("fixed", this.fixed);
-        if (this.bdl != null) {
-            this.bdl.cR(this.fixed);
+        if (this.bdZ != null) {
+            this.bdZ.cW(this.fixed);
         }
     }
 
     private void ac(JSONObject jSONObject) {
-        this.beh = jSONObject.optBoolean("autoHeight", this.beh);
-        if (this.bdl != null) {
-            if (this.beh) {
-                this.bdl.setHeight(-2);
-                this.bdl.cQ(true);
+        this.beW = jSONObject.optBoolean("autoHeight", this.beW);
+        if (this.bdZ != null) {
+            if (this.beW) {
+                this.bdZ.setHeight(-2);
+                this.bdZ.cV(true);
                 return;
             }
-            int height = this.bdl.getHeight();
+            int height = this.bdZ.getHeight();
             if (this.mViewHeight > 0) {
                 height = this.mViewHeight;
             }
-            this.bdl.setHeight(height);
-            this.bdl.cQ(false);
+            this.bdZ.setHeight(height);
+            this.bdZ.cV(false);
         }
     }
 
-    private void HN() {
-        if (this.bcR != null) {
-            int T = af.T(getFloat(this.bcR, "minHeight", 0.0f));
-            if (T < 0) {
-                T = 0;
+    private void Ij() {
+        if (this.bdG != null) {
+            int S = af.S(getFloat(this.bdG, "minHeight", 0.0f));
+            if (S < 0) {
+                S = 0;
             }
-            this.bek = T;
-            int T2 = af.T(getFloat(this.bcR, "maxHeight", 2.1474836E9f));
-            if (T2 < 0) {
-                T2 = Integer.MAX_VALUE;
+            this.beZ = S;
+            int S2 = af.S(getFloat(this.bdG, "maxHeight", 2.1474836E9f));
+            if (S2 < 0) {
+                S2 = Integer.MAX_VALUE;
             }
-            this.maxHeight = T2;
+            this.maxHeight = S2;
         }
     }
 
     private void ad(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("placeholderStyle");
         if (optJSONObject != null) {
-            this.bec = optJSONObject.optInt("fontSize");
-            this.bed = optJSONObject.optString("fontWeight");
-            this.bee = optJSONObject.optString("color");
+            this.beS = optJSONObject.optInt("fontSize");
+            this.beT = optJSONObject.optString("fontWeight");
+            this.beU = optJSONObject.optString("color");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bR(boolean z) {
-        this.bef = z;
+    public void bW(boolean z) {
+        this.beV = z;
     }
 }

@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 abstract class AbstractDoCoMoResultParser extends ResultParser {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String[] matchDoCoMoPrefixedField(String str, String str2, boolean z) {

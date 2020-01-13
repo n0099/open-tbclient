@@ -17,29 +17,29 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.z;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class h extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.baidu.tieba.a.f {
-    private z<k> Jy;
-    private String La;
-    private boolean Nf;
-    public BdUniqueId dwY;
-    private int fmc;
-    private int jiq;
-    private int jir;
+    private z<k> JE;
+    private String Lg;
+    private boolean Nj;
+    public BdUniqueId dxg;
+    private int fpl;
+    private int jlR;
+    private int jlS;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.Nf = true;
-        this.jiq = 0;
-        this.jir = 0;
-        this.fmc = 0;
-        this.Jy = new z<k>() { // from class: com.baidu.tieba.personPolymeric.a.a.h.1
+        this.Nj = true;
+        this.jlR = 0;
+        this.jlS = 0;
+        this.fpl = 0;
+        this.JE = new z<k>() { // from class: com.baidu.tieba.personPolymeric.a.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, k kVar) {
-                if (view != null && kVar != null && kVar.axx() != null && view.getId() == R.id.forum_name_text) {
+                if (view != null && kVar != null && kVar.axQ() != null && view.getId() == R.id.forum_name_text) {
                     com.baidu.tieba.personPolymeric.a.a(view, kVar, 7);
                 }
             }
@@ -50,40 +50,41 @@ public class h extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aI */
+    /* renamed from: aM */
     public af<k> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.dwY);
+        eVar.setPageUniqueId(this.dxg);
         eVar.aI(1024);
-        if (this.jiq > 0) {
-            eVar.aH(this.jiq);
+        eVar.aI(32768);
+        if (this.jlR > 0) {
+            eVar.aH(this.jlR);
         }
         eVar.Y(false);
         eVar.Z(false);
         aVar.a(eVar);
         ai aiVar = new ai(this.mPageContext.getPageActivity());
         aVar.c(aiVar);
-        aVar.mR().aN(l.getDimens(this.mContext, R.dimen.tbds25));
+        aVar.mS().aN(l.getDimens(this.mContext, R.dimen.tbds25));
         aiVar.aW(2);
-        if (this.fmc == 2) {
+        if (this.fpl == 2) {
             aVar.a((com.baidu.card.h) new com.baidu.card.i(this.mPageContext.getPageActivity()));
         }
         ag agVar = new ag(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.cJm = 3;
-        dVar.cJs = 3;
+        dVar.cJx = 3;
+        dVar.cJD = 3;
         agVar.setAgreeStatisticData(dVar);
         agVar.setFrom(8);
         agVar.setShareReportFrom(6);
         agVar.aV(4);
         aVar.b(agVar);
-        aVar.mR().setBackgroundResource(R.drawable.addresslist_item_bg);
-        ad mS = aVar.mS();
-        mS.aM(4);
-        af<k> afVar = new af<>(mS);
-        afVar.setPageId(this.dwY);
-        afVar.aU(this.jir);
+        aVar.mS().setBackgroundResource(R.drawable.addresslist_item_bg);
+        ad mT = aVar.mT();
+        mT.aM(4);
+        af<k> afVar = new af<>(mT);
+        afVar.setPageId(this.dxg);
+        afVar.aU(this.jlS);
         a(new s() { // from class: com.baidu.tieba.personPolymeric.a.a.h.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -91,11 +92,11 @@ public class h extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
                     af afVar2 = (af) view.getTag();
                     k kVar = (k) mVar;
                     kVar.objType = 1;
-                    if (h.this.Jy != null) {
-                        h.this.Jy.a(afVar2.getView(), kVar);
+                    if (h.this.JE != null) {
+                        h.this.JE.a(afVar2.getView(), kVar);
                     }
                     au.a((com.baidu.tbadk.core.data.a) kVar, view.getContext(), 4, false);
-                    afVar2.mT().b(new a.C0050a(1));
+                    afVar2.mU().b(new a.C0050a(1));
                 }
             }
         });
@@ -106,39 +107,39 @@ public class h extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, af<k> afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cMR == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cNb == null) {
             return null;
         }
-        kVar.rh(kVar.position + 1);
-        afVar.mT().setPage(this.La);
+        kVar.rm(kVar.position + 1);
+        afVar.mU().setPage(this.Lg);
         if (!this.mIsHost) {
-            afVar.mV();
+            afVar.mW();
         }
         afVar.b((af<k>) kVar);
-        afVar.mT().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        afVar.mT().a(this.Jy);
+        afVar.mU().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        afVar.mU().a(this.JE);
         com.baidu.tieba.personPolymeric.a.d(kVar);
         return afVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wq(String str) {
-        this.La = str;
+    public void wu(String str) {
+        this.Lg = str;
     }
 
-    public void zL(int i) {
-        this.jiq = i;
+    public void zQ(int i) {
+        this.jlR = i;
     }
 
     public void setTabType(int i) {
-        this.fmc = i;
+        this.fpl = i;
     }
 
     public void setIsHost(boolean z) {
         this.mIsHost = z;
     }
 
-    public void zK(int i) {
-        this.jir = i;
+    public void zP(int i) {
+        this.jlS = i;
     }
 }

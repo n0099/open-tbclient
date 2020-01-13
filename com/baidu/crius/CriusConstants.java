@@ -1,5 +1,5 @@
 package com.baidu.crius;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CriusConstants {
     public static final float UNDEFINED = Float.NaN;
 

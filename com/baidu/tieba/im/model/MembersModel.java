@@ -7,7 +7,7 @@ import com.baidu.tieba.im.frsgroup.MembersActivity;
 import com.baidu.tieba.im.message.RequestMembersMessage;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MembersModel extends BdBaseModel<MembersActivity> {
     public static final String GROUP_ID = "group_id";
     public static final int LEN_FIRST = 50;

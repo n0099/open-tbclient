@@ -5,7 +5,7 @@ import com.baidu.mapapi.search.share.OnGetShareUrlResultListener;
 import com.baidu.mapapi.search.share.PoiDetailShareURLOption;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h extends com.baidu.platform.base.a implements a {
     OnGetShareUrlResultListener b = null;
 

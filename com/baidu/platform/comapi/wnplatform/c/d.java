@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends com.baidu.platform.comapi.walknavi.a {
     private List<com.baidu.platform.comapi.wnplatform.c.a> f;
     private c i;
@@ -175,7 +175,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends Handler {
         private a() {
         }
@@ -205,7 +205,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         if (com.baidu.platform.comapi.wnplatform.a.a().d() || this.h) {
         }
         if (wLocData.accuracy < 80.0f) {
-            this.c = wLocData.m16clone();
+            this.c = wLocData.m18clone();
             a(this.c, CashierData.SDK);
             if (wLocData.isIndoorMode) {
                 a++;
@@ -222,7 +222,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(WLocData wLocData, String str) {
         ArrayList arrayList;
-        this.b = wLocData.m16clone();
+        this.b = wLocData.m18clone();
         GeoPoint a2 = com.baidu.platform.comapi.wnplatform.o.b.a(wLocData.longitude, wLocData.latitude);
         g.setLongitudeE6(a2.getLongitudeE6());
         g.setLatitudeE6(a2.getLatitudeE6());

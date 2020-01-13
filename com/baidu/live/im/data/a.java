@@ -6,9 +6,9 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public abstract class a implements IAdapterData {
-    private com.baidu.live.data.a aoV;
-    private com.baidu.live.data.a aps;
-    private List<Long> apt;
+    private com.baidu.live.data.a apI;
+    private com.baidu.live.data.a aqe;
+    private List<Long> aqf;
     private b barrageCardInfo;
     private String barrageId;
     private int barrageType;
@@ -31,7 +31,7 @@ public abstract class a implements IAdapterData {
     private int progressValue = 0;
     private long statisticsTaskId = -1;
     private boolean mIsPushForOperateAccount = false;
-    private boolean apu = false;
+    private boolean aqg = false;
     private boolean isGifLoadSuccess = true;
     private boolean isUploading = false;
 
@@ -115,20 +115,20 @@ public abstract class a implements IAdapterData {
         this.objContent = obj;
     }
 
-    public com.baidu.live.data.a uZ() {
-        return this.aoV;
+    public com.baidu.live.data.a vq() {
+        return this.apI;
     }
 
     public void b(com.baidu.live.data.a aVar) {
-        this.aoV = aVar;
+        this.apI = aVar;
     }
 
-    public com.baidu.live.data.a va() {
-        return this.aps;
+    public com.baidu.live.data.a vr() {
+        return this.aqe;
     }
 
     public void c(com.baidu.live.data.a aVar) {
-        this.aps = aVar;
+        this.aqe = aVar;
     }
 
     public int getMsgType() {
@@ -205,31 +205,31 @@ public abstract class a implements IAdapterData {
 
     public void l(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            if (this.apt == null) {
-                this.apt = new ArrayList();
+            if (this.aqf == null) {
+                this.aqf = new ArrayList();
             }
             for (int i = 0; i < jSONArray.length(); i++) {
                 long optLong = jSONArray.optLong(i);
                 if (optLong > 0) {
-                    this.apt.add(Long.valueOf(optLong));
+                    this.aqf.add(Long.valueOf(optLong));
                 }
             }
         }
     }
 
-    public List<Long> vb() {
-        return this.apt;
+    public List<Long> vs() {
+        return this.aqf;
     }
 
-    public boolean vc() {
-        return this.apu;
+    public boolean vt() {
+        return this.aqg;
     }
 
-    public void aR(boolean z) {
-        this.apu = z;
+    public void aT(boolean z) {
+        this.aqg = z;
     }
 
-    public int vd() {
+    public int vu() {
         return this.barrageType;
     }
 
@@ -237,15 +237,15 @@ public abstract class a implements IAdapterData {
         this.barrageType = i;
     }
 
-    public String ve() {
+    public String vv() {
         return this.barrageId;
     }
 
-    public void dA(String str) {
+    public void dC(String str) {
         this.barrageId = str;
     }
 
-    public b vf() {
+    public b vw() {
         return this.barrageCardInfo;
     }
 
@@ -253,7 +253,7 @@ public abstract class a implements IAdapterData {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] vg() {
+    public String[] vx() {
         return this.imEffect;
     }
 

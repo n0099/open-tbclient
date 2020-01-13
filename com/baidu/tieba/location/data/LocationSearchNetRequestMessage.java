@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.GetSuggestionByAddrName.DataReq;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LocationSearchNetRequestMessage extends NetMessage {
     private String addrName;
 

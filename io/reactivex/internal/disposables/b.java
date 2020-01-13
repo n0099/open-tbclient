@@ -5,10 +5,10 @@ import io.reactivex.internal.util.ExceptionHelper;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class b implements io.reactivex.disposables.b, a {
     volatile boolean disposed;
-    List<io.reactivex.disposables.b> mTf;
+    List<io.reactivex.disposables.b> nvn;
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
@@ -16,9 +16,9 @@ public final class b implements io.reactivex.disposables.b, a {
             synchronized (this) {
                 if (!this.disposed) {
                     this.disposed = true;
-                    List<io.reactivex.disposables.b> list = this.mTf;
-                    this.mTf = null;
-                    fx(list);
+                    List<io.reactivex.disposables.b> list = this.nvn;
+                    this.nvn = null;
+                    fy(list);
                 }
             }
         }
@@ -35,10 +35,10 @@ public final class b implements io.reactivex.disposables.b, a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List list = this.mTf;
+                    List list = this.nvn;
                     if (list == null) {
                         list = new LinkedList();
-                        this.mTf = list;
+                        this.nvn = list;
                     }
                     list.add(bVar);
                     return true;
@@ -65,7 +65,7 @@ public final class b implements io.reactivex.disposables.b, a {
         if (!this.disposed) {
             synchronized (this) {
                 if (!this.disposed) {
-                    List<io.reactivex.disposables.b> list = this.mTf;
+                    List<io.reactivex.disposables.b> list = this.nvn;
                     if (list != null && list.remove(bVar)) {
                         z = true;
                     }
@@ -75,7 +75,7 @@ public final class b implements io.reactivex.disposables.b, a {
         return z;
     }
 
-    void fx(List<io.reactivex.disposables.b> list) {
+    void fy(List<io.reactivex.disposables.b> list) {
         if (list != null) {
             ArrayList arrayList = null;
             for (io.reactivex.disposables.b bVar : list) {

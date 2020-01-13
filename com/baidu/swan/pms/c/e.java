@@ -4,30 +4,30 @@ import android.text.TextUtils;
 import com.baidu.fsg.base.statistics.j;
 import com.baidu.swan.d.h;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public static String arc() {
-        return String.format("%s/getpkg", arg());
+    public static String arv() {
+        return String.format("%s/getpkg", arz());
     }
 
-    public static String ard() {
-        return String.format("%s/updatecore", arg());
+    public static String arw() {
+        return String.format("%s/updatecore", arz());
     }
 
-    public static String are() {
-        return String.format("%s/fetchpkglist", arg());
+    public static String arx() {
+        return String.format("%s/fetchpkglist", arz());
     }
 
-    public static String arf() {
-        return String.format("%s/getplugin", arg());
+    public static String ary() {
+        return String.format("%s/getplugin", arz());
     }
 
-    public static String arg() {
-        return com.baidu.swan.pms.d.aqG().Sf();
+    public static String arz() {
+        return com.baidu.swan.pms.d.aqZ().SB();
     }
 
     public static String g(String str, Map<String, String> map) {
-        return h(qb(str), map);
+        return h(qe(str), map);
     }
 
     public static String h(String str, Map<String, String> map) {
@@ -41,15 +41,15 @@ public class e {
         return str;
     }
 
-    private static String qb(String str) {
-        String addParam = h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(str, "cuid", com.baidu.swan.pms.d.aqG().Sg()), "uuid", com.baidu.swan.pms.d.aqG().getUUID()), j.c, h.qS(com.baidu.swan.pms.d.aqG().Si())), "host_app", com.baidu.swan.pms.d.aqG().Sh()), "host_app_ver", com.baidu.swan.pms.d.aqG().Si()), "host_os", com.baidu.swan.d.a.getOS()), "host_os_ver", com.baidu.swan.d.a.getOsVersion()), "network", com.baidu.swan.d.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.d.aqG().Sj());
-        String aqF = com.baidu.swan.pms.d.aqH().aqF();
-        if (!TextUtils.isEmpty(aqF)) {
-            addParam = h.addParam(addParam, "extension_rule", aqF);
+    private static String qe(String str) {
+        String addParam = h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(h.addParam(str, "cuid", com.baidu.swan.pms.d.aqZ().SC()), "uuid", com.baidu.swan.pms.d.aqZ().getUUID()), j.c, h.qV(com.baidu.swan.pms.d.aqZ().SE())), "host_app", com.baidu.swan.pms.d.aqZ().SD()), "host_app_ver", com.baidu.swan.pms.d.aqZ().SE()), "host_os", com.baidu.swan.d.a.getOS()), "host_os_ver", com.baidu.swan.d.a.getOsVersion()), "network", com.baidu.swan.d.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.d.aqZ().SF());
+        String aqY = com.baidu.swan.pms.d.ara().aqY();
+        if (!TextUtils.isEmpty(aqY)) {
+            addParam = h.addParam(addParam, "extension_rule", aqY);
         }
-        String Sp = com.baidu.swan.pms.d.aqG().Sp();
-        if (!TextUtils.isEmpty(Sp)) {
-            return h.addParam(addParam, "sid", Sp);
+        String SL = com.baidu.swan.pms.d.aqZ().SL();
+        if (!TextUtils.isEmpty(SL)) {
+            return h.addParam(addParam, "sid", SL);
         }
         return addParam;
     }

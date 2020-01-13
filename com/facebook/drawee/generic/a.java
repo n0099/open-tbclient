@@ -13,48 +13,48 @@ import com.facebook.drawee.drawable.h;
 import com.facebook.drawee.drawable.o;
 import com.facebook.drawee.drawable.p;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a implements com.facebook.drawee.d.c {
     @Nullable
-    private RoundingParams lIN;
-    private final d lIO;
-    private final f lIP;
+    private RoundingParams lMk;
+    private final d lMl;
+    private final f lMm;
     private final Resources mResources;
-    private final Drawable lIM = new ColorDrawable(0);
-    private final g lIQ = new g(this.lIM);
+    private final Drawable lMj = new ColorDrawable(0);
+    private final g lMn = new g(this.lMj);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b bVar) {
         int i = 0;
         this.mResources = bVar.getResources();
-        this.lIN = bVar.dkG();
-        int size = (bVar.dkE() != null ? bVar.dkE().size() : 1) + (bVar.dkF() != null ? 1 : 0);
+        this.lMk = bVar.dlr();
+        int size = (bVar.dlG() != null ? bVar.dlG().size() : 1) + (bVar.dlH() != null ? 1 : 0);
         Drawable[] drawableArr = new Drawable[size + 6];
         drawableArr[0] = a(bVar.getBackground(), null);
-        drawableArr[1] = a(bVar.dkt(), bVar.dku());
-        drawableArr[2] = a(this.lIQ, bVar.dkB(), bVar.dkC(), bVar.dkD());
-        drawableArr[3] = a(bVar.dkz(), bVar.dkA());
-        drawableArr[4] = a(bVar.dkv(), bVar.dkw());
-        drawableArr[5] = a(bVar.dkx(), bVar.dky());
+        drawableArr[1] = a(bVar.dlv(), bVar.dlw());
+        drawableArr[2] = a(this.lMn, bVar.dlD(), bVar.dlE(), bVar.dlF());
+        drawableArr[3] = a(bVar.dlB(), bVar.dlC());
+        drawableArr[4] = a(bVar.dlx(), bVar.dly());
+        drawableArr[5] = a(bVar.dlz(), bVar.dlA());
         if (size > 0) {
-            if (bVar.dkE() != null) {
-                for (Drawable drawable : bVar.dkE()) {
+            if (bVar.dlG() != null) {
+                for (Drawable drawable : bVar.dlG()) {
                     drawableArr[i + 6] = a(drawable, null);
                     i++;
                 }
             } else {
                 i = 1;
             }
-            if (bVar.dkF() != null) {
-                drawableArr[i + 6] = a(bVar.dkF(), null);
+            if (bVar.dlH() != null) {
+                drawableArr[i + 6] = a(bVar.dlH(), null);
             }
         }
-        this.lIP = new f(drawableArr);
-        this.lIP.Hw(bVar.dkq());
-        this.lIO = new d(e.a(this.lIP, this.lIN));
-        this.lIO.uV(bVar.dkr());
-        this.lIO.mutate();
-        dko();
+        this.lMm = new f(drawableArr);
+        this.lMm.HB(bVar.dls());
+        this.lMl = new d(e.a(this.lMm, this.lMk));
+        this.lMl.vh(bVar.dlt());
+        this.lMl.mutate();
+        dlp();
     }
 
     @Nullable
@@ -65,57 +65,57 @@ public class a implements com.facebook.drawee.d.c {
 
     @Nullable
     private Drawable a(@Nullable Drawable drawable, @Nullable p.b bVar) {
-        return e.b(e.a(drawable, this.lIN, this.mResources), bVar);
+        return e.f(e.a(drawable, this.lMk, this.mResources), bVar);
     }
 
-    private void dkn() {
-        this.lIQ.setDrawable(this.lIM);
+    private void dlo() {
+        this.lMn.setDrawable(this.lMj);
     }
 
-    private void dko() {
-        if (this.lIP != null) {
-            this.lIP.dkc();
-            this.lIP.dke();
-            dkp();
-            Hx(1);
-            this.lIP.dkf();
-            this.lIP.dkd();
+    private void dlp() {
+        if (this.lMm != null) {
+            this.lMm.dld();
+            this.lMm.dlf();
+            dlq();
+            HC(1);
+            this.lMm.dlg();
+            this.lMm.dle();
         }
     }
 
-    private void dkp() {
-        Hy(1);
-        Hy(2);
-        Hy(3);
-        Hy(4);
-        Hy(5);
+    private void dlq() {
+        HD(1);
+        HD(2);
+        HD(3);
+        HD(4);
+        HD(5);
     }
 
-    private void Hx(int i) {
+    private void HC(int i) {
         if (i >= 0) {
-            this.lIP.Hx(i);
+            this.lMm.HC(i);
         }
     }
 
-    private void Hy(int i) {
+    private void HD(int i) {
         if (i >= 0) {
-            this.lIP.Hy(i);
+            this.lMm.HD(i);
         }
     }
 
     private void setProgress(float f) {
-        Drawable drawable = this.lIP.getDrawable(3);
+        Drawable drawable = this.lMm.getDrawable(3);
         if (drawable != null) {
             if (f >= 0.999f) {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).stop();
                 }
-                Hy(3);
+                HD(3);
             } else {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).start();
                 }
-                Hx(3);
+                HC(3);
             }
             drawable.setLevel(Math.round(10000.0f * f));
         }
@@ -123,113 +123,150 @@ public class a implements com.facebook.drawee.d.c {
 
     @Override // com.facebook.drawee.d.b
     public Drawable getTopLevelDrawable() {
-        return this.lIO;
+        return this.lMl;
     }
 
     @Override // com.facebook.drawee.d.c
     public void reset() {
-        dkn();
-        dko();
+        dlo();
+        dlp();
     }
 
     @Override // com.facebook.drawee.d.c
     public void a(Drawable drawable, float f, boolean z) {
-        Drawable a = e.a(drawable, this.lIN, this.mResources);
+        Drawable a = e.a(drawable, this.lMk, this.mResources);
         a.mutate();
-        this.lIQ.setDrawable(a);
-        this.lIP.dkc();
-        dkp();
-        Hx(2);
+        this.lMn.setDrawable(a);
+        this.lMm.dld();
+        dlq();
+        HC(2);
         setProgress(f);
         if (z) {
-            this.lIP.dkf();
+            this.lMm.dlg();
         }
-        this.lIP.dkd();
+        this.lMm.dle();
     }
 
     @Override // com.facebook.drawee.d.c
     public void c(float f, boolean z) {
-        if (this.lIP.getDrawable(3) != null) {
-            this.lIP.dkc();
+        if (this.lMm.getDrawable(3) != null) {
+            this.lMm.dld();
             setProgress(f);
             if (z) {
-                this.lIP.dkf();
+                this.lMm.dlg();
             }
-            this.lIP.dkd();
+            this.lMm.dle();
         }
     }
 
     @Override // com.facebook.drawee.d.c
     public void A(Throwable th) {
-        this.lIP.dkc();
-        dkp();
-        if (this.lIP.getDrawable(5) != null) {
-            Hx(5);
+        this.lMm.dld();
+        dlq();
+        if (this.lMm.getDrawable(5) != null) {
+            HC(5);
         } else {
-            Hx(1);
+            HC(1);
         }
-        this.lIP.dkd();
+        this.lMm.dle();
     }
 
     @Override // com.facebook.drawee.d.c
     public void B(Throwable th) {
-        this.lIP.dkc();
-        dkp();
-        if (this.lIP.getDrawable(4) != null) {
-            Hx(4);
+        this.lMm.dld();
+        dlq();
+        if (this.lMm.getDrawable(4) != null) {
+            HC(4);
         } else {
-            Hx(1);
+            HC(1);
         }
-        this.lIP.dkd();
+        this.lMm.dle();
     }
 
     @Override // com.facebook.drawee.d.c
     public void n(@Nullable Drawable drawable) {
-        this.lIO.n(drawable);
+        this.lMl.n(drawable);
     }
 
-    private com.facebook.drawee.drawable.c Hz(int i) {
-        com.facebook.drawee.drawable.c Ht = this.lIP.Ht(i);
-        if (Ht.getDrawable() instanceof h) {
-            Ht = (h) Ht.getDrawable();
+    private com.facebook.drawee.drawable.c HE(int i) {
+        com.facebook.drawee.drawable.c Hy = this.lMm.Hy(i);
+        if (Hy.getDrawable() instanceof h) {
+            Hy = (h) Hy.getDrawable();
         }
-        if (Ht.getDrawable() instanceof o) {
-            return (o) Ht.getDrawable();
+        if (Hy.getDrawable() instanceof o) {
+            return (o) Hy.getDrawable();
         }
-        return Ht;
+        return Hy;
     }
 
     private void b(int i, @Nullable Drawable drawable) {
         if (drawable == null) {
-            this.lIP.a(i, null);
+            this.lMm.a(i, null);
             return;
         }
-        Hz(i).setDrawable(e.a(drawable, this.lIN, this.mResources));
+        HE(i).setDrawable(e.a(drawable, this.lMk, this.mResources));
     }
 
-    private o HA(int i) {
-        com.facebook.drawee.drawable.c Hz = Hz(i);
-        return Hz instanceof o ? (o) Hz : e.a(Hz, p.b.lIC);
+    private o HF(int i) {
+        com.facebook.drawee.drawable.c HE = HE(i);
+        return HE instanceof o ? (o) HE : e.a(HE, p.b.lLZ);
     }
 
     public void b(p.b bVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
-        HA(2).a(bVar);
+        HF(2).a(bVar);
     }
 
     public void a(RectF rectF) {
-        this.lIQ.getTransformedBounds(rectF);
+        this.lMn.getTransformedBounds(rectF);
     }
 
     public void q(@Nullable Drawable drawable) {
         b(1, drawable);
     }
 
+    public void b(Drawable drawable, p.b bVar) {
+        b(1, drawable);
+        HF(1).a(bVar);
+    }
+
+    public void HG(int i) {
+        q(this.mResources.getDrawable(i));
+    }
+
+    public void setFailureImage(@Nullable Drawable drawable) {
+        b(5, drawable);
+    }
+
+    public void c(Drawable drawable, p.b bVar) {
+        b(5, drawable);
+        HF(5).a(bVar);
+    }
+
+    public void HH(int i) {
+        setFailureImage(this.mResources.getDrawable(i));
+    }
+
+    public void d(Drawable drawable, p.b bVar) {
+        b(4, drawable);
+        HF(4).a(bVar);
+    }
+
+    public void e(Drawable drawable, p.b bVar) {
+        b(3, drawable);
+        HF(3).a(bVar);
+    }
+
     public void a(@Nullable RoundingParams roundingParams) {
-        this.lIN = roundingParams;
-        e.a((com.facebook.drawee.drawable.c) this.lIO, this.lIN);
-        for (int i = 0; i < this.lIP.djZ(); i++) {
-            e.a(Hz(i), this.lIN, this.mResources);
+        this.lMk = roundingParams;
+        e.a((com.facebook.drawee.drawable.c) this.lMl, this.lMk);
+        for (int i = 0; i < this.lMm.dla(); i++) {
+            e.a(HE(i), this.lMk, this.mResources);
         }
+    }
+
+    @Nullable
+    public RoundingParams dlr() {
+        return this.lMk;
     }
 }

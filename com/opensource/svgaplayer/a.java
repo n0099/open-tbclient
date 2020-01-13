@@ -1,7 +1,7 @@
 package com.opensource.svgaplayer;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public interface a {
-    void DE();
+    void Ea();
 
     void b(int i, double d);
 

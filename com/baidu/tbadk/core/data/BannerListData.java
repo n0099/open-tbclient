@@ -15,7 +15,7 @@ import org.json.JSONObject;
 import tbclient.App;
 import tbclient.BannerList;
 import tbclient.FeedForumInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BannerListData implements Serializable {
     private static final long serialVersionUID = 1630193525564805923L;
     private ArrayList<AdvertAppInfo> advertAppList = new ArrayList<>();
@@ -33,8 +33,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).cIG)) {
-                sb.append(this.advertAppList.get(i).cIG);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).cIS)) {
+                sb.append(this.advertAppList.get(i).cIS);
                 if (i != size - 1) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
@@ -66,9 +66,9 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<AppData> czM = com.baidu.tieba.recapp.r.czO().czM();
-        if (czM != null) {
-            czM.clear();
+        List<AppData> cAT = com.baidu.tieba.recapp.r.cAV().cAT();
+        if (cAT != null) {
+            cAT.clear();
         }
         if (bannerList != null) {
             List<App> list = bannerList.app;
@@ -78,13 +78,13 @@ public class BannerListData implements Serializable {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
                         advertAppInfo.a(list.get(i));
                         this.advertAppList.add(advertAppInfo);
-                        if (czM != null) {
-                            czM.add(advertAppInfo.cIX);
+                        if (cAT != null) {
+                            cAT.add(advertAppInfo.cJi);
                         }
                     }
                 }
             }
-            com.baidu.tieba.recapp.r.czO().czN();
+            com.baidu.tieba.recapp.r.cAV().cAU();
             Collections.sort(this.advertAppList, new Comparator<AdvertAppInfo>() { // from class: com.baidu.tbadk.core.data.BannerListData.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -106,7 +106,7 @@ public class BannerListData implements Serializable {
             if (bannerList.hot_topic != null) {
                 bb bbVar = new bb();
                 bbVar.a(bannerList.hot_topic);
-                this.recomTopicData = bbVar.ayO();
+                this.recomTopicData = bbVar.azh();
             }
         }
     }

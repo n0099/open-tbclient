@@ -12,9 +12,9 @@ import com.google.zxing.common.HybridBinarizer;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public static final Map<DecodeHintType, Object> jzH = new EnumMap(DecodeHintType.class);
+    public static final Map<DecodeHintType, Object> jDj = new EnumMap(DecodeHintType.class);
 
     static {
         ArrayList arrayList = new ArrayList();
@@ -22,13 +22,13 @@ public class a {
         arrayList.add(BarcodeFormat.AZTEC);
         arrayList.add(BarcodeFormat.DATA_MATRIX);
         arrayList.add(BarcodeFormat.PDF_417);
-        jzH.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
-        jzH.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
-        jzH.put(DecodeHintType.CHARACTER_SET, "utf-8");
+        jDj.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        jDj.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        jDj.put(DecodeHintType.CHARACTER_SET, "utf-8");
     }
 
-    public static String He(String str) {
-        return D(Hf(str));
+    public static String Ho(String str) {
+        return D(Hp(str));
     }
 
     public static String D(Bitmap bitmap) {
@@ -40,14 +40,14 @@ public class a {
             bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
             RGBLuminanceSource rGBLuminanceSource2 = new RGBLuminanceSource(width, height, iArr);
             try {
-                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource2)), jzH).getText();
+                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource2)), jDj).getText();
             } catch (Exception e) {
                 e = e;
                 rGBLuminanceSource = rGBLuminanceSource2;
                 e.printStackTrace();
                 if (rGBLuminanceSource != null) {
                     try {
-                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), jzH).getText();
+                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), jDj).getText();
                     } catch (Throwable th) {
                         th.printStackTrace();
                         return null;
@@ -61,7 +61,7 @@ public class a {
         }
     }
 
-    private static Bitmap Hf(String str) {
+    private static Bitmap Hp(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;

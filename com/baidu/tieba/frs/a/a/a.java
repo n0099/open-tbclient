@@ -12,49 +12,49 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.card.data.n;
 import com.baidu.tieba.frs.h;
-/* loaded from: classes6.dex */
-public class a extends h<n, C0493a> {
-    private boolean gtL;
+/* loaded from: classes7.dex */
+public class a extends h<n, C0497a> {
+    private boolean gwV;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.gtL = z;
+        this.gwV = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aQ */
-    public C0493a b(ViewGroup viewGroup) {
+    /* renamed from: aU */
+    public C0497a b(ViewGroup viewGroup) {
         com.baidu.tieba.card.n nVar = new com.baidu.tieba.card.n(this.mPageContext);
         nVar.setStatKey(null, TbadkCoreStatisticKey.FRS_HOT_TOPIC_ITEM_CLICK);
-        return new C0493a(nVar);
+        return new C0497a(nVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, n nVar, C0493a c0493a) {
+    public View a(int i, View view, ViewGroup viewGroup, n nVar, C0497a c0497a) {
         TiebaStatic.log(new an(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW));
         if (nVar != null) {
             nVar.locate = i + 1;
-            c0493a.gtM.re(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
-            c0493a.gtM.showBottomLine(this.gtL);
-            c0493a.gtM.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+            c0497a.gwW.rj(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
+            c0497a.gwW.showBottomLine(this.gwV);
+            c0497a.gwW.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
-        c0493a.gtM.a(nVar);
-        return c0493a.getView();
+        c0497a.gwW.a(nVar);
+        return c0497a.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.frs.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0493a extends v.a {
-        public com.baidu.tieba.card.n gtM;
+    /* loaded from: classes7.dex */
+    public class C0497a extends v.a {
+        public com.baidu.tieba.card.n gwW;
 
-        public C0493a(com.baidu.tieba.card.n nVar) {
+        public C0497a(com.baidu.tieba.card.n nVar) {
             super(nVar.getView());
-            this.gtM = nVar;
+            this.gwW = nVar;
         }
     }
 }

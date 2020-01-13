@@ -8,12 +8,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 import com.baidu.searchbox.dns.util.DnsUtil;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a {
     private static volatile a b;
     private boolean d;
     private ConnectivityManager e;
-    private C0167a f;
+    private C0169a f;
     private boolean g = false;
     private Context mContext;
     private static long a = 5000;
@@ -40,7 +40,7 @@ public class a {
             this.e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(c);
-            this.f = new C0167a();
+            this.f = new C0169a();
             this.mContext.registerReceiver(this.f, intentFilter);
             this.g = true;
         }
@@ -65,9 +65,9 @@ public class a {
     }
 
     /* renamed from: com.baidu.searchbox.dns.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    private class C0167a extends BroadcastReceiver {
-        private C0167a() {
+    /* loaded from: classes12.dex */
+    private class C0169a extends BroadcastReceiver {
+        private C0169a() {
         }
 
         @Override // android.content.BroadcastReceiver

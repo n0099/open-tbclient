@@ -1,5 +1,5 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public enum CarrierType {
     YIDONG(46000),
     LIANTONG(46001),

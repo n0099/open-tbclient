@@ -6,19 +6,19 @@ import com.facebook.fresco.animation.a.a;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class c<T extends com.facebook.fresco.animation.a.a> extends b<T> {
-    private final com.facebook.common.time.b lGn;
-    private final ScheduledExecutorService lJD;
-    private boolean lJE;
-    private long lJF;
-    private long lJG;
-    private long lJH;
+    private final com.facebook.common.time.b lJL;
+    private final ScheduledExecutorService lNo;
+    private boolean lNp;
+    private long lNq;
+    private long lNr;
+    private long lNs;
     @Nullable
-    private a lJI;
-    private final Runnable lJJ;
+    private a lNt;
+    private final Runnable lNu;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void onInactive();
     }
@@ -33,47 +33,47 @@ public class c<T extends com.facebook.fresco.animation.a.a> extends b<T> {
 
     private c(@Nullable T t, @Nullable a aVar, com.facebook.common.time.b bVar, ScheduledExecutorService scheduledExecutorService) {
         super(t);
-        this.lJE = false;
-        this.lJG = 2000L;
-        this.lJH = 1000L;
-        this.lJJ = new Runnable() { // from class: com.facebook.fresco.animation.a.c.1
+        this.lNp = false;
+        this.lNr = 2000L;
+        this.lNs = 1000L;
+        this.lNu = new Runnable() { // from class: com.facebook.fresco.animation.a.c.1
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (c.this) {
-                    c.this.lJE = false;
-                    if (c.this.dkT()) {
-                        if (c.this.lJI != null) {
-                            c.this.lJI.onInactive();
+                    c.this.lNp = false;
+                    if (c.this.dlY()) {
+                        if (c.this.lNt != null) {
+                            c.this.lNt.onInactive();
                         }
                     } else {
-                        c.this.dkU();
+                        c.this.dlZ();
                     }
                 }
             }
         };
-        this.lJI = aVar;
-        this.lGn = bVar;
-        this.lJD = scheduledExecutorService;
+        this.lNt = aVar;
+        this.lJL = bVar;
+        this.lNo = scheduledExecutorService;
     }
 
     @Override // com.facebook.fresco.animation.a.b, com.facebook.fresco.animation.a.a
     public boolean a(Drawable drawable, Canvas canvas, int i) {
-        this.lJF = this.lGn.now();
+        this.lNq = this.lJL.now();
         boolean a2 = super.a(drawable, canvas, i);
-        dkU();
+        dlZ();
         return a2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dkT() {
-        return this.lGn.now() - this.lJF > this.lJG;
+    public boolean dlY() {
+        return this.lJL.now() - this.lNq > this.lNr;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void dkU() {
-        if (!this.lJE) {
-            this.lJE = true;
-            this.lJD.schedule(this.lJJ, this.lJH, TimeUnit.MILLISECONDS);
+    public synchronized void dlZ() {
+        if (!this.lNp) {
+            this.lNp = true;
+            this.lNo.schedule(this.lNu, this.lNs, TimeUnit.MILLISECONDS);
         }
     }
 }

@@ -30,7 +30,7 @@ import okio.Sink;
 import okio.Source;
 import okio.Timeout;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Http1Codec implements HttpCodec {
     private static final int HEADER_LIMIT = 262144;
     private static final int STATE_CLOSED = 6;
@@ -216,7 +216,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class FixedLengthSink implements Sink {
         private long bytesRemaining;
         private boolean closed;
@@ -266,7 +266,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class ChunkedSink implements Sink {
         private boolean closed;
         private final ForwardingTimeout timeout;
@@ -312,7 +312,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public abstract class AbstractSource implements Source {
         protected long bytesRead;
         protected boolean closed;
@@ -357,7 +357,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class FixedLengthSource extends AbstractSource {
         private long bytesRemaining;
 
@@ -405,7 +405,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class ChunkedSource extends AbstractSource {
         private static final long NO_CHUNK_YET = -1;
         private long bytesRemainingInChunk;
@@ -477,7 +477,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class UnknownLengthSource extends AbstractSource {
         private boolean inputExhausted;
 

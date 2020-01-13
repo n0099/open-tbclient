@@ -8,7 +8,7 @@ import com.baidu.mobads.interfaces.utils.IXAdIOUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l implements IXAdIOUtils {
     public static String a(Context context) {
         String str;

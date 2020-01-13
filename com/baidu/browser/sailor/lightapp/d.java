@@ -7,16 +7,16 @@ import android.widget.Toast;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.webkit.sdk.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d implements Runnable {
-    final /* synthetic */ BdLightappKernelClient IH;
+    final /* synthetic */ BdLightappKernelClient IP;
     final /* synthetic */ int val$requestCode;
-    final /* synthetic */ Intent xf;
+    final /* synthetic */ Intent xj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(BdLightappKernelClient bdLightappKernelClient, Intent intent, int i) {
-        this.IH = bdLightappKernelClient;
-        this.xf = intent;
+        this.IP = bdLightappKernelClient;
+        this.xj = intent;
         this.val$requestCode = i;
     }
 
@@ -24,17 +24,17 @@ public class d implements Runnable {
     public void run() {
         SparseArray sparseArray;
         try {
-            if (this.IH.mActivity != null) {
-                this.IH.mActivity.startActivityForResult(this.xf, this.val$requestCode);
-                this.IH.regLappActivityResultListener();
+            if (this.IP.mActivity != null) {
+                this.IP.mActivity.startActivityForResult(this.xj, this.val$requestCode);
+                this.IP.regLappActivityResultListener();
             } else {
                 Log.w("BdLightappKernelClient", "mActivity is null.");
             }
         } catch (ActivityNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(BdSailorPlatform.getInstance().getAppContext(), com.baidu.browser.core.g.H("string", "sailor_msg_activity_not_found"), 0).show();
-            int intExtra = this.xf.getIntExtra("jsaction_key", -1);
-            sparseArray = this.IH.mJsCallbacks;
+            Toast.makeText(BdSailorPlatform.getInstance().getAppContext(), com.baidu.browser.core.g.G("string", "sailor_msg_activity_not_found"), 0).show();
+            int intExtra = this.xj.getIntExtra("jsaction_key", -1);
+            sparseArray = this.IP.mJsCallbacks;
             BdLightappKernelJsCallback bdLightappKernelJsCallback = (BdLightappKernelJsCallback) sparseArray.get(intExtra);
             if (bdLightappKernelJsCallback != null) {
                 bdLightappKernelJsCallback.sendFailCallBack(e.getMessage());

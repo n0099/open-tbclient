@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import okhttp3.OkHttpClient;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface g {
-    c Ff();
+    c FB();
 
-    b Fg();
+    b FC();
 
-    OkHttpClient Fh();
+    OkHttpClient FD();
 }

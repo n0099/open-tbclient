@@ -6,25 +6,25 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class x extends v.a {
-    public TextView fmZ;
-    public TextView hol;
-    public HeadImageView iEG;
-    public TbImageView iEH;
-    public TextView iEI;
+    public TextView fqi;
+    public TextView hrO;
+    public HeadImageView iIk;
+    public TbImageView iIl;
+    public TextView iIm;
     public int mSkinType;
     public TextView text;
 
     public x(View view) {
         super(view);
         this.mSkinType = 3;
-        this.iEG = (HeadImageView) view.findViewById(R.id.photo);
-        this.iEG.setRadius(com.baidu.adp.lib.util.l.getDimens(view.getContext(), R.dimen.ds30));
-        this.fmZ = (TextView) view.findViewById(R.id.user_name);
-        this.hol = (TextView) view.findViewById(R.id.time);
+        this.iIk = (HeadImageView) view.findViewById(R.id.photo);
+        this.iIk.setRadius(com.baidu.adp.lib.util.l.getDimens(view.getContext(), R.dimen.ds30));
+        this.fqi = (TextView) view.findViewById(R.id.user_name);
+        this.hrO = (TextView) view.findViewById(R.id.time);
         this.text = (TextView) view.findViewById(R.id.text);
-        this.iEH = (TbImageView) view.findViewById(R.id.god_pic);
-        this.iEI = (TextView) view.findViewById(R.id.god_btn);
+        this.iIl = (TbImageView) view.findViewById(R.id.god_pic);
+        this.iIm = (TextView) view.findViewById(R.id.god_btn);
     }
 }

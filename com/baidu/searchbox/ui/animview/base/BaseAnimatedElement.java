@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.view.animation.Interpolator;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseAnimatedElement implements IAnimatedElement {
     protected static final int DEBUG_PAINT_COLOR = -16776961;
     protected static final int DEBUG_PAINT_STROKE_WIDTH = 10;
@@ -26,7 +26,7 @@ public abstract class BaseAnimatedElement implements IAnimatedElement {
 
     protected abstract void onDispatchAnimate(Canvas canvas, float f, long j);
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public enum ScaleType {
         FIT_XY(1),
         FIT_START(2),

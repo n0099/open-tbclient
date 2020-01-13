@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static final String a = "com.nearme.mcs";
 

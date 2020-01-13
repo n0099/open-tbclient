@@ -3,7 +3,7 @@ package io.reactivex.internal.subscriptions;
 import io.reactivex.internal.a.d;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.a.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ScalarSubscription<T> extends AtomicInteger implements d<T> {
     static final int CANCELLED = 2;
     static final int NO_REQUEST = 0;
@@ -38,7 +38,7 @@ public final class ScalarSubscription<T> extends AtomicInteger implements d<T> {
         return get() == 2;
     }
 
-    @Override // io.reactivex.internal.a.f
+    @Override // io.reactivex.internal.a.g
     public boolean offer(T t) {
         throw new UnsupportedOperationException("Should not be called!");
     }
@@ -47,7 +47,7 @@ public final class ScalarSubscription<T> extends AtomicInteger implements d<T> {
         throw new UnsupportedOperationException("Should not be called!");
     }
 
-    @Override // io.reactivex.internal.a.f
+    @Override // io.reactivex.internal.a.g
     public T poll() {
         if (get() == 0) {
             lazySet(1);
@@ -56,12 +56,12 @@ public final class ScalarSubscription<T> extends AtomicInteger implements d<T> {
         return null;
     }
 
-    @Override // io.reactivex.internal.a.f
+    @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
         return get() != 0;
     }
 
-    @Override // io.reactivex.internal.a.f
+    @Override // io.reactivex.internal.a.g
     public void clear() {
         lazySet(1);
     }

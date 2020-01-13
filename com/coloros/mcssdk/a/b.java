@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.coloros.mcssdk.mode.CommandMessage;
 import com.coloros.mcssdk.mode.Message;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b extends c {
     @Override // com.coloros.mcssdk.a.d
     public final Message a(Context context, int i, Intent intent) {

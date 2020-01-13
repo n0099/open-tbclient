@@ -13,6 +13,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g extends com.baidu.live.view.web.a {
     private Activity context;
+    private boolean isHost;
 
     public g(Activity activity) {
         this.context = activity;
@@ -23,15 +24,19 @@ public class g extends com.baidu.live.view.web.a {
         return "personalCenterBridge";
     }
 
+    public void setHost(boolean z) {
+        this.isHost = z;
+    }
+
     @Override // com.baidu.live.view.web.a
-    public void dT(String str) {
+    public void dV(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("uid");
             if (jSONObject.optBoolean("isCard")) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), optString)));
-            } else {
+            } else if (!this.isHost) {
                 ExtraJumpManager.getInstance().buildJumpExtra().jumpToPersonalCenter(this.context, optString);
             }
         } catch (JSONException e) {

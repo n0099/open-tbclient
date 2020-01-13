@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static com.baidu.swan.pms.c.c.b bT(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -24,12 +24,12 @@ public class d {
         com.baidu.swan.pms.c.c.b bVar = new com.baidu.swan.pms.c.c.b();
         JSONObject optJSONObject = jSONObject.optJSONObject(Config.INPUT_DEF_PKG);
         if (optJSONObject != null) {
-            bVar.cxG = bY(optJSONObject.optJSONObject("main"));
-            bVar.cxJ = F(optJSONObject.optJSONArray("sub"));
+            bVar.cxR = bY(optJSONObject.optJSONObject("main"));
+            bVar.cxU = G(optJSONObject.optJSONArray("sub"));
         }
-        bVar.cxK = bZ(jSONObject.optJSONObject("framework"));
-        bVar.cxM = ca(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
-        bVar.cxL = cc(jSONObject.optJSONObject("app_info"));
+        bVar.cxV = bZ(jSONObject.optJSONObject("framework"));
+        bVar.cxX = ca(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+        bVar.cxW = cc(jSONObject.optJSONObject("app_info"));
         return bVar;
     }
 
@@ -40,7 +40,7 @@ public class d {
         com.baidu.swan.pms.c.c.d dVar = new com.baidu.swan.pms.c.c.d();
         JSONObject optJSONObject = jSONObject.optJSONObject(Config.INPUT_DEF_PKG);
         if (optJSONObject != null) {
-            dVar.cxJ = F(optJSONObject.optJSONArray("sub"));
+            dVar.cxU = G(optJSONObject.optJSONArray("sub"));
             return dVar;
         }
         return dVar;
@@ -52,8 +52,8 @@ public class d {
         }
         com.baidu.swan.pms.c.c.e eVar = new com.baidu.swan.pms.c.c.e();
         eVar.maxAge = jSONObject.optLong("max_age");
-        eVar.cxK = bZ(jSONObject.optJSONObject("framework"));
-        eVar.cxM = ca(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
+        eVar.cxV = bZ(jSONObject.optJSONObject("framework"));
+        eVar.cxX = ca(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
         return eVar;
     }
 
@@ -67,16 +67,16 @@ public class d {
         if (optJSONArray != null && optJSONArray.length() > 0) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                a.C0352a c0352a = new a.C0352a();
-                c0352a.errorCode = optJSONObject.optInt("errno");
-                c0352a.cwO = optJSONObject.optString("bundle_id");
-                c0352a.category = optJSONObject.optInt("category");
-                c0352a.cxG = bY(optJSONObject.optJSONObject("main"));
-                c0352a.cxH = cc(optJSONObject.optJSONObject("app_info"));
-                arrayList.add(c0352a);
+                a.C0354a c0354a = new a.C0354a();
+                c0354a.errorCode = optJSONObject.optInt("errno");
+                c0354a.cwZ = optJSONObject.optString("bundle_id");
+                c0354a.category = optJSONObject.optInt("category");
+                c0354a.cxR = bY(optJSONObject.optJSONObject("main"));
+                c0354a.cxS = cc(optJSONObject.optJSONObject("app_info"));
+                arrayList.add(c0354a);
             }
         }
-        aVar.cxF = arrayList;
+        aVar.cxQ = arrayList;
         return aVar;
     }
 
@@ -85,7 +85,7 @@ public class d {
             return null;
         }
         com.baidu.swan.pms.c.c.c cVar = new com.baidu.swan.pms.c.c.c();
-        cVar.cxN = cb(jSONObject);
+        cVar.cxY = cb(jSONObject);
         return cVar;
     }
 
@@ -94,18 +94,18 @@ public class d {
             return null;
         }
         com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) a(jSONObject, new com.baidu.swan.pms.model.f());
-        fVar.cwY = jSONObject.optInt("pkg_type");
+        fVar.cxj = jSONObject.optInt("pkg_type");
         return fVar;
     }
 
-    private static List<g> F(JSONArray jSONArray) {
+    private static List<g> G(JSONArray jSONArray) {
         int length;
         if (jSONArray != null && (length = jSONArray.length()) > 0) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 g gVar = (g) a(optJSONObject, new g());
-                gVar.cwY = optJSONObject.optInt("pkg_type");
+                gVar.cxj = optJSONObject.optInt("pkg_type");
                 gVar.pkgName = optJSONObject.optString("sub_path");
                 gVar.independent = optJSONObject.optBoolean("independent");
                 arrayList.add(gVar);
@@ -144,7 +144,7 @@ public class d {
         if (jSONObject == null || t == null) {
             return null;
         }
-        t.cwO = jSONObject.optString("bundle_id");
+        t.cwZ = jSONObject.optString("bundle_id");
         t.category = jSONObject.optInt("category");
         t.versionName = jSONObject.optString(SharedPrefConfig.VERSION_NAME);
         t.versionCode = jSONObject.optInt("version_code");

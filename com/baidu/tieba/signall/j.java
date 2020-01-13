@@ -23,19 +23,19 @@ import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
-    public static int jUY;
-    private BdListView Ak;
-    private c jTG;
-    private SignAllForumActivity jUZ;
-    private SignAllForumProgressView jVa;
-    private g jVb;
-    private RelativeLayout jVc;
-    private TextView jVd;
-    private TextView jVe;
-    private LinearLayout jVf;
-    private TextView jVg;
+    public static int jYA;
+    private BdListView Ao;
+    private c jXi;
+    private SignAllForumActivity jYB;
+    private SignAllForumProgressView jYC;
+    private g jYD;
+    private RelativeLayout jYE;
+    private TextView jYF;
+    private TextView jYG;
+    private LinearLayout jYH;
+    private TextView jYI;
     private NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
     private com.baidu.tbadk.core.view.h mPullView;
@@ -44,106 +44,106 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
     public j(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
         this.mPullView = null;
-        this.jUZ = signAllForumActivity;
-        this.jUZ.setContentView(R.layout.signallforum_view);
-        this.mRootView = (RelativeLayout) this.jUZ.findViewById(R.id.sign_all_forum_parent);
-        this.mNavigationBar = (NavigationBar) this.jUZ.findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.jUZ.getPageContext().getString(R.string.signallforum));
+        this.jYB = signAllForumActivity;
+        this.jYB.setContentView(R.layout.signallforum_view);
+        this.mRootView = (RelativeLayout) this.jYB.findViewById(R.id.sign_all_forum_parent);
+        this.mNavigationBar = (NavigationBar) this.jYB.findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar.setCenterTextTitle(this.jYB.getPageContext().getString(R.string.signallforum));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.signall.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                j.this.jUZ.finish();
+                j.this.jYB.finish();
             }
         });
         this.mNavigationBar.showBottomLine();
-        this.Ak = (BdListView) this.jUZ.findViewById(R.id.signallforum_list);
-        this.Ak.setOnItemClickListener(signAllForumActivity);
+        this.Ao = (BdListView) this.jYB.findViewById(R.id.signallforum_list);
+        this.Ao.setOnItemClickListener(signAllForumActivity);
         this.mPullView = new com.baidu.tbadk.core.view.h(signAllForumActivity.getPageContext());
-        this.Ak.setPullRefresh(this.mPullView);
-        this.jVg = (TextView) LayoutInflater.from(this.jUZ.getPageContext().getPageActivity()).inflate(R.layout.signallforum_maxcount_warning, (ViewGroup) null);
-        this.Ak.addFooterView(this.jVg);
-        this.jVa = new SignAllForumProgressView(this.jUZ.getPageContext().getPageActivity());
-        this.mProgressBar = this.jVa.getProgressBar();
-        this.mProgressBar.setOnClickListener(this.jUZ);
-        this.Ak.addHeaderView(this.jVa);
-        this.jVa.setVisibility(8);
-        this.jVc = (RelativeLayout) this.jVa.findViewById(R.id.guidecontainer);
-        this.jVf = (LinearLayout) this.jVa.findViewById(R.id.guideopenbtn);
-        this.jVd = (TextView) this.jVa.findViewById(R.id.guidetip);
-        this.jVe = (TextView) this.jVa.findViewById(R.id.guideopen);
-        this.jVf.setOnClickListener(this.jUZ);
-        this.jVb = new g(this.jUZ, null);
-        this.Ak.setAdapter((ListAdapter) this.jVb);
-        this.Ak.setOnScrollListener(this.jVb);
+        this.Ao.setPullRefresh(this.mPullView);
+        this.jYI = (TextView) LayoutInflater.from(this.jYB.getPageContext().getPageActivity()).inflate(R.layout.signallforum_maxcount_warning, (ViewGroup) null);
+        this.Ao.addFooterView(this.jYI);
+        this.jYC = new SignAllForumProgressView(this.jYB.getPageContext().getPageActivity());
+        this.mProgressBar = this.jYC.getProgressBar();
+        this.mProgressBar.setOnClickListener(this.jYB);
+        this.Ao.addHeaderView(this.jYC);
+        this.jYC.setVisibility(8);
+        this.jYE = (RelativeLayout) this.jYC.findViewById(R.id.guidecontainer);
+        this.jYH = (LinearLayout) this.jYC.findViewById(R.id.guideopenbtn);
+        this.jYF = (TextView) this.jYC.findViewById(R.id.guidetip);
+        this.jYG = (TextView) this.jYC.findViewById(R.id.guideopen);
+        this.jYH.setOnClickListener(this.jYB);
+        this.jYD = new g(this.jYB, null);
+        this.Ao.setAdapter((ListAdapter) this.jYD);
+        this.Ao.setOnScrollListener(this.jYD);
     }
 
     public void onChangeSkinType(int i) {
-        this.jUZ.getLayoutMode().setNightMode(i == 1);
-        this.jUZ.getLayoutMode().onModeChanged(this.mRootView);
-        this.jUZ.getLayoutMode().onModeChanged(this.jVg);
-        this.jUZ.getLayoutMode().onModeChanged(this.jVa);
+        this.jYB.getLayoutMode().setNightMode(i == 1);
+        this.jYB.getLayoutMode().onModeChanged(this.mRootView);
+        this.jYB.getLayoutMode().onModeChanged(this.jYI);
+        this.jYB.getLayoutMode().onModeChanged(this.jYC);
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        if (this.jVa != null) {
-            this.jVa.onChangeSkinType();
+        if (this.jYC != null) {
+            this.jYC.onChangeSkinType();
         }
         this.mPullView.changeSkin(i);
-        this.jVb.notifyDataSetChanged();
+        this.jYD.notifyDataSetChanged();
     }
 
     public void a(c cVar, boolean z) {
         if (cVar != null) {
-            this.jTG = cVar;
-            cGx();
-            ArrayList<d> cFL = cVar.cFL();
-            this.jVb.c(this.jTG);
-            if (cFL.size() == jUY) {
-                this.jVg.setVisibility(0);
-                this.jVg.setText(cVar.cFI());
+            this.jXi = cVar;
+            cHB();
+            ArrayList<d> cGP = cVar.cGP();
+            this.jYD.c(this.jXi);
+            if (cGP.size() == jYA) {
+                this.jYI.setVisibility(0);
+                this.jYI.setText(cVar.cGM());
             } else {
-                this.jVg.setVisibility(8);
+                this.jYI.setVisibility(8);
             }
-            String cFC = this.jTG.cFC();
-            if (!StringUtils.isNull(cFC)) {
-                this.jVa.a(this.jUZ, cFC, this.jTG.cFD());
+            String cGG = this.jXi.cGG();
+            if (!StringUtils.isNull(cGG)) {
+                this.jYC.a(this.jYB, cGG, this.jXi.cGH());
                 return;
             }
-            this.jVa.cGw();
+            this.jYC.cHA();
         }
     }
 
-    private void cGx() {
-        if (this.jTG != null) {
-            this.jVa.setHasPrivilege(this.jTG.cFP());
-            this.jVa.setmCurrentStatus(this.jTG.cFR());
-            TextView message1 = this.jVa.getMessage1();
-            SpannableString spannableString = new SpannableString(this.jTG.cFF() + this.jTG.cpI() + this.jTG.cFG());
+    private void cHB() {
+        if (this.jXi != null) {
+            this.jYC.setHasPrivilege(this.jXi.cGT());
+            this.jYC.setmCurrentStatus(this.jXi.cGV());
+            TextView message1 = this.jYC.getMessage1();
+            SpannableString spannableString = new SpannableString(this.jXi.cGJ() + this.jXi.cqP() + this.jXi.cGK());
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(TbadkApplication.getInst().getResources().getColor(R.color.common_color_10191));
-            int length = this.jTG.cFF().length();
-            spannableString.setSpan(foregroundColorSpan, length, this.jTG.cpI().length() + length, 33);
+            int length = this.jXi.cGJ().length();
+            spannableString.setSpan(foregroundColorSpan, length, this.jXi.cqP().length() + length, 33);
             message1.setText(spannableString);
-            this.jVa.getMessage2().setText(this.jTG.cFH());
-            this.jVd.setText(this.jTG.getContent());
-            if (TextUtils.isEmpty(this.jTG.cFQ())) {
-                this.jVe.setText(R.string.member_buy_open);
+            this.jYC.getMessage2().setText(this.jXi.cGL());
+            this.jYF.setText(this.jXi.getContent());
+            if (TextUtils.isEmpty(this.jXi.cGU())) {
+                this.jYG.setText(R.string.member_buy_open);
             } else {
-                this.jVe.setText(this.jTG.cFQ());
+                this.jYG.setText(this.jXi.cGU());
             }
-            this.jVa.setVisibility(0);
-            if (this.jTG.cFP() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
-                this.jVc.setVisibility(8);
+            this.jYC.setVisibility(0);
+            if (this.jXi.cGT() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
+                this.jYE.setVisibility(8);
             } else {
-                this.jVc.setVisibility(0);
+                this.jYE.setVisibility(0);
             }
         }
     }
 
     public void startPullRefresh() {
-        this.Ak.startPullRefresh();
+        this.Ao.startPullRefresh();
     }
 
     public void completeRefresh() {
-        this.Ak.completePullRefreshPostDelayed(0L);
+        this.Ao.completePullRefreshPostDelayed(0L);
     }
 
     public void setListPullRefreshListener(g.c cVar) {
@@ -151,38 +151,38 @@ public class j extends com.baidu.adp.base.c<SignAllForumActivity> {
     }
 
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
-        this.Ak.setOnItemClickListener(onItemClickListener);
+        this.Ao.setOnItemClickListener(onItemClickListener);
     }
 
-    public SignAllForumProgressView cGy() {
-        return this.jVa;
+    public SignAllForumProgressView cHC() {
+        return this.jYC;
     }
 
     public ProgressBar getProgressBar() {
         return this.mProgressBar;
     }
 
-    public BdListView cGz() {
-        return this.Ak;
+    public BdListView cHD() {
+        return this.Ao;
     }
 
-    public c cGA() {
-        return this.jTG;
+    public c cHE() {
+        return this.jXi;
     }
 
-    public g cGB() {
-        return this.jVb;
+    public g cHF() {
+        return this.jYD;
     }
 
-    public LinearLayout cGC() {
-        return this.jVf;
+    public LinearLayout cHG() {
+        return this.jYH;
     }
 
     public void setListViewSelection(int i) {
-        this.Ak.setSelection(i);
+        this.Ao.setSelection(i);
     }
 
-    public RelativeLayout bpX() {
+    public RelativeLayout bqY() {
         return this.mRootView;
     }
 }

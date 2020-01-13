@@ -5,7 +5,7 @@ import java.io.File;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PostFileRequest extends HttpRequest<PostFileRequestBuilder> {
     private static final MediaType MEDIA_TYPE_STREAM = MediaType.parse("application/octet-stream");
     private File file;
@@ -51,7 +51,7 @@ public class PostFileRequest extends HttpRequest<PostFileRequestBuilder> {
         return this.okRequestBuilder.post(requestBody).build();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class PostFileRequestBuilder extends HttpRequestBuilder<PostFileRequestBuilder> {
         private File file;
         private MediaType mediaType;

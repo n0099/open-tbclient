@@ -1,7 +1,7 @@
 package com.baidu.platform.core.e;
 
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 /* synthetic */ class g {
     static final /* synthetic */ int[] a = new int[SearchType.values().length];
 

@@ -9,7 +9,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RecorderManagerStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_RECORDER_MANAGER_INSTANCE, new CustomMessageTask.CustomRunnable<Activity>() { // from class: com.baidu.audiorecorder.lib.voice.RecorderManagerStatic.1
@@ -72,7 +72,7 @@ public class RecorderManagerStatic {
         TbadkCoreApplication.getInst().setAudioRecorderExist(true);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     static class a {
         a() {
         }

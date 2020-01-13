@@ -1,7 +1,6 @@
 package com.baidu.live.tbadk.statics;
 
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.Collections;
 /* loaded from: classes2.dex */
 public class AlaStaticsManager {
@@ -21,7 +20,7 @@ public class AlaStaticsManager {
     }
 
     public void setBuilder(IAlaBdStaticsBuilder iAlaBdStaticsBuilder) {
-        if (iAlaBdStaticsBuilder != null && !TbadkCoreApplication.getInst().isMobileBaidu()) {
+        if (iAlaBdStaticsBuilder != null) {
             if (this.mIAlaBdStaticsBuilder == null || this.mIAlaBdStatics == null) {
                 this.mIAlaBdStaticsBuilder = iAlaBdStaticsBuilder;
                 this.mIAlaBdStatics = this.mIAlaBdStaticsBuilder.build();

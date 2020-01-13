@@ -24,142 +24,142 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DeliveryEditActivity extends BaseActivity implements b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.bdprivate.address.c.b bWV;
-    private EditAddressView bWW;
-    private g bWX;
-    private com.baidu.swan.bdprivate.widget.b bWY;
-    private boolean bWZ;
-    private String bXa;
-    private SwanAppBdActionBar bXb;
+    private com.baidu.swan.bdprivate.address.c.b bXh;
+    private EditAddressView bXi;
+    private g bXj;
+    private com.baidu.swan.bdprivate.widget.b bXk;
+    private boolean bXl;
+    private String bXm;
+    private SwanAppBdActionBar bXn;
     private String mType;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.bdprivate.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        dY(true);
+        ed(true);
         super.onCreate(bundle);
         C(getIntent());
         init();
     }
 
     private void init() {
-        this.bWW = new EditAddressView(this, this.bWV);
-        setContentView(this.bWW);
-        af.U(this);
-        this.bWY = new com.baidu.swan.bdprivate.widget.b(this);
-        this.bWY.setMessage("加载中...");
-        this.bWY.setCancelable(true);
-        afj();
-        this.bWW.setDeliveryEditChangedListener(this);
-        if (!c.afB().afC()) {
+        this.bXi = new EditAddressView(this, this.bXh);
+        setContentView(this.bXi);
+        af.V(this);
+        this.bXk = new com.baidu.swan.bdprivate.widget.b(this);
+        this.bXk.setMessage("加载中...");
+        this.bXk.setCancelable(true);
+        afC();
+        this.bXi.setDeliveryEditChangedListener(this);
+        if (!c.afU().afV()) {
             m.postOnIO(new Runnable() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.afB().initData();
+                    c.afU().initData();
                 }
             }, "initRegionData");
         }
     }
 
     @Override // com.baidu.swan.bdprivate.address.a.b.a
-    public void dZ(boolean z) {
-        if (z == this.bWZ) {
-            eb(!z);
+    public void ee(boolean z) {
+        if (z == this.bXl) {
+            eg(!z);
         }
     }
 
-    private void afj() {
-        this.bXb = this.bWW.getBdActionBar();
-        this.bXb.setLeftFirstViewVisibility(false);
-        this.bXb.setRightMenuVisibility(false);
-        this.bXb.setLeftSecondViewVisibility(0);
-        this.bXb.setLeftSecondViewText(getString(b.g.delivery_cancel));
-        this.bXb.setLeftSecondViewTextSize(14);
-        this.bXb.setLeftSecondViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.2
+    private void afC() {
+        this.bXn = this.bXi.getBdActionBar();
+        this.bXn.setLeftFirstViewVisibility(false);
+        this.bXn.setRightMenuVisibility(false);
+        this.bXn.setLeftSecondViewVisibility(0);
+        this.bXn.setLeftSecondViewText(getString(b.g.delivery_cancel));
+        this.bXn.setLeftSecondViewTextSize(14);
+        this.bXn.setLeftSecondViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DeliveryEditActivity.this.afl();
+                DeliveryEditActivity.this.afE();
             }
         });
-        this.bXb.setRightTxtZone1Visibility(0);
-        this.bXb.setRightTxtZone1Text(b.g.delivery_save);
-        eb(false);
+        this.bXn.setRightTxtZone1Visibility(0);
+        this.bXn.setRightTxtZone1Text(b.g.delivery_save);
+        eg(false);
         if (TextUtils.equals(this.mType, IMTrack.DbBuilder.ACTION_UPDATE)) {
-            this.bXb.setTitle(b.g.delivery_title_edit);
+            this.bXn.setTitle(b.g.delivery_title_edit);
         } else if (TextUtils.equals(this.mType, "add")) {
-            this.bXb.setTitle(b.g.delivery_title_add);
+            this.bXn.setTitle(b.g.delivery_title_add);
         }
     }
 
-    private boolean afk() {
-        return this.bWW.getEditAdapter().afk();
+    private boolean afD() {
+        return this.bXi.getEditAdapter().afD();
     }
 
-    public void afl() {
-        if (afk()) {
-            this.bWX = new g.a(this).kr("退出后已编辑的信息不会保存").e("退出编辑").a("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.3
+    public void afE() {
+        if (afD()) {
+            this.bXj = new g.a(this).ku("退出后已编辑的信息不会保存").e("退出编辑").a("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.3
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    DeliveryEditActivity.this.ea(false);
+                    DeliveryEditActivity.this.ef(false);
                 }
-            }).b(PayHelper.STATUS_CANCEL_DESC, null).ZC();
+            }).b(PayHelper.STATUS_CANCEL_DESC, null).ZZ();
         } else {
-            ea(false);
+            ef(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ea(boolean z) {
+    public void ef(boolean z) {
         Intent intent = new Intent();
         intent.putExtra("dataChanged", z);
         setResult(-1, intent);
         finish();
     }
 
-    public void eb(boolean z) {
+    public void eg(boolean z) {
         if (z) {
-            this.bXb.setRightTxtZone1OnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.4
+            this.bXn.setRightTxtZone1OnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    DeliveryEditActivity.this.afm();
+                    DeliveryEditActivity.this.afF();
                 }
             });
         } else {
-            this.bXb.setRightTxtZone1OnClickListener(null);
+            this.bXn.setRightTxtZone1OnClickListener(null);
         }
-        this.bWZ = z;
-        ec(com.baidu.swan.apps.w.a.RG().getNightModeSwitcherState());
+        this.bXl = z;
+        eh(com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState());
     }
 
-    private void ec(boolean z) {
+    private void eh(boolean z) {
         int parseColor;
         if (z) {
-            if (this.bWZ) {
+            if (this.bXl) {
                 parseColor = Color.parseColor("#1D3A7F");
             } else {
                 parseColor = Color.parseColor("#555555");
             }
-        } else if (this.bWZ) {
+        } else if (this.bXl) {
             parseColor = Color.parseColor("#3C76FF");
         } else {
             parseColor = Color.parseColor("#33666666");
         }
-        this.bXb.setRightTxtZone1TextColor(parseColor);
+        this.bXn.setRightTxtZone1TextColor(parseColor);
     }
 
-    public void afm() {
-        Map<String, Object> deliveryEditData = this.bWW.getDeliveryEditData();
+    public void afF() {
+        Map<String, Object> deliveryEditData = this.bXi.getDeliveryEditData();
         if (q(deliveryEditData)) {
             final com.baidu.swan.bdprivate.address.c.b t = com.baidu.swan.bdprivate.address.c.b.t(deliveryEditData);
-            if (!TextUtils.isEmpty(this.bWV.id)) {
-                t.id = this.bWV.id;
+            if (!TextUtils.isEmpty(this.bXh.id)) {
+                t.id = this.bXh.id;
             }
             if (t != null) {
-                a.C0304a c0304a = new a.C0304a() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.5
-                    @Override // com.baidu.swan.bdprivate.address.b.a.C0304a, com.baidu.swan.bdprivate.address.b.b
+                a.C0306a c0306a = new a.C0306a() { // from class: com.baidu.swan.bdprivate.address.DeliveryEditActivity.5
+                    @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
                     public void K(String str, int i) {
                         try {
                             JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
@@ -175,52 +175,52 @@ public class DeliveryEditActivity extends BaseActivity implements b.a {
                         }
                     }
 
-                    @Override // com.baidu.swan.bdprivate.address.b.a.C0304a, com.baidu.swan.bdprivate.address.b.b
+                    @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
                     public void L(String str, int i) {
                         DeliveryEditActivity.this.a(t, IMTrack.DbBuilder.ACTION_UPDATE);
                     }
 
-                    @Override // com.baidu.swan.bdprivate.address.b.a.C0304a, com.baidu.swan.bdprivate.address.b.b
+                    @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
                     public void onFailure() {
-                        DeliveryEditActivity.this.afn();
+                        DeliveryEditActivity.this.afG();
                         d.a(AppRuntime.getAppContext(), "保存失败").showToast();
                     }
 
-                    @Override // com.baidu.swan.bdprivate.address.b.a.C0304a, com.baidu.swan.bdprivate.address.b.b
+                    @Override // com.baidu.swan.bdprivate.address.b.a.C0306a, com.baidu.swan.bdprivate.address.b.b
                     public void onFailure(String str) {
-                        DeliveryEditActivity.this.afn();
+                        DeliveryEditActivity.this.afG();
                         d.a(AppRuntime.getAppContext(), str).showToast();
                     }
                 };
                 showLoading();
                 if (!TextUtils.isEmpty(t.id)) {
-                    com.baidu.swan.bdprivate.address.b.a.afw().c(t, c0304a);
+                    com.baidu.swan.bdprivate.address.b.a.afP().c(t, c0306a);
                 } else {
-                    com.baidu.swan.bdprivate.address.b.a.afw().a(t, c0304a);
+                    com.baidu.swan.bdprivate.address.b.a.afP().a(t, c0306a);
                 }
             }
         }
     }
 
     private void showLoading() {
-        this.bWY.show();
+        this.bXk.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afn() {
-        this.bWY.dismiss();
+    public void afG() {
+        this.bXk.dismiss();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(com.baidu.swan.bdprivate.address.c.b bVar, String str) {
         boolean z;
-        bVar.afJ();
-        List<com.baidu.swan.bdprivate.address.c.b> afz = com.baidu.swan.bdprivate.address.b.a.afw().afz();
+        bVar.agc();
+        List<com.baidu.swan.bdprivate.address.c.b> afS = com.baidu.swan.bdprivate.address.b.a.afP().afS();
         if (TextUtils.equals(str, "add")) {
-            if (afz.size() == 0) {
-                bVar.bYa = true;
+            if (afS.size() == 0) {
+                bVar.bYm = true;
             }
-            afz.add(0, bVar);
+            afS.add(0, bVar);
             z = true;
         } else {
             z = false;
@@ -228,30 +228,30 @@ public class DeliveryEditActivity extends BaseActivity implements b.a {
         if (TextUtils.equals(str, IMTrack.DbBuilder.ACTION_UPDATE)) {
             int i = 0;
             while (true) {
-                if (i >= afz.size()) {
+                if (i >= afS.size()) {
                     break;
                 }
-                com.baidu.swan.bdprivate.address.c.b bVar2 = afz.get(i);
+                com.baidu.swan.bdprivate.address.c.b bVar2 = afS.get(i);
                 if (!TextUtils.equals(bVar2.id, bVar.id)) {
                     i++;
                 } else {
                     bVar2.f(bVar);
-                    afz.add(0, afz.remove(i));
+                    afS.add(0, afS.remove(i));
                     z = true;
                     break;
                 }
             }
         }
-        afn();
-        ea(z);
+        afG();
+        ef(z);
         return z;
     }
 
     private boolean q(Map<String, Object> map) {
-        if (map.containsKey("phone") && !com.baidu.swan.bdprivate.address.c.b.mM(String.valueOf(map.get("phone")))) {
+        if (map.containsKey("phone") && !com.baidu.swan.bdprivate.address.c.b.mP(String.valueOf(map.get("phone")))) {
             d.a(this, "电话号码格式不正确").showToast();
             return false;
-        } else if (map.containsKey("zipcode") && !com.baidu.swan.bdprivate.address.c.b.mN(String.valueOf(map.get("zipcode")))) {
+        } else if (map.containsKey("zipcode") && !com.baidu.swan.bdprivate.address.c.b.mQ(String.valueOf(map.get("zipcode")))) {
             d.a(this, "邮编格式不正确").showToast();
             return false;
         } else {
@@ -261,13 +261,13 @@ public class DeliveryEditActivity extends BaseActivity implements b.a {
 
     private void C(Intent intent) {
         if (intent != null) {
-            this.bXa = intent.getStringExtra("openSource");
+            this.bXm = intent.getStringExtra("openSource");
             Bundle bundleExtra = intent.getBundleExtra("data");
             if (bundleExtra != null) {
                 String string = bundleExtra.getString("addrInfo");
                 if (!TextUtils.isEmpty(string)) {
                     try {
-                        this.bWV = com.baidu.swan.bdprivate.address.c.b.bc(new JSONObject(string));
+                        this.bXh = com.baidu.swan.bdprivate.address.c.b.bc(new JSONObject(string));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

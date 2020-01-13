@@ -1,5 +1,5 @@
 package kotlin.jvm.internal;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class MutablePropertyReference extends PropertyReference implements kotlin.reflect.f {
     public MutablePropertyReference() {
     }

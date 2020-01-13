@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import android.view.View;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class InfoWindow {
     BitmapDescriptor a;
     View b;
@@ -10,7 +10,7 @@ public class InfoWindow {
     OnInfoWindowClickListener d;
     int e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface OnInfoWindowClickListener {
         void onInfoWindowClick();
     }

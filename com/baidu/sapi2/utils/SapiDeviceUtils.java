@@ -11,10 +11,10 @@ import com.baidu.webkit.internal.ETAG;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SapiDeviceUtils {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class DeviceCrypto implements com.baidu.sapi2.c {
         public static String base64Encode(byte[] bArr) {
             int i;

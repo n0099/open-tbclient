@@ -1,43 +1,50 @@
 package com.baidu.live.data;
 
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.data.BaseData;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class af extends BaseData {
-    public int aam;
-    public ArrayList<e> aan = new ArrayList<>();
+public class af {
+    public JSONObject ZS;
+    public String ZT;
+    public String ZU;
+    public String ZV;
+    public String ZW;
+    public long ZX;
+    public long ZY;
+    public String ZZ;
+    public String aaa;
+    public int aab;
+    public String aac;
+    public String aae;
+    public String aaf;
+    public String aag;
+    public String fromType;
+    public String nid;
+    public String platform;
+    public String price;
+    public String title;
 
-    @Override // com.baidu.live.tbadk.core.data.BaseData
-    public void parserJson(JSONObject jSONObject) {
-        JSONArray optJSONArray;
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject != null) {
-                    this.aam = optJSONObject.optInt("interval");
-                }
-                if (this.aam <= 0) {
-                    this.aam = 5;
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("live_activity_new");
-                long optLong = jSONObject.optLong("time", 0L);
-                if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("activity_info")) != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-                        if (optJSONObject3 != null) {
-                            e eVar = new e();
-                            eVar.parseJson(optJSONObject3);
-                            eVar.serverTime = optLong;
-                            this.aan.add(eVar);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+            this.ZS = jSONObject.optJSONObject("slink");
+            this.ZT = jSONObject.optString("num_id");
+            this.ZU = jSONObject.optString("goods_id");
+            this.title = jSONObject.optString("title");
+            this.ZV = jSONObject.optString("original_title");
+            this.price = jSONObject.optString("price");
+            this.ZW = jSONObject.optString(TbConfig.IMAGE_CACHE_DIR_NAME);
+            this.ZX = jSONObject.optLong("v_start_time");
+            this.ZY = jSONObject.optLong("v_end_time");
+            this.fromType = jSONObject.optString("from_type");
+            this.platform = jSONObject.optString("platform");
+            this.nid = jSONObject.optString("nid");
+            this.ZZ = jSONObject.optString("c_status");
+            this.aaa = jSONObject.optString("b_status");
+            this.aab = jSONObject.optInt("index_id");
+            this.aac = jSONObject.optString("reserve_price");
+            this.aae = jSONObject.optString("profit");
+            this.aaf = jSONObject.optString("sale_num");
+            this.aag = jSONObject.optString("coupon");
         }
     }
 }

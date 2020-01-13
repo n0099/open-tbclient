@@ -7,16 +7,16 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
-    private static final Object[] mXL = new Object[0];
-    static final ReplaySubscription[] mXX = new ReplaySubscription[0];
-    static final ReplaySubscription[] mXY = new ReplaySubscription[0];
     boolean done;
-    final a<T> mXW;
+    final a<T> nAj;
     final AtomicReference<ReplaySubscription<T>[]> subscribers;
+    private static final Object[] nzY = new Object[0];
+    static final ReplaySubscription[] nAk = new ReplaySubscription[0];
+    static final ReplaySubscription[] nAl = new ReplaySubscription[0];
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     interface a<T> {
         void c(ReplaySubscription<T> replaySubscription);
 
@@ -34,7 +34,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         if (a(replaySubscription) && replaySubscription.cancelled) {
             b(replaySubscription);
         } else {
-            this.mXW.c(replaySubscription);
+            this.nAj.c(replaySubscription);
         }
     }
 
@@ -51,7 +51,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
     public void onNext(T t) {
         io.reactivex.internal.functions.a.h(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (!this.done) {
-            a<T> aVar = this.mXW;
+            a<T> aVar = this.nAj;
             aVar.next(t);
             for (ReplaySubscription<T> replaySubscription : this.subscribers.get()) {
                 aVar.c(replaySubscription);
@@ -63,13 +63,13 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.done) {
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
             return;
         }
         this.done = true;
-        a<T> aVar = this.mXW;
+        a<T> aVar = this.nAj;
         aVar.error(th);
-        for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(mXY)) {
+        for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(nAl)) {
             aVar.c(replaySubscription);
         }
     }
@@ -78,9 +78,9 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
     public void onComplete() {
         if (!this.done) {
             this.done = true;
-            a<T> aVar = this.mXW;
+            a<T> aVar = this.nAj;
             aVar.complete();
-            for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(mXY)) {
+            for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(nAl)) {
                 aVar.c(replaySubscription);
             }
         }
@@ -91,7 +91,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         ReplaySubscription<T>[] replaySubscriptionArr2;
         do {
             replaySubscriptionArr = this.subscribers.get();
-            if (replaySubscriptionArr == mXY) {
+            if (replaySubscriptionArr == nAl) {
                 return false;
             }
             int length = replaySubscriptionArr.length;
@@ -107,7 +107,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         ReplaySubscription<T>[] replaySubscriptionArr2;
         do {
             replaySubscriptionArr = this.subscribers.get();
-            if (replaySubscriptionArr != mXY && replaySubscriptionArr != mXX) {
+            if (replaySubscriptionArr != nAl && replaySubscriptionArr != nAk) {
                 int length = replaySubscriptionArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -123,7 +123,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        replaySubscriptionArr2 = mXX;
+                        replaySubscriptionArr2 = nAk;
                     } else {
                         replaySubscriptionArr2 = new ReplaySubscription[length - 1];
                         System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr2, 0, i);
@@ -139,7 +139,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class ReplaySubscription<T> extends AtomicInteger implements d {
         private static final long serialVersionUID = 466549804534799122L;
         final c<? super T> actual;
@@ -158,7 +158,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
-                this.state.mXW.c(this);
+                this.state.nAj.c(this);
             }
         }
 
@@ -171,7 +171,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class Node<T> extends AtomicReference<Node<T>> {
         private static final long serialVersionUID = 6404226426336033100L;
         final T value;
@@ -181,7 +181,7 @@ public final class ReplayProcessor<T> extends io.reactivex.processors.a<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class TimedNode<T> extends AtomicReference<TimedNode<T>> {
         private static final long serialVersionUID = 6404226426336033100L;
         final long time;

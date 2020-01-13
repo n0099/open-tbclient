@@ -10,11 +10,10 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.RemoteException;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     private Context mContext;
     private Handler mHandler;
-    private b mKg;
     ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.c.a.a.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -30,8 +29,9 @@ public class a {
         public void onBindingDied(ComponentName componentName) {
         }
     };
+    private b njI;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void aI(String str, boolean z);
 
@@ -40,14 +40,14 @@ public class a {
 
     private a(Context context, b bVar, Handler handler) {
         this.mContext = context;
-        this.mKg = bVar;
-        this.mHandler = new HandlerC0636a(handler == null ? Looper.getMainLooper() : handler.getLooper());
+        this.njI = bVar;
+        this.mHandler = new HandlerC0641a(handler == null ? Looper.getMainLooper() : handler.getLooper());
     }
 
     /* renamed from: com.c.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private class HandlerC0636a extends Handler {
-        public HandlerC0636a(Looper looper) {
+    /* loaded from: classes5.dex */
+    private class HandlerC0641a extends Handler {
+        public HandlerC0641a(Looper looper) {
             super(looper);
         }
 
@@ -55,22 +55,22 @@ public class a {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 0:
-                    a.this.mKg.d(-1, null);
+                    a.this.njI.d(-1, null);
                     return;
                 case 1:
                     OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
                     try {
                         try {
-                            a.this.mKg.aI(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            a.this.njI.aI(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
                             try {
                                 a.this.mContext.unbindService(a.this.mServiceConnection);
                                 return;
                             } catch (Exception e) {
-                                a.this.mKg.d(-4, e);
+                                a.this.njI.d(-4, e);
                                 return;
                             }
                         } catch (RemoteException e2) {
-                            a.this.mKg.d(-3, e2);
+                            a.this.njI.d(-3, e2);
                             try {
                                 a.this.mContext.unbindService(a.this.mServiceConnection);
                                 return;
@@ -82,12 +82,12 @@ public class a {
                         try {
                             a.this.mContext.unbindService(a.this.mServiceConnection);
                         } catch (Exception e4) {
-                            a.this.mKg.d(-4, e4);
+                            a.this.njI.d(-4, e4);
                         }
                         throw th;
                     }
                 case 2:
-                    a.this.mKg.d(-2, null);
+                    a.this.njI.d(-2, null);
                     return;
                 default:
                     return;
@@ -100,10 +100,10 @@ public class a {
     }
 
     public static void a(Context context, b bVar, Handler handler) {
-        new a(context.getApplicationContext(), bVar, handler).dzz();
+        new a(context.getApplicationContext(), bVar, handler).dDt();
     }
 
-    private void dzz() {
+    private void dDt() {
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
         if (this.mContext.bindService(intent, this.mServiceConnection, 1)) {

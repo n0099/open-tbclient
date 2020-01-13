@@ -3,18 +3,18 @@ package com.airbnb.lottie.model.content;
 import android.graphics.PointF;
 import com.airbnb.lottie.a.a.n;
 import com.airbnb.lottie.model.a.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f implements b {
     private final m<PointF, PointF> hL;
     private final com.airbnb.lottie.model.a.f hR;
-    private final com.airbnb.lottie.model.a.b iB;
+    private final com.airbnb.lottie.model.a.b iA;
     private final String name;
 
     public f(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.b bVar) {
         this.name = str;
         this.hL = mVar;
         this.hR = fVar;
-        this.iB = bVar;
+        this.iA = bVar;
     }
 
     public String getName() {
@@ -22,7 +22,7 @@ public class f implements b {
     }
 
     public com.airbnb.lottie.model.a.b cS() {
-        return this.iB;
+        return this.iA;
     }
 
     public com.airbnb.lottie.model.a.f cw() {

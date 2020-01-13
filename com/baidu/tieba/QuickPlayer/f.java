@@ -1,8 +1,8 @@
 package com.baidu.tieba.QuickPlayer;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f implements com.baidu.tieba.play.h {
     @Override // com.baidu.tieba.play.h
-    public com.baidu.tieba.play.g aTX() {
+    public com.baidu.tieba.play.g aUr() {
         return new e();
     }
 }

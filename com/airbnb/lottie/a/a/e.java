@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e implements j, l, a.InterfaceC0010a {
     @Nullable
     private r fP;
@@ -103,9 +103,9 @@ public class e implements j, l, a.InterfaceC0010a {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (t == com.airbnb.lottie.k.eR) {
+        if (t == com.airbnb.lottie.k.eQ) {
             this.fS.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eS) {
+        } else if (t == com.airbnb.lottie.k.eR) {
             this.fT.a(cVar);
         }
     }

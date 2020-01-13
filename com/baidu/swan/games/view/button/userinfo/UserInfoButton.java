@@ -6,7 +6,7 @@ import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.swan.games.view.button.base.ApiButton;
 import com.baidu.swan.games.view.button.userinfo.c;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UserInfoButton extends ApiButton {
     public UserInfoButton(Context context) {
         super(context);

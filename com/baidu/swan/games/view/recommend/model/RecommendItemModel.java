@@ -3,7 +3,7 @@ package com.baidu.swan.games.view.recommend.model;
 import android.support.annotation.Keep;
 import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RecommendItemModel {
     @com.google.gson.a.c("app_key")
     public String appKey;

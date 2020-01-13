@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class SuspensionViewAdapter {
     public static final int DEFAULT_X = (int) (AppRuntime.getAppContext().getResources().getDisplayMetrics().density * 10.0f);
     public static final int DEFAULT_Y = (int) (AppRuntime.getAppContext().getResources().getDisplayMetrics().density * 50.0f);
@@ -65,7 +65,7 @@ public abstract class SuspensionViewAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class SuspensionWindowController {
         private Activity mActivity;
         private WindowManager mWindowManager;

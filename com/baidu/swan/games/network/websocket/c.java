@@ -17,30 +17,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends WebSocketEventTarget {
-    private b cmm;
+    private b cmz;
     private String taskId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, com.baidu.swan.games.e.b bVar2) {
         super(bVar2);
-        this.cmm = bVar;
+        this.cmz = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c h(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c i = i(jsObject);
         this.taskId = String.format(Locale.CHINA, "WebSocketTask-%d", Long.valueOf(System.currentTimeMillis()));
-        int oe = i.oe("url");
-        if (oe != 7) {
-            a(i, "connectSocket", String.format("parameter error: parameter.url should be %s instead of %s", com.baidu.swan.games.v.a.d.hF(7), com.baidu.swan.games.v.a.d.hF(oe)));
+        int oi = i.oi("url");
+        if (oi != 7) {
+            a(i, "connectSocket", String.format("parameter error: parameter.url should be %s instead of %s", com.baidu.swan.games.v.a.d.hF(7), com.baidu.swan.games.v.a.d.hF(oi)));
         } else {
             String optString = i.optString("url");
             String optString2 = i.optString("__plugin__");
-            if (!this.cmm.Wn()) {
+            if (!this.cmz.WK()) {
                 a(i, "connectSocket", "up to max connect count");
-            } else if (!bH(optString, optString2)) {
+            } else if (!bI(optString, optString2)) {
                 a(i, "connectSocket", String.format("invalid url \"%s\"", optString));
             } else {
                 WebSocketRequest b = b(optString, i);
@@ -48,7 +48,7 @@ public class c extends WebSocketEventTarget {
                 try {
                     WebSocketTask connect = WebSocketManager.INSTANCE.connect(b, this);
                     this.taskId = connect.getTaskId();
-                    this.cmm.a(connect);
+                    this.cmz.a(connect);
                     com.baidu.swan.games.utils.b.a(i, true, new e.c(this.taskId, String.format("%s:ok", "connectSocket")));
                 } catch (Exception e) {
                     a(i, "connectSocket", e.getMessage());
@@ -63,7 +63,7 @@ public class c extends WebSocketEventTarget {
         String str;
         JsArrayBuffer jsArrayBuffer = null;
         com.baidu.swan.games.binding.model.c i = i(jsObject);
-        switch (this.cmp) {
+        switch (this.cmC) {
             case IDLE:
                 a(i, "SocketTask.send", "SocketTask.readyState is not OPEN");
                 return;
@@ -71,7 +71,7 @@ public class c extends WebSocketEventTarget {
                 a(i, "SocketTask.send", "SocketTask.readyState is CLOSED");
                 return;
             default:
-                switch (i.oe("data")) {
+                switch (i.oi("data")) {
                     case 7:
                         str = i.optString("data", null);
                         break;
@@ -112,7 +112,7 @@ public class c extends WebSocketEventTarget {
     @JavascriptInterface
     public void close(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c i = i(jsObject);
-        if (this.cmp == WebSocketEventTarget.SocketTaskState.CLOSE) {
+        if (this.cmC == WebSocketEventTarget.SocketTaskState.CLOSE) {
             a(i, "SocketTask.close", "SocketTask.readyState is CLOSED");
             return;
         }
@@ -122,21 +122,21 @@ public class c extends WebSocketEventTarget {
         } catch (Exception e) {
             a(i, "SocketTask.close", e.getMessage());
         } finally {
-            this.cmm.jp(this.taskId);
+            this.cmz.js(this.taskId);
         }
         if (!(optInt == 1000 || (optInt >= 3000 && optInt <= 4999))) {
-            a(i, "SocketTask.close", d.cmo);
+            a(i, "SocketTask.close", d.cmB);
             return;
         }
         WebSocketManager.INSTANCE.close(this.taskId, optInt, optString);
         a(i, "SocketTask.close");
     }
 
-    private boolean bH(String str, String str2) {
+    private boolean bI(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.ah.a.a.XN()) {
+        if (com.baidu.swan.apps.ah.a.a.Yk()) {
             return true;
         }
         return str.startsWith("wss://") && com.baidu.swan.apps.aj.a.b.C("socket", str, str2) == 0;
@@ -146,18 +146,18 @@ public class c extends WebSocketEventTarget {
         WebSocketRequest.Builder builder = new WebSocketRequest.Builder();
         builder.setUrl(str);
         builder.setMethod(cVar.optString("method"));
-        com.baidu.swan.games.binding.model.c oo = cVar.oo(WebSocketRequest.PARAM_KEY_HEADER);
-        if (oo != null) {
-            for (String str2 : oo.keySet()) {
-                if (!TextUtils.isEmpty(str2) && !com.baidu.swan.apps.network.a.aZB.contains(str2.toUpperCase())) {
-                    builder.addHeader(str2, oo.toString(str2));
+        com.baidu.swan.games.binding.model.c or = cVar.or(WebSocketRequest.PARAM_KEY_HEADER);
+        if (or != null) {
+            for (String str2 : or.keySet()) {
+                if (!TextUtils.isEmpty(str2) && !com.baidu.swan.apps.network.a.bat.contains(str2.toUpperCase())) {
+                    builder.addHeader(str2, or.toString(str2));
                 }
             }
         }
-        String[] oi = cVar.oi(WebSocketRequest.PARAM_KEY_PROTOCOLS);
+        String[] ol = cVar.ol(WebSocketRequest.PARAM_KEY_PROTOCOLS);
         ArrayList arrayList = new ArrayList();
-        if (oi != null && oi.length != 0) {
-            arrayList.addAll(Arrays.asList(oi));
+        if (ol != null && ol.length != 0) {
+            arrayList.addAll(Arrays.asList(ol));
         } else {
             arrayList.add("");
         }
@@ -191,16 +191,16 @@ public class c extends WebSocketEventTarget {
     @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
         super.onClose(jSONObject);
-        if (this.cmm != null && jSONObject != null) {
-            this.cmm.jp(jSONObject.optString("taskID"));
+        if (this.cmz != null && jSONObject != null) {
+            this.cmz.js(jSONObject.optString("taskID"));
         }
     }
 
     @Override // com.baidu.swan.games.network.websocket.WebSocketEventTarget, com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
         super.onError(th, jSONObject);
-        if (this.cmm != null && jSONObject != null) {
-            this.cmm.jp(jSONObject.optString("taskID"));
+        if (this.cmz != null && jSONObject != null) {
+            this.cmz.js(jSONObject.optString("taskID"));
         }
     }
 

@@ -4,7 +4,7 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class o {
     private final a<PointF, PointF> gS;
     private final a<?, PointF> gT;
@@ -125,19 +125,19 @@ public class o {
     }
 
     public <T> boolean b(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (t == com.airbnb.lottie.k.eP) {
+        if (t == com.airbnb.lottie.k.eO) {
             this.gS.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eQ) {
+        } else if (t == com.airbnb.lottie.k.eP) {
             this.gT.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eT) {
+        } else if (t == com.airbnb.lottie.k.eS) {
             this.gU.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eU) {
+        } else if (t == com.airbnb.lottie.k.eT) {
             this.gV.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eN) {
+        } else if (t == com.airbnb.lottie.k.eM) {
             this.gW.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fh && this.gX != null) {
+        } else if (t == com.airbnb.lottie.k.fg && this.gX != null) {
             this.gX.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fi && this.gY != null) {
+        } else if (t == com.airbnb.lottie.k.fh && this.gY != null) {
             this.gY.a(cVar);
         } else {
             return false;

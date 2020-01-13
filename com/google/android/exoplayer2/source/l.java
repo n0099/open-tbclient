@@ -3,10 +3,10 @@ package com.google.android.exoplayer2.source;
 import android.support.annotation.Nullable;
 import com.google.android.exoplayer2.x;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface l {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(l lVar, x xVar, @Nullable Object obj);
     }
@@ -15,17 +15,17 @@ public interface l {
 
     void a(com.google.android.exoplayer2.g gVar, boolean z, a aVar);
 
-    void dtN() throws IOException;
+    void duY() throws IOException;
 
     void e(k kVar);
 
     void releaseSource();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
-        public static final b mnC = new b(-1, -1, -1);
-        public final int mnD;
-        public final int mnE;
+        public static final b mrr = new b(-1, -1, -1);
+        public final int mrs;
+        public final int mrt;
         public final int periodIndex;
 
         public b(int i) {
@@ -34,16 +34,16 @@ public interface l {
 
         public b(int i, int i2, int i3) {
             this.periodIndex = i;
-            this.mnD = i2;
-            this.mnE = i3;
+            this.mrs = i2;
+            this.mrt = i3;
         }
 
-        public b Kr(int i) {
-            return this.periodIndex == i ? this : new b(i, this.mnD, this.mnE);
+        public b KA(int i) {
+            return this.periodIndex == i ? this : new b(i, this.mrs, this.mrt);
         }
 
-        public boolean dtV() {
-            return this.mnD != -1;
+        public boolean dvg() {
+            return this.mrs != -1;
         }
 
         public boolean equals(Object obj) {
@@ -54,11 +54,11 @@ public interface l {
                 return false;
             }
             b bVar = (b) obj;
-            return this.periodIndex == bVar.periodIndex && this.mnD == bVar.mnD && this.mnE == bVar.mnE;
+            return this.periodIndex == bVar.periodIndex && this.mrs == bVar.mrs && this.mrt == bVar.mrt;
         }
 
         public int hashCode() {
-            return ((((this.periodIndex + 527) * 31) + this.mnD) * 31) + this.mnE;
+            return ((((this.periodIndex + 527) * 31) + this.mrs) * 31) + this.mrt;
         }
     }
 }

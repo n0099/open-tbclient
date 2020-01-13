@@ -7,16 +7,16 @@ import android.view.ViewGroup;
 import android.view.Window;
 import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.am.b aVO = null;
+    private com.baidu.swan.apps.am.b aWG = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        h(com.baidu.swan.apps.w.a.RG().getNightModeSwitcherState(), false);
+        g(com.baidu.swan.apps.w.a.Sc().getNightModeSwitcherState(), false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,7 +27,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         ai.fixedOrientation(this, releaseFixedOrientation);
     }
 
-    public void h(boolean z, boolean z2) {
+    public void g(boolean z, boolean z2) {
         Window window = getWindow();
         if (window == null) {
             if (DEBUG) {
@@ -36,21 +36,21 @@ public class SwanAppBaseActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.aVO == null) {
-            this.aVO = new com.baidu.swan.apps.am.b();
+        if (this.aWG == null) {
+            this.aWG = new com.baidu.swan.apps.am.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.aVO.m(viewGroup);
+            this.aWG.p(viewGroup);
         } else {
-            this.aVO.n(viewGroup);
+            this.aWG.q(viewGroup);
         }
         if (z2) {
-            com.baidu.swan.apps.process.messaging.a.XY().a(new com.baidu.swan.apps.process.messaging.c(5).dg(true));
+            com.baidu.swan.apps.process.messaging.a.Yv().a(new com.baidu.swan.apps.process.messaging.c(5).dl(true));
         }
     }
 
-    public com.baidu.swan.apps.am.b Ed() {
-        return this.aVO;
+    public com.baidu.swan.apps.am.b Ez() {
+        return this.aWG;
     }
 }

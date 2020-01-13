@@ -6,24 +6,24 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static volatile Executor aMD;
+    private static volatile Executor aNv;
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int MAX_POOL_SIZE = (CPU_COUNT * 2) + 1;
-    private static final ThreadFactory aME = new ThreadFactoryC0152a();
+    private static final ThreadFactory aNw = new ThreadFactoryC0154a();
 
     /* renamed from: com.baidu.poly.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    static class ThreadFactoryC0152a implements ThreadFactory {
-        private final AtomicInteger aMG = new AtomicInteger(1);
+    /* loaded from: classes10.dex */
+    static class ThreadFactoryC0154a implements ThreadFactory {
+        private final AtomicInteger aNy = new AtomicInteger(1);
 
-        ThreadFactoryC0152a() {
+        ThreadFactoryC0154a() {
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "cashier #" + this.aMG.getAndIncrement());
+            return new Thread(runnable, "cashier #" + this.aNy.getAndIncrement());
         }
     }
 
@@ -34,14 +34,14 @@ public class a {
     private static synchronized Executor getExecutor() {
         Executor executor;
         synchronized (a.class) {
-            if (aMD == null) {
+            if (aNv == null) {
                 synchronized (a.class) {
-                    if (aMD == null) {
-                        aMD = new ThreadPoolExecutor(1, MAX_POOL_SIZE, 4L, TimeUnit.SECONDS, new LinkedBlockingQueue(), aME);
+                    if (aNv == null) {
+                        aNv = new ThreadPoolExecutor(1, MAX_POOL_SIZE, 4L, TimeUnit.SECONDS, new LinkedBlockingQueue(), aNw);
                     }
                 }
             }
-            executor = aMD;
+            executor = aNv;
         }
         return executor;
     }

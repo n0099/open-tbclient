@@ -2,7 +2,7 @@ package rx.internal.util.a;
 
 import java.util.Iterator;
 import rx.internal.util.atomic.LinkedQueueNode;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 abstract class a<E> extends b<E> {
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
     public final Iterator<E> iterator() {
@@ -12,21 +12,21 @@ abstract class a<E> extends b<E> {
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
         LinkedQueueNode<E> lvNext;
-        LinkedQueueNode<E> dGU = dGU();
-        LinkedQueueNode<E> dGS = dGS();
+        LinkedQueueNode<E> dNv = dNv();
+        LinkedQueueNode<E> dNt = dNt();
         int i = 0;
-        while (dGU != dGS && i < Integer.MAX_VALUE) {
+        while (dNv != dNt && i < Integer.MAX_VALUE) {
             do {
-                lvNext = dGU.lvNext();
+                lvNext = dNv.lvNext();
             } while (lvNext == null);
             i++;
-            dGU = lvNext;
+            dNv = lvNext;
         }
         return i;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final boolean isEmpty() {
-        return dGU() == dGS();
+        return dNv() == dNt();
     }
 }

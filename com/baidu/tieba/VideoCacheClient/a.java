@@ -11,13 +11,13 @@ import java.net.Socket;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a dTa;
+    private static a dTj;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean dTb = false;
+    private boolean dTk = false;
     private byte[] mBuffer = new byte[1024];
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
@@ -27,7 +27,7 @@ public class a {
             r3 = e;
          */
         /* JADX WARN: Code restructure failed: missing block: B:63:0x021d, code lost:
-            com.baidu.tieba.VideoCacheClient.d.aJ(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
+            com.baidu.tieba.VideoCacheClient.d.aK(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
          */
         /* JADX WARN: Code restructure failed: missing block: B:64:0x023c, code lost:
             if (r15.exists() != false) goto L79;
@@ -106,7 +106,7 @@ public class a {
             int i3;
             long j2;
             String readLine;
-            while (!a.this.dTb) {
+            while (!a.this.dTk) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -114,14 +114,14 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.dTb) {
-                    String aUG = a.this.aUG();
-                    if (aUG != null && !aUG.isEmpty()) {
-                        File file = new File(c.dSQ + b.we(aUG) + "/header_downloaded");
+                if (!a.this.dTk) {
+                    String aVa = a.this.aVa();
+                    if (aVa != null && !aVa.isEmpty()) {
+                        File file = new File(c.dSZ + b.wi(aVa) + "/header_downloaded");
                         if (file.exists()) {
-                            d.aJ(a.TAG, "header exists " + aUG);
+                            d.aK(a.TAG, "header exists " + aVa);
                         } else {
-                            d.aJ(a.TAG, "client preload start: " + aUG);
+                            d.aK(a.TAG, "client preload start: " + aVa);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -140,8 +140,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aUG);
-                                    int port = b.aUH().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aVa);
+                                    int port = b.aVb().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -198,7 +198,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.aJ(a.TAG, "client preload check1: " + aUG);
+                                            d.aK(a.TAG, "client preload check1: " + aVa);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -250,7 +250,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.aJ(a.TAG, "client preload end: " + aUG);
+                            d.aK(a.TAG, "client preload end: " + aVa);
                         }
                     }
                 } else {
@@ -293,23 +293,23 @@ public class a {
         this.mThread.start();
     }
 
-    public static a aUF() {
-        if (dTa == null) {
+    public static a aUZ() {
+        if (dTj == null) {
             synchronized (a.class) {
-                if (dTa == null) {
-                    dTa = new a();
+                if (dTj == null) {
+                    dTj = new a();
                 }
             }
         }
-        return dTa;
+        return dTj;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String aUG() {
+    public synchronized String aVa() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void wf(String str) {
+    public synchronized void wj(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

@@ -5,7 +5,7 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.searchbox.v8engine.event.EventTarget;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.swan.games.h.l;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends a {
     public e(@NonNull String str, @NonNull com.baidu.swan.games.e.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
         super(str, bVar, v8ThreadDelegatePolicy);
@@ -14,24 +14,24 @@ public class e extends a {
                 @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
                 public V8Engine onCreateWorker() {
                     f fVar = new f(e.this.getInitBasePath());
-                    fVar.akJ();
+                    fVar.alc();
                     fVar.a(new com.baidu.swan.games.e.a.b(fVar));
                     fVar.a(new com.baidu.swan.games.e.a.c(fVar));
-                    return fVar.akM();
+                    return fVar.alf();
                 }
             });
-            l.aT(0L);
+            l.aW(0L);
         }
     }
 
     @Override // com.baidu.swan.games.e.a
     @NonNull
-    public EventTarget akG() {
+    public EventTarget akZ() {
         return new com.baidu.swan.games.binding.c(this);
     }
 
     @Override // com.baidu.swan.games.e.a
-    public EventTarget akH() {
+    public EventTarget ala() {
         return new com.baidu.swan.games.binding.a.a(this);
     }
 

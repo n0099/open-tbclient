@@ -1,34 +1,34 @@
 package com.baidu.tieba.ala.live.walletconfig;
 
 import android.text.TextUtils;
-import com.baidu.live.data.am;
+import com.baidu.live.data.aq;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a {
-    public static HashMap<String, String> a(am amVar) {
+    public static HashMap<String, String> a(aq aqVar) {
         HashMap<String, String> hashMap = new HashMap<>();
-        if (amVar != null) {
-            hashMap.put(CashierData.CUSTOMER_ID, "" + amVar.aaY);
-            hashMap.put("service", amVar.service);
-            hashMap.put(CashierData.ORDERID, amVar.orderId);
-            hashMap.put(CashierData.ORDER_CREATE_TIME, "" + amVar.aaZ);
-            hashMap.put(CashierData.DEVICE_TYPE, "" + amVar.aba);
-            hashMap.put(CashierData.PAY_AMOUNT, "" + amVar.abb);
-            hashMap.put(CashierData.ORIGINALAMOUNT_AMOUNT, "" + amVar.abd);
-            hashMap.put(CashierData.NOTIFY_URL, amVar.notifyUrl);
-            hashMap.put(CashierData.PASS_UID, amVar.passuid);
-            hashMap.put("title", amVar.title);
-            hashMap.put("mobile", amVar.mobile);
-            hashMap.put(CashierData.ITEM_INFO, amVar.itemInfo);
-            hashMap.put(CashierData.SDK, "" + amVar.abe);
-            hashMap.put(CashierData.SDK_STYLE, "" + amVar.abf);
-            hashMap.put("sign", amVar.sign);
-            hashMap.put(CashierData.SIGN_TYPE, "" + amVar.abg);
-            if (!TextUtils.isEmpty(amVar.tag)) {
-                hashMap.put("tag", "" + amVar.tag);
+        if (aqVar != null) {
+            hashMap.put(CashierData.CUSTOMER_ID, "" + aqVar.abm);
+            hashMap.put("service", aqVar.service);
+            hashMap.put(CashierData.ORDERID, aqVar.orderId);
+            hashMap.put(CashierData.ORDER_CREATE_TIME, "" + aqVar.abn);
+            hashMap.put(CashierData.DEVICE_TYPE, "" + aqVar.abo);
+            hashMap.put(CashierData.PAY_AMOUNT, "" + aqVar.abp);
+            hashMap.put(CashierData.ORIGINALAMOUNT_AMOUNT, "" + aqVar.abq);
+            hashMap.put(CashierData.NOTIFY_URL, aqVar.notifyUrl);
+            hashMap.put(CashierData.PASS_UID, aqVar.passuid);
+            hashMap.put("title", aqVar.title);
+            hashMap.put("mobile", aqVar.mobile);
+            hashMap.put(CashierData.ITEM_INFO, aqVar.itemInfo);
+            hashMap.put(CashierData.SDK, "" + aqVar.abr);
+            hashMap.put(CashierData.SDK_STYLE, "" + aqVar.abt);
+            hashMap.put("sign", aqVar.sign);
+            hashMap.put(CashierData.SIGN_TYPE, "" + aqVar.signType);
+            if (!TextUtils.isEmpty(aqVar.tag)) {
+                hashMap.put("tag", "" + aqVar.tag);
             }
-            if (!TextUtils.isEmpty(amVar.abi)) {
-                hashMap.put("channel", "" + amVar.abi);
+            if (!TextUtils.isEmpty(aqVar.abv)) {
+                hashMap.put("channel", "" + aqVar.abv);
             }
         }
         return hashMap;

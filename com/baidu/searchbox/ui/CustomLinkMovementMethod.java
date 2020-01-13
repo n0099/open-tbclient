@@ -8,11 +8,11 @@ import android.text.method.Touch;
 import android.text.style.ClickableSpan;
 import android.view.MotionEvent;
 import android.widget.TextView;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CustomLinkMovementMethod extends LinkMovementMethod {
     private OnLinkMovementListener mLinkListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnLinkMovementListener {
         void onLinkTouch(TextView textView, MotionEvent motionEvent);
 

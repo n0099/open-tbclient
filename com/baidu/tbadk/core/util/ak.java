@@ -8,59 +8,59 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ak {
-    private static String cVU;
-    private static String cVV;
+    private static String cWe;
+    private static String cWf;
 
     public static boolean isEmui() {
-        return aDP();
+        return aEi();
     }
 
-    public static boolean aDP() {
+    public static boolean aEi() {
         return check(RomUtils.ROM_EMUI) && Build.VERSION.SDK_INT >= 24;
     }
 
     public static boolean check(String str) {
-        if (cVU != null) {
-            return cVU.equals(str);
+        if (cWe != null) {
+            return cWe.equals(str);
         }
         String prop = getProp("ro.miui.ui.version.name");
-        cVV = prop;
+        cWf = prop;
         if (!TextUtils.isEmpty(prop)) {
-            cVU = RomUtils.ROM_MIUI;
+            cWe = RomUtils.ROM_MIUI;
         } else {
             String prop2 = getProp("ro.build.version.emui");
-            cVV = prop2;
+            cWf = prop2;
             if (!TextUtils.isEmpty(prop2)) {
-                cVU = RomUtils.ROM_EMUI;
+                cWe = RomUtils.ROM_EMUI;
             } else {
                 String prop3 = getProp("ro.build.version.opporom");
-                cVV = prop3;
+                cWf = prop3;
                 if (!TextUtils.isEmpty(prop3)) {
-                    cVU = RomUtils.ROM_OPPO;
+                    cWe = RomUtils.ROM_OPPO;
                 } else {
                     String prop4 = getProp("ro.vivo.os.version");
-                    cVV = prop4;
+                    cWf = prop4;
                     if (!TextUtils.isEmpty(prop4)) {
-                        cVU = RomUtils.ROM_VIVO;
+                        cWe = RomUtils.ROM_VIVO;
                     } else {
                         String prop5 = getProp("ro.smartisan.version");
-                        cVV = prop5;
+                        cWf = prop5;
                         if (!TextUtils.isEmpty(prop5)) {
-                            cVU = RomUtils.ROM_SMARTISAN;
+                            cWe = RomUtils.ROM_SMARTISAN;
                         } else {
-                            cVV = Build.DISPLAY;
-                            if (cVV.toUpperCase().contains(RomUtils.ROM_FLYME)) {
-                                cVU = RomUtils.ROM_FLYME;
+                            cWf = Build.DISPLAY;
+                            if (cWf.toUpperCase().contains(RomUtils.ROM_FLYME)) {
+                                cWe = RomUtils.ROM_FLYME;
                             } else {
-                                cVV = "unknown";
-                                cVU = Build.MANUFACTURER.toUpperCase();
+                                cWf = "unknown";
+                                cWe = Build.MANUFACTURER.toUpperCase();
                             }
                         }
                     }
                 }
             }
         }
-        return cVU.equals(str);
+        return cWe.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */

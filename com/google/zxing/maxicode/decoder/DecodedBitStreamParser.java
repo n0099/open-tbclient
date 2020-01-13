@@ -3,7 +3,7 @@ package com.google.zxing.maxicode.decoder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.google.zxing.common.DecoderResult;
 import java.text.DecimalFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 final class DecodedBitStreamParser {
     private static final char ECI = 65530;
     private static final char FS = 28;

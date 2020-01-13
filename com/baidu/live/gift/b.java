@@ -6,8 +6,8 @@ import org.json.JSONObject;
 public class b {
     public String giftId = "";
     public String giftName = "";
-    public e ads = null;
-    public d adt = null;
+    public e adH = null;
+    public d adI = null;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -15,13 +15,13 @@ public class b {
             this.giftName = jSONObject.optString("gift_name");
             JSONObject optJSONObject = jSONObject.optJSONObject("config_info");
             if (optJSONObject != null) {
-                this.adt = new d();
-                this.adt.parseJson(optJSONObject);
+                this.adI = new d();
+                this.adI.parseJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("gift_zip");
             if (optJSONObject2 != null) {
-                this.ads = new e();
-                this.ads.parseJson(optJSONObject2);
+                this.adH = new e();
+                this.adH.parseJson(optJSONObject2);
             }
         }
     }

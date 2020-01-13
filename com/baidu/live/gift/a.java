@@ -6,8 +6,8 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class a {
     public static long broadGiftMsgId;
-    public boolean adq;
-    public ArrayList<AlaBroadcastGiftToastData> adr;
+    public boolean adF;
+    public ArrayList<AlaBroadcastGiftToastData> adG;
     public Context context;
     public String fromType;
 }

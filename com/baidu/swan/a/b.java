@@ -2,7 +2,7 @@ package com.baidu.swan.a;
 
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static HashMap<String, String> a(com.baidu.swan.a.a.a aVar) {
         if (aVar == null) {
@@ -11,7 +11,7 @@ public class b {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("version_code", String.valueOf(aVar.getVersionCode()));
         hashMap.put(SharedPrefConfig.VERSION_NAME, aVar.getVersionName());
-        hashMap.put("abi_type", com.baidu.swan.a.b.a.agD());
+        hashMap.put("abi_type", com.baidu.swan.a.b.a.agW());
         return hashMap;
     }
 }

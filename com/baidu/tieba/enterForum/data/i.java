@@ -2,9 +2,9 @@ package com.baidu.tieba.enterForum.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class i extends d implements com.baidu.tbadk.mvc.b.a {
-    private String eqU;
+    private String mAvatar;
     private long mForumId;
     private String mForumName;
 
@@ -16,7 +16,7 @@ public class i extends d implements com.baidu.tbadk.mvc.b.a {
         if (recommendForumInfo != null) {
             try {
                 this.mForumId = recommendForumInfo.forum_id.longValue();
-                this.eqU = recommendForumInfo.avatar;
+                this.mAvatar = recommendForumInfo.avatar;
                 this.mForumName = recommendForumInfo.forum_name;
             } catch (Exception e) {
                 BdLog.detailException(e);

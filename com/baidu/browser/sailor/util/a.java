@@ -1,12 +1,12 @@
 package com.baidu.browser.sailor.util;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     static final /* synthetic */ boolean a;
 
     /* renamed from: com.baidu.browser.sailor.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     static abstract class AbstractC0046a {
         public byte[] a;
         public int b;
@@ -15,7 +15,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     static class b extends AbstractC0046a {
         static final /* synthetic */ boolean j;
         private static final byte[] k;

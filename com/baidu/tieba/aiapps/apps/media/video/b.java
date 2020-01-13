@@ -7,7 +7,7 @@ import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerVie
 import com.baidu.swan.apps.console.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -35,17 +35,17 @@ public class b {
     }
 
     public static void a(final String str, final String str2, final boolean z, VideoContainerManager videoContainerManager) {
-        final SwanAppComponentContainerView aXF = videoContainerManager.aXF();
-        aXF.post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.b.1
+        final SwanAppComponentContainerView aXZ = videoContainerManager.aXZ();
+        aXZ.post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.b.1
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    int V = af.V(SwanAppComponentContainerView.this.getWidth());
-                    int V2 = af.V(SwanAppComponentContainerView.this.getHeight());
+                    int U = af.U(SwanAppComponentContainerView.this.getWidth());
+                    int U2 = af.U(SwanAppComponentContainerView.this.getHeight());
                     jSONObject.putOpt("fullscreen", z ? "1" : "0");
-                    jSONObject.putOpt("width", String.valueOf(V));
-                    jSONObject.putOpt("height", String.valueOf(V2));
+                    jSONObject.putOpt("width", String.valueOf(U));
+                    jSONObject.putOpt("height", String.valueOf(U2));
                 } catch (JSONException e) {
                     if (b.DEBUG) {
                         e.printStackTrace();

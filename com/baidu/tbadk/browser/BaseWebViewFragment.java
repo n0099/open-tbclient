@@ -16,7 +16,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public String mUrl;
     private String mUrlTitle;
 
-    public void rr(String str) {
+    public void ru(String str) {
         this.mUrlTitle = str;
     }
 
@@ -47,7 +47,7 @@ public class BaseWebViewFragment extends BaseFragment {
         return ce(this.mUrl, "nomenu");
     }
 
-    public boolean rs(String str) {
+    public boolean rv(String str) {
         return ce(str, "blank");
     }
 

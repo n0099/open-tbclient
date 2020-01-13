@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 @com.facebook.common.internal.d
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JpegTranscoder {
     @com.facebook.common.internal.d
     private static native void nativeTranscodeJpeg(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException;
@@ -17,11 +17,11 @@ public class JpegTranscoder {
         a.load();
     }
 
-    public static boolean It(int i) {
+    public static boolean IC(int i) {
         return i >= 0 && i <= 270 && i % 90 == 0;
     }
 
-    public static boolean Iu(int i) {
+    public static boolean ID(int i) {
         switch (i) {
             case 1:
             case 2:
@@ -43,7 +43,7 @@ public class JpegTranscoder {
         g.checkArgument(i2 <= 16);
         g.checkArgument(i3 >= 0);
         g.checkArgument(i3 <= 100);
-        g.checkArgument(It(i));
+        g.checkArgument(IC(i));
         if (i2 != 8 || i != 0) {
             z = true;
         }
@@ -57,7 +57,7 @@ public class JpegTranscoder {
         g.checkArgument(i2 <= 16);
         g.checkArgument(i3 >= 0);
         g.checkArgument(i3 <= 100);
-        g.checkArgument(Iu(i));
+        g.checkArgument(ID(i));
         if (i2 != 8 || i != 1) {
             z = true;
         }

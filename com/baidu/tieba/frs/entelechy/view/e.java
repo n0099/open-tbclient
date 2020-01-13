@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.q;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e extends v.a {
     public Context mContext;
     public View mRoot;
@@ -23,11 +23,11 @@ public class e extends v.a {
     public void a(q qVar) {
         if (qVar != null) {
             this.mTipView.setText(R.string.read_here);
-            aFd();
+            aFw();
         }
     }
 
-    public void aFd() {
+    public void aFw() {
         am.setViewTextColor(this.mTipView, (int) R.color.cp_link_tip_a);
         am.setBackgroundResource(this.mRoot, R.color.cp_bg_line_e);
     }

@@ -8,19 +8,19 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<Integer, C0350a> cwp = new ConcurrentHashMap();
-    private final Map<String, ConcurrentHashMap<Integer, C0350a>> cwq = new ConcurrentHashMap();
+    private final Map<Integer, C0352a> cwA = new ConcurrentHashMap();
+    private final Map<String, ConcurrentHashMap<Integer, C0352a>> cwB = new ConcurrentHashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void record(int i, @Nullable String str) {
         if (DEBUG) {
             Log.v("MiniPerformanceTracer", "(" + System.currentTimeMillis() + ") record: " + i + ", " + str);
         }
-        C0350a c0350a = new C0350a(i);
-        this.cwp.put(Integer.valueOf(c0350a.aqE()), c0350a);
+        C0352a c0352a = new C0352a(i);
+        this.cwA.put(Integer.valueOf(c0352a.aqX()), c0352a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,26 +28,26 @@ public class a {
         if (DEBUG) {
             Log.v("MiniPerformanceTracer", "(" + System.currentTimeMillis() + ") record: " + str + ", " + i + ", " + str2);
         }
-        C0350a c0350a = new C0350a(i);
-        ConcurrentHashMap<Integer, C0350a> concurrentHashMap = this.cwq.get(str);
+        C0352a c0352a = new C0352a(i);
+        ConcurrentHashMap<Integer, C0352a> concurrentHashMap = this.cwB.get(str);
         if (concurrentHashMap == null) {
             concurrentHashMap = new ConcurrentHashMap<>();
-            this.cwq.put(str, concurrentHashMap);
+            this.cwB.put(str, concurrentHashMap);
         }
-        concurrentHashMap.put(Integer.valueOf(c0350a.aqE()), c0350a);
+        concurrentHashMap.put(Integer.valueOf(c0352a.aqX()), c0352a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public JSONArray pS(@Nullable String str) {
-        ConcurrentHashMap<Integer, C0350a> concurrentHashMap;
-        if (!TextUtils.isEmpty(str) && (concurrentHashMap = this.cwq.get(str)) != null) {
+    public JSONArray pV(@Nullable String str) {
+        ConcurrentHashMap<Integer, C0352a> concurrentHashMap;
+        if (!TextUtils.isEmpty(str) && (concurrentHashMap = this.cwB.get(str)) != null) {
             JSONArray jSONArray = new JSONArray();
-            for (C0350a c0350a : this.cwp.values()) {
-                jSONArray.put(c0350a.toJson());
+            for (C0352a c0352a : this.cwA.values()) {
+                jSONArray.put(c0352a.toJson());
             }
-            for (C0350a c0350a2 : concurrentHashMap.values()) {
-                jSONArray.put(c0350a2.toJson());
+            for (C0352a c0352a2 : concurrentHashMap.values()) {
+                jSONArray.put(c0352a2.toJson());
             }
             return jSONArray;
         }
@@ -55,24 +55,24 @@ public class a {
     }
 
     /* renamed from: com.baidu.swan.mini.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    private static class C0350a {
-        private int cwr;
+    /* loaded from: classes10.dex */
+    private static class C0352a {
+        private int cwC;
         private long mTimestamp = System.currentTimeMillis();
 
-        C0350a(int i) {
-            this.cwr = i;
+        C0352a(int i) {
+            this.cwC = i;
         }
 
-        int aqE() {
-            return this.cwr;
+        int aqX() {
+            return this.cwC;
         }
 
         @NonNull
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("type", this.cwr);
+                jSONObject.put("type", this.cwC);
                 jSONObject.put("timestamp", this.mTimestamp);
             } catch (Exception e) {
                 if (a.DEBUG) {

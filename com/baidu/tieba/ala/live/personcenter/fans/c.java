@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
@@ -17,9 +17,9 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class c extends b {
-    private boolean eGA;
-    private Drawable eGz;
-    private View.OnClickListener erw;
+    private Drawable eHJ;
+    private boolean eHK;
+    private View.OnClickListener esH;
     private Context mContext;
     private TbPageContext mPageContext;
     private int mSex;
@@ -27,28 +27,28 @@ public class c extends b {
     public c(TbPageContext tbPageContext, boolean z, int i) {
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
-        this.eGA = z;
+        this.eHK = z;
         this.mSex = i;
-        this.eGz = this.mContext.getResources().getDrawable(a.f.sdk_prc_btn_focus_cross_bg);
+        this.eHJ = this.mContext.getResources().getDrawable(a.f.sdk_prc_btn_focus_cross_bg);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eGy) {
+        if (this.eHI) {
             return 1;
         }
-        if (this.cRE == null) {
+        if (this.cRO == null) {
             return 0;
         }
-        return this.cRE.size();
+        return this.cRO.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.cRE == null) {
+        if (this.cRO == null) {
             return null;
         }
-        return this.cRE.get(i);
+        return this.cRO.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -58,8 +58,8 @@ public class c extends b {
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.cRE = eVar.ayB();
-            bec();
+            this.cRO = eVar.ayU();
+            bex();
             notifyDataSetChanged();
         }
     }
@@ -70,45 +70,45 @@ public class c extends b {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_list_item, (ViewGroup) null);
-            aVar.eGB = (LinearLayout) view.findViewById(a.g.info);
-            aVar.erP = (HeadImageView) view.findViewById(a.g.photo);
-            aVar.erP.setIsRound(true);
-            aVar.erP.setAutoChangeStyle(false);
-            aVar.erP.setClickable(false);
+            aVar.eHL = (LinearLayout) view.findViewById(a.g.info);
+            aVar.eta = (HeadImageView) view.findViewById(a.g.photo);
+            aVar.eta.setIsRound(true);
+            aVar.eta.setAutoChangeStyle(false);
+            aVar.eta.setClickable(false);
             aVar.mName = (TextView) view.findViewById(a.g.name);
-            aVar.erQ = (TextView) view.findViewById(a.g.intro);
-            aVar.anw = (TextView) view.findViewById(a.g.attention_btn);
-            aVar.eGC = (TextView) view.findViewById(a.g.at_list_nodata);
+            aVar.etb = (TextView) view.findViewById(a.g.intro);
+            aVar.aoj = (TextView) view.findViewById(a.g.attention_btn);
+            aVar.eHM = (TextView) view.findViewById(a.g.at_list_nodata);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        if (this.eGy) {
-            aVar.eGB.setVisibility(8);
-            aVar.eGC.setVisibility(0);
-            if (this.eGA) {
-                aVar.eGC.setText(a.i.sdk_prc_not_have_fans);
+        if (this.eHI) {
+            aVar.eHL.setVisibility(8);
+            aVar.eHM.setVisibility(0);
+            if (this.eHK) {
+                aVar.eHM.setText(a.i.sdk_prc_not_have_fans);
             } else if (this.mSex == 2) {
-                aVar.eGC.setText(a.i.sdk_prc_her_no_fan_other);
+                aVar.eHM.setText(a.i.sdk_prc_her_no_fan_other);
             } else if (this.mSex == 1) {
-                aVar.eGC.setText(a.i.sdk_prc_him_no_fan_other);
+                aVar.eHM.setText(a.i.sdk_prc_him_no_fan_other);
             } else {
-                aVar.eGC.setText(a.i.sdk_prc_no_fan_other);
+                aVar.eHM.setText(a.i.sdk_prc_no_fan_other);
             }
         } else {
-            aVar.eGC.setVisibility(8);
-            aVar.eGB.setVisibility(0);
-            com.baidu.tieba.ala.live.personcenter.fans.a aVar2 = (com.baidu.tieba.ala.live.personcenter.fans.a) ListUtils.getItem(this.cRE, i);
+            aVar.eHM.setVisibility(8);
+            aVar.eHL.setVisibility(0);
+            com.baidu.tieba.ala.live.personcenter.fans.a aVar2 = (com.baidu.tieba.ala.live.personcenter.fans.a) ListUtils.getItem(this.cRO, i);
             if (aVar2 != null) {
-                aVar.erP.startLoad(aVar2.portrait, 12, false);
+                aVar.eta.startLoad(aVar2.portrait, 12, false);
                 aVar.mName.setText(aVar2.getNameShow());
                 if (StringHelper.isEmpty(aVar2.intro)) {
-                    aVar.erQ.setVisibility(8);
+                    aVar.etb.setVisibility(8);
                 } else {
-                    aVar.erQ.setVisibility(0);
-                    aVar.erQ.setText(aVar2.intro);
+                    aVar.etb.setVisibility(0);
+                    aVar.etb.setText(aVar2.intro);
                 }
-                b(aVar.anw, aVar2.beb(), i);
+                b(aVar.aoj, aVar2.bew(), i);
             }
         }
         return view;
@@ -130,21 +130,21 @@ public class c extends b {
             textView.setTextSize(0, BdUtilHelper.getDimens(this.mContext, a.e.sdk_ds26));
             textView.setText(a.i.sdk_prc_attention);
             textView.setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds10), 0);
-            textView.setCompoundDrawablesWithIntrinsicBounds(this.eGz, (Drawable) null, (Drawable) null, (Drawable) null);
+            textView.setCompoundDrawablesWithIntrinsicBounds(this.eHJ, (Drawable) null, (Drawable) null, (Drawable) null);
             textView.setTextColor(this.mContext.getResources().getColorStateList(a.d.sdk_prc_btn_forum_focus_color));
             textView.setBackgroundResource(a.f.sdk_prc_btn_transparent_focus_border_bg);
         }
         textView.setTag(Integer.valueOf(i));
-        textView.setOnClickListener(this.erw);
+        textView.setOnClickListener(this.esH);
     }
 
-    public void t(View.OnClickListener onClickListener) {
-        this.erw = onClickListener;
+    public void s(View.OnClickListener onClickListener) {
+        this.esH = onClickListener;
     }
 
     public void X(String str, boolean z) {
-        if (this.cRE != null && str != null) {
-            Iterator<com.baidu.tieba.ala.live.personcenter.fans.a> it = this.cRE.iterator();
+        if (this.cRO != null && str != null) {
+            Iterator<com.baidu.tieba.ala.live.personcenter.fans.a> it = this.cRO.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -152,9 +152,9 @@ public class c extends b {
                 com.baidu.tieba.ala.live.personcenter.fans.a next = it.next();
                 if (next != null && str.equals(next.userId)) {
                     if (z) {
-                        next.eGw = 1;
+                        next.eHG = 1;
                     } else {
-                        next.eGw = 0;
+                        next.eHG = 0;
                     }
                 }
             }
@@ -164,11 +164,11 @@ public class c extends b {
 
     /* loaded from: classes2.dex */
     private static class a {
-        public TextView anw;
-        public LinearLayout eGB;
-        public TextView eGC;
-        public HeadImageView erP;
-        public TextView erQ;
+        public TextView aoj;
+        public LinearLayout eHL;
+        public TextView eHM;
+        public HeadImageView eta;
+        public TextView etb;
         public TextView mName;
 
         private a() {

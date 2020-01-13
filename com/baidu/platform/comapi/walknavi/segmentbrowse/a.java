@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.segmentbrowse;
 
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private String a;
     private String b;

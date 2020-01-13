@@ -14,7 +14,7 @@ import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class b extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(j jVar, String str) {
@@ -46,11 +46,11 @@ public abstract class b extends ab {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public JSONObject a(@NonNull a.C0193a c0193a) {
+    public JSONObject a(@NonNull a.C0195a c0195a) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, String.valueOf(c0193a.level <= 100 ? c0193a.level : 100));
-            jSONObject.put("isCharging", c0193a.bRP);
+            jSONObject.put(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, String.valueOf(c0195a.level <= 100 ? c0195a.level : 100));
+            jSONObject.put("isCharging", c0195a.bSz);
             return jSONObject;
         } catch (JSONException e) {
             return null;

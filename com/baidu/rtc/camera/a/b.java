@@ -1,8 +1,8 @@
 package com.baidu.rtc.camera.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private static b aQM = new b();
-    public com.baidu.rtc.camera.b.a aQN;
+    private static b aRE = new b();
+    public com.baidu.rtc.camera.b.a aRF;
     public int encodeWidth = 270;
     public int encodeHeight = 480;
     public int encodeBitrate = 600000;
@@ -13,7 +13,7 @@ public class b {
     private b() {
     }
 
-    public static b Cr() {
-        return aQM;
+    public static b CN() {
+        return aRE;
     }
 }

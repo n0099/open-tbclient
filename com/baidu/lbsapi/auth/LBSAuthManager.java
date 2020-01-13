@@ -27,7 +27,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LBSAuthManager {
     public static final int CODE_AUTHENTICATE_SUCC = 0;
     public static final int CODE_AUTHENTICATING = 602;
@@ -491,7 +491,7 @@ public class LBSAuthManager {
                 i = a(e2);
                 if (i == 601) {
                     try {
-                        c(new JSONObject().put("status", CODE_AUTHENTICATING).toString());
+                        c(new JSONObject().put("status", 602).toString());
                     } catch (JSONException e3) {
                         e3.printStackTrace();
                     }

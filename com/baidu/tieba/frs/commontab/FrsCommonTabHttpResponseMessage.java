@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<d, GeneralTabListResIdl> {
     public FrsCommonTabHttpResponseMessage() {
         super(CmdConfigHttp.CMD_FRS_COMMON_TAB);

@@ -16,20 +16,20 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class y {
-    public int Wq;
+    public int WJ;
 
     public y(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
     }
 
-    private void Bn(String str) {
+    private void Bx(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
         Map<String, String> paramPair = ba.getParamPair(str);
         if (paramPair != null) {
-            this.Wq = 5;
+            this.WJ = 5;
             com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c10320");
             anVar.cp("obj_locate", paramPair.get("obj_locate"));
             anVar.Z("obj_type", 1);
@@ -67,11 +67,11 @@ public class y {
                         if ("mpush".equals(matcher.group(1))) {
                             TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11895").cp("tid", matcher.group(2)));
                         } else {
-                            Bn(decode);
+                            Bx(decode);
                         }
                         str = matcher.group(2);
                     } else {
-                        Bn(decode);
+                        Bx(decode);
                         int indexOf = decode.indexOf("tid=");
                         if (indexOf >= 0 && (length = indexOf + "tid=".length()) <= decode.length()) {
                             str = decode.substring(length);

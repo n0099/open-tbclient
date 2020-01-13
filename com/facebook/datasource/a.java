@@ -1,5 +1,5 @@
 package com.facebook.datasource;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class a<T> implements d<T> {
     protected abstract void onFailureImpl(b<T> bVar);
 
@@ -12,7 +12,7 @@ public abstract class a<T> implements d<T> {
             onNewResultImpl(bVar);
         } finally {
             if (isFinished) {
-                bVar.LR();
+                bVar.Mn();
             }
         }
     }
@@ -22,7 +22,7 @@ public abstract class a<T> implements d<T> {
         try {
             onFailureImpl(bVar);
         } finally {
-            bVar.LR();
+            bVar.Mn();
         }
     }
 

@@ -19,7 +19,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public static final int REQUESTFROM_FEED = 1;
     public static final int REQUESTFROM_FRESCO = 2;

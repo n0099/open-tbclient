@@ -2,40 +2,40 @@ package com.baidu.swan.menu;
 
 import android.graphics.PointF;
 import android.view.animation.Interpolator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e implements Interpolator {
-    private int cuD = 0;
-    private final PointF cuE = new PointF();
-    private final PointF cuF = new PointF();
+    private int cuO = 0;
+    private final PointF cuP = new PointF();
+    private final PointF cuQ = new PointF();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(float f, float f2, float f3, float f4) {
-        this.cuE.x = f;
-        this.cuE.y = f2;
-        this.cuF.x = f3;
-        this.cuF.y = f4;
+        this.cuP.x = f;
+        this.cuP.y = f2;
+        this.cuQ.x = f3;
+        this.cuQ.y = f4;
     }
 
     @Override // android.animation.TimeInterpolator
     public float getInterpolation(float f) {
         double d = 1.0d;
-        int i = this.cuD;
+        int i = this.cuO;
         float f2 = f;
         while (true) {
             if (i >= 4096) {
                 break;
             }
             f2 = (1.0f * i) / 4096.0f;
-            if (a(f2, 0.0d, this.cuE.x, this.cuF.x, 1.0d) < f) {
+            if (a(f2, 0.0d, this.cuP.x, this.cuQ.x, 1.0d) < f) {
                 i++;
             } else {
-                this.cuD = i;
+                this.cuO = i;
                 break;
             }
         }
-        double a = a(f2, 0.0d, this.cuE.y, this.cuF.y, 1.0d);
+        double a = a(f2, 0.0d, this.cuP.y, this.cuQ.y, 1.0d);
         if (a > 0.999d) {
-            this.cuD = 0;
+            this.cuO = 0;
         } else {
             d = a;
         }

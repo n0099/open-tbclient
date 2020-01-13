@@ -33,7 +33,7 @@ import com.facebook.imagepipeline.g.d;
 import com.facebook.imagepipeline.g.f;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BaseBrowseView extends FrameLayout {
     private static final boolean DEBUG = true;
     public static final String IMG_TYPE_GIF = "gif";
@@ -62,12 +62,12 @@ public class BaseBrowseView extends FrameLayout {
     private int mScreenWidth;
     int[] maxTextureSize;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnImageLoadCompleteListener {
         void onLoadComplete(String str, Object obj, Context context);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnImageLoadStatusListener extends OnImageLoadCompleteListener {
         void onSetImageComplete();
     }
@@ -251,7 +251,7 @@ public class BaseBrowseView extends FrameLayout {
             }
         };
         X.c(new com.facebook.imagepipeline.common.d(DeviceUtil.ScreenInfo.getDisplayWidth(getContext()), Integer.MAX_VALUE, 8192.0f));
-        this.imageView.setController(c.djg().uR(true).be(X.dpZ()).c(this.imageView.getController()).c(bVar).djX());
+        this.imageView.setController(c.dkh().vd(true).be(X.drm()).c(this.imageView.getController()).c(bVar).dkY());
     }
 
     protected void onImageHasSet(String str, @Nullable Object obj, @Nullable Animatable animatable) {
@@ -265,14 +265,14 @@ public class BaseBrowseView extends FrameLayout {
             this.imageView.setZoomEnabled(true);
             this.mAnimationHelper.doReadyStartAnimLocationJob(this.imageView);
             this.mCloseableStaticBitmap = (d) obj;
-            Bitmap dnV = this.mCloseableStaticBitmap.dnV();
+            Bitmap dpb = this.mCloseableStaticBitmap.dpb();
             if (this.mImageLoadStatusListener != null) {
                 this.mImageLoadStatusListener.onLoadComplete(str, obj, getContext());
             }
-            if (dnV == null) {
+            if (dpb == null) {
                 hideLoadingAndShowErrorView();
             } else {
-                setImageView(dnV);
+                setImageView(dpb);
             }
         } else if (obj instanceof a) {
             this.mCurrentPictureType = IMG_TYPE_GIF;
@@ -280,7 +280,7 @@ public class BaseBrowseView extends FrameLayout {
             hideLoadingAndHideErrorView();
             this.imageView.setIsDynamicBitmap(true);
             this.imageView.setZoomEnabled(false);
-            this.imageView.getHierarchy().b(p.b.lIE);
+            this.imageView.getHierarchy().b(p.b.lMb);
             resetAnimation();
         }
     }
@@ -417,15 +417,15 @@ public class BaseBrowseView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateToOriginImage(String str) {
-        this.imageView.setController(c.djg().c(this.imageView.getController()).uR(true).c(new b<f>() { // from class: com.baidu.searchbox.picture.component.BaseBrowseView.7
+        this.imageView.setController(c.dkh().c(this.imageView.getController()).vd(true).c(new b<f>() { // from class: com.baidu.searchbox.picture.component.BaseBrowseView.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
             public void onFinalImageSet(String str2, @Nullable f fVar, @Nullable Animatable animatable) {
                 if (fVar instanceof d) {
-                    BaseBrowseView.this.setImageView(((d) fVar).dnV());
+                    BaseBrowseView.this.setImageView(((d) fVar).dpb());
                 }
             }
-        }).be(ImageRequestBuilder.X(Uri.parse(str)).dpZ()).djX());
+        }).be(ImageRequestBuilder.X(Uri.parse(str)).drm()).dkY());
     }
 
     public String getImageUrl() {
@@ -465,7 +465,7 @@ public class BaseBrowseView extends FrameLayout {
 
     public Bitmap getBitmap() {
         if (this.mCloseableStaticBitmap != null) {
-            return this.mCloseableStaticBitmap.dnV();
+            return this.mCloseableStaticBitmap.dpb();
         }
         return null;
     }

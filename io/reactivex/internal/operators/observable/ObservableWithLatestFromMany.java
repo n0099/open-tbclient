@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -11,21 +11,21 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.internal.operators.observable.a<T, R> {
     final h<? super Object[], R> combiner;
-    final Iterable<? extends t<?>> mUC;
-    final t<?>[] mVA;
+    final Iterable<? extends t<?>> nwL;
+    final t<?>[] nxJ;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
         int length;
-        t<?>[] tVarArr = this.mVA;
+        t<?>[] tVarArr = this.nxJ;
         int i = 0;
         if (tVarArr == null) {
             tVarArr = new t[8];
             try {
-                for (t<?> tVar : this.mUC) {
+                for (t<?> tVar : this.nwL) {
                     if (i == tVarArr.length) {
                         tVarArr = (t[]) Arrays.copyOf(tVarArr, (i >> 1) + i);
                     }
@@ -52,7 +52,7 @@ public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.inter
         this.source.subscribe(withLatestFromObserver);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class WithLatestFromObserver<T, R> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 1577321883966341961L;
         final u<? super R> actual;
@@ -117,7 +117,7 @@ public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.inter
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;
@@ -177,7 +177,7 @@ public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.inter
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class WithLatestInnerObserver extends AtomicReference<io.reactivex.disposables.b> implements u<Object> {
         private static final long serialVersionUID = 3256684027868224024L;
         boolean hasValue;
@@ -217,13 +217,13 @@ public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.inter
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     final class a implements h<T, R> {
         a() {
         }
 
         /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.Object[], java.lang.Object] */
-        @Override // io.reactivex.b.h
+        @Override // io.reactivex.c.h
         public R apply(T t) throws Exception {
             return (R) io.reactivex.internal.functions.a.h(ObservableWithLatestFromMany.this.combiner.apply(new Object[]{t}), "The combiner returned a null value");
         }

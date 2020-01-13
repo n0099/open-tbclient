@@ -2,17 +2,17 @@ package com.baidu.swan.games.h.a;
 
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private int cjK;
+    private int cjX;
     @V8JavascriptField
     public String[] files;
     private int mID;
 
     public d() {
-        this.cjK = 0;
-        int i = this.cjK;
-        this.cjK = i + 1;
+        this.cjX = 0;
+        int i = this.cjX;
+        this.cjX = i + 1;
         this.mID = i;
     }
 

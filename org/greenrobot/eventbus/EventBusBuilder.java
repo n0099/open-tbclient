@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.greenrobot.eventbus.meta.SubscriberInfoIndex;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EventBusBuilder {
     private static final ExecutorService DEFAULT_EXECUTOR_SERVICE = Executors.newCachedThreadPool();
     boolean ignoreGeneratedIndex;

@@ -4,24 +4,24 @@ public interface f {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void blQ();
+        void bmO();
 
-        void blR();
+        void bmP();
     }
 
     /* loaded from: classes2.dex */
     public interface b {
-        void blS();
+        void bmQ();
 
-        void blT();
+        void bmR();
 
-        void blU();
+        void bmS();
 
-        boolean blV();
+        boolean bmT();
 
-        void blW();
+        void bmU();
 
-        void blX();
+        void bmV();
 
         void onCloseClicked();
     }

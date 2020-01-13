@@ -2,20 +2,20 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.Path;
 import android.support.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class i implements b {
     @Nullable
     private final com.airbnb.lottie.model.a.a hG;
     @Nullable
     private final com.airbnb.lottie.model.a.d hO;
-    private final Path.FillType hW;
-    private final boolean iH;
+    private final Path.FillType hV;
+    private final boolean iG;
     private final String name;
 
     public i(String str, boolean z, Path.FillType fillType, @Nullable com.airbnb.lottie.model.a.a aVar, @Nullable com.airbnb.lottie.model.a.d dVar) {
         this.name = str;
-        this.iH = z;
-        this.hW = fillType;
+        this.iG = z;
+        this.hV = fillType;
         this.hG = aVar;
         this.hO = dVar;
     }
@@ -35,7 +35,7 @@ public class i implements b {
     }
 
     public Path.FillType cz() {
-        return this.hW;
+        return this.hV;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -44,6 +44,6 @@ public class i implements b {
     }
 
     public String toString() {
-        return "ShapeFill{color=, fillEnabled=" + this.iH + '}';
+        return "ShapeFill{color=, fillEnabled=" + this.iG + '}';
     }
 }

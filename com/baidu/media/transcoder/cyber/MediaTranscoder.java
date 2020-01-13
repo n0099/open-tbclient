@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.media.transcoder.c;
 import com.baidu.media.transcoder.d;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MediaTranscoder extends c {
     private static final com.baidu.media.transcoder.cyber.a b = new com.baidu.media.transcoder.cyber.a() { // from class: com.baidu.media.transcoder.cyber.MediaTranscoder.1
         @Override // com.baidu.media.transcoder.cyber.a
@@ -21,18 +21,18 @@ public class MediaTranscoder extends c {
     private long mNativeTranscoder;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a extends Handler {
-        private final MediaTranscoder aHL;
+        private final MediaTranscoder aID;
 
         public a(MediaTranscoder mediaTranscoder, Looper looper) {
             super(looper);
-            this.aHL = mediaTranscoder;
+            this.aID = mediaTranscoder;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            MediaTranscoder mediaTranscoder = this.aHL;
+            MediaTranscoder mediaTranscoder = this.aID;
             if (mediaTranscoder == null) {
                 d.c("MediaTranscoder", "MediaTranscoder went away with unhandled events.");
                 return;

@@ -4,39 +4,39 @@ import com.google.android.exoplayer2.source.k;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class m implements k, k.a {
-    private u lUc;
-    private k.a mmt;
-    public final k[] mnF;
-    private final IdentityHashMap<p, Integer> mnG = new IdentityHashMap<>();
-    private int mnH;
-    private k[] mnI;
-    private q mnJ;
+    private u lXT;
+    private k.a mqi;
+    public final k[] mru;
+    private final IdentityHashMap<p, Integer> mrv = new IdentityHashMap<>();
+    private int mrw;
+    private k[] mrx;
+    private q mry;
 
     public m(k... kVarArr) {
-        this.mnF = kVarArr;
+        this.mru = kVarArr;
     }
 
     @Override // com.google.android.exoplayer2.source.k
     public void a(k.a aVar, long j) {
-        this.mmt = aVar;
-        this.mnH = this.mnF.length;
-        for (k kVar : this.mnF) {
+        this.mqi = aVar;
+        this.mrw = this.mru.length;
+        for (k kVar : this.mru) {
             kVar.a(this, j);
         }
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public void dtF() throws IOException {
-        for (k kVar : this.mnF) {
-            kVar.dtF();
+    public void duQ() throws IOException {
+        for (k kVar : this.mru) {
+            kVar.duQ();
         }
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public u dtG() {
-        return this.lUc;
+    public u duR() {
+        return this.lXT;
     }
 
     @Override // com.google.android.exoplayer2.source.k
@@ -49,14 +49,14 @@ final class m implements k, k.a {
             if (i2 >= fVarArr.length) {
                 break;
             }
-            iArr[i2] = pVarArr[i2] == null ? -1 : this.mnG.get(pVarArr[i2]).intValue();
+            iArr[i2] = pVarArr[i2] == null ? -1 : this.mrv.get(pVarArr[i2]).intValue();
             iArr2[i2] = -1;
             if (fVarArr[i2] != null) {
-                t duG = fVarArr[i2].duG();
+                t dvR = fVarArr[i2].dvR();
                 int i3 = 0;
                 while (true) {
-                    if (i3 < this.mnF.length) {
-                        if (this.mnF[i3].dtG().a(duG) == -1) {
+                    if (i3 < this.mru.length) {
+                        if (this.mru[i3].duR().a(dvR) == -1) {
                             i3++;
                         } else {
                             iArr2[i2] = i3;
@@ -69,19 +69,19 @@ final class m implements k, k.a {
             }
             i = i2 + 1;
         }
-        this.mnG.clear();
+        this.mrv.clear();
         p[] pVarArr2 = new p[fVarArr.length];
         p[] pVarArr3 = new p[fVarArr.length];
         com.google.android.exoplayer2.b.f[] fVarArr2 = new com.google.android.exoplayer2.b.f[fVarArr.length];
-        ArrayList arrayList = new ArrayList(this.mnF.length);
+        ArrayList arrayList = new ArrayList(this.mru.length);
         int i4 = 0;
         long j2 = j;
-        while (i4 < this.mnF.length) {
+        while (i4 < this.mru.length) {
             for (int i5 = 0; i5 < fVarArr.length; i5++) {
                 pVarArr3[i5] = iArr[i5] == i4 ? pVarArr[i5] : null;
                 fVarArr2[i5] = iArr2[i5] == i4 ? fVarArr[i5] : null;
             }
-            long a = this.mnF[i4].a(fVarArr2, zArr, pVarArr3, zArr2, j2);
+            long a = this.mru[i4].a(fVarArr2, zArr, pVarArr3, zArr2, j2);
             if (i4 == 0) {
                 j2 = a;
             } else if (a != j2) {
@@ -93,105 +93,105 @@ final class m implements k, k.a {
                     com.google.android.exoplayer2.util.a.checkState(pVarArr3[i6] != null);
                     pVarArr2[i6] = pVarArr3[i6];
                     z = true;
-                    this.mnG.put(pVarArr3[i6], Integer.valueOf(i4));
+                    this.mrv.put(pVarArr3[i6], Integer.valueOf(i4));
                 } else if (iArr[i6] == i4) {
                     com.google.android.exoplayer2.util.a.checkState(pVarArr3[i6] == null);
                 }
             }
             if (z) {
-                arrayList.add(this.mnF[i4]);
+                arrayList.add(this.mru[i4]);
             }
             i4++;
         }
         System.arraycopy(pVarArr2, 0, pVarArr, 0, pVarArr2.length);
-        this.mnI = new k[arrayList.size()];
-        arrayList.toArray(this.mnI);
-        this.mnJ = new e(this.mnI);
+        this.mrx = new k[arrayList.size()];
+        arrayList.toArray(this.mrx);
+        this.mry = new e(this.mrx);
         return j2;
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public void fY(long j) {
-        for (k kVar : this.mnI) {
-            kVar.fY(j);
+    public void gd(long j) {
+        for (k kVar : this.mrx) {
+            kVar.gd(j);
         }
     }
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
-    public boolean ga(long j) {
-        return this.mnJ.ga(j);
+    public boolean gf(long j) {
+        return this.mry.gf(j);
     }
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
-    public long dtJ() {
-        return this.mnJ.dtJ();
+    public long duU() {
+        return this.mry.duU();
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public long dtH() {
+    public long duS() {
         k[] kVarArr;
-        long dtH = this.mnF[0].dtH();
-        for (int i = 1; i < this.mnF.length; i++) {
-            if (this.mnF[i].dtH() != -9223372036854775807L) {
+        long duS = this.mru[0].duS();
+        for (int i = 1; i < this.mru.length; i++) {
+            if (this.mru[i].duS() != -9223372036854775807L) {
                 throw new IllegalStateException("Child reported discontinuity");
             }
         }
-        if (dtH != -9223372036854775807L) {
-            for (k kVar : this.mnI) {
-                if (kVar != this.mnF[0] && kVar.fZ(dtH) != dtH) {
+        if (duS != -9223372036854775807L) {
+            for (k kVar : this.mrx) {
+                if (kVar != this.mru[0] && kVar.ge(duS) != duS) {
                     throw new IllegalStateException("Children seeked to different positions");
                 }
             }
         }
-        return dtH;
+        return duS;
     }
 
     @Override // com.google.android.exoplayer2.source.k, com.google.android.exoplayer2.source.q
-    public long dtI() {
-        return this.mnJ.dtI();
+    public long duT() {
+        return this.mry.duT();
     }
 
     @Override // com.google.android.exoplayer2.source.k
-    public long fZ(long j) {
-        long fZ = this.mnI[0].fZ(j);
-        for (int i = 1; i < this.mnI.length; i++) {
-            if (this.mnI[i].fZ(fZ) != fZ) {
+    public long ge(long j) {
+        long ge = this.mrx[0].ge(j);
+        for (int i = 1; i < this.mrx.length; i++) {
+            if (this.mrx[i].ge(ge) != ge) {
                 throw new IllegalStateException("Children seeked to different positions");
             }
         }
-        return fZ;
+        return ge;
     }
 
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.source.k.a
     public void a(k kVar) {
-        int i = this.mnH - 1;
-        this.mnH = i;
+        int i = this.mrw - 1;
+        this.mrw = i;
         if (i <= 0) {
             int i2 = 0;
-            for (k kVar2 : this.mnF) {
-                i2 += kVar2.dtG().length;
+            for (k kVar2 : this.mru) {
+                i2 += kVar2.duR().length;
             }
             t[] tVarArr = new t[i2];
-            k[] kVarArr = this.mnF;
+            k[] kVarArr = this.mru;
             int length = kVarArr.length;
             int i3 = 0;
             int i4 = 0;
             while (i3 < length) {
-                u dtG = kVarArr[i3].dtG();
-                int i5 = dtG.length;
+                u duR = kVarArr[i3].duR();
+                int i5 = duR.length;
                 int i6 = i4;
                 int i7 = 0;
                 while (i7 < i5) {
-                    tVarArr[i6] = dtG.KD(i7);
+                    tVarArr[i6] = duR.KM(i7);
                     i7++;
                     i6++;
                 }
                 i3++;
                 i4 = i6;
             }
-            this.lUc = new u(tVarArr);
-            this.mmt.a((k) this);
+            this.lXT = new u(tVarArr);
+            this.mqi.a((k) this);
         }
     }
 
@@ -199,8 +199,8 @@ final class m implements k, k.a {
     @Override // com.google.android.exoplayer2.source.q.a
     /* renamed from: b */
     public void a(k kVar) {
-        if (this.lUc != null) {
-            this.mmt.a((k.a) this);
+        if (this.lXT != null) {
+            this.mqi.a((k.a) this);
         }
     }
 }

@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Properties;
 import org.apache.http.HttpStatus;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class d {
     private static int c = -1;
     private static Boolean e = false;
@@ -58,7 +58,7 @@ public final class d {
     private int w = 0;
     private int x = 0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class a extends Thread {
         a() {
             setName("PushService-PushConnection-readThread");
@@ -109,7 +109,7 @@ public final class d {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class b extends Thread {
         b() {
             setName("PushService-PushConnection-SendThread");

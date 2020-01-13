@@ -10,7 +10,7 @@ public abstract class d implements a {
     private SQLiteDatabase database = null;
     private final String dbFileFullPath;
     private int mVersion;
-    private a.InterfaceC0013a nc;
+    private a.InterfaceC0013a mZ;
 
     public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
 
@@ -18,7 +18,7 @@ public abstract class d implements a {
 
     @Override // com.baidu.adp.base.a.a
     public void a(a.InterfaceC0013a interfaceC0013a) {
-        this.nc = interfaceC0013a;
+        this.mZ = interfaceC0013a;
     }
 
     public d(String str, int i) {
@@ -64,8 +64,8 @@ public abstract class d implements a {
     }
 
     private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        if (this.nc != null) {
-            this.nc.onDatabaseCreated(sQLiteDatabase);
+        if (this.mZ != null) {
+            this.mZ.onDatabaseCreated(sQLiteDatabase);
         }
     }
 

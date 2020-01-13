@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.godreply;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b extends PbListView {
     private TbPageContext<?> context;
 
@@ -24,7 +24,7 @@ public class b extends PbListView {
         getView().setVisibility(0);
     }
 
-    public void byw() {
+    public void bzy() {
         super.endLoadData();
         setText(this.context.getResources().getString(R.string.load_more));
         getView().setVisibility(0);

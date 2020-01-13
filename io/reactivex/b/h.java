@@ -1,5 +1,0 @@
-package io.reactivex.b;
-/* loaded from: classes4.dex */
-public interface h<T, R> {
-    R apply(T t) throws Exception;
-}
