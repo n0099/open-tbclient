@@ -24,18 +24,18 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static a Jl = null;
+    private static a Jr = null;
     protected String a;
     protected String b;
     protected String c;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.browser.sailor.webkit.update.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class C0047a extends BdNetTask implements INetListener {
-        protected ByteArrayOutputStream Jm;
+        protected ByteArrayOutputStream Js;
 
         public C0047a(Context context, String str) {
             setUrl(a.a(str, context));
@@ -48,16 +48,16 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
-            this.Jm.reset();
+            this.Js.reset();
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
-            if (this.Jm == null) {
-                this.Jm = new ByteArrayOutputStream();
+            if (this.Js == null) {
+                this.Js = new ByteArrayOutputStream();
             }
             if (i > 0) {
-                this.Jm.write(bArr, 0, i);
+                this.Js.write(bArr, 0, i);
             }
         }
 
@@ -80,9 +80,9 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-            if (this.Jm != null) {
+            if (this.Js != null) {
                 try {
-                    String byteArrayOutputStream = this.Jm.toString("utf-8");
+                    String byteArrayOutputStream = this.Js.toString("utf-8");
                     Log.d(EngineManager.LOG_TAG, "received data = " + byteArrayOutputStream);
                     if (byteArrayOutputStream.length() > 0) {
                         JSONObject jSONObject = new JSONObject(byteArrayOutputStream);
@@ -120,15 +120,15 @@ public class a {
         }
 
         public void release() {
-            if (this.Jm != null) {
+            if (this.Js != null) {
                 try {
-                    this.Jm.reset();
-                    this.Jm.close();
+                    this.Js.reset();
+                    this.Js.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            this.Jm = null;
+            this.Js = null;
         }
     }
 
@@ -321,14 +321,14 @@ public class a {
     }
 
     public static a mr() {
-        if (Jl == null) {
+        if (Jr == null) {
             synchronized (a.class) {
-                if (Jl == null) {
-                    Jl = new a();
+                if (Jr == null) {
+                    Jr = new a();
                 }
             }
         }
-        return Jl;
+        return Jr;
     }
 
     protected final void b() {

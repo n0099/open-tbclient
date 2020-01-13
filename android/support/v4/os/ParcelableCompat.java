@@ -3,14 +3,14 @@ package android.support.v4.os;
 import android.os.Parcel;
 import android.os.Parcelable;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ParcelableCompat {
     @Deprecated
     public static <T> Parcelable.Creator<T> newCreator(ParcelableCompatCreatorCallbacks<T> parcelableCompatCreatorCallbacks) {
         return new ParcelableCompatCreatorHoneycombMR2(parcelableCompatCreatorCallbacks);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static class ParcelableCompatCreatorHoneycombMR2<T> implements Parcelable.ClassLoaderCreator<T> {
         private final ParcelableCompatCreatorCallbacks<T> mCallbacks;
 

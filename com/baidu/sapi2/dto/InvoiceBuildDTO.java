@@ -1,5 +1,5 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class InvoiceBuildDTO extends SapiWebDTO {
     public static final String TYPE_MANAGE = "0";
     public static final String TYPE_SELECT = "1";

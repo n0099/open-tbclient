@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi.widget;
 import android.view.View;
 import com.baidu.platform.comapi.walknavi.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c implements View.OnClickListener {
     final /* synthetic */ a a;
 
@@ -14,12 +14,12 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        a.InterfaceC0137a interfaceC0137a;
-        a.InterfaceC0137a interfaceC0137a2;
-        interfaceC0137a = this.a.h;
-        if (interfaceC0137a != null) {
-            interfaceC0137a2 = this.a.h;
-            interfaceC0137a2.a();
+        a.InterfaceC0139a interfaceC0139a;
+        a.InterfaceC0139a interfaceC0139a2;
+        interfaceC0139a = this.a.h;
+        if (interfaceC0139a != null) {
+            interfaceC0139a2 = this.a.h;
+            interfaceC0139a2.a();
         }
         this.a.dismiss();
     }

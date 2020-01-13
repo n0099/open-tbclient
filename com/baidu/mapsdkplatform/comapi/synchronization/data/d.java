@@ -6,7 +6,7 @@ import android.view.View;
 import com.baidu.mapapi.synchronization.DisplayOptions;
 import com.baidu.mapapi.synchronization.RoleOptions;
 import java.lang.Thread;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
     private static g c;
     private static Thread d;
@@ -20,13 +20,13 @@ public class d {
     private static volatile boolean i = false;
     private static int j = 1000;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class a {
         private static final d a = new d();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Runnable {
         private String a;
 
@@ -57,7 +57,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class c extends Handler {
         c() {
         }

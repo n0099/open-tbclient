@@ -3,7 +3,7 @@ package com.baidu.tieba.advert.sdk.data;
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     protected int resultCode;
     protected String resultMsg;

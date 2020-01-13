@@ -5,10 +5,10 @@ import android.os.Handler;
 import android.os.Looper;
 import com.baidu.mobads.CpuInfoManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j implements Runnable {
     final /* synthetic */ Context a;
-    final /* synthetic */ CpuInfoManager.UrlListener aKi;
+    final /* synthetic */ CpuInfoManager.UrlListener aLa;
     final /* synthetic */ int b;
     final /* synthetic */ String c;
 
@@ -17,13 +17,13 @@ public final class j implements Runnable {
         this.a = context;
         this.b = i;
         this.c = str;
-        this.aKi = urlListener;
+        this.aLa = urlListener;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String a = new com.baidu.mobads.production.b.c(this.a.getApplicationContext(), this.b, this.c).a();
-        if (this.aKi != null) {
+        if (this.aLa != null) {
             new Handler(Looper.getMainLooper()).post(new k(this, a));
         }
     }

@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ac extends ab {
     public ac(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/checkAppInstalled");

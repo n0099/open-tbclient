@@ -7,15 +7,15 @@ import android.widget.Toast;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.webkit.sdk.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e implements Runnable {
-    final /* synthetic */ BdLightappKernelClient IH;
-    final /* synthetic */ Intent xf;
+    final /* synthetic */ BdLightappKernelClient IP;
+    final /* synthetic */ Intent xj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(BdLightappKernelClient bdLightappKernelClient, Intent intent) {
-        this.IH = bdLightappKernelClient;
-        this.xf = intent;
+        this.IP = bdLightappKernelClient;
+        this.xj = intent;
     }
 
     @Override // java.lang.Runnable
@@ -25,15 +25,15 @@ public class e implements Runnable {
         SparseArray sparseArray3;
         SparseArray sparseArray4;
         try {
-            if (this.IH.mActivity != null) {
-                this.IH.mActivity.startActivity(this.xf);
-                int intExtra = this.xf.getIntExtra("jsaction_key", -1);
+            if (this.IP.mActivity != null) {
+                this.IP.mActivity.startActivity(this.xj);
+                int intExtra = this.xj.getIntExtra("jsaction_key", -1);
                 if (12 == intExtra) {
-                    sparseArray3 = this.IH.mJsCallbacks;
+                    sparseArray3 = this.IP.mJsCallbacks;
                     BdLightappKernelJsCallback bdLightappKernelJsCallback = (BdLightappKernelJsCallback) sparseArray3.get(intExtra);
                     if (bdLightappKernelJsCallback != null) {
                         bdLightappKernelJsCallback.sendSuccCallBack();
-                        sparseArray4 = this.IH.mJsCallbacks;
+                        sparseArray4 = this.IP.mJsCallbacks;
                         sparseArray4.remove(intExtra);
                     }
                 }
@@ -42,13 +42,13 @@ public class e implements Runnable {
             }
         } catch (ActivityNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(BdSailorPlatform.getInstance().getAppContext(), com.baidu.browser.core.g.H("string", "sailor_msg_activity_not_found"), 0).show();
-            int intExtra2 = this.xf.getIntExtra("jsaction_key", -1);
-            sparseArray = this.IH.mJsCallbacks;
+            Toast.makeText(BdSailorPlatform.getInstance().getAppContext(), com.baidu.browser.core.g.G("string", "sailor_msg_activity_not_found"), 0).show();
+            int intExtra2 = this.xj.getIntExtra("jsaction_key", -1);
+            sparseArray = this.IP.mJsCallbacks;
             BdLightappKernelJsCallback bdLightappKernelJsCallback2 = (BdLightappKernelJsCallback) sparseArray.get(intExtra2);
             if (bdLightappKernelJsCallback2 != null) {
                 bdLightappKernelJsCallback2.sendFailCallBack(e.getMessage());
-                sparseArray2 = this.IH.mJsCallbacks;
+                sparseArray2 = this.IP.mJsCallbacks;
                 sparseArray2.remove(intExtra2);
             }
         }

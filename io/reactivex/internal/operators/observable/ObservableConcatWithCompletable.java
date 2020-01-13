@@ -5,7 +5,7 @@ import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableConcatWithCompletable<T> extends a<T, T> {
     final e other;
 
@@ -14,7 +14,7 @@ public final class ObservableConcatWithCompletable<T> extends a<T, T> {
         this.source.subscribe(new ConcatWithObserver(uVar, this.other));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ConcatWithObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements c, io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -1953724749712440952L;
         final u<? super T> actual;

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.MotionEvent;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LiveActivity extends Activity {
     private boolean mIsFirstStart = true;
 

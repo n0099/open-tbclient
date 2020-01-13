@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private l drS;
-    private boolean drT;
+    private l dsd;
+    private boolean dse;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -22,9 +22,9 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, l lVar) {
         super(context);
         this.mSkinType = 0;
-        this.drT = false;
+        this.dse = false;
         if (lVar != null) {
-            this.drS = lVar;
+            this.dsd = lVar;
             setIcon();
             setToolId(lVar.id);
         }
@@ -35,11 +35,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public void setIcon() {
-        if (this.drS != null) {
-            if (this.drS.dsW) {
-                setImageDrawable(SvgManager.aDW().v(this.drS.dsU, this.drS.dsV, this.mSkinType));
+        if (this.dsd != null) {
+            if (this.dsd.dth) {
+                setImageDrawable(SvgManager.aEp().v(this.dsd.dtf, this.dsd.dtg, this.mSkinType));
             } else {
-                am.setImageResource(this, this.drS.dsU, this.mSkinType);
+                am.setImageResource(this, this.dsd.dtf, this.mSkinType);
             }
         }
     }
@@ -54,17 +54,17 @@ public class BLauncher extends ImageView implements g {
     }
 
     @Override // com.baidu.tbadk.editortools.g
-    public void lw() {
+    public void display() {
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        aLB();
+        aLU();
         setVisibility(8);
     }
 
-    public void uD(String str) {
+    public void uI(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -95,7 +95,7 @@ public class BLauncher extends ImageView implements g {
         }
     }
 
-    public void aLB() {
+    public void aLU() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -110,9 +110,9 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                aLB();
+                aLU();
             } else if (aVar.data instanceof String) {
-                uD((String) aVar.data);
+                uI((String) aVar.data);
             }
         }
     }
@@ -132,11 +132,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.drT;
+        return this.dse;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.drT = z;
+        this.dse = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

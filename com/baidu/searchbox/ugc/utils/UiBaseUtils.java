@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UiBaseUtils {
     private static Context context = AppRuntime.getAppContext();
 

@@ -8,7 +8,7 @@ public interface c<V extends d, D extends IBaseDialogData> {
 
     int getDialogMargin();
 
-    boolean xp();
+    boolean xF();
 
-    boolean xq();
+    boolean xG();
 }

@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.widget.CriusTbClipImageView;
 import tbclient.VideoInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class q implements com.baidu.c.a.b.c {
     @Override // com.baidu.c.a.b.c
     public View P(Context context, String str) {
@@ -45,11 +45,11 @@ public class q implements com.baidu.c.a.b.c {
         }
         if (view instanceof CriusTbClipImageView) {
             float f = view.getResources().getDisplayMetrics().density;
-            if (aVar.Rf > 0.0f) {
-                int y = y(aVar.Rf, f);
+            if (aVar.Ri > 0.0f) {
+                int y = y(aVar.Ri, f);
                 ((CriusTbClipImageView) view).setRadius(y, y, y, y);
             } else {
-                ((CriusTbClipImageView) view).setRadius(y(aVar.Rg, f), y(aVar.Rh, f), y(aVar.Ri, f), y(aVar.Rj, f));
+                ((CriusTbClipImageView) view).setRadius(y(aVar.Rj, f), y(aVar.Rk, f), y(aVar.Rl, f), y(aVar.Rm, f));
             }
             ((CriusTbClipImageView) view).startLoad(aVar.src, 30, false);
             return true;
@@ -59,7 +59,7 @@ public class q implements com.baidu.c.a.b.c {
             int dimension = (int) view.getContext().getResources().getDimension(R.dimen.ds278);
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_url = aVar.src;
-            builder.thumbnail_url = aVar.Re;
+            builder.thumbnail_url = aVar.poster;
             builder.video_duration = Integer.valueOf(aVar.videoDuration);
             builder.video_width = Integer.valueOf(aVar.width);
             builder.video_height = Integer.valueOf(aVar.height);
@@ -94,7 +94,7 @@ public class q implements com.baidu.c.a.b.c {
                 return true;
             }
         }
-        com.baidu.adp.lib.e.c.gs().a(str2, 17, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.q.1
+        com.baidu.adp.lib.e.c.gr().a(str2, 17, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.q.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b

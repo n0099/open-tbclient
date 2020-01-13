@@ -1,6 +1,6 @@
 package com.baidu.mobads.utils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g implements Runnable {
     final /* synthetic */ Runnable a;
     final /* synthetic */ e b;

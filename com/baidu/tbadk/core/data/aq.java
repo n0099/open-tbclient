@@ -15,7 +15,7 @@ import tbclient.PbContent;
 import tbclient.TogetherHi;
 /* loaded from: classes.dex */
 public class aq {
-    public static ArrayList<PbContent> M(JSONArray jSONArray) throws JSONException {
+    public static ArrayList<PbContent> N(JSONArray jSONArray) throws JSONException {
         if (jSONArray == null) {
             return null;
         }

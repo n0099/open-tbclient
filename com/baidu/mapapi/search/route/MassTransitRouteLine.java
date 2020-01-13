@@ -17,7 +17,7 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MassTransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static final Parcelable.Creator<MassTransitRouteLine> CREATOR = new i();
     private String b;
@@ -25,7 +25,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
     private List<PriceInfo> d;
     private List<List<TransitStep>> e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<TransitStep> CREATOR = new j();
         private List<TrafficCondition> d;
@@ -39,7 +39,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         private String l;
         private String m;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public enum StepVehicleInfoType {
             ESTEP_TRAIN(1),
             ESTEP_PLANE(2),
@@ -60,7 +60,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static class TrafficCondition implements Parcelable {
             public static final Parcelable.Creator<TrafficCondition> CREATOR = new k();
             private int a;

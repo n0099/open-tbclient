@@ -585,7 +585,7 @@ public class MessageManager {
                 if (responsedMessage.getError() != 0) {
                     if (j.isNetWorkAvailable()) {
                         this.mHttpMsgCWSendFailedCnt++;
-                        if (this.mHttpMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.he().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_HTTP, 3)) {
+                        if (this.mHttpMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.hd().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_HTTP, 3)) {
                             BdStatisticsManager.getInstance().alert(BdStatsConstant.AlertTypeKey.ALERT_HTTP, "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                         }
                     }
@@ -598,7 +598,7 @@ public class MessageManager {
                 if (responsedMessage.getError() != 0) {
                     if (j.isNetWorkAvailable()) {
                         this.mSocketMsgCWSendFailedCnt++;
-                        if (this.mSocketMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.he().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_IM, 3)) {
+                        if (this.mSocketMsgCWSendFailedCnt >= com.baidu.adp.lib.stats.switchs.a.hd().getMaxAlertCount(BdStatsConstant.AlertTypeKey.ALERT_IM, 3)) {
                             BdStatisticsManager.getInstance().alert(BdStatsConstant.AlertTypeKey.ALERT_IM, "errCode=" + responsedMessage.getError() + responsedMessage.getErrorString());
                         }
                     }

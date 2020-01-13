@@ -2,38 +2,38 @@ package com.google.android.exoplayer2.audio;
 
 import android.annotation.TargetApi;
 import android.media.AudioAttributes;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class b {
-    public static final b lVZ = new a().drl();
+    public static final b lZO = new a().dsx();
     public final int flags;
-    public final int lWa;
-    private AudioAttributes lWb;
-    public final int li;
+    public final int lZP;
+    private AudioAttributes lZQ;
+    public final int lf;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        private int li = 0;
+        private int lf = 0;
         private int flags = 0;
-        private int lWa = 1;
+        private int lZP = 1;
 
-        public b drl() {
-            return new b(this.li, this.flags, this.lWa);
+        public b dsx() {
+            return new b(this.lf, this.flags, this.lZP);
         }
     }
 
     private b(int i, int i2, int i3) {
-        this.li = i;
+        this.lf = i;
         this.flags = i2;
-        this.lWa = i3;
+        this.lZP = i3;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(21)
-    public AudioAttributes drk() {
-        if (this.lWb == null) {
-            this.lWb = new AudioAttributes.Builder().setContentType(this.li).setFlags(this.flags).setUsage(this.lWa).build();
+    public AudioAttributes dsw() {
+        if (this.lZQ == null) {
+            this.lZQ = new AudioAttributes.Builder().setContentType(this.lf).setFlags(this.flags).setUsage(this.lZP).build();
         }
-        return this.lWb;
+        return this.lZQ;
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +44,10 @@ public final class b {
             return false;
         }
         b bVar = (b) obj;
-        return this.li == bVar.li && this.flags == bVar.flags && this.lWa == bVar.lWa;
+        return this.lf == bVar.lf && this.flags == bVar.flags && this.lZP == bVar.lZP;
     }
 
     public int hashCode() {
-        return ((((this.li + 527) * 31) + this.flags) * 31) + this.lWa;
+        return ((((this.lf + 527) * 31) + this.flags) * 31) + this.lZP;
     }
 }

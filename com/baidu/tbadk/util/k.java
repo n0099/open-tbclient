@@ -5,10 +5,14 @@ public class k {
 
     public static boolean isFastDoubleClick() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - lastClickTime < 500) {
+        if (lastClickTime > currentTimeMillis) {
+            lastClickTime = currentTimeMillis;
+            return false;
+        } else if (currentTimeMillis - lastClickTime < 500) {
             return true;
+        } else {
+            lastClickTime = currentTimeMillis;
+            return false;
         }
-        lastClickTime = currentTimeMillis;
-        return false;
     }
 }

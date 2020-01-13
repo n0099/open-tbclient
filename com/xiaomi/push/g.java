@@ -14,10 +14,10 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         UNKNOWN(0),
         ALLOWED(1),
@@ -25,14 +25,14 @@ public class g {
         
 
         /* renamed from: a  reason: collision with other field name */
-        private final int f404a;
+        private final int f402a;
 
         a(int i) {
-            this.f404a = i;
+            this.f402a = i;
         }
 
         public int a() {
-            return this.f404a;
+            return this.f402a;
         }
     }
 
@@ -52,7 +52,7 @@ public class g {
 
     @TargetApi(19)
     /* renamed from: a  reason: collision with other method in class */
-    public static a m281a(Context context, String str) {
+    public static a m290a(Context context, String str) {
         a aVar;
         if (context == null || TextUtils.isEmpty(str) || Build.VERSION.SDK_INT < 19) {
             return a.UNKNOWN;
@@ -86,7 +86,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m282a(Context context, String str) {
+    public static String m291a(Context context, String str) {
         PackageInfo packageInfo;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 16384);
@@ -98,7 +98,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m283a(Context context) {
+    public static boolean m292a(Context context) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses == null || runningAppProcesses.size() < 1) {
             return false;
@@ -112,7 +112,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m284a(Context context, String str) {
+    public static boolean m293a(Context context, String str) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
@@ -159,7 +159,7 @@ public class g {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m285b(Context context, String str) {
+    public static boolean m294b(Context context, String str) {
         PackageInfo packageInfo;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 0);

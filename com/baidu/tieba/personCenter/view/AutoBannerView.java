@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AutoBannerView extends RelativeLayout {
-    private com.baidu.tbadk.h.c dmx;
-    private CoverFlowView<com.baidu.tieba.personCenter.data.a> gaT;
+    private com.baidu.tbadk.h.c dmL;
+    private CoverFlowView<com.baidu.tieba.personCenter.data.a> ged;
     private List<com.baidu.tieba.personCenter.data.a> mData;
 
     public AutoBannerView(Context context) {
@@ -30,16 +30,16 @@ public class AutoBannerView extends RelativeLayout {
 
     public AutoBannerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gaT = null;
+        this.ged = null;
         this.mData = null;
         initUI();
     }
 
     private void initUI() {
-        this.gaT = new CoverFlowView<>(getContext());
+        this.ged = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.personCenter.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public com.baidu.tbadk.core.flow.a.e aCp() {
+            public com.baidu.tbadk.core.flow.a.e aCI() {
                 com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
                 eVar.setHeight(l.getDimens(AutoBannerView.this.getContext(), R.dimen.tbds209));
                 return eVar;
@@ -58,7 +58,7 @@ public class AutoBannerView extends RelativeLayout {
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public com.baidu.tbadk.core.flow.a.c aCo() {
+            public com.baidu.tbadk.core.flow.a.c aCH() {
                 com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
                 cVar.jT(R.drawable.icon_banner_gray_n);
                 cVar.jU(R.drawable.icon_banner_s);
@@ -68,70 +68,70 @@ public class AutoBannerView extends RelativeLayout {
                 return cVar;
             }
         };
-        this.gaT.setIndicatorNoOffet(false);
-        this.gaT.setDisableParentEvent(false);
-        this.gaT.setCoverFlowFactory(bVar);
-        this.gaT.setIndicatorVisible(0);
-        this.gaT.setIsAutoPlayDragging(false);
-        addView(this.gaT);
+        this.ged.setIndicatorNoOffet(false);
+        this.ged.setDisableParentEvent(false);
+        this.ged.setCoverFlowFactory(bVar);
+        this.ged.setIndicatorVisible(0);
+        this.ged.setIsAutoPlayDragging(false);
+        addView(this.ged);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.gaT;
+        return this.ged;
     }
 
     public boolean checkIndex(int i) {
         return i > 0 && i <= v.getCount(this.mData);
     }
 
-    public void Gi(String str) {
+    public void Gs(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                ba.aEa().b((TbPageContext) i.ab(getContext()), new String[]{str});
+                ba.aEt().b((TbPageContext) i.ab(getContext()), new String[]{str});
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void aFQ() {
-        if (this.gaT != null) {
-            this.gaT.aCs();
+    public void aGj() {
+        if (this.ged != null) {
+            this.ged.aCL();
         }
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.gaT != null) {
-            this.gaT.setIndicatorVisible(i);
+        if (this.ged != null) {
+            this.ged.setIndicatorVisible(i);
         }
     }
 
     public void dS(List<com.baidu.tieba.personCenter.data.a> list) {
         this.mData = list;
-        this.gaT.setData(list);
+        this.ged.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.c cVar) {
-        this.dmx = cVar;
+        this.dmL = cVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gaT != null) {
-            this.gaT.onChangeSkinType();
+        if (this.ged != null) {
+            this.ged.onChangeSkinType();
         }
     }
 
     public void setMarqueenTime(long j) {
-        if (this.gaT != null) {
-            this.gaT.setMarqueenTime(j);
+        if (this.ged != null) {
+            this.ged.setMarqueenTime(j);
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.dmx != null) {
-            this.dmx.a(this, i == 0, null);
+        if (this.dmL != null) {
+            this.dmL.a(this, i == 0, null);
         }
     }
 }

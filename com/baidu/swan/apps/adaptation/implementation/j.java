@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
 import com.baidu.swan.apps.adaptation.a.ad;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class j implements ad {
     @Override // com.baidu.swan.apps.adaptation.a.ad
-    public void EW() {
+    public void Fs() {
     }
 }

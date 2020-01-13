@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.au;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
     private au mData;
 

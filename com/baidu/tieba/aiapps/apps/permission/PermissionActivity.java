@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.permission;
 import android.app.Activity;
 import android.os.Bundle;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PermissionActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {

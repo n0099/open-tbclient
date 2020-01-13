@@ -9,7 +9,7 @@ import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import com.baidu.swan.apps.performance.e;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -17,16 +17,16 @@ public final class a {
         String format;
         String r;
         if (aVar != null && aVar2 != null) {
-            e.aJ("postMessage", "dispatchJSEvent start.");
+            e.aK("postMessage", "dispatchJSEvent start.");
             if (aVar.isWebView()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bpu);
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bqi);
                 r = "";
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                r = r(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bpu);
+                r = r(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bqi);
             }
-            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, r + aVar2.hr(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", b(aVar), NotificationCompat.CATEGORY_EVENT));
-            e.aJ("postMessage", "dispatchJSEvent buildEvent");
+            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, r + aVar2.hu(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", b(aVar), NotificationCompat.CATEGORY_EVENT));
+            e.aK("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
                 Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
             }
@@ -53,7 +53,7 @@ public final class a {
             return;
         }
         aVar.evaluateJavascript(str, null);
-        e.aJ("postMessage", "dispatchJSEvent evaluateJavascript");
+        e.aK("postMessage", "dispatchJSEvent evaluateJavascript");
     }
 
     private static String b(com.baidu.swan.apps.core.container.a aVar) {

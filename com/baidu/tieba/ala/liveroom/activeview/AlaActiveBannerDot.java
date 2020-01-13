@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 /* loaded from: classes2.dex */
 public class AlaActiveBannerDot extends LinearLayout {
     private Context mContext;
@@ -30,7 +30,7 @@ public class AlaActiveBannerDot extends LinearLayout {
         setGravity(1);
     }
 
-    public void pt(int i) {
+    public void pu(int i) {
         if (getChildCount() > 0) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 if (i2 == i) {
@@ -42,7 +42,7 @@ public class AlaActiveBannerDot extends LinearLayout {
         }
     }
 
-    public void pu(int i) {
+    public void pv(int i) {
         if (i >= 0) {
             removeAllViews();
             if (i == 1) {

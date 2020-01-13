@@ -3,10 +3,10 @@ package com.baidu.swan.apps.camera.d;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.swan.apps.component.b.b {
-    private String baR;
-    public String baS;
+    private String bbJ;
+    public String bbK;
     private String devicePosition;
 
     public a(String str) {
@@ -22,36 +22,36 @@ public class a extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.devicePosition = jSONObject.optString("devicePosition", "back");
-        this.baR = jSONObject.optString("flash", "auto");
-        this.baS = jSONObject.optString("cameraId");
+        this.bbJ = jSONObject.optString("flash", "auto");
+        this.bbK = jSONObject.optString("cameraId");
     }
 
     public boolean isFrontCamera() {
         return TextUtils.equals(this.devicePosition, "front");
     }
 
-    public String Hw() {
-        return C0218a.fT(this.baR);
+    public String HS() {
+        return C0220a.fW(this.bbJ);
     }
 
     public int getWidth() {
-        if (this.bdl == null) {
+        if (this.bdZ == null) {
             return 0;
         }
-        return this.bdl.getWidth();
+        return this.bdZ.getWidth();
     }
 
     public int getHeight() {
-        if (this.bdl == null) {
+        if (this.bdZ == null) {
             return 0;
         }
-        return this.bdl.getHeight();
+        return this.bdZ.getHeight();
     }
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    private static class C0218a {
-        static String fT(String str) {
+    /* loaded from: classes10.dex */
+    private static class C0220a {
+        static String fW(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 3551:

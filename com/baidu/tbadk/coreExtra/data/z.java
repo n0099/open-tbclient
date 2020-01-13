@@ -1,54 +1,60 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.core.util.aq;
-import org.json.JSONException;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class z {
-    private String diA;
-    private String div;
-    private long diw;
-    private long dix;
-    private long diy;
-    private String diz;
+    private VcodeExtra diK;
+    private String vcode_md5 = null;
+    private String vcode_pic_url = null;
+    private String diJ = null;
 
-    public void parseJson(String str) {
-        if (!aq.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.div = jSONObject.optString("splash_video_url");
-                this.diw = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.dix = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.diy = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.diz = jSONObject.optString("splash_video_h5_url");
-                this.diA = jSONObject.optString("splash_video_h5_text");
-            } catch (JSONException e) {
-                e.printStackTrace();
+    public String getVcode_md5() {
+        return this.vcode_md5;
+    }
+
+    public String getVcode_pic_url() {
+        return this.vcode_pic_url;
+    }
+
+    public String aHk() {
+        return this.diJ;
+    }
+
+    public VcodeExtra aHl() {
+        return this.diK;
+    }
+
+    public void parserJson(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("info");
+            if (optJSONObject == null) {
+                optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
             }
+            parserJson(optJSONObject);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    public String aGS() {
-        return this.div;
-    }
-
-    public long aGT() {
-        return this.diw;
-    }
-
-    public long aGU() {
-        return this.dix;
-    }
-
-    public long aGV() {
-        return this.diy;
-    }
-
-    public String aGW() {
-        return this.diz;
-    }
-
-    public String aGX() {
-        return this.diA;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.vcode_md5 = jSONObject.optString("vcode_md5");
+                this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
+                this.diJ = jSONObject.optString("vcode_type");
+                JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
+                this.diK = new VcodeExtra();
+                this.diK.textImg = jSONObject2.optString("textimg");
+                this.diK.slideImg = jSONObject2.optString("slideimg");
+                this.diK.endPoint = jSONObject2.optString("endpoint");
+                this.diK.successImg = jSONObject2.optString("successimg");
+                this.diK.slideEndPoint = jSONObject2.optString("slideendpoint");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

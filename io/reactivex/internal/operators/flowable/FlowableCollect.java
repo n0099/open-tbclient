@@ -6,37 +6,36 @@ import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.Callable;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableCollect<T, U> extends a<T, U> {
-    final io.reactivex.b.b<? super U, ? super T> collector;
-    final Callable<? extends U> mTO;
+    final io.reactivex.c.b<? super U, ? super T> collector;
+    final Callable<? extends U> nvS;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
         try {
-            this.mTG.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.h(this.mTO.call(), "The initial value supplied is null"), this.collector));
+            this.nvK.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.h(this.nvS.call(), "The initial value supplied is null"), this.collector));
         } catch (Throwable th) {
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class CollectSubscriber<T, U> extends DeferredScalarSubscription<U> implements j<T> {
         private static final long serialVersionUID = -3589550218733891694L;
-        final io.reactivex.b.b<? super U, ? super T> collector;
+        final io.reactivex.c.b<? super U, ? super T> collector;
         boolean done;
-        d s;
+        org.a.d s;
         final U u;
 
-        CollectSubscriber(org.a.c<? super U> cVar, U u, io.reactivex.b.b<? super U, ? super T> bVar) {
+        CollectSubscriber(org.a.c<? super U> cVar, U u, io.reactivex.c.b<? super U, ? super T> bVar) {
             super(cVar);
             this.collector = bVar;
             this.u = u;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -49,7 +48,7 @@ public final class FlowableCollect<T, U> extends a<T, U> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    this.collector.i((U) this.u, t);
+                    this.collector.j((U) this.u, t);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.I(th);
                     this.s.cancel();
@@ -61,7 +60,7 @@ public final class FlowableCollect<T, U> extends a<T, U> {
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;

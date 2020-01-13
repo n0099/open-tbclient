@@ -2,7 +2,7 @@ package com.baidu.sapi2.activity.social;
 
 import android.os.Bundle;
 import com.baidu.i.a.a.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HuaweiLoginActivity extends BaseSSOLoginActivity {
     public static final String ACCESS_TOKEN = "access_token";
     public static final String UID = "uid";

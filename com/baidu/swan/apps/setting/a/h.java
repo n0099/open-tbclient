@@ -18,19 +18,19 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class h extends ab {
-    private AtomicBoolean bOb;
+    private AtomicBoolean bOL;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void e(boolean z, int i);
+        void f(boolean z, int i);
     }
 
     public h(j jVar) {
         super(jVar, "/swanAPI/multiAuthorize");
-        this.bOb = new AtomicBoolean(false);
+        this.bOL = new AtomicBoolean(false);
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -50,7 +50,7 @@ public class h extends ab {
             return false;
         }
         final String optString = b.optString("cb");
-        eVar.aac().b(context, "scope_multi_authorize", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.h.1
+        eVar.aaz().b(context, "scope_multi_authorize", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -69,12 +69,12 @@ public class h extends ab {
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
     public void a(@NonNull final Activity activity, @NonNull final com.baidu.swan.apps.runtime.e eVar, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull final CallbackHandler callbackHandler, @NonNull final JSONArray jSONArray, @NonNull final String str) {
-        com.baidu.swan.apps.network.c.a.Wo().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.setting.a.h.2
+        com.baidu.swan.apps.network.c.a.WL().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.setting.a.h.2
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void Ws() {
+            public void WP() {
                 int i;
-                Map<String, com.baidu.swan.apps.setting.oauth.e> WA = com.baidu.swan.apps.network.c.b.a.WA();
-                com.baidu.swan.apps.setting.oauth.e eVar2 = WA.get("scope_multi_authorize");
+                Map<String, com.baidu.swan.apps.setting.oauth.e> WX = com.baidu.swan.apps.network.c.b.a.WX();
+                com.baidu.swan.apps.setting.oauth.e eVar2 = WX.get("scope_multi_authorize");
                 if (eVar2 == null) {
                     com.baidu.swan.apps.setting.oauth.c.a(10001, callbackHandler, str);
                 } else if (eVar2.forbidden) {
@@ -87,8 +87,8 @@ public class h extends ab {
                     while (i2 < length) {
                         String optString = jSONArray.optString(i2);
                         if (!TextUtils.isEmpty(optString)) {
-                            if (WA.containsKey(optString)) {
-                                com.baidu.swan.apps.setting.oauth.e eVar3 = WA.get(optString);
+                            if (WX.containsKey(optString)) {
+                                com.baidu.swan.apps.setting.oauth.e eVar3 = WX.get(optString);
                                 if (eVar3 == null) {
                                     i = i3;
                                 } else if (eVar3.forbidden) {
@@ -96,7 +96,7 @@ public class h extends ab {
                                     return;
                                 } else {
                                     arrayList.add(eVar3);
-                                    if (eVar3.abB()) {
+                                    if (eVar3.abY()) {
                                         i = i3 + 1;
                                     }
                                 }
@@ -111,27 +111,27 @@ public class h extends ab {
                         i3 = i;
                     }
                     if (!arrayList.isEmpty()) {
-                        if (!h.this.bOb.compareAndSet(false, true)) {
+                        if (!h.this.bOL.compareAndSet(false, true)) {
                             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "Waiting for the end of the previous authorization process").toString());
                             return;
                         }
                         com.baidu.swan.apps.console.c.i("MultiAuthorize", "cb=" + str + ", gain=" + i3 + ", scopes=" + arrayList);
                         if (arrayList.size() == i3) {
-                            h.this.bOb.set(false);
+                            h.this.bOL.set(false);
                             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                             return;
                         }
                         int size = arrayList.size();
                         StringBuilder sb = new StringBuilder();
                         for (int i4 = 0; i4 < size; i4++) {
-                            sb.append(((com.baidu.swan.apps.setting.oauth.e) arrayList.get(i4)).bOx);
+                            sb.append(((com.baidu.swan.apps.setting.oauth.e) arrayList.get(i4)).bPh);
                             if (i4 < size - 1) {
                                 sb.append("、");
                             }
                         }
                         eVar2.name = activity.getString(a.h.swanapp_get_following_info, new Object[]{sb.toString()});
                         try {
-                            eVar2.bOB = String.format(eVar2.bOB, sb.toString());
+                            eVar2.bPl = String.format(eVar2.bPl, sb.toString());
                         } catch (Exception e) {
                             com.baidu.swan.apps.console.c.e("MultiAuthorize", "format explain error", e);
                         }
@@ -143,7 +143,7 @@ public class h extends ab {
                                     h.this.a(eVar, activity, (List<com.baidu.swan.apps.setting.oauth.e>) arrayList, false, callbackHandler, str);
                                     return;
                                 }
-                                h.this.bOb.set(false);
+                                h.this.bOL.set(false);
                                 com.baidu.swan.apps.setting.oauth.c.a(10003, callbackHandler, str);
                             }
                         });
@@ -157,14 +157,14 @@ public class h extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull final com.baidu.swan.apps.runtime.e eVar, @NonNull final Activity activity, @NonNull final List<com.baidu.swan.apps.setting.oauth.e> list, boolean z, @NonNull final CallbackHandler callbackHandler, final String str) {
-        boolean isLogin = eVar.aad().isLogin(activity);
+        boolean isLogin = eVar.aaA().isLogin(activity);
         com.baidu.swan.apps.console.c.i("MultiAuthorize", "requestAuthorize login " + isLogin);
         if (!isLogin) {
             a aVar = new a() { // from class: com.baidu.swan.apps.setting.a.h.3
                 @Override // com.baidu.swan.apps.setting.a.h.a
-                public void e(boolean z2, int i) {
+                public void f(boolean z2, int i) {
                     com.baidu.swan.apps.console.c.i("MultiAuthorize", "login result:" + i);
-                    h.this.bOb.set(false);
+                    h.this.bOL.set(false);
                     if (z2) {
                         h.this.a(eVar, activity, (List<com.baidu.swan.apps.setting.oauth.e>) list, true, callbackHandler, str);
                     } else {
@@ -176,17 +176,17 @@ public class h extends ab {
                 a(eVar, activity, aVar);
                 return;
             } else {
-                aVar.e(false, -2);
+                aVar.f(false, -2);
                 return;
             }
         }
-        this.bOb.set(false);
+        this.bOL.set(false);
         int size = list.size();
         String[] strArr = new String[size];
         for (int i = 0; i < size; i++) {
             strArr[i] = list.get(i).id;
         }
-        com.baidu.swan.apps.runtime.d.ZP().ZR().Ei().Ff().a(activity, false, true, strArr, null, true).h(new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.h.4
+        com.baidu.swan.apps.runtime.d.aam().aao().EE().FB().a(activity, false, true, strArr, null, true).h(new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.h.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -196,26 +196,26 @@ public class h extends ab {
                     return;
                 }
                 int errorCode = hVar.getErrorCode();
-                com.baidu.swan.apps.console.c.d("MultiAuthorize", "requestAuthorize " + hVar.abK() + ",  code=" + errorCode + ", data=" + hVar.mData);
+                com.baidu.swan.apps.console.c.d("MultiAuthorize", "requestAuthorize " + hVar.ach() + ",  code=" + errorCode + ", data=" + hVar.mData);
                 if (errorCode != 0) {
                     com.baidu.swan.apps.setting.oauth.c.a(errorCode, callbackHandler, str);
                 } else {
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "success").toString());
                 }
             }
-        }).abv();
+        }).abS();
     }
 
     private void a(@NonNull com.baidu.swan.apps.runtime.e eVar, @NonNull Activity activity, @NonNull final a aVar) {
-        eVar.aad().a(activity, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.a.h.5
+        eVar.aaA().a(activity, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.a.h.5
             @Override // com.baidu.swan.apps.a.a
             public void onResult(int i) {
                 switch (i) {
                     case 0:
-                        aVar.e(true, i);
+                        aVar.f(true, i);
                         return;
                     default:
-                        aVar.e(false, i);
+                        aVar.f(false, i);
                         return;
                 }
             }

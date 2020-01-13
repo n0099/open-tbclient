@@ -4,81 +4,81 @@ import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String ary;
-    private int bQp;
-    private String bQq;
-    private String bQr;
-    private long bQs;
-    private long bQt;
+    private String ask;
+    private int bQZ;
+    private String bRa;
+    private String bRb;
+    private long bRc;
+    private long bRd;
     private int mErrCode;
     private String mMsg;
     private String mRequestUrl;
 
     public c(String str, int i) {
         this.mRequestUrl = str;
-        this.bQp = i;
-        this.ary = "0";
+        this.bQZ = i;
+        this.ask = "0";
     }
 
     public c(int i, String str, String str2, int i2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.bQp = i2;
-        this.ary = "1";
+        this.bQZ = i2;
+        this.ask = "1";
     }
 
     public c(int i, String str, String str2, int i2, long j, long j2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.bQp = i2;
-        this.bQs = j;
-        this.bQt = j2;
+        this.bQZ = i2;
+        this.bRc = j;
+        this.bRd = j2;
         if (i == 200 && j2 - j >= 5000) {
-            this.ary = "2";
+            this.ask = "2";
         } else {
-            this.ary = "1";
+            this.ask = "1";
         }
     }
 
-    public void lt(String str) {
-        this.bQq = str;
+    public void lw(String str) {
+        this.bRa = str;
     }
 
-    public void lu(String str) {
-        this.bQr = str;
+    public void lx(String str) {
+        this.bRb = str;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.bQv == null) {
-            this.bQv = new JSONObject();
+        if (this.bRf == null) {
+            this.bRf = new JSONObject();
         }
         try {
-            if (TextUtils.equals(this.ary, "1") || TextUtils.equals(this.ary, "2")) {
-                this.bQv.put("errorno", this.mErrCode);
+            if (TextUtils.equals(this.ask, "1") || TextUtils.equals(this.ask, "2")) {
+                this.bRf.put("errorno", this.mErrCode);
             }
-            this.bQv.put("url", this.mRequestUrl);
-            this.bQv.put("netStatus", this.bQp);
+            this.bRf.put("url", this.mRequestUrl);
+            this.bRf.put("netStatus", this.bQZ);
             if (!TextUtils.isEmpty(this.mMsg)) {
-                this.bQv.put("msg", this.mMsg);
+                this.bRf.put("msg", this.mMsg);
             }
-            if (!TextUtils.isEmpty(this.bQq)) {
-                this.bQv.put("pagetype", this.bQq);
+            if (!TextUtils.isEmpty(this.bRa)) {
+                this.bRf.put("pagetype", this.bRa);
             }
-            if (!TextUtils.isEmpty(this.bQr)) {
-                this.bQv.put("curpage", this.bQr);
+            if (!TextUtils.isEmpty(this.bRb)) {
+                this.bRf.put("curpage", this.bRb);
             }
-            if (!TextUtils.isEmpty(this.ary)) {
-                this.bQv.put("requesttype", this.ary);
+            if (!TextUtils.isEmpty(this.ask)) {
+                this.bRf.put("requesttype", this.ask);
             }
-            if (this.bQt - this.bQs > 0) {
-                this.bQv.put("startTime", this.bQs);
-                this.bQv.put("endTime", this.bQt);
+            if (this.bRd - this.bRc > 0) {
+                this.bRf.put("startTime", this.bRc);
+                this.bRf.put("endTime", this.bRd);
             }
         } catch (JSONException e) {
             if (DEBUG) {

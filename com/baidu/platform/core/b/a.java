@@ -4,7 +4,7 @@ import com.baidu.mapapi.search.geocode.GeoCodeOption;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.platform.base.a implements d {
     OnGetGeoCoderResultListener b = null;
 

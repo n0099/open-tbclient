@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MapPoi {
     private static final String d = MapPoi.class.getSimpleName();
     String a;

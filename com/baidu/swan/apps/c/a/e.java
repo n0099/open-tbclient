@@ -3,51 +3,51 @@ package com.baidu.swan.apps.c.a;
 import android.os.Bundle;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import kotlin.jvm.internal.p;
+import kotlin.jvm.internal.q;
 import kotlin.text.l;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class e {
     private static final String TAG;
-    private static com.baidu.swan.apps.a.a aXh;
-    private static com.baidu.swan.apps.a.c aXi;
-    private static boolean aXj;
-    public static final e aXk = new e();
+    private static com.baidu.swan.apps.a.a aXZ;
+    private static com.baidu.swan.apps.a.c aYa;
+    private static boolean aYb;
+    public static final e aYc = new e();
 
     static {
-        String simpleName = aXk.getClass().getSimpleName();
-        p.i(simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
+        String simpleName = aYc.getClass().getSimpleName();
+        q.i(simpleName, "SwanAppAllianceLoginHelper.javaClass.simpleName");
         TAG = simpleName;
     }
 
     private e() {
     }
 
-    public final com.baidu.swan.apps.a.a Gy() {
-        return aXh;
+    public final com.baidu.swan.apps.a.a GU() {
+        return aXZ;
     }
 
-    public final com.baidu.swan.apps.a.c Gz() {
-        return aXi;
+    public final com.baidu.swan.apps.a.c GV() {
+        return aYa;
     }
 
-    public final boolean GA() {
-        return aXj;
+    public final boolean GW() {
+        return aYb;
     }
 
-    public final void bM(boolean z) {
-        aXj = z;
+    public final void bR(boolean z) {
+        aYb = z;
     }
 
     public final boolean isLogin() {
-        if (f.GE() == null) {
-            GD();
+        if (f.Ha() == null) {
+            GZ();
         }
-        if (p.h(f.GE(), false)) {
+        if (q.h(f.Ha(), false)) {
             return false;
         }
-        String GH = g.aXn.GH();
-        if (!(GH == null || l.isBlank(GH))) {
-            String uid = h.aXp.getUid();
+        String Hd = g.aYf.Hd();
+        if (!(Hd == null || l.isBlank(Hd))) {
+            String uid = h.aYh.getUid();
             if (!(uid == null || l.isBlank(uid))) {
                 return true;
             }
@@ -55,30 +55,30 @@ public final class e {
         return false;
     }
 
-    public final void GB() {
-        g.aXn.GI();
-        h.aXp.GL();
-        bF(false);
+    public final void GX() {
+        g.aYf.He();
+        h.aYh.Hh();
+        bK(false);
     }
 
-    public final boolean GC() {
-        if (f.GE() == null) {
-            GD();
+    public final boolean GY() {
+        if (f.Ha() == null) {
+            GZ();
         }
-        Boolean GE = f.GE();
-        if (GE == null) {
-            p.dER();
+        Boolean Ha = f.Ha();
+        if (Ha == null) {
+            q.dJk();
         }
-        return GE.booleanValue();
+        return Ha.booleanValue();
     }
 
-    public final void bF(boolean z) {
+    public final void bK(boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("status", z);
         DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
     }
 
-    private final void GD() {
+    private final void GZ() {
         boolean z;
         try {
             Class.forName("com.baidu.sapi2.SapiAccountManager");

@@ -64,9 +64,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             optString2 = "";
                         }
                         if (!StringUtils.isNull(optString3)) {
-                            a vb = c.aMZ().vb(optString4 + 10);
-                            if (vb != null && vb.getRawBitmap() != null) {
-                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, vb.getRawBitmap(), false);
+                            a vg = c.aNs().vg(optString4 + 10);
+                            if (vg != null && vg.getRawBitmap() != null) {
+                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, vg.getRawBitmap(), false);
                                 return;
                             } else if (!StringUtils.isNull(optString4)) {
                                 final String str = optString2;
@@ -74,7 +74,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                 this.mHandler.post(new Runnable() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        com.baidu.adp.lib.e.c.gs().a(optString4, 10, new b<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
+                                        com.baidu.adp.lib.e.c.gr().a(optString4, 10, new b<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
                                             /* JADX DEBUG: Method merged with bridge method */
                                             /* JADX INFO: Access modifiers changed from: protected */
                                             @Override // com.baidu.adp.lib.e.b

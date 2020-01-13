@@ -6,10 +6,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import com.baidu.spswitch.emotion.EmotionType;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class c {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void onClickSwitch(View view, boolean z);
     }
@@ -53,7 +53,7 @@ public class c {
     }
 
     public static void d(View view, View view2) {
-        e.V(view2);
+        e.Z(view2);
         if (bc(view.getContext())) {
             view.setVisibility(4);
         }
@@ -62,25 +62,25 @@ public class c {
     public static void e(View view, View view2) {
         view.setVisibility(0);
         if (view2 != null) {
-            e.W(view2);
+            e.aa(view2);
         }
     }
 
     public static void f(View view, View view2) {
         if (view2 != null) {
-            e.W(view2);
+            e.aa(view2);
             view2.clearFocus();
         }
         view.setVisibility(8);
     }
 
-    public static boolean bD(boolean z) {
+    public static boolean bI(boolean z) {
         return z;
     }
 
     public static boolean bc(Context context) {
         if (context instanceof Activity) {
-            return bD(g.isFullScreen((Activity) context));
+            return bI(g.isFullScreen((Activity) context));
         }
         return false;
     }

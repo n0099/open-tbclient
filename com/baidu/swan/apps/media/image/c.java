@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public static void decorateSrcATopMode(Context context, Drawable drawable) {
         decorateSrcATopMode(context, drawable, 255);

@@ -3,7 +3,7 @@ package protobuf.ReportGroup;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ReportGroupResIdl extends Message {
     @ProtoField(tag = 4)
     public final Error error;
@@ -17,7 +17,7 @@ public final class ReportGroupResIdl extends Message {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<ReportGroupResIdl> {
         public Error error;
 

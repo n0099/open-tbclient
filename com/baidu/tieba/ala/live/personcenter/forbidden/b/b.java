@@ -7,8 +7,8 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b implements IAdapterData {
-    public static final BdUniqueId eGX = BdUniqueId.gen();
-    private String eur;
+    public static final BdUniqueId eIh = BdUniqueId.gen();
+    private String evC;
     private String portrait;
     private int sex;
     private String userId;
@@ -18,7 +18,7 @@ public class b implements IAdapterData {
         this.userId = jSONObject.optString("user_id");
         this.userName = jSONObject.optString("user_name");
         if (!jSONObject.isNull("user_nickname")) {
-            this.eur = jSONObject.optString("user_nickname");
+            this.evC = jSONObject.optString("user_nickname");
         }
         this.portrait = jSONObject.optString("bd_portrait");
         if (StringUtils.isNull(this.portrait)) {
@@ -31,8 +31,8 @@ public class b implements IAdapterData {
         return this.userId;
     }
 
-    public String aJz() {
-        return !TextUtils.isEmpty(this.eur) ? this.eur : this.userName;
+    public String aJT() {
+        return !TextUtils.isEmpty(this.evC) ? this.evC : this.userName;
     }
 
     public String getPortrait() {
@@ -41,6 +41,6 @@ public class b implements IAdapterData {
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return eGX;
+        return eIh;
     }
 }

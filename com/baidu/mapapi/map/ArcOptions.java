@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ArcOptions extends OverlayOptions {
     private static final String d = ArcOptions.class.getSimpleName();
     int a;

@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlertDialogLayout extends LinearLayoutCompat {
     public AlertDialogLayout(@Nullable Context context) {
         super(context);

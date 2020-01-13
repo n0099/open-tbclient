@@ -14,7 +14,7 @@ import com.baidu.pano.platform.comjni.JNITool;
 import com.baidu.searchbox.config.FontSizeConfig;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
     private float c;
     private float i;

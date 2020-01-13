@@ -4,7 +4,7 @@ import io.reactivex.j;
 import io.reactivex.m;
 import io.reactivex.u;
 import io.reactivex.y;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum EmptyComponent implements io.reactivex.c, io.reactivex.disposables.b, j<Object>, m<Object>, u<Object>, y<Object>, org.a.d {
     INSTANCE;
 
@@ -49,7 +49,7 @@ public enum EmptyComponent implements io.reactivex.c, io.reactivex.disposables.b
 
     @Override // io.reactivex.c
     public void onError(Throwable th) {
-        io.reactivex.d.a.onError(th);
+        io.reactivex.e.a.onError(th);
     }
 
     @Override // io.reactivex.c

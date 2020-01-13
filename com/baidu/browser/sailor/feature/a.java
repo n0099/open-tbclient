@@ -3,7 +3,7 @@ package com.baidu.browser.sailor.feature;
 import android.content.Context;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final String TAG = "BdSailorFeature";
     private Map<String, b> mClientsMap = new HashMap();
@@ -11,7 +11,7 @@ public class a {
     private Enum<EnumC0045a> mStatus;
 
     /* renamed from: com.baidu.browser.sailor.feature.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     enum EnumC0045a {
         ENABLE,
         DISABLE

@@ -3,16 +3,16 @@ package com.baidu.tieba.square.square;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends com.baidu.tieba.square.data.a {
-    private ArrayList<e> jXx = new ArrayList<>();
+    private ArrayList<e> kba = new ArrayList<>();
 
-    public ArrayList<e> cGX() {
-        return this.jXx;
+    public ArrayList<e> cIb() {
+        return this.kba;
     }
 
     public void aR(ArrayList<e> arrayList) {
-        this.jXx = arrayList;
+        this.kba = arrayList;
         setErrorMsg(null);
     }
 

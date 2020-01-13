@@ -9,77 +9,77 @@ import android.widget.RelativeLayout;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.im.h;
 import com.baidu.live.im.view.ALAImMsgListView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ALaImMsgView extends RelativeLayout implements h {
-    private static final int aqc = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds340);
-    private static final int aqd = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds154);
-    private boolean aoH;
-    private ALAImEnterView aqe;
-    private ALAImMsgListView aqf;
-    private ALAImMsgMoreChatView aqg;
-    private boolean aqh;
-    private boolean aqi;
+    private static final int aqO = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds340);
+    private static final int aqP = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.e.sdk_ds154);
+    private boolean apu;
+    private ALAImEnterView aqQ;
+    private ALAImMsgListView aqR;
+    private ALAImMsgMoreChatView aqS;
+    private boolean aqT;
+    private boolean aqU;
 
     public ALaImMsgView(Context context) {
         super(context);
-        this.aqh = false;
-        this.aqi = false;
+        this.aqT = false;
+        this.aqU = false;
         init(context);
     }
 
     public ALaImMsgView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aqh = false;
-        this.aqi = false;
+        this.aqT = false;
+        this.aqU = false;
         init(context);
     }
 
     public ALaImMsgView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aqh = false;
-        this.aqi = false;
+        this.aqT = false;
+        this.aqU = false;
         init(context);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.aqf.setPageContext(tbPageContext);
+        this.aqR.setPageContext(tbPageContext);
     }
 
     private void init(Context context) {
-        this.aqe = new ALAImEnterView(context);
+        this.aqQ = new ALAImEnterView(context);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(a.e.sdk_ds52));
         layoutParams.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_tbds26);
-        addView(this.aqe, layoutParams);
-        this.aqf = new ALAImMsgListView(context);
-        this.aqf.setOnUserMoveToBottomIMCallBack(new ALAImMsgListView.a() { // from class: com.baidu.live.im.view.ALaImMsgView.1
+        addView(this.aqQ, layoutParams);
+        this.aqR = new ALAImMsgListView(context);
+        this.aqR.setOnUserMoveToBottomIMCallBack(new ALAImMsgListView.a() { // from class: com.baidu.live.im.view.ALaImMsgView.1
             @Override // com.baidu.live.im.view.ALAImMsgListView.a
-            public void vw() {
-                ALaImMsgView.this.aqg.setVisibility(8);
+            public void vN() {
+                ALaImMsgView.this.aqS.setVisibility(8);
             }
         });
-        this.aqf.setId(a.g.ala_im_normal_panel);
+        this.aqR.setId(a.g.ala_im_normal_panel);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = context.getResources().getDimensionPixelSize(a.e.sdk_ds80);
         layoutParams2.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_tbds26);
         layoutParams2.addRule(12);
-        addView(this.aqf, layoutParams2);
-        this.aqg = new ALAImMsgMoreChatView(context);
+        addView(this.aqR, layoutParams2);
+        this.aqS = new ALAImMsgMoreChatView(context);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(context.getResources().getDimensionPixelSize(a.e.sdk_ds236), context.getResources().getDimensionPixelSize(a.e.sdk_ds60));
         layoutParams3.leftMargin = context.getResources().getDimensionPixelSize(a.e.sdk_ds20);
         layoutParams3.addRule(12);
-        addView(this.aqg, layoutParams3);
-        this.aqg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.2
+        addView(this.aqS, layoutParams3);
+        this.aqS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.im.view.ALaImMsgView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!ALaImMsgView.this.aqh) {
-                    if (!ALaImMsgView.this.aqi) {
-                        ALaImMsgView.this.aqi = false;
-                        ALaImMsgView.this.aqg.setVisibility(8);
-                        ALaImMsgView.this.aqf.vu();
+                if (!ALaImMsgView.this.aqT) {
+                    if (!ALaImMsgView.this.aqU) {
+                        ALaImMsgView.this.aqU = false;
+                        ALaImMsgView.this.aqS.setVisibility(8);
+                        ALaImMsgView.this.aqR.vL();
                         return;
                     }
                     return;
@@ -90,7 +90,7 @@ public class ALaImMsgView extends RelativeLayout implements h {
     }
 
     public void setMode(boolean z) {
-        this.aqf.setMode(z);
+        this.aqR.setMode(z);
     }
 
     @Override // android.view.View
@@ -98,9 +98,9 @@ public class ALaImMsgView extends RelativeLayout implements h {
         super.onConfigurationChanged(configuration);
         if (configuration != null) {
             if (configuration.orientation == 2) {
-                this.aqf.setMaxHeight(Integer.MAX_VALUE);
+                this.aqR.setMaxHeight(Integer.MAX_VALUE);
             } else if (configuration.orientation == 1) {
-                this.aqf.setMaxHeight(Integer.MAX_VALUE);
+                this.aqR.setMaxHeight(Integer.MAX_VALUE);
             }
         }
     }
@@ -112,71 +112,71 @@ public class ALaImMsgView extends RelativeLayout implements h {
 
     @Override // com.baidu.live.im.h
     public void setMsgData(List<com.baidu.live.im.data.a> list) {
-        this.aqf.setMsgData(list);
+        this.aqR.setMsgData(list);
     }
 
-    public boolean H(List<com.baidu.live.im.data.a> list) {
-        return list.size() != this.aqf.getData().size();
+    public boolean G(List<com.baidu.live.im.data.a> list) {
+        return list.size() != this.aqR.getData().size();
     }
 
     public void l(com.baidu.live.im.data.a aVar) {
-        this.aqe.k(aVar);
+        this.aqQ.k(aVar);
     }
 
     @Override // com.baidu.live.im.h
-    public void uu() {
-        this.aqf.uu();
+    public void uL() {
+        this.aqR.uL();
     }
 
-    public void uQ() {
-        this.aqe.uQ();
-        this.aqf.uQ();
+    public void vh() {
+        this.aqQ.vh();
+        this.aqR.vh();
     }
 
-    public void vv() {
-        this.aqe.release();
-        this.aqf.vv();
-        this.aqg.setVisibility(8);
+    public void vM() {
+        this.aqQ.release();
+        this.aqR.vM();
+        this.aqS.setVisibility(8);
     }
 
     @Override // com.baidu.live.im.h
     public void a(String str, String str2, boolean z, String str3) {
-        this.aqf.a(str, str2, z, str3);
+        this.aqR.a(str, str2, z, str3);
     }
 
     @Override // com.baidu.live.im.h
     public void setNeedTopAlphaShade(boolean z) {
-        this.aqf.setNeedTopAlphaShade(z);
+        this.aqR.setNeedTopAlphaShade(z);
     }
 
     @Override // com.baidu.live.im.h
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.aqh = z;
+        this.aqT = z;
     }
 
     public void setFromMaster(boolean z) {
-        this.aoH = z;
-        if (this.aqf != null) {
-            this.aqf.setFromMaster(this.aoH);
+        this.apu = z;
+        if (this.aqR != null) {
+            this.aqR.setFromMaster(this.apu);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.aqh) {
-                this.aqi = true;
+            if (this.aqT) {
+                this.aqU = true;
                 BdUtilHelper.hideSoftKeyPad(getContext(), getRootView());
             } else {
-                this.aqi = false;
+                this.aqU = false;
             }
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    public void vI() {
-        if (this.aqf.vs()) {
-            this.aqg.setVisibility(0);
+    public void vZ() {
+        if (this.aqR.vJ()) {
+            this.aqS.setVisibility(0);
         }
     }
 }

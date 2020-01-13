@@ -9,20 +9,20 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.statistic.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends f {
     public String packageName;
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.bQx = com.baidu.swan.apps.swancore.b.gi(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.bQz = SwanAppNetworkUtils.Wm().type;
-        if (this.bQv == null) {
-            this.bQv = new JSONObject();
+        this.bRh = com.baidu.swan.apps.swancore.b.gj(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.bRj = SwanAppNetworkUtils.WJ().type;
+        if (this.bRf == null) {
+            this.bRf = new JSONObject();
         }
         try {
-            this.bQv.put(Contract.SCHEME_KEY_HOST, com.baidu.swan.apps.w.a.RV().getHostName());
-            this.bQv.put("package", this.packageName);
+            this.bRf.put(Contract.SCHEME_KEY_HOST, com.baidu.swan.apps.w.a.Sr().getHostName());
+            this.bRf.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -40,18 +40,18 @@ public class b extends f {
             this.mFrom = aVar.mFrom;
             this.mAppId = aVar.mAppId;
             this.mSource = aVar.mSource;
-            this.bQA = aVar.bQA;
-            this.bQB = aVar.bQB;
+            this.bRk = aVar.bRk;
+            this.bRl = aVar.bRl;
             this.mScheme = aVar.mScheme;
-            this.bQE = aVar.bQE;
-            this.bKD = aVar.bKD;
+            this.bRo = aVar.bRo;
+            this.bLn = aVar.bLn;
             this.mAppVersion = aVar.mAppVersion;
-            this.bQy = aVar.bQy;
+            this.bRi = aVar.bRi;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String nP(String str) {
+    public static String nS(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

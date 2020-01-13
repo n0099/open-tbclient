@@ -1,6 +1,6 @@
 package kotlin.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static final <T extends Comparable<?>> int c(T t, T t2) {
         if (t == t2) {

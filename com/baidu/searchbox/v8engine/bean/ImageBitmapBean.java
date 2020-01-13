@@ -2,7 +2,7 @@ package com.baidu.searchbox.v8engine.bean;
 
 import android.graphics.Bitmap;
 import com.baidu.smallgame.sdk.Log;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ImageBitmapBean {
     private static final boolean DEBUG = true;
     private static final String TAG = "ImageBitmapBean";

@@ -8,7 +8,7 @@ import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.WalkingRouteLine;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RouteLine<T extends RouteStep> implements Parcelable {
     TYPE a;
     private RouteNode b;
@@ -19,7 +19,7 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
     private int g;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum TYPE {
         DRIVESTEP(0),
         TRANSITSTEP(1),

@@ -1,10 +1,10 @@
 package rx.internal.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class e<T> {
     final float loadFactor;
-    T[] mXn;
     int mask;
     int maxSize;
+    T[] nzv;
     int size;
 
     public e() {
@@ -13,31 +13,31 @@ public final class e<T> {
 
     public e(int i, float f) {
         this.loadFactor = f;
-        int MK = rx.internal.util.a.h.MK(i);
-        this.mask = MK - 1;
-        this.maxSize = (int) (MK * f);
-        this.mXn = (T[]) new Object[MK];
+        int Nx = rx.internal.util.a.h.Nx(i);
+        this.mask = Nx - 1;
+        this.maxSize = (int) (Nx * f);
+        this.nzv = (T[]) new Object[Nx];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.mXn;
+        T[] tArr = this.nzv;
         int i = this.mask;
-        int MJ = MJ(t.hashCode()) & i;
-        T t3 = tArr[MJ];
+        int Nw = Nw(t.hashCode()) & i;
+        T t3 = tArr[Nw];
         if (t3 != null) {
             if (t3.equals(t)) {
                 return false;
             }
             do {
-                MJ = (MJ + 1) & i;
-                t2 = tArr[MJ];
+                Nw = (Nw + 1) & i;
+                t2 = tArr[Nw];
                 if (t2 == null) {
                 }
             } while (!t2.equals(t));
             return false;
         }
-        tArr[MJ] = t;
+        tArr[Nw] = t;
         int i2 = this.size + 1;
         this.size = i2;
         if (i2 >= this.maxSize) {
@@ -48,24 +48,24 @@ public final class e<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.mXn;
+        T[] tArr = this.nzv;
         int i = this.mask;
-        int MJ = MJ(t.hashCode()) & i;
-        T t3 = tArr[MJ];
+        int Nw = Nw(t.hashCode()) & i;
+        T t3 = tArr[Nw];
         if (t3 == null) {
             return false;
         }
         if (t3.equals(t)) {
-            return a(MJ, tArr, i);
+            return a(Nw, tArr, i);
         }
         do {
-            MJ = (MJ + 1) & i;
-            t2 = tArr[MJ];
+            Nw = (Nw + 1) & i;
+            t2 = tArr[Nw];
             if (t2 == null) {
                 return false;
             }
         } while (!t2.equals(t));
-        return a(MJ, tArr, i);
+        return a(Nw, tArr, i);
     }
 
     boolean a(int i, T[] tArr, int i2) {
@@ -81,13 +81,13 @@ public final class e<T> {
                     tArr[i] = null;
                     return true;
                 }
-                int MJ = MJ(t.hashCode()) & i2;
+                int Nw = Nw(t.hashCode()) & i2;
                 if (i > i3) {
-                    if (i >= MJ && MJ > i3) {
+                    if (i >= Nw && Nw > i3) {
                         break;
                     }
                     i4 = i3 + 1;
-                } else if (i < MJ && MJ <= i3) {
+                } else if (i < Nw && Nw <= i3) {
                     i4 = i3 + 1;
                 }
             }
@@ -98,11 +98,11 @@ public final class e<T> {
 
     public void terminate() {
         this.size = 0;
-        this.mXn = (T[]) new Object[0];
+        this.nzv = (T[]) new Object[0];
     }
 
     void rehash() {
-        T[] tArr = this.mXn;
+        T[] tArr = this.nzv;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -115,24 +115,24 @@ public final class e<T> {
                 do {
                     i3--;
                 } while (tArr[i3] == null);
-                int MJ = MJ(tArr[i3].hashCode()) & i2;
-                if (tArr2[MJ] != null) {
+                int Nw = Nw(tArr[i3].hashCode()) & i2;
+                if (tArr2[Nw] != null) {
                     do {
-                        MJ = (MJ + 1) & i2;
-                    } while (tArr2[MJ] != null);
+                        Nw = (Nw + 1) & i2;
+                    } while (tArr2[Nw] != null);
                 }
-                tArr2[MJ] = tArr[i3];
+                tArr2[Nw] = tArr[i3];
                 i4 = i5;
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.mXn = tArr2;
+                this.nzv = tArr2;
                 return;
             }
         }
     }
 
-    static int MJ(int i) {
+    static int Nw(int i) {
         int i2 = (-1640531527) * i;
         return i2 ^ (i2 >>> 16);
     }
@@ -141,7 +141,7 @@ public final class e<T> {
         return this.size == 0;
     }
 
-    public T[] dGL() {
-        return this.mXn;
+    public T[] dNm() {
+        return this.nzv;
     }
 }

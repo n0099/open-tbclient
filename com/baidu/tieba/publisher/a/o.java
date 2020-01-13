@@ -1,8 +1,8 @@
 package com.baidu.tieba.publisher.a;
 
 import android.content.SharedPreferences;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class o {
-    public static SharedPreferences.Editor jxl;
+    public static SharedPreferences.Editor jAN;
     public static SharedPreferences sp;
 }

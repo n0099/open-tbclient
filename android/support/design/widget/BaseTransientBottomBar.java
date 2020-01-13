@@ -33,7 +33,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>> {
     static final int ANIMATION_DURATION = 250;
     static final int ANIMATION_FADE_DURATION = 180;
@@ -63,7 +63,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     private final ViewGroup mTargetParent;
     final SnackbarBaseLayout mView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface ContentViewCallback {
         void animateContentIn(int i, int i2);
 
@@ -73,13 +73,13 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     @IntRange(from = 1)
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface Duration {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnAttachStateChangeListener {
         void onViewAttachedToWindow(View view);
 
@@ -88,12 +88,12 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnLayoutChangeListener {
         void onLayoutChange(View view, int i, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class BaseCallback<B> {
         public static final int DISMISS_EVENT_ACTION = 1;
         public static final int DISMISS_EVENT_CONSECUTIVE = 4;
@@ -103,7 +103,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public @interface DismissEvent {
         }
 
@@ -455,7 +455,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SnackbarBaseLayout extends FrameLayout {
         private OnAttachStateChangeListener mOnAttachStateChangeListener;
         private OnLayoutChangeListener mOnLayoutChangeListener;
@@ -511,7 +511,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class Behavior extends SwipeDismissBehavior<SnackbarBaseLayout> {
         Behavior() {
         }

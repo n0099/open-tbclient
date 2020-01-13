@@ -16,7 +16,7 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i {
     public static synchronized List<String> M(Context context, String str) {
         ArrayList arrayList;
@@ -63,7 +63,7 @@ public final class i {
             if (com.baidu.crabsdk.a.G) {
                 String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, str);
                 try {
-                    str2 = com.baidu.crabsdk.c.d.L(str2, c);
+                    str2 = com.baidu.crabsdk.c.d.K(str2, c);
                 } catch (Exception e) {
                     com.baidu.crabsdk.c.a.f("crash content AES failed!", e);
                 }

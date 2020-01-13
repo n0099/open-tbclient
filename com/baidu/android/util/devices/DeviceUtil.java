@@ -24,10 +24,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.lang.reflect.Field;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DeviceUtil implements IDevices {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class OSInfo {
         public static final int KITKAT = 19;
         public static final int LOLLIPOP = 21;
@@ -133,7 +133,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ScreenInfo {
         private static final int STANDARD_STATUSBAR_HEIGHT = 50;
         private static int originDensityDip = 0;
@@ -300,7 +300,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class BrandInfo {
         public static String getDeviceBrand() {
             return Build.BRAND;
@@ -335,7 +335,7 @@ public class DeviceUtil implements IDevices {
         return Build.MODEL.equals("SM-F9000") || Build.MODEL.equals("RLI-AN00");
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class CPUInfo {
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";

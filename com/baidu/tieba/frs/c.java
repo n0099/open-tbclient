@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c implements ae {
-    public static final AtomicReference<ae> ghY = new AtomicReference<>(null);
-    private static final ae ghZ = new c();
+    public static final AtomicReference<ae> gli = new AtomicReference<>(null);
+    private static final ae glj = new c();
 
     private c() {
     }
 
-    public static ae bAA() {
-        ae aeVar = ghY.get();
-        return aeVar == null ? ghZ : aeVar;
+    public static ae bBC() {
+        ae aeVar = gli.get();
+        return aeVar == null ? glj : aeVar;
     }
 
     @Override // com.baidu.tieba.frs.ae

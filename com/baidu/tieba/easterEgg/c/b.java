@@ -14,33 +14,33 @@ import com.baidu.webkit.internal.ETAG;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends k {
-    private d fMk;
-    private HashMap<String, String> fMl;
-    private Gson fMm;
-    private SparseArray<String> fMn;
+    private d fPt;
+    private HashMap<String, String> fPu;
+    private Gson fPv;
+    private SparseArray<String> fPw;
 
     public b(int i) {
         super(i);
-        this.fMm = new Gson();
-        buC();
+        this.fPv = new Gson();
+        bvE();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
     public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.fMn.get(socketMessage.getCmd());
-        if (str != null && this.fMl != null && this.fMl.get(str) != null && this.fMk != null) {
-            this.fMk.aj(str, this.fMm.toJson(this.fMl.get(str)), this.fMm.toJson(this.fMm.toJson(socketMessage.getData())));
+        String str = this.fPw.get(socketMessage.getCmd());
+        if (str != null && this.fPu != null && this.fPu.get(str) != null && this.fPt != null) {
+            this.fPt.ak(str, this.fPv.toJson(this.fPu.get(str)), this.fPv.toJson(this.fPv.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void buC() {
+    private void bvE() {
         int i;
-        this.fMn = new SparseArray<>();
+        this.fPw = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!v.isEmpty(findHttpTasks)) {
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
@@ -50,7 +50,7 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!aq.isEmpty(str) && str.contains(ETAG.EQUAL) && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
-                        this.fMn.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.fPw.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
@@ -58,10 +58,10 @@ public class b extends k {
     }
 
     public void q(HashMap<String, String> hashMap) {
-        this.fMl = hashMap;
+        this.fPu = hashMap;
     }
 
     public void a(d dVar) {
-        this.fMk = dVar;
+        this.fPt = dVar;
     }
 }

@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ui.BdShimmerView;
 import java.util.WeakHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class LoadingViewHelper {
     private static final String TAG = "LoadingViewHelper";
     private static final boolean DEBUG = AppConfig.isDebug() & true;

@@ -13,25 +13,25 @@ import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.res.ui.FloatButton;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a bMQ;
-    private FloatButton bMR;
-    private JSONObject bMS;
+    private static volatile a bNA;
+    private FloatButton bNB;
+    private JSONObject bNC;
     private Activity mActivity;
     private String mApkName = "";
     private String mText;
 
-    public static a aba() {
-        if (bMQ == null) {
+    public static a abx() {
+        if (bNA == null) {
             synchronized (a.class) {
-                if (bMQ == null) {
-                    bMQ = new a();
+                if (bNA == null) {
+                    bNA = new a();
                 }
             }
         }
-        return bMQ;
+        return bNA;
     }
 
     private a() {
@@ -45,23 +45,23 @@ public class a {
             this.mActivity = activity;
             this.mApkName = jSONObject.optString("name");
             this.mText = ai.isAppInstalled(activity, this.mApkName) ? activity.getString(a.h.swan_app_hover_button_open) : activity.getString(a.h.swan_app_hover_button_download);
-            this.bMS = jSONObject.optJSONObject("style");
+            this.bNC = jSONObject.optJSONObject("style");
         }
     }
 
-    public FloatButton abb() {
+    public FloatButton aby() {
         if (!(this.mActivity instanceof SwanAppActivity)) {
             return null;
         }
-        if (this.bMR == null) {
-            this.bMR = d(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
+        if (this.bNB == null) {
+            this.bNB = d(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
         }
-        this.bMR.setFloatButtonText(this.mText);
-        this.bMR.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
-        this.bMR.setFloatButtonDefaultPosition();
-        this.bMR.setFloatButtonStyle(this.bMS);
-        this.bMR.setVisibility(0);
-        return this.bMR;
+        this.bNB.setFloatButtonText(this.mText);
+        this.bNB.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
+        this.bNB.setFloatButtonDefaultPosition();
+        this.bNB.setFloatButtonStyle(this.bNC);
+        this.bNB.setVisibility(0);
+        return this.bNB;
     }
 
     private FloatButton d(Context context, ViewGroup viewGroup) {
@@ -81,7 +81,7 @@ public class a {
     }
 
     public void K(Intent intent) {
-        if (intent != null && this.bMR != null) {
+        if (intent != null && this.bNB != null) {
             String dataString = intent.getDataString();
             if (!TextUtils.isEmpty(dataString)) {
                 String substring = dataString.substring(8);
@@ -91,27 +91,27 @@ public class a {
                     } else if (TextUtils.equals("android.intent.action.PACKAGE_REMOVED", intent.getAction())) {
                         this.mText = this.mActivity.getResources().getString(a.h.swan_app_hover_button_download);
                     }
-                    this.bMR.setFloatButtonText(this.mText);
+                    this.bNB.setFloatButtonText(this.mText);
                 }
             }
         }
     }
 
-    public FloatButton abc() {
-        return this.bMR;
+    public FloatButton abz() {
+        return this.bNB;
     }
 
     public void a(FloatButton floatButton) {
-        this.bMR = floatButton;
+        this.bNB = floatButton;
     }
 
-    public void la(String str) {
+    public void ld(String str) {
         this.mApkName = str;
     }
 
     public static void release() {
-        if (bMQ != null) {
-            bMQ = null;
+        if (bNA != null) {
+            bNA = null;
         }
     }
 }

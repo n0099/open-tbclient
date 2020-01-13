@@ -42,66 +42,66 @@ import com.baidu.tieba.recapp.widget.CountDownTextView;
 import com.baidu.tieba.video_net_tip.VideoNetworkStateTipView;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.HttpHost;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCard> implements View.OnClickListener, h, j, CountDownTextView.b {
-    private com.baidu.tieba.frs.aggregation.a Dc;
-    public TextView ME;
-    private Animation aGA;
-    private Animation aGz;
-    private boolean cRY;
-    private n egK;
-    private View gIe;
-    private View gIk;
-    private c gIm;
-    private VideoNetworkStateTipView gIp;
-    private Animation.AnimationListener gIw;
-    private Animation.AnimationListener gIx;
-    public TextView goA;
-    public HeadImageView goF;
-    public com.baidu.tieba.play.c goM;
-    public FrameLayout goy;
-    public FrameLayout goz;
-    private View jEY;
-    private View jEZ;
-    private View jFa;
-    public TextView jFb;
-    private VideoMiddlePageAdCard jFc;
-    private TextView jFd;
-    private TextView jFe;
-    private ViewGroup jFf;
-    private d jFg;
-    private e jFh;
-    private f jFi;
-    private int jFj;
-    private boolean jFk;
-    private boolean jFl;
-    private a jFm;
+    private com.baidu.tieba.frs.aggregation.a Dh;
+    public TextView MK;
+    private Animation aHr;
+    private Animation aHs;
+    private boolean cSi;
+    private n egU;
+    private VideoNetworkStateTipView gLC;
+    private Animation.AnimationListener gLJ;
+    private Animation.AnimationListener gLK;
+    private View gLr;
+    private View gLx;
+    private c gLz;
+    public FrameLayout grH;
+    public FrameLayout grI;
+    public TextView grJ;
+    public HeadImageView grO;
+    public com.baidu.tieba.play.c grV;
+    private View jIA;
+    private View jIB;
+    private View jIC;
+    public TextView jID;
+    private VideoMiddlePageAdCard jIE;
+    private TextView jIF;
+    private TextView jIG;
+    private ViewGroup jIH;
+    private d jII;
+    private e jIJ;
+    private f jIK;
+    private int jIL;
+    private boolean jIM;
+    private boolean jIN;
+    private a jIO;
     private int mWidth;
     private int position;
     private View rootView;
 
     public VideoMiddlePageAdView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.jFk = false;
-        this.jFl = true;
-        this.gIw = new Animation.AnimationListener() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.9
+        this.jIM = false;
+        this.jIN = true;
+        this.gLJ = new Animation.AnimationListener() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.9
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                if (VideoMiddlePageAdView.this.gIk != null) {
-                    VideoMiddlePageAdView.this.gIk.setVisibility(0);
+                if (VideoMiddlePageAdView.this.gLx != null) {
+                    VideoMiddlePageAdView.this.gLx.setVisibility(0);
                 }
-                if (VideoMiddlePageAdView.this.jEY != null) {
-                    VideoMiddlePageAdView.this.jEY.setVisibility(0);
+                if (VideoMiddlePageAdView.this.jIA != null) {
+                    VideoMiddlePageAdView.this.jIA.setVisibility(0);
                 }
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (VideoMiddlePageAdView.this.gIk != null) {
-                    VideoMiddlePageAdView.this.gIk.setVisibility(8);
+                if (VideoMiddlePageAdView.this.gLx != null) {
+                    VideoMiddlePageAdView.this.gLx.setVisibility(8);
                 }
-                if (VideoMiddlePageAdView.this.jEY != null) {
-                    VideoMiddlePageAdView.this.jEY.setVisibility(8);
+                if (VideoMiddlePageAdView.this.jIA != null) {
+                    VideoMiddlePageAdView.this.jIA.setVisibility(8);
                 }
             }
 
@@ -109,24 +109,24 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.gIx = new Animation.AnimationListener() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.10
+        this.gLK = new Animation.AnimationListener() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.10
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                if (VideoMiddlePageAdView.this.gIk != null) {
-                    VideoMiddlePageAdView.this.gIk.setVisibility(8);
+                if (VideoMiddlePageAdView.this.gLx != null) {
+                    VideoMiddlePageAdView.this.gLx.setVisibility(8);
                 }
-                if (VideoMiddlePageAdView.this.jEY != null) {
-                    VideoMiddlePageAdView.this.jEY.setVisibility(8);
+                if (VideoMiddlePageAdView.this.jIA != null) {
+                    VideoMiddlePageAdView.this.jIA.setVisibility(8);
                 }
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (VideoMiddlePageAdView.this.gIk != null) {
-                    VideoMiddlePageAdView.this.gIk.setVisibility(0);
+                if (VideoMiddlePageAdView.this.gLx != null) {
+                    VideoMiddlePageAdView.this.gLx.setVisibility(0);
                 }
-                if (VideoMiddlePageAdView.this.jEY != null) {
-                    VideoMiddlePageAdView.this.jEY.setVisibility(0);
+                if (VideoMiddlePageAdView.this.jIA != null) {
+                    VideoMiddlePageAdView.this.jIA.setVisibility(0);
                 }
             }
 
@@ -134,239 +134,239 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.jFk = false;
-        this.jFl = true;
+        this.jIM = false;
+        this.jIN = true;
         this.rootView = LayoutInflater.from(getContext()).inflate(R.layout.middle_page_video_ad_layout, (ViewGroup) null);
-        this.goy = (FrameLayout) this.rootView.findViewById(R.id.video_agg_container);
-        this.gIe = this.rootView.findViewById(R.id.card_container);
-        this.goz = (FrameLayout) this.rootView.findViewById(R.id.video_container);
-        this.goM = new com.baidu.tieba.play.c(this.cQU, this.goz, false);
-        this.goM.a(new g.f() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.1
+        this.grH = (FrameLayout) this.rootView.findViewById(R.id.video_agg_container);
+        this.gLr = this.rootView.findViewById(R.id.card_container);
+        this.grI = (FrameLayout) this.rootView.findViewById(R.id.video_container);
+        this.grV = new com.baidu.tieba.play.c(this.cRe, this.grI, false);
+        this.grV.a(new g.f() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.1
             @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
-                if (VideoMiddlePageAdView.this.goM != null && VideoMiddlePageAdView.this.goM.getVideoView() != null) {
-                    VideoMiddlePageAdView.this.jFj = (int) TimeUnit.MILLISECONDS.toSeconds(VideoMiddlePageAdView.this.goM.getVideoView().getDuration());
+                if (VideoMiddlePageAdView.this.grV != null && VideoMiddlePageAdView.this.grV.getVideoView() != null) {
+                    VideoMiddlePageAdView.this.jIL = (int) TimeUnit.MILLISECONDS.toSeconds(VideoMiddlePageAdView.this.grV.getVideoView().getDuration());
                 }
             }
         });
-        this.goM.a(new c.a() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.7
+        this.grV.a(new c.a() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.7
             @Override // com.baidu.tieba.play.c.a
-            public void lY(boolean z) {
-                if (VideoMiddlePageAdView.this.jFm != null) {
+            public void mj(boolean z) {
+                if (VideoMiddlePageAdView.this.jIO != null) {
                     if (z) {
-                        VideoMiddlePageAdView.this.jFm.uj(0);
+                        VideoMiddlePageAdView.this.jIO.uo(0);
                     } else {
-                        VideoMiddlePageAdView.this.jFm.uj(1);
+                        VideoMiddlePageAdView.this.jIO.uo(1);
                     }
                 }
             }
         });
-        this.goM.hTy.setOnTouchListener(null);
-        this.goA = (TextView) this.rootView.findViewById(R.id.title);
-        this.goF = (HeadImageView) this.rootView.findViewById(R.id.user_icon);
-        this.goF.setIsRound(true);
-        this.goF.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.goF.setDefaultResource(R.drawable.icon_default_avatar100);
-        this.goF.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.jFb = (TextView) this.rootView.findViewById(R.id.ad_tag);
-        this.ME = (TextView) this.rootView.findViewById(R.id.user_name);
-        this.egK = new n(this.cQU.getPageActivity());
-        this.jFd = (TextView) this.rootView.findViewById(R.id.ad_operate_title);
-        this.jFe = (TextView) this.rootView.findViewById(R.id.ad_operate_button);
-        this.jFf = (FrameLayout) this.rootView.findViewById(R.id.tail_frame_container);
-        this.jFg = new d(this.cQU.getPageActivity(), this.jFf);
-        this.jFg.page = 1;
-        this.gIp = (VideoNetworkStateTipView) this.rootView.findViewById(R.id.network_state_tip);
-        this.gIp.setPlayViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.8
+        this.grV.hXc.setOnTouchListener(null);
+        this.grJ = (TextView) this.rootView.findViewById(R.id.title);
+        this.grO = (HeadImageView) this.rootView.findViewById(R.id.user_icon);
+        this.grO.setIsRound(true);
+        this.grO.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.grO.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.grO.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.jID = (TextView) this.rootView.findViewById(R.id.ad_tag);
+        this.MK = (TextView) this.rootView.findViewById(R.id.user_name);
+        this.egU = new n(this.cRe.getPageActivity());
+        this.jIF = (TextView) this.rootView.findViewById(R.id.ad_operate_title);
+        this.jIG = (TextView) this.rootView.findViewById(R.id.ad_operate_button);
+        this.jIH = (FrameLayout) this.rootView.findViewById(R.id.tail_frame_container);
+        this.jII = new d(this.cRe.getPageActivity(), this.jIH);
+        this.jII.page = 1;
+        this.gLC = (VideoNetworkStateTipView) this.rootView.findViewById(R.id.network_state_tip);
+        this.gLC.setPlayViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                VideoMiddlePageAdView.this.gIp.setHasAgreeToPlay(true);
-                VideoMiddlePageAdView.this.goM.ru(false);
-                VideoMiddlePageAdView.this.gIp.cPV();
-                if (VideoMiddlePageAdView.this.jFc != null && VideoMiddlePageAdView.this.jFc.video != null) {
-                    VideoMiddlePageAdView.this.goM.dX(VideoMiddlePageAdView.this.jFc.video.video_url, "");
+                VideoMiddlePageAdView.this.gLC.setHasAgreeToPlay(true);
+                VideoMiddlePageAdView.this.grV.rH(false);
+                VideoMiddlePageAdView.this.gLC.cQY();
+                if (VideoMiddlePageAdView.this.jIE != null && VideoMiddlePageAdView.this.jIE.video != null) {
+                    VideoMiddlePageAdView.this.grV.dZ(VideoMiddlePageAdView.this.jIE.video.video_url, "");
                 }
             }
         });
-        this.gIk = this.rootView.findViewById(R.id.video_agg_container_foreground);
-        this.jEZ = this.rootView.findViewById(R.id.user_container_foreground);
-        this.jFa = this.rootView.findViewById(R.id.title_foreground);
-        this.jEY = this.rootView.findViewById(R.id.operate_area_foreground);
-        this.gIk.setOnClickListener(this);
-        this.jEZ.setOnClickListener(this);
-        this.jFa.setOnClickListener(this);
-        this.jEY.setOnClickListener(this);
-        this.goz.setOnClickListener(this);
-        this.goy.setOnClickListener(this);
-        this.goM.Z(this);
-        this.goA.setOnClickListener(this);
-        this.goF.setOnClickListener(this);
-        this.ME.setOnClickListener(this);
-        this.mWidth = l.getEquipmentWidth(this.cQU.getPageActivity());
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.goy.getLayoutParams();
+        this.gLx = this.rootView.findViewById(R.id.video_agg_container_foreground);
+        this.jIB = this.rootView.findViewById(R.id.user_container_foreground);
+        this.jIC = this.rootView.findViewById(R.id.title_foreground);
+        this.jIA = this.rootView.findViewById(R.id.operate_area_foreground);
+        this.gLx.setOnClickListener(this);
+        this.jIB.setOnClickListener(this);
+        this.jIC.setOnClickListener(this);
+        this.jIA.setOnClickListener(this);
+        this.grI.setOnClickListener(this);
+        this.grH.setOnClickListener(this);
+        this.grV.Y(this);
+        this.grJ.setOnClickListener(this);
+        this.grO.setOnClickListener(this);
+        this.MK.setOnClickListener(this);
+        this.mWidth = l.getEquipmentWidth(this.cRe.getPageActivity());
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.grH.getLayoutParams();
         layoutParams.height = (int) (0.5625f * this.mWidth);
-        this.goy.setLayoutParams(layoutParams);
-        this.aGz = new AlphaAnimation(0.0f, 0.7f);
-        this.aGz.setDuration(500L);
-        this.aGz.setAnimationListener(this.gIx);
-        this.aGA = new AlphaAnimation(0.7f, 0.0f);
-        this.aGA.setDuration(500L);
-        this.aGA.setAnimationListener(this.gIw);
+        this.grH.setLayoutParams(layoutParams);
+        this.aHr = new AlphaAnimation(0.0f, 0.7f);
+        this.aHr.setDuration(500L);
+        this.aHr.setAnimationListener(this.gLK);
+        this.aHs = new AlphaAnimation(0.7f, 0.0f);
+        this.aHs.setDuration(500L);
+        this.aHs.setAnimationListener(this.gLJ);
         this.rootView.setOnClickListener(this);
-        this.jFm = new a();
+        this.jIO = new a();
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View bZt() {
+    protected View caC() {
         return this.rootView;
     }
 
     private void a(VideoMiddlePageAdCard videoMiddlePageAdCard, int i, final com.baidu.tieba.frs.aggregation.a aVar) {
         if (videoMiddlePageAdCard != null && videoMiddlePageAdCard.video != null) {
             this.position = i;
-            this.cRY = this.jFc.autoPlay;
-            this.jFk = false;
+            this.cSi = this.jIE.autoPlay;
+            this.jIM = false;
             if (videoMiddlePageAdCard.video.video_duration != null && videoMiddlePageAdCard.video.video_duration.intValue() > 0) {
-                this.jFj = videoMiddlePageAdCard.video.video_duration.intValue();
+                this.jIL = videoMiddlePageAdCard.video.video_duration.intValue();
             }
-            if (this.goM.kO()) {
-                cz(videoMiddlePageAdCard.autoPlay ? 0 : 1, this.goM.getCurrentPosition());
-                this.jFl = true;
+            if (this.grV.kP()) {
+                cy(videoMiddlePageAdCard.autoPlay ? 0 : 1, this.grV.getCurrentPosition());
+                this.jIN = true;
             }
-            this.goM.stopPlay();
-            this.goM.setIsNeedRecoveryVideoPlayer(true);
-            this.goM.rv(true);
-            this.goM.rr(false);
-            this.goM.rw(true);
-            this.goM.ah(false, true);
-            this.goM.zZ(i);
-            this.goM.a(new c.InterfaceC0576c() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.11
-                @Override // com.baidu.tieba.play.c.InterfaceC0576c
-                public void kM() {
-                }
-
-                @Override // com.baidu.tieba.play.c.InterfaceC0576c
+            this.grV.stopPlay();
+            this.grV.setIsNeedRecoveryVideoPlayer(true);
+            this.grV.rI(true);
+            this.grV.rE(false);
+            this.grV.rJ(true);
+            this.grV.ah(false, true);
+            this.grV.Ae(i);
+            this.grV.a(new c.InterfaceC0581c() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.11
+                @Override // com.baidu.tieba.play.c.InterfaceC0581c
                 public void kN() {
                 }
+
+                @Override // com.baidu.tieba.play.c.InterfaceC0581c
+                public void kO() {
+                }
             });
-            this.goM.a(new c.l() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.12
+            this.grV.a(new c.l() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.12
                 @Override // com.baidu.tieba.play.c.l
-                public void bDH() {
-                    if (VideoMiddlePageAdView.this.jFc != null && VideoMiddlePageAdView.this.jFc.video != null && VideoMiddlePageAdView.this.jFc.video.video_height.intValue() > VideoMiddlePageAdView.this.jFc.video.video_width.intValue()) {
-                        VideoMiddlePageAdView.this.goM.ah(false, true);
+                public void bEJ() {
+                    if (VideoMiddlePageAdView.this.jIE != null && VideoMiddlePageAdView.this.jIE.video != null && VideoMiddlePageAdView.this.jIE.video.video_height.intValue() > VideoMiddlePageAdView.this.jIE.video.video_width.intValue()) {
+                        VideoMiddlePageAdView.this.grV.ah(false, true);
                     } else {
-                        VideoMiddlePageAdView.this.goM.ah(false, true);
+                        VideoMiddlePageAdView.this.grV.ah(false, true);
                     }
-                    if (VideoMiddlePageAdView.this.jFi != null) {
-                        VideoMiddlePageAdView.this.jFi.a(VideoMiddlePageAdView.this);
+                    if (VideoMiddlePageAdView.this.jIK != null) {
+                        VideoMiddlePageAdView.this.jIK.a(VideoMiddlePageAdView.this);
                     }
-                    VideoMiddlePageAdView.this.AH(VideoMiddlePageAdView.this.cRY ? 0 : 1);
-                    VideoMiddlePageAdView.this.jFk = false;
+                    VideoMiddlePageAdView.this.AM(VideoMiddlePageAdView.this.cSi ? 0 : 1);
+                    VideoMiddlePageAdView.this.jIM = false;
                 }
 
                 @Override // com.baidu.tieba.play.c.l
-                public void bDI() {
+                public void bEK() {
                 }
             });
-            this.goM.a(new c.f() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.13
+            this.grV.a(new c.f() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.13
                 @Override // com.baidu.tieba.play.c.f
-                public void lt(boolean z) {
-                    VideoMiddlePageAdView.this.goM.dX(VideoMiddlePageAdView.this.jFc.video.video_url, "");
-                    if (VideoMiddlePageAdView.this.jFi != null) {
-                        VideoMiddlePageAdView.this.jFi.a(VideoMiddlePageAdView.this);
+                public void lE(boolean z) {
+                    VideoMiddlePageAdView.this.grV.dZ(VideoMiddlePageAdView.this.jIE.video.video_url, "");
+                    if (VideoMiddlePageAdView.this.jIK != null) {
+                        VideoMiddlePageAdView.this.jIK.a(VideoMiddlePageAdView.this);
                     }
-                    VideoMiddlePageAdView.this.AH(1);
-                    VideoMiddlePageAdView.this.jFk = false;
+                    VideoMiddlePageAdView.this.AM(1);
+                    VideoMiddlePageAdView.this.jIM = false;
                 }
             });
-            this.goM.rn(false);
-            this.goM.getVideoView().setBusiness(this.egK);
-            this.goM.bZU();
-            this.goM.a(new g.a() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.14
+            this.grV.rA(false);
+            this.grV.getVideoView().setBusiness(this.egU);
+            this.grV.cbd();
+            this.grV.a(new g.a() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.14
                 @Override // com.baidu.tieba.play.g.a
                 public void onCompletion(g gVar) {
-                    VideoMiddlePageAdView.this.goM.bNb();
-                    if (VideoMiddlePageAdView.this.jFh != null) {
-                        VideoMiddlePageAdView.this.jFh.cAQ();
+                    VideoMiddlePageAdView.this.grV.bOk();
+                    if (VideoMiddlePageAdView.this.jIJ != null) {
+                        VideoMiddlePageAdView.this.jIJ.cBW();
                     }
-                    VideoMiddlePageAdView.this.AI(VideoMiddlePageAdView.this.cRY ? 0 : 1);
-                    VideoMiddlePageAdView.this.jFl = true;
+                    VideoMiddlePageAdView.this.AN(VideoMiddlePageAdView.this.cSi ? 0 : 1);
+                    VideoMiddlePageAdView.this.jIN = true;
                 }
             });
-            this.goM.a(new g.b() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.2
+            this.grV.a(new g.b() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.2
                 @Override // com.baidu.tieba.play.g.b
                 public boolean onError(g gVar, int i2, int i3) {
                     if (aVar != null) {
                         aVar.cancel();
                     }
-                    VideoMiddlePageAdView.this.AJ(VideoMiddlePageAdView.this.cRY ? 0 : 1);
+                    VideoMiddlePageAdView.this.AO(VideoMiddlePageAdView.this.cSi ? 0 : 1);
                     return true;
                 }
             });
-            this.goM.setThumbnail(videoMiddlePageAdCard.video.thumbnail_url);
-            this.goM.setVideoUrl(videoMiddlePageAdCard.video.video_url, "");
-            this.goM.a(new c.i() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.3
+            this.grV.setThumbnail(videoMiddlePageAdCard.video.thumbnail_url);
+            this.grV.setVideoUrl(videoMiddlePageAdCard.video.video_url, "");
+            this.grV.a(new c.i() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.3
                 @Override // com.baidu.tieba.play.c.i
-                public void bDK() {
-                    VideoMiddlePageAdView.this.cA(1, VideoMiddlePageAdView.this.goM.getCurrentPosition());
+                public void bEM() {
+                    VideoMiddlePageAdView.this.cz(1, VideoMiddlePageAdView.this.grV.getCurrentPosition());
                 }
             });
-            this.goM.a(new c.g() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.4
+            this.grV.a(new c.g() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.4
                 @Override // com.baidu.tieba.play.c.g
                 public void onPause() {
-                    VideoMiddlePageAdView.this.cz(1, VideoMiddlePageAdView.this.goM.getCurrentPosition());
-                    VideoMiddlePageAdView.this.jFl = true;
+                    VideoMiddlePageAdView.this.cy(1, VideoMiddlePageAdView.this.grV.getCurrentPosition());
+                    VideoMiddlePageAdView.this.jIN = true;
                 }
             });
-            this.goM.bNb();
-            this.goM.show();
+            this.grV.bOk();
+            this.grV.show();
             if (videoMiddlePageAdCard.autoPlay) {
-                if (this.gIp.crv()) {
-                    this.goM.rt(false);
-                    this.gIp.cPU();
-                    this.goM.ru(true);
-                    this.goM.dW(videoMiddlePageAdCard.video.video_url, "");
+                if (this.gLC.csC()) {
+                    this.grV.rG(false);
+                    this.gLC.cQX();
+                    this.grV.rH(true);
+                    this.grV.dY(videoMiddlePageAdCard.video.video_url, "");
                 } else {
-                    this.goM.ru(false);
-                    this.goM.rt(false);
-                    this.gIp.hide();
-                    this.goM.a(videoMiddlePageAdCard.video.video_url, "", (c.e) null, new Object[0]);
+                    this.grV.rH(false);
+                    this.grV.rG(false);
+                    this.gLC.hide();
+                    this.grV.a(videoMiddlePageAdCard.video.video_url, "", (c.e) null, new Object[0]);
                 }
-                if (this.jFh != null) {
-                    this.jFh.rP(true);
+                if (this.jIJ != null) {
+                    this.jIJ.sb(true);
                 }
                 if (i == 0) {
-                    this.gIk.setVisibility(8);
-                    this.jEY.setVisibility(8);
+                    this.gLx.setVisibility(8);
+                    this.jIA.setVisibility(8);
                 } else {
-                    this.gIk.startAnimation(this.aGA);
-                    this.jEY.startAnimation(this.aGA);
+                    this.gLx.startAnimation(this.aHs);
+                    this.jIA.startAnimation(this.aHs);
                 }
                 if (i == 0) {
-                    this.jFm.uj(3);
+                    this.jIO.uo(3);
                     return;
                 } else {
-                    this.jFm.uj(0);
+                    this.jIO.uo(0);
                     return;
                 }
             }
-            this.gIp.hide();
-            this.goM.rt(true);
-            this.jFm.uj(3);
+            this.gLC.hide();
+            this.grV.rG(true);
+            this.jIO.uo(3);
             if (com.baidu.adp.lib.util.j.isMobileNet() && videoMiddlePageAdCard.waitConfirm) {
-                this.gIk.startAnimation(this.aGA);
-                this.jEY.startAnimation(this.aGA);
+                this.gLx.startAnimation(this.aHs);
+                this.jIA.startAnimation(this.aHs);
                 return;
             }
-            this.gIk.setVisibility(0);
-            this.jEY.setVisibility(0);
+            this.gLx.setVisibility(0);
+            this.jIA.setVisibility(0);
         }
     }
 
-    private boolean bIC() {
+    private boolean bJE() {
         try {
-            int intValue = this.jFc.video.video_width.intValue();
-            return intValue <= 0 || ((float) this.jFc.video.video_height.intValue()) / ((float) intValue) < 1.0f;
+            int intValue = this.jIE.video.video_width.intValue();
+            return intValue <= 0 || ((float) this.jIE.video.video_height.intValue()) / ((float) intValue) < 1.0f;
         } catch (NumberFormatException e) {
             return true;
         }
@@ -376,262 +376,262 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(VideoMiddlePageAdCard videoMiddlePageAdCard, int i) {
-        this.goA.setTextColor(this.cQU.getResources().getColor(R.color.cp_cont_i_alpha70));
-        this.jFb.setTextColor(this.cQU.getResources().getColor(R.color.cp_cont_i_alpha70));
-        this.jFd.setTextColor(this.cQU.getResources().getColor(R.color.cp_cont_i_alpha70));
-        this.jFe.setTextColor(this.cQU.getResources().getColor(R.color.cp_cont_i_alpha70));
-        am.setBackgroundResource(this.jFe, R.drawable.btn_rouned_corner_bg_shape);
+        this.grJ.setTextColor(this.cRe.getResources().getColor(R.color.cp_cont_i_alpha70));
+        this.jID.setTextColor(this.cRe.getResources().getColor(R.color.cp_cont_i_alpha70));
+        this.jIF.setTextColor(this.cRe.getResources().getColor(R.color.cp_cont_i_alpha70));
+        this.jIG.setTextColor(this.cRe.getResources().getColor(R.color.cp_cont_i_alpha70));
+        am.setBackgroundResource(this.jIG, R.drawable.btn_rouned_corner_bg_shape);
     }
 
-    private void bID() {
-        if (!bIC()) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.goy.getLayoutParams();
+    private void bJF() {
+        if (!bJE()) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.grH.getLayoutParams();
             layoutParams.height = (int) (0.875f * this.mWidth);
-            this.goy.setLayoutParams(layoutParams);
+            this.grH.setLayoutParams(layoutParams);
             return;
         }
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.goy.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.grH.getLayoutParams();
         layoutParams2.height = (int) (0.5625f * this.mWidth);
-        this.goy.setLayoutParams(layoutParams2);
+        this.grH.setLayoutParams(layoutParams2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: a */
     public void d(final VideoMiddlePageAdCard videoMiddlePageAdCard) {
-        this.jFc = videoMiddlePageAdCard;
-        bID();
-        this.goA.setText(videoMiddlePageAdCard.threadTitle);
-        this.ME.setText(videoMiddlePageAdCard.userName);
+        this.jIE = videoMiddlePageAdCard;
+        bJF();
+        this.grJ.setText(videoMiddlePageAdCard.threadTitle);
+        this.MK.setText(videoMiddlePageAdCard.userName);
         if (!StringUtils.isNull(videoMiddlePageAdCard.userPortrait) && videoMiddlePageAdCard.userPortrait.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-            this.goF.startLoad(videoMiddlePageAdCard.userPortrait, 10, false);
+            this.grO.startLoad(videoMiddlePageAdCard.userPortrait, 10, false);
         } else {
-            this.goF.startLoad(videoMiddlePageAdCard.userPortrait, 12, false);
+            this.grO.startLoad(videoMiddlePageAdCard.userPortrait, 12, false);
         }
-        this.goF.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.5
+        this.grO.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.5
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
                 com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-                if (adAdSense == null || !adAdSense.aGy() || VideoMiddlePageAdView.this.jFc == null) {
+                if (adAdSense == null || !adAdSense.aGR() || VideoMiddlePageAdView.this.jIE == null) {
                     return false;
                 }
-                com.baidu.adp.lib.util.a.copyToClipboard(VideoMiddlePageAdView.this.jFc.adCollect());
-                ((Vibrator) VideoMiddlePageAdView.this.cQU.getPageActivity().getSystemService("vibrator")).vibrate(TimeUnit.MILLISECONDS.toMillis(300L));
+                com.baidu.adp.lib.util.a.copyToClipboard(VideoMiddlePageAdView.this.jIE.adCollect());
+                ((Vibrator) VideoMiddlePageAdView.this.cRe.getPageActivity().getSystemService("vibrator")).vibrate(TimeUnit.MILLISECONDS.toMillis(300L));
                 return true;
             }
         });
-        this.jFb.setText(videoMiddlePageAdCard.tagName);
-        this.jFd.setText(videoMiddlePageAdCard.operateData.jCP);
-        this.jFe.setText(videoMiddlePageAdCard.operateData.buttonText);
-        this.jFe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.6
+        this.jID.setText(videoMiddlePageAdCard.tagName);
+        this.jIF.setText(videoMiddlePageAdCard.operateData.jGr);
+        this.jIG.setText(videoMiddlePageAdCard.operateData.buttonText);
+        this.jIG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int a2 = s.a(VideoMiddlePageAdView.this.cQU, videoMiddlePageAdCard.operateData.scheme, (VideoMiddlePageAdView.this.jFc == null || VideoMiddlePageAdView.this.jFc.getAdFacadeData() == null || VideoMiddlePageAdView.this.jFc.getAdFacadeData().ku() == null) ? null : VideoMiddlePageAdView.this.jFc.getAdFacadeData().ku().cIG);
-                if (VideoMiddlePageAdView.this.jFh != null) {
-                    VideoMiddlePageAdView.this.jFh.rP(false);
+                int b = s.b(VideoMiddlePageAdView.this.cRe, videoMiddlePageAdCard.operateData.scheme, (VideoMiddlePageAdView.this.jIE == null || VideoMiddlePageAdView.this.jIE.getAdFacadeData() == null || VideoMiddlePageAdView.this.jIE.getAdFacadeData().kv() == null) ? null : VideoMiddlePageAdView.this.jIE.getAdFacadeData().kv().cIS);
+                if (VideoMiddlePageAdView.this.jIJ != null) {
+                    VideoMiddlePageAdView.this.jIJ.sb(false);
                 }
-                if (VideoMiddlePageAdView.this.hTa != null) {
-                    VideoMiddlePageAdView.this.hTa.b(a2, null);
+                if (VideoMiddlePageAdView.this.hWE != null) {
+                    VideoMiddlePageAdView.this.hWE.b(b, null);
                 }
             }
         });
         a(videoMiddlePageAdCard, this.mPosition, getAutoPlayCallBack());
         b(videoMiddlePageAdCard);
-        a(this.jFc, TbadkCoreApplication.getInst().getSkinType());
+        a(this.jIE, TbadkCoreApplication.getInst().getSkinType());
     }
 
     private void b(VideoMiddlePageAdCard videoMiddlePageAdCard) {
-        this.jFh = this.jFg.a(videoMiddlePageAdCard.tailFrame, this.jFh);
-        if (this.jFh != null) {
-            b(this.jFc.getAdFacadeData());
-            this.jFh.setPageContext(this.cQU);
-            this.jFh.setTimeoutListener(this);
-            this.jFh.a(videoMiddlePageAdCard.tailFrame);
-            this.jFh.c(this.jFc);
-            this.jFh.cAR();
+        this.jIJ = this.jII.a(videoMiddlePageAdCard.tailFrame, this.jIJ);
+        if (this.jIJ != null) {
+            b(this.jIE.getAdFacadeData());
+            this.jIJ.setPageContext(this.cRe);
+            this.jIJ.setTimeoutListener(this);
+            this.jIJ.a(videoMiddlePageAdCard.tailFrame);
+            this.jIJ.c(this.jIE);
+            this.jIJ.cBX();
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.h
     public void setAutoPlayCallBack(com.baidu.tieba.frs.aggregation.a aVar) {
-        this.Dc = aVar;
+        this.Dh = aVar;
     }
 
     public com.baidu.tieba.frs.aggregation.a getAutoPlayCallBack() {
-        return this.Dc;
+        return this.Dh;
     }
 
     @Override // com.baidu.tieba.lego.card.view.h
     public void setOnVideoContainerForegroundClickListener(com.baidu.tieba.frs.videomiddlepage.c cVar) {
-        this.gIm = cVar;
+        this.gLz = cVar;
     }
 
     @Override // com.baidu.tieba.lego.card.view.h
     public void setCurrentPlayCallBack(f fVar) {
-        this.jFi = fVar;
+        this.jIK = fVar;
     }
 
     @Override // com.baidu.tieba.recapp.widget.CountDownTextView.b
-    public void bm(View view) {
-        this.Dc.sT(this.position);
+    public void bq(View view) {
+        this.Dh.sY(this.position);
     }
 
     @Override // com.baidu.tieba.lego.card.view.j
     public void onDestroy() {
-        bDF();
-        if (this.gIk != null) {
-            this.gIk.clearAnimation();
+        bEH();
+        if (this.gLx != null) {
+            this.gLx.clearAnimation();
         }
-        if (this.jEY != null) {
-            this.jEY.clearAnimation();
+        if (this.jIA != null) {
+            this.jIA.clearAnimation();
         }
     }
 
-    public void bDE() {
-        this.goM.stopPlay();
-        if (this.goA != null) {
-            this.goA.setVisibility(0);
+    public void bEG() {
+        this.grV.stopPlay();
+        if (this.grJ != null) {
+            this.grJ.setVisibility(0);
         }
-        if (this.jFm != null) {
-            this.jFm.uj(2);
+        if (this.jIO != null) {
+            this.jIO.uo(2);
         }
-        this.jFk = false;
-        this.jFl = true;
+        this.jIM = false;
+        this.jIN = true;
     }
 
-    public void bDF() {
-        if (this.goM != null) {
-            this.goM.destroy();
+    public void bEH() {
+        if (this.grV != null) {
+            this.grV.destroy();
         }
-        this.jFk = false;
-        this.jFl = true;
+        this.jIM = false;
+        this.jIN = true;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gIk && this.gIk.getVisibility() == 0) {
-            if (this.gIm != null) {
-                this.gIm.un(this.mPosition);
+        if (view == this.gLx && this.gLx.getVisibility() == 0) {
+            if (this.gLz != null) {
+                this.gLz.us(this.mPosition);
             }
-        } else if (view == this.jEY && this.jEY.getVisibility() == 0) {
-            if (this.gIm != null) {
-                this.gIm.un(this.mPosition);
+        } else if (view == this.jIA && this.jIA.getVisibility() == 0) {
+            if (this.gLz != null) {
+                this.gLz.us(this.mPosition);
             }
-        } else if (view == this.jFa || view == this.jEZ) {
-            if (this.gIk.getVisibility() == 0) {
-                if (this.gIm != null) {
-                    this.gIm.un(this.mPosition);
+        } else if (view == this.jIC || view == this.jIB) {
+            if (this.gLx.getVisibility() == 0) {
+                if (this.gLz != null) {
+                    this.gLz.us(this.mPosition);
                     return;
                 }
                 return;
             }
-            this.jFm.uj(0);
+            this.jIO.uo(0);
         } else if (view.getId() == R.id.video_container || view.getId() == R.id.video_agg_container || view.getId() == R.id.float_video_container || view.getId() == R.id.title) {
-            WebVideoActivity.jBF = new WebVideoActivity.a();
-            if (this.jFc.getAdFacadeData() != null) {
-                WebVideoActivity.jBF.jBP = this.jFc.getAdFacadeData().ku();
-                WebVideoActivity.jBF.mPage = "DETAIL";
-                if (this.jFc.getAdFacadeData().CM != null) {
-                    WebVideoActivity.jBF.mPageNum = this.jFc.getAdFacadeData().CM.kq();
+            WebVideoActivity.jFh = new WebVideoActivity.a();
+            if (this.jIE.getAdFacadeData() != null) {
+                WebVideoActivity.jFh.jFr = this.jIE.getAdFacadeData().kv();
+                WebVideoActivity.jFh.mPage = "DETAIL";
+                if (this.jIE.getAdFacadeData().CT != null) {
+                    WebVideoActivity.jFh.mPageNum = this.jIE.getAdFacadeData().CT.kr();
                 }
             }
-            if (com.baidu.tieba.a.aSA().aSB() == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewWebVideoActivityConfig(this.cQU.getPageActivity(), "", this.jFc.getScheme(), true, true, true, this.jFc.video.video_url, this.jFc.video.thumbnail_url, 1.7777778f, this.jFj, this.jFc.getAdFacadeData().ku().cIG)));
+            if (com.baidu.tieba.a.aSU().aSV() == 1) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewWebVideoActivityConfig(this.cRe.getPageActivity(), "", this.jIE.getScheme(), true, true, true, this.jIE.video.video_url, this.jIE.video.thumbnail_url, 1.7777778f, this.jIL, this.jIE.getAdFacadeData().kv().cIS)));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WebVideoActivityConfig(this.cQU.getPageActivity(), "", this.jFc.getScheme(), true, true, true, this.jFc.video.video_url, this.jFc.video.thumbnail_url, 1.7777778f, this.jFj)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WebVideoActivityConfig(this.cRe.getPageActivity(), "", this.jIE.getScheme(), true, true, true, this.jIE.video.video_url, this.jIE.video.thumbnail_url, 1.7777778f, this.jIL)));
             }
-            if (this.hTa != null) {
-                this.hTa.b(0, null);
+            if (this.hWE != null) {
+                this.hWE.b(0, null);
             }
-            if (this.jFh != null) {
-                this.jFh.rP(false);
+            if (this.jIJ != null) {
+                this.jIJ.sb(false);
             }
         } else {
             String str = null;
-            if (this.jFc.getAdFacadeData() != null && this.jFc.getAdFacadeData().ku() != null) {
-                str = this.jFc.getAdFacadeData().ku().cIG;
+            if (this.jIE.getAdFacadeData() != null && this.jIE.getAdFacadeData().kv() != null) {
+                str = this.jIE.getAdFacadeData().kv().cIS;
             }
-            int a2 = s.a(this.cQU, this.jFc.getScheme(), str);
-            if (this.hTa != null) {
-                this.hTa.b(a2, null);
+            int b = s.b(this.cRe, this.jIE.getScheme(), str);
+            if (this.hWE != null) {
+                this.hWE.b(b, null);
             }
-            if (this.jFh != null) {
-                this.jFh.rP(false);
+            if (this.jIJ != null) {
+                this.jIJ.sb(false);
             }
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.j
     public void stopPlay() {
-        if (com.baidu.tieba.ad.a.a.nS(this.goM.getCurrentPosition()) < this.jFj && this.goM.getCurrentState() == 1) {
-            cz(this.cRY ? 0 : 1, this.goM.getCurrentPosition());
+        if (com.baidu.tieba.ad.a.a.nS(this.grV.getCurrentPosition()) < this.jIL && this.grV.getCurrentState() == 1) {
+            cy(this.cSi ? 0 : 1, this.grV.getCurrentPosition());
         }
-        bDE();
-        this.jFh.rP(false);
+        bEG();
+        this.jIJ.sb(false);
     }
 
     @Override // com.baidu.tieba.lego.card.view.j
     public void pausePlay() {
         if (isPlaying()) {
-            this.goM.pausePlay();
-            cz(this.cRY ? 0 : 1, this.goM.getCurrentPosition());
-            this.jFl = true;
+            this.grV.pausePlay();
+            cy(this.cSi ? 0 : 1, this.grV.getCurrentPosition());
+            this.jIN = true;
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.j
     public boolean isPlaying() {
-        return this.goM.kO();
+        return this.grV.kP();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AH(int i) {
-        if (this.jFc != null && this.jFc.video != null && this.jFc.getAdFacadeData() != null && this.jFl) {
-            com.baidu.tieba.recapp.report.c.cAJ().a(com.baidu.tieba.recapp.report.f.a(this.jFc.getAdFacadeData(), 31, this.jFc.getAdFacadeData().getPageNum(), i, this.jFj, 0, -1));
-            this.jFl = false;
+    public void AM(int i) {
+        if (this.jIE != null && this.jIE.video != null && this.jIE.getAdFacadeData() != null && this.jIN) {
+            com.baidu.tieba.recapp.report.c.cBP().a(com.baidu.tieba.recapp.report.f.a(this.jIE.getAdFacadeData(), 31, this.jIE.getAdFacadeData().getPageNum(), i, this.jIL, 0, -1));
+            this.jIN = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AI(int i) {
-        if (this.jFc != null && this.jFc.video != null && this.jFc.getAdFacadeData() != null && !this.jFk) {
-            com.baidu.tieba.recapp.report.c.cAJ().a(com.baidu.tieba.recapp.report.f.a(this.jFc.getAdFacadeData(), 34, this.jFc.getAdFacadeData().getPageNum(), i, this.jFj, this.jFj, -1));
-            this.jFk = true;
+    public void AN(int i) {
+        if (this.jIE != null && this.jIE.video != null && this.jIE.getAdFacadeData() != null && !this.jIM) {
+            com.baidu.tieba.recapp.report.c.cBP().a(com.baidu.tieba.recapp.report.f.a(this.jIE.getAdFacadeData(), 34, this.jIE.getAdFacadeData().getPageNum(), i, this.jIL, this.jIL, -1));
+            this.jIM = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AJ(int i) {
-        if (this.jFc != null && this.jFc.video != null && this.jFc.getAdFacadeData() != null) {
-            com.baidu.tieba.recapp.report.c.cAJ().a(com.baidu.tieba.recapp.report.f.a(this.jFc.getAdFacadeData(), 36, this.jFc.getAdFacadeData().getPageNum(), i, this.jFj, com.baidu.tieba.ad.a.a.nS(this.goM.getCurrentPosition()), -1));
+    public void AO(int i) {
+        if (this.jIE != null && this.jIE.video != null && this.jIE.getAdFacadeData() != null) {
+            com.baidu.tieba.recapp.report.c.cBP().a(com.baidu.tieba.recapp.report.f.a(this.jIE.getAdFacadeData(), 36, this.jIE.getAdFacadeData().getPageNum(), i, this.jIL, com.baidu.tieba.ad.a.a.nS(this.grV.getCurrentPosition()), -1));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cy(int i, int i2) {
+        if (this.jIE != null && this.jIE.video != null && this.jIE.getAdFacadeData() != null) {
+            com.baidu.tieba.recapp.report.c.cBP().a(com.baidu.tieba.recapp.report.f.a(this.jIE.getAdFacadeData(), 32, this.jIE.getAdFacadeData().getPageNum(), i, this.jIL, com.baidu.tieba.ad.a.a.nS(i2), -1));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cz(int i, int i2) {
-        if (this.jFc != null && this.jFc.video != null && this.jFc.getAdFacadeData() != null) {
-            com.baidu.tieba.recapp.report.c.cAJ().a(com.baidu.tieba.recapp.report.f.a(this.jFc.getAdFacadeData(), 32, this.jFc.getAdFacadeData().getPageNum(), i, this.jFj, com.baidu.tieba.ad.a.a.nS(i2), -1));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cA(int i, int i2) {
-        if (this.jFc != null && this.jFc.video != null && this.jFc.getAdFacadeData() != null) {
-            com.baidu.tieba.recapp.report.c.cAJ().a(com.baidu.tieba.recapp.report.f.a(this.jFc.getAdFacadeData(), 33, this.jFc.getAdFacadeData().getPageNum(), i, this.jFj, com.baidu.tieba.ad.a.a.nS(i2), -1));
+        if (this.jIE != null && this.jIE.video != null && this.jIE.getAdFacadeData() != null) {
+            com.baidu.tieba.recapp.report.c.cBP().a(com.baidu.tieba.recapp.report.f.a(this.jIE.getAdFacadeData(), 33, this.jIE.getAdFacadeData().getPageNum(), i, this.jIL, com.baidu.tieba.ad.a.a.nS(i2), -1));
         }
     }
 
     private void b(com.baidu.afd.d dVar) {
         if (dVar != null) {
-            b a2 = com.baidu.tieba.recapp.report.f.a(this.jFc.getAdFacadeData(), 303, this.jFc.getAdFacadeData().getPageNum(), this.cRY ? 0 : 1, this.jFc.video.video_duration.intValue(), 0, -1);
-            if (this.jFh != null) {
-                this.jFh.e(a2);
+            b a2 = com.baidu.tieba.recapp.report.f.a(this.jIE.getAdFacadeData(), 303, this.jIE.getAdFacadeData().getPageNum(), this.cSi ? 0 : 1, this.jIE.video.video_duration.intValue(), 0, -1);
+            if (this.jIJ != null) {
+                this.jIJ.e(a2);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rL(boolean z) {
+    public void rX(boolean z) {
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_VIDEO_MIDDLE_PAGE_NAVIGATION_BAR_ICON);
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_VIDEO_MIDDLE_PAGE_NAVIGATION_BAR_ICON);
         if (z) {
@@ -644,14 +644,14 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a {
         private int mCurrentState = -1;
-        private Runnable gID = new Runnable() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.a.1
+        private Runnable gLQ = new Runnable() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.mHandler.removeCallbacks(a.this.gID);
-                a.this.uj(2);
+                a.this.mHandler.removeCallbacks(a.this.gLQ);
+                a.this.uo(2);
             }
         };
         private Handler mHandler = new Handler();
@@ -659,54 +659,54 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public a() {
         }
 
-        public void uj(int i) {
+        public void uo(int i) {
             switch (i) {
                 case 0:
-                    this.mCurrentState = uk(i);
-                    bIN();
+                    this.mCurrentState = up(i);
+                    bJP();
                     return;
                 case 1:
-                    this.mCurrentState = uk(i);
-                    this.mHandler.removeCallbacks(this.gID);
+                    this.mCurrentState = up(i);
+                    this.mHandler.removeCallbacks(this.gLQ);
                     return;
                 case 2:
-                    this.mCurrentState = ul(i);
+                    this.mCurrentState = uq(i);
                     return;
                 case 3:
-                    this.mCurrentState = um(i);
-                    bIN();
+                    this.mCurrentState = ur(i);
+                    bJP();
                     return;
                 default:
-                    this.mCurrentState = ul(i);
+                    this.mCurrentState = uq(i);
                     return;
             }
         }
 
-        private void bIN() {
-            this.mHandler.removeCallbacks(this.gID);
-            this.mHandler.postDelayed(this.gID, 3000L);
+        private void bJP() {
+            this.mHandler.removeCallbacks(this.gLQ);
+            this.mHandler.postDelayed(this.gLQ, 3000L);
         }
 
-        private int uk(int i) {
+        private int up(int i) {
             if (i != this.mCurrentState) {
-                VideoMiddlePageAdView.this.jFa.setVisibility(8);
-                VideoMiddlePageAdView.this.jEZ.setVisibility(8);
-                VideoMiddlePageAdView.this.rL(true);
+                VideoMiddlePageAdView.this.jIC.setVisibility(8);
+                VideoMiddlePageAdView.this.jIB.setVisibility(8);
+                VideoMiddlePageAdView.this.rX(true);
                 return i;
             }
             return this.mCurrentState;
         }
 
-        private int ul(int i) {
+        private int uq(int i) {
             int i2 = this.mCurrentState;
             if (i != this.mCurrentState) {
-                VideoMiddlePageAdView.this.jFa.setVisibility(0);
-                VideoMiddlePageAdView.this.jEZ.setVisibility(0);
-                if (VideoMiddlePageAdView.this.goM != null) {
-                    VideoMiddlePageAdView.this.goM.cvK();
+                VideoMiddlePageAdView.this.jIC.setVisibility(0);
+                VideoMiddlePageAdView.this.jIB.setVisibility(0);
+                if (VideoMiddlePageAdView.this.grV != null) {
+                    VideoMiddlePageAdView.this.grV.cwR();
                 }
-                if (i2 != 3 || VideoMiddlePageAdView.this.jFc.autoPlay) {
-                    VideoMiddlePageAdView.this.rL(false);
+                if (i2 != 3 || VideoMiddlePageAdView.this.jIE.autoPlay) {
+                    VideoMiddlePageAdView.this.rX(false);
                     return i;
                 }
                 return i;
@@ -714,11 +714,11 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             return this.mCurrentState;
         }
 
-        private int um(int i) {
+        private int ur(int i) {
             if (i != this.mCurrentState) {
-                VideoMiddlePageAdView.this.jFa.setVisibility(0);
-                VideoMiddlePageAdView.this.jEZ.setVisibility(0);
-                VideoMiddlePageAdView.this.rL(true);
+                VideoMiddlePageAdView.this.jIC.setVisibility(0);
+                VideoMiddlePageAdView.this.jIB.setVisibility(0);
+                VideoMiddlePageAdView.this.rX(true);
                 return i;
             }
             return this.mCurrentState;

@@ -1,7 +1,7 @@
 package com.baidu.n.a.c;
 
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static boolean a(String str, File file, boolean z, Object obj) {
         boolean a;

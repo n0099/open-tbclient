@@ -11,7 +11,7 @@ import com.baidu.tbadk.editortools.d;
 import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.tbadk.editortools.c {
     @Override // com.baidu.tbadk.editortools.c
     protected d dS(Context context) {
@@ -24,46 +24,46 @@ public class b extends com.baidu.tbadk.editortools.c {
     @Override // com.baidu.tbadk.editortools.c
     protected void a(d dVar) {
         if (dVar != null) {
-            EditorTools aLC = dVar.aLC();
+            EditorTools aLV = dVar.aLV();
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            aLC.aJ(arrayList);
-            l lX = aLC.lX(5);
+            aLV.aI(arrayList);
+            l lX = aLV.lX(5);
             if (lX != null) {
-                lX.gs(false);
-                lX.dsU = 0;
+                lX.gx(false);
+                lX.dtf = 0;
             }
-            aLC.b(new c(aLC.getContext()));
-            aLC.build();
-            aLC.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-            aLC.hide();
+            aLV.b(new c(aLV.getContext()));
+            aLV.build();
+            aLV.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+            aLV.hide();
         }
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void b(d dVar) {
         if (dVar instanceof a) {
-            EditorTools aLC = dVar.aLC();
+            EditorTools aLV = dVar.aLV();
             final a aVar = (a) dVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.videoplay.editor.b.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar2) {
-                    if (aVar != null && aVar.aLC() != null && aVar2 != null) {
+                    if (aVar != null && aVar.aLV() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
-                                aVar.uQ((String) aVar2.data);
+                                aVar.uV((String) aVar2.data);
                                 return;
                             case 5:
                             case 6:
                             default:
                                 return;
                             case 7:
-                                aVar.aGD().showToast((int) R.string.over_limit_tip);
+                                aVar.aGW().showToast((int) R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.cQJ();
-                                if (b.this.a(aVar.aGD(), 11001)) {
-                                    aVar.aMx();
+                                aVar.cRM();
+                                if (b.this.a(aVar.aGW(), 11001)) {
+                                    aVar.aMQ();
                                     return;
                                 }
                                 return;
@@ -71,9 +71,9 @@ public class b extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            aLC.setActionListener(4, bVar);
-            aLC.setActionListener(7, bVar);
-            aLC.setActionListener(8, bVar);
+            aLV.setActionListener(4, bVar);
+            aLV.setActionListener(7, bVar);
+            aLV.setActionListener(8, bVar);
         }
     }
 

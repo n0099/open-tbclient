@@ -3,7 +3,7 @@ package com.baidu.swan.config.d;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.config.core.b.a {
     @Override // com.baidu.swan.config.core.b.c
     public void bj(JSONObject jSONObject) {
@@ -16,7 +16,7 @@ public class b extends com.baidu.swan.config.core.b.a {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
             }
-            c.agz().c(hashMap, optInt);
+            c.agS().c(hashMap, optInt);
         }
     }
 }

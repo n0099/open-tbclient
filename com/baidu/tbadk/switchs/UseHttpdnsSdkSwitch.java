@@ -4,7 +4,7 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.featureSwitch.a;
 /* loaded from: classes.dex */
 public class UseHttpdnsSdkSwitch extends a {
-    public static final String KEY = "android_use_httpdnssdk";
+    public static final String KEY = "android_use_httpdnssdk_new";
     public static final int TYPE_CLOSE = 0;
     public static final int TYPE_OPEN = 1;
 

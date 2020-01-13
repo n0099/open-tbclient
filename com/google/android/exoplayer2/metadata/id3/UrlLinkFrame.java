@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.metadata.id3;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.exoplayer2.util.v;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class UrlLinkFrame extends Id3Frame {
     public static final Parcelable.Creator<UrlLinkFrame> CREATOR = new Parcelable.Creator<UrlLinkFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.UrlLinkFrame.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public final class UrlLinkFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ke */
+        /* renamed from: Kn */
         public UrlLinkFrame[] newArray(int i) {
             return new UrlLinkFrame[i];
         }

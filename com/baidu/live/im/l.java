@@ -10,29 +10,29 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes2.dex */
 public class l implements ILoginListener {
-    private static l aos;
-    private boolean aoq = false;
-    private a aor;
+    private static l ape;
+    private boolean apc = false;
+    private a apd;
     private boolean mIsDestroy;
     private boolean mIsLogin;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void k(int i, String str);
+        void n(int i, String str);
     }
 
     private l() {
     }
 
-    public static l uL() {
-        if (aos == null) {
+    public static l vc() {
+        if (ape == null) {
             synchronized (l.class) {
-                if (aos == null) {
-                    aos = new l();
+                if (ape == null) {
+                    ape = new l();
                 }
             }
         }
-        return aos;
+        return ape;
     }
 
     public void init(Context context) {
@@ -48,12 +48,12 @@ public class l implements ILoginListener {
             BIMManager.init(context, 10773430L, 0, cuid);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.aoq = true;
+        this.apc = true;
     }
 
     public void a(a aVar) {
         this.mIsLogin = true;
-        this.aor = aVar;
+        this.apd = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -68,25 +68,25 @@ public class l implements ILoginListener {
         LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuid + ", from = " + fromHost + ", cfrom = " + currentFromHost);
     }
 
-    public void aP(boolean z) {
-        if (this.aoq) {
-            if (z && this.aor != null) {
-                a(this.aor);
+    public void aR(boolean z) {
+        if (this.apc) {
+            if (z && this.apd != null) {
+                a(this.apd);
             } else if (!z) {
                 a(null);
             }
         }
     }
 
-    public void uM() {
+    public void vd() {
         AccountManager.disconnect(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
-        if (this.aor != null) {
-            this.aor.k(i, str);
-            this.aor = null;
+        if (this.apd != null) {
+            this.apd.n(i, str);
+            this.apd = null;
         }
     }
 
@@ -99,6 +99,6 @@ public class l implements ILoginListener {
 
     public void destroy() {
         this.mIsDestroy = true;
-        uM();
+        vd();
     }
 }

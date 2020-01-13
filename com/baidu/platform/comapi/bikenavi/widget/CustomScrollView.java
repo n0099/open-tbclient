@@ -17,7 +17,7 @@ import android.widget.ScrollView;
 import android.widget.Scroller;
 import com.baidu.tieba.R;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CustomScrollView extends ScrollView {
     public static final Object TAG = new Object();
     private VelocityTracker a;
@@ -38,7 +38,7 @@ public class CustomScrollView extends ScrollView {
     protected Field scrollerField;
     public int top;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(int i);
 
@@ -77,8 +77,8 @@ public class CustomScrollView extends ScrollView {
         this.bottom = 0;
         this.c = 3;
         com.baidu.platform.comapi.wnplatform.o.a.a.a((Activity) getContext(), R.layout.abc_action_mode_close_item_material, this);
-        this.j = (LinearLayout) findViewById(R.raw.par_little_flame);
-        this.l = (LinearLayout) findViewById(R.raw.par_jason_flash);
+        this.j = (LinearLayout) findViewById(R.raw.lottie_use_my_cj_n_2);
+        this.l = (LinearLayout) findViewById(R.raw.lottie_use_my_cj_n_1);
         this.l.setMinimumHeight(this.top);
     }
 
@@ -231,7 +231,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c extends GestureDetector.SimpleOnGestureListener {
         c() {
         }
@@ -243,7 +243,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends GestureDetector.SimpleOnGestureListener {
         a() {
         }

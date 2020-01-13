@@ -5,6 +5,8 @@ public interface IFaceUnityOperator {
 
     void onCheekThinSelected(float f);
 
+    void onChinSelected(float f);
+
     void onColorLevelSelected(float f);
 
     void onEffectItemSelected(String str);
@@ -19,5 +21,9 @@ public interface IFaceUnityOperator {
 
     void onGiftEffectItemSelected(String str);
 
+    void onNoseSelected(float f);
+
     void onRedLevelSelected(float f);
+
+    void onStickerItemSelected(Object obj);
 }

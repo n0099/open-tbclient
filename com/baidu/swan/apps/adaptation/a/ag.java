@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.adaptation.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ag {
-    void EY();
+    void Fu();
 
-    void EZ();
+    void Fv();
 
-    long Fa();
+    long Fw();
 
-    void T(long j);
+    void W(long j);
 
-    String U(long j);
+    String X(long j);
 }

@@ -1,34 +1,34 @@
 package com.facebook.imagepipeline.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class g implements h {
-    public static final h lPw = k(Integer.MAX_VALUE, true, true);
-    boolean lPx;
-    boolean lPy;
+    public static final h lTi = k(Integer.MAX_VALUE, true, true);
+    boolean lTj;
+    boolean lTk;
     int mQuality;
 
     private g(int i, boolean z, boolean z2) {
         this.mQuality = i;
-        this.lPx = z;
-        this.lPy = z2;
+        this.lTj = z;
+        this.lTk = z2;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public int doi() {
+    public int dpo() {
         return this.mQuality;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public boolean doj() {
-        return this.lPx;
+    public boolean dpp() {
+        return this.lTj;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public boolean dok() {
-        return this.lPy;
+    public boolean dpq() {
+        return this.lTk;
     }
 
     public int hashCode() {
-        return ((this.lPx ? 4194304 : 0) ^ this.mQuality) ^ (this.lPy ? 8388608 : 0);
+        return ((this.lTj ? 4194304 : 0) ^ this.mQuality) ^ (this.lTk ? 8388608 : 0);
     }
 
     public boolean equals(Object obj) {
@@ -37,7 +37,7 @@ public class g implements h {
         }
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return this.mQuality == gVar.mQuality && this.lPx == gVar.lPx && this.lPy == gVar.lPy;
+            return this.mQuality == gVar.mQuality && this.lTj == gVar.lTj && this.lTk == gVar.lTk;
         }
         return false;
     }

@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.img;
 
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.LocalViewSize;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;

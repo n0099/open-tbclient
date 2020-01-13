@@ -1,7 +1,7 @@
 package com.baidu.rtc.ndk;
 
 import com.baidu.rtc.utils.AlaLiveDebugInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaNDKRecorderAdapter {
     public static final int NATIVE_COMMON_MODE = 1;
     public static final int NATIVE_RTC_MODE = 2;
@@ -10,7 +10,7 @@ public class AlaNDKRecorderAdapter {
     private OnNDKCallback mCallback = null;
     private long mNativeObject = 0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnNDKCallback {
         void onRemoteUserOnLine(int i, long j, int i2);
 

@@ -11,7 +11,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwanMiniSlaveJsInterface {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "___NA_SWAN_MINI___";
@@ -23,7 +23,7 @@ public class SwanMiniSlaveJsInterface {
 
     @JavascriptInterface
     public void loadMasters(String str) {
-        if (!this.mMiniRuntime.aqx()) {
+        if (!this.mMiniRuntime.aqQ()) {
             if (DEBUG) {
                 Log.e("SwanMiniRuntime", "Slave not loaded -- loadMasters");
             }
@@ -36,7 +36,7 @@ public class SwanMiniSlaveJsInterface {
 
     @JavascriptInterface
     public void disposeMasters(String str) {
-        if (!this.mMiniRuntime.aqx()) {
+        if (!this.mMiniRuntime.aqQ()) {
             if (DEBUG) {
                 Log.e("SwanMiniRuntime", "Slave not loaded -- disposeMasters");
                 return;
@@ -59,7 +59,7 @@ public class SwanMiniSlaveJsInterface {
             if (arrayList.size() == 0) {
                 this.mMiniRuntime.d(5, "No valid instance id", false);
             } else {
-                this.mMiniRuntime.al(arrayList);
+                this.mMiniRuntime.ak(arrayList);
             }
         } catch (Exception e) {
             this.mMiniRuntime.d(5, "Id array illegal", false);
@@ -73,7 +73,7 @@ public class SwanMiniSlaveJsInterface {
 
     @JavascriptInterface
     public void sendMessage(String str, String str2) {
-        if (!this.mMiniRuntime.aqx()) {
+        if (!this.mMiniRuntime.aqQ()) {
             if (DEBUG) {
                 Log.e("SwanMiniRuntime", "Slave not loaded -- sendMessage");
                 return;
@@ -83,12 +83,12 @@ public class SwanMiniSlaveJsInterface {
         if (DEBUG) {
             Log.v("SwanMiniRuntime", "Slave == sendMessage(" + str + ", " + str2 + ")");
         }
-        this.mMiniRuntime.bQ(str, str2);
+        this.mMiniRuntime.bR(str, str2);
     }
 
     @JavascriptInterface
     public void report(int i, String str) {
-        if (!this.mMiniRuntime.aqx()) {
+        if (!this.mMiniRuntime.aqQ()) {
             if (DEBUG) {
                 Log.e("SwanMiniRuntime", "Slave not loaded -- report");
                 return;
@@ -123,9 +123,9 @@ public class SwanMiniSlaveJsInterface {
             String optString = jSONObject.optString("cardInstanceId");
             String optString2 = jSONObject.optString("message");
             if (TextUtils.isEmpty(optString)) {
-                this.mMiniRuntime.aqy().I(optInt, optString2);
+                this.mMiniRuntime.aqR().K(optInt, optString2);
             } else {
-                this.mMiniRuntime.aqy().l(optString, optInt, optString2);
+                this.mMiniRuntime.aqR().l(optString, optInt, optString2);
             }
             if (optInt == 109 && !TextUtils.isEmpty(optString)) {
                 String optString3 = jSONObject.optString("appKey");
@@ -137,12 +137,12 @@ public class SwanMiniSlaveJsInterface {
                 if (!TextUtils.isEmpty(optString4)) {
                     hashMap.put("bundleId", optString4);
                 }
-                this.mMiniRuntime.aqy().f(optString, hashMap);
+                this.mMiniRuntime.aqR().f(optString, hashMap);
             }
         }
     }
 
     private void processErrorReport(JSONObject jSONObject) {
-        this.mMiniRuntime.aqy().d(jSONObject.optInt("errCode", -1), jSONObject.optString("errMessage"), jSONObject.optString("appKey"), jSONObject.optString("bundleId"));
+        this.mMiniRuntime.aqR().d(jSONObject.optInt("errCode", -1), jSONObject.optString("errMessage"), jSONObject.optString("appKey"), jSONObject.optString("bundleId"));
     }
 }

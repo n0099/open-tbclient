@@ -16,9 +16,9 @@ public final class v {
             return false;
         }
         try {
-            a aPy = a.aPy();
+            a aPR = a.aPR();
             for (String str : strArr) {
-                if (aPy.vw(str) != null) {
+                if (aPR.vB(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class v {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a dCt;
-        private final Properties dCu = new Properties();
+        private static a dCD;
+        private final Properties dCE = new Properties();
 
         private a() throws IOException {
-            this.dCu.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.dCE.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a aPy() throws IOException {
-            if (dCt == null) {
+        public static a aPR() throws IOException {
+            if (dCD == null) {
                 synchronized (a.class) {
-                    if (dCt == null) {
-                        dCt = new a();
+                    if (dCD == null) {
+                        dCD = new a();
                     }
                 }
             }
-            return dCt;
+            return dCD;
         }
 
-        public String vw(String str) {
-            return this.dCu.getProperty(str);
+        public String vB(String str) {
+            return this.dCE.getProperty(str);
         }
     }
 }

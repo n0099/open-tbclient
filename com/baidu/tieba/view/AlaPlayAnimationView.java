@@ -6,38 +6,38 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator aws;
-    private boolean awt;
-    private boolean awu;
+    private ObjectAnimator axe;
+    private boolean axf;
+    private boolean axg;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.awt = false;
-        this.awu = false;
+        this.axf = false;
+        this.axg = false;
         init();
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.awt = false;
-        this.awu = false;
+        this.axf = false;
+        this.axg = false;
         init();
     }
 
     private void init() {
-        this.aws = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.aws.setRepeatMode(1);
-        this.aws.setRepeatCount(-1);
-        this.aws.setDuration(700L);
+        this.axe = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.axe.setRepeatMode(1);
+        this.axe.setRepeatCount(-1);
+        this.axe.setDuration(700L);
         setVisibility(8);
-        this.awt = false;
+        this.axf = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.awu) {
+        if (this.axg) {
             startPlayAnimation();
         }
     }
@@ -46,30 +46,30 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        xw();
+        xM();
     }
 
     public void setAutoStartPlay(boolean z) {
-        this.awu = z;
+        this.axg = z;
     }
 
     public void startPlayAnimation() {
-        if (!this.awt) {
-            this.awt = true;
-            if (this.aws != null) {
+        if (!this.axf) {
+            this.axf = true;
+            if (this.axe != null) {
                 setVisibility(0);
-                this.aws.start();
+                this.axe.start();
             }
         }
     }
 
-    public void xw() {
-        if (this.aws != null) {
-            this.aws.setRepeatCount(-1);
-            this.aws.cancel();
+    public void xM() {
+        if (this.axe != null) {
+            this.axe.setRepeatCount(-1);
+            this.axe.cancel();
             clearAnimation();
         }
-        this.awt = false;
+        this.axf = false;
         setVisibility(8);
     }
 }

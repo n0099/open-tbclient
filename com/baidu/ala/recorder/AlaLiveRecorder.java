@@ -10,6 +10,7 @@ import android.os.Message;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.view.View;
+import com.baidu.ala.dumixar.Config;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
 import com.baidu.ala.helper.AlaLiveDebugInfo;
 import com.baidu.ala.helper.AlaLiveRtcConfig;
@@ -41,6 +42,7 @@ import com.baidu.live.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.coremedia.iso.boxes.PerformerBox;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -1186,6 +1188,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
     public void release() {
         BdStatisticsManager.getInstance().newDebug("AlaLiveRecorder", 0L, null, "verbose", "release recorder");
         stopAll(true, true);
+        Config.getInstance().setDuSticker(null);
         this.mExecService.shutdown();
         if (this.mHardEncorder != null && this.mGameHardEncode) {
             this.mHardEncorder.release();
@@ -1522,6 +1525,12 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         }
     }
 
+    public void onBeautyChanged(float f, HashMap<String, Object> hashMap) {
+        if (this.mVideoRecorder != null) {
+            this.mVideoRecorder.onBeautyChanged(f, hashMap);
+        }
+    }
+
     /* loaded from: classes2.dex */
     class SendDataInfo {
         public byte[] data;
@@ -1594,6 +1603,13 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
     }
 
     @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onStickerItemSelected(Object obj) {
+        if (this.mVideoRecorder != null) {
+            this.mVideoRecorder.onStickerItemSelected(obj);
+        }
+    }
+
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
     public void onGiftEffectItemSelected(String str) {
         if (this.mVideoRecorder != null) {
             this.mVideoRecorder.onGiftEffectItemSelected(str);
@@ -1656,6 +1672,20 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         }
     }
 
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onChinSelected(float f) {
+        if (this.mVideoRecorder != null) {
+            this.mVideoRecorder.onChinSelected(f);
+        }
+    }
+
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onNoseSelected(float f) {
+        if (this.mVideoRecorder != null) {
+            this.mVideoRecorder.onNoseSelected(f);
+        }
+    }
+
     @Override // com.baidu.ala.recorder.video.camera.ICameraStatusHandler
     public boolean hasAdvancedBeauty() {
         return this.mVideoRecorder.hasAdvancedBeauty();
@@ -1688,5 +1718,9 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
 
     public void setILoadLibrary(AlaLiveRecorderConfig.ILoadLibrary iLoadLibrary) {
         AlaLiveRecorderConfig.setILoadLibraryCallback(iLoadLibrary);
+    }
+
+    public void setDefBeautyParams(HashMap<String, Object> hashMap) {
+        this.mVideoRecorder.setDefBeautyParams(hashMap);
     }
 }

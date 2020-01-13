@@ -15,7 +15,7 @@ import java.io.FileInputStream;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Properties;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class g {
     private static String f = "api.tuisong.baidu.com";
     private static String[] g = {"api0.tuisong.baidu.com", "api1.tuisong.baidu.com", "api2.tuisong.baidu.com", "api3.tuisong.baidu.com", "api4.tuisong.baidu.com", "api5.tuisong.baidu.com", "api6.tuisong.baidu.com", "api7.tuisong.baidu.com", "api8.tuisong.baidu.com", "api9.tuisong.baidu.com"};

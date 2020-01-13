@@ -2,11 +2,11 @@ package com.baidu.pano.platform.plugin.indooralbum;
 
 import android.view.View;
 import com.baidu.lbsapi.panoramaview.PanoramaView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface IndoorAlbumCallback {
     View loadAlbumView(PanoramaView panoramaView, EntryInfo entryInfo);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class EntryInfo {
         private String mExitUid = null;
         private String mEnterPid = null;

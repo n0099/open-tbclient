@@ -9,9 +9,9 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.SwipeBackLayout;
 /* loaded from: classes.dex */
 public class ListViewPager extends ViewPager {
-    private float dNP;
-    private float dNQ;
-    private boolean daS;
+    private float dNX;
+    private float dNY;
+    private boolean dbd;
     private float lastX;
     private float lastY;
     private GestureDetector mGestureDetector;
@@ -19,13 +19,13 @@ public class ListViewPager extends ViewPager {
 
     public ListViewPager(Context context) {
         super(context);
-        this.daS = false;
+        this.dbd = false;
         init();
     }
 
     public ListViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.daS = false;
+        this.dbd = false;
         init();
     }
 
@@ -53,7 +53,7 @@ public class ListViewPager extends ViewPager {
         if (isInvalidPointer(motionEvent)) {
             return true;
         }
-        if (this.daS) {
+        if (this.dbd) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -75,7 +75,7 @@ public class ListViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.daS) {
+        if (this.dbd) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -102,18 +102,18 @@ public class ListViewPager extends ViewPager {
                 }
                 this.lastX = 0.0f;
                 this.lastY = 0.0f;
-                this.dNP = 0.0f;
-                this.dNQ = 0.0f;
+                this.dNX = 0.0f;
+                this.dNY = 0.0f;
                 break;
             case 2:
                 if (this.mSwipeControlInterface != null) {
                     this.mSwipeControlInterface.enableSwipeBack();
                 }
-                this.dNP = motionEvent.getX() - this.lastX;
-                this.dNQ = motionEvent.getY() - this.lastY;
+                this.dNX = motionEvent.getX() - this.lastX;
+                this.dNY = motionEvent.getY() - this.lastY;
                 this.lastX = motionEvent.getX();
                 this.lastY = motionEvent.getY();
-                if (getCurrentItem() != 0 && Math.abs(this.dNP) > Math.abs(this.dNQ)) {
+                if (getCurrentItem() != 0 && Math.abs(this.dNX) > Math.abs(this.dNY)) {
                     requestParentInterceptTouchEvent(true);
                     break;
                 }
@@ -145,6 +145,6 @@ public class ListViewPager extends ViewPager {
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.daS = z;
+        this.dbd = z;
     }
 }

@@ -1,15 +1,13 @@
 package io.reactivex.internal.operators.flowable;
 
 import io.reactivex.exceptions.CompositeException;
-import io.reactivex.g;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import io.reactivex.j;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.a.d;
-/* loaded from: classes4.dex */
-public final class FlowableConcatArray<T> extends g<T> {
+/* loaded from: classes5.dex */
+public final class FlowableConcatArray<T> extends io.reactivex.g<T> {
     final boolean delayError;
     final org.a.b<? extends T>[] sources;
 
@@ -20,7 +18,7 @@ public final class FlowableConcatArray<T> extends g<T> {
         concatArraySubscriber.onComplete();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ConcatArraySubscriber<T> extends SubscriptionArbiter implements j<T> {
         private static final long serialVersionUID = -8158322871608889516L;
         final org.a.c<? super T> actual;
@@ -38,7 +36,7 @@ public final class FlowableConcatArray<T> extends g<T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             setSubscription(dVar);
         }
 

@@ -7,46 +7,46 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import tbclient.NewTopicList.NewTopicList;
 import tbclient.TopicModule;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.tieba.card.data.c {
-    public static final BdUniqueId hbR = BdUniqueId.gen();
-    public static final BdUniqueId hbS = BdUniqueId.gen();
-    private bj Nl;
-    public String cMn;
-    public long cMo;
-    public String cMp;
+    public static final BdUniqueId hfu = BdUniqueId.gen();
+    public static final BdUniqueId hfv = BdUniqueId.gen();
+    private bj Np;
+    public String cMx;
+    public long cMy;
+    public String cMz;
     public int from = 0;
-    public String hax;
-    public b hbT;
-    public PostData hbU;
+    public String hea;
+    public b hfw;
+    public PostData hfx;
     public int index;
     public long topicId;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.from == 0 ? hbR : hbS;
+        return this.from == 0 ? hfu : hfv;
     }
 
-    public static boolean Y(bj bjVar) {
-        return bjVar != null && bjVar.getType() == bj.cNh;
+    public static boolean Z(bj bjVar) {
+        return bjVar != null && bjVar.getType() == bj.cNr;
     }
 
     public void a(NewTopicList newTopicList) {
         if (newTopicList != null) {
             this.topicId = newTopicList.topic_id.longValue();
-            this.cMn = newTopicList.topic_name;
-            this.cMp = newTopicList.topic_desc;
-            this.cMo = newTopicList.discuss_num.longValue();
-            this.hax = newTopicList.topic_image;
+            this.cMx = newTopicList.topic_name;
+            this.cMz = newTopicList.topic_desc;
+            this.cMy = newTopicList.discuss_num.longValue();
+            this.hea = newTopicList.topic_image;
             if (newTopicList.pk_module != null && newTopicList.pk_module.agree != null && newTopicList.pk_module.disagree != null) {
-                this.hbT = new b();
-                this.hbT.topicId = this.topicId;
-                this.hbT.from = 1;
-                this.hbT.a(newTopicList.pk_module);
+                this.hfw = new b();
+                this.hfw.topicId = this.topicId;
+                this.hfw.from = 1;
+                this.hfw.a(newTopicList.pk_module);
             }
             if (newTopicList.top_agree_post != null) {
-                this.hbU = new PostData();
-                this.hbU.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
+                this.hfx = new PostData();
+                this.hfx.a(newTopicList.top_agree_post, TbadkCoreApplication.getInst());
             }
         }
     }
@@ -54,33 +54,33 @@ public class a extends com.baidu.tieba.card.data.c {
     public void a(TopicModule topicModule) {
         if (topicModule != null) {
             this.topicId = topicModule.topic_id.longValue();
-            this.cMn = topicModule.topic_name;
-            this.cMp = topicModule.topic_desc;
-            this.hax = topicModule.topic_image;
+            this.cMx = topicModule.topic_name;
+            this.cMz = topicModule.topic_desc;
+            this.hea = topicModule.topic_image;
             if (topicModule.pk_module != null && topicModule.pk_module.agree != null && topicModule.pk_module.disagree != null) {
-                this.hbT = new b();
-                this.hbT.topicId = this.topicId;
-                this.hbT.from = 3;
-                this.hbT.a(topicModule.pk_module);
+                this.hfw = new b();
+                this.hfw.topicId = this.topicId;
+                this.hfw.from = 3;
+                this.hfw.a(topicModule.pk_module);
             }
         }
     }
 
     public void setThreadData(bj bjVar) {
-        this.Nl = bjVar;
+        this.Np = bjVar;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public bj axx() {
-        return this.Nl;
+    public bj axQ() {
+        return this.Np;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
-    public al axz() {
-        al axz = super.axz();
-        if (axz != null) {
-            axz.bm(this.topicId);
+    public al axS() {
+        al axS = super.axS();
+        if (axS != null) {
+            axS.bp(this.topicId);
         }
-        return axz;
+        return axS;
     }
 }

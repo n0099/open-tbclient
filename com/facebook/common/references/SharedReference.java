@@ -4,48 +4,48 @@ import com.facebook.common.internal.g;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> lEz = new IdentityHashMap();
-    @GuardedBy("this")
-    private T bA;
-    private final c<T> lEn;
+    private static final Map<Object, Integer> lHX = new IdentityHashMap();
+    private final c<T> lHL;
     @GuardedBy("this")
     private int mRefCount = 1;
+    @GuardedBy("this")
+    private T mValue;
 
     public SharedReference(T t, c<T> cVar) {
-        this.bA = (T) g.checkNotNull(t);
-        this.lEn = (c) g.checkNotNull(cVar);
+        this.mValue = (T) g.checkNotNull(t);
+        this.lHL = (c) g.checkNotNull(cVar);
         aT(t);
     }
 
     private static void aT(Object obj) {
-        synchronized (lEz) {
-            Integer num = lEz.get(obj);
+        synchronized (lHX) {
+            Integer num = lHX.get(obj);
             if (num == null) {
-                lEz.put(obj, 1);
+                lHX.put(obj, 1);
             } else {
-                lEz.put(obj, Integer.valueOf(num.intValue() + 1));
+                lHX.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
     private static void aU(Object obj) {
-        synchronized (lEz) {
-            Integer num = lEz.get(obj);
+        synchronized (lHX) {
+            Integer num = lHX.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.j("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                lEz.remove(obj);
+                lHX.remove(obj);
             } else {
-                lEz.put(obj, Integer.valueOf(num.intValue() - 1));
+                lHX.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
 
     public synchronized T get() {
-        return this.bA;
+        return this.mValue;
     }
 
     public synchronized boolean isValid() {
@@ -56,37 +56,37 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void diD() {
-        diG();
+    public synchronized void djE() {
+        djH();
         this.mRefCount++;
     }
 
-    public void diE() {
+    public void djF() {
         T t;
-        if (diF() == 0) {
+        if (djG() == 0) {
             synchronized (this) {
-                t = this.bA;
-                this.bA = null;
+                t = this.mValue;
+                this.mValue = null;
             }
-            this.lEn.release(t);
+            this.lHL.release(t);
             aU(t);
         }
     }
 
-    private synchronized int diF() {
-        diG();
+    private synchronized int djG() {
+        djH();
         g.checkArgument(this.mRefCount > 0);
         this.mRefCount--;
         return this.mRefCount;
     }
 
-    private void diG() {
+    private void djH() {
         if (!a(this)) {
             throw new NullReferenceException();
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class NullReferenceException extends RuntimeException {
         public NullReferenceException() {
             super("Null shared reference");

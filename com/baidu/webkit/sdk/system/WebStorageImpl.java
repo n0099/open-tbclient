@@ -4,10 +4,10 @@ import android.webkit.ValueCallback;
 import android.webkit.WebStorage;
 import com.baidu.webkit.sdk.WebStorage;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 final class WebStorageImpl extends WebStorage {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     static class QuotaUpdater implements WebStorage.QuotaUpdater {
         private final WebStorage.QuotaUpdater mImpl;
 

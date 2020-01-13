@@ -2,7 +2,7 @@ package com.baidu.mobads.interfaces.feeds;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IXAdFeedsRequestParameters {
     int getAPPConfirmPolicy();
 

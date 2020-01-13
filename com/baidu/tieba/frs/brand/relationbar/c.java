@@ -4,15 +4,15 @@ import android.graphics.Rect;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c extends RecyclerView.ItemDecoration {
-    private int fVe;
-    private int fVf;
+    private int fYn;
+    private int fYo;
     private int mEnd;
 
     public c(int i, int i2, int i3) {
-        this.fVe = i;
-        this.fVf = i2;
+        this.fYn = i;
+        this.fYo = i2;
         this.mEnd = i3;
     }
 
@@ -21,9 +21,9 @@ public class c extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.fVe;
+                rect.top = this.fYn;
             } else {
-                rect.top = this.fVf;
+                rect.top = this.fYo;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
                 rect.bottom = this.mEnd;
@@ -32,9 +32,9 @@ public class c extends RecyclerView.ItemDecoration {
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.fVe;
+            rect.left = this.fYn;
         } else {
-            rect.left = this.fVf;
+            rect.left = this.fYo;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
             rect.right = this.mEnd;

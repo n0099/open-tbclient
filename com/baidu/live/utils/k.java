@@ -77,19 +77,7 @@ public class k {
         }
     }
 
-    public static float[] getPhysicalScreenSize(Context context) {
-        float[] fArr = new float[2];
-        if (context != null) {
-            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            if (displayMetrics.xdpi != 0.0f && displayMetrics.ydpi != 0.0f) {
-                fArr[0] = displayMetrics.widthPixels / displayMetrics.xdpi;
-                fArr[1] = displayMetrics.heightPixels / displayMetrics.ydpi;
-            }
-        }
-        return fArr;
-    }
-
-    public static boolean dQ(String str) {
+    public static boolean dS(String str) {
         if (str.contains("·") || str.contains("•")) {
             if (str.matches("^[\\u4e00-\\u9fa5]+[·•][\\u4e00-\\u9fa5]+$")) {
                 return true;
@@ -100,7 +88,7 @@ public class k {
         return false;
     }
 
-    public static boolean yr() {
+    public static boolean yH() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }
@@ -111,7 +99,7 @@ public class k {
         return true;
     }
 
-    public static boolean ys() {
+    public static boolean yI() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }

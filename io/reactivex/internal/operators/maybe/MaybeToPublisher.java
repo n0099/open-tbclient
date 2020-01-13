@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.maybe;
 
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.o;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum MaybeToPublisher implements h<o<Object>, org.a.b<Object>> {
     INSTANCE;
 
@@ -11,7 +11,7 @@ public enum MaybeToPublisher implements h<o<Object>, org.a.b<Object>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // io.reactivex.b.h
+    @Override // io.reactivex.c.h
     public org.a.b<Object> apply(o<Object> oVar) throws Exception {
         return new MaybeToFlowable(oVar);
     }

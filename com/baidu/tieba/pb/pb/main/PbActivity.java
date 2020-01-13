@@ -29,27 +29,27 @@ import com.baidu.tieba.pb.videopb.VideoPbFragment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, com.baidu.tieba.pb.pb.a<PbActivity> {
-    private Fragment aln;
-    private VoiceManager giZ;
-    private PbModel iyT;
-    private com.baidu.tieba.pb.videopb.e iyU;
-    public final com.baidu.tieba.pb.pb.main.b.a iyV = new com.baidu.tieba.pb.pb.main.b.a(this);
-    private boolean iyW;
+    private Fragment ama;
+    private VoiceManager gmi;
+    private boolean iCA;
+    private PbModel iCx;
+    private com.baidu.tieba.pb.videopb.e iCy;
+    public final com.baidu.tieba.pb.pb.main.b.a iCz = new com.baidu.tieba.pb.pb.main.b.a(this);
     private View mRootView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        public ArrayList<String> iyY;
-        public ConcurrentHashMap<String, ImageUrlData> iyZ;
-        public boolean izb;
+        public ArrayList<String> iCC;
+        public ConcurrentHashMap<String, ImageUrlData> iCD;
+        public boolean iCF;
         public String forumName = null;
         public String forumId = null;
         public String threadId = null;
         public String postId = null;
-        public boolean iza = false;
-        public boolean izc = false;
+        public boolean iCE = false;
+        public boolean iCG = false;
         public String lastId = "";
         public int index = 0;
     }
@@ -80,82 +80,82 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
         }
         adjustResizeForSoftInput();
         addGlobalLayoutListener();
-        cjh();
+        ckp();
         initData(bundle);
-        this.giZ = new VoiceManager();
-        this.giZ.onCreate(getPageContext());
+        this.gmi = new VoiceManager();
+        this.gmi.onCreate(getPageContext());
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (this.aln instanceof VideoPbFragment) {
-            ((VideoPbFragment) this.aln).onWindowFocusChanged(z);
+        if (this.ama instanceof VideoPbFragment) {
+            ((VideoPbFragment) this.ama).onWindowFocusChanged(z);
         }
     }
 
-    public void cjg() {
+    public void cko() {
         if (this.mRootView != null && !TbSingleton.getInstance().isNotchScreen(this) && !TbSingleton.getInstance().isCutoutScreen(this)) {
             this.mRootView.setSystemUiVisibility(4);
         }
     }
 
-    private void cjh() {
-        this.iyU = (com.baidu.tieba.pb.videopb.e) android.arch.lifecycle.y.b(this).l(com.baidu.tieba.pb.videopb.e.class);
-        this.iyU.init(getIntent());
+    private void ckp() {
+        this.iCy = (com.baidu.tieba.pb.videopb.e) android.arch.lifecycle.y.b(this).l(com.baidu.tieba.pb.videopb.e.class);
+        this.iCy.init(getIntent());
     }
 
     private void as(Bundle bundle) {
-        this.iyT = new PbModel(this);
+        this.iCx = new PbModel(this);
         if (bundle != null) {
-            this.iyT.initWithBundle(bundle);
+            this.iCx.initWithBundle(bundle);
             return;
         }
-        this.iyT.initWithIntent(getIntent());
+        this.iCx.initWithIntent(getIntent());
     }
 
     private void initData(Bundle bundle) {
-        this.iyU.g(this.iyT);
-        ak.cmq().au(this.iyT.ckR(), this.iyT.getIsFromMark());
-        this.iyT.a(new PbModel.a() { // from class: com.baidu.tieba.pb.pb.main.PbActivity.1
+        this.iCy.g(this.iCx);
+        ak.cnx().au(this.iCx.clZ(), this.iCx.getIsFromMark());
+        this.iCx.a(new PbModel.a() { // from class: com.baidu.tieba.pb.pb.main.PbActivity.1
             @Override // com.baidu.tieba.pb.pb.main.PbModel.a
             public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4) {
-                PbActivity.this.iyU.setIsLoading(false);
+                PbActivity.this.iCy.setIsLoading(false);
                 PbActivity.this.hideLoadingView(PbActivity.this.mRootView);
                 if (!z) {
-                    if (!PbActivity.this.iyW && !PbActivity.this.iyT.ckQ()) {
+                    if (!PbActivity.this.iCA && !PbActivity.this.iCx.clY()) {
                         PbActivity.this.showNetRefreshView(PbActivity.this.mRootView, PbActivity.this.getPageContext().getResources().getString(R.string.net_error_text, str, Integer.valueOf(i)), true);
                         PbActivity.this.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.l.getDimens(PbActivity.this.getActivity(), R.dimen.ds360));
                     }
                 } else if (fVar != null) {
                     PbActivity.this.hideNetRefreshView(PbActivity.this.mRootView);
                 }
-                Fragment cji = PbActivity.this.cji();
-                if (cji == null) {
+                Fragment ckq = PbActivity.this.ckq();
+                if (ckq == null) {
                     if (z) {
-                        PbActivity.this.iyU.b(fVar, 3);
-                        if (PbActivity.this.aln == null) {
+                        PbActivity.this.iCy.b(fVar, 3);
+                        if (PbActivity.this.ama == null) {
                             PbActivity.this.c(fVar);
                         }
                     }
-                } else if ((cji instanceof com.baidu.tieba.pb.videopb.b) && ((com.baidu.tieba.pb.videopb.b) cji).ckd() != null) {
-                    ((com.baidu.tieba.pb.videopb.b) cji).ckd().a(z, i, i2, i3, fVar, str, i4);
+                } else if ((ckq instanceof com.baidu.tieba.pb.videopb.b) && ((com.baidu.tieba.pb.videopb.b) ckq).cll() != null) {
+                    ((com.baidu.tieba.pb.videopb.b) ckq).cll().a(z, i, i2, i3, fVar, str, i4);
                 }
             }
 
             @Override // com.baidu.tieba.pb.pb.main.PbModel.a
             public void e(com.baidu.tieba.pb.data.f fVar) {
-                Fragment cji = PbActivity.this.cji();
-                if ((cji instanceof com.baidu.tieba.pb.videopb.b) && ((com.baidu.tieba.pb.videopb.b) cji).ckd() != null) {
-                    ((com.baidu.tieba.pb.videopb.b) cji).ckd().e(fVar);
+                Fragment ckq = PbActivity.this.ckq();
+                if ((ckq instanceof com.baidu.tieba.pb.videopb.b) && ((com.baidu.tieba.pb.videopb.b) ckq).cll() != null) {
+                    ((com.baidu.tieba.pb.videopb.b) ckq).cll().e(fVar);
                 }
             }
 
             @Override // com.baidu.tieba.pb.pb.main.PbModel.a
             public void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j) {
-                Fragment cji = PbActivity.this.cji();
-                if ((cji instanceof com.baidu.tieba.pb.videopb.b) && ((com.baidu.tieba.pb.videopb.b) cji).ckd() != null) {
-                    ((com.baidu.tieba.pb.videopb.b) cji).ckd().a(i, z, responsedMessage, z2, j);
+                Fragment ckq = PbActivity.this.ckq();
+                if ((ckq instanceof com.baidu.tieba.pb.videopb.b) && ((com.baidu.tieba.pb.videopb.b) ckq).cll() != null) {
+                    ((com.baidu.tieba.pb.videopb.b) ckq).cll().a(i, z, responsedMessage, z2, j);
                 }
             }
         });
@@ -167,43 +167,43 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
                     PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage;
                     com.baidu.tieba.pb.data.f pbData = pbPageReadLocalResponseMessage.getPbData();
                     if (pbData == null) {
-                        PbActivity.this.iyW = false;
+                        PbActivity.this.iCA = false;
                         return;
                     }
-                    PbActivity.this.iyW = true;
-                    PbActivity.this.iyU.setIsLoading(false);
-                    Fragment cji = PbActivity.this.cji();
-                    if (cji == null) {
-                        PbActivity.this.iyU.b(pbData, 2);
-                        if (PbActivity.this.aln == null) {
+                    PbActivity.this.iCA = true;
+                    PbActivity.this.iCy.setIsLoading(false);
+                    Fragment ckq = PbActivity.this.ckq();
+                    if (ckq == null) {
+                        PbActivity.this.iCy.b(pbData, 2);
+                        if (PbActivity.this.ama == null) {
                             PbActivity.this.c(pbData);
                         }
-                    } else if (cji instanceof PbFragment) {
-                        PbActivity.this.iyT.a(pbData, pbPageReadLocalResponseMessage.getUpdateType(), pbPageReadLocalResponseMessage.getErrorString());
+                    } else if (ckq instanceof PbFragment) {
+                        PbActivity.this.iCx.a(pbData, pbPageReadLocalResponseMessage.getUpdateType(), pbPageReadLocalResponseMessage.getErrorString());
                     }
                 }
             }
         });
-        this.iyT.clg();
-        if (this.iyT.ckQ()) {
-            com.baidu.tieba.pb.data.f aC = this.iyT.aC(com.baidu.tieba.frs.i.bAW());
-            if (aC != null) {
-                aC.yo(3);
-                if (cji() == null) {
-                    this.iyU.b(aC, 1);
-                    if (this.aln == null) {
-                        c(aC);
+        this.iCx.cmo();
+        if (this.iCx.clY()) {
+            com.baidu.tieba.pb.data.f aD = this.iCx.aD(com.baidu.tieba.frs.i.bBY());
+            if (aD != null) {
+                aD.yt(3);
+                if (ckq() == null) {
+                    this.iCy.b(aD, 1);
+                    if (this.ama == null) {
+                        c(aD);
                     }
                 }
             }
-            this.iyU.setIsLoading(false);
+            this.iCy.setIsLoading(false);
             return;
         }
         showLoadingView(findViewById(R.id.container), true);
-        this.iyU.setIsLoading(true);
+        this.iCy.setIsLoading(true);
     }
 
-    public Fragment cji() {
+    public Fragment ckq() {
         List<Fragment> fragments = getSupportFragmentManager().getFragments();
         if (com.baidu.tbadk.core.util.v.isEmpty(fragments)) {
             return null;
@@ -216,28 +216,28 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
         String d = d(fVar);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         if (supportFragmentManager.findFragmentByTag(d) == null) {
-            this.aln = Fm(d);
-            supportFragmentManager.beginTransaction().add(R.id.container, this.aln, d).commitAllowingStateLoss();
+            this.ama = Fw(d);
+            supportFragmentManager.beginTransaction().add(R.id.container, this.ama, d).commitAllowingStateLoss();
         }
     }
 
     private String d(com.baidu.tieba.pb.data.f fVar) {
-        return (fVar == null || !fVar.cih()) ? "pb_fragment_tag" : "video_pb_fragment_tag";
+        return (fVar == null || !fVar.cjp()) ? "pb_fragment_tag" : "video_pb_fragment_tag";
     }
 
-    private Fragment Fm(String str) {
-        return "video_pb_fragment_tag".equals(str) ? VideoPbFragment.cpZ() : PbFragment.cjL();
+    private Fragment Fw(String str) {
+        return "video_pb_fragment_tag".equals(str) ? VideoPbFragment.crg() : PbFragment.ckT();
     }
 
-    public PbModel ciU() {
-        return this.iyT;
+    public PbModel ckc() {
+        return this.iCx;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        Fragment cji = cji();
-        if (cji instanceof BaseFragment) {
-            ((BaseFragment) cji).onChangeSkinType(i);
+        Fragment ckq = ckq();
+        if (ckq instanceof BaseFragment) {
+            ((BaseFragment) ckq).onChangeSkinType(i);
         }
     }
 
@@ -245,21 +245,21 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment cji = cji();
-        if (cji != null) {
-            cji.onActivityResult(i, i2, intent);
+        Fragment ckq = ckq();
+        if (ckq != null) {
+            ckq.onActivityResult(i, i2, intent);
         }
     }
 
-    public void cjj() {
+    public void ckr() {
         super.finish();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        Fragment cji = cji();
-        if (cji instanceof com.baidu.tieba.pb.videopb.b) {
-            ((com.baidu.tieba.pb.videopb.b) cji).finish();
+        Fragment ckq = ckq();
+        if (ckq instanceof com.baidu.tieba.pb.videopb.b) {
+            ((com.baidu.tieba.pb.videopb.b) ckq).finish();
         } else {
             super.finish();
         }
@@ -268,20 +268,20 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onBackPressed() {
         super.onBackPressed();
-        Fragment cji = cji();
-        if (cji instanceof PbFragment) {
-            ((PbFragment) cji).onBackPressed();
+        Fragment ckq = ckq();
+        if (ckq instanceof PbFragment) {
+            ((PbFragment) ckq).onBackPressed();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        Fragment cji = cji();
-        if (cji instanceof PbFragment) {
-            if (((PbFragment) cji).onKeyDown(i, keyEvent)) {
+        Fragment ckq = ckq();
+        if (ckq instanceof PbFragment) {
+            if (((PbFragment) ckq).onKeyDown(i, keyEvent)) {
                 return true;
             }
-        } else if ((cji instanceof VideoPbFragment) && ((VideoPbFragment) cji).onKeyDown(i, keyEvent)) {
+        } else if ((ckq instanceof VideoPbFragment) && ((VideoPbFragment) ckq).onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -296,11 +296,11 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.iyT != null) {
-            this.iyT.au(bundle);
+        if (this.iCx != null) {
+            this.iCx.au(bundle);
         }
-        if (this.giZ != null) {
-            this.giZ.onSaveInstanceState(getPageContext().getPageActivity());
+        if (this.gmi != null) {
+            this.gmi.onSaveInstanceState(getPageContext().getPageActivity());
         }
     }
 
@@ -308,8 +308,8 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.giZ != null) {
-            this.giZ.onStart(getPageContext());
+        if (this.gmi != null) {
+            this.gmi.onStart(getPageContext());
         }
     }
 
@@ -317,8 +317,8 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.giZ != null) {
-            this.giZ.onPause(getPageContext());
+        if (this.gmi != null) {
+            this.gmi.onPause(getPageContext());
         }
     }
 
@@ -326,8 +326,8 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.giZ != null) {
-            this.giZ.onResume(getPageContext());
+        if (this.gmi != null) {
+            this.gmi.onResume(getPageContext());
         }
     }
 
@@ -335,8 +335,8 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.giZ != null) {
-            this.giZ.onStop(getPageContext());
+        if (this.gmi != null) {
+            this.gmi.onStop(getPageContext());
         }
     }
 
@@ -344,8 +344,8 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.giZ != null) {
-            this.giZ.onDestory(getPageContext());
+        if (this.gmi != null) {
+            this.gmi.onDestory(getPageContext());
         }
     }
 
@@ -355,37 +355,37 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public com.baidu.tieba.pb.pb.main.b.a ciI() {
-        return this.iyV;
+    public com.baidu.tieba.pb.pb.main.b.a cjQ() {
+        return this.iCz;
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public boolean ciJ() {
-        if (this.iyT == null) {
+    public boolean cjR() {
+        if (this.iCx == null) {
             return false;
         }
-        return this.iyT.ciJ();
+        return this.iCx.cjR();
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public String ciK() {
-        if (this.iyT != null) {
-            return this.iyT.ciK();
+    public String cjS() {
+        if (this.iCx != null) {
+            return this.iCx.cjS();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public int ciL() {
-        if (this.iyT == null || this.iyT.getPbData() == null) {
+    public int cjT() {
+        if (this.iCx == null || this.iCx.getPbData() == null) {
             return 0;
         }
-        return this.iyT.getPbData().chW();
+        return this.iCx.getPbData().cje();
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public boolean Fl(String str) {
-        return this.iyT != null && this.iyT.Fx(str);
+    public boolean Fv(String str) {
+        return this.iCx != null && this.iCx.FH(str);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.m.a
@@ -397,26 +397,26 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     public com.baidu.tbadk.m.d getPageStayDurationItem() {
         com.baidu.tbadk.m.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            if (this.iyT != null) {
-                if (this.iyT.getPbData() != null) {
-                    pageStayDurationItem.setFid(com.baidu.adp.lib.f.b.toLong(this.iyT.getPbData().getForumId(), 0L));
+            if (this.iCx != null) {
+                if (this.iCx.getPbData() != null) {
+                    pageStayDurationItem.setFid(com.baidu.adp.lib.f.b.toLong(this.iCx.getPbData().getForumId(), 0L));
                 }
-                pageStayDurationItem.setTid(com.baidu.adp.lib.f.b.toLong(this.iyT.ckU(), 0L));
+                pageStayDurationItem.setTid(com.baidu.adp.lib.f.b.toLong(this.iCx.cmc(), 0L));
             }
             if (!com.baidu.tbadk.core.util.aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 pageStayDurationItem.setTaskId(TbadkCoreApplication.getInst().getTaskId());
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-                pageStayDurationItem.vf(TbadkCoreApplication.getInst().getAdAdSense().dhF);
+                pageStayDurationItem.vk(TbadkCoreApplication.getInst().getAdAdSense().dhR);
             }
-            Fragment cji = cji();
-            if (cji instanceof PbFragment) {
-                if (((PbFragment) cji).iCW == 2) {
-                    pageStayDurationItem.vg(PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
-                } else if (((PbFragment) cji).iCW == 1) {
-                    pageStayDurationItem.vg(PageStayDurationConstants.PageName.HOMEPAGE_CONCERN);
-                } else if (((PbFragment) cji).iCW == 3) {
-                    pageStayDurationItem.vg(PageStayDurationConstants.PageName.FRS);
+            Fragment ckq = ckq();
+            if (ckq instanceof PbFragment) {
+                if (((PbFragment) ckq).iGA == 2) {
+                    pageStayDurationItem.vl(PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+                } else if (((PbFragment) ckq).iGA == 1) {
+                    pageStayDurationItem.vl(PageStayDurationConstants.PageName.HOMEPAGE_CONCERN);
+                } else if (((PbFragment) ckq).iGA == 3) {
+                    pageStayDurationItem.vl(PageStayDurationConstants.PageName.FRS);
                 }
             }
         }
@@ -436,21 +436,21 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onNetRefreshButtonClicked() {
         super.onNetRefreshButtonClicked();
-        if (this.iyT != null) {
-            this.iyU.setIsLoading(true);
+        if (this.iCx != null) {
+            this.iCy.setIsLoading(true);
             showLoadingView(this.mRootView);
-            this.iyT.clg();
+            this.iCx.cmo();
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        return this.giZ;
+        return this.gmi;
     }
 
-    public void bBD() {
-        if (this.giZ != null) {
-            this.giZ.stopPlay();
+    public void bCF() {
+        if (this.gmi != null) {
+            this.gmi.stopPlay();
         }
     }
 
@@ -467,9 +467,9 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         super.onKeyboardVisibilityChanged(z);
-        Fragment cji = cji();
-        if (cji instanceof VideoPbFragment) {
-            ((VideoPbFragment) cji).onKeyboardVisibilityChanged(z);
+        Fragment ckq = ckq();
+        if (ckq instanceof VideoPbFragment) {
+            ((VideoPbFragment) ckq).onKeyboardVisibilityChanged(z);
         }
     }
 }

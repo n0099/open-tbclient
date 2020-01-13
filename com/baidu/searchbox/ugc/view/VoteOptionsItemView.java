@@ -12,7 +12,7 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.searchbox.ugc.R;
 import com.baidu.searchbox.ugc.utils.ResourceUtils;
 import com.baidu.searchbox.ugc.utils.UiBaseUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class VoteOptionsItemView extends LinearLayout {
     private Context mContext;
     private TextView mVoteOptionsText;

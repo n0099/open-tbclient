@@ -30,7 +30,7 @@ import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class AbstractHttpManager {
     private static final String TAG = "HttpManager";
     private static List<Class<? extends Interceptor>> sExternalInterceptorClass;

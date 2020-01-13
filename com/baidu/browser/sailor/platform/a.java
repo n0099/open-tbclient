@@ -7,7 +7,7 @@ import android.os.Message;
 import com.baidu.webkit.sdk.CookieSyncManager;
 import com.baidu.webkit.sdk.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends Handler {
     final /* synthetic */ BdSailorPlatform a;
 

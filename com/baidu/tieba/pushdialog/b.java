@@ -6,14 +6,14 @@ import android.support.media.ExifInterface;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
-    public static boolean cyH() {
+    public static boolean czO() {
         String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
         return !StringUtils.isNull(systemProperty) && com.baidu.adp.lib.f.b.toInt(systemProperty.replace(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ""), 0) >= 9;
     }
 
-    public static boolean cyI() {
+    public static boolean czP() {
         PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
         try {
             if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {

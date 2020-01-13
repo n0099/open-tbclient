@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 final class NoLocalModeContextWrapper extends ContextWrapper {
     public NoLocalModeContextWrapper(Context context) {
         super(context);

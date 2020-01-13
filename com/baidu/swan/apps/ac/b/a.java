@@ -5,12 +5,12 @@ import android.graphics.Rect;
 import android.util.Log;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     protected static final String TAG = a.class.getSimpleName();
-    double bBi = 1.0d;
-    protected Set<Integer> bBj;
+    double bBU = 1.0d;
+    protected Set<Integer> bBV;
 
     public abstract boolean a(Bitmap bitmap, Rect rect);
 
@@ -22,27 +22,27 @@ public abstract class a {
         return rect.top < rect.bottom && rect.bottom <= bitmap.getHeight() && rect.left < rect.right && rect.right <= bitmap.getWidth();
     }
 
-    public void fk(int i) {
-        if (this.bBj == null) {
-            this.bBj = new TreeSet();
+    public void fl(int i) {
+        if (this.bBV == null) {
+            this.bBV = new TreeSet();
         } else {
-            this.bBj.clear();
+            this.bBV.clear();
         }
         if (DEBUG) {
             Log.d(TAG, "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
         }
-        this.bBj.add(Integer.valueOf(i));
+        this.bBV.add(Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g(double d) {
-        this.bBi = d;
+        this.bBU = d;
     }
 
     /* renamed from: com.baidu.swan.apps.ac.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0188a {
-        public static a jm(String str) {
+    /* loaded from: classes10.dex */
+    public static class C0190a {
+        public static a jp(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case -2129978548:

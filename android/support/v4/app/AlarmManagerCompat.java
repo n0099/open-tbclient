@@ -4,7 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.os.Build;
 import android.support.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class AlarmManagerCompat {
     public static void setAlarmClock(@NonNull AlarmManager alarmManager, long j, @NonNull PendingIntent pendingIntent, @NonNull PendingIntent pendingIntent2) {
         if (Build.VERSION.SDK_INT >= 21) {

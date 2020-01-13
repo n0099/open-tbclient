@@ -5,7 +5,7 @@ import com.xiaomi.push.Cif;
 import com.xiaomi.push.dk;
 import com.xiaomi.push.hg;
 import com.xiaomi.push.ht;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class s implements dk {
     private Context a;
 
@@ -15,7 +15,7 @@ public class s implements dk {
 
     @Override // com.xiaomi.push.dk
     public String a() {
-        return d.m71a(this.a).d();
+        return d.m80a(this.a).d();
     }
 
     @Override // com.xiaomi.push.dk

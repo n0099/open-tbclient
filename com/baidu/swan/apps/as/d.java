@@ -5,14 +5,14 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.view.View;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static void a(com.baidu.swan.apps.core.d.e eVar, Context context) {
         final View view;
-        if (eVar != null && eVar.LE() >= 2) {
-            com.baidu.swan.apps.core.d.b ef = eVar.ef(eVar.LE() - 2);
+        if (eVar != null && eVar.Ma() >= 2) {
+            com.baidu.swan.apps.core.d.b eg = eVar.eg(eVar.Ma() - 2);
             float displayWidth = af.getDisplayWidth(context) >> 2;
-            if (ef != null && (view = ef.getView()) != null) {
+            if (eg != null && (view = eg.getView()) != null) {
                 ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", 0.0f, -displayWidth);
                 ofFloat.setDuration(300L).start();
                 ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.apps.as.d.1
@@ -31,10 +31,10 @@ public class d {
 
     public static void a(com.baidu.swan.apps.core.d.e eVar, Context context, int i) {
         View view;
-        if (eVar != null && eVar.LE() >= i) {
-            com.baidu.swan.apps.core.d.b ef = eVar.ef(eVar.LE() - i);
+        if (eVar != null && eVar.Ma() >= i) {
+            com.baidu.swan.apps.core.d.b eg = eVar.eg(eVar.Ma() - i);
             float displayWidth = af.getDisplayWidth(context) >> 2;
-            if (ef != null && (view = ef.getView()) != null) {
+            if (eg != null && (view = eg.getView()) != null) {
                 ObjectAnimator.ofFloat(view, "translationX", -displayWidth, 0.0f).setDuration(300L).start();
             }
         }

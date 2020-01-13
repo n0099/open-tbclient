@@ -9,7 +9,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.searchbox.publisher.lightbrowser.R;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LightBrowserWebView extends WebView implements CallbackHandler {
     private Context mContext;
 

@@ -14,12 +14,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class x {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String bWQ = "cookieMap";
-    public static String bWR = "ptokenDomains";
-    public static String bWS = "bdussDomains";
+    public static String bXc = "cookieMap";
+    public static String bXd = "ptokenDomains";
+    public static String bXe = "bdussDomains";
 
     public static void dc(Context context) {
         dd(context);
@@ -29,8 +29,8 @@ public class x {
         if (context != null) {
             String cO = a.cO(context);
             String cV = a.cV(context);
-            b(context, cO, afi());
-            c(context, cV, afi());
+            b(context, cO, afB());
+            c(context, cV, afB());
         }
     }
 
@@ -100,7 +100,7 @@ public class x {
         }
     }
 
-    private static List<String> afi() {
+    private static List<String> afB() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

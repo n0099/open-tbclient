@@ -1,32 +1,31 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.internal.a.d;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableDoFinally<T> extends a<T, T> {
-    final io.reactivex.b.a onFinally;
+    final io.reactivex.c.a onFinally;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.mTG.a((j) new DoFinallyConditionalSubscriber((io.reactivex.internal.a.a) cVar, this.onFinally));
+            this.nvK.a((j) new DoFinallyConditionalSubscriber((io.reactivex.internal.a.a) cVar, this.onFinally));
         } else {
-            this.mTG.a((j) new DoFinallySubscriber(cVar, this.onFinally));
+            this.nvK.a((j) new DoFinallySubscriber(cVar, this.onFinally));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class DoFinallySubscriber<T> extends BasicIntQueueSubscription<T> implements j<T> {
         private static final long serialVersionUID = 4109457741734051389L;
         final org.a.c<? super T> actual;
-        final io.reactivex.b.a onFinally;
-        d<T> qs;
+        final io.reactivex.c.a onFinally;
+        io.reactivex.internal.a.d<T> qs;
         org.a.d s;
         boolean syncFused;
 
-        DoFinallySubscriber(org.a.c<? super T> cVar, io.reactivex.b.a aVar) {
+        DoFinallySubscriber(org.a.c<? super T> cVar, io.reactivex.c.a aVar) {
             this.actual = cVar;
             this.onFinally = aVar;
         }
@@ -35,8 +34,8 @@ public final class FlowableDoFinally<T> extends a<T, T> {
         public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
-                if (dVar instanceof d) {
-                    this.qs = (d) dVar;
+                if (dVar instanceof io.reactivex.internal.a.d) {
+                    this.qs = (io.reactivex.internal.a.d) dVar;
                 }
                 this.actual.onSubscribe(this);
             }
@@ -72,7 +71,7 @@ public final class FlowableDoFinally<T> extends a<T, T> {
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            d<T> dVar = this.qs;
+            io.reactivex.internal.a.d<T> dVar = this.qs;
             if (dVar == null || (i & 4) != 0) {
                 return 0;
             }
@@ -83,17 +82,17 @@ public final class FlowableDoFinally<T> extends a<T, T> {
             return requestFusion;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public void clear() {
             this.qs.clear();
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public boolean isEmpty() {
             return this.qs.isEmpty();
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public T poll() throws Exception {
             T poll = this.qs.poll();
             if (poll == null && this.syncFused) {
@@ -108,22 +107,22 @@ public final class FlowableDoFinally<T> extends a<T, T> {
                     this.onFinally.run();
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.I(th);
-                    io.reactivex.d.a.onError(th);
+                    io.reactivex.e.a.onError(th);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class DoFinallyConditionalSubscriber<T> extends BasicIntQueueSubscription<T> implements io.reactivex.internal.a.a<T> {
         private static final long serialVersionUID = 4109457741734051389L;
         final io.reactivex.internal.a.a<? super T> actual;
-        final io.reactivex.b.a onFinally;
-        d<T> qs;
+        final io.reactivex.c.a onFinally;
+        io.reactivex.internal.a.d<T> qs;
         org.a.d s;
         boolean syncFused;
 
-        DoFinallyConditionalSubscriber(io.reactivex.internal.a.a<? super T> aVar, io.reactivex.b.a aVar2) {
+        DoFinallyConditionalSubscriber(io.reactivex.internal.a.a<? super T> aVar, io.reactivex.c.a aVar2) {
             this.actual = aVar;
             this.onFinally = aVar2;
         }
@@ -132,8 +131,8 @@ public final class FlowableDoFinally<T> extends a<T, T> {
         public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
-                if (dVar instanceof d) {
-                    this.qs = (d) dVar;
+                if (dVar instanceof io.reactivex.internal.a.d) {
+                    this.qs = (io.reactivex.internal.a.d) dVar;
                 }
                 this.actual.onSubscribe(this);
             }
@@ -174,7 +173,7 @@ public final class FlowableDoFinally<T> extends a<T, T> {
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            d<T> dVar = this.qs;
+            io.reactivex.internal.a.d<T> dVar = this.qs;
             if (dVar == null || (i & 4) != 0) {
                 return 0;
             }
@@ -185,17 +184,17 @@ public final class FlowableDoFinally<T> extends a<T, T> {
             return requestFusion;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public void clear() {
             this.qs.clear();
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public boolean isEmpty() {
             return this.qs.isEmpty();
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public T poll() throws Exception {
             T poll = this.qs.poll();
             if (poll == null && this.syncFused) {
@@ -210,7 +209,7 @@ public final class FlowableDoFinally<T> extends a<T, T> {
                     this.onFinally.run();
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.I(th);
-                    io.reactivex.d.a.onError(th);
+                    io.reactivex.e.a.onError(th);
                 }
             }
         }

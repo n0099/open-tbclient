@@ -2,7 +2,7 @@ package com.vivo.push;
 
 import android.content.Intent;
 import com.vivo.push.c.ah;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class o implements IPushClientFactory {
     private ah a = new ah();
 

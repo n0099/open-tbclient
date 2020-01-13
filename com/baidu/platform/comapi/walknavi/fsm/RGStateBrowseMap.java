@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RGStateBrowseMap extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {

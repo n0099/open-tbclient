@@ -4,14 +4,14 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.screenlocknotify.ScreenLockActivity;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ScreenLockLoadMoreModel extends BdBaseModel<ScreenLockActivity> {
     public ScreenLockLoadMoreModel(ScreenLockActivity screenLockActivity) {
         super(screenLockActivity.getPageContext());
-        rG();
+        rT();
     }
 
-    private void rG() {
+    private void rT() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SCREEN_LOCK_MESSAGE_MORE, ScreenLockLoadMoreSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SCREEN_LOCK_MESSAGE_MORE, 1003194, TbConfig.CMD_SCREEN_LOCK_MESSAGE_MORE, ScreenLockLoadMoreHttpResponseMessage.class, false, false, false, false);
     }
@@ -21,7 +21,7 @@ public class ScreenLockLoadMoreModel extends BdBaseModel<ScreenLockActivity> {
         return true;
     }
 
-    public void cBw() {
+    public void cCC() {
         sendMessage(new ScreenLockLoadMoreMessage());
     }
 

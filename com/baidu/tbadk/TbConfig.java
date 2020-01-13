@@ -7,7 +7,6 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -566,7 +565,7 @@ public class TbConfig {
     public static final String FRS_LIVE_TIP_ADDRESS = SERVER_ADDRESS + "ala/live/getLiveRemindInFrs";
     private static String VERSION = "";
     private static String SUB_VERSION = "";
-    private static String LEGO_LIB_VERSION = BuildConfig.VERSION_NAME;
+    private static String LEGO_LIB_VERSION = "1.0.0";
     private static String CRIUS_LIB_VERSION = "1.0";
     private static String SUBAPP_TYPE = "";
     private static String FROM = null;
@@ -747,7 +746,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.aMZ().setPhotoMaxNum(i);
+            c.aNs().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

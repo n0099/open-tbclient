@@ -1,5 +1,5 @@
 package com.baidu.pano.platform.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface r {
     void a(n<?> nVar, q<?> qVar);
 

@@ -6,7 +6,7 @@ import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m {
     private static final String a = m.class.getSimpleName();
     private static boolean e = true;

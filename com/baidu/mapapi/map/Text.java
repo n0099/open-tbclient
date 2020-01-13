@@ -10,7 +10,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import mapsdkvi.com.gdi.bgl.android.java.EnvDrawText;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Text extends Overlay {
     private static final String k = Text.class.getSimpleName();
     String a;

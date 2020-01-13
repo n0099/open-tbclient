@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends c {
-    public String bvd = "";
-    public String bve = "";
-    public ArrayList<String> bvf;
+    public String bvR = "";
+    public String bvS = "";
+    public ArrayList<String> bvT;
 
     @Override // com.baidu.swan.apps.z.a.c, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -18,19 +18,19 @@ public class e extends c {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             if (jSONObject.has("scale")) {
-                this.buO = jSONObject.optDouble("scale", 18.0d);
+                this.bvC = jSONObject.optDouble("scale", 18.0d);
             }
             if (jSONObject.has("name")) {
-                this.bvd = jSONObject.optString("name");
+                this.bvR = jSONObject.optString("name");
             }
             if (jSONObject.has(SlideActiviy.ADDRESS_PAGE_NAME)) {
-                this.bve = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME);
+                this.bvS = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME);
             }
             if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
                 int length = optJSONArray.length();
-                this.bvf = new ArrayList<>();
+                this.bvT = new ArrayList<>();
                 for (int i = 0; i < length; i++) {
-                    this.bvf.add(optJSONArray.optString(i));
+                    this.bvT.add(optJSONArray.optString(i));
                 }
             }
         }
@@ -38,6 +38,6 @@ public class e extends c {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.bdi) || this.buN == null || !this.buN.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.bdW) || this.bvB == null || !this.bvB.isValid()) ? false : true;
     }
 }

@@ -175,7 +175,7 @@ public class DealIntentService extends BdBaseService {
             }
             if (com.baidu.adp.base.a.eG().currentActivity() != null) {
                 if (5 == this.intent.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                    if (com.baidu.adp.base.a.eG().currentActivity().getClass().getName().equalsIgnoreCase(b.aCQ())) {
+                    if (com.baidu.adp.base.a.eG().currentActivity().getClass().getName().equalsIgnoreCase(b.aDj())) {
                         this.intent.putExtra(DealIntentService.KEY_CLASS, 5);
                     } else {
                         this.intent.putExtra(DealIntentService.KEY_CLASS, 21);

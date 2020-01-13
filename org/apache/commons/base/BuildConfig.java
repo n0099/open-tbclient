@@ -1,5 +1,5 @@
 package org.apache.commons.base;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "org.apache.commons.base";
     public static final String BUILD_TYPE = "release";

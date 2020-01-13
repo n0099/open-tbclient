@@ -3,7 +3,7 @@ package com.baidu.swan.a.a;
 import com.baidu.swan.pms.f.e;
 import com.baidu.swan.pms.model.PMSPkgStatus;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.pms.c.d<c> {
     public b(a aVar, com.baidu.swan.a.a aVar2) {
         super(aVar2, aVar);
@@ -22,11 +22,11 @@ public class b extends com.baidu.swan.pms.c.d<c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a P(c cVar) {
-        this.cxc.MA();
+        this.cxn.MW();
         e eVar = new e();
         eVar.a(cVar, PMSPkgStatus.WAIT);
-        this.cxc.a(eVar);
-        com.baidu.swan.a.d.a(cVar, (com.baidu.swan.a.a) this.cxc);
+        this.cxn.a(eVar);
+        com.baidu.swan.a.d.a(cVar, (com.baidu.swan.a.a) this.cxn);
         return null;
     }
 
@@ -35,11 +35,11 @@ public class b extends com.baidu.swan.pms.c.d<c> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
     public boolean O(c cVar) {
-        return cVar != null && cVar.Ni();
+        return cVar != null && cVar.NE();
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String agC() {
+    protected String agV() {
         return "getSailor";
     }
 }

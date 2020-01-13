@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<l, FrsPageResIdl> {
     private boolean hasNetworkError;
     private int mCategoryId;
@@ -74,7 +74,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         int i2;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().axQ(), true) && !this.responseData.getBookInfo().axQ().equals("0") && this.responseData.getBookInfo().axR() == 3 && (i2 = com.baidu.adp.lib.f.b.toInt(this.responseData.getBookInfo().axQ(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(i2))) != null) {
+        if (this.responseData.getBookInfo() != null && !StringUtils.isNull(this.responseData.getBookInfo().ayj(), true) && !this.responseData.getBookInfo().ayj().equals("0") && this.responseData.getBookInfo().ayk() == 3 && (i2 = com.baidu.adp.lib.f.b.toInt(this.responseData.getBookInfo().ayj(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(i2))) != null) {
             this.responseData.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -84,11 +84,11 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null && this.needCache && this.responseData.getForum() != null) {
             int sortType = this.responseData.getSortType();
-            String e = d.cHp().e("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
+            String e = d.cIt().e("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
             if (sortType == 3) {
-                d.cHp().p(e, bArr);
+                d.cIt().p(e, bArr);
             } else {
-                d.cHp().c(e, bArr, true);
+                d.cIt().c(e, bArr, true);
             }
         }
     }

@@ -6,7 +6,7 @@ import com.baidu.rtc.RtcConfig;
 import org.apache.http.cookie.ClientCookie;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static RtcConfig m(Context context, JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -19,7 +19,7 @@ public class a {
             rtcConfig.pushUrl = jSONObject.optString("pushUrl");
             rtcConfig.identity = jSONObject.optInt(HTTP.IDENTITY_CODING);
             rtcConfig.devicePosition = jSONObject.optString("devicePosition");
-            rtcConfig.cuid = com.baidu.swan.apps.w.a.Rp().bn(context);
+            rtcConfig.cuid = com.baidu.swan.apps.w.a.RL().bn(context);
             if (rtcConfig.lineId < 1 || rtcConfig.lineId > 9) {
                 return null;
             }

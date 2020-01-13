@@ -2,7 +2,7 @@ package com.baidu.searchbox.suspensionball;
 
 import android.content.Context;
 import android.widget.ImageView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SuspensionBallView extends ImageView {
     public SuspensionBallView(Context context) {
         super(context);

@@ -10,9 +10,9 @@ import java.net.SocketException;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class f {
-    private static final Pattern Th = Pattern.compile("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$");
+    private static final Pattern Tk = Pattern.compile("^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$");
 
     @SuppressLint({"MissingPermission"})
     public static NetworkInfo getActiveNetworkInfo(Context context) {
@@ -117,6 +117,6 @@ public class f {
     }
 
     public static boolean isIPv4Address(String str) {
-        return Th.matcher(str).matches();
+        return Tk.matcher(str).matches();
     }
 }

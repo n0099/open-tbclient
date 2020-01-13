@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AdThreadUserInfoLayout extends CardUserInfoLayout {
-    private AfterAdjustChildWidthListener jIq;
+    private AfterAdjustChildWidthListener jLS;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface AfterAdjustChildWidthListener {
         void afterChildWidth();
     }
@@ -25,7 +25,7 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
 
     public void addAdTagView(View view) {
         if (view != null) {
-            this.MK.removeAllViews();
+            this.MS.removeAllViews();
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -33,7 +33,7 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             view.setLayoutParams(layoutParams);
-            this.MK.addView(view);
+            this.MS.addView(view);
         }
     }
 
@@ -43,14 +43,14 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.view.CardUserInfoLayout
-    public void nd() {
-        super.nd();
-        if (this.jIq != null) {
-            this.jIq.afterChildWidth();
+    public void ne() {
+        super.ne();
+        if (this.jLS != null) {
+            this.jLS.afterChildWidth();
         }
     }
 
     public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
-        this.jIq = afterAdjustChildWidthListener;
+        this.jLS = afterAdjustChildWidthListener;
     }
 }

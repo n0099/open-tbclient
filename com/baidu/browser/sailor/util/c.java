@@ -8,10 +8,10 @@ import java.net.UnknownHostException;
 import java.util.Collections;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(JSONObject jSONObject);
     }

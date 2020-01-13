@@ -13,7 +13,7 @@ public interface a {
 
     /* loaded from: classes2.dex */
     public interface b {
-        void E(int i, int i2);
+        void I(int i, int i2);
     }
 
     void a(Activity activity, InterfaceC0068a interfaceC0068a);

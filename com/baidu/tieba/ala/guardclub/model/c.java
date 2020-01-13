@@ -7,19 +7,19 @@ import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
-    public long Vc;
+    public long Vt;
     public long createTime;
     public String description;
-    public String eBo;
-    public String eBp;
-    public long eBq;
-    public long eBr;
-    public long eBs;
-    public int eBt;
-    public long eBu;
-    public String eBv;
-    public String eBw;
-    public JSONObject eBx;
+    public String eCA;
+    public long eCB;
+    public long eCC;
+    public long eCD;
+    public int eCE;
+    public long eCF;
+    public String eCG;
+    public String eCH;
+    public JSONObject eCI;
+    public String eCz;
     public int id;
     public long liveId;
     public int liveStatus;
@@ -34,28 +34,28 @@ public class c {
                 try {
                     String optString = jSONObject.optString("anchor_id");
                     if (!TextUtils.isEmpty(optString)) {
-                        this.Vc = Long.parseLong(EncryptionHelper.getDecryptUserId(optString));
+                        this.Vt = Long.parseLong(EncryptionHelper.getDecryptUserId(optString));
                     }
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
-                this.eBo = jSONObject.optString("regiment_name");
-                this.eBp = jSONObject.optString("regiment_icon");
+                this.eCz = jSONObject.optString("regiment_name");
+                this.eCA = jSONObject.optString("regiment_icon");
                 this.description = jSONObject.optString("description");
-                this.eBq = jSONObject.optLong("score");
-                this.eBr = jSONObject.optLong("week_score");
+                this.eCB = jSONObject.optLong("score");
+                this.eCC = jSONObject.optLong("week_score");
                 this.status = jSONObject.optInt("status");
                 this.createTime = jSONObject.optLong("create_time");
                 this.updateTime = jSONObject.optLong("update_time");
-                this.eBs = jSONObject.optLong("member_counts");
-                this.eBt = jSONObject.optInt("guard_level");
-                this.eBu = jSONObject.optLong("next_level_need_score");
-                this.eBv = jSONObject.optString("guard_club_portrait");
+                this.eCD = jSONObject.optLong("member_counts");
+                this.eCE = jSONObject.optInt("guard_level");
+                this.eCF = jSONObject.optLong("next_level_need_score");
+                this.eCG = jSONObject.optString("guard_club_portrait");
                 this.liveStatus = jSONObject.optInt("live_status");
                 this.liveId = jSONObject.optLong("live_id");
                 this.rank = jSONObject.optString("rank");
-                this.eBw = jSONObject.optString("week_rank");
-                this.eBx = jSONObject.optJSONObject(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE);
+                this.eCH = jSONObject.optString("week_rank");
+                this.eCI = jSONObject.optJSONObject(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }

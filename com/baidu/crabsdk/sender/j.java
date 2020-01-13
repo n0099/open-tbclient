@@ -1,5 +1,5 @@
 package com.baidu.crabsdk.sender;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class j {
     public static String b(byte[] bArr, String str, String str2) {
         String b = com.baidu.crabsdk.a.b();

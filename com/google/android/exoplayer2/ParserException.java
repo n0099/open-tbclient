@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2;
 
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ParserException extends IOException {
     public ParserException() {
     }

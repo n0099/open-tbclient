@@ -1,7 +1,7 @@
 package rx.internal.util.a;
 
 import rx.internal.util.atomic.LinkedQueueNode;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class x<E> extends a<E> {
     public x() {
         a(new LinkedQueueNode<>());

@@ -3,9 +3,9 @@ package com.baidu.swan.mini.e;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static String pU(String str) {
+    public static String pX(String str) {
         return P(str, true);
     }
 

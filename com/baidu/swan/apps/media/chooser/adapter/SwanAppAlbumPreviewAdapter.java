@@ -30,53 +30,53 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 import java.util.ArrayList;
 import org.apache.http.HttpHost;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
-    private com.baidu.swan.apps.media.chooser.c.a bxB;
-    private a bxC;
-    private ArrayList<MediaModel> bxd;
+    private ArrayList<MediaModel> bxQ;
+    private com.baidu.swan.apps.media.chooser.c.a byo;
+    private a byp;
     private Activity mContext;
     private int[] maxTextureSize = new int[1];
     private SparseArray<View> mViewList = new SparseArray<>();
 
     public void a(com.baidu.swan.apps.media.chooser.c.a aVar) {
-        this.bxB = aVar;
+        this.byo = aVar;
     }
 
     public SwanAppAlbumPreviewAdapter(Activity activity, ArrayList<MediaModel> arrayList) {
         this.mContext = activity;
-        this.bxd = arrayList;
+        this.bxQ = arrayList;
     }
 
-    public void X(int i, int i2) {
+    public void ab(int i, int i2) {
         if (i < this.mViewList.size() && this.mViewList.get(i) != null) {
             this.mViewList.get(i).findViewById(a.f.album_preview_item_root).setBackgroundColor(this.mContext.getResources().getColor(i2));
         }
     }
 
-    public void US() {
-        if (this.bxC == null || this.bxC.bxL == null || !this.bxC.bxL.isPlaying()) {
+    public void Vp() {
+        if (this.byp == null || this.byp.byy == null || !this.byp.byy.isPlaying()) {
             return;
         }
-        this.bxC.bxL.stopPlayback();
-        a(this.bxC, false);
+        this.byp.byy.stopPlayback();
+        a(this.byp, false);
     }
 
     public void destroy() {
-        if (this.bxC == null) {
+        if (this.byp == null) {
             return;
         }
-        VideoView videoView = this.bxC.bxL;
+        VideoView videoView = this.byp.byy;
         if (videoView != null && videoView.isPlaying()) {
             videoView.stopPlayback();
         }
-        this.bxC.bxL = null;
-        this.bxC = null;
+        this.byp.byy = null;
+        this.byp = null;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.bxd.size();
+        return this.bxQ.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -97,7 +97,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         a aVar;
-        MediaModel mediaModel = this.bxd.get(i);
+        MediaModel mediaModel = this.bxQ.get(i);
         View view = this.mViewList.get(i);
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.swanapp_album_preview_item, viewGroup, false);
@@ -117,23 +117,23 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         if (aVar == null || mediaModel == null || TextUtils.isEmpty(mediaModel.getPath())) {
             return;
         }
-        com.facebook.drawee.controller.c a2 = a(aVar.bxJ);
+        com.facebook.drawee.controller.c a2 = a(aVar.byw);
         String path = mediaModel.getPath();
         ImageRequestBuilder X = ImageRequestBuilder.X(path.startsWith(HttpHost.DEFAULT_SCHEME_NAME) ? Uri.parse(path) : Uri.fromFile(new File(mediaModel.getPath())));
         X.c(new d(af.getDisplayWidth(this.mContext), af.getDisplayHeight(this.mContext), 10240.0f));
-        X.vg(true);
-        com.facebook.drawee.controller.a djT = com.facebook.drawee.a.a.c.djg().uR(com.baidu.swan.apps.media.chooser.b.c.bxW).be(X.dpZ()).c(a2).c(aVar.bxJ.getController()).djX();
-        aVar.bxJ.setVisibility(0);
-        aVar.bxJ.setController(djT);
+        X.vs(true);
+        com.facebook.drawee.controller.a dkU = com.facebook.drawee.a.a.c.dkh().vd(com.baidu.swan.apps.media.chooser.b.c.byJ).be(X.drm()).c(a2).c(aVar.byw.getController()).dkY();
+        aVar.byw.setVisibility(0);
+        aVar.byw.setController(dkU);
         if (!(mediaModel instanceof ImageModel)) {
             return;
         }
-        aVar.bxK.setVisibility(8);
-        aVar.bxJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.1
+        aVar.byx.setVisibility(8);
+        aVar.byw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (SwanAppAlbumPreviewAdapter.this.bxB != null) {
-                    SwanAppAlbumPreviewAdapter.this.bxB.clickContainer();
+                if (SwanAppAlbumPreviewAdapter.this.byo != null) {
+                    SwanAppAlbumPreviewAdapter.this.byo.clickContainer();
                 }
             }
         });
@@ -144,85 +144,85 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
             if (aVar == null || TextUtils.isEmpty(mediaModel.getPath())) {
                 return;
             }
-            aVar.bxK.setVisibility(8);
-            aVar.bxL.setVisibility(8);
-            aVar.bxM.setVisibility(0);
-            aVar.bxJ.setOnClickListener(new AnonymousClass2(aVar, mediaModel));
-            aVar.bxK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.3
+            aVar.byx.setVisibility(8);
+            aVar.byy.setVisibility(8);
+            aVar.byz.setVisibility(0);
+            aVar.byw.setOnClickListener(new AnonymousClass2(aVar, mediaModel));
+            aVar.byx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!aVar.bxL.isPlaying()) {
+                    if (!aVar.byy.isPlaying()) {
                         return;
                     }
-                    aVar.bxL.stopPlayback();
+                    aVar.byy.stopPlayback();
                     SwanAppAlbumPreviewAdapter.this.b(aVar);
                 }
             });
             return;
         }
-        aVar.bxM.setVisibility(8);
+        aVar.byz.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter$2  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class AnonymousClass2 implements View.OnClickListener {
-        final /* synthetic */ a bxE;
-        final /* synthetic */ MediaModel bxF;
+        final /* synthetic */ a byr;
+        final /* synthetic */ MediaModel bys;
 
         AnonymousClass2(a aVar, MediaModel mediaModel) {
-            this.bxE = aVar;
-            this.bxF = mediaModel;
+            this.byr = aVar;
+            this.bys = mediaModel;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.bxE.bxL.isPlaying()) {
+            if (this.byr.byy.isPlaying()) {
                 return;
             }
-            this.bxE.bxK.setVisibility(0);
-            this.bxE.bxL.setVisibility(0);
-            this.bxE.bxM.setVisibility(8);
-            if (SwanAppAlbumPreviewAdapter.this.bxB != null) {
-                SwanAppAlbumPreviewAdapter.this.bxB.UM();
+            this.byr.byx.setVisibility(0);
+            this.byr.byy.setVisibility(0);
+            this.byr.byz.setVisibility(8);
+            if (SwanAppAlbumPreviewAdapter.this.byo != null) {
+                SwanAppAlbumPreviewAdapter.this.byo.Vj();
             }
             MediaController mediaController = new MediaController(SwanAppAlbumPreviewAdapter.this.mContext);
             mediaController.setVisibility(8);
             mediaController.setAnchorView(null);
-            this.bxE.bxL.setMediaController(mediaController);
-            this.bxE.bxL.setVideoPath(this.bxF.getPath());
-            this.bxE.bxL.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.2.1
+            this.byr.byy.setMediaController(mediaController);
+            this.byr.byy.setVideoPath(this.bys.getPath());
+            this.byr.byy.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.2.1
                 @Override // android.media.MediaPlayer.OnPreparedListener
                 public void onPrepared(MediaPlayer mediaPlayer) {
-                    AnonymousClass2.this.bxE.bxL.postDelayed(new Runnable() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.2.1.1
+                    AnonymousClass2.this.byr.byy.postDelayed(new Runnable() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.2.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            SwanAppAlbumPreviewAdapter.this.a(AnonymousClass2.this.bxE);
+                            SwanAppAlbumPreviewAdapter.this.a(AnonymousClass2.this.byr);
                         }
                     }, 300L);
                 }
             });
-            this.bxE.bxL.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.2.2
+            this.byr.byy.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.2.2
                 @Override // android.media.MediaPlayer.OnErrorListener
                 public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                    SwanAppAlbumPreviewAdapter.this.b(AnonymousClass2.this.bxE);
+                    SwanAppAlbumPreviewAdapter.this.b(AnonymousClass2.this.byr);
                     return false;
                 }
             });
-            this.bxE.bxL.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.2.3
+            this.byr.byy.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.2.3
                 @Override // android.media.MediaPlayer.OnCompletionListener
                 public void onCompletion(MediaPlayer mediaPlayer) {
-                    SwanAppAlbumPreviewAdapter.this.b(AnonymousClass2.this.bxE);
+                    SwanAppAlbumPreviewAdapter.this.b(AnonymousClass2.this.byr);
                 }
             });
-            this.bxE.bxL.start();
-            SwanAppAlbumPreviewAdapter.this.bxC = this.bxE;
+            this.byr.byy.start();
+            SwanAppAlbumPreviewAdapter.this.byp = this.byr;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final a aVar) {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0185a.swanapp_album_preview_img_exit);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0187a.swanapp_album_preview_img_exit);
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.4
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
@@ -230,15 +230,15 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                aVar.bxJ.setVisibility(8);
-                aVar.bxJ.clearAnimation();
+                aVar.byw.setVisibility(8);
+                aVar.byw.clearAnimation();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        aVar.bxJ.startAnimation(loadAnimation);
+        aVar.byw.startAnimation(loadAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -250,8 +250,8 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         if (aVar == null) {
             return;
         }
-        aVar.bxM.setVisibility(0);
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0185a.swanapp_album_preview_img_enter);
+        aVar.byz.setVisibility(0);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0187a.swanapp_album_preview_img_enter);
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.SwanAppAlbumPreviewAdapter.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
@@ -259,33 +259,33 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                aVar.bxJ.setVisibility(0);
-                aVar.bxJ.clearAnimation();
+                aVar.byw.setVisibility(0);
+                aVar.byw.clearAnimation();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        aVar.bxJ.startAnimation(loadAnimation);
-        if (z && this.bxB != null) {
-            this.bxB.UN();
+        aVar.byw.startAnimation(loadAnimation);
+        if (z && this.byo != null) {
+            this.byo.Vk();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a {
-        private HugePhotoDraweeView bxJ;
-        private View bxK;
-        private VideoView bxL;
-        private ImageView bxM;
+        private HugePhotoDraweeView byw;
+        private View byx;
+        private VideoView byy;
+        private ImageView byz;
 
         public a(View view) {
-            this.bxJ = (HugePhotoDraweeView) view.findViewById(a.f.album_preview_image);
-            this.bxK = view.findViewById(a.f.preview_video_layout);
-            this.bxL = (VideoView) view.findViewById(a.f.preview_video_view);
-            this.bxM = (ImageView) view.findViewById(a.f.video_preview);
+            this.byw = (HugePhotoDraweeView) view.findViewById(a.f.album_preview_image);
+            this.byx = view.findViewById(a.f.preview_video_layout);
+            this.byy = (VideoView) view.findViewById(a.f.preview_video_view);
+            this.byz = (ImageView) view.findViewById(a.f.video_preview);
         }
     }
 
@@ -302,20 +302,20 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 if (obj instanceof com.facebook.imagepipeline.g.d) {
                     hugePhotoDraweeView.setIsDynamicBitmap(false);
                     hugePhotoDraweeView.setZoomEnabled(true);
-                    Bitmap dnV = ((com.facebook.imagepipeline.g.d) obj).dnV();
+                    Bitmap dpb = ((com.facebook.imagepipeline.g.d) obj).dpb();
                     SwanAppAlbumPreviewAdapter.this.maxTextureSize = q.getMaxTextureSize();
-                    com.baidu.swan.apps.media.image.b i = com.baidu.swan.apps.media.image.b.i(dnV);
-                    if (dnV.getWidth() >= SwanAppAlbumPreviewAdapter.this.maxTextureSize[0] || dnV.getHeight() >= SwanAppAlbumPreviewAdapter.this.maxTextureSize[0]) {
-                        i.Vc();
+                    com.baidu.swan.apps.media.image.b i = com.baidu.swan.apps.media.image.b.i(dpb);
+                    if (dpb.getWidth() >= SwanAppAlbumPreviewAdapter.this.maxTextureSize[0] || dpb.getHeight() >= SwanAppAlbumPreviewAdapter.this.maxTextureSize[0]) {
+                        i.Vz();
                     } else {
-                        i.Vd();
+                        i.VA();
                     }
                     hugePhotoDraweeView.setImage(i);
-                    SwanAppAlbumPreviewAdapter.this.a(hugePhotoDraweeView, dnV);
+                    SwanAppAlbumPreviewAdapter.this.a(hugePhotoDraweeView, dpb);
                 } else if (obj instanceof com.facebook.imagepipeline.g.a) {
                     hugePhotoDraweeView.setIsDynamicBitmap(true);
                     hugePhotoDraweeView.setZoomEnabled(false);
-                    hugePhotoDraweeView.getHierarchy().b(p.b.lIE);
+                    hugePhotoDraweeView.getHierarchy().b(p.b.lMb);
                 }
             }
 

@@ -2,7 +2,7 @@ package com.baidu.webkit.internal.utils;
 
 import android.content.SharedPreferences;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static SharedPreferences a = null;
 

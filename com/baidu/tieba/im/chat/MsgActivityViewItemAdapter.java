@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     public MsgActivityViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -17,13 +17,13 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgActivityView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgActivityView bPA = aVar.bPA();
-        bPA.setPosition(i);
-        bPA.setData(chatMessage);
-        bPA.a(this.hmL);
-        bPA.setOnItemViewLongClickListener(this.hmM);
-        bPA.dG(this.eeP);
-        bPA.dF(chatMessage.getCacheData().getLastMsgTime());
+        MsgActivityView bQJ = aVar.bQJ();
+        bQJ.setPosition(i);
+        bQJ.setData(chatMessage);
+        bQJ.a(this.hqo);
+        bQJ.setOnItemViewLongClickListener(this.hqp);
+        bQJ.dL(this.eeX);
+        bQJ.dK(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -32,14 +32,14 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: br */
+    /* renamed from: bv */
     public e.a<MsgActivityView> b(ViewGroup viewGroup) {
         MsgActivityView msgActivityView = new MsgActivityView(this.mPageContext);
         return new a(msgActivityView.getConvertView(), msgActivityView);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends e.a<MsgActivityView> {
         public a(View view, MsgActivityView msgActivityView) {
             super(view, msgActivityView);

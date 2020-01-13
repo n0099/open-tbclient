@@ -17,32 +17,32 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.facade.provider.processor.a {
-    private static final String[] boq = {IMConstants.MSG_ROW_ID, Constants.APP_ID, "app_key", "app_sign", "version_code", SharedPrefConfig.VERSION_NAME, "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
+    private static final String[] bpe = {IMConstants.MSG_ROW_ID, Constants.APP_ID, "app_key", "app_sign", "version_code", SharedPrefConfig.VERSION_NAME, "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
 
     @Override // com.baidu.swan.facade.provider.processor.a
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        List<C0313b> agM = agM();
-        if (agM.isEmpty()) {
+        List<C0315b> ahf = ahf();
+        if (ahf.isEmpty()) {
             return null;
         }
-        HashMap<String, PMSAppInfo> agP = com.baidu.swan.facade.provider.a.a.agP();
-        if (agP.isEmpty()) {
+        HashMap<String, PMSAppInfo> ahi = com.baidu.swan.facade.provider.a.a.ahi();
+        if (ahi.isEmpty()) {
             return null;
         }
-        Collections.sort(agM, new a());
-        MatrixCursor matrixCursor = new MatrixCursor(boq, agM.size());
+        Collections.sort(ahf, new a());
+        MatrixCursor matrixCursor = new MatrixCursor(bpe, ahf.size());
         int i = 0;
-        Iterator<C0313b> it = agM.iterator();
+        Iterator<C0315b> it = ahf.iterator();
         while (true) {
             int i2 = i;
             if (!it.hasNext()) {
                 return matrixCursor;
             }
-            C0313b next = it.next();
-            PMSAppInfo pMSAppInfo = agP.get(next.appId);
+            C0315b next = it.next();
+            PMSAppInfo pMSAppInfo = ahi.get(next.appId);
             if (pMSAppInfo != null) {
                 a(matrixCursor, i2, next, pMSAppInfo);
                 i = i2 + 1;
@@ -52,20 +52,20 @@ public class b extends com.baidu.swan.facade.provider.processor.a {
         }
     }
 
-    private void a(MatrixCursor matrixCursor, int i, C0313b c0313b, PMSAppInfo pMSAppInfo) {
-        if (matrixCursor != null && i >= 0 && c0313b != null && pMSAppInfo != null) {
-            matrixCursor.newRow().add(IMConstants.MSG_ROW_ID, Integer.valueOf(i)).add(Constants.APP_ID, pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Integer.valueOf(pMSAppInfo.versionCode)).add(SharedPrefConfig.VERSION_NAME, pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.orientation)).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(c0313b.bos));
+    private void a(MatrixCursor matrixCursor, int i, C0315b c0315b, PMSAppInfo pMSAppInfo) {
+        if (matrixCursor != null && i >= 0 && c0315b != null && pMSAppInfo != null) {
+            matrixCursor.newRow().add(IMConstants.MSG_ROW_ID, Integer.valueOf(i)).add(Constants.APP_ID, pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Integer.valueOf(pMSAppInfo.versionCode)).add(SharedPrefConfig.VERSION_NAME, pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.orientation)).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(c0315b.bpg));
         }
     }
 
-    private List<C0313b> agM() {
+    private List<C0315b> ahf() {
         Cursor a2 = SwanAppDbControl.bX(AppRuntime.getAppContext()).a(null, null, null, null);
         ArrayList arrayList = new ArrayList();
         if (a2 != null && a2.moveToFirst()) {
             int columnIndex = a2.getColumnIndex(Constants.APP_ID);
             int columnIndex2 = a2.getColumnIndex("favorite_time");
             do {
-                arrayList.add(new C0313b(a2.getString(columnIndex), a2.getLong(columnIndex2)));
+                arrayList.add(new C0315b(a2.getString(columnIndex), a2.getLong(columnIndex2)));
             } while (a2.moveToNext());
             com.baidu.swan.d.c.closeSafely(a2);
             return arrayList;
@@ -76,27 +76,27 @@ public class b extends com.baidu.swan.facade.provider.processor.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.facade.provider.processor.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class C0313b {
+    /* loaded from: classes10.dex */
+    public class C0315b {
         String appId;
-        long bos;
+        long bpg;
 
-        C0313b(String str, long j) {
+        C0315b(String str, long j) {
             this.appId = str;
-            this.bos = j;
+            this.bpg = j;
         }
     }
 
-    /* loaded from: classes9.dex */
-    private static class a implements Comparator<C0313b> {
+    /* loaded from: classes10.dex */
+    private static class a implements Comparator<C0315b> {
         private a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
-        public int compare(C0313b c0313b, C0313b c0313b2) {
-            return Long.compare(c0313b2.bos, c0313b.bos);
+        public int compare(C0315b c0315b, C0315b c0315b2) {
+            return Long.compare(c0315b2.bpg, c0315b.bpg);
         }
     }
 }

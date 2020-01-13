@@ -9,16 +9,16 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.as.h;
 import com.baidu.swan.apps.y.f;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private static boolean beF = false;
+    private static boolean bfv = false;
 
-    public static void bU(boolean z) {
-        beF = z;
+    public static void bZ(boolean z) {
+        bfv = z;
     }
 
-    public static boolean IH() {
-        return beF;
+    public static boolean Jd() {
+        return bfv;
     }
 
     public static void v(String str, String str2) {
@@ -64,12 +64,12 @@ public class c {
     }
 
     private static void o(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && beF) {
+        if (!TextUtils.isEmpty(str3) && bfv) {
             StringBuilder sb = new StringBuilder();
             String formatDate = h.getFormatDate(h.getCurrDate(), DateTimeUtil.TIME_FORMAT);
             String fileName = getFileName();
             sb.append(formatDate).append("  ").append(fileName).append("  ").append("line:").append(getLineNumber()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            f.Uf().TJ().af(str, sb.toString());
+            f.UC().Ug().ag(str, sb.toString());
         }
     }
 

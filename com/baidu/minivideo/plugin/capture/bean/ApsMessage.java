@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.minivideo.plugin.capture.bean.Jsonable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ApsMessage<T extends Jsonable> implements Jsonable {
     public static final String JN_K_DATA = "data";
     public static final String JN_K_MSG = "msg";

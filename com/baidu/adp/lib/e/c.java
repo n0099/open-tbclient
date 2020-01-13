@@ -20,7 +20,7 @@ public class c {
     private final BdUniqueId rT = BdUniqueId.gen();
     private SparseArray<e<?>> rU;
 
-    public static c gs() {
+    public static c gr() {
         if (rV == null) {
             synchronized (c.class) {
                 if (rV == null) {
@@ -108,7 +108,7 @@ public class c {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return false;
         }
-        return eVar.gv();
+        return eVar.gu();
     }
 
     public Object loadResourceFromMemery(String str, int i, Object... objArr) {
@@ -172,22 +172,22 @@ public class c {
             boolean is4GNet = j.is4GNet();
             com.baidu.adp.lib.stats.a aVar = null;
             if (isWifiNet) {
-                aVar = d.gt();
+                aVar = d.gs();
                 aVar.startTimer();
             }
             a aVar2 = new a(str, i, i4, i5, bdUniqueId, bVar, z, aVar, objArr);
             aVar2.setKey(genCacheKey);
             aVar2.setTag(this.rT);
-            int gx = eVar.gx();
-            if (gx == 0) {
-                gx = 1;
+            int gw = eVar.gw();
+            if (gw == 0) {
+                gw = 1;
             }
-            aVar2.setPriority(gx);
+            aVar2.setPriority(gw);
             if (isWifiNet || is4GNet) {
-                if (eVar.gw() == null) {
+                if (eVar.gv() == null) {
                     aVar2.setParallel(rX);
                 } else {
-                    aVar2.setParallel(eVar.gw());
+                    aVar2.setParallel(eVar.gv());
                 }
             } else {
                 aVar2.setParallel(rW);
@@ -293,9 +293,9 @@ public class c {
             Exception e2;
             Object obj;
             if (this.se != null) {
-                com.baidu.adp.lib.stats.a gt = d.gt();
-                gt.startTimer();
-                aVar = gt;
+                com.baidu.adp.lib.stats.a gs = d.gs();
+                gs.startTimer();
+                aVar = gs;
             } else {
                 aVar = null;
             }

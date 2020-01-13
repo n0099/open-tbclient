@@ -4,29 +4,29 @@ import android.util.Log;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends com.baidu.swan.apps.media.audio.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private EventTargetImpl cfE;
-    private b cfF;
+    private EventTargetImpl cfR;
+    private b cfS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
         super(null, jSONObject);
-        this.cfE = eventTargetImpl;
+        this.cfR = eventTargetImpl;
     }
 
     public void a(b bVar) {
-        this.cfF = bVar;
+        this.cfS = bVar;
     }
 
     @Override // com.baidu.swan.apps.media.audio.b.a
     public void d(String str, JSONObject jSONObject) {
-        String optString = this.bwu.optString(str);
-        if (this.cfF != null) {
-            this.cfF.d(optString, jSONObject);
+        String optString = this.bxh.optString(str);
+        if (this.cfS != null) {
+            this.cfS.d(optString, jSONObject);
         }
-        if (this.cfE.hasEventListener(optString)) {
+        if (this.cfR.hasEventListener(optString)) {
             JSEvent jSEvent = new JSEvent(optString);
             if (jSONObject != null) {
                 jSEvent.data = jSONObject;
@@ -34,12 +34,12 @@ public class e extends com.baidu.swan.apps.media.audio.b.a {
             if (DEBUG && !"onTimeUpdate".equals(str)) {
                 Log.d("AudioCallbackForV8", "type = " + str + "  result = " + (jSONObject != null ? jSONObject.toString() : "null"));
             }
-            this.cfE.dispatchEvent(jSEvent);
+            this.cfR.dispatchEvent(jSEvent);
         }
     }
 
     @Override // com.baidu.swan.apps.media.audio.b.a
-    public boolean UD() {
+    public boolean Va() {
         return true;
     }
 }

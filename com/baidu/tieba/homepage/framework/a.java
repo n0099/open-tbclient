@@ -1,32 +1,32 @@
 package com.baidu.tieba.homepage.framework;
 
 import android.util.SparseArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static a gTk = new a();
-    private long gTl = 0;
-    private SparseArray<Long> gTm = new SparseArray<>();
-    private SparseArray<Long> gTn = new SparseArray<>();
-    private SparseArray<Long> gTo = new SparseArray<>();
-    private SparseArray<Long> gTp = new SparseArray<>();
+    private static a gWE = new a();
+    private long gWF = 0;
+    private SparseArray<Long> gWG = new SparseArray<>();
+    private SparseArray<Long> gWH = new SparseArray<>();
+    private SparseArray<Long> gWI = new SparseArray<>();
+    private SparseArray<Long> gWJ = new SparseArray<>();
 
     private a() {
     }
 
-    public static a bKI() {
-        return gTk;
+    public static a bLN() {
+        return gWE;
     }
 
     public long getCreateTime() {
-        return this.gTl;
+        return this.gWF;
     }
 
     public void setCreateTime(long j) {
-        this.gTl = j;
+        this.gWF = j;
     }
 
-    public long uL(int i) {
-        Long l = this.gTn.get(i);
+    public long uQ(int i) {
+        Long l = this.gWH.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void n(long j, int i) {
-        this.gTn.put(i, Long.valueOf(j));
+        this.gWH.put(i, Long.valueOf(j));
     }
 
-    public long uM(int i) {
-        Long l = this.gTm.get(i);
+    public long uR(int i) {
+        Long l = this.gWG.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void o(long j, int i) {
-        this.gTm.put(i, Long.valueOf(j));
+        this.gWG.put(i, Long.valueOf(j));
     }
 
-    public long uN(int i) {
-        Long l = this.gTo.get(i);
+    public long uS(int i) {
+        Long l = this.gWI.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void p(long j, int i) {
-        this.gTo.put(i, Long.valueOf(j));
+        this.gWI.put(i, Long.valueOf(j));
     }
 
-    public long uO(int i) {
-        Long l = this.gTp.get(i);
+    public long uT(int i) {
+        Long l = this.gWJ.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void q(long j, int i) {
-        this.gTp.put(i, Long.valueOf(j));
+        this.gWJ.put(i, Long.valueOf(j));
     }
 }

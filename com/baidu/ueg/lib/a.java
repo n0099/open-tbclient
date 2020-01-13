@@ -2,7 +2,7 @@ package com.baidu.ueg.lib;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ueg.lib.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends b {
     private final int decodeSize;
     private final byte[] decodeTable;

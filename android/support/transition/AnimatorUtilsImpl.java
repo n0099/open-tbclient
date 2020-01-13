@@ -3,7 +3,7 @@ package android.support.transition;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.support.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 interface AnimatorUtilsImpl {
     void addPauseListener(@NonNull Animator animator, @NonNull AnimatorListenerAdapter animatorListenerAdapter);
 

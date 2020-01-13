@@ -8,12 +8,12 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class c implements BdSwipeRefreshLayout.b {
     private Context mContext;
-    protected a zQ;
+    protected a zU;
     private View mView = null;
     private boolean mEnable = true;
     private int mHeadContentHeight = 0;
     private int mHeadContentWidth = 0;
-    private boolean zR = false;
+    private boolean zV = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -61,23 +61,23 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean jX() {
-        return this.zR;
+    public boolean jW() {
+        return this.zV;
     }
 
     public void pause() {
-        this.zR = true;
+        this.zV = true;
     }
 
     public void resume() {
-        this.zR = false;
+        this.zV = false;
     }
 
     public void setPadding(int i, int i2, int i3, int i4) {
-        if (this.mView != null && !this.zR) {
+        if (this.mView != null && !this.zV) {
             this.mView.setPadding(i, i2, i3, i4);
-            if (this.zQ != null) {
-                this.zQ.a(this, i, i3, i2 + getHeadContentHeight(), i4);
+            if (this.zU != null) {
+                this.zU.a(this, i, i3, i2 + getHeadContentHeight(), i4);
             }
         }
     }
@@ -112,21 +112,21 @@ public abstract class c implements BdSwipeRefreshLayout.b {
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onPullToRefresh() {
-        if (!this.zR) {
+        if (!this.zV) {
             pullToRefresh(false);
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onReleaseToRefresh() {
-        if (!this.zR) {
+        if (!this.zV) {
             releaseToRefresh();
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onRefreshing() {
-        if (!this.zR) {
+        if (!this.zV) {
             refreshing();
             onRefresh(true);
         }
@@ -134,14 +134,14 @@ public abstract class c implements BdSwipeRefreshLayout.b {
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onCompleteRefresh() {
-        if (!this.zR) {
+        if (!this.zV) {
             onCompletePullRefresh();
         }
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onFinish() {
-        if (!this.zR) {
+        if (!this.zV) {
             done(true);
         }
     }
@@ -156,6 +156,6 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     public void a(a aVar) {
-        this.zQ = aVar;
+        this.zU = aVar;
     }
 }

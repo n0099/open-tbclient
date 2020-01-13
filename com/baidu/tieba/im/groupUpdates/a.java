@@ -6,36 +6,36 @@ import android.widget.BaseAdapter;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private List<UpdatesItemData> aap = new ArrayList();
-    private UpdatesActivity hzs;
+    private List<UpdatesItemData> aaB = new ArrayList();
+    private UpdatesActivity hCV;
 
     public a(UpdatesActivity updatesActivity) {
-        this.hzs = updatesActivity;
+        this.hCV = updatesActivity;
     }
 
     public void destroy() {
-        this.hzs = null;
+        this.hCV = null;
     }
 
     public List<UpdatesItemData> getDatas() {
-        return this.aap;
+        return this.aaB;
     }
 
     public void setData(List<UpdatesItemData> list) {
         if (list != null) {
-            this.aap = list;
+            this.aaB = list;
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aap == null) {
+        if (this.aaB == null) {
             return 0;
         }
-        return this.aap.size();
+        return this.aaB.size();
     }
 
     @Override // android.widget.Adapter
@@ -44,14 +44,14 @@ public class a extends BaseAdapter {
         if (view != null) {
             bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.hzs) : bVar;
-        bVar2.b(this.aap.get(i));
+        b bVar2 = bVar == null ? new b(this.hCV) : bVar;
+        bVar2.b(this.aaB.get(i));
         return bVar2.getConvertView();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.aap.get(i);
+        return this.aaB.get(i);
     }
 
     @Override // android.widget.Adapter

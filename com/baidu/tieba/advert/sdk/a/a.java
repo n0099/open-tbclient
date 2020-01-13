@@ -1,13 +1,13 @@
 package com.baidu.tieba.advert.sdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a {
     void a(com.baidu.tieba.advert.sdk.data.a aVar);
 
-    void aWt();
+    void aWN();
 
-    void aWu();
+    void aWO();
 
-    void aWv();
+    void aWP();
 
-    void wZ(String str);
+    void xd(String str);
 }

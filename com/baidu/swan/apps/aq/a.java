@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.aq;
 
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
-    private static String bTF;
+    private static String bTR;
 
-    public static String mi(String str) {
-        return String.format("%s %s", str, adH());
+    public static String ml(String str) {
+        return String.format("%s %s", str, aea());
     }
 
-    public static String adH() {
-        if (TextUtils.isEmpty(bTF)) {
-            bTF = b.adH();
+    public static String aea() {
+        if (TextUtils.isEmpty(bTR)) {
+            bTR = b.aea();
         }
-        return bTF;
+        return bTR;
     }
 }

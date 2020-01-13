@@ -5,25 +5,25 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import rx.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class b implements k {
-    private volatile boolean ndG;
-    private Set<k> nkq;
+    private volatile boolean nMF;
+    private Set<k> nTn;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.ndG;
+        return this.nMF;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.ndG) {
+            if (!this.nMF) {
                 synchronized (this) {
-                    if (!this.ndG) {
-                        if (this.nkq == null) {
-                            this.nkq = new HashSet(4);
+                    if (!this.nMF) {
+                        if (this.nTn == null) {
+                            this.nTn = new HashSet(4);
                         }
-                        this.nkq.add(kVar);
+                        this.nTn.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void a(k kVar) {
-        if (!this.ndG) {
+        if (!this.nMF) {
             synchronized (this) {
-                if (!this.ndG && this.nkq != null) {
-                    boolean remove = this.nkq.remove(kVar);
+                if (!this.nMF && this.nTn != null) {
+                    boolean remove = this.nTn.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,19 +47,19 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.ndG) {
+        if (!this.nMF) {
             synchronized (this) {
-                if (!this.ndG) {
-                    this.ndG = true;
-                    Set<k> set = this.nkq;
-                    this.nkq = null;
-                    q(set);
+                if (!this.nMF) {
+                    this.nMF = true;
+                    Set<k> set = this.nTn;
+                    this.nTn = null;
+                    r(set);
                 }
             }
         }
     }
 
-    private static void q(Collection<k> collection) {
+    private static void r(Collection<k> collection) {
         if (collection != null) {
             ArrayList arrayList = null;
             for (k kVar : collection) {
@@ -71,7 +71,7 @@ public final class b implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.fF(arrayList);
+            rx.exceptions.a.fG(arrayList);
         }
     }
 }

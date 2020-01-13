@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import tbclient.SetCommonForumState.DataReq;
 import tbclient.SetCommonForumState.SetCommonForumStateReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RequestSetCommForumStateNetMessage extends NetMessage {
     private long mForumId;
     private int operation;

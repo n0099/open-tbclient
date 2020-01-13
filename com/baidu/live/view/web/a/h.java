@@ -1,13 +1,16 @@
 package com.baidu.live.view.web.a;
 
+import android.app.Activity;
 import android.util.Log;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.data.ShareEntity;
+import com.baidu.live.tbadk.data.ShareEntityWrapperData;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h extends com.baidu.live.view.web.a {
+    private Activity activity;
     private long userId;
     private String userName = "";
 
@@ -17,7 +20,7 @@ public class h extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void dT(String str) {
+    public void dV(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl ShareBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -34,7 +37,10 @@ public class h extends com.baidu.live.view.web.a {
             shareEntity.shareType = optInt;
             shareEntity.userId = this.userId;
             shareEntity.userName = this.userName;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2913077, shareEntity));
+            ShareEntityWrapperData shareEntityWrapperData = new ShareEntityWrapperData();
+            shareEntityWrapperData.activity = this.activity;
+            shareEntityWrapperData.shareEntity = shareEntity;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2913077, shareEntityWrapperData));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -46,5 +52,9 @@ public class h extends com.baidu.live.view.web.a {
 
     public void setUserName(String str) {
         this.userName = str;
+    }
+
+    public void y(Activity activity) {
+        this.activity = activity;
     }
 }

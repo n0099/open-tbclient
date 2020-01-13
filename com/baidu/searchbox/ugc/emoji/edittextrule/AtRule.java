@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AtRule extends HighlightAndDeleteRule {
     private static final String AT_PATTERN = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
     private static final boolean DEBUG = AppConfig.isDebug();

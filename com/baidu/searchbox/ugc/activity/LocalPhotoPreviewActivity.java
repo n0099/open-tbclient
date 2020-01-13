@@ -31,7 +31,7 @@ import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.searchbox.ugc.utils.UiBaseUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LocalPhotoPreviewActivity extends PreviewBaseActivity implements View.OnClickListener, LocalAlbumAdapter.ClickPagerViewListener {
     private static boolean isRunning = false;
     private static OnDeletePreviewPhotoListener mListener;

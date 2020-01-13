@@ -16,7 +16,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaPlayerLocal;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class p {
     private static final Object a = new Object();
     private static volatile p b;
@@ -765,7 +765,7 @@ public final class p {
         return this.p.booleanValue();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         private IPushActionListener a;
         private com.vivo.push.b.c b;

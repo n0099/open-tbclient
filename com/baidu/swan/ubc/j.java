@@ -5,15 +5,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class j {
-    private long ER;
-    private long bDa;
-    private int cAC;
-    private JSONObject cAD;
-    private String cAE;
-    private boolean cAF = false;
-    private JSONArray cAH;
+    private long EW;
+    private long bDL;
+    private int cAN;
+    private JSONObject cAO;
+    private String cAP;
+    private boolean cAQ = false;
+    private JSONArray cAS;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -26,7 +26,7 @@ public class j {
 
     public j(String str, int i, String str2, int i2, boolean z) {
         this.mId = str;
-        this.cAC = i;
+        this.cAN = i;
         this.mContent = str2;
         this.mOption = i2;
         this.mIsSampled = z;
@@ -36,27 +36,27 @@ public class j {
         return this.mId;
     }
 
-    public int asM() {
-        return this.cAC;
+    public int atf() {
+        return this.cAN;
     }
 
     public String getContent() {
         return this.mContent;
     }
 
-    public JSONObject asO() {
-        return this.cAD;
+    public JSONObject ath() {
+        return this.cAO;
     }
 
-    public long asT() {
-        return this.ER;
+    public long atm() {
+        return this.EW;
     }
 
     public long getEndTime() {
-        return this.bDa;
+        return this.bDL;
     }
 
-    public String asU() {
+    public String atn() {
         return this.mState;
     }
 
@@ -64,8 +64,8 @@ public class j {
         return this.mOption;
     }
 
-    public String asN() {
-        return this.cAE;
+    public String atg() {
+        return this.cAP;
     }
 
     public void setId(String str) {
@@ -73,32 +73,32 @@ public class j {
     }
 
     public void iH(int i) {
-        this.cAC = i;
+        this.cAN = i;
     }
 
     public void setContent(String str) {
         this.mContent = str;
     }
 
-    public void bf(long j) {
-        this.ER = j;
+    public void bi(long j) {
+        this.EW = j;
     }
 
     public void setEndTime(long j) {
-        this.bDa = j;
+        this.bDL = j;
     }
 
-    public void qF(String str) {
+    public void qI(String str) {
         this.mState = str;
     }
 
-    public void qG(String str) {
-        this.cAE = str;
+    public void qJ(String str) {
+        this.cAP = str;
     }
 
-    public void asQ() {
-        if (d.asz().qy(this.mId)) {
-            this.cAE = s.atk().WD();
+    public void atj() {
+        if (d.asS().qB(this.mId)) {
+            this.cAP = s.atD().Xa();
         }
     }
 
@@ -110,29 +110,29 @@ public class j {
         return this.mCategory;
     }
 
-    public void eS(boolean z) {
-        this.cAF = z;
+    public void eX(boolean z) {
+        this.cAQ = z;
     }
 
-    public boolean asK() {
-        return this.cAF;
+    public boolean atd() {
+        return this.cAQ;
     }
 
-    public void qH(String str) {
+    public void qK(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.cAH = new JSONArray(str);
+                this.cAS = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray asV() {
-        return this.cAH;
+    public JSONArray ato() {
+        return this.cAS;
     }
 
-    public boolean asS() {
+    public boolean atl() {
         return this.mIsSampled;
     }
 }

@@ -8,7 +8,7 @@ import io.reactivex.q;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CompletableAndThenObservable<R> extends q<R> {
     final t<? extends R> other;
     final e source;
@@ -20,7 +20,7 @@ public final class CompletableAndThenObservable<R> extends q<R> {
         this.source.a(andThenObservableObserver);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class AndThenObservableObserver<R> extends AtomicReference<b> implements c, b, u<R> {
         private static final long serialVersionUID = -8948264376121066672L;
         final u<? super R> downstream;

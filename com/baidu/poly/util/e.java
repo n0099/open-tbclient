@@ -4,12 +4,12 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     private static NetworkInfo getActiveNetworkInfo() {
         ConnectivityManager connectivityManager;
-        Context BQ = f.BQ();
-        if (BQ != null && (connectivityManager = (ConnectivityManager) BQ.getSystemService("connectivity")) != null) {
+        Context Cm = f.Cm();
+        if (Cm != null && (connectivityManager = (ConnectivityManager) Cm.getSystemService("connectivity")) != null) {
             return connectivityManager.getActiveNetworkInfo();
         }
         return null;
@@ -20,10 +20,10 @@ public class e {
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "0";
         }
-        return activeNetworkInfo.getType() == 1 ? "4" : activeNetworkInfo.getType() == 0 ? o(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
+        return activeNetworkInfo.getType() == 1 ? "4" : activeNetworkInfo.getType() == 0 ? r(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
     }
 
-    private static String o(int i, String str) {
+    private static String r(int i, String str) {
         switch (i) {
             case 1:
             case 2:

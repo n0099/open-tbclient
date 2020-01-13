@@ -6,7 +6,7 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.sofire.ac.FH;
 import com.baidu.swan.apps.w.b.m;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements m {
     @Override // com.baidu.swan.apps.w.b.m
     public String cb(Context context) {

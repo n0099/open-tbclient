@@ -9,11 +9,11 @@ import com.baidu.tbadk.editortools.view.a;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tbadk.editortools.view.a {
-    LinkedList<g> dsi;
+    LinkedList<g> dsu;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void g(LinkedList<g> linkedList) {
-        this.dsi = linkedList;
+        this.dsu = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -25,13 +25,13 @@ public class h extends com.baidu.tbadk.editortools.view.a {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return (DLauncher) this.dsi.get(i);
+        return (DLauncher) this.dsu.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public int getCount() {
-        if (this.dsi != null) {
-            return this.dsi.size();
+        if (this.dsu != null) {
+            return this.dsu.size();
         }
         return 0;
     }
@@ -40,8 +40,8 @@ public class h extends com.baidu.tbadk.editortools.view.a {
     public void init(Context context) {
         mg(4);
         mh(2);
-        a(new a.InterfaceC0378a() { // from class: com.baidu.tbadk.editortools.h.1
-            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0378a
+        a(new a.InterfaceC0380a() { // from class: com.baidu.tbadk.editortools.h.1
+            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0380a
             public View getView(int i, View view, ViewGroup viewGroup) {
                 DLauncher lY = h.this.lY(i);
                 if (lY.getLayoutParams() == null) {
@@ -50,12 +50,12 @@ public class h extends com.baidu.tbadk.editortools.view.a {
                 return lY;
             }
         });
-        aMK().c(this);
+        aNd().c(this);
         a(new CommonTabContentView.b() { // from class: com.baidu.tbadk.editortools.h.2
             @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.b
             public void b(View view, int i, long j) {
-                if ((view instanceof DLauncher) && h.this.Fq != null) {
-                    h.this.Fq.ba(view);
+                if ((view instanceof DLauncher) && h.this.Fv != null) {
+                    h.this.Fv.be(view);
                 }
             }
         });
@@ -63,9 +63,9 @@ public class h extends com.baidu.tbadk.editortools.view.a {
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void exit() {
-        if (this.dsi != null) {
-            this.dsi.clear();
+        if (this.dsu != null) {
+            this.dsu.clear();
         }
-        this.dsi = null;
+        this.dsu = null;
     }
 }

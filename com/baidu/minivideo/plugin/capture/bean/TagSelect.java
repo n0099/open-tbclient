@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TagSelect implements Jsonable, Serializable {
     public String id = "";
     public String name = "";

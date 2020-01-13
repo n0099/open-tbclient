@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.d.a;
 import com.baidu.android.pushservice.d.y;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i {
     private static i a;
     private String b;

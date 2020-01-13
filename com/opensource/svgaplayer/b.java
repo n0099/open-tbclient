@@ -4,63 +4,63 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
-import kotlin.jvm.internal.p;
-/* loaded from: classes4.dex */
+import kotlin.jvm.internal.q;
+/* loaded from: classes.dex */
 public final class b extends Drawable {
-    private boolean mKo;
-    private int mKp;
-    private ImageView.ScaleType mKq;
-    private final com.opensource.svgaplayer.a.b mKr;
-    private final f mKs;
-    private final c mKt;
+    private boolean njQ;
+    private int njR;
+    private ImageView.ScaleType njS;
+    private final com.opensource.svgaplayer.a.b njT;
+    private final f njU;
+    private final c njV;
 
     public b(f fVar, c cVar) {
-        p.j(fVar, "videoItem");
-        p.j(cVar, "dynamicItem");
-        this.mKs = fVar;
-        this.mKt = cVar;
-        this.mKo = true;
-        this.mKq = ImageView.ScaleType.MATRIX;
-        this.mKr = new com.opensource.svgaplayer.a.b(this.mKs, this.mKt);
+        q.j(fVar, "videoItem");
+        q.j(cVar, "dynamicItem");
+        this.njU = fVar;
+        this.njV = cVar;
+        this.njQ = true;
+        this.njS = ImageView.ScaleType.MATRIX;
+        this.njT = new com.opensource.svgaplayer.a.b(this.njU, this.njV);
     }
 
-    public final f dzC() {
-        return this.mKs;
+    public final f dDv() {
+        return this.njU;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(f fVar) {
         this(fVar, new c());
-        p.j(fVar, "videoItem");
+        q.j(fVar, "videoItem");
     }
 
-    public final void vR(boolean z) {
-        if (this.mKo != z) {
-            this.mKo = z;
+    public final void wq(boolean z) {
+        if (this.njQ != z) {
+            this.njQ = z;
             invalidateSelf();
         }
     }
 
-    public final int dzB() {
-        return this.mKp;
+    public final int dDu() {
+        return this.njR;
     }
 
-    public final void Mu(int i) {
-        if (this.mKp != i) {
-            this.mKp = i;
+    public final void Ne(int i) {
+        if (this.njR != i) {
+            this.njR = i;
             invalidateSelf();
         }
     }
 
     public final void setScaleType(ImageView.ScaleType scaleType) {
-        p.j(scaleType, "<set-?>");
-        this.mKq = scaleType;
+        q.j(scaleType, "<set-?>");
+        this.njS = scaleType;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.mKo && canvas != null) {
-            this.mKr.a(canvas, this.mKp, this.mKq);
+        if (!this.njQ && canvas != null) {
+            this.njT.a(canvas, this.njR, this.njS);
         }
     }
 

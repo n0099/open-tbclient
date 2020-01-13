@@ -12,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<com.baidu.live.gift.b> ajK;
+    private ArrayList<com.baidu.live.gift.b> aku;
 
     public AlaDynamicGiftListHttpResponseMessage(int i) {
         super(i);
@@ -24,20 +24,20 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.ajK = r(optJSONObject);
-                if (this.ajK.size() <= 0) {
-                    com.baidu.live.gift.b.a.sI();
-                    c.oI().putString("dynamic_cache_data_list", "");
+                this.aku = r(optJSONObject);
+                if (this.aku.size() <= 0) {
+                    com.baidu.live.gift.b.a.sY();
+                    c.oJ().putString("dynamic_cache_data_list", "");
                     return;
                 }
-                dp(c.oI().getSharedPreferences().getString("dynamic_cache_data_list", ""));
-                c.oI().putString("dynamic_cache_data_list", optJSONObject.toString());
-                sF();
+                dr(c.oJ().getSharedPreferences().getString("dynamic_cache_data_list", ""));
+                c.oJ().putString("dynamic_cache_data_list", optJSONObject.toString());
+                sV();
             }
         }
     }
 
-    private void dp(String str) {
+    private void dr(String str) {
         ArrayList<com.baidu.live.gift.b> arrayList;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -54,31 +54,31 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
                 }
                 for (int i2 = 0; i2 < arrayList2.size(); i2++) {
                     com.baidu.live.gift.b bVar = (com.baidu.live.gift.b) arrayList2.get(i2);
-                    if (bVar != null && bVar.ads != null && !TextUtils.isEmpty(bVar.ads.zipName)) {
-                        com.baidu.live.gift.b.a.ds(bVar.ads.zipName);
+                    if (bVar != null && bVar.adH != null && !TextUtils.isEmpty(bVar.adH.zipName)) {
+                        com.baidu.live.gift.b.a.du(bVar.adH.zipName);
                     }
                 }
             }
         }
     }
 
-    private void sF() {
-        if (!BdNetTypeUtil.isMobileNet() || !k.yr()) {
-            for (int i = 0; i < this.ajK.size(); i++) {
-                com.baidu.live.gift.b bVar = this.ajK.get(i);
-                if (bVar.ads != null && bVar.ads.qn()) {
-                    com.baidu.live.gift.b.a.b(bVar.giftId, bVar.ads.zipDownloadUrl, bVar.ads.zipName, bVar.ads.zipMD5, false);
+    private void sV() {
+        if (!BdNetTypeUtil.isMobileNet() || !k.yH()) {
+            for (int i = 0; i < this.aku.size(); i++) {
+                com.baidu.live.gift.b bVar = this.aku.get(i);
+                if (bVar.adH != null && bVar.adH.qu()) {
+                    com.baidu.live.gift.b.a.b(bVar.giftId, bVar.adH.zipDownloadUrl, bVar.adH.zipName, bVar.adH.zipMD5, false);
                 }
             }
         }
     }
 
     private boolean a(com.baidu.live.gift.b bVar) {
-        if (bVar == null || bVar.ads == null || StringUtils.isNull(bVar.ads.zipMD5)) {
+        if (bVar == null || bVar.adH == null || StringUtils.isNull(bVar.adH.zipMD5)) {
             return false;
         }
-        for (int i = 0; i < this.ajK.size(); i++) {
-            if (this.ajK.get(i).ads.zipMD5.equals(bVar.ads.zipMD5)) {
+        for (int i = 0; i < this.aku.size(); i++) {
+            if (this.aku.get(i).adH.zipMD5.equals(bVar.adH.zipMD5)) {
                 return true;
             }
         }
@@ -101,7 +101,7 @@ public class AlaDynamicGiftListHttpResponseMessage extends JsonHttpResponsedMess
         return arrayList;
     }
 
-    public ArrayList<com.baidu.live.gift.b> sG() {
-        return this.ajK;
+    public ArrayList<com.baidu.live.gift.b> sW() {
+        return this.aku;
     }
 }

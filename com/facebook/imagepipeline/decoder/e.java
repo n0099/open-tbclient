@@ -4,26 +4,26 @@ import com.facebook.common.internal.g;
 import com.facebook.common.internal.l;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private final com.facebook.common.memory.a lEt;
-    private boolean lPm;
-    private int lPi = 0;
-    private int lPh = 0;
-    private int lPj = 0;
-    private int lPl = 0;
-    private int lPk = 0;
-    private int lPg = 0;
+    private final com.facebook.common.memory.a lHR;
+    private boolean lSY;
+    private int lSU = 0;
+    private int lST = 0;
+    private int lSV = 0;
+    private int lSX = 0;
+    private int lSW = 0;
+    private int lSS = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.lEt = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.lHR = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.g.e eVar) {
-        if (this.lPg != 6 && eVar.getSize() > this.lPi) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.lEt.get(16384), this.lEt);
+        if (this.lSS != 6 && eVar.getSize() > this.lSU) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.lHR.get(16384), this.lHR);
             try {
-                com.facebook.common.util.c.a(fVar, this.lPi);
+                com.facebook.common.util.c.a(fVar, this.lSU);
                 return w(fVar);
             } catch (IOException e) {
                 l.u(e);
@@ -38,88 +38,88 @@ public class e {
     private boolean w(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.lPk;
-        while (this.lPg != 6 && (read = inputStream.read()) != -1) {
+        int i = this.lSW;
+        while (this.lSS != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.lPi++;
-                if (this.lPm) {
-                    this.lPg = 6;
-                    this.lPm = false;
+                this.lSU++;
+                if (this.lSY) {
+                    this.lSS = 6;
+                    this.lSY = false;
                     return false;
                 }
-                switch (this.lPg) {
+                switch (this.lSS) {
                     case 0:
                         if (read == 255) {
-                            this.lPg = 1;
+                            this.lSS = 1;
                             break;
                         } else {
-                            this.lPg = 6;
+                            this.lSS = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.lPg = 2;
+                            this.lSS = 2;
                             break;
                         } else {
-                            this.lPg = 6;
+                            this.lSS = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.lPg = 3;
+                            this.lSS = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.lPg = 3;
+                            this.lSS = 3;
                             break;
                         } else if (read == 0) {
-                            this.lPg = 2;
+                            this.lSS = 2;
                             break;
                         } else if (read == 217) {
-                            this.lPm = true;
-                            HW(this.lPi - 2);
-                            this.lPg = 2;
+                            this.lSY = true;
+                            If(this.lSU - 2);
+                            this.lSS = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                HW(this.lPi - 2);
+                                If(this.lSU - 2);
                             }
-                            if (HV(read)) {
-                                this.lPg = 4;
+                            if (Ie(read)) {
+                                this.lSS = 4;
                                 break;
                             } else {
-                                this.lPg = 2;
+                                this.lSS = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.lPg = 5;
+                        this.lSS = 5;
                         break;
                     case 5:
-                        int i2 = ((this.lPh << 8) + read) - 2;
+                        int i2 = ((this.lST << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.lPi = i2 + this.lPi;
-                        this.lPg = 2;
+                        this.lSU = i2 + this.lSU;
+                        this.lSS = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.lPh = read;
+                this.lST = read;
             } catch (IOException e) {
                 l.u(e);
             }
         }
-        if (this.lPg == 6 || this.lPk == i) {
+        if (this.lSS == 6 || this.lSW == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean HV(int i) {
+    private static boolean Ie(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void HW(int i) {
-        if (this.lPj > 0) {
-            this.lPl = i;
+    private void If(int i) {
+        if (this.lSV > 0) {
+            this.lSX = i;
         }
-        int i2 = this.lPj;
-        this.lPj = i2 + 1;
-        this.lPk = i2;
+        int i2 = this.lSV;
+        this.lSV = i2 + 1;
+        this.lSW = i2;
     }
 
-    public int dnP() {
-        return this.lPl;
+    public int doV() {
+        return this.lSX;
     }
 
-    public int dnQ() {
-        return this.lPk;
+    public int doW() {
+        return this.lSW;
     }
 
-    public boolean dnR() {
-        return this.lPm;
+    public boolean doX() {
+        return this.lSY;
     }
 }

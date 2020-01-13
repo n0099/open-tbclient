@@ -31,8 +31,8 @@ public class a {
     private NinePatch ninePatch;
     public long timeStamp;
     private String url;
-    private com.baidu.adp.gif.b zA;
-    public C0027a zB;
+    private com.baidu.adp.gif.b zE;
+    public C0027a zF;
 
     /* renamed from: com.baidu.adp.widget.ImageView.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -53,7 +53,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.zB = new C0027a();
+        this.zF = new C0027a();
         this.image = bitmap;
         this.isGif = z;
         checkIsNinePatchBitmap();
@@ -70,7 +70,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.zB = new C0027a();
+        this.zF = new C0027a();
         this.image = bitmap;
         this.isGif = z;
         this.url = str;
@@ -88,7 +88,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.zB = new C0027a();
+        this.zF = new C0027a();
         this.image = bitmap;
         this.isGif = z;
         this.url = str;
@@ -107,7 +107,7 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.zB = new C0027a();
+        this.zF = new C0027a();
         this.image = bitmap;
         this.isGif = z;
         this.url = str;
@@ -126,8 +126,8 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.zB = new C0027a();
-        this.zA = bVar;
+        this.zF = new C0027a();
+        this.zE = bVar;
         this.image = bitmap;
         this.isGif = z;
     }
@@ -143,8 +143,8 @@ public class a {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.zB = new C0027a();
-        this.zA = bVar;
+        this.zF = new C0027a();
+        this.zE = bVar;
         this.mIsEmotionGif = true;
     }
 
@@ -161,7 +161,7 @@ public class a {
     }
 
     public com.baidu.adp.gif.b getGif() {
-        return this.zA;
+        return this.zE;
     }
 
     public int getWidth() {
@@ -233,9 +233,9 @@ public class a {
                 this.image = null;
                 bitmap.recycle();
             }
-            if (this.zA != null) {
-                com.baidu.adp.gif.b bVar = this.zA;
-                this.zA = null;
+            if (this.zE != null) {
+                com.baidu.adp.gif.b bVar = this.zE;
+                this.zE = null;
                 bVar.close();
             }
             return true;

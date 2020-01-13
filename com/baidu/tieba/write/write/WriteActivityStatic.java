@@ -47,10 +47,10 @@ import com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity;
 import com.baidu.tieba.write.vcode.oldVcode.VcodeActivity;
 import com.baidu.tieba.write.video.WriteVideoActivity;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WriteActivityStatic {
-    private static int kPx = 11;
-    private static int kPy = 18;
+    private static int kSY = 11;
+    private static int kSZ = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -67,9 +67,9 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteUrlActivityConfig.class, WriteUrlActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AccountAccessActivityConfig.class, AccountAccessActivity.class);
-        LocationModel.cJg();
-        bKd();
-        ba.aEa().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new ba.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
+        LocationModel.cKk();
+        bLi();
+        ba.aEt().a(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new ba.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
             @Override // com.baidu.tbadk.core.util.ba.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
@@ -85,7 +85,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void F(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= kPy && Build.VERSION.SDK_INT >= kPx) {
+        if (Build.VERSION.SDK_INT <= kSZ && Build.VERSION.SDK_INT >= kSY) {
             J(tbPageContext);
         } else {
             K(tbPageContext);
@@ -124,7 +124,7 @@ public class WriteActivityStatic {
         });
     }
 
-    public static void bKd() {
+    public static void bLi() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.a> run(CustomMessage<Object> customMessage) {

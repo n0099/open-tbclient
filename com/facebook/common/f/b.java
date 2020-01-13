@@ -3,11 +3,11 @@ package com.facebook.common.f;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b extends FilterInputStream {
-    private final byte[] lEK;
-    private int lEL;
-    private int lEM;
+    private final byte[] lIi;
+    private int lIj;
+    private int lIk;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.lEK = bArr;
+        this.lIi = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : diK();
+        return read != -1 ? read : djL();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int diK = diK();
-                if (diK == -1) {
+                int djL = djL();
+                if (djL == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) diK;
+                bArr[i + i3] = (byte) djL;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.lEL = this.lEM;
+            this.lIj = this.lIk;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.lEM = this.lEL;
+            this.lIk = this.lIj;
         }
     }
 
-    private int diK() {
-        if (this.lEL >= this.lEK.length) {
+    private int djL() {
+        if (this.lIj >= this.lIi.length) {
             return -1;
         }
-        byte[] bArr = this.lEK;
-        int i = this.lEL;
-        this.lEL = i + 1;
+        byte[] bArr = this.lIi;
+        int i = this.lIj;
+        this.lIj = i + 1;
         return bArr[i] & 255;
     }
 }

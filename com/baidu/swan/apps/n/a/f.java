@@ -3,20 +3,20 @@ package com.baidu.swan.apps.n.a;
 import android.net.Uri;
 import android.util.Log;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f<T> extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public boolean bpz = true;
+    public boolean bqn = true;
     public T mData;
 
     public f() {
-        this.bpu = "message";
+        this.bqi = "message";
     }
 
     @Override // com.baidu.swan.apps.n.a.a
-    public String hr(String str) {
+    public String hu(String str) {
         if (this.mData instanceof String) {
-            String encode = this.bpz ? Uri.encode((String) this.mData) : (String) this.mData;
+            String encode = this.bqn ? Uri.encode((String) this.mData) : (String) this.mData;
             if (DEBUG) {
                 Log.d("SwanAppWebMessage", "mData: " + this.mData);
                 Log.d("SwanAppWebMessage", "encode mData: " + encode);

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TbadkStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2156675, new CustomMessageTask.CustomRunnable<a>() { // from class: com.baidu.tbadk.coreExtra.messageCenter.TbadkStatic.1

@@ -7,7 +7,7 @@ import com.baidu.ubc.a;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UgcUBCUtils {
     private static final String CONTENT_KEY_NET = "network";
     public static final boolean DEBUG = false;
@@ -106,7 +106,7 @@ public class UgcUBCUtils {
     private static UbcConfig sUbcConfig;
     private static String source;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class UbcConfig {
         public static final String UBC_ID_DUARTION_PUBLISH_PAGE = "703";
         public static final String UBC_ID_DURATION_PICK_PIC = "131";
@@ -427,7 +427,7 @@ public class UgcUBCUtils {
             print(str, "beginFlow", null);
             a uBCManager = getUBCManager();
             if (uBCManager != null) {
-                return uBCManager.GT(str);
+                return uBCManager.Hd(str);
             }
             return null;
         }

@@ -25,8 +25,6 @@ import android.util.Base64;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.sofire.MyActivity;
 import com.baidu.sofire.MyProvider;
@@ -60,7 +58,7 @@ import java.util.Properties;
 import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class d {
     public static String b;
     public static String c;
@@ -855,7 +853,7 @@ public final class d {
                 jSONObject2.put("6", 1);
                 jSONObject2.put("7", 0);
                 jSONObject2.put("8", "sofire");
-                jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, "3.3.9.8.2");
+                jSONObject2.put("9", "3.3.9.8.2");
                 jSONObject2.put("10", str);
                 jSONObject.put("Common_section", jSONObject2);
                 if (map.size() > 0) {
@@ -1171,7 +1169,7 @@ public final class d {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
         } catch (Throwable th) {
             com.baidu.sofire.b.d();
-            return BuildConfig.VERSION_NAME;
+            return "1.0.0";
         }
     }
 
@@ -1223,7 +1221,7 @@ public final class d {
             if (c2 == null) {
                 c2 = "";
             }
-            jSONObject.put(PublishType.TYPE_VIDEO_SHARE, c2);
+            jSONObject.put("9", c2);
             String d2 = g.d();
             if (d2 == null) {
                 d2 = "";
@@ -1238,7 +1236,7 @@ public final class d {
             jSONObject.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_JOININ_GROUP, g.c(context));
             jSONObject.put("14", "");
             jSONObject.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_WPA_STATE, g.i(context));
-            jSONObject.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_START_GROUP, g.j(context));
+            jSONObject.put("17", g.j(context));
             jSONObject.put("18", g.k(context));
             jSONObject.put("20", Build.VERSION.SDK_INT);
             TimeZone timeZone = TimeZone.getDefault();
@@ -1365,7 +1363,7 @@ public final class d {
             String optString2 = jSONObject3.optString("1");
             String optString3 = jSONObject3.optString("3");
             String optString4 = jSONObject3.optString("8");
-            str = jSONObject3.optString(PublishType.TYPE_VIDEO_SHARE);
+            str = jSONObject3.optString("9");
             str2 = optString4;
             str3 = optString3;
             str4 = optString2;
@@ -1381,7 +1379,7 @@ public final class d {
             jSONObject2.put("6", j2);
             jSONObject2.put("7", str4);
             jSONObject2.put("8", str3);
-            jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, str2);
+            jSONObject2.put("9", str2);
             jSONObject2.put("10", str);
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             jSONObject2.put("11", eVar.e.getString("re_a_cv", ""));
@@ -1596,7 +1594,7 @@ public final class d {
             jSONObject2.put("6", 1);
             jSONObject2.put("7", 0);
             jSONObject2.put("8", str);
-            jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, str2);
+            jSONObject2.put("9", str2);
             jSONObject2.put("10", str3);
             JSONObject jSONObject3 = !TextUtils.isEmpty(str4) ? new JSONObject(str4) : new JSONObject();
             jSONObject.put("Common_section", jSONObject2);
@@ -1699,7 +1697,7 @@ public final class d {
                     }
                 }
                 jSONObject2.put("8", packageInfo.versionName);
-                jSONObject2.put(PublishType.TYPE_VIDEO_SHARE, String.valueOf(new com.baidu.sofire.e(context).a.getInt("opi", 0)));
+                jSONObject2.put("9", String.valueOf(new com.baidu.sofire.e(context).a.getInt("opi", 0)));
                 jSONObject.put("1", jSONObject2);
                 String jSONObject3 = jSONObject.toString();
                 new StringBuilder().append(str).append("---").append(jSONObject3);

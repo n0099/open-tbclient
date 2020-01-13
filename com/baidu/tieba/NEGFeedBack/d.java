@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private HttpMessageListener dPB;
+    private HttpMessageListener dPK;
     private String mFrom;
-    private a dQn = null;
-    private CustomMessageListener dPF = new CustomMessageListener(2016489) { // from class: com.baidu.tieba.NEGFeedBack.d.1
+    private a dQw = null;
+    private CustomMessageListener dPO = new CustomMessageListener(2016489) { // from class: com.baidu.tieba.NEGFeedBack.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -29,36 +29,36 @@ public class d {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(DeleteThreadHttpResponseMessage deleteThreadHttpResponseMessage);
     }
 
     public d(String str) {
         this.mFrom = str;
-        if (this.dPB == null) {
-            this.dPB = new HttpMessageListener(CmdConfigHttp.CMD_NEG_DELETE_THREAD) { // from class: com.baidu.tieba.NEGFeedBack.d.2
+        if (this.dPK == null) {
+            this.dPK = new HttpMessageListener(CmdConfigHttp.CMD_NEG_DELETE_THREAD) { // from class: com.baidu.tieba.NEGFeedBack.d.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && d.this.dQn != null) {
-                        d.this.dQn.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
+                    if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && d.this.dQw != null) {
+                        d.this.dQw.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.dPB);
-        MessageManager.getInstance().registerListener(this.dPF);
+        MessageManager.getInstance().registerListener(this.dPK);
+        MessageManager.getInstance().registerListener(this.dPO);
     }
 
     public void registerListener() {
-        MessageManager.getInstance().registerListener(this.dPB);
-        MessageManager.getInstance().registerListener(this.dPF);
+        MessageManager.getInstance().registerListener(this.dPK);
+        MessageManager.getInstance().registerListener(this.dPO);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dPF);
-        MessageManager.getInstance().unRegisterListener(this.dPB);
+        MessageManager.getInstance().unRegisterListener(this.dPO);
+        MessageManager.getInstance().unRegisterListener(this.dPK);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -66,13 +66,13 @@ public class d {
         if (jSONObject != null && j.isNetworkAvailableForImmediately()) {
             try {
                 int i = jSONObject.getInt("type");
-                String N = aq.N(jSONObject.getJSONArray("thread_ids"));
-                String N2 = aq.N(jSONObject.getJSONArray(TiebaInitialize.LogFields.REASON));
+                String O = aq.O(jSONObject.getJSONArray("thread_ids"));
+                String O2 = aq.O(jSONObject.getJSONArray(TiebaInitialize.LogFields.REASON));
                 String string = jSONObject.getString("forum_id");
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEG_DELETE_THREAD);
                 httpMessage.addParam("type", i);
-                httpMessage.addParam("thread_ids", N);
-                httpMessage.addParam(TiebaInitialize.LogFields.REASON, N2);
+                httpMessage.addParam("thread_ids", O);
+                httpMessage.addParam(TiebaInitialize.LogFields.REASON, O2);
                 httpMessage.addParam("forum_id", string);
                 httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
                 MessageManager.getInstance().sendMessage(httpMessage);
@@ -83,6 +83,6 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.dQn = aVar;
+        this.dQw = aVar;
     }
 }

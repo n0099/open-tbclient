@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class GroupPermission extends Message {
     public static final String DEFAULT_CREATENORMALTIP = "";
     public static final String DEFAULT_CREATEOFFICIALTIP = "";
@@ -103,7 +103,7 @@ public final class GroupPermission extends Message {
         this.canCreatePersonalNum = builder.canCreatePersonalNum;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<GroupPermission> {
         public Integer canCreateNormal;
         public Integer canCreateNormalNum;

@@ -11,7 +11,7 @@ import com.baidu.tbadk.data.n;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i {
     public static String d(TbPageContext tbPageContext, String str) {
         if (tbPageContext == null || StringUtils.isNull(str)) {
@@ -24,9 +24,9 @@ public class i {
     }
 
     public static void a(n nVar, BdUniqueId bdUniqueId) {
-        if (nVar != null && !StringUtils.isNull(nVar.aLi()) && v.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
+        if (nVar != null && !StringUtils.isNull(nVar.aLB()) && v.isEmpty(MessageManager.getInstance().findMessage(1003063, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(1003063);
-            httpMessage.addParam("pic_url", nVar.aLi());
+            httpMessage.addParam("pic_url", nVar.aLB());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -34,13 +34,13 @@ public class i {
 
     public static void a(n nVar, List<m> list) {
         n nVar2;
-        if (nVar != null && !v.isEmpty(list) && !StringUtils.isNull(nVar.aLi())) {
+        if (nVar != null && !v.isEmpty(list) && !StringUtils.isNull(nVar.aLB())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 m mVar = list.get(i);
-                if ((mVar instanceof n) && (nVar2 = (n) mVar) != nVar && !nVar2.aLj()) {
-                    jSONArray.put(nVar2.aLi());
+                if ((mVar instanceof n) && (nVar2 = (n) mVar) != nVar && !nVar2.aLC()) {
+                    jSONArray.put(nVar2.aLB());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(1003064);
@@ -65,8 +65,8 @@ public class i {
                 m mVar = list.get(i);
                 if (mVar instanceof n) {
                     n nVar = (n) mVar;
-                    if (!nVar.aLj()) {
-                        jSONArray.put(nVar.aLi());
+                    if (!nVar.aLC()) {
+                        jSONArray.put(nVar.aLB());
                     }
                 }
             }

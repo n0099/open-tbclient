@@ -1,5 +1,6 @@
 package com.baidu.tieba.sdk.e;
 
+import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
@@ -11,7 +12,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
-    public void excute(Map<String, String> map, final SchemeCallback schemeCallback) {
+    public void excute(Context context, Map<String, String> map, final SchemeCallback schemeCallback) {
         try {
             final String str = map.get(BuyTBeanActivityConfig.CALLBACK);
             String str2 = map.get("is_translucent");
@@ -53,7 +54,7 @@ public class k implements ILiveScheme {
                     }
                 });
             }
-            com.baidu.tieba.sdk.a.cBx().HO(jSONObject.toString());
+            com.baidu.tieba.sdk.a.cCD().HY(jSONObject.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

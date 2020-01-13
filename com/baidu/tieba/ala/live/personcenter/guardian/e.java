@@ -6,14 +6,14 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes2.dex */
 public class e extends BdBaseModel<AlaGuardianListActivity> {
-    public HttpMessageListener eGT;
-    private AlaGuardianListActivity eHA;
-    private a eHy;
+    private a eII;
+    private AlaGuardianListActivity eIK;
+    public HttpMessageListener eId;
     private String mUserId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,12 +21,12 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
     public interface a {
         c b(c cVar);
 
-        void yg(String str);
+        void yl(String str);
     }
 
     public e(AlaGuardianListActivity alaGuardianListActivity, a aVar) {
         super(alaGuardianListActivity.getPageContext());
-        this.eGT = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.e.1
+        this.eId = new HttpMessageListener(1021024) { // from class: com.baidu.tieba.ala.live.personcenter.guardian.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -35,35 +35,35 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     int error = httpResponsedMessage.getError();
                     if (statusCode != 200 || error != 0) {
-                        if (e.this.eHy != null) {
+                        if (e.this.eII != null) {
                             if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                errorString = e.this.eHA.getResources().getString(a.i.sdk_neterror);
+                                errorString = e.this.eIK.getResources().getString(a.i.sdk_neterror);
                             } else {
                                 errorString = httpResponsedMessage.getErrorString();
                             }
-                            e.this.eHy.yg(errorString);
+                            e.this.eII.yl(errorString);
                             return;
                         }
                         return;
                     }
                     AlaGuardianListHttpResponseMessage alaGuardianListHttpResponseMessage = (AlaGuardianListHttpResponseMessage) httpResponsedMessage;
-                    if (e.this.eHy != null) {
-                        e.this.eHy.b(alaGuardianListHttpResponseMessage.bel());
+                    if (e.this.eII != null) {
+                        e.this.eII.b(alaGuardianListHttpResponseMessage.beG());
                     }
                 }
             }
         };
-        this.eHA = alaGuardianListActivity;
-        this.eHy = aVar;
-        bem();
-        registerListener(this.eGT);
+        this.eIK = alaGuardianListActivity;
+        this.eII = aVar;
+        beH();
+        registerListener(this.eId);
     }
 
-    public void yi(String str) {
+    public void yn(String str) {
         this.mUserId = str;
     }
 
-    private void bem() {
+    private void beH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021024, TbConfig.SERVER_ADDRESS + "ala/relation/getGuardianShipList");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -74,20 +74,20 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean loadData() {
-        ben();
+        beI();
         return false;
     }
 
-    private void ben() {
+    private void beI() {
         HttpMessage httpMessage = new HttpMessage(1021024);
-        httpMessage.setTag(this.eHA.getUniqueId());
+        httpMessage.setTag(this.eIK.getUniqueId());
         httpMessage.addParam("benefit_userid", this.mUserId);
         sendMessage(httpMessage);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.eGT);
+        MessageManager.getInstance().unRegisterListener(this.eId);
         return false;
     }
 

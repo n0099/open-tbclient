@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bb extends ba {
     private static bb c = new bb();
     private boolean b;

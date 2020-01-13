@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.database;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     private String appID;
-    private String bok;
-    private String bol;
-    private String bom;
-    public String bon;
-    public int boo;
+    private String boY;
+    private String boZ;
+    private String bpa;
+    public String bpb;
+    public int bpc;
 
     public b(String str) {
         this.appID = str;
@@ -20,31 +20,31 @@ public final class b {
         this.appID = str;
     }
 
-    public String Op() {
-        return this.bok;
-    }
-
-    public void hg(String str) {
-        this.bok = str;
-    }
-
-    public String Oq() {
-        return this.bom;
-    }
-
-    public void hh(String str) {
-        this.bom = str;
-    }
-
-    public void hi(String str) {
-        this.bon = str;
+    public String OL() {
+        return this.boY;
     }
 
     public void hj(String str) {
-        this.bol = str;
+        this.boY = str;
+    }
+
+    public String OM() {
+        return this.bpa;
+    }
+
+    public void hk(String str) {
+        this.bpa = str;
+    }
+
+    public void hl(String str) {
+        this.bpb = str;
+    }
+
+    public void hm(String str) {
+        this.boZ = str;
     }
 
     public void setAppFrameType(int i) {
-        this.boo = i;
+        this.bpc = i;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static final float[] IDENTITY_MATRIX = new float[16];
 
@@ -110,7 +110,7 @@ public class a {
         }
     }
 
-    public static int dp(int i) {
+    public static int dq(int i) {
         int[] iArr = new int[1];
         GLES30.glGenTextures(1, iArr, 0);
         checkGlError("glGenTextures");
@@ -125,7 +125,7 @@ public class a {
         return i2;
     }
 
-    public static int CS() {
-        return dp(36197);
+    public static int Do() {
+        return dq(36197);
     }
 }

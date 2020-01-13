@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class BackStackRecord extends FragmentTransaction implements FragmentManager.BackStackEntry, FragmentManagerImpl.OpGenerator {
     static final int OP_ADD = 1;
     static final int OP_ATTACH = 7;
@@ -49,7 +49,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     boolean mReorderingAllowed = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Op {
         int cmd;
         int enterAnim;

@@ -1,5 +1,5 @@
 package io.reactivex.internal.observers;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface b<T> {
     void drain();
 

@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class QuestionResponseModel {
     public static final String IMAGE = "image";
     public static final String TEXT = "html";
@@ -28,7 +28,7 @@ public class QuestionResponseModel {
     public static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = QuestionResponseModel.class.getSimpleName();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Origin {
         public int height;
         public String pic_type;
@@ -36,20 +36,20 @@ public class QuestionResponseModel {
         public int width;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface QuestionEditCallback {
         void onFailed(String str);
 
         void onSuccess(List<ReplyContentModel> list);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class ReplyContentModel {
         public ReplyData data;
         public String type;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class ReplyData {
         public String cover;
         public String duration;
@@ -62,7 +62,7 @@ public class QuestionResponseModel {
         public String value;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     class ReplyModel {
         public String encodeRid;
         public List<ReplyContentModel> replyList;
@@ -71,7 +71,7 @@ public class QuestionResponseModel {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     class QuestionModel {
         public String content;
         public String encodeQid;

@@ -1,156 +1,121 @@
 package com.baidu.tieba.ala.liveroom.i;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.c.f;
-import com.baidu.live.data.k;
-import com.baidu.live.q.a;
-import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.ViewHelper;
-import com.baidu.live.tbadk.statics.AlaStaticItem;
-import com.baidu.live.tbadk.statics.AlaStaticsManager;
-import com.baidu.live.tbadk.statics.HKStaticManager;
-import com.baidu.live.tbadk.statics.SdkStaticKeys;
-import com.baidu.tieba.ala.liveroom.b;
-import org.json.JSONObject;
+import android.widget.TextView;
+import com.baidu.live.r.a;
+import com.baidu.live.tbadk.core.view.HeadImageView;
+import com.baidu.live.tbadk.log.LogManager;
+import com.baidu.live.utils.k;
 /* loaded from: classes2.dex */
-public class a extends com.baidu.tieba.ala.liveroom.a {
-    private b eNX;
-    private com.baidu.live.s.b eVG;
-    private ViewGroup eqG;
-    private String otherParams;
+public class a extends Dialog implements View.OnClickListener {
+    private String eXA;
+    private HeadImageView eXs;
+    private TextView eXt;
+    private TextView eXu;
+    private InterfaceC0449a eXv;
+    private String eXw;
+    private String eXx;
+    private String eXy;
+    private String eXz;
+    private View mClose;
+    private long roomId;
 
-    public a(TbPageContext tbPageContext, b bVar) {
-        super(tbPageContext);
-        this.eNX = bVar;
+    /* renamed from: com.baidu.tieba.ala.liveroom.i.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0449a {
+        void bkc();
+
+        void bkd();
     }
 
-    @Override // com.baidu.tieba.ala.liveroom.a
-    public void Z(ViewGroup viewGroup) {
-        super.Z(viewGroup);
-        c(viewGroup, null);
+    public a(Context context) {
+        super(context, a.j.ala_tips_dialog_style);
     }
 
-    public void c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        CustomResponsedMessage runTask;
-        if (com.baidu.live.r.a.wA().arE.pJ()) {
-            if (this.eVG == null && (runTask = MessageManager.getInstance().runTask(2913034, com.baidu.live.s.b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
-                this.eVG = (com.baidu.live.s.b) runTask.getData();
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(a.h.dialog_anchor_letter);
+        initView();
+        initListener();
+        initData();
+    }
+
+    private void initData() {
+        this.eXs.setIsRound(true);
+        this.eXs.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
+        this.eXs.setBorderColor(getContext().getResources().getColor(a.d.sdk_white_alpha100));
+    }
+
+    private void initView() {
+        this.eXs = (HeadImageView) findViewById(a.g.user_icon);
+        this.eXt = (TextView) findViewById(a.g.invite_txt);
+        this.eXu = (TextView) findViewById(a.g.go_to_client);
+        this.mClose = findViewById(a.g.close);
+        k.a(this.eXs, this.eXw, true, false);
+        this.eXt.setText(this.eXx);
+        this.eXu.setText(this.eXy);
+    }
+
+    private void initListener() {
+        this.eXu.setOnClickListener(this);
+        this.mClose.setOnClickListener(this);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view == this.eXu) {
+            if (this.eXv != null) {
+                this.eXv.bkd();
             }
-            if (this.eVG != null) {
-                this.eVG.wL();
+            dismiss();
+            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.eXz, this.eXA);
+        } else if (view == this.mClose) {
+            if (this.eXv != null) {
+                this.eXv.bkc();
             }
-            d(viewGroup, layoutParams);
+            dismiss();
+            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.eXA);
         }
     }
 
-    private void d(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        View view;
-        if (viewGroup != null) {
-            this.eqG = viewGroup;
-            if (this.eVG != null && (view = this.eVG.getView()) != null) {
-                view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.i.a.1
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
-                        AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.CLICK_FLOWER);
-                        alaStaticItem.addParams("feed_id", HKStaticManager.FEED_ID);
-                        alaStaticItem.addParams("live_id", HKStaticManager.LIVE_ID);
-                        alaStaticItem.addParams("other_params", a.this.vi());
-                        AlaStaticsManager.getInst().onStatic(alaStaticItem);
-                        if (TbadkCoreApplication.isLogin()) {
-                            if (a.this.eNX != null) {
-                                a.this.eNX.pq(8);
-                            }
-                            a.this.bjt();
-                            return;
-                        }
-                        ViewHelper.skipToLoginActivity(a.this.getPageContext().getPageActivity());
-                    }
-                });
-                if (viewGroup.indexOfChild(view) < 0) {
-                    if (layoutParams == null) {
-                        layoutParams = bjs();
-                    }
-                    viewGroup.addView(view, layoutParams);
-                }
-            }
+    public void yC(String str) {
+        this.eXw = str;
+        if (this.eXs != null) {
+            k.a(this.eXs, this.eXw, true, false);
         }
     }
 
-    private ViewGroup.LayoutParams bjs() {
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(11);
-        layoutParams.rightMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds24);
-        layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds196);
-        return layoutParams;
-    }
-
-    @Override // com.baidu.tieba.ala.liveroom.a
-    public void oS() {
-        super.oS();
-        if (this.eVG != null) {
-            View view = this.eVG.getView();
-            if (view != null && view.getParent() != null) {
-                ((ViewGroup) view.getParent()).removeView(view);
-            }
-            this.eVG.wM();
+    public void yD(String str) {
+        this.eXx = str;
+        if (this.eXt != null) {
+            this.eXt.setText(this.eXx);
         }
     }
 
-    @Override // com.baidu.tieba.ala.liveroom.a
-    public void onDestroy() {
-        if (this.eVG != null) {
-            View view = this.eVG.getView();
-            if (view != null && view.getParent() != null) {
-                ((ViewGroup) view.getParent()).removeView(view);
-            }
-            this.eVG.onDestroy();
+    public void yE(String str) {
+        this.eXy = str;
+        if (this.eXu != null) {
+            this.eXu.setText(this.eXy);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bjt() {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new f(getPageContext().getPageActivity())));
+    public void setRoomId(long j) {
+        this.roomId = j;
     }
 
-    public void u(JSONObject jSONObject) {
-        if (this.eVG != null) {
-            this.eVG.v(jSONObject);
-        }
+    public void yF(String str) {
+        this.eXz = str;
     }
 
-    public void m(k kVar) {
-        if (!TbadkCoreApplication.isLogin()) {
-            bju();
-        }
-        if (this.eVG != null && this.eVG.getView() != null && kVar != null && kVar.Wk != null) {
-            this.eVG.a(kVar.Wk);
-        }
+    public void yG(String str) {
+        this.eXA = str;
     }
 
-    public void setCanVisible(boolean z) {
-        if (this.eVG != null) {
-            this.eVG.setCanVisible(z);
-        }
-    }
-
-    public void bju() {
-        if (this.eVG != null && this.eVG.getView() != null) {
-            this.eVG.getView().setVisibility(8);
-        }
-    }
-
-    public String vi() {
-        return this.otherParams;
-    }
-
-    public void setOtherParams(String str) {
-        this.otherParams = str;
+    public void a(InterfaceC0449a interfaceC0449a) {
+        this.eXv = interfaceC0449a;
     }
 }

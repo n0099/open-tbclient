@@ -1,25 +1,25 @@
 package io.reactivex.internal.util;
 
-import io.reactivex.b.j;
+import io.reactivex.c.j;
 import io.reactivex.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a<T> {
     final int capacity;
-    final Object[] mXk;
-    Object[] mXl;
+    final Object[] nzs;
+    Object[] nzt;
     int offset;
 
     /* renamed from: io.reactivex.internal.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0715a<T> extends j<T> {
-        @Override // io.reactivex.b.j
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0759a<T> extends j<T> {
+        @Override // io.reactivex.c.j
         boolean test(T t);
     }
 
     public a(int i) {
         this.capacity = i;
-        this.mXk = new Object[i + 1];
-        this.mXl = this.mXk;
+        this.nzs = new Object[i + 1];
+        this.nzt = this.nzs;
     }
 
     public void add(T t) {
@@ -27,16 +27,16 @@ public class a<T> {
         int i2 = this.offset;
         if (i2 == i) {
             Object[] objArr = new Object[i + 1];
-            this.mXl[i] = objArr;
-            this.mXl = objArr;
+            this.nzt[i] = objArr;
+            this.nzt = objArr;
             i2 = 0;
         }
-        this.mXl[i2] = t;
+        this.nzt[i2] = t;
         this.offset = i2 + 1;
     }
 
-    public void bI(T t) {
-        this.mXk[0] = t;
+    public void bL(T t) {
+        this.nzs[0] = t;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x000e, code lost:
@@ -45,15 +45,15 @@ public class a<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(InterfaceC0715a<? super T> interfaceC0715a) {
-        Object[] objArr = this.mXk;
+    public void a(InterfaceC0759a<? super T> interfaceC0759a) {
+        Object[] objArr = this.nzs;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {
                 Object obj = objArr2[i2];
                 if (obj == null) {
                     break;
-                } else if (interfaceC0715a.test(obj)) {
+                } else if (interfaceC0759a.test(obj)) {
                     return;
                 }
             }
@@ -67,7 +67,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(org.a.c<? super U> cVar) {
-        Object[] objArr = this.mXk;
+        Object[] objArr = this.nzs;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -89,7 +89,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean d(u<? super U> uVar) {
-        Object[] objArr = this.mXk;
+        Object[] objArr = this.nzs;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {

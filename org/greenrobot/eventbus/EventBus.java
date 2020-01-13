@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EventBus {
     static volatile EventBus defaultInstance;
     private final AsyncPoster asyncPoster;
@@ -34,7 +34,7 @@ public class EventBus {
     private static final EventBusBuilder DEFAULT_BUILDER = new EventBusBuilder();
     private static final Map<Class<?>, List<Class<?>>> eventTypesCache = new HashMap();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     interface PostCallback {
         void onPostCompleted(List<SubscriberExceptionEvent> list);
     }
@@ -429,7 +429,7 @@ public class EventBus {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class PostingThreadState {
         boolean canceled;
         Object event;

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class x {
     private static Object a = new Object();
     private static x b = null;

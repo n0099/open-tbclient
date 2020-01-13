@@ -21,38 +21,38 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
     private OkHttpClient mOkHttpClient;
-    private f mRZ;
-    private File mSa;
-    private Executor mSb;
-    private c mSc;
-    private RandomAccessFile mSe;
-    private d[] mSd = null;
-    private int mSf = 0;
-    private g mSg = new g();
+    private f nug;
+    private File nuh;
+    private Executor nui;
+    private c nuj;
+    private RandomAccessFile nul;
+    private d[] nuk = null;
+    private int nun = 0;
+    private g nuo = new g();
     private long mStartTime = -1;
-    private int mSh = 1;
+    private int nup = 1;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements Callback {
-        private d mSq;
+        private d nuw;
 
         public a(d dVar) {
-            this.mSq = dVar;
+            this.nuw = dVar;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(final Call call, IOException iOException) {
-            e.this.mSb.execute(new Runnable() { // from class: common.network.download.e.a.1
+            e.this.nui.execute(new Runnable() { // from class: common.network.download.e.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (!call.isCanceled()) {
-                        a.this.mSq.wc(true);
+                        a.this.nuw.wB(true);
                     }
                     if (e.this.isExecuted()) {
                         IOException iOException2 = new IOException("piece(s) failed");
-                        e.this.mSg.p(iOException2);
-                        e.this.mSc.b(e.this, iOException2);
+                        e.this.nuo.p(iOException2);
+                        e.this.nuj.b(e.this, iOException2);
                     }
                 }
             });
@@ -62,27 +62,27 @@ public class e {
         public void onResponse(final Call call, Response response) throws IOException {
             try {
                 final byte[] bytes = response.body().bytes();
-                e.this.mSb.execute(new Runnable() { // from class: common.network.download.e.a.2
+                e.this.nui.execute(new Runnable() { // from class: common.network.download.e.a.2
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            if (e.this.mSe != null) {
-                                e.this.mSe.seek(a.this.mSq.getStart());
-                                e.this.mSe.write(bytes);
-                                a.this.mSq.eX(true);
-                                e.this.dDD();
-                                e.this.mSg.eh(e.this.dDE(), e.this.dDF());
+                            if (e.this.nul != null) {
+                                e.this.nul.seek(a.this.nuw.getStart());
+                                e.this.nul.write(bytes);
+                                a.this.nuw.fc(true);
+                                e.this.dHJ();
+                                e.this.nuo.ei(e.this.dHK(), e.this.dHL());
                                 if (e.this.isExecuted()) {
                                     if (e.this.aW()) {
-                                        e.this.mSe.close();
-                                        e.this.mSe = null;
-                                        e.this.dDz().delete();
-                                        e.this.mSg.al(e.this.dDA());
-                                        e.this.mSc.d(e.this);
+                                        e.this.nul.close();
+                                        e.this.nul = null;
+                                        e.this.dHF().delete();
+                                        e.this.nuo.an(e.this.dHG());
+                                        e.this.nuj.d(e.this);
                                     } else {
                                         IOException iOException = new IOException("piece(s) failed");
-                                        e.this.mSg.p(iOException);
-                                        e.this.mSc.b(e.this, iOException);
+                                        e.this.nuo.p(iOException);
+                                        e.this.nuj.b(e.this, iOException);
                                     }
                                 }
                             }
@@ -98,50 +98,50 @@ public class e {
     }
 
     public e(f fVar, File file, ExecutorService executorService, OkHttpClient okHttpClient, c cVar) {
-        this.mRZ = fVar;
-        this.mSa = file;
-        this.mSb = executorService;
+        this.nug = fVar;
+        this.nuh = file;
+        this.nui = executorService;
         this.mOkHttpClient = okHttpClient;
-        this.mSc = cVar;
+        this.nuj = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public File dDz() {
-        return new File(this.mSa, this.mRZ.getName().concat(".json"));
+    public File dHF() {
+        return new File(this.nuh, this.nug.getName().concat(".json"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public File dDA() {
-        return new File(this.mSa, this.mRZ.getName());
+    public File dHG() {
+        return new File(this.nuh, this.nug.getName());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dDB() throws IOException {
-        File dDA = dDA();
-        if (dDA.exists() && dDA.length() == this.mSf) {
-            this.mSe = new RandomAccessFile(dDA, "rwd");
+    public void dHH() throws IOException {
+        File dHG = dHG();
+        if (dHG.exists() && dHG.length() == this.nun) {
+            this.nul = new RandomAccessFile(dHG, "rwd");
         } else {
-            this.mSe = new RandomAccessFile(dDA, "rws");
-            this.mSe.setLength(this.mSf);
+            this.nul = new RandomAccessFile(dHG, "rws");
+            this.nul.setLength(this.nun);
         }
-        if (this.mSe != null) {
-            this.mSe.close();
+        if (this.nul != null) {
+            this.nul.close();
         }
     }
 
     private void b(Callback callback) {
         try {
-            if (this.mSd == null) {
-                if (!dDC()) {
+            if (this.nuk == null) {
+                if (!dHI()) {
                     c(callback);
                     return;
                 }
-                dDB();
+                dHH();
                 callback.onResponse(null, null);
                 return;
             }
-            for (d dVar : this.mSd) {
-                dVar.wc(false);
+            for (d dVar : this.nuk) {
+                dVar.wB(false);
             }
             callback.onResponse(null, null);
         } catch (IOException e) {
@@ -152,15 +152,15 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
         d[] dVarArr;
-        for (d dVar : this.mSd) {
+        for (d dVar : this.nuk) {
             if (!dVar.aW()) {
-                this.mOkHttpClient.newCall(new Request.Builder().get().url(this.mRZ.getUrl()).addHeader(Headers.RANGE, dVar.dDy()).build()).enqueue(new a(dVar));
+                this.mOkHttpClient.newCall(new Request.Builder().get().url(this.nug.getUrl()).addHeader(Headers.RANGE, dVar.dHE()).build()).enqueue(new a(dVar));
             }
         }
     }
 
     public boolean aW() {
-        for (d dVar : this.mSd) {
+        for (d dVar : this.nuk) {
             if (!dVar.aW()) {
                 return false;
             }
@@ -170,7 +170,7 @@ public class e {
 
     public boolean isExecuted() {
         d[] dVarArr;
-        for (d dVar : this.mSd) {
+        for (d dVar : this.nuk) {
             if (!dVar.aW() && !dVar.isFailed()) {
                 return false;
             }
@@ -179,22 +179,22 @@ public class e {
     }
 
     @Nullable
-    private boolean dDC() {
+    private boolean dHI() {
         try {
-            FileInputStream fileInputStream = new FileInputStream(dDz());
+            FileInputStream fileInputStream = new FileInputStream(dHF());
             byte[] bArr = new byte[fileInputStream.available()];
             fileInputStream.read(bArr);
             fileInputStream.close();
             JSONObject jSONObject = new JSONObject(new String(bArr));
             String string = jSONObject.getString("url");
-            if (TextUtils.equals(jSONObject.getString("name"), this.mRZ.getName()) && TextUtils.equals(string, this.mRZ.getUrl())) {
-                this.mSf = jSONObject.getInt("fileLength");
+            if (TextUtils.equals(jSONObject.getString("name"), this.nug.getName()) && TextUtils.equals(string, this.nug.getUrl())) {
+                this.nun = jSONObject.getInt("fileLength");
                 this.mStartTime = jSONObject.getLong("startTime");
-                this.mSh = jSONObject.getInt("procCount") + 1;
+                this.nup = jSONObject.getInt("procCount") + 1;
                 JSONArray jSONArray = jSONObject.getJSONArray("pieces");
-                this.mSd = new d[jSONArray.length()];
-                for (int i = 0; i < this.mSd.length; i++) {
-                    this.mSd[i] = d.dG(jSONArray.getJSONObject(i));
+                this.nuk = new d[jSONArray.length()];
+                for (int i = 0; i < this.nuk.length; i++) {
+                    this.nuk[i] = d.dX(jSONArray.getJSONObject(i));
                 }
                 return true;
             }
@@ -206,10 +206,10 @@ public class e {
 
     private void c(final Callback callback) {
         this.mStartTime = System.currentTimeMillis();
-        this.mOkHttpClient.newCall(new Request.Builder().head().url(this.mRZ.getUrl()).build()).enqueue(new Callback() { // from class: common.network.download.e.1
+        this.mOkHttpClient.newCall(new Request.Builder().head().url(this.nug.getUrl()).build()).enqueue(new Callback() { // from class: common.network.download.e.1
             @Override // okhttp3.Callback
             public void onFailure(final Call call, final IOException iOException) {
-                e.this.mSb.execute(new Runnable() { // from class: common.network.download.e.1.1
+                e.this.nui.execute(new Runnable() { // from class: common.network.download.e.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         callback.onFailure(call, iOException);
@@ -220,33 +220,33 @@ public class e {
             @Override // okhttp3.Callback
             public void onResponse(Call call, Response response) throws IOException {
                 try {
-                    e.this.mSf = Integer.parseInt(response.header("Content-Length"));
+                    e.this.nun = Integer.parseInt(response.header("Content-Length"));
                     final boolean equals = TextUtils.equals(response.header("Accept-Ranges"), "bytes");
-                    e.this.mSb.execute(new Runnable() { // from class: common.network.download.e.1.2
+                    e.this.nui.execute(new Runnable() { // from class: common.network.download.e.1.2
                         @Override // java.lang.Runnable
                         public void run() {
                             if (equals) {
-                                int i = e.this.mSf / 131072;
+                                int i = e.this.nun / 131072;
                                 if (i == 0) {
-                                    e.this.mSd = new d[i + 1];
-                                    e.this.mSd[0] = new d(0, true);
-                                } else if (e.this.mSf % i == 0) {
-                                    e.this.mSd = new d[i];
+                                    e.this.nuk = new d[i + 1];
+                                    e.this.nuk[0] = new d(0, true);
+                                } else if (e.this.nun % i == 0) {
+                                    e.this.nuk = new d[i];
                                 } else {
-                                    e.this.mSd = new d[i + 1];
-                                    e.this.mSd[i] = new d(i * 131072, true);
+                                    e.this.nuk = new d[i + 1];
+                                    e.this.nuk[i] = new d(i * 131072, true);
                                 }
                                 for (int i2 = 0; i2 < i; i2++) {
-                                    e.this.mSd[i2] = new d(i2 * 131072);
+                                    e.this.nuk[i2] = new d(i2 * 131072);
                                 }
-                                e.this.mSd[e.this.mSd.length - 1].kG(true);
+                                e.this.nuk[e.this.nuk.length - 1].kR(true);
                             } else {
-                                e.this.mSd = new d[1];
-                                e.this.mSd[0] = new d(0, true);
+                                e.this.nuk = new d[1];
+                                e.this.nuk[0] = new d(0, true);
                             }
                             try {
-                                e.this.dDD();
-                                e.this.dDB();
+                                e.this.dHJ();
+                                e.this.dHH();
                                 callback.onResponse(null, null);
                             } catch (IOException e) {
                                 callback.onFailure(null, new IOException(e));
@@ -261,20 +261,20 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dDD() throws IOException {
+    public void dHJ() throws IOException {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("name", this.mRZ.getName());
-            jSONObject.put("url", this.mRZ.getUrl());
+            jSONObject.put("name", this.nug.getName());
+            jSONObject.put("url", this.nug.getUrl());
             jSONObject.put("startTime", this.mStartTime);
-            jSONObject.put("procCount", this.mSh);
-            jSONObject.put("fileLength", this.mSf);
+            jSONObject.put("procCount", this.nup);
+            jSONObject.put("fileLength", this.nun);
             JSONArray jSONArray = new JSONArray();
-            for (int i = 0; i < this.mSd.length; i++) {
-                jSONArray.put(i, this.mSd[i].dDx());
+            for (int i = 0; i < this.nuk.length; i++) {
+                jSONArray.put(i, this.nuk[i].dHD());
             }
             jSONObject.put("pieces", jSONArray);
-            FileOutputStream fileOutputStream = new FileOutputStream(dDz());
+            FileOutputStream fileOutputStream = new FileOutputStream(dHF());
             fileOutputStream.write(jSONObject.toString().getBytes());
             fileOutputStream.close();
         } catch (JSONException e) {
@@ -282,9 +282,9 @@ public class e {
         }
     }
 
-    public int dDE() {
+    public int dHK() {
         int i = 0;
-        for (d dVar : this.mSd) {
+        for (d dVar : this.nuk) {
             if (dVar.aW()) {
                 i++;
             }
@@ -292,28 +292,28 @@ public class e {
         return i;
     }
 
-    public int dDF() {
-        return this.mSd.length;
+    public int dHL() {
+        return this.nuk.length;
     }
 
-    public State dDG() {
+    public State dHM() {
         d[] dVarArr;
         int i = 0;
-        if (this.mSd == null) {
+        if (this.nuk == null) {
             return State.PAUSED;
         }
         int i2 = 0;
-        for (d dVar : this.mSd) {
+        for (d dVar : this.nuk) {
             if (dVar.aW()) {
                 i++;
             } else if (dVar.isFailed()) {
                 i2++;
             }
         }
-        if (i == this.mSd.length) {
+        if (i == this.nuk.length) {
             return State.COMPLETED;
         }
-        if (i + i2 == this.mSd.length) {
+        if (i + i2 == this.nuk.length) {
             return State.FAILED;
         }
         if (this.mOkHttpClient.dispatcher().queuedCallsCount() > 0) {
@@ -325,24 +325,24 @@ public class e {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public synchronized void a(g gVar) {
         if (gVar != null) {
-            this.mSg = gVar;
+            this.nuo = gVar;
         }
-        switch (dDG()) {
+        switch (dHM()) {
             case PAUSED:
             case COMPLETED:
             case FAILED:
                 b(new Callback() { // from class: common.network.download.e.2
                     @Override // okhttp3.Callback
                     public void onFailure(Call call, IOException iOException) {
-                        e.this.mSg.p(iOException);
-                        e.this.mSc.b(e.this, iOException);
+                        e.this.nuo.p(iOException);
+                        e.this.nuj.b(e.this, iOException);
                     }
 
                     @Override // okhttp3.Callback
                     public void onResponse(Call call, Response response) throws IOException {
-                        if (e.this.mSe != null) {
-                            e.this.mSg.b(e.this.dDA(), e.this.dDE(), e.this.dDF());
-                            e.this.mSc.c(e.this);
+                        if (e.this.nul != null) {
+                            e.this.nuo.b(e.this.dHG(), e.this.dHK(), e.this.dHL());
+                            e.this.nuj.c(e.this);
                             e.this.execute();
                             return;
                         }
@@ -359,6 +359,6 @@ public class e {
 
     public void cancel() {
         this.mOkHttpClient.dispatcher().cancelAll();
-        this.mSg = new g();
+        this.nuo = new g();
     }
 }

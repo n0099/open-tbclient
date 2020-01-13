@@ -6,7 +6,7 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface af {
     void a(com.baidu.adp.widget.ListView.s sVar);
 
@@ -14,21 +14,21 @@ public interface af {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.m> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bj> bEu();
+    int bFA();
 
-    int bEv();
+    void bFB();
 
-    void bEw();
+    HashMap<Integer, bj> bFw();
 
-    int bEx();
+    int bFx();
 
-    int bEy();
+    void bFy();
 
-    void bEz();
+    int bFz();
 
     List<com.baidu.adp.widget.ListView.m> getDatas();
 
-    void lA(boolean z);
+    void lL(boolean z);
 
     void notifyDataSetChanged();
 

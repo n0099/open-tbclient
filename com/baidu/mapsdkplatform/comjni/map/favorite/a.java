@@ -1,14 +1,14 @@
 package com.baidu.mapsdkplatform.comjni.map.favorite;
 
 import android.os.Bundle;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private long a = 0;
     private JNIFavorite b;
 
     /* renamed from: com.baidu.mapsdkplatform.comjni.map.favorite.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0112a {
+    /* loaded from: classes6.dex */
+    public static class C0114a {
         public static boolean a = false;
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -44,7 +44,7 @@ public class a {
     }
 
     public boolean a(String str, String str2) {
-        C0112a.b();
+        C0114a.b();
         return this.b.Add(this.a, str, str2);
     }
 
@@ -65,7 +65,7 @@ public class a {
     }
 
     public boolean b(String str, String str2) {
-        C0112a.b();
+        C0114a.b();
         return this.b.Update(this.a, str, str2);
     }
 

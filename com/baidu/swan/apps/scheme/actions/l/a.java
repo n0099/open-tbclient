@@ -25,7 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ab {
     private String mName;
 
@@ -54,14 +54,14 @@ public class a extends ab {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap aen = af.aen();
-                if (aen == null) {
+                final Bitmap aeG = af.aeG();
+                if (aeG == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
                     m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(aen, unitedSchemeEntity, callbackHandler, eVar);
+                            a.this.a(aeG, unitedSchemeEntity, callbackHandler, eVar);
                         }
                     }, "savescreenshot");
                 }
@@ -92,9 +92,9 @@ public class a extends ab {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull e eVar) {
         FileOutputStream fileOutputStream;
-        String lG = b.lG(eVar.id);
-        if (lG != null) {
-            String str = lG + File.separator + "screenshot";
+        String lJ = b.lJ(eVar.id);
+        if (lJ != null) {
+            String str = lJ + File.separator + "screenshot";
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();
@@ -112,7 +112,7 @@ public class a extends ab {
                     try {
                         bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
                         c.d("Screenshot", "save screenshot to " + sb);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.bh(sb, eVar.id), "success"), 0));
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, b.bi(sb, eVar.id), "success"), 0));
                         r1 = fileOutputStream;
                         if (fileOutputStream != null) {
                             try {

@@ -1,7 +1,7 @@
 package com.baidu.mobads.openad.a;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends com.baidu.mobads.openad.c.c {
     protected Context b;
 

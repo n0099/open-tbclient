@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.source.smoothstreaming.manifest;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class TrackKey implements Parcelable, Comparable<TrackKey> {
     public static final Parcelable.Creator<TrackKey> CREATOR = new Parcelable.Creator<TrackKey>() { // from class: com.google.android.exoplayer2.source.smoothstreaming.manifest.TrackKey.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public final class TrackKey implements Parcelable, Comparable<TrackKey> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: KV */
+        /* renamed from: Le */
         public TrackKey[] newArray(int i) {
             return new TrackKey[i];
         }

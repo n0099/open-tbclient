@@ -6,7 +6,7 @@ import android.os.Build;
 import android.os.Process;
 import android.os.SystemClock;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j extends Thread {
     private final BlockingQueue<n<?>> a;
     private final i b;

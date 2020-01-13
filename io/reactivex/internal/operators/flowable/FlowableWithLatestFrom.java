@@ -5,10 +5,9 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
-    final io.reactivex.b.c<? super T, ? super U, ? extends R> combiner;
+    final io.reactivex.c.c<? super T, ? super U, ? extends R> combiner;
     final org.a.b<? extends U> other;
 
     @Override // io.reactivex.g
@@ -17,25 +16,25 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
         this.other.subscribe(new a(withLatestFromSubscriber));
-        this.mTG.a((j) withLatestFromSubscriber);
+        this.nvK.a((j) withLatestFromSubscriber);
     }
 
-    /* loaded from: classes4.dex */
-    static final class WithLatestFromSubscriber<T, U, R> extends AtomicReference<U> implements io.reactivex.internal.a.a<T>, d {
+    /* loaded from: classes5.dex */
+    static final class WithLatestFromSubscriber<T, U, R> extends AtomicReference<U> implements io.reactivex.internal.a.a<T>, org.a.d {
         private static final long serialVersionUID = -312246233408980075L;
         final org.a.c<? super R> actual;
-        final io.reactivex.b.c<? super T, ? super U, ? extends R> combiner;
-        final AtomicReference<d> s = new AtomicReference<>();
+        final io.reactivex.c.c<? super T, ? super U, ? extends R> combiner;
+        final AtomicReference<org.a.d> s = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
-        final AtomicReference<d> other = new AtomicReference<>();
+        final AtomicReference<org.a.d> other = new AtomicReference<>();
 
-        WithLatestFromSubscriber(org.a.c<? super R> cVar, io.reactivex.b.c<? super T, ? super U, ? extends R> cVar2) {
+        WithLatestFromSubscriber(org.a.c<? super R> cVar, io.reactivex.c.c<? super T, ? super U, ? extends R> cVar2) {
             this.actual = cVar;
             this.combiner = cVar2;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             SubscriptionHelper.deferredSetOnce(this.s, this.requested, dVar);
         }
 
@@ -86,7 +85,7 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
             SubscriptionHelper.cancel(this.other);
         }
 
-        public boolean setOther(d dVar) {
+        public boolean setOther(org.a.d dVar) {
             return SubscriptionHelper.setOnce(this.other, dVar);
         }
 
@@ -96,29 +95,29 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> mUz;
+        private final WithLatestFromSubscriber<T, U, R> nwI;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.mUz = withLatestFromSubscriber;
+            this.nwI = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
-            if (this.mUz.setOther(dVar)) {
+        public void onSubscribe(org.a.d dVar) {
+            if (this.nwI.setOther(dVar)) {
                 dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.mUz.lazySet(u);
+            this.nwI.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.mUz.otherError(th);
+            this.nwI.otherError(th);
         }
 
         @Override // org.a.c

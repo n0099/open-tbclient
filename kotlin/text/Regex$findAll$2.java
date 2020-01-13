@@ -2,7 +2,7 @@ package kotlin.text;
 
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import kotlin.jvm.internal.FunctionReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<i, i> {
     public static final Regex$findAll$2 INSTANCE = new Regex$findAll$2();
 
@@ -17,7 +17,7 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
 
     @Override // kotlin.jvm.internal.CallableReference
     public final kotlin.reflect.d getOwner() {
-        return kotlin.jvm.internal.s.M(i.class);
+        return kotlin.jvm.internal.t.N(i.class);
     }
 
     @Override // kotlin.jvm.internal.CallableReference
@@ -28,7 +28,7 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final i invoke(i iVar) {
-        kotlin.jvm.internal.p.j(iVar, "p1");
-        return iVar.dFe();
+        kotlin.jvm.internal.q.j(iVar, "p1");
+        return iVar.dJA();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.message.http;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.network.http.d;
-import com.baidu.adp.lib.network.http.f;
+import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes.dex */
@@ -51,16 +51,16 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, f fVar) {
-        if (fVar.ga().size() > 0) {
-            d dVar = fVar.ga().get(fVar.ga().size() - 1);
-            aa.mErrorNums.addAndGet(fVar.ga().size() - 1);
+    public void logStatInBackground(int i, e eVar) {
+        if (eVar.fZ().size() > 0) {
+            d dVar = eVar.fZ().get(eVar.fZ().size() - 1);
+            aa.mErrorNums.addAndGet(eVar.fZ().size() - 1);
             aa.a aVar = new aa.a();
             aVar.mMode = getMode(j.netType());
             aVar.mSize = dVar.downloadSize;
-            aVar.mTime = dVar.qP;
+            aVar.mTime = dVar.qN;
             aVar.mTimesNum = dVar.retry;
-            aVar.mMethod = fVar.fY().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
+            aVar.mMethod = eVar.fX().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
             aa.a(aVar);
         }
     }

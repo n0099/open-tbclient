@@ -13,13 +13,13 @@ import tbclient.GeneralTabList.DataRes;
 import tbclient.SportScheduleInfo;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d implements j {
-    public int gqK;
-    public String gqL;
-    public String gqM;
-    public boolean gqN;
-    public SportScheduleInfo gqO;
+    public int gtT;
+    public String gtU;
+    public String gtV;
+    public boolean gtW;
+    public SportScheduleInfo gtX;
     public boolean hasMore;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<m> threadList = new ArrayList<>();
@@ -45,18 +45,18 @@ public class d implements j {
                         bj bjVar = new bj();
                         bjVar.setUserMap(this.userMap);
                         bjVar.a(threadInfo);
-                        bjVar.aAA();
+                        bjVar.aAT();
                         this.threadList.add(bjVar);
                     }
                 }
             }
-            this.gqK = dataRes.new_thread_num.intValue();
+            this.gtT = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.gqL = dataRes.sport_head_info.head_url;
-                this.gqM = dataRes.sport_head_info.jump_url;
-                this.gqN = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.gtU = dataRes.sport_head_info.head_url;
+                this.gtV = dataRes.sport_head_info.jump_url;
+                this.gtW = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.gqO = dataRes.sport_schedule_info;
+            this.gtX = dataRes.sport_schedule_info;
         }
     }
 

@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.charm;
 
 import android.content.Context;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 /* loaded from: classes2.dex */
 public class e {
-    public static String oG(int i) {
+    public static String oH(int i) {
         if (i == 2) {
             return SdkStaticKeys.CHARM_TYPE_WEEK;
         }

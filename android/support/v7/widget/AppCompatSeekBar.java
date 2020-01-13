@@ -6,7 +6,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.appcompat.R;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AppCompatSeekBar extends SeekBar {
     private final AppCompatSeekBarHelper mAppCompatSeekBarHelper;
 
@@ -24,8 +24,9 @@ public class AppCompatSeekBar extends SeekBar {
         this.mAppCompatSeekBarHelper.loadFromAttributes(attributeSet, i);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
-    protected synchronized void onDraw(Canvas canvas) {
+    public synchronized void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         this.mAppCompatSeekBarHelper.drawTickMarks(canvas);
     }

@@ -9,7 +9,7 @@ import com.baidu.tieba.frs.h;
 import com.baidu.tieba.tbadkCore.g;
 /* loaded from: classes2.dex */
 public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements x {
-    private com.baidu.tieba.ala.livecard.b.d eHU;
+    private com.baidu.tieba.ala.livecard.b.d eJe;
     private String mForumName;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -22,20 +22,20 @@ public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements x {
     }
 
     @Override // com.baidu.tieba.card.x
-    public void pm(int i) {
+    public void po(int i) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: W */
+    /* renamed from: aa */
     public com.baidu.tieba.ala.livecard.a.c b(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.eHU = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
-        this.eHU.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.c(this.eHU);
+        this.eJe = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
+        this.eJe.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.c(this.eJe);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,12 +45,12 @@ public class d extends h<g, com.baidu.tieba.ala.livecard.a.c> implements x {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (g) cVar);
         if (gVar != null) {
             int i2 = 0;
-            if (this.giA != null) {
-                i2 = this.giA.getTopThreadSize();
+            if (this.glJ != null) {
+                i2 = this.glJ.getTopThreadSize();
             }
-            cVar.eIe.cLr = (i + 1) - i2;
-            cVar.eIe.setForumName(this.mForumName);
-            cVar.eIe.a(gVar);
+            cVar.eJo.cLB = (i + 1) - i2;
+            cVar.eJo.setForumName(this.mForumName);
+            cVar.eJo.a(gVar);
         }
         return view;
     }

@@ -1,7 +1,7 @@
 package com.baidu.swan.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface e<PKG> {
-    void A(int i, String str);
+    void C(int i, String str);
 
     void N(PKG pkg);
 

@@ -3,11 +3,11 @@ package com.baidu.ubc;
 import com.baidu.pyramid.runtime.service.d;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
     public static final d SERVICE_REFERENCE = new d("ubc", "UBC");
 
-    Flow GT(String str);
+    Flow Hd(String str);
 
     void a(Flow flow);
 

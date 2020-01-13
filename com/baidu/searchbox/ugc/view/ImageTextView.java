@@ -32,7 +32,7 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ImageTextView extends EditText {
     private final String TAG;
     private Runnable mClickRunnable;
@@ -229,7 +229,7 @@ public class ImageTextView extends EditText {
 
     public void loadEditTextImage(final String str, final int i, final String str2) {
         Uri uri = UgcUriUtils.getUri(str);
-        c.dji().e(ImageRequestBuilder.X(uri).a(b.dlR().uY(true).uX(true).dlZ()).dpZ(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.searchbox.ugc.view.ImageTextView.1
+        c.dkj().e(ImageRequestBuilder.X(uri).a(b.dmW().vk(true).vj(true).dne()).drm(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.searchbox.ugc.view.ImageTextView.1
             @Override // com.facebook.imagepipeline.e.b
             protected void onNewResultImpl(Bitmap bitmap) {
                 UrlImageSpan[] urlImageSpanArr;
@@ -277,7 +277,7 @@ public class ImageTextView extends EditText {
             public void onCancellation(com.facebook.datasource.b<a<com.facebook.imagepipeline.g.c>> bVar) {
                 super.onCancellation(bVar);
             }
-        }, i.din());
+        }, i.djo());
     }
 
     public Bitmap createWaterMarkBitmap(Bitmap bitmap, int i, int i2, Bitmap bitmap2, int i3, int i4, int i5) {

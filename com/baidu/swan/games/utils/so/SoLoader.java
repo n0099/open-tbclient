@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SoLoader {
     private static final String TAG = "SoLoader";
     private StringBuilder sb = new StringBuilder();
@@ -38,19 +38,19 @@ public final class SoLoader {
         if (z) {
             loadV8EngineSo(context);
         } else {
-            load(context, e.anG(), true, false);
+            load(context, e.anZ(), true, false);
         }
     }
 
     public static void loadV8EngineSo(Context context) {
-        String anG = e.anG();
-        if (!sLoadedLibraries.contains(anG) && e.a(context, new SoLoader())) {
-            sLoadedLibraries.add(anG);
+        String anZ = e.anZ();
+        if (!sLoadedLibraries.contains(anZ) && e.a(context, new SoLoader())) {
+            sLoadedLibraries.add(anZ);
         }
     }
 
     public static String getV8SoDependentFilePath() {
-        if (!sLoadedLibraries.contains(e.anG())) {
+        if (!sLoadedLibraries.contains(e.anZ())) {
             return null;
         }
         String v8SoDependentFilePath = e.getV8SoDependentFilePath();
@@ -70,11 +70,11 @@ public final class SoLoader {
     public static void load(Context context, String str, boolean z, boolean z2) {
         boolean load;
         if (!sLoadedLibraries.contains(str)) {
-            a anx = a.anx();
+            a anQ = a.anQ();
             if (!z) {
-                load = new SoLoader().loadInternalFromLocal(context, str, anx, z2);
+                load = new SoLoader().loadInternalFromLocal(context, str, anQ, z2);
             } else {
-                load = load(context, str, anx, z2);
+                load = load(context, str, anQ, z2);
             }
             if (load) {
                 sLoadedLibraries.add(str);
@@ -84,7 +84,7 @@ public final class SoLoader {
 
     private static boolean load(Context context, String str, b bVar, boolean z) {
         if (bVar == null) {
-            bVar = a.anx();
+            bVar = a.anQ();
         }
         SoLoader soLoader = new SoLoader();
         if (soSources.size() == 0) {

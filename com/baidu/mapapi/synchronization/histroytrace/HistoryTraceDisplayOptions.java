@@ -2,7 +2,7 @@ package com.baidu.mapapi.synchronization.histroytrace;
 
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HistoryTraceDisplayOptions {
     private boolean j = true;
     private int k = 30;

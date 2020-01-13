@@ -4,21 +4,20 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g implements SharedPreferences {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private final String mName;
     private SharedPreferences mSp;
 
     public g(String str) {
-        this.mName = TextUtils.isEmpty(str) ? DefaultSharedPrefsWrapper.SP_FILE_DEFAULT : str;
-        if (DefaultSharedPrefsWrapper.SP_FILE_DEFAULT.equals(this.mName)) {
+        this.mName = TextUtils.isEmpty(str) ? "default" : str;
+        if ("default".equals(this.mName)) {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
         } else {
-            this.mSp = com.baidu.swan.apps.w.a.Rk().getSharedPreferences(str, 0);
+            this.mSp = com.baidu.swan.apps.w.a.RG().getSharedPreferences(str, 0);
         }
     }
 

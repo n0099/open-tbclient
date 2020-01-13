@@ -14,11 +14,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private String cwW;
-    private ArrayList<String> kHk;
-    private final String kNy = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String cxh;
+    private ArrayList<String> kKL;
+    private final String kQZ = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -38,10 +38,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.isEmpty(this.kHk)) {
+        if (spannable != null && !v.isEmpty(this.kKL)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.kHk.iterator();
+                Iterator<String> it = this.kKL.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -90,7 +90,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.isEmpty(cRH())) {
+        if (v.isEmpty(cSK())) {
             return false;
         }
         return i(editText) || i(editText2);
@@ -113,19 +113,19 @@ public class b {
     }
 
     public void aV(ArrayList<String> arrayList) {
-        this.kHk = arrayList;
+        this.kKL = arrayList;
     }
 
-    public ArrayList<String> cRH() {
-        return this.kHk;
+    public ArrayList<String> cSK() {
+        return this.kKL;
     }
 
-    public void Kn(String str) {
-        this.cwW = str;
+    public void Kx(String str) {
+        this.cxh = str;
     }
 
-    public String cRL() {
-        return this.cwW;
+    public String cSO() {
+        return this.cxh;
     }
 
     private void c(Spannable spannable) {

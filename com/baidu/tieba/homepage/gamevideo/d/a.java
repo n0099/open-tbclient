@@ -10,7 +10,7 @@ import java.util.List;
 import tbclient.RecomVertical.DataRes;
 import tbclient.RecomVertical.DislikeReason;
 import tbclient.RecomVertical.ThreadPersonalized;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static void a(DataRes dataRes, List<m> list) {
         b(dataRes, list);
@@ -18,7 +18,7 @@ public class a {
 
     private static void b(DataRes dataRes, List<m> list) {
         c cVar;
-        bj axx;
+        bj axQ;
         ThreadPersonalized threadPersonalized;
         if (dataRes != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -30,15 +30,15 @@ public class a {
             int count = v.getCount(list);
             for (int i = 0; i < count; i++) {
                 m mVar = (m) v.getItem(list, i);
-                if ((mVar instanceof c) && (axx = (cVar = (c) mVar).axx()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(axx.getTid(), 0L))) != null) {
+                if ((mVar instanceof c) && (axQ = (cVar = (c) mVar).axQ()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(axQ.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.zu(threadPersonalized.abtest_tag);
-                    axx.mRecomAbTag = threadPersonalized.abtest_tag;
-                    axx.mRecomSource = threadPersonalized.source;
-                    axx.mRecomWeight = threadPersonalized.weight;
-                    if (axx.azV() != null) {
-                        cVar.j(axx.azV().is_vertical);
+                    cVar.zE(threadPersonalized.abtest_tag);
+                    axQ.mRecomAbTag = threadPersonalized.abtest_tag;
+                    axQ.mRecomSource = threadPersonalized.source;
+                    axQ.mRecomWeight = threadPersonalized.weight;
+                    if (axQ.aAo() != null) {
+                        cVar.j(axQ.aAo().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {

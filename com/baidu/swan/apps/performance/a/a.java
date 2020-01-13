@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.performance.a;
 
 import com.baidu.swan.apps.performance.HybridUbcFlow;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements com.baidu.swan.apps.as.d.b<HybridUbcFlow> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.as.d.b
     /* renamed from: a */
     public void B(HybridUbcFlow hybridUbcFlow) {
-        hybridUbcFlow.jA("670").aR("with_preload", "0");
+        hybridUbcFlow.jD("670").aS("with_preload", "0");
     }
 }

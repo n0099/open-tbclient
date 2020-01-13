@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.g;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e extends j {
     public String a;
 

@@ -16,7 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.cookie.ClientCookie;
 import org.apache.http.cookie.SM;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class Cookie {
     private final String domain;
     private final long expiresAt;
@@ -348,7 +348,7 @@ public final class Cookie {
         return arrayList != null ? Collections.unmodifiableList(arrayList) : Collections.emptyList();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class Builder {
         @Nullable
         String domain;

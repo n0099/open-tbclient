@@ -5,10 +5,10 @@ import java.io.FileInputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class e {
-    private static final char[] Tf = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-    private static final char[] Tg = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] Ti = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] Tj = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String cD(String str) {
@@ -31,8 +31,8 @@ public class e {
     private static String m(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bArr) {
-            sb.append(Tg[(b & 240) >> 4]);
-            sb.append(Tg[b & 15]);
+            sb.append(Tj[(b & 240) >> 4]);
+            sb.append(Tj[b & 15]);
         }
         return sb.toString();
     }

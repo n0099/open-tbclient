@@ -4,29 +4,28 @@ import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableReduce<T> extends a<T, T> {
-    final io.reactivex.b.c<T, T, T> reducer;
+    final io.reactivex.c.c<T, T, T> reducer;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new ReduceSubscriber(cVar, this.reducer));
+        this.nvK.a((j) new ReduceSubscriber(cVar, this.reducer));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ReduceSubscriber<T> extends DeferredScalarSubscription<T> implements j<T> {
         private static final long serialVersionUID = -4663883003264602070L;
-        final io.reactivex.b.c<T, T, T> reducer;
-        d s;
+        final io.reactivex.c.c<T, T, T> reducer;
+        org.a.d s;
 
-        ReduceSubscriber(org.a.c<? super T> cVar, io.reactivex.b.c<T, T, T> cVar2) {
+        ReduceSubscriber(org.a.c<? super T> cVar, io.reactivex.c.c<T, T, T> cVar2) {
             super(cVar);
             this.reducer = cVar2;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -55,7 +54,7 @@ public final class FlowableReduce<T> extends a<T, T> {
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.s == SubscriptionHelper.CANCELLED) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.s = SubscriptionHelper.CANCELLED;

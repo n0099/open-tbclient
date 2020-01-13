@@ -1,14 +1,14 @@
 package com.baidu.tieba.personExtra;
 
 import com.baidu.tbadk.core.BaseFragment;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PersonFriendAdapter extends BasePersonInfoAdapter {
     public PersonFriendAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity, z);
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoAdapter
-    protected BaseFragment cte() {
+    protected BaseFragment cul() {
         return new PersonFriendFragment();
     }
 }

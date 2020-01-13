@@ -11,22 +11,22 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static final String bmg = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
-    private static final String bmh = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
-    public static final String bmi = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+    public static final String bmW = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
+    private static final String bmX = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
+    public static final String bmY = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
 
-    public static void cl(boolean z) {
+    public static void cq(boolean z) {
         if (z) {
             SoLoader.load(AppRuntime.getAppContext(), "v8.engine");
-        } else if (Np()) {
-            No();
-            d.i("zeusv8", bmh, true);
-            d.i("v8.engine", bmg, false);
+        } else if (NL()) {
+            NK();
+            d.i("zeusv8", bmX, true);
+            d.i("v8.engine", bmW, false);
         } else {
-            d.i("zeusv8", bmi, true);
-            d.i("v8.engine", bmi, true);
+            d.i("zeusv8", bmY, true);
+            d.i("v8.engine", bmY, true);
         }
     }
 
@@ -36,7 +36,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static void No() {
+    private static void NK() {
         FileChannel fileChannel;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
@@ -48,11 +48,11 @@ public class a {
         fileLock = null;
         fileLock = null;
         fileLock = null;
-        File file = new File(bmg + File.separator + GlobalConstants.LIB_ZEUS_V8);
+        File file = new File(bmW + File.separator + GlobalConstants.LIB_ZEUS_V8);
         if (!file.exists() || file.length() <= 0) {
             return;
         }
-        File file2 = new File(bmh);
+        File file2 = new File(bmX);
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -212,7 +212,7 @@ public class a {
         }
     }
 
-    public static boolean Np() {
+    public static boolean NL() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 }

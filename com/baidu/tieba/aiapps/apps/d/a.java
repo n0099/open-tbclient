@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements s {
     @Override // com.baidu.swan.apps.adaptation.a.s
     public void a(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, s.a aVar) {

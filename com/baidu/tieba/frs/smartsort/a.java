@@ -9,83 +9,83 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.ar;
 import com.baidu.tieba.frs.l;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private int aVq;
-    private ar gAO;
-    private final FrsFragment gBu;
-    private boolean gDv;
-    private int gDw = -1;
-    private TextView gvG;
+    private int aWi;
+    private ar gDY;
+    private final FrsFragment gEE;
+    private boolean gGK;
+    private int gGL = -1;
+    private TextView gyQ;
 
     public a(FrsFragment frsFragment) {
-        this.aVq = 0;
+        this.aWi = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.gBu = frsFragment;
+        this.gEE = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.aVq = UtilHelper.getStatusBarHeight();
+            this.aWi = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void bGZ() {
-        if (this.gDv && this.gDw >= 0) {
-            tG(this.gDw);
+    public void bIb() {
+        if (this.gGK && this.gGL >= 0) {
+            tL(this.gGL);
         }
-        this.gDv = false;
+        this.gGK = false;
     }
 
-    public void tF(int i) {
+    public void tK(int i) {
         if (i >= 0) {
-            lN(true);
-            tH(i);
+            lY(true);
+            tM(i);
             return;
         }
-        lN(false);
-        tH(i);
+        lY(false);
+        tM(i);
     }
 
-    private void tG(int i) {
+    private void tL(int i) {
         FrameLayout frameLayout;
         String string;
-        l bBi = this.gBu.bBi();
-        if (bBi != null && bBi.getListView() != null && (frameLayout = (FrameLayout) bBi.bCz()) != null) {
-            if (this.gvG == null && this.gBu.getPageContext() != null) {
-                this.gvG = new TextView(this.gBu.getPageContext().getPageActivity());
-                this.gvG.setTextSize(0, this.gBu.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.gvG.setGravity(17);
+        l bCk = this.gEE.bCk();
+        if (bCk != null && bCk.getListView() != null && (frameLayout = (FrameLayout) bCk.bDB()) != null) {
+            if (this.gyQ == null && this.gEE.getPageContext() != null) {
+                this.gyQ = new TextView(this.gEE.getPageContext().getPageActivity());
+                this.gyQ.setTextSize(0, this.gEE.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.gyQ.setGravity(17);
             }
-            if (this.gvG != null) {
+            if (this.gyQ != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.gvG.setText(string);
+                this.gyQ.setText(string);
             }
-            am.setBackgroundResource(this.gvG, R.color.cp_link_tip_a);
-            am.setViewTextColor(this.gvG, (int) R.color.cp_cont_i);
+            am.setBackgroundResource(this.gyQ, R.color.cp_link_tip_a);
+            am.setViewTextColor(this.gyQ, (int) R.color.cp_cont_i);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.gAO == null) {
-                this.gAO = new ar();
+            if (this.gDY == null) {
+                this.gDY = new ar();
             }
-            this.gAO.a(this.gvG, frameLayout, layoutParams, 2000);
-            this.gDw = -1;
+            this.gDY.a(this.gyQ, frameLayout, layoutParams, 2000);
+            this.gGL = -1;
         }
     }
 
-    public void lN(boolean z) {
-        this.gDv = z;
+    public void lY(boolean z) {
+        this.gGK = z;
     }
 
-    public void tH(int i) {
-        this.gDw = i;
+    public void tM(int i) {
+        this.gGL = i;
     }
 
     public void onDestroy() {
-        if (this.gAO != null) {
-            this.gAO.onDestroy();
+        if (this.gDY != null) {
+            this.gDY.onDestroy();
         }
     }
 }

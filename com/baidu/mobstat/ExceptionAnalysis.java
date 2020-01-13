@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ExceptionAnalysis {
     private static ExceptionAnalysis a = new ExceptionAnalysis();
     private Context c;
@@ -19,7 +19,7 @@ public class ExceptionAnalysis {
     private boolean b = false;
     private HeadObject d = new HeadObject();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }

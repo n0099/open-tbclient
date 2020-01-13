@@ -12,7 +12,7 @@ import com.baidu.sapi2.share.m;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class g implements Runnable {
     final /* synthetic */ IBinder a;
     final /* synthetic */ ServiceConnection b;

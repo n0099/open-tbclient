@@ -11,9 +11,9 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.swan.apps.as.af;
 import com.baidu.swan.bdprivate.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CommonTagView extends TextView {
-    private boolean caN;
+    private boolean caZ;
     private int mBorderColor;
     private int mBorderWidth;
     private Context mContext;
@@ -33,7 +33,7 @@ public class CommonTagView extends TextView {
     public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHasBorder = true;
-        this.caN = true;
+        this.caZ = true;
         init(context, attributeSet, i);
     }
 
@@ -60,7 +60,7 @@ public class CommonTagView extends TextView {
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setAntiAlias(true);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
-            if (this.caN && this.mBorderColor != getCurrentTextColor()) {
+            if (this.caZ && this.mBorderColor != getCurrentTextColor()) {
                 this.mBorderColor = getCurrentTextColor();
             }
             this.mPaint.setColor(this.mBorderColor);

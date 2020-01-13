@@ -18,35 +18,35 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bXa;
-    private List<com.baidu.swan.bdprivate.address.c.b> bXf = new ArrayList();
-    private Bundle bXi;
+    private String bXm;
+    private List<com.baidu.swan.bdprivate.address.c.b> bXr = new ArrayList();
+    private Bundle bXu;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class c {
-        private static final a bXN = new a();
+        private static final a bXZ = new a();
     }
 
-    public static a afw() {
-        return c.bXN;
+    public static a afP() {
+        return c.bXZ;
     }
 
     public void R(Bundle bundle) {
-        this.bXi = bundle;
-        if (this.bXi != null) {
-            String string = this.bXi.getString("openSource");
+        this.bXu = bundle;
+        if (this.bXu != null) {
+            String string = this.bXu.getString("openSource");
             if (!TextUtils.isEmpty(string)) {
-                this.bXa = string;
+                this.bXm = string;
             }
         }
     }
 
     public void a(com.baidu.swan.bdprivate.address.b.b bVar) {
-        if (this.bXi == null) {
+        if (this.bXu == null) {
             if (bVar != null) {
                 bVar.onFailure("param is empty");
                 return;
@@ -55,45 +55,45 @@ public class a {
         }
         new b(bVar, "list");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        if (TextUtils.equals(this.bXa, "aiapp")) {
-            linkedHashMap.put("ma_id", this.bXi.getString("appId"));
-            linkedHashMap.put("app_key", this.bXi.getString("appKey"));
-            linkedHashMap.put("host_pkgname", this.bXi.getString(PushClientConstants.TAG_PKG_NAME));
-            linkedHashMap.put("host_key_hash", this.bXi.getString("keyHash"));
-            linkedHashMap.put("stoken", this.bXi.getString("stoken"));
-            linkedHashMap.put("host_api_key", com.baidu.swan.apps.w.a.Rw().Fp());
+        if (TextUtils.equals(this.bXm, "aiapp")) {
+            linkedHashMap.put("ma_id", this.bXu.getString("appId"));
+            linkedHashMap.put("app_key", this.bXu.getString("appKey"));
+            linkedHashMap.put("host_pkgname", this.bXu.getString(PushClientConstants.TAG_PKG_NAME));
+            linkedHashMap.put("host_key_hash", this.bXu.getString("keyHash"));
+            linkedHashMap.put("stoken", this.bXu.getString("stoken"));
+            linkedHashMap.put("host_api_key", com.baidu.swan.apps.w.a.RS().FL());
         }
         a(null, bVar, linkedHashMap, "list");
     }
 
-    public List<com.baidu.swan.bdprivate.address.c.b> afx() {
+    public List<com.baidu.swan.bdprivate.address.c.b> afQ() {
         String readCacheData = com.baidu.swan.d.c.readCacheData(AppRuntime.getAppContext(), "delivery_data.json");
         if (!TextUtils.isEmpty(readCacheData)) {
             try {
-                this.bXf = com.baidu.swan.bdprivate.address.c.c.B(new JSONArray(readCacheData));
+                this.bXr = com.baidu.swan.bdprivate.address.c.c.C(new JSONArray(readCacheData));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        return this.bXf;
+        return this.bXr;
     }
 
-    public void afy() {
+    public void afR() {
         m.postOnIO(new Runnable() { // from class: com.baidu.swan.bdprivate.address.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.d.c.cache(AppRuntime.getAppContext(), "delivery_data.json", com.baidu.swan.bdprivate.address.c.c.af(a.this.bXf).toString(), 0);
+                com.baidu.swan.d.c.cache(AppRuntime.getAppContext(), "delivery_data.json", com.baidu.swan.bdprivate.address.c.c.ae(a.this.bXr).toString(), 0);
             }
         }, "saveCacheToLocal");
     }
 
-    public List<com.baidu.swan.bdprivate.address.c.b> afz() {
-        if (this.bXf == null) {
-            this.bXf = new ArrayList();
+    public List<com.baidu.swan.bdprivate.address.c.b> afS() {
+        if (this.bXr == null) {
+            this.bXr = new ArrayList();
         }
-        return this.bXf;
+        return this.bXr;
     }
 
     public void a(com.baidu.swan.bdprivate.address.c.b bVar, com.baidu.swan.bdprivate.address.b.b bVar2) {
@@ -161,8 +161,8 @@ public class a {
                 }
             }
         }
-        String mL = mL(str);
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(mL)).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.w.a.RI().FH())).build().executeAsyncOnUIBack(bVar3);
+        String mO = mO(str);
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(mO)).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.w.a.Se().Gd())).build().executeAsyncOnUIBack(bVar3);
     }
 
     private Map<String, String> a(com.baidu.swan.bdprivate.address.c.b bVar) {
@@ -174,49 +174,49 @@ public class a {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 hashMap.put("name", bVar.userName);
             }
-            if (!TextUtils.isEmpty(bVar.bXT)) {
-                hashMap.put("phone", bVar.bXT);
+            if (!TextUtils.isEmpty(bVar.bYf)) {
+                hashMap.put("phone", bVar.bYf);
             }
-            if (bVar.bXV != null && !TextUtils.isEmpty(bVar.bXV.code)) {
-                hashMap.put("l1", bVar.bXV.code);
+            if (bVar.bYh != null && !TextUtils.isEmpty(bVar.bYh.code)) {
+                hashMap.put("l1", bVar.bYh.code);
             }
-            if (bVar.bXW != null && !TextUtils.isEmpty(bVar.bXW.code)) {
-                hashMap.put("l2", bVar.bXW.code);
+            if (bVar.bYi != null && !TextUtils.isEmpty(bVar.bYi.code)) {
+                hashMap.put("l2", bVar.bYi.code);
             }
-            if (bVar.bXX != null && !TextUtils.isEmpty(bVar.bXX.code)) {
-                hashMap.put("l3", bVar.bXX.code);
+            if (bVar.bYj != null && !TextUtils.isEmpty(bVar.bYj.code)) {
+                hashMap.put("l3", bVar.bYj.code);
             }
-            if (!TextUtils.isEmpty(bVar.bXY)) {
-                hashMap.put("street", bVar.bXY);
+            if (!TextUtils.isEmpty(bVar.bYk)) {
+                hashMap.put("street", bVar.bYk);
             }
-            if (!TextUtils.isEmpty(bVar.bXZ)) {
-                hashMap.put("zipcode", bVar.bXZ);
+            if (!TextUtils.isEmpty(bVar.bYl)) {
+                hashMap.put("zipcode", bVar.bYl);
             }
         }
         return hashMap;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b extends StringResponseCallback {
-        private com.baidu.swan.bdprivate.address.b.b bXM;
+        private com.baidu.swan.bdprivate.address.b.b bXY;
         private String mType;
 
         public b(com.baidu.swan.bdprivate.address.b.b bVar, String str) {
-            this.bXM = bVar;
+            this.bXY = bVar;
             this.mType = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onSuccess(String str, int i) {
-            if (this.bXM != null) {
-                this.bXM.afs();
+            if (this.bXY != null) {
+                this.bXY.afL();
                 if (!TextUtils.isEmpty(str) && i == 200) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
                         if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                            this.bXM.onFailure(jSONObject.optString("tipmsg"));
+                            this.bXY.onFailure(jSONObject.optString("tipmsg"));
                             return;
                         }
                         String str2 = this.mType;
@@ -255,22 +255,22 @@ public class a {
                         }
                         switch (c) {
                             case 0:
-                                List<com.baidu.swan.bdprivate.address.c.b> mP = com.baidu.swan.bdprivate.address.c.c.mP(str);
-                                a.this.bXf = mP;
-                                this.bXM.b(mP, i);
-                                a.this.afy();
+                                List<com.baidu.swan.bdprivate.address.c.b> mS = com.baidu.swan.bdprivate.address.c.c.mS(str);
+                                a.this.bXr = mS;
+                                this.bXY.b(mS, i);
+                                a.this.afR();
                                 return;
                             case 1:
-                                this.bXM.K(str, i);
+                                this.bXY.K(str, i);
                                 return;
                             case 2:
-                                this.bXM.L(str, i);
+                                this.bXY.L(str, i);
                                 return;
                             case 3:
-                                this.bXM.L(str, i);
+                                this.bXY.L(str, i);
                                 return;
                             case 4:
-                                this.bXM.M(str, i);
+                                this.bXY.M(str, i);
                                 return;
                             default:
                                 return;
@@ -279,24 +279,24 @@ public class a {
                         if (a.DEBUG) {
                             e.printStackTrace();
                         }
-                        this.bXM.onFailure();
+                        this.bXY.onFailure();
                         return;
                     }
                 }
-                this.bXM.onFailure();
+                this.bXY.onFailure();
             }
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (this.bXM != null) {
-                this.bXM.afs();
-                this.bXM.onFailure();
+            if (this.bXY != null) {
+                this.bXY.afL();
+                this.bXY.onFailure();
             }
         }
     }
 
-    private String mL(String str) {
+    private String mO(String str) {
         String str2 = "";
         char c2 = 65535;
         switch (str.hashCode()) {
@@ -333,7 +333,7 @@ public class a {
         }
         switch (c2) {
             case 0:
-                if (TextUtils.equals(this.bXa, "aiapp")) {
+                if (TextUtils.equals(this.bXm, "aiapp")) {
                     str2 = "/oa_list";
                     break;
                 } else {
@@ -354,16 +354,16 @@ public class a {
                 break;
         }
         if (!TextUtils.isEmpty(str2)) {
-            return com.baidu.swan.apps.h.c.processCommonParams(com.baidu.swan.apps.h.c.Iv() + str2);
+            return com.baidu.swan.apps.h.c.processCommonParams(com.baidu.swan.apps.h.c.IR() + str2);
         }
         return str2;
     }
 
     /* renamed from: com.baidu.swan.bdprivate.address.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0304a implements com.baidu.swan.bdprivate.address.b.b {
+    /* loaded from: classes10.dex */
+    public static class C0306a implements com.baidu.swan.bdprivate.address.b.b {
         @Override // com.baidu.swan.bdprivate.address.b.b
-        public void afs() {
+        public void afL() {
         }
 
         @Override // com.baidu.swan.bdprivate.address.b.b

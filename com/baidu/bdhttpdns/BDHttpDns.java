@@ -8,17 +8,17 @@ import com.baidu.bdhttpdns.i;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class BDHttpDns {
-    private static volatile BDHttpDns GV;
-    private BDNetworkStateChangeReceiver Ha;
+    private static volatile BDHttpDns Ha;
+    private BDNetworkStateChangeReceiver Hf;
     private final Context g;
     private long i;
     private long j;
     private int k;
-    private final i GW = i.lU();
-    private final f GX = f.lT();
-    private final h GY = new h("DNS", true);
-    private final h GZ = new h("HTTPDNS", false);
-    private CachePolicy Hb = CachePolicy.POLICY_TOLERANT;
+    private final i Hb = i.lU();
+    private final f Hc = f.lT();
+    private final h Hd = new h("DNS", true);
+    private final h He = new h("HTTPDNS", false);
+    private CachePolicy Hg = CachePolicy.POLICY_TOLERANT;
 
     /* loaded from: classes.dex */
     public enum CachePolicy {
@@ -35,23 +35,23 @@ public final class BDHttpDns {
     private BDHttpDns(Context context) {
         this.g = context;
         f();
-        this.Ha.refreshIpReachable();
+        this.Hf.refreshIpReachable();
         this.j = System.currentTimeMillis();
     }
 
     private boolean a(long j) {
-        return this.GW.f() || (j - this.i > 1000 && !this.Ha.isIPv6Only());
+        return this.Hb.f() || (j - this.i > 1000 && !this.Hf.isIPv6Only());
     }
 
     public static BDHttpDns ag(Context context) {
-        if (GV == null) {
+        if (Ha == null) {
             synchronized (BDHttpDns.class) {
-                if (GV == null) {
-                    GV = new BDHttpDns(context);
+                if (Ha == null) {
+                    Ha = new BDHttpDns(context);
                 }
             }
         }
-        return GV;
+        return Ha;
     }
 
     private boolean b(long j) {
@@ -63,14 +63,14 @@ public final class BDHttpDns {
     }
 
     private void f() {
-        this.Ha = new BDNetworkStateChangeReceiver();
+        this.Hf = new BDNetworkStateChangeReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        this.g.registerReceiver(this.Ha, intentFilter);
+        this.g.registerReceiver(this.Hf, intentFilter);
     }
 
     public void W(boolean z) {
-        this.GW.a(z);
+        this.Hb.a(z);
         l.a("Set https enabled to %b", Boolean.valueOf(z));
     }
 
@@ -80,11 +80,11 @@ public final class BDHttpDns {
     }
 
     public void a(CachePolicy cachePolicy) {
-        this.Hb = cachePolicy;
+        this.Hg = cachePolicy;
         if (cachePolicy == CachePolicy.POLICY_STRICT) {
-            this.GZ.a(true);
+            this.He.a(true);
         } else {
-            this.GZ.a(false);
+            this.He.a(false);
         }
         l.a("Set cache policy to %s", cachePolicy.name());
     }
@@ -99,19 +99,19 @@ public final class BDHttpDns {
             arrayList2.add(str.replaceAll("[\\[\\]]", ""));
             m.lW().b().execute(new b(this, aVar, arrayList2));
         } else {
-            h.a bD = this.GZ.bD(str);
+            h.a bD = this.He.bD(str);
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList<String> arrayList3 = new ArrayList<>();
             if (a(currentTimeMillis)) {
                 if (bD == null) {
                     arrayList3.add(str);
                 } else if (bD.a()) {
-                    this.GW.a(str);
+                    this.Hb.a(str);
                 }
                 if (b(currentTimeMillis)) {
-                    arrayList3.addAll(this.GW.c());
+                    arrayList3.addAll(this.Hb.c());
                 }
-                this.GW.a(arrayList3, new k(this.g));
+                this.Hb.a(arrayList3, new k(this.g));
             } else {
                 l.a("please wait a moment to send request for %s, until preResolve finished or has passed 1000ms ", str);
             }
@@ -121,9 +121,9 @@ public final class BDHttpDns {
                 m.lW().b().execute(new c(this, aVar, resolveType, bD));
                 return;
             }
-            h.a bD2 = this.GY.bD(str);
+            h.a bD2 = this.Hd.bD(str);
             if (bD2 == null) {
-                this.GX.a(str, new g(this.g, aVar));
+                this.Hc.a(str, new g(this.g, aVar));
                 return;
             }
             BDHttpDnsResult.ResolveType resolveType2 = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS_CACHE;
@@ -142,7 +142,7 @@ public final class BDHttpDns {
         if (length > 64 || length < 8) {
             throw new IllegalArgumentException("secret length(" + str.length() + ") check failed");
         }
-        this.GW.d(str);
+        this.Hb.d(str);
         String substring = str.substring(0, 3);
         for (int i = 0; i < length - 6; i++) {
             substring = substring + String.valueOf('*');
@@ -162,20 +162,20 @@ public final class BDHttpDns {
         l.a(" Set preResolve tag : %s", str.toString());
         k kVar = new k(this.g);
         this.i = System.currentTimeMillis();
-        this.GW.a(str, i.d.TAG_OF_HOSTS, kVar);
+        this.Hb.a(str, i.d.TAG_OF_HOSTS, kVar);
     }
 
     public void bz(String str) {
         if (str.length() > 64) {
             throw new IllegalArgumentException("accountID length(" + str.length() + ") is bigger than 64");
         }
-        this.GW.c(str);
+        this.Hb.c(str);
         l.a("Set account id to %s", str);
     }
 
     public void d(boolean z, boolean z2) {
-        this.Ha.a(z);
-        this.Ha.b(z2);
+        this.Hf.a(z);
+        this.Hf.b(z2);
         l.a("Set network change policy, clearCache(%b), httpDnsPrefetch(%b)", Boolean.valueOf(z), Boolean.valueOf(z2));
     }
 
@@ -195,19 +195,19 @@ public final class BDHttpDns {
             return new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, null, arrayList2);
         } else {
             BDHttpDnsResult.ResolveType resolveType = BDHttpDnsResult.ResolveType.RESOLVE_NONE;
-            h.a bD = this.GZ.bD(str);
+            h.a bD = this.He.bD(str);
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList<String> arrayList3 = new ArrayList<>();
             if (a(currentTimeMillis)) {
                 if (bD == null) {
                     arrayList3.add(str);
                 } else if (bD.a()) {
-                    this.GW.a(str);
+                    this.Hb.a(str);
                 }
                 if (b(currentTimeMillis)) {
-                    arrayList3.addAll(this.GW.c());
+                    arrayList3.addAll(this.Hb.c());
                 }
-                this.GW.a(arrayList3, new k(this.g));
+                this.Hb.a(arrayList3, new k(this.g));
             } else {
                 l.a("please wait a moment to send request for %s, until preResolve finished or has passed 1000ms ", str);
             }
@@ -219,7 +219,7 @@ public final class BDHttpDns {
                 l.a("Sync resolve failed, host(%s), find no httpdns cache entry and cacheOnly is true", str);
                 return new BDHttpDnsResult(resolveType, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorCacheMiss, null, null);
             } else {
-                h.a bD2 = this.GY.bD(str);
+                h.a bD2 = this.Hd.bD(str);
                 if (bD2 != null) {
                     BDHttpDnsResult.ResolveType resolveType3 = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS_CACHE;
                     Object[] objArr = new Object[4];
@@ -230,14 +230,14 @@ public final class BDHttpDns {
                     l.a("Sync resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
                     return new BDHttpDnsResult(resolveType3, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, bD2.b(), bD2.c());
                 }
-                BDHttpDnsResult bC = this.GX.bC(str);
+                BDHttpDnsResult bC = this.Hc.bC(str);
                 if (bC.lQ() == BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK) {
                     h.a aVar = new h.a();
                     aVar.a(60L);
                     aVar.b(System.currentTimeMillis() / 1000);
                     aVar.a(bC.lR());
                     aVar.b(bC.lS());
-                    this.GY.a(str, aVar);
+                    this.Hd.a(str, aVar);
                     Object[] objArr2 = new Object[4];
                     objArr2[0] = str;
                     objArr2[1] = aVar.b() != null ? aVar.b().toString() : null;
@@ -254,21 +254,21 @@ public final class BDHttpDns {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h lL() {
-        return this.GZ;
+        return this.He;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h lM() {
-        return this.GY;
+        return this.Hd;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public CachePolicy lN() {
-        return this.Hb;
+        return this.Hg;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i lO() {
-        return this.GW;
+        return this.Hb;
     }
 }

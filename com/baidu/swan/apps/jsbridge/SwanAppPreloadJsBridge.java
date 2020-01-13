@@ -5,7 +5,7 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 import com.baidu.swan.apps.b;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwanAppPreloadJsBridge {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "swanPreload";
@@ -22,6 +22,6 @@ public class SwanAppPreloadJsBridge {
         if (DEBUG) {
             Log.d(TAG, "onJsLoaded");
         }
-        return com.baidu.swan.apps.process.messaging.service.b.Yt();
+        return com.baidu.swan.apps.process.messaging.service.b.YQ();
     }
 }

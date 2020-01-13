@@ -9,36 +9,36 @@ import com.baidu.swan.d.c;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static File Ph() {
+    public static File PD() {
         return new File(ac.getStorageList().get(0).mPath, "/aiapps_debug_swan_core/");
     }
 
-    public static void Pi() {
-        File Ph = Ph();
-        if (Ph.exists()) {
-            c.deleteFile(Ph);
+    public static void PE() {
+        File PD = PD();
+        if (PD.exists()) {
+            c.deleteFile(PD);
         }
     }
 
-    public static File Pj() {
-        File Ph = Ph();
-        if (!Ph.exists()) {
-            Ph.mkdirs();
+    public static File PF() {
+        File PD = PD();
+        if (!PD.exists()) {
+            PD.mkdirs();
         }
-        return new File(Ph, "debugSwanCore.zip");
+        return new File(PD, "debugSwanCore.zip");
     }
 
-    public static long acM() {
-        return h.acE().getLong("aiapps_cur_debug_ver_key", 0L);
+    public static long adj() {
+        return h.adb().getLong("aiapps_cur_debug_ver_key", 0L);
     }
 
-    public static boolean acN() {
+    public static boolean adk() {
         JSONObject jSONObject;
-        File file = new File(Ph().getPath(), "pkginfo.json");
+        File file = new File(PD().getPath(), "pkginfo.json");
         if (file.exists()) {
             try {
                 jSONObject = new JSONObject(c.readFileData(file));
@@ -51,7 +51,7 @@ public final class a {
             if (jSONObject != null) {
                 String optString = jSONObject.optString(SharedPrefConfig.VERSION_NAME);
                 if (!TextUtils.isEmpty(optString)) {
-                    h.acE().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.lX(optString));
+                    h.adb().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.ma(optString));
                 }
                 return true;
             }

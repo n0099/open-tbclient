@@ -1,4 +1,4 @@
 package kotlin.collections;
-/* loaded from: classes4.dex */
-public final class f extends i {
+/* loaded from: classes5.dex */
+public final class f extends j {
 }

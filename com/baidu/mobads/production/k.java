@@ -3,7 +3,7 @@ package com.baidu.mobads.production;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k implements g.c {
     final /* synthetic */ b a;
 

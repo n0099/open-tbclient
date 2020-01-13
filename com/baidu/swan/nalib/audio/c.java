@@ -1,5 +1,5 @@
 package com.baidu.swan.nalib.audio;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface c {
     void onPause();
 }

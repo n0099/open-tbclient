@@ -6,21 +6,21 @@ import com.google.android.exoplayer2.text.g.e;
 import com.google.android.exoplayer2.util.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class g extends com.google.android.exoplayer2.text.c {
-    private final f mxI;
-    private final l mxJ;
-    private final e.a mxK;
-    private final a mxL;
-    private final List<d> mxM;
+    private final a mBA;
+    private final List<d> mBB;
+    private final f mBx;
+    private final l mBy;
+    private final e.a mBz;
 
     public g() {
         super("WebvttDecoder");
-        this.mxI = new f();
-        this.mxJ = new l();
-        this.mxK = new e.a();
-        this.mxL = new a();
-        this.mxM = new ArrayList();
+        this.mBx = new f();
+        this.mBy = new l();
+        this.mBz = new e.a();
+        this.mBA = new a();
+        this.mBB = new ArrayList();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,30 +28,30 @@ public final class g extends com.google.android.exoplayer2.text.c {
     @Override // com.google.android.exoplayer2.text.c
     /* renamed from: h */
     public i b(byte[] bArr, int i, boolean z) throws SubtitleDecoderException {
-        this.mxJ.G(bArr, i);
-        this.mxK.reset();
-        this.mxM.clear();
-        h.ae(this.mxJ);
+        this.mBy.G(bArr, i);
+        this.mBz.reset();
+        this.mBB.clear();
+        h.ae(this.mBy);
         do {
-        } while (!TextUtils.isEmpty(this.mxJ.readLine()));
+        } while (!TextUtils.isEmpty(this.mBy.readLine()));
         ArrayList arrayList = new ArrayList();
         while (true) {
-            int ac = ac(this.mxJ);
+            int ac = ac(this.mBy);
             if (ac != 0) {
                 if (ac == 1) {
-                    ad(this.mxJ);
+                    ad(this.mBy);
                 } else if (ac == 2) {
                     if (!arrayList.isEmpty()) {
                         throw new SubtitleDecoderException("A style block was found after the first cue.");
                     }
-                    this.mxJ.readLine();
-                    d W = this.mxL.W(this.mxJ);
+                    this.mBy.readLine();
+                    d W = this.mBA.W(this.mBy);
                     if (W != null) {
-                        this.mxM.add(W);
+                        this.mBB.add(W);
                     }
-                } else if (ac == 3 && this.mxI.a(this.mxJ, this.mxK, this.mxM)) {
-                    arrayList.add(this.mxK.dvV());
-                    this.mxK.reset();
+                } else if (ac == 3 && this.mBx.a(this.mBy, this.mBz, this.mBB)) {
+                    arrayList.add(this.mBz.dxg());
+                    this.mBz.reset();
                 }
             } else {
                 return new i(arrayList);

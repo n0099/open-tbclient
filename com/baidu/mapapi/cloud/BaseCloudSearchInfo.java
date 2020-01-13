@@ -6,7 +6,7 @@ import com.baidu.webkit.internal.ETAG;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseCloudSearchInfo extends BaseSearchInfo {
     public String filter;
     public int pageIndex;

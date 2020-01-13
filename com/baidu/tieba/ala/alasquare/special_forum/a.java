@@ -10,11 +10,11 @@ import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class a extends b {
-    private SpecialLiveFragment elW;
+    private SpecialLiveFragment emR;
 
     public a(String str, String str2) {
-        this.elW = SpecialLiveFragment.cG(str, str2);
-        aNf().frag = this.elW;
+        this.emR = SpecialLiveFragment.cG(str, str2);
+        aNy().frag = this.emR;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -23,7 +23,7 @@ public class a extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c aNe() {
+    public c aNx() {
         c cVar = new c();
         cVar.type = 4;
         cVar.textResId = R.string.ala_live;
@@ -33,8 +33,8 @@ public class a extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator dW(Context context) {
-        this.dwU = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.dwU.setTextSize(2.0f);
-        return this.dwU;
+        this.dxc = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.dxc.setTextSize(2.0f);
+        return this.dxc;
     }
 }

@@ -1,17 +1,14 @@
 package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.g;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.NotificationLite;
-import io.reactivex.internal.util.f;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableCache<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final AtomicBoolean once;
     final a<T> state;
@@ -36,14 +33,14 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class a<T> extends f implements j<T> {
-        static final ReplaySubscription[] mTL = new ReplaySubscription[0];
-        static final ReplaySubscription[] mTM = new ReplaySubscription[0];
+    /* loaded from: classes5.dex */
+    public static final class a<T> extends io.reactivex.internal.util.f implements j<T> {
+        static final ReplaySubscription[] nvP = new ReplaySubscription[0];
+        static final ReplaySubscription[] nvQ = new ReplaySubscription[0];
         volatile boolean isConnected;
-        final g<T> mTG;
-        final AtomicReference<d> mTK;
-        boolean mTN;
+        final io.reactivex.g<T> nvK;
+        final AtomicReference<org.a.d> nvO;
+        boolean nvR;
         final AtomicReference<ReplaySubscription<T>[]> subscribers;
 
         public boolean a(ReplaySubscription<T> replaySubscription) {
@@ -51,7 +48,7 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
             ReplaySubscription<T>[] replaySubscriptionArr2;
             do {
                 replaySubscriptionArr = this.subscribers.get();
-                if (replaySubscriptionArr == mTM) {
+                if (replaySubscriptionArr == nvQ) {
                     return false;
                 }
                 int length = replaySubscriptionArr.length;
@@ -83,7 +80,7 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            replaySubscriptionArr2 = mTL;
+                            replaySubscriptionArr2 = nvP;
                         } else {
                             replaySubscriptionArr2 = new ReplaySubscription[length - 1];
                             System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr2, 0, i);
@@ -99,18 +96,18 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
-            SubscriptionHelper.setOnce(this.mTK, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+        public void onSubscribe(org.a.d dVar) {
+            SubscriptionHelper.setOnce(this.nvO, dVar, Format.OFFSET_SAMPLE_RELATIVE);
         }
 
         public void connect() {
-            this.mTG.a((j) this);
+            this.nvK.a((j) this);
             this.isConnected = true;
         }
 
         @Override // org.a.c
         public void onNext(T t) {
-            if (!this.mTN) {
+            if (!this.nvR) {
                 add(NotificationLite.next(t));
                 for (ReplaySubscription<T> replaySubscription : this.subscribers.get()) {
                     replaySubscription.replay();
@@ -120,25 +117,25 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            if (!this.mTN) {
-                this.mTN = true;
+            if (!this.nvR) {
+                this.nvR = true;
                 add(NotificationLite.error(th));
-                SubscriptionHelper.cancel(this.mTK);
-                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(mTM)) {
+                SubscriptionHelper.cancel(this.nvO);
+                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(nvQ)) {
                     replaySubscription.replay();
                 }
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            if (!this.mTN) {
-                this.mTN = true;
+            if (!this.nvR) {
+                this.nvR = true;
                 add(NotificationLite.complete());
-                SubscriptionHelper.cancel(this.mTK);
-                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(mTM)) {
+                SubscriptionHelper.cancel(this.nvO);
+                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(nvQ)) {
                     replaySubscription.replay();
                 }
             }
@@ -146,8 +143,8 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class ReplaySubscription<T> extends AtomicInteger implements d {
+    /* loaded from: classes5.dex */
+    public static final class ReplaySubscription<T> extends AtomicInteger implements org.a.d {
         private static final long serialVersionUID = -2557562030197141021L;
         final org.a.c<? super T> child;
         Object[] currentBuffer;
@@ -190,7 +187,7 @@ public final class FlowableCache<T> extends io.reactivex.internal.operators.flow
                         if (size != 0) {
                             Object[] objArr = this.currentBuffer;
                             if (objArr == null) {
-                                objArr = this.state.dEk();
+                                objArr = this.state.dIu();
                                 this.currentBuffer = objArr;
                             }
                             int length = objArr.length - 1;

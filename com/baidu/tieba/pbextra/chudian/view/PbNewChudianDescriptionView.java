@@ -6,10 +6,10 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.browser.a;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.pb.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PbNewChudianDescriptionView extends LinearLayout implements View.OnClickListener {
-    private b.a iYD;
-    private int iYF;
+    private b.a jcg;
+    private int jci;
     private String mClickUrl;
     private Context mContext;
 
@@ -17,19 +17,19 @@ public class PbNewChudianDescriptionView extends LinearLayout implements View.On
     public void onClick(View view) {
         if (!aq.isEmpty(this.mClickUrl)) {
             a.startWebActivity(this.mContext, this.mClickUrl);
-            if (this.iYD != null) {
-                switch (this.iYF) {
+            if (this.jcg != null) {
+                switch (this.jci) {
                     case 0:
-                        this.iYD.k(this.mClickUrl, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.jcg.k(this.mClickUrl, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 1:
-                        this.iYD.k(this.mClickUrl, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.jcg.k(this.mClickUrl, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 2:
-                        this.iYD.k(this.mClickUrl, "IMAGE2", "LINK_IMAGE", null, null);
+                        this.jcg.k(this.mClickUrl, "IMAGE2", "LINK_IMAGE", null, null);
                         return;
                     case 3:
-                        this.iYD.k(this.mClickUrl, "IMAGE3", "LINK_IMAGE", null, null);
+                        this.jcg.k(this.mClickUrl, "IMAGE3", "LINK_IMAGE", null, null);
                         return;
                     default:
                         return;
@@ -40,6 +40,6 @@ public class PbNewChudianDescriptionView extends LinearLayout implements View.On
 
     public void setClickUrl(String str, int i) {
         this.mClickUrl = str;
-        this.iYF = i;
+        this.jci = i;
     }
 }

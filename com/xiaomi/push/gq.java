@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.al;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class gq extends al.b {
     final /* synthetic */ Runnable a;
 

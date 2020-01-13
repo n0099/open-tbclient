@@ -1,14 +1,14 @@
 package com.google.android.exoplayer2.text;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class d extends i {
-    private final c muj;
+    private final c mxW;
 
     public d(c cVar) {
-        this.muj = cVar;
+        this.mxW = cVar;
     }
 
     @Override // com.google.android.exoplayer2.text.i
     public final void release() {
-        this.muj.a((i) this);
+        this.mxW.a((i) this);
     }
 }

@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory;
 import android.util.Base64;
 import com.baidu.mobads.interfaces.utils.IXAdBitmapUtils;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 class d implements IXAdBitmapUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdBitmapUtils
     @TargetApi(8)

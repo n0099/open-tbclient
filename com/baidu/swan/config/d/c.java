@@ -6,42 +6,42 @@ import com.baidu.swan.config.c;
 import com.baidu.swan.d.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private static c cbc;
-    private a cbd = new a();
-    private String cbe = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_dialog_msg);
-    private String cbf = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_toast_msg);
+    private static c cbo;
+    private a cbp = new a();
+    private String cbq = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_dialog_msg);
+    private String cbr = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_toast_msg);
 
-    public static c agz() {
-        if (cbc == null) {
+    public static c agS() {
+        if (cbo == null) {
             synchronized (c.class) {
-                if (cbc == null) {
-                    cbc = new c();
+                if (cbo == null) {
+                    cbo = new c();
                 }
             }
         }
-        return cbc;
+        return cbo;
     }
 
     private c() {
     }
 
     public int getVersion() {
-        return this.cbd.getInt("tips_config_version", 0);
+        return this.cbp.getInt("tips_config_version", 0);
     }
 
-    public String aM(long j) {
-        return this.cbd.getString(String.format("%04d", Long.valueOf(j)), this.cbe);
+    public String aP(long j) {
+        return this.cbp.getString(String.format("%04d", Long.valueOf(j)), this.cbq);
     }
 
-    public String aN(long j) {
-        return this.cbd.getString(String.format("%04d", Long.valueOf(j)), this.cbf);
+    public String aQ(long j) {
+        return this.cbp.getString(String.format("%04d", Long.valueOf(j)), this.cbr);
     }
 
     public void c(HashMap<String, String> hashMap, int i) {
         if (hashMap != null && !hashMap.isEmpty() && i > 0) {
-            SharedPreferences.Editor edit = this.cbd.edit();
+            SharedPreferences.Editor edit = this.cbp.edit();
             edit.clear();
             edit.putInt("tips_config_version", i);
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -51,7 +51,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private static class a extends e {
         a() {
             super("swan_launch_tips_config_sp_name");

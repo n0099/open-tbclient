@@ -8,10 +8,10 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class c extends LinkMovementMethod {
-    private static c kDp;
+    private static c kGQ;
     private int color = -1;
-    private com.baidu.tbadk.widget.richText.f kDn;
-    private long kDo;
+    private com.baidu.tbadk.widget.richText.f kGO;
+    private long kGP;
     private int mX;
     private int mY;
 
@@ -26,49 +26,49 @@ public class c extends LinkMovementMethod {
             return super.onTouchEvent(textView, spannable, motionEvent);
         }
         if (b != null) {
-            this.kDn = b;
+            this.kGO = b;
         }
         if (this.color > -1) {
-            this.kDn.setColor(this.color);
+            this.kGO.setColor(this.color);
         }
         if (motionEvent.getAction() == 0) {
             this.mX = (int) motionEvent.getX();
             this.mY = (int) motionEvent.getY();
-            this.kDo = System.currentTimeMillis();
-            if (this.kDn != null) {
-                this.kDn.ne(1);
-                Selection.setSelection(spannable, spannable.getSpanStart(this.kDn), spannable.getSpanEnd(this.kDn));
+            this.kGP = System.currentTimeMillis();
+            if (this.kGO != null) {
+                this.kGO.ne(1);
+                Selection.setSelection(spannable, spannable.getSpanStart(this.kGO), spannable.getSpanEnd(this.kGO));
             }
             textView.invalidate();
         } else if (motionEvent.getAction() == 2) {
-            if (this.kDn != null && (Math.abs(this.mX - motionEvent.getX()) > 20.0f || Math.abs(this.mY - motionEvent.getY()) > 20.0f)) {
-                this.kDn.ne(2);
+            if (this.kGO != null && (Math.abs(this.mX - motionEvent.getX()) > 20.0f || Math.abs(this.mY - motionEvent.getY()) > 20.0f)) {
+                this.kGO.ne(2);
                 textView.invalidate();
                 Selection.removeSelection(spannable);
             }
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            if (this.kDn != null) {
-                this.kDn.ne(2);
+            if (this.kGO != null) {
+                this.kGO.ne(2);
                 textView.invalidate();
                 Selection.removeSelection(spannable);
             }
-            if (a(this.mX, this.mY, motionEvent.getX(), motionEvent.getY(), this.kDo, System.currentTimeMillis(), 500L)) {
+            if (a(this.mX, this.mY, motionEvent.getX(), motionEvent.getY(), this.kGP, System.currentTimeMillis(), 500L)) {
                 return true;
             }
         }
         return super.onTouchEvent(textView, spannable, motionEvent);
     }
 
-    public static c cQS() {
-        if (kDp == null) {
-            kDp = new c();
+    public static c cRV() {
+        if (kGQ == null) {
+            kGQ = new c();
         }
-        return kDp;
+        return kGQ;
     }
 
     private com.baidu.tbadk.widget.richText.f b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
         if (motionEvent == null || motionEvent.getAction() == 3) {
-            return this.kDn;
+            return this.kGO;
         }
         int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
         int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();

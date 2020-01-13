@@ -1,5 +1,5 @@
 package com.baidu.searchbox.skin.ioc;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class NightRuntime {
     private static DefaultNightContext sDefaultNightContext = new DefaultNightContext();
 

@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class EditImageTextView extends ImageTextView {
     private static final float IMG_ROUND_CORNER = 9.0f;
     private static final int MAX_SELECT_PHOTO = 30;
@@ -53,12 +53,12 @@ public class EditImageTextView extends ImageTextView {
     private String mTextChangedBeforeStr;
     private VideoContentDelListener mVideoContentDelListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface TextNumbersChangedListener {
         void textChange(String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface VideoContentDelListener {
         void onVideoContentDel();
     }
@@ -292,7 +292,7 @@ public class EditImageTextView extends ImageTextView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class SpanInfo {
         public int end;
         public int length;

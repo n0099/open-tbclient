@@ -19,10 +19,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     private final Context appContext;
-    private final a jN;
+    private final a jM;
     private final String url;
 
     public static m<e> H(Context context, String str) {
@@ -32,7 +32,7 @@ public class b {
     private b(Context context, String str) {
         this.appContext = context.getApplicationContext();
         this.url = str;
-        this.jN = new a(this.appContext, str);
+        this.jM = new a(this.appContext, str);
     }
 
     private m<e> dv() {
@@ -60,7 +60,7 @@ public class b {
     @Nullable
     private e dx() {
         l<e> c;
-        Pair<FileExtension, InputStream> du = this.jN.du();
+        Pair<FileExtension, InputStream> du = this.jM.du();
         if (du == null) {
             return null;
         }
@@ -126,16 +126,16 @@ public class b {
                 case 0:
                     d.debug("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    a = f.a(new ZipInputStream(new FileInputStream(this.jN.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
+                    a = f.a(new ZipInputStream(new FileInputStream(this.jM.a(httpURLConnection.getInputStream(), fileExtension))), this.url);
                     break;
                 default:
                     d.debug("Received json response.");
                     fileExtension = FileExtension.Json;
-                    a = f.c(new FileInputStream(new File(this.jN.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
+                    a = f.c(new FileInputStream(new File(this.jM.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.url);
                     break;
             }
             if (a.getValue() != null) {
-                this.jN.a(fileExtension);
+                this.jM.a(fileExtension);
             }
             d.debug("Completed fetch from network. Success: " + (a.getValue() != null));
             return a;

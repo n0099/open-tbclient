@@ -1,5 +1,5 @@
 package com.baidu.tieba.j.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends a<com.baidu.tieba.play.b.b> {
     public d(String str) {
         super(str);
@@ -11,7 +11,7 @@ public class d extends a<com.baidu.tieba.play.b.b> {
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public void cen() {
+    public void cfw() {
         dz(this.list);
     }
 }

@@ -17,18 +17,18 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class k {
-    private static SharedPreferences QX = null;
-    private static ScheduledThreadPoolExecutor QY = new ScheduledThreadPoolExecutor(1);
+    private static SharedPreferences Rb = null;
+    private static ScheduledThreadPoolExecutor Rc = new ScheduledThreadPoolExecutor(1);
 
     private static long N(Context context, String str) {
         try {
-            if (QX == null && context != null) {
-                QX = context.getSharedPreferences("last_init_crab", 4);
+            if (Rb == null && context != null) {
+                Rb = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (QX != null) {
-                return QX.getLong(str, 0L);
+            if (Rb != null) {
+                return Rb.getLong(str, 0L);
             }
             return 0L;
         } catch (Exception e) {
@@ -38,7 +38,7 @@ public final class k {
     }
 
     public static void a(Context context, Throwable th) {
-        QY.execute(new m(th, context));
+        Rc.execute(new m(th, context));
     }
 
     public static synchronized void a(boolean z, Context context) {
@@ -48,13 +48,13 @@ public final class k {
                 long currentTimeMillis = System.currentTimeMillis() - N(context, "time_upload_crash");
                 com.baidu.crabsdk.c.a.v("uploadCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
                 if (currentTimeMillis < 10000) {
-                    QY.schedule(oVar, 10L, TimeUnit.SECONDS);
+                    Rc.schedule(oVar, 10L, TimeUnit.SECONDS);
                 } else {
-                    QY.execute(oVar);
+                    Rc.execute(oVar);
                 }
                 e(context, "time_upload_crash");
             } else {
-                QY.execute(oVar);
+                Rc.execute(oVar);
             }
         }
     }
@@ -170,7 +170,7 @@ public final class k {
                         } else {
                             com.baidu.crabsdk.c.a.cd("not connected to server!");
                         }
-                        f.QS = true;
+                        f.QW = true;
                     } else {
                         i.deleteFile(str2);
                         h.j(str2);
@@ -181,7 +181,7 @@ public final class k {
     }
 
     public static void c(Context context, Throwable th) {
-        QY.execute(new n(context, th));
+        Rc.execute(new n(context, th));
     }
 
     private static String cq(String str) {
@@ -191,11 +191,11 @@ public final class k {
     private static void e(Context context, String str) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            if (QX == null && context != null) {
-                QX = context.getSharedPreferences("last_init_crab", 4);
+            if (Rb == null && context != null) {
+                Rb = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (QX != null) {
-                QX.edit().putLong(str, System.currentTimeMillis()).commit();
+            if (Rb != null) {
+                Rb.edit().putLong(str, System.currentTimeMillis()).commit();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -208,9 +208,9 @@ public final class k {
         long currentTimeMillis = System.currentTimeMillis() - N(context, "time_upload_native");
         com.baidu.crabsdk.c.a.v("uploadNativeCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
         if (currentTimeMillis < 10000) {
-            QY.schedule(lVar, 10L, TimeUnit.SECONDS);
+            Rc.schedule(lVar, 10L, TimeUnit.SECONDS);
         } else {
-            QY.execute(lVar);
+            Rc.execute(lVar);
         }
         e(context, "time_upload_native");
     }
@@ -357,7 +357,7 @@ public final class k {
                                     c.put("pageHistory", com.baidu.crabsdk.b.a.p());
                                     c.put("sysMemInfo", com.baidu.crabsdk.b.l.z());
                                     c.put("allThreadStacks", r.L());
-                                    c.put("internalStorageInfo", com.baidu.crabsdk.b.q.nz());
+                                    c.put("internalStorageInfo", com.baidu.crabsdk.b.q.nA());
                                     c.put("phoneTime", j);
                                 }
                             } else {
@@ -440,7 +440,7 @@ public final class k {
     }
 
     public static void n(Context context) {
-        QY.execute(new p(context));
+        Rc.execute(new p(context));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -459,7 +459,7 @@ public final class k {
                     au(context);
                 } else if (com.baidu.crabsdk.a.r) {
                     com.baidu.crabsdk.c.a.v("network is not wifi, and UPLOAD_CRASH_ONLY_WIFI is true!");
-                } else if ("MOBILE".equals(E) && h.nJ()) {
+                } else if ("MOBILE".equals(E) && h.nK()) {
                     com.baidu.crabsdk.c.a.v("upload without wifi!");
                     h.a(0L);
                     au(context);

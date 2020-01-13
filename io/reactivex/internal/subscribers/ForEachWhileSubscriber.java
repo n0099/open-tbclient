@@ -1,21 +1,21 @@
 package io.reactivex.internal.subscribers;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.b.g;
+import io.reactivex.c.g;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T> {
     private static final long serialVersionUID = -4403180040475402120L;
     boolean done;
-    final io.reactivex.b.a onComplete;
+    final io.reactivex.c.a onComplete;
     final g<? super Throwable> onError;
-    final io.reactivex.b.j<? super T> onNext;
+    final io.reactivex.c.j<? super T> onNext;
 
-    public ForEachWhileSubscriber(io.reactivex.b.j<? super T> jVar, g<? super Throwable> gVar, io.reactivex.b.a aVar) {
+    public ForEachWhileSubscriber(io.reactivex.c.j<? super T> jVar, g<? super Throwable> gVar, io.reactivex.c.a aVar) {
         this.onNext = jVar;
         this.onError = gVar;
         this.onComplete = aVar;
@@ -45,7 +45,7 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
     @Override // org.a.c
     public void onError(Throwable th) {
         if (this.done) {
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
             return;
         }
         this.done = true;
@@ -53,7 +53,7 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
             this.onError.accept(th);
         } catch (Throwable th2) {
             io.reactivex.exceptions.a.I(th2);
-            io.reactivex.d.a.onError(new CompositeException(th, th2));
+            io.reactivex.e.a.onError(new CompositeException(th, th2));
         }
     }
 
@@ -65,7 +65,7 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
                 this.onComplete.run();
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.I(th);
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
     }

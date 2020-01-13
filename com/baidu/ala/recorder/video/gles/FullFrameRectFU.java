@@ -36,8 +36,9 @@ public class FullFrameRectFU {
         return this.mProgram.createTextureObject();
     }
 
-    public void drawFrame(int i, float[] fArr) {
+    public void drawFrame(int i, float[] fArr, Sticker sticker) {
         if (this.mProgram != null) {
+            this.mProgram.setSticker(sticker);
             this.mProgram.draw(GlUtil.IDENTITY_MATRIX, this.mRectDrawable.getVertexArray(), 0, this.mRectDrawable.getVertexCount(), this.mRectDrawable.getCoordsPerVertex(), this.mRectDrawable.getVertexStride(), fArr, this.mRectDrawable.getTexCoordArray(), i, this.mRectDrawable.getTexCoordStride());
         }
     }

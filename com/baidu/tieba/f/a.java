@@ -5,9 +5,9 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private float atj;
-    private float atk;
-    private InterfaceC0488a fLT;
+    private float atV;
+    private float atW;
+    private InterfaceC0492a fPc;
     private float mLastTouchX;
     private float mLastTouchY;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
@@ -17,16 +17,16 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.fLT.u(i, i2);
+                    a.this.fPc.y(i, i2);
                     return true;
                 case 1:
-                    a.this.fLT.v(i, i2);
+                    a.this.fPc.z(i, i2);
                     return true;
                 case 2:
-                    a.this.fLT.bA(i, i2);
+                    a.this.fPc.bz(i, i2);
                     return true;
                 case 3:
-                    a.this.fLT.w(i, i2);
+                    a.this.fPc.A(i, i2);
                     return true;
                 default:
                     return false;
@@ -37,58 +37,58 @@ public class a {
 
     /* renamed from: com.baidu.tieba.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0488a {
-        void bA(int i, int i2);
+    public interface InterfaceC0492a {
+        void A(int i, int i2);
 
-        void u(int i, int i2);
+        void bz(int i, int i2);
 
-        void v(int i, int i2);
+        void y(int i, int i2);
 
-        void w(int i, int i2);
+        void z(int i, int i2);
     }
 
-    public void a(InterfaceC0488a interfaceC0488a) {
-        this.fLT = interfaceC0488a;
+    public void a(InterfaceC0492a interfaceC0492a) {
+        this.fPc = interfaceC0492a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.atj = motionEvent.getRawX();
-                this.atk = motionEvent.getRawY();
-                this.mLastTouchX = this.atj;
-                this.mLastTouchY = this.atk;
+                this.atV = motionEvent.getRawX();
+                this.atW = motionEvent.getRawY();
+                this.mLastTouchX = this.atV;
+                this.mLastTouchY = this.atW;
                 return true;
             case 1:
             case 3:
-                if (this.fLT != null) {
-                    int i = (int) (this.mLastTouchX - this.atj);
-                    int i2 = (int) (this.mLastTouchY - this.atk);
+                if (this.fPc != null) {
+                    int i = (int) (this.mLastTouchX - this.atV);
+                    int i2 = (int) (this.mLastTouchY - this.atW);
                     if (Math.abs(i) >= Math.abs(i2)) {
-                        t(i, (int) this.atj);
+                        x(i, (int) this.atV);
                     } else {
-                        bz(i, i2);
+                        by(i, i2);
                     }
                 }
-                this.atj = 0.0f;
-                this.atk = 0.0f;
+                this.atV = 0.0f;
+                this.atW = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                if (this.atj == 0.0f || this.atk == 0.0f) {
-                    this.atj = motionEvent.getRawX();
-                    this.atk = motionEvent.getRawY();
-                    this.mLastTouchX = this.atj;
-                    this.mLastTouchY = this.atk;
+                if (this.atV == 0.0f || this.atW == 0.0f) {
+                    this.atV = motionEvent.getRawX();
+                    this.atW = motionEvent.getRawY();
+                    this.mLastTouchX = this.atV;
+                    this.mLastTouchY = this.atW;
                 }
                 int i3 = (int) (rawY - this.mLastTouchY);
-                int i4 = (int) (rawY - this.atk);
-                if (this.fLT != null) {
+                int i4 = (int) (rawY - this.atW);
+                if (this.fPc != null) {
                     if (i3 > 0) {
-                        s(i4, i3);
+                        w(i4, i3);
                     } else {
-                        r(i4, i3);
+                        v(i4, i3);
                     }
                 }
                 this.mLastTouchX = rawX;
@@ -99,7 +99,7 @@ public class a {
         }
     }
 
-    private void r(int i, int i2) {
+    private void v(int i, int i2) {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(0)) {
             Message message = new Message();
@@ -110,7 +110,7 @@ public class a {
         }
     }
 
-    private void s(int i, int i2) {
+    private void w(int i, int i2) {
         this.mHandler.removeMessages(0);
         if (!this.mHandler.hasMessages(1)) {
             Message message = new Message();
@@ -121,7 +121,7 @@ public class a {
         }
     }
 
-    private void bz(int i, int i2) {
+    private void by(int i, int i2) {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(2)) {
             Message message = new Message();
@@ -132,7 +132,7 @@ public class a {
         }
     }
 
-    private void t(int i, int i2) {
+    private void x(int i, int i2) {
         this.mHandler.removeMessages(3);
         if (!this.mHandler.hasMessages(3)) {
             Message message = new Message();

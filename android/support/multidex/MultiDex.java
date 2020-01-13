@@ -21,7 +21,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MultiDex {
     private static final String CODE_CACHE_NAME = "code_cache";
     private static final String CODE_CACHE_SECONDARY_FOLDER_NAME = "secondary-dexes";
@@ -248,7 +248,7 @@ public final class MultiDex {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class V19 {
         private V19() {
         }
@@ -284,7 +284,7 @@ public final class MultiDex {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class V14 {
         private V14() {
         }
@@ -301,7 +301,7 @@ public final class MultiDex {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class V4 {
         private V4() {
         }

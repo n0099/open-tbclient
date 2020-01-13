@@ -1,7 +1,7 @@
 package com.baidu.sapi2.service.interfaces;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface a {
     boolean webLogin(Context context, String str);
 

@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.charset.Charset;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface BufferedSource extends ReadableByteChannel, Source {
     Buffer buffer();
 

@@ -26,26 +26,26 @@ import com.baidu.swan.bdprivate.a.l;
 import com.baidu.swan.bdprivate.a.y;
 import com.baidu.swan.bdprivate.a.z;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c implements com.baidu.swan.bdprivate.a.a.a {
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
-        a.aWU().a(context, bundle, aVar);
+        a.aXo().a(context, bundle, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public boolean isLogin(Context context) {
-        return a.aWU().isLogin();
+        return a.aXo().isLogin();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getBduss(Context context) {
-        return a.aWU().getBduss();
+        return a.aXo().getBduss();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getUid(Context context) {
-        return a.aWU().getUid();
+        return a.aXo().getUid();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -65,14 +65,14 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
     @Override // com.baidu.swan.bdprivate.a.a.a
     public z da(Context context) {
         z zVar = new z();
-        zVar.displayName = a.aWU().getDisplayName();
-        zVar.bWT = a.aWU().aWW();
+        zVar.displayName = a.aXo().getDisplayName();
+        zVar.bXf = a.aXo().aXq();
         return zVar;
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void b(com.baidu.swan.apps.a.c cVar) {
-        a.aWU().a(cVar);
+        a.aXo().a(cVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -130,7 +130,7 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String cX(Context context) {
-        return h.acE().getString("bd_box_ptoken", "");
+        return h.adb().getString("bd_box_ptoken", "");
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a

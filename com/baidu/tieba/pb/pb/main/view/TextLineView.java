@@ -10,15 +10,15 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TextLineView extends TextView {
-    private int amx;
-    private int iPh;
-    private int iPi;
-    private int iPj;
-    private int iPk;
-    private int iPl;
-    private int iPm;
+    private int ank;
+    private int iSL;
+    private int iSM;
+    private int iSN;
+    private int iSO;
+    private int iSP;
+    private int iSQ;
     private int mHeight;
     private int mMargin;
     private Paint mPaint;
@@ -32,42 +32,42 @@ public class TextLineView extends TextView {
     public TextLineView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.TextLineView);
-        this.iPh = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-        this.iPi = obtainStyledAttributes.getDimensionPixelSize(4, 0);
-        this.iPj = obtainStyledAttributes.getDimensionPixelSize(5, 0);
-        this.iPl = obtainStyledAttributes.getColor(2, am.getColor(R.color.cp_cont_b));
-        this.iPk = obtainStyledAttributes.getColor(3, am.getColor(R.color.cp_cont_j));
-        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.iPi + this.iPh + this.iPj);
-        setTextColor(this.iPl);
-        this.iPm = l.getDimens(context, R.dimen.ds56);
+        this.iSL = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+        this.iSM = obtainStyledAttributes.getDimensionPixelSize(4, 0);
+        this.iSN = obtainStyledAttributes.getDimensionPixelSize(5, 0);
+        this.iSP = obtainStyledAttributes.getColor(2, am.getColor(R.color.cp_cont_b));
+        this.iSO = obtainStyledAttributes.getColor(3, am.getColor(R.color.cp_cont_j));
+        setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.iSM + this.iSL + this.iSN);
+        setTextColor(this.iSP);
+        this.iSQ = l.getDimens(context, R.dimen.ds56);
         this.mRectF = new RectF();
-        this.amx = l.getDimens(getContext(), R.dimen.ds4);
+        this.ank = l.getDimens(getContext(), R.dimen.ds4);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        coH();
+        cpO();
         if (this.mRectF == null) {
             this.mRectF = new RectF();
         }
-        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.iPj) - this.iPh, this.mWidth - this.mMargin, this.mHeight - this.iPj);
-        canvas.drawRoundRect(this.mRectF, this.amx, this.amx, this.mPaint);
+        this.mRectF.set(this.mMargin + 0, (this.mHeight - this.iSN) - this.iSL, this.mWidth - this.mMargin, this.mHeight - this.iSN);
+        canvas.drawRoundRect(this.mRectF, this.ank, this.ank, this.mPaint);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            setTextColor(this.iPl);
+            setTextColor(this.iSP);
         } else {
-            setTextColor(this.iPk);
+            setTextColor(this.iSO);
         }
         invalidate();
     }
 
-    private void coH() {
+    private void cpO() {
         if (this.mPaint == null) {
             this.mPaint = new Paint();
         }
@@ -81,14 +81,14 @@ public class TextLineView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        this.iPl = am.getColor(R.color.cp_cont_b);
-        this.iPk = am.getColor(R.color.cp_cont_j);
+        this.iSP = am.getColor(R.color.cp_cont_b);
+        this.iSO = am.getColor(R.color.cp_cont_j);
         if (isSelected()) {
-            setTextColor(this.iPl);
+            setTextColor(this.iSP);
         } else {
-            setTextColor(this.iPk);
+            setTextColor(this.iSO);
         }
-        coH();
+        cpO();
         invalidate();
     }
 
@@ -97,6 +97,6 @@ public class TextLineView extends TextView {
         super.onSizeChanged(i, i2, i3, i4);
         this.mWidth = i;
         this.mHeight = i2;
-        this.mMargin = (this.mWidth - this.iPm) / 2;
+        this.mMargin = (this.mWidth - this.iSQ) / 2;
     }
 }

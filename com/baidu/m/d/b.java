@@ -6,103 +6,103 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.rtc.RtcConfig;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private String cBT;
-    private com.baidu.m.b cCd;
+    private String cCe;
+    private com.baidu.m.b cCo;
 
     private b() {
-        this.cCd = null;
-        this.cBT = "";
+        this.cCo = null;
+        this.cCe = "";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static class a {
-        private static final b cCe = new b();
+        private static final b cCp = new b();
     }
 
-    public static b auk() {
-        return a.cCe;
+    public static b auD() {
+        return a.cCp;
     }
 
     public void a(Context context, RtcConfig rtcConfig, String str, String str2) {
-        if (this.cCd != null) {
-            this.cCd.stop();
-            this.cCd = null;
+        if (this.cCo != null) {
+            this.cCo.stop();
+            this.cCo = null;
         }
         if (context != null && rtcConfig != null && str != null && str2 != null) {
-            this.cBT = str;
-            this.cCd = new com.baidu.m.b(context, rtcConfig, str, str2);
+            this.cCe = str;
+            this.cCo = new com.baidu.m.b(context, rtcConfig, str, str2);
         }
     }
 
-    public void qZ(String str) {
-        if (this.cBT.equals(str) && this.cCd != null) {
-            this.cCd.stop();
-            this.cCd = null;
+    public void rc(String str) {
+        if (this.cCe.equals(str) && this.cCo != null) {
+            this.cCo.stop();
+            this.cCo = null;
         }
     }
 
-    public boolean ra(String str) {
-        return (this.cBT == null || str == null || !this.cBT.equals(str)) ? false : true;
+    public boolean rd(String str) {
+        return (this.cCe == null || str == null || !this.cCe.equals(str)) ? false : true;
     }
 
     public void U(String str) {
-        if (this.cCd != null) {
-            this.cCd.U(str);
+        if (this.cCo != null) {
+            this.cCo.U(str);
         }
     }
 
     public void stop() {
-        if (this.cCd.getPlayerView() != null && this.cCd.getPlayerView().getParent() != null) {
-            ((ViewGroup) this.cCd.getPlayerView().getParent()).removeView(this.cCd.getPlayerView());
+        if (this.cCo.getPlayerView() != null && this.cCo.getPlayerView().getParent() != null) {
+            ((ViewGroup) this.cCo.getPlayerView().getParent()).removeView(this.cCo.getPlayerView());
         }
-        if (this.cCd != null) {
-            this.cCd.stop();
+        if (this.cCo != null) {
+            this.cCo.stop();
         }
     }
 
     public void mute() {
-        if (this.cCd != null) {
-            this.cCd.mute();
+        if (this.cCo != null) {
+            this.cCo.mute();
         }
     }
 
     public void unMute() {
-        if (this.cCd != null) {
-            this.cCd.unMute();
+        if (this.cCo != null) {
+            this.cCo.unMute();
         }
     }
 
     public void switchCamera() {
-        if (this.cCd != null) {
-            this.cCd.switchCamera();
+        if (this.cCo != null) {
+            this.cCo.switchCamera();
         }
     }
 
     public boolean updateRTCConfig(RtcConfig rtcConfig) {
-        if (this.cCd != null) {
-            return this.cCd.updateRTCConfig(rtcConfig);
+        if (this.cCo != null) {
+            return this.cCo.updateRTCConfig(rtcConfig);
         }
         return false;
     }
 
     public void resetPreview() {
-        if (this.cCd != null) {
-            this.cCd.resetPreview();
+        if (this.cCo != null) {
+            this.cCo.resetPreview();
         }
     }
 
     public View getRecorderView() {
-        if (this.cCd != null) {
-            return this.cCd.getRecorderView();
+        if (this.cCo != null) {
+            return this.cCo.getRecorderView();
         }
         return null;
     }
 
     public View getPlayerView() {
-        if (this.cCd != null) {
-            return this.cCd.getPlayerView();
+        if (this.cCo != null) {
+            return this.cCo.getPlayerView();
         }
         return null;
     }

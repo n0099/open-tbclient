@@ -2,7 +2,7 @@ package com.baidu.tieba.setting;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MsgRemindActivityConfig extends IntentConfig {
     public MsgRemindActivityConfig(Context context) {
         super(context);

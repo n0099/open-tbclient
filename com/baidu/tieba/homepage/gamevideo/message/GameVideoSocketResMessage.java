@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.RecomVertical.DataRes;
 import tbclient.RecomVertical.RecomVerticalResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class GameVideoSocketResMessage extends SocketResponsedMessage {
     public DataRes mResultData;
 

@@ -2,57 +2,57 @@ package com.baidu.tieba.VideoCache;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private List<d> dSd = new ArrayList();
-    private long dSe = 0;
+    private List<d> dSm = new ArrayList();
+    private long dSn = 0;
 
-    public List<d> aUj() {
-        return this.dSd;
+    public List<d> aUD() {
+        return this.dSm;
     }
 
-    public long aUk() {
-        return this.dSe;
+    public long aUE() {
+        return this.dSn;
     }
 
     public void a(d dVar) {
-        if (this.dSd != null) {
-            this.dSd.add(dVar);
+        if (this.dSm != null) {
+            this.dSm.add(dVar);
             if (dVar != null) {
-                this.dSe += dVar.getCurrentSize();
+                this.dSn += dVar.getCurrentSize();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.dSd != null) {
-            this.dSd.remove(dVar);
+        if (this.dSm != null) {
+            this.dSm.remove(dVar);
             if (dVar != null) {
-                this.dSe -= dVar.getCurrentSize();
+                this.dSn -= dVar.getCurrentSize();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.dSd != null) {
-            d dVar = this.dSd.get(i);
+        if (this.dSm != null) {
+            d dVar = this.dSm.get(i);
             if (dVar != null) {
-                this.dSe -= dVar.getCurrentSize();
+                this.dSn -= dVar.getCurrentSize();
             }
-            this.dSd.remove(i);
+            this.dSm.remove(i);
         }
     }
 
-    public int aUl() {
-        if (this.dSd != null) {
-            return this.dSd.size();
+    public int aUF() {
+        if (this.dSm != null) {
+            return this.dSm.size();
         }
         return 0;
     }
 
     public d nG(int i) {
-        if (this.dSd != null) {
-            return this.dSd.get(i);
+        if (this.dSm != null) {
+            return this.dSm.get(i);
         }
         return null;
     }

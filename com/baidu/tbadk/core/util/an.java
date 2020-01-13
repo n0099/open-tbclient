@@ -49,7 +49,7 @@ public class an {
         return this;
     }
 
-    private void aC(List<Object> list) {
+    private void aB(List<Object> list) {
         this.params = list;
     }
 
@@ -61,17 +61,22 @@ public class an {
         }
     }
 
-    public an aDS() {
+    public boolean te(String str) {
+        int indexOf;
+        return !aq.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
+    }
+
+    public an aEl() {
         an anVar = new an(getKey());
-        anVar.aC(getParams());
+        anVar.aB(getParams());
         return anVar;
     }
 
-    public void aDT() {
+    public void aEm() {
         TiebaStatic.log(this);
     }
 
-    public static an tb(String str) {
+    public static an tf(String str) {
         return new an(str);
     }
 }

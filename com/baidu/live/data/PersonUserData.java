@@ -8,19 +8,19 @@ public class PersonUserData implements Serializable {
     public static final int PERSON_FOLLOWS_TYPE = 1;
     public static final int PERSON_PLAYBACKS_TYPE = 2;
     public AlaLocationData location_info;
-    public u login_user_info;
+    public w login_user_info;
     public AlaRelationData relation_info;
-    public u user_info;
+    public w user_info;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
         if (optJSONObject != null) {
-            this.user_info = new u();
+            this.user_info = new w();
             this.user_info.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("login_user_info");
         if (optJSONObject2 != null) {
-            this.login_user_info = new u();
+            this.login_user_info = new w();
             this.login_user_info.parserJson(optJSONObject2);
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("location_info");

@@ -7,7 +7,7 @@ import android.graphics.PointF;
 import android.support.annotation.RequiresApi;
 import android.util.Property;
 @RequiresApi(21)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class ObjectAnimatorUtilsApi21 implements ObjectAnimatorUtilsImpl {
     @Override // android.support.transition.ObjectAnimatorUtilsImpl
     public <T> ObjectAnimator ofPointF(T t, Property<T, PointF> property, Path path) {

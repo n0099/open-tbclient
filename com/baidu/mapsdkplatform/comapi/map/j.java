@@ -23,7 +23,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, MapRenderer.a {
     private static final String a = j.class.getSimpleName();
     private Handler b;
@@ -34,7 +34,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     private e g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         float a;
         float b;

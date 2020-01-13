@@ -1,5 +1,5 @@
 package com.baidu.swan.pms;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    String aqF();
+    String aqY();
 }

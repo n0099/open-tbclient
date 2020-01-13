@@ -6,7 +6,7 @@ import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
     protected static final long KEEP_ALIVE_TIME_OPEN = 5000;
     protected static final long KEEP_ALIVE_TIME_SHUTDOWN = 100;

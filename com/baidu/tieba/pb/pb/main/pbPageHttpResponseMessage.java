@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     private String cacheKey;
     private Context context;
@@ -53,7 +53,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.e();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.ivY = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.izC = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -64,7 +64,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         this.pbData = new com.baidu.tieba.pb.data.f();
-        this.pbData.yo(2);
+        this.pbData.yt(2);
         this.pbData.a(pbPageResIdl.data, this.context);
         BdLog.detailException(null);
     }
@@ -74,10 +74,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                i.cjC().a(this.cacheKey, this.isFromMark, bArr);
+                i.ckK().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                i.cjC().n(this.cacheKey, bArr);
+                i.ckK().n(this.cacheKey, bArr);
                 return;
             default:
                 return;

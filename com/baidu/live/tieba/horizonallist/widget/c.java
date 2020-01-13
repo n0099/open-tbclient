@@ -7,17 +7,17 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 /* loaded from: classes2.dex */
 public class c {
-    private static float avp = 8.0f;
-    private static float avq;
-    private final a avm;
-    private final a avn;
-    private final boolean avo;
+    private static float awb = 8.0f;
+    private static float awc;
+    private final a avY;
+    private final a avZ;
+    private final boolean awa;
     private Interpolator mInterpolator;
     private int mMode;
 
     static {
-        avq = 1.0f;
-        avq = 1.0f / J(1.0f);
+        awc = 1.0f;
+        awc = 1.0f / J(1.0f);
     }
 
     public c(Context context) {
@@ -26,13 +26,13 @@ public class c {
 
     public static float J(float f) {
         float exp;
-        float f2 = avp * f;
+        float f2 = awb * f;
         if (f2 < 1.0f) {
             exp = f2 - (1.0f - ((float) Math.exp(-f2)));
         } else {
             exp = ((1.0f - ((float) Math.exp(1.0f - f2))) * (1.0f - 0.36787945f)) + 0.36787945f;
         }
-        return exp * avq;
+        return exp * awc;
     }
 
     public c(Context context, Interpolator interpolator) {
@@ -41,9 +41,9 @@ public class c {
 
     public c(Context context, Interpolator interpolator, boolean z) {
         this.mInterpolator = interpolator;
-        this.avo = z;
-        this.avm = new a(context);
-        this.avn = new a(context);
+        this.awa = z;
+        this.avY = new a(context);
+        this.avZ = new a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,20 +52,20 @@ public class c {
     }
 
     public final void setFriction(float f) {
-        this.avm.setFriction(f);
-        this.avn.setFriction(f);
+        this.avY.setFriction(f);
+        this.avZ.setFriction(f);
     }
 
     public final boolean isFinished() {
-        return this.avm.mFinished && this.avn.mFinished;
+        return this.avY.mFinished && this.avZ.mFinished;
     }
 
     public final int getCurrX() {
-        return this.avm.mCurrentPosition;
+        return this.avY.mCurrentPosition;
     }
 
     public float getCurrVelocity() {
-        return (float) Math.sqrt((this.avm.avt * this.avm.avt) + (this.avn.avt * this.avn.avt));
+        return (float) Math.sqrt((this.avY.awf * this.avY.awf) + (this.avZ.awf * this.avZ.awf));
     }
 
     public boolean computeScrollOffset() {
@@ -75,8 +75,8 @@ public class c {
         }
         switch (this.mMode) {
             case 0:
-                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.avm.mStartTime;
-                int i = this.avm.mDuration;
+                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.avY.mStartTime;
+                int i = this.avY.mDuration;
                 if (currentAnimationTimeMillis < i) {
                     float f = ((float) currentAnimationTimeMillis) / i;
                     if (this.mInterpolator == null) {
@@ -84,19 +84,19 @@ public class c {
                     } else {
                         interpolation = this.mInterpolator.getInterpolation(f);
                     }
-                    this.avm.K(interpolation);
-                    this.avn.K(interpolation);
+                    this.avY.K(interpolation);
+                    this.avZ.K(interpolation);
                     break;
                 } else {
                     abortAnimation();
                     break;
                 }
             case 1:
-                if (!this.avm.mFinished && !this.avm.update() && !this.avm.xn()) {
-                    this.avm.finish();
+                if (!this.avY.mFinished && !this.avY.update() && !this.avY.xD()) {
+                    this.avY.finish();
                 }
-                if (!this.avn.mFinished && !this.avn.update() && !this.avn.xn()) {
-                    this.avn.finish();
+                if (!this.avZ.mFinished && !this.avZ.update() && !this.avZ.xD()) {
+                    this.avZ.finish();
                     break;
                 }
                 break;
@@ -106,13 +106,13 @@ public class c {
 
     public void startScroll(int i, int i2, int i3, int i4, int i5) {
         this.mMode = 0;
-        this.avm.l(i, i3, i5);
-        this.avn.l(i2, i4, i5);
+        this.avY.l(i, i3, i5);
+        this.avZ.l(i2, i4, i5);
     }
 
     public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
         this.mMode = 1;
-        return this.avm.m(i, i3, i4) || this.avn.m(i2, i5, i6);
+        return this.avY.m(i, i3, i4) || this.avZ.m(i2, i5, i6);
     }
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
@@ -121,55 +121,55 @@ public class c {
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
         int i11;
-        if (this.avo && !isFinished()) {
-            float f = this.avm.avt;
-            float f2 = this.avn.avt;
+        if (this.awa && !isFinished()) {
+            float f = this.avY.awf;
+            float f2 = this.avZ.awf;
             if (Math.signum(i3) == Math.signum(f) && Math.signum(i4) == Math.signum(f2)) {
                 i4 = (int) (i4 + f2);
                 i11 = (int) (f + i3);
                 this.mMode = 1;
-                this.avm.b(i, i11, i5, i6, i9);
-                this.avn.b(i2, i4, i7, i8, i10);
+                this.avY.b(i, i11, i5, i6, i9);
+                this.avZ.b(i2, i4, i7, i8, i10);
             }
         }
         i11 = i3;
         this.mMode = 1;
-        this.avm.b(i, i11, i5, i6, i9);
-        this.avn.b(i2, i4, i7, i8, i10);
+        this.avY.b(i, i11, i5, i6, i9);
+        this.avZ.b(i2, i4, i7, i8, i10);
     }
 
     public void notifyHorizontalEdgeReached(int i, int i2, int i3) {
-        this.avm.q(i, i2, i3);
+        this.avY.q(i, i2, i3);
     }
 
     public void abortAnimation() {
-        this.avm.finish();
-        this.avn.finish();
+        this.avY.finish();
+        this.avZ.finish();
     }
 
     public boolean m(float f, float f2) {
-        return !isFinished() && Math.signum(f) == Math.signum((float) (this.avm.avr - this.avm.mStart)) && Math.signum(f2) == Math.signum((float) (this.avn.avr - this.avn.mStart));
+        return !isFinished() && Math.signum(f) == Math.signum((float) (this.avY.awd - this.avY.mStart)) && Math.signum(f2) == Math.signum((float) (this.avZ.awd - this.avZ.mStart));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a {
-        private static float avA = (float) (Math.log(0.78d) / Math.log(0.9d));
-        private static final float[] avB = new float[101];
-        private static final float[] avC = new float[101];
-        private int avr;
-        private int avs;
-        private float avt;
-        private float avu;
-        private int avv;
-        private int avw;
-        private int avx;
-        private float avz;
+        private static float awm = (float) (Math.log(0.78d) / Math.log(0.9d));
+        private static final float[] awn = new float[101];
+        private static final float[] awo = new float[101];
+        private int awd;
+        private int awe;
+        private float awf;
+        private float awg;
+        private int awh;
+        private int awi;
+        private int awj;
+        private float awl;
         private int mCurrentPosition;
         private int mDuration;
         private int mStart;
         private long mStartTime;
-        private float avy = ViewConfiguration.getScrollFriction();
+        private float awk = ViewConfiguration.getScrollFriction();
         private int mState = 0;
         private boolean mFinished = true;
 
@@ -197,7 +197,7 @@ public class c {
                         f9 = f;
                     }
                 }
-                avB[i] = (f * f * f) + (f2 * (((1.0f - f) * 0.5f) + f));
+                awn[i] = (f * f * f) + (f2 * (((1.0f - f) * 0.5f) + f));
                 float f11 = 1.0f;
                 while (true) {
                     f3 = ((f11 - f5) / 2.0f) + f5;
@@ -211,28 +211,28 @@ public class c {
                         f5 = f3;
                     }
                 }
-                avC[i] = (f3 * f3 * f3) + ((((1.0f - f3) * 0.175f) + (0.35000002f * f3)) * f4);
+                awo[i] = (f3 * f3 * f3) + ((((1.0f - f3) * 0.175f) + (0.35000002f * f3)) * f4);
                 i++;
                 f6 = f9;
             }
-            float[] fArr = avB;
-            avC[100] = 1.0f;
+            float[] fArr = awn;
+            awo[100] = 1.0f;
             fArr[100] = 1.0f;
         }
 
         void setFriction(float f) {
-            this.avy = f;
+            this.awk = f;
         }
 
         a(Context context) {
-            this.avz = context.getResources().getDisplayMetrics().density * 160.0f * 386.0878f * 0.84f;
+            this.awl = context.getResources().getDisplayMetrics().density * 160.0f * 386.0878f * 0.84f;
         }
 
         void K(float f) {
-            this.mCurrentPosition = this.mStart + Math.round((this.avr - this.mStart) * f);
+            this.mCurrentPosition = this.mStart + Math.round((this.awd - this.mStart) * f);
         }
 
-        private static float co(int i) {
+        private static float cp(int i) {
             return i > 0 ? -2000.0f : 2000.0f;
         }
 
@@ -241,31 +241,31 @@ public class c {
             int i4 = (int) (100.0f * abs);
             if (i4 < 100) {
                 float f = i4 / 100.0f;
-                float f2 = avC[i4];
-                this.mDuration = (int) (((((abs - f) / (((i4 + 1) / 100.0f) - f)) * (avC[i4 + 1] - f2)) + f2) * this.mDuration);
+                float f2 = awo[i4];
+                this.mDuration = (int) (((((abs - f) / (((i4 + 1) / 100.0f) - f)) * (awo[i4 + 1] - f2)) + f2) * this.mDuration);
             }
         }
 
         void l(int i, int i2, int i3) {
             this.mFinished = false;
             this.mStart = i;
-            this.avr = i + i2;
+            this.awd = i + i2;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.mDuration = i3;
-            this.avu = 0.0f;
-            this.avs = 0;
+            this.awg = 0.0f;
+            this.awe = 0;
         }
 
         void finish() {
-            this.mCurrentPosition = this.avr;
+            this.mCurrentPosition = this.awd;
             this.mFinished = true;
         }
 
         boolean m(int i, int i2, int i3) {
             this.mFinished = true;
-            this.avr = i;
+            this.awd = i;
             this.mStart = i;
-            this.avs = 0;
+            this.awe = 0;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.mDuration = 0;
             if (i < i2) {
@@ -280,20 +280,20 @@ public class c {
             this.mFinished = false;
             this.mState = 1;
             this.mStart = i;
-            this.avr = i2;
+            this.awd = i2;
             int i4 = i - i2;
-            this.avu = co(i4);
-            this.avs = -i4;
-            this.avx = Math.abs(i4);
-            this.mDuration = (int) (Math.sqrt((i4 * (-2.0d)) / this.avu) * 1000.0d);
+            this.awg = cp(i4);
+            this.awe = -i4;
+            this.awj = Math.abs(i4);
+            this.mDuration = (int) (Math.sqrt((i4 * (-2.0d)) / this.awg) * 1000.0d);
         }
 
         void b(int i, int i2, int i3, int i4, int i5) {
-            this.avx = i5;
+            this.awj = i5;
             this.mFinished = false;
-            this.avs = i2;
-            this.avt = i2;
-            this.avv = 0;
+            this.awe = i2;
+            this.awf = i2;
+            this.awh = 0;
             this.mDuration = 0;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.mStart = i;
@@ -305,47 +305,47 @@ public class c {
             this.mState = 0;
             double d = 0.0d;
             if (i2 != 0) {
-                int cr = cr(i2);
-                this.avv = cr;
-                this.mDuration = cr;
-                d = cq(i2);
+                int cs = cs(i2);
+                this.awh = cs;
+                this.mDuration = cs;
+                d = cr(i2);
             }
-            this.avw = (int) (d * Math.signum(i2));
-            this.avr = this.avw + i;
-            if (this.avr < i3) {
-                k(this.mStart, this.avr, i3);
-                this.avr = i3;
+            this.awi = (int) (d * Math.signum(i2));
+            this.awd = this.awi + i;
+            if (this.awd < i3) {
+                k(this.mStart, this.awd, i3);
+                this.awd = i3;
             }
-            if (this.avr > i4) {
-                k(this.mStart, this.avr, i4);
-                this.avr = i4;
+            if (this.awd > i4) {
+                k(this.mStart, this.awd, i4);
+                this.awd = i4;
             }
-        }
-
-        private double cp(int i) {
-            return Math.log((0.35f * Math.abs(i)) / (this.avy * this.avz));
         }
 
         private double cq(int i) {
-            return Math.exp(cp(i) * (avA / (avA - 1.0d))) * this.avy * this.avz;
+            return Math.log((0.35f * Math.abs(i)) / (this.awk * this.awl));
         }
 
-        private int cr(int i) {
-            return (int) (Math.exp(cp(i) / (avA - 1.0d)) * 1000.0d);
+        private double cr(int i) {
+            return Math.exp(cq(i) * (awm / (awm - 1.0d))) * this.awk * this.awl;
+        }
+
+        private int cs(int i) {
+            return (int) (Math.exp(cq(i) / (awm - 1.0d)) * 1000.0d);
         }
 
         private void o(int i, int i2, int i3) {
-            float f = (-i3) / this.avu;
-            float sqrt = (float) Math.sqrt((((((i3 * i3) / 2.0f) / Math.abs(this.avu)) + Math.abs(i2 - i)) * 2.0d) / Math.abs(this.avu));
+            float f = (-i3) / this.awg;
+            float sqrt = (float) Math.sqrt((((((i3 * i3) / 2.0f) / Math.abs(this.awg)) + Math.abs(i2 - i)) * 2.0d) / Math.abs(this.awg));
             this.mStartTime -= (int) ((sqrt - f) * 1000.0f);
             this.mStart = i2;
-            this.avs = (int) ((-this.avu) * sqrt);
+            this.awe = (int) ((-this.awg) * sqrt);
         }
 
         private void p(int i, int i2, int i3) {
-            this.avu = co(i3 == 0 ? i - i2 : i3);
+            this.awg = cp(i3 == 0 ? i - i2 : i3);
             o(i, i2, i3);
-            xm();
+            xC();
         }
 
         private void h(int i, int i2, int i3, int i4) {
@@ -359,8 +359,8 @@ public class c {
             int i6 = i - i5;
             if (i6 * i4 >= 0) {
                 p(i, i5, i4);
-            } else if (cq(i4) > Math.abs(i6)) {
-                b(i, i4, z ? i2 : i, z ? i : i3, this.avx);
+            } else if (cr(i4) > Math.abs(i6)) {
+                b(i, i4, z ? i2 : i, z ? i : i3, this.awj);
             } else {
                 n(i, i5, i4);
             }
@@ -368,38 +368,38 @@ public class c {
 
         void q(int i, int i2, int i3) {
             if (this.mState == 0) {
-                this.avx = i3;
+                this.awj = i3;
                 this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
-                h(i, i2, i2, (int) this.avt);
+                h(i, i2, i2, (int) this.awf);
             }
         }
 
-        private void xm() {
-            float abs = (this.avs * this.avs) / (Math.abs(this.avu) * 2.0f);
-            float signum = Math.signum(this.avs);
-            if (abs > this.avx) {
-                this.avu = (((-signum) * this.avs) * this.avs) / (this.avx * 2.0f);
-                abs = this.avx;
+        private void xC() {
+            float abs = (this.awe * this.awe) / (Math.abs(this.awg) * 2.0f);
+            float signum = Math.signum(this.awe);
+            if (abs > this.awj) {
+                this.awg = (((-signum) * this.awe) * this.awe) / (this.awj * 2.0f);
+                abs = this.awj;
             }
-            this.avx = (int) abs;
+            this.awj = (int) abs;
             this.mState = 2;
             int i = this.mStart;
-            if (this.avs <= 0) {
+            if (this.awe <= 0) {
                 abs = -abs;
             }
-            this.avr = ((int) abs) + i;
-            this.mDuration = -((int) ((1000.0f * this.avs) / this.avu));
+            this.awd = ((int) abs) + i;
+            this.mDuration = -((int) ((1000.0f * this.awe) / this.awg));
         }
 
-        boolean xn() {
+        boolean xD() {
             switch (this.mState) {
                 case 0:
-                    if (this.mDuration < this.avv) {
-                        this.mStart = this.avr;
-                        this.avs = (int) this.avt;
-                        this.avu = co(this.avs);
+                    if (this.mDuration < this.awh) {
+                        this.mStart = this.awd;
+                        this.awe = (int) this.awf;
+                        this.awg = cp(this.awe);
                         this.mStartTime += this.mDuration;
-                        xm();
+                        xC();
                         break;
                     } else {
                         return false;
@@ -408,7 +408,7 @@ public class c {
                     return false;
                 case 2:
                     this.mStartTime += this.mDuration;
-                    n(this.avr, this.mStart, 0);
+                    n(this.awd, this.mStart, 0);
                     break;
             }
             update();
@@ -423,30 +423,30 @@ public class c {
             double d = 0.0d;
             switch (this.mState) {
                 case 0:
-                    float f = ((float) currentAnimationTimeMillis) / this.avv;
+                    float f = ((float) currentAnimationTimeMillis) / this.awh;
                     int i = (int) (100.0f * f);
                     float f2 = 1.0f;
                     float f3 = 0.0f;
                     if (i < 100) {
                         float f4 = i / 100.0f;
-                        float f5 = avB[i];
-                        f3 = (avB[i + 1] - f5) / (((i + 1) / 100.0f) - f4);
+                        float f5 = awn[i];
+                        f3 = (awn[i + 1] - f5) / (((i + 1) / 100.0f) - f4);
                         f2 = ((f - f4) * f3) + f5;
                     }
-                    this.avt = ((f3 * this.avw) / this.avv) * 1000.0f;
-                    d = f2 * this.avw;
+                    this.awf = ((f3 * this.awi) / this.awh) * 1000.0f;
+                    d = f2 * this.awi;
                     break;
                 case 1:
                     float f6 = ((float) currentAnimationTimeMillis) / this.mDuration;
                     float f7 = f6 * f6;
-                    float signum = Math.signum(this.avs);
-                    d = this.avx * signum * ((3.0f * f7) - ((2.0f * f6) * f7));
-                    this.avt = ((-f6) + f7) * signum * this.avx * 6.0f;
+                    float signum = Math.signum(this.awe);
+                    d = this.awj * signum * ((3.0f * f7) - ((2.0f * f6) * f7));
+                    this.awf = ((-f6) + f7) * signum * this.awj * 6.0f;
                     break;
                 case 2:
                     float f8 = ((float) currentAnimationTimeMillis) / 1000.0f;
-                    this.avt = this.avs + (this.avu * f8);
-                    d = ((f8 * (this.avu * f8)) / 2.0f) + (this.avs * f8);
+                    this.awf = this.awe + (this.awg * f8);
+                    d = ((f8 * (this.awg * f8)) / 2.0f) + (this.awe * f8);
                     break;
             }
             this.mCurrentPosition = ((int) Math.round(d)) + this.mStart;

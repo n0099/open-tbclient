@@ -12,12 +12,12 @@ import java.util.Iterator;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SubSampleInformationBox extends AbstractFullBox {
     public static final String TYPE = "subs";
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_2 = null;
     private List<SampleEntry> entries;
     private long entryCount;
 
@@ -107,7 +107,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
         return "SubSampleInformationBox{entryCount=" + this.entryCount + ", entries=" + this.entries + '}';
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SampleEntry {
         private long sampleDelta;
         private int subsampleCount;
@@ -138,7 +138,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
             this.subsampleCount++;
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static class SubsampleEntry {
             private int discardable;
             private long reserved;

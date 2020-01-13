@@ -9,13 +9,13 @@ import com.baidu.tieba.ala.live.personcenter.forbidden.b.b;
 /* loaded from: classes2.dex */
 public class a extends AbsDelegateAdapter<b, com.baidu.tieba.ala.live.personcenter.forbidden.d.b> {
     public a(Context context, BdUniqueId bdUniqueId) {
-        super(context, b.eGX, bdUniqueId);
+        super(context, b.eIh, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: T */
+    /* renamed from: X */
     public com.baidu.tieba.ala.live.personcenter.forbidden.d.b onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.ala.live.personcenter.forbidden.d.b(this.mContext, this.mPageId);
     }

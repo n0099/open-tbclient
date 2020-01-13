@@ -19,14 +19,14 @@ import okhttp3.Headers;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ab {
-    public static final Set<String> aZB = com.facebook.common.internal.i.K("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> bBk;
+    public static final Set<String> bat = com.facebook.common.internal.i.K("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> bBW;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.bBk = new ConcurrentHashMap<>();
+        this.bBW = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -34,22 +34,22 @@ public class a extends ab {
         return false;
     }
 
-    public final long jn(String str) {
+    public final long jq(String str) {
         long j;
         if (TextUtils.isEmpty(str)) {
             return 0L;
         }
         try {
-            j = this.bBk.get(str).longValue();
+            j = this.bBW.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
         return j;
     }
 
-    public final void jo(String str) {
-        if (this.bBk != null && !TextUtils.isEmpty(str)) {
-            this.bBk.remove(str);
+    public final void jr(String str) {
+        if (this.bBW != null && !TextUtils.isEmpty(str)) {
+            this.bBW.remove(str);
         }
     }
 
@@ -61,7 +61,7 @@ public class a extends ab {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !aZB.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !bat.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
                     hashMap.put(next, optString);
@@ -78,13 +78,13 @@ public class a extends ab {
             if (at == null) {
                 at = new HashMap<>();
             }
-            at.put("Referer", com.baidu.swan.apps.api.module.g.c.Hg());
+            at.put("Referer", com.baidu.swan.apps.api.module.g.c.HC());
         }
         return at;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject fs(String str) {
+    public JSONObject fv(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -161,12 +161,12 @@ public class a extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String Wi() {
-        return com.baidu.swan.apps.w.a.RI().FH().getCookie(".baidu.com");
+    public String WF() {
+        return com.baidu.swan.apps.w.a.Se().Gd().getCookie(".baidu.com");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject fl(int i) {
+    public JSONObject fm(int i) {
         switch (i) {
             case 0:
                 return UnitedSchemeUtility.wrapCallbackParams(0);

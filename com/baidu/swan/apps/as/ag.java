@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ag {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -117,7 +117,7 @@ public final class ag {
         return str;
     }
 
-    public static String mz(String str) {
+    public static String mC(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith(File.separator)) {
                 str = str.substring(1);
@@ -130,8 +130,8 @@ public final class ag {
         return str;
     }
 
-    public static String mA(String str) {
-        return mz(delAllParamsFromUrl(str));
+    public static String mD(String str) {
+        return mC(delAllParamsFromUrl(str));
     }
 
     public static String getParams(String str) {

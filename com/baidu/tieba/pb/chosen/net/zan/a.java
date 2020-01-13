@@ -6,21 +6,21 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 import com.baidu.tieba.pb.chosen.PbChosenActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public a() {
-        chx();
-        chw();
+        ciF();
+        ciE();
     }
 
-    private void chx() {
+    private void ciF() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003007, com.baidu.tieba.tbadkCore.a.a.bu(TbConfig.FINE_PB_PRAISE, CmdConfigSocket.CMD_CHOSEN_PB_PRAISE));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003007, com.baidu.tieba.tbadkCore.a.a.bv(TbConfig.FINE_PB_PRAISE, CmdConfigSocket.CMD_CHOSEN_PB_PRAISE));
         tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private void chw() {
+    private void ciE() {
         b bVar = new b(CmdConfigSocket.CMD_CHOSEN_PB_PRAISE);
         bVar.setResponsedClass(ChosenPbZanSocketResponse.class);
         bVar.setNeedAck(true);

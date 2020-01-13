@@ -6,7 +6,7 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CloudRgcInfo {
     public int geoTableId;
     public String location;

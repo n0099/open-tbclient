@@ -32,7 +32,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DownloadManager {
     public static final String ACTION_WEBSUITE_PROGRESS_CHANGE = "com.baidu.appsearch.websuite.download.PROGRESS_CHANGE";
     public static final String ACTION_WEBSUITE_STATE_CHANGE = "com.baidu.appsearch.websuite.download.STATE_CHANGE";
@@ -256,17 +256,17 @@ public final class DownloadManager {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface DownloadItemFilter {
         boolean filter(Download download);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnProgressChangeListener {
         void onProgressChanged(long j, int i, long j2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnStateChangeListener {
         void onStateChanged(long j, Download download);
     }

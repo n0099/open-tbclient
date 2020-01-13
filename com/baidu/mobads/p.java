@@ -4,13 +4,13 @@ import android.annotation.SuppressLint;
 import android.view.KeyEvent;
 import com.baidu.mobads.component.XAdView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class p implements XAdView.Listener {
-    final /* synthetic */ InterstitialAd aKk;
+    final /* synthetic */ InterstitialAd aLc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(InterstitialAd interstitialAd) {
-        this.aKk = interstitialAd;
+        this.aLc = interstitialAd;
     }
 
     @Override // com.baidu.mobads.component.XAdView.Listener
@@ -28,7 +28,7 @@ public class p implements XAdView.Listener {
     @Override // com.baidu.mobads.component.XAdView.Listener
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         com.baidu.mobads.production.f.a aVar;
-        aVar = this.aKk.aJT;
+        aVar = this.aLc.aKL;
         return aVar.a(i, keyEvent);
     }
 

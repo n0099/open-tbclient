@@ -17,7 +17,7 @@ import com.sina.weibo.sdk.web.WebViewRequestCallback;
 import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ShareWebViewClient extends BaseWebViewClient {
     private static final String RESP_PARAM_CODE = "code";
     private static final String RESP_PARAM_MSG = "msg";

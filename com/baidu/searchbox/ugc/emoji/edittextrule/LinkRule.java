@@ -14,7 +14,7 @@ import com.baidu.searchbox.ugc.view.CenterAlignImageSpan;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LinkRule extends HighlightAndDeleteRule {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final String TAG = "LinkRule";

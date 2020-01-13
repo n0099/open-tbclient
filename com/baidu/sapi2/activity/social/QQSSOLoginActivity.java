@@ -28,14 +28,14 @@ import com.tencent.tauth.UiError;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class QQSSOLoginActivity extends BaseSSOLoginActivity {
     private static final String DEFAULT_QQ_NOT_INSTALL_ERROR = "QQ未安装";
     private static final int SUCCESS_RESULTCODE = -1;
     private static final String TAG = "QQSSOLoginActivity";
     private IUiListener qqLoginListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface QrCallback {
         void onFailure();
 

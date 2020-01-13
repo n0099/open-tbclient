@@ -15,7 +15,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.SpinnerAdapter;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface DecorToolbar {
     void animateToVisibility(int i);
 

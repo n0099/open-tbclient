@@ -1,46 +1,46 @@
 package com.facebook.imagepipeline.producers;
 
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class aq<T> extends com.facebook.common.b.h<T> {
-    private final am lQB;
-    private final k<T> lQX;
-    private final String lSi;
+    private final k<T> lUL;
+    private final am lUp;
+    private final String lVW;
     private final String mRequestId;
 
     @Override // com.facebook.common.b.h
     protected abstract void aP(T t);
 
     public aq(k<T> kVar, am amVar, String str, String str2) {
-        this.lQX = kVar;
-        this.lQB = amVar;
-        this.lSi = str;
+        this.lUL = kVar;
+        this.lUp = amVar;
+        this.lVW = str;
         this.mRequestId = str2;
-        this.lQB.fc(this.mRequestId, this.lSi);
+        this.lUp.fe(this.mRequestId, this.lVW);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onSuccess(T t) {
-        this.lQB.a(this.mRequestId, this.lSi, this.lQB.OF(this.mRequestId) ? bq(t) : null);
-        this.lQX.g(t, 1);
+        this.lUp.a(this.mRequestId, this.lVW, this.lUp.OQ(this.mRequestId) ? br(t) : null);
+        this.lUL.g(t, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onFailure(Exception exc) {
-        this.lQB.a(this.mRequestId, this.lSi, exc, this.lQB.OF(this.mRequestId) ? n(exc) : null);
-        this.lQX.D(exc);
+        this.lUp.a(this.mRequestId, this.lVW, exc, this.lUp.OQ(this.mRequestId) ? n(exc) : null);
+        this.lUL.D(exc);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
-    public void dim() {
-        this.lQB.b(this.mRequestId, this.lSi, this.lQB.OF(this.mRequestId) ? dpK() : null);
-        this.lQX.dim();
+    public void djn() {
+        this.lUp.b(this.mRequestId, this.lVW, this.lUp.OQ(this.mRequestId) ? dqU() : null);
+        this.lUL.djn();
     }
 
-    protected Map<String, String> bq(T t) {
+    protected Map<String, String> br(T t) {
         return null;
     }
 
@@ -48,7 +48,7 @@ public abstract class aq<T> extends com.facebook.common.b.h<T> {
         return null;
     }
 
-    protected Map<String, String> dpK() {
+    protected Map<String, String> dqU() {
         return null;
     }
 }

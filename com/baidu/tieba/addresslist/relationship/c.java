@@ -8,25 +8,25 @@ import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
 import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         if (customMessage == null || !(customMessage instanceof GetContactListRequestMessage)) {
             return null;
         }
-        List<com.baidu.tbadk.coreExtra.relationship.a> aWp = f.aWo().aWp();
-        if (aWp != null) {
-            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = aWp.iterator();
+        List<com.baidu.tbadk.coreExtra.relationship.a> aWJ = f.aWI().aWJ();
+        if (aWJ != null) {
+            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = aWJ.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.coreExtra.relationship.a next = it.next();
-                if ((k.isEmpty(next.getUserName()) && k.isEmpty(next.aJz())) || next.getUserType() == 1) {
+                if ((k.isEmpty(next.getUserName()) && k.isEmpty(next.aJT())) || next.getUserType() == 1) {
                     it.remove();
                 }
             }
         }
         GetContactListResponsedMessage getContactListResponsedMessage = new GetContactListResponsedMessage();
-        getContactListResponsedMessage.setContacts(aWp);
+        getContactListResponsedMessage.setContacts(aWJ);
         return getContactListResponsedMessage;
     }
 }

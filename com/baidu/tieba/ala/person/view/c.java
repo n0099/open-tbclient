@@ -4,9 +4,9 @@ import android.view.View;
 import com.baidu.tieba.ala.person.adapter.a;
 /* loaded from: classes2.dex */
 public abstract class c {
-    protected a.InterfaceC0461a fkF;
-    protected a.c fkG;
-    protected a.b fkH;
+    protected a.InterfaceC0465a fnP;
+    protected a.c fnQ;
+    protected a.b fnR;
     protected int mFromType;
     protected View mRootView;
 
@@ -27,15 +27,15 @@ public abstract class c {
     public void onChangeSkinType(int i) {
     }
 
-    public void a(a.InterfaceC0461a interfaceC0461a) {
-        this.fkF = interfaceC0461a;
+    public void a(a.InterfaceC0465a interfaceC0465a) {
+        this.fnP = interfaceC0465a;
     }
 
     public void a(a.c cVar) {
-        this.fkG = cVar;
+        this.fnQ = cVar;
     }
 
     public void a(a.b bVar) {
-        this.fkH = bVar;
+        this.fnR = bVar;
     }
 }

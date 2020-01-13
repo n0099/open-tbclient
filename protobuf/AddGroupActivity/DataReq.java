@@ -2,7 +2,7 @@ package protobuf.AddGroupActivity;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_GACTIVITYAREA = "";
     public static final String DEFAULT_GACTIVITYCONTENT = "";
@@ -76,7 +76,7 @@ public final class DataReq extends Message {
         this.commitType = builder.commitType;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer activityId;
         public Integer commitType;

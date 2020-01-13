@@ -1,10 +1,10 @@
 package com.baidu.tieba.personPolymeric.c;
 
 import android.os.Bundle;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class n {
-    public Bundle fVh;
+    public Bundle fYq;
     public int iconId;
-    public com.baidu.tieba.personCenter.c.a jkx;
+    public com.baidu.tieba.personCenter.c.a jnZ;
     public String title;
 }

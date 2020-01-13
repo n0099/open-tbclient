@@ -1,11 +1,11 @@
 package com.baidu.poly.a.a;
 
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class d<K, V> {
     private Map<K, V> map = com.baidu.poly.util.d.p();
 
-    public Map<K, V> BF() {
+    public Map<K, V> Cb() {
         return this.map;
     }
 

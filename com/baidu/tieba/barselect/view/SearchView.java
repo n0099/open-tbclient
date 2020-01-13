@@ -12,11 +12,11 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SearchView extends LinearLayout {
-    private ImageView eyp;
-    private View fAH;
-    private TextView fAI;
+    private ImageView ezA;
+    private View fDS;
+    private TextView fDT;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -35,26 +35,26 @@ public class SearchView extends LinearLayout {
         setMinimumHeight(l.getDimens(getContext(), R.dimen.tbds90));
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.vote_search_layout, (ViewGroup) this, true);
-        na();
+        nb();
     }
 
-    private void na() {
-        this.fAH = findViewById(R.id.search_container);
-        this.eyp = (ImageView) findViewById(R.id.search_bar_icon);
-        this.fAI = (TextView) findViewById(R.id.search_text);
+    private void nb() {
+        this.fDS = findViewById(R.id.search_container);
+        this.ezA = (ImageView) findViewById(R.id.search_bar_icon);
+        this.fDT = (TextView) findViewById(R.id.search_text);
     }
 
-    public void oT(int i) {
-        am.c(this.fAH, l.getDimens(getContext(), R.dimen.tbds100), (int) R.color.cp_bg_line_c, (int) R.color.cp_bg_line_c, i);
-        SvgManager.aDW().a(this.eyp, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-        am.setViewTextColor(this.fAI, R.color.cp_cont_d, 1, i);
+    public void oU(int i) {
+        am.c(this.fDS, l.getDimens(getContext(), R.dimen.tbds100), (int) R.color.cp_bg_line_c, (int) R.color.cp_bg_line_c, i);
+        SvgManager.aEp().a(this.ezA, R.drawable.icon_pure_search_import16_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+        am.setViewTextColor(this.fDT, R.color.cp_cont_d, 1, i);
         am.setBackgroundResource(this, R.drawable.bar_select_bg_top_round, i);
     }
 
-    public void u(View.OnClickListener onClickListener) {
+    public void t(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.fAH.setOnClickListener(this.mOnClickListener);
+            this.fDS.setOnClickListener(this.mOnClickListener);
         }
     }
 }

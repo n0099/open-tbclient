@@ -2,7 +2,7 @@ package io.reactivex.internal.util;
 
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class e {
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
@@ -28,7 +28,7 @@ public final class e {
             }
             return;
         }
-        io.reactivex.d.a.onError(th);
+        io.reactivex.e.a.onError(th);
     }
 
     public static void a(org.a.c<?> cVar, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
@@ -66,7 +66,7 @@ public final class e {
             }
             return;
         }
-        io.reactivex.d.a.onError(th);
+        io.reactivex.e.a.onError(th);
     }
 
     public static void a(u<?> uVar, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {

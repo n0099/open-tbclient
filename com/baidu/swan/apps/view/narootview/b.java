@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.view.narootview;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private int bWA;
-    private int bWB;
+    private int bWM;
+    private int bWN;
     private int mFlags = 0;
 
     @NonNull
@@ -21,19 +21,19 @@ public class b {
         return (this.mFlags & 1) == 1;
     }
 
-    public int afe() {
-        return this.bWA;
+    public int afx() {
+        return this.bWM;
     }
 
     public void gX(int i) {
-        this.bWA = i;
+        this.bWM = i;
     }
 
-    public int aff() {
-        return this.bWB;
+    public int afy() {
+        return this.bWN;
     }
 
     public void gY(int i) {
-        this.bWB = i;
+        this.bWN = i;
     }
 }

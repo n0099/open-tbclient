@@ -17,12 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static boolean aOi() {
+    private static boolean aOB() {
         return TbadkCoreApplication.getInst().isDebugMode();
     }
 
     private static final void d(Object obj, String str) {
-        if (aOi()) {
+        if (aOB()) {
             if (obj != null) {
                 str = str + " : " + obj.getClass().getSimpleName();
             }
@@ -31,10 +31,10 @@ public class c {
     }
 
     private static final void a(Fragment fragment, List<Fragment> list) {
-        if (aOi()) {
-            d(null, "--------------------------------------------------");
-            d(null, "ParentFragment:" + fragment);
-            d(null, "Print All ChildFragments=" + v.getCount(list));
+        if (aOB()) {
+            d((Object) null, "--------------------------------------------------");
+            d((Object) null, "ParentFragment:" + fragment);
+            d((Object) null, "Print All ChildFragments=" + v.getCount(list));
             if (!v.isEmpty(list)) {
                 for (Fragment fragment2 : list) {
                     boolean isPrimary = fragment2 instanceof BaseFragment ? ((BaseFragment) fragment2).isPrimary() : false;
@@ -45,14 +45,14 @@ public class c {
     }
 
     private static final void a(b bVar) {
-        if (aOi() && bVar != null) {
+        if (aOB() && bVar != null) {
             String currentPageKey = bVar.getCurrentPageKey();
-            ArrayList<String> aOg = bVar.aOg();
-            ArrayList<String> aOh = bVar.aOh();
+            ArrayList<String> aOz = bVar.aOz();
+            ArrayList<String> aOA = bVar.aOA();
             StringBuilder sb = new StringBuilder("Current TbPageExtra:");
             sb.append("currentKey=").append(currentPageKey).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("preList=").append(aOg.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("nextList=").append(aOh.toString());
+            sb.append("preList=").append(aOz.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("nextList=").append(aOA.toString());
             d(bVar, sb.toString());
         }
     }
@@ -151,7 +151,7 @@ public class c {
         return baseFragment != null && baseFragment.isVisible() && baseFragment.isPrimary();
     }
 
-    public static ArrayList<String> e(ArrayList<String> arrayList, String str) {
+    public static ArrayList<String> d(ArrayList<String> arrayList, String str) {
         ArrayList<String> arrayList2 = new ArrayList<>();
         if (!v.isEmpty(arrayList)) {
             arrayList2.addAll(arrayList);

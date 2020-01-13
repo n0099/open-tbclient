@@ -1,16 +1,16 @@
 package com.baidu.tieba.frs.videomiddlepage;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface g {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void Py();
+        void PU();
 
         void a(a aVar);
 

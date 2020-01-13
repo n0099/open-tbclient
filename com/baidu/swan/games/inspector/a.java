@@ -6,90 +6,90 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.runtime.e;
 import org.apache.http.cookie.ClientCookie;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private String ckt;
-    private String cku;
-    private boolean ckv;
-    private boolean ckw;
-    private boolean ckx;
-    private boolean cky;
+    private String ckG;
+    private String ckH;
+    private boolean ckI;
+    private boolean ckJ;
+    private boolean ckK;
+    private boolean ckL;
 
     /* renamed from: com.baidu.swan.games.inspector.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0325a {
-        private String ckz;
+    /* loaded from: classes10.dex */
+    public static class C0327a {
+        private String ckM;
         private boolean mEnabled;
 
-        C0325a(boolean z, String str) {
+        C0327a(boolean z, String str) {
             this.mEnabled = false;
             this.mEnabled = z;
-            this.ckz = str;
+            this.ckM = str;
         }
 
-        public static C0325a alV() {
-            return new C0325a(false, "未启用真机调试");
+        public static C0327a amo() {
+            return new C0327a(false, "未启用真机调试");
         }
 
         public boolean isEnabled() {
             return this.mEnabled;
         }
 
-        public String alW() {
-            return this.ckz;
+        public String amp() {
+            return this.ckM;
         }
     }
 
     public a(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        this.ckt = null;
-        this.cku = null;
-        this.ckv = false;
-        this.ckw = false;
-        this.ckx = false;
-        this.cky = false;
+        this.ckG = null;
+        this.ckH = null;
+        this.ckI = false;
+        this.ckJ = false;
+        this.ckK = false;
+        this.ckL = false;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("inspector")) != null) {
-            this.ckt = optJSONObject.optString("hostname", null);
-            this.cku = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
-            this.ckv = optJSONObject.optBoolean("breakOnStart", false);
+            this.ckG = optJSONObject.optString("hostname", null);
+            this.ckH = optJSONObject.optString(ClientCookie.PORT_ATTR, null);
+            this.ckI = optJSONObject.optBoolean("breakOnStart", false);
         }
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
-        this.cky = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
-        if (this.cky) {
-            this.ckt = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.ckt);
-            this.cku = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.cku);
-            this.ckv = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.ckv);
-            this.ckw = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.ckw);
+        this.ckL = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_ENABLED", false);
+        if (this.ckL) {
+            this.ckG = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_HOSTNAME", this.ckG);
+            this.ckH = defaultSharedPreferences.getString("KEY_DEBUG_SWAN_INSPECTOR_FRONTEND_PORT", this.ckH);
+            this.ckI = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_BREAK_FIRST_ENABLED", this.ckI);
+            this.ckJ = defaultSharedPreferences.getBoolean("KEY_DEBUG_SWAN_INSPECTOR_DEBUGGER_DISABLED", this.ckJ);
         }
-        if (this.ckt != null && !this.ckt.trim().equals("")) {
-            this.ckx = true;
+        if (this.ckG != null && !this.ckG.trim().equals("")) {
+            this.ckK = true;
         }
     }
 
-    public C0325a alQ() {
-        if (this.cky || !alR()) {
-            return new C0325a(this.ckx, !this.ckx ? "未启用真机调试" : this.cky ? "使用了 debug 面板配置" : "启用了真机调试");
+    public C0327a amj() {
+        if (this.ckL || !amk()) {
+            return new C0327a(this.ckK, !this.ckK ? "未启用真机调试" : this.ckL ? "使用了 debug 面板配置" : "启用了真机调试");
         }
-        return new C0325a(false, "线上包禁用真机调试");
+        return new C0327a(false, "线上包禁用真机调试");
     }
 
-    public static C0325a a(a aVar) {
-        return aVar == null ? C0325a.alV() : aVar.alQ();
+    public static C0327a a(a aVar) {
+        return aVar == null ? C0327a.amo() : aVar.amj();
     }
 
-    private boolean alR() {
-        return com.baidu.swan.apps.e.a.fP(e.ZU());
+    private boolean amk() {
+        return com.baidu.swan.apps.e.a.fS(e.aar());
     }
 
-    public boolean alS() {
-        return this.ckv;
+    public boolean aml() {
+        return this.ckI;
     }
 
-    public String alT() {
-        return this.ckt + (this.cku != null ? ":" + this.cku : "");
+    public String amm() {
+        return this.ckG + (this.ckH != null ? ":" + this.ckH : "");
     }
 
-    public boolean alU() {
-        return this.ckw;
+    public boolean amn() {
+        return this.ckJ;
     }
 }

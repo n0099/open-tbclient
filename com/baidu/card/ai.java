@@ -12,37 +12,37 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ai extends b<com.baidu.tbadk.core.data.a> {
-    private static final int JX = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
-    private com.baidu.tbadk.core.data.a JB;
-    private TextView JZ;
-    private OriginalThreadCardView LR;
-    private OriginalThreadCardView.a LS;
+    private static final int Kc = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+    private com.baidu.tbadk.core.data.a JH;
+    private TextView Kf;
+    private OriginalThreadCardView LX;
+    private OriginalThreadCardView.a LY;
     private View mRootView;
     private TextView mTitle;
 
     public ai(Context context) {
         super(context);
-        this.LS = new OriginalThreadCardView.a() { // from class: com.baidu.card.ai.1
+        this.LY = new OriginalThreadCardView.a() { // from class: com.baidu.card.ai.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (ai.this.JB != null && ai.this.JB.axx() != null) {
+                if (ai.this.JH != null && ai.this.JH.axQ() != null) {
                     if (ai.this.mE() != null) {
-                        ai.this.mE().a(ai.this.LR, ai.this.JB);
+                        ai.this.mE().a(ai.this.LX, ai.this.JH);
                     }
-                    String id = ai.this.JB.axx().getId();
-                    com.baidu.tieba.card.l.zs(id);
+                    String id = ai.this.JH.axQ().getId();
+                    com.baidu.tieba.card.l.zC(id);
                     ai.this.bZ(id);
-                    ai.this.Jw.b(new a.C0050a(1));
+                    ai.this.JC.b(new a.C0050a(1));
                 }
             }
         };
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.thread_card_title);
-        this.JZ = (TextView) this.mRootView.findViewById(R.id.thread_card_abstract);
-        this.LR = (OriginalThreadCardView) this.mRootView.findViewById(R.id.original_thread_view);
-        this.LR.setSubClickListener(this.LS);
+        this.Kf = (TextView) this.mRootView.findViewById(R.id.thread_card_abstract);
+        this.LX = (OriginalThreadCardView) this.mRootView.findViewById(R.id.original_thread_view);
+        this.LX.setSubClickListener(this.LY);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,28 +55,28 @@ public class ai extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.axx() != null) {
-            this.JB = aVar;
-            au.a(this.mTitle, aVar.axx());
-            au.a(this.JZ, this.mTitle, aVar.axx(), JX);
-            this.LR.b(aVar.axx().cPD);
+        if (aVar != null && aVar.axQ() != null) {
+            this.JH = aVar;
+            au.a(this.mTitle, aVar.axQ());
+            au.a(this.Kf, this.mTitle, aVar.axQ(), Kc);
+            this.LX.b(aVar.axQ().cPN);
         }
     }
 
     public void aW(int i) {
-        this.LR.fGc = i;
+        this.LX.fJm = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bZ(String str) {
         com.baidu.tieba.card.l.a(this.mTitle, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-        com.baidu.tieba.card.l.a(this.JZ, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-        this.LR.setReadState(com.baidu.tieba.card.l.zt(str));
+        com.baidu.tieba.card.l.a(this.Kf, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        this.LX.setReadState(com.baidu.tieba.card.l.zD(str));
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.LR.onChangeSkinType();
+        this.LX.onChangeSkinType();
     }
 
     @Override // com.baidu.card.b

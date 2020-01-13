@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.text;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class h extends com.google.android.exoplayer2.a.e implements Comparable<h> {
     public long subsampleOffsetUs;
 
@@ -13,10 +13,10 @@ public final class h extends com.google.android.exoplayer2.a.e implements Compar
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(@NonNull h hVar) {
-        if (drT() != hVar.drT()) {
-            return drT() ? 1 : -1;
+        if (dtf() != hVar.dtf()) {
+            return dtf() ? 1 : -1;
         }
-        long j = this.lYY - hVar.lYY;
+        long j = this.mcQ - hVar.mcQ;
         if (j == 0) {
             return 0;
         }

@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.safe.BdCloseHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.Md5;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbImgSetting;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;

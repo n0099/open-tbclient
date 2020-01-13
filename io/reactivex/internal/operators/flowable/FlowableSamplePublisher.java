@@ -2,15 +2,13 @@ package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
-import io.reactivex.g;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
-public final class FlowableSamplePublisher<T> extends g<T> {
+/* loaded from: classes5.dex */
+public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
     final boolean emitLast;
     final org.a.b<?> other;
     final org.a.b<T> source;
@@ -25,14 +23,14 @@ public final class FlowableSamplePublisher<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
-    static abstract class SamplePublisherSubscriber<T> extends AtomicReference<T> implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static abstract class SamplePublisherSubscriber<T> extends AtomicReference<T> implements j<T>, org.a.d {
         private static final long serialVersionUID = -3517602651313910099L;
         final org.a.c<? super T> actual;
-        d s;
+        org.a.d s;
         final org.a.b<?> sampler;
         final AtomicLong requested = new AtomicLong();
-        final AtomicReference<d> other = new AtomicReference<>();
+        final AtomicReference<org.a.d> other = new AtomicReference<>();
 
         abstract void completeMain();
 
@@ -46,7 +44,7 @@ public final class FlowableSamplePublisher<T> extends g<T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -74,7 +72,7 @@ public final class FlowableSamplePublisher<T> extends g<T> {
             completeMain();
         }
 
-        void setOther(d dVar) {
+        void setOther(org.a.d dVar) {
             SubscriptionHelper.setOnce(this.other, dVar, Format.OFFSET_SAMPLE_RELATIVE);
         }
 
@@ -115,36 +113,36 @@ public final class FlowableSamplePublisher<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> mUn;
+        final SamplePublisherSubscriber<T> nww;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.mUn = samplePublisherSubscriber;
+            this.nww = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
-            this.mUn.setOther(dVar);
+        public void onSubscribe(org.a.d dVar) {
+            this.nww.setOther(dVar);
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.mUn.run();
+            this.nww.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.mUn.error(th);
+            this.nww.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.mUn.complete();
+            this.nww.complete();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class SampleMainNoLast<T> extends SamplePublisherSubscriber<T> {
         private static final long serialVersionUID = -3029755663834015785L;
 
@@ -168,7 +166,7 @@ public final class FlowableSamplePublisher<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class SampleMainEmitLast<T> extends SamplePublisherSubscriber<T> {
         private static final long serialVersionUID = -3029755663834015785L;
         volatile boolean done;

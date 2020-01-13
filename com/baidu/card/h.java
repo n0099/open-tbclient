@@ -1,20 +1,20 @@
 package com.baidu.card;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class h extends b<com.baidu.tbadk.core.data.a> {
-    private int JM;
+    private int topMargin;
 
     public h(Context context) {
         super(context);
-        this.JM = 0;
+        this.topMargin = 0;
     }
 
     public int getTopMargin() {
-        return this.JM;
+        return this.topMargin;
     }
 
     public void setTopMargin(int i) {
-        this.JM = i;
+        this.topMargin = i;
     }
 }

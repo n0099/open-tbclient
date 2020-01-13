@@ -1,10 +1,10 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class dl {
     private static volatile dl a;
 
     /* renamed from: a  reason: collision with other field name */
-    private dk f245a;
+    private dk f243a;
 
     public static dl a() {
         if (a == null) {
@@ -18,11 +18,11 @@ public class dl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dk m209a() {
-        return this.f245a;
+    public dk m218a() {
+        return this.f243a;
     }
 
     public void a(dk dkVar) {
-        this.f245a = dkVar;
+        this.f243a = dkVar;
     }
 }

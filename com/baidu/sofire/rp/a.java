@@ -6,7 +6,7 @@ import android.util.Base64;
 import com.baidu.sofire.e;
 import com.baidu.sofire.i.d;
 import com.baidu.sofire.i.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static String a(Context context) {
         String str = "";

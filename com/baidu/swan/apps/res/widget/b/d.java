@@ -9,10 +9,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.as.af;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     private static boolean mIsDebug = com.baidu.swan.apps.b.DEBUG;
-    private a bJP;
+    private a bKz;
     private CharSequence mBtnText;
     private Context mContext;
     private Drawable mHighlightIcon;
@@ -27,7 +27,7 @@ public class d {
     private int mDuration = 2;
     private int mTextSize = 14;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onToastClick();
     }
@@ -52,12 +52,12 @@ public class d {
         return dVar;
     }
 
-    public d fM(@NonNull int i) {
+    public d fN(@NonNull int i) {
         this.mMaxLines = i;
         return this;
     }
 
-    public d dz(boolean z) {
+    public d dE(boolean z) {
         this.mShowMask = z;
         return this;
     }
@@ -72,17 +72,17 @@ public class d {
         return this;
     }
 
-    public d fN(int i) {
+    public d fO(int i) {
         this.mButtonStyle = i;
         return this;
     }
 
-    public d fO(int i) {
+    public d fP(int i) {
         this.mBottomShowAnimationType = i;
         return this;
     }
 
-    public d fP(int i) {
+    public d fQ(int i) {
         this.mBottomIconStyle = i;
         return this;
     }
@@ -92,7 +92,7 @@ public class d {
         return this;
     }
 
-    public d fQ(int i) {
+    public d fR(int i) {
         if (i < 1 || i > 10) {
             this.mDuration = 2;
         } else {
@@ -102,7 +102,7 @@ public class d {
     }
 
     public d b(a aVar) {
-        this.bJP = aVar;
+        this.bKz = aVar;
         return this;
     }
 
@@ -111,7 +111,7 @@ public class d {
         return this;
     }
 
-    public d fR(@DrawableRes int i) {
+    public d fS(@DrawableRes int i) {
         if (this.mContext != null && this.mContext.getResources() != null) {
             this.mHighlightIcon = this.mContext.getResources().getDrawable(i);
         }
@@ -213,16 +213,16 @@ public class d {
     }
 
     public void showClickableToast() {
-        dA(false);
+        dF(false);
     }
 
-    public void dA(boolean z) {
+    public void dF(boolean z) {
         if (checkToastParams()) {
             cancelToast();
             if (!z && (this.mContext instanceof Activity)) {
-                e.a((Activity) this.mContext, this.mToastText, this.mTextSize, this.mBtnText, this.mDuration, this.bJP);
+                e.a((Activity) this.mContext, this.mToastText, this.mTextSize, this.mBtnText, this.mDuration, this.bKz);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.mToastText, this.mTextSize, this.mBtnText, this.mDuration, this.bJP);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.mToastText, this.mTextSize, this.mBtnText, this.mDuration, this.bKz);
             }
         }
     }
@@ -235,11 +235,11 @@ public class d {
         if (checkToastParams()) {
             cancelToast();
             if (z) {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mDuration, this.bJP);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mDuration, this.bKz);
             } else if (this.mContext instanceof Activity) {
-                e.a((Activity) this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mBottomShowAnimationType, this.mDuration, this.bJP);
+                e.a((Activity) this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mBottomShowAnimationType, this.mDuration, this.bKz);
             } else {
-                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mDuration, this.bJP);
+                com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.mLeftGifUri, this.mBottomIconStyle, this.mTitleText, this.mToastText, this.mBtnText, this.mButtonStyle, this.mDuration, this.bKz);
             }
         }
     }

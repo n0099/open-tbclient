@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class OCRFrameLayout extends ViewGroup {
     public OCRFrameLayout(Context context) {
         super(context);

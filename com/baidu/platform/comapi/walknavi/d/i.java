@@ -1,6 +1,6 @@
 package com.baidu.platform.comapi.walknavi.d;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i implements com.baidu.platform.comapi.walknavi.d.a.a {
     final /* synthetic */ c a;
     final /* synthetic */ g b;

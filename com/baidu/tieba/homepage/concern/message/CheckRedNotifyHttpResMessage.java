@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.concern.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.RedNotify.RedNotifyResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CheckRedNotifyHttpResMessage extends HttpResponsedMessage {
     private boolean isShowRedNotify;
 

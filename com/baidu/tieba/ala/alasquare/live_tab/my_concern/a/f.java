@@ -8,43 +8,43 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.m;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c, l> {
-    private o eic;
-    private m eih;
+    private o eiQ;
+    private m eiV;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.eil);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.eiZ);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: B */
+    /* renamed from: E */
     public l b(ViewGroup viewGroup) {
-        this.eih = new m(this.mPageContext, viewGroup);
-        if (this.eic != null) {
-            this.eih.a(this.eic);
+        this.eiV = new m(this.mPageContext, viewGroup);
+        if (this.eiQ != null) {
+            this.eiV.a(this.eiQ);
         }
-        return new l(this.eih);
+        return new l(this.eiV);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar, l lVar) {
-        if (lVar == null || lVar.eih == null) {
+        if (lVar == null || lVar.eiV == null) {
             return null;
         }
-        lVar.eih.a(cVar);
+        lVar.eiV.a(cVar);
         return lVar.getView();
     }
 
     public void a(o oVar) {
-        this.eic = oVar;
-        if (this.eih != null) {
-            this.eih.a(this.eic);
+        this.eiQ = oVar;
+        if (this.eiV != null) {
+            this.eiV.a(this.eiQ);
         }
     }
 }

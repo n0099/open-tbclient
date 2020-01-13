@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.util;
 
 import android.content.res.Resources;
 import com.baidu.live.adp.lib.util.BdFileHelper;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes2.dex */
 public class TbErrInfo {

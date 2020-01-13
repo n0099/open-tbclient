@@ -12,70 +12,70 @@ import com.baidu.live.im.l;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes2.dex */
 public class n implements IConnectListener {
-    public static String aou = "imlog";
-    private static boolean aov = false;
-    private a aox;
-    private String aoy;
-    private boolean aow = false;
+    public static String apg = "imlog";
+    private static boolean aph = false;
+    private a apj;
+    private String apk;
+    private boolean api = false;
     private boolean mIsInited = false;
 
     public void init(String str) {
-        this.aoy = str;
+        this.apk = str;
         if (!this.mIsInited) {
             this.mIsInited = true;
-            l.uL().init(TbadkCoreApplication.getInst());
-            uP();
-            l.uL().a(new l.a() { // from class: com.baidu.live.im.n.1
+            l.vc().init(TbadkCoreApplication.getInst());
+            vg();
+            l.vc().a(new l.a() { // from class: com.baidu.live.im.n.1
                 @Override // com.baidu.live.im.l.a
-                public void k(int i, String str2) {
-                    LogUtils.d(n.aou + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str2 + ", isConnected = " + n.this.aow);
-                    if (i == 0 && !n.this.aow) {
+                public void n(int i, String str2) {
+                    LogUtils.d(n.apg + "LiveIMManager", "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str2 + ", isConnected = " + n.this.api);
+                    if (i == 0 && !n.this.api) {
                         n.this.onResult(0);
                     }
                 }
             });
-            if (this.aox == null) {
-                this.aox = new a();
+            if (this.apj == null) {
+                this.apj = new a();
             }
-            this.aox.register();
-            if (!aov) {
-                aov = true;
+            this.apj.register();
+            if (!aph) {
+                aph = true;
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 com.baidu.g.b.a.aL(inst).a(new com.baidu.g.b.a.a.b(inst, new com.baidu.g.b.a.b(inst)));
-                f.un().aB(inst);
+                f.uE().aB(inst);
             }
         }
     }
 
-    private void uP() {
-        LogUtils.d(aou + "LiveIMManager", "registerIMConnectListener");
-        this.aow = false;
+    private void vg() {
+        LogUtils.d(apg + "LiveIMManager", "registerIMConnectListener");
+        this.api = false;
         BIMManager.unregisterConnectListener();
         BIMManager.registerConnectListener(this);
     }
 
     @Override // com.baidu.android.imsdk.account.IConnectListener
     public void onResult(int i) {
-        LogUtils.d(aou + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
-        this.aow = true;
+        LogUtils.d(apg + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
+        this.api = true;
         if (i == 0) {
-            LogUtils.d(aou + "LiveIMManager", "IConnectListener net connect");
+            LogUtils.d(apg + "LiveIMManager", "IConnectListener net connect");
         } else if (i == 1) {
-            LogUtils.d(aou + "LiveIMManager", "IConnectListener net disconnect");
+            LogUtils.d(apg + "LiveIMManager", "IConnectListener net disconnect");
         }
     }
 
     public void destroy(String str) {
-        if (this.aoy == null || this.aoy.equals(str)) {
+        if (this.apk == null || this.apk.equals(str)) {
             this.mIsInited = false;
-            LogUtils.d(aou + "LiveIMManager", "destroy");
-            this.aow = false;
-            if (this.aox != null) {
-                this.aox.destroy();
-                this.aox = null;
+            LogUtils.d(apg + "LiveIMManager", "destroy");
+            this.api = false;
+            if (this.apj != null) {
+                this.apj.destroy();
+                this.apj = null;
             }
             BIMManager.unregisterConnectListener();
-            l.uL().destroy();
+            l.vc().destroy();
         }
     }
 

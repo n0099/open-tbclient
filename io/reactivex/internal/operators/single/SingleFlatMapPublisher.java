@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.g;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.b;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleFlatMapPublisher<T, R> extends g<R> {
     final h<? super T, ? extends b<? extends R>> mapper;
     final aa<T> source;
@@ -21,7 +21,7 @@ public final class SingleFlatMapPublisher<T, R> extends g<R> {
         this.source.a(new SingleFlatMapPublisherObserver(cVar, this.mapper));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class SingleFlatMapPublisherObserver<S, T> extends AtomicLong implements j<T>, y<S>, d {
         private static final long serialVersionUID = 7759721921468635667L;
         final c<? super T> actual;

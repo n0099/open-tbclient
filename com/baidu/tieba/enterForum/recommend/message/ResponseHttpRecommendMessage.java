@@ -5,7 +5,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.enterForum.recommend.b.a;
 import com.squareup.wire.Wire;
 import tbclient.Recommforum.RecommforumResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ResponseHttpRecommendMessage extends TbHttpResponsedMessage {
     private a mRecommendData;
 

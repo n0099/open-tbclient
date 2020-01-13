@@ -24,11 +24,11 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements u {
-    private static BroadcastReceiver dZC = null;
-    c dZA;
-    CustomMessageListener dZB = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1
+    private static BroadcastReceiver dZL = null;
+    c dZJ;
+    CustomMessageListener dZK = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:10:0x0015  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0081  */
@@ -47,7 +47,7 @@ public class a implements u {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.dZA != null) {
+                        if (a.this.dZJ != null) {
                             ArrayList arrayList = new ArrayList();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -56,19 +56,19 @@ public class a implements u {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.dZA.V(arrayList);
+                                a.this.dZJ.U(arrayList);
                             } else {
-                                a.this.dZA.iL(UgcUBCUtils.UGC_TIME_CANCEL);
+                                a.this.dZJ.iO(UgcUBCUtils.UGC_TIME_CANCEL);
                             }
                         }
-                    } else if (a.this.dZA != null) {
-                        a.this.dZA.iL(BdStatsConstant.StatsType.ERROR);
+                    } else if (a.this.dZJ != null) {
+                        a.this.dZJ.iO(BdStatsConstant.StatsType.ERROR);
                     }
-                    e.gy().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1.1
+                    e.gx().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.dZA = null;
-                            MessageManager.getInstance().unRegisterListener(a.this.dZB);
+                            a.this.dZJ = null;
+                            MessageManager.getInstance().unRegisterListener(a.this.dZK);
                         }
                     });
                 }
@@ -76,11 +76,11 @@ public class a implements u {
             intent = null;
             if (intent == null) {
             }
-            e.gy().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1.1
+            e.gx().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.dZA = null;
-                    MessageManager.getInstance().unRegisterListener(a.this.dZB);
+                    a.this.dZJ = null;
+                    MessageManager.getInstance().unRegisterListener(a.this.dZK);
                 }
             });
         }

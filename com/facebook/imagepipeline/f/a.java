@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.f;
 import android.graphics.drawable.Drawable;
 import com.facebook.imagepipeline.g.c;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface a {
     boolean a(c cVar);
 

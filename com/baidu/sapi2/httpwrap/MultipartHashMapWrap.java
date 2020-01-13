@@ -2,7 +2,7 @@ package com.baidu.sapi2.httpwrap;
 
 import com.baidu.pass.http.MultipartHashMap;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MultipartHashMapWrap extends MultipartHashMap {
     public MultipartHashMapWrap() {
         putAll(Utils.a());

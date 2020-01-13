@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.c;
-import io.reactivex.b.h;
+import io.reactivex.c.c;
+import io.reactivex.c.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.q;
@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends io.reactivex.internal.operators.observable.a<TLeft, R> {
     final h<? super TLeft, ? extends t<TLeftEnd>> leftEnd;
     final t<? extends TRight> other;
@@ -20,7 +20,7 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
     final h<? super TRight, ? extends t<TRightEnd>> rightEnd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void innerClose(boolean z, LeftRightEndObserver leftRightEndObserver);
 
@@ -45,7 +45,7 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
         this.other.subscribe(leftRightObserver2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class GroupJoinDisposable<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements io.reactivex.disposables.b, a {
         private static final long serialVersionUID = -6071216598687999801L;
         final u<? super R> actual;
@@ -60,7 +60,7 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
         static final Integer LEFT_CLOSE = 3;
         static final Integer RIGHT_CLOSE = 4;
         final io.reactivex.disposables.a disposables = new io.reactivex.disposables.a();
-        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(q.dDL());
+        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(q.dHR());
         final Map<Integer, UnicastSubject<TRight>> lefts = new LinkedHashMap();
         final Map<Integer, TRight> rights = new LinkedHashMap();
         final AtomicReference<Throwable> error = new AtomicReference<>();
@@ -140,10 +140,10 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
                     } else if (!z2) {
                         Object poll = aVar.poll();
                         if (num == LEFT_VALUE) {
-                            UnicastSubject<TRight> dEv = UnicastSubject.dEv();
+                            UnicastSubject<TRight> dII = UnicastSubject.dII();
                             int i2 = this.leftIndex;
                             this.leftIndex = i2 + 1;
-                            this.lefts.put(Integer.valueOf(i2), dEv);
+                            this.lefts.put(Integer.valueOf(i2), dII);
                             try {
                                 t tVar = (t) io.reactivex.internal.functions.a.h(this.leftEnd.apply(poll), "The leftEnd returned a null ObservableSource");
                                 LeftRightEndObserver leftRightEndObserver = new LeftRightEndObserver(this, true, i2);
@@ -156,9 +156,9 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
                                     return;
                                 }
                                 try {
-                                    uVar.onNext((Object) io.reactivex.internal.functions.a.h(this.resultSelector.apply(poll, dEv), "The resultSelector returned a null value"));
+                                    uVar.onNext((Object) io.reactivex.internal.functions.a.h(this.resultSelector.apply(poll, dII), "The resultSelector returned a null value"));
                                     for (TRight tright : this.rights.values()) {
-                                        dEv.onNext(tright);
+                                        dII.onNext(tright);
                                     }
                                 } catch (Throwable th) {
                                     fail(th, uVar, aVar);
@@ -221,7 +221,7 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableGroupJoin.a
@@ -252,12 +252,12 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
             if (ExceptionHelper.addThrowable(this.error, th)) {
                 drain();
             } else {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class LeftRightObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<Object> {
         private static final long serialVersionUID = 1883890389173668373L;
         final boolean isLeft;
@@ -301,7 +301,7 @@ public final class ObservableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> ex
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class LeftRightEndObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<Object> {
         private static final long serialVersionUID = 1883890389173668373L;
         final int index;

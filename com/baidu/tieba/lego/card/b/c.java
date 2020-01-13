@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.webkit.CookieManager;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.network.http.f;
+import com.baidu.adp.lib.network.http.e;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,59 +17,59 @@ public class c {
         this.url = str;
     }
 
-    public void bZd() {
+    public void cam() {
         new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.lego.card.b.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap bZe = c.this.bZe();
-                f fVar = new f();
-                fVar.fY().setUrl(c.this.url);
-                fVar.fY().setMethod(HttpMessageTask.HTTP_METHOD.GET);
-                if (bZe != null && !bZe.isEmpty()) {
-                    fVar.fY().i(c.this.bZe());
+                HashMap can = c.this.can();
+                e eVar = new e();
+                eVar.fX().setUrl(c.this.url);
+                eVar.fX().setMethod(HttpMessageTask.HTTP_METHOD.GET);
+                if (can != null && !can.isEmpty()) {
+                    eVar.fX().i(c.this.can());
                 }
-                new com.baidu.adp.lib.network.http.c(fVar).e(1, 0, 0);
-                fVar.fZ();
+                new com.baidu.adp.lib.network.http.c(eVar).e(1, 0, 0);
+                eVar.fY();
                 return null;
             }
         }.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> bZe() {
+    public HashMap<String, String> can() {
         String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
         if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-            cookie = com.baidu.tbadk.browser.a.cGi;
+            cookie = com.baidu.tbadk.browser.a.cGu;
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(SM.COOKIE, cookie);
         return hashMap;
     }
 
-    public static void DC(String str) {
+    public static void DM(String str) {
         if (!TextUtils.isEmpty(str)) {
-            new c(str).bZd();
+            new c(str).cam();
         }
     }
 
     public static void a(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            DC(bVar.getParallelCharge().hSi);
-            Iterator<String> it = bVar.getParallelCharge().hSl.iterator();
+            DM(bVar.getParallelCharge().hVM);
+            Iterator<String> it = bVar.getParallelCharge().hVP.iterator();
             while (it.hasNext()) {
-                DC(it.next());
+                DM(it.next());
             }
         }
     }
 
     public static void b(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            DC(bVar.getParallelCharge().hSj);
-            Iterator<String> it = bVar.getParallelCharge().hSk.iterator();
+            DM(bVar.getParallelCharge().hVN);
+            Iterator<String> it = bVar.getParallelCharge().hVO.iterator();
             while (it.hasNext()) {
-                DC(it.next());
+                DM(it.next());
             }
         }
     }

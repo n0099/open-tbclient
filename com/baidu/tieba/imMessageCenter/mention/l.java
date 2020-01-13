@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.ReplyMe.ReplyMeResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class l extends j implements com.baidu.tbadk.mvc.b.c {
     @Override // com.baidu.tbadk.mvc.b.b
     public boolean initByByteArray(byte[] bArr) {

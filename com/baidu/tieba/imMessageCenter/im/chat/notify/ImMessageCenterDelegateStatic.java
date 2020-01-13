@@ -1,6 +1,7 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
@@ -17,10 +19,11 @@ import com.baidu.tbadk.mainTab.c;
 import com.baidu.tbadk.mainTab.d;
 import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
-/* loaded from: classes6.dex */
+import com.vivo.push.PushClientConstants;
+/* loaded from: classes7.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private MessageRedDotView hGl;
-    private CustomMessageListener hGm;
+    private MessageRedDotView hJO;
+    private CustomMessageListener hJP;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -28,27 +31,34 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c aNe() {
+    public c aNx() {
         c cVar = new c();
         cVar.frag = new MessageCenterFragment();
         cVar.type = 3;
         cVar.textResId = R.string.my_message;
-        cVar.animationResId = R.raw.lottie_tab_msg;
+        if (TbSingleton.getInstance().isShowNewYearSkin()) {
+            cVar.animationResId = R.raw.lottie_use_message_cj_n;
+        } else {
+            cVar.animationResId = R.raw.lottie_tab_msg;
+        }
         cVar.showIconType = c.SHOWBOTH;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator dW(Context context) {
-        this.dwU = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.hGl = new MessageRedDotView(context);
+        this.dxc = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+        this.hJO = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.dxq = this.dwU;
-        aVar.view = this.hGl;
+        aVar.dxy = this.dxc;
+        aVar.view = this.hJO;
         aVar.isRight = true;
-        this.dwU.b("msg", aVar);
-        this.hGl.setVisibility(4);
-        return this.dwU;
+        this.dxc.b("msg", aVar);
+        this.hJO.setVisibility(4);
+        if (!TbSingleton.getInstance().isShowVivoBadge()) {
+            E(this.hJO.getContext(), 0);
+        }
+        return this.dxc;
     }
 
     static {
@@ -67,7 +77,7 @@ public class ImMessageCenterDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        this.hGm = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+        this.hJP = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -83,33 +93,50 @@ public class ImMessageCenterDelegateStatic extends b {
                         } catch (Exception e) {
                             i = intValue;
                             z = false;
-                            ImMessageCenterDelegateStatic.this.p(z, i);
+                            ImMessageCenterDelegateStatic.this.q(z, i);
                         }
                     } catch (Exception e2) {
                         i = 0;
                     }
-                    ImMessageCenterDelegateStatic.this.p(z, i);
+                    ImMessageCenterDelegateStatic.this.q(z, i);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.hGm);
+        MessageManager.getInstance().registerListener(this.hJP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p(boolean z, int i) {
-        if (this.hGl != null) {
+    public void q(boolean z, int i) {
+        if (this.hJO != null) {
             if (z) {
-                this.hGl.refresh(i);
-                this.hGl.setVisibility(0);
+                this.hJO.refresh(i);
+                this.hJO.setVisibility(0);
+                if (TbSingleton.getInstance().isShowVivoBadge()) {
+                    E(this.hJO.getContext(), i);
+                    return;
+                }
                 return;
             }
-            this.hGl.setVisibility(8);
+            this.hJO.setVisibility(8);
+            if (TbSingleton.getInstance().isShowVivoBadge()) {
+                E(this.hJO.getContext(), 0);
+            }
         }
+    }
+
+    private void E(Context context, int i) {
+        Intent intent = new Intent();
+        intent.setAction("launcher.action.CHANGE_APPLICATION_NOTIFICATION_NUM");
+        intent.putExtra("packageName", "com.baidu.tieba");
+        intent.putExtra(PushClientConstants.TAG_CLASS_NAME, "com.baidu.tieba.LogoActivity");
+        intent.putExtra("notificationNum", i);
+        intent.addFlags(16777216);
+        context.sendBroadcast(intent);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.hGm);
+        MessageManager.getInstance().unRegisterListener(this.hJP);
     }
 }

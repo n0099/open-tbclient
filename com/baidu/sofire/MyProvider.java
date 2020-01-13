@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MyProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {

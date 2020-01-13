@@ -5,22 +5,22 @@ import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.ae;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d implements ae {
     private String avatar;
-    private int emq;
+    private int eno;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int jTA;
-    private boolean jTB;
-    private boolean jTC;
-    private boolean jTD;
-    private boolean jTE;
-    private int jTF;
-    private int jTx;
-    private int jTy;
-    private int jTz;
+    private int jWZ;
+    private int jXa;
+    private int jXb;
+    private int jXc;
+    private boolean jXd;
+    private boolean jXe;
+    private boolean jXf;
+    private boolean jXg;
+    private int jXh;
 
     public int getForumId() {
         return this.forumId;
@@ -34,82 +34,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int cFW() {
-        return this.jTx;
+    public int cHa() {
+        return this.jWZ;
     }
 
-    public int cFX() {
-        return this.emq;
+    public int cHb() {
+        return this.eno;
     }
 
-    public int cFY() {
-        return this.jTy;
+    public int cHc() {
+        return this.jXa;
     }
 
-    public int cFZ() {
-        return this.jTz;
+    public int cHd() {
+        return this.jXb;
     }
 
-    public int cGa() {
-        return this.jTA;
+    public int cHe() {
+        return this.jXc;
     }
 
-    public void BS(int i) {
-        this.jTx = i;
+    public void BX(int i) {
+        this.jWZ = i;
     }
 
-    public void BT(int i) {
-        this.emq = i;
+    public void BY(int i) {
+        this.eno = i;
     }
 
-    public void BU(int i) {
-        this.jTy = i;
+    public void BZ(int i) {
+        this.jXa = i;
     }
 
-    public boolean bau() {
-        return this.jTB;
+    public boolean baP() {
+        return this.jXd;
     }
 
-    public void sj(boolean z) {
-        this.jTB = z;
-        this.jTx = 1;
+    public void sv(boolean z) {
+        this.jXd = z;
+        this.jWZ = 1;
     }
 
-    public boolean cGb() {
-        return this.jTD;
+    public boolean cHf() {
+        return this.jXf;
     }
 
-    public void sk(boolean z) {
-        this.jTD = z;
-        this.jTx = 0;
+    public void sw(boolean z) {
+        this.jXf = z;
+        this.jWZ = 0;
     }
 
-    public boolean cGc() {
-        return this.jTE;
+    public boolean cHg() {
+        return this.jXg;
     }
 
-    public void sl(boolean z) {
-        this.jTE = z;
+    public void sx(boolean z) {
+        this.jXg = z;
     }
 
-    public int cGd() {
-        return this.jTF;
+    public int cHh() {
+        return this.jXh;
     }
 
-    public void BV(int i) {
-        this.jTF = i;
+    public void Ca(int i) {
+        this.jXh = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean cGe() {
-        return this.jTC;
+    public boolean cHi() {
+        return this.jXe;
     }
 
-    public void sm(boolean z) {
-        this.jTC = z;
+    public void sy(boolean z) {
+        this.jXe = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +117,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.jTx = jSONObject.optInt("is_sign_in");
-            this.emq = jSONObject.optInt("cont_sign_num");
-            this.jTy = jSONObject.optInt("user_level");
-            this.jTz = jSONObject.optInt("user_exp");
-            this.jTA = jSONObject.optInt("need_exp");
-            if (this.jTx != 0) {
-                this.jTB = true;
-                this.jTD = false;
+            this.jWZ = jSONObject.optInt("is_sign_in");
+            this.eno = jSONObject.optInt("cont_sign_num");
+            this.jXa = jSONObject.optInt("user_level");
+            this.jXb = jSONObject.optInt("user_exp");
+            this.jXc = jSONObject.optInt("need_exp");
+            if (this.jWZ != 0) {
+                this.jXd = true;
+                this.jXf = false;
             }
         }
     }

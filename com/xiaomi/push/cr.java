@@ -7,12 +7,12 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class cr {
     private String a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final ArrayList<cq> f204a = new ArrayList<>();
+    private final ArrayList<cq> f202a = new ArrayList<>();
 
     public cr() {
     }
@@ -25,21 +25,21 @@ public class cr {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x001a, code lost:
-        com.xiaomi.push.cu.a().m196a(r0.a());
+        com.xiaomi.push.cu.a().m205a(r0.a());
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized cq a() {
         cq cqVar;
-        int size = this.f204a.size() - 1;
+        int size = this.f202a.size() - 1;
         while (true) {
             if (size < 0) {
                 cqVar = null;
                 break;
             }
-            cqVar = this.f204a.get(size);
-            if (cqVar.m186a()) {
+            cqVar = this.f202a.get(size);
+            if (cqVar.m195a()) {
                 break;
             }
             size--;
@@ -51,30 +51,30 @@ public class cr {
         this.a = jSONObject.getString(Contract.SCHEME_KEY_HOST);
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
         for (int i = 0; i < jSONArray.length(); i++) {
-            this.f204a.add(new cq(this.a).a(jSONArray.getJSONObject(i)));
+            this.f202a.add(new cq(this.a).a(jSONArray.getJSONObject(i)));
         }
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m187a() {
+    public String m196a() {
         return this.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cq> m188a() {
-        return this.f204a;
+    public ArrayList<cq> m197a() {
+        return this.f202a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m189a() {
+    public synchronized JSONObject m198a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put(Contract.SCHEME_KEY_HOST, this.a);
         JSONArray jSONArray = new JSONArray();
-        Iterator<cq> it = this.f204a.iterator();
+        Iterator<cq> it = this.f202a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m184a());
+            jSONArray.put(it.next().m193a());
         }
         jSONObject.put("fbs", jSONArray);
         return jSONObject;
@@ -85,29 +85,29 @@ public class cr {
         int i2 = 0;
         while (true) {
             i = i2;
-            if (i >= this.f204a.size()) {
+            if (i >= this.f202a.size()) {
                 break;
-            } else if (this.f204a.get(i).a(cqVar)) {
-                this.f204a.set(i, cqVar);
+            } else if (this.f202a.get(i).a(cqVar)) {
+                this.f202a.set(i, cqVar);
                 break;
             } else {
                 i2 = i + 1;
             }
         }
-        if (i >= this.f204a.size()) {
-            this.f204a.add(cqVar);
+        if (i >= this.f202a.size()) {
+            this.f202a.add(cqVar);
         }
     }
 
     public synchronized void a(boolean z) {
-        for (int size = this.f204a.size() - 1; size >= 0; size--) {
-            cq cqVar = this.f204a.get(size);
+        for (int size = this.f202a.size() - 1; size >= 0; size--) {
+            cq cqVar = this.f202a.get(size);
             if (z) {
                 if (cqVar.c()) {
-                    this.f204a.remove(size);
+                    this.f202a.remove(size);
                 }
             } else if (!cqVar.b()) {
-                this.f204a.remove(size);
+                this.f202a.remove(size);
             }
         }
     }
@@ -116,7 +116,7 @@ public class cr {
         StringBuilder sb = new StringBuilder();
         sb.append(this.a);
         sb.append("\n");
-        Iterator<cq> it = this.f204a.iterator();
+        Iterator<cq> it = this.f202a.iterator();
         while (it.hasNext()) {
             sb.append(it.next());
         }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.publisher.a;
 
 import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b implements com.baidu.b.b.d {
-    private static String jxc = "";
+    private static String jAE = "";
 
     @Override // com.baidu.b.b.d
     public String getDeviceId() {
@@ -11,17 +11,17 @@ public class b implements com.baidu.b.b.d {
     }
 
     @Override // com.baidu.b.b.d
-    public String nl() {
+    public String nm() {
         return null;
     }
 
     @Override // com.baidu.b.b.d
     public String getZid() {
-        return jxc;
+        return jAE;
     }
 
     public static void setZid(String str) {
-        jxc = str;
+        jAE = str;
     }
 
     @Override // com.baidu.b.b.d
@@ -30,7 +30,7 @@ public class b implements com.baidu.b.b.d {
     }
 
     @Override // com.baidu.b.b.d
-    public String nm() {
+    public String nn() {
         return null;
     }
 
@@ -40,7 +40,7 @@ public class b implements com.baidu.b.b.d {
     }
 
     @Override // com.baidu.b.b.d
-    public String nn() {
+    public String no() {
         return null;
     }
 }

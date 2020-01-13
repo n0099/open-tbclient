@@ -5,17 +5,17 @@ import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class AsyncProcessor<T> extends a<T> {
-    static final AsyncSubscription[] mXJ = new AsyncSubscription[0];
-    static final AsyncSubscription[] mXK = new AsyncSubscription[0];
+    static final AsyncSubscription[] nzW = new AsyncSubscription[0];
+    static final AsyncSubscription[] nzX = new AsyncSubscription[0];
     Throwable error;
     final AtomicReference<AsyncSubscription<T>[]> subscribers;
     T value;
 
     @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
-        if (this.subscribers.get() == mXK) {
+        if (this.subscribers.get() == nzX) {
             dVar.cancel();
         } else {
             dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
@@ -25,7 +25,7 @@ public final class AsyncProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onNext(T t) {
         io.reactivex.internal.functions.a.h(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != mXK) {
+        if (this.subscribers.get() != nzX) {
             this.value = t;
         }
     }
@@ -33,13 +33,13 @@ public final class AsyncProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == mXK) {
-            io.reactivex.d.a.onError(th);
+        if (this.subscribers.get() == nzX) {
+            io.reactivex.e.a.onError(th);
             return;
         }
         this.value = null;
         this.error = th;
-        for (AsyncSubscription<T> asyncSubscription : this.subscribers.getAndSet(mXK)) {
+        for (AsyncSubscription<T> asyncSubscription : this.subscribers.getAndSet(nzX)) {
             asyncSubscription.onError(th);
         }
     }
@@ -47,9 +47,9 @@ public final class AsyncProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onComplete() {
         int i = 0;
-        if (this.subscribers.get() != mXK) {
+        if (this.subscribers.get() != nzX) {
             T t = this.value;
-            AsyncSubscription<T>[] andSet = this.subscribers.getAndSet(mXK);
+            AsyncSubscription<T>[] andSet = this.subscribers.getAndSet(nzX);
             if (t == null) {
                 int length = andSet.length;
                 while (i < length) {
@@ -95,7 +95,7 @@ public final class AsyncProcessor<T> extends a<T> {
         AsyncSubscription<T>[] asyncSubscriptionArr2;
         do {
             asyncSubscriptionArr = this.subscribers.get();
-            if (asyncSubscriptionArr == mXK) {
+            if (asyncSubscriptionArr == nzX) {
                 return false;
             }
             int length = asyncSubscriptionArr.length;
@@ -127,7 +127,7 @@ public final class AsyncProcessor<T> extends a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        asyncSubscriptionArr2 = mXJ;
+                        asyncSubscriptionArr2 = nzW;
                     } else {
                         asyncSubscriptionArr2 = new AsyncSubscription[length - 1];
                         System.arraycopy(asyncSubscriptionArr, 0, asyncSubscriptionArr2, 0, i);
@@ -143,7 +143,7 @@ public final class AsyncProcessor<T> extends a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class AsyncSubscription<T> extends DeferredScalarSubscription<T> {
         private static final long serialVersionUID = 5629876084736248016L;
         final AsyncProcessor<T> parent;
@@ -168,7 +168,7 @@ public final class AsyncProcessor<T> extends a<T> {
 
         void onError(Throwable th) {
             if (isCancelled()) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             } else {
                 this.actual.onError(th);
             }

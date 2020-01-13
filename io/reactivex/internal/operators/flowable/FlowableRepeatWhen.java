@@ -1,7 +1,6 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.b.h;
-import io.reactivex.g;
+import io.reactivex.c.h;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -10,19 +9,18 @@ import io.reactivex.processors.UnicastProcessor;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableRepeatWhen<T> extends a<T, T> {
-    final h<? super g<Object>, ? extends org.a.b<?>> mUj;
+    final h<? super io.reactivex.g<Object>, ? extends org.a.b<?>> nwt;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        io.reactivex.processors.a<T> dEo = UnicastProcessor.MM(8).dEo();
+        io.reactivex.processors.a<T> dIy = UnicastProcessor.Nz(8).dIy();
         try {
-            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.mUj.apply(dEo), "handler returned a null Publisher");
-            WhenReceiver whenReceiver = new WhenReceiver(this.mTG);
-            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, dEo, whenReceiver);
+            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.nwt.apply(dIy), "handler returned a null Publisher");
+            WhenReceiver whenReceiver = new WhenReceiver(this.nvK);
+            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, dIy, whenReceiver);
             whenReceiver.subscriber = repeatWhenSubscriber;
             cVar.onSubscribe(repeatWhenSubscriber);
             bVar2.subscribe(whenReceiver);
@@ -33,12 +31,12 @@ public final class FlowableRepeatWhen<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes4.dex */
-    static final class WhenReceiver<T, U> extends AtomicInteger implements j<Object>, d {
+    /* loaded from: classes5.dex */
+    static final class WhenReceiver<T, U> extends AtomicInteger implements j<Object>, org.a.d {
         private static final long serialVersionUID = 2827772011130406689L;
         final org.a.b<T> source;
         WhenSourceSubscriber<T, U> subscriber;
-        final AtomicReference<d> subscription = new AtomicReference<>();
+        final AtomicReference<org.a.d> subscription = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -47,7 +45,7 @@ public final class FlowableRepeatWhen<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             SubscriptionHelper.deferredSetOnce(this.subscription, this.requested, dVar);
         }
 
@@ -87,23 +85,23 @@ public final class FlowableRepeatWhen<T> extends a<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class WhenSourceSubscriber<T, U> extends SubscriptionArbiter implements j<T> {
         private static final long serialVersionUID = -5604623027276966720L;
         protected final org.a.c<? super T> actual;
         protected final io.reactivex.processors.a<U> processor;
         private long produced;
-        protected final d receiver;
+        protected final org.a.d receiver;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public WhenSourceSubscriber(org.a.c<? super T> cVar, io.reactivex.processors.a<U> aVar, d dVar) {
+        public WhenSourceSubscriber(org.a.c<? super T> cVar, io.reactivex.processors.a<U> aVar, org.a.d dVar) {
             this.actual = cVar;
             this.processor = aVar;
             this.receiver = dVar;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public final void onSubscribe(d dVar) {
+        public final void onSubscribe(org.a.d dVar) {
             setSubscription(dVar);
         }
 
@@ -131,11 +129,11 @@ public final class FlowableRepeatWhen<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class RepeatWhenSubscriber<T> extends WhenSourceSubscriber<T, Object> {
         private static final long serialVersionUID = -2680129890138081029L;
 
-        RepeatWhenSubscriber(org.a.c<? super T> cVar, io.reactivex.processors.a<Object> aVar, d dVar) {
+        RepeatWhenSubscriber(org.a.c<? super T> cVar, io.reactivex.processors.a<Object> aVar, org.a.d dVar) {
             super(cVar, aVar, dVar);
         }
 

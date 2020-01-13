@@ -1,13 +1,13 @@
 package io.reactivex.internal.operators.maybe;
 
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MaybeFlatMapNotification<T, R> extends a<T, R> {
     final Callable<? extends o<? extends R>> onCompleteSupplier;
     final h<? super Throwable, ? extends o<? extends R>> onErrorMapper;
@@ -18,7 +18,7 @@ public final class MaybeFlatMapNotification<T, R> extends a<T, R> {
         this.source.a(new FlatMapMaybeObserver(mVar, this.onSuccessMapper, this.onErrorMapper, this.onCompleteSupplier));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapMaybeObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 4375739915521278546L;
         final m<? super R> actual;
@@ -83,7 +83,7 @@ public final class MaybeFlatMapNotification<T, R> extends a<T, R> {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         final class a implements m<R> {
             a() {
             }

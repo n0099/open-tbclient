@@ -1,7 +1,7 @@
 package com.google.protobuf;
 
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface Parser<MessageType> {
     MessageType parseDelimitedFrom(InputStream inputStream) throws InvalidProtocolBufferException;
 

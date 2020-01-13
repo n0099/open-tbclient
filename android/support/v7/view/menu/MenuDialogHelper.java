@@ -9,7 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class MenuDialogHelper implements DialogInterface.OnClickListener, DialogInterface.OnDismissListener, DialogInterface.OnKeyListener, MenuPresenter.Callback {
     private AlertDialog mDialog;
     private MenuBuilder mMenu;

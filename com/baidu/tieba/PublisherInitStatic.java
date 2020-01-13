@@ -18,17 +18,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.data.h;
 import com.baidu.tieba.publisher.a.p;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PublisherInitStatic {
     static {
-        aTK();
-        aTG();
-        aTJ();
-        aTH();
-        aTI();
+        aUe();
+        aUa();
+        aUd();
+        aUb();
+        aUc();
     }
 
-    private static void aTG() {
+    private static void aUa() {
         com.baidu.pyramid.runtime.service.e.a(AtService.SERVICE_REFERENCE, new com.baidu.tieba.publisher.service.c());
         UgcServerApiUtils.setHostAddress(UgcServerApiUtils.ONLINE_HOST_ADRESS);
         UgcServerApiUtils.setPublisherUserAgent(UgcServerApiUtils.DEFAULT_PUBLISHER_USER_AGENT);
@@ -39,25 +39,25 @@ public class PublisherInitStatic {
         PublisherConfig.setIsShowCamera(true);
         PublisherConfig.setIsShowEmojiTips(false);
         CompressImageUtil.setCompressValue(80);
-        e.aUe().n(TbadkCoreApplication.getInst(), false);
+        e.aUy().n(TbadkCoreApplication.getInst(), false);
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.PublisherInitStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                    e.aUe().n(TbadkCoreApplication.getInst(), false);
+                    e.aUy().n(TbadkCoreApplication.getInst(), false);
                 }
             }
         });
     }
 
-    private static void aTH() {
+    private static void aUb() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921427, new CustomMessageTask.CustomRunnable<com.baidu.tbadk.data.b>() { // from class: com.baidu.tieba.PublisherInitStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.data.b> customMessage) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof com.baidu.tbadk.data.b)) {
                     com.baidu.tbadk.data.b data = customMessage.getData();
-                    new com.baidu.tieba.publisher.a.a().postAtSelectEvent(new AtUserInfoItem("@" + data.aKR(), data.getUk()));
+                    new com.baidu.tieba.publisher.a.a().postAtSelectEvent(new AtUserInfoItem("@" + data.aLk(), data.getUk()));
                 }
                 return null;
             }
@@ -66,7 +66,7 @@ public class PublisherInitStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aTI() {
+    private static void aUc() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921430, new CustomMessageTask.CustomRunnable<com.baidu.tbadk.data.g>() { // from class: com.baidu.tieba.PublisherInitStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.data.g> customMessage) {
@@ -75,10 +75,10 @@ public class PublisherInitStatic {
                 }
                 com.baidu.tbadk.data.g data = customMessage.getData();
                 if (data.type == 0) {
-                    return new CustomResponsedMessage<>(2921430, Boolean.valueOf(e.aUe().isLogin()));
+                    return new CustomResponsedMessage<>(2921430, Boolean.valueOf(e.aUy().isLogin()));
                 }
                 if (data.type == 1) {
-                    e.aUe().n(TbadkApplication.getInst(), true);
+                    e.aUy().n(TbadkApplication.getInst(), true);
                 }
                 return null;
             }
@@ -87,7 +87,7 @@ public class PublisherInitStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aTJ() {
+    private static void aUd() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921426, new CustomMessageTask.CustomRunnable<h>() { // from class: com.baidu.tieba.PublisherInitStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<h> customMessage) {
@@ -98,7 +98,7 @@ public class PublisherInitStatic {
                         activity = TbadkCoreApplication.getInst().getCurrentActivity();
                     }
                     if (activity != null && !activity.isFinishing()) {
-                        switch (data.dqU) {
+                        switch (data.drf) {
                             case 1:
                                 e.b(activity, data);
                                 break;
@@ -118,18 +118,18 @@ public class PublisherInitStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aTK() {
+    private static void aUe() {
         new com.baidu.tieba.publisher.b.a(TbadkCoreApplication.getInst());
-        com.baidu.b.a.a.ng().setAppName("tieba");
-        a.g(TbadkCoreApplication.getInst());
+        com.baidu.b.a.a.nh().setAppName("tieba");
+        a.f(TbadkCoreApplication.getInst());
         PublisherConfig.setPublisherVersion(2);
         p.fk(TbadkCoreApplication.getInst());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
-        public static void g(Application application) {
+        public static void f(Application application) {
         }
     }
 }

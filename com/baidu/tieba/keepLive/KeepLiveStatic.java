@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.keepLive.startActivity.ScreenManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class KeepLiveStatic {
     public static final CustomMessageListener mKeepLiveServiceListener = new CustomMessageListener(CmdConfigCustom.CMD_KEEPLIVE_START_SERVICE) { // from class: com.baidu.tieba.keepLive.KeepLiveStatic.1
         /* JADX DEBUG: Method merged with bridge method */

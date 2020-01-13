@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.a;
 
 import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a<T> extends b<T> {
     public abstract void a(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2);
 

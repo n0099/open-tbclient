@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SelectorTextView extends TextView {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private boolean isPhoto;

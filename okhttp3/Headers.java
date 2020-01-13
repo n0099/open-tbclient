@@ -13,7 +13,7 @@ import java.util.TreeSet;
 import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Headers {
     private final String[] namesAndValues;
 
@@ -178,7 +178,7 @@ public final class Headers {
         return new Headers(strArr);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         final List<String> namesAndValues = new ArrayList(20);
 

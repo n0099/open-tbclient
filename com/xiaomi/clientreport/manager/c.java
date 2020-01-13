@@ -5,7 +5,7 @@ import com.xiaomi.clientreport.processor.IPerfProcessor;
 import com.xiaomi.push.bd;
 import java.util.concurrent.ExecutorService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c implements Runnable {
     final /* synthetic */ a a;
 
@@ -19,10 +19,10 @@ public class c implements Runnable {
         Context context;
         IPerfProcessor iPerfProcessor;
         ExecutorService executorService;
-        context = this.a.f13a;
-        iPerfProcessor = this.a.f16a;
+        context = this.a.f11a;
+        iPerfProcessor = this.a.f14a;
         bd bdVar = new bd(context, iPerfProcessor);
-        executorService = this.a.f18a;
+        executorService = this.a.f16a;
         executorService.execute(bdVar);
     }
 }

@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.android.util.media.model.DefaultVideoInfo;
 import com.baidu.searchbox.ugc.utils.UgcUriUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class VideoInfo {
     public Bitmap bitmap;
     public long clipDuration;

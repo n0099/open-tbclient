@@ -16,36 +16,36 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.exoplayer2.source.hls.playlist.c>> {
-    private final b.a moY;
-    private final e mrJ;
-    private final p.a<com.google.android.exoplayer2.source.hls.playlist.c> mrO;
-    private com.google.android.exoplayer2.source.hls.playlist.a mrs;
-    private final Uri mtb;
-    private final int mtc;
-    private final c mtf;
-    private a.C0667a mth;
-    private com.google.android.exoplayer2.source.hls.playlist.b mti;
-    private boolean mtj;
+    private final b.a msN;
+    private final p.a<com.google.android.exoplayer2.source.hls.playlist.c> mvD;
+    private com.google.android.exoplayer2.source.hls.playlist.a mvh;
+    private final e mvy;
+    private final Uri mwP;
+    private final int mwQ;
+    private final c mwT;
+    private a.C0673a mwV;
+    private com.google.android.exoplayer2.source.hls.playlist.b mwW;
+    private boolean mwX;
     private final List<b> listeners = new ArrayList();
-    private final Loader mtg = new Loader("HlsPlaylistTracker:MasterPlaylist");
-    private final IdentityHashMap<a.C0667a, a> mtd = new IdentityHashMap<>();
-    private final Handler mte = new Handler();
+    private final Loader mwU = new Loader("HlsPlaylistTracker:MasterPlaylist");
+    private final IdentityHashMap<a.C0673a, a> mwR = new IdentityHashMap<>();
+    private final Handler mwS = new Handler();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void a(a.C0667a c0667a, long j);
+        void a(a.C0673a c0673a, long j);
 
-        void duP();
+        void dwa();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void b(com.google.android.exoplayer2.source.hls.playlist.b bVar);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class PlaylistStuckException extends IOException {
         public final String url;
 
@@ -54,7 +54,7 @@ public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.e
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class PlaylistResetException extends IOException {
         public final String url;
 
@@ -64,12 +64,12 @@ public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.e
     }
 
     public HlsPlaylistTracker(Uri uri, e eVar, b.a aVar, int i, c cVar, p.a<com.google.android.exoplayer2.source.hls.playlist.c> aVar2) {
-        this.mtb = uri;
-        this.mrJ = eVar;
-        this.moY = aVar;
-        this.mtc = i;
-        this.mtf = cVar;
-        this.mrO = aVar2;
+        this.mwP = uri;
+        this.mvy = eVar;
+        this.msN = aVar;
+        this.mwQ = i;
+        this.mwT = cVar;
+        this.mvD = aVar2;
     }
 
     public void a(b bVar) {
@@ -81,51 +81,51 @@ public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.e
     }
 
     public void start() {
-        this.mtg.a(new p(this.mrJ.KR(4), this.mtb, 4, this.mrO), this, this.mtc);
+        this.mwU.a(new p(this.mvy.La(4), this.mwP, 4, this.mvD), this, this.mwQ);
     }
 
-    public com.google.android.exoplayer2.source.hls.playlist.a duX() {
-        return this.mrs;
+    public com.google.android.exoplayer2.source.hls.playlist.a dwi() {
+        return this.mvh;
     }
 
-    public com.google.android.exoplayer2.source.hls.playlist.b b(a.C0667a c0667a) {
-        com.google.android.exoplayer2.source.hls.playlist.b dvb = this.mtd.get(c0667a).dvb();
-        if (dvb != null) {
-            f(c0667a);
+    public com.google.android.exoplayer2.source.hls.playlist.b b(a.C0673a c0673a) {
+        com.google.android.exoplayer2.source.hls.playlist.b dwm = this.mwR.get(c0673a).dwm();
+        if (dwm != null) {
+            f(c0673a);
         }
-        return dvb;
+        return dwm;
     }
 
-    public boolean c(a.C0667a c0667a) {
-        return this.mtd.get(c0667a).dvc();
+    public boolean c(a.C0673a c0673a) {
+        return this.mwR.get(c0673a).dwn();
     }
 
     public void release() {
-        this.mtg.release();
-        for (a aVar : this.mtd.values()) {
+        this.mwU.release();
+        for (a aVar : this.mwR.values()) {
             aVar.release();
         }
-        this.mte.removeCallbacksAndMessages(null);
-        this.mtd.clear();
+        this.mwS.removeCallbacksAndMessages(null);
+        this.mwR.clear();
     }
 
-    public void duY() throws IOException {
-        this.mtg.dtM();
-        if (this.mth != null) {
-            d(this.mth);
+    public void dwj() throws IOException {
+        this.mwU.duX();
+        if (this.mwV != null) {
+            d(this.mwV);
         }
     }
 
-    public void d(a.C0667a c0667a) throws IOException {
-        this.mtd.get(c0667a).dve();
+    public void d(a.C0673a c0673a) throws IOException {
+        this.mwR.get(c0673a).dwp();
     }
 
-    public void e(a.C0667a c0667a) {
-        this.mtd.get(c0667a).dvd();
+    public void e(a.C0673a c0673a) {
+        this.mwR.get(c0673a).dwo();
     }
 
-    public boolean duZ() {
-        return this.mtj;
+    public boolean dwk() {
+        return this.mwX;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -136,30 +136,30 @@ public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.e
         com.google.android.exoplayer2.source.hls.playlist.c result = pVar.getResult();
         boolean z = result instanceof com.google.android.exoplayer2.source.hls.playlist.b;
         if (z) {
-            aVar = com.google.android.exoplayer2.source.hls.playlist.a.Pn(result.msz);
+            aVar = com.google.android.exoplayer2.source.hls.playlist.a.Py(result.mwn);
         } else {
             aVar = (com.google.android.exoplayer2.source.hls.playlist.a) result;
         }
-        this.mrs = aVar;
-        this.mth = aVar.msf.get(0);
+        this.mvh = aVar;
+        this.mwV = aVar.mvU.get(0);
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(aVar.msf);
+        arrayList.addAll(aVar.mvU);
         arrayList.addAll(aVar.audios);
-        arrayList.addAll(aVar.msh);
+        arrayList.addAll(aVar.mvV);
         fm(arrayList);
-        a aVar2 = this.mtd.get(this.mth);
+        a aVar2 = this.mwR.get(this.mwV);
         if (!z) {
-            aVar2.dvd();
+            aVar2.dwo();
         } else {
             aVar2.d((com.google.android.exoplayer2.source.hls.playlist.b) result);
         }
-        this.moY.a(pVar.dataSpec, 4, j, j2, pVar.dum());
+        this.msN.a(pVar.dataSpec, 4, j, j2, pVar.dvx());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.a
     public void a(p<com.google.android.exoplayer2.source.hls.playlist.c> pVar, long j, long j2, boolean z) {
-        this.moY.b(pVar.dataSpec, 4, j, j2, pVar.dum());
+        this.msN.b(pVar.dataSpec, 4, j, j2, pVar.dvx());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -167,72 +167,72 @@ public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.e
     /* renamed from: c */
     public int a(p<com.google.android.exoplayer2.source.hls.playlist.c> pVar, long j, long j2, IOException iOException) {
         boolean z = iOException instanceof ParserException;
-        this.moY.a(pVar.dataSpec, 4, j, j2, pVar.dum(), iOException, z);
+        this.msN.a(pVar.dataSpec, 4, j, j2, pVar.dvx(), iOException, z);
         return z ? 3 : 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dva() {
-        List<a.C0667a> list = this.mrs.msf;
+    public boolean dwl() {
+        List<a.C0673a> list = this.mvh.mvU;
         int size = list.size();
         long elapsedRealtime = SystemClock.elapsedRealtime();
         for (int i = 0; i < size; i++) {
-            a aVar = this.mtd.get(list.get(i));
-            if (elapsedRealtime > aVar.mtr) {
-                this.mth = aVar.mtk;
-                aVar.dvd();
+            a aVar = this.mwR.get(list.get(i));
+            if (elapsedRealtime > aVar.mxf) {
+                this.mwV = aVar.mwY;
+                aVar.dwo();
                 return true;
             }
         }
         return false;
     }
 
-    private void f(a.C0667a c0667a) {
-        if (c0667a == this.mth || !this.mrs.msf.contains(c0667a)) {
+    private void f(a.C0673a c0673a) {
+        if (c0673a == this.mwV || !this.mvh.mvU.contains(c0673a)) {
             return;
         }
-        if (this.mti == null || !this.mti.msp) {
-            this.mth = c0667a;
-            this.mtd.get(this.mth).dvd();
+        if (this.mwW == null || !this.mwW.mwd) {
+            this.mwV = c0673a;
+            this.mwR.get(this.mwV).dwo();
         }
     }
 
-    private void fm(List<a.C0667a> list) {
+    private void fm(List<a.C0673a> list) {
         int size = list.size();
         for (int i = 0; i < size; i++) {
-            a.C0667a c0667a = list.get(i);
-            this.mtd.put(c0667a, new a(c0667a));
+            a.C0673a c0673a = list.get(i);
+            this.mwR.put(c0673a, new a(c0673a));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C0667a c0667a, com.google.android.exoplayer2.source.hls.playlist.b bVar) {
-        if (c0667a == this.mth) {
-            if (this.mti == null) {
-                this.mtj = !bVar.msp;
+    public void a(a.C0673a c0673a, com.google.android.exoplayer2.source.hls.playlist.b bVar) {
+        if (c0673a == this.mwV) {
+            if (this.mwW == null) {
+                this.mwX = !bVar.mwd;
             }
-            this.mti = bVar;
-            this.mtf.b(bVar);
+            this.mwW = bVar;
+            this.mwT.b(bVar);
         }
         int size = this.listeners.size();
         for (int i = 0; i < size; i++) {
-            this.listeners.get(i).duP();
+            this.listeners.get(i).dwa();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(a.C0667a c0667a, long j) {
+    public void b(a.C0673a c0673a, long j) {
         int size = this.listeners.size();
         for (int i = 0; i < size; i++) {
-            this.listeners.get(i).a(c0667a, j);
+            this.listeners.get(i).a(c0673a, j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public com.google.android.exoplayer2.source.hls.playlist.b a(com.google.android.exoplayer2.source.hls.playlist.b bVar, com.google.android.exoplayer2.source.hls.playlist.b bVar2) {
         if (!bVar2.c(bVar)) {
-            if (bVar2.msp) {
-                return bVar.duW();
+            if (bVar2.mwd) {
+                return bVar.dwh();
             }
             return bVar;
         }
@@ -240,18 +240,18 @@ public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.e
     }
 
     private long b(com.google.android.exoplayer2.source.hls.playlist.b bVar, com.google.android.exoplayer2.source.hls.playlist.b bVar2) {
-        if (bVar2.msq) {
-            return bVar2.moI;
+        if (bVar2.mwe) {
+            return bVar2.msx;
         }
-        long j = this.mti != null ? this.mti.moI : 0L;
+        long j = this.mwW != null ? this.mwW.msx : 0L;
         if (bVar != null) {
-            int size = bVar.mss.size();
+            int size = bVar.mwg.size();
             b.a d = d(bVar, bVar2);
             if (d != null) {
-                return bVar.moI + d.msu;
+                return bVar.msx + d.mwi;
             }
-            if (size == bVar2.msm - bVar.msm) {
-                return bVar.duV();
+            if (size == bVar2.mwa - bVar.mwa) {
+                return bVar.dwg();
             }
             return j;
         }
@@ -260,19 +260,19 @@ public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.e
 
     private int c(com.google.android.exoplayer2.source.hls.playlist.b bVar, com.google.android.exoplayer2.source.hls.playlist.b bVar2) {
         b.a d;
-        if (bVar2.msk) {
-            return bVar2.msl;
+        if (bVar2.mvY) {
+            return bVar2.mvZ;
         }
-        int i = this.mti != null ? this.mti.msl : 0;
+        int i = this.mwW != null ? this.mwW.mvZ : 0;
         if (bVar != null && (d = d(bVar, bVar2)) != null) {
-            return (d.mst + bVar.msl) - bVar2.mss.get(0).mst;
+            return (d.mwh + bVar.mvZ) - bVar2.mwg.get(0).mwh;
         }
         return i;
     }
 
     private static b.a d(com.google.android.exoplayer2.source.hls.playlist.b bVar, com.google.android.exoplayer2.source.hls.playlist.b bVar2) {
-        int i = bVar2.msm - bVar.msm;
-        List<b.a> list = bVar.mss;
+        int i = bVar2.mwa - bVar.mwa;
+        List<b.a> list = bVar.mwg;
         if (i < list.size()) {
             return list.get(i);
         }
@@ -280,56 +280,56 @@ public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.e
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class a implements Loader.a<p<com.google.android.exoplayer2.source.hls.playlist.c>>, Runnable {
-        private final a.C0667a mtk;
-        private final Loader mtl = new Loader("HlsPlaylistTracker:MediaPlaylist");
-        private final p<com.google.android.exoplayer2.source.hls.playlist.c> mtm;
-        private com.google.android.exoplayer2.source.hls.playlist.b mtn;
-        private long mto;
-        private long mtp;
-        private long mtq;
-        private long mtr;
-        private boolean mts;
-        private IOException mtt;
+        private final a.C0673a mwY;
+        private final Loader mwZ = new Loader("HlsPlaylistTracker:MediaPlaylist");
+        private final p<com.google.android.exoplayer2.source.hls.playlist.c> mxa;
+        private com.google.android.exoplayer2.source.hls.playlist.b mxb;
+        private long mxc;
+        private long mxd;
+        private long mxe;
+        private long mxf;
+        private boolean mxg;
+        private IOException mxh;
 
-        public a(a.C0667a c0667a) {
-            this.mtk = c0667a;
-            this.mtm = new p<>(HlsPlaylistTracker.this.mrJ.KR(4), u.fi(HlsPlaylistTracker.this.mrs.msz, c0667a.url), 4, HlsPlaylistTracker.this.mrO);
+        public a(a.C0673a c0673a) {
+            this.mwY = c0673a;
+            this.mxa = new p<>(HlsPlaylistTracker.this.mvy.La(4), u.fk(HlsPlaylistTracker.this.mvh.mwn, c0673a.url), 4, HlsPlaylistTracker.this.mvD);
         }
 
-        public com.google.android.exoplayer2.source.hls.playlist.b dvb() {
-            return this.mtn;
+        public com.google.android.exoplayer2.source.hls.playlist.b dwm() {
+            return this.mxb;
         }
 
-        public boolean dvc() {
-            if (this.mtn == null) {
+        public boolean dwn() {
+            if (this.mxb == null) {
                 return false;
             }
-            return this.mtn.msp || this.mtn.msi == 2 || this.mtn.msi == 1 || Math.max(30000L, com.google.android.exoplayer2.b.fk(this.mtn.lUZ)) + this.mto > SystemClock.elapsedRealtime();
+            return this.mxb.mwd || this.mxb.mvW == 2 || this.mxb.mvW == 1 || Math.max(30000L, com.google.android.exoplayer2.b.fp(this.mxb.lYQ)) + this.mxc > SystemClock.elapsedRealtime();
         }
 
         public void release() {
-            this.mtl.release();
+            this.mwZ.release();
         }
 
-        public void dvd() {
-            this.mtr = 0L;
-            if (!this.mts && !this.mtl.isLoading()) {
+        public void dwo() {
+            this.mxf = 0L;
+            if (!this.mxg && !this.mwZ.isLoading()) {
                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                if (elapsedRealtime < this.mtq) {
-                    this.mts = true;
-                    HlsPlaylistTracker.this.mte.postDelayed(this, this.mtq - elapsedRealtime);
+                if (elapsedRealtime < this.mxe) {
+                    this.mxg = true;
+                    HlsPlaylistTracker.this.mwS.postDelayed(this, this.mxe - elapsedRealtime);
                     return;
                 }
-                dvf();
+                dwq();
             }
         }
 
-        public void dve() throws IOException {
-            this.mtl.dtM();
-            if (this.mtt != null) {
-                throw this.mtt;
+        public void dwp() throws IOException {
+            this.mwZ.duX();
+            if (this.mxh != null) {
+                throw this.mxh;
             }
         }
 
@@ -340,16 +340,16 @@ public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.e
             com.google.android.exoplayer2.source.hls.playlist.c result = pVar.getResult();
             if (result instanceof com.google.android.exoplayer2.source.hls.playlist.b) {
                 d((com.google.android.exoplayer2.source.hls.playlist.b) result);
-                HlsPlaylistTracker.this.moY.a(pVar.dataSpec, 4, j, j2, pVar.dum());
+                HlsPlaylistTracker.this.msN.a(pVar.dataSpec, 4, j, j2, pVar.dvx());
                 return;
             }
-            this.mtt = new ParserException("Loaded playlist has unexpected type.");
+            this.mxh = new ParserException("Loaded playlist has unexpected type.");
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.Loader.a
         public void a(p<com.google.android.exoplayer2.source.hls.playlist.c> pVar, long j, long j2, boolean z) {
-            HlsPlaylistTracker.this.moY.b(pVar.dataSpec, 4, j, j2, pVar.dum());
+            HlsPlaylistTracker.this.msN.b(pVar.dataSpec, 4, j, j2, pVar.dvx());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -357,55 +357,55 @@ public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.e
         /* renamed from: c */
         public int a(p<com.google.android.exoplayer2.source.hls.playlist.c> pVar, long j, long j2, IOException iOException) {
             boolean z = iOException instanceof ParserException;
-            HlsPlaylistTracker.this.moY.a(pVar.dataSpec, 4, j, j2, pVar.dum(), iOException, z);
+            HlsPlaylistTracker.this.msN.a(pVar.dataSpec, 4, j, j2, pVar.dvx(), iOException, z);
             if (z) {
                 return 3;
             }
             boolean z2 = true;
             if (h.o(iOException)) {
-                z2 = dvg();
+                z2 = dwr();
             }
             return z2 ? 0 : 2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.mts = false;
-            dvf();
+            this.mxg = false;
+            dwq();
         }
 
-        private void dvf() {
-            this.mtl.a(this.mtm, this, HlsPlaylistTracker.this.mtc);
+        private void dwq() {
+            this.mwZ.a(this.mxa, this, HlsPlaylistTracker.this.mwQ);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void d(com.google.android.exoplayer2.source.hls.playlist.b bVar) {
-            com.google.android.exoplayer2.source.hls.playlist.b bVar2 = this.mtn;
+            com.google.android.exoplayer2.source.hls.playlist.b bVar2 = this.mxb;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            this.mto = elapsedRealtime;
-            this.mtn = HlsPlaylistTracker.this.a(bVar2, bVar);
-            if (this.mtn != bVar2) {
-                this.mtt = null;
-                this.mtp = elapsedRealtime;
-                HlsPlaylistTracker.this.a(this.mtk, this.mtn);
-            } else if (!this.mtn.msp) {
-                if (bVar.msm + bVar.mss.size() < this.mtn.msm) {
-                    this.mtt = new PlaylistResetException(this.mtk.url);
-                } else if (elapsedRealtime - this.mtp > com.google.android.exoplayer2.b.fk(this.mtn.msn) * 3.5d) {
-                    this.mtt = new PlaylistStuckException(this.mtk.url);
-                    dvg();
+            this.mxc = elapsedRealtime;
+            this.mxb = HlsPlaylistTracker.this.a(bVar2, bVar);
+            if (this.mxb != bVar2) {
+                this.mxh = null;
+                this.mxd = elapsedRealtime;
+                HlsPlaylistTracker.this.a(this.mwY, this.mxb);
+            } else if (!this.mxb.mwd) {
+                if (bVar.mwa + bVar.mwg.size() < this.mxb.mwa) {
+                    this.mxh = new PlaylistResetException(this.mwY.url);
+                } else if (elapsedRealtime - this.mxd > com.google.android.exoplayer2.b.fp(this.mxb.mwb) * 3.5d) {
+                    this.mxh = new PlaylistStuckException(this.mwY.url);
+                    dwr();
                 }
             }
-            this.mtq = com.google.android.exoplayer2.b.fk(this.mtn != bVar2 ? this.mtn.msn : this.mtn.msn / 2) + elapsedRealtime;
-            if (this.mtk == HlsPlaylistTracker.this.mth && !this.mtn.msp) {
-                dvd();
+            this.mxe = com.google.android.exoplayer2.b.fp(this.mxb != bVar2 ? this.mxb.mwb : this.mxb.mwb / 2) + elapsedRealtime;
+            if (this.mwY == HlsPlaylistTracker.this.mwV && !this.mxb.mwd) {
+                dwo();
             }
         }
 
-        private boolean dvg() {
-            this.mtr = SystemClock.elapsedRealtime() + 60000;
-            HlsPlaylistTracker.this.b(this.mtk, 60000L);
-            return HlsPlaylistTracker.this.mth == this.mtk && !HlsPlaylistTracker.this.dva();
+        private boolean dwr() {
+            this.mxf = SystemClock.elapsedRealtime() + 60000;
+            HlsPlaylistTracker.this.b(this.mwY, 60000L);
+            return HlsPlaylistTracker.this.mwV == this.mwY && !HlsPlaylistTracker.this.dwl();
         }
     }
 }

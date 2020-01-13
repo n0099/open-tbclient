@@ -6,44 +6,44 @@ import com.baidu.swan.apps.core.d.i;
 import com.baidu.swan.apps.y.f;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private ArrayList<a> coI = new ArrayList<>();
+    private ArrayList<a> coV = new ArrayList<>();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void GW();
+        void Hs();
 
-        void dI(int i);
+        void dJ(int i);
     }
 
     public synchronized void a(a aVar) {
-        if (!this.coI.contains(aVar)) {
-            this.coI.add(aVar);
+        if (!this.coV.contains(aVar)) {
+            this.coV.add(aVar);
         }
     }
 
     public synchronized void hH(int i) {
-        Iterator<a> it = this.coI.iterator();
+        Iterator<a> it = this.coV.iterator();
         while (it.hasNext()) {
-            it.next().dI(i);
+            it.next().dJ(i);
         }
     }
 
-    public synchronized void GW() {
-        Iterator<a> it = this.coI.iterator();
+    public synchronized void Hs() {
+        Iterator<a> it = this.coV.iterator();
         while (it.hasNext()) {
-            it.next().GW();
+            it.next().Hs();
         }
-        this.coI.clear();
+        this.coV.clear();
     }
 
     @Nullable
-    public static b anH() {
+    public static b aoa() {
         i iVar;
-        e DP = f.Uf().DP();
-        if (DP != null && (iVar = (i) DP.p(i.class)) != null) {
-            return iVar.Mb();
+        e El = f.UC().El();
+        if (El != null && (iVar = (i) El.p(i.class)) != null) {
+            return iVar.Mx();
         }
         return null;
     }

@@ -6,18 +6,18 @@ import android.location.Location;
 import com.baidu.mobads.interfaces.IXAdContext;
 import com.baidu.mobads.interfaces.IXAdManager;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e implements IXAdManager {
-    private static IXAdManager aJw;
+    private static IXAdManager aKo;
     private String a;
     private Location b;
     private Context c;
 
     public static IXAdManager aP(Context context) {
-        if (aJw == null) {
-            aJw = new e(context);
+        if (aKo == null) {
+            aKo = new e(context);
         }
-        return aJw;
+        return aKo;
     }
 
     private e(Context context) {

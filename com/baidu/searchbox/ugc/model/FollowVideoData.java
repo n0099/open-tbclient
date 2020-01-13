@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FollowVideoData implements Serializable {
     public static final int SRC_FOLLOW_VIDEO = 1;
     public static final int SRC_MUSIC = 2;

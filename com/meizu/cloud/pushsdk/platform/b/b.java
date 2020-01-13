@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b extends c<RegisterStatus> {
     protected Handler a;
     protected ScheduledExecutorService b;

@@ -7,7 +7,7 @@ import com.baidu.searchbox.network.core.connect.URLConnectionManager;
 import com.baidu.searchbox.network.core.http.RealInterceptorChain;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ConnectInterceptor implements Interceptor {
     private static final String TAG = ConnectInterceptor.class.getSimpleName();
     private boolean isCanceled;

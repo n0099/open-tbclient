@@ -3,7 +3,7 @@ package android.support.v4.view.animation;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.view.animation.Interpolator;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class PathInterpolatorApi14 implements Interpolator {
     private static final float PRECISION = 0.002f;
     private final float[] mX;

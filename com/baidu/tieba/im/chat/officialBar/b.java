@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public static b hoD = new b();
-    private com.baidu.adp.lib.d.b<MultiImageTextTopView> hoq;
-    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> hor;
-    private com.baidu.adp.lib.d.b<SingleImageTextView> hos;
+    public static b hsg = new b();
+    private com.baidu.adp.lib.d.b<MultiImageTextTopView> hrT;
+    private com.baidu.adp.lib.d.b<MultiImageTextBottomView> hrU;
+    private com.baidu.adp.lib.d.b<SingleImageTextView> hrV;
 
     private void eR(final Context context) {
-        this.hoq = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
+        this.hrT = new com.baidu.adp.lib.d.b<MultiImageTextTopView>(new com.baidu.adp.lib.d.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bPJ */
+            /* renamed from: bQS */
             public MultiImageTextTopView makeObject() {
                 return new MultiImageTextTopView(context);
             }
@@ -47,10 +47,10 @@ public class b {
     }
 
     private void eS(final Context context) {
-        this.hor = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.3
+        this.hrU = new com.baidu.adp.lib.d.b<MultiImageTextBottomView>(new com.baidu.adp.lib.d.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bPK */
+            /* renamed from: bQT */
             public MultiImageTextBottomView makeObject() {
                 return new MultiImageTextBottomView(context);
             }
@@ -85,10 +85,10 @@ public class b {
     }
 
     private void eT(final Context context) {
-        this.hos = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.5
+        this.hrV = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bPL */
+            /* renamed from: bQU */
             public SingleImageTextView makeObject() {
                 return new SingleImageTextView(context);
             }
@@ -122,23 +122,23 @@ public class b {
     }
 
     public com.baidu.adp.lib.d.b<MultiImageTextTopView> eU(Context context) {
-        if (this.hoq == null) {
+        if (this.hrT == null) {
             eR(context);
         }
-        return this.hoq;
+        return this.hrT;
     }
 
     public com.baidu.adp.lib.d.b<MultiImageTextBottomView> eV(Context context) {
-        if (this.hor == null) {
+        if (this.hrU == null) {
             eS(context);
         }
-        return this.hor;
+        return this.hrU;
     }
 
     public com.baidu.adp.lib.d.b<SingleImageTextView> eW(Context context) {
-        if (this.hos == null) {
+        if (this.hrV == null) {
             eT(context);
         }
-        return this.hos;
+        return this.hrV;
     }
 }

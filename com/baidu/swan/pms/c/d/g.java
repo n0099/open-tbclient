@@ -1,28 +1,28 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g extends f {
-    private String cxS;
-    private String cxT;
+    private String cyd;
+    private String cye;
 
     public g(int i) {
         super(i);
     }
 
-    public g qm(String str) {
-        this.cxS = str;
+    public g qp(String str) {
+        this.cyd = str;
         return this;
     }
 
-    public g qn(String str) {
-        this.cxT = str;
+    public g qq(String str) {
+        this.cye = str;
         return this;
     }
 
-    public String arE() {
-        return this.cxS;
+    public String arX() {
+        return this.cyd;
     }
 
-    public String arF() {
-        return this.cxT;
+    public String arY() {
+        return this.cye;
     }
 }

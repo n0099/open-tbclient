@@ -1,7 +1,7 @@
 package com.facebook.cache.common;
 
 import android.net.Uri;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class g implements b {
     final String mKey;
 
@@ -34,7 +34,7 @@ public class g implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public String dhC() {
+    public String diD() {
         return this.mKey;
     }
 }

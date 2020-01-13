@@ -1,5 +1,5 @@
 package com.baidu.lbsapi.tools;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Point {
     public double x;
     public double y;

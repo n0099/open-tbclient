@@ -11,7 +11,7 @@ import com.baidu.webkit.sdk.Log;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HttpDnsCacheForHost implements INetListener {
     private static final String LOG_TAG = "HttpDnsCacheForHost";
     private static final String SERVER_URL = "https://180.76.76.112/";

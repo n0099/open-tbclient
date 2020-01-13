@@ -4,7 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Build;
 import android.support.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class AnimatorUtils {
     private static final AnimatorUtilsImpl IMPL;
 

@@ -3,9 +3,9 @@ package com.google.android.exoplayer2.util;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class p {
-    private static final Comparator<a> mCX = new Comparator<a>() { // from class: com.google.android.exoplayer2.util.p.1
+    private static final Comparator<a> mGO = new Comparator<a>() { // from class: com.google.android.exoplayer2.util.p.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -13,7 +13,7 @@ public class p {
             return aVar.index - aVar2.index;
         }
     };
-    private static final Comparator<a> mCY = new Comparator<a>() { // from class: com.google.android.exoplayer2.util.p.2
+    private static final Comparator<a> mGP = new Comparator<a>() { // from class: com.google.android.exoplayer2.util.p.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -24,88 +24,88 @@ public class p {
             return aVar2.value < aVar.value ? 1 : 0;
         }
     };
-    private final int mCZ;
-    private int mDe;
-    private int mDf;
-    private int mDg;
-    private final a[] mDc = new a[5];
-    private final ArrayList<a> mDa = new ArrayList<>();
-    private int mDd = -1;
+    private final int mGQ;
+    private int mGU;
+    private int mGV;
+    private int mGW;
+    private final a[] mGS = new a[5];
+    private final ArrayList<a> mGR = new ArrayList<>();
+    private int mGT = -1;
 
     public p(int i) {
-        this.mCZ = i;
+        this.mGQ = i;
     }
 
-    public void q(int i, float f) {
+    public void r(int i, float f) {
         a aVar;
-        dxp();
-        if (this.mDg > 0) {
-            a[] aVarArr = this.mDc;
-            int i2 = this.mDg - 1;
-            this.mDg = i2;
+        dyz();
+        if (this.mGW > 0) {
+            a[] aVarArr = this.mGS;
+            int i2 = this.mGW - 1;
+            this.mGW = i2;
             aVar = aVarArr[i2];
         } else {
             aVar = new a();
         }
-        int i3 = this.mDe;
-        this.mDe = i3 + 1;
+        int i3 = this.mGU;
+        this.mGU = i3 + 1;
         aVar.index = i3;
         aVar.weight = i;
         aVar.value = f;
-        this.mDa.add(aVar);
-        this.mDf += i;
-        while (this.mDf > this.mCZ) {
-            int i4 = this.mDf - this.mCZ;
-            a aVar2 = this.mDa.get(0);
+        this.mGR.add(aVar);
+        this.mGV += i;
+        while (this.mGV > this.mGQ) {
+            int i4 = this.mGV - this.mGQ;
+            a aVar2 = this.mGR.get(0);
             if (aVar2.weight <= i4) {
-                this.mDf -= aVar2.weight;
-                this.mDa.remove(0);
-                if (this.mDg < 5) {
-                    a[] aVarArr2 = this.mDc;
-                    int i5 = this.mDg;
-                    this.mDg = i5 + 1;
+                this.mGV -= aVar2.weight;
+                this.mGR.remove(0);
+                if (this.mGW < 5) {
+                    a[] aVarArr2 = this.mGS;
+                    int i5 = this.mGW;
+                    this.mGW = i5 + 1;
                     aVarArr2[i5] = aVar2;
                 }
             } else {
                 aVar2.weight -= i4;
-                this.mDf -= i4;
+                this.mGV -= i4;
             }
         }
     }
 
     public float bE(float f) {
-        dxq();
-        float f2 = f * this.mDf;
+        dyA();
+        float f2 = f * this.mGV;
         int i = 0;
-        for (int i2 = 0; i2 < this.mDa.size(); i2++) {
-            a aVar = this.mDa.get(i2);
+        for (int i2 = 0; i2 < this.mGR.size(); i2++) {
+            a aVar = this.mGR.get(i2);
             i += aVar.weight;
             if (i >= f2) {
                 return aVar.value;
             }
         }
-        if (this.mDa.isEmpty()) {
+        if (this.mGR.isEmpty()) {
             return Float.NaN;
         }
-        return this.mDa.get(this.mDa.size() - 1).value;
+        return this.mGR.get(this.mGR.size() - 1).value;
     }
 
-    private void dxp() {
-        if (this.mDd != 1) {
-            Collections.sort(this.mDa, mCX);
-            this.mDd = 1;
+    private void dyz() {
+        if (this.mGT != 1) {
+            Collections.sort(this.mGR, mGO);
+            this.mGT = 1;
         }
     }
 
-    private void dxq() {
-        if (this.mDd != 0) {
-            Collections.sort(this.mDa, mCY);
-            this.mDd = 0;
+    private void dyA() {
+        if (this.mGT != 0) {
+            Collections.sort(this.mGR, mGP);
+            this.mGT = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public int index;
         public float value;

@@ -1,7 +1,7 @@
 package com.airbnb.lottie.model.a;
 
 import android.graphics.PointF;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class i implements m<PointF, PointF> {
     private final b hE;
     private final b hF;

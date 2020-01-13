@@ -10,7 +10,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MultipartEntity implements HttpEntity {
     private static final char[] MULTIPART_CHARS = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     private final org.apache.http.Header contentType;

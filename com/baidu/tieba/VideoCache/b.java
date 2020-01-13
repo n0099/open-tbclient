@@ -11,29 +11,29 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private a dSf = new a();
+    private a dSo = new a();
 
     public b() {
-        aUm();
+        aUG();
     }
 
-    private void aUm() {
+    private void aUG() {
         File[] listFiles;
-        File file = new File(i.dSP);
+        File file = new File(i.dSY);
         if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
                     d dVar = new d();
                     dVar.setFileName(file2.getName());
-                    dVar.cc(vQ(file2.getAbsolutePath()));
-                    dVar.cd(m.wc(file2.getName()));
-                    this.dSf.a(dVar);
+                    dVar.ch(vU(file2.getAbsolutePath()));
+                    dVar.ci(m.wg(file2.getName()));
+                    this.dSo.a(dVar);
                 }
             }
-            Collections.sort(this.dSf.aUj(), new AccessTimeComparator());
+            Collections.sort(this.dSo.aUD(), new AccessTimeComparator());
         }
     }
 
@@ -42,7 +42,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long vQ(String str) {
+    private long vU(String str) {
         DataInputStream dataInputStream;
         FileInputStream fileInputStream;
         long j = 0;
@@ -139,60 +139,60 @@ public class b {
         return j;
     }
 
-    public void vR(String str) {
+    public void vV(String str) {
         d dVar;
-        String we = m.we(str);
-        if (we != null && !we.isEmpty()) {
-            vS(we);
-            if (this.dSf != null) {
+        String wi = m.wi(str);
+        if (wi != null && !wi.isEmpty()) {
+            vW(wi);
+            if (this.dSo != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
                 while (true) {
-                    if (i >= this.dSf.aUl()) {
+                    if (i >= this.dSo.aUF()) {
                         dVar = null;
                         break;
                     }
-                    d nG = this.dSf.nG((this.dSf.aUl() - 1) - i);
-                    if (nG != null && nG.getFileName() != null && nG.getFileName().equals(we)) {
+                    d nG = this.dSo.nG((this.dSo.aUF() - 1) - i);
+                    if (nG != null && nG.getFileName() != null && nG.getFileName().equals(wi)) {
                         dVar = nG;
                         break;
                     }
                     i++;
                 }
                 if (dVar != null) {
-                    this.dSf.b(dVar);
+                    this.dSo.b(dVar);
                 } else {
                     dVar = new d();
-                    dVar.setFileName(we);
+                    dVar.setFileName(wi);
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
-                t(we, currentTimeMillis2);
-                dVar.cc(currentTimeMillis2);
-                dVar.cd(m.wc(we));
-                this.dSf.a(dVar);
-                j.aJ(TAG, "total cache size: " + ((this.dSf.aUk() / 1024) / 1024) + "M list size " + this.dSf.aUl());
-                if (this.dSf.aUk() > 629145600) {
-                    while (this.dSf.aUk() > 524288000 && this.dSf.aUl() > 2 && aUn()) {
+                t(wi, currentTimeMillis2);
+                dVar.ch(currentTimeMillis2);
+                dVar.ci(m.wg(wi));
+                this.dSo.a(dVar);
+                j.aK(TAG, "total cache size: " + ((this.dSo.aUE() / 1024) / 1024) + "M list size " + this.dSo.aUF());
+                if (this.dSo.aUE() > 629145600) {
+                    while (this.dSo.aUE() > 524288000 && this.dSo.aUF() > 2 && aUH()) {
                     }
-                    aUp();
+                    aUJ();
                 }
-                if (m.aUD() < 314572800) {
-                    while (m.aUD() < 419430400 && this.dSf.aUl() > 2 && aUn()) {
+                if (m.aUX() < 314572800) {
+                    while (m.aUX() < 419430400 && this.dSo.aUF() > 2 && aUH()) {
                     }
-                    aUp();
+                    aUJ();
                 }
-                j.aJ(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
+                j.aK(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
-    private boolean aUn() {
-        d nG = this.dSf.nG(0);
-        if (nG == null || !(e.aUt().vT(nG.getFileName()) || e.aUt().vV(nG.getFileName()))) {
-            this.dSf.remove(0);
+    private boolean aUH() {
+        d nG = this.dSo.nG(0);
+        if (nG == null || !(e.aUN().vX(nG.getFileName()) || e.aUN().vZ(nG.getFileName()))) {
+            this.dSo.remove(0);
             if (nG != null) {
-                File file = new File(i.dSQ + nG.getFileName());
-                j.aJ(TAG, "delete file " + file.getName());
+                File file = new File(i.dSZ + nG.getFileName());
+                j.aK(TAG, "delete file " + file.getName());
                 m.H(file);
             }
             return true;
@@ -201,7 +201,7 @@ public class b {
     }
 
     private void t(String str, long j) {
-        File file = new File(i.dSQ + str);
+        File file = new File(i.dSZ + str);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -217,14 +217,14 @@ public class b {
         }
     }
 
-    public void aUo() {
-        if (this.dSf != null) {
+    public void aUI() {
+        if (this.dSo != null) {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.dSf.aUl() - 2; i++) {
-                d nG = this.dSf.nG(i);
+            for (int i = 0; i < this.dSo.aUF() - 2; i++) {
+                d nG = this.dSo.nG(i);
                 if (nG != null) {
-                    if (currentTimeMillis - nG.aUs() < 86400000) {
+                    if (currentTimeMillis - nG.aUM() < 86400000) {
                         break;
                     }
                     arrayList.add(nG);
@@ -232,28 +232,28 @@ public class b {
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 d dVar = (d) arrayList.get(i2);
-                if (dVar == null || (!e.aUt().vT(dVar.getFileName()) && !e.aUt().vV(dVar.getFileName()))) {
-                    this.dSf.b(dVar);
+                if (dVar == null || (!e.aUN().vX(dVar.getFileName()) && !e.aUN().vZ(dVar.getFileName()))) {
+                    this.dSo.b(dVar);
                     if (dVar != null) {
-                        File file = new File(i.dSQ + dVar.getFileName());
-                        j.aJ(TAG, "delete expired file " + dVar.getFileName());
+                        File file = new File(i.dSZ + dVar.getFileName());
+                        j.aK(TAG, "delete expired file " + dVar.getFileName());
                         m.H(file);
                     }
                 }
             }
-            aUp();
+            aUJ();
         }
     }
 
-    private void vS(String str) {
+    private void vW(String str) {
         File[] listFiles;
         if (str != null) {
             try {
                 if (!str.isEmpty()) {
-                    File file = new File(i.dSQ + str + "/completed");
-                    File file2 = new File(i.dSQ + str + "/segments");
+                    File file = new File(i.dSZ + str + "/completed");
+                    File file2 = new File(i.dSZ + str + "/segments");
                     if (file.exists()) {
-                        j.aJ(TAG, "delete segments");
+                        j.aK(TAG, "delete segments");
                         if (file2 != null && file2.exists() && file2.listFiles() != null) {
                             for (File file3 : file2.listFiles()) {
                                 if (file3 != null && file3.exists()) {
@@ -271,16 +271,16 @@ public class b {
     }
 
     public void clearCache() {
-        if (this.dSf != null) {
-            while (this.dSf.aUl() > 0 && aUn()) {
+        if (this.dSo != null) {
+            while (this.dSo.aUF() > 0 && aUH()) {
             }
-            aUp();
+            aUJ();
         }
     }
 
-    private void aUp() {
+    private void aUJ() {
         File[] listFiles;
-        File file = new File(i.dSP);
+        File file = new File(i.dSY);
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {

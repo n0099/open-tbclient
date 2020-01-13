@@ -17,7 +17,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ActionBarContextView extends AbsActionBarView {
     private static final String TAG = "ActionBarContextView";
     private View mClose;

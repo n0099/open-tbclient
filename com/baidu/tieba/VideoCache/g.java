@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g implements Runnable {
     private static final String TAG = g.class.getSimpleName();
     private String mVideoUrl;
@@ -23,7 +23,7 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        aUv();
+        aUP();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -66,24 +66,24 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void aUv() {
+    private synchronized void aUP() {
         File file;
-        long vY;
+        long wc;
         File[] fileArr;
         int i;
         long j;
         long fileSize;
         long j2;
-        j.aJ(TAG, "merge ...");
-        String we = m.we(this.mVideoUrl);
-        if (we != null && !we.isEmpty() && ((file = new File(i.dSQ + we + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.dSQ + we + "/completed.temp");
+        j.aK(TAG, "merge ...");
+        String wi = m.wi(this.mVideoUrl);
+        if (wi != null && !wi.isEmpty() && ((file = new File(i.dSZ + wi + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.dSZ + wi + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.dSQ + we + "/segments");
+            File file3 = new File(i.dSZ + wi + "/segments");
             if (file3 != null && file3.exists()) {
-                vY = vY(we);
+                wc = wc(wi);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -95,7 +95,7 @@ public class g implements Runnable {
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 file4.delete();
-                                j.aJ(TAG, "delete file " + file4.getAbsolutePath());
+                                j.aK(TAG, "delete file " + file4.getAbsolutePath());
                             }
                         }
                     }
@@ -110,7 +110,7 @@ public class g implements Runnable {
                         if (fileArr[i2] == null) {
                             break;
                         }
-                        j.aJ(TAG, "file name " + fileArr[i2].getName());
+                        j.aK(TAG, "file name " + fileArr[i2].getName());
                         i2++;
                     }
                 }
@@ -130,7 +130,7 @@ public class g implements Runnable {
             }
             if (j + fileSize == j2) {
             }
-        } else if (m.getFileSize(fileArr[i]) + j == vY) {
+        } else if (m.getFileSize(fileArr[i]) + j == wc) {
             i++;
         }
     }
@@ -244,12 +244,12 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long vY(String str) {
+    private long wc(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.dSQ + str + "/content_length");
+        File file = new File(i.dSZ + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

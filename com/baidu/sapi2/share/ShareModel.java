@@ -9,7 +9,7 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ShareModel implements Parcelable {
     public static final Parcelable.Creator<ShareModel> CREATOR = new o();
     private SapiAccount a;

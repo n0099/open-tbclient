@@ -1,5 +1,5 @@
 package rx.internal.util.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class q<E> extends v<E> {
     public q(int i) {
         super(i);
@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.mYL;
+        E[] eArr = this.nBf;
         long j = this.producerIndex;
-        long gX = gX(j);
-        if (b(eArr, gX) != null) {
+        long hv = hv(j);
+        if (b(eArr, hv) != null) {
             return false;
         }
-        b(eArr, gX, e);
+        b(eArr, hv, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long gX = gX(j);
-        E[] eArr = this.mYL;
-        E b = b(eArr, gX);
+        long hv = hv(j);
+        E[] eArr = this.nBf;
+        E b = b(eArr, hv);
         if (b == null) {
             return null;
         }
-        b(eArr, gX, null);
+        b(eArr, hv, null);
         soConsumerIndex(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return gY(gX(this.consumerIndex));
+        return hw(hv(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dEb = dEb();
+        long dIl = dIl();
         while (true) {
-            long dEa = dEa();
-            long dEb2 = dEb();
-            if (dEb == dEb2) {
-                return (int) (dEa - dEb2);
+            long dIk = dIk();
+            long dIl2 = dIl();
+            if (dIl == dIl2) {
+                return (int) (dIk - dIl2);
             }
-            dEb = dEb2;
+            dIl = dIl2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dEa() == dEb();
+        return dIk() == dIl();
     }
 
     private void soProducerIndex(long j) {
-        ae.njb.a(this, niV, j);
+        ae.nRY.a(this, nRS, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.njb.a(this, niU, j);
+        ae.nRY.a(this, nRR, j);
     }
 
-    private long dEa() {
-        return ae.njb.d(this, niV);
+    private long dIk() {
+        return ae.nRY.d(this, nRS);
     }
 
-    private long dEb() {
-        return ae.njb.d(this, niU);
+    private long dIl() {
+        return ae.nRY.d(this, nRR);
     }
 }

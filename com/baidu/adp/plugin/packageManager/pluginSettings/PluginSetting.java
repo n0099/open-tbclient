@@ -122,7 +122,7 @@ public class PluginSetting implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PluginSetting m10clone() {
+    public PluginSetting m11clone() {
         PluginSetting pluginSetting = new PluginSetting();
         pluginSetting.apkPath = this.apkPath;
         pluginSetting.setCmdRange(this.cmdRangeStr);

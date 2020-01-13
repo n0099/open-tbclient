@@ -4,11 +4,11 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.tieba.frs.as;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void a(Context context, e eVar);
 
-    int bHg();
+    int bIi();
 
     View getView();
 

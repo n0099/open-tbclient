@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class p implements l, a.InterfaceC0010a {
     @Nullable
     private r fP;

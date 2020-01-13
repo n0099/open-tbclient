@@ -53,7 +53,7 @@ import okio.BufferedSource;
 import okio.Okio;
 import okio.Source;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
     private static final int MAX_TUNNEL_ATTEMPTS = 21;
     private static final String NPE_THROW_WITH_NULL = "throw with null exception";

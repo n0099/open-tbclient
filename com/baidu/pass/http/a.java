@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements Runnable {
     private static final String a = "PassHttpClientRequest";
     private static final String b = "Set-Cookie";

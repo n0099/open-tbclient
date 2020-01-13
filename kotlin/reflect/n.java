@@ -1,4 +1,4 @@
 package kotlin.reflect;
-/* loaded from: classes4.dex */
-public interface n {
+/* loaded from: classes5.dex */
+public interface n extends a {
 }

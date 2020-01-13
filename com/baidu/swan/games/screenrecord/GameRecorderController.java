@@ -6,23 +6,23 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.y.f;
 import com.baidu.swan.nalib.audio.SwanAudioPlayer;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GameRecorderController {
-    private AREngineDelegate cnj;
-    private com.baidu.mario.a.c cnk;
-    private RecorderState cnl;
-    private com.baidu.mario.audio.a.a cnm;
-    private long cnn;
-    private com.baidu.swan.nalib.audio.b cno = new com.baidu.swan.nalib.audio.b() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.1
+    private com.baidu.mario.audio.a.a cnA;
+    private long cnB;
+    private com.baidu.swan.nalib.audio.b cnC = new com.baidu.swan.nalib.audio.b() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.1
         @Override // com.baidu.swan.nalib.audio.b
         public void a(com.baidu.swan.nalib.audio.a aVar) {
-            if (GameRecorderController.this.cnm != null) {
-                GameRecorderController.this.cnm.onAudioFrameAvailable(ByteBuffer.wrap(aVar.data), (int) aVar.size, aVar.time - GameRecorderController.this.cnn);
+            if (GameRecorderController.this.cnA != null) {
+                GameRecorderController.this.cnA.onAudioFrameAvailable(ByteBuffer.wrap(aVar.data), (int) aVar.size, aVar.time - GameRecorderController.this.cnB);
             }
         }
     };
+    private AREngineDelegate cnx;
+    private com.baidu.mario.a.c cny;
+    private RecorderState cnz;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum RecorderState {
         IDLE,
         RECORDING,
@@ -31,51 +31,51 @@ public class GameRecorderController {
     }
 
     public GameRecorderController(AREngineDelegate aREngineDelegate) {
-        this.cnj = aREngineDelegate;
-        if (this.cnj != null) {
-            this.cnl = RecorderState.IDLE;
-            this.cnj.setGameRecordCallback(new a());
+        this.cnx = aREngineDelegate;
+        if (this.cnx != null) {
+            this.cnz = RecorderState.IDLE;
+            this.cnx.setGameRecordCallback(new a());
         }
-        com.baidu.swan.games.audio.b.b.aiS().aiU().post(new Runnable() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.2
+        com.baidu.swan.games.audio.b.b.ajl().ajn().post(new Runnable() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.2
             @Override // java.lang.Runnable
             public void run() {
-                SwanAudioPlayer.getInstance().setOnAudioRecordListener(GameRecorderController.this.cno);
+                SwanAudioPlayer.getInstance().setOnAudioRecordListener(GameRecorderController.this.cnC);
             }
         });
     }
 
-    public void G(int i, String str) {
-        if (this.cnj != null) {
-            SwanAppActivity TQ = f.Uf().TQ();
-            boolean z = TQ != null && TQ.isLandScape();
-            this.cnj.setAudioEngineProxy(new com.baidu.mario.a.a() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.3
+    public void I(int i, String str) {
+        if (this.cnx != null) {
+            SwanAppActivity Un = f.UC().Un();
+            boolean z = Un != null && Un.isLandScape();
+            this.cnx.setAudioEngineProxy(new com.baidu.mario.a.a() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.3
                 @Override // com.baidu.mario.a.a
                 public void a(com.baidu.mario.audio.a.a aVar) {
-                    GameRecorderController.this.cnm = aVar;
-                    GameRecorderController.this.cnn = System.nanoTime();
-                    GameRecorderController.this.amC();
+                    GameRecorderController.this.cnA = aVar;
+                    GameRecorderController.this.cnB = System.nanoTime();
+                    GameRecorderController.this.amV();
                 }
             });
-            this.cnj.startRecord(true, i, str, z);
+            this.cnx.startRecord(true, i, str, z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void amC() {
-        if (this.cnm != null) {
+    public void amV() {
+        if (this.cnA != null) {
             int i = SwanAudioPlayer.mSampleRate;
             int i2 = SwanAudioPlayer.mSampleBufSize;
             AudioParams audioParams = new AudioParams();
             audioParams.setSampleRate(i * 2);
             audioParams.setAudioBufferSize(i2 * 2);
             audioParams.setChannelConfig(1);
-            this.cnm.a(true, audioParams);
+            this.cnA.a(true, audioParams);
         }
-        eu(true);
+        ez(true);
     }
 
-    private void eu(final boolean z) {
-        com.baidu.swan.games.audio.b.b.aiS().aiU().post(new Runnable() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.4
+    private void ez(final boolean z) {
+        com.baidu.swan.games.audio.b.b.ajl().ajn().post(new Runnable() { // from class: com.baidu.swan.games.screenrecord.GameRecorderController.4
             @Override // java.lang.Runnable
             public void run() {
                 SwanAudioPlayer.getInstance().setAudioRecord(z);
@@ -84,103 +84,103 @@ public class GameRecorderController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void amD() {
-        if (this.cnm != null) {
-            this.cnm.onAudioStop(true);
+    public void amW() {
+        if (this.cnA != null) {
+            this.cnA.onAudioStop(true);
         }
-        eu(false);
+        ez(false);
     }
 
     public void pauseRecord() {
-        if (this.cnj != null) {
-            this.cnj.pauseRecord();
+        if (this.cnx != null) {
+            this.cnx.pauseRecord();
         }
-        eu(false);
+        ez(false);
     }
 
     public void resumeRecord() {
-        if (this.cnj != null) {
-            this.cnj.resumeRecord();
+        if (this.cnx != null) {
+            this.cnx.resumeRecord();
         }
-        eu(true);
+        ez(true);
     }
 
     public void stopRecord() {
-        if (this.cnj != null) {
-            this.cnj.stopRecord();
+        if (this.cnx != null) {
+            this.cnx.stopRecord();
         }
     }
 
     public long getCurrentRecordProcess() {
-        if (this.cnj != null) {
-            return this.cnj.getCurrentRecordProcess();
+        if (this.cnx != null) {
+            return this.cnx.getCurrentRecordProcess();
         }
         return 0L;
     }
 
     public void setGameRecordCallback(com.baidu.mario.a.c cVar) {
-        this.cnk = cVar;
+        this.cny = cVar;
     }
 
-    public RecorderState amE() {
-        return this.cnl;
+    public RecorderState amX() {
+        return this.cnz;
     }
 
     public void release() {
-        if (this.cnj != null && this.cnk != null && (amE() == RecorderState.RECORDING || amE() == RecorderState.PAUSE)) {
-            this.cnk.onError(-1);
+        if (this.cnx != null && this.cny != null && (amX() == RecorderState.RECORDING || amX() == RecorderState.PAUSE)) {
+            this.cny.onError(-1);
         }
         setGameRecordCallback(null);
-        this.cnl = RecorderState.IDLE;
+        this.cnz = RecorderState.IDLE;
     }
 
-    public static GameRecorderController amF() {
+    public static GameRecorderController amY() {
         return new GameRecorderController(null);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private class a implements com.baidu.mario.a.c {
         private a() {
         }
 
         @Override // com.baidu.mario.a.c
         public void onStart() {
-            GameRecorderController.this.cnl = RecorderState.RECORDING;
-            if (GameRecorderController.this.cnk != null) {
-                GameRecorderController.this.cnk.onStart();
+            GameRecorderController.this.cnz = RecorderState.RECORDING;
+            if (GameRecorderController.this.cny != null) {
+                GameRecorderController.this.cny.onStart();
             }
         }
 
         @Override // com.baidu.mario.a.c
-        public void m(int i, String str) {
-            GameRecorderController.this.cnl = RecorderState.STOP;
-            GameRecorderController.this.amD();
-            if (GameRecorderController.this.cnk != null) {
-                GameRecorderController.this.cnk.m(i, str);
+        public void p(int i, String str) {
+            GameRecorderController.this.cnz = RecorderState.STOP;
+            GameRecorderController.this.amW();
+            if (GameRecorderController.this.cny != null) {
+                GameRecorderController.this.cny.p(i, str);
             }
         }
 
         @Override // com.baidu.mario.a.c
         public void onPause() {
-            GameRecorderController.this.cnl = RecorderState.PAUSE;
-            if (GameRecorderController.this.cnk != null) {
-                GameRecorderController.this.cnk.onPause();
+            GameRecorderController.this.cnz = RecorderState.PAUSE;
+            if (GameRecorderController.this.cny != null) {
+                GameRecorderController.this.cny.onPause();
             }
         }
 
         @Override // com.baidu.mario.a.c
         public void onResume() {
-            GameRecorderController.this.cnl = RecorderState.RECORDING;
-            if (GameRecorderController.this.cnk != null) {
-                GameRecorderController.this.cnk.onResume();
+            GameRecorderController.this.cnz = RecorderState.RECORDING;
+            if (GameRecorderController.this.cny != null) {
+                GameRecorderController.this.cny.onResume();
             }
         }
 
         @Override // com.baidu.mario.a.c
         public void onError(int i) {
-            GameRecorderController.this.cnl = RecorderState.IDLE;
-            if (GameRecorderController.this.cnk != null) {
-                GameRecorderController.this.cnk.onError(i);
+            GameRecorderController.this.cnz = RecorderState.IDLE;
+            if (GameRecorderController.this.cny != null) {
+                GameRecorderController.this.cny.onError(i);
             }
         }
     }

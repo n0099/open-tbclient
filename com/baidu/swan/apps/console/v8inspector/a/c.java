@@ -16,39 +16,39 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a.InterfaceC0226a bgj;
-    private LocalServerSocket bgk;
-    private String bgl;
+    private a.InterfaceC0228a bgZ;
+    private LocalServerSocket bha;
+    private String bhb;
     private boolean mRunning;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        String bgm;
-        boolean bgn;
+        String bhc;
+        boolean bhd;
         Map<String, String> headers = new HashMap();
         String method;
         String uri;
     }
 
-    public c(String str, a.InterfaceC0226a interfaceC0226a) {
-        this.bgl = str;
-        this.bgj = interfaceC0226a;
+    public c(String str, a.InterfaceC0228a interfaceC0228a) {
+        this.bhb = str;
+        this.bgZ = interfaceC0228a;
     }
 
     @Override // com.baidu.swan.apps.console.v8inspector.a.b
     public void start() {
         if (!this.mRunning) {
             try {
-                this.bgk = new LocalServerSocket(this.bgl);
+                this.bha = new LocalServerSocket(this.bhb);
                 this.mRunning = true;
                 int i = 0;
                 while (this.mRunning) {
-                    LocalSocket accept = this.bgk.accept();
+                    LocalSocket accept = this.bha.accept();
                     com.baidu.swan.apps.console.v8inspector.a.a aVar = new com.baidu.swan.apps.console.v8inspector.a.a(accept.getInputStream(), accept.getOutputStream());
-                    aVar.b(this.bgj);
+                    aVar.b(this.bgZ);
                     ExecutorUtilsExt.postOnSerial(aVar, "V8InspectorServer");
                     i++;
                     if (i > 10) {
@@ -65,16 +65,16 @@ public class c implements a.b {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class b {
-        a bgo;
+        a bhe;
 
-        abstract Map<String, String> Jx();
+        abstract Map<String, String> JT();
 
-        abstract String Jy();
+        abstract String JU();
 
         public b(a aVar) {
-            this.bgo = aVar;
+            this.bhe = aVar;
         }
 
         protected String getContent() {
@@ -85,12 +85,12 @@ public class c implements a.b {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
             PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
-            printWriter.append("HTTP/1.1").append(' ').append((CharSequence) Jy()).append(" \r\n");
+            printWriter.append("HTTP/1.1").append(' ').append((CharSequence) JU()).append(" \r\n");
             a(printWriter, "Date", simpleDateFormat.format(new Date()));
             printWriter.print("Content-Length: " + getContent().getBytes().length + "\r\n");
-            Map<String, String> Jx = Jx();
-            if (Jx != null && Jx.size() > 0) {
-                for (Map.Entry<String, String> entry : Jx().entrySet()) {
+            Map<String, String> JT = JT();
+            if (JT != null && JT.size() > 0) {
+                for (Map.Entry<String, String> entry : JT().entrySet()) {
                     a(printWriter, entry.getKey(), entry.getValue());
                 }
             }

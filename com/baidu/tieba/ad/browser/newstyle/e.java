@@ -21,7 +21,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e implements com.baidu.tieba.tbadkCore.e.b {
     private final TbPageContext<?> mTbPageContext;
     private final CustomMessageListener installListener = new CustomMessageListener(CmdConfigCustom.CMD_PACKAGE_ADDED) { // from class: com.baidu.tieba.ad.browser.newstyle.e.1
@@ -35,7 +35,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         }
     };
     private final CustomMessageListener downloadListener = new CustomMessageListener(CmdConfigCustom.CMD_FILE_DOWNLOAD) { // from class: com.baidu.tieba.ad.browser.newstyle.e.2
-        private boolean cGU;
+        private boolean cHg;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -46,16 +46,16 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
                     for (DownloadData downloadData : downloadMessage.getData()) {
                         if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                             if (downloadData.getStatus() == 5) {
-                                if (!this.cGU) {
-                                    this.cGU = true;
+                                if (!this.cHg) {
+                                    this.cHg = true;
                                     e.this.callDownloadListener(1);
                                 }
                             } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                                 e.this.callDownloadListener(2);
-                                this.cGU = false;
+                                this.cHg = false;
                             } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                                 e.this.callDownloadListener(0);
-                                this.cGU = false;
+                                this.cHg = false;
                             }
                         }
                     }
@@ -183,7 +183,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.aLw().b("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.aLP().b("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CommonEmptyView extends RelativeLayout {
     public FrameLayout mBottomLayout;
     public ImageView mIcon;
@@ -114,14 +114,14 @@ public class CommonEmptyView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.w.a.RG().a(this, new com.baidu.swan.apps.am.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
+        com.baidu.swan.apps.w.a.Sc().a(this, new com.baidu.swan.apps.am.a() { // from class: com.baidu.swan.apps.res.ui.CommonEmptyView.1
         });
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.w.a.RG().unsubscribeNightModeChangedEvent(this);
+        com.baidu.swan.apps.w.a.Sc().unsubscribeNightModeChangedEvent(this);
     }
 
     public void setPageResources() {

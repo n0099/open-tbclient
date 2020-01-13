@@ -1,16 +1,14 @@
 package io.reactivex.internal.operators.flowable;
 
 import io.reactivex.exceptions.MissingBackpressureException;
-import io.reactivex.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
-public final class FlowableTimer extends g<Long> {
+/* loaded from: classes5.dex */
+public final class FlowableTimer extends io.reactivex.g<Long> {
     final long delay;
     final v scheduler;
     final TimeUnit unit;
@@ -22,8 +20,8 @@ public final class FlowableTimer extends g<Long> {
         timerSubscriber.setResource(this.scheduler.b(timerSubscriber, this.delay, this.unit));
     }
 
-    /* loaded from: classes4.dex */
-    static final class TimerSubscriber extends AtomicReference<io.reactivex.disposables.b> implements Runnable, d {
+    /* loaded from: classes5.dex */
+    static final class TimerSubscriber extends AtomicReference<io.reactivex.disposables.b> implements Runnable, org.a.d {
         private static final long serialVersionUID = -2809475196591179431L;
         final org.a.c<? super Long> actual;
         volatile boolean requested;

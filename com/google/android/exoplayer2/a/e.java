@@ -1,49 +1,49 @@
 package com.google.android.exoplayer2.a;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e extends a {
     public ByteBuffer data;
-    public final b lYX = new b();
-    public long lYY;
-    private final int lYZ;
+    public final b mcP = new b();
+    public long mcQ;
+    private final int mcR;
 
-    public static e dsb() {
+    public static e dtn() {
         return new e(0);
     }
 
     public e(int i) {
-        this.lYZ = i;
+        this.mcR = i;
     }
 
-    public void Ja(int i) throws IllegalStateException {
+    public void Jj(int i) throws IllegalStateException {
         if (this.data == null) {
-            this.data = Jb(i);
+            this.data = Jk(i);
             return;
         }
         int capacity = this.data.capacity();
         int position = this.data.position();
         int i2 = position + i;
         if (capacity < i2) {
-            ByteBuffer Jb = Jb(i2);
+            ByteBuffer Jk = Jk(i2);
             if (position > 0) {
                 this.data.position(0);
                 this.data.limit(position);
-                Jb.put(this.data);
+                Jk.put(this.data);
             }
-            this.data = Jb;
+            this.data = Jk;
         }
     }
 
-    public final boolean dsc() {
-        return this.data == null && this.lYZ == 0;
+    public final boolean dto() {
+        return this.data == null && this.mcR == 0;
     }
 
-    public final boolean dsd() {
-        return IZ(1073741824);
+    public final boolean dtp() {
+        return Ji(1073741824);
     }
 
-    public final void dse() {
+    public final void dtq() {
         this.data.flip();
     }
 
@@ -55,11 +55,11 @@ public class e extends a {
         }
     }
 
-    private ByteBuffer Jb(int i) {
-        if (this.lYZ == 1) {
+    private ByteBuffer Jk(int i) {
+        if (this.mcR == 1) {
             return ByteBuffer.allocate(i);
         }
-        if (this.lYZ == 2) {
+        if (this.mcR == 2) {
             return ByteBuffer.allocateDirect(i);
         }
         throw new IllegalStateException("Buffer too small (" + (this.data == null ? 0 : this.data.capacity()) + " < " + i + ")");

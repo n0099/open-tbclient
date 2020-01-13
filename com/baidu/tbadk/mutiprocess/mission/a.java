@@ -16,17 +16,17 @@ public class a implements b<MissionEvent> {
         long j = missionEvent.tid;
         String str = missionEvent.actionType;
         if (MissionEvent.MESSAGE_RESUME.equals(str)) {
-            c.auQ().m(i, j);
-            c.auQ().o(i2, j);
+            c.avj().m(i, j);
+            c.avj().o(i2, j);
             return true;
         } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-            c.auQ().auV();
+            c.avj().avo();
             return true;
         } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
-            c.auQ().auX();
+            c.avj().avq();
             return true;
         } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-            c.auQ().m(i, j);
+            c.avj().m(i, j);
             return true;
         } else {
             return true;

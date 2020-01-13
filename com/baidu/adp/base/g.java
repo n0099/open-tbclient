@@ -10,20 +10,20 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g mV = null;
+    private static g mS = null;
     private Resources mCurrentResources = null;
-    private ArrayList<String> mW = null;
-    private HashSet<String> mZ = null;
+    private ArrayList<String> mT = null;
+    private HashSet<String> mU = null;
 
     public static g eI() {
-        if (mV == null) {
+        if (mS == null) {
             synchronized (g.class) {
-                if (mV == null) {
-                    mV = new g();
+                if (mS == null) {
+                    mS = new g();
                 }
             }
         }
-        return mV;
+        return mS;
     }
 
     public synchronized void setHostResources(Resources resources) {
@@ -38,24 +38,24 @@ public class g {
             throw new RuntimeException("hostResources is null");
         }
         if (!TextUtils.isEmpty(str)) {
-            if (this.mZ == null) {
-                this.mZ = new HashSet<>();
+            if (this.mU == null) {
+                this.mU = new HashSet<>();
             }
-            if (this.mZ.contains(str)) {
-                com.baidu.adp.plugin.b.a.iO().f("plugin_load", "repeat_inject_res", str, str2);
+            if (this.mU.contains(str)) {
+                com.baidu.adp.plugin.b.a.iN().f("plugin_load", "repeat_inject_res", str, str2);
             }
-            this.mZ.add(str);
+            this.mU.add(str);
         }
-        if (this.mW == null) {
-            this.mW = new ArrayList<>();
+        if (this.mT == null) {
+            this.mT = new ArrayList<>();
         }
-        if (!this.mW.contains(str2)) {
+        if (!this.mT.contains(str2)) {
             if (Build.VERSION.SDK_INT >= 20) {
                 com.baidu.adp.plugin.util.d.callMethod(this.mCurrentResources.getAssets(), "addAssetPath", new Object[]{str2});
             } else {
                 AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                if (this.mW.size() > 0) {
-                    Iterator<String> it = this.mW.iterator();
+                if (this.mT.size() > 0) {
+                    Iterator<String> it = this.mT.iterator();
                     while (it.hasNext()) {
                         com.baidu.adp.plugin.util.d.callMethod(assetManager, "addAssetPath", new Object[]{it.next()});
                     }
@@ -64,7 +64,7 @@ public class g {
                 com.baidu.adp.plugin.util.d.callMethod(assetManager, "addAssetPath", new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
                 this.mCurrentResources = new Resources(assetManager, this.mCurrentResources.getDisplayMetrics(), this.mCurrentResources.getConfiguration());
             }
-            this.mW.add(str2);
+            this.mT.add(str2);
         }
     }
 

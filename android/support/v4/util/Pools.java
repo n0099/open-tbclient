@@ -2,10 +2,10 @@ package android.support.v4.util;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Pools {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Pool<T> {
         @Nullable
         T acquire();
@@ -16,7 +16,7 @@ public final class Pools {
     private Pools() {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SimplePool<T> implements Pool<T> {
         private final Object[] mPool;
         private int mPoolSize;
@@ -63,7 +63,7 @@ public final class Pools {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SynchronizedPool<T> extends SimplePool<T> {
         private final Object mLock;
 

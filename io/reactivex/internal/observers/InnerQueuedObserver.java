@@ -1,18 +1,18 @@
 package io.reactivex.internal.observers;
 
-import io.reactivex.internal.a.f;
+import io.reactivex.internal.a.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.i;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class InnerQueuedObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
     private static final long serialVersionUID = -5417183359794346637L;
     volatile boolean done;
     int fusionMode;
     final b<T> parent;
     final int prefetch;
-    f<T> queue;
+    g<T> queue;
 
     public InnerQueuedObserver(b<T> bVar, int i) {
         this.parent = bVar;
@@ -37,7 +37,7 @@ public final class InnerQueuedObserver<T> extends AtomicReference<io.reactivex.d
                     return;
                 }
             }
-            this.queue = i.ML(-this.prefetch);
+            this.queue = i.Ny(-this.prefetch);
         }
     }
 
@@ -78,7 +78,7 @@ public final class InnerQueuedObserver<T> extends AtomicReference<io.reactivex.d
         this.done = true;
     }
 
-    public f<T> queue() {
+    public g<T> queue() {
         return this.queue;
     }
 

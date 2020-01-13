@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.b.c;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class j {
     public static j a(final g gVar, final File file) {
         if (file == null) {

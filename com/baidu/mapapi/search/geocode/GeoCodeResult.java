@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.SearchResult;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GeoCodeResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<GeoCodeResult> CREATOR = new a();
     private LatLng a;

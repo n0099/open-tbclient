@@ -2,29 +2,29 @@ package com.xiaomi.push;
 
 import com.xiaomi.push.iy;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ix {
     private jc a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final jj f784a;
+    private final jj f782a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final ByteArrayOutputStream f785a;
+    private final ByteArrayOutputStream f783a;
 
     public ix() {
         this(new iy.a());
     }
 
     public ix(je jeVar) {
-        this.f785a = new ByteArrayOutputStream();
-        this.f784a = new jj(this.f785a);
-        this.a = jeVar.a(this.f784a);
+        this.f783a = new ByteArrayOutputStream();
+        this.f782a = new jj(this.f783a);
+        this.a = jeVar.a(this.f782a);
     }
 
     public byte[] a(ir irVar) {
-        this.f785a.reset();
+        this.f783a.reset();
         irVar.b(this.a);
-        return this.f785a.toByteArray();
+        return this.f783a.toByteArray();
     }
 }

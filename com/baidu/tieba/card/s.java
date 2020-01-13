@@ -1,7 +1,7 @@
 package com.baidu.tieba.card;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class s {
-    public String cLq;
+    public String cLA;
     public int locate;
     public String source;
     public String weight;

@@ -2,7 +2,7 @@ package io.reactivex.internal.operators.single;
 
 import com.google.android.exoplayer2.Format;
 import io.reactivex.aa;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.disposables.b;
 import io.reactivex.g;
 import io.reactivex.internal.disposables.DisposableHelper;
@@ -12,7 +12,7 @@ import io.reactivex.y;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final aa<T> source;
@@ -22,7 +22,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
         this.source.a(new FlatMapIterableObserver(cVar, this.mapper));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapIterableObserver<T, R> extends BasicIntQueueSubscription<R> implements y<T> {
         private static final long serialVersionUID = -8938804753851907758L;
         final c<? super R> actual;
@@ -185,17 +185,17 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
             return 0;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public void clear() {
             this.it = null;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public boolean isEmpty() {
             return this.it == null;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public R poll() throws Exception {
             Iterator<? extends R> it = this.it;
             if (it != null) {

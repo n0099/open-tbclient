@@ -34,7 +34,7 @@ import com.baidu.platform.comapi.wnplatform.h.e;
 import com.baidu.platform.comapi.wnplatform.o.f;
 import com.baidu.tieba.R;
 import java.math.BigDecimal;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     private LinearLayout A;
     private TextView B;
@@ -74,7 +74,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     private com.baidu.platform.comapi.walknavi.g.b.a n = null;
     private Handler o = new Handler();
     private boolean p = true;
-    private CountDownTimerC0134a q = null;
+    private CountDownTimerC0136a q = null;
     private int v = 0;
     private boolean w = false;
     private boolean z = false;
@@ -96,7 +96,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     final Runnable h = new l(this);
     private com.baidu.platform.comapi.wnplatform.walkmap.c ag = new n(this);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(int i);
     }
@@ -324,15 +324,15 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     private void H() {
-        this.U = (RelativeLayout) this.j.findViewById(2131165297);
+        this.U = (RelativeLayout) this.j.findViewById(R.raw.rim_video_too_near);
         this.U.setVisibility(0);
         this.U.setOnClickListener(new r(this));
-        this.V = (RelativeLayout) this.j.findViewById(R.raw.big_scale_fragment);
-        this.X = (TextView) this.j.findViewById(R.raw.default_fragment);
-        this.Y = (TextView) this.j.findViewById(R.raw.default_vertex);
-        this.W = (RelativeLayout) this.j.findViewById(R.raw.f_animator);
-        this.Z = (ImageView) this.j.findViewById(R.raw.f_scene_animator);
-        this.aa = (ImageView) this.j.findViewById(R.raw.horizontal_translation_fragment);
+        this.V = (RelativeLayout) this.j.findViewById(R.raw.ala_live2);
+        this.X = (TextView) this.j.findViewById(R.raw.bottom_bar_bg);
+        this.Y = (TextView) this.j.findViewById(R.raw.bottom_bar_bg_1);
+        this.W = (RelativeLayout) this.j.findViewById(R.raw.default_fragment);
+        this.Z = (ImageView) this.j.findViewById(R.raw.default_vertex);
+        this.aa = (ImageView) this.j.findViewById(R.raw.f_scene_animator);
     }
 
     public void m() {
@@ -445,11 +445,11 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     private void J() {
-        this.ac = this.j.findViewById(2131165299);
+        this.ac = this.j.findViewById(R.raw.sapi_camera_blink);
         this.ac.setVisibility(8);
         this.ac.setOnClickListener(new s(this));
-        ((ImageView) this.j.findViewById(2131165302)).setOnClickListener(new t(this));
-        this.ad = (AnimationDrawable) ((ImageView) this.j.findViewById(2131165300)).getBackground();
+        ((ImageView) this.j.findViewById(R.raw.sapi_camera_open_mouth)).setOnClickListener(new t(this));
+        this.ad = (AnimationDrawable) ((ImageView) this.j.findViewById(R.raw.sapi_camera_found_face)).getBackground();
     }
 
     private void K() {
@@ -457,7 +457,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
         H();
         com.baidu.platform.comapi.walknavi.b.a().G().a().getMap().addOverlay(new MarkerOptions().position(C()).icon(this.L).zIndex(9).draggable(false));
         com.baidu.platform.comapi.walknavi.b.a().G().a().getMap().addOverlay(new MarkerOptions().position(B()).icon(this.N).zIndex(9).draggable(false));
-        this.F = this.j.findViewById(R.raw.par_star_burst);
+        this.F = this.j.findViewById(R.raw.par_banana2);
         this.k = new com.baidu.platform.comapi.walknavi.g.b.c(this.i, this, this.j);
         this.k.h().setOnClickListener(new u(this));
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -469,14 +469,14 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
             this.k.a(cVar);
         }
         this.G = new com.baidu.platform.comapi.walknavi.widget.d(this.i, this, this.j);
-        this.r = (FrameLayout) this.j.findViewById(R.raw.par_red_heart);
-        this.x = (TestLinearLayout) this.j.findViewById(R.raw.par_sakula);
-        this.y = (TestLinearLayout) this.j.findViewById(R.raw.par_snow);
-        this.A = (LinearLayout) this.j.findViewById(R.raw.par_magic_in_002);
-        this.B = (TextView) this.j.findViewById(R.raw.par_magic_in_003);
-        this.C = (TextView) this.j.findViewById(R.raw.par_magic_in_snow);
-        this.D = (TextView) this.j.findViewById(R.raw.par_minnie);
-        this.E = (TestScaleView) this.j.findViewById(R.raw.par_nuclues);
+        this.r = (FrameLayout) this.j.findViewById(R.raw.lottie_use_refresh_n);
+        this.x = (TestLinearLayout) this.j.findViewById(R.raw.lottie_use_refresh_n_1);
+        this.y = (TestLinearLayout) this.j.findViewById(R.raw.lottie_use_refresh_n_2);
+        this.A = (LinearLayout) this.j.findViewById(R.raw.lottie_use_publish_n);
+        this.B = (TextView) this.j.findViewById(R.raw.lottie_use_publish_n_1);
+        this.C = (TextView) this.j.findViewById(R.raw.lottie_use_publish_n_2);
+        this.D = (TextView) this.j.findViewById(R.raw.lottie_use_refresh_home_n);
+        this.E = (TestScaleView) this.j.findViewById(R.raw.lottie_use_refresh_home_n_1);
         Bundle U = com.baidu.platform.comapi.walknavi.b.a().U();
         if (U != null) {
             this.C.setText(U.getString("distance"));
@@ -539,7 +539,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
             }
             this.l = b3.a(b2).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.string.abc_action_bar_home_description)).b().b(new e(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.string.abc_activitychooserview_choose_application)).a(new d(this));
             if (z) {
-                this.q = new CountDownTimerC0134a(7000L, 1000L, this.i, this.l);
+                this.q = new CountDownTimerC0136a(7000L, 1000L, this.i, this.l);
                 this.q.start();
             }
             if (!this.l.isShowing() && this.i != null && !this.i.isFinishing()) {
@@ -950,12 +950,12 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class CountDownTimerC0134a extends CountDownTimer {
+    /* loaded from: classes6.dex */
+    public class CountDownTimerC0136a extends CountDownTimer {
         Activity a;
         com.baidu.platform.comapi.walknavi.widget.a b;
 
-        public CountDownTimerC0134a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
+        public CountDownTimerC0136a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
             this.a = activity;
             this.b = aVar;

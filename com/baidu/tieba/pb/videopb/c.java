@@ -11,66 +11,66 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private ArrayList<m> eea;
-    private BdTypeRecyclerView gnE;
-    private ReplyFragment iTS;
-    private k izj;
-    private com.baidu.tieba.pb.pb.a.d izs;
-    private com.baidu.tieba.pb.data.f izv;
+    private ArrayList<m> eei;
+    private BdTypeRecyclerView gqN;
+    private k iCN;
+    private com.baidu.tieba.pb.pb.a.d iCW;
+    private com.baidu.tieba.pb.data.f iCZ;
+    private ReplyFragment iXv;
     private ArrayList<PostData> postList;
-    private final List<com.baidu.adp.widget.ListView.a> aoz = new ArrayList();
-    private String amQ = null;
-    private boolean izw = true;
+    private final List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
+    private String anD = null;
+    private boolean iDa = true;
     private boolean mIsFromCDN = false;
-    private View.OnClickListener izF = null;
-    private View.OnClickListener ahD = null;
-    private TbRichTextView.i dIi = null;
-    private com.baidu.tieba.pb.a.c dmm = null;
+    private View.OnClickListener iDj = null;
+    private View.OnClickListener ain = null;
+    private TbRichTextView.i dIr = null;
+    private com.baidu.tieba.pb.a.c dmA = null;
     private View.OnLongClickListener mOnLongClickListener = null;
 
     public c(ReplyFragment replyFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.iTS = replyFragment;
-        this.gnE = bdTypeRecyclerView;
-        uR();
+        this.iXv = replyFragment;
+        this.gqN = bdTypeRecyclerView;
+        vi();
     }
 
-    private void uR() {
-        this.izj = new k(this.iTS.ckD(), PostData.kbJ);
-        this.izj.a((TbRichTextView.c) this.iTS.ckD());
-        this.izs = new com.baidu.tieba.pb.pb.a.d(this.iTS.ckD(), PostData.kbO);
-        this.aoz.add(this.izj);
-        this.aoz.add(this.izs);
-        this.gnE.addAdapters(this.aoz);
+    private void vi() {
+        this.iCN = new k(this.iXv.clL(), PostData.kfm);
+        this.iCN.a((TbRichTextView.c) this.iXv.clL());
+        this.iCW = new com.baidu.tieba.pb.pb.a.d(this.iXv.clL(), PostData.kfr);
+        this.apl.add(this.iCN);
+        this.apl.add(this.iCW);
+        this.gqN.addAdapters(this.apl);
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
         PostData postData;
         boolean z;
         if (fVar != null) {
-            this.izv = fVar;
-            if (fVar != null && fVar.chK() != null && fVar.chK().azE() != null) {
-                this.amQ = fVar.chK().azE().getUserId();
+            this.iCZ = fVar;
+            if (fVar != null && fVar.ciS() != null && fVar.ciS().azX() != null) {
+                this.anD = fVar.ciS().azX().getUserId();
             }
             if (this.postList == null) {
                 this.postList = new ArrayList<>();
             }
             this.postList.clear();
-            if (this.izv != null && this.izv.chM() != null && this.izv.chM().size() > 0) {
-                this.postList.addAll(this.izv.chM());
+            if (this.iCZ != null && this.iCZ.ciU() != null && this.iCZ.ciU().size() > 0) {
+                this.postList.addAll(this.iCZ.ciU());
             }
-            this.izj.setData(fVar);
-            this.izj.setFromCDN(this.mIsFromCDN);
-            this.izj.dv(this.amQ);
-            this.izj.ph(this.izw);
-            this.izj.y(this.ahD);
-            this.izj.P(this.izF);
-            this.izj.setOnImageClickListener(this.dIi);
-            this.izj.setOnLongClickListener(this.mOnLongClickListener);
-            this.izj.setTbGestureDetector(this.dmm);
-            this.izs.setOnClickListener(this.ahD);
-            ArrayList<m> arrayList = new ArrayList<>(fVar.chM());
+            this.iCN.setData(fVar);
+            this.iCN.setFromCDN(this.mIsFromCDN);
+            this.iCN.dx(this.anD);
+            this.iCN.pt(this.iDa);
+            this.iCN.x(this.ain);
+            this.iCN.O(this.iDj);
+            this.iCN.setOnImageClickListener(this.dIr);
+            this.iCN.setOnLongClickListener(this.mOnLongClickListener);
+            this.iCN.setTbGestureDetector(this.dmA);
+            this.iCW.setOnClickListener(this.ain);
+            ArrayList<m> arrayList = new ArrayList<>(fVar.ciU());
             Iterator<m> it = arrayList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -79,7 +79,7 @@ public class c {
                     break;
                 }
                 m next = it.next();
-                if ((next instanceof PostData) && ((PostData) next).cIt() == 1) {
+                if ((next instanceof PostData) && ((PostData) next).cJx() == 1) {
                     postData = (PostData) next;
                     z = true;
                     break;
@@ -88,9 +88,9 @@ public class c {
             if (z) {
                 arrayList.remove(postData);
             }
-            if (this.gnE != null) {
-                this.eea = arrayList;
-                this.gnE.setData(this.eea);
+            if (this.gqN != null) {
+                this.eei = arrayList;
+                this.gqN.setData(this.eei);
             }
         }
     }
@@ -99,33 +99,33 @@ public class c {
         this.mIsFromCDN = z;
     }
 
-    public void P(View.OnClickListener onClickListener) {
-        this.izF = onClickListener;
+    public void O(View.OnClickListener onClickListener) {
+        this.iDj = onClickListener;
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.dIi = iVar;
+        this.dIr = iVar;
     }
 
     public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
-        this.dmm = cVar;
+        this.dmA = cVar;
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
         this.mOnLongClickListener = onLongClickListener;
     }
 
-    public void D(View.OnClickListener onClickListener) {
-        this.ahD = onClickListener;
+    public void C(View.OnClickListener onClickListener) {
+        this.ain = onClickListener;
     }
 
     public void notifyDataSetChanged() {
-        if (this.gnE.getAdapter() instanceof g) {
-            this.gnE.getAdapter().notifyDataSetChanged();
+        if (this.gqN.getAdapter() instanceof g) {
+            this.gqN.getAdapter().notifyDataSetChanged();
         }
     }
 
     public ArrayList<m> getDataList() {
-        return this.eea;
+        return this.eei;
     }
 }

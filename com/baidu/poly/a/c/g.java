@@ -5,22 +5,22 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.widget.ImageView;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g implements Runnable {
-    private ImageView aLf;
-    private Handler aLg;
-    private int aLh;
-    private int aLi;
+    private ImageView aLX;
+    private Handler aLY;
+    private int aLZ;
+    private int aMa;
     private Context context;
     private String url;
 
     public g(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         this.context = context.getApplicationContext();
-        this.aLg = handler;
+        this.aLY = handler;
         this.url = str;
-        this.aLf = imageView;
-        this.aLh = i;
-        this.aLi = i2;
+        this.aLX = imageView;
+        this.aLZ = i;
+        this.aMa = i2;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:9:0x002a  */
@@ -45,22 +45,22 @@ public class g implements Runnable {
             e = e2;
         }
         if (bitmap2 != null) {
-            a.BI().e(str, bitmap2);
+            a.Ce().e(str, bitmap2);
             return bitmap2;
         }
         a.aT(this.context).e(str);
         bitmap = a.aT(this.context).k(str, i, i2);
         if (bitmap == null) {
-            bitmap = d.es(str);
+            bitmap = d.ev(str);
         }
         return bitmap;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap j = j(this.url, this.aLh, this.aLi);
-        if (this.aLg != null) {
-            this.aLg.obtainMessage(1, new f(this.aLf, this.url, j)).sendToTarget();
+        Bitmap j = j(this.url, this.aLZ, this.aMa);
+        if (this.aLY != null) {
+            this.aLY.obtainMessage(1, new f(this.aLX, this.url, j)).sendToTarget();
         }
     }
 }

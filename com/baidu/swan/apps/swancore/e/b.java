@@ -2,49 +2,49 @@ package com.baidu.swan.apps.swancore.e;
 
 import android.support.annotation.Nullable;
 import com.baidu.swan.apps.x.b.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public boolean bRw;
-    public boolean bRx;
+    public boolean bSg;
+    public boolean bSh;
     @Nullable
-    public c bRy;
-    public String bRz;
+    public c bSi;
+    public String bSj;
 
     private b() {
-        this.bRw = false;
-        this.bRx = false;
-        this.bRy = null;
-        this.bRz = "";
+        this.bSg = false;
+        this.bSh = false;
+        this.bSi = null;
+        this.bSj = "";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        private boolean bRw = false;
-        private boolean bRx = false;
+        private boolean bSg = false;
+        private boolean bSh = false;
         @Nullable
-        private c bRy = null;
-        private String bRz = "";
+        private c bSi = null;
+        private String bSj = "";
 
-        public static a acS() {
+        public static a adp() {
             return new a();
         }
 
-        public a dL(boolean z) {
-            this.bRw = z;
+        public a dQ(boolean z) {
+            this.bSg = z;
             return this;
         }
 
-        public a lZ(String str) {
-            this.bRz = str;
+        public a mc(String str) {
+            this.bSj = str;
             return this;
         }
 
-        public b acT() {
+        public b adq() {
             b bVar = new b();
-            bVar.bRw = this.bRw;
-            bVar.bRx = this.bRx;
-            bVar.bRy = this.bRy;
-            bVar.bRz = this.bRz;
+            bVar.bSg = this.bSg;
+            bVar.bSh = this.bSh;
+            bVar.bSi = this.bSi;
+            bVar.bSj = this.bSj;
             return bVar;
         }
     }

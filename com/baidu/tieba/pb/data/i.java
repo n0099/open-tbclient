@@ -2,16 +2,16 @@ package com.baidu.tieba.pb.data;
 
 import java.util.List;
 import tbclient.ManagerElection;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class i {
-    private boolean fxO;
-    private int iwV;
-    private int iwW;
-    private int iwX;
-    private List<String> iwY;
-    private String iwZ;
-    private boolean ixa;
-    private int ixb;
+    private boolean fAZ;
+    private int iAA;
+    private int iAB;
+    private List<String> iAC;
+    private String iAD;
+    private boolean iAE;
+    private int iAF;
+    private int iAz;
     private int status;
 
     public static i a(ManagerElection managerElection) {
@@ -19,15 +19,15 @@ public class i {
             return null;
         }
         i iVar = new i();
-        iVar.iwW = managerElection.begin_vote_time.intValue();
-        iVar.fxO = managerElection.can_vote.intValue() == 1;
-        iVar.iwV = managerElection.vote_num.intValue();
-        iVar.iwX = managerElection.election_id.intValue();
-        iVar.ixa = managerElection.is_show_distribute.intValue() == 1;
-        iVar.ixb = managerElection.remainder_time.intValue();
+        iVar.iAA = managerElection.begin_vote_time.intValue();
+        iVar.fAZ = managerElection.can_vote.intValue() == 1;
+        iVar.iAz = managerElection.vote_num.intValue();
+        iVar.iAB = managerElection.election_id.intValue();
+        iVar.iAE = managerElection.is_show_distribute.intValue() == 1;
+        iVar.iAF = managerElection.remainder_time.intValue();
         iVar.status = managerElection.status.intValue();
-        iVar.iwZ = managerElection.tail_text;
-        iVar.iwY = managerElection.vote_condition;
+        iVar.iAD = managerElection.tail_text;
+        iVar.iAC = managerElection.vote_condition;
         return iVar;
     }
 
@@ -35,39 +35,39 @@ public class i {
         return this.status;
     }
 
-    public boolean cip() {
-        return this.ixa;
+    public boolean cjx() {
+        return this.iAE;
     }
 
-    public int ciq() {
-        return this.ixb;
+    public int cjy() {
+        return this.iAF;
     }
 
-    public int cir() {
-        return this.iwV;
+    public int cjz() {
+        return this.iAz;
     }
 
-    public List<String> cis() {
-        return this.iwY;
+    public List<String> cjA() {
+        return this.iAC;
     }
 
-    public String cit() {
-        return this.iwZ;
+    public String cjB() {
+        return this.iAD;
     }
 
-    public boolean brx() {
-        return this.fxO;
+    public boolean bsz() {
+        return this.fAZ;
     }
 
-    public void jR(boolean z) {
-        this.fxO = z;
+    public void kc(boolean z) {
+        this.fAZ = z;
     }
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public void yp(int i) {
-        this.iwV = i;
+    public void yu(int i) {
+        this.iAz = i;
     }
 }

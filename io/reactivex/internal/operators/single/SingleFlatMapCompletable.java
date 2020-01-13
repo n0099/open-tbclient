@@ -1,14 +1,14 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.b.h;
 import io.reactivex.c;
+import io.reactivex.c.h;
 import io.reactivex.disposables.b;
 import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
     final h<? super T, ? extends e> mapper;
     final aa<T> source;
@@ -20,7 +20,7 @@ public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
         this.source.a(flatMapCompletableObserver);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapCompletableObserver<T> extends AtomicReference<b> implements c, b, y<T> {
         private static final long serialVersionUID = -2177128922851101253L;
         final c actual;

@@ -36,23 +36,23 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ForumTestActivity extends BaseActivity implements b {
-    private NoNetworkView egT;
-    private i fEG;
-    private k fEH;
-    private List<g> fEL;
-    private ForumTestWebView fOP;
-    private long fOQ;
-    private g fOR;
+    private NoNetworkView ehd;
+    private i fHQ;
+    private k fHR;
+    private List<g> fHV;
+    private ForumTestWebView fRY;
+    private long fRZ;
+    private g fSa;
     private NavigationBar mNavigationBar;
     private a mPermissionJudgement;
     private String mUrl = "https://tieba.baidu.com/mo/q/recomforum?testId=";
-    private k.b fOS = new k.b() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.4
+    private k.b fSb = new k.b() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.4
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            ForumTestActivity.this.saveImage(ForumTestActivity.this.fOP.getHitTestResult().getExtra());
-            ForumTestActivity.this.bst();
+            ForumTestActivity.this.saveImage(ForumTestActivity.this.fRY.getHitTestResult().getExtra());
+            ForumTestActivity.this.btv();
         }
     };
 
@@ -65,36 +65,36 @@ public class ForumTestActivity extends BaseActivity implements b {
         setContentView(R.layout.activity_forum_test_layout);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.activity_forum_test_nav);
         this.mNavigationBar.setVisibility(8);
-        this.egT = (NoNetworkView) findViewById(R.id.activity_forum_test_net);
-        this.fOP = (ForumTestWebView) findViewById(R.id.activity_forum_test_web);
-        this.fOP.a(this);
+        this.ehd = (NoNetworkView) findViewById(R.id.activity_forum_test_net);
+        this.fRY = (ForumTestWebView) findViewById(R.id.activity_forum_test_web);
+        this.fRY.a(this);
         initData();
-        this.fOP.loadUrl(this.mUrl);
-        this.fOP.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.1
+        this.fRY.loadUrl(this.mUrl);
+        this.fRY.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
                 return ForumTestActivity.this.handleLongClick();
             }
         });
-        bvu();
+        bww();
     }
 
     private void initData() {
         Intent intent = getIntent();
         if (intent != null) {
-            this.fOQ = intent.getLongExtra(ForumTestActivityConfig.TEST_ID, 0L);
-            this.mUrl += this.fOQ;
+            this.fRZ = intent.getLongExtra(ForumTestActivityConfig.TEST_ID, 0L);
+            this.mUrl += this.fRZ;
         }
     }
 
-    private void bvu() {
-        if (this.fEG == null) {
-            this.fEH = new k(this);
+    private void bww() {
+        if (this.fHQ == null) {
+            this.fHR = new k(this);
         }
-        if (this.fEL == null) {
-            this.fEL = new ArrayList();
+        if (this.fHV == null) {
+            this.fHV = new ArrayList();
         }
-        this.fEG = new i(getPageContext(), this.fEH);
+        this.fHQ = new i(getPageContext(), this.fHR);
     }
 
     @Override // com.baidu.tieba.enterForum.forumtest.js.b
@@ -134,11 +134,11 @@ public class ForumTestActivity extends BaseActivity implements b {
                 return true;
             } else if ("finishTestAnswer".equals(str2)) {
                 try {
-                    this.fOQ = new JSONObject(str3).optLong("testId");
+                    this.fRZ = new JSONObject(str3).optLong("testId");
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(this.fOQ)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(this.fRZ)));
                 finish();
                 jsPromptResult.confirm("finishTestAnswer");
                 return true;
@@ -151,20 +151,20 @@ public class ForumTestActivity extends BaseActivity implements b {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.fOP.onResume();
+        this.fRY.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.fOP.onPause();
+        this.fRY.onPause();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.fOP.canGoBack()) {
-            this.fOP.goBack();
+        if (i == 4 && this.fRY.canGoBack()) {
+            this.fRY.goBack();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -173,12 +173,12 @@ public class ForumTestActivity extends BaseActivity implements b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.fOP != null) {
-            this.fOP.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
-            this.fOP.clearHistory();
-            ((ViewGroup) this.fOP.getParent()).removeView(this.fOP);
-            this.fOP.destroy();
-            this.fOP = null;
+        if (this.fRY != null) {
+            this.fRY.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+            this.fRY.clearHistory();
+            ((ViewGroup) this.fRY.getParent()).removeView(this.fRY);
+            this.fRY.destroy();
+            this.fRY = null;
         }
         super.onDestroy();
     }
@@ -186,26 +186,26 @@ public class ForumTestActivity extends BaseActivity implements b {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean handleLongClick() {
         WebView.HitTestResult hitTestResult;
-        if (this.fOP == null || (hitTestResult = this.fOP.getHitTestResult()) == null || hitTestResult.getType() != 5) {
+        if (this.fRY == null || (hitTestResult = this.fRY.getHitTestResult()) == null || hitTestResult.getType() != 5) {
             return false;
         }
-        bvv();
+        bwx();
         show();
         return true;
     }
 
-    private void bvv() {
-        this.fEL.clear();
-        this.fOR = new g(getString(R.string.save_this_image), this.fEH);
-        this.fOR.a(this.fOS);
-        this.fEL.add(this.fOR);
-        this.fEH.a(new k.a() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.3
+    private void bwx() {
+        this.fHV.clear();
+        this.fSa = new g(getString(R.string.save_this_image), this.fHR);
+        this.fSa.a(this.fSb);
+        this.fHV.add(this.fSa);
+        this.fHR.a(new k.a() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.3
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                ForumTestActivity.this.bst();
+                ForumTestActivity.this.btv();
             }
         });
-        this.fEH.aA(this.fEL);
+        this.fHR.az(this.fHV);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -227,20 +227,20 @@ public class ForumTestActivity extends BaseActivity implements b {
                 public void onSuccess(String str2) {
                     l.showToast(TbadkCoreApplication.getInst(), (int) R.string.save_success);
                 }
-            }).gO(true).execute(new String[0]);
+            }).gT(true).execute(new String[0]);
         }
     }
 
     private void show() {
-        if (this.fEG != null && !isFinishing()) {
-            this.fEG.showDialog();
+        if (this.fHQ != null && !isFinishing()) {
+            this.fHQ.showDialog();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bst() {
-        if (this.fEG != null && this.fEG.isShowing()) {
-            this.fEG.dismiss();
+    public void btv() {
+        if (this.fHQ != null && this.fHQ.isShowing()) {
+            this.fHQ.dismiss();
         }
     }
 }

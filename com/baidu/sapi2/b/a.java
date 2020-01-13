@@ -14,7 +14,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static final String a = "SapiScheme";
     public static final String b = "3.0.5";

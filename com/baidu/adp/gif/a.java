@@ -8,37 +8,37 @@ public interface a {
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0014a implements a {
-        private static a ow;
-        private final d oA = new d();
-        private int oz;
+        private static a ot;
+        private int ou;
+        private final d ov = new d();
 
         public C0014a() {
-            this.oz = 0;
-            if (NSGif.oC) {
-                this.oz = 0;
+            this.ou = 0;
+            if (NSGif.oz) {
+                this.ou = 0;
             } else {
-                this.oz = 1;
+                this.ou = 1;
             }
         }
 
         public static synchronized a fg() {
             a aVar;
             synchronized (C0014a.class) {
-                if (ow == null) {
-                    ow = new C0014a();
+                if (ot == null) {
+                    ot = new C0014a();
                 }
-                aVar = ow;
+                aVar = ot;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a W(String str) {
-            if (this.oz != 0) {
+            if (this.ou != 0) {
                 return null;
             }
             try {
-                return this.oA.W(str);
+                return this.ov.W(str);
             } catch (Exception e) {
                 return null;
             }
@@ -46,11 +46,11 @@ public interface a {
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a d(byte[] bArr, int i, int i2) {
-            if (this.oz != 0) {
+            if (this.ou != 0) {
                 return null;
             }
             try {
-                return this.oA.d(bArr, i, i2);
+                return this.ov.d(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

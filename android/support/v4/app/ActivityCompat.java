@@ -27,16 +27,16 @@ import android.view.DragEvent;
 import android.view.View;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ActivityCompat extends ContextCompat {
     private static PermissionCompatDelegate sDelegate;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnRequestPermissionsResultCallback {
         void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface PermissionCompatDelegate {
         boolean onActivityResult(@NonNull Activity activity, @IntRange(from = 0) int i, int i2, @Nullable Intent intent);
 
@@ -44,7 +44,7 @@ public class ActivityCompat extends ContextCompat {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface RequestPermissionsRequestCodeValidator {
         void validateRequestPermissionsRequestCode(int i);
     }
@@ -191,7 +191,7 @@ public class ActivityCompat extends ContextCompat {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static class SharedElementCallback21Impl extends android.app.SharedElementCallback {
         protected SharedElementCallback mCallback;
 
@@ -231,7 +231,7 @@ public class ActivityCompat extends ContextCompat {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static class SharedElementCallback23Impl extends SharedElementCallback21Impl {
         SharedElementCallback23Impl(SharedElementCallback sharedElementCallback) {
             super(sharedElementCallback);

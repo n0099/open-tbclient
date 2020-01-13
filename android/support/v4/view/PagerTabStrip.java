@@ -15,7 +15,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PagerTabStrip extends PagerTitleStrip {
     private static final int FULL_UNDERLINE_HEIGHT = 1;
     private static final int INDICATOR_HEIGHT = 3;

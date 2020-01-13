@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AdResponseInfo implements Parcelable {
     public static final Parcelable.Creator<AdResponseInfo> CREATOR = new Parcelable.Creator<AdResponseInfo>() { // from class: com.baidu.swan.game.ad.entity.AdResponseInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,7 +73,7 @@ public class AdResponseInfo implements Parcelable {
         return 0;
     }
 
-    public AdElementInfo ahH() {
+    public AdElementInfo aia() {
         if (this.mAdInstanceList.size() > 0) {
             return this.mAdInstanceList.get(0);
         }

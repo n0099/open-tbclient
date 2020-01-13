@@ -4,38 +4,38 @@ import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    public int epC;
-    public int epD;
-    public int epE;
-    public int epF;
-    public int epG;
-    public int epH;
-    public long epI;
-    public long epJ;
-    public long epK;
-    public long epL;
-    public int epM;
-    public int epN;
-    public int epO;
-    public int epP;
+    public int eqO;
+    public int eqP;
+    public int eqQ;
+    public int eqR;
+    public int eqS;
+    public int eqT;
+    public long eqU;
+    public long eqV;
+    public long eqW;
+    public long eqX;
+    public int eqY;
+    public int eqZ;
+    public int era;
+    public int erb;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.epC = jSONObject.optInt("last_identity");
-                this.epD = jSONObject.optInt("last_class");
-                this.epE = jSONObject.optInt("now_identity");
-                this.epF = jSONObject.optInt("now_class");
-                this.epG = jSONObject.optInt("cur_share_proportion");
-                this.epH = jSONObject.optInt("will_share_proportion");
-                this.epI = jSONObject.optLong("task_begin_time");
-                this.epJ = jSONObject.optLong("task_end_time");
-                this.epK = jSONObject.optLong("valid_live_time");
-                this.epL = jSONObject.optLong("charm_income");
-                this.epM = jSONObject.optInt("valid_live_day");
-                this.epN = jSONObject.optInt("task_type");
-                this.epO = jSONObject.optInt("task_finish_ratio");
-                this.epP = jSONObject.optInt("task_status");
+                this.eqO = jSONObject.optInt("last_identity");
+                this.eqP = jSONObject.optInt("last_class");
+                this.eqQ = jSONObject.optInt("now_identity");
+                this.eqR = jSONObject.optInt("now_class");
+                this.eqS = jSONObject.optInt("cur_share_proportion");
+                this.eqT = jSONObject.optInt("will_share_proportion");
+                this.eqU = jSONObject.optLong("task_begin_time");
+                this.eqV = jSONObject.optLong("task_end_time");
+                this.eqW = jSONObject.optLong("valid_live_time");
+                this.eqX = jSONObject.optLong("charm_income");
+                this.eqY = jSONObject.optInt("valid_live_day");
+                this.eqZ = jSONObject.optInt("task_type");
+                this.era = jSONObject.optInt("task_finish_ratio");
+                this.erb = jSONObject.optInt("task_status");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -1,8 +1,8 @@
 package kotlin;
 
 import java.io.Serializable;
-import kotlin.jvm.internal.p;
-/* loaded from: classes4.dex */
+import kotlin.jvm.internal.q;
+/* loaded from: classes5.dex */
 public final class Triple<A, B, C> implements Serializable {
     private final A first;
     private final B second;
@@ -43,7 +43,7 @@ public final class Triple<A, B, C> implements Serializable {
         if (this != obj) {
             if (obj instanceof Triple) {
                 Triple triple = (Triple) obj;
-                if (!p.h(this.first, triple.first) || !p.h(this.second, triple.second) || !p.h(this.third, triple.third)) {
+                if (!q.h(this.first, triple.first) || !q.h(this.second, triple.second) || !q.h(this.third, triple.third)) {
                 }
             }
             return false;

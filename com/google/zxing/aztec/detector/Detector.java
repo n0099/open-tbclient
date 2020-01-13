@@ -10,7 +10,7 @@ import com.google.zxing.common.detector.WhiteRectangleDetector;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Detector {
     private static final int[] EXPECTED_CORNER_BITS = {3808, 476, 2107, 1799};
     private boolean compact;
@@ -318,7 +318,7 @@ public final class Detector {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Point {
         private final int x;
         private final int y;

@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 abstract class a extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(j jVar, String str) {
@@ -17,7 +17,7 @@ abstract class a extends ab {
         return new com.baidu.swan.apps.canvas.b.a(unitedSchemeEntity.getParams().get("params"));
     }
 
-    public JSONObject dK(int i) {
+    public JSONObject dL(int i) {
         return UnitedSchemeUtility.wrapCallbackParams(i);
     }
 

@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.g;
 
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class l implements Runnable {
     final /* synthetic */ a a;
 

@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.a;
 import android.graphics.PointF;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e implements m<PointF, PointF> {
     private final List<com.airbnb.lottie.e.a<PointF>> gD;
 

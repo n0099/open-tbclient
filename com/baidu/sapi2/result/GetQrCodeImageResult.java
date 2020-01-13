@@ -1,7 +1,7 @@
 package com.baidu.sapi2.result;
 
 import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetQrCodeImageResult extends SapiResult {
     public String channelId;
     public String contentUrl;

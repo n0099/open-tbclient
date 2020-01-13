@@ -4,34 +4,34 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.card.view.SmartAppBottomLayout;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class aa extends h {
-    private SmartAppBottomLayout KI;
+    private SmartAppBottomLayout KN;
 
     public aa(Context context) {
         super(context);
-        this.KI = new SmartAppBottomLayout(context);
+        this.KN = new SmartAppBottomLayout(context);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.KI;
+        return this.KN;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (this.KI != null) {
-            this.KI.A(aVar);
+        if (this.KN != null) {
+            this.KN.A(aVar);
         }
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.KI != null) {
-            this.KI.onChangeSkinType();
+        if (this.KN != null) {
+            this.KN.onChangeSkinType();
         }
     }
 }

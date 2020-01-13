@@ -2,12 +2,12 @@ package com.google.android.exoplayer2.upstream;
 
 import android.net.Uri;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface e {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        e dww();
+        e dxH();
     }
 
     long a(g gVar) throws IOException;

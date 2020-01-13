@@ -1,13 +1,13 @@
 package com.baidu.swan.ubc;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 class f {
-    private String cAA;
-    private String cAu;
-    private String cAv;
-    private int cAw;
-    private String cAx;
-    private int cAy;
-    private int cAz;
+    private String cAF;
+    private String cAG;
+    private int cAH;
+    private String cAI;
+    private int cAJ;
+    private int cAK;
+    private String cAL;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,11 +15,11 @@ class f {
 
     public f(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.cAu = str2;
-        this.cAv = str3;
-        this.cAw = i;
+        this.cAF = str2;
+        this.cAG = str3;
+        this.cAH = i;
         this.mType = str4;
-        this.cAx = str5;
+        this.cAI = str5;
     }
 
     public void iD(int i) {
@@ -31,38 +31,38 @@ class f {
     }
 
     public void iE(int i) {
-        this.cAy = i;
+        this.cAJ = i;
     }
 
     public void iF(int i) {
-        this.cAz = i;
+        this.cAK = i;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String asD() {
-        return this.cAu;
+    public String asW() {
+        return this.cAF;
     }
 
-    public String asE() {
-        return this.cAv;
+    public String asX() {
+        return this.cAG;
     }
 
     public int getTimeout() {
-        return this.cAw;
+        return this.cAH;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String asF() {
-        return this.cAx;
+    public String asY() {
+        return this.cAI;
     }
 
-    public int asG() {
+    public int asZ() {
         return this.mRate;
     }
 
@@ -70,19 +70,19 @@ class f {
         return this.mCategory;
     }
 
-    public int asH() {
-        return this.cAy;
+    public int ata() {
+        return this.cAJ;
     }
 
-    public int asI() {
-        return this.cAz;
+    public int atb() {
+        return this.cAK;
     }
 
-    public void qE(String str) {
-        this.cAA = str;
+    public void qH(String str) {
+        this.cAL = str;
     }
 
-    public String asJ() {
-        return this.cAA;
+    public String atc() {
+        return this.cAL;
     }
 }

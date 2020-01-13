@@ -2,7 +2,7 @@ package com.google.zxing.datamatrix.encoder;
 
 import android.support.v4.view.InputDeviceCompat;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Base256Encoder implements Encoder {
     @Override // com.google.zxing.datamatrix.encoder.Encoder
     public int getEncodingMode() {

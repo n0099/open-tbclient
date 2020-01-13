@@ -8,22 +8,22 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.l, a> implements com.baidu.tieba.a.f {
-    private String La;
-    public BdUniqueId dwY;
-    private z fRu;
-    private com.baidu.tieba.homepage.concern.view.b gSB;
+    private String Lg;
+    public BdUniqueId dxg;
+    private z fUE;
+    private com.baidu.tieba.homepage.concern.view.b gVV;
     private TbPageContext<?> mPageContext;
 
     public u(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.fRu = new z<com.baidu.tieba.card.data.l>() { // from class: com.baidu.tieba.homepage.concern.a.u.1
+        this.fUE = new z<com.baidu.tieba.card.data.l>() { // from class: com.baidu.tieba.homepage.concern.a.u.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.l lVar) {
-                if (view != null && u.this.gSB != null && u.this.gSB.getView() != null && lVar != null && lVar.axx() != null && !StringUtils.isNull(lVar.axx().getTid())) {
+                if (view != null && u.this.gVV != null && u.this.gVV.getView() != null && lVar != null && lVar.axQ() != null && !StringUtils.isNull(lVar.axQ().getTid())) {
                     if (view.getId() == R.id.user_avatar || view.getId() == R.id.user_name) {
                         com.baidu.tieba.homepage.concern.b.a(view, lVar, 1);
                     } else if (view.getId() == R.id.frame_video) {
@@ -42,11 +42,11 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: be */
+    /* renamed from: bi */
     public a b(ViewGroup viewGroup) {
         final com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext);
-        if (this.dwY != null) {
-            bVar.m(this.dwY);
+        if (this.dxg != null) {
+            bVar.m(this.dxg);
         }
         if (!ae(1)) {
             bVar.setPreloadSizeReadyCallback(new com.baidu.adp.widget.a.b() { // from class: com.baidu.tieba.homepage.concern.a.u.2
@@ -59,39 +59,39 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
             });
         }
-        this.gSB = bVar;
-        return new a(this.gSB);
+        this.gVV = bVar;
+        return new a(this.gVV);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, a aVar) {
-        if (lVar == null || aVar == null || aVar.gSE == null) {
+        if (lVar == null || aVar == null || aVar.gVY == null) {
             return null;
         }
-        lVar.rh(i + 1);
-        com.baidu.tieba.card.r.bsy().c(lVar.zy("c12351"));
-        if (aVar.gSE instanceof com.baidu.tieba.a.e) {
-            aVar.gSE.setPage(this.La);
+        lVar.rm(i + 1);
+        com.baidu.tieba.card.r.btA().c(lVar.zI("c12351"));
+        if (aVar.gVY instanceof com.baidu.tieba.a.e) {
+            aVar.gVY.setPage(this.Lg);
         }
-        aVar.gSE.a(lVar);
-        aVar.gSE.c(this.fRu);
+        aVar.gVY.a(lVar);
+        aVar.gVY.c(this.fUE);
         return aVar.getView();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a extends v.a {
-        public com.baidu.tieba.homepage.concern.view.b gSE;
+        public com.baidu.tieba.homepage.concern.view.b gVY;
 
         public a(com.baidu.tieba.homepage.concern.view.b bVar) {
             super(bVar.getView());
-            this.gSE = bVar;
+            this.gVY = bVar;
         }
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wq(String str) {
-        this.La = str;
+    public void wu(String str) {
+        this.Lg = str;
     }
 }

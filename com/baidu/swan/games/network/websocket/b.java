@@ -2,37 +2,37 @@ package com.baidu.swan.games.network.websocket;
 
 import com.baidu.searchbox.websocket.WebSocketTask;
 import com.baidu.swan.apps.network.k;
-import kotlin.jvm.internal.p;
-/* loaded from: classes9.dex */
+import kotlin.jvm.internal.q;
+/* loaded from: classes10.dex */
 public final class b {
     public final void a(WebSocketTask webSocketTask) {
-        p.j(webSocketTask, "task");
-        k amq = amq();
-        if (amq != null) {
-            amq.a(webSocketTask);
+        q.j(webSocketTask, "task");
+        k amJ = amJ();
+        if (amJ != null) {
+            amJ.a(webSocketTask);
         }
     }
 
-    public final void jp(String str) {
-        p.j(str, "taskId");
-        k amq = amq();
-        if (amq != null) {
-            amq.jp(str);
+    public final void js(String str) {
+        q.j(str, "taskId");
+        k amJ = amJ();
+        if (amJ != null) {
+            amJ.js(str);
         }
     }
 
-    public final boolean Wn() {
-        k amq = amq();
-        if (amq != null) {
-            return amq.Wn();
+    public final boolean WK() {
+        k amJ = amJ();
+        if (amJ != null) {
+            return amJ.WK();
         }
         return false;
     }
 
-    private final k amq() {
-        com.baidu.swan.apps.runtime.e ZS = com.baidu.swan.apps.runtime.e.ZS();
-        if (ZS != null) {
-            return ZS.aag();
+    private final k amJ() {
+        com.baidu.swan.apps.runtime.e aap = com.baidu.swan.apps.runtime.e.aap();
+        if (aap != null) {
+            return aap.aaD();
         }
         return null;
     }

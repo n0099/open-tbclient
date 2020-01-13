@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static final String iuv = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String ixZ = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(ForbidResultData forbidResultData);
 
@@ -20,16 +20,16 @@ public class a {
     }
 
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
-        new C0558a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        new C0563a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    private static class C0558a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String dle;
-        private String dli;
-        private String iuw;
-        private WeakReference<b> iux;
+    /* loaded from: classes7.dex */
+    private static class C0563a extends BdAsyncTask<String, Object, ForbidResultData> {
+        private String dlu;
+        private String dly;
+        private String iya;
+        private WeakReference<b> iyb;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -37,17 +37,17 @@ public class a {
         private String mThreadId;
         private String mUserName;
 
-        public C0558a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        public C0563a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.iuw = str6;
-            this.dli = str8;
-            this.dle = str9;
+            this.iya = str6;
+            this.dly = str8;
+            this.dlu = str9;
             this.mReason = str7;
             this.mPostId = str5;
-            this.iux = new WeakReference<>(bVar);
+            this.iyb = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -56,8 +56,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: K */
         public ForbidResultData doInBackground(String... strArr) {
-            x xVar = new x(a.iuv);
-            xVar.addPostData("day", this.iuw);
+            x xVar = new x(a.ixZ);
+            xVar.addPostData("day", this.iya);
             xVar.addPostData("un", this.mUserName);
             xVar.addPostData("fid", this.mForumId);
             xVar.addPostData("word", this.mForumName);
@@ -65,11 +65,11 @@ public class a {
             xVar.addPostData(TiebaInitialize.LogFields.REASON, this.mReason);
             xVar.addPostData("ntn", "banid");
             xVar.addPostData("post_id", this.mPostId);
-            xVar.addPostData("nick_name", this.dli);
-            xVar.addPostData("portrait", this.dle);
-            xVar.aDB().aEb().mIsNeedTbs = true;
+            xVar.addPostData("nick_name", this.dly);
+            xVar.addPostData("portrait", this.dlu);
+            xVar.aDU().aEu().mIsNeedTbs = true;
             String postNetData = xVar.postNetData();
-            if (xVar.aDB().aEc().isRequestSuccess()) {
+            if (xVar.aDU().aEv().isRequestSuccess()) {
                 try {
                     return (ForbidResultData) OrmObject.objectWithJsonStr(postNetData, ForbidResultData.class);
                 } catch (Exception e) {
@@ -91,7 +91,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.iux.get();
+            b bVar = this.iyb.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && aq.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

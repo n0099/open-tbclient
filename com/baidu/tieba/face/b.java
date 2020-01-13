@@ -24,7 +24,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    private static final KeyEvent fVk = new KeyEvent(0, 67);
+    private static final KeyEvent fYt = new KeyEvent(0, 67);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -34,7 +34,7 @@ public class b {
     public static void a(final Context context, final p pVar, final EditText editText) {
         if (pVar != null && !TextUtils.isEmpty(pVar.getName()) && !TextUtils.isEmpty(pVar.getUrl()) && editText != null) {
             editText.getText().toString();
-            c.gs().a(pVar.getUrl(), 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.1
+            c.gr().a(pVar.getUrl(), 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.e.b
@@ -44,7 +44,7 @@ public class b {
                         if (selectionStart < 0) {
                             selectionStart = 0;
                         }
-                        b.a(context, editText, new SpannableStringBuilder(pVar.getName()), selectionStart, aVar, pVar.aGJ());
+                        b.a(context, editText, new SpannableStringBuilder(pVar.getName()), selectionStart, aVar, pVar.aHc());
                     }
                 }
             }, 0, 0, BdUniqueId.gen(), new Object[0]);
@@ -54,11 +54,11 @@ public class b {
     public static void b(final Context context, p pVar, final EditText editText) {
         if (pVar != null && editText != null && pVar.getName() != null) {
             String name = pVar.getName();
-            final EmotionGroupType aGJ = pVar.aGJ();
-            if (aGJ == EmotionGroupType.LOCAL || aGJ == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
+            final EmotionGroupType aHc = pVar.aHc();
+            if (aHc == EmotionGroupType.LOCAL || aHc == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
                 if (name != null) {
                     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
-                    c.gs().a(name, 20, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.2
+                    c.gr().a(name, 20, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.2
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.e.b
@@ -69,7 +69,7 @@ public class b {
                                 if (selectionStart < 0) {
                                     selectionStart = 0;
                                 }
-                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, aGJ);
+                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, aHc);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, name, false, null);
@@ -107,7 +107,7 @@ public class b {
         CustomResponsedMessage runTask;
         if (context != null && !TextUtils.isEmpty(str) && aVar != null) {
             final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            final int[] iArr = {com.baidu.tieba.face.a.zR(str)};
+            final int[] iArr = {com.baidu.tieba.face.a.Ab(str)};
             if (iArr[0] <= 0) {
                 if (aVar != null) {
                     aVar.b(spannableStringBuilder);
@@ -115,13 +115,13 @@ public class b {
                 }
                 return;
             }
-            Matcher matcher = com.baidu.tieba.face.a.fVi.matcher(spannableStringBuilder);
+            Matcher matcher = com.baidu.tieba.face.a.fYr.matcher(spannableStringBuilder);
             while (matcher.find()) {
                 String group = matcher.group();
                 final int start = matcher.start();
                 final int end = matcher.end();
                 if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_LOCAL) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_LOCAL, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                    c.gs().a(group, 20, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.3
+                    c.gr().a(group, 20, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.3
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.e.b
@@ -161,7 +161,7 @@ public class b {
                 if (split != null && split.length == 5) {
                     final int start2 = matcher2.start();
                     final int end2 = matcher2.end();
-                    c.gs().a(group2, 20, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.4
+                    c.gr().a(group2, 20, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.4
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.e.b
@@ -240,7 +240,7 @@ public class b {
                         }
                     };
                     if (!TextUtils.isEmpty(split2[1])) {
-                        c.gs().a(Uri.decode(split2[1].replace("net_", "")), 10, bVar, 0, 0, BdUniqueId.gen(), new Object[0]);
+                        c.gr().a(Uri.decode(split2[1].replace("net_", "")), 10, bVar, 0, 0, BdUniqueId.gen(), new Object[0]);
                     }
                 }
             }
@@ -252,9 +252,9 @@ public class b {
         if (editText != null && (text = editText.getText()) != null) {
             int selectionStart = editText.getSelectionStart();
             if (selectionStart - 1 > 0 && selectionStart - 1 < text.length() && text.charAt(selectionStart - 1) == 0) {
-                editText.onKeyDown(67, fVk);
+                editText.onKeyDown(67, fYt);
             }
-            editText.onKeyDown(67, fVk);
+            editText.onKeyDown(67, fYt);
             int selectionStart2 = editText.getSelectionStart();
             if (text != null) {
                 editText.setSelection(selectionStart2);

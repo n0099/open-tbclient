@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.poi;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PoiNearbySearchOption {
     public String mKeyword = null;
     public LatLng mLocation = null;

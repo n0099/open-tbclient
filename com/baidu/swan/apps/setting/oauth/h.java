@@ -1,31 +1,31 @@
 package com.baidu.swan.apps.setting.oauth;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class h<ResultDataT> {
-    TaskState bOX = TaskState.INIT;
-    OAuthException bOY;
+    TaskState bPH = TaskState.INIT;
+    OAuthException bPI;
     public ResultDataT mData;
 
     public boolean isOk() {
-        return TaskState.FINISHED == this.bOX && this.bOY == null;
+        return TaskState.FINISHED == this.bPH && this.bPI == null;
     }
 
-    public void abJ() {
-        this.bOX = TaskState.FINISHED;
-        this.bOY = null;
+    public void acg() {
+        this.bPH = TaskState.FINISHED;
+        this.bPI = null;
     }
 
     public int getErrorCode() {
-        if (this.bOY == null) {
+        if (this.bPI == null) {
             return 0;
         }
-        return this.bOY.mErrorCode;
+        return this.bPI.mErrorCode;
     }
 
-    public OAuthException abK() {
-        return this.bOY;
+    public OAuthException ach() {
+        return this.bPI;
     }
 
     public void a(OAuthException oAuthException) {
-        this.bOY = oAuthException;
+        this.bPI = oAuthException;
     }
 }

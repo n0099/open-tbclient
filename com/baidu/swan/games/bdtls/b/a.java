@@ -11,59 +11,59 @@ import java.util.HashMap;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.Buffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a<T> extends b {
-    private String cgX = null;
-    private String cgY = null;
-    private ResponseCallback<T> cgZ = null;
+    private String chk = null;
+    private String chl = null;
+    private ResponseCallback<T> chm = null;
 
     public void a(String str, String str2, ResponseCallback<T> responseCallback) {
         if (!TextUtils.isEmpty(str)) {
-            this.cgX = str;
-            this.cgY = str2;
-            this.cgZ = responseCallback;
+            this.chk = str;
+            this.chl = str2;
+            this.chm = responseCallback;
             if (com.baidu.swan.games.bdtls.a.DEBUG) {
                 Log.d("BDTLS", "requestPost url=" + str);
                 Log.d("BDTLS", "requestPost body=" + str2);
             }
-            od(this.cgY);
+            oh(this.chl);
         }
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
-    public void I(byte[] bArr) {
-        String str = this.cgX;
+    public void H(byte[] bArr) {
+        String str = this.chk;
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
-        if (this.chc) {
+        if (this.chp) {
             hashMap.put("Bdtls", "Bdtls");
         }
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "BdtlsPostRequest url=" + str);
         }
-        HttpManager.getDefault(AppRuntime.getAppContext()).postByteRequest().mediaType("application/json").url(str).cookieManager(com.baidu.swan.apps.w.a.RI().FH()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<String>() { // from class: com.baidu.swan.games.bdtls.b.a.1
-            T cha;
+        HttpManager.getDefault(AppRuntime.getAppContext()).postByteRequest().mediaType("application/json").url(str).cookieManager(com.baidu.swan.apps.w.a.Se().Gd()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<String>() { // from class: com.baidu.swan.games.bdtls.b.a.1
+            T chn;
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public String parseResponse(Response response, int i) throws Exception {
                 String str2 = "";
-                if (!a.this.chc) {
-                    if (a.this.cgZ != null) {
-                        this.cha = (T) a.this.cgZ.parseResponse(response, i);
+                if (!a.this.chp) {
+                    if (a.this.chm != null) {
+                        this.chn = (T) a.this.chm.parseResponse(response, i);
                     }
                 } else {
                     ResponseBody body = response.body();
-                    str2 = a.this.J(body.bytes());
+                    str2 = a.this.I(body.bytes());
                     if (com.baidu.swan.games.bdtls.a.DEBUG) {
                         Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + str2);
                     }
-                    if (a.this.chd == 1) {
+                    if (a.this.chq == 1) {
                         Buffer buffer = new Buffer();
                         buffer.writeString(str2, Charset.forName("utf-8"));
                         Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                        if (a.this.cgZ != null) {
-                            this.cha = (T) a.this.cgZ.parseResponse(build, i);
+                        if (a.this.chm != null) {
+                            this.chn = (T) a.this.chm.parseResponse(build, i);
                         }
                     }
                 }
@@ -76,16 +76,16 @@ public class a<T> extends b {
                 if (com.baidu.swan.games.bdtls.a.DEBUG) {
                     Log.d("BDTLS", "BdtlsPostRequest onSuccess=" + str2);
                 }
-                if (!a.this.chc) {
-                    if (a.this.cgZ != null) {
-                        a.this.cgZ.onSuccess(this.cha, i);
+                if (!a.this.chp) {
+                    if (a.this.chm != null) {
+                        a.this.chm.onSuccess(this.chn, i);
                     }
-                } else if (a.this.chd != 1) {
-                    a.this.a(a.this.cgX, a.this.cgY, a.this.cgZ);
+                } else if (a.this.chq != 1) {
+                    a.this.a(a.this.chk, a.this.chl, a.this.chm);
                 } else {
-                    f.ob("application");
-                    if (a.this.cgZ != null) {
-                        a.this.cgZ.onSuccess(this.cha, i);
+                    f.oe("application");
+                    if (a.this.chm != null) {
+                        a.this.chm.onSuccess(this.chn, i);
                     }
                 }
             }
@@ -95,8 +95,8 @@ public class a<T> extends b {
                 if (com.baidu.swan.games.bdtls.a.DEBUG) {
                     Log.d("BDTLS", "BdtlsPostRequest onFail=" + exc.getMessage());
                 }
-                if (a.this.cgZ != null) {
-                    a.this.cgZ.onFail(exc);
+                if (a.this.chm != null) {
+                    a.this.chm.onFail(exc);
                 }
             }
         });

@@ -67,7 +67,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 import rx.functions.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ReplyPublishDialog extends DialogFragment implements View.OnClickListener, EmojiconEditText.TextNumbersChangedListener {
     private static final int DURATION = 100;
     private int MAX_INPUT_COUNT = getInputWordLimit(PublishLimitUpdateListener.KEY_IMG_TXT_LEN);
@@ -327,9 +327,9 @@ public class ReplyPublishDialog extends DialogFragment implements View.OnClickLi
             }
         });
         com.baidu.spswitch.b.b.init(AppConfig.isDebug());
-        com.baidu.spswitch.b.a.DD().a(this.mActivity, this.mPanelRootView, this.mInputView, NightModeHelper.getNightModeSwitcherState());
-        com.baidu.spswitch.b.a.DD().a(new a.InterfaceC0182a() { // from class: com.baidu.searchbox.ugc.view.ReplyPublishDialog.6
-            @Override // com.baidu.spswitch.b.a.InterfaceC0182a
+        com.baidu.spswitch.b.a.DZ().a(this.mActivity, this.mPanelRootView, this.mInputView, NightModeHelper.getNightModeSwitcherState());
+        com.baidu.spswitch.b.a.DZ().a(new a.InterfaceC0184a() { // from class: com.baidu.searchbox.ugc.view.ReplyPublishDialog.6
+            @Override // com.baidu.spswitch.b.a.InterfaceC0184a
             public void onEmotionClick(EmotionType emotionType, int i, String str, String str2) {
                 if (!TextUtils.isEmpty(str)) {
                     UgcUBCUtils.emotionUbcStatistics(ReplyPublishDialog.this.mSourceFrom, false, str);
@@ -406,7 +406,7 @@ public class ReplyPublishDialog extends DialogFragment implements View.OnClickLi
         if (this.mInputView != null) {
             this.mInputView.removeListener();
         }
-        com.baidu.spswitch.b.a.DD().dismiss();
+        com.baidu.spswitch.b.a.DZ().dismiss();
     }
 
     @Override // android.view.View.OnClickListener

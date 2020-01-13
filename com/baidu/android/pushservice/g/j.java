@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.g;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j extends c {
     public static int l = -1;
     public static int m = 0;

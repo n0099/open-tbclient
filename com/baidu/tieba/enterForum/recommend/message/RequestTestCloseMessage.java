@@ -6,11 +6,11 @@ import com.baidu.tbadk.util.t;
 import tbclient.CommonReq;
 import tbclient.TestClose.DataReq;
 import tbclient.TestClose.TestCloseReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RequestTestCloseMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f976common;
+    private CommonReq f973common;
     private long fromPage;
     private long testId;
 
@@ -19,7 +19,7 @@ public class RequestTestCloseMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f976common = commonReq;
+        this.f973common = commonReq;
     }
 
     public void setTestId(long j) {
@@ -33,7 +33,7 @@ public class RequestTestCloseMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1201common = this.f976common;
+        builder.f1198common = this.f973common;
         builder.test_id = Long.valueOf(this.testId);
         builder.from_page = Long.valueOf(this.fromPage);
         if (z) {

@@ -1,48 +1,49 @@
 package kotlin.jvm.internal;
 
-import kotlin.collections.aj;
-import kotlin.collections.w;
-import kotlin.collections.y;
+import kotlin.collections.ab;
+import kotlin.collections.ad;
+import kotlin.collections.ae;
+import kotlin.collections.ap;
 import kotlin.collections.z;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class i {
-    public static final kotlin.collections.l aD(byte[] bArr) {
-        p.j(bArr, "array");
+    public static final kotlin.collections.m aE(byte[] bArr) {
+        q.j(bArr, "array");
         return new b(bArr);
     }
 
-    public static final kotlin.collections.m g(char[] cArr) {
-        p.j(cArr, "array");
+    public static final kotlin.collections.n h(char[] cArr) {
+        q.j(cArr, "array");
         return new c(cArr);
     }
 
-    public static final aj b(short[] sArr) {
-        p.j(sArr, "array");
+    public static final ap b(short[] sArr) {
+        q.j(sArr, "array");
         return new k(sArr);
     }
 
-    public static final y q(int[] iArr) {
-        p.j(iArr, "array");
+    public static final ad r(int[] iArr) {
+        q.j(iArr, "array");
         return new f(iArr);
     }
 
-    public static final z b(long[] jArr) {
-        p.j(jArr, "array");
+    public static final ae b(long[] jArr) {
+        q.j(jArr, "array");
         return new j(jArr);
     }
 
-    public static final w m(float[] fArr) {
-        p.j(fArr, "array");
+    public static final ab m(float[] fArr) {
+        q.j(fArr, "array");
         return new e(fArr);
     }
 
-    public static final kotlin.collections.u q(double[] dArr) {
-        p.j(dArr, "array");
+    public static final z q(double[] dArr) {
+        q.j(dArr, "array");
         return new d(dArr);
     }
 
-    public static final kotlin.collections.k c(boolean[] zArr) {
-        p.j(zArr, "array");
+    public static final kotlin.collections.l c(boolean[] zArr) {
+        q.j(zArr, "array");
         return new a(zArr);
     }
 }

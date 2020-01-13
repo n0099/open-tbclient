@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.mixed;
 
 import io.reactivex.aa;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -10,20 +10,20 @@ import io.reactivex.u;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableSwitchMapSingle<T, R> extends q<R> {
     final boolean delayErrors;
-    final q<T> mUU;
     final h<? super T, ? extends aa<? extends R>> mapper;
+    final q<T> nxd;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
-        if (!a.b(this.mUU, this.mapper, uVar)) {
-            this.mUU.subscribe(new SwitchMapSingleMainObserver(uVar, this.mapper, this.delayErrors));
+        if (!a.b(this.nxd, this.mapper, uVar)) {
+            this.nxd.subscribe(new SwitchMapSingleMainObserver(uVar, this.mapper, this.delayErrors));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class SwitchMapSingleMainObserver<T, R> extends AtomicInteger implements b, u<T> {
         static final SwitchMapSingleObserver<Object> INNER_DISPOSED = new SwitchMapSingleObserver<>(null);
         private static final long serialVersionUID = -5402190102429853762L;
@@ -87,7 +87,7 @@ public final class ObservableSwitchMapSingle<T, R> extends q<R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u
@@ -126,7 +126,7 @@ public final class ObservableSwitchMapSingle<T, R> extends q<R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         /* JADX DEBUG: Type inference failed for r0v7. Raw type applied. Possible types: R, ? super R */
@@ -168,7 +168,7 @@ public final class ObservableSwitchMapSingle<T, R> extends q<R> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class SwitchMapSingleObserver<R> extends AtomicReference<b> implements y<R> {
             private static final long serialVersionUID = 8042919737683345351L;
             volatile R item;

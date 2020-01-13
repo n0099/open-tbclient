@@ -10,7 +10,7 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.apps.storage.c.h;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -19,21 +19,21 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, SchemeConfig.getSchemeHead());
-            jSONObject.put("sdkExtension", b(d.NK().Of()));
-            jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.i.a.alq().Of()));
+            jSONObject.put("sdkExtension", b(d.Og().OB()));
+            jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.i.a.alJ().OB()));
             jSONObject.put("isDebugSdk", DEBUG);
-            String string = h.acE().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ah.a.a.XO()) {
+            String string = h.adb().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ah.a.a.Yl()) {
                 jSONObject.put("ctsJsAddress", new JSONObject(string));
             }
-            if (com.baidu.swan.apps.w.a.Rw() != null) {
-                String FE = com.baidu.swan.apps.w.a.Rw().FE();
-                if (!TextUtils.isEmpty(FE)) {
-                    jSONObject.put("hostName", FE);
+            if (com.baidu.swan.apps.w.a.RS() != null) {
+                String Ga = com.baidu.swan.apps.w.a.RS().Ga();
+                if (!TextUtils.isEmpty(Ga)) {
+                    jSONObject.put("hostName", Ga);
                 }
             }
             jSONObject.put("platform", PraiseDataPassUtil.KEY_FROM_OS);
-            jSONObject.put("abTestSwitch", com.baidu.swan.apps.swancore.b.a.acJ());
+            jSONObject.put("abTestSwitch", com.baidu.swan.apps.swancore.b.a.adg());
         } catch (JSONException e) {
             if (DEBUG) {
                 throw new RuntimeException(e);

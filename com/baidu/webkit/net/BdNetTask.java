@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 import javax.net.ssl.SSLContext;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BdNetTask implements INoProGuard {
     private static final boolean DEBUG = false;
     private static final int MAX_POOL_SIZE = 10;
@@ -43,7 +43,7 @@ public class BdNetTask implements INoProGuard {
     private int mTaskPriority$77d0b2dd = b.b;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends AsyncTask<HttpURLConnection, Void, Void> {
         private a() {
         }
@@ -78,7 +78,7 @@ public class BdNetTask implements INoProGuard {
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class b {
         public static final int a = 1;
         public static final int b = 2;

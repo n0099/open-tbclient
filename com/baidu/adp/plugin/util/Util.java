@@ -38,7 +38,7 @@ public final class Util {
         public int step = 0;
     }
 
-    public static boolean jQ() {
+    public static boolean jP() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -99,16 +99,16 @@ public final class Util {
     }
 
     public static final boolean p(long j) {
-        long jS = jS();
+        long jR = jR();
         if (j <= 0) {
-            return jS <= 0 || jS >= 31457280;
+            return jR <= 0 || jR >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < jS;
+        return (j2 <= 31457280 ? j2 : 31457280L) < jR;
     }
 
     public static a b(InputStream inputStream, File file) {
@@ -224,14 +224,14 @@ public final class Util {
     }
 
     public static File bt(String str) {
-        PluginSetting aZ = PluginPackageManager.je().aZ(str);
+        PluginSetting aZ = PluginPackageManager.jd().aZ(str);
         if (aZ == null || aZ.apkPath == null || aZ.apkPath.length() <= ".apk".length()) {
             return null;
         }
         return new File(aZ.apkPath.substring(0, aZ.apkPath.length() - ".apk".length()));
     }
 
-    public static File jR() {
+    public static File jQ() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -313,7 +313,7 @@ public final class Util {
         return applicationInfo.metaData.getString("replace_method_classes", null);
     }
 
-    public static VersionCompare E(String str, String str2) {
+    public static VersionCompare D(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -365,10 +365,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return jR() + File.separator + e(pluginSetting);
+        return jQ() + File.separator + e(pluginSetting);
     }
 
-    public static long jS() {
+    public static long jR() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

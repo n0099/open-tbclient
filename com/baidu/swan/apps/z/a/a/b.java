@@ -3,13 +3,13 @@ package com.baidu.swan.apps.z.a.a;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements com.baidu.swan.apps.model.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public g bvo;
+    public g bwb;
     public String id;
     public String iconPath = "";
-    public boolean aph = false;
+    public boolean apU = false;
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -18,15 +18,15 @@ public class b implements com.baidu.swan.apps.model.a {
             if (TextUtils.isEmpty(this.id)) {
                 this.id = jSONObject.optString("id");
             }
-            this.bvo = new g();
-            this.bvo.parseFromJson(jSONObject.optJSONObject("position"));
+            this.bwb = new g();
+            this.bwb.parseFromJson(jSONObject.optJSONObject("position"));
             this.iconPath = jSONObject.optString("iconPath");
-            this.aph = jSONObject.optBoolean("clickable");
+            this.apU = jSONObject.optBoolean("clickable");
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (this.bvo == null || !this.bvo.isValid() || TextUtils.isEmpty(this.iconPath)) ? false : true;
+        return (this.bwb == null || !this.bwb.isValid() || TextUtils.isEmpty(this.iconPath)) ? false : true;
     }
 }

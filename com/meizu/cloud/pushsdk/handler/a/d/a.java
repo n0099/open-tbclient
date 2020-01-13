@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<PushSwitchStatus> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

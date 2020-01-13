@@ -1,14 +1,16 @@
 package com.baidu.tieba.ala.liveroom.messages;
 
+import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
+import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ala.liveroom.data.g;
+import com.baidu.tieba.ala.liveroom.data.h;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
-    private g faQ;
+    private h fdE;
 
-    public g bmv() {
-        return this.faQ;
+    public h bnu() {
+        return this.fdE;
     }
 
     public AlaUpdateLiveTbResponseMessage() {
@@ -17,12 +19,17 @@ public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        JSONObject optJSONObject;
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.faQ = new g();
-            this.faQ.parseJson(jSONObject);
-            setError(this.faQ.mErrorCode);
-            setErrorString(this.faQ.mErrorMsg);
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+            if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("live_info")) != null) {
+                AlaLiveSwitchData.liveActivityType = optJSONObject.optString(HttpRequest.SDK_LIVE_LIVE_ACTIVITY_TYPE);
+            }
+            this.fdE = new h();
+            this.fdE.parseJson(jSONObject);
+            setError(this.fdE.mErrorCode);
+            setErrorString(this.fdE.mErrorMsg);
         }
     }
 }

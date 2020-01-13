@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.Userlike.DataRes;
 import tbclient.Userlike.UserlikeResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ConcernPageSocketResMessage extends SocketResponsedMessage {
     private DataRes resultData;
 

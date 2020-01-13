@@ -17,7 +17,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/getLaunchAppInfo");
@@ -62,21 +62,21 @@ public class a extends ab {
             return;
         }
         boolean z = eVar.forbidden;
-        int aep = ah.aep();
-        long aeq = ah.aeq();
-        List<String> list = eVar.bOz;
+        int aeI = ah.aeI();
+        long aeJ = ah.aeJ();
+        List<String> list = eVar.bPj;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {
             for (String str2 : list) {
                 jSONArray.put(str2);
             }
-            jSONObject.put("launchCount", aep);
-            jSONObject.put("visitDuration", aeq);
+            jSONObject.put("launchCount", aeI);
+            jSONObject.put("visitDuration", aeJ);
             jSONObject.put("forbidden", z);
             jSONObject.put("ext", jSONArray);
             if (DEBUG) {
-                Log.i("GetBehaviorInfoAction", "launchCount:" + aep + " visitDuration:" + aeq + " forbidden:" + z + " ext:" + jSONArray.toString());
+                Log.i("GetBehaviorInfoAction", "launchCount:" + aeI + " visitDuration:" + aeJ + " forbidden:" + z + " ext:" + jSONArray.toString());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {

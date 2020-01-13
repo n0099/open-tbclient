@@ -10,7 +10,7 @@ import com.baidu.searchbox.ugc.model.VideoInfo;
 import com.baidu.searchbox.ugc.utils.BaseTask;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class VideoLoadTask extends BaseTask {
     private Context mContext;
 

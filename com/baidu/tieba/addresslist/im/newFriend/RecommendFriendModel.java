@@ -11,18 +11,18 @@ import com.baidu.tbadk.util.ab;
 import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.l;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
-    private static final String dXx = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1001900, dXx);
-    private a dXw;
-    private final HttpMessageListener dXy;
+    private static final String dXG = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1001900, dXG);
+    private a dXF;
+    private final HttpMessageListener dXH;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void br(String str);
 
-        void wS(String str);
+        void wW(String str);
     }
 
     static {
@@ -32,15 +32,15 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
     public RecommendFriendModel(NewFriendsActivity newFriendsActivity, a aVar) {
         super(newFriendsActivity.getPageContext());
-        this.dXw = null;
-        this.dXy = new HttpMessageListener(1001900) { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1
+        this.dXF = null;
+        this.dXH = new HttpMessageListener(1001900) { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001900) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof RecommendFriendResponseMessage)) {
-                        if (RecommendFriendModel.this.dXw != null) {
-                            RecommendFriendModel.this.dXw.br(null);
+                        if (RecommendFriendModel.this.dXF != null) {
+                            RecommendFriendModel.this.dXF.br(null);
                             return;
                         }
                         return;
@@ -48,8 +48,8 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
                     final String errMsg = recommendFriendResponseMessage.getErrMsg();
                     if (recommendFriendResponseMessage.getError() != 0) {
-                        if (RecommendFriendModel.this.dXw != null) {
-                            RecommendFriendModel.this.dXw.br(errMsg);
+                        if (RecommendFriendModel.this.dXF != null) {
+                            RecommendFriendModel.this.dXF.br(errMsg);
                             return;
                         }
                         return;
@@ -58,10 +58,10 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     ac.b(new ab<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ab
-                        /* renamed from: aVX */
+                        /* renamed from: aWq */
                         public Void doInBackground() {
                             if (datas != null && datas.size() > 0) {
-                                b.aWc().bc(datas);
+                                b.aWw().bb(datas);
                                 return null;
                             }
                             return null;
@@ -71,20 +71,20 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                         @Override // com.baidu.tbadk.util.l
                         /* renamed from: a */
                         public void onReturnDataInUI(Void r3) {
-                            RecommendFriendModel.this.dXw.wS(errMsg);
+                            RecommendFriendModel.this.dXF.wW(errMsg);
                         }
                     });
                 }
             }
         };
-        this.dXw = aVar;
+        this.dXF = aVar;
     }
 
     public void registerListener() {
-        registerListener(this.dXy);
+        registerListener(this.dXH);
     }
 
-    public void aWi() {
+    public void aWC() {
         sendMessage(new HttpMessage(1001900));
     }
 

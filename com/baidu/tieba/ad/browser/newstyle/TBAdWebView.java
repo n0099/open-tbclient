@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.ab;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TBAdWebView extends BaseAdWebView {
     public TBAdWebView(Context context) {
         super(context);
@@ -32,7 +32,7 @@ public class TBAdWebView extends BaseAdWebView {
         if (!ab.checkWriteExternalStorage(getContext())) {
             ab.requestWriteExternalStorage((Activity) getContext(), 0);
         } else {
-            com.baidu.tieba.ad.download.d.aVA().c(downloadCacheKey, null);
+            com.baidu.tieba.ad.download.d.aVT().c(downloadCacheKey, null);
         }
     }
 }

@@ -1,46 +1,50 @@
 package com.facebook.imagepipeline.common;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class e {
-    private static final e lNk = new e(-1, false);
-    private static final e lNl = new e(-2, false);
-    private static final e lNm = new e(-1, true);
-    private final boolean lNj;
+    private static final e lQW = new e(-1, false);
+    private static final e lQX = new e(-2, false);
+    private static final e lQY = new e(-1, true);
+    private final boolean lQV;
     private final int mRotation;
 
-    public static e dma() {
-        return lNk;
+    public static e dnf() {
+        return lQW;
     }
 
-    public static e dmb() {
-        return lNm;
+    public static e dng() {
+        return lQX;
+    }
+
+    public static e dnh() {
+        return lQY;
     }
 
     private e(int i, boolean z) {
         this.mRotation = i;
-        this.lNj = z;
+        this.lQV = z;
     }
 
-    public boolean dmc() {
+    public boolean dni() {
         return this.mRotation == -1;
     }
 
-    public boolean dmd() {
+    public boolean dnj() {
         return this.mRotation != -2;
     }
 
-    public int dme() {
-        if (dmc()) {
+    public int dnk() {
+        if (dni()) {
             throw new IllegalStateException("Rotation is set to use EXIF");
         }
         return this.mRotation;
     }
 
-    public boolean dmf() {
-        return this.lNj;
+    public boolean dnl() {
+        return this.lQV;
     }
 
     public int hashCode() {
-        return com.facebook.common.util.a.g(Integer.valueOf(this.mRotation), Boolean.valueOf(this.lNj));
+        return com.facebook.common.util.a.g(Integer.valueOf(this.mRotation), Boolean.valueOf(this.lQV));
     }
 
     public boolean equals(Object obj) {
@@ -49,12 +53,12 @@ public class e {
         }
         if (obj instanceof e) {
             e eVar = (e) obj;
-            return this.mRotation == eVar.mRotation && this.lNj == eVar.lNj;
+            return this.mRotation == eVar.mRotation && this.lQV == eVar.lQV;
         }
         return false;
     }
 
     public String toString() {
-        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.lNj));
+        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.lQV));
     }
 }

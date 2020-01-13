@@ -2,18 +2,18 @@ package com.baidu.tieba.im.data;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private int hse;
+    private int hvH;
     private List<b> parent_menu = new ArrayList();
     private long update_time;
 
-    public boolean bRt() {
-        return this.hse == 1;
+    public boolean bSC() {
+        return this.hvH == 1;
     }
 
-    public void wa(int i) {
-        this.hse = i;
+    public void wf(int i) {
+        this.hvH = i;
     }
 
     public long getUpdate_time() {
@@ -24,7 +24,7 @@ public class c {
         this.update_time = j;
     }
 
-    public List<b> bRu() {
+    public List<b> bSD() {
         return this.parent_menu;
     }
 

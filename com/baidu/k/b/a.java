@@ -15,7 +15,7 @@ public class a {
         return checkSelfPermission(context, str) == 0;
     }
 
-    public static boolean X(Context context, String str) {
+    public static boolean Z(Context context, String str) {
         return checkSelfPermission(context, str) == -1;
     }
 }

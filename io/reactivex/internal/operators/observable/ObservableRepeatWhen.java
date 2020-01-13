@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -11,16 +11,16 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableRepeatWhen<T> extends a<T, T> {
-    final h<? super q<Object>, ? extends t<?>> mUj;
+    final h<? super q<Object>, ? extends t<?>> nwt;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        io.reactivex.subjects.b<T> dEu = PublishSubject.dEt().dEu();
+        io.reactivex.subjects.b<T> dIH = PublishSubject.dIG().dIH();
         try {
-            t tVar = (t) io.reactivex.internal.functions.a.h(this.mUj.apply(dEu), "The handler returned a null ObservableSource");
-            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, dEu, this.source);
+            t tVar = (t) io.reactivex.internal.functions.a.h(this.nwt.apply(dIH), "The handler returned a null ObservableSource");
+            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, dIH, this.source);
             uVar.onSubscribe(repeatWhenObserver);
             tVar.subscribe(repeatWhenObserver.inner);
             repeatWhenObserver.subscribeNext();
@@ -30,7 +30,7 @@ public final class ObservableRepeatWhen<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class RepeatWhenObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 802743776666017014L;
         volatile boolean active;
@@ -109,7 +109,7 @@ public final class ObservableRepeatWhen<T> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         final class InnerRepeatObserver extends AtomicReference<io.reactivex.disposables.b> implements u<Object> {
             private static final long serialVersionUID = 3254781284376480842L;
 

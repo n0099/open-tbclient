@@ -17,7 +17,7 @@ import com.baidu.live.adp.lib.resourceloader.BdResourceLoader;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.newwidget.imageview.BDImageView;
 import com.baidu.live.adp.widget.imageview.BdImage;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.SkinManager;
@@ -133,29 +133,29 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0093a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0093a
+        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0094a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
-                    TbImageView.this.mGestureDetector.O(view);
+                    TbImageView.this.mGestureDetector.Q(view);
                     return TbImageView.this.mGestureDetector.onDoubleTap(motionEvent);
                 }
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0093a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
             public boolean onDoubleTapEvent(View view, MotionEvent motionEvent) {
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0093a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.getBdImage() != null || TbImageView.this.getDrawable() != null || !TbImageView.this.mInterceptOnClick) {
                     if (TbImageView.this.mOnClickListener != null) {
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
                     } else if (TbImageView.this.mGestureDetector != null) {
-                        TbImageView.this.mGestureDetector.O(view);
+                        TbImageView.this.mGestureDetector.Q(view);
                         return TbImageView.this.mGestureDetector.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;
@@ -189,29 +189,29 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0093a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0093a
+        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0094a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
-                    TbImageView.this.mGestureDetector.O(view);
+                    TbImageView.this.mGestureDetector.Q(view);
                     return TbImageView.this.mGestureDetector.onDoubleTap(motionEvent);
                 }
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0093a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
             public boolean onDoubleTapEvent(View view, MotionEvent motionEvent) {
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0093a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0094a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.getBdImage() != null || TbImageView.this.getDrawable() != null || !TbImageView.this.mInterceptOnClick) {
                     if (TbImageView.this.mOnClickListener != null) {
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
                     } else if (TbImageView.this.mGestureDetector != null) {
-                        TbImageView.this.mGestureDetector.O(view);
+                        TbImageView.this.mGestureDetector.Q(view);
                         return TbImageView.this.mGestureDetector.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;

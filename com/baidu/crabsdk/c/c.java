@@ -12,16 +12,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c {
-    private static PackageManager QB;
-    private static SimpleDateFormat Qz;
+    private static SimpleDateFormat QE;
+    private static PackageManager QF;
 
     public static String a(Date date) {
-        if (Qz == null) {
-            Qz = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (QE == null) {
+            QE = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return Qz.format(date);
+        return QE.format(date);
     }
 
     public static void a(SharedPreferences.Editor editor, boolean z) {
@@ -118,11 +118,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (QB == null) {
-            QB = context.getPackageManager();
+        if (QF == null) {
+            QF = context.getPackageManager();
         }
         try {
-            return QB.checkPermission(str, context.getPackageName()) == 0;
+            return QF.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
@@ -155,7 +155,7 @@ public final class c {
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
-    public static String nC() {
+    public static String nD() {
         return new SimpleDateFormat(DateTimeUtil.DAY_FORMAT).format(new Date(System.currentTimeMillis()));
     }
 

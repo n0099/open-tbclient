@@ -4,9 +4,9 @@ import android.content.Context;
 import android.os.Looper;
 import android.util.Log;
 import com.baidu.n.a.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
-    private static c lxV;
+    private static c lBu;
     private Context mCtx;
     private static String TAG = "UnionIDHelper";
     private static boolean DEBUG = false;
@@ -15,24 +15,24 @@ public class c {
         this.mCtx = context.getApplicationContext();
     }
 
-    public static c gc(Context context) {
-        if (lxV == null) {
+    public static c ge(Context context) {
+        if (lBu == null) {
             synchronized (c.class) {
-                if (lxV == null) {
-                    lxV = new c(context);
-                    com.baidu.n.a.a.ge(context);
+                if (lBu == null) {
+                    lBu = new c(context);
+                    com.baidu.n.a.a.gf(context);
                 }
             }
         }
-        return lxV;
+        return lBu;
     }
 
     public void a(b bVar) {
-        a(new d().GR(1).uG(false), bVar, Looper.getMainLooper());
+        a(new d().GW(1).uR(false), bVar, Looper.getMainLooper());
     }
 
     public void a(d dVar, final b bVar, Looper looper) {
-        e.dfC().a(this.mCtx, looper, new com.baidu.n.a.a.b() { // from class: com.baidu.n.c.1
+        e.dgE().a(this.mCtx, looper, new com.baidu.n.a.a.b() { // from class: com.baidu.n.c.1
             @Override // com.baidu.n.a.a.b
             public void a(com.baidu.n.a.a.c cVar) {
                 if (c.DEBUG) {
@@ -40,20 +40,20 @@ public class c {
                     Log.d(c.TAG, "异步回调 (listener != null):" + (bVar != null));
                 }
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new a(cVar.dfw(), cVar.isSupport(), cVar.dfH(), cVar.dfI(), cVar.dfJ(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new a(cVar.dgy(), cVar.isSupport(), cVar.dgJ(), cVar.dgK(), cVar.dgL(), cVar.getStatusCode()));
                 }
             }
         });
     }
 
-    public a dfy() {
-        com.baidu.n.a.a.c gg = e.dfC().gg(this.mCtx);
+    public a dgA() {
+        com.baidu.n.a.a.c gh = e.dgE().gh(this.mCtx);
         if (DEBUG) {
-            Log.d(TAG, "同步 结果:" + gg);
+            Log.d(TAG, "同步 结果:" + gh);
         }
-        if (gg == null) {
+        if (gh == null) {
             return null;
         }
-        return new a(gg.dfw(), gg.isSupport(), gg.dfH(), gg.dfI(), gg.dfJ(), gg.getStatusCode());
+        return new a(gh.dgy(), gh.isSupport(), gh.dgJ(), gh.dgK(), gh.dgL(), gh.getStatusCode());
     }
 }

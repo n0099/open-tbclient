@@ -1,8 +1,6 @@
 package com.baidu.mario.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface c {
-    void m(int i, String str);
-
     void onError(int i);
 
     void onPause();
@@ -10,4 +8,6 @@ public interface c {
     void onResume();
 
     void onStart();
+
+    void p(int i, String str);
 }

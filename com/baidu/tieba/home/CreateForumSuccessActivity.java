@@ -16,17 +16,17 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessActivity> {
-    private NoDataView gQy;
-    private NoNetworkView geQ;
+    private NoDataView gTS;
+    private NoNetworkView ghZ;
     private NavigationBar mNavigationBar;
     private LinearLayout mRootView;
     private String mForumName = null;
     private TextView mTextView = null;
-    private TextView gQJ = null;
+    private TextView gUd = null;
 
-    public static void aT(Context context, String str) {
+    public static void aU(Context context, String str) {
         if (str != null && str.length() > 0) {
             Intent intent = new Intent(context, CreateForumSuccessActivity.class);
             intent.putExtra("forumname", str);
@@ -43,7 +43,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         super.onCreate(bundle);
         setContentView(R.layout.create_forum_success_activity);
         initData();
-        bKl();
+        bLq();
     }
 
     private void initData() {
@@ -53,21 +53,21 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         }
     }
 
-    private void bKl() {
+    private void bLq() {
         this.mRootView = (LinearLayout) findViewById(R.id.root_view);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.create_bar);
-        this.geQ = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
+        this.ghZ = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
         int dimens = l.getDimens(getActivity(), R.dimen.ds100);
-        this.gQy = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.mRootView.findViewById(R.id.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, dimens), null, null);
-        this.gQy.setVisibility(0);
+        this.gTS = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.mRootView.findViewById(R.id.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, dimens), null, null);
+        this.gTS.setVisibility(0);
         this.mTextView = (TextView) findViewById(R.id.text_suc_tip);
         this.mTextView.setText(getActivity().getString(R.string.noforum_create_suc_tip1) + this.mForumName + getActivity().getString(R.string.noforum_create_suc_tip2));
-        this.gQJ = (TextView) findViewById(R.id.text_audit_tip);
+        this.gUd = (TextView) findViewById(R.id.text_audit_tip);
         String string = getResources().getString(R.string.noforum_create_audit_tip);
-        if (!StringUtils.isNull(string) && this.gQJ != null) {
-            this.gQJ.setText(string.replace("%s", this.mForumName));
+        if (!StringUtils.isNull(string) && this.gUd != null) {
+            this.gUd.setText(string.replace("%s", this.mForumName));
         }
         findViewById(R.id.text_create_succ).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.CreateForumSuccessActivity.1
             @Override // android.view.View.OnClickListener
@@ -83,11 +83,11 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         super.changeSkinType(i);
         getLayoutMode().onModeChanged(this.mRootView);
         com.baidu.tbadk.q.a.a(getPageContext(), this.mRootView);
-        if (this.geQ != null && this.geQ.getVisibility() == 0) {
-            this.geQ.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        if (this.ghZ != null && this.ghZ.getVisibility() == 0) {
+            this.ghZ.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
-        if (this.gQy != null) {
-            this.gQy.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        if (this.gTS != null) {
+            this.gTS.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);

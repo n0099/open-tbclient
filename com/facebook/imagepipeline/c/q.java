@@ -1,17 +1,17 @@
 package com.facebook.imagepipeline.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class q {
-    public final int lMN;
-    public final int lMO;
-    public final int lMP;
-    public final int lMQ;
-    public final int lMR;
+    public final int lQA;
+    public final int lQB;
+    public final int lQC;
+    public final int lQD;
+    public final int lQz;
 
     public q(int i, int i2, int i3, int i4, int i5) {
-        this.lMN = i;
-        this.lMO = i2;
-        this.lMP = i3;
-        this.lMQ = i4;
-        this.lMR = i5;
+        this.lQz = i;
+        this.lQA = i2;
+        this.lQB = i3;
+        this.lQC = i4;
+        this.lQD = i5;
     }
 }

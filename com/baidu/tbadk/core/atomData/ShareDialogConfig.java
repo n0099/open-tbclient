@@ -23,6 +23,7 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean isSupportNightMode;
     private boolean mAlaLiveRoomShare;
     public ArrayList<TransmitForumData> mForumList;
+    private From mFrom;
     public boolean mIsAlaLive;
     public boolean mIsShowTransmitShare;
     public int mPrivateThread;
@@ -34,6 +35,20 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean showLocation;
     public ShareItem[] specialShareItems;
     public ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> textViewList;
+
+    /* loaded from: classes.dex */
+    public enum From {
+        Default,
+        Recommend,
+        Concern,
+        PB,
+        FRS,
+        PersonPolymeric,
+        VideoMiddlePageHorizontal,
+        VideoMiddlePageVertical,
+        HomeVideoTab,
+        HomeGameTab
+    }
 
     public ShareDialogConfig(Context context, ShareItem shareItem, boolean z) {
         super(context);
@@ -47,6 +62,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
         this.mShowMoreForumShare = false;
+        this.mFrom = From.Default;
         this.shareItem = shareItem;
         this.showLocation = z;
     }
@@ -63,6 +79,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
         this.mShowMoreForumShare = false;
+        this.mFrom = From.Default;
         this.shareItem = shareItem;
         this.showLocation = z;
         this.mtjStatistics = sparseArray;
@@ -80,6 +97,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
         this.mShowMoreForumShare = false;
+        this.mFrom = From.Default;
         this.shareItem = shareItem;
         this.showLocation = z;
         this.mtjStatistics = sparseArray;
@@ -102,6 +120,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
         this.mShowMoreForumShare = false;
+        this.mFrom = From.Default;
         this.shareItem = shareItem;
         this.showLocation = z;
         this.isInsertBack = z2;
@@ -176,5 +195,13 @@ public class ShareDialogConfig extends IntentConfig {
 
     public void setHideMode(int i) {
         this.hideMode = i;
+    }
+
+    public void setFrom(From from) {
+        this.mFrom = from;
+    }
+
+    public From getFrom() {
+        return this.mFrom;
     }
 }

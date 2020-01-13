@@ -16,7 +16,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SapiSystemBarTintManager {
     private static final int DEFAULT_TINT_COLOR = -1728053248;
     private static String sNavBarOverride;
@@ -129,7 +129,7 @@ public class SapiSystemBarTintManager {
         viewGroup.addView(this.mNavBarTintView);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SystemBarConfig {
         private static final String NAV_BAR_HEIGHT_LANDSCAPE_RES_NAME = "navigation_bar_height_landscape";
         private static final String NAV_BAR_HEIGHT_RES_NAME = "navigation_bar_height";

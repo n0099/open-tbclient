@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private volatile HashMap<String, List<com.baidu.swan.b.a.d.b>> ceP = new HashMap<>();
+    private volatile HashMap<String, List<com.baidu.swan.b.a.d.b>> cfc = new HashMap<>();
 
     public synchronized void a(String str, com.baidu.swan.b.a.e.b bVar) {
         for (com.baidu.swan.b.a.d.b bVar2 : new ArrayList(getEventListeners(str))) {
@@ -22,8 +22,8 @@ public class b {
             if (!eventListeners.contains(bVar)) {
                 eventListeners.add(bVar);
             }
-            if (!this.ceP.containsKey(str)) {
-                this.ceP.put(str, eventListeners);
+            if (!this.cfc.containsKey(str)) {
+                this.cfc.put(str, eventListeners);
             }
         }
     }
@@ -35,13 +35,13 @@ public class b {
     public synchronized void g(String str, com.baidu.swan.b.a.d.b bVar) {
         if (!TextUtils.isEmpty(str)) {
             if (bVar == null) {
-                this.ceP.remove(str);
+                this.cfc.remove(str);
             } else {
                 List<com.baidu.swan.b.a.d.b> eventListeners = getEventListeners(str);
                 if (eventListeners.contains(bVar)) {
                     eventListeners.remove(bVar);
                     if (eventListeners.isEmpty()) {
-                        this.ceP.remove(str);
+                        this.cfc.remove(str);
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class b {
         boolean z2 = false;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                List<com.baidu.swan.b.a.d.b> list = this.ceP.get(str);
+                List<com.baidu.swan.b.a.d.b> list = this.cfc.get(str);
                 if (list != null) {
                     if (!list.isEmpty()) {
                         z = true;
@@ -75,7 +75,7 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return new ArrayList();
         }
-        List<com.baidu.swan.b.a.d.b> list = this.ceP.get(str);
+        List<com.baidu.swan.b.a.d.b> list = this.cfc.get(str);
         return list == null ? new ArrayList() : list;
     }
 }

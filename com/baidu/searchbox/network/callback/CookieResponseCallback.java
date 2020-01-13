@@ -3,7 +3,7 @@ package com.baidu.searchbox.network.callback;
 import com.baidu.searchbox.network.core.Response;
 import java.util.List;
 import org.apache.http.cookie.SM;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class CookieResponseCallback<T> extends ResponseCallback<T> {
     public abstract void handleCookies(List<String> list) throws Exception;
 

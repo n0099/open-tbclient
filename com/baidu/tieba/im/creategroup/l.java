@@ -4,29 +4,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l extends BaseAdapter {
-    private String[] hrA;
-    private GroupAddressEditActivity hrC;
+    private String[] hvd;
+    private GroupAddressEditActivity hvf;
 
     public l(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
-        this.hrA = null;
-        this.hrC = null;
-        this.hrC = groupAddressEditActivity;
-        this.hrA = strArr;
+        this.hvd = null;
+        this.hvf = null;
+        this.hvf = groupAddressEditActivity;
+        this.hvd = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hrA != null) {
-            return this.hrA.length;
+        if (this.hvd != null) {
+            return this.hvd.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.hrA == null || i <= -1 || i >= this.hrA.length) ? "" : this.hrA[i];
+        return (this.hvd == null || i <= -1 || i >= this.hvd.length) ? "" : this.hvd[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,23 +38,23 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.hrC);
-            view = aVar.bdY();
+            aVar = new a(this.hvf);
+            view = aVar.bet();
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.Cc(getItem(i).toString());
-        if (this.hrC.bRe() == i) {
-            aVar.mY(true);
+        aVar.Cm(getItem(i).toString());
+        if (this.hvf.bSn() == i) {
+            aVar.nk(true);
         } else {
-            aVar.mY(false);
+            aVar.nk(false);
         }
-        bS(view);
+        bX(view);
         return view;
     }
 
-    private void bS(View view) {
-        this.hrC.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.hrC.getLayoutMode().onModeChanged(view);
+    private void bX(View view) {
+        this.hvf.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.hvf.getLayoutMode().onModeChanged(view);
     }
 }

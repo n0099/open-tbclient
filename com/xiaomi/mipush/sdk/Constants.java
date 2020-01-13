@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Constants {
     public static final String ACCEPT_TIME_SEPARATOR_SERVER = "-";
     public static final String ACCEPT_TIME_SEPARATOR_SP = ",";

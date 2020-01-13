@@ -22,7 +22,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SoLoader {
     private static final boolean DEBUG = false;
     private static final String TAG = "SoLoader";

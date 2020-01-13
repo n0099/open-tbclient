@@ -3,7 +3,7 @@ package com.baidu.tieba.personCenter.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PersonMoreData extends OrmObject {
     public List<PersonMoreItemData> mUrlMaps = new ArrayList();
 }

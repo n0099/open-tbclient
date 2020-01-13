@@ -19,7 +19,7 @@ import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import java.lang.reflect.Field;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DrawableUtils {
     public static final Rect INSETS_NONE = new Rect();
     private static final String TAG = "DrawableUtils";

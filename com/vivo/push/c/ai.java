@@ -9,7 +9,7 @@ import com.baidu.mapapi.UIMsg;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ai extends com.vivo.push.v {
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(com.vivo.push.y yVar) {

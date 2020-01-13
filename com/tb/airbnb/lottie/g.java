@@ -1,28 +1,25 @@
 package com.tb.airbnb.lottie;
 
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
+import android.graphics.Bitmap;
+import android.support.annotation.Nullable;
+import android.support.annotation.RestrictTo;
+/* loaded from: classes5.dex */
 public class g {
-    private final String eK;
+    @Nullable
+    private Bitmap bitmap;
+    private final String eJ;
     private final String fileName;
     private final int height;
     private final String id;
     private final int width;
 
-    private g(int i, int i2, String str, String str2, String str3) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public g(int i, int i2, String str, String str2, String str3) {
         this.width = i;
         this.height = i2;
         this.id = str;
         this.fileName = str2;
-        this.eK = str3;
-    }
-
-    /* loaded from: classes2.dex */
-    static class a {
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public static g dB(JSONObject jSONObject) {
-            return new g(jSONObject.optInt("w"), jSONObject.optInt("h"), jSONObject.optString("id"), jSONObject.optString("p"), jSONObject.optString("u"));
-        }
+        this.eJ = str3;
     }
 
     public String getId() {
@@ -34,6 +31,15 @@ public class g {
     }
 
     public String bw() {
-        return this.eK;
+        return this.eJ;
+    }
+
+    @Nullable
+    public Bitmap getBitmap() {
+        return this.bitmap;
+    }
+
+    public void setBitmap(@Nullable Bitmap bitmap) {
+        this.bitmap = bitmap;
     }
 }

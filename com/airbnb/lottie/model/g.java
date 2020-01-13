@@ -5,7 +5,7 @@ import android.support.annotation.RestrictTo;
 import android.support.annotation.VisibleForTesting;
 import android.support.v4.util.LruCache;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class g {
     private static final g hC = new g();
     private final LruCache<String, com.airbnb.lottie.e> hD = new LruCache<>(10485760);

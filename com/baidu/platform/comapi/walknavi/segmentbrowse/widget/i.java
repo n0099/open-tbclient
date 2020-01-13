@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Scroller;
 import com.baidu.down.utils.Constants;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i extends ViewGroup {
     public static int a = Constants.HTTP_DNS_INAVAILABLE_TIME;
     private Context b;

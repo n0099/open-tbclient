@@ -5,7 +5,7 @@ import com.google.zxing.FormatException;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public enum CharacterSetECI {
     Cp437(new int[]{0, 2}, new String[0]),
     ISO8859_1(new int[]{1, 3}, "ISO-8859-1"),

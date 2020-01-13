@@ -3,7 +3,7 @@ package com.baidu.poly.util;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static String a(int i, String str, String str2) {
         String str3;

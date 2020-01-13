@@ -2,11 +2,11 @@ package com.baidu.webkit.sdk;
 
 import android.webkit.ValueCallback;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GeolocationPermissions {
     private static final GeolocationPermissions mInstance = new GeolocationPermissions();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Callback {
         void invoke(String str, boolean z, boolean z2);
     }

@@ -3,23 +3,23 @@ package io.reactivex.internal.operators.maybe;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MaybeDoFinally<T> extends a<T, T> {
-    final io.reactivex.b.a onFinally;
+    final io.reactivex.c.a onFinally;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         this.source.a(new DoFinallyObserver(mVar, this.onFinally));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class DoFinallyObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 4109457741734051389L;
         final m<? super T> actual;
         io.reactivex.disposables.b d;
-        final io.reactivex.b.a onFinally;
+        final io.reactivex.c.a onFinally;
 
-        DoFinallyObserver(m<? super T> mVar, io.reactivex.b.a aVar) {
+        DoFinallyObserver(m<? super T> mVar, io.reactivex.c.a aVar) {
             this.actual = mVar;
             this.onFinally = aVar;
         }
@@ -67,7 +67,7 @@ public final class MaybeDoFinally<T> extends a<T, T> {
                     this.onFinally.run();
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.I(th);
-                    io.reactivex.d.a.onError(th);
+                    io.reactivex.e.a.onError(th);
                 }
             }
         }

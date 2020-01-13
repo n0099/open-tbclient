@@ -18,19 +18,19 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private ArrayList<e> jXr;
-    View.OnClickListener jXs = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
+    private ArrayList<e> kaU;
+    View.OnClickListener kaV = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Object tag = view.getTag();
-            if ((tag instanceof a) && (eVar = ((a) tag).jXw) != null) {
-                if (eVar.jVx == null) {
+            if ((tag instanceof a) && (eVar = ((a) tag).kaZ) != null) {
+                if (eVar.jYZ == null) {
                     com.baidu.tieba.square.square.a.e(b.this.getContext(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.getContext(), eVar.jVw, eVar.jVx, eVar.jVy)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(b.this.getContext(), eVar.jYY, eVar.jYZ, eVar.jZa)));
                 }
             }
         }
@@ -39,35 +39,35 @@ public class b extends BaseAdapter {
 
     public b(Activity activity, c cVar, boolean z) {
         this.mContext = activity;
-        this.jXr = cVar.cGX();
+        this.kaU = cVar.cIb();
     }
 
-    public ArrayList<e> cGX() {
-        return this.jXr;
+    public ArrayList<e> cIb() {
+        return this.kaU;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public TextView cpT;
-        public BarImageView jXu;
-        public BestStringsFitTextView jXv;
-        public e jXw;
+        public TextView cqf;
+        public BarImageView kaX;
+        public BestStringsFitTextView kaY;
+        public e kaZ;
 
         protected a() {
         }
     }
 
     public void aR(ArrayList<e> arrayList) {
-        this.jXr = arrayList;
+        this.kaU = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jXr == null) {
+        if (this.kaU == null) {
             return 0;
         }
-        return (this.jXr.size() * 2) + 1;
+        return (this.kaU.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
@@ -101,33 +101,33 @@ public class b extends BaseAdapter {
             return LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.jXs);
+        inflate.setOnClickListener(this.kaV);
         a aVar = new a();
-        aVar.jXu = (BarImageView) inflate.findViewById(R.id.portrait);
-        aVar.cpT = (TextView) inflate.findViewById(R.id.name);
-        aVar.jXv = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        aVar.kaX = (BarImageView) inflate.findViewById(R.id.portrait);
+        aVar.cqf = (TextView) inflate.findViewById(R.id.name);
+        aVar.kaY = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(aVar);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, a aVar, int i) {
-        e eVar = this.jXr.get(i / 2);
-        aVar.jXw = eVar;
-        aVar.cpT.setText(eVar.jVw);
-        if (eVar.jXz != null) {
-            aVar.jXv.setVisibility(0);
-            String[] strArr = new String[eVar.jXz.size()];
-            for (int i2 = 0; i2 < eVar.jXz.size(); i2++) {
-                strArr[i2] = eVar.jXz.get(i2).jVw;
+        e eVar = this.kaU.get(i / 2);
+        aVar.kaZ = eVar;
+        aVar.cqf.setText(eVar.jYY);
+        if (eVar.kbc != null) {
+            aVar.kaY.setVisibility(0);
+            String[] strArr = new String[eVar.kbc.size()];
+            for (int i2 = 0; i2 < eVar.kbc.size(); i2++) {
+                strArr[i2] = eVar.kbc.get(i2).jYY;
             }
-            aVar.jXv.setTextArray(strArr);
+            aVar.kaY.setTextArray(strArr);
         } else {
-            aVar.jXv.setVisibility(8);
+            aVar.kaY.setVisibility(8);
         }
         if (eVar.logoUrl != null) {
             int dip2px = l.dip2px(this.mContext, 45.0f);
-            aVar.jXu.setTag(eVar.logoUrl);
-            aVar.jXu.a(eVar.logoUrl, 10, dip2px, dip2px, false);
+            aVar.kaX.setTag(eVar.logoUrl);
+            aVar.kaX.a(eVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 

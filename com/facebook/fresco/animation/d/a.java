@@ -1,62 +1,62 @@
 package com.facebook.fresco.animation.d;
 
 import com.facebook.fresco.animation.a.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a implements b {
-    private final d lJN;
-    private long lKF = -1;
+    private final d lNy;
+    private long lOq = -1;
 
     public a(d dVar) {
-        this.lJN = dVar;
+        this.lNy = dVar;
     }
 
     @Override // com.facebook.fresco.animation.d.b
     public int L(long j, long j2) {
-        if (!dlg() && j / dlf() >= this.lJN.getLoopCount()) {
+        if (!dml() && j / dmk() >= this.lNy.getLoopCount()) {
             return -1;
         }
-        return ff(j % dlf());
+        return fk(j % dmk());
     }
 
-    public long dlf() {
-        if (this.lKF != -1) {
-            return this.lKF;
+    public long dmk() {
+        if (this.lOq != -1) {
+            return this.lOq;
         }
-        this.lKF = 0L;
-        int frameCount = this.lJN.getFrameCount();
+        this.lOq = 0L;
+        int frameCount = this.lNy.getFrameCount();
         for (int i = 0; i < frameCount; i++) {
-            this.lKF += this.lJN.HF(i);
+            this.lOq += this.lNy.HO(i);
         }
-        return this.lKF;
+        return this.lOq;
     }
 
     @Override // com.facebook.fresco.animation.d.b
-    public long fe(long j) {
+    public long fj(long j) {
         long j2 = 0;
-        long dlf = dlf();
-        if (dlf == 0) {
+        long dmk = dmk();
+        if (dmk == 0) {
             return -1L;
         }
-        if (dlg() || j / dlf() < this.lJN.getLoopCount()) {
-            long j3 = j % dlf;
-            int frameCount = this.lJN.getFrameCount();
+        if (dml() || j / dmk() < this.lNy.getLoopCount()) {
+            long j3 = j % dmk;
+            int frameCount = this.lNy.getFrameCount();
             for (int i = 0; i < frameCount && j2 <= j3; i++) {
-                j2 += this.lJN.HF(i);
+                j2 += this.lNy.HO(i);
             }
             return (j2 - j3) + j;
         }
         return -1L;
     }
 
-    public boolean dlg() {
-        return this.lJN.getLoopCount() == 0;
+    public boolean dml() {
+        return this.lNy.getLoopCount() == 0;
     }
 
-    int ff(long j) {
+    int fk(long j) {
         int i = 0;
         long j2 = 0;
         do {
-            j2 += this.lJN.HF(i);
+            j2 += this.lNy.HO(i);
             i++;
         } while (j >= j2);
         return i - 1;

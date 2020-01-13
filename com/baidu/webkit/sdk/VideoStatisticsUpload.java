@@ -30,7 +30,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VideoStatisticsUpload {
     private static final int BUFF_SIZE = 4096;
     public static final String CRASH_LOG = "crashlog";
@@ -39,7 +39,7 @@ public class VideoStatisticsUpload {
     private static String logFileName = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class MyRunner implements Runnable {
         String alias;
         String cuid;
@@ -150,7 +150,7 @@ public class VideoStatisticsUpload {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum UploadStatus {
         Success,
         CompressFailed,

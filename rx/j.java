@@ -1,7 +1,7 @@
 package rx;
 
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class j<T> implements e<T>, k {
     private static final long NOT_SET = Long.MIN_VALUE;
     private f producer;

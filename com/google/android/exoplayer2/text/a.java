@@ -5,14 +5,14 @@ import android.graphics.Typeface;
 import android.support.v4.view.ViewCompat;
 import android.view.accessibility.CaptioningManager;
 import com.google.android.exoplayer2.util.v;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    public static final a mtW = new a(-1, ViewCompat.MEASURED_STATE_MASK, 0, 0, -1, null);
+    public static final a mxJ = new a(-1, ViewCompat.MEASURED_STATE_MASK, 0, 0, -1, null);
     public final int backgroundColor;
     public final int foregroundColor;
-    public final int mtX;
-    public final int mtY;
-    public final int mtZ;
+    public final int mxK;
+    public final int mxL;
+    public final int mxM;
     public final Typeface typeface;
 
     @TargetApi(19)
@@ -23,9 +23,9 @@ public final class a {
     public a(int i, int i2, int i3, int i4, int i5, Typeface typeface) {
         this.foregroundColor = i;
         this.backgroundColor = i2;
-        this.mtX = i3;
-        this.mtY = i4;
-        this.mtZ = i5;
+        this.mxK = i3;
+        this.mxL = i4;
+        this.mxM = i5;
         this.typeface = typeface;
     }
 
@@ -36,6 +36,6 @@ public final class a {
 
     @TargetApi(21)
     private static a c(CaptioningManager.CaptionStyle captionStyle) {
-        return new a(captionStyle.hasForegroundColor() ? captionStyle.foregroundColor : mtW.foregroundColor, captionStyle.hasBackgroundColor() ? captionStyle.backgroundColor : mtW.backgroundColor, captionStyle.hasWindowColor() ? captionStyle.windowColor : mtW.mtX, captionStyle.hasEdgeType() ? captionStyle.edgeType : mtW.mtY, captionStyle.hasEdgeColor() ? captionStyle.edgeColor : mtW.mtZ, captionStyle.getTypeface());
+        return new a(captionStyle.hasForegroundColor() ? captionStyle.foregroundColor : mxJ.foregroundColor, captionStyle.hasBackgroundColor() ? captionStyle.backgroundColor : mxJ.backgroundColor, captionStyle.hasWindowColor() ? captionStyle.windowColor : mxJ.mxK, captionStyle.hasEdgeType() ? captionStyle.edgeType : mxJ.mxL, captionStyle.hasEdgeColor() ? captionStyle.edgeColor : mxJ.mxM, captionStyle.getTypeface());
     }
 }

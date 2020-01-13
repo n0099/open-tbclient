@@ -1,45 +1,45 @@
 package com.baidu.tieba.ala.liveroom.data;
 
-import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
-    public String mFilterName = "delta";
-    public int eUN = 40;
-    public int eUO = 50;
-    public int eUP = 5;
-    public int eUQ = 50;
-    public int eUR = 50;
+    public String abO;
+    public String appUrl;
+    public String eWA;
+    public String eWB;
+    public String eWC;
+    public String eWz;
+    public int needToast;
+    public String packageName;
+    public String portrait;
+    public String userName;
 
-    public String toJsonString() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("white_percent", this.eUN);
-            jSONObject.put("filter_name", this.mFilterName);
-            jSONObject.put("blur_level", this.eUP);
-            jSONObject.put("red_level", this.eUO);
-            jSONObject.put("big_eye", this.eUQ);
-            jSONObject.put("thin_face", this.eUR);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return jSONObject.toString();
-    }
-
-    public c yx(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.eUN = jSONObject.optInt("white_percent");
-                this.mFilterName = jSONObject.optString("filter_name");
-                this.eUP = jSONObject.optInt("blur_level");
-                this.eUQ = jSONObject.optInt("big_eye");
-                this.eUR = jSONObject.optInt("thin_face");
-                this.eUO = jSONObject.getInt("red_level");
-            } catch (Exception e) {
-                e.printStackTrace();
+    public void parse(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.needToast = jSONObject.optInt("need_toast", 0);
+            JSONObject optJSONObject = jSONObject.optJSONObject("jump_conf");
+            if (optJSONObject != null) {
+                this.packageName = optJSONObject.optString("package_name", "");
+                this.appUrl = optJSONObject.optString("app_url", "");
+                this.eWz = optJSONObject.optString("app_deeplink_url", "");
+                this.eWA = optJSONObject.optString("app_backup_deeplink_url", "");
+                this.eWB = optJSONObject.optString("app_clipboard_url", "");
+            }
+            this.abO = jSONObject.optString("toast_text", "");
+            this.eWC = jSONObject.optString("subapp_type", "");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("user_info");
+            if (optJSONObject2 != null) {
+                this.userName = optJSONObject2.optString("user_name", "");
+                this.portrait = optJSONObject2.optString("portrait", "");
             }
         }
-        return this;
+    }
+
+    public String getSubappType() {
+        return this.eWC;
+    }
+
+    public String getPortrait() {
+        return this.portrait;
     }
 }

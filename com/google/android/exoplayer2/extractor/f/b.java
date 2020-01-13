@@ -5,18 +5,18 @@ import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.audio.a;
 import com.google.android.exoplayer2.extractor.f.w;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class b implements h {
-    private Format lUU;
-    private long lYY;
+    private Format lYL;
     private final String language;
-    private com.google.android.exoplayer2.extractor.m mah;
-    private final com.google.android.exoplayer2.util.k mhT;
-    private final com.google.android.exoplayer2.util.l mhU;
-    private String mhV;
-    private int mhW;
-    private boolean mhX;
-    private long mhY;
+    private long mcQ;
+    private com.google.android.exoplayer2.extractor.m mdY;
+    private final com.google.android.exoplayer2.util.k mlJ;
+    private final com.google.android.exoplayer2.util.l mlK;
+    private String mlL;
+    private int mlM;
+    private boolean mlN;
+    private long mlO;
     private int sampleSize;
     private int state;
 
@@ -25,64 +25,64 @@ public final class b implements h {
     }
 
     public b(String str) {
-        this.mhT = new com.google.android.exoplayer2.util.k(new byte[8]);
-        this.mhU = new com.google.android.exoplayer2.util.l(this.mhT.data);
+        this.mlJ = new com.google.android.exoplayer2.util.k(new byte[8]);
+        this.mlK = new com.google.android.exoplayer2.util.l(this.mlJ.data);
         this.state = 0;
         this.language = str;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void cwy() {
+    public void cxF() {
         this.state = 0;
-        this.mhW = 0;
-        this.mhX = false;
+        this.mlM = 0;
+        this.mlN = false;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void a(com.google.android.exoplayer2.extractor.g gVar, w.d dVar) {
-        dVar.dte();
-        this.mhV = dVar.dtg();
-        this.mah = gVar.dJ(dVar.dtf(), 1);
+        dVar.dup();
+        this.mlL = dVar.dur();
+        this.mdY = gVar.dH(dVar.duq(), 1);
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void m(long j, boolean z) {
-        this.lYY = j;
+        this.mcQ = j;
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
     public void I(com.google.android.exoplayer2.util.l lVar) {
-        while (lVar.dwV() > 0) {
+        while (lVar.dyf() > 0) {
             switch (this.state) {
                 case 0:
                     if (!J(lVar)) {
                         break;
                     } else {
                         this.state = 1;
-                        this.mhU.data[0] = Constants.GZIP_CAST_TYPE;
-                        this.mhU.data[1] = 119;
-                        this.mhW = 2;
+                        this.mlK.data[0] = Constants.GZIP_CAST_TYPE;
+                        this.mlK.data[1] = 119;
+                        this.mlM = 2;
                         break;
                     }
                 case 1:
-                    if (!a(lVar, this.mhU.data, 8)) {
+                    if (!a(lVar, this.mlK.data, 8)) {
                         break;
                     } else {
-                        dsP();
-                        this.mhU.setPosition(0);
-                        this.mah.a(this.mhU, 8);
+                        dub();
+                        this.mlK.setPosition(0);
+                        this.mdY.a(this.mlK, 8);
                         this.state = 2;
                         break;
                     }
                 case 2:
-                    int min = Math.min(lVar.dwV(), this.sampleSize - this.mhW);
-                    this.mah.a(lVar, min);
-                    this.mhW = min + this.mhW;
-                    if (this.mhW != this.sampleSize) {
+                    int min = Math.min(lVar.dyf(), this.sampleSize - this.mlM);
+                    this.mdY.a(lVar, min);
+                    this.mlM = min + this.mlM;
+                    if (this.mlM != this.sampleSize) {
                         break;
                     } else {
-                        this.mah.a(this.lYY, 1, this.sampleSize, 0, null);
-                        this.lYY += this.mhY;
+                        this.mdY.a(this.mcQ, 1, this.sampleSize, 0, null);
+                        this.mcQ += this.mlO;
                         this.state = 0;
                         break;
                     }
@@ -91,40 +91,40 @@ public final class b implements h {
     }
 
     @Override // com.google.android.exoplayer2.extractor.f.h
-    public void dsO() {
+    public void dua() {
     }
 
     private boolean a(com.google.android.exoplayer2.util.l lVar, byte[] bArr, int i) {
-        int min = Math.min(lVar.dwV(), i - this.mhW);
-        lVar.D(bArr, this.mhW, min);
-        this.mhW = min + this.mhW;
-        return this.mhW == i;
+        int min = Math.min(lVar.dyf(), i - this.mlM);
+        lVar.C(bArr, this.mlM, min);
+        this.mlM = min + this.mlM;
+        return this.mlM == i;
     }
 
     private boolean J(com.google.android.exoplayer2.util.l lVar) {
-        while (lVar.dwV() > 0) {
-            if (!this.mhX) {
-                this.mhX = lVar.readUnsignedByte() == 11;
+        while (lVar.dyf() > 0) {
+            if (!this.mlN) {
+                this.mlN = lVar.readUnsignedByte() == 11;
             } else {
                 int readUnsignedByte = lVar.readUnsignedByte();
                 if (readUnsignedByte == 119) {
-                    this.mhX = false;
+                    this.mlN = false;
                     return true;
                 }
-                this.mhX = readUnsignedByte == 11;
+                this.mlN = readUnsignedByte == 11;
             }
         }
         return false;
     }
 
-    private void dsP() {
-        this.mhT.setPosition(0);
-        a.C0656a a = com.google.android.exoplayer2.audio.a.a(this.mhT);
-        if (this.lUU == null || a.channelCount != this.lUU.channelCount || a.sampleRate != this.lUU.sampleRate || a.mimeType != this.lUU.sampleMimeType) {
-            this.lUU = Format.a(this.mhV, a.mimeType, null, -1, -1, a.channelCount, a.sampleRate, null, null, 0, this.language);
-            this.mah.h(this.lUU);
+    private void dub() {
+        this.mlJ.setPosition(0);
+        a.C0662a a = com.google.android.exoplayer2.audio.a.a(this.mlJ);
+        if (this.lYL == null || a.channelCount != this.lYL.channelCount || a.sampleRate != this.lYL.sampleRate || a.mimeType != this.lYL.sampleMimeType) {
+            this.lYL = Format.a(this.mlL, a.mimeType, null, -1, -1, a.channelCount, a.sampleRate, null, null, 0, this.language);
+            this.mdY.h(this.lYL);
         }
         this.sampleSize = a.frameSize;
-        this.mhY = (TimeUtils.NANOS_PER_MS * a.sampleCount) / this.lUU.sampleRate;
+        this.mlO = (TimeUtils.NANOS_PER_MS * a.sampleCount) / this.lYL.sampleRate;
     }
 }

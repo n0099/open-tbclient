@@ -1,5 +1,5 @@
 package com.squareup.wire2;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 final class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void checkNotNull(Object obj, String str) {

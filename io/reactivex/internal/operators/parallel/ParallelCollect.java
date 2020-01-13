@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.parallel;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.b.b;
+import io.reactivex.c.b;
 import io.reactivex.internal.subscribers.DeferredScalarSubscriber;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -9,11 +9,11 @@ import io.reactivex.parallel.a;
 import java.util.concurrent.Callable;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ParallelCollect<T, C> extends a<C> {
     final b<? super C, ? super T> collector;
-    final a<? extends T> mVD;
-    final Callable<? extends C> mVE;
+    final a<? extends T> nxM;
+    final Callable<? extends C> nxN;
 
     @Override // io.reactivex.parallel.a
     public void a(c<? super C>[] cVarArr) {
@@ -22,14 +22,14 @@ public final class ParallelCollect<T, C> extends a<C> {
             c<? super Object>[] cVarArr2 = new c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.mVE.call(), "The initialSupplier returned a null value"), this.collector);
+                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.nxN.call(), "The initialSupplier returned a null value"), this.collector);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.I(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.mVD.a(cVarArr2);
+            this.nxM.a(cVarArr2);
         }
     }
 
@@ -40,11 +40,11 @@ public final class ParallelCollect<T, C> extends a<C> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int dDW() {
-        return this.mVD.dDW();
+    public int dIg() {
+        return this.nxM.dIg();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ParallelCollectSubscriber<T, C> extends DeferredScalarSubscriber<T, C> {
         private static final long serialVersionUID = -4767392946044436228L;
         C collection;
@@ -71,7 +71,7 @@ public final class ParallelCollect<T, C> extends a<C> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    this.collector.i((C) this.collection, t);
+                    this.collector.j((C) this.collection, t);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.I(th);
                     cancel();
@@ -83,7 +83,7 @@ public final class ParallelCollect<T, C> extends a<C> {
         @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;

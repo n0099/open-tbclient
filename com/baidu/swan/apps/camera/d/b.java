@@ -2,9 +2,9 @@ package com.baidu.swan.apps.camera.d;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.apps.component.b.b {
-    public String baS;
+    public String bbK;
 
     public b(String str) {
         super("camera", "cameraId");
@@ -18,6 +18,6 @@ public class b extends com.baidu.swan.apps.component.b.b {
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.baS = jSONObject.optString("cameraId");
+        this.bbK = jSONObject.optString("cameraId");
     }
 }

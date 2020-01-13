@@ -6,22 +6,22 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import com.baidu.live.adp.widget.CenterImageSpan;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends b {
     public e(Context context) {
-        super(context, com.baidu.live.im.a.amu);
+        super(context, com.baidu.live.im.a.anh);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void uU() {
-        if (uV()) {
-            uW();
+    protected void vl() {
+        if (vm()) {
+            vn();
         } else {
-            uX();
+            vo();
         }
     }
 
@@ -38,7 +38,7 @@ public class e extends b {
         if (i != null) {
             String str = i.shareText;
             SpannableString valueOf = SpannableString.valueOf(str);
-            if (uV()) {
+            if (vm()) {
                 if (i.shareType != 3) {
                     valueOf.setSpan(new ForegroundColorSpan(-1647769), 0, valueOf.length(), 33);
                 } else {
@@ -57,12 +57,12 @@ public class e extends b {
                 spannableStringBuilder.append((CharSequence) spannableString);
             }
             if (i.shareType != 3) {
-                a(spannableStringBuilder, aVar.uZ(), cVar, false, false);
-                if (uV()) {
-                    uW();
+                a(spannableStringBuilder, aVar.vq(), cVar, false, false);
+                if (vm()) {
+                    vn();
                 }
             }
-            cVar.amJ.setText(spannableStringBuilder);
+            cVar.anw.setText(spannableStringBuilder);
         }
         return spannableStringBuilder;
     }

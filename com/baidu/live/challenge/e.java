@@ -13,7 +13,7 @@ public interface e {
 
     boolean isShowing();
 
-    boolean oV();
+    boolean pc();
 
     void setClickListener(View.OnClickListener onClickListener);
 }

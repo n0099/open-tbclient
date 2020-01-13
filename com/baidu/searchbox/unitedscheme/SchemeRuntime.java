@@ -4,13 +4,13 @@ import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
 import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
 import com.baidu.swan.apps.scheme.b;
 import com.baidu.swan.apps.scheme.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SchemeRuntime {
     public static ISchemeIoc getSchemeIoc() {
-        return d.aaV();
+        return d.abs();
     }
 
     public static ISchemeHeadIoc getSchemeHeadIoc() {
-        return b.aaU();
+        return b.abr();
     }
 }

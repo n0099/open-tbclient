@@ -7,7 +7,7 @@ import android.util.SparseArray;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(14)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TransitionValuesMaps {
     final ArrayMap<View, TransitionValues> mViewValues = new ArrayMap<>();
     final SparseArray<View> mIdValues = new SparseArray<>();

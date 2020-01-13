@@ -1,5 +1,5 @@
 package com.baidu.searchbox.appframework.ext;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface IActionBarExtObject extends IBaseExtObject {
     Object getActionBarExtObject();
 

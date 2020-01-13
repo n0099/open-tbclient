@@ -3,7 +3,7 @@ package com.baidu.swan.games.utils;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.swan.apps.SwanAppActivity;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static void m(SwanAppActivity swanAppActivity) {
         Intent intent;
@@ -18,8 +18,8 @@ public class a {
             }
             bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
             bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
-            com.baidu.swan.apps.runtime.d.ZP().r(new String[0]);
-            com.baidu.swan.apps.runtime.d.ZP().c(bundle, "update_tag_by_activity_on_relaunch");
+            com.baidu.swan.apps.runtime.d.aam().r(new String[0]);
+            com.baidu.swan.apps.runtime.d.aam().c(bundle, "update_tag_by_activity_on_relaunch");
         }
     }
 }

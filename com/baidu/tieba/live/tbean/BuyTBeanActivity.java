@@ -85,4 +85,9 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
             this.buyTBeanController.onKeyboardVisibilityChanged(z);
         }
     }
+
+    @Override // com.baidu.tieba.live.tbean.IBuyTBeanActivity
+    public void setResultIntent(int i, Intent intent) {
+        setResult(i, intent);
+    }
 }

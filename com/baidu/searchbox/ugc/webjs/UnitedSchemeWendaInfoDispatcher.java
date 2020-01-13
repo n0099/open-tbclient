@@ -15,7 +15,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeStatisticUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UnitedSchemeWendaInfoDispatcher extends UnitedSchemeBaseDispatcher {
     private static final String ACTION_GET_DETAIL_PAGE_INFO = "getDetailPageInfo";
     public static final String MODULE_WENDA = "wenda";

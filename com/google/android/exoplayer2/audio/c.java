@@ -7,36 +7,36 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import java.util.Arrays;
 @TargetApi(21)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class c {
-    public static final c lWc = new c(new int[]{2}, 2);
-    private final int[] lWd;
-    private final int lWe;
+    public static final c lZR = new c(new int[]{2}, 2);
+    private final int[] lZS;
+    private final int lZT;
 
-    public static c gq(Context context) {
+    public static c gr(Context context) {
         return aJ(context.registerReceiver(null, new IntentFilter("android.media.action.HDMI_AUDIO_PLUG")));
     }
 
     @SuppressLint({"InlinedApi"})
     static c aJ(Intent intent) {
         if (intent == null || intent.getIntExtra("android.media.extra.AUDIO_PLUG_STATE", 0) == 0) {
-            return lWc;
+            return lZR;
         }
         return new c(intent.getIntArrayExtra("android.media.extra.ENCODINGS"), intent.getIntExtra("android.media.extra.MAX_CHANNEL_COUNT", 0));
     }
 
     c(int[] iArr, int i) {
         if (iArr != null) {
-            this.lWd = Arrays.copyOf(iArr, iArr.length);
-            Arrays.sort(this.lWd);
+            this.lZS = Arrays.copyOf(iArr, iArr.length);
+            Arrays.sort(this.lZS);
         } else {
-            this.lWd = new int[0];
+            this.lZS = new int[0];
         }
-        this.lWe = i;
+        this.lZT = i;
     }
 
-    public boolean IP(int i) {
-        return Arrays.binarySearch(this.lWd, i) >= 0;
+    public boolean IY(int i) {
+        return Arrays.binarySearch(this.lZS, i) >= 0;
     }
 
     public boolean equals(Object obj) {
@@ -45,16 +45,16 @@ public final class c {
         }
         if (obj instanceof c) {
             c cVar = (c) obj;
-            return Arrays.equals(this.lWd, cVar.lWd) && this.lWe == cVar.lWe;
+            return Arrays.equals(this.lZS, cVar.lZS) && this.lZT == cVar.lZT;
         }
         return false;
     }
 
     public int hashCode() {
-        return this.lWe + (Arrays.hashCode(this.lWd) * 31);
+        return this.lZT + (Arrays.hashCode(this.lZS) * 31);
     }
 
     public String toString() {
-        return "AudioCapabilities[maxChannelCount=" + this.lWe + ", supportedEncodings=" + Arrays.toString(this.lWd) + "]";
+        return "AudioCapabilities[maxChannelCount=" + this.lZT + ", supportedEncodings=" + Arrays.toString(this.lZS) + "]";
     }
 }

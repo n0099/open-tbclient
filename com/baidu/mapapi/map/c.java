@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import java.util.concurrent.locks.Lock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c implements com.baidu.mapsdkplatform.comapi.map.o {
     final /* synthetic */ BaiduMap a;
 

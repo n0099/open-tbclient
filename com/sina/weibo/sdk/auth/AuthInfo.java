@@ -7,7 +7,7 @@ import android.os.Parcelable;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.Utility;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AuthInfo implements Parcelable, Serializable {
     public static final Parcelable.Creator<AuthInfo> CREATOR = new Parcelable.Creator<AuthInfo>() { // from class: com.sina.weibo.sdk.auth.AuthInfo.1
         /* JADX DEBUG: Method merged with bridge method */

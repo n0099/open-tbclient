@@ -1,14 +1,14 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.h;
 import io.reactivex.c;
+import io.reactivex.c.h;
 import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableFlatMapCompletable<T> extends a<T, T> {
     final boolean delayErrors;
     final h<? super T, ? extends e> mapper;
@@ -18,7 +18,7 @@ public final class ObservableFlatMapCompletable<T> extends a<T, T> {
         this.source.subscribe(new FlatMapCompletableMainObserver(uVar, this.mapper, this.delayErrors));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapCompletableMainObserver<T> extends BasicIntQueueDisposable<T> implements u<T> {
         private static final long serialVersionUID = 8443155186132538303L;
         final u<? super T> actual;
@@ -77,7 +77,7 @@ public final class ObservableFlatMapCompletable<T> extends a<T, T> {
                 }
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u
@@ -104,17 +104,17 @@ public final class ObservableFlatMapCompletable<T> extends a<T, T> {
             return this.d.isDisposed();
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public T poll() throws Exception {
             return null;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public boolean isEmpty() {
             return true;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public void clear() {
         }
 
@@ -133,7 +133,7 @@ public final class ObservableFlatMapCompletable<T> extends a<T, T> {
             onError(th);
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements c, io.reactivex.disposables.b {
             private static final long serialVersionUID = 8606673141535671828L;
 

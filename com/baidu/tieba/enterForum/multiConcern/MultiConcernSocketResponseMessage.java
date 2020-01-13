@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.MultiConcern.MultiConcernResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MultiConcernSocketResponseMessage extends SocketResponsedMessage {
     public MultiConcernSocketResponseMessage() {
         super(CmdConfigSocket.CMD_FORUM_MULTI_CONCERN);

@@ -258,7 +258,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public static synchronized void initConfig() {
         synchronized (VoiceManager.class) {
             if (!bInitConfig) {
-                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.aCY().getBoolean(SharedPrefConfig.VOICE_SOFT_DECODER, h.hE());
+                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.aDr().getBoolean(SharedPrefConfig.VOICE_SOFT_DECODER, h.hD());
             }
         }
     }
@@ -269,7 +269,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     public static void setVoiceUseSoftDecoder(boolean z) {
         bVoiceUseSoftDecoder = true;
-        com.baidu.tbadk.core.sharedPref.b.aCY().putBoolean(SharedPrefConfig.VOICE_SOFT_DECODER, bVoiceUseSoftDecoder);
+        com.baidu.tbadk.core.sharedPref.b.aDr().putBoolean(SharedPrefConfig.VOICE_SOFT_DECODER, bVoiceUseSoftDecoder);
     }
 
     public static VoiceManager instance() {
@@ -316,7 +316,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void setStatusWaiting(VoiceData.VoiceModel voiceModel) {
         unRegistSensorHandler();
         voiceModel.voice_status = 1;
-        h.ux = 2;
+        h.uA = 2;
         setVolumeControlStream();
         b playView = getPlayView();
         if (playView != null) {
@@ -393,7 +393,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 if (this.context != null && (this.context.getOrignalPage() instanceof com.baidu.adp.base.h)) {
                     bdUniqueId = ((com.baidu.adp.base.h) this.context.getOrignalPage()).getUniqueId();
                 }
-                voiceFilePath = com.baidu.adp.lib.e.c.gs().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                voiceFilePath = com.baidu.adp.lib.e.c.gr().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
             }
             if (voiceModel.isLocal && voiceFilePath == null) {
                 if (this.mPlayCall == null) {
@@ -589,9 +589,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             firstOpenSpeaker();
             if (this.audioManager != null) {
                 if (this.audioManager.isSpeakerphoneOn()) {
-                    h.ux = 3;
+                    h.uA = 3;
                 } else {
-                    h.ux = 0;
+                    h.uA = 0;
                 }
             }
             setVolumeControlStream();
@@ -749,7 +749,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     public void onDestory(TbPageContext<?> tbPageContext) {
         if (this.mCurPlayModel != null) {
-            com.baidu.adp.lib.e.c.gs().g(this.mCurPlayModel.getId(), 23);
+            com.baidu.adp.lib.e.c.gr().g(this.mCurPlayModel.getId(), 23);
         }
         release();
     }
@@ -821,7 +821,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void openSpeaker() {
-        if (this.audioManager != null && h.uw != 2) {
+        if (this.audioManager != null && h.uz != 2) {
             if (TbadkCoreApplication.getInst().isHeadsetModeOn() || TbadkCoreApplication.getInst().getIsPhoneCalling()) {
                 setSpeakerphone(false);
                 this.bSpeakerphoneOn = false;
@@ -830,7 +830,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             try {
                 saveInitVoiceStatus();
                 setSpeakerphone(true);
-                h.ux = 3;
+                h.uA = 3;
                 stopVoiceAndRePlay();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -844,7 +844,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             saveInitVoiceStatus();
             try {
                 setSpeakerphone(false);
-                h.ux = 0;
+                h.uA = 0;
                 stopVoiceAndRePlay();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -857,7 +857,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void setVolumeControlStream() {
         try {
             if (this.context != null && this.context.getPageActivity() != null) {
-                this.context.getPageActivity().setVolumeControlStream(h.ux);
+                this.context.getPageActivity().setVolumeControlStream(h.uA);
             }
         } catch (Exception e) {
             TiebaStatic.voiceError(-1108, "setVolumeControlStream exception: " + e.getMessage(), "");
@@ -899,7 +899,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             try {
                 if (bInitSpeakerphoneOn != null && bInitMode != null && bInitVolume != null) {
                     setSpeakerphone(bInitSpeakerphoneOn.booleanValue());
-                    h.ux = 3;
+                    h.uA = 3;
                     bInitSpeakerphoneOn = null;
                     bInitMode = null;
                     bInitVolume = null;
@@ -1010,7 +1010,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         private a() {
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1366=4, 1367=4] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1367=4, 1368=4] */
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         /* JADX WARN: Removed duplicated region for block: B:48:0x00b0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -1153,8 +1153,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 this.windowManager = (WindowManager) this.context.getContext().getSystemService("window");
             }
             if (g.a(this.context)) {
-                if (!this.isAddScreenView) {
-                    this.windowManager.addView(this.screenView, this.windowParams);
+                try {
+                    if (!this.isAddScreenView) {
+                        if (this.screenView.getParent() != null) {
+                            this.windowManager.removeViewImmediate(this.screenView);
+                        }
+                        this.windowManager.addView(this.screenView, this.windowParams);
+                    }
+                } catch (Exception e) {
                 }
                 this.isAddScreenView = true;
             }

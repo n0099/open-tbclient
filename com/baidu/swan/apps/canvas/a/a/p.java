@@ -2,7 +2,7 @@ package com.baidu.swan.apps.canvas.a.a;
 
 import android.graphics.Canvas;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class p extends a {
     private int mX = Integer.MAX_VALUE;
     private int mY = Integer.MAX_VALUE;
@@ -10,8 +10,8 @@ public class p extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 1) {
-            this.mX = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(0));
-            this.mY = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(1));
+            this.mX = com.baidu.swan.apps.as.af.S((float) jSONArray.optDouble(0));
+            this.mY = com.baidu.swan.apps.as.af.S((float) jSONArray.optDouble(1));
         }
     }
 

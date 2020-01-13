@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.b.g;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m {
     public static final m a = new m() { // from class: com.meizu.cloud.pushsdk.b.g.m.1
         @Override // com.meizu.cloud.pushsdk.b.g.m

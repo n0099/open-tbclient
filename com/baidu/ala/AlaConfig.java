@@ -2,6 +2,7 @@ package com.baidu.ala;
 /* loaded from: classes2.dex */
 public class AlaConfig {
     public static final String ALA_FRS_NEGATIVE_URL = "c/f/video/sendFrsStageFeedBack";
+    public static final String ALA_GAME_LIVE_LIST = "ala/sdk/external/externalLiveList";
     public static final String ALA_GET_BUY_TDOU_PRIVILEGE = "c/e/mema/buyLiveProps";
     public static final String ALA_GET_ENTER_EFFECT = "ala/user/getUserEffectPage";
     public static final String ALA_GET_FRS_BOTTOM_LIVE_TAB = "c/f/frs/getFrsLiveThreads";

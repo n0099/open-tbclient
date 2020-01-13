@@ -5,7 +5,7 @@ import android.support.annotation.DrawableRes;
 import android.view.View;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UgcLightBrowserUiUtils {
     public static void setVerticalThumbDrawable(View view, @DrawableRes int i) {
         setThumbDrawable(view, i);

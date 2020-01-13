@@ -5,7 +5,7 @@ import java.security.MessageDigestSpi;
 import java.security.NoSuchAlgorithmException;
 import org.conscrypt.EvpMdRef;
 import org.conscrypt.NativeRef;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OpenSSLMessageDigestJDK extends MessageDigestSpi implements Cloneable {
     private final NativeRef.EVP_MD_CTX ctx;
     private boolean digestInitializedInContext;
@@ -95,42 +95,42 @@ public class OpenSSLMessageDigestJDK extends MessageDigestSpi implements Cloneab
         return bArr;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class MD5 extends OpenSSLMessageDigestJDK {
         public MD5() throws NoSuchAlgorithmException {
             super(EvpMdRef.MD5.EVP_MD, EvpMdRef.MD5.SIZE_BYTES);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SHA1 extends OpenSSLMessageDigestJDK {
         public SHA1() throws NoSuchAlgorithmException {
             super(EvpMdRef.SHA1.EVP_MD, EvpMdRef.SHA1.SIZE_BYTES);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SHA224 extends OpenSSLMessageDigestJDK {
         public SHA224() throws NoSuchAlgorithmException {
             super(EvpMdRef.SHA224.EVP_MD, EvpMdRef.SHA224.SIZE_BYTES);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SHA256 extends OpenSSLMessageDigestJDK {
         public SHA256() throws NoSuchAlgorithmException {
             super(EvpMdRef.SHA256.EVP_MD, EvpMdRef.SHA256.SIZE_BYTES);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SHA384 extends OpenSSLMessageDigestJDK {
         public SHA384() throws NoSuchAlgorithmException {
             super(EvpMdRef.SHA384.EVP_MD, EvpMdRef.SHA384.SIZE_BYTES);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SHA512 extends OpenSSLMessageDigestJDK {
         public SHA512() throws NoSuchAlgorithmException {
             super(EvpMdRef.SHA512.EVP_MD, EvpMdRef.SHA512.SIZE_BYTES);

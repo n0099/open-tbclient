@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
+import com.baidu.tbadk.core.util.aq;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,6 +76,10 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
 
     public void setBaijiahaoInfo(BaijiahaoInfo baijiahaoInfo) {
         this.baijiahaoInfo = baijiahaoInfo;
+    }
+
+    public boolean isBaijiahaoUser() {
+        return (this.baijiahaoInfo == null || this.baijiahaoInfo.auth_id.intValue() <= 0 || aq.isEmpty(this.baijiahaoInfo.name)) ? false : true;
     }
 
     public void setUserId(String str) {

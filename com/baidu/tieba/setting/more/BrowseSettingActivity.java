@@ -4,37 +4,37 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BrowseSettingActivity extends BaseActivity {
-    private c jNR = null;
+    private c jRu = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jNR = new c(this);
+        this.jRu = new c(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jNR.onChangeSkinType(i);
+        this.jRu.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jNR.cCL()) {
-            this.jNR.cCP();
+        if (view == this.jRu.cDP()) {
+            this.jRu.cDT();
             TiebaStatic.log("c10649");
         }
-        if (view == this.jNR.cCM()) {
-            this.jNR.cCQ();
+        if (view == this.jRu.cDQ()) {
+            this.jRu.cDU();
             TiebaStatic.log("c10653");
-        } else if (view == this.jNR.cCN()) {
-            this.jNR.cCR();
-        } else if (view == this.jNR.cCO()) {
-            this.jNR.cCS();
+        } else if (view == this.jRu.cDR()) {
+            this.jRu.cDV();
+        } else if (view == this.jRu.cDS()) {
+            this.jRu.cDW();
         }
     }
 }

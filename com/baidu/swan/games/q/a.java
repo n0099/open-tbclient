@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.ResponseCallback;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.swan.games.bdtls.b.a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -14,11 +14,11 @@ public class a extends com.baidu.swan.games.bdtls.b.a {
             Log.d("requestWithUrlAndBody", "url:" + str + "\nbody:" + str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            if (com.baidu.swan.games.bdtls.c.aiY().oa(str)) {
+            if (com.baidu.swan.games.bdtls.c.ajr().od(str)) {
                 a(str, str2, responseCallback);
                 return;
             }
-            HttpManager.getDefault(AppRuntime.getAppContext()).postStringRequest().url(str).cookieManager(com.baidu.swan.apps.w.a.RI().FH()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+            HttpManager.getDefault(AppRuntime.getAppContext()).postStringRequest().url(str).cookieManager(com.baidu.swan.apps.w.a.Se().Gd()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
     }
 }

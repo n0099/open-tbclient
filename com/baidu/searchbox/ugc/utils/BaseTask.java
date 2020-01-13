@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ugc.utils;
 
 import android.os.AsyncTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseTask extends AsyncTask<Void, Void, Result> {
     protected String error = "";
     protected boolean interrupt = false;
@@ -25,7 +25,7 @@ public abstract class BaseTask extends AsyncTask<Void, Void, Result> {
         this.resultListener = onTaskResultListener;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class Result {
         public boolean isSuccess;
         public Object list;

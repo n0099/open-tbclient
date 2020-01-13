@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 class a {
-    private static ArrayList<a> auz = new ArrayList<>(5);
-    public int auD;
-    public int auE;
-    int auF;
+    private static ArrayList<a> avl = new ArrayList<>(5);
+    public int avp;
+    public int avq;
+    int avr;
     public int type;
 
     private void resetState() {
-        this.auD = 0;
-        this.auE = 0;
-        this.auF = 0;
+        this.avp = 0;
+        this.avq = 0;
+        this.avr = 0;
         this.type = 0;
     }
 
@@ -21,30 +21,30 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long xh() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.auD, this.auE) : ExpandableListView.getPackedPositionForGroup(this.auD);
+    public long xx() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.avp, this.avq) : ExpandableListView.getPackedPositionForGroup(this.avp);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a cg(int i) {
+    public static a ch(int i) {
         return g(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a g(int i, int i2, int i3, int i4) {
-        a xi = xi();
-        xi.type = i;
-        xi.auD = i2;
-        xi.auE = i3;
-        xi.auF = i4;
-        return xi;
+        a xy = xy();
+        xy.type = i;
+        xy.avp = i2;
+        xy.avq = i3;
+        xy.avr = i4;
+        return xy;
     }
 
-    private static a xi() {
+    private static a xy() {
         a aVar;
-        synchronized (auz) {
-            if (auz.size() > 0) {
-                aVar = auz.remove(0);
+        synchronized (avl) {
+            if (avl.size() > 0) {
+                aVar = avl.remove(0);
                 aVar.resetState();
             } else {
                 aVar = new a();
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (auz) {
-            if (auz.size() < 5) {
-                auz.add(this);
+        synchronized (avl) {
+            if (avl.size() < 5) {
+                avl.add(this);
             }
         }
     }

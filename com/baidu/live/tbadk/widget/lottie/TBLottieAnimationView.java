@@ -1,9 +1,9 @@
 package com.baidu.live.tbadk.widget.lottie;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.k.a.a;
 import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.live.adp.lib.util.BdStringHelper;
 import com.baidu.live.tbadk.TbConfig;
@@ -12,41 +12,31 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationLoader;
 import com.tb.airbnb.lottie.LottieAnimationView;
-import com.tb.airbnb.lottie.a;
+import com.tb.airbnb.lottie.d;
 import com.tb.airbnb.lottie.e;
 import com.tb.airbnb.lottie.h;
 import java.io.File;
 import java.io.InputStream;
-import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes2.dex */
 public class TBLottieAnimationView extends LottieAnimationView {
     private static final String DIR_ANIMATION = "animation";
+    public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
     public static final String JSON_FILE = "data.json";
-    private LottieAnimationView.CacheStrategy defaultCacheStrategy;
     private boolean isFirstLoadInternal;
     private boolean isSettingForPlay;
-    private LottieAnimationView.CacheStrategy mCacheStrategy;
-    private a mCompositionLoader;
     private TBLottieAnimationLoader.OnLoadedCallback mLoadCallback;
     private TBLottieAnimationLoader mLoader;
     private String mUrl;
-    private static final Map<String, e> REMOTE_STRONG_REF_CACHE = new HashMap();
-    private static final Map<String, WeakReference<e>> REMOTE_WEAK_REF_CACHE = new HashMap();
-    public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
 
     public TBLottieAnimationView(Context context) {
         super(context);
-        this.defaultCacheStrategy = LottieAnimationView.CacheStrategy.Weak;
-        this.mCacheStrategy = this.defaultCacheStrategy;
         this.isSettingForPlay = false;
         this.isFirstLoadInternal = false;
         this.mLoadCallback = new TBLottieAnimationLoader.OnLoadedCallback() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.1
             @Override // com.baidu.live.tbadk.widget.lottie.TBLottieAnimationLoader.OnLoadedCallback
             public void onLoaded(boolean z, String str) {
                 if (z && !StringHelper.isEmpty(str)) {
-                    TBLottieAnimationView.this.setAnimationDir(str, TBLottieAnimationView.this.mCacheStrategy);
+                    TBLottieAnimationView.this.setAnimationDir(str);
                 }
             }
         };
@@ -54,15 +44,13 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public TBLottieAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.defaultCacheStrategy = LottieAnimationView.CacheStrategy.Weak;
-        this.mCacheStrategy = this.defaultCacheStrategy;
         this.isSettingForPlay = false;
         this.isFirstLoadInternal = false;
         this.mLoadCallback = new TBLottieAnimationLoader.OnLoadedCallback() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.1
             @Override // com.baidu.live.tbadk.widget.lottie.TBLottieAnimationLoader.OnLoadedCallback
             public void onLoaded(boolean z, String str) {
                 if (z && !StringHelper.isEmpty(str)) {
-                    TBLottieAnimationView.this.setAnimationDir(str, TBLottieAnimationView.this.mCacheStrategy);
+                    TBLottieAnimationView.this.setAnimationDir(str);
                 }
             }
         };
@@ -70,22 +58,16 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public TBLottieAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.defaultCacheStrategy = LottieAnimationView.CacheStrategy.Weak;
-        this.mCacheStrategy = this.defaultCacheStrategy;
         this.isSettingForPlay = false;
         this.isFirstLoadInternal = false;
         this.mLoadCallback = new TBLottieAnimationLoader.OnLoadedCallback() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.1
             @Override // com.baidu.live.tbadk.widget.lottie.TBLottieAnimationLoader.OnLoadedCallback
             public void onLoaded(boolean z, String str) {
                 if (z && !StringHelper.isEmpty(str)) {
-                    TBLottieAnimationView.this.setAnimationDir(str, TBLottieAnimationView.this.mCacheStrategy);
+                    TBLottieAnimationView.this.setAnimationDir(str);
                 }
             }
         };
-    }
-
-    public void setAnimationUrl(String str) {
-        setAnimationUrl(str, this.defaultCacheStrategy);
     }
 
     public static String getAnimationPath() {
@@ -121,19 +103,18 @@ public class TBLottieAnimationView extends LottieAnimationView {
         return null;
     }
 
-    public void setAnimationUrl(String str, LottieAnimationView.CacheStrategy cacheStrategy) {
+    public void setAnimationUrl(String str) {
         if (!StringHelper.isEmpty(str) && !str.equals(this.mUrl)) {
             this.mUrl = str;
-            this.mCacheStrategy = cacheStrategy;
             this.mLoader = new TBLottieAnimationLoader(getAnimationPath(), str, this.mLoadCallback);
             this.mLoader.execute(new Void[0]);
         }
     }
 
-    public void setAnimationDir(String str, LottieAnimationView.CacheStrategy cacheStrategy) {
+    public void setAnimationDir(String str) {
         if (!StringHelper.isEmpty(str)) {
             dealImageAsset(str);
-            dealJsonFile(str, cacheStrategy);
+            dealJsonFile(str);
         }
     }
 
@@ -146,34 +127,18 @@ public class TBLottieAnimationView extends LottieAnimationView {
         }
     }
 
-    private void dealJsonFile(final String str, final LottieAnimationView.CacheStrategy cacheStrategy) {
-        e eVar;
+    private void dealJsonFile(String str) {
         if (!StringHelper.isEmpty(str)) {
-            if (REMOTE_WEAK_REF_CACHE.containsKey(str)) {
-                e eVar2 = REMOTE_WEAK_REF_CACHE.get(str).get();
-                if (eVar2 != null) {
-                    setComposition(eVar2);
-                    return;
-                }
-            } else if (REMOTE_STRONG_REF_CACHE.containsKey(str) && (eVar = REMOTE_STRONG_REF_CACHE.get(str)) != null) {
-                setComposition(eVar);
-                return;
-            }
             final boolean z = this.isSettingForPlay;
             cancelAnimation();
-            cancelCompositionLoader();
             InputStream animationInputStream = getAnimationInputStream(str, JSON_FILE);
             if (animationInputStream != null) {
-                this.mCompositionLoader = e.a.a(getContext(), animationInputStream, new h() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.2
+                e.h(animationInputStream, str).a(new h<d>() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.2
+                    /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.tb.airbnb.lottie.h
-                    public void onCompositionLoaded(@Nullable e eVar3) {
-                        if (eVar3 != null) {
-                            if (cacheStrategy == LottieAnimationView.CacheStrategy.Weak) {
-                                TBLottieAnimationView.REMOTE_WEAK_REF_CACHE.put(str, new WeakReference(eVar3));
-                            } else if (cacheStrategy == LottieAnimationView.CacheStrategy.Strong) {
-                                TBLottieAnimationView.REMOTE_STRONG_REF_CACHE.put(str, eVar3);
-                            }
-                            TBLottieAnimationView.this.setComposition(eVar3);
+                    public void onResult(d dVar) {
+                        if (dVar != null) {
+                            TBLottieAnimationView.this.setComposition(dVar);
                             if (z) {
                                 TBLottieAnimationView.this.playAnimation();
                             }
@@ -184,15 +149,8 @@ public class TBLottieAnimationView extends LottieAnimationView {
         }
     }
 
-    private void cancelCompositionLoader() {
-        if (this.mCompositionLoader != null) {
-            this.mCompositionLoader.cancel();
-            this.mCompositionLoader = null;
-        }
-    }
-
     private boolean checkPermission() {
-        return com.baidu.k.a.a.checkPermissionGranted(getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
+        return a.checkPermissionGranted(getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
     }
 
     @Override // com.tb.airbnb.lottie.LottieAnimationView

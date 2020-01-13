@@ -4,7 +4,7 @@ import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class VEventResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser

@@ -17,7 +17,7 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.GradientType;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class g implements d, j, a.InterfaceC0010a {
     private final com.airbnb.lottie.model.layer.a fG;
     private final com.airbnb.lottie.a.b.a<Integer, Integer> fK;
@@ -178,7 +178,7 @@ public class g implements d, j, a.InterfaceC0010a {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (t == com.airbnb.lottie.k.fk) {
+        if (t == com.airbnb.lottie.k.fj) {
             if (cVar == null) {
                 this.fN = null;
                 return;

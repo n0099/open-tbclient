@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk.performance;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface PagePerformanceTiming {
     PagePerformanceTimingData getTimingData(String str);
 

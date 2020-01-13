@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.RecommendForumListForBottle.DataReq;
 import tbclient.RecommendForumListForBottle.RecommendForumListForBottleReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GetBottleForumListReqMessage extends NetMessage {
     private BdUniqueId mRequestId;
 

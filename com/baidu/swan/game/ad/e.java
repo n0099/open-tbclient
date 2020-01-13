@@ -6,14 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.swan.game.ad.c;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends b {
     public e(Context context, AdElementInfo adElementInfo) {
         super(context, adElementInfo);
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public View ahu() {
+    public View ahN() {
         return LayoutInflater.from(this.mContext).inflate(c.f.ng_game_portrait_por_play, (ViewGroup) null);
     }
 }

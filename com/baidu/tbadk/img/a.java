@@ -9,16 +9,16 @@ import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private final f dwj;
+    private final f dwr;
     private String mPath;
     public T progessObject;
-    private WeakReference<InterfaceC0380a<T>> mUploadProgressCallback = null;
-    private c dwh = null;
-    private a<T>.b dwi = null;
+    private WeakReference<InterfaceC0382a<T>> mUploadProgressCallback = null;
+    private c dwp = null;
+    private a<T>.b dwq = null;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0380a<T> {
+    public interface InterfaceC0382a<T> {
         void onImageProgessInUI(int i, T t);
     }
 
@@ -30,18 +30,18 @@ public class a<T> {
     public a(String str, String str2) {
         this.mPath = null;
         this.mPath = str;
-        this.dwj = new f(str2);
+        this.dwr = new f(str2);
     }
 
     public void setServersideResize(int i, int i2, int i3, int i4) {
-        this.dwj.setServersideResize(i, i2, i3, i4);
+        this.dwr.setServersideResize(i, i2, i3, i4);
     }
 
     public void loadPic(boolean z) {
-        if (this.dwi == null) {
-            this.dwi = new b();
-            this.dwi.setIsNeedAddWater(z);
-            this.dwi.execute(new String[0]);
+        if (this.dwq == null) {
+            this.dwq = new b();
+            this.dwq.setIsNeedAddWater(z);
+            this.dwq.execute(new String[0]);
         }
     }
 
@@ -62,12 +62,12 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: x */
         public ImageUploadResult doInBackground(String... strArr) {
-            return aNa();
+            return aNt();
         }
 
-        private ImageUploadResult aNa() {
-            a.this.dwj.a(this, null);
-            ImageUploadResult U = a.this.dwj.U(a.this.mPath, this.isNeedAddWater);
+        private ImageUploadResult aNt() {
+            a.this.dwr.a(this, null);
+            ImageUploadResult U = a.this.dwr.U(a.this.mPath, this.isNeedAddWater);
             publishProgress(100);
             return U;
         }
@@ -91,7 +91,7 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onProgressUpdate(Integer... numArr) {
             if (numArr != null && numArr.length != 0 && a.this.mUploadProgressCallback != null && a.this.mUploadProgressCallback.get() != null) {
-                ((InterfaceC0380a) a.this.mUploadProgressCallback.get()).onImageProgessInUI(numArr[0].intValue(), a.this.progessObject);
+                ((InterfaceC0382a) a.this.mUploadProgressCallback.get()).onImageProgessInUI(numArr[0].intValue(), a.this.progessObject);
             }
         }
 
@@ -99,19 +99,19 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (a.this.dwh != null) {
+            if (a.this.dwp != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
                 imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
-                a.this.dwh.a(a.this.mPath, imageUploadResult);
+                a.this.dwp.a(a.this.mPath, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            a.this.dwi = null;
-            a.this.dwj.cancel();
+            a.this.dwq = null;
+            a.this.dwr.cancel();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -120,29 +120,29 @@ public class a<T> {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            a.this.dwi = null;
-            if (a.this.dwh != null) {
+            a.this.dwq = null;
+            if (a.this.dwp != null) {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
                     imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
                     TiebaStatic.imgError(-1002, imageUploadResult.error_msg, "");
                 }
-                a.this.dwh.a(a.this.mPath, imageUploadResult);
+                a.this.dwp.a(a.this.mPath, imageUploadResult);
             }
         }
     }
 
-    public void a(InterfaceC0380a<T> interfaceC0380a) {
-        this.mUploadProgressCallback = new WeakReference<>(interfaceC0380a);
+    public void a(InterfaceC0382a<T> interfaceC0382a) {
+        this.mUploadProgressCallback = new WeakReference<>(interfaceC0382a);
     }
 
     public void a(c cVar) {
-        this.dwh = cVar;
+        this.dwp = cVar;
     }
 
     public void setGroupId(String str) {
-        this.dwj.setGroupId(str);
+        this.dwr.setGroupId(str);
     }
 
     public T getProgessObject() {
@@ -154,8 +154,8 @@ public class a<T> {
     }
 
     public void setServerResizeForIMImage() {
-        LocalViewSize.ImageSize aDz = LocalViewSize.aDy().aDz();
-        LocalViewSize.ImageSize aDA = LocalViewSize.aDy().aDA();
-        setServersideResize(aDA.width, aDA.height, aDz.width, aDz.height);
+        LocalViewSize.ImageSize aDS = LocalViewSize.aDR().aDS();
+        LocalViewSize.ImageSize aDT = LocalViewSize.aDR().aDT();
+        setServersideResize(aDT.width, aDT.height, aDS.width, aDS.height);
     }
 }

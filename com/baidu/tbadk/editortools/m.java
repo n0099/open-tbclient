@@ -3,13 +3,13 @@ package com.baidu.tbadk.editortools;
 public interface m extends b {
     void b(a aVar);
 
+    void display();
+
     int getToolId();
 
     void hide();
 
     void init();
-
-    void lw();
 
     void onChangeSkinType(int i);
 

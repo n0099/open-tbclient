@@ -1,5 +1,5 @@
 package io.reactivex.internal.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum ErrorMode {
     IMMEDIATE,
     BOUNDARY,

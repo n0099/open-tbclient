@@ -17,14 +17,14 @@ import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static e a = null;
     private static final Object b = new Object();
     private static int c = 200;
 
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     enum EnumC0039a {
         alarmMsgInfoId,
         msgId,
@@ -36,7 +36,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum b {
         appInfoId,
         appid,
@@ -50,7 +50,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum c {
         actionId,
         actionName,
@@ -70,7 +70,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class d implements DatabaseErrorHandler {
         private d() {
         }
@@ -140,7 +140,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class e extends SQLiteOpenHelper {
         private static final String a = "CREATE TABLE StatisticsInfo (" + i.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + i.packageName.name() + " TEXT NOT NULL, " + i.open_type.name() + " TEXT NOT NULL, " + i.msgid.name() + " TEXT, " + i.app_open_time.name() + " TEXT NOT NULL, " + i.app_close_time.name() + " TEXT NOT NULL, " + i.use_duration.name() + " TEXT NOT NULL, " + i.extra.name() + " TEXT);";
         private static final String b = "CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.packageName.name() + " TEXT, " + c.openByPackageName.name() + " TEXT);";
@@ -192,7 +192,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     enum f {
         belongTo,
         downloadUrl,
@@ -207,7 +207,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum g {
         MsgInfoId,
         msgId,
@@ -215,7 +215,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum h {
         pkgName,
         startHour,
@@ -224,7 +224,7 @@ public class a {
         endMinute
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     enum i {
         info_id,
         packageName,

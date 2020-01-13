@@ -4,7 +4,7 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CheckResponse extends JsonHttpResponsedMessage {
     private c mCheckResponseData;
 
@@ -21,10 +21,10 @@ public class CheckResponse extends JsonHttpResponsedMessage {
                 this.mCheckResponseData = new c();
                 this.mCheckResponseData.appKey = jSONObject.optString("tbopen_app_key");
                 this.mCheckResponseData.appName = jSONObject.optString("tbopen_app_name");
-                this.mCheckResponseData.kKF = jSONObject.optString("tbopen_app_icon");
+                this.mCheckResponseData.kOg = jSONObject.optString("tbopen_app_icon");
                 JSONObject optJSONObject = jSONObject.optJSONObject("config");
                 if (optJSONObject != null) {
-                    this.mCheckResponseData.kKH = optJSONObject.optString("default_pic");
+                    this.mCheckResponseData.kOi = optJSONObject.optString("default_pic");
                 }
             }
         }

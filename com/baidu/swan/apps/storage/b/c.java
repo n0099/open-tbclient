@@ -1,25 +1,25 @@
 package com.baidu.swan.apps.storage.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface c {
-    String acC();
+    void aA(long j);
 
-    boolean aw(long j);
+    String acZ();
 
-    void ax(long j);
+    boolean az(long j);
 
-    boolean lC(String str);
+    boolean lF(String str);
 
-    String lH(String str);
-
-    String lO(String str);
-
-    String lP(String str);
-
-    String lQ(String str);
+    String lK(String str);
 
     String lR(String str);
 
     String lS(String str);
 
     String lT(String str);
+
+    String lU(String str);
+
+    String lV(String str);
+
+    String lW(String str);
 }

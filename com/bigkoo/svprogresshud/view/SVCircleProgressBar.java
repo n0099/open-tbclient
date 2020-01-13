@@ -8,7 +8,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.bigkoo.svprogresshud.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SVCircleProgressBar extends View {
     public static final int FILL = 1;
     public static final int STROKE = 0;

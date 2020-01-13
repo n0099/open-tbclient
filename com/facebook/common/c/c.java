@@ -1,5 +1,5 @@
 package com.facebook.common.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface c {
     void d(String str, String str2);
 
@@ -9,7 +9,7 @@ public interface c {
 
     void f(String str, String str2, Throwable th);
 
-    void fa(String str, String str2);
+    void fc(String str, String str2);
 
     void g(String str, String str2, Throwable th);
 

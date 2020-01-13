@@ -5,18 +5,18 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class k {
-    private SQLiteDatabase kRz = f.cUV().cUW();
+    private SQLiteDatabase kVa = f.cVY().cVZ();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(l lVar) {
-        this.kRz.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
+        this.kVa.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<l> cUU() {
-        Cursor rawQuery = this.kRz.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+    public final List<l> cVX() {
+        Cursor rawQuery = this.kVa.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             l lVar = new l();
@@ -34,6 +34,6 @@ final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.kRz.execSQL("delete from tb_ab_page_log where _id <= " + i);
+        this.kVa.execSQL("delete from tb_ab_page_log where _id <= " + i);
     }
 }

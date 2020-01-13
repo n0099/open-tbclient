@@ -14,7 +14,7 @@ import android.widget.FrameLayout;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.b.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final boolean mIsDebug = com.baidu.swan.apps.b.DEBUG;
     private Context mContext;

@@ -2,9 +2,9 @@ package com.baidu.crabsdk.b;
 
 import android.os.Environment;
 import android.os.StatFs;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class q {
-    public static String nz() {
+    public static String nA() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             long blockCount = statFs.getBlockCount() * statFs.getBlockSize();

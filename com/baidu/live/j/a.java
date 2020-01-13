@@ -1,68 +1,78 @@
 package com.baidu.live.j;
 
-import android.os.Handler;
-import android.os.Message;
-import android.text.TextUtils;
-import android.util.Base64;
+import com.baidu.live.adp.BdUniqueId;
+import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.log.LogConfig;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes2.dex */
-public class a {
-    private static Handler handler = new Handler() { // from class: com.baidu.live.j.a.1
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            String str;
-            switch (message.what) {
-                case 1:
-                    String[] strArr = (String[]) message.obj;
-                    String str2 = strArr[0];
-                    String str3 = strArr[1];
-                    if (strArr.length <= 2) {
-                        str = "";
+public class a extends BdBaseModel {
+    private InterfaceC0082a asE;
+    private HttpMessageListener asF = new HttpMessageListener(1021154) { // from class: com.baidu.live.j.a.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021154 && (httpResponsedMessage.getOrginalMessage() instanceof com.baidu.live.message.a) && a.this.asE != null) {
+                com.baidu.live.message.a aVar = (com.baidu.live.message.a) httpResponsedMessage.getOrginalMessage();
+                if (aVar.getTag() == a.this.aoz) {
+                    if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
+                        a.this.asE.onFailed(httpResponsedMessage.getErrorString());
+                    } else if (httpResponsedMessage.getError() == 0) {
+                        a.this.asE.onSuccess(aVar.wv());
                     } else {
-                        str = strArr[2];
+                        a.this.asE.onFailed(httpResponsedMessage.getErrorString());
                     }
-                    HttpMessage httpMessage = new HttpMessage(1021128);
-                    httpMessage.addParam("live_id", str2);
-                    httpMessage.addParam("content_type", str3);
-                    if (!TextUtils.isEmpty(str)) {
-                        httpMessage.addParam("ext", str);
-                    }
-                    MessageManager.getInstance().sendMessage(httpMessage);
-                    return;
-                default:
-                    return;
+                }
             }
         }
     };
+    private BdUniqueId aoz = BdUniqueId.gen();
 
-    public static void V(String str, String str2) {
-        Message message = new Message();
-        message.what = 1;
-        message.obj = new String[]{str, str2};
-        handler.sendMessage(message);
+    /* renamed from: com.baidu.live.j.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0082a {
+        void onFailed(String str);
+
+        void onSuccess(int i);
     }
 
-    public static void a(String str, long j, long j2, String str2) {
-        Message message = new Message();
-        message.what = 1;
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("live_id", str);
-            jSONObject.put("red_packet_id", j + "");
-            jSONObject.put("anchor_id", TbadkCoreApplication.getCurrentAccount());
-            jSONObject.put(LogConfig.LOG_AMOUNT, j2 + "");
-        } catch (JSONException e) {
+    public a() {
+        setUniqueId(this.aoz);
+        rT();
+        registerListener(this.asF);
+    }
+
+    private void rT() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021154, TbConfig.SERVER_ADDRESS + "ala/sdk/notice/updateAutomaticStatus");
+        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public void i(String str, int i, int i2) {
+        sendMessage(new com.baidu.live.message.a(str, i, i2));
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    protected boolean loadData() {
+        return false;
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void a(InterfaceC0082a interfaceC0082a) {
+        this.asE = interfaceC0082a;
+    }
+
+    public void onDestroy() {
+        cancelMessage();
+        if (this.asF != null) {
+            MessageManager.getInstance().unRegisterListener(this.asF);
         }
-        TbadkCoreApplication.getCurrentAccount();
-        message.obj = new String[]{str, str2, Base64.encodeToString(jSONObject.toString().getBytes(), 0)};
-        handler.sendMessage(message);
-    }
-
-    public static void init() {
     }
 }

@@ -7,7 +7,7 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.PolystarShape;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class m implements j, l, a.InterfaceC0010a {
     @Nullable
     private r fP;
@@ -271,19 +271,19 @@ public class m implements j, l, a.InterfaceC0010a {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (t == com.airbnb.lottie.k.eZ) {
+        if (t == com.airbnb.lottie.k.eY) {
             this.gl.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fb) {
+        } else if (t == com.airbnb.lottie.k.eZ) {
             this.gm.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eS) {
+        } else if (t == com.airbnb.lottie.k.eR) {
             this.fT.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fd && this.gn != null) {
+        } else if (t == com.airbnb.lottie.k.fb && this.gn != null) {
             this.gn.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fe) {
+        } else if (t == com.airbnb.lottie.k.fd) {
             this.go.a(cVar);
-        } else if (t == com.airbnb.lottie.k.ff && this.gp != null) {
+        } else if (t == com.airbnb.lottie.k.fe && this.gp != null) {
             this.gp.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fg) {
+        } else if (t == com.airbnb.lottie.k.ff) {
             this.gq.a(cVar);
         }
     }

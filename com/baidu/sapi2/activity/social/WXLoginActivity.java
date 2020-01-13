@@ -21,7 +21,7 @@ import com.baidu.sapi2.views.LoadingDialog;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WXLoginActivity extends BaseSSOLoginActivity {
     public static final String KEY_BASE_RESP_CODE = "code";
     public static final String KEY_BASE_RESP_ERROR_CODE = "error_code";

@@ -1,5 +1,5 @@
 package com.baidu.swan.pms.model;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class h extends e {
     public String appKey;
     public String appName;
@@ -7,11 +7,11 @@ public class h extends e {
     public long maxAge;
     public String token;
 
-    public long ara() {
+    public long art() {
         return System.currentTimeMillis() / 1000;
     }
 
-    public boolean arb() {
-        return ara() - this.updateTime > this.maxAge;
+    public boolean aru() {
+        return art() - this.updateTime > this.maxAge;
     }
 }

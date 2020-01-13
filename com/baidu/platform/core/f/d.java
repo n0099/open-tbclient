@@ -8,7 +8,7 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.platform.base.e;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends e {
     public d(SuggestionSearchOption suggestionSearchOption) {
         a(suggestionSearchOption);

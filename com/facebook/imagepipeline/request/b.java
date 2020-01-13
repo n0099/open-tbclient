@@ -1,5 +1,14 @@
 package com.facebook.imagepipeline.request;
-/* loaded from: classes9.dex */
-public interface b extends a {
-    void a(c cVar);
+
+import android.graphics.Bitmap;
+import com.facebook.imagepipeline.b.f;
+import javax.annotation.Nullable;
+/* loaded from: classes10.dex */
+public interface b {
+    com.facebook.common.references.a<Bitmap> a(Bitmap bitmap, f fVar);
+
+    @Nullable
+    com.facebook.cache.common.b dqg();
+
+    String getName();
 }

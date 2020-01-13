@@ -1,50 +1,24 @@
 package com.baidu.live.o;
-
-import android.graphics.drawable.Drawable;
-import com.baidu.live.t.a;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.util.IResourceAdapter;
-import com.baidu.live.tbadk.widget.CommonEmptyView;
 /* loaded from: classes2.dex */
-public class a implements IResourceAdapter {
-    @Override // com.baidu.live.tbadk.util.IResourceAdapter
-    public Drawable getEmotionDrawable(CommonEmptyView.ImgType imgType, CommonEmptyView.StyleType styleType) {
-        int i = 0;
-        if (styleType == CommonEmptyView.StyleType.DARK) {
-            if (imgType == CommonEmptyView.ImgType.NO_NET) {
-                i = a.b.sdk_pic_live_empty01_d_tb;
-            } else if (imgType == CommonEmptyView.ImgType.SERVER_ERROR) {
-                i = a.b.sdk_pic_live_empty02_d_tb;
-            } else if (imgType == CommonEmptyView.ImgType.NO_DATA) {
-                i = a.b.sdk_pic_live_empty03_d_tb;
-            } else if (imgType == CommonEmptyView.ImgType.NO_RANK_LIST) {
-                i = a.b.sdk_pic_live_empty04_d_tb;
-            } else if (imgType == CommonEmptyView.ImgType.NO_FOLLOW) {
-                i = a.b.sdk_pic_live_empty05_d_tb;
-            } else if (imgType == CommonEmptyView.ImgType.NO_FAN) {
-                i = a.b.sdk_pic_live_empty06_d_tb;
-            }
-        } else if (imgType == CommonEmptyView.ImgType.NO_NET) {
-            i = a.b.sdk_pic_live_empty01_tb;
-        } else if (imgType == CommonEmptyView.ImgType.SERVER_ERROR) {
-            i = a.b.sdk_pic_live_empty02_tb;
-        } else if (imgType == CommonEmptyView.ImgType.NO_DATA) {
-            i = a.b.sdk_pic_live_empty03_tb;
-        } else if (imgType == CommonEmptyView.ImgType.NO_RANK_LIST) {
-            i = a.b.sdk_pic_live_empty04_tb;
-        } else if (imgType == CommonEmptyView.ImgType.NO_FOLLOW) {
-            i = a.b.sdk_pic_live_empty05_tb;
-        } else if (imgType == CommonEmptyView.ImgType.NO_FAN) {
-            i = a.b.sdk_pic_live_empty06_tb;
-        }
-        if (i == 0) {
-            return null;
-        }
-        try {
-            return TbadkCoreApplication.getInst().getResources().getDrawable(i);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+public class a {
+    private b atg;
+    private c ath;
+
+    public static a wN() {
+        return C0085a.ati;
+    }
+
+    public void a(c cVar) {
+        this.ath = cVar;
+    }
+
+    public b wO() {
+        return this.atg;
+    }
+
+    /* renamed from: com.baidu.live.o.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static class C0085a {
+        private static final a ati = new a();
     }
 }

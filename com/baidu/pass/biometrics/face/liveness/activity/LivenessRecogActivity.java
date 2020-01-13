@@ -78,7 +78,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 @TargetApi(3)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LivenessRecogActivity extends LivenessBaseActivity implements Handler.Callback {
     private static final int COUNTDOWNINTERVAL = 200;
     public static final String EXTRA_TIME_POINT_START = "time_point_start";
@@ -863,7 +863,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private class FaceRecognitionTask extends AsyncTask<Void, Void, String> {
         private FaceRecognitionTask() {
         }
@@ -892,7 +892,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class TimeCount extends CountDownTimer {
         public TimeCount(long j, long j2) {
             super(j, j2);
@@ -1808,7 +1808,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class ProcessState {
         static final int DEFAULT_WHOLE_PROCESS_TIME_OUT = 20000;
         static final int LIVENESS_RECOG_MIN_TIME = 5000;
@@ -1841,7 +1841,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class AnimState {
         private static final int POSE_BOTTOM_TO_MIDDLE = 0;
         private static final int POSE_MIDDLE_TO_TOP = 1;

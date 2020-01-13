@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AddressListActivity extends BaseFragmentActivity {
     private NavigationBar mNavigationBar;
 

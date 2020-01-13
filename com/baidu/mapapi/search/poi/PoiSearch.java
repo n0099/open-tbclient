@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.poi;
 
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PoiSearch extends l {
     private boolean b = false;
     private com.baidu.platform.core.c.a a = new com.baidu.platform.core.c.f();

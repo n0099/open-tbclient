@@ -8,15 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
-    private com.baidu.swan.games.view.recommend.model.a cpD;
-    private InterfaceC0339a cpU;
+    private com.baidu.swan.games.view.recommend.model.a cpP;
+    private InterfaceC0341a cqg;
     private LayoutInflater mInflater;
 
     /* renamed from: com.baidu.swan.games.view.recommend.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0339a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0341a {
         void hQ(int i);
     }
 
@@ -35,40 +35,40 @@ public class a extends RecyclerView.Adapter<d> implements View.OnClickListener {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(d dVar, int i) {
-        RecommendItemModel recommendItemModel = this.cpD.cqg.get(i);
+        RecommendItemModel recommendItemModel = this.cpP.cqs.get(i);
         if (recommendItemModel != null) {
-            dVar.cpS.setImageURI(recommendItemModel.iconUrl);
-            dVar.cpT.setText(recommendItemModel.appName);
-            dVar.cqd.setText(recommendItemModel.desc);
-            dVar.cqe.setText(recommendItemModel.buttonText);
+            dVar.cqe.setImageURI(recommendItemModel.iconUrl);
+            dVar.cqf.setText(recommendItemModel.appName);
+            dVar.cqp.setText(recommendItemModel.desc);
+            dVar.cqq.setText(recommendItemModel.buttonText);
             dVar.itemView.setTag(Integer.valueOf(i));
-            dVar.cqe.setTag(Integer.valueOf(i));
+            dVar.cqq.setTag(Integer.valueOf(i));
             dVar.itemView.setOnClickListener(this);
-            dVar.cqe.setOnClickListener(this);
+            dVar.cqq.setOnClickListener(this);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.cpD == null || this.cpD.cqg == null) {
+        if (this.cpP == null || this.cpP.cqs == null) {
             return 0;
         }
-        return this.cpD.cqg.size();
+        return this.cpP.cqs.size();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cpU != null && view != null && (view.getTag() instanceof Integer)) {
-            this.cpU.hQ(((Integer) view.getTag()).intValue());
+        if (this.cqg != null && view != null && (view.getTag() instanceof Integer)) {
+            this.cqg.hQ(((Integer) view.getTag()).intValue());
         }
     }
 
     public void a(com.baidu.swan.games.view.recommend.model.a aVar) {
-        this.cpD = aVar;
+        this.cpP = aVar;
         notifyDataSetChanged();
     }
 
-    public void a(InterfaceC0339a interfaceC0339a) {
-        this.cpU = interfaceC0339a;
+    public void a(InterfaceC0341a interfaceC0341a) {
+        this.cqg = interfaceC0341a;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.v;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.network.http.f;
+import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.util.s;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.m;
@@ -9,7 +9,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
     public static final String FILE_SEP = File.separator;
-    private a kCH;
+    private a kGj;
     private String mPath;
     private String mUrl;
 
@@ -21,7 +21,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.kCH = aVar;
+        this.kGj = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,10 +37,10 @@ public class b extends BdAsyncTask<Void, Void, String> {
         if (file.exists()) {
             file.delete();
         }
-        f fVar = new f();
-        fVar.fY().setUrl(this.mUrl);
-        if (new com.baidu.adp.lib.network.http.c(fVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return cQM();
+        e eVar = new e();
+        eVar.fX().setUrl(this.mUrl);
+        if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
+            return cRP();
         }
         return "";
     }
@@ -49,16 +49,16 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.kCH != null) {
+        if (this.kGj != null) {
             if (!aq.isEmpty(str)) {
-                this.kCH.c(true, str, this.mUrl);
+                this.kGj.c(true, str, this.mUrl);
             } else {
-                this.kCH.c(false, null, null);
+                this.kGj.c(false, null, null);
             }
         }
     }
 
-    private String cQM() {
+    private String cRP() {
         File file = new File(this.mPath + FILE_SEP + "videosplash.temp");
         File file2 = new File(this.mPath + FILE_SEP + (s.toMd5(this.mUrl) + ".mp4"));
         if (file2.exists()) {

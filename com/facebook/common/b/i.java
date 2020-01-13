@@ -2,24 +2,24 @@ package com.facebook.common.b;
 
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class i extends e {
-    private static i lDY = null;
+    private static i lHw = null;
 
     private i() {
         super(new Handler(Looper.getMainLooper()));
     }
 
-    public static i din() {
-        if (lDY == null) {
-            lDY = new i();
+    public static i djo() {
+        if (lHw == null) {
+            lHw = new i();
         }
-        return lDY;
+        return lHw;
     }
 
     @Override // com.facebook.common.b.e, java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        if (dil()) {
+        if (djm()) {
             runnable.run();
         } else {
             super.execute(runnable);

@@ -13,31 +13,31 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class z {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends RuntimeException {
         public a(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public String a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f87a;
+        public boolean f85a;
         public String b;
 
         /* renamed from: b  reason: collision with other field name */
-        public boolean f88b;
+        public boolean f86b;
 
         public b(String str, boolean z, boolean z2, String str2) {
             this.a = str;
-            this.f87a = z;
-            this.f88b = z2;
+            this.f85a = z;
+            this.f86b = z2;
             this.b = str2;
         }
     }
@@ -232,8 +232,8 @@ public class z {
             for (ServiceInfo serviceInfo : packageInfo.services) {
                 if (!TextUtils.isEmpty(serviceInfo.name) && hashMap2.containsKey(serviceInfo.name)) {
                     b bVar = (b) hashMap2.remove(serviceInfo.name);
-                    boolean z = bVar.f87a;
-                    boolean z2 = bVar.f88b;
+                    boolean z = bVar.f85a;
+                    boolean z2 = bVar.f86b;
                     String str = bVar.b;
                     if (z != serviceInfo.enabled) {
                         throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));

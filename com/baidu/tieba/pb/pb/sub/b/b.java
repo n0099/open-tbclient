@@ -2,21 +2,21 @@ package com.baidu.tieba.pb.pb.sub.b;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b implements m {
-    public static final BdUniqueId iRH = BdUniqueId.gen();
-    private int RE = 0;
+    public static final BdUniqueId iVk = BdUniqueId.gen();
+    private int RH = 0;
 
     public void setReplyNum(int i) {
-        this.RE = i;
+        this.RH = i;
     }
 
     public int getReplyNum() {
-        return this.RE;
+        return this.RH;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return iRH;
+        return iVk;
     }
 }

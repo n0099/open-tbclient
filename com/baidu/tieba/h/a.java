@@ -3,60 +3,60 @@ package com.baidu.tieba.h;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String azq;
-    private String dUb;
-    private String gLY;
-    private String gLZ;
-    private String gMa;
-    private String gMb;
+    private String aAa;
+    private String aji;
+    private String dUk;
+    private String gPt;
+    private String gPu;
+    private String gPv;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.gLY = String.valueOf(esportRank.rank);
-            this.gLZ = esportRank.text;
-            this.dUb = esportRank.url;
+            this.gPt = String.valueOf(esportRank.rank);
+            this.aji = esportRank.text;
+            this.dUk = esportRank.url;
             if (esportRank.user != null) {
-                this.gMa = esportRank.user.steam_name;
-                this.gMb = esportRank.user.steam_portrait;
+                this.gPu = esportRank.user.steam_name;
+                this.gPv = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String bJj() {
+    public String bKo() {
         return this.mTitle;
     }
 
-    public String bJk() {
-        return this.gLY;
+    public String bKp() {
+        return this.gPt;
     }
 
-    public String bJl() {
-        return this.gLZ;
+    public String bKq() {
+        return this.aji;
     }
 
-    public String bJm() {
-        return this.gMa;
+    public String bKr() {
+        return this.gPu;
     }
 
-    public String bJn() {
-        return this.gMb;
+    public String bKs() {
+        return this.gPv;
     }
 
-    public String bJo() {
-        return this.azq;
+    public String bKt() {
+        return this.aAa;
     }
 
-    public void Bu(String str) {
-        this.azq = str;
+    public void BE(String str) {
+        this.aAa = str;
     }
 
-    public String bJp() {
-        return this.dUb;
+    public String bKu() {
+        return this.dUk;
     }
 
-    public void Bv(String str) {
-        this.dUb = str;
+    public void BF(String str) {
+        this.dUk = str;
     }
 }

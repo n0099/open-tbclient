@@ -11,7 +11,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     private av data;
     private int mErrCode;
@@ -64,9 +64,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> sx = a.aBV().sx("tb.my_pages");
-                    if (sx != null) {
-                        sx.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
+                    l<String> sA = a.aCo().sA("tb.my_pages");
+                    if (sA != null) {
+                        sA.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + map.get("id"), str, 604800000L);
                     }
                 }
             }

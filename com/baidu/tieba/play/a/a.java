@@ -15,11 +15,11 @@ public interface a extends MediaController.MediaPlayerControl {
 
     void b(TbVideoViewSet.a aVar);
 
-    void cwi();
+    void cxp();
 
-    boolean cwj();
+    boolean cxq();
 
-    void cwm();
+    void cxt();
 
     int getCurrentPositionSync();
 
@@ -46,7 +46,7 @@ public interface a extends MediaController.MediaPlayerControl {
 
     void setOnPreparedListener(g.f fVar);
 
-    void setOnSeekCompleteListener(g.InterfaceC0577g interfaceC0577g);
+    void setOnSeekCompleteListener(g.InterfaceC0582g interfaceC0582g);
 
     void setOnSurfaceDestroyedListener(QuickVideoView.b bVar);
 

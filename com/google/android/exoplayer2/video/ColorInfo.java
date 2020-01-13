@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.video;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ColorInfo implements Parcelable {
     public static final Parcelable.Creator<ColorInfo> CREATOR = new Parcelable.Creator<ColorInfo>() { // from class: com.google.android.exoplayer2.video.ColorInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public final class ColorInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: LO */
+        /* renamed from: LX */
         public ColorInfo[] newArray(int i) {
             return new ColorInfo[0];
         }

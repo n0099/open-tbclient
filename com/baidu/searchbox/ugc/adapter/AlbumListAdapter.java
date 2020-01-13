@@ -18,7 +18,7 @@ import com.facebook.imagepipeline.common.d;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlbumListAdapter extends BaseAdapter {
     private Activity mContext;
     private List<ImageGroup> mList;
@@ -78,10 +78,10 @@ public class AlbumListAdapter extends BaseAdapter {
                 if (imageGroup.images.get(0) != null && imageGroup.images.get(0).contentUri != null) {
                     ImageRequestBuilder X = ImageRequestBuilder.X(imageGroup.images.get(0).contentUri);
                     X.c(new d((int) (dp2px / 2.0f), (int) (dp2px2 / 2.0f)));
-                    X.vg(true);
-                    a djT = c.djg().uR(false).be(X.dpZ()).c(viewHolder.img.getController()).djX();
+                    X.vs(true);
+                    a dkU = c.dkh().vd(false).be(X.drm()).c(viewHolder.img.getController()).dkY();
                     if (viewHolder.img != null) {
-                        viewHolder.img.setController(djT);
+                        viewHolder.img.setController(dkU);
                     }
                 }
             }
@@ -89,7 +89,7 @@ public class AlbumListAdapter extends BaseAdapter {
         return view;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class ViewHolder {
         SimpleDraweeView img;
         TextView numbers;

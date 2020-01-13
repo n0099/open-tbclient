@@ -2,7 +2,7 @@ package com.airbnb.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class m extends a<PointF, PointF> {
     private final PointF gK;
     private final a<Float, Float> gQ;

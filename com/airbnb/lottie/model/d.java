@@ -4,7 +4,7 @@ import android.support.annotation.RestrictTo;
 import com.airbnb.lottie.model.content.j;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d {
     private final double ho;
     private final char hy;

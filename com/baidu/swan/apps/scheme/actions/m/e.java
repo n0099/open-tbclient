@@ -10,9 +10,9 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends ab {
-    private f bjE;
+    private f bkt;
 
     public e(j jVar) {
         super(jVar, "/swanAPI/webviewPostMessage");
@@ -24,13 +24,13 @@ public class e extends ab {
             Log.d("WebViewPostMsgAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         com.baidu.swan.apps.console.c.i("webviewPostMsg", "start post webview msg");
-        if (this.bjE == null) {
+        if (this.bkt == null) {
             com.baidu.swan.apps.console.c.e("webviewPostMsg", "none webview widget");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
             return false;
         }
-        d Gg = this.bjE.Gg();
-        if (Gg == null) {
+        d GC = this.bkt.GC();
+        if (GC == null) {
             com.baidu.swan.apps.console.c.e("webviewPostMsg", "none WWWParams");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none WWWParams");
             return false;
@@ -50,15 +50,15 @@ public class e extends ab {
             try {
                 jSONObject.put("data", optString);
                 jSONObject.put("eventType", "message");
-                jSONObject.put("wvID", Gg.bdi);
-                jSONObject.put("webviewId", Gg.bdh);
+                jSONObject.put("wvID", GC.bdW);
+                jSONObject.put("webviewId", GC.bdV);
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
                 com.baidu.swan.apps.console.c.e("webviewPostMsg", "meet json exception");
             }
-            com.baidu.swan.apps.view.b.b.a.b(Gg.bdi, Gg.bdh, "webview", "message", jSONObject);
+            com.baidu.swan.apps.view.b.b.a.b(GC.bdW, GC.bdV, "webview", "message", jSONObject);
             com.baidu.swan.apps.console.c.i("webviewPostMsg", "post webview msg success");
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
@@ -66,6 +66,6 @@ public class e extends ab {
     }
 
     public void c(f fVar) {
-        this.bjE = fVar;
+        this.bkt = fVar;
     }
 }

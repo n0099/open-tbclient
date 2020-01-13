@@ -2,7 +2,7 @@ package com.baidu.swan.b.d;
 
 import android.support.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public final String name;

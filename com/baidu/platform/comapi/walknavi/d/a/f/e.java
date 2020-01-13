@@ -15,7 +15,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e {
     public static c a(Context context, com.baidu.platform.comapi.walknavi.d.a.a.a aVar, f.a<JSONObject> aVar2) {
         String a = a(context, aVar);

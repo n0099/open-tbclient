@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -30,29 +30,29 @@ public class f {
             if (DEBUG) {
                 Log.w("SwanAppDiskCleaner", "非主进程调用，不执行操作");
             }
-        } else if (OT()) {
-            m.aec().execute(new Runnable() { // from class: com.baidu.swan.apps.env.a.f.1
+        } else if (Pp()) {
+            m.aev().execute(new Runnable() { // from class: com.baidu.swan.apps.env.a.f.1
                 @Override // java.lang.Runnable
                 public void run() {
                     List<String> list;
-                    List<String> T;
-                    h.acE().putLong("clean_disk_check_time", System.currentTimeMillis());
-                    Map X = f.this.X(0L);
-                    if (X.isEmpty()) {
+                    List<String> S;
+                    h.adb().putLong("clean_disk_check_time", System.currentTimeMillis());
+                    Map aa = f.this.aa(0L);
+                    if (aa.isEmpty()) {
                         if (f.DEBUG) {
                             Log.d("SwanAppDiskCleaner", "cleanDiskSpace empty");
                             return;
                         }
                         return;
                     }
-                    List<String> arrayList = new ArrayList<>(X.keySet());
+                    List<String> arrayList = new ArrayList<>(aa.keySet());
                     Iterator it = Arrays.asList(new e(set), new d(), new c()).iterator();
                     while (true) {
                         list = arrayList;
                         if (!it.hasNext()) {
                             break;
                         }
-                        arrayList = ((com.baidu.swan.apps.env.a.a) it.next()).T(list);
+                        arrayList = ((com.baidu.swan.apps.env.a.a) it.next()).S(list);
                     }
                     if (list == null || list.isEmpty()) {
                         if (f.DEBUG) {
@@ -77,30 +77,30 @@ public class f {
                     while (it2.hasNext()) {
                         String next = it2.next();
                         long currentTimeMillis = System.currentTimeMillis();
-                        if (currentTimeMillis - ((Long) X.get(next)).longValue() <= BdKVCache.MILLS_1Hour * i2) {
+                        if (currentTimeMillis - ((Long) aa.get(next)).longValue() <= BdKVCache.MILLS_1Hour * i2) {
                             it2.remove();
                             arrayList3.add(next);
-                        } else if (currentTimeMillis - ((Long) X.get(next)).longValue() > BdKVCache.MILLS_1Hour * i) {
+                        } else if (currentTimeMillis - ((Long) aa.get(next)).longValue() > BdKVCache.MILLS_1Hour * i) {
                             it2.remove();
                             arrayList2.add(next);
                         }
                     }
                     if (f.DEBUG) {
-                        Log.i("SwanAppDiskCleaner", "timeoutSize=" + arrayList2.size() + ", ignoreCleanSize=" + arrayList3.size() + " normalSize=" + list.size() + " allSize=" + X.size());
+                        Log.i("SwanAppDiskCleaner", "timeoutSize=" + arrayList2.size() + ", ignoreCleanSize=" + arrayList3.size() + " normalSize=" + list.size() + " allSize=" + aa.size());
                     }
-                    List<String> T2 = new b((int) i3).T(list);
-                    if (T2 == null) {
-                        T2 = arrayList2;
+                    List<String> S2 = new b((int) i3).S(list);
+                    if (S2 == null) {
+                        S2 = arrayList2;
                     } else {
-                        T2.addAll(arrayList2);
+                        S2.addAll(arrayList2);
                     }
-                    if (arrayList3.size() > i4 && (T = new b((int) i4).T(arrayList3)) != null) {
-                        T2.addAll(T);
+                    if (arrayList3.size() > i4 && (S = new b((int) i4).S(arrayList3)) != null) {
+                        S2.addAll(S);
                     }
                     if (f.DEBUG) {
-                        Log.i("SwanAppDiskCleaner", "deleteSwanAppList=" + T2);
+                        Log.i("SwanAppDiskCleaner", "deleteSwanAppList=" + S2);
                     }
-                    com.baidu.swan.apps.env.e.OR().OS().b(T2, false, false);
+                    com.baidu.swan.apps.env.e.Pn().Po().b(S2, false, false);
                 }
             }, "cleanDiskSpace");
         }
@@ -112,8 +112,8 @@ public class f {
         return j2 <= 0 ? j : j2;
     }
 
-    private boolean OT() {
-        long j = h.acE().getLong("clean_disk_check_time", 0L);
+    private boolean Pp() {
+        long j = h.adb().getLong("clean_disk_check_time", 0L);
         boolean z = System.currentTimeMillis() - j >= 86400000;
         if (DEBUG && !z) {
             Log.w("SwanAppDiskCleaner", "未达到指定频率不清理, lastTime=" + j + ", now=" + System.currentTimeMillis());
@@ -124,12 +124,12 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     @WorkerThread
     @NonNull
-    public Map<String, Long> X(long j) {
-        Map<String, PMSAppInfo> aqO = com.baidu.swan.pms.database.a.aqM().aqO();
-        if (aqO == null || aqO.isEmpty()) {
+    public Map<String, Long> aa(long j) {
+        Map<String, PMSAppInfo> arh = com.baidu.swan.pms.database.a.arf().arh();
+        if (arh == null || arh.isEmpty()) {
             return Collections.emptyMap();
         }
-        ArrayList<PMSAppInfo> arrayList = new ArrayList(aqO.values());
+        ArrayList<PMSAppInfo> arrayList = new ArrayList(arh.values());
         Collections.sort(arrayList, new a());
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (PMSAppInfo pMSAppInfo : arrayList) {
@@ -141,7 +141,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements Comparator<PMSAppInfo> {
         private a() {
         }

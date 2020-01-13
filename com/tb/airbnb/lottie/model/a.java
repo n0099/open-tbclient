@@ -1,28 +1,47 @@
 package com.tb.airbnb.lottie.model;
 
-import android.graphics.Color;
-import android.support.v4.view.ViewCompat;
-import com.tb.airbnb.lottie.model.a.m;
-import org.json.JSONArray;
-/* loaded from: classes2.dex */
-public class a implements m.a<Integer> {
-    public static final a mNN = new a();
+import android.graphics.PointF;
+import android.support.annotation.RestrictTo;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
+/* loaded from: classes5.dex */
+public class a {
+    private final PointF hl;
+    private final PointF hm;
+    private final PointF hn;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.tb.airbnb.lottie.model.a.m.a
-    /* renamed from: b */
-    public Integer c(Object obj, float f) {
-        JSONArray jSONArray = (JSONArray) obj;
-        if (jSONArray.length() == 4) {
-            boolean z = true;
-            for (int i = 0; i < jSONArray.length(); i++) {
-                if (jSONArray.optDouble(i) > 1.0d) {
-                    z = false;
-                }
-            }
-            float f2 = z ? 255.0f : 1.0f;
-            return Integer.valueOf(Color.argb((int) (jSONArray.optDouble(3) * f2), (int) (jSONArray.optDouble(0) * f2), (int) (jSONArray.optDouble(1) * f2), (int) (jSONArray.optDouble(2) * f2)));
-        }
-        return Integer.valueOf((int) ViewCompat.MEASURED_STATE_MASK);
+    public a() {
+        this.hl = new PointF();
+        this.hm = new PointF();
+        this.hn = new PointF();
+    }
+
+    public a(PointF pointF, PointF pointF2, PointF pointF3) {
+        this.hl = pointF;
+        this.hm = pointF2;
+        this.hn = pointF3;
+    }
+
+    public void f(float f, float f2) {
+        this.hl.set(f, f2);
+    }
+
+    public PointF cd() {
+        return this.hl;
+    }
+
+    public void g(float f, float f2) {
+        this.hm.set(f, f2);
+    }
+
+    public PointF ce() {
+        return this.hm;
+    }
+
+    public void h(float f, float f2) {
+        this.hn.set(f, f2);
+    }
+
+    public PointF cf() {
+        return this.hn;
     }
 }

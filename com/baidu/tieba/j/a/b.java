@@ -2,13 +2,13 @@ package com.baidu.tieba.j.a;
 
 import com.baidu.adp.lib.util.f;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends a<com.baidu.tieba.play.b.d> {
-    private boolean ikW;
+    private boolean ioC;
 
     public b(String str) {
         super(str);
-        this.ikW = f.checkSD();
+        this.ioC = f.checkSD();
     }
 
     @Override // com.baidu.tieba.j.a.c
@@ -20,17 +20,17 @@ public class b extends a<com.baidu.tieba.play.b.d> {
     @Override // com.baidu.tieba.j.a.a
     public void a(com.baidu.tieba.play.b.d dVar) {
         super.a((b) dVar);
-        if (cem() && this.ikW) {
-            cen();
+        if (cfv() && this.ioC) {
+            cfw();
         }
     }
 
-    private boolean cem() {
+    private boolean cfv() {
         return this.list != null && this.list.size() > 30;
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public void cen() {
+    public void cfw() {
         if (this.list != null && this.list.size() != 0) {
             dz(new ArrayList(this.list));
             this.list.clear();

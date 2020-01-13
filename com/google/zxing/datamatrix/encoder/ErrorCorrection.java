@@ -6,7 +6,7 @@ import com.baidu.fsg.base.activity.BaseActivity;
 import com.baidu.location.BDLocation;
 import com.baidu.sapi2.SapiAccountManager;
 import org.apache.http.HttpStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ErrorCorrection {
     private static final int MODULO_VALUE = 301;
     private static final int[] FACTOR_SETS = {5, 7, 10, 11, 12, 14, 18, 20, 24, 28, 36, 42, 48, 56, 62, 68};

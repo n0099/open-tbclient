@@ -344,7 +344,7 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
                     GlUtil.checkGlError("glBindFramebuffer");
                     this.mWindowSurface.makeCurrent();
                     GLES20.glViewport(0, 0, this.mCameraPreviewHeight, this.mCameraPreviewWidth);
-                    this.mFullScreen.drawFrame(fuAddEffectAndGift(), fArr);
+                    this.mFullScreen.drawFrame(fuAddEffectAndGift(), fArr, null);
                     if (this.mDropFrames < 5) {
                         this.mDropFrames++;
                         return;
@@ -403,7 +403,7 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
                 GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
                 GLES20.glClear(16384);
                 GLES20.glViewport(0, 0, this.mEncodeHeight, this.mEncodeWidth);
-                this.mFullScreen.drawFrame(this.mOffscreenTexture, fArr);
+                this.mFullScreen.drawFrame(this.mOffscreenTexture, fArr, null);
                 eglSurfaceBase.setPresentationTime(this.mCameraTexture.getTimestamp());
                 eglSurfaceBase.swapBuffers();
             } catch (Exception e) {
@@ -984,6 +984,10 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
     }
 
     @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onStickerItemSelected(Object obj) {
+    }
+
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
     public void onGiftEffectItemSelected(String str) {
         if (str == null || !str.equals(this.mGiftEffectFilePath)) {
             this.mGiftEffectFilePath = str;
@@ -1061,6 +1065,14 @@ public class FUCameraOperator implements SurfaceTexture.OnFrameAvailableListener
         } else {
             this.mFacebeautyRedLevel = 2.0f * f;
         }
+    }
+
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onChinSelected(float f) {
+    }
+
+    @Override // com.baidu.ala.recorder.IFaceUnityOperator
+    public void onNoseSelected(float f) {
     }
 
     public static boolean isValid() {

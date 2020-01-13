@@ -1,4 +1,4 @@
 package org.aspectj.lang;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface b extends a {
 }

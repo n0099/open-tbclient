@@ -6,10 +6,10 @@ import com.facebook.common.internal.g;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.http.HttpStatus;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
-    public static int ID(int i) {
-        return d.ID(i);
+    public static int IM(int i) {
+        return d.IM(i);
     }
 
     public static int z(InputStream inputStream) {
@@ -31,7 +31,7 @@ public class b {
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && IE(i2)) || i2 == i) {
+            if ((i == 192 && IN(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -44,7 +44,7 @@ public class b {
         return false;
     }
 
-    private static boolean IE(int i) {
+    private static boolean IN(int i) {
         switch (i) {
             case DownloadConstants.STATUS_RUNNING /* 192 */:
             case 193:

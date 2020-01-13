@@ -15,20 +15,22 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /* loaded from: classes.dex */
 public class h implements c {
-    private Set<String> pj = new HashSet();
-    private Element pq;
+    private Set<String> pg = new HashSet();
+
+    /* renamed from: pl  reason: collision with root package name */
+    private Element f963pl;
 
     public h(Element element) {
         String nodeName;
         String nodeName2;
-        this.pq = element;
+        this.f963pl = element;
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
             for (int i = 0; i < length; i++) {
                 Node item = attributes.item(i);
                 if (item != null && (nodeName2 = item.getNodeName()) != null) {
-                    this.pj.add(nodeName2);
+                    this.pg.add(nodeName2);
                 }
             }
             NodeList childNodes = element.getChildNodes();
@@ -36,7 +38,7 @@ public class h implements c {
             for (int i2 = 0; i2 < length2; i2++) {
                 Node item2 = childNodes.item(i2);
                 if (item2 != null && (nodeName = item2.getNodeName()) != null) {
-                    this.pj.add(nodeName);
+                    this.pg.add(nodeName);
                 }
             }
         }
@@ -44,7 +46,7 @@ public class h implements c {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        return this.pj;
+        return this.pg;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x0036 */
@@ -54,9 +56,9 @@ public class h implements c {
     /* JADX WARN: Type inference failed for: r0v4, types: [java.util.List, java.util.ArrayList] */
     public Object Z(String str) {
         String nodeName;
-        Object attribute = this.pq.getAttribute(str);
+        Object attribute = this.f963pl.getAttribute(str);
         if (TextUtils.isEmpty(attribute)) {
-            NodeList childNodes = this.pq.getChildNodes();
+            NodeList childNodes = this.f963pl.getChildNodes();
             int length = childNodes.getLength();
             attribute = new ArrayList(length);
             for (int i = 0; i < length; i++) {
@@ -87,23 +89,23 @@ public class h implements c {
     public void e(String str, Object obj) {
         if (obj != null && str != null) {
             if (obj instanceof Boolean) {
-                this.pq.setAttribute(str, String.valueOf(obj));
+                this.f963pl.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Byte) {
-                this.pq.setAttribute(str, String.valueOf(obj));
+                this.f963pl.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Character) {
-                this.pq.setAttribute(str, String.valueOf(obj));
+                this.f963pl.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Short) {
-                this.pq.setAttribute(str, String.valueOf(obj));
+                this.f963pl.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Integer) {
-                this.pq.setAttribute(str, String.valueOf(obj));
+                this.f963pl.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Long) {
-                this.pq.setAttribute(str, String.valueOf(obj));
+                this.f963pl.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Float) {
-                this.pq.setAttribute(str, String.valueOf(obj));
+                this.f963pl.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Double) {
-                this.pq.setAttribute(str, String.valueOf(obj));
+                this.f963pl.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof String) {
-                this.pq.setAttribute(str, String.valueOf(obj));
+                this.f963pl.setAttribute(str, String.valueOf(obj));
             } else {
                 if (obj.getClass().isArray() || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), List.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Queue.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Set.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Map.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), SparseArray.class)) {
                 }

@@ -7,7 +7,7 @@ import com.baidu.swan.apps.as.m;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ActivityDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {
@@ -19,7 +19,7 @@ public class a extends ActivityDelegation {
                     if (com.baidu.swan.apps.media.chooser.b.c.DEBUG) {
                         Iterator<? extends Parcelable> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).UZ());
+                            Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).Vw());
                         }
                     }
                     a.this.mResult.putParcelableArrayList("mediaModels", arrayList);

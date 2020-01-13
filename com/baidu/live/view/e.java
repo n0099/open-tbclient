@@ -6,7 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes2.dex */
 public class e extends Dialog {
@@ -24,14 +24,14 @@ public class e extends Dialog {
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
             getWindow().setFlags(8, 8);
             super.show();
-            S(getWindow().getDecorView());
+            U(getWindow().getDecorView());
             getWindow().clearFlags(8);
             return;
         }
         super.show();
     }
 
-    private void S(View view) {
+    private void U(View view) {
         if (Build.VERSION.SDK_INT >= 19) {
             view.setSystemUiVisibility(5894);
         }

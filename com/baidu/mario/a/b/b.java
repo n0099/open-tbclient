@@ -4,49 +4,49 @@ import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.util.Log;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 abstract class b {
     private static final String TAG = b.class.getSimpleName();
-    protected static long aFU = 0;
-    protected static int aFV = 10000;
-    protected e aFQ;
-    protected c aFR;
-    protected boolean aFS;
+    protected static long aGM = 0;
+    protected static int aGN = 10000;
+    protected e aGI;
+    protected c aGJ;
+    protected boolean aGK;
     protected MediaCodec mEncoder;
-    private int aFO = -1;
-    private boolean aFP = false;
-    protected long aFT = 0;
+    private int aGG = -1;
+    private boolean aGH = false;
+    protected long aGL = 0;
     protected MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
 
-    protected abstract void Ax();
+    protected abstract void AT();
 
-    public void Az() {
+    public void AV() {
         this.mEncoder.start();
-        if (this.aFR != null) {
-            this.aFR.bq(true);
+        if (this.aGJ != null) {
+            this.aGJ.bv(true);
         }
     }
 
-    public void bv(boolean z) {
+    public void bA(boolean z) {
         if (z) {
-            if (this.aFQ != null && this.aFQ.AO()) {
+            if (this.aGI != null && this.aGI.Bk()) {
                 this.mEncoder.signalEndOfInputStream();
-            } else if (this.aFR != null) {
-                this.aFR.bs(true);
+            } else if (this.aGJ != null) {
+                this.aGJ.bx(true);
                 return;
             } else {
                 return;
             }
         }
-        c(z, 10000);
+        d(z, 10000);
     }
 
-    public long zY() {
-        return this.aFT * 1000;
+    public long Au() {
+        return this.aGL * 1000;
     }
 
     public void b(boolean z, ByteBuffer byteBuffer, int i, long j) {
-        if (!this.aFP || this.aFO != -1) {
+        if (!this.aGH || this.aGG != -1) {
             int dequeueInputBuffer = this.mEncoder.dequeueInputBuffer(10000L);
             if (dequeueInputBuffer >= 0) {
                 if (z) {
@@ -60,7 +60,7 @@ abstract class b {
             } else {
                 Log.d(TAG, "drainBuffer encode input buffer not available");
             }
-            c(z, aFV);
+            d(z, aGN);
         }
     }
 
@@ -78,7 +78,7 @@ abstract class b {
         return false;
     }
 
-    public void Ay() {
+    public void AU() {
         try {
             this.mEncoder.stop();
         } catch (Exception e) {
@@ -89,14 +89,14 @@ abstract class b {
     public void releaseEncoder() {
         this.mEncoder.release();
         this.mEncoder = null;
-        this.aFQ = null;
+        this.aGI = null;
     }
 
     public void a(c cVar) {
-        this.aFR = cVar;
+        this.aGJ = cVar;
     }
 
-    private void c(boolean z, int i) {
+    private void d(boolean z, int i) {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             try {
@@ -110,19 +110,19 @@ abstract class b {
                 } else if (dequeueOutputBuffer == -3) {
                     outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.aFQ.AO()) {
+                    if (this.aGI.Bk()) {
                         Log.e(TAG, "format changed twice!!!!");
                         return;
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d(TAG, "encoder output format changed: " + outputFormat);
-                    this.aFO = this.aFQ.c(outputFormat);
-                    this.aFP = true;
-                    if (this.aFR != null) {
-                        this.aFR.br(this.aFP);
+                    this.aGG = this.aGI.c(outputFormat);
+                    this.aGH = true;
+                    if (this.aGJ != null) {
+                        this.aGJ.bw(this.aGH);
                     }
-                    if (this.aFS) {
-                        this.aFQ.AP();
+                    if (this.aGK) {
+                        this.aGI.Bl();
                     }
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w(TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
@@ -136,11 +136,11 @@ abstract class b {
                         this.mBufferInfo.size = 0;
                     }
                     if (this.mBufferInfo.size != 0) {
-                        if (this.aFQ.AO()) {
+                        if (this.aGI.Bk()) {
                             byteBuffer.position(this.mBufferInfo.offset);
                             byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                            Ax();
-                            this.aFQ.b(this.aFO, byteBuffer, this.mBufferInfo);
+                            AT();
+                            this.aGI.b(this.aGG, byteBuffer, this.mBufferInfo);
                         } else {
                             Log.d(TAG, "drainEncoder wait for mMuxer start !!!");
                         }
@@ -148,11 +148,11 @@ abstract class b {
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
                         if (z) {
-                            if (this.aFS) {
-                                this.aFQ.AQ();
+                            if (this.aGK) {
+                                this.aGI.Bm();
                             }
-                            if (this.aFR != null) {
-                                this.aFR.bs(true);
+                            if (this.aGJ != null) {
+                                this.aGJ.bx(true);
                                 return;
                             }
                             return;

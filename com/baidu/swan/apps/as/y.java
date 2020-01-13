@@ -4,47 +4,47 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class y {
-    private static int bUk = -1;
+    private static int bUw = -1;
 
-    public static void aej() {
-        String aek = aek();
-        if (!TextUtils.isEmpty(aek)) {
+    public static void aeC() {
+        String aeD = aeD();
+        if (!TextUtils.isEmpty(aeD)) {
             if (com.baidu.swan.apps.b.DEBUG) {
-                Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + aek);
+                Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + aeD);
             }
-            WebSettingsGlobalBlink.setRefererPattern(aek, com.baidu.swan.apps.core.k.d.NK().NW());
+            WebSettingsGlobalBlink.setRefererPattern(aeD, com.baidu.swan.apps.core.k.d.Og().Os());
         }
     }
 
-    public static String aek() {
-        int ael = ael();
+    public static String aeD() {
+        int aeE = aeE();
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("SwanAppRefererUtils", "referer switch is " + ael);
+            Log.d("SwanAppRefererUtils", "referer switch is " + aeE);
         }
-        if (ael == 1) {
-            return mw("https://smartapp.baidu.com/%s/%s/page-frame.html");
+        if (aeE == 1) {
+            return mz("https://smartapp.baidu.com/%s/%s/page-frame.html");
         }
-        if (ael != 2) {
+        if (aeE != 2) {
             return null;
         }
-        return mw("https://smartapps.cn/%s/%s/page-frame.html");
+        return mz("https://smartapps.cn/%s/%s/page-frame.html");
     }
 
-    public static int ael() {
-        if (bUk < 0) {
-            bUk = com.baidu.swan.apps.w.a.Rn().EM();
+    public static int aeE() {
+        if (bUw < 0) {
+            bUw = com.baidu.swan.apps.w.a.RJ().Fi();
         }
-        return bUk;
+        return bUw;
     }
 
-    public static boolean mv(String str) {
+    public static boolean my(String str) {
         return !TextUtils.isEmpty(str) && str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 
-    public static String mw(String str) {
-        com.baidu.swan.apps.runtime.e ZS = com.baidu.swan.apps.runtime.e.ZS();
-        return ZS != null ? String.format(str, ZS.getAppKey(), ZS.aam()) : "";
+    public static String mz(String str) {
+        com.baidu.swan.apps.runtime.e aap = com.baidu.swan.apps.runtime.e.aap();
+        return aap != null ? String.format(str, aap.getAppKey(), aap.aaJ()) : "";
     }
 }

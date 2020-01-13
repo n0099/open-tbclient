@@ -9,12 +9,12 @@ import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
 import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import com.baidu.swan.apps.jsbridge.SwanAppPreloadJsBridge;
 import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private com.baidu.swan.apps.jsbridge.a btc;
-    private com.baidu.swan.apps.jsbridge.a btd;
-    private SwanAppUtilsJavaScriptInterface bte;
-    private com.baidu.swan.apps.api.a btf;
+    private com.baidu.swan.apps.jsbridge.a btQ;
+    private com.baidu.swan.apps.jsbridge.a btR;
+    private SwanAppUtilsJavaScriptInterface btS;
+    private com.baidu.swan.apps.api.a btT;
 
     public void a(com.baidu.swan.apps.core.container.a aVar, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         if (aVar != null && context != null && callbackHandler != null && unitedSchemeMainDispatcher != null) {
@@ -28,20 +28,20 @@ public class a {
     }
 
     public void a(Context context, com.baidu.swan.apps.core.container.a aVar) {
-        this.bte = new SwanAppUtilsJavaScriptInterface(context, aVar);
-        this.bte.setSource("swan_");
-        aVar.addJavascriptInterface(this.bte, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
-        this.bte.setForceShareLight(true);
+        this.btS = new SwanAppUtilsJavaScriptInterface(context, aVar);
+        this.btS.setSource("swan_");
+        aVar.addJavascriptInterface(this.btS, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+        this.btS.setForceShareLight(true);
     }
 
     private void b(com.baidu.swan.apps.core.container.a aVar, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
-        this.btc = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
-        aVar.addJavascriptInterface(this.btc, "Bdbox_android_jsbridge");
-        this.btd = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
-        aVar.addJavascriptInterface(this.btd, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        this.btQ = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
+        aVar.addJavascriptInterface(this.btQ, "Bdbox_android_jsbridge");
+        this.btR = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
+        aVar.addJavascriptInterface(this.btR, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
         aVar.addJavascriptInterface(new SwanAppPreloadJsBridge(aVar), SwanAppPreloadJsBridge.JAVASCRIPT_INTERFACE_NAME);
-        this.btf = new com.baidu.swan.apps.api.a(context, callbackHandler, aVar);
-        this.btf.a(aVar);
+        this.btT = new com.baidu.swan.apps.api.a(context, callbackHandler, aVar);
+        this.btT.a(aVar);
     }
 
     private void c(com.baidu.swan.apps.core.container.a aVar) {
@@ -49,23 +49,23 @@ public class a {
     }
 
     private void a(com.baidu.swan.apps.core.container.a aVar, Context context) {
-        this.bte = new SwanAppUtilsJavaScriptInterface(context, aVar);
-        this.bte.setSource("swan_");
-        aVar.addJavascriptInterface(this.bte, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+        this.btS = new SwanAppUtilsJavaScriptInterface(context, aVar);
+        this.btS.setSource("swan_");
+        aVar.addJavascriptInterface(this.btS, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    public void F(Activity activity) {
-        if (this.btc != null) {
-            this.btc.setActivityRef(activity);
+    public void G(Activity activity) {
+        if (this.btQ != null) {
+            this.btQ.setActivityRef(activity);
         }
-        if (this.btd != null) {
-            this.btd.setActivityRef(activity);
+        if (this.btR != null) {
+            this.btR.setActivityRef(activity);
         }
-        if (this.bte != null) {
-            this.bte.setActivity(activity);
+        if (this.btS != null) {
+            this.btS.setActivity(activity);
         }
-        if (this.btf != null) {
-            this.btf.setActivityRef(activity);
+        if (this.btT != null) {
+            this.btT.setActivityRef(activity);
         }
     }
 }

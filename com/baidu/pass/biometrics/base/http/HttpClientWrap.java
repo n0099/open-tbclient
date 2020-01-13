@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HttpClientWrap {
     private static final String KEY_REQID = "reqid";
     private static final String PARAM_CUID_2 = "cuid_2";

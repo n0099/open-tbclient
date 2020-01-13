@@ -10,15 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
-import com.baidu.live.data.av;
+import com.baidu.live.data.az;
 import com.baidu.live.im.view.ImBarrageItemView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 /* loaded from: classes2.dex */
 public class ImBarrageTrackView extends FrameLayout {
-    private a aqL;
-    private int aqM;
-    private int aqN;
-    private boolean aqO;
+    private boolean arA;
+    private a arx;
+    private int ary;
+    private int arz;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -33,40 +33,40 @@ public class ImBarrageTrackView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.aqL = aVar;
+        this.arx = aVar;
     }
 
-    public boolean vO() {
-        return this.aqO;
+    public boolean wf() {
+        return this.arA;
     }
 
     public void setCanAddNext() {
-        this.aqO = true;
+        this.arA = true;
     }
 
-    public void a(av avVar, com.baidu.live.data.a aVar, String str, String str2) {
-        this.aqO = false;
-        aU(false);
-        View b = b(avVar, aVar, str, str2);
+    public void a(az azVar, com.baidu.live.data.a aVar, String str, String str2) {
+        this.arA = false;
+        aW(false);
+        View b = b(azVar, aVar, str, str2);
         b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         addView(b, new ViewGroup.LayoutParams(b.getMeasuredWidth(), -1));
-        Animator M = M(b);
-        b.setTag(a.g.ala_im_barrage_item_anim, M);
-        M.start();
+        Animator O = O(b);
+        b.setTag(a.g.ala_im_barrage_item_anim, O);
+        O.start();
     }
 
     public void release() {
-        aU(true);
+        aW(true);
         removeAllViews();
     }
 
     private void init() {
         setBackgroundColor(0);
-        this.aqM = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
-        this.aqN = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
+        this.ary = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
+        this.arz = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
     }
 
-    private void aU(boolean z) {
+    private void aW(boolean z) {
         if (getChildCount() > 0) {
             int i = 0;
             while (true) {
@@ -91,15 +91,15 @@ public class ImBarrageTrackView extends FrameLayout {
         }
     }
 
-    private View b(av avVar, com.baidu.live.data.a aVar, String str, String str2) {
+    private View b(az azVar, com.baidu.live.data.a aVar, String str, String str2) {
         ImBarrageItemView imBarrageItemView = new ImBarrageItemView(getContext());
         imBarrageItemView.setDisplayInfo(aVar, str2, str);
-        imBarrageItemView.setUIInfo(avVar, false);
+        imBarrageItemView.setUIInfo(azVar, false);
         imBarrageItemView.setCallback(new ImBarrageItemView.a() { // from class: com.baidu.live.im.view.ImBarrageTrackView.1
             @Override // com.baidu.live.im.view.ImBarrageItemView.a
             public void d(com.baidu.live.data.a aVar2) {
-                if (ImBarrageTrackView.this.aqL != null) {
-                    ImBarrageTrackView.this.aqL.d(aVar2);
+                if (ImBarrageTrackView.this.arx != null) {
+                    ImBarrageTrackView.this.arx.d(aVar2);
                 }
             }
         });
@@ -107,9 +107,9 @@ public class ImBarrageTrackView extends FrameLayout {
         return imBarrageItemView;
     }
 
-    private Animator M(final View view) {
+    private Animator O(final View view) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", getWidth(), -view.getMeasuredWidth());
-        ofFloat.setDuration((((getWidth() + view.getMeasuredWidth()) * 1.0f) / this.aqM) * 1000.0f);
+        ofFloat.setDuration((((getWidth() + view.getMeasuredWidth()) * 1.0f) / this.ary) * 1000.0f);
         ofFloat.setInterpolator(new LinearInterpolator());
         ofFloat.setRepeatCount(0);
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.live.im.view.ImBarrageTrackView.2
@@ -117,7 +117,7 @@ public class ImBarrageTrackView extends FrameLayout {
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1) {
-                    ImBarrageTrackView.this.vP();
+                    ImBarrageTrackView.this.wg();
                 }
                 ImBarrageTrackView.this.removeView(view);
             }
@@ -125,8 +125,8 @@ public class ImBarrageTrackView extends FrameLayout {
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.im.view.ImBarrageTrackView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1 && ImBarrageTrackView.this.getWidth() - view.getTranslationX() > view.getMeasuredWidth() + ImBarrageTrackView.this.aqN) {
-                    ImBarrageTrackView.this.vP();
+                if (ImBarrageTrackView.this.indexOfChild(view) == ImBarrageTrackView.this.getChildCount() - 1 && ImBarrageTrackView.this.getWidth() - view.getTranslationX() > view.getMeasuredWidth() + ImBarrageTrackView.this.arz) {
+                    ImBarrageTrackView.this.wg();
                 }
             }
         });
@@ -134,11 +134,11 @@ public class ImBarrageTrackView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vP() {
-        if (!this.aqO) {
-            this.aqO = true;
-            if (this.aqL != null) {
-                this.aqL.onNext();
+    public void wg() {
+        if (!this.arA) {
+            this.arA = true;
+            if (this.arx != null) {
+                this.arx.onNext();
             }
         }
     }

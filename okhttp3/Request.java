@@ -13,7 +13,7 @@ import okhttp3.internal.http.HttpMethod;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Request {
     @Nullable
     final RequestBody body;
@@ -103,7 +103,7 @@ public final class Request {
         return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + '}';
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         RequestBody body;
         Headers.Builder headers;

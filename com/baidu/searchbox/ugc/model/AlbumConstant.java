@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ugc.model;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlbumConstant {
     public static final String ACTION_IMAGE_TEXT = "com.baidu.searchbox.action.TextImagePublish";
     public static final String ACTION_LOCAL_ALBUM = "localAlbum";

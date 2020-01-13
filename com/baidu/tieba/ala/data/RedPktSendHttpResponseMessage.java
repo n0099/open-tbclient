@@ -4,11 +4,11 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class RedPktSendHttpResponseMessage extends JsonHttpResponsedMessage {
-    public long euR;
-    public long euS;
+    public long ewc;
+    public long ewd;
 
     public RedPktSendHttpResponseMessage() {
-        super(1021156);
+        super(1021159);
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -16,8 +16,8 @@ public class RedPktSendHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.euR = optJSONObject.optLong("red_packet_id");
-            this.euS = optJSONObject.optLong("red_packet_balance");
+            this.ewc = optJSONObject.optLong("red_packet_id");
+            this.ewd = optJSONObject.optLong("red_packet_balance");
         }
     }
 }

@@ -9,15 +9,15 @@ public class a extends a.b {
         super(view);
     }
 
-    @Override // com.baidu.live.tieba.horizonallist.a.a.b, com.baidu.live.tieba.horizonallist.a.a.AbstractC0091a
+    @Override // com.baidu.live.tieba.horizonallist.a.a.b, com.baidu.live.tieba.horizonallist.a.a.AbstractC0092a
     @TargetApi(14)
     public void setScrollX(int i) {
         this.view.setScrollX(i);
     }
 
-    @Override // com.baidu.live.tieba.horizonallist.a.a.b, com.baidu.live.tieba.horizonallist.a.a.AbstractC0091a
+    @Override // com.baidu.live.tieba.horizonallist.a.a.b, com.baidu.live.tieba.horizonallist.a.a.AbstractC0092a
     @TargetApi(11)
-    public boolean wR() {
+    public boolean isHardwareAccelerated() {
         return this.view.isHardwareAccelerated();
     }
 }

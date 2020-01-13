@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.f;
+import io.reactivex.c.f;
 import io.reactivex.internal.disposables.CancellableDisposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -10,23 +10,23 @@ import io.reactivex.s;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableCreate<T> extends q<T> {
-    final s<T> mVc;
+    final s<T> nxl;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
         CreateEmitter createEmitter = new CreateEmitter(uVar);
         uVar.onSubscribe(createEmitter);
         try {
-            this.mVc.a(createEmitter);
+            this.nxl.a(createEmitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.I(th);
             createEmitter.onError(th);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class CreateEmitter<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, r<T> {
         private static final long serialVersionUID = -3434801548987643227L;
         final u<? super T> observer;
@@ -47,7 +47,7 @@ public final class ObservableCreate<T> extends q<T> {
         @Override // io.reactivex.f
         public void onError(Throwable th) {
             if (!tryOnError(th)) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
 
@@ -109,7 +109,7 @@ public final class ObservableCreate<T> extends q<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class SerializedEmitter<T> extends AtomicInteger implements r<T> {
         private static final long serialVersionUID = 4883307006032401862L;
         volatile boolean done;
@@ -149,7 +149,7 @@ public final class ObservableCreate<T> extends q<T> {
         @Override // io.reactivex.f
         public void onError(Throwable th) {
             if (!tryOnError(th)) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
 

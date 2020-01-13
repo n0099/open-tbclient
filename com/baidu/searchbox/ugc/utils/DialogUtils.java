@@ -2,7 +2,7 @@ package com.baidu.searchbox.ugc.utils;
 
 import android.content.DialogInterface;
 import com.baidu.searchbox.ugc.dialog.UGCBoxActivityDialog;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DialogUtils {
     public static void showDialog(int i, int i2, int i3, int i4, final DialogInterface.OnClickListener onClickListener, final DialogInterface.OnClickListener onClickListener2) {
         UGCBoxActivityDialog.newBuilder().setTitle(i).setMessage(i2).setPositiveButton(i3, new DialogInterface.OnClickListener() { // from class: com.baidu.searchbox.ugc.utils.DialogUtils.2

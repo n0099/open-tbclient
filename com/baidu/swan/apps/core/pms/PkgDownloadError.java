@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.core.pms;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PkgDownloadError extends Throwable {
     private com.baidu.swan.apps.ap.a mErrCode;
     private com.baidu.swan.pms.model.e mPackage;
 
     public PkgDownloadError(com.baidu.swan.pms.model.e eVar, com.baidu.swan.apps.ap.a aVar) {
-        super(aVar.adz());
+        super(aVar.adS());
         this.mPackage = eVar;
         this.mErrCode = aVar;
     }

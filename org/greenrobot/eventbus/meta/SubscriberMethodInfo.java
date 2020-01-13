@@ -1,7 +1,7 @@
 package org.greenrobot.eventbus.meta;
 
 import org.greenrobot.eventbus.ThreadMode;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SubscriberMethodInfo {
     final Class<?> eventType;
     final String methodName;

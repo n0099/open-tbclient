@@ -2,20 +2,20 @@ package com.baidu.tieba.InjectPlugin.FrsBannerAd;
 
 import android.view.View;
 import com.baidu.tieba.InjectPlugin.a.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface a extends com.baidu.tieba.InjectPlugin.a.a<c> {
 
     /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0388a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0390a {
         void a(c cVar, View view);
 
         void b(c cVar, View view);
     }
 
-    void a(InterfaceC0388a interfaceC0388a);
+    void a(InterfaceC0390a interfaceC0390a);
 
-    void aSI();
+    void aTc();
 
     void changeSkinType(int i);
 

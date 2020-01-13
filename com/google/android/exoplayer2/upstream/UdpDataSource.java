@@ -8,21 +8,21 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.MulticastSocket;
 import java.net.SocketException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class UdpDataSource implements e {
-    private final q<? super UdpDataSource> mBd;
-    private boolean mBe;
-    private final int mCn;
-    private final byte[] mCo;
-    private final DatagramPacket mCp;
-    private DatagramSocket mCq;
-    private MulticastSocket mCr;
-    private InetAddress mCs;
-    private InetSocketAddress mCt;
-    private int mCu;
+    private final q<? super UdpDataSource> mEV;
+    private boolean mEW;
+    private final int mGf;
+    private final byte[] mGg;
+    private final DatagramPacket mGh;
+    private DatagramSocket mGi;
+    private MulticastSocket mGj;
+    private InetAddress mGk;
+    private InetSocketAddress mGl;
+    private int mGm;
     private Uri uri;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class UdpDataSourceException extends IOException {
         public UdpDataSourceException(IOException iOException) {
             super(iOException);
@@ -35,20 +35,20 @@ public final class UdpDataSource implements e {
         String host = this.uri.getHost();
         int port = this.uri.getPort();
         try {
-            this.mCs = InetAddress.getByName(host);
-            this.mCt = new InetSocketAddress(this.mCs, port);
-            if (this.mCs.isMulticastAddress()) {
-                this.mCr = new MulticastSocket(this.mCt);
-                this.mCr.joinGroup(this.mCs);
-                this.mCq = this.mCr;
+            this.mGk = InetAddress.getByName(host);
+            this.mGl = new InetSocketAddress(this.mGk, port);
+            if (this.mGk.isMulticastAddress()) {
+                this.mGj = new MulticastSocket(this.mGl);
+                this.mGj.joinGroup(this.mGk);
+                this.mGi = this.mGj;
             } else {
-                this.mCq = new DatagramSocket(this.mCt);
+                this.mGi = new DatagramSocket(this.mGl);
             }
             try {
-                this.mCq.setSoTimeout(this.mCn);
-                this.mBe = true;
-                if (this.mBd != null) {
-                    this.mBd.a(this, gVar);
+                this.mGi.setSoTimeout(this.mGf);
+                this.mEW = true;
+                if (this.mEV != null) {
+                    this.mEV.a(this, gVar);
                     return -1L;
                 }
                 return -1L;
@@ -65,21 +65,21 @@ public final class UdpDataSource implements e {
         if (i2 == 0) {
             return 0;
         }
-        if (this.mCu == 0) {
+        if (this.mGm == 0) {
             try {
-                this.mCq.receive(this.mCp);
-                this.mCu = this.mCp.getLength();
-                if (this.mBd != null) {
-                    this.mBd.h(this, this.mCu);
+                this.mGi.receive(this.mGh);
+                this.mGm = this.mGh.getLength();
+                if (this.mEV != null) {
+                    this.mEV.h(this, this.mGm);
                 }
             } catch (IOException e) {
                 throw new UdpDataSourceException(e);
             }
         }
-        int length = this.mCp.getLength() - this.mCu;
-        int min = Math.min(this.mCu, i2);
-        System.arraycopy(this.mCo, length, bArr, i, min);
-        this.mCu -= min;
+        int length = this.mGh.getLength() - this.mGm;
+        int min = Math.min(this.mGm, i2);
+        System.arraycopy(this.mGg, length, bArr, i, min);
+        this.mGm -= min;
         return min;
     }
 
@@ -91,24 +91,24 @@ public final class UdpDataSource implements e {
     @Override // com.google.android.exoplayer2.upstream.e
     public void close() {
         this.uri = null;
-        if (this.mCr != null) {
+        if (this.mGj != null) {
             try {
-                this.mCr.leaveGroup(this.mCs);
+                this.mGj.leaveGroup(this.mGk);
             } catch (IOException e) {
             }
-            this.mCr = null;
+            this.mGj = null;
         }
-        if (this.mCq != null) {
-            this.mCq.close();
-            this.mCq = null;
+        if (this.mGi != null) {
+            this.mGi.close();
+            this.mGi = null;
         }
-        this.mCs = null;
-        this.mCt = null;
-        this.mCu = 0;
-        if (this.mBe) {
-            this.mBe = false;
-            if (this.mBd != null) {
-                this.mBd.by(this);
+        this.mGk = null;
+        this.mGl = null;
+        this.mGm = 0;
+        if (this.mEW) {
+            this.mEW = false;
+            if (this.mEV != null) {
+                this.mEV.bz(this);
             }
         }
     }

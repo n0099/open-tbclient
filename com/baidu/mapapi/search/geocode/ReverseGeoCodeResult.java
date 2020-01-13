@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ReverseGeoCodeResult extends SearchResult {
     public static final Parcelable.Creator<ReverseGeoCodeResult> CREATOR = new b();
     private String a;
@@ -18,7 +18,7 @@ public class ReverseGeoCodeResult extends SearchResult {
     private String g;
     private List<PoiRegionsInfo> h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class AddressComponent implements Parcelable {
         public static final Parcelable.Creator<AddressComponent> CREATOR = new c();
         public int adcode;
@@ -96,7 +96,7 @@ public class ReverseGeoCodeResult extends SearchResult {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class PoiRegionsInfo implements Parcelable {
         public static final Parcelable.Creator<PoiRegionsInfo> CREATOR = new d();
         public String directionDesc;

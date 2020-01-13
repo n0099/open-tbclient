@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.notification.c;
 import android.content.Context;
 import android.content.res.AssetManager;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
     private static d b;
     private Context a;

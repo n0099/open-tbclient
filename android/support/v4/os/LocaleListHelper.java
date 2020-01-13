@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.Locale;
 @RequiresApi(14)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class LocaleListHelper {
     private static final int NUM_PSEUDO_LOCALES = 2;
     private static final String STRING_AR_XB = "ar-XB";

@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.b;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     private String a;
     private String b;
@@ -14,7 +14,7 @@ public class c {
     private String g;
     private a h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a {
         public int a;
         public int b;

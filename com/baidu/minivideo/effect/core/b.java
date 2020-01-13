@@ -18,12 +18,12 @@ import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
     protected int a;
-    private final SparseArray<AEffectParams> aIG;
-    private AEffectAnimatorGroup aIH;
-    private AEffectAnimatorGroup aII;
+    private AEffectAnimatorGroup aJA;
+    private final SparseArray<AEffectParams> aJy;
+    private AEffectAnimatorGroup aJz;
     protected float[] b;
     protected float[] c;
     private final LinkedList<Runnable> d;
@@ -54,7 +54,7 @@ public class b {
         this.a = 3553;
         this.d = new LinkedList<>();
         this.n = new SparseArray<>();
-        this.aIG = new SparseArray<>();
+        this.aJy = new SparseArray<>();
         this.e = str;
         this.f = str2;
         if (TextUtils.isEmpty(str2) || !str2.contains("samplerExternalOES")) {
@@ -271,7 +271,7 @@ public class b {
     public void r() {
         AEffectParams aEffectParams;
         if (this.n.size() != 0) {
-            AEffectParams aEffectParams2 = this.aIG.get(this.n.keyAt(0));
+            AEffectParams aEffectParams2 = this.aJy.get(this.n.keyAt(0));
             if (aEffectParams2 != null && aEffectParams2.values != null && aEffectParams2.values.length > 0) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (aEffectParams2.timeInterval == 0.0f || ((float) (currentTimeMillis - this.q)) > aEffectParams2.timeInterval * 1000.0f) {
@@ -284,7 +284,7 @@ public class b {
             }
             for (int i = 0; i < this.n.size(); i++) {
                 int keyAt = this.n.keyAt(i);
-                if (this.aIG.size() > 0 && (aEffectParams = this.aIG.get(keyAt)) != null) {
+                if (this.aJy.size() > 0 && (aEffectParams = this.aJy.get(keyAt)) != null) {
                     if (AEffectParams.VALUE_TYPE_FLOAT.equals(aEffectParams.type)) {
                         if (aEffectParams.values != null && aEffectParams.values.length > this.p) {
                             GLES20.glUniform1f(keyAt, aEffectParams.values[this.p]);
@@ -317,11 +317,11 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         boolean z;
-        if (this.v == 0 || this.aIH == null || this.aIH.sceneGroup == null) {
+        if (this.v == 0 || this.aJz == null || this.aJz.sceneGroup == null) {
             return;
         }
         long currentTimeMillis = (System.currentTimeMillis() - this.v) % (this.s * 1000.0f);
-        for (AEffectOneAnimator aEffectOneAnimator : this.aIH.sceneGroup) {
+        for (AEffectOneAnimator aEffectOneAnimator : this.aJz.sceneGroup) {
             if (aEffectOneAnimator.animParams == null || aEffectOneAnimator.beginTime * 1000.0f > ((float) currentTimeMillis) || aEffectOneAnimator.endTime * 1000.0f <= ((float) currentTimeMillis)) {
                 GLES20.glUniform1f(GLES20.glGetUniformLocation(n(), "alpha"), 1.0f);
             } else {
@@ -359,15 +359,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void t() {
         boolean z;
-        if (this.v == 0 || this.aIH == null || this.aIH.transitionGroup == null || this.aIH.transitionGroup.size() <= this.y) {
+        if (this.v == 0 || this.aJz == null || this.aJz.transitionGroup == null || this.aJz.transitionGroup.size() <= this.y) {
             return;
         }
-        long j = this.aIH.transitionDuration * 1000.0f;
+        long j = this.aJz.transitionDuration * 1000.0f;
         long currentTimeMillis = (System.currentTimeMillis() - this.v) % (this.s * 1000.0f);
         if (currentTimeMillis < 0 || currentTimeMillis >= j) {
             return;
         }
-        AEffectOneAnimator aEffectOneAnimator = this.aIH.transitionGroup.get(this.y);
+        AEffectOneAnimator aEffectOneAnimator = this.aJz.transitionGroup.get(this.y);
         float f = ((float) ((currentTimeMillis - 0) % j)) / (1.0f * ((float) j));
         if (f < 0.0f || f > 1.0f) {
             return;
@@ -378,8 +378,8 @@ public class b {
         }
         float[] fArr = new float[16];
         Matrix.setIdentityM(fArr, 0);
-        if (this.aII != null && this.aII.sceneGroup != null && this.y == 0) {
-            AEffectOneAnimator aEffectOneAnimator2 = this.aII.sceneGroup.get(this.aII.sceneGroup.size() - 1);
+        if (this.aJA != null && this.aJA.sceneGroup != null && this.y == 0) {
+            AEffectOneAnimator aEffectOneAnimator2 = this.aJA.sceneGroup.get(this.aJA.sceneGroup.size() - 1);
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -454,20 +454,20 @@ public class b {
 
     public void a(int i, long j) {
         this.v = j;
-        if (this.aIH != null) {
-            this.aII = this.aIH;
+        if (this.aJz != null) {
+            this.aJA = this.aJz;
         }
         if (this.u == null || this.u.size() <= 0) {
             return;
         }
         if (this.u.size() == 1) {
-            this.aIH = this.u.get(0);
+            this.aJz = this.u.get(0);
             return;
         }
         if (this.u.size() <= i) {
             i = 0;
         }
-        this.aIH = this.u.get(i);
+        this.aJz = this.u.get(i);
     }
 
     public void a(int i, String str, AEffectParams aEffectParams) {
@@ -475,7 +475,7 @@ public class b {
             return;
         }
         this.n.put(i, str);
-        this.aIG.put(i, aEffectParams);
+        this.aJy.put(i, aEffectParams);
     }
 
     public void a(int i, float[] fArr) {
@@ -667,11 +667,11 @@ public class b {
     }
 
     public boolean o() {
-        if (this.u == null || this.aIH == null || this.aIH.transitionGroup == null || this.v == 0) {
+        if (this.u == null || this.aJz == null || this.aJz.transitionGroup == null || this.v == 0) {
             return false;
         }
         long currentTimeMillis = (System.currentTimeMillis() - this.v) % (this.s * 1000.0f);
-        return currentTimeMillis >= 0 && ((float) currentTimeMillis) < this.aIH.transitionDuration * 1000.0f;
+        return currentTimeMillis >= 0 && ((float) currentTimeMillis) < this.aJz.transitionDuration * 1000.0f;
     }
 
     public void p() {

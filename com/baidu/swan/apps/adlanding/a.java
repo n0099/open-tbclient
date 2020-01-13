@@ -10,7 +10,7 @@ import com.baidu.swan.apps.core.d.h;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ab {
     public a(j jVar) {
         super(jVar, "/swanAPI/openAdWebPage");
@@ -28,9 +28,9 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        com.baidu.swan.apps.model.b aN = com.baidu.swan.apps.model.b.aN(a, a);
-        aN.mParams = a2;
-        if (!h.b("adLanding", aN)) {
+        com.baidu.swan.apps.model.b aO = com.baidu.swan.apps.model.b.aO(a, a);
+        aO.mParams = a2;
+        if (!h.b("adLanding", aO)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }

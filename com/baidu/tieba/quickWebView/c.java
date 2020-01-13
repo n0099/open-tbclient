@@ -36,13 +36,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private static c jzY;
-    private long jAa;
-    private String jAb;
+    private static c jDA;
+    private long jDC;
+    private String jDD;
     private static final String TAG = c.class.getSimpleName() + " TestActivity";
     private static final String DOWNLOAD_DIR = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
-    private String jzZ = null;
-    private com.baidu.adp.framework.listener.a iOH = new com.baidu.adp.framework.listener.a(1003365, CmdConfigSocket.WEBVIEW_CACHE_INFO) { // from class: com.baidu.tieba.quickWebView.c.1
+    private String jDB = null;
+    private com.baidu.adp.framework.listener.a iSl = new com.baidu.adp.framework.listener.a(1003365, CmdConfigSocket.WEBVIEW_CACHE_INFO) { // from class: com.baidu.tieba.quickWebView.c.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -58,7 +58,7 @@ public class c {
                                 if (TextUtils.isEmpty(header.get(i2)) || !header.get(i2).contains("BAIDUID=")) {
                                     i = i2 + 1;
                                 } else {
-                                    com.baidu.tbadk.browser.a.rt(header.get(i2));
+                                    com.baidu.tbadk.browser.a.rw(header.get(i2));
                                     break;
                                 }
                             } else {
@@ -75,31 +75,31 @@ public class c {
         }
     };
 
-    public static c czo() {
-        if (jzY == null) {
+    public static c cAv() {
+        if (jDA == null) {
             synchronized (c.class) {
-                if (jzY == null) {
-                    jzY = new c();
+                if (jDA == null) {
+                    jDA = new c();
                 }
             }
         }
-        return jzY;
+        return jDA;
     }
 
     private c() {
     }
 
-    public String czp() {
-        return this.jzZ;
+    public String cAw() {
+        return this.jDB;
     }
 
     public String getCacheDir() {
-        return this.jAb;
+        return this.jDD;
     }
 
     public void init() {
-        this.jAa = System.currentTimeMillis();
-        MessageManager.getInstance().registerListener(this.iOH);
+        this.jDC = System.currentTimeMillis();
+        MessageManager.getInstance().registerListener(this.iSl);
         a aVar = new a();
         aVar.setPriority(4);
         aVar.execute(new Void[0]);
@@ -108,9 +108,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        String jAd;
-        HashMap<String, com.baidu.tieba.quickWebView.data.a> jAe;
-        String jAf;
+        String jDF;
+        HashMap<String, com.baidu.tieba.quickWebView.data.a> jDG;
+        String jDH;
 
         private b() {
         }
@@ -127,10 +127,10 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: j */
         public b doInBackground(Void... voidArr) {
-            b czq = c.this.czq();
-            if (czq != null && !TextUtils.isEmpty(czq.jAd) && czq.jAe != null && czq.jAe.size() != 0) {
-                c.Hh(czq.jAf);
-                return czq;
+            b cAx = c.this.cAx();
+            if (cAx != null && !TextUtils.isEmpty(cAx.jDF) && cAx.jDG != null && cAx.jDG.size() != 0) {
+                c.Hr(cAx.jDH);
+                return cAx;
             }
             return null;
         }
@@ -141,21 +141,21 @@ public class c {
         /* renamed from: a */
         public void onPostExecute(b bVar) {
             String str;
-            if (bVar == null || StringUtils.isNull(bVar.jAf)) {
+            if (bVar == null || StringUtils.isNull(bVar.jDH)) {
                 str = "0.0.0.0";
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "read error", new Object[0]);
             } else {
-                c.this.jAb = bVar.jAd;
-                d.czs().r(bVar.jAe);
-                str = bVar.jAf;
+                c.this.jDD = bVar.jDF;
+                d.cAz().r(bVar.jDG);
+                str = bVar.jDH;
             }
-            c.this.jzZ = str;
+            c.this.jDB = str;
             MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg(str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public b czq() {
+    public b cAx() {
         String str;
         FileInputStream fileInputStream;
         String[] list;
@@ -170,7 +170,7 @@ public class c {
             str = list[0];
             for (String str2 : list) {
                 if (!StringUtils.isNull(str2)) {
-                    str = ec(str, str2);
+                    str = ee(str, str2);
                 }
             }
         }
@@ -179,8 +179,8 @@ public class c {
         }
         b bVar = new b();
         File file2 = new File(file, str);
-        bVar.jAd = file2.getAbsolutePath();
-        bVar.jAf = str;
+        bVar.jDF = file2.getAbsolutePath();
+        bVar.jDH = str;
         File file3 = new File(file2, "router.json");
         if (file3.exists()) {
             try {
@@ -193,7 +193,7 @@ public class c {
                 th = th;
             }
             try {
-                bVar.jAe = m(fileInputStream);
+                bVar.jDG = m(fileInputStream);
                 n.close((InputStream) fileInputStream);
             } catch (FileNotFoundException e2) {
                 e = e2;
@@ -266,8 +266,8 @@ public class c {
                                 }
                                 int optInt = jSONObject2.has("offline") ? jSONObject2.optInt("offline") : 0;
                                 com.baidu.tieba.quickWebView.data.a aVar = new com.baidu.tieba.quickWebView.data.a();
-                                aVar.jAi = arrayList;
-                                aVar.jAj = optInt == 1;
+                                aVar.jDK = arrayList;
+                                aVar.jDL = optInt == 1;
                                 hashMap.put(next, aVar);
                             }
                             n.close(reader);
@@ -354,28 +354,28 @@ public class c {
             if (StringUtils.isNull(str2)) {
                 str2 = "0.0.0";
             }
-            Util.VersionCompare E = Util.E(str2, str3);
-            if (E != Util.VersionCompare.EQUAL && E != Util.VersionCompare.GREATER) {
-                new C0581c(str, str3, str4).execute(new Object[0]);
+            Util.VersionCompare D = Util.D(str2, str3);
+            if (D != Util.VersionCompare.EQUAL && D != Util.VersionCompare.GREATER) {
+                new C0586c(str, str3, str4).execute(new Object[0]);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void czr() {
+    public static void cAy() {
         m.deleteFileOrDir(new File(DOWNLOAD_DIR + "bdtbWCacheTemp"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.quickWebView.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0581c extends BdAsyncTask {
-        private x cHo;
+    public static class C0586c extends BdAsyncTask {
+        private x cHA;
         private final String mMd5;
         private final String mUrl;
         private final String mVersion;
 
-        public C0581c(String str, String str2, String str3) {
+        public C0586c(String str, String str2, String str3) {
             this.mUrl = str;
             this.mVersion = str2;
             this.mMd5 = str3;
@@ -392,12 +392,12 @@ public class c {
             FileInputStream fileInputStream;
             String str;
             String md5;
-            c.czr();
-            this.cHo = new x();
-            this.cHo.setUrl(this.mUrl);
+            c.cAy();
+            this.cHA = new x();
+            this.cHA.setUrl(this.mUrl);
             new File(c.DOWNLOAD_DIR + "bdtbWCacheTemp").mkdirs();
             String str2 = c.DOWNLOAD_DIR + "bdtbWCacheTemp/bdtbWCache.zip";
-            if (this.cHo.downloadFile(str2, null, 0, 3, 0, true)) {
+            if (this.cHA.downloadFile(str2, null, 0, 3, 0, true)) {
                 TiebaStatic.log(new an("c13435").cp("uid", TbadkCoreApplication.getCurrentAccount()).cp("obj_type", "1"));
                 try {
                     fileInputStream = new FileInputStream(str2);
@@ -411,7 +411,7 @@ public class c {
                             str = c.DOWNLOAD_DIR + "bdtbWCacheTemp/" + this.mVersion;
                             if (r.unZipFiles(str2, str)) {
                             }
-                            c.czr();
+                            c.cAy();
                             return null;
                         }
                     } catch (Throwable th) {
@@ -430,7 +430,7 @@ public class c {
                 }
                 if (StringUtils.isNull(md5) || !md5.toLowerCase().equals(this.mMd5.toLowerCase())) {
                     com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "md5 error", new Object[0]);
-                    c.czr();
+                    c.cAy();
                     n.close((InputStream) fileInputStream);
                     return null;
                 }
@@ -445,13 +445,13 @@ public class c {
                 TiebaStatic.log(new an("c13435").cp("uid", TbadkCoreApplication.getCurrentAccount()).cp("obj_type", "2"));
                 com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "downloadCache", -1, "download error", new Object[0]);
             }
-            c.czr();
+            c.cAy();
             return null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void Hh(String str) {
+    public static void Hr(String str) {
         String[] list;
         if (!TextUtils.isEmpty(str)) {
             String str2 = DOWNLOAD_DIR + "bdtbWCache";
@@ -466,14 +466,14 @@ public class c {
         }
     }
 
-    private static String ec(String str, String str2) {
+    private static String ee(String str, String str2) {
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return null;
         }
         try {
-            Util.VersionCompare E = Util.E(str, str2);
-            if (E != Util.VersionCompare.EQUAL) {
-                return E != Util.VersionCompare.GREATER ? str2 : str;
+            Util.VersionCompare D = Util.D(str, str2);
+            if (D != Util.VersionCompare.EQUAL) {
+                return D != Util.VersionCompare.GREATER ? str2 : str;
             }
             return str;
         } catch (Exception e) {

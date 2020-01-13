@@ -1,30 +1,30 @@
 package io.reactivex.internal.operators.completable;
 
 import io.reactivex.a;
-import io.reactivex.b.f;
 import io.reactivex.c;
+import io.reactivex.c.f;
 import io.reactivex.d;
 import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.CancellableDisposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CompletableCreate extends a {
-    final d mTC;
+    final d nvG;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
         Emitter emitter = new Emitter(cVar);
         cVar.onSubscribe(emitter);
         try {
-            this.mTC.a(emitter);
+            this.nvG.a(emitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.I(th);
             emitter.onError(th);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class Emitter extends AtomicReference<b> implements io.reactivex.b, b {
         private static final long serialVersionUID = -2467358622224974244L;
         final c actual;
@@ -48,7 +48,7 @@ public final class CompletableCreate extends a {
 
         public void onError(Throwable th) {
             if (!tryOnError(th)) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             }
         }
 

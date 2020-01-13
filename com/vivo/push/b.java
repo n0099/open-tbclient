@@ -14,7 +14,7 @@ import com.vivo.vms.IPCInvoke;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b implements ServiceConnection {
     private static final Object a = new Object();
     private static Map<String, b> b = new HashMap();

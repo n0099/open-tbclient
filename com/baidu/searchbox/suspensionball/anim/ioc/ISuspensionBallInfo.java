@@ -1,5 +1,5 @@
 package com.baidu.searchbox.suspensionball.anim.ioc;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface ISuspensionBallInfo {
     int getBallCenterXCoordinate();
 

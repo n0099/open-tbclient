@@ -3,60 +3,60 @@ package org.brotli.dec;
 import java.io.IOException;
 import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class j {
     int distance;
     int j;
-    int naZ;
-    int nbA;
-    int nbB;
-    byte[] nbC;
-    int nbD;
-    int nbE;
-    int nbF;
-    int nbG;
-    int nbH;
-    int nbI;
-    int nbJ;
-    int nbO;
-    int nbP;
-    int nbQ;
-    int nbR;
-    int nbS;
-    byte[] nbb;
-    int nbe;
-    boolean nbf;
-    boolean nbg;
-    boolean nbh;
-    int nbs;
-    int nbt;
-    byte[] nbu;
-    byte[] nbv;
-    int nbw;
-    int nbx;
-    int nby;
-    int nbz;
+    int nJZ;
+    int nKA;
+    int nKB;
+    byte[] nKC;
+    int nKD;
+    int nKE;
+    int nKF;
+    int nKG;
+    int nKH;
+    int nKI;
+    int nKJ;
+    int nKO;
+    int nKP;
+    int nKQ;
+    int nKR;
+    byte[] nKb;
+    int nKe;
+    boolean nKf;
+    boolean nKg;
+    boolean nKh;
+    int nKs;
+    int nKt;
+    byte[] nKu;
+    byte[] nKv;
+    int nKw;
+    int nKx;
+    int nKy;
+    int nKz;
+    int nmD;
     byte[] output;
-    int naY = 0;
-    final a nba = new a();
-    final int[] nbc = new int[3240];
-    final int[] nbd = new int[3240];
-    final g nbi = new g();
-    final g nbj = new g();
-    final g nbk = new g();
-    final int[] nbl = new int[3];
-    final int[] nbm = new int[3];
-    final int[] nbn = new int[6];
-    final int[] nbo = {16, 15, 11, 4};
+    int nJY = 0;
+    final a nKa = new a();
+    final int[] nKc = new int[3240];
+    final int[] nKd = new int[3240];
+    final g nKi = new g();
+    final g nKj = new g();
+    final g nKk = new g();
+    final int[] nKl = new int[3];
+    final int[] nKm = new int[3];
+    final int[] nKn = new int[6];
+    final int[] nKo = {16, 15, 11, 4};
     int pos = 0;
-    int eGc = 0;
-    int nbp = 0;
-    boolean nbq = false;
-    int nbr = 0;
-    int nbK = 0;
-    long nbL = 0;
-    byte[] nbM = new byte[0];
-    int nbN = 0;
+    int eHm = 0;
+    int nKp = 0;
+    boolean nKq = false;
+    int nKr = 0;
+    int nKK = 0;
+    long nKL = 0;
+    byte[] nKM = new byte[0];
+    int nKN = 0;
 
     private static int i(a aVar) {
         if (a.a(aVar, 1) == 0) {
@@ -75,27 +75,27 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(j jVar, InputStream inputStream) {
-        if (jVar.naY != 0) {
+        if (jVar.nJY != 0) {
             throw new IllegalStateException("State MUST be uninitialized");
         }
-        a.a(jVar.nba, inputStream);
-        int i = i(jVar.nba);
+        a.a(jVar.nKa, inputStream);
+        int i = i(jVar.nKa);
         if (i == 9) {
             throw new BrotliRuntimeException("Invalid 'windowBits' code");
         }
-        jVar.nbJ = 1 << i;
-        jVar.nbI = jVar.nbJ - 16;
-        jVar.naY = 1;
+        jVar.nKJ = 1 << i;
+        jVar.nKI = jVar.nKJ - 16;
+        jVar.nJY = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void j(j jVar) throws IOException {
-        if (jVar.naY == 0) {
+        if (jVar.nJY == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
-        if (jVar.naY != 11) {
-            jVar.naY = 11;
-            a.e(jVar.nba);
+        if (jVar.nJY != 11) {
+            jVar.nJY = 11;
+            a.e(jVar.nKa);
         }
     }
 }

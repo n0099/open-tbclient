@@ -8,7 +8,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleDelayWithCompletable<T> extends w<T> {
     final e other;
     final aa<T> source;
@@ -18,7 +18,7 @@ public final class SingleDelayWithCompletable<T> extends w<T> {
         this.other.a(new OtherObserver(yVar, this.source));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class OtherObserver<T> extends AtomicReference<b> implements c, b {
         private static final long serialVersionUID = -8565274649390031272L;
         final y<? super T> actual;

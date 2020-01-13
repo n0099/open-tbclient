@@ -5,14 +5,14 @@ import android.graphics.drawable.BitmapDrawable;
 public class c {
     public BitmapDrawable drawable;
     public volatile boolean isDefault = true;
-    public com.baidu.adp.widget.ImageView.a we;
+    public com.baidu.adp.widget.ImageView.a wh;
 
     public boolean isDrawableAvalible() {
         return (this.drawable == null || this.drawable.getBitmap() == null || this.drawable.getBitmap().isRecycled()) ? false : true;
     }
 
     public boolean isBdImgAvailable() {
-        return this.we != null && this.we.isValidNow();
+        return this.wh != null && this.wh.isValidNow();
     }
 
     public boolean isAvailable() {
@@ -24,7 +24,7 @@ public class c {
             return this.drawable.getIntrinsicWidth();
         }
         if (isBdImgAvailable()) {
-            return this.we.getWidth();
+            return this.wh.getWidth();
         }
         return 0;
     }
@@ -34,13 +34,13 @@ public class c {
             return this.drawable.getIntrinsicHeight();
         }
         if (isBdImgAvailable()) {
-            return this.we.getHeight();
+            return this.wh.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.we = null;
+        this.wh = null;
         this.drawable = null;
     }
 }

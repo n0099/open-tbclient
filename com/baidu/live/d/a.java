@@ -2,7 +2,7 @@ package com.baidu.live.d;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.live.data.k;
+import com.baidu.live.data.l;
 import com.baidu.live.im.d;
 /* loaded from: classes2.dex */
 public interface a {
@@ -12,7 +12,7 @@ public interface a {
     public interface InterfaceC0075a {
     }
 
-    void a(ViewGroup viewGroup, k kVar);
+    void a(ViewGroup viewGroup, l lVar);
 
     void a(InterfaceC0075a interfaceC0075a);
 
@@ -20,19 +20,19 @@ public interface a {
 
     void ao(boolean z);
 
-    void b(k kVar);
+    void b(l lVar);
 
     void bb(int i);
 
     View getRootView();
 
-    boolean oR();
+    boolean oY();
 
-    void oS();
-
-    void oT();
+    void oZ();
 
     void onDestroy();
+
+    void pa();
 
     void setCanVisible(boolean z);
 

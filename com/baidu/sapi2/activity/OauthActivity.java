@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class OauthActivity extends BaseActivity {
     private static final String A = "2.0.0";
     private static final int B = -201;

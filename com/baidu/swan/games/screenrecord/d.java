@@ -2,61 +2,61 @@ package com.baidu.swan.games.screenrecord;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d cnv = null;
-    private GameRecorderController cki;
-    private boolean cnw;
+    private static volatile d cnI = null;
+    private GameRecorderController ckv;
+    private boolean cnJ;
 
     private d() {
     }
 
-    public static d amG() {
-        if (cnv == null) {
+    public static d amZ() {
+        if (cnI == null) {
             synchronized (d.class) {
-                if (cnv == null) {
-                    cnv = new d();
+                if (cnI == null) {
+                    cnI = new d();
                 }
             }
         }
-        return cnv;
+        return cnI;
     }
 
     public void g(GameRecorderController gameRecorderController) {
-        if (this.cki != null && this.cki != gameRecorderController) {
-            this.cki.release();
+        if (this.ckv != null && this.ckv != gameRecorderController) {
+            this.ckv.release();
         }
-        this.cki = gameRecorderController;
+        this.ckv = gameRecorderController;
     }
 
     @NonNull
-    public GameRecorderController amH() {
+    public GameRecorderController ana() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "getRecorderController:" + this.cki);
+            Log.i("GameRecorderManager", "getRecorderController:" + this.ckv);
         }
-        return this.cki == null ? GameRecorderController.amF() : this.cki;
+        return this.ckv == null ? GameRecorderController.amY() : this.ckv;
     }
 
     public void h(GameRecorderController gameRecorderController) {
-        if (this.cki != null && this.cki == gameRecorderController) {
-            this.cki.release();
-            this.cki = null;
+        if (this.ckv != null && this.ckv == gameRecorderController) {
+            this.ckv.release();
+            this.ckv = null;
         }
     }
 
-    public boolean amI() {
+    public boolean anb() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "isGamePause:" + this.cnw);
+            Log.i("GameRecorderManager", "isGamePause:" + this.cnJ);
         }
-        return this.cnw;
+        return this.cnJ;
     }
 
-    public void amJ() {
-        this.cnw = true;
+    public void anc() {
+        this.cnJ = true;
     }
 
-    public void amK() {
-        this.cnw = false;
+    public void and() {
+        this.cnJ = false;
     }
 }

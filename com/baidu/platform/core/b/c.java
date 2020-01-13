@@ -2,7 +2,7 @@ package com.baidu.platform.core.b;
 
 import com.baidu.mapapi.search.geocode.GeoCodeOption;
 import com.baidu.sapi2.activity.SlideActiviy;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c extends com.baidu.platform.base.e {
     public c(GeoCodeOption geoCodeOption) {
         a(geoCodeOption);

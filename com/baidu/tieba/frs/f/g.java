@@ -4,17 +4,17 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class g {
-    private static String bHw() {
+    private static String bIy() {
         return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(bHw(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(bIy(), 0);
     }
 
-    public static void aD(String str, int i) {
+    public static void aE(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 SharedPreferences.Editor edit = getSharedPreferences().edit();
@@ -26,7 +26,7 @@ public class g {
         }
     }
 
-    public static int Bm(String str) {
+    public static int Bw(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
@@ -48,7 +48,7 @@ public class g {
         }
     }
 
-    public static int tU(int i) {
+    public static int tZ(int i) {
         switch (i) {
             case 2:
             case 5:
@@ -67,7 +67,7 @@ public class g {
         }
     }
 
-    public static int tV(int i) {
+    public static int ua(int i) {
         switch (i) {
             case 0:
                 return 2;
@@ -132,7 +132,7 @@ public class g {
         return 1;
     }
 
-    public static int tW(int i) {
+    public static int ub(int i) {
         switch (i) {
             case 0:
                 return 2;

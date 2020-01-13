@@ -2,11 +2,11 @@ package com.airbnb.lottie.e;
 
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c<T> {
     private final b<T> gZ;
     @Nullable
-    private com.airbnb.lottie.a.b.a<?, ?> kA;
+    private com.airbnb.lottie.a.b.a<?, ?> ky;
     @Nullable
     protected T value;
 
@@ -34,6 +34,6 @@ public class c<T> {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public final void b(@Nullable com.airbnb.lottie.a.b.a<?, ?> aVar) {
-        this.kA = aVar;
+        this.ky = aVar;
     }
 }

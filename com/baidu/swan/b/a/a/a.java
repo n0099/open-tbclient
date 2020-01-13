@@ -17,7 +17,7 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.swan.b.d.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static ExecutorService sExecutorService = Executors.newSingleThreadExecutor();
@@ -41,26 +41,26 @@ public class a extends com.baidu.swan.b.d.a {
         if (TextUtils.equals(optString, "installApp")) {
             a(bundle, optString2, bVar);
         } else {
-            com.baidu.swan.apps.process.messaging.client.a ZL = com.baidu.swan.apps.runtime.d.ZP().ZL();
-            if (ZL != null) {
-                C0300a c0300a = new C0300a(optString2, optString, bVar);
-                ZL.a(bundle, com.baidu.swan.b.a.b.c.class, c0300a);
-                ZL.f(new b(c0300a));
+            com.baidu.swan.apps.process.messaging.client.a aai = com.baidu.swan.apps.runtime.d.aam().aai();
+            if (aai != null) {
+                C0302a c0302a = new C0302a(optString2, optString, bVar);
+                aai.a(bundle, com.baidu.swan.b.a.b.c.class, c0302a);
+                aai.f(new b(c0302a));
             }
         }
         return null;
     }
 
     private void a(@NonNull Bundle bundle, @Nullable final String str, @NonNull final com.baidu.swan.apps.p.b bVar) {
-        SwanAppActivity ZO = com.baidu.swan.apps.runtime.d.ZP().ZO();
-        if (ZO == null) {
+        SwanAppActivity aal = com.baidu.swan.apps.runtime.d.aam().aal();
+        if (aal == null) {
             bVar.onFail(1001, "");
             return;
         }
         if (DEBUG) {
             Log.d("appManagerAction", "InstallAppDelegation handleInstall");
         }
-        DelegateUtils.callOnMainWithActivity(ZO, PluginDelegateActivity.class, com.baidu.swan.b.a.c.b.class, bundle, new DelegateListener() { // from class: com.baidu.swan.b.a.a.a.1
+        DelegateUtils.callOnMainWithActivity(aal, PluginDelegateActivity.class, com.baidu.swan.b.a.c.b.class, bundle, new DelegateListener() { // from class: com.baidu.swan.b.a.a.a.1
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                 if (a.DEBUG) {
@@ -68,7 +68,7 @@ public class a extends com.baidu.swan.b.d.a {
                 }
                 String string = delegateResult.mResult.getString("packageName");
                 if (!TextUtils.isEmpty(str) && !TextUtils.equals(str, string)) {
-                    if (com.baidu.swan.b.a.c.a.as(AppRuntime.getAppContext(), str)) {
+                    if (com.baidu.swan.b.a.c.a.at(AppRuntime.getAppContext(), str)) {
                         bVar.K(new JSONObject());
                     } else {
                         bVar.onFail(31003, "apk install cancel");
@@ -127,42 +127,42 @@ public class a extends com.baidu.swan.b.d.a {
     }
 
     /* renamed from: com.baidu.swan.b.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    private static class C0300a extends com.baidu.swan.apps.process.a.b.c.c {
-        private String ceS;
-        private com.baidu.swan.apps.p.b ceT;
+    /* loaded from: classes10.dex */
+    private static class C0302a extends com.baidu.swan.apps.process.a.b.c.c {
+        private String cff;
+        private com.baidu.swan.apps.p.b cfg;
         private String mPackageName;
 
-        C0300a(String str, String str2, com.baidu.swan.apps.p.b bVar) {
+        C0302a(String str, String str2, com.baidu.swan.apps.p.b bVar) {
             this.mPackageName = str;
-            this.ceS = str2;
-            this.ceT = bVar;
+            this.cff = str2;
+            this.cfg = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.process.a.b.c.a
         public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
             Bundle result = bVar.getResult();
-            if (this.ceT != null) {
+            if (this.cfg != null) {
                 if (result != null) {
-                    a.a(result, this.ceT);
+                    a.a(result, this.cfg);
                 } else {
-                    this.ceT.onFail(1001, "");
+                    this.cfg.onFail(1001, "");
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void Yn() {
-            if (this.ceT != null) {
-                this.ceT.onFail(31018, "download process is killed");
-                a.i(this.mPackageName, this.ceS, 31018);
-                this.ceT = null;
+        public void YK() {
+            if (this.cfg != null) {
+                this.cfg.onFail(31018, "download process is killed");
+                a.i(this.mPackageName, this.cff, 31018);
+                this.cfg = null;
             }
         }
 
         @Override // com.baidu.swan.apps.process.a.b.c.a
-        public boolean XX() {
+        public boolean Yu() {
             return true;
         }
 
@@ -172,12 +172,12 @@ public class a extends com.baidu.swan.b.d.a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private static class b implements Runnable {
-        private WeakReference<C0300a> ceU;
+        private WeakReference<C0302a> cfh;
 
-        b(C0300a c0300a) {
-            this.ceU = new WeakReference<>(c0300a);
+        b(C0302a c0302a) {
+            this.cfh = new WeakReference<>(c0302a);
         }
 
         @Override // java.lang.Runnable
@@ -185,8 +185,8 @@ public class a extends com.baidu.swan.b.d.a {
             if (a.DEBUG) {
                 Log.d("appManagerAction", "onConnectionDown");
             }
-            if (this.ceU.get() != null) {
-                this.ceU.get().Yn();
+            if (this.cfh.get() != null) {
+                this.cfh.get().YK();
             }
         }
     }

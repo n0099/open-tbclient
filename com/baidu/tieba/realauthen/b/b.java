@@ -12,12 +12,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class b {
-    private static char[] jAI = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static char[] jEk = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String toMD5(String str, String str2) {
         if (str != null) {
             try {
-                return S(str.getBytes(str2));
+                return R(str.getBytes(str2));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -53,7 +53,7 @@ public final class b {
         }
     }
 
-    private static synchronized String S(byte[] bArr) {
+    private static synchronized String R(byte[] bArr) {
         String str;
         synchronized (b.class) {
             try {

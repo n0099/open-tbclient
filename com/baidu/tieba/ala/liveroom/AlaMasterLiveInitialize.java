@@ -8,6 +8,6 @@ import com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomActivity;
 public class AlaMasterLiveInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaMasterLiveRoomActivityConfig.class, AlaMasterLiveRoomActivity.class);
-        e.wc().b(new com.baidu.tieba.ala.liveroom.o.a());
+        e.wt().b(new com.baidu.tieba.ala.liveroom.r.a());
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.swan.apps.setting.oauth.a.b;
 import java.io.File;
 import java.net.URI;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class y extends ab {
     public y(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/saveImageToPhotosAlbum");
@@ -48,7 +48,7 @@ public class y extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            eVar.aac().b(context, "mapp_images", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
+            eVar.aaz().b(context, "mapp_images", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
@@ -82,7 +82,7 @@ public class y extends ab {
     public void a(@NonNull final Context context, final File file, @NonNull final UnitedSchemeEntity unitedSchemeEntity, @NonNull final CallbackHandler callbackHandler, final String str) {
         com.baidu.swan.apps.af.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.af.b() { // from class: com.baidu.swan.apps.scheme.actions.y.2
             @Override // com.baidu.swan.apps.af.b
-            public void fl(String str2) {
+            public void fo(String str2) {
                 boolean j = y.this.j(context, file);
                 int i = j ? 0 : 1001;
                 String str3 = j ? "save success" : "can not save to album : " + file;
@@ -91,7 +91,7 @@ public class y extends ab {
             }
 
             @Override // com.baidu.swan.apps.af.b
-            public void q(int i, String str2) {
+            public void t(int i, String str2) {
                 com.baidu.swan.apps.console.c.i("SaveImage", str2 + "");
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(10005, str2).toString(), str);
             }
@@ -99,19 +99,19 @@ public class y extends ab {
     }
 
     private File a(com.baidu.swan.apps.runtime.e eVar, String str, URI uri) {
-        String lP;
-        com.baidu.swan.apps.storage.b.c TM = com.baidu.swan.apps.y.f.Uf().TM();
+        String lS;
+        com.baidu.swan.apps.storage.b.c Uj = com.baidu.swan.apps.y.f.UC().Uj();
         if ("bdfile".equalsIgnoreCase(uri.getScheme())) {
-            lP = TM.lQ(str);
-        } else if (com.baidu.swan.apps.ah.a.a.k(eVar.DR())) {
-            lP = TM.lH(str);
+            lS = Uj.lT(str);
+        } else if (com.baidu.swan.apps.ah.a.a.k(eVar.En())) {
+            lS = Uj.lK(str);
         } else {
-            lP = TM.lP(str);
+            lS = Uj.lS(str);
         }
-        if (TextUtils.isEmpty(lP)) {
+        if (TextUtils.isEmpty(lS)) {
             return null;
         }
-        return new File(lP);
+        return new File(lS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -133,8 +133,8 @@ public class y extends ab {
     }
 
     private String w(File file) {
-        String qP = com.baidu.swan.d.c.qP(file.getPath());
+        String qS = com.baidu.swan.d.c.qS(file.getPath());
         String valueOf = String.valueOf(System.currentTimeMillis());
-        return TextUtils.isEmpty(qP) ? valueOf : valueOf + "." + qP;
+        return TextUtils.isEmpty(qS) ? valueOf : valueOf + "." + qS;
     }
 }

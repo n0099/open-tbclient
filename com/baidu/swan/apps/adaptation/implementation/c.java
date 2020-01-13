@@ -2,7 +2,7 @@ package com.baidu.swan.apps.adaptation.implementation;
 
 import android.content.Context;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c implements com.baidu.swan.apps.adaptation.a.n {
     @Override // com.baidu.swan.apps.adaptation.a.n
     public void a(Context context, String str, com.baidu.swan.apps.as.d.b<String> bVar) {

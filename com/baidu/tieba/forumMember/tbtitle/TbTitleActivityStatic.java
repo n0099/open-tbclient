@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TbTitleActivityStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_TBTITLE_ACTIVITY, new CustomMessageTask.CustomRunnable<TbTitleActivityConfig>() { // from class: com.baidu.tieba.forumMember.tbtitle.TbTitleActivityStatic.1

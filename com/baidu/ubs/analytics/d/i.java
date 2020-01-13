@@ -2,9 +2,9 @@ package com.baidu.ubs.analytics.d;
 
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.ubs.analytics.SampleResult;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i {
-    public static SampleResult Lb(String str) {
+    public static SampleResult Ll(String str) {
         if (str == null || str.equals("")) {
             return SampleResult.OTHERE;
         }

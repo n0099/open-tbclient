@@ -1,5 +1,5 @@
 package com.opensource.svgaplayer;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public final class e {
-    private static int mLd;
+    private static int nkF;
 }

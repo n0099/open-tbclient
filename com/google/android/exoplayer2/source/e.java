@@ -1,21 +1,21 @@
 package com.google.android.exoplayer2.source;
 
 import com.google.android.exoplayer2.Format;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class e implements q {
-    private final q[] mmD;
+    private final q[] mqs;
 
     public e(q[] qVarArr) {
-        this.mmD = qVarArr;
+        this.mqs = qVarArr;
     }
 
     @Override // com.google.android.exoplayer2.source.q
-    public final long dtI() {
+    public final long duT() {
         long j = Long.MAX_VALUE;
-        for (q qVar : this.mmD) {
-            long dtI = qVar.dtI();
-            if (dtI != Long.MIN_VALUE) {
-                j = Math.min(j, dtI);
+        for (q qVar : this.mqs) {
+            long duT = qVar.duT();
+            if (duT != Long.MIN_VALUE) {
+                j = Math.min(j, duT);
             }
         }
         if (j == Format.OFFSET_SAMPLE_RELATIVE) {
@@ -25,12 +25,12 @@ public final class e implements q {
     }
 
     @Override // com.google.android.exoplayer2.source.q
-    public final long dtJ() {
+    public final long duU() {
         long j = Long.MAX_VALUE;
-        for (q qVar : this.mmD) {
-            long dtJ = qVar.dtJ();
-            if (dtJ != Long.MIN_VALUE) {
-                j = Math.min(j, dtJ);
+        for (q qVar : this.mqs) {
+            long duU = qVar.duU();
+            if (duU != Long.MIN_VALUE) {
+                j = Math.min(j, duU);
             }
         }
         if (j == Format.OFFSET_SAMPLE_RELATIVE) {
@@ -40,21 +40,21 @@ public final class e implements q {
     }
 
     @Override // com.google.android.exoplayer2.source.q
-    public final boolean ga(long j) {
+    public final boolean gf(long j) {
         q[] qVarArr;
         boolean z;
         boolean z2 = false;
         do {
-            long dtJ = dtJ();
-            if (dtJ == Long.MIN_VALUE) {
+            long duU = duU();
+            if (duU == Long.MIN_VALUE) {
                 break;
             }
             z = false;
-            for (q qVar : this.mmD) {
-                long dtJ2 = qVar.dtJ();
-                boolean z3 = dtJ2 != Long.MIN_VALUE && dtJ2 <= j;
-                if (dtJ2 == dtJ || z3) {
-                    z |= qVar.ga(j);
+            for (q qVar : this.mqs) {
+                long duU2 = qVar.duU();
+                boolean z3 = duU2 != Long.MIN_VALUE && duU2 <= j;
+                if (duU2 == duU || z3) {
+                    z |= qVar.gf(j);
                 }
             }
             z2 |= z;

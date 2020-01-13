@@ -27,7 +27,7 @@ import com.baidu.searchbox.ugc.emoji.PageTwo;
 import com.baidu.searchbox.ugc.utils.ResourceUtils;
 import com.baidu.searchbox.ugc.utils.UiBaseUtils;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class EmojiView extends LinearLayout {
     private ViewPager mEmojisPager;
     private ImageView[] mImageViews;

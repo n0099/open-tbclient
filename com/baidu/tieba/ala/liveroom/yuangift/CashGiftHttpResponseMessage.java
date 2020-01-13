@@ -6,13 +6,13 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
-    public int abt;
-    public int abu;
-    public int abv;
+    public int abE;
+    public int abF;
+    public int abG;
     public long dubi;
-    public g fhU;
-    public String fhV;
-    public int fhW;
+    public g fli;
+    public String flj;
+    public int flk;
     public String iconId;
     public long nonMemberT;
     public int photoHeight;
@@ -33,8 +33,8 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("gift_info");
             if (optJSONObject3 != null) {
-                this.fhU = new g();
-                this.fhU.parseJson(optJSONObject3);
+                this.fli = new g();
+                this.fli.parseJson(optJSONObject3);
             }
             this.previewGiftId = optJSONObject.optInt("preview_gift_id");
             this.photoUrl = optJSONObject.optString("photo_url");
@@ -44,12 +44,12 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
             this.dubi = optJSONObject.optLong("dubi");
             this.photoWidth = optJSONObject.optInt("photo_width");
             this.photoHeight = optJSONObject.optInt("photo_height");
-            this.fhV = optJSONObject.optString("back_ground");
-            this.fhW = optJSONObject.optInt("premium_user");
+            this.flj = optJSONObject.optString("back_ground");
+            this.flk = optJSONObject.optInt("premium_user");
             if (optJSONObject.has("cash_gift") && (optJSONObject2 = optJSONObject.optJSONObject("cash_gift")) != null) {
-                this.abt = optJSONObject2.optInt("show_times_daily");
-                this.abu = optJSONObject2.optInt("continue_show_times");
-                this.abv = optJSONObject2.optInt("condition");
+                this.abE = optJSONObject2.optInt("show_times_daily");
+                this.abF = optJSONObject2.optInt("continue_show_times");
+                this.abG = optJSONObject2.optInt("condition");
             }
         }
     }

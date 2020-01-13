@@ -3,7 +3,7 @@ package com.baidu.pass.http;
 import java.net.HttpCookie;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PassHttpParamDTO {
     public int connectTimeout;
     public List<HttpCookie> cookie;

@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.coloros.mcssdk.PushManager;
 import com.coloros.mcssdk.mode.AppMessage;
 import com.coloros.mcssdk.mode.Message;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a extends c {
     @Override // com.coloros.mcssdk.a.d
     public final Message a(Context context, int i, Intent intent) {

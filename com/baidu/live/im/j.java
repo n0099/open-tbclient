@@ -6,12 +6,12 @@ public interface j {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void uE();
+        void uV();
     }
 
-    void a(com.baidu.live.data.k kVar);
+    void a(com.baidu.live.data.l lVar);
 
-    void a(com.baidu.live.data.k kVar, boolean z);
+    void a(com.baidu.live.data.l lVar, boolean z);
 
     void a(a aVar);
 
@@ -19,9 +19,9 @@ public interface j {
 
     void setOtherParams(String str);
 
-    View uC();
+    View uT();
 
-    void uD();
+    void uU();
 
-    void ub();
+    void us();
 }

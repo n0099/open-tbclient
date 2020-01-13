@@ -8,10 +8,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class GuardClubRankHttpResponseMessage extends JsonHttpResponsedMessage {
-    public boolean eBB;
-    public k eBD;
-    public List<p> eCi;
-    public c eCj;
+    public boolean eCM;
+    public k eCO;
+    public List<p> eDt;
+    public c eDu;
     public boolean hasMore;
     public int pageIndex;
 
@@ -26,26 +26,26 @@ public class GuardClubRankHttpResponseMessage extends JsonHttpResponsedMessage {
         if (i == 1021146 && jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("guard_club_info");
             if (optJSONObject2 != null) {
-                this.eCj = new c();
-                this.eCj.parseJson(optJSONObject2);
+                this.eDu = new c();
+                this.eDu.parseJson(optJSONObject2);
             }
             this.pageIndex = optJSONObject.optInt(Config.PACKAGE_NAME);
             this.hasMore = optJSONObject.optInt("has_more") == 1;
-            this.eBB = optJSONObject.optInt("is_anchor") == 1;
+            this.eCM = optJSONObject.optInt("is_anchor") == 1;
             JSONArray optJSONArray = optJSONObject.optJSONArray("club_rank_list");
             if (optJSONArray != null) {
-                this.eCi = new ArrayList();
+                this.eDt = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     p cw = new p().cw(optJSONArray.optJSONObject(i2));
                     if (cw != null) {
-                        this.eCi.add(cw);
+                        this.eDt.add(cw);
                     }
                 }
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("login_member_info");
             if (optJSONObject3 != null) {
-                this.eBD = new k();
-                this.eBD.parseJson(optJSONObject3);
+                this.eCO = new k();
+                this.eCO.parseJson(optJSONObject3);
             }
         }
     }

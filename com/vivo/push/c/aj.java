@@ -1,6 +1,6 @@
 package com.vivo.push.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class aj extends com.vivo.push.v {
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(com.vivo.push.y yVar) {

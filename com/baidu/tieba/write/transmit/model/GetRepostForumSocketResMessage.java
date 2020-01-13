@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumResIdl;
 import tbclient.SimpleForum;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GetRepostForumSocketResMessage extends SocketResponsedMessage {
     private List<SimpleForum> forumList;
     private int privateThread;

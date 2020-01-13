@@ -3,7 +3,7 @@ package com.baidu.live.challenge;
 import android.view.ViewGroup;
 import com.baidu.live.challenge.j;
 /* loaded from: classes2.dex */
-public interface k extends j.a, j.e, j.f, j.h, j.i, j.InterfaceC0074j, j.k {
+public interface k extends j.a, j.c, j.d, j.f, j.g, j.h, j.i, j.InterfaceC0074j {
     void a(j jVar);
 
     void a(l lVar);
@@ -12,7 +12,7 @@ public interface k extends j.a, j.e, j.f, j.h, j.i, j.InterfaceC0074j, j.k {
 
     void bc(int i);
 
-    void cL(String str);
+    void cM(String str);
 
     boolean isActive();
 

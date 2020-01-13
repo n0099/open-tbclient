@@ -8,70 +8,70 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes2.dex */
 public class EditHeadsImageTopLayerView extends View {
-    private Paint avY;
-    private Paint avZ;
-    private int awa;
-    private int awb;
-    private float awc;
-    private float awd;
-    private int awe;
+    private Paint awK;
+    private Paint awL;
+    private int awM;
+    private int awN;
+    private float awO;
+    private float awP;
+    private int awQ;
 
     public EditHeadsImageTopLayerView(Context context) {
         super(context);
-        this.avY = null;
-        this.avZ = null;
-        this.awa = 0;
-        this.awb = 0;
-        this.awc = 0.42857143f;
-        this.awd = 1.0f;
-        this.awe = 1;
+        this.awK = null;
+        this.awL = null;
+        this.awM = 0;
+        this.awN = 0;
+        this.awO = 0.42857143f;
+        this.awP = 1.0f;
+        this.awQ = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.avY = null;
-        this.avZ = null;
-        this.awa = 0;
-        this.awb = 0;
-        this.awc = 0.42857143f;
-        this.awd = 1.0f;
-        this.awe = 1;
+        this.awK = null;
+        this.awL = null;
+        this.awM = 0;
+        this.awN = 0;
+        this.awO = 0.42857143f;
+        this.awP = 1.0f;
+        this.awQ = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.avY = null;
-        this.avZ = null;
-        this.awa = 0;
-        this.awb = 0;
-        this.awc = 0.42857143f;
-        this.awd = 1.0f;
-        this.awe = 1;
+        this.awK = null;
+        this.awL = null;
+        this.awM = 0;
+        this.awN = 0;
+        this.awO = 0.42857143f;
+        this.awP = 1.0f;
+        this.awQ = 1;
         init();
     }
 
     private void init() {
-        this.avY = new Paint();
-        this.avY.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.avY.setAlpha(153);
-        this.avZ = new Paint();
-        this.avZ.setStyle(Paint.Style.STROKE);
-        this.avZ.setColor(-1);
+        this.awK = new Paint();
+        this.awK.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.awK.setAlpha(153);
+        this.awL = new Paint();
+        this.awL.setStyle(Paint.Style.STROKE);
+        this.awL.setColor(-1);
     }
 
     public void setLinePaintColor(int i) {
-        if (this.avZ != null) {
-            this.avZ.setColor(i);
+        if (this.awL != null) {
+            this.awL.setColor(i);
         }
         invalidate();
     }
 
     public void setLineWidth(int i) {
-        this.awe = i;
-        if (this.avZ != null) {
-            this.avZ.setStrokeWidth(i);
+        this.awQ = i;
+        if (this.awL != null) {
+            this.awL.setStrokeWidth(i);
         }
         invalidate();
     }
@@ -81,24 +81,24 @@ public class EditHeadsImageTopLayerView extends View {
         canvas.save();
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.awa, this.avY);
-        canvas.drawRect(0.0f, getHeight() - this.awb, getWidth(), getHeight(), this.avY);
-        canvas.drawRect(1.0f, this.awa, getWidth() - 1, getHeight() - this.awb, this.avZ);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.awM, this.awK);
+        canvas.drawRect(0.0f, getHeight() - this.awN, getWidth(), getHeight(), this.awK);
+        canvas.drawRect(1.0f, this.awM, getWidth() - 1, getHeight() - this.awN, this.awL);
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.awd * getWidth();
+        float width = this.awP * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.awa = (int) (((i4 - i2) - width) * this.awc);
-        this.awb = (int) (((i4 - i2) - width) * (1.0f - this.awc));
+        this.awM = (int) (((i4 - i2) - width) * this.awO);
+        this.awN = (int) (((i4 - i2) - width) * (1.0f - this.awO));
     }
 
     public void setCutImageHeightScale(float f) {
-        this.awd = f;
+        this.awP = f;
         invalidate();
     }
 }

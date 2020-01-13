@@ -2,10 +2,10 @@ package rx.internal.operators;
 
 import rx.d;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class d<T> implements d.a<T> {
-    final rx.d<T> ndN;
-    final rx.functions.f<? super T, Boolean> nep;
+    final rx.d<T> nMM;
+    final rx.functions.f<? super T, Boolean> nNo;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,33 +13,33 @@ public final class d<T> implements d.a<T> {
     }
 
     public d(rx.d<T> dVar, rx.functions.f<? super T, Boolean> fVar) {
-        this.ndN = dVar;
-        this.nep = fVar;
+        this.nMM = dVar;
+        this.nNo = fVar;
     }
 
     public void call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.nep);
+        a aVar = new a(jVar, this.nNo);
         jVar.add(aVar);
-        this.ndN.a((rx.j) aVar);
+        this.nMM.a((rx.j) aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> extends rx.j<T> {
         final rx.j<? super T> actual;
         boolean done;
-        final rx.functions.f<? super T, Boolean> nep;
+        final rx.functions.f<? super T, Boolean> nNo;
 
         public a(rx.j<? super T> jVar, rx.functions.f<? super T, Boolean> fVar) {
             this.actual = jVar;
-            this.nep = fVar;
+            this.nNo = fVar;
             request(0L);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             try {
-                if (this.nep.call(t).booleanValue()) {
+                if (this.nNo.call(t).booleanValue()) {
                     this.actual.onNext(t);
                 } else {
                     request(1L);

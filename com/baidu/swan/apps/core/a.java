@@ -25,12 +25,13 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.nio.channels.FileChannel;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+import tv.chushou.basis.http.HttpConsts;
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean Fi() {
-        return com.baidu.swan.apps.w.a.Rw().Fi();
+    public static boolean FE() {
+        return com.baidu.swan.apps.w.a.RS().FE();
     }
 
     public static void d(File file, File file2) throws IOException {
@@ -63,7 +64,7 @@ public class a {
         }
     }
 
-    public static void gt(String str) {
+    public static void gw(String str) {
         b(str, null, null, true);
     }
 
@@ -83,7 +84,7 @@ public class a {
             String absolutePath = file.getParentFile().getAbsolutePath();
             String name = file.getName();
             File file2 = new File(absolutePath + File.separator + name + ".tmp");
-            File file3 = new File(absolutePath + File.separator + name + ".bak");
+            File file3 = new File(absolutePath + File.separator + name + HttpConsts.FILE_BACKUP_SUFFIX);
             if (z) {
                 if (file3.exists()) {
                     file3.renameTo(file);
@@ -236,7 +237,7 @@ public class a {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new a.C0285a(10006).ln(jSONObject2).lm(e.ZU()).Tz();
+        new a.C0287a(10006).lq(jSONObject2).lp(e.aar()).TW();
     }
 
     public static void q(String str, String str2, String str3) {
@@ -256,7 +257,7 @@ public class a {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new a.C0285a(10008).ln(jSONObject2).lm(e.ZU()).Tz();
+            new a.C0287a(10008).lq(jSONObject2).lp(e.aar()).TW();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

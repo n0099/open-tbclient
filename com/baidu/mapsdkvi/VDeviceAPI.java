@@ -31,7 +31,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class VDeviceAPI {
     private static PowerManager.WakeLock a = null;
     private static BroadcastReceiver b = null;

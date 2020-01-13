@@ -1,5 +1,6 @@
 package com.baidu.live.tbadk.scheme;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -54,10 +55,18 @@ public class SchemeUtils {
     }
 
     public static boolean openScheme(String str) {
-        return openScheme(str, null);
+        return openScheme((Context) null, str);
+    }
+
+    public static boolean openScheme(Context context, String str) {
+        return openScheme(context, str, null);
     }
 
     public static boolean openScheme(String str, SchemeCallback schemeCallback) {
+        return openScheme(null, str, schemeCallback);
+    }
+
+    public static boolean openScheme(Context context, String str, SchemeCallback schemeCallback) {
         try {
             Uri parse = Uri.parse(str);
             String scheme = parse.getScheme();
@@ -93,7 +102,7 @@ public class SchemeUtils {
                     }
                 }
             }
-            cls.newInstance().excute(hashMap, schemeCallback);
+            cls.newInstance().excute(context, hashMap, schemeCallback);
             return true;
         } catch (Exception e2) {
             e2.printStackTrace();

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSessionContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class SessionSnapshot implements ConscryptSession {
     private final String cipherSuite;
     private final long creationTime;

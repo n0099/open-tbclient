@@ -1,15 +1,15 @@
 package com.baidu.j.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private static volatile a aKA;
+    private static volatile a aLs;
 
-    public static synchronized a BC() {
+    public static synchronized a BY() {
         a aVar;
         synchronized (b.class) {
-            if (aKA == null) {
-                aKA = new a();
+            if (aLs == null) {
+                aLs = new a();
             }
-            aVar = aKA;
+            aVar = aLs;
         }
         return aVar;
     }

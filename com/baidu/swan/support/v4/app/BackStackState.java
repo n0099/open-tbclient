@@ -7,7 +7,7 @@ import android.util.Log;
 import com.baidu.swan.support.v4.app.e;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BackStackState implements Parcelable {
     public static final Parcelable.Creator<BackStackState> CREATOR = new Parcelable.Creator<BackStackState>() { // from class: com.baidu.swan.support.v4.app.BackStackState.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,21 +38,21 @@ public final class BackStackState implements Parcelable {
 
     public BackStackState(e eVar) {
         int i = 0;
-        for (e.a aVar = eVar.cyc; aVar != null; aVar = aVar.cyo) {
-            if (aVar.cyr != null) {
-                i += aVar.cyr.size();
+        for (e.a aVar = eVar.cyn; aVar != null; aVar = aVar.cyz) {
+            if (aVar.cyC != null) {
+                i += aVar.cyC.size();
             }
         }
-        this.mOps = new int[i + (eVar.cye * 7)];
+        this.mOps = new int[i + (eVar.cyp * 7)];
         if (!eVar.mAddToBackStack) {
             throw new IllegalStateException("Not on back stack");
         }
         int i2 = 0;
-        for (e.a aVar2 = eVar.cyc; aVar2 != null; aVar2 = aVar2.cyo) {
+        for (e.a aVar2 = eVar.cyn; aVar2 != null; aVar2 = aVar2.cyz) {
             int i3 = i2 + 1;
             this.mOps[i2] = aVar2.cmd;
             int i4 = i3 + 1;
-            this.mOps[i3] = aVar2.cyq != null ? aVar2.cyq.mIndex : -1;
+            this.mOps[i3] = aVar2.cyB != null ? aVar2.cyB.mIndex : -1;
             int i5 = i4 + 1;
             this.mOps[i4] = aVar2.enterAnim;
             int i6 = i5 + 1;
@@ -61,13 +61,13 @@ public final class BackStackState implements Parcelable {
             this.mOps[i6] = aVar2.popEnterAnim;
             int i8 = i7 + 1;
             this.mOps[i7] = aVar2.popExitAnim;
-            if (aVar2.cyr != null) {
-                int size = aVar2.cyr.size();
+            if (aVar2.cyC != null) {
+                int size = aVar2.cyC.size();
                 int i9 = i8 + 1;
                 this.mOps[i8] = size;
                 int i10 = 0;
                 while (i10 < size) {
-                    this.mOps[i9] = aVar2.cyr.get(i10).mIndex;
+                    this.mOps[i9] = aVar2.cyC.get(i10).mIndex;
                     i10++;
                     i9++;
                 }
@@ -117,9 +117,9 @@ public final class BackStackState implements Parcelable {
             int i4 = i3 + 1;
             int i5 = this.mOps[i3];
             if (i5 >= 0) {
-                aVar.cyq = lVar.cyQ.get(i5);
+                aVar.cyB = lVar.czb.get(i5);
             } else {
-                aVar.cyq = null;
+                aVar.cyB = null;
             }
             int i6 = i4 + 1;
             aVar.enterAnim = this.mOps[i4];
@@ -132,13 +132,13 @@ public final class BackStackState implements Parcelable {
             int i10 = i9 + 1;
             int i11 = this.mOps[i9];
             if (i11 > 0) {
-                aVar.cyr = new ArrayList<>(i11);
+                aVar.cyC = new ArrayList<>(i11);
                 int i12 = 0;
                 while (i12 < i11) {
                     if (l.DEBUG) {
                         Log.v("FragmentManager", "Instantiate " + eVar + " set remove fragment #" + this.mOps[i10]);
                     }
-                    aVar.cyr.add(lVar.cyQ.get(this.mOps[i10]));
+                    aVar.cyC.add(lVar.czb.get(this.mOps[i10]));
                     i12++;
                     i10++;
                 }

@@ -7,9 +7,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.h;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a extends h<ICardInfo, b> {
-    private ICardInfo gAK;
+    private ICardInfo gDU;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -18,9 +18,9 @@ public class a extends h<ICardInfo, b> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aZ */
+    /* renamed from: bd */
     public b b(ViewGroup viewGroup) {
-        e a = com.baidu.tieba.lego.card.b.bYX().a(this.mPageContext, this.gAK, 1);
+        e a = com.baidu.tieba.lego.card.b.cag().a(this.mPageContext, this.gDU, 1);
         if (a == null) {
             return null;
         }
@@ -44,7 +44,7 @@ public class a extends h<ICardInfo, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View getView(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        this.gAK = iCardInfo;
+        this.gDU = iCardInfo;
         return super.getView(i, view, viewGroup, iCardInfo);
     }
 }

@@ -3,11 +3,11 @@ package com.google.gson.internal.b;
 import com.google.gson.JsonIOException;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class c extends b {
-    private static Class mII;
-    private final Object mIJ = dyV();
-    private final Field mIK = dyW();
+    private static Class mMw;
+    private final Object mMx = dAa();
+    private final Field mMy = dAb();
 
     @Override // com.google.gson.internal.b.b
     public void b(AccessibleObject accessibleObject) {
@@ -21,9 +21,9 @@ final class c extends b {
     }
 
     boolean c(AccessibleObject accessibleObject) {
-        if (this.mIJ != null && this.mIK != null) {
+        if (this.mMx != null && this.mMy != null) {
             try {
-                mII.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.mIJ, accessibleObject, Long.valueOf(((Long) mII.getMethod("objectFieldOffset", Field.class).invoke(this.mIJ, this.mIK)).longValue()), true);
+                mMw.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.mMx, accessibleObject, Long.valueOf(((Long) mMw.getMethod("objectFieldOffset", Field.class).invoke(this.mMx, this.mMy)).longValue()), true);
                 return true;
             } catch (Exception e) {
             }
@@ -31,10 +31,10 @@ final class c extends b {
         return false;
     }
 
-    private static Object dyV() {
+    private static Object dAa() {
         try {
-            mII = Class.forName("sun.misc.Unsafe");
-            Field declaredField = mII.getDeclaredField("theUnsafe");
+            mMw = Class.forName("sun.misc.Unsafe");
+            Field declaredField = mMw.getDeclaredField("theUnsafe");
             declaredField.setAccessible(true);
             return declaredField.get(null);
         } catch (Exception e) {
@@ -42,7 +42,7 @@ final class c extends b {
         }
     }
 
-    private static Field dyW() {
+    private static Field dAb() {
         try {
             return AccessibleObject.class.getDeclaredField("override");
         } catch (NoSuchFieldException e) {

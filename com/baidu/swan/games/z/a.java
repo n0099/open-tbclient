@@ -3,30 +3,30 @@ package com.baidu.swan.games.z;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static final ReentrantLock cor = new ReentrantLock();
-    private static volatile a cos;
-    private d chq;
-    private List<c> cii = new ArrayList(3);
+    private static final ReentrantLock coE = new ReentrantLock();
+    private static volatile a coF;
+    private d chD;
+    private List<c> civ = new ArrayList(3);
 
     private a() {
     }
 
-    public static a anj() {
-        if (cos == null) {
+    public static a anC() {
+        if (coF == null) {
             synchronized (a.class) {
-                if (cos == null) {
-                    cos = new a();
+                if (coF == null) {
+                    coF = new a();
                 }
             }
         }
-        return cos;
+        return coF;
     }
 
     public void a(d dVar) {
-        this.chq = dVar;
-        ank();
+        this.chD = dVar;
+        anD();
     }
 
     public void O(String str, boolean z) {
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.chq = null;
-        this.cii.clear();
+        this.chD = null;
+        this.civ.clear();
     }
 
     private void a(c cVar) {
-        cor.lock();
+        coE.lock();
         try {
-            if (this.chq != null) {
-                this.chq.c(cVar);
+            if (this.chD != null) {
+                this.chD.c(cVar);
             } else {
-                this.cii.add(cVar);
+                this.civ.add(cVar);
             }
         } finally {
-            cor.unlock();
+            coE.unlock();
         }
     }
 
-    private void ank() {
-        if (!this.cii.isEmpty() && this.chq != null) {
-            cor.lock();
+    private void anD() {
+        if (!this.civ.isEmpty() && this.chD != null) {
+            coE.lock();
             try {
-                for (c cVar : this.cii) {
-                    this.chq.c(cVar);
+                for (c cVar : this.civ) {
+                    this.chD.c(cVar);
                 }
-                this.cii.clear();
+                this.civ.clear();
             } finally {
-                cor.unlock();
+                coE.unlock();
             }
         }
     }

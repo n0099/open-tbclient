@@ -22,7 +22,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DiskLruCache implements Closeable {
     static final long ANY_SEQUENCE_NUMBER = -1;
     private static final String CLEAN = "CLEAN";
@@ -481,7 +481,7 @@ public final class DiskLruCache implements Closeable {
         return Util.readFully(new InputStreamReader(inputStream, Util.UTF_8));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class Value {
         private final File[] files;
         private final String key;
@@ -512,7 +512,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class Editor {
         private boolean committed;
         private final Entry entry;
@@ -602,7 +602,7 @@ public final class DiskLruCache implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class Entry {
         File[] cleanFiles;
         private Editor currentEditor;
@@ -663,7 +663,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static final class DiskLruCacheThreadFactory implements ThreadFactory {
         private DiskLruCacheThreadFactory() {
         }

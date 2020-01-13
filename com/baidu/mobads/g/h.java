@@ -3,7 +3,7 @@ package com.baidu.mobads.g;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 final class h extends Handler {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Looper looper) {

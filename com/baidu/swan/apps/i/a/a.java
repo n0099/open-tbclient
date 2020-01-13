@@ -15,7 +15,7 @@ import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends ab {
     private String callback;
 
@@ -28,7 +28,7 @@ public class a extends ab {
         if (context == null || callbackHandler == null || eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (eVar.GS()) {
+        } else if (eVar.Ho()) {
             if (DEBUG) {
                 Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
             }
@@ -122,20 +122,20 @@ public class a extends ab {
 
     private ArrayList<ContentValues> a(com.baidu.swan.apps.i.a aVar) {
         ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-        arrayList.add(aVar.JK());
-        arrayList.add(aVar.JL());
-        arrayList.add(aVar.JM());
-        arrayList.add(aVar.JN());
-        arrayList.add(aVar.JO());
-        arrayList.add(aVar.JP());
-        arrayList.add(aVar.JI());
-        arrayList.add(aVar.JQ());
-        arrayList.add(aVar.JS());
-        arrayList.add(aVar.JJ());
-        arrayList.add(aVar.JR());
-        arrayList.add(aVar.JT());
-        arrayList.add(aVar.JU());
-        arrayList.add(aVar.JV());
+        arrayList.add(aVar.Kg());
+        arrayList.add(aVar.Kh());
+        arrayList.add(aVar.Ki());
+        arrayList.add(aVar.Kj());
+        arrayList.add(aVar.Kk());
+        arrayList.add(aVar.Kl());
+        arrayList.add(aVar.Ke());
+        arrayList.add(aVar.Km());
+        arrayList.add(aVar.Ko());
+        arrayList.add(aVar.Kf());
+        arrayList.add(aVar.Kn());
+        arrayList.add(aVar.Kp());
+        arrayList.add(aVar.Kq());
+        arrayList.add(aVar.Kr());
         return arrayList;
     }
 }

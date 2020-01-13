@@ -1,9 +1,8 @@
 package com.baidu.live.data;
+
+import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes2.dex */
 public class o {
-    public int Wn;
-    public int Wo;
-    public int Wp;
-    public int Wq;
-    public k Wr;
+    public TbPageContext pageContext;
+    public String userId;
 }

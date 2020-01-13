@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class g {
     public static String a() {
         return "https://api.map.baidu.com/sdkproxy/lbs_navsdk_mini/tripshare/v1/trip/search";

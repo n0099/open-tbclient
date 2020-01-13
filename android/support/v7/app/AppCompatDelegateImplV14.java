@@ -24,7 +24,7 @@ import android.view.View;
 import android.view.Window;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(14)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV9 {
     private static final String KEY_LOCAL_NIGHT_MODE = "appcompat:local_night_mode";
     private boolean mApplyDayNightCalled;
@@ -203,7 +203,7 @@ public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV9 {
         return false;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     class AppCompatWindowCallbackV14 extends AppCompatDelegateImplBase.AppCompatWindowCallbackBase {
         /* JADX INFO: Access modifiers changed from: package-private */
         public AppCompatWindowCallbackV14(Window.Callback callback) {
@@ -228,7 +228,7 @@ public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV9 {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class AutoNightModeManager {
         private BroadcastReceiver mAutoTimeChangeReceiver;
         private IntentFilter mAutoTimeChangeReceiverFilter;

@@ -7,19 +7,19 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.o.a;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PersonCenterFragmentStatic {
     static {
-        aZq();
-        a.cBe();
+        aZL();
+        a.cCk();
     }
 
-    private static void aZq() {
+    private static void aZL() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PROFILE, ProfileSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002700, com.baidu.tieba.tbadkCore.a.a.bu(Config.USER_INFO_ADDRESS, CmdConfigSocket.CMD_PROFILE));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002700, com.baidu.tieba.tbadkCore.a.a.bv(Config.USER_INFO_ADDRESS, CmdConfigSocket.CMD_PROFILE));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
-        tbHttpMessageTask.setIsNeedAddCommenParam(false);
+        tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
         tbHttpMessageTask.setResponsedClass(ProfileHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

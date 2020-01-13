@@ -13,102 +13,102 @@ import com.baidu.tbadk.core.util.aq;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i {
-    private String hMX;
-    private int hMY;
-    private int hMZ;
-    private int hNa;
-    private long hMW = 0;
-    private HashMap<String, Boolean> hMV = new HashMap<>();
+    private String hQA;
+    private int hQB;
+    private int hQC;
+    private int hQD;
+    private long hQz = 0;
+    private HashMap<String, Boolean> hQy = new HashMap<>();
 
-    public void wW(int i) {
-        this.hMZ = i;
+    public void xb(int i) {
+        this.hQC = i;
     }
 
-    public int bXW() {
-        return this.hMZ;
+    public int bZf() {
+        return this.hQC;
     }
 
-    public void wX(int i) {
-        this.hNa = i;
+    public void xc(int i) {
+        this.hQD = i;
     }
 
-    public int bXX() {
-        return this.hNa;
+    public int bZg() {
+        return this.hQD;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.hMX = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.hQA = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.hMX = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.hQA = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.hMY = intExtra;
-            this.hMZ = intExtra;
-            this.hNa = intExtra;
+            this.hQB = intExtra;
+            this.hQC = intExtra;
+            this.hQD = intExtra;
         }
     }
 
     public void ar(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.hMX);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.hQA);
         }
     }
 
     public void d(List<String> list, int i, int i2) {
-        synchronized (this.hMV) {
-            if (System.nanoTime() - this.hMW > 300000000 && list != null && i < list.size()) {
-                this.hMV.put(list.get(i), true);
+        synchronized (this.hQy) {
+            if (System.nanoTime() - this.hQz > 300000000 && list != null && i < list.size()) {
+                this.hQy.put(list.get(i), true);
             }
-            this.hMW = System.nanoTime();
-            if (list != null && i2 < list.size() && this.hMV.get(list.get(i2)) == null) {
-                this.hMV.put(list.get(i2), false);
+            this.hQz = System.nanoTime();
+            if (list != null && i2 < list.size() && this.hQy.get(list.get(i2)) == null) {
+                this.hQy.put(list.get(i2), false);
             }
         }
-        if (this.hMV.size() >= 100) {
-            bXY();
+        if (this.hQy.size() >= 100) {
+            bZh();
         }
     }
 
-    public void bXY() {
-        if (this.hMV != null) {
-            synchronized (this.hMV) {
-                if (this.hMV.size() > 0) {
+    public void bZh() {
+        if (this.hQy != null) {
+            synchronized (this.hQy) {
+                if (this.hQy.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.hMV.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.hQy.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.hMV.size(), this.hMX, this.hMY + 1, this.hMZ + 1);
-                    this.hMV.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.hQy.size(), this.hQA, this.hQB + 1, this.hQC + 1);
+                    this.hQy.clear();
                 }
             }
         }
     }
 
-    public void aG(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.hMW > 300000000) {
-            this.hMV.put(str, true);
+    public void aM(int i, String str) {
+        if (i == 1 && System.nanoTime() - this.hQz > 300000000) {
+            this.hQy.put(str, true);
         }
     }
 
     public void a(int i, String str, String str2, String str3, String str4, String str5) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.hNa == this.hMZ) {
-            sb.append(this.hNa + 1);
-            if (this.hMZ == i - 1) {
+        if (this.hQD == this.hQC) {
+            sb.append(this.hQD + 1);
+            if (this.hQC == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.hNa; i2 <= this.hMZ; i2++) {
-                if (i2 == this.hMZ) {
+            for (int i2 = this.hQD; i2 <= this.hQC; i2++) {
+                if (i2 == this.hQC) {
                     sb.append(i2 + 1);
-                    if (this.hMZ == i - 1) {
+                    if (this.hQC == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -130,14 +130,14 @@ public class i {
             anVar.cp("tid", str3);
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhF);
+            anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhR);
         }
         anVar.Z("pic_count", i);
         anVar.cp("obj_floors", sb.toString());
         anVar.cp("obj_isads", sb2.toString());
-        int i3 = (this.hMZ - this.hNa) + 1;
+        int i3 = (this.hQC - this.hQD) + 1;
         if (i3 == 1) {
-            if (this.hMZ == i - 1) {
+            if (this.hQC == i - 1) {
                 anVar.cp("obj_id", str);
             } else {
                 anVar.cp("obj_id", "");
@@ -148,7 +148,7 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.hMZ == i - 1) {
+            if (this.hQC == i - 1) {
                 sb3.append(str);
             }
             anVar.cp("obj_ids", str);

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ImageLoadTask extends BaseTask {
     private static final String[] IMG_TYPES = {MimeType.Image.JPEG, MimeType.Image.PNG, "image/gif"};
     private Context mContext;

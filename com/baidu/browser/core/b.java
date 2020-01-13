@@ -3,10 +3,10 @@ package com.baidu.browser.core;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.SharedPreferences;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends ContextWrapper {
-    private static b Hy;
-    private h Hz;
+    private static b HD;
+    private h HE;
 
     public b() {
         super(null);
@@ -16,10 +16,10 @@ public class b extends ContextWrapper {
     @Override // android.content.ContextWrapper, android.content.Context
     /* renamed from: lX */
     public h getResources() {
-        if (this.Hz == null) {
-            this.Hz = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+        if (this.HE == null) {
+            this.HE = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
         }
-        return this.Hz;
+        return this.HE;
     }
 
     @Override // android.content.ContextWrapper
@@ -30,10 +30,10 @@ public class b extends ContextWrapper {
     public static synchronized b lY() {
         b bVar;
         synchronized (b.class) {
-            if (Hy == null) {
-                Hy = new b();
+            if (HD == null) {
+                HD = new b();
             }
-            bVar = Hy;
+            bVar = HD;
         }
         return bVar;
     }

@@ -7,8 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    public C0427a eDP;
-    public b eDQ;
+    public C0430a eFa;
+    public b eFb;
     public int status;
 
     public void parserJson(JSONObject jSONObject) {
@@ -16,35 +16,35 @@ public class a {
             this.status = jSONObject.optInt("status");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.eDP = new C0427a();
-                this.eDP.cx(optJSONObject);
+                this.eFa = new C0430a();
+                this.eFa.cx(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("rank");
             if (optJSONObject2 != null) {
-                this.eDQ = new b();
-                this.eDQ.cz(optJSONObject2);
+                this.eFb = new b();
+                this.eFb.cz(optJSONObject2);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0427a {
-        public String eDR;
-        public String eDS;
-        public String eDT;
-        public String eDU;
-        public String eDV;
-        public long eDW;
-        public long eDX;
-        public long eDY;
-        public List<C0428a> eDZ;
+    public static class C0430a {
+        public String eFc;
+        public String eFd;
+        public String eFe;
+        public String eFf;
+        public String eFg;
+        public long eFh;
+        public long eFi;
+        public long eFj;
+        public List<C0431a> eFk;
         public long startTime;
         public String username;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0428a {
+        public static class C0431a {
             public String pic;
             public String text;
 
@@ -57,40 +57,40 @@ public class a {
         public void cx(JSONObject jSONObject) {
             JSONArray optJSONArray = jSONObject.optJSONArray(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.eDZ = new ArrayList();
+                this.eFk = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    C0428a c0428a = new C0428a();
-                    c0428a.cy(optJSONArray.optJSONObject(i));
-                    this.eDZ.add(c0428a);
+                    C0431a c0431a = new C0431a();
+                    c0431a.cy(optJSONArray.optJSONObject(i));
+                    this.eFk.add(c0431a);
                 }
             }
             if (!jSONObject.isNull("portrait")) {
-                this.eDR = jSONObject.optString("portrait");
+                this.eFc = jSONObject.optString("portrait");
             }
             if (!jSONObject.isNull("user_name")) {
                 this.username = jSONObject.optString("user_name");
             }
             if (!jSONObject.isNull("guard_seat_user")) {
-                this.eDV = jSONObject.optString("guard_seat_user");
+                this.eFg = jSONObject.optString("guard_seat_user");
             }
-            this.eDS = jSONObject.optString("frame_pic");
-            this.eDT = jSONObject.optString("time_text");
-            this.eDU = jSONObject.optString("rule_url");
+            this.eFd = jSONObject.optString("frame_pic");
+            this.eFe = jSONObject.optString("time_text");
+            this.eFf = jSONObject.optString("rule_url");
             this.startTime = jSONObject.optLong("start_time");
-            this.eDW = jSONObject.optLong("count_down");
-            this.eDX = jSONObject.optLong("effect_time");
-            this.eDY = jSONObject.optLong("polling_time");
+            this.eFh = jSONObject.optLong("count_down");
+            this.eFi = jSONObject.optLong("effect_time");
+            this.eFj = jSONObject.optLong("polling_time");
         }
     }
 
     /* loaded from: classes2.dex */
     public static class b {
-        public C0429a eEa;
-        public List<C0430b> eEb;
+        public C0432a eFl;
+        public List<C0433b> eFm;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0430b {
+        public static class C0433b {
             public String nickname;
             public String portrait;
             public String rank;
@@ -106,7 +106,7 @@ public class a {
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0429a {
+        public static class C0432a {
             public int rank;
             public String text;
 
@@ -120,17 +120,17 @@ public class a {
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.eEb = new ArrayList();
+                    this.eFm = new ArrayList();
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        C0430b c0430b = new C0430b();
-                        c0430b.cB(optJSONArray.optJSONObject(i));
-                        this.eEb.add(c0430b);
+                        C0433b c0433b = new C0433b();
+                        c0433b.cB(optJSONArray.optJSONObject(i));
+                        this.eFm.add(c0433b);
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject != null) {
-                    this.eEa = new C0429a();
-                    this.eEa.cA(optJSONObject);
+                    this.eFl = new C0432a();
+                    this.eFl.cA(optJSONObject);
                 }
             }
         }

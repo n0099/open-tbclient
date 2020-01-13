@@ -6,21 +6,21 @@ import com.baidu.live.gift.i;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class d {
-    private com.baidu.live.gift.giftList.b agJ;
-    private ArrayList<i> agK;
-    private ArrayList<com.baidu.live.data.c> agL;
-    private ArrayList<com.baidu.live.data.d> agM;
-    private a agN;
-    private b.a agO = new b.a() { // from class: com.baidu.live.gift.container.d.1
+    private com.baidu.live.gift.giftList.b ahs;
+    private ArrayList<i> aht;
+    private ArrayList<com.baidu.live.data.c> ahu;
+    private ArrayList<com.baidu.live.data.d> ahv;
+    private a ahw;
+    private b.a ahx = new b.a() { // from class: com.baidu.live.gift.container.d.1
         @Override // com.baidu.live.gift.giftList.b.a
         public void a(int i, String str, boolean z, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.c> arrayList2, ArrayList<com.baidu.live.data.d> arrayList3) {
             if (i == 0) {
-                d.this.agK = arrayList;
-                d.this.agL = arrayList2;
-                d.this.agM = arrayList3;
+                d.this.aht = arrayList;
+                d.this.ahu = arrayList2;
+                d.this.ahv = arrayList3;
             }
-            if (d.this.agN != null) {
-                d.this.agN.b(i, str, true, d.this.agK, d.this.agL, d.this.agM);
+            if (d.this.ahw != null) {
+                d.this.ahw.b(i, str, true, d.this.aht, d.this.ahu, d.this.ahv);
             }
         }
     };
@@ -33,24 +33,24 @@ public class d {
 
     public d(BdPageContext bdPageContext, boolean z) {
         this.mContext = bdPageContext;
-        this.agJ = new com.baidu.live.gift.giftList.b(this.mContext);
-        this.agJ.a(this.agO);
+        this.ahs = new com.baidu.live.gift.giftList.b(this.mContext);
+        this.ahs.a(this.ahx);
     }
 
-    public void di(String str) {
+    public void dk(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        this.agJ.i(str, com.baidu.live.c.oI().getLong("ala_sdk_get_gift_list_req_time", currentTimeMillis) - currentTimeMillis <= 0);
+        this.ahs.i(str, com.baidu.live.c.oJ().getLong("ala_sdk_get_gift_list_req_time", currentTimeMillis) - currentTimeMillis <= 0);
     }
 
-    public void dj(String str) {
-        this.agJ.dq(str);
+    public void dl(String str) {
+        this.ahs.ds(str);
     }
 
-    public void rQ() {
-        this.agJ.cancelLoadData();
+    public void sg() {
+        this.ahs.cancelLoadData();
     }
 
     public void a(a aVar) {
-        this.agN = aVar;
+        this.ahw = aVar;
     }
 }

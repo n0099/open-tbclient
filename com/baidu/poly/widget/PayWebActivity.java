@@ -21,16 +21,16 @@ import android.widget.ImageView;
 import com.baidu.poly.b;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PayWebActivity extends Activity {
-    private Bundle aMO;
+    private Bundle aNG;
     private ImageView i;
     private boolean j;
     private String k;
     private WebView webView;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         a() {
         }
@@ -46,7 +46,7 @@ public class PayWebActivity extends Activity {
         Intent intent = getIntent();
         if (intent != null) {
             this.k = intent.getStringExtra("load_url");
-            this.aMO = intent.getBundleExtra("launch_payment_data");
+            this.aNG = intent.getBundleExtra("launch_payment_data");
         }
     }
 
@@ -69,7 +69,7 @@ public class PayWebActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ez(String str) {
+    public boolean eC(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
@@ -122,14 +122,14 @@ public class PayWebActivity extends Activity {
         super.onResume();
         if (this.j) {
             Intent intent = new Intent();
-            intent.putExtras(this.aMO);
+            intent.putExtras(this.aNG);
             setResult(-1, intent);
             finish();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b extends WebViewClient {
         b() {
         }
@@ -156,7 +156,7 @@ public class PayWebActivity extends Activity {
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-            return PayWebActivity.this.ez(str);
+            return PayWebActivity.this.eC(str);
         }
 
         @Override // android.webkit.WebViewClient
@@ -168,7 +168,7 @@ public class PayWebActivity extends Activity {
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                return PayWebActivity.this.ez(uri);
+                return PayWebActivity.this.eC(uri);
             }
             return true;
         }

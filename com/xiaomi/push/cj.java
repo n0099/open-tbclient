@@ -11,32 +11,32 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class cj implements co {
     private static cj a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f189a;
+    private int f187a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f190a;
+    private Context f188a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ci f191a;
+    private ci f189a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f192a;
+    private String f190a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<String, ch> f193a;
+    private HashMap<String, ch> f191a;
     private int b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f194b;
+    private String f192b;
     private int c;
 
     /* renamed from: c  reason: collision with other field name */
-    private String f195c;
+    private String f193c;
     private int d;
 
     public static synchronized cj a() {
@@ -50,8 +50,8 @@ public class cj implements co {
     private String a(ArrayList<cg> arrayList, String str) {
         JSONObject jSONObject;
         JSONObject jSONObject2 = new JSONObject();
-        if (!TextUtils.isEmpty(this.f192a)) {
-            jSONObject2.put("imei", cm.a(this.f192a));
+        if (!TextUtils.isEmpty(this.f190a)) {
+            jSONObject2.put("imei", cm.a(this.f190a));
         }
         jSONObject2.put("actionType", str);
         jSONObject2.put("actionTime", System.currentTimeMillis());
@@ -63,11 +63,11 @@ public class cj implements co {
                 jSONObject2.put("adList", new JSONArray((Collection) arrayList2));
                 return Base64.encodeToString(jSONObject2.toString().getBytes(), 2);
             }
-            if (TextUtils.isEmpty(arrayList.get(i2).f186a)) {
+            if (TextUtils.isEmpty(arrayList.get(i2).f184a)) {
                 jSONObject = new JSONObject();
             } else {
                 try {
-                    jSONObject = new JSONObject(arrayList.get(i2).f186a);
+                    jSONObject = new JSONObject(arrayList.get(i2).f184a);
                 } catch (Exception e) {
                     Log.e("com.xiaomi.miui.ads.pushsdk", "content 不是json串");
                     jSONObject = null;
@@ -77,20 +77,20 @@ public class cj implements co {
                 jSONObject = new JSONObject();
             }
             JSONObject jSONObject3 = jSONObject;
-            jSONObject3.put("adId", arrayList.get(i2).f185a);
+            jSONObject3.put("adId", arrayList.get(i2).f183a);
             arrayList2.add(jSONObject3);
             i = i2 + 1;
         }
     }
 
     private void a(ch chVar) {
-        if (this.f193a.containsKey(chVar.b)) {
+        if (this.f191a.containsKey(chVar.b)) {
             return;
         }
         this.b++;
-        cm.m180a("send: " + this.b);
-        ck ckVar = new ck(this, this.f194b, this.f195c, chVar);
-        this.f193a.put(chVar.b, chVar);
+        cm.m189a("send: " + this.b);
+        ck ckVar = new ck(this, this.f192b, this.f193c, chVar);
+        this.f191a.put(chVar.b, chVar);
         ckVar.execute(new String[0]);
     }
 
@@ -98,7 +98,7 @@ public class cj implements co {
         try {
             String a2 = a(arrayList, str);
             String a3 = cm.a(a2);
-            if (m179a(new ch(i, a2, a3))) {
+            if (m188a(new ch(i, a2, a3))) {
                 a(new ch(i, a2, a3));
             }
         } catch (JSONException e) {
@@ -106,8 +106,8 @@ public class cj implements co {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m179a(ch chVar) {
-        if (cl.a(this.f190a)) {
+    private boolean m188a(ch chVar) {
+        if (cl.a(this.f188a)) {
             return true;
         }
         b(chVar);
@@ -116,13 +116,13 @@ public class cj implements co {
 
     private void b(ch chVar) {
         this.d++;
-        cm.m180a("cacheCount: " + this.d);
-        this.f191a.a(chVar);
-        this.f191a.a();
+        cm.m189a("cacheCount: " + this.d);
+        this.f189a.a(chVar);
+        this.f189a.a();
     }
 
     public void a(cg cgVar) {
-        if (cgVar.f185a <= 0) {
+        if (cgVar.f183a <= 0) {
             return;
         }
         ArrayList<cg> arrayList = new ArrayList<>();
@@ -132,21 +132,21 @@ public class cj implements co {
 
     @Override // com.xiaomi.push.co
     public void a(Integer num, ch chVar) {
-        if (this.f193a.containsKey(chVar.b)) {
+        if (this.f191a.containsKey(chVar.b)) {
             if (num.intValue() != 0) {
                 this.c++;
-                cm.m180a("faild: " + this.c + HanziToPinyin.Token.SEPARATOR + chVar.b + "  " + this.f193a.size());
+                cm.m189a("faild: " + this.c + HanziToPinyin.Token.SEPARATOR + chVar.b + "  " + this.f191a.size());
                 b(chVar);
             } else {
-                this.f189a++;
-                cm.m180a("success: " + this.f189a);
+                this.f187a++;
+                cm.m189a("success: " + this.f187a);
             }
-            this.f193a.remove(chVar.b);
+            this.f191a.remove(chVar.b);
         }
     }
 
     public void b(cg cgVar) {
-        if (cgVar.f185a <= 0) {
+        if (cgVar.f183a <= 0) {
             return;
         }
         ArrayList<cg> arrayList = new ArrayList<>();
@@ -155,7 +155,7 @@ public class cj implements co {
     }
 
     public void c(cg cgVar) {
-        if (cgVar.f185a <= 0) {
+        if (cgVar.f183a <= 0) {
             return;
         }
         ArrayList<cg> arrayList = new ArrayList<>();

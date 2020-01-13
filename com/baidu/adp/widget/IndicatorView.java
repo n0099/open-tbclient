@@ -20,7 +20,7 @@ public class IndicatorView extends View {
     private Drawable mSelector;
     private int mSpacing;
     private float mTargetPosition;
-    private final f zD;
+    private final f zH;
 
     public IndicatorView(Context context) {
         this(context, null, 0);
@@ -32,7 +32,7 @@ public class IndicatorView extends View {
 
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.zD = new a();
+        this.zH = new a();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
         this.mSpacing = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.mCount = obtainStyledAttributes.getInteger(R.styleable.IndicatorView_count, 0);
@@ -49,12 +49,12 @@ public class IndicatorView extends View {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.zD.measure(i, i2);
+        this.zH.measure(i, i2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.zD.draw(canvas);
+        this.zH.draw(canvas);
     }
 
     public void setAutoHide(boolean z) {
@@ -119,7 +119,7 @@ public class IndicatorView extends View {
         private long currentAnimatingTime;
         private final int kVelocity;
         private long lastAnimationTime;
-        private final HandlerC0028a zE = new HandlerC0028a();
+        private final HandlerC0028a zI = new HandlerC0028a();
 
         a() {
             this.kVelocity = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
@@ -228,8 +228,8 @@ public class IndicatorView extends View {
             this.animatingPosition = IndicatorView.this.mPosition;
             this.lastAnimationTime = SystemClock.uptimeMillis();
             this.currentAnimatingTime = this.lastAnimationTime + 16;
-            this.zE.removeMessages(1000);
-            this.zE.sendEmptyMessageAtTime(1000, this.currentAnimatingTime);
+            this.zI.removeMessages(1000);
+            this.zI.sendEmptyMessageAtTime(1000, this.currentAnimatingTime);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -244,16 +244,16 @@ public class IndicatorView extends View {
                     this.animating = false;
                 } else {
                     IndicatorView.this.mPosition = this.animatingPosition;
-                    this.zE.removeMessages(1000);
-                    this.zE.sendEmptyMessageAtTime(1000, this.currentAnimatingTime);
+                    this.zI.removeMessages(1000);
+                    this.zI.sendEmptyMessageAtTime(1000, this.currentAnimatingTime);
                 }
             } else if (this.animatingPosition > IndicatorView.this.mTargetPosition) {
                 IndicatorView.this.mPosition = IndicatorView.this.mTargetPosition;
                 this.animating = false;
             } else {
                 IndicatorView.this.mPosition = this.animatingPosition;
-                this.zE.removeMessages(1000);
-                this.zE.sendEmptyMessageAtTime(1000, this.currentAnimatingTime);
+                this.zI.removeMessages(1000);
+                this.zI.sendEmptyMessageAtTime(1000, this.currentAnimatingTime);
             }
             IndicatorView.this.invalidate();
         }

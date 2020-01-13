@@ -1,5 +1,5 @@
 package com.baidu.searchbox.publisher.controller;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PublisherManager_Factory {
     private static volatile PublisherManager instance;
 

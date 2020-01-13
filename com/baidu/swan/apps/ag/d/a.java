@@ -3,7 +3,7 @@ package com.baidu.swan.apps.ag.d;
 import android.text.TextUtils;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 

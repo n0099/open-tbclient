@@ -1,5 +1,5 @@
 package com.baidu.android.util.time;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class TimestampUtil {
     private static long mDelta = 0;
     private static long SECONDUNIT = 1000;

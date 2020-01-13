@@ -31,7 +31,7 @@ import com.baidu.sapi2.utils.n;
 import com.baidu.sapi2.utils.r;
 import com.baidu.sapi2.views.ViewUtility;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {
     protected View bottomBackView;
     protected View dividerLine;

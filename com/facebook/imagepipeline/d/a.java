@@ -2,40 +2,40 @@ package com.facebook.imagepipeline.d;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a implements e {
-    private final Executor lNo;
-    private final Executor lNp;
-    private final Executor lNn = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
-    private final Executor lNq = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
+    private final Executor lRa;
+    private final Executor lRb;
+    private final Executor lQZ = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
+    private final Executor lRc = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
 
     public a(int i) {
-        this.lNo = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
-        this.lNp = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
+        this.lRa = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
+        this.lRb = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dmg() {
-        return this.lNn;
+    public Executor dnm() {
+        return this.lQZ;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dmh() {
-        return this.lNn;
+    public Executor dnn() {
+        return this.lQZ;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dmi() {
-        return this.lNo;
+    public Executor dno() {
+        return this.lRa;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dmj() {
-        return this.lNp;
+    public Executor dnp() {
+        return this.lRb;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor dmk() {
-        return this.lNq;
+    public Executor dnq() {
+        return this.lRc;
     }
 }

@@ -7,7 +7,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.ViewConfiguration;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ViewConfigurationCompat {
     private static final String TAG = "ViewConfigCompat";
     private static Method sGetScaledScrollFactorMethod;

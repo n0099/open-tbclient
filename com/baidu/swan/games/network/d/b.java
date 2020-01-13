@@ -19,27 +19,27 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.games.network.a {
-    private long cmi;
+    private long cmv;
 
     public b(com.baidu.swan.games.e.b bVar, com.baidu.swan.games.binding.model.c cVar) {
         super(bVar, cVar);
-        this.cmi = 0L;
-        this.clN = 3;
+        this.cmv = 0L;
+        this.cma = 3;
     }
 
     @Override // com.baidu.swan.games.network.a
     public void start() {
-        Request amo;
-        if (this.clO != null && (amo = amo()) != null) {
-            if (e.ZS() == null) {
+        Request amH;
+        if (this.cmb != null && (amH = amH()) != null) {
+            if (e.aap() == null) {
                 h("", -1, "request:swanApp is null");
                 return;
             }
-            final String httpUrl = amo.url().toString();
-            final com.baidu.swan.games.network.b aaf = e.ZS().aaf();
-            aaf.a(amo, new Callback() { // from class: com.baidu.swan.games.network.d.b.1
+            final String httpUrl = amH.url().toString();
+            final com.baidu.swan.games.network.b aaC = e.aap().aaC();
+            aaC.a(amH, new Callback() { // from class: com.baidu.swan.games.network.d.b.1
                 /* JADX WARN: Removed duplicated region for block: B:16:0x007b  */
                 @Override // okhttp3.Callback
                 /*
@@ -84,7 +84,7 @@ public class b extends com.baidu.swan.games.network.a {
 
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
-                    aaf.cancelTag(b.this.mTaskId);
+                    aaC.cancelTag(b.this.mTaskId);
                     b.this.i(httpUrl, 0, iOException.getMessage());
                 }
             });
@@ -107,61 +107,61 @@ public class b extends com.baidu.swan.games.network.a {
         }
     }
 
-    private Request amo() {
-        final String amh = amh();
-        if (TextUtils.isEmpty(amh)) {
+    private Request amH() {
+        final String amA = amA();
+        if (TextUtils.isEmpty(amA)) {
             return null;
         }
-        String optString = this.clO.optString("filePath");
+        String optString = this.cmb.optString("filePath");
         if (TextUtils.isEmpty(optString)) {
-            h(amh, -1, "uploadFile:filePath is empty or invalid");
+            h(amA, -1, "uploadFile:filePath is empty or invalid");
             return null;
-        } else if (com.baidu.swan.d.c.qQ(optString)) {
-            h(amh, -1, "uploadFile:filePath is empty or invalid");
+        } else if (com.baidu.swan.d.c.qT(optString)) {
+            h(amA, -1, "uploadFile:filePath is empty or invalid");
             return null;
-        } else if (this.clO.og(WebSocketRequest.PARAM_KEY_HEADER) && this.clO.oe(WebSocketRequest.PARAM_KEY_HEADER) != 9) {
-            h(amh, -1, "uploadFile:header is invalid");
+        } else if (this.cmb.oj(WebSocketRequest.PARAM_KEY_HEADER) && this.cmb.oi(WebSocketRequest.PARAM_KEY_HEADER) != 9) {
+            h(amA, -1, "uploadFile:header is invalid");
             return null;
         } else {
-            File file = getFile(amh, optString);
+            File file = getFile(amA, optString);
             if (file != null) {
-                com.baidu.swan.games.binding.model.c oo = this.clO.oo("formData");
+                com.baidu.swan.games.binding.model.c or = this.cmb.or("formData");
                 Request.Builder builder = new Request.Builder();
                 final long length = file.length();
                 com.baidu.swan.apps.network.c cVar = new com.baidu.swan.apps.network.c(file, "multipart/form-data", new com.baidu.swan.apps.network.b.a() { // from class: com.baidu.swan.games.network.d.b.2
                     @Override // com.baidu.swan.apps.network.b.a
-                    public void am(long j) {
-                        b.this.b(length, j, amh);
+                    public void ap(long j) {
+                        b.this.b(length, j, amA);
                     }
                 });
                 MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
-                a(type, oo);
-                type.addFormDataPart(this.clO.optString("name"), file.getName(), cVar);
+                a(type, or);
+                type.addFormDataPart(this.cmb.optString("name"), file.getName(), cVar);
                 MultipartBody build = type.build();
-                a(builder, this.clO.oo(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) new HashMap(), false);
-                return builder.url(amh).tag(this.mTaskId).post(build).build();
+                a(builder, this.cmb.or(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) new HashMap(), false);
+                return builder.url(amA).tag(this.mTaskId).post(build).build();
             }
             return null;
         }
     }
 
     private File getFile(String str, String str2) {
-        String lO = f.Uf().TM().lO(str2);
-        if (TextUtils.isEmpty(lO) || TextUtils.equals(str2, lO)) {
+        String lR = f.UC().Uj().lR(str2);
+        if (TextUtils.isEmpty(lR) || TextUtils.equals(str2, lR)) {
             h(str, -1, "uploadFile:filePath is empty or invalid");
             return null;
         }
-        File file = new File(lO);
+        File file = new File(lR);
         if (!file.exists() || !file.isFile()) {
             h(str, -1, "request:file not exists or not file");
             return null;
         } else if (file.length() > 26214400) {
             h(str, -1, "request:file size > 25 MB");
             return null;
-        } else if (TextUtils.isEmpty(this.clO.optString("name"))) {
+        } else if (TextUtils.isEmpty(this.cmb.optString("name"))) {
             h(str, -1, "uploadFile:name is invalid");
             return null;
-        } else if (!this.clO.og("formData") || this.clO.oe("formData") == 9) {
+        } else if (!this.cmb.oj("formData") || this.cmb.oi("formData") == 9) {
             return file;
         } else {
             h(str, -1, "uploadFile:formData is invalid");
@@ -200,11 +200,11 @@ public class b extends com.baidu.swan.games.network.a {
     public void b(long j, long j2, String str) {
         if (j > 0 && j2 <= j && j2 != 0) {
             int floor = (int) Math.floor((100 * j2) / j);
-            if (System.currentTimeMillis() - this.cmi > 500 || floor == 100) {
+            if (System.currentTimeMillis() - this.cmv > 500 || floor == 100) {
                 if (floor <= 100) {
                     dispatchEvent(new JSEvent("progressUpdate", new c(floor, j, j2)));
                 }
-                this.cmi = System.currentTimeMillis();
+                this.cmv = System.currentTimeMillis();
             }
         }
     }

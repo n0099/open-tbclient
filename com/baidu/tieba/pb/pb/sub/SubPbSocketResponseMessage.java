@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.pb.data.m;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     public m pbFloorData;
     private boolean treatDelPage;
@@ -40,7 +40,7 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
                 mVar = m.a(pbFloorResIdl.data, context);
                 if (mVar != null) {
-                    mVar.ixs = pbFloorResIdl.error;
+                    mVar.iAW = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

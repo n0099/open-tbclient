@@ -8,7 +8,7 @@ import com.baidu.sapi2.result.Web2NativeLoginResult;
 import com.baidu.sapi2.share.SapiShareClient;
 import com.baidu.sapi2.utils.SapiUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class x extends GetUserInfoCallback {
     final /* synthetic */ Web2NativeLoginResult a;
     final /* synthetic */ Web2NativeLoginCallback b;

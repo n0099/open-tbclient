@@ -5,27 +5,26 @@ import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableOnBackpressureError<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new BackpressureErrorSubscriber(cVar));
+        this.nvK.a((j) new BackpressureErrorSubscriber(cVar));
     }
 
-    /* loaded from: classes4.dex */
-    static final class BackpressureErrorSubscriber<T> extends AtomicLong implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class BackpressureErrorSubscriber<T> extends AtomicLong implements j<T>, org.a.d {
         private static final long serialVersionUID = -3176480756392482682L;
         final org.a.c<? super T> actual;
         boolean done;
-        d s;
+        org.a.d s;
 
         BackpressureErrorSubscriber(org.a.c<? super T> cVar) {
             this.actual = cVar;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -48,7 +47,7 @@ public final class FlowableOnBackpressureError<T> extends a<T, T> {
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;

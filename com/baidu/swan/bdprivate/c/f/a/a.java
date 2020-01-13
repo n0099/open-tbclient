@@ -24,7 +24,7 @@ import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 import rx.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a extends ab {
     @NonNull
     protected abstract String getUrl();
@@ -104,16 +104,16 @@ public abstract class a extends ab {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 public void call(final rx.j<? super com.baidu.swan.bdprivate.c.f.b.b> jVar) {
-                    com.baidu.swan.apps.w.a.RD().a(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new f.a() { // from class: com.baidu.swan.bdprivate.c.f.a.a.3.1
+                    com.baidu.swan.apps.w.a.RZ().a(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new f.a() { // from class: com.baidu.swan.bdprivate.c.f.a.a.3.1
                         @Override // com.baidu.swan.apps.w.b.f.a
                         public void a(com.baidu.swan.apps.scheme.actions.f.b bVar) {
                             com.baidu.swan.bdprivate.c.f.b.b bVar2 = new com.baidu.swan.bdprivate.c.f.b.b();
                             if (bVar != null && !TextUtils.isEmpty(bVar.coorType)) {
-                                bVar2.bZf = bVar.coorType;
+                                bVar2.bZr = bVar.coorType;
                                 bVar2.latitude = bVar.latitude;
                                 bVar2.longitude = bVar.longitude;
                             } else {
-                                bVar2.bZf = "unknown";
+                                bVar2.bZr = "unknown";
                             }
                             jVar.onNext(bVar2);
                             jVar.onCompleted();
@@ -138,8 +138,8 @@ public abstract class a extends ab {
         ResponseCallback<JSONObject> n = n(e);
         MediaType parse = MediaType.parse("application/json");
         com.baidu.swan.apps.console.c.i("recommend", "encrypt request param");
-        String mS = com.baidu.swan.bdprivate.c.f.c.a.mS(aVar.toJsonString());
-        if (TextUtils.isEmpty(mS)) {
+        String mV = com.baidu.swan.bdprivate.c.f.c.a.mV(aVar.toJsonString());
+        if (TextUtils.isEmpty(mV)) {
             com.baidu.swan.apps.console.c.e("recommend", "encrypt request param fail");
             e.B(null);
             JSONObject jSONObject = new JSONObject();
@@ -150,11 +150,11 @@ public abstract class a extends ab {
                     e2.printStackTrace();
                 }
             }
-            com.baidu.swan.bdprivate.c.f.c.a.mT(jSONObject.toString());
+            com.baidu.swan.bdprivate.c.f.c.a.mW(jSONObject.toString());
             return;
         }
         com.baidu.swan.apps.console.c.i("recommend", "execute request");
-        ((PostBodyRequest.PostBodyRequestBuilder) HttpManager.getDefault(context.getApplicationContext()).postRequest().url(processCommonParams)).requestBody(RequestBody.create(parse, mS)).build().executeAsync(n);
+        ((PostBodyRequest.PostBodyRequestBuilder) HttpManager.getDefault(context.getApplicationContext()).postRequest().url(processCommonParams)).requestBody(RequestBody.create(parse, mV)).build().executeAsync(n);
     }
 
     @NonNull
@@ -196,7 +196,7 @@ public abstract class a extends ab {
                                 e.printStackTrace();
                             }
                         }
-                        com.baidu.swan.bdprivate.c.f.c.a.mT(jSONObject.toString());
+                        com.baidu.swan.bdprivate.c.f.c.a.mW(jSONObject.toString());
                         return null;
                     }
                     return new JSONObject(string);
@@ -219,7 +219,7 @@ public abstract class a extends ab {
                         e2.printStackTrace();
                     }
                 }
-                com.baidu.swan.bdprivate.c.f.c.a.mT(jSONObject2.toString());
+                com.baidu.swan.bdprivate.c.f.c.a.mW(jSONObject2.toString());
                 return null;
             }
 
@@ -237,7 +237,7 @@ public abstract class a extends ab {
                             e.printStackTrace();
                         }
                     }
-                    com.baidu.swan.bdprivate.c.f.c.a.mT(jSONObject2.toString());
+                    com.baidu.swan.bdprivate.c.f.c.a.mW(jSONObject2.toString());
                 }
                 bVar.B(jSONObject);
             }
@@ -254,7 +254,7 @@ public abstract class a extends ab {
                         e.printStackTrace();
                     }
                 }
-                com.baidu.swan.bdprivate.c.f.c.a.mT(jSONObject.toString());
+                com.baidu.swan.bdprivate.c.f.c.a.mW(jSONObject.toString());
             }
         };
     }

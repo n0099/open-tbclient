@@ -12,17 +12,17 @@ import java.util.Arrays;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class cq {
 
     /* renamed from: a  reason: collision with other field name */
-    private long f200a;
+    private long f198a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f201a;
+    public String f199a;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f203b;
+    public String f201b;
     public String c;
     public String d;
     public String e;
@@ -32,42 +32,42 @@ public class cq {
     private String i;
 
     /* renamed from: a  reason: collision with other field name */
-    private ArrayList<cz> f202a = new ArrayList<>();
+    private ArrayList<cz> f200a = new ArrayList<>();
     private double a = 0.1d;
     private String j = "s.mi1.cc";
     private long b = 86400000;
 
     public cq(String str) {
-        this.f201a = "";
+        this.f199a = "";
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        this.f200a = System.currentTimeMillis();
-        this.f202a.add(new cz(str, -1));
-        this.f201a = cu.m192a();
-        this.f203b = str;
+        this.f198a = System.currentTimeMillis();
+        this.f200a.add(new cz(str, -1));
+        this.f199a = cu.m201a();
+        this.f201b = str;
     }
 
     private synchronized void c(String str) {
-        Iterator<cz> it = this.f202a.iterator();
+        Iterator<cz> it = this.f200a.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(it.next().f219a, str)) {
+            if (TextUtils.equals(it.next().f217a, str)) {
                 it.remove();
             }
         }
     }
 
     public synchronized cq a(JSONObject jSONObject) {
-        this.f201a = jSONObject.optString("net");
+        this.f199a = jSONObject.optString("net");
         this.b = jSONObject.getLong("ttl");
         this.a = jSONObject.getDouble("pct");
-        this.f200a = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
+        this.f198a = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
         this.d = jSONObject.optString("city");
         this.c = jSONObject.optString("prv");
         this.g = jSONObject.optString("cty");
         this.e = jSONObject.optString("isp");
         this.f = jSONObject.optString(TableDefine.UserInfoColumns.COLUMN_IP);
-        this.f203b = jSONObject.optString(Contract.SCHEME_KEY_HOST);
+        this.f201b = jSONObject.optString(Contract.SCHEME_KEY_HOST);
         this.h = jSONObject.optString("xf");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
         for (int i = 0; i < jSONArray.length(); i++) {
@@ -90,7 +90,7 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<String> m183a() {
+    public synchronized ArrayList<String> m192a() {
         return a(false);
     }
 
@@ -99,12 +99,12 @@ public class cq {
             throw new IllegalArgumentException("the url is empty.");
         }
         URL url = new URL(str);
-        if (TextUtils.equals(url.getHost(), this.f203b)) {
+        if (TextUtils.equals(url.getHost(), this.f201b)) {
             ArrayList<String> arrayList = new ArrayList<>();
             Iterator<String> it = a(true).iterator();
             while (it.hasNext()) {
                 cs a = cs.a(it.next(), url.getPort());
-                arrayList.add(new URL(url.getProtocol(), a.m191a(), a.a(), url.getFile()).toString());
+                arrayList.add(new URL(url.getProtocol(), a.m200a(), a.a(), url.getFile()).toString());
             }
             return arrayList;
         }
@@ -114,19 +114,19 @@ public class cq {
     public synchronized ArrayList<String> a(boolean z) {
         ArrayList<String> arrayList;
         synchronized (this) {
-            cz[] czVarArr = new cz[this.f202a.size()];
-            this.f202a.toArray(czVarArr);
+            cz[] czVarArr = new cz[this.f200a.size()];
+            this.f200a.toArray(czVarArr);
             Arrays.sort(czVarArr);
             arrayList = new ArrayList<>();
             for (cz czVar : czVarArr) {
                 if (z) {
-                    arrayList.add(czVar.f219a);
+                    arrayList.add(czVar.f217a);
                 } else {
-                    int indexOf = czVar.f219a.indexOf(":");
+                    int indexOf = czVar.f217a.indexOf(":");
                     if (indexOf != -1) {
-                        arrayList.add(czVar.f219a.substring(0, indexOf));
+                        arrayList.add(czVar.f217a.substring(0, indexOf));
                     } else {
-                        arrayList.add(czVar.f219a);
+                        arrayList.add(czVar.f217a);
                     }
                 }
             }
@@ -135,22 +135,22 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m184a() {
+    public synchronized JSONObject m193a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
-        jSONObject.put("net", this.f201a);
+        jSONObject.put("net", this.f199a);
         jSONObject.put("ttl", this.b);
         jSONObject.put("pct", this.a);
-        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f200a);
+        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f198a);
         jSONObject.put("city", this.d);
         jSONObject.put("prv", this.c);
         jSONObject.put("cty", this.g);
         jSONObject.put("isp", this.e);
         jSONObject.put(TableDefine.UserInfoColumns.COLUMN_IP, this.f);
-        jSONObject.put(Contract.SCHEME_KEY_HOST, this.f203b);
+        jSONObject.put(Contract.SCHEME_KEY_HOST, this.f201b);
         jSONObject.put("xf", this.h);
         JSONArray jSONArray = new JSONArray();
-        Iterator<cz> it = this.f202a.iterator();
+        Iterator<cz> it = this.f200a.iterator();
         while (it.hasNext()) {
             jSONArray.put(it.next().a());
         }
@@ -171,12 +171,12 @@ public class cq {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(cz czVar) {
-        c(czVar.f219a);
-        this.f202a.add(czVar);
+        c(czVar.f217a);
+        this.f200a.add(czVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m185a(String str) {
+    public synchronized void m194a(String str) {
         a(new cz(str));
     }
 
@@ -205,33 +205,33 @@ public class cq {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void a(String str, cp cpVar) {
-        Iterator<cz> it = this.f202a.iterator();
+        Iterator<cz> it = this.f200a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             cz next = it.next();
-            if (TextUtils.equals(str, next.f219a)) {
+            if (TextUtils.equals(str, next.f217a)) {
                 break;
             }
         }
     }
 
     public synchronized void a(String[] strArr) {
-        for (int size = this.f202a.size() - 1; size >= 0; size--) {
+        for (int size = this.f200a.size() - 1; size >= 0; size--) {
             int length = strArr.length;
             int i = 0;
             while (true) {
                 if (i < length) {
-                    if (TextUtils.equals(this.f202a.get(size).f219a, strArr[i])) {
-                        this.f202a.remove(size);
+                    if (TextUtils.equals(this.f200a.get(size).f217a, strArr[i])) {
+                        this.f200a.remove(size);
                         break;
                     }
                     i++;
                 }
             }
         }
-        Iterator<cz> it = this.f202a.iterator();
+        Iterator<cz> it = this.f200a.iterator();
         int i2 = 0;
         while (it.hasNext()) {
             cz next = it.next();
@@ -243,12 +243,12 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m186a() {
-        return TextUtils.equals(this.f201a, cu.m192a());
+    public boolean m195a() {
+        return TextUtils.equals(this.f199a, cu.m201a());
     }
 
     public boolean a(cq cqVar) {
-        return TextUtils.equals(this.f201a, cqVar.f201a);
+        return TextUtils.equals(this.f199a, cqVar.f199a);
     }
 
     public void b(String str) {
@@ -264,22 +264,22 @@ public class cq {
     }
 
     public boolean b() {
-        return System.currentTimeMillis() - this.f200a < this.b;
+        return System.currentTimeMillis() - this.f198a < this.b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean c() {
         long j = 864000000 < this.b ? this.b : 864000000L;
         long currentTimeMillis = System.currentTimeMillis();
-        return currentTimeMillis - this.f200a > j || (currentTimeMillis - this.f200a > this.b && this.f201a.startsWith("WIFI-"));
+        return currentTimeMillis - this.f198a > j || (currentTimeMillis - this.f198a > this.b && this.f199a.startsWith("WIFI-"));
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f201a);
+        sb.append(this.f199a);
         sb.append("\n");
         sb.append(a());
-        Iterator<cz> it = this.f202a.iterator();
+        Iterator<cz> it = this.f200a.iterator();
         while (it.hasNext()) {
             sb.append("\n");
             sb.append(it.next().toString());

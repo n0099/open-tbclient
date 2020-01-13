@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.listview.BdListView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.util.ListUtils;
@@ -19,12 +19,12 @@ import com.baidu.tieba.ala.view.AlaChallengeHistoryHeaderView;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class a {
-    private BdListView eEO;
-    private LinearLayout eEP;
-    private LinearLayout eEQ;
-    private com.baidu.tieba.ala.adapter.a eER;
-    private AlaChallengeHistoryHeaderView eES;
-    private TextView eET;
+    private BdListView eFY;
+    private LinearLayout eFZ;
+    private LinearLayout eGa;
+    private com.baidu.tieba.ala.adapter.a eGb;
+    private AlaChallengeHistoryHeaderView eGc;
+    private TextView eGd;
     private Activity mContext;
     private TbPageContext<BaseFragmentActivity> mTbPageContext;
     private View view;
@@ -37,41 +37,41 @@ public class a {
 
     private void initView() {
         this.view = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
-        this.eEO = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
-        this.eEO.setVisibility(4);
-        this.eEP = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
-        this.eEQ = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
-        this.eET = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
-        this.eER = new com.baidu.tieba.ala.adapter.a(this.mContext);
-        this.eEO.setAdapter((ListAdapter) this.eER);
-        this.eES = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
-        this.eEO.setEmptyView(this.eEP);
+        this.eFY = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
+        this.eFY.setVisibility(4);
+        this.eFZ = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
+        this.eGa = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
+        this.eGd = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
+        this.eGb = new com.baidu.tieba.ala.adapter.a(this.mContext);
+        this.eFY.setAdapter((ListAdapter) this.eGb);
+        this.eGc = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
+        this.eFY.setEmptyView(this.eFZ);
     }
 
     public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, k kVar) {
-        this.eEO.setVisibility(0);
+        this.eFY.setVisibility(0);
         if (!ListUtils.isEmpty(arrayList) && kVar != null) {
-            if (this.eES.getParent() == null) {
-                if (this.eES.getParent() != null) {
-                    ((ViewGroup) this.eES.getParent()).removeView(this.eES);
+            if (this.eGc.getParent() == null) {
+                if (this.eGc.getParent() != null) {
+                    ((ViewGroup) this.eGc.getParent()).removeView(this.eGc);
                 }
-                this.eEO.addHeaderView(this.eES);
-                this.eES.setData(kVar);
+                this.eFY.addHeaderView(this.eGc);
+                this.eGc.setData(kVar);
             }
-        } else if (this.eES.getParent() != null) {
-            ((ViewGroup) this.eES.getParent()).removeView(this.eES);
+        } else if (this.eGc.getParent() != null) {
+            ((ViewGroup) this.eGc.getParent()).removeView(this.eGc);
         }
-        if (this.eER != null && arrayList != null) {
-            this.eER.setData(arrayList);
+        if (this.eGb != null && arrayList != null) {
+            this.eGb.setData(arrayList);
         }
     }
 
-    public void yc(String str) {
+    public void yh(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.eER != null && this.eER.getCount() <= 0) {
-                this.eEP.setVisibility(8);
-                this.eEQ.setVisibility(0);
-                this.eET.setText(str);
+            if (this.eGb != null && this.eGb.getCount() <= 0) {
+                this.eFZ.setVisibility(8);
+                this.eGa.setVisibility(0);
+                this.eGd.setText(str);
                 return;
             }
             BdUtilHelper.showToast(this.mContext, str, 1);

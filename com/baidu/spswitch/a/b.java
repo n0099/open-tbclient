@@ -2,54 +2,54 @@ package com.baidu.spswitch.a;
 
 import android.view.View;
 import com.baidu.spswitch.b.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b implements com.baidu.spswitch.a {
-    private final View aUQ;
-    private boolean aUS = false;
-    private boolean aUT = false;
+    private final View aVI;
+    private boolean aVK = false;
+    private boolean aVL = false;
 
     public b(View view) {
-        this.aUQ = view;
+        this.aVI = view;
     }
 
-    public int[] O(int i, int i2) {
-        if (this.aUS) {
-            this.aUQ.setVisibility(8);
+    public int[] S(int i, int i2) {
+        if (this.aVK) {
+            this.aVI.setVisibility(8);
             i = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
             i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
         }
         return new int[]{i, i2};
     }
 
-    public boolean dw(int i) {
+    public boolean dx(int i) {
         if (i == 0) {
-            this.aUS = false;
+            this.aVK = false;
         }
-        if (i == this.aUQ.getVisibility()) {
+        if (i == this.aVI.getVisibility()) {
             return true;
         }
-        return DC() && i == 0;
+        return DY() && i == 0;
     }
 
-    public void bC(boolean z) {
-        this.aUT = z;
+    public void bH(boolean z) {
+        this.aVL = z;
     }
 
-    public void dx(int i) {
-        g.f(this.aUQ, i);
+    public void dy(int i) {
+        g.f(this.aVI, i);
     }
 
-    public boolean DC() {
-        return this.aUT;
+    public boolean DY() {
+        return this.aVL;
     }
 
     @Override // com.baidu.spswitch.a
-    public void Du() {
+    public void DQ() {
         throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
     }
 
     @Override // com.baidu.spswitch.a
-    public void Dv() {
-        this.aUS = true;
+    public void DR() {
+        this.aVK = true;
     }
 }

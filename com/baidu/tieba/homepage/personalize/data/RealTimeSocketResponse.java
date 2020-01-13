@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.Realtime.RealtimeResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RealTimeSocketResponse extends SocketResponsedMessage {
     public RealTimeSocketResponse() {
         super(CmdConfigSocket.CMD_REPORT_HOME_PIC_CLICK);

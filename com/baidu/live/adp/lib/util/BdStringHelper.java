@@ -170,16 +170,16 @@ public class BdStringHelper {
             if (i3 == i10) {
                 return hourShow + ":" + minuteShow;
             }
-            return i2 + "月" + i3 + "日" + HanziToPinyin.Token.SEPARATOR + hourShow + ":" + minuteShow;
+            return i2 + "月" + i3 + "日 " + hourShow + ":" + minuteShow;
         } else if (i < i8) {
-            return i + "年" + i2 + "月" + i3 + "日" + HanziToPinyin.Token.SEPARATOR + hourShow + ":" + minuteShow;
+            return i + "年" + i2 + "月" + i3 + "日 " + hourShow + ":" + minuteShow;
         } else {
             if (i2 < i9) {
-                return i2 + "月" + i3 + "日" + HanziToPinyin.Token.SEPARATOR + hourShow + ":" + minuteShow;
+                return i2 + "月" + i3 + "日 " + hourShow + ":" + minuteShow;
             }
             if (i3 < i10) {
                 if (i6 < i11) {
-                    return i2 + "月" + i3 + "日" + HanziToPinyin.Token.SEPARATOR + hourShow + ":" + minuteShow;
+                    return i2 + "月" + i3 + "日 " + hourShow + ":" + minuteShow;
                 }
                 return getWeekShow(i7) + HanziToPinyin.Token.SEPARATOR + hourShow + ":" + minuteShow;
             }

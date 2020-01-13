@@ -6,44 +6,44 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.view.ALALevelView;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> eGg = new ArrayList<>();
-    private AlaPersonCenterExpActivity eGh;
+    private ArrayList<b> eHq = new ArrayList<>();
+    private AlaPersonCenterExpActivity eHr;
     private Context mContext;
     private int mSkinType;
 
     public a(AlaPersonCenterExpActivity alaPersonCenterExpActivity) {
-        this.eGh = alaPersonCenterExpActivity;
+        this.eHr = alaPersonCenterExpActivity;
         this.mContext = alaPersonCenterExpActivity.getPageContext().getPageActivity();
     }
 
-    public void pk(int i) {
+    public void pl(int i) {
         this.mSkinType = i;
     }
 
     public void T(ArrayList<b> arrayList) {
-        this.eGg.clear();
-        this.eGg.addAll(arrayList);
+        this.eHq.clear();
+        this.eHq.addAll(arrayList);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eGg == null) {
+        if (this.eHq == null) {
             return 1;
         }
-        return this.eGg.size() + 1;
+        return this.eHq.size() + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.eGg.size())) {
+        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.eHq.size())) {
             return null;
         }
-        return this.eGg.get(i - 1);
+        return this.eHq.get(i - 1);
     }
 
     @Override // android.widget.Adapter
@@ -77,45 +77,45 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_header, viewGroup, false);
         }
-        this.eGh.getLayoutMode().onModeChanged(view);
+        this.eHr.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     private View b(int i, View view, ViewGroup viewGroup) {
-        C0436a c0436a;
+        C0439a c0439a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_item, viewGroup, false);
-            C0436a c0436a2 = new C0436a(view);
-            view.setTag(c0436a2);
-            c0436a = c0436a2;
+            C0439a c0439a2 = new C0439a(view);
+            view.setTag(c0439a2);
+            c0439a = c0439a2;
         } else {
-            c0436a = (C0436a) view.getTag();
+            c0439a = (C0439a) view.getTag();
         }
         b bVar = (b) getItem(i);
         if (bVar != null) {
-            c0436a.ai(bVar.level, bVar.eGl);
+            c0439a.ak(bVar.level, bVar.eHv);
         }
-        this.eGh.getLayoutMode().onModeChanged(view);
+        this.eHr.getLayoutMode().onModeChanged(view);
         if (this.mSkinType == 1) {
-            c0436a.eGi.d(a.d.sdk_cp_cont_g, 0.7f);
+            c0439a.eHs.d(a.d.sdk_cp_cont_g, 0.7f);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.live.personcenter.exp.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0436a {
-        private ALALevelView eGi;
-        private TextView eGj;
+    public class C0439a {
+        private ALALevelView eHs;
+        private TextView eHt;
 
-        public C0436a(View view) {
-            this.eGi = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
-            this.eGj = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
+        public C0439a(View view) {
+            this.eHs = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
+            this.eHt = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
         }
 
-        public void ai(int i, String str) {
-            this.eGi.setupLevelIcon(i);
-            this.eGj.setText(str);
+        public void ak(int i, String str) {
+            this.eHs.setupLevelIcon(i);
+            this.eHt.setText(str);
         }
     }
 

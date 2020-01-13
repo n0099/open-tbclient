@@ -2,27 +2,28 @@ package kotlin.coroutines.experimental;
 
 import kotlin.TypeCastException;
 import kotlin.coroutines.experimental.d;
-import kotlin.jvm.internal.p;
-/* loaded from: classes4.dex */
+import kotlin.jvm.a.m;
+import kotlin.jvm.internal.q;
+/* loaded from: classes5.dex */
 public final class a implements d {
-    private final d mYN;
-    private final d.b mYO;
+    private final d nBj;
+    private final d.b nBk;
 
     public a(d dVar, d.b bVar) {
-        p.j(dVar, "left");
-        p.j(bVar, "element");
-        this.mYN = dVar;
-        this.mYO = bVar;
+        q.j(dVar, "left");
+        q.j(bVar, "element");
+        this.nBj = dVar;
+        this.nBk = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <E extends d.b> E a(d.c<E> cVar) {
-        p.j(cVar, "key");
+        q.j(cVar, "key");
         a aVar = this;
         while (true) {
-            E e = (E) aVar.mYO.a(cVar);
+            E e = (E) aVar.nBk.a(cVar);
             if (e == null) {
-                d dVar = aVar.mYN;
+                d dVar = aVar.nBj;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -35,35 +36,35 @@ public final class a implements d {
     }
 
     @Override // kotlin.coroutines.experimental.d
-    public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
-        p.j(cVar, "operation");
-        return cVar.invoke((Object) this.mYN.a(r, cVar), this.mYO);
+    public <R> R fold(R r, m<? super R, ? super d.b, ? extends R> mVar) {
+        q.j(mVar, "operation");
+        return mVar.invoke((Object) this.nBj.fold(r, mVar), this.nBk);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
-        p.j(cVar, "key");
-        if (this.mYO.a(cVar) != null) {
-            return this.mYN;
+        q.j(cVar, "key");
+        if (this.nBk.a(cVar) != null) {
+            return this.nBj;
         }
-        d b = this.mYN.b(cVar);
-        return b == this.mYN ? this : b == e.mYR ? this.mYO : new a(b, this.mYO);
+        d b = this.nBj.b(cVar);
+        return b == this.nBj ? this : b == e.nBn ? this.nBk : new a(b, this.nBk);
     }
 
     private final int size() {
-        if (this.mYN instanceof a) {
-            return ((a) this.mYN).size() + 1;
+        if (this.nBj instanceof a) {
+            return ((a) this.nBj).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return p.h(a((d.c<d.b>) bVar.dEM()), bVar);
+        return q.h(a((d.c<d.b>) bVar.dJd()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.mYO)) {
-            d dVar = aVar.mYN;
+        while (a(aVar.nBk)) {
+            d dVar = aVar.nBj;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -80,10 +81,10 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.mYN.hashCode() + this.mYO.hashCode();
+        return this.nBj.hashCode() + this.nBk.hashCode();
     }
 
     public String toString() {
-        return "[" + ((String) a("", CombinedContext$toString$1.INSTANCE)) + "]";
+        return "[" + ((String) fold("", CombinedContext$toString$1.INSTANCE)) + "]";
     }
 }

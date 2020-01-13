@@ -42,7 +42,7 @@ import org.conscrypt.ct.CTLogStore;
 import org.conscrypt.ct.CTPolicy;
 import sun.security.x509.AlgorithmId;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Platform {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final Method GET_CURVE_NAME_METHOD;

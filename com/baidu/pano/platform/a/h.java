@@ -3,7 +3,7 @@ package com.baidu.pano.platform.a;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class h {
     private static final char[] a = com.coloros.mcssdk.c.a.f.toCharArray();
 

@@ -9,7 +9,7 @@ import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class e {
     private boolean b = true;
     private boolean c = true;

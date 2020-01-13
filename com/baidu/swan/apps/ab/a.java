@@ -15,7 +15,7 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static boolean DEBUG = b.DEBUG;
 
@@ -30,12 +30,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final SwanAppActionBar swanAppActionBar, String str) {
-        final JSONObject aa = com.baidu.swan.apps.w.a.RT().aa(context, str);
-        if (aa != null && swanAppActionBar != null) {
+        final JSONObject ac = com.baidu.swan.apps.w.a.Sp().ac(context, str);
+        if (ac != null && swanAppActionBar != null) {
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.ab.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.a(swanAppActionBar, a.aq(aa));
+                    a.a(swanAppActionBar, a.aq(ac));
                 }
             });
         }
@@ -61,10 +61,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final h hVar, String str) {
-        JSONObject aa = com.baidu.swan.apps.w.a.RT().aa(context, str);
-        if (aa != null && hVar != null) {
-            aq(aa);
-            final JSONArray optJSONArray = aa.optJSONArray("un_read_list");
+        JSONObject ac = com.baidu.swan.apps.w.a.Sp().ac(context, str);
+        if (ac != null && hVar != null) {
+            aq(ac);
+            final JSONArray optJSONArray = ac.optJSONArray("un_read_list");
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.ab.a.4
                 @Override // java.lang.Runnable
                 public void run() {
@@ -77,26 +77,26 @@ public class a {
                                 a.ar(optJSONObject);
                             }
                         }
-                        hVar.aqe();
+                        hVar.aqx();
                     }
                 }
             });
         }
     }
 
-    public static boolean cN(boolean z) {
-        if (e.ZT() == null) {
+    public static boolean cS(boolean z) {
+        if (e.aaq() == null) {
             return false;
         }
-        e ZT = e.ZT();
-        PMSAppInfo Tm = e.ZT().ZV().Tm();
-        if (ZT.aaj() || Tm == null || TextUtils.isEmpty(Tm.paNumber)) {
+        e aaq = e.aaq();
+        PMSAppInfo TJ = e.aaq().aas().TJ();
+        if (aaq.aaG() || TJ == null || TextUtils.isEmpty(TJ.paNumber)) {
             return false;
         }
         if (z) {
             return true;
         }
-        return ZT.aai().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
+        return aaq.aaF().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,7 +116,7 @@ public class a {
             if (optInt == 7) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
-            if (ai.aeA() && (optInt == 27 || optInt == 17)) {
+            if (ai.aeT() && (optInt == 27 || optInt == 17)) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
         }
@@ -129,16 +129,16 @@ public class a {
                 }
             }
         }
-        if (e.ZT() != null) {
-            e.ZT().aai().a("key_unread_counts_message", Integer.valueOf(i));
+        if (e.aaq() != null) {
+            e.aaq().aaF().a("key_unread_counts_message", Integer.valueOf(i));
             return i;
         }
         return i;
     }
 
-    public static void VH() {
-        if (e.ZT() != null) {
-            e.ZT().aai().a("key_unread_counts_message", (Integer) 0);
+    public static void We() {
+        if (e.aaq() != null) {
+            e.aaq().aaF().a("key_unread_counts_message", (Integer) 0);
         }
     }
 

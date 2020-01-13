@@ -9,9 +9,9 @@ import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.f.e;
 import com.baidu.swan.pms.model.PMSPkgStatus;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c implements com.baidu.swan.config.a {
-    private static int bsX = -1;
+    private static int btL = -1;
 
     @Override // com.baidu.swan.config.a
     public boolean isDebug() {
@@ -19,13 +19,13 @@ public class c implements com.baidu.swan.config.a {
     }
 
     @Override // com.baidu.swan.config.a
-    public String Sr() {
-        return com.baidu.swan.apps.w.a.Rw().Fr();
+    public String SN() {
+        return com.baidu.swan.apps.w.a.RS().FN();
     }
 
     @Override // com.baidu.swan.config.a
-    public String Sg() {
-        return com.baidu.swan.apps.w.a.Rp().bn(AppRuntime.getAppContext());
+    public String SC() {
+        return com.baidu.swan.apps.w.a.RL().bn(AppRuntime.getAppContext());
     }
 
     @Override // com.baidu.swan.config.a
@@ -34,34 +34,34 @@ public class c implements com.baidu.swan.config.a {
     }
 
     @Override // com.baidu.swan.config.a
-    public String Sh() {
-        return com.baidu.swan.apps.w.a.RV().getHostName();
+    public String SD() {
+        return com.baidu.swan.apps.w.a.Sr().getHostName();
     }
 
     @Override // com.baidu.swan.config.a
-    public String Si() {
+    public String SE() {
         return ai.getVersionName();
     }
 
     @Override // com.baidu.swan.config.a
-    public String Sj() {
+    public String SF() {
         return com.baidu.swan.apps.c.getVersion();
     }
 
     @Override // com.baidu.swan.config.a
-    public String Sk() {
-        return com.baidu.swan.apps.swancore.b.gg(0);
+    public String SG() {
+        return com.baidu.swan.apps.swancore.b.gh(0);
     }
 
     @Override // com.baidu.swan.config.a
-    public String Sm() {
-        return com.baidu.swan.apps.swancore.b.gg(1);
+    public String SI() {
+        return com.baidu.swan.apps.swancore.b.gh(1);
     }
 
     @Override // com.baidu.swan.config.a
     public void aj(JSONObject jSONObject) {
         com.baidu.swan.pms.model.d bZ = com.baidu.swan.pms.f.d.bZ(jSONObject);
-        if (bZ != null && bZ.Ni()) {
+        if (bZ != null && bZ.NE()) {
             h(bZ);
         }
     }
@@ -69,7 +69,7 @@ public class c implements com.baidu.swan.config.a {
     @Override // com.baidu.swan.config.a
     public void ak(JSONObject jSONObject) {
         com.baidu.swan.pms.model.d bZ = com.baidu.swan.pms.f.d.bZ(jSONObject);
-        if (bZ != null && bZ.Ni()) {
+        if (bZ != null && bZ.NE()) {
             h(bZ);
         }
     }
@@ -77,7 +77,7 @@ public class c implements com.baidu.swan.config.a {
     @Override // com.baidu.swan.config.a
     public void al(JSONObject jSONObject) {
         com.baidu.swan.pms.model.b ca = com.baidu.swan.pms.f.d.ca(jSONObject);
-        if (ca != null && ca.Ni()) {
+        if (ca != null && ca.NE()) {
             i(ca);
         }
     }
@@ -85,60 +85,60 @@ public class c implements com.baidu.swan.config.a {
     @Override // com.baidu.swan.config.a
     public void am(JSONObject jSONObject) {
         com.baidu.swan.pms.model.b ca = com.baidu.swan.pms.f.d.ca(jSONObject);
-        if (ca != null && ca.Ni()) {
+        if (ca != null && ca.NE()) {
             i(ca);
         }
     }
 
     @Override // com.baidu.swan.config.a
-    public String Sl() {
-        return com.baidu.swan.apps.extcore.b.ey(0);
+    public String SH() {
+        return com.baidu.swan.apps.extcore.b.ez(0);
     }
 
     @Override // com.baidu.swan.config.a
-    public String Sn() {
-        return com.baidu.swan.apps.extcore.b.ey(1);
+    public String SJ() {
+        return com.baidu.swan.apps.extcore.b.ez(1);
     }
 
     @Override // com.baidu.swan.config.a
-    public CookieManager So() {
-        return com.baidu.swan.apps.w.a.RI().FH();
+    public CookieManager SK() {
+        return com.baidu.swan.apps.w.a.Se().Gd();
     }
 
     private void h(com.baidu.swan.pms.model.d dVar) {
         if (dVar != null) {
-            g St = dVar.category == 1 ? St() : Ss();
-            St.MA();
+            g SP = dVar.category == 1 ? SP() : SO();
+            SP.MW();
             e eVar = new e();
             eVar.a(dVar, PMSPkgStatus.WAIT);
-            St.a(eVar);
-            com.baidu.swan.pms.c.a.a.a(dVar, St);
+            SP.a(eVar);
+            com.baidu.swan.pms.c.a.a.a(dVar, SP);
         }
     }
 
     private void i(com.baidu.swan.pms.model.b bVar) {
         if (bVar != null) {
-            g St = bVar.category == 1 ? St() : Ss();
-            St.MA();
+            g SP = bVar.category == 1 ? SP() : SO();
+            SP.MW();
             e eVar = new e();
             eVar.a(bVar, PMSPkgStatus.WAIT);
-            St.a(eVar);
-            com.baidu.swan.pms.c.a.a.a(bVar, St);
+            SP.a(eVar);
+            com.baidu.swan.pms.c.a.a.a(bVar, SP);
         }
     }
 
-    private i Ss() {
+    private i SO() {
         return new i() { // from class: com.baidu.swan.apps.w.a.c.1
             @Override // com.baidu.swan.apps.core.pms.k
-            protected void MS() {
+            protected void No() {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.e("SwanConfigImpl", "onUpdateFailed");
                 }
-                com.baidu.swan.config.core.c.aL(0L);
+                com.baidu.swan.config.core.c.aO(0L);
             }
 
             @Override // com.baidu.swan.apps.core.pms.k
-            protected void MR() {
+            protected void Nn() {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.e("SwanConfigImpl", "onUpdateSuccess");
                 }
@@ -146,18 +146,18 @@ public class c implements com.baidu.swan.config.a {
         };
     }
 
-    private com.baidu.swan.games.j.b.a St() {
+    private com.baidu.swan.games.j.b.a SP() {
         return new com.baidu.swan.games.j.b.a() { // from class: com.baidu.swan.apps.w.a.c.2
             @Override // com.baidu.swan.apps.core.pms.k
-            protected void MS() {
+            protected void No() {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.e("SwanConfigImpl", "onUpdateFailed");
                 }
-                com.baidu.swan.config.core.c.aL(0L);
+                com.baidu.swan.config.core.c.aO(0L);
             }
 
             @Override // com.baidu.swan.apps.core.pms.k
-            protected void MR() {
+            protected void Nn() {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.e("SwanConfigImpl", "onUpdateSuccess");
                 }

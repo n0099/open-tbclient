@@ -2,57 +2,57 @@ package com.facebook.imagepipeline.common;
 
 import android.graphics.Bitmap;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class c {
-    private boolean lNc;
-    private boolean lNd;
-    private boolean lNe;
-    private boolean lNf;
+    private boolean lQO;
+    private boolean lQP;
+    private boolean lQQ;
+    private boolean lQR;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b lNg;
-    private int lNb = 100;
+    private com.facebook.imagepipeline.decoder.b lQS;
+    private int lQN = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int dlS() {
-        return this.lNb;
+    public int dmX() {
+        return this.lQN;
     }
 
-    public c uX(boolean z) {
-        this.lNc = z;
+    public c vj(boolean z) {
+        this.lQO = z;
         return this;
     }
 
-    public boolean dlT() {
-        return this.lNc;
+    public boolean dmY() {
+        return this.lQO;
     }
 
-    public boolean dlU() {
-        return this.lNd;
+    public boolean dmZ() {
+        return this.lQP;
     }
 
-    public boolean dlV() {
-        return this.lNe;
+    public boolean dna() {
+        return this.lQQ;
     }
 
-    public c uY(boolean z) {
-        this.lNf = z;
+    public c vk(boolean z) {
+        this.lQR = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b dlW() {
-        return this.lNg;
+    public com.facebook.imagepipeline.decoder.b dnb() {
+        return this.lQS;
     }
 
-    public boolean dlX() {
-        return this.lNf;
+    public boolean dnc() {
+        return this.lQR;
     }
 
-    public Bitmap.Config dlY() {
+    public Bitmap.Config dnd() {
         return this.mBitmapConfig;
     }
 
-    public b dlZ() {
+    public b dne() {
         return new b(this);
     }
 }

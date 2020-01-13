@@ -32,64 +32,64 @@ import java.io.File;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class MultiImgToolView extends DragContainer implements m, DragHorizonScrollView.a {
-    private static boolean dtl = false;
-    private EditorTools Fq;
-    private int Fr;
-    private DragHorizonScrollView dtm;
-    private TextView dtn;
-    private DragLayer dto;
-    private WriteImagesInfo dtp;
-    private com.baidu.tbadk.img.b dtq;
-    private b dtr;
-    private String dts;
-    private int dtt;
-    private int dtu;
-    private boolean dtv;
-    private String dtw;
-    private a dtx;
+    private static boolean dtw = false;
+    private EditorTools Fv;
+    private int Fw;
+    private WriteImagesInfo dtA;
+    private com.baidu.tbadk.img.b dtB;
+    private b dtC;
+    private String dtD;
+    private int dtE;
+    private int dtF;
+    private boolean dtG;
+    private String dtH;
+    private a dtI;
+    private DragHorizonScrollView dtx;
+    private TextView dty;
+    private DragLayer dtz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
     public interface a {
-        void bb(View view);
+        void bf(View view);
     }
 
     public MultiImgToolView(Context context) {
         super(context);
-        this.dts = null;
-        this.dtt = 13;
-        this.dtu = 10;
-        this.dtv = false;
-        this.dtx = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
+        this.dtD = null;
+        this.dtE = 13;
+        this.dtF = 10;
+        this.dtG = false;
+        this.dtI = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
             @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
-            public void bb(View view) {
-                if (!MultiImgToolView.this.dtm.cIV()) {
-                    MultiImgToolView.this.cK(view);
-                    int cL = MultiImgToolView.this.dtm.cL(view);
-                    if (cL >= 0 && cL < MultiImgToolView.this.dtp.getChosedFiles().size()) {
-                        ImageFileInfo remove = MultiImgToolView.this.dtp.getChosedFiles().remove(cL);
+            public void bf(View view) {
+                if (!MultiImgToolView.this.dtx.cJZ()) {
+                    MultiImgToolView.this.cQ(view);
+                    int cR = MultiImgToolView.this.dtx.cR(view);
+                    if (cR >= 0 && cR < MultiImgToolView.this.dtA.getChosedFiles().size()) {
+                        ImageFileInfo remove = MultiImgToolView.this.dtA.getChosedFiles().remove(cR);
                         if (remove.isTempFile()) {
                             com.baidu.adp.lib.Disk.d.fj().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                         }
-                        int maxItemNum = MultiImgToolView.this.dtm.getMaxItemNum();
-                        int size = MultiImgToolView.this.dtp.size();
-                        MultiImgToolView.this.dtn.setText(MultiImgToolView.this.getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
-                        int size2 = MultiImgToolView.this.dtp.getChosedFiles().size();
-                        if (MultiImgToolView.this.Fq != null) {
-                            MultiImgToolView.this.Fq.b(new com.baidu.tbadk.editortools.a(MultiImgToolView.this.dtt, -1, null));
+                        int maxItemNum = MultiImgToolView.this.dtx.getMaxItemNum();
+                        int size = MultiImgToolView.this.dtA.size();
+                        MultiImgToolView.this.dty.setText(MultiImgToolView.this.getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+                        int size2 = MultiImgToolView.this.dtA.getChosedFiles().size();
+                        if (MultiImgToolView.this.Fv != null) {
+                            MultiImgToolView.this.Fv.b(new com.baidu.tbadk.editortools.a(MultiImgToolView.this.dtE, -1, null));
                             if (size2 > 0) {
-                                MultiImgToolView.this.Fq.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.dtu, String.valueOf(size2)));
+                                MultiImgToolView.this.Fv.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.dtF, String.valueOf(size2)));
                             } else {
-                                MultiImgToolView.this.Fq.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.dtu, null));
+                                MultiImgToolView.this.Fv.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.dtF, null));
                             }
                             if (maxItemNum == 1 && size2 == 0) {
-                                if (MultiImgToolView.this.dtv) {
-                                    MultiImgToolView.this.Fq.b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                                if (MultiImgToolView.this.dtG) {
+                                    MultiImgToolView.this.Fv.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                                     return;
                                 }
-                                MultiImgToolView.this.a(MultiImgToolView.this.dtp, true);
-                                MultiImgToolView.this.dtn.setText(MultiImgToolView.this.dtw);
-                                MultiImgToolView.this.Fq.invalidate();
+                                MultiImgToolView.this.a(MultiImgToolView.this.dtA, true);
+                                MultiImgToolView.this.dty.setText(MultiImgToolView.this.dtH);
+                                MultiImgToolView.this.Fv.invalidate();
                             }
                         }
                     }
@@ -100,40 +100,40 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
 
     public MultiImgToolView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dts = null;
-        this.dtt = 13;
-        this.dtu = 10;
-        this.dtv = false;
-        this.dtx = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
+        this.dtD = null;
+        this.dtE = 13;
+        this.dtF = 10;
+        this.dtG = false;
+        this.dtI = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
             @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
-            public void bb(View view) {
-                if (!MultiImgToolView.this.dtm.cIV()) {
-                    MultiImgToolView.this.cK(view);
-                    int cL = MultiImgToolView.this.dtm.cL(view);
-                    if (cL >= 0 && cL < MultiImgToolView.this.dtp.getChosedFiles().size()) {
-                        ImageFileInfo remove = MultiImgToolView.this.dtp.getChosedFiles().remove(cL);
+            public void bf(View view) {
+                if (!MultiImgToolView.this.dtx.cJZ()) {
+                    MultiImgToolView.this.cQ(view);
+                    int cR = MultiImgToolView.this.dtx.cR(view);
+                    if (cR >= 0 && cR < MultiImgToolView.this.dtA.getChosedFiles().size()) {
+                        ImageFileInfo remove = MultiImgToolView.this.dtA.getChosedFiles().remove(cR);
                         if (remove.isTempFile()) {
                             com.baidu.adp.lib.Disk.d.fj().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                         }
-                        int maxItemNum = MultiImgToolView.this.dtm.getMaxItemNum();
-                        int size = MultiImgToolView.this.dtp.size();
-                        MultiImgToolView.this.dtn.setText(MultiImgToolView.this.getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
-                        int size2 = MultiImgToolView.this.dtp.getChosedFiles().size();
-                        if (MultiImgToolView.this.Fq != null) {
-                            MultiImgToolView.this.Fq.b(new com.baidu.tbadk.editortools.a(MultiImgToolView.this.dtt, -1, null));
+                        int maxItemNum = MultiImgToolView.this.dtx.getMaxItemNum();
+                        int size = MultiImgToolView.this.dtA.size();
+                        MultiImgToolView.this.dty.setText(MultiImgToolView.this.getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+                        int size2 = MultiImgToolView.this.dtA.getChosedFiles().size();
+                        if (MultiImgToolView.this.Fv != null) {
+                            MultiImgToolView.this.Fv.b(new com.baidu.tbadk.editortools.a(MultiImgToolView.this.dtE, -1, null));
                             if (size2 > 0) {
-                                MultiImgToolView.this.Fq.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.dtu, String.valueOf(size2)));
+                                MultiImgToolView.this.Fv.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.dtF, String.valueOf(size2)));
                             } else {
-                                MultiImgToolView.this.Fq.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.dtu, null));
+                                MultiImgToolView.this.Fv.b(new com.baidu.tbadk.editortools.a(2, MultiImgToolView.this.dtF, null));
                             }
                             if (maxItemNum == 1 && size2 == 0) {
-                                if (MultiImgToolView.this.dtv) {
-                                    MultiImgToolView.this.Fq.b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                                if (MultiImgToolView.this.dtG) {
+                                    MultiImgToolView.this.Fv.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                                     return;
                                 }
-                                MultiImgToolView.this.a(MultiImgToolView.this.dtp, true);
-                                MultiImgToolView.this.dtn.setText(MultiImgToolView.this.dtw);
-                                MultiImgToolView.this.Fq.invalidate();
+                                MultiImgToolView.this.a(MultiImgToolView.this.dtA, true);
+                                MultiImgToolView.this.dty.setText(MultiImgToolView.this.dtH);
+                                MultiImgToolView.this.Fv.invalidate();
                             }
                         }
                     }
@@ -144,39 +144,39 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initView() {
-        this.dtm = (DragHorizonScrollView) findViewById(R.id.muti_image_upload_dragscrollview);
-        this.dtn = (TextView) findViewById(R.id.muti_image_tips);
-        this.dto = (DragLayer) findViewById(R.id.muti_image_upload_draglayer);
+        this.dtx = (DragHorizonScrollView) findViewById(R.id.muti_image_upload_dragscrollview);
+        this.dty = (TextView) findViewById(R.id.muti_image_tips);
+        this.dtz = (DragLayer) findViewById(R.id.muti_image_upload_draglayer);
     }
 
     public void setDefaultTip(String str) {
-        this.dts = str;
+        this.dtD = str;
     }
 
     public void setAsyncLocalImageLoader(com.baidu.tbadk.img.b bVar) {
-        this.dtq = bVar;
+        this.dtB = bVar;
     }
 
     public int getImageNum() {
-        return this.dtp.getChosedFiles().size();
+        return this.dtA.getChosedFiles().size();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(WriteImagesInfo writeImagesInfo, boolean z) {
-        this.dtp = writeImagesInfo;
-        this.dtr = new b(getContext(), this.dtq, this, this.dtx, this.dtu == 10);
-        this.dtr.a(this.dtp);
-        this.dtm.setAdapter(this.dtr, z);
-        int maxItemNum = this.dtm.getMaxItemNum();
+        this.dtA = writeImagesInfo;
+        this.dtC = new b(getContext(), this.dtB, this, this.dtI, this.dtF == 10);
+        this.dtC.a(this.dtA);
+        this.dtx.setAdapter(this.dtC, z);
+        int maxItemNum = this.dtx.getMaxItemNum();
         int size = writeImagesInfo.size();
-        if (size == 1 && !TextUtils.isEmpty(this.dts)) {
-            this.dtn.setText(this.dts);
-        } else if (!dtl && size > 1) {
-            this.dtn.setText(R.string.editor_mutiiamge_drag_tip);
-            dtl = true;
+        if (size == 1 && !TextUtils.isEmpty(this.dtD)) {
+            this.dty.setText(this.dtD);
+        } else if (!dtw && size > 1) {
+            this.dty.setText(R.string.editor_mutiiamge_drag_tip);
+            dtw = true;
             TbadkSettings.getInst().saveBoolean(SharedPrefConfig.HAS_SHOW_MUTIIMAGE_TIP, true);
         } else {
-            this.dtn.setText(getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
+            this.dty.setText(getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size)));
         }
         if (size > 0) {
             String str = size + "";
@@ -188,10 +188,10 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
         if (aVar != null) {
             switch (aVar.code) {
                 case 9:
-                    if (this.dtr != null) {
-                        this.dtr.notifyDataSetChanged();
+                    if (this.dtC != null) {
+                        this.dtC.notifyDataSetChanged();
                     }
-                    b(new com.baidu.tbadk.editortools.a(2, this.dtu, null));
+                    b(new com.baidu.tbadk.editortools.a(2, this.dtF, null));
                     return;
                 case 10:
                 case 11:
@@ -199,7 +199,7 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
                     return;
                 case 12:
                     if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a)) {
-                        a(((com.baidu.tbadk.editortools.imagetool.a) aVar.data).dti, ((com.baidu.tbadk.editortools.imagetool.a) aVar.data).dtj);
+                        a(((com.baidu.tbadk.editortools.imagetool.a) aVar.data).dtt, ((com.baidu.tbadk.editortools.imagetool.a) aVar.data).dtu);
                         return;
                     }
                     return;
@@ -209,24 +209,24 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
 
     @Override // com.baidu.tbadk.editortools.m
     public void setEditorTools(EditorTools editorTools) {
-        this.Fq = editorTools;
+        this.Fv = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.Fq != null) {
-            this.Fq.b(aVar);
+        if (this.Fv != null) {
+            this.Fv.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public void setToolId(int i) {
-        this.Fr = i;
+        this.Fw = i;
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public int getToolId() {
-        return this.Fr;
+        return this.Fw;
     }
 
     @Override // com.baidu.tbadk.editortools.m
@@ -234,7 +234,7 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
     }
 
     @Override // com.baidu.tbadk.editortools.m
-    public void lw() {
+    public void display() {
         setVisibility(0);
     }
 
@@ -244,58 +244,58 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView.a
-    public void aE(int i, int i2) {
-        if (i != i2 && this.dtp != null && this.dtp.size() != 0) {
-            LinkedList<ImageFileInfo> chosedFiles = this.dtp.getChosedFiles();
+    public void aI(int i, int i2) {
+        if (i != i2 && this.dtA != null && this.dtA.size() != 0) {
+            LinkedList<ImageFileInfo> chosedFiles = this.dtA.getChosedFiles();
             chosedFiles.add(i2, chosedFiles.remove(i));
         }
     }
 
     public DragHorizonScrollView getDragHorizonScrollView() {
-        return this.dtm;
+        return this.dtx;
     }
 
     public TextView getMutiImageTips() {
-        return this.dtn;
+        return this.dty;
     }
 
     public DragLayer getDragLayer() {
-        return this.dto;
+        return this.dtz;
     }
 
     /* loaded from: classes.dex */
     public static class b extends BaseAdapter {
-        private m dtA;
-        private a dtB;
-        private boolean dtC;
-        private com.baidu.tbadk.img.b dtq;
-        private WriteImagesInfo dtz = null;
+        private com.baidu.tbadk.img.b dtB;
+        private WriteImagesInfo dtK = null;
+        private m dtL;
+        private a dtM;
+        private boolean dtN;
         private Context mContext;
 
         public b(Context context, com.baidu.tbadk.img.b bVar, m mVar, a aVar, boolean z) {
-            this.dtC = true;
+            this.dtN = true;
             this.mContext = context;
-            this.dtq = bVar;
-            this.dtA = mVar;
-            this.dtB = aVar;
-            this.dtC = z;
+            this.dtB = bVar;
+            this.dtL = mVar;
+            this.dtM = aVar;
+            this.dtN = z;
         }
 
         public void a(WriteImagesInfo writeImagesInfo) {
-            this.dtz = writeImagesInfo;
+            this.dtK = writeImagesInfo;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.dtz == null) {
+            if (this.dtK == null) {
                 return 0;
             }
-            return this.dtz.size();
+            return this.dtK.size();
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            return this.dtz.getChosedFiles().get(i);
+            return this.dtK.getChosedFiles().get(i);
         }
 
         @Override // android.widget.Adapter
@@ -306,7 +306,7 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
         @Override // android.widget.Adapter
         public View getView(int i, View view, final ViewGroup viewGroup) {
             FrameLayout frameLayout = view == null ? (FrameLayout) LayoutInflater.from(this.mContext).inflate(R.layout.editor_muti_image_item, (ViewGroup) null) : view;
-            ImageFileInfo imageFileInfo = (ImageFileInfo) v.getItem(this.dtz.getChosedFiles(), i);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) v.getItem(this.dtK.getChosedFiles(), i);
             if (imageFileInfo == null) {
                 return null;
             }
@@ -324,9 +324,9 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
                 am.setBackgroundResource(frameLayout3, R.drawable.bg_add_photo);
                 frameLayout3.setForeground(am.getDrawable(R.drawable.bg_add_photo_foregroundselector));
                 imageFileInfo.clearPageActions();
-                imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.aF(paddingRight, measuredHeight));
+                imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.aJ(paddingRight, measuredHeight));
                 tbImageView.setTag(imageFileInfo.toCachedKey(true));
-                if (this.dtq.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.b.1
+                if (this.dtB.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.b.1
                     @Override // com.baidu.tbadk.imageManager.b
                     public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                         TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(str);
@@ -339,7 +339,7 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
                 }
             }
             frameLayout2.setLayoutParams(new ViewGroup.LayoutParams(measuredWidth / 3, -1));
-            if (this.dtC) {
+            if (this.dtN) {
                 frameLayout2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -354,8 +354,8 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
                             }
                             if (!z) {
                                 l.showLongToast(b.this.mContext, (int) R.string.editor_mutiiamge_image_error);
-                            } else if (b.this.dtA != null) {
-                                b.this.dtA.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
+                            } else if (b.this.dtL != null) {
+                                b.this.dtL.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
                             }
                         }
                     }
@@ -366,8 +366,8 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
             imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.b.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.dtB != null) {
-                        b.this.dtB.bb(frameLayout2);
+                    if (b.this.dtM != null) {
+                        b.this.dtM.bf(frameLayout2);
                     }
                 }
             });
@@ -377,11 +377,11 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
     }
 
     public void setDeleteAction(int i) {
-        this.dtt = i;
+        this.dtE = i;
     }
 
     public void setTargetToolId(int i) {
-        this.dtu = i;
+        this.dtF = i;
     }
 
     @Override // com.baidu.tbadk.editortools.m
@@ -390,14 +390,14 @@ public class MultiImgToolView extends DragContainer implements m, DragHorizonScr
     }
 
     public void setNeedQuit(boolean z) {
-        this.dtv = z;
+        this.dtG = z;
     }
 
     public void setNoPicTips(String str) {
         if (StringUtils.isNULL(str)) {
-            this.dtw = HanziToPinyin.Token.SEPARATOR;
+            this.dtH = HanziToPinyin.Token.SEPARATOR;
         } else {
-            this.dtw = str;
+            this.dtH = str;
         }
     }
 }

@@ -7,10 +7,10 @@ import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
 import com.baidu.swan.apps.x.b.e;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static a bQL;
+    public static a bRv;
 
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
@@ -19,23 +19,23 @@ public final class b {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
             } else {
-                switch (searchFlowEvent.bQK) {
+                switch (searchFlowEvent.bRu) {
                     case START:
-                        acr();
-                        if (bQL != null) {
-                            bQL.a(searchFlowEvent);
+                        acO();
+                        if (bRv != null) {
+                            bRv.a(searchFlowEvent);
                             break;
                         }
                         break;
                     case END:
-                        if (bQL != null) {
-                            bQL.a(searchFlowEvent);
+                        if (bRv != null) {
+                            bRv.a(searchFlowEvent);
                         }
-                        IY();
+                        Ju();
                         break;
                     case NORMAL:
-                        if (bQL != null) {
-                            bQL.a(searchFlowEvent);
+                        if (bRv != null) {
+                            bRv.a(searchFlowEvent);
                             break;
                         }
                         break;
@@ -50,10 +50,10 @@ public final class b {
     public static synchronized void o(com.baidu.swan.apps.x.b.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                d(bVar.Tb(), bVar.SW());
-                if (bQL != null) {
-                    bQL.setAppId(bVar.getAppId());
-                    bQL.setSource(bVar.SW());
+                d(bVar.Ty(), bVar.Tt());
+                if (bRv != null) {
+                    bRv.setAppId(bVar.getAppId());
+                    bRv.setSource(bVar.Tt());
                 }
             }
         }
@@ -62,26 +62,26 @@ public final class b {
     public static synchronized void e(e eVar) {
         synchronized (b.class) {
             if (eVar != null) {
-                d(eVar.Tc(), eVar.SW());
-                if (bQL != null) {
-                    bQL.setAppId(eVar.getAppId());
-                    bQL.setSource(eVar.SW());
+                d(eVar.Tz(), eVar.Tt());
+                if (bRv != null) {
+                    bRv.setAppId(eVar.getAppId());
+                    bRv.setSource(eVar.Tt());
                 }
             }
         }
     }
 
-    private static void acr() {
-        if (bQL != null) {
-            bQL.destroy();
-            bQL = null;
+    private static void acO() {
+        if (bRv != null) {
+            bRv.destroy();
+            bRv = null;
         }
-        bQL = new a("772");
+        bRv = new a("772");
     }
 
-    private static void IY() {
-        if (bQL != null) {
-            bQL.send();
+    private static void Ju() {
+        if (bRv != null) {
+            bRv.send();
         }
     }
 
@@ -96,9 +96,9 @@ public final class b {
                 return;
             }
             a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-            if (bQL != null) {
-                bQL.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
-                bQL.addExt("url", bundle.getString("search_url"));
+            if (bRv != null) {
+                bRv.addExt(ETAG.KEY_SEARCH_ID, string == null ? "" : string);
+                bRv.addExt("url", bundle.getString("search_url"));
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.ar.npc;
 
 import com.baidu.ar.npc.ArBridge;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class p implements Runnable {
     final /* synthetic */ ArBridge.c a;
     final /* synthetic */ ArBridge b;

@@ -5,14 +5,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class w extends d implements m<com.baidu.tbadk.core.data.al>, n {
-    private static final int Kx = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
-    NEGFeedBackView Ky;
+    private static final int KD = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+    NEGFeedBackView KE;
 
     public w(TbPageContext tbPageContext, boolean z) {
         setInsertIndex(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(Kx, Kx);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(KD, KD);
         layoutParams.addRule(11);
         if (z) {
             layoutParams.addRule(12);
@@ -20,41 +20,41 @@ public class w extends d implements m<com.baidu.tbadk.core.data.al>, n {
         }
         layoutParams.rightMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds15);
         a(layoutParams);
-        this.Ky = new NEGFeedBackView(tbPageContext);
+        this.KE = new NEGFeedBackView(tbPageContext);
         int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds31);
-        this.Ky.setPadding(dimens, dimens, dimens, dimens);
-        F(this.Ky);
+        this.KE.setPadding(dimens, dimens, dimens, dimens);
+        F(this.KE);
     }
 
     public void aL(int i) {
-        if (this.Ky != null && (this.Ky.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.Ky.getLayoutParams();
+        if (this.KE != null && (this.KE.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.KE.getLayoutParams();
             layoutParams.topMargin = i;
-            this.Ky.setLayoutParams(layoutParams);
+            this.KE.setLayoutParams(layoutParams);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.d
-    /* renamed from: mL */
+    /* renamed from: mM */
     public NEGFeedBackView mJ() {
-        return this.Ky;
+        return this.KE;
     }
 
     public void a(NEGFeedBackView.a aVar) {
-        this.Ky.setEventCallback(aVar);
+        this.KE.setEventCallback(aVar);
     }
 
     public void setAutoProcess(boolean z) {
-        this.Ky.setAutoProcess(z);
+        this.KE.setAutoProcess(z);
     }
 
     public void setHeadText(String str) {
-        this.Ky.setHeadText(str);
+        this.KE.setHeadText(str);
     }
 
     public void ab(boolean z) {
-        this.Ky.ab(z);
+        this.KE.ab(z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,16 +62,16 @@ public class w extends d implements m<com.baidu.tbadk.core.data.al>, n {
     /* renamed from: a */
     public void A(com.baidu.tbadk.core.data.al alVar) {
         if (alVar == null) {
-            this.Ky.setVisibility(8);
+            this.KE.setVisibility(8);
             return;
         }
-        this.Ky.setData(alVar);
-        this.Ky.setFirstRowSingleColumn(true);
-        this.Ky.setVisibility(0);
+        this.KE.setData(alVar);
+        this.KE.setFirstRowSingleColumn(true);
+        this.KE.setVisibility(0);
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.Ky.onChangeSkinType();
+        this.KE.onChangeSkinType();
     }
 }

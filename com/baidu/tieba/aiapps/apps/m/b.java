@@ -22,9 +22,9 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends ab {
-    public static String ebG = "com.baidu.tieba://";
+    public static String ebP = "com.baidu.tieba://";
     private String mCallback;
 
     public b(j jVar) {
@@ -61,7 +61,7 @@ public class b extends ab {
             }
         }
         final String jSONObject = optJSONObject.toString();
-        eVar.aac().b((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.tieba.aiapps.apps.m.b.1
+        eVar.aaz().b((Activity) context, "mapp_i_baiduapp_page_trans", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.tieba.aiapps.apps.m.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
@@ -98,7 +98,7 @@ public class b extends ab {
                     try {
                         String optString = new JSONObject(str5).optString("url");
                         if (!StringUtils.isNull(optString)) {
-                            xh(optString);
+                            xl(optString);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -106,7 +106,7 @@ public class b extends ab {
                 }
             } else {
                 str6 = f(str, str2, str3, str4, str5);
-                z = aO(context, str6);
+                z = aP(context, str6);
             }
             if (DEBUG) {
                 Log.i("PageTransitionAction", "result = " + z + "\n拼接后的uri is: " + str6);
@@ -115,13 +115,13 @@ public class b extends ab {
         return z;
     }
 
-    private void xh(String str) {
-        com.baidu.swan.apps.process.messaging.client.a ZL;
-        com.baidu.swan.apps.runtime.e ZS = com.baidu.swan.apps.runtime.e.ZS();
-        if (ZS != null && (ZL = ZS.ZL()) != null) {
+    private void xl(String str) {
+        com.baidu.swan.apps.process.messaging.client.a aai;
+        com.baidu.swan.apps.runtime.e aap = com.baidu.swan.apps.runtime.e.aap();
+        if (aap != null && (aai = aap.aai()) != null) {
             Bundle bundle = new Bundle();
             bundle.putString("key_param_url", str);
-            ZL.a(bundle, a.class);
+            aai.a(bundle, a.class);
         }
     }
 
@@ -147,7 +147,7 @@ public class b extends ab {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str7 = ebG;
+            String str7 = ebP;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;
@@ -171,7 +171,7 @@ public class b extends ab {
         }
     }
 
-    private static boolean aO(Context context, String str) {
+    private static boolean aP(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return false;
         }

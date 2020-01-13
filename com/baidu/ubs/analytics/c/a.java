@@ -6,15 +6,15 @@ import android.content.Context;
 import android.os.Build;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class a {
-    private static final a kRI = new a();
+    private static final a kVj = new a();
     private boolean ac;
-    private final Set<InterfaceC0629a> kRJ = new LinkedHashSet();
+    private final Set<InterfaceC0634a> kVk = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0629a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0634a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a cUX() {
-        return kRI;
+    public static a cWa() {
+        return kVj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0629a> cUY() {
-        return this.kRJ;
+    public final Set<InterfaceC0634a> cWb() {
+        return this.kVk;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0629a interfaceC0629a) {
-        synchronized (this.kRJ) {
-            this.kRJ.add(interfaceC0629a);
+    public final void a(InterfaceC0634a interfaceC0634a) {
+        synchronized (this.kVk) {
+            this.kVk.add(interfaceC0634a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void cUZ() {
-        synchronized (this.kRJ) {
-            this.kRJ.clear();
+    public final void cWc() {
+        synchronized (this.kVk) {
+            this.kVk.clear();
         }
     }
 
@@ -59,7 +59,7 @@ final class a {
         try {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new h(this));
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.j.KV("registerActivityLifecycleCallbacks encounter exception");
+            com.baidu.ubs.analytics.d.j.Lf("registerActivityLifecycleCallbacks encounter exception");
         }
         this.ac = true;
     }

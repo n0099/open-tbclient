@@ -13,9 +13,9 @@ public interface d {
 
     void onDestroy();
 
-    View uj();
+    View uA();
 
-    String uk();
+    String uB();
 
-    short ul();
+    short uC();
 }

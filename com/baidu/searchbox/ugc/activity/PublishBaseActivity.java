@@ -59,7 +59,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
 import rx.functions.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class PublishBaseActivity<T extends BasePublishPresenter> extends BaseActivity implements View.OnClickListener, IPublishView {
     public static final int DURATION = 300;
     public TextView mAddDescription;
@@ -144,7 +144,7 @@ public abstract class PublishBaseActivity<T extends BasePublishPresenter> extend
     public void finish() {
         super.finish();
         if (this.mInput != null) {
-            e.W(this.mInput);
+            e.aa(this.mInput);
         }
         overridePendingTransition(0, R.anim.ugc_slide_bottom_out);
     }
@@ -430,7 +430,7 @@ public abstract class PublishBaseActivity<T extends BasePublishPresenter> extend
                 onPublish(this.mInput.getText().toString());
             }
         } else if (id == ResourceUtils.getResIdByName("ugc_publish_cancel")) {
-            e.W(this.mInput);
+            e.aa(this.mInput);
             if (this.mInput != null) {
                 onCancel(this.mInput.getText().toString());
             }

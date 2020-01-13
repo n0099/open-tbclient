@@ -26,17 +26,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String dBn = "#";
-    public static String dBo = "＃";
-    private static final Pattern cDH = Pattern.compile("#([^#(]+)#", 2);
+    public static String dBx = "#";
+    public static String dBy = "＃";
+    private static final Pattern cDS = Pattern.compile("#([^#(]+)#", 2);
 
-    public static boolean vi(String str) {
-        return dBn.equals(str);
+    public static boolean vn(String str) {
+        return dBx.equals(str);
     }
 
-    public static boolean gL(boolean z) {
+    public static boolean gQ(boolean z) {
         boolean appResponseToIntentClass;
-        if (PluginPackageManager.je().aY("com.baidu.tieba.pluginHotTopic")) {
+        if (PluginPackageManager.jd().aY("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
                 appResponseToIntentClass = TbadkCoreApplication.getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
             } else {
@@ -47,19 +47,19 @@ public class b {
         return false;
     }
 
-    public static boolean aOS() {
-        return PluginPackageManager.je().be("com.baidu.tieba.pluginHotTopic");
+    public static boolean aPl() {
+        return PluginPackageManager.jd().be("com.baidu.tieba.pluginHotTopic");
     }
 
     public static boolean a(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
-        if (PluginPackageManager.je().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
+        if (PluginPackageManager.jd().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
             String string = tbPageContext.getResources().getString(R.string.plugin_hottopic_not_install);
             if (z) {
                 showGoPluginDetailDialog(tbPageContext, string, null);
                 return true;
             }
             return true;
-        } else if (!gL(z2)) {
+        } else if (!gQ(z2)) {
             String string2 = tbPageContext.getResources().getString(R.string.plugin_hottopic_install_tips);
             String string3 = tbPageContext.getResources().getString(R.string.plugin_go_install);
             if (z) {
@@ -67,7 +67,7 @@ public class b {
                 return true;
             }
             return true;
-        } else if (aOS()) {
+        } else if (aPl()) {
             String string4 = tbPageContext.getResources().getString(R.string.plugin_hottopic_not_active);
             String string5 = tbPageContext.getResources().getString(R.string.setup);
             if (z) {
@@ -88,7 +88,7 @@ public class b {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.sz(str);
+            aVar.sC(str);
             if (TextUtils.isEmpty(str2)) {
                 aVar.b(R.string.know, new a.b() { // from class: com.baidu.tbadk.plugins.b.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -111,20 +111,20 @@ public class b {
                     }
                 });
             }
-            aVar.b(tbPageContext).aBW();
+            aVar.b(tbPageContext).aCp();
         }
     }
 
-    public static SpannableString vj(String str) {
+    public static SpannableString vo(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = cDH.matcher(str);
+        Matcher matcher = cDS.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            if (!vl(str.substring(start, end))) {
+            if (!vq(str.substring(start, end))) {
                 spannableString.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_c)), start, end, 18);
             }
         }
@@ -136,11 +136,11 @@ public class b {
         if (spannable != null) {
             String obj = spannable.toString();
             if (!StringUtils.isNull(obj)) {
-                Matcher matcher = cDH.matcher(obj);
+                Matcher matcher = cDS.matcher(obj);
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
-                    if (!vl(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                    if (!vq(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
                         spannable.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_c)), start, end, 18);
                     }
                 }
@@ -148,21 +148,21 @@ public class b {
         }
     }
 
-    public static String vk(String str) {
+    public static String vp(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(dBn).append(str).append(dBn);
+            sb.append(dBx).append(str).append(dBx);
             return sb.toString();
         }
         return str;
     }
 
-    public static boolean vl(String str) {
+    public static boolean vq(String str) {
         String substring;
-        return str != null && str.startsWith(dBn) && str.endsWith(dBn) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
+        return str != null && str.startsWith(dBx) && str.endsWith(dBx) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
     }
 
     public static void a(l lVar) {
@@ -187,7 +187,7 @@ public class b {
         TiebaStatic.log(new an(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).cp("obj_locate", str));
     }
 
-    public static String vm(String str) {
+    public static String vr(String str) {
         StringBuffer stringBuffer = new StringBuffer("http://tieba.baidu.com/n/video/opersquare?tab=hot&topic_name=");
         int length = str.length();
         String str2 = null;

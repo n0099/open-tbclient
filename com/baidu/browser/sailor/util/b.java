@@ -24,15 +24,15 @@ import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
-    private static SimpleDateFormat Je = null;
+    private static SimpleDateFormat Jk = null;
     private static final String a;
     private static final Pattern b;
     private static Handler c;
 
     static {
-        String str = "(((?<=[\\.])|^)((([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]*)*[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]\\.)(" + f.a + "\\.)*" + f.a + ")|^" + f.Jf + ")$";
+        String str = "(((?<=[\\.])|^)((([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]*)*[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef]\\.)(" + f.a + "\\.)*" + f.a + ")|^" + f.Jl + ")$";
         a = str;
         b = Pattern.compile(str);
     }

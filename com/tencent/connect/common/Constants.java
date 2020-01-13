@@ -1,5 +1,5 @@
 package com.tencent.connect.common;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Constants {
     public static final int ACTIVITY_CANCEL = 0;
     public static final int ACTIVITY_OK = -1;

@@ -14,13 +14,13 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaAchievementMarkResponsedMessage;
 /* loaded from: classes2.dex */
 public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
-    private a fpZ;
-    private HttpMessageListener fqn = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST) { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel.1
+    private a fti;
+    private HttpMessageListener ftx = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST) { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAchievementMarkResponsedMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == AlaPersonCenterPrivilegeMarkModel.this.unique_id) {
-                AlaPersonCenterPrivilegeMarkModel.this.fpZ.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                AlaPersonCenterPrivilegeMarkModel.this.fti.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
@@ -32,18 +32,18 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
 
     public AlaPersonCenterPrivilegeMarkModel(BdUniqueId bdUniqueId, a aVar) {
         this.unique_id = bdUniqueId;
-        this.fpZ = aVar;
-        rG();
-        registerListener(this.fqn);
+        this.fti = aVar;
+        rT();
+        registerListener(this.ftx);
     }
 
-    private void rG() {
+    private void rT() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_PRIVILEGE_MARK_LIST);
         tbHttpMessageTask.setResponsedClass(AlaAchievementMarkResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bpT() {
+    public void bqU() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
         httpMessage.addParam("user_id", TbadkApplication.getCurrentAccount());
         httpMessage.setTag(this.unique_id);

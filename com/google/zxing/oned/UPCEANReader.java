@@ -13,7 +13,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class UPCEANReader extends OneDReader {
     private static final float MAX_AVG_VARIANCE = 0.48f;
     private static final float MAX_INDIVIDUAL_VARIANCE = 0.7f;
@@ -189,7 +189,7 @@ public abstract class UPCEANReader extends OneDReader {
                 iArr2[i2] = iArr2[i2] + 1;
             } else {
                 if (i2 == length - 1) {
-                    if (patternMatchVariance(iArr2, iArr, MAX_INDIVIDUAL_VARIANCE) < MAX_AVG_VARIANCE) {
+                    if (patternMatchVariance(iArr2, iArr, 0.7f) < MAX_AVG_VARIANCE) {
                         return new int[]{nextUnset, i3};
                     }
                     nextUnset += iArr2[0] + iArr2[1];
@@ -215,7 +215,7 @@ public abstract class UPCEANReader extends OneDReader {
         int length = iArr2.length;
         int i3 = 0;
         while (i3 < length) {
-            float patternMatchVariance = patternMatchVariance(iArr, iArr2[i3], MAX_INDIVIDUAL_VARIANCE);
+            float patternMatchVariance = patternMatchVariance(iArr, iArr2[i3], 0.7f);
             if (patternMatchVariance < f) {
                 i2 = i3;
             } else {

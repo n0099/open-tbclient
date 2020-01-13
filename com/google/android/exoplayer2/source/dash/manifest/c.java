@@ -31,22 +31,22 @@ import org.xml.sax.helpers.DefaultHandler;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c extends DefaultHandler implements p.a<b> {
-    private static final Pattern mqp = Pattern.compile("(\\d+)(?:/(\\d+))?");
-    private static final Pattern mqq = Pattern.compile("CC([1-4])=.*");
-    private static final Pattern mqr = Pattern.compile("([1-9]|[1-5][0-9]|6[0-3])=.*");
-    private final String mqs;
-    private final XmlPullParserFactory mqt;
+    private static final Pattern muf = Pattern.compile("(\\d+)(?:/(\\d+))?");
+    private static final Pattern mug = Pattern.compile("CC([1-4])=.*");
+    private static final Pattern muh = Pattern.compile("([1-9]|[1-5][0-9]|6[0-3])=.*");
+    private final String mui;
+    private final XmlPullParserFactory muj;
 
     public c() {
         this(null);
     }
 
     public c(String str) {
-        this.mqs = str;
+        this.mui = str;
         try {
-            this.mqt = XmlPullParserFactory.newInstance();
+            this.muj = XmlPullParserFactory.newInstance();
         } catch (XmlPullParserException e) {
             throw new RuntimeException("Couldn't create XmlPullParserFactory instance", e);
         }
@@ -57,7 +57,7 @@ public class c extends DefaultHandler implements p.a<b> {
     /* renamed from: c */
     public b b(Uri uri, InputStream inputStream) throws IOException {
         try {
-            XmlPullParser newPullParser = this.mqt.newPullParser();
+            XmlPullParser newPullParser = this.muj.newPullParser();
             newPullParser.setInput(inputStream, null);
             if (newPullParser.next() != 2 || !"MPD".equals(newPullParser.getName())) {
                 throw new ParserException("inputStream does not contain a valid media presentation description");
@@ -122,7 +122,7 @@ public class c extends DefaultHandler implements p.a<b> {
                 if (w.h(xmlPullParser, "Period") && !z5) {
                     Pair<e, Long> a2 = a(xmlPullParser, str3, j2);
                     e eVar = (e) a2.first;
-                    if (eVar.mqz == -9223372036854775807L) {
+                    if (eVar.muo == -9223372036854775807L) {
                         if (z2) {
                             z3 = true;
                             kVar = kVar2;
@@ -133,7 +133,7 @@ public class c extends DefaultHandler implements p.a<b> {
                         }
                     } else {
                         long longValue = ((Long) a2.second).longValue();
-                        j2 = longValue == -9223372036854775807L ? -9223372036854775807L : longValue + eVar.mqz;
+                        j2 = longValue == -9223372036854775807L ? -9223372036854775807L : longValue + eVar.muo;
                         arrayList.add(eVar);
                     }
                 }
@@ -172,10 +172,10 @@ public class c extends DefaultHandler implements p.a<b> {
     }
 
     protected k c(XmlPullParser xmlPullParser) {
-        return fe(xmlPullParser.getAttributeValue(null, "schemeIdUri"), xmlPullParser.getAttributeValue(null, "value"));
+        return fg(xmlPullParser.getAttributeValue(null, "schemeIdUri"), xmlPullParser.getAttributeValue(null, "value"));
     }
 
-    protected k fe(String str, String str2) {
+    protected k fg(String str, String str2) {
         return new k(str, str2);
     }
 
@@ -271,8 +271,8 @@ public class c extends DefaultHandler implements p.a<b> {
                 str4 = str7;
                 z = z3;
             } else if (w.h(xmlPullParser, "ContentComponent")) {
-                str2 = fg(attributeValue3, xmlPullParser.getAttributeValue(null, "lang"));
-                i = dN(d, d(xmlPullParser));
+                str2 = fi(attributeValue3, xmlPullParser.getAttributeValue(null, "lang"));
+                i = dL(d, d(xmlPullParser));
                 z = z2;
                 str3 = str6;
                 i2 = i3;
@@ -310,10 +310,10 @@ public class c extends DefaultHandler implements p.a<b> {
                 str4 = str5;
             } else if (w.h(xmlPullParser, "Representation")) {
                 a a7 = a(xmlPullParser, str6, attributeValue, attributeValue2, a3, a4, a5, i3, a6, attributeValue3, i4, arrayList3, hVar2);
-                int dN = dN(d, n(a7.lUU));
+                int dL = dL(d, n(a7.lYL));
                 arrayList5.add(a7);
                 str2 = attributeValue3;
-                i = dN;
+                i = dL;
                 z = z2;
                 str3 = str6;
                 i2 = i3;
@@ -376,7 +376,7 @@ public class c extends DefaultHandler implements p.a<b> {
         while (true) {
             int i6 = i5;
             if (i6 < arrayList5.size()) {
-                arrayList6.add(a((a) arrayList5.get(i6), this.mqs, str4, arrayList, arrayList2));
+                arrayList6.add(a((a) arrayList5.get(i6), this.mui, str4, arrayList, arrayList2));
                 i5 = i6 + 1;
             } else {
                 return a(a2, i, arrayList6, arrayList3, arrayList4);
@@ -407,13 +407,13 @@ public class c extends DefaultHandler implements p.a<b> {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        if (com.google.android.exoplayer2.util.i.Ot(str)) {
+        if (com.google.android.exoplayer2.util.i.OD(str)) {
             return 2;
         }
-        if (com.google.android.exoplayer2.util.i.PQ(str)) {
+        if (com.google.android.exoplayer2.util.i.Qb(str)) {
             return 1;
         }
-        return Ph(str) ? 3 : -1;
+        return Ps(str) ? 3 : -1;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
@@ -429,23 +429,23 @@ public class c extends DefaultHandler implements p.a<b> {
         String str;
         String attributeValue = xmlPullParser.getAttributeValue(null, "schemeIdUri");
         if (attributeValue != null) {
-            String Qd = v.Qd(attributeValue);
+            String Qo = v.Qo(attributeValue);
             char c = 65535;
-            switch (Qd.hashCode()) {
+            switch (Qo.hashCode()) {
                 case 489446379:
-                    if (Qd.equals("urn:uuid:9a04f079-9840-4286-ab92-e65be0885f95")) {
+                    if (Qo.equals("urn:uuid:9a04f079-9840-4286-ab92-e65be0885f95")) {
                         c = 1;
                         break;
                     }
                     break;
                 case 755418770:
-                    if (Qd.equals("urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed")) {
+                    if (Qo.equals("urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed")) {
                         c = 2;
                         break;
                     }
                     break;
                 case 1812765994:
-                    if (Qd.equals("urn:mpeg:dash:mp4protection:2011")) {
+                    if (Qo.equals("urn:mpeg:dash:mp4protection:2011")) {
                         c = 0;
                         break;
                     }
@@ -457,8 +457,8 @@ public class c extends DefaultHandler implements p.a<b> {
                     String attributeValue3 = xmlPullParser.getAttributeValue(null, "cenc:default_KID");
                     if (attributeValue3 != null && !"00000000-0000-0000-0000-000000000000".equals(attributeValue3)) {
                         str = attributeValue2;
-                        bArr = com.google.android.exoplayer2.extractor.c.h.a(com.google.android.exoplayer2.b.lTC, new UUID[]{UUID.fromString(attributeValue3)}, null);
-                        uuid = com.google.android.exoplayer2.b.lTC;
+                        bArr = com.google.android.exoplayer2.extractor.c.h.a(com.google.android.exoplayer2.b.lXt, new UUID[]{UUID.fromString(attributeValue3)}, null);
+                        uuid = com.google.android.exoplayer2.b.lXt;
                         z = false;
                         break;
                     } else {
@@ -470,13 +470,13 @@ public class c extends DefaultHandler implements p.a<b> {
                     }
                     break;
                 case 1:
-                    uuid = com.google.android.exoplayer2.b.lTF;
+                    uuid = com.google.android.exoplayer2.b.lXw;
                     bArr = null;
                     str = null;
                     z = false;
                     break;
                 case 2:
-                    uuid = com.google.android.exoplayer2.b.lTE;
+                    uuid = com.google.android.exoplayer2.b.lXv;
                     bArr = null;
                     str = null;
                     z = false;
@@ -490,13 +490,13 @@ public class c extends DefaultHandler implements p.a<b> {
                 } else if (bArr == null) {
                     if (w.h(xmlPullParser, "cenc:pssh") && xmlPullParser.next() == 4) {
                         bArr = Base64.decode(xmlPullParser.getText(), 0);
-                        uuid = com.google.android.exoplayer2.extractor.c.h.aq(bArr);
+                        uuid = com.google.android.exoplayer2.extractor.c.h.ap(bArr);
                         if (uuid == null) {
                             Log.w("MpdParser", "Skipping malformed cenc:pssh data");
                             bArr = null;
                         }
-                    } else if (uuid == com.google.android.exoplayer2.b.lTF && w.h(xmlPullParser, "mspr:pro") && xmlPullParser.next() == 4) {
-                        bArr = com.google.android.exoplayer2.extractor.c.h.a(com.google.android.exoplayer2.b.lTF, Base64.decode(xmlPullParser.getText(), 0));
+                    } else if (uuid == com.google.android.exoplayer2.b.lXw && w.h(xmlPullParser, "mspr:pro") && xmlPullParser.next() == 4) {
+                        bArr = com.google.android.exoplayer2.extractor.c.h.a(com.google.android.exoplayer2.b.lXw, Base64.decode(xmlPullParser.getText(), 0));
                     }
                 }
             } while (!w.g(xmlPullParser, "ContentProtection"));
@@ -622,50 +622,50 @@ public class c extends DefaultHandler implements p.a<b> {
 
     protected Format a(String str, String str2, int i, int i2, float f, int i3, int i4, int i5, String str3, int i6, List<d> list, String str4) {
         int i7;
-        String ff = ff(str2, str4);
-        if (ff != null) {
-            if (com.google.android.exoplayer2.util.i.Ot(ff)) {
-                return Format.a(str, str2, ff, str4, i5, i, i2, f, (List<byte[]>) null, i6);
+        String fh = fh(str2, str4);
+        if (fh != null) {
+            if (com.google.android.exoplayer2.util.i.OD(fh)) {
+                return Format.a(str, str2, fh, str4, i5, i, i2, f, (List<byte[]>) null, i6);
             }
-            if (com.google.android.exoplayer2.util.i.PQ(ff)) {
-                return Format.a(str, str2, ff, str4, i5, i3, i4, (List<byte[]>) null, i6, str3);
+            if (com.google.android.exoplayer2.util.i.Qb(fh)) {
+                return Format.a(str, str2, fh, str4, i5, i3, i4, (List<byte[]>) null, i6, str3);
             }
-            if (Ph(ff)) {
-                if ("application/cea-608".equals(ff)) {
+            if (Ps(fh)) {
+                if ("application/cea-608".equals(fh)) {
                     i7 = fk(list);
-                } else if ("application/cea-708".equals(ff)) {
+                } else if ("application/cea-708".equals(fh)) {
                     i7 = fl(list);
                 } else {
                     i7 = -1;
                 }
-                return Format.a(str, str2, ff, str4, i5, i6, str3, i7);
+                return Format.a(str, str2, fh, str4, i5, i6, str3, i7);
             }
         }
-        return Format.c(str, str2, ff, str4, i5, i6, str3);
+        return Format.c(str, str2, fh, str4, i5, i6, str3);
     }
 
     protected g a(a aVar, String str, String str2, ArrayList<DrmInitData.SchemeData> arrayList, ArrayList<d> arrayList2) {
-        Format format = aVar.lUU;
-        if (aVar.mqw != null) {
-            str2 = aVar.mqw;
+        Format format = aVar.lYL;
+        if (aVar.mul != null) {
+            str2 = aVar.mul;
         }
-        ArrayList<DrmInitData.SchemeData> arrayList3 = aVar.mqx;
+        ArrayList<DrmInitData.SchemeData> arrayList3 = aVar.mum;
         arrayList3.addAll(arrayList);
         if (!arrayList3.isEmpty()) {
-            be(arrayList3);
+            bf(arrayList3);
             format = format.a(new DrmInitData(str2, arrayList3));
         }
-        ArrayList<d> arrayList4 = aVar.mqy;
+        ArrayList<d> arrayList4 = aVar.mun;
         arrayList4.addAll(arrayList2);
-        return g.a(str, -1L, format, aVar.mqu, aVar.mqv, arrayList4);
+        return g.a(str, -1L, format, aVar.baseUrl, aVar.muk, arrayList4);
     }
 
     protected h.e a(XmlPullParser xmlPullParser, h.e eVar) throws XmlPullParserException, IOException {
         long j;
         long d = d(xmlPullParser, "timescale", eVar != null ? eVar.timescale : 1L);
-        long d2 = d(xmlPullParser, "presentationTimeOffset", eVar != null ? eVar.mqK : 0L);
-        long j2 = eVar != null ? eVar.mqQ : 0L;
-        long j3 = eVar != null ? eVar.mqR : 0L;
+        long d2 = d(xmlPullParser, "presentationTimeOffset", eVar != null ? eVar.muz : 0L);
+        long j2 = eVar != null ? eVar.muF : 0L;
+        long j3 = eVar != null ? eVar.muG : 0L;
         String attributeValue = xmlPullParser.getAttributeValue(null, "indexRange");
         if (attributeValue != null) {
             String[] split = attributeValue.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -675,7 +675,7 @@ public class c extends DefaultHandler implements p.a<b> {
         } else {
             j = j2;
         }
-        f fVar = eVar != null ? eVar.mqJ : null;
+        f fVar = eVar != null ? eVar.muy : null;
         while (true) {
             xmlPullParser.next();
             f i = w.h(xmlPullParser, "Initialization") ? i(xmlPullParser) : fVar;
@@ -696,9 +696,9 @@ public class c extends DefaultHandler implements p.a<b> {
         List<h.d> list2;
         f fVar2 = null;
         long d = d(xmlPullParser, "timescale", bVar != null ? bVar.timescale : 1L);
-        long d2 = d(xmlPullParser, "presentationTimeOffset", bVar != null ? bVar.mqK : 0L);
+        long d2 = d(xmlPullParser, "presentationTimeOffset", bVar != null ? bVar.muz : 0L);
         long d3 = d(xmlPullParser, "duration", bVar != null ? bVar.duration : -9223372036854775807L);
-        int a2 = a(xmlPullParser, "startNumber", bVar != null ? bVar.mqL : 1);
+        int a2 = a(xmlPullParser, "startNumber", bVar != null ? bVar.muA : 1);
         List<f> list3 = null;
         List<h.d> list4 = null;
         do {
@@ -715,10 +715,10 @@ public class c extends DefaultHandler implements p.a<b> {
             }
         } while (!w.g(xmlPullParser, "SegmentList"));
         if (bVar != null) {
-            f fVar3 = fVar2 != null ? fVar2 : bVar.mqJ;
-            list2 = list4 != null ? list4 : bVar.mqM;
+            f fVar3 = fVar2 != null ? fVar2 : bVar.muy;
+            list2 = list4 != null ? list4 : bVar.muB;
             if (list3 == null) {
-                list3 = bVar.mqN;
+                list3 = bVar.muC;
             }
             fVar = fVar3;
             list = list3;
@@ -738,11 +738,11 @@ public class c extends DefaultHandler implements p.a<b> {
     protected h.c a(XmlPullParser xmlPullParser, h.c cVar) throws XmlPullParserException, IOException {
         List<h.d> list;
         long d = d(xmlPullParser, "timescale", cVar != null ? cVar.timescale : 1L);
-        long d2 = d(xmlPullParser, "presentationTimeOffset", cVar != null ? cVar.mqK : 0L);
+        long d2 = d(xmlPullParser, "presentationTimeOffset", cVar != null ? cVar.muz : 0L);
         long d3 = d(xmlPullParser, "duration", cVar != null ? cVar.duration : -9223372036854775807L);
-        int a2 = a(xmlPullParser, "startNumber", cVar != null ? cVar.mqL : 1);
-        j a3 = a(xmlPullParser, "media", cVar != null ? cVar.mqP : null);
-        j a4 = a(xmlPullParser, "initialization", cVar != null ? cVar.mqO : null);
+        int a2 = a(xmlPullParser, "startNumber", cVar != null ? cVar.muA : 1);
+        j a3 = a(xmlPullParser, "media", cVar != null ? cVar.muE : null);
+        j a4 = a(xmlPullParser, "initialization", cVar != null ? cVar.muD : null);
         List<h.d> list2 = null;
         f fVar = null;
         do {
@@ -755,10 +755,10 @@ public class c extends DefaultHandler implements p.a<b> {
         } while (!w.g(xmlPullParser, "SegmentTemplate"));
         if (cVar != null) {
             if (fVar == null) {
-                fVar = cVar.mqJ;
+                fVar = cVar.muy;
             }
             if (list2 == null) {
-                list2 = cVar.mqM;
+                list2 = cVar.muB;
             }
             list = list2;
         } else {
@@ -798,7 +798,7 @@ public class c extends DefaultHandler implements p.a<b> {
     protected j a(XmlPullParser xmlPullParser, String str, j jVar) {
         String attributeValue = xmlPullParser.getAttributeValue(null, str);
         if (attributeValue != null) {
-            return j.Pk(attributeValue);
+            return j.Pv(attributeValue);
         }
         return jVar;
     }
@@ -844,7 +844,7 @@ public class c extends DefaultHandler implements p.a<b> {
         return i;
     }
 
-    private static void be(ArrayList<DrmInitData.SchemeData> arrayList) {
+    private static void bf(ArrayList<DrmInitData.SchemeData> arrayList) {
         for (int size = arrayList.size() - 1; size >= 0; size--) {
             DrmInitData.SchemeData schemeData = arrayList.get(size);
             if (!schemeData.hasData()) {
@@ -866,14 +866,14 @@ public class c extends DefaultHandler implements p.a<b> {
         }
     }
 
-    private static String ff(String str, String str2) {
-        if (com.google.android.exoplayer2.util.i.PQ(str)) {
-            return com.google.android.exoplayer2.util.i.PT(str2);
+    private static String fh(String str, String str2) {
+        if (com.google.android.exoplayer2.util.i.Qb(str)) {
+            return com.google.android.exoplayer2.util.i.Qe(str2);
         }
-        if (com.google.android.exoplayer2.util.i.Ot(str)) {
-            return com.google.android.exoplayer2.util.i.PS(str2);
+        if (com.google.android.exoplayer2.util.i.OD(str)) {
+            return com.google.android.exoplayer2.util.i.Qd(str2);
         }
-        if (!Ph(str)) {
+        if (!Ps(str)) {
             if ("application/mp4".equals(str)) {
                 if (SubtitleSampleEntry.TYPE1.equals(str2)) {
                     return "application/ttml+xml";
@@ -897,11 +897,11 @@ public class c extends DefaultHandler implements p.a<b> {
         return str;
     }
 
-    private static boolean Ph(String str) {
-        return com.google.android.exoplayer2.util.i.PR(str) || "application/ttml+xml".equals(str) || "application/x-mp4-vtt".equals(str) || "application/cea-708".equals(str) || "application/cea-608".equals(str);
+    private static boolean Ps(String str) {
+        return com.google.android.exoplayer2.util.i.Qc(str) || "application/ttml+xml".equals(str) || "application/x-mp4-vtt".equals(str) || "application/cea-708".equals(str) || "application/cea-608".equals(str);
     }
 
-    private static String fg(String str, String str2) {
+    private static String fi(String str, String str2) {
         if (str == null) {
             return str2;
         }
@@ -912,7 +912,7 @@ public class c extends DefaultHandler implements p.a<b> {
         return str;
     }
 
-    private static int dN(int i, int i2) {
+    private static int dL(int i, int i2) {
         if (i == -1) {
             return i2;
         }
@@ -940,7 +940,7 @@ public class c extends DefaultHandler implements p.a<b> {
             if (i2 < list.size()) {
                 d dVar = list.get(i2);
                 if ("urn:scte:dash:cc:cea-608:2015".equals(dVar.schemeIdUri) && dVar.value != null) {
-                    Matcher matcher = mqq.matcher(dVar.value);
+                    Matcher matcher = mug.matcher(dVar.value);
                     if (matcher.matches()) {
                         return Integer.parseInt(matcher.group(1));
                     }
@@ -960,7 +960,7 @@ public class c extends DefaultHandler implements p.a<b> {
             if (i2 < list.size()) {
                 d dVar = list.get(i2);
                 if ("urn:scte:dash:cc:cea-708:2015".equals(dVar.schemeIdUri) && dVar.value != null) {
-                    Matcher matcher = mqr.matcher(dVar.value);
+                    Matcher matcher = muh.matcher(dVar.value);
                     if (matcher.matches()) {
                         return Integer.parseInt(matcher.group(1));
                     }
@@ -976,7 +976,7 @@ public class c extends DefaultHandler implements p.a<b> {
     protected static float a(XmlPullParser xmlPullParser, float f) {
         String attributeValue = xmlPullParser.getAttributeValue(null, "frameRate");
         if (attributeValue != null) {
-            Matcher matcher = mqp.matcher(attributeValue);
+            Matcher matcher = muf.matcher(attributeValue);
             if (matcher.matches()) {
                 int parseInt = Integer.parseInt(matcher.group(1));
                 String group = matcher.group(2);
@@ -992,17 +992,17 @@ public class c extends DefaultHandler implements p.a<b> {
 
     protected static long b(XmlPullParser xmlPullParser, String str, long j) {
         String attributeValue = xmlPullParser.getAttributeValue(null, str);
-        return attributeValue == null ? j : v.Qe(attributeValue);
+        return attributeValue == null ? j : v.Qp(attributeValue);
     }
 
     protected static long c(XmlPullParser xmlPullParser, String str, long j) throws ParserException {
         String attributeValue = xmlPullParser.getAttributeValue(null, str);
-        return attributeValue == null ? j : v.Qf(attributeValue);
+        return attributeValue == null ? j : v.Qq(attributeValue);
     }
 
     protected static String c(XmlPullParser xmlPullParser, String str) throws XmlPullParserException, IOException {
         xmlPullParser.next();
-        return u.fj(str, xmlPullParser.getText());
+        return u.fl(str, xmlPullParser.getText());
     }
 
     protected static int a(XmlPullParser xmlPullParser, String str, int i) {
@@ -1023,34 +1023,34 @@ public class c extends DefaultHandler implements p.a<b> {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     protected static int l(XmlPullParser xmlPullParser) {
         char c;
-        String Qd = v.Qd(xmlPullParser.getAttributeValue(null, "value"));
-        if (Qd == null) {
+        String Qo = v.Qo(xmlPullParser.getAttributeValue(null, "value"));
+        if (Qo == null) {
             return -1;
         }
-        switch (Qd.hashCode()) {
+        switch (Qo.hashCode()) {
             case 1596796:
-                if (Qd.equals("4000")) {
+                if (Qo.equals("4000")) {
                     c = 0;
                     break;
                 }
                 c = 65535;
                 break;
             case 2937391:
-                if (Qd.equals("a000")) {
+                if (Qo.equals("a000")) {
                     c = 1;
                     break;
                 }
                 c = 65535;
                 break;
             case 3094035:
-                if (Qd.equals("f801")) {
+                if (Qo.equals("f801")) {
                     c = 2;
                     break;
                 }
                 c = 65535;
                 break;
             case 3133436:
-                if (Qd.equals("fa01")) {
+                if (Qo.equals("fa01")) {
                     c = 3;
                     break;
                 }
@@ -1075,22 +1075,22 @@ public class c extends DefaultHandler implements p.a<b> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        public final Format lUU;
-        public final String mqu;
-        public final h mqv;
-        public final String mqw;
-        public final ArrayList<DrmInitData.SchemeData> mqx;
-        public final ArrayList<d> mqy;
+        public final String baseUrl;
+        public final Format lYL;
+        public final h muk;
+        public final String mul;
+        public final ArrayList<DrmInitData.SchemeData> mum;
+        public final ArrayList<d> mun;
 
         public a(Format format, String str, h hVar, String str2, ArrayList<DrmInitData.SchemeData> arrayList, ArrayList<d> arrayList2) {
-            this.lUU = format;
-            this.mqu = str;
-            this.mqv = hVar;
-            this.mqw = str2;
-            this.mqx = arrayList;
-            this.mqy = arrayList2;
+            this.lYL = format;
+            this.baseUrl = str;
+            this.muk = hVar;
+            this.mul = str2;
+            this.mum = arrayList;
+            this.mun = arrayList2;
         }
     }
 }

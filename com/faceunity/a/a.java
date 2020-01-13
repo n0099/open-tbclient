@@ -8,11 +8,11 @@ import android.view.Surface;
 import com.baidu.ala.player.StreamConfig;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private boolean aGk;
-    private c lSU;
-    private int lSV;
+    private boolean aHc;
+    private c lWL;
+    private int lWM;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
 
@@ -28,9 +28,9 @@ public class a {
         }
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
-        this.lSV = -1;
-        this.aGk = false;
-        this.lSU = cVar;
+        this.lWM = -1;
+        this.aHc = false;
+        this.lWL = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    public void dqc() throws Exception {
+    public void dro() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -73,24 +73,24 @@ public class a {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.aGk) {
+                    if (this.aHc) {
                         throw new RuntimeException("format changed twice");
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.lSV = this.lSU.i(outputFormat);
-                    if (!this.lSU.start()) {
-                        synchronized (this.lSU) {
-                            while (!this.lSU.isStarted()) {
+                    this.lWM = this.lWL.i(outputFormat);
+                    if (!this.lWL.start()) {
+                        synchronized (this.lWL) {
+                            while (!this.lWL.isStarted()) {
                                 try {
-                                    this.lSU.wait(100L);
+                                    this.lWL.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.aGk = true;
+                    this.aHc = true;
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("AudioEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -102,12 +102,12 @@ public class a {
                         this.mBufferInfo.size = 0;
                     }
                     if (this.mBufferInfo.size != 0) {
-                        if (!this.aGk) {
+                        if (!this.aHc) {
                             throw new RuntimeException("muxer hasn't started");
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.lSU.d(this.lSV, byteBuffer, this.mBufferInfo);
+                        this.lWL.d(this.lWM, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -127,9 +127,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.lSU != null) {
-                this.lSU.stop();
-                this.lSU = null;
+            if (this.lWL != null) {
+                this.lWL.stop();
+                this.lWL = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

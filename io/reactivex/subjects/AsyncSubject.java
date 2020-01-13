@@ -3,17 +3,17 @@ package io.reactivex.subjects;
 import io.reactivex.internal.observers.DeferredScalarDisposable;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class AsyncSubject<T> extends b<T> {
-    static final AsyncDisposable[] mYj = new AsyncDisposable[0];
-    static final AsyncDisposable[] mYk = new AsyncDisposable[0];
+    static final AsyncDisposable[] nAv = new AsyncDisposable[0];
+    static final AsyncDisposable[] nAw = new AsyncDisposable[0];
     Throwable error;
     final AtomicReference<AsyncDisposable<T>[]> subscribers;
     T value;
 
     @Override // io.reactivex.u
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.subscribers.get() == mYk) {
+        if (this.subscribers.get() == nAw) {
             bVar.dispose();
         }
     }
@@ -21,7 +21,7 @@ public final class AsyncSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onNext(T t) {
         io.reactivex.internal.functions.a.h(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != mYk) {
+        if (this.subscribers.get() != nAw) {
             this.value = t;
         }
     }
@@ -29,13 +29,13 @@ public final class AsyncSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == mYk) {
-            io.reactivex.d.a.onError(th);
+        if (this.subscribers.get() == nAw) {
+            io.reactivex.e.a.onError(th);
             return;
         }
         this.value = null;
         this.error = th;
-        for (AsyncDisposable<T> asyncDisposable : this.subscribers.getAndSet(mYk)) {
+        for (AsyncDisposable<T> asyncDisposable : this.subscribers.getAndSet(nAw)) {
             asyncDisposable.onError(th);
         }
     }
@@ -43,9 +43,9 @@ public final class AsyncSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onComplete() {
         int i = 0;
-        if (this.subscribers.get() != mYk) {
+        if (this.subscribers.get() != nAw) {
             T t = this.value;
-            AsyncDisposable<T>[] andSet = this.subscribers.getAndSet(mYk);
+            AsyncDisposable<T>[] andSet = this.subscribers.getAndSet(nAw);
             if (t == null) {
                 int length = andSet.length;
                 while (i < length) {
@@ -91,7 +91,7 @@ public final class AsyncSubject<T> extends b<T> {
         AsyncDisposable<T>[] asyncDisposableArr2;
         do {
             asyncDisposableArr = this.subscribers.get();
-            if (asyncDisposableArr == mYk) {
+            if (asyncDisposableArr == nAw) {
                 return false;
             }
             int length = asyncDisposableArr.length;
@@ -123,7 +123,7 @@ public final class AsyncSubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        asyncDisposableArr2 = mYj;
+                        asyncDisposableArr2 = nAv;
                     } else {
                         asyncDisposableArr2 = new AsyncDisposable[length - 1];
                         System.arraycopy(asyncDisposableArr, 0, asyncDisposableArr2, 0, i);
@@ -139,7 +139,7 @@ public final class AsyncSubject<T> extends b<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class AsyncDisposable<T> extends DeferredScalarDisposable<T> {
         private static final long serialVersionUID = 5629876084736248016L;
         final AsyncSubject<T> parent;
@@ -164,7 +164,7 @@ public final class AsyncSubject<T> extends b<T> {
 
         void onError(Throwable th) {
             if (isDisposed()) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             } else {
                 this.actual.onError(th);
             }

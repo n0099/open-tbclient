@@ -30,7 +30,7 @@ import com.facebook.drawee.a.a.c;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.lang.ref.WeakReference;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PictureOriginButton extends RelativeLayout implements Handler.Callback {
     public static final int LOADING_ORIGIN = 101;
     public static final int LOAD_COMPLETE_ORIGIN = 102;
@@ -53,12 +53,12 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
     private String mStrLoadOriginInit;
     private boolean mSuccess;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface LoadOriginImageListener {
         void success(String str);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnLoadOriginPhotoListener {
         void onCancel();
 
@@ -169,7 +169,7 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
                 case 103:
                     if (this.mOriginLoadDataSource != null) {
                         this.isDownLoading = false;
-                        this.mOriginLoadDataSource.LR();
+                        this.mOriginLoadDataSource.Mn();
                         this.mLoadOriginTV.setText(this.mStrLoadOriginInit);
                         this.mLoadOriginCancelImg.setVisibility(8);
                     }
@@ -197,7 +197,7 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
 
     private void loadOriginImage(final String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.mOriginLoadDataSource = c.dji().e(ImageRequestBuilder.X(Uri.parse(str)).dpZ(), getContext().getApplicationContext());
+            this.mOriginLoadDataSource = c.dkj().e(ImageRequestBuilder.X(Uri.parse(str)).drm(), getContext().getApplicationContext());
             this.mOriginLoadDataSource.a(new a<com.facebook.common.references.a<com.facebook.imagepipeline.g.b>>() { // from class: com.baidu.searchbox.picture.component.view.PictureOriginButton.4
                 @Override // com.facebook.datasource.a
                 protected void onNewResultImpl(b<com.facebook.common.references.a<com.facebook.imagepipeline.g.b>> bVar) {
@@ -206,8 +206,8 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
                         com.facebook.common.references.a<com.facebook.imagepipeline.g.b> result = bVar.getResult();
                         try {
                             if (result != null) {
-                                Bitmap dnV = result.get().dnV();
-                                if (dnV != null && !dnV.isRecycled() && PictureOriginButton.this.mImageListener != null) {
+                                Bitmap dpb = result.get().dpb();
+                                if (dpb != null && !dpb.isRecycled() && PictureOriginButton.this.mImageListener != null) {
                                     PictureOriginButton.this.mSuccess = true;
                                     PictureOriginButton.this.mImageListener.success(str);
                                 }
@@ -239,7 +239,7 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
                     obtainMessage.obj = bundle;
                     PictureOriginButton.this.handlerHolder.sendMessage(obtainMessage);
                 }
-            }, i.din());
+            }, i.djo());
         }
     }
 
@@ -280,7 +280,7 @@ public class PictureOriginButton extends RelativeLayout implements Handler.Callb
         this.mImageListener = loadOriginImageListener;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class HandlerHolder extends Handler {
         WeakReference<Handler.Callback> mListenerWeakReference;
 

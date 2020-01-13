@@ -1,24 +1,24 @@
 package com.google.gson.internal;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class d {
-    private static final int mFX = dyk();
+    private static final int mJP = dzt();
 
-    private static int dyk() {
-        return Qk(System.getProperty("java.version"));
+    private static int dzt() {
+        return Qv(System.getProperty("java.version"));
     }
 
-    static int Qk(String str) {
-        int Ql = Ql(str);
-        if (Ql == -1) {
-            Ql = Qm(str);
+    static int Qv(String str) {
+        int Qw = Qw(str);
+        if (Qw == -1) {
+            Qw = Qx(str);
         }
-        if (Ql == -1) {
+        if (Qw == -1) {
             return 6;
         }
-        return Ql;
+        return Qw;
     }
 
-    private static int Ql(String str) {
+    private static int Qw(String str) {
         try {
             String[] split = str.split("[._]");
             int parseInt = Integer.parseInt(split[0]);
@@ -31,7 +31,7 @@ public final class d {
         }
     }
 
-    private static int Qm(String str) {
+    private static int Qx(String str) {
         try {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < str.length(); i++) {
@@ -47,11 +47,11 @@ public final class d {
         }
     }
 
-    public static int dyl() {
-        return mFX;
+    public static int dzu() {
+        return mJP;
     }
 
-    public static boolean dym() {
-        return mFX >= 9;
+    public static boolean dzv() {
+        return mJP >= 9;
     }
 }

@@ -20,33 +20,33 @@ import com.baidu.tieba.card.data.b;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcernActivity> {
-    private a ehK;
-    private MyConcernTabModel ehL;
-    private h ehM;
+    private h eiA;
+    private a eiy;
+    private MyConcernTabModel eiz;
     private boolean mHasMore = true;
     private boolean isLoading = false;
-    private boolean ehN = false;
-    private CustomMessageListener ehO = new CustomMessageListener(2921421) { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.AlaLiveTabMyConcernActivity.1
+    private boolean eiB = false;
+    private CustomMessageListener eiC = new CustomMessageListener(2921421) { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.AlaLiveTabMyConcernActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaLiveTabMyConcernActivity.this.v(com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a.class);
         }
     };
-    private a.InterfaceC0410a ehP = new a.InterfaceC0410a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.AlaLiveTabMyConcernActivity.2
-        @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.InterfaceC0410a
+    private a.InterfaceC0412a eiD = new a.InterfaceC0412a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.AlaLiveTabMyConcernActivity.2
+        @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.InterfaceC0412a
         public void onScrollToBottom() {
             if (l.isNetOk() && AlaLiveTabMyConcernActivity.this.mHasMore && !AlaLiveTabMyConcernActivity.this.isLoading) {
                 AlaLiveTabMyConcernActivity.this.isLoading = true;
-                AlaLiveTabMyConcernActivity.this.ehL.aZP();
+                AlaLiveTabMyConcernActivity.this.eiz.bao();
             }
         }
 
-        @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.InterfaceC0410a
+        @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.InterfaceC0412a
         public void onListPullRefresh(boolean z) {
             if (!j.isNetWorkAvailable() || AlaLiveTabMyConcernActivity.this.isLoading) {
-                if (AlaLiveTabMyConcernActivity.this.ehK != null) {
-                    AlaLiveTabMyConcernActivity.this.ehK.hi(false);
+                if (AlaLiveTabMyConcernActivity.this.eiy != null) {
+                    AlaLiveTabMyConcernActivity.this.eiy.hn(false);
                     return;
                 }
                 return;
@@ -54,30 +54,30 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             AlaLiveTabMyConcernActivity.this.refreshData();
         }
     };
-    private MyConcernTabModel.a ehQ = new MyConcernTabModel.a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.AlaLiveTabMyConcernActivity.3
+    private MyConcernTabModel.a eiE = new MyConcernTabModel.a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.AlaLiveTabMyConcernActivity.3
         @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.a
         public void c(List<m> list, boolean z, boolean z2) {
             AlaLiveTabMyConcernActivity.this.isLoading = false;
-            AlaLiveTabMyConcernActivity.this.aZK();
-            AlaLiveTabMyConcernActivity.this.ehK.hi(false);
-            AlaLiveTabMyConcernActivity.this.hideLoadingView(AlaLiveTabMyConcernActivity.this.ehK.aZU());
+            AlaLiveTabMyConcernActivity.this.baf();
+            AlaLiveTabMyConcernActivity.this.eiy.hn(false);
+            AlaLiveTabMyConcernActivity.this.hideLoadingView(AlaLiveTabMyConcernActivity.this.eiy.bat());
             if (!v.isEmpty(list)) {
-                AlaLiveTabMyConcernActivity.this.ehK.setData(list);
+                AlaLiveTabMyConcernActivity.this.eiy.setData(list);
             } else {
-                AlaLiveTabMyConcernActivity.this.hH(z2);
+                AlaLiveTabMyConcernActivity.this.hP(z2);
             }
             AlaLiveTabMyConcernActivity.this.mHasMore = z;
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.a
-        public void hI(boolean z) {
+        public void hQ(boolean z) {
             AlaLiveTabMyConcernActivity.this.isLoading = false;
-            AlaLiveTabMyConcernActivity.this.hideLoadingView(AlaLiveTabMyConcernActivity.this.ehK.aZU());
-            AlaLiveTabMyConcernActivity.this.ehK.hi(false);
-            AlaLiveTabMyConcernActivity.this.hH(z);
+            AlaLiveTabMyConcernActivity.this.hideLoadingView(AlaLiveTabMyConcernActivity.this.eiy.bat());
+            AlaLiveTabMyConcernActivity.this.eiy.hn(false);
+            AlaLiveTabMyConcernActivity.this.hP(z);
         }
     };
-    private View.OnClickListener ehR = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.AlaLiveTabMyConcernActivity.4
+    private View.OnClickListener eiF = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.AlaLiveTabMyConcernActivity.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AlaLiveTabMyConcernActivity.this.refreshData();
@@ -93,41 +93,41 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             return;
         }
         initView();
-        this.ehN = com.baidu.tieba.ala.alasquare.live_tab.my_concern.b.a.j(getPageContext());
-        this.ehL = new MyConcernTabModel(getPageContext());
-        this.ehL.a(this.ehQ);
+        this.eiB = com.baidu.tieba.ala.alasquare.live_tab.my_concern.b.a.j(getPageContext());
+        this.eiz = new MyConcernTabModel(getPageContext());
+        this.eiz.a(this.eiE);
         if (!l.isNetOk()) {
-            a(R.drawable.new_pic_emotion_08, getResources().getString(R.string.refresh_view_title_text), this.ehR);
+            a(R.drawable.new_pic_emotion_08, getResources().getString(R.string.refresh_view_title_text), this.eiF);
         } else {
-            showLoadingView(this.ehK.aZU(), false, getResources().getDimensionPixelSize(R.dimen.ds340));
+            showLoadingView(this.eiy.bat(), false, getResources().getDimensionPixelSize(R.dimen.ds340));
             refreshData();
         }
-        registerListener(this.ehO);
+        registerListener(this.eiC);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!this.ehN && com.baidu.tieba.ala.alasquare.live_tab.my_concern.b.a.j(getPageContext())) {
+        if (!this.eiB && com.baidu.tieba.ala.alasquare.live_tab.my_concern.b.a.j(getPageContext())) {
             v(com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a.class);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void v(Class<? extends b> cls) {
-        if (this.ehL != null) {
-            this.ehL.w(cls);
+        if (this.eiz != null) {
+            this.eiz.w(cls);
         }
-        if (this.ehK != null) {
-            this.ehK.w(cls);
+        if (this.eiy != null) {
+            this.eiy.w(cls);
         }
     }
 
     private void initView() {
-        this.ehK = new a(getPageContext());
-        this.ehK.a(this.ehP);
-        setContentView(this.ehK.getView());
+        this.eiy = new a(getPageContext());
+        this.eiy.a(this.eiD);
+        setContentView(this.eiy.getView());
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -135,15 +135,15 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ehK != null) {
-            this.ehK.onChangeSkinType(i);
+        if (this.eiy != null) {
+            this.eiy.onChangeSkinType(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hH(boolean z) {
+    public void hP(boolean z) {
         if (z) {
-            a(R.drawable.new_pic_emotion_08, getResources().getString(R.string.refresh_view_title_text), this.ehR);
+            a(R.drawable.new_pic_emotion_08, getResources().getString(R.string.refresh_view_title_text), this.eiF);
         }
     }
 
@@ -161,31 +161,31 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     }
 
     private void a(int i, String str, View.OnClickListener onClickListener) {
-        if (this.ehM == null) {
-            this.ehM = new h(getPageContext().getPageActivity(), onClickListener);
-            this.ehM.setButtonText(null);
-            this.ehM.showRefreshButton();
-            this.ehM.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if (this.eiA == null) {
+            this.eiA = new h(getPageContext().getPageActivity(), onClickListener);
+            this.eiA.setButtonText(null);
+            this.eiA.showRefreshButton();
+            this.eiA.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
-        this.ehM.mn(i);
-        this.ehM.setSubText(null);
-        this.ehM.setTitle(str);
-        this.ehM.onChangeSkinType();
-        this.ehM.dettachView(this.ehK.aZY());
-        this.ehM.attachView(this.ehK.aZY());
+        this.eiA.mn(i);
+        this.eiA.setSubText(null);
+        this.eiA.setTitle(str);
+        this.eiA.onChangeSkinType();
+        this.eiA.dettachView(this.eiy.bax());
+        this.eiA.attachView(this.eiy.bax());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aZK() {
-        if (this.ehM != null) {
-            this.ehM.dettachView(this.ehK.aZY());
+    public void baf() {
+        if (this.eiA != null) {
+            this.eiA.dettachView(this.eiy.bax());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
         this.isLoading = true;
-        this.ehL.xT();
+        this.eiz.yj();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -193,20 +193,20 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     public void onPause() {
         super.onPause();
         this.isLoading = false;
-        if (this.ehK != null) {
-            this.ehK.hi(false);
+        if (this.eiy != null) {
+            this.eiy.hn(false);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.ehL != null) {
-            this.ehL.onDestroy();
+        if (this.eiz != null) {
+            this.eiz.onDestroy();
         }
-        hideLoadingView(this.ehK.aZU());
-        if (this.ehK != null) {
-            this.ehK.onDestroy();
+        hideLoadingView(this.eiy.bat());
+        if (this.eiy != null) {
+            this.eiy.onDestroy();
         }
     }
 }

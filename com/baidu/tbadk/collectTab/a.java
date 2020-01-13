@@ -4,9 +4,9 @@ import android.content.Context;
 import com.baidu.tbadk.mainTab.b;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private ArrayList<b> bxd = new ArrayList<>();
+    private ArrayList<b> bxQ = new ArrayList<>();
     private Context mContext;
 
     public a(Context context) {
@@ -14,20 +14,20 @@ public class a {
     }
 
     public void a(b bVar) {
-        if (bVar != null && bVar.aNf() != null) {
-            Iterator<b> it = this.bxd.iterator();
+        if (bVar != null && bVar.aNy() != null) {
+            Iterator<b> it = this.bxQ.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                if (next != null && next.aNf() != null && next.aNf().type == bVar.aNf().type) {
+                if (next != null && next.aNy() != null && next.aNy().type == bVar.aNy().type) {
                     return;
                 }
             }
-            this.bxd.add(bVar);
+            this.bxQ.add(bVar);
         }
     }
 
     public ArrayList<b> getList() {
-        return this.bxd;
+        return this.bxQ;
     }
 
     public Context getContext() {

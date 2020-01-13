@@ -2,19 +2,19 @@ package com.baidu.tieba.forumMember.bawu;
 
 import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements i {
-    private String gew;
+    private String ghF;
     private ArrayList<BawuRoleInfoPub> mMembers = new ArrayList<>();
     private boolean isLast = false;
-    private boolean gev = false;
+    private boolean ghE = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int bzH() {
+    public int bAJ() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> bzI() {
+    public ArrayList<BawuRoleInfoPub> bAK() {
         return this.mMembers;
     }
 
@@ -26,23 +26,23 @@ public class b implements i {
         return this.isLast;
     }
 
-    public void kG(boolean z) {
+    public void kR(boolean z) {
         this.isLast = z;
     }
 
-    public boolean bzJ() {
-        return this.gev;
+    public boolean bAL() {
+        return this.ghE;
     }
 
-    public void kH(boolean z) {
-        this.gev = z;
+    public void kS(boolean z) {
+        this.ghE = z;
     }
 
-    public String bzK() {
-        return this.gew;
+    public String bAM() {
+        return this.ghF;
     }
 
-    public void As(String str) {
-        this.gew = str;
+    public void AC(String str) {
+        this.ghF = str;
     }
 }

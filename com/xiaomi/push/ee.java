@@ -1,27 +1,27 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ee {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends com.xiaomi.push.e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f259a;
+        private boolean f257a;
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f261b;
+        private boolean f259b;
 
         /* renamed from: c  reason: collision with other field name */
-        private boolean f263c;
+        private boolean f261c;
 
         /* renamed from: d  reason: collision with other field name */
-        private boolean f265d;
+        private boolean f263d;
 
         /* renamed from: e  reason: collision with other field name */
-        private boolean f267e;
+        private boolean f265e;
 
         /* renamed from: f  reason: collision with other field name */
-        private boolean f268f;
+        private boolean f266f;
         private boolean g;
         private boolean h;
         private boolean i;
@@ -30,22 +30,22 @@ public final class ee {
         private int a = 0;
 
         /* renamed from: a  reason: collision with other field name */
-        private long f257a = 0;
+        private long f255a = 0;
 
         /* renamed from: a  reason: collision with other field name */
-        private String f258a = "";
+        private String f256a = "";
 
         /* renamed from: b  reason: collision with other field name */
-        private String f260b = "";
+        private String f258b = "";
 
         /* renamed from: c  reason: collision with other field name */
-        private String f262c = "";
+        private String f260c = "";
 
         /* renamed from: d  reason: collision with other field name */
-        private String f264d = "";
+        private String f262d = "";
 
         /* renamed from: e  reason: collision with other field name */
-        private String f266e = "";
+        private String f264e = "";
         private int b = 1;
         private int c = 0;
         private int d = 0;
@@ -62,25 +62,25 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public long a() {
-            return this.f257a;
+            return this.f255a;
         }
 
         @Override // com.xiaomi.push.e
         public a a() {
-            this.f268f = false;
-            this.f264d = "";
+            this.f266f = false;
+            this.f262d = "";
             return this;
         }
 
         public a a(int i) {
-            this.f259a = true;
+            this.f257a = true;
             this.a = i;
             return this;
         }
 
         public a a(long j) {
-            this.f261b = true;
-            this.f257a = j;
+            this.f259b = true;
+            this.f255a = j;
             return this;
         }
 
@@ -88,45 +88,45 @@ public final class ee {
         @Override // com.xiaomi.push.e
         public a a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m129a = bVar.m129a();
-                switch (m129a) {
+                int m138a = bVar.m138a();
+                switch (m138a) {
                     case 0:
                         break;
                     case 8:
-                        a(bVar.m138b());
+                        a(bVar.m147b());
                         break;
                     case 16:
-                        a(bVar.m139b());
+                        a(bVar.m148b());
                         break;
                     case 26:
-                        a(bVar.m132a());
+                        a(bVar.m141a());
                         break;
                     case 34:
-                        b(bVar.m132a());
+                        b(bVar.m141a());
                         break;
                     case 42:
-                        c(bVar.m132a());
+                        c(bVar.m141a());
                         break;
                     case 50:
-                        d(bVar.m132a());
+                        d(bVar.m141a());
                         break;
                     case 58:
-                        e(bVar.m132a());
+                        e(bVar.m141a());
                         break;
                     case 64:
-                        b(bVar.m138b());
+                        b(bVar.m147b());
                         break;
                     case 72:
-                        c(bVar.m138b());
+                        c(bVar.m147b());
                         break;
                     case 80:
-                        d(bVar.m138b());
+                        d(bVar.m147b());
                         break;
                     case 90:
-                        f(bVar.m132a());
+                        f(bVar.m141a());
                         break;
                     default:
-                        if (!a(bVar, m129a)) {
+                        if (!a(bVar, m138a)) {
                             break;
                         } else {
                             break;
@@ -137,56 +137,56 @@ public final class ee {
         }
 
         public a a(String str) {
-            this.f263c = true;
-            this.f258a = str;
+            this.f261c = true;
+            this.f256a = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String a() {
-            return this.f258a;
+            return this.f256a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m159a(1, c());
+                cVar.m168a(1, c());
             }
             if (b()) {
-                cVar.m173b(2, a());
+                cVar.m182b(2, a());
             }
-            if (m219c()) {
-                cVar.m163a(3, a());
+            if (m228c()) {
+                cVar.m172a(3, a());
             }
-            if (m221d()) {
-                cVar.m163a(4, b());
+            if (m230d()) {
+                cVar.m172a(4, b());
             }
-            if (m223e()) {
-                cVar.m163a(5, m218c());
+            if (m232e()) {
+                cVar.m172a(5, m227c());
             }
-            if (m225f()) {
-                cVar.m163a(6, m220d());
+            if (m234f()) {
+                cVar.m172a(6, m229d());
             }
             if (g()) {
-                cVar.m163a(7, m222e());
+                cVar.m172a(7, m231e());
             }
             if (h()) {
-                cVar.m159a(8, d());
+                cVar.m168a(8, d());
             }
             if (i()) {
-                cVar.m159a(9, e());
+                cVar.m168a(9, e());
             }
             if (j()) {
-                cVar.m159a(10, f());
+                cVar.m168a(10, f());
             }
             if (k()) {
-                cVar.m163a(11, m224f());
+                cVar.m172a(11, m233f());
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f259a;
+            return this.f257a;
         }
 
         @Override // com.xiaomi.push.e
@@ -195,20 +195,20 @@ public final class ee {
             if (b()) {
                 a += com.xiaomi.push.c.b(2, a());
             }
-            if (m219c()) {
+            if (m228c()) {
                 a += com.xiaomi.push.c.a(3, a());
             }
-            if (m221d()) {
+            if (m230d()) {
                 a += com.xiaomi.push.c.a(4, b());
             }
-            if (m223e()) {
-                a += com.xiaomi.push.c.a(5, m218c());
+            if (m232e()) {
+                a += com.xiaomi.push.c.a(5, m227c());
             }
-            if (m225f()) {
-                a += com.xiaomi.push.c.a(6, m220d());
+            if (m234f()) {
+                a += com.xiaomi.push.c.a(6, m229d());
             }
             if (g()) {
-                a += com.xiaomi.push.c.a(7, m222e());
+                a += com.xiaomi.push.c.a(7, m231e());
             }
             if (h()) {
                 a += com.xiaomi.push.c.a(8, d());
@@ -220,7 +220,7 @@ public final class ee {
                 a += com.xiaomi.push.c.a(10, f());
             }
             if (k()) {
-                a += com.xiaomi.push.c.a(11, m224f());
+                a += com.xiaomi.push.c.a(11, m233f());
             }
             this.e = a;
             return a;
@@ -233,19 +233,19 @@ public final class ee {
         }
 
         public a b(String str) {
-            this.f265d = true;
-            this.f260b = str;
+            this.f263d = true;
+            this.f258b = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String b() {
-            return this.f260b;
+            return this.f258b;
         }
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f261b;
+            return this.f259b;
         }
 
         public int c() {
@@ -259,19 +259,19 @@ public final class ee {
         }
 
         public a c(String str) {
-            this.f267e = true;
-            this.f262c = str;
+            this.f265e = true;
+            this.f260c = str;
             return this;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public String m218c() {
-            return this.f262c;
+        public String m227c() {
+            return this.f260c;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m219c() {
-            return this.f263c;
+        public boolean m228c() {
+            return this.f261c;
         }
 
         public int d() {
@@ -285,19 +285,19 @@ public final class ee {
         }
 
         public a d(String str) {
-            this.f268f = true;
-            this.f264d = str;
+            this.f266f = true;
+            this.f262d = str;
             return this;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public String m220d() {
-            return this.f264d;
+        public String m229d() {
+            return this.f262d;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m221d() {
-            return this.f265d;
+        public boolean m230d() {
+            return this.f263d;
         }
 
         public int e() {
@@ -306,18 +306,18 @@ public final class ee {
 
         public a e(String str) {
             this.g = true;
-            this.f266e = str;
+            this.f264e = str;
             return this;
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public String m222e() {
-            return this.f266e;
+        public String m231e() {
+            return this.f264e;
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m223e() {
-            return this.f267e;
+        public boolean m232e() {
+            return this.f265e;
         }
 
         public int f() {
@@ -331,13 +331,13 @@ public final class ee {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public String m224f() {
+        public String m233f() {
             return this.f;
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m225f() {
-            return this.f268f;
+        public boolean m234f() {
+            return this.f266f;
         }
 
         public boolean g() {
@@ -361,21 +361,21 @@ public final class ee {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b extends com.xiaomi.push.e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f269a;
+        private boolean f267a;
 
         /* renamed from: c  reason: collision with other field name */
-        private boolean f271c;
+        private boolean f269c;
 
         /* renamed from: d  reason: collision with other field name */
-        private boolean f272d;
+        private boolean f270d;
         private boolean e;
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f270b = false;
+        private boolean f268b = false;
         private int a = 0;
         private int b = 0;
         private int c = 0;
@@ -394,7 +394,7 @@ public final class ee {
         }
 
         public b a(int i) {
-            this.f271c = true;
+            this.f269c = true;
             this.a = i;
             return this;
         }
@@ -403,24 +403,24 @@ public final class ee {
         @Override // com.xiaomi.push.e
         public b a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m129a = bVar.m129a();
-                switch (m129a) {
+                int m138a = bVar.m138a();
+                switch (m138a) {
                     case 0:
                         break;
                     case 8:
-                        a(bVar.m135a());
+                        a(bVar.m144a());
                         break;
                     case 24:
-                        a(bVar.m138b());
+                        a(bVar.m147b());
                         break;
                     case 32:
-                        b(bVar.m138b());
+                        b(bVar.m147b());
                         break;
                     case 40:
-                        c(bVar.m138b());
+                        c(bVar.m147b());
                         break;
                     default:
-                        if (!a(bVar, m129a)) {
+                        if (!a(bVar, m138a)) {
                             break;
                         } else {
                             break;
@@ -431,42 +431,42 @@ public final class ee {
         }
 
         public b a(boolean z) {
-            this.f269a = true;
-            this.f270b = z;
+            this.f267a = true;
+            this.f268b = z;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (b()) {
-                cVar.m164a(1, a());
+                cVar.m173a(1, a());
             }
-            if (m226c()) {
-                cVar.m159a(3, c());
+            if (m235c()) {
+                cVar.m168a(3, c());
             }
-            if (m227d()) {
-                cVar.m159a(4, d());
+            if (m236d()) {
+                cVar.m168a(4, d());
             }
-            if (m228e()) {
-                cVar.m159a(5, e());
+            if (m237e()) {
+                cVar.m168a(5, e());
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f270b;
+            return this.f268b;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
             int a = b() ? 0 + com.xiaomi.push.c.a(1, a()) : 0;
-            if (m226c()) {
+            if (m235c()) {
                 a += com.xiaomi.push.c.a(3, c());
             }
-            if (m227d()) {
+            if (m236d()) {
                 a += com.xiaomi.push.c.a(4, d());
             }
-            if (m228e()) {
+            if (m237e()) {
                 a += com.xiaomi.push.c.a(5, e());
             }
             this.d = a;
@@ -474,14 +474,14 @@ public final class ee {
         }
 
         public b b(int i) {
-            this.f272d = true;
+            this.f270d = true;
             this.b = i;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f269a;
+            return this.f267a;
         }
 
         public int c() {
@@ -495,8 +495,8 @@ public final class ee {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m226c() {
-            return this.f271c;
+        public boolean m235c() {
+            return this.f269c;
         }
 
         public int d() {
@@ -504,8 +504,8 @@ public final class ee {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m227d() {
-            return this.f272d;
+        public boolean m236d() {
+            return this.f270d;
         }
 
         public int e() {
@@ -513,34 +513,34 @@ public final class ee {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m228e() {
+        public boolean m237e() {
             return this.e;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class c extends com.xiaomi.push.e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f274a;
+        private boolean f272a;
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f275b;
+        private boolean f273b;
 
         /* renamed from: c  reason: collision with other field name */
-        private boolean f276c;
+        private boolean f274c;
 
         /* renamed from: d  reason: collision with other field name */
-        private boolean f277d;
+        private boolean f275d;
 
         /* renamed from: e  reason: collision with other field name */
-        private boolean f278e;
+        private boolean f276e;
 
         /* renamed from: f  reason: collision with other field name */
-        private boolean f279f;
+        private boolean f277f;
 
         /* renamed from: a  reason: collision with other field name */
-        private String f273a = "";
+        private String f271a = "";
         private String b = "";
         private String c = "";
         private String d = "";
@@ -560,30 +560,30 @@ public final class ee {
         @Override // com.xiaomi.push.e
         public c a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m129a = bVar.m129a();
-                switch (m129a) {
+                int m138a = bVar.m138a();
+                switch (m138a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m132a());
+                        a(bVar.m141a());
                         break;
                     case 18:
-                        b(bVar.m132a());
+                        b(bVar.m141a());
                         break;
                     case 26:
-                        c(bVar.m132a());
+                        c(bVar.m141a());
                         break;
                     case 34:
-                        d(bVar.m132a());
+                        d(bVar.m141a());
                         break;
                     case 42:
-                        e(bVar.m132a());
+                        e(bVar.m141a());
                         break;
                     case 50:
-                        f(bVar.m132a());
+                        f(bVar.m141a());
                         break;
                     default:
-                        if (!a(bVar, m129a)) {
+                        if (!a(bVar, m138a)) {
                             break;
                         } else {
                             break;
@@ -594,41 +594,41 @@ public final class ee {
         }
 
         public c a(String str) {
-            this.f274a = true;
-            this.f273a = str;
+            this.f272a = true;
+            this.f271a = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String a() {
-            return this.f273a;
+            return this.f271a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m163a(1, a());
+                cVar.m172a(1, a());
             }
             if (b()) {
-                cVar.m163a(2, b());
+                cVar.m172a(2, b());
             }
-            if (m229c()) {
-                cVar.m163a(3, c());
+            if (m238c()) {
+                cVar.m172a(3, c());
             }
-            if (m230d()) {
-                cVar.m163a(4, d());
+            if (m239d()) {
+                cVar.m172a(4, d());
             }
-            if (m231e()) {
-                cVar.m163a(5, e());
+            if (m240e()) {
+                cVar.m172a(5, e());
             }
-            if (m232f()) {
-                cVar.m163a(6, f());
+            if (m241f()) {
+                cVar.m172a(6, f());
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f274a;
+            return this.f272a;
         }
 
         @Override // com.xiaomi.push.e
@@ -637,16 +637,16 @@ public final class ee {
             if (b()) {
                 a += com.xiaomi.push.c.a(2, b());
             }
-            if (m229c()) {
+            if (m238c()) {
                 a += com.xiaomi.push.c.a(3, c());
             }
-            if (m230d()) {
+            if (m239d()) {
                 a += com.xiaomi.push.c.a(4, d());
             }
-            if (m231e()) {
+            if (m240e()) {
                 a += com.xiaomi.push.c.a(5, e());
             }
-            if (m232f()) {
+            if (m241f()) {
                 a += com.xiaomi.push.c.a(6, f());
             }
             this.a = a;
@@ -654,7 +654,7 @@ public final class ee {
         }
 
         public c b(String str) {
-            this.f275b = true;
+            this.f273b = true;
             this.b = str;
             return this;
         }
@@ -666,11 +666,11 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f275b;
+            return this.f273b;
         }
 
         public c c(String str) {
-            this.f276c = true;
+            this.f274c = true;
             this.c = str;
             return this;
         }
@@ -680,12 +680,12 @@ public final class ee {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m229c() {
-            return this.f276c;
+        public boolean m238c() {
+            return this.f274c;
         }
 
         public c d(String str) {
-            this.f277d = true;
+            this.f275d = true;
             this.d = str;
             return this;
         }
@@ -695,12 +695,12 @@ public final class ee {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m230d() {
-            return this.f277d;
+        public boolean m239d() {
+            return this.f275d;
         }
 
         public c e(String str) {
-            this.f278e = true;
+            this.f276e = true;
             this.e = str;
             return this;
         }
@@ -710,12 +710,12 @@ public final class ee {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m231e() {
-            return this.f278e;
+        public boolean m240e() {
+            return this.f276e;
         }
 
         public c f(String str) {
-            this.f279f = true;
+            this.f277f = true;
             this.f = str;
             return this;
         }
@@ -725,27 +725,27 @@ public final class ee {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m232f() {
-            return this.f279f;
+        public boolean m241f() {
+            return this.f277f;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class d extends com.xiaomi.push.e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f281a;
+        private boolean f279a;
 
         /* renamed from: c  reason: collision with other field name */
-        private boolean f283c;
+        private boolean f281c;
         private boolean d;
         private boolean e;
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f282b = false;
+        private boolean f280b = false;
 
         /* renamed from: a  reason: collision with other field name */
-        private String f280a = "";
+        private String f278a = "";
         private String b = "";
         private String c = "";
         private int a = -1;
@@ -766,24 +766,24 @@ public final class ee {
         @Override // com.xiaomi.push.e
         public d a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m129a = bVar.m129a();
-                switch (m129a) {
+                int m138a = bVar.m138a();
+                switch (m138a) {
                     case 0:
                         break;
                     case 8:
-                        a(bVar.m135a());
+                        a(bVar.m144a());
                         break;
                     case 18:
-                        a(bVar.m132a());
+                        a(bVar.m141a());
                         break;
                     case 26:
-                        b(bVar.m132a());
+                        b(bVar.m141a());
                         break;
                     case 34:
-                        c(bVar.m132a());
+                        c(bVar.m141a());
                         break;
                     default:
-                        if (!a(bVar, m129a)) {
+                        if (!a(bVar, m138a)) {
                             break;
                         } else {
                             break;
@@ -794,47 +794,47 @@ public final class ee {
         }
 
         public d a(String str) {
-            this.f283c = true;
-            this.f280a = str;
+            this.f281c = true;
+            this.f278a = str;
             return this;
         }
 
         public d a(boolean z) {
-            this.f281a = true;
-            this.f282b = z;
+            this.f279a = true;
+            this.f280b = z;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String a() {
-            return this.f280a;
+            return this.f278a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (b()) {
-                cVar.m164a(1, a());
+                cVar.m173a(1, a());
             }
-            if (m233c()) {
-                cVar.m163a(2, a());
+            if (m242c()) {
+                cVar.m172a(2, a());
             }
             if (d()) {
-                cVar.m163a(3, b());
+                cVar.m172a(3, b());
             }
             if (e()) {
-                cVar.m163a(4, c());
+                cVar.m172a(4, c());
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f282b;
+            return this.f280b;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
             int a = b() ? 0 + com.xiaomi.push.c.a(1, a()) : 0;
-            if (m233c()) {
+            if (m242c()) {
                 a += com.xiaomi.push.c.a(2, a());
             }
             if (d()) {
@@ -860,7 +860,7 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f281a;
+            return this.f279a;
         }
 
         public d c(String str) {
@@ -874,8 +874,8 @@ public final class ee {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m233c() {
-            return this.f283c;
+        public boolean m242c() {
+            return this.f281c;
         }
 
         public boolean d() {
@@ -887,26 +887,26 @@ public final class ee {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class e extends com.xiaomi.push.e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f286a;
+        private boolean f284a;
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f288b;
+        private boolean f286b;
 
         /* renamed from: c  reason: collision with other field name */
-        private boolean f290c;
+        private boolean f288c;
 
         /* renamed from: d  reason: collision with other field name */
-        private boolean f292d;
+        private boolean f290d;
 
         /* renamed from: e  reason: collision with other field name */
-        private boolean f293e;
+        private boolean f291e;
 
         /* renamed from: f  reason: collision with other field name */
-        private boolean f294f;
+        private boolean f292f;
         private boolean g;
         private boolean h;
         private boolean i;
@@ -914,22 +914,22 @@ public final class ee {
         private int a = 0;
 
         /* renamed from: a  reason: collision with other field name */
-        private String f285a = "";
+        private String f283a = "";
 
         /* renamed from: b  reason: collision with other field name */
-        private String f287b = "";
+        private String f285b = "";
 
         /* renamed from: c  reason: collision with other field name */
-        private String f289c = "";
+        private String f287c = "";
         private int b = 0;
 
         /* renamed from: d  reason: collision with other field name */
-        private String f291d = "";
+        private String f289d = "";
         private String e = "";
         private String f = "";
 
         /* renamed from: a  reason: collision with other field name */
-        private b f284a = null;
+        private b f282a = null;
         private int c = 0;
         private int d = -1;
 
@@ -943,11 +943,11 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public b a() {
-            return this.f284a;
+            return this.f282a;
         }
 
         public e a(int i) {
-            this.f286a = true;
+            this.f284a = true;
             this.a = i;
             return this;
         }
@@ -956,33 +956,33 @@ public final class ee {
         @Override // com.xiaomi.push.e
         public e a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m129a = bVar.m129a();
-                switch (m129a) {
+                int m138a = bVar.m138a();
+                switch (m138a) {
                     case 0:
                         break;
                     case 8:
                         a(bVar.c());
                         break;
                     case 18:
-                        a(bVar.m132a());
+                        a(bVar.m141a());
                         break;
                     case 26:
-                        b(bVar.m132a());
+                        b(bVar.m141a());
                         break;
                     case 34:
-                        c(bVar.m132a());
+                        c(bVar.m141a());
                         break;
                     case 40:
-                        b(bVar.m138b());
+                        b(bVar.m147b());
                         break;
                     case 50:
-                        d(bVar.m132a());
+                        d(bVar.m141a());
                         break;
                     case 58:
-                        e(bVar.m132a());
+                        e(bVar.m141a());
                         break;
                     case 66:
-                        f(bVar.m132a());
+                        f(bVar.m141a());
                         break;
                     case 74:
                         b bVar2 = new b();
@@ -990,10 +990,10 @@ public final class ee {
                         a(bVar2);
                         break;
                     case 80:
-                        c(bVar.m138b());
+                        c(bVar.m147b());
                         break;
                     default:
-                        if (!a(bVar, m129a)) {
+                        if (!a(bVar, m138a)) {
                             break;
                         } else {
                             break;
@@ -1008,58 +1008,58 @@ public final class ee {
                 throw new NullPointerException();
             }
             this.i = true;
-            this.f284a = bVar;
+            this.f282a = bVar;
             return this;
         }
 
         public e a(String str) {
-            this.f288b = true;
-            this.f285a = str;
+            this.f286b = true;
+            this.f283a = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String a() {
-            return this.f285a;
+            return this.f283a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m172b(1, c());
+                cVar.m181b(1, c());
             }
             if (b()) {
-                cVar.m163a(2, a());
+                cVar.m172a(2, a());
             }
-            if (m235c()) {
-                cVar.m163a(3, b());
+            if (m244c()) {
+                cVar.m172a(3, b());
             }
-            if (m237d()) {
-                cVar.m163a(4, m234c());
+            if (m246d()) {
+                cVar.m172a(4, m243c());
             }
-            if (m239e()) {
-                cVar.m159a(5, d());
+            if (m248e()) {
+                cVar.m168a(5, d());
             }
-            if (m240f()) {
-                cVar.m163a(6, m236d());
+            if (m249f()) {
+                cVar.m172a(6, m245d());
             }
             if (g()) {
-                cVar.m163a(7, m238e());
+                cVar.m172a(7, m247e());
             }
             if (h()) {
-                cVar.m163a(8, f());
+                cVar.m172a(8, f());
             }
             if (i()) {
-                cVar.m162a(9, (com.xiaomi.push.e) a());
+                cVar.m171a(9, (com.xiaomi.push.e) a());
             }
             if (j()) {
-                cVar.m159a(10, e());
+                cVar.m168a(10, e());
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f286a;
+            return this.f284a;
         }
 
         @Override // com.xiaomi.push.e
@@ -1068,20 +1068,20 @@ public final class ee {
             if (b()) {
                 b += com.xiaomi.push.c.a(2, a());
             }
-            if (m235c()) {
+            if (m244c()) {
                 b += com.xiaomi.push.c.a(3, b());
             }
-            if (m237d()) {
-                b += com.xiaomi.push.c.a(4, m234c());
+            if (m246d()) {
+                b += com.xiaomi.push.c.a(4, m243c());
             }
-            if (m239e()) {
+            if (m248e()) {
                 b += com.xiaomi.push.c.a(5, d());
             }
-            if (m240f()) {
-                b += com.xiaomi.push.c.a(6, m236d());
+            if (m249f()) {
+                b += com.xiaomi.push.c.a(6, m245d());
             }
             if (g()) {
-                b += com.xiaomi.push.c.a(7, m238e());
+                b += com.xiaomi.push.c.a(7, m247e());
             }
             if (h()) {
                 b += com.xiaomi.push.c.a(8, f());
@@ -1097,25 +1097,25 @@ public final class ee {
         }
 
         public e b(int i) {
-            this.f293e = true;
+            this.f291e = true;
             this.b = i;
             return this;
         }
 
         public e b(String str) {
-            this.f290c = true;
-            this.f287b = str;
+            this.f288c = true;
+            this.f285b = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String b() {
-            return this.f287b;
+            return this.f285b;
         }
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f288b;
+            return this.f286b;
         }
 
         public int c() {
@@ -1129,19 +1129,19 @@ public final class ee {
         }
 
         public e c(String str) {
-            this.f292d = true;
-            this.f289c = str;
+            this.f290d = true;
+            this.f287c = str;
             return this;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public String m234c() {
-            return this.f289c;
+        public String m243c() {
+            return this.f287c;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m235c() {
-            return this.f290c;
+        public boolean m244c() {
+            return this.f288c;
         }
 
         public int d() {
@@ -1149,19 +1149,19 @@ public final class ee {
         }
 
         public e d(String str) {
-            this.f294f = true;
-            this.f291d = str;
+            this.f292f = true;
+            this.f289d = str;
             return this;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public String m236d() {
-            return this.f291d;
+        public String m245d() {
+            return this.f289d;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m237d() {
-            return this.f292d;
+        public boolean m246d() {
+            return this.f290d;
         }
 
         public int e() {
@@ -1175,13 +1175,13 @@ public final class ee {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public String m238e() {
+        public String m247e() {
             return this.e;
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m239e() {
-            return this.f293e;
+        public boolean m248e() {
+            return this.f291e;
         }
 
         public e f(String str) {
@@ -1195,8 +1195,8 @@ public final class ee {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m240f() {
-            return this.f294f;
+        public boolean m249f() {
+            return this.f292f;
         }
 
         public boolean g() {
@@ -1216,22 +1216,22 @@ public final class ee {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class f extends com.xiaomi.push.e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f297a;
+        private boolean f295a;
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f298b;
+        private boolean f296b;
         private boolean c;
 
         /* renamed from: a  reason: collision with other field name */
-        private String f296a = "";
+        private String f294a = "";
         private String b = "";
 
         /* renamed from: a  reason: collision with other field name */
-        private b f295a = null;
+        private b f293a = null;
         private int a = -1;
 
         public static f a(byte[] bArr) {
@@ -1248,22 +1248,22 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public b a() {
-            return this.f295a;
+            return this.f293a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.xiaomi.push.e
         public f a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m129a = bVar.m129a();
-                switch (m129a) {
+                int m138a = bVar.m138a();
+                switch (m138a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m132a());
+                        a(bVar.m141a());
                         break;
                     case 18:
-                        b(bVar.m132a());
+                        b(bVar.m141a());
                         break;
                     case 26:
                         b bVar2 = new b();
@@ -1271,7 +1271,7 @@ public final class ee {
                         a(bVar2);
                         break;
                     default:
-                        if (!a(bVar, m129a)) {
+                        if (!a(bVar, m138a)) {
                             break;
                         } else {
                             break;
@@ -1286,37 +1286,37 @@ public final class ee {
                 throw new NullPointerException();
             }
             this.c = true;
-            this.f295a = bVar;
+            this.f293a = bVar;
             return this;
         }
 
         public f a(String str) {
-            this.f297a = true;
-            this.f296a = str;
+            this.f295a = true;
+            this.f294a = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String a() {
-            return this.f296a;
+            return this.f294a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m163a(1, a());
+                cVar.m172a(1, a());
             }
             if (b()) {
-                cVar.m163a(2, b());
+                cVar.m172a(2, b());
             }
             if (c()) {
-                cVar.m162a(3, (com.xiaomi.push.e) a());
+                cVar.m171a(3, (com.xiaomi.push.e) a());
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f297a;
+            return this.f295a;
         }
 
         @Override // com.xiaomi.push.e
@@ -1333,7 +1333,7 @@ public final class ee {
         }
 
         public f b(String str) {
-            this.f298b = true;
+            this.f296b = true;
             this.b = str;
             return this;
         }
@@ -1345,7 +1345,7 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f298b;
+            return this.f296b;
         }
 
         public boolean c() {
@@ -1353,20 +1353,20 @@ public final class ee {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class g extends com.xiaomi.push.e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f300a;
+        private boolean f298a;
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f301b;
+        private boolean f299b;
 
         /* renamed from: c  reason: collision with other field name */
-        private boolean f302c;
+        private boolean f300c;
 
         /* renamed from: a  reason: collision with other field name */
-        private String f299a = "";
+        private String f297a = "";
         private String b = "";
         private String c = "";
         private int a = -1;
@@ -1387,21 +1387,21 @@ public final class ee {
         @Override // com.xiaomi.push.e
         public g a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m129a = bVar.m129a();
-                switch (m129a) {
+                int m138a = bVar.m138a();
+                switch (m138a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m132a());
+                        a(bVar.m141a());
                         break;
                     case 18:
-                        b(bVar.m132a());
+                        b(bVar.m141a());
                         break;
                     case 26:
-                        c(bVar.m132a());
+                        c(bVar.m141a());
                         break;
                     default:
-                        if (!a(bVar, m129a)) {
+                        if (!a(bVar, m138a)) {
                             break;
                         } else {
                             break;
@@ -1412,32 +1412,32 @@ public final class ee {
         }
 
         public g a(String str) {
-            this.f300a = true;
-            this.f299a = str;
+            this.f298a = true;
+            this.f297a = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String a() {
-            return this.f299a;
+            return this.f297a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m163a(1, a());
+                cVar.m172a(1, a());
             }
             if (b()) {
-                cVar.m163a(2, b());
+                cVar.m172a(2, b());
             }
-            if (m241c()) {
-                cVar.m163a(3, c());
+            if (m250c()) {
+                cVar.m172a(3, c());
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f300a;
+            return this.f298a;
         }
 
         @Override // com.xiaomi.push.e
@@ -1446,7 +1446,7 @@ public final class ee {
             if (b()) {
                 a += com.xiaomi.push.c.a(2, b());
             }
-            if (m241c()) {
+            if (m250c()) {
                 a += com.xiaomi.push.c.a(3, c());
             }
             this.a = a;
@@ -1454,7 +1454,7 @@ public final class ee {
         }
 
         public g b(String str) {
-            this.f301b = true;
+            this.f299b = true;
             this.b = str;
             return this;
         }
@@ -1466,11 +1466,11 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f301b;
+            return this.f299b;
         }
 
         public g c(String str) {
-            this.f302c = true;
+            this.f300c = true;
             this.c = str;
             return this;
         }
@@ -1480,23 +1480,23 @@ public final class ee {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m241c() {
-            return this.f302c;
+        public boolean m250c() {
+            return this.f300c;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class h extends com.xiaomi.push.e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f304a;
+        private boolean f302a;
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f305b;
+        private boolean f303b;
         private int a = 0;
 
         /* renamed from: a  reason: collision with other field name */
-        private String f303a = "";
+        private String f301a = "";
         private int b = -1;
 
         public static h a(byte[] bArr) {
@@ -1512,7 +1512,7 @@ public final class ee {
         }
 
         public h a(int i) {
-            this.f304a = true;
+            this.f302a = true;
             this.a = i;
             return this;
         }
@@ -1521,18 +1521,18 @@ public final class ee {
         @Override // com.xiaomi.push.e
         public h a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m129a = bVar.m129a();
-                switch (m129a) {
+                int m138a = bVar.m138a();
+                switch (m138a) {
                     case 0:
                         break;
                     case 8:
-                        a(bVar.m138b());
+                        a(bVar.m147b());
                         break;
                     case 18:
-                        a(bVar.m132a());
+                        a(bVar.m141a());
                         break;
                     default:
-                        if (!a(bVar, m129a)) {
+                        if (!a(bVar, m138a)) {
                             break;
                         } else {
                             break;
@@ -1543,29 +1543,29 @@ public final class ee {
         }
 
         public h a(String str) {
-            this.f305b = true;
-            this.f303a = str;
+            this.f303b = true;
+            this.f301a = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String a() {
-            return this.f303a;
+            return this.f301a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m159a(1, c());
+                cVar.m168a(1, c());
             }
             if (b()) {
-                cVar.m163a(2, a());
+                cVar.m172a(2, a());
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f304a;
+            return this.f302a;
         }
 
         @Override // com.xiaomi.push.e
@@ -1580,7 +1580,7 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f305b;
+            return this.f303b;
         }
 
         public int c() {
@@ -1588,14 +1588,14 @@ public final class ee {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class i extends com.xiaomi.push.e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f307a;
+        private boolean f305a;
 
         /* renamed from: a  reason: collision with other field name */
-        private com.xiaomi.push.a f306a = com.xiaomi.push.a.a;
+        private com.xiaomi.push.a f304a = com.xiaomi.push.a.a;
         private int a = -1;
 
         public static i a(byte[] bArr) {
@@ -1612,12 +1612,12 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public com.xiaomi.push.a a() {
-            return this.f306a;
+            return this.f304a;
         }
 
         public i a(com.xiaomi.push.a aVar) {
-            this.f307a = true;
-            this.f306a = aVar;
+            this.f305a = true;
+            this.f304a = aVar;
             return this;
         }
 
@@ -1625,15 +1625,15 @@ public final class ee {
         @Override // com.xiaomi.push.e
         public i a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m129a = bVar.m129a();
-                switch (m129a) {
+                int m138a = bVar.m138a();
+                switch (m138a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m131a());
+                        a(bVar.m140a());
                         break;
                     default:
-                        if (!a(bVar, m129a)) {
+                        if (!a(bVar, m138a)) {
                             break;
                         } else {
                             break;
@@ -1646,13 +1646,13 @@ public final class ee {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m161a(1, a());
+                cVar.m170a(1, a());
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f307a;
+            return this.f305a;
         }
 
         @Override // com.xiaomi.push.e
@@ -1663,18 +1663,18 @@ public final class ee {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class j extends com.xiaomi.push.e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f310a;
+        private boolean f308a;
         private boolean b;
 
         /* renamed from: a  reason: collision with other field name */
-        private com.xiaomi.push.a f308a = com.xiaomi.push.a.a;
+        private com.xiaomi.push.a f306a = com.xiaomi.push.a.a;
 
         /* renamed from: a  reason: collision with other field name */
-        private b f309a = null;
+        private b f307a = null;
         private int a = -1;
 
         public static j a(byte[] bArr) {
@@ -1691,17 +1691,17 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public com.xiaomi.push.a a() {
-            return this.f308a;
+            return this.f306a;
         }
 
         @Override // com.xiaomi.push.e
         public b a() {
-            return this.f309a;
+            return this.f307a;
         }
 
         public j a(com.xiaomi.push.a aVar) {
-            this.f310a = true;
-            this.f308a = aVar;
+            this.f308a = true;
+            this.f306a = aVar;
             return this;
         }
 
@@ -1709,12 +1709,12 @@ public final class ee {
         @Override // com.xiaomi.push.e
         public j a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m129a = bVar.m129a();
-                switch (m129a) {
+                int m138a = bVar.m138a();
+                switch (m138a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m131a());
+                        a(bVar.m140a());
                         break;
                     case 18:
                         b bVar2 = new b();
@@ -1722,7 +1722,7 @@ public final class ee {
                         a(bVar2);
                         break;
                     default:
-                        if (!a(bVar, m129a)) {
+                        if (!a(bVar, m138a)) {
                             break;
                         } else {
                             break;
@@ -1737,23 +1737,23 @@ public final class ee {
                 throw new NullPointerException();
             }
             this.b = true;
-            this.f309a = bVar;
+            this.f307a = bVar;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m161a(1, a());
+                cVar.m170a(1, a());
             }
             if (b()) {
-                cVar.m162a(2, (com.xiaomi.push.e) a());
+                cVar.m171a(2, (com.xiaomi.push.e) a());
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f310a;
+            return this.f308a;
         }
 
         @Override // com.xiaomi.push.e
@@ -1772,30 +1772,30 @@ public final class ee {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class k extends com.xiaomi.push.e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f313a;
+        private boolean f311a;
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f316b;
+        private boolean f314b;
         private boolean c;
         private boolean d;
         private boolean e;
         private boolean g;
 
         /* renamed from: a  reason: collision with other field name */
-        private String f312a = "";
+        private String f310a = "";
 
         /* renamed from: b  reason: collision with other field name */
-        private String f315b = "";
+        private String f313b = "";
 
         /* renamed from: a  reason: collision with other field name */
-        private long f311a = 0;
+        private long f309a = 0;
 
         /* renamed from: b  reason: collision with other field name */
-        private long f314b = 0;
+        private long f312b = 0;
         private boolean f = false;
         private int a = 0;
         private int b = -1;
@@ -1814,7 +1814,7 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public long a() {
-            return this.f311a;
+            return this.f309a;
         }
 
         public k a(int i) {
@@ -1825,7 +1825,7 @@ public final class ee {
 
         public k a(long j) {
             this.c = true;
-            this.f311a = j;
+            this.f309a = j;
             return this;
         }
 
@@ -1833,30 +1833,30 @@ public final class ee {
         @Override // com.xiaomi.push.e
         public k a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m129a = bVar.m129a();
-                switch (m129a) {
+                int m138a = bVar.m138a();
+                switch (m138a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m132a());
+                        a(bVar.m141a());
                         break;
                     case 18:
-                        b(bVar.m132a());
+                        b(bVar.m141a());
                         break;
                     case 24:
-                        a(bVar.m130a());
+                        a(bVar.m139a());
                         break;
                     case 32:
-                        b(bVar.m130a());
+                        b(bVar.m139a());
                         break;
                     case 40:
-                        a(bVar.m135a());
+                        a(bVar.m144a());
                         break;
                     case 48:
-                        a(bVar.m138b());
+                        a(bVar.m147b());
                         break;
                     default:
-                        if (!a(bVar, m129a)) {
+                        if (!a(bVar, m138a)) {
                             break;
                         } else {
                             break;
@@ -1867,8 +1867,8 @@ public final class ee {
         }
 
         public k a(String str) {
-            this.f313a = true;
-            this.f312a = str;
+            this.f311a = true;
+            this.f310a = str;
             return this;
         }
 
@@ -1880,34 +1880,34 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public String a() {
-            return this.f312a;
+            return this.f310a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m163a(1, a());
+                cVar.m172a(1, a());
             }
             if (b()) {
-                cVar.m163a(2, b());
+                cVar.m172a(2, b());
             }
-            if (m242c()) {
-                cVar.m160a(3, a());
+            if (m251c()) {
+                cVar.m169a(3, a());
             }
             if (d()) {
-                cVar.m160a(4, b());
+                cVar.m169a(4, b());
             }
             if (f()) {
-                cVar.m164a(5, e());
+                cVar.m173a(5, e());
             }
             if (g()) {
-                cVar.m159a(6, c());
+                cVar.m168a(6, c());
             }
         }
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f313a;
+            return this.f311a;
         }
 
         @Override // com.xiaomi.push.e
@@ -1916,7 +1916,7 @@ public final class ee {
             if (b()) {
                 a += com.xiaomi.push.c.a(2, b());
             }
-            if (m242c()) {
+            if (m251c()) {
                 a += com.xiaomi.push.c.a(3, a());
             }
             if (d()) {
@@ -1934,29 +1934,29 @@ public final class ee {
 
         @Override // com.xiaomi.push.e
         public long b() {
-            return this.f314b;
+            return this.f312b;
         }
 
         public k b(long j) {
             this.d = true;
-            this.f314b = j;
+            this.f312b = j;
             return this;
         }
 
         public k b(String str) {
-            this.f316b = true;
-            this.f315b = str;
+            this.f314b = true;
+            this.f313b = str;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public String b() {
-            return this.f315b;
+            return this.f313b;
         }
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f316b;
+            return this.f314b;
         }
 
         public int c() {
@@ -1964,7 +1964,7 @@ public final class ee {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m242c() {
+        public boolean m251c() {
             return this.c;
         }
 

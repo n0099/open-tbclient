@@ -5,15 +5,15 @@ import android.util.Base64;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends BdAsyncTask<Void, String, String> {
-    private int fxS;
-    private com.baidu.tieba.barselect.data.c fxT;
+    private int fBd;
+    private com.baidu.tieba.barselect.data.c fBe;
     private String imagePath;
 
     public a(String str, int i, com.baidu.tieba.barselect.data.c cVar) {
-        this.fxS = i;
-        this.fxT = cVar;
+        this.fBd = i;
+        this.fBe = cVar;
         this.imagePath = str;
     }
 
@@ -24,7 +24,7 @@ public class a extends BdAsyncTask<Void, String, String> {
         if (this.imagePath == null) {
             return null;
         }
-        return zp(this.imagePath);
+        return zz(this.imagePath);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,13 +32,13 @@ public class a extends BdAsyncTask<Void, String, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((a) str);
-        if (this.fxT != null && str != null) {
-            this.fxT.o("", this.fxS, str);
+        if (this.fBe != null && str != null) {
+            this.fBe.o("", this.fBd, str);
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [70=4] */
-    public String zp(String str) {
+    public String zz(String str) {
         FileInputStream fileInputStream;
         String str2 = null;
         try {

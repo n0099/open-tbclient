@@ -1,7 +1,7 @@
 package kotlin.collections;
 
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CollectionsKt__CollectionsKt$binarySearchBy$1 extends Lambda implements kotlin.jvm.a.b<T, Integer> {
     final /* synthetic */ Comparable $key;
     final /* synthetic */ kotlin.jvm.a.b $selector;

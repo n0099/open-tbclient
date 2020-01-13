@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.ui.animview.base.IResourcePackage;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CoolPraiseIconResource {
     private static HashMap<String, Drawable> praiseIconDayList = new HashMap<>();
     private static HashMap<String, Drawable> praiseIconNightList = new HashMap<>();

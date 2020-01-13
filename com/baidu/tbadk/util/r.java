@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.an;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes.dex */
 public class r {
-    public static final boolean aPv() {
+    public static final boolean aPO() {
         Message message;
         int i = 0;
         Object valueForField = com.baidu.adp.lib.OrmObject.a.a.getValueForField(Looper.myQueue(), "mMessages");
@@ -57,7 +57,7 @@ public class r {
         return false;
     }
 
-    public static final boolean gP(boolean z) {
+    public static final boolean gU(boolean z) {
         Message message;
         Object valueForField;
         Intent intent;

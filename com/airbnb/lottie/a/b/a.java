@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import com.baidu.mapapi.map.WeightedLatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class a<K, A> {
     private final List<? extends com.airbnb.lottie.e.a<K>> gD;
     @Nullable
@@ -17,7 +17,7 @@ public abstract class a<K, A> {
     private float progress = 0.0f;
 
     /* renamed from: com.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface InterfaceC0010a {
         void bC();
     }
@@ -96,7 +96,7 @@ public abstract class a<K, A> {
         if (bR.dL()) {
             return 0.0f;
         }
-        return bR.kp.getInterpolation(bS());
+        return bR.ko.getInterpolation(bS());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)

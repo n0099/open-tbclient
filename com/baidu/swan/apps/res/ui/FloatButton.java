@@ -15,7 +15,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.as.af;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FloatButton extends FullScreenFloatView {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -37,7 +37,7 @@ public class FloatButton extends FullScreenFloatView {
     }
 
     public void setFloatButtonDefaultPosition() {
-        findViewById(a.f.float_imgview).setBottom(af.V(191.0f));
+        findViewById(a.f.float_imgview).setBottom(af.U(191.0f));
     }
 
     public void setFloatButtonStyle(JSONObject jSONObject) {
@@ -57,63 +57,63 @@ public class FloatButton extends FullScreenFloatView {
         Rect rect = new Rect();
         switch (motionEvent.getAction()) {
             case 0:
-                this.bGe.getHitRect(rect);
+                this.bGO.getHitRect(rect);
                 if (rect.contains((int) x, (int) y)) {
-                    this.bGl = x;
-                    this.ayd = y;
-                    this.bGj = true;
-                    this.bGi = true;
-                    postDelayed(this.bGm, ViewConfiguration.getTapTimeout());
+                    this.bGV = x;
+                    this.ayM = y;
+                    this.bGT = true;
+                    this.bGS = true;
+                    postDelayed(this.bGW, ViewConfiguration.getTapTimeout());
                     break;
                 }
                 break;
             case 1:
-                if (this.bGi) {
-                    if (this.bGn != null) {
-                        this.bGn.onClick();
+                if (this.bGS) {
+                    if (this.bGX != null) {
+                        this.bGX.onClick();
                     }
-                    removeCallbacks(this.bGm);
-                } else if (this.bGj && this.bGn != null) {
-                    this.bGn.TV();
+                    removeCallbacks(this.bGW);
+                } else if (this.bGT && this.bGX != null) {
+                    this.bGX.Us();
                 }
                 if (DEBUG) {
-                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.bGi);
+                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.bGS);
                 }
-                if (this.bGk && !this.bGi && x >= 0.0f && x <= this.bGh && y >= 0.0f && y <= this.mParentHeight + this.bGg) {
-                    this.bGe.animate().x(this.bGh - this.bGf).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                if (this.bGU && !this.bGS && x >= 0.0f && x <= this.bGR && y >= 0.0f && y <= this.mParentHeight + this.bGQ) {
+                    this.bGO.animate().x(this.bGR - this.bGP).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                 }
-                this.bGi = false;
-                this.bGj = false;
+                this.bGS = false;
+                this.bGT = false;
                 break;
             case 2:
-                float abs = Math.abs(x - this.bGl);
-                float abs2 = Math.abs(y - this.ayd);
+                float abs = Math.abs(x - this.bGV);
+                float abs2 = Math.abs(y - this.ayM);
                 if (Math.sqrt((abs * abs) + (abs2 * abs2)) > 10.0d) {
-                    this.bGi = false;
+                    this.bGS = false;
                 }
                 o(x, y);
                 break;
             case 3:
-                this.bGi = false;
-                this.bGj = false;
+                this.bGS = false;
+                this.bGT = false;
                 break;
             case 4:
-                this.bGi = false;
-                this.bGj = false;
+                this.bGS = false;
+                this.bGT = false;
                 break;
         }
-        return this.bGi | this.bGj;
+        return this.bGS | this.bGT;
     }
 
     private void o(float f, float f2) {
-        if (this.bGe != null) {
+        if (this.bGO != null) {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> x = " + f + ", y = " + f2);
             }
-            int i = (int) (f - (this.bGf / 2));
-            int i2 = (int) (f2 - (this.bGg / 2));
-            int i3 = this.bGh - this.bGf;
-            int i4 = (this.mParentHeight - this.bGg) - 168;
+            int i = (int) (f - (this.bGP / 2));
+            int i2 = (int) (f2 - (this.bGQ / 2));
+            int i3 = this.bGR - this.bGP;
+            int i4 = (this.mParentHeight - this.bGQ) - 168;
             if (i <= 0) {
                 i = 0;
             }
@@ -129,8 +129,8 @@ public class FloatButton extends FullScreenFloatView {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.mStatusBarHeight);
             }
-            this.bGe.setX(i3);
-            this.bGe.setY(i4);
+            this.bGO.setX(i3);
+            this.bGO.setY(i4);
             requestLayout();
         }
     }

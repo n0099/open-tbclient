@@ -2,7 +2,7 @@ package com.baidu.android.util.logs;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class LogPrinters {
     private LogPrinters() {
     }

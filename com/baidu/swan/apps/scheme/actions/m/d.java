@@ -5,7 +5,7 @@ import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d extends com.baidu.swan.apps.component.b.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public String mSrc;
@@ -40,6 +40,6 @@ public final class d extends com.baidu.swan.apps.component.b.b {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.bdi);
+        return !TextUtils.isEmpty(this.bdW);
     }
 }

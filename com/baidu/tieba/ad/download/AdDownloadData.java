@@ -6,7 +6,7 @@ import com.baidu.tieba.ad.download.mvp.IDownloadModel;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 import java.io.Serializable;
 import java.util.Objects;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class AdDownloadData implements IDownloadModel, Serializable {
     private final String mAdId;
     private String mDownloadUrl;
@@ -83,7 +83,7 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         return this.mPackageName;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         private final String mAdId;
         private String mDownloadUrl;
@@ -98,7 +98,7 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         }
 
         @NonNull
-        public AdDownloadData aVz() {
+        public AdDownloadData aVS() {
             return new AdDownloadData(this);
         }
     }

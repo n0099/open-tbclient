@@ -7,7 +7,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class m extends ab {
     public m(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/isLoginSync");
@@ -20,7 +20,7 @@ public class m extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        boolean isLogin = eVar.aad().isLogin(context);
+        boolean isLogin = eVar.aaA().isLogin(context);
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("isLogin", isLogin);

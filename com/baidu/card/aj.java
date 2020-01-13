@@ -6,14 +6,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class aj extends d implements m<bj>, n {
-    private static final int LV = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
-    private UnfollowedDecorView LW;
+    private static final int Ma = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+    private UnfollowedDecorView Mb;
 
     public aj(TbPageContext tbPageContext, boolean z) {
         setInsertIndex(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(LV, LV);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(Ma, Ma);
         layoutParams.addRule(11);
         if (z) {
             layoutParams.addRule(12);
@@ -25,21 +25,21 @@ public class aj extends d implements m<bj>, n {
     }
 
     private void c(TbPageContext tbPageContext) {
-        this.LW = new UnfollowedDecorView(tbPageContext.getPageActivity());
+        this.Mb = new UnfollowedDecorView(tbPageContext.getPageActivity());
         int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds31);
-        this.LW.setPadding(dimens, dimens, dimens, dimens);
-        F(this.LW);
+        this.Mb.setPadding(dimens, dimens, dimens, dimens);
+        F(this.Mb);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: a */
     public void A(bj bjVar) {
-        this.LW.q(bjVar);
+        this.Mb.q(bjVar);
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.LW.onChangeSkinType();
+        this.Mb.onChangeSkinType();
     }
 }

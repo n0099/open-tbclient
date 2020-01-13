@@ -2,7 +2,7 @@ package protobuf.SendMenuMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_FORUM_ID = "";
     public static final Integer DEFAULT_RID = 0;
@@ -40,7 +40,7 @@ public final class DataReq extends Message {
         this.forum_id = builder.forum_id;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String forum_id;
         public Integer rid;

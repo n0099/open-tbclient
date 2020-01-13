@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.NewUserGuideActivityConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class NewUserGuideActivityStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.NEW_USER_GUIDE_PAGE, new CustomMessageTask.CustomRunnable<NewUserGuideActivityConfig>() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivityStatic.1

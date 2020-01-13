@@ -1,10 +1,8 @@
 package com.baidu.live.utils;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.tbadk.pay.PayConfig;
 import com.tencent.connect.common.Constants;
@@ -22,12 +20,12 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String dM(String str) {
+    public static String dO(String str) {
         String substring;
         String substring2;
         int i = 0;
-        String[] strArr = {"1", "0", "X", PublishType.TYPE_VIDEO_SHARE, "8", "7", "6", "5", "4", "3", "2"};
-        String[] strArr2 = {"7", PublishType.TYPE_VIDEO_SHARE, "10", "5", "8", "4", "2", "1", "6", "3", "7", PublishType.TYPE_VIDEO_SHARE, "10", "5", "8", "4", "2"};
+        String[] strArr = {"1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"};
+        String[] strArr2 = {"7", "9", "10", "5", "8", "4", "2", "1", "6", "3", "7", "9", "10", "5", "8", "4", "2"};
         String str2 = "";
         if (str.length() != 15 && str.length() != 18) {
             return "身份证号错误";
@@ -37,13 +35,13 @@ public class e {
         } else if (str.length() == 15) {
             str2 = str.substring(0, 6) + Constants.VIA_ACT_TYPE_NINETEEN + str.substring(6, 15);
         }
-        if (!dN(str2)) {
+        if (!dP(str2)) {
             return "身份证号错误";
         }
         String substring3 = str2.substring(6, 10);
         substring = str2.substring(10, 12);
         substring2 = str2.substring(12, 14);
-        if (!dO(substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2)) {
+        if (!dQ(substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2)) {
             return "身份证号错误";
         }
         GregorianCalendar gregorianCalendar = new GregorianCalendar();
@@ -64,7 +62,7 @@ public class e {
         if (Integer.parseInt(substring2) > 31 || Integer.parseInt(substring2) == 0) {
             return "身份证号错误";
         }
-        if (yo().get(str2.substring(0, 2)) == null) {
+        if (yE().get(str2.substring(0, 2)) == null) {
             return "身份证号错误";
         }
         for (int i2 = 0; i2 < 17; i2++) {
@@ -74,13 +72,13 @@ public class e {
         if (str.length() == 18 && !str4.equalsIgnoreCase(str)) {
             return "身份证号错误";
         }
-        if (!dP(str)) {
+        if (!dR(str)) {
             return "未满18岁哦";
         }
         return HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
     }
 
-    private static Hashtable yo() {
+    private static Hashtable yE() {
         Hashtable hashtable = new Hashtable();
         hashtable.put("11", "北京");
         hashtable.put("12", "天津");
@@ -120,26 +118,22 @@ public class e {
         return hashtable;
     }
 
-    private static boolean dN(String str) {
+    private static boolean dP(String str) {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
-    public static boolean dO(String str) {
+    public static boolean dQ(String str) {
         return Pattern.compile("^((\\d{2}(([02468][048])|([13579][26]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))(\\s(((0?[0-9])|([1-2][0-3]))\\:([0-5]?[0-9])((\\s)|(\\:([0-5]?[0-9])))))?$").matcher(str).matches();
     }
 
-    public static boolean dP(String str) {
+    public static boolean dR(String str) {
         if (TextUtils.isEmpty(str) || str.length() < 15) {
             return false;
         }
         try {
-            Date parse = new SimpleDateFormat(DateTimeUtil.DAY_FORMAT).parse(String.valueOf(Integer.parseInt(str.substring(6, 10)) + 18) + str.substring(10, 14));
-            Date date = new Date();
-            Log.e("pengfei07", "isGrownUp true");
-            return date.after(parse);
+            return new Date().after(new SimpleDateFormat(DateTimeUtil.DAY_FORMAT).parse(String.valueOf(Integer.parseInt(str.substring(6, 10)) + 18) + str.substring(10, 14)));
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("pengfei07", "isGrownUp false");
             return false;
         }
     }

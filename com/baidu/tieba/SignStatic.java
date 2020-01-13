@@ -31,17 +31,17 @@ import com.baidu.tieba.supplementSign.SupplementSignActivity;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SignStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        aUa();
-        rG();
+        aUu();
+        rT();
     }
 
-    private static void rG() {
+    private static void rT() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SIGN_MODEL_TASK, new CustomMessageTask.CustomRunnable<ForumData>() { // from class: com.baidu.tieba.SignStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ForumData> customMessage) {
@@ -67,11 +67,11 @@ public class SignStatic {
                         xVar.addPostData("sign_from", data.getFromPage());
                     }
                     SignStatic.a(xVar);
-                    xVar.aDB().aEb().mIsNeedTbs = true;
-                    xVar.fy(true);
+                    xVar.aDU().aEu().mIsNeedTbs = true;
+                    xVar.fD(true);
                     String postNetData = xVar.postNetData();
                     if (xVar.isNetSuccess()) {
-                        if (xVar.aDB().aEc().isRequestSuccess()) {
+                        if (xVar.aDU().aEv().isRequestSuccess()) {
                             signData = new SignData();
                             signData.parserJson(postNetData);
                             signData.forumId = id;
@@ -79,7 +79,7 @@ public class SignStatic {
                         } else if (!aq.isEmpty(postNetData)) {
                             JSONObject jSONObject = new JSONObject(postNetData);
                             signMessage.parserJson(xVar, jSONObject);
-                            if (AntiHelper.Cs(xVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
+                            if (AntiHelper.Cx(xVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
                                 signData = new SignData();
                                 signData.parserJson(postNetData);
                                 signData.is_signed = 1;
@@ -119,8 +119,8 @@ public class SignStatic {
         }
     }
 
-    private static void aUa() {
-        ba.aEa().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
+    private static void aUu() {
+        ba.aEt().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

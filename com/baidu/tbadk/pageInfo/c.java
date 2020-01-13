@@ -29,7 +29,7 @@ public class c {
         if (dZ == null) {
             return null;
         }
-        return dZ.aOj();
+        return dZ.aOC();
     }
 
     public static TbPageTag eb(Context context) {
@@ -52,7 +52,7 @@ public class c {
     }
 
     public static an a(an anVar, b bVar) {
-        return (bVar == null || anVar == null) ? anVar : a(anVar, bVar.getPrePageTag(), bVar.aOj());
+        return (bVar == null || anVar == null) ? anVar : a(anVar, bVar.getPrePageTag(), bVar.aOC());
     }
 
     public static an a(an anVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
@@ -103,7 +103,7 @@ public class c {
             return null;
         }
         an anVar = new an(str);
-        anVar.cp("tid", bjVar.getId()).s("fid", bjVar.getFid()).Z("card_type", bjVar.aBF());
+        anVar.cp("tid", bjVar.getId()).s("fid", bjVar.getFid()).Z("card_type", bjVar.aBY());
         anVar.cp(TableDefine.SessionColumns.COLUMN_WEIGHT, bjVar.mRecomWeight).cp(TiebaInitialize.Params.AB_TAG, bjVar.mRecomAbTag).cp("extra", bjVar.mRecomExtra).cp("source", bjVar.mRecomSource);
         b(context, anVar);
         return anVar;

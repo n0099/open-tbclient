@@ -6,7 +6,7 @@ import com.baidu.android.pushservice.i.l;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageReceiver {
     public static final int MSG_ARRIVED = 2;
     public static final int MSG_CLICKED = 3;

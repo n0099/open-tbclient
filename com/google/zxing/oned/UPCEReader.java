@@ -4,7 +4,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class UPCEReader extends UPCEANReader {
     static final int[] CHECK_DIGIT_ENCODINGS = {56, 52, 50, 49, 44, 38, 35, 42, 41, 37};
     private static final int[] MIDDLE_END_PATTERN = {1, 1, 1, 1, 1, 1};

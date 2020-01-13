@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j implements LBSAuthManagerListener {
     private static Object a = new Object();
     private static j b = null;

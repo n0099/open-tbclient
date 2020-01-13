@@ -8,14 +8,14 @@ import android.graphics.PointF;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.a.r;
 import java.io.Closeable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class f {
     private static final PathMeasure gN = new PathMeasure();
     private static final Path gP = new Path();
-    private static final Path kk = new Path();
+    private static final Path kj = new Path();
     private static final float[] points = new float[4];
-    private static final float kl = (float) Math.sqrt(2.0d);
-    private static float km = -1.0f;
+    private static final float kk = (float) Math.sqrt(2.0d);
+    private static float kl = -1.0f;
 
     public static Path a(PointF pointF, PointF pointF2, PointF pointF3, PointF pointF4) {
         Path path = new Path();
@@ -42,8 +42,8 @@ public final class f {
     public static float b(Matrix matrix) {
         points[0] = 0.0f;
         points[1] = 0.0f;
-        points[2] = kl;
-        points[3] = kl;
+        points[2] = kk;
+        points[3] = kk;
         matrix.mapPoints(points);
         return ((float) Math.hypot(points[2] - points[0], points[3] - points[1])) / 2.0f;
     }
@@ -91,13 +91,13 @@ public final class f {
             gP.reset();
             gN.getSegment(f7, f8, gP, true);
             if (f8 > length) {
-                kk.reset();
-                gN.getSegment(0.0f, f8 % length, kk, true);
-                gP.addPath(kk);
+                kj.reset();
+                gN.getSegment(0.0f, f8 % length, kj, true);
+                gP.addPath(kj);
             } else if (f7 < 0.0f) {
-                kk.reset();
-                gN.getSegment(f7 + length, length, kk, true);
-                gP.addPath(kk);
+                kj.reset();
+                gN.getSegment(f7 + length, length, kj, true);
+                gP.addPath(kj);
             }
             path.set(gP);
             com.airbnb.lottie.d.F("applyTrimPathIfNeeded");
@@ -135,9 +135,9 @@ public final class f {
     }
 
     public static float dK() {
-        if (km == -1.0f) {
-            km = Resources.getSystem().getDisplayMetrics().density;
+        if (kl == -1.0f) {
+            kl = Resources.getSystem().getDisplayMetrics().density;
         }
-        return km;
+        return kl;
     }
 }

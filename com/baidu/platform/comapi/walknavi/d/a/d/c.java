@@ -4,7 +4,7 @@ import com.baidu.adp.plugin.install.PluginInstallerService;
 import java.io.File;
 import java.io.FileFilter;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c implements FileFilter {
     final /* synthetic */ b a;
 

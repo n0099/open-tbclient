@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tieba.video.cloudmusic.CloudMusicActivity;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LocalVideoActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(LocalVideoActivityConfig.class, LocalVideoActivity.class);

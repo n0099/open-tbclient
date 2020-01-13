@@ -6,7 +6,7 @@ import android.annotation.TargetApi;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a extends c {
     private Animator a = null;
     private long b = 0;

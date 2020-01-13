@@ -26,7 +26,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Transformation;
 import android.widget.AbsListView;
 import android.widget.ListView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
     private static final int ALPHA_ANIMATION_DURATION = 300;
     private static final int ANIMATE_TO_START_DURATION = 200;
@@ -88,12 +88,12 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
     private static final String LOG_TAG = SwipeRefreshLayout.class.getSimpleName();
     private static final int[] LAYOUT_ATTRS = {16842766};
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnChildScrollUpCallback {
         boolean canChildScrollUp(@NonNull SwipeRefreshLayout swipeRefreshLayout, @Nullable View view);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnRefreshListener {
         void onRefresh();
     }
@@ -119,8 +119,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         reset();
     }

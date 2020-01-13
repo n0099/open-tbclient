@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.k.a;
 import com.baidu.live.adp.base.IScrollableHelper;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
@@ -55,7 +55,7 @@ public class PermissionJudgePolicy {
     }
 
     public boolean startRequestPermission(Activity activity, boolean z, boolean z2) {
-        if (!a.BD()) {
+        if (!a.BZ()) {
             onPermissionsGranted();
             return false;
         } else if (ListUtils.isEmpty(this.requestPermissionList)) {

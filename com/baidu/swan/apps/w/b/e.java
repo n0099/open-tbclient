@@ -3,7 +3,7 @@ package com.baidu.swan.apps.w.b;
 import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface e {
     boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar);
 

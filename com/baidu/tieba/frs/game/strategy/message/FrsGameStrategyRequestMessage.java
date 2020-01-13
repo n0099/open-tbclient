@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.t;
 import tbclient.GameForumGuideTab.DataReq;
 import tbclient.GameForumGuideTab.GameForumGuideTabReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FrsGameStrategyRequestMessage extends NetMessage {
     private long mFid;
     private int mLabelId;

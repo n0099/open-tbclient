@@ -6,7 +6,7 @@ import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.live.tbean.data.CustomData;

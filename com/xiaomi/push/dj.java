@@ -6,18 +6,18 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class dj implements Application.ActivityLifecycleCallbacks {
     private Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f244a;
+    private String f242a;
     private String b;
 
     public dj(Context context, String str) {
-        this.f244a = "";
+        this.f242a = "";
         this.a = context;
-        this.f244a = str;
+        this.f242a = str;
     }
 
     private void a(String str) {
@@ -39,16 +39,16 @@ public class dj implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
         String localClassName = activity.getLocalClassName();
-        if (TextUtils.isEmpty(this.f244a) || TextUtils.isEmpty(localClassName)) {
+        if (TextUtils.isEmpty(this.f242a) || TextUtils.isEmpty(localClassName)) {
             return;
         }
         this.b = "";
         if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.b, localClassName)) {
-            this.f244a = "";
+            this.f242a = "";
             return;
         }
-        a(this.a.getPackageName() + "|" + localClassName + ":" + this.f244a + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(System.currentTimeMillis() / 1000));
-        this.f244a = "";
+        a(this.a.getPackageName() + "|" + localClassName + ":" + this.f242a + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(System.currentTimeMillis() / 1000));
+        this.f242a = "";
         this.b = "";
     }
 
@@ -57,7 +57,7 @@ public class dj implements Application.ActivityLifecycleCallbacks {
         if (TextUtils.isEmpty(this.b)) {
             this.b = activity.getLocalClassName();
         }
-        this.f244a = String.valueOf(System.currentTimeMillis() / 1000);
+        this.f242a = String.valueOf(System.currentTimeMillis() / 1000);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

@@ -10,6 +10,6 @@ public interface c {
     public interface a {
         void a(boolean z, int i, String str, String str2, int i2);
 
-        void a(boolean z, String str, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.c> arrayList2, ArrayList<d> arrayList3);
+        void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.c> arrayList2, ArrayList<d> arrayList3);
     }
 }

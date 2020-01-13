@@ -5,8 +5,8 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
     private int mExecuteNum;
-    private BdUniqueId pL;
-    private BdAsyncTaskParallelType pM;
+    private BdUniqueId pI;
+    private BdAsyncTaskParallelType pJ;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -19,26 +19,26 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.pL = null;
-        this.pM = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.pI = null;
+        this.pJ = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.pM = bdAsyncTaskParallelType;
-        this.pL = bdUniqueId;
+        this.pJ = bdAsyncTaskParallelType;
+        this.pI = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.pL = null;
-        this.pM = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.pI = null;
+        this.pJ = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.pM = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.pJ = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
         this.mExecuteNum = i;
-        this.pL = bdUniqueId;
+        this.pI = bdUniqueId;
     }
 
     public int getExecuteNum() {
@@ -46,13 +46,13 @@ public class BdAsyncTaskParallel {
     }
 
     public int getTag() {
-        if (this.pL == null) {
+        if (this.pI == null) {
             return 0;
         }
-        return this.pL.getId();
+        return this.pI.getId();
     }
 
     public BdAsyncTaskParallelType fu() {
-        return this.pM;
+        return this.pJ;
     }
 }

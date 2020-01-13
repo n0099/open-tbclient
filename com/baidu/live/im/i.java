@@ -6,17 +6,17 @@ public interface i {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void dz(String str);
+        void dB(String str);
 
-        void uA();
+        boolean uO();
 
-        boolean uB();
+        void uP();
 
-        boolean ux();
+        void uQ();
 
-        void uy();
+        void uR();
 
-        void uz();
+        boolean uS();
     }
 
     void a(a aVar);
@@ -31,9 +31,9 @@ public interface i {
 
     void setLogData(String str, String str2);
 
-    void ub();
+    h uM();
 
-    h uv();
+    com.baidu.live.view.input.a uN();
 
-    com.baidu.live.view.input.a uw();
+    void us();
 }

@@ -36,7 +36,7 @@ import android.view.ViewParent;
 import android.widget.FrameLayout;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CollapsingToolbarLayout extends FrameLayout {
     private static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
     final CollapsingTextHelper mCollapsingTextHelper;
@@ -675,7 +675,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return new LayoutParams(layoutParams);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public static final int COLLAPSE_MODE_OFF = 0;
         public static final int COLLAPSE_MODE_PARALLAX = 2;
@@ -686,7 +686,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         @interface CollapseMode {
         }
 
@@ -758,7 +758,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return ((getHeight() - getViewOffsetHelper(view).getLayoutTop()) - view.getHeight()) - ((LayoutParams) view.getLayoutParams()).bottomMargin;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private class OffsetUpdateListener implements AppBarLayout.OnOffsetChangedListener {
         OffsetUpdateListener() {
         }

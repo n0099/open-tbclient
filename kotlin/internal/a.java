@@ -1,10 +1,15 @@
 package kotlin.internal;
 
-import kotlin.jvm.internal.p;
-/* loaded from: classes4.dex */
+import kotlin.jvm.internal.q;
+import kotlin.random.d;
+/* loaded from: classes5.dex */
 public class a {
     public void addSuppressed(Throwable th, Throwable th2) {
-        p.j(th, "cause");
-        p.j(th2, com.baidu.fsg.base.statistics.b.k);
+        q.j(th, "cause");
+        q.j(th2, com.baidu.fsg.base.statistics.b.k);
+    }
+
+    public d dJg() {
+        return new kotlin.random.b();
     }
 }

@@ -8,7 +8,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ZeusThreadPoolUtil implements INoProGuard {
     private static final String LOG_TAG = "ZeusThreadPoolUtil";
     private static final int THREAD_POOL_KEEP_ALIVE_TIME = 60;
@@ -20,7 +20,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
     private static volatile boolean sIsZeusLoaded = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a implements ThreadFactory {
         private a() {
         }

@@ -11,10 +11,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static a mP;
+    private static a mM;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
     private int mActivityStackMaxSize = 0;
-    private InterfaceC0012a mQ;
+    private InterfaceC0012a mN;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -23,7 +23,7 @@ public final class a {
     }
 
     public void a(InterfaceC0012a interfaceC0012a) {
-        this.mQ = interfaceC0012a;
+        this.mN = interfaceC0012a;
     }
 
     private a() {
@@ -33,10 +33,10 @@ public final class a {
     }
 
     public static a eG() {
-        if (mP == null) {
-            mP = new a();
+        if (mM == null) {
+            mM = new a();
         }
-        return mP;
+        return mM;
     }
 
     public int getSize() {
@@ -69,8 +69,8 @@ public final class a {
         if (activity != null) {
             int size = sActivityStack.size();
             if (size == 0) {
-                if (this.mQ != null) {
-                    this.mQ.onActivityClosed();
+                if (this.mN != null) {
+                    this.mN.onActivityClosed();
                     return;
                 }
                 return;
@@ -81,13 +81,13 @@ public final class a {
                     sActivityStack.remove(i);
                 } else if (activity.equals(softReference.get())) {
                     sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.mQ != null) {
-                        this.mQ.onActivityClosed();
+                    if (sActivityStack.size() == 0 && this.mN != null) {
+                        this.mN.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (sActivityStack.size() == 0 && this.mQ != null) {
-                    this.mQ.onActivityClosed();
+                } else if (sActivityStack.size() == 0 && this.mN != null) {
+                    this.mN.onActivityClosed();
                 }
             }
         }
@@ -122,8 +122,8 @@ public final class a {
                 }
             }
         }
-        if (this.mQ != null) {
-            this.mQ.onActivityClosed();
+        if (this.mN != null) {
+            this.mN.onActivityClosed();
         }
     }
 

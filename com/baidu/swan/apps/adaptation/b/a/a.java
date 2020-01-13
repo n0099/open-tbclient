@@ -6,10 +6,10 @@ import com.baidu.browser.sailor.BdSailor;
 import com.baidu.swan.apps.adaptation.b.h;
 import com.baidu.swan.apps.adaptation.b.i;
 import com.baidu.swan.apps.adaptation.b.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements j {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private h aWt = new h() { // from class: com.baidu.swan.apps.adaptation.b.a.a.1
+    private h aXl = new h() { // from class: com.baidu.swan.apps.adaptation.b.a.a.1
         @Override // com.baidu.swan.apps.adaptation.b.h
         public void onActivityResult(Activity activity, int i, int i2, Intent intent) {
             BdSailor.getInstance().onActivityResult(activity, i, i2, intent);
@@ -17,12 +17,12 @@ public class a implements j {
     };
 
     @Override // com.baidu.swan.apps.adaptation.b.j
-    public i Gj() {
-        return com.baidu.swan.apps.core.container.a.a.KD();
+    public i GF() {
+        return com.baidu.swan.apps.core.container.a.a.KZ();
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.j
-    public h Gk() {
-        return this.aWt;
+    public h GG() {
+        return this.aXl;
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.swan.ubc.q;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.facebook.drawee.a.a.c;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwanAppInitHelper {
     private static final boolean DEBUG = false;
     private static final String TAG = "SwanAppInitHelper";
@@ -48,26 +48,26 @@ public class SwanAppInitHelper {
     }
 
     private static void initStatisticsModule(Application application) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.BX()) {
-            q.atg();
-            m.asW().initConfig();
+        if (com.baidu.pyramid.runtime.multiprocess.a.Ct()) {
+            q.atz();
+            m.atp().initConfig();
         }
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.djj()) {
+        if (!c.dkk()) {
             c.initialize(application);
         }
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
-            a.dl(application).agH();
+            a.dl(application).aha();
             asyncUpdateSwanConfig();
-            com.baidu.swan.apps.ar.a.ab(0, 1);
+            com.baidu.swan.apps.ar.a.af(0, 1);
         }
     }
 
     private static void asyncUpdateSwanConfig() {
-        d.ago();
+        d.agH();
     }
 
     private static void onlyInitForLollipopAndAbove(boolean z) {
@@ -87,16 +87,16 @@ public class SwanAppInitHelper {
     }
 
     private static void initWebView(Context context) {
-        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.w.a.RW().FQ(), false);
-        if (com.baidu.swan.apps.w.a.RW().FR()) {
+        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.w.a.Ss().Gm(), false);
+        if (com.baidu.swan.apps.w.a.Ss().Gn()) {
             doWebViewInit(context);
         }
     }
 
     private static void doWebViewInit(Context context) {
-        b.bU(context).cm(ProcessUtils.isMainProcess());
+        b.bU(context).cr(ProcessUtils.isMainProcess());
         if (ProcessUtils.isMainProcess()) {
-            com.baidu.swan.apps.env.e.OR().p(null);
+            com.baidu.swan.apps.env.e.Pn().p(null);
         }
     }
 

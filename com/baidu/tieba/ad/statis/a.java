@@ -1,19 +1,19 @@
 package com.baidu.tieba.ad.statis;
 
 import com.baidu.live.tbadk.pay.PayHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements com.baidu.tieba.q.a {
     private a() {
     }
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    private static class C0393a {
-        private static a dVQ = new a();
+    /* loaded from: classes6.dex */
+    private static class C0395a {
+        private static a dVZ = new a();
     }
 
-    public static a aVN() {
-        return C0393a.dVQ;
+    public static a aWg() {
+        return C0395a.dVZ;
     }
 
     @Override // com.baidu.tieba.q.a
@@ -65,7 +65,7 @@ public class a implements com.baidu.tieba.q.a {
     }
 
     @Override // com.baidu.tieba.q.a
-    public void X(String str, String str2, String str3) {
+    public void Y(String str, String str2, String str3) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init(PayHelper.STATUS_SUCC, "every_log");
         init.addParam("f1", "alert_click");
         init.addParam("f2", str);

@@ -27,7 +27,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ImageClipActivity extends Activity {
     public static final int BUSSINESS_FROM_INVOICE_BUILD = 1;
     public static final int BUSSINESS_SET_PORTRAIT = 0;

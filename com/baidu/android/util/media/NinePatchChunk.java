@@ -3,7 +3,7 @@ package com.baidu.android.util.media;
 import android.graphics.Rect;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NinePatchChunk {
     public int[] mColor;
     public int[] mDivX;

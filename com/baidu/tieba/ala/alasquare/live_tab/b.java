@@ -1,46 +1,40 @@
 package com.baidu.tieba.ala.alasquare.live_tab;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.j;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tieba.R;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.widget.ListView.m;
+import com.baidu.tbadk.TbPageContext;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    public static void a(Context context, bj bjVar) {
-        b(context, bjVar, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MAIN);
+    private BdTypeRecyclerView Bs;
+    private List<com.baidu.adp.widget.ListView.a> apl;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.c eht;
+    private Context mContext;
+    private TbPageContext mPageContext;
+
+    public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        this.mPageContext = tbPageContext;
+        this.mContext = tbPageContext.getPageActivity();
+        this.Bs = bdTypeRecyclerView;
+        vi();
     }
 
-    public static void b(Context context, bj bjVar) {
-        b(context, bjVar, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MY_CONCERN);
+    private void vi() {
+        this.apl = new ArrayList();
+        this.eht = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
+        this.apl.add(this.eht);
+        this.Bs.addAdapters(this.apl);
     }
 
-    private static void b(Context context, bj bjVar, String str) {
-        if (!j.isNetWorkAvailable()) {
-            l.showLongToast(context, context.getString(R.string.no_network_guide));
-        } else if (context != null && bjVar != null && bjVar.azE() != null && bjVar.azX() != null) {
-            boolean z = false;
-            String str2 = "";
-            if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bjVar.azE().getUserId();
-                str2 = TbadkCoreApplication.getCurrentAccount();
-                z = TextUtils.equals(userId, str2);
-            }
-            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bjVar.azX());
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
+    public void setData(List<m> list) {
+        this.Bs.setData(list);
+    }
+
+    public void notifyDataSetChanged() {
+        if (this.Bs != null) {
+            this.Bs.getListAdapter().notifyDataSetChanged();
         }
-    }
-
-    public static int[] eC(Context context) {
-        int dimensionPixelSize = l.getScreenDimensions(context)[0] - (context.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
-        return new int[]{dimensionPixelSize, (int) ((dimensionPixelSize * 9.0d) / 16.0d)};
     }
 }

@@ -4,13 +4,13 @@ import com.baidu.live.data.AlaLiveInfoData;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public interface e {
-    void A(boolean z, boolean z2);
-
     void U(ArrayList<AlaLiveInfoData> arrayList);
 
-    void iR(boolean z);
+    void ja(boolean z);
 
-    void iS(boolean z);
+    void jb(boolean z);
 
-    void iT(boolean z);
+    void jc(boolean z);
+
+    void z(boolean z, boolean z2);
 }

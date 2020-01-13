@@ -1,19 +1,4 @@
 package kotlin.collections;
-
-import java.util.Iterator;
-/* loaded from: classes4.dex */
-public abstract class u implements Iterator<Double> {
-    public abstract double dyH();
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Iterator
-    /* renamed from: dED */
-    public final Double next() {
-        return Double.valueOf(dyH());
-    }
+/* loaded from: classes5.dex */
+class u extends t {
 }

@@ -10,17 +10,17 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.tbadk.core.util.aq;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d implements com.baidu.swan.apps.w.b.e {
-    protected String dZN = "";
+    protected String dZW = "";
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         boolean a(Context context, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar);
     }
 
-    private JSONObject iH(String str) {
+    private JSONObject iK(String str) {
         JSONObject jSONObject;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -34,43 +34,43 @@ public class d implements com.baidu.swan.apps.w.b.e {
         return jSONObject;
     }
 
-    private f c(Context context, String str, String str2, String str3) {
+    private f d(Context context, String str, String str2, String str3) {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
         com.baidu.swan.apps.media.a A = com.baidu.swan.apps.media.b.A(str, str2, str3);
-        if (A == null && aq.equals("/swanAPI/live/open", this.dZN)) {
-            this.dZN = "";
+        if (A == null && aq.equals("/swanAPI/live/open", this.dZW)) {
+            this.dZW = "";
             return new f(context, str3);
-        } else if (A == null || !(A.Up() instanceof f)) {
+        } else if (A == null || !(A.UM() instanceof f)) {
             return null;
         } else {
-            return (f) A.Up();
+            return (f) A.UM();
         }
     }
 
     private boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar, a aVar) {
-        JSONObject iH = iH(unitedSchemeEntity.getParam("params"));
-        if (iH == null) {
+        JSONObject iK = iK(unitedSchemeEntity.getParam("params"));
+        if (iK == null) {
             com.baidu.swan.apps.console.c.e("Live", "object is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        String optString = iH.optString("liveId");
+        String optString = iK.optString("liveId");
         BdLog.d("parseEntity  playerID " + optString);
-        f c = c(context, iH.optString("slaveId"), iH.optString("sanId"), optString);
-        if (context == null || c == null) {
+        f d = d(context, iK.optString("slaveId"), iK.optString("sanId"), optString);
+        if (context == null || d == null) {
             com.baidu.swan.apps.console.c.e("Live", "livePlayer is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.tieba.aiapps.apps.media.b.a a2 = com.baidu.tieba.aiapps.apps.media.b.a.a(iH, c.aXm());
+        com.baidu.tieba.aiapps.apps.media.b.a a2 = com.baidu.tieba.aiapps.apps.media.b.a.a(iK, d.aXG());
         if (!a2.isValid()) {
             com.baidu.swan.apps.console.c.e("Live", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         } else if (aVar != null) {
-            return aVar.a(context, a2, c);
+            return aVar.a(context, a2, d);
         } else {
             return false;
         }
@@ -115,7 +115,7 @@ public class d implements com.baidu.swan.apps.w.b.e {
         return a(context, unitedSchemeEntity, callbackHandler, eVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.4
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.d(aVar.bzr, aVar.mDirection);
+                fVar.e(aVar.bAe, aVar.mDirection);
                 return true;
             }
         });
@@ -125,7 +125,7 @@ public class d implements com.baidu.swan.apps.w.b.e {
         return a(context, unitedSchemeEntity, callbackHandler, eVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.5
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.cx(aVar.dZG);
+                fVar.cC(aVar.dZP);
                 return true;
             }
         });
@@ -177,7 +177,7 @@ public class d implements com.baidu.swan.apps.w.b.e {
 
     @Override // com.baidu.swan.apps.w.b.e
     public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        this.dZN = "/swanAPI/live/open";
+        this.dZW = "/swanAPI/live/open";
         return w(context, unitedSchemeEntity, callbackHandler, eVar);
     }
 

@@ -9,7 +9,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.coloros.mcssdk.mode.CommandMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SplashHttpRequest extends HttpMessage {
     private static final String url = "http://afd.baidu.com/afd/entry";
     private static final TbHttpMessageTask mTask = new TbHttpMessageTask(1003192, url);
@@ -27,7 +27,7 @@ public class SplashHttpRequest extends HttpMessage {
             addParam("cuid", TbadkCoreApplication.getInst().getCuid());
             addParam("mod", d.getPhoneModel());
             addParam("ot", 2);
-            addParam("ov", d.aWz());
+            addParam("ov", d.aWT());
             addParam(CommandMessage.SDK_VERSION, "1.1.4");
             addParam("nt", d.et(context).intValue());
             addParam(Config.EXCEPTION_CRASH_TYPE, 2);

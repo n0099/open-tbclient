@@ -4,13 +4,13 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
     private int cols;
-    private com.baidu.adp.widget.ImageView.a dtg;
-    private com.baidu.adp.widget.ImageView.a dth;
+    private com.baidu.adp.widget.ImageView.a dtr;
+    private com.baidu.adp.widget.ImageView.a dts;
     private int rows;
 
-    public abstract boolean aLQ();
+    public abstract boolean aMj();
 
-    public abstract EmotionGroupType aLR();
+    public abstract EmotionGroupType aMk();
 
     public abstract int getEmotionsCount();
 
@@ -24,35 +24,35 @@ public abstract class c {
 
     public abstract String ma(int i);
 
-    public abstract boolean uI(String str);
+    public abstract boolean uN(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a uJ(String str);
+    public abstract com.baidu.adp.widget.ImageView.a uO(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a uK(String str);
+    public abstract com.baidu.adp.widget.ImageView.a uP(String str);
 
-    public com.baidu.adp.widget.ImageView.a aLS() {
-        return this.dtg;
+    public com.baidu.adp.widget.ImageView.a aMl() {
+        return this.dtr;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.dtg = aVar;
+        this.dtr = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a aLT() {
-        return this.dth;
+    public com.baidu.adp.widget.ImageView.a aMm() {
+        return this.dts;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.dth = aVar;
+        this.dts = aVar;
     }
 
-    public int aLU() {
+    public int aMn() {
         return this.cols;
     }
 
@@ -61,7 +61,7 @@ public abstract class c {
         this.cols = i;
     }
 
-    public int aLV() {
+    public int aMo() {
         return this.rows;
     }
 

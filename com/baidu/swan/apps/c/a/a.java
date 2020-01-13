@@ -8,17 +8,17 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.as.ag;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static void ac(Context context, String str) {
+    public static void ae(Context context, String str) {
         if (ProcessUtils.isMainProcess()) {
-            ad(context, str);
+            af(context, str);
         } else {
-            ae(context, str);
+            ag(context, str);
         }
     }
 
-    public static void ad(Context context, String str) {
+    public static void af(Context context, String str) {
         if (context != null) {
             CookieManager.getInstance().setCookie(".baidu.com", ag.getCookieStr(".baidu.com", "MABDUSS", str, 31449600L));
             CookieSyncManager.createInstance(AppRuntime.getAppContext());
@@ -26,7 +26,7 @@ public class a {
         }
     }
 
-    private static void ae(Context context, String str) {
+    private static void ag(Context context, String str) {
         Bundle bundle = new Bundle();
         bundle.putString("ma_bduss", str);
         DelegateUtils.callOnMainWithContentProvider(context, b.class, bundle);

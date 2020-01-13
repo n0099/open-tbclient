@@ -1,9 +1,9 @@
 package com.google.android.exoplayer2.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class e {
     private boolean isOpen;
 
-    public synchronized boolean hO() {
+    public synchronized boolean hN() {
         boolean z = true;
         synchronized (this) {
             if (this.isOpen) {
@@ -16,14 +16,14 @@ public final class e {
         return z;
     }
 
-    public synchronized boolean LR() {
+    public synchronized boolean Mn() {
         boolean z;
         z = this.isOpen;
         this.isOpen = false;
         return z;
     }
 
-    public synchronized void dwN() throws InterruptedException {
+    public synchronized void block() throws InterruptedException {
         while (!this.isOpen) {
             wait();
         }

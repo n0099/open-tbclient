@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private List<com.baidu.live.data.d> ags;
+    private List<com.baidu.live.data.d> ahc;
     private Context mContext;
     private int mType;
 
@@ -20,25 +20,25 @@ public class b extends BaseAdapter {
     }
 
     public void t(List<com.baidu.live.data.d> list) {
-        this.ags = list;
+        this.ahc = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ags == null) {
+        if (this.ahc == null) {
             return 1;
         }
-        return this.ags.size() + 1;
+        return this.ahc.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: bs */
     public com.baidu.live.data.d getItem(int i) {
-        if (this.ags == null || i < 0 || i >= getCount() - 1) {
+        if (this.ahc == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.ags.get(i);
+        return this.ahc.get(i);
     }
 
     @Override // android.widget.Adapter

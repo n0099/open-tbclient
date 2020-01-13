@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String kpG;
-    private a kpH;
+    private String ktj;
+    private a ktk;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bYa();
+        void bZj();
 
-        void bYb();
+        void bZk();
 
-        void bYc();
+        void bZl();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.kpG = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.kpH = aVar;
+        this.ktj = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.ktk = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,9 +33,9 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.kpG);
-            xVar.aDB().aEb().mIsNeedAddCommenParam = false;
-            xVar.aDB().aEb().mIsUseCurrentBDUSS = false;
+            x xVar = new x(this.ktj);
+            xVar.aDU().aEu().mIsNeedAddCommenParam = false;
+            xVar.aDU().aEu().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.kpH != null && num != null) {
+        if (this.ktk != null && num != null) {
             if (num.intValue() == -1) {
-                this.kpH.onError(null);
+                this.ktk.onError(null);
             } else if (num.intValue() == 1) {
-                this.kpH.bYa();
+                this.ktk.bZj();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.kpH.bYb();
+                this.ktk.bZk();
             } else {
-                this.kpH.bYc();
+                this.ktk.bZl();
             }
         }
     }

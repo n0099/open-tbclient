@@ -5,7 +5,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.lang.reflect.Field;
 import java.util.regex.Pattern;

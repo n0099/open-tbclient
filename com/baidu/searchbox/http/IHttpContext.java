@@ -6,7 +6,7 @@ import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
 import com.baidu.searchbox.http.statistics.NetworkStat;
 import okhttp3.Interceptor;
 import okhttp3.Request;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface IHttpContext {
     boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest);
 

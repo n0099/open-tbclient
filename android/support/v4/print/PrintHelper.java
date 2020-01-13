@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class PrintHelper {
     public static final int COLOR_MODE_COLOR = 2;
     public static final int COLOR_MODE_MONOCHROME = 1;
@@ -41,21 +41,21 @@ public final class PrintHelper {
     private final PrintHelperVersionImpl mImpl;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private @interface ColorMode {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnPrintFinishCallback {
         void onFinish();
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private @interface Orientation {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     interface PrintHelperVersionImpl {
         int getColorMode();
 
@@ -75,7 +75,7 @@ public final class PrintHelper {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private @interface ScaleMode {
     }
 
@@ -83,7 +83,7 @@ public final class PrintHelper {
         return Build.VERSION.SDK_INT >= 19;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static final class PrintHelperStub implements PrintHelperVersionImpl {
         int mColorMode;
         int mOrientation;
@@ -136,7 +136,7 @@ public final class PrintHelper {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(19)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class PrintHelperApi19 implements PrintHelperVersionImpl {
         private static final String LOG_TAG = "PrintHelperApi19";
         private static final int MAX_PRINT_SIZE = 3500;
@@ -349,7 +349,7 @@ public final class PrintHelper {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: android.support.v4.print.PrintHelper$PrintHelperApi19$3  reason: invalid class name */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class AnonymousClass3 extends PrintDocumentAdapter {
             private PrintAttributes mAttributes;
             Bitmap mBitmap = null;
@@ -548,7 +548,7 @@ public final class PrintHelper {
     }
 
     @RequiresApi(20)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static class PrintHelperApi20 extends PrintHelperApi19 {
         PrintHelperApi20(Context context) {
             super(context);
@@ -557,7 +557,7 @@ public final class PrintHelper {
     }
 
     @RequiresApi(23)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static class PrintHelperApi23 extends PrintHelperApi20 {
         @Override // android.support.v4.print.PrintHelper.PrintHelperApi19
         protected PrintAttributes.Builder copyAttributes(PrintAttributes printAttributes) {
@@ -575,7 +575,7 @@ public final class PrintHelper {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private static class PrintHelperApi24 extends PrintHelperApi23 {
         PrintHelperApi24(Context context) {
             super(context);

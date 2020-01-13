@@ -10,7 +10,7 @@ import android.os.IBinder;
 import android.util.Log;
 import com.xiaomi.push.cg;
 import com.xiaomi.push.cj;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MiPushRelayTraceService extends Service {
     private static cj a;
 
@@ -34,9 +34,9 @@ public class MiPushRelayTraceService extends Service {
             long j = extras.getLong("id");
             int i4 = extras.getInt("showType");
             cg cgVar = new cg();
-            cgVar.f185a = j;
+            cgVar.f183a = j;
             cgVar.a = i4;
-            cgVar.f186a = "";
+            cgVar.f184a = "";
             if (a == null) {
                 Log.e("MiPushRelayTraceService", "log sender is null!");
             } else {

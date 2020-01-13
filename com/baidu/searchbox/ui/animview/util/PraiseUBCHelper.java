@@ -3,7 +3,7 @@ package com.baidu.searchbox.ui.animview.util;
 import com.baidu.searchbox.ui.animview.praise.data.ComboPraiseUBC;
 import com.baidu.searchbox.ui.animview.praise.ioc.PraiseUBCRuntime;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PraiseUBCHelper {
     public static final String FROM = "praise";
     public static final String PRAISE_FLOW_ID = "706";

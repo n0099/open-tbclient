@@ -3,7 +3,7 @@ package com.baidu.minivideo.plugin.capture.utils;
 import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class StringUtils {
     public static String encodeUrl(String str) {
         if (TextUtils.isEmpty(str)) {

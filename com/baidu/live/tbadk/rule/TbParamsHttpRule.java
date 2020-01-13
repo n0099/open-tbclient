@@ -18,6 +18,7 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.http.Headers;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
@@ -46,7 +47,13 @@ public class TbParamsHttpRule extends HttpRule {
             return;
         }
         if (tbHttpMessageTask.isUseCurrentBDUSS()) {
-            addBdussData(httpMessage);
+            if (tbHttpMessageTask.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
+                addBdussData(httpMessage);
+            } else if (TbadkCoreApplication.getInst().isTieba()) {
+                addBdussData(httpMessage);
+            } else {
+                httpMessage.addCookie("BDUSS", TbadkCoreApplication.getCurrentBduss());
+            }
         }
         if (tbHttpMessageTask.isNeedAddCommenParam()) {
             addCommonParams(httpMessage, tbHttpMessageTask);
@@ -54,8 +61,27 @@ public class TbParamsHttpRule extends HttpRule {
         if (tbHttpMessageTask.isNeedAddStatisticsParam()) {
             addStatisticsDataParam(httpMessage);
         }
-        if (tbHttpMessageTask.getMethod() == HttpMessageTask.HTTP_METHOD.POST && tbHttpMessageTask.isBaiduServer()) {
-            addSign(httpMessage);
+        if (tbHttpMessageTask.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
+            if (tbHttpMessageTask.isBaiduServer()) {
+                addSign(httpMessage);
+            }
+            generateHotParams(tbHttpMessageTask);
+        }
+    }
+
+    private void generateHotParams(TbHttpMessageTask tbHttpMessageTask) {
+        if (tbHttpMessageTask != null && !TextUtils.isEmpty(tbHttpMessageTask.getUrl())) {
+            String url = tbHttpMessageTask.getUrl();
+            if (AlaLiveSwitchData.isHotLive == 1) {
+                if (!url.contains("&ishot=1") && !url.contains("?ishot=1")) {
+                    url = url.contains("?") ? url + "&ishot=1" : url + "?ishot=1";
+                }
+            } else if (url.contains("&ishot=1")) {
+                url = url.replace("&ishot=1", "");
+            } else if (url.contains("?ishot=1")) {
+                url = url.replace("?ishot=1", "");
+            }
+            tbHttpMessageTask.setUrl(url);
         }
     }
 
@@ -105,6 +131,9 @@ public class TbParamsHttpRule extends HttpRule {
         if (AlaLiveSwitchData.isHotLive == 1) {
             httpMessage.addParam(HttpRequest.SDK_LIVE_IS_HOT, 1);
         }
+        if (!TextUtils.isEmpty(AlaLiveSwitchData.liveActivityType)) {
+            httpMessage.addParam(HttpRequest.SDK_LIVE_LIVE_ACTIVITY_TYPE, AlaLiveSwitchData.liveActivityType);
+        }
         if (!TextUtils.isEmpty(TbConfig.getLiveEnterFrom())) {
             httpMessage.addParam("live_enter_type", TbConfig.getLiveEnterFrom());
         }
@@ -122,12 +151,15 @@ public class TbParamsHttpRule extends HttpRule {
             httpMessage.addCookie("ka", "open");
         }
         httpMessage.addCookie("BAIDUZID", ExtraParamsManager.getBaiduzid());
+        httpMessage.addCookie("BAIDUCUID", ExtraParamsManager.getBase64(ExtraParamsManager.getInstance().buildParamsExtra().getCuid()));
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
         }
         httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
         httpMessage.addParam("timestamp", Long.toString(System.currentTimeMillis()));
         httpMessage.addParam("model", Build.MODEL);
+        httpMessage.addParam(Constants.PHONE_BRAND, Build.BRAND);
+        httpMessage.addParam("_os_version", Build.VERSION.RELEASE);
         Map<String, String> commonParams = tbHttpMessageTask.getCommonParams();
         if (commonParams != null && !commonParams.isEmpty()) {
             for (Map.Entry<String, String> entry : commonParams.entrySet()) {

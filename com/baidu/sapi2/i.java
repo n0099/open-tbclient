@@ -8,7 +8,7 @@ import com.baidu.sapi2.dto.FaceIDVerifyDTO;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import com.baidu.sapi2.result.RealNameFaceIDResult;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class i extends GetTplStokenCallback {
     final /* synthetic */ Context a;
     final /* synthetic */ FaceIDVerifyDTO b;

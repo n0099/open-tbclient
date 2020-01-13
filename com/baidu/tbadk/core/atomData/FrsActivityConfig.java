@@ -6,10 +6,8 @@ import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class FrsActivityConfig extends IntentConfig {
-    public static final String ADD_SEARCH = "add_search";
     public static final String ALA_IS_ONLIVING = "ala_is_living";
     public static final String BACK_SPECIAL = "back_special";
-    public static final String CONTENT_SHOW = "content_show";
     public static final String FLAG = "flag";
     public static final String FOLLOWED_HAS_NEW = "followed_has_new";
     public static final String FROM = "from";
@@ -20,12 +18,10 @@ public class FrsActivityConfig extends IntentConfig {
     public static final int FRS_CALL_FROM_ENTER_FORUM_BUTTON = 14;
     public static final int FRS_CALL_FROM_HOME_LIVE_TAB = 15;
     public static final int FRS_CALL_FROM_ONE_KEY_SIGN = 6;
-    public static final int FRS_CALL_FROM_PB = 2;
     public static final int FRS_CALL_FROM_PERSON_GUEST_LIKE = 9;
     public static final int FRS_CALL_FROM_PERSON_GUEST_SAME_FORUM = 8;
     public static final int FRS_CALL_FROM_PERSON_HOST = 7;
     public static final int FRS_CALL_FROM_PUSH = 13;
-    public static final int FRS_CALL_FROM_SEARCH = 10;
     public static final int FRS_CALL_FROM_SQUARE = 5;
     public static final int FRS_CALL_FROM_TAB_RECOMMEND = 11;
     public static final int FRS_CALL_FROM_URL_JUMP = 12;
@@ -35,8 +31,6 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_FROM_FOLLOWED_RECOMMEND = "followed_recommend_forumlist";
     public static final String FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD = "frequently_forum_new_thread";
     public static final String FRS_FROM_FREQUENTLY_FORUM_POST_THREAD = "frequently_forum_post_thread";
-    public static final String FRS_FROM_KUANG = "from_tieba_kuang";
-    public static final String FRS_FROM_LIKE = "tb_forumlist";
     public static final String FRS_FROM_MANGA_COVER = "form_manga_cover";
     public static final String FRS_FROM_PB = "tb_pb";
     public static final String FRS_FROM_RECENTLY_VISITED = "from_recently_visited";
@@ -51,7 +45,6 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_GAME_DEFAULT_TAB_ID = "frs_game_default_tab_id";
     public static final String FRS_HOT_THREAD_ID = "frs_hot_thread_id";
     public static final String FRS_PB_CARD_GIFT = "tb_pb_card_gift";
-    public static final String FRS_TO_PB = "tb_frslist";
     public static final String GOOD = "good";
     public static final String IS_SELECTION = "is_selection";
     public static final String KEY_REFRESH = "refresh_all";
@@ -62,6 +55,7 @@ public class FrsActivityConfig extends IntentConfig {
 
     public FrsActivityConfig(Context context) {
         super(context);
+        getIntent().putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 
     public FrsActivityConfig createNormalCfg(String str, String str2) {
@@ -79,7 +73,6 @@ public class FrsActivityConfig extends IntentConfig {
         if (!(getContext() instanceof Activity)) {
             intent.addFlags(268435456);
         }
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         return this;
     }
 
@@ -97,7 +90,6 @@ public class FrsActivityConfig extends IntentConfig {
         if (!(getContext() instanceof Activity)) {
             intent.addFlags(268435456);
         }
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         return this;
     }
 
@@ -115,7 +107,6 @@ public class FrsActivityConfig extends IntentConfig {
         if (!(getContext() instanceof Activity)) {
             intent.addFlags(268435456);
         }
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         return this;
     }
 

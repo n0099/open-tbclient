@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.source;
 
 import android.net.Uri;
 import com.google.android.exoplayer2.ParserException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UnrecognizedInputFormatException extends ParserException {
     public final Uri uri;
 

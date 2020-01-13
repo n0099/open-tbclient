@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.exoplayer2.util.v;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ChapterTocFrame extends Id3Frame {
     public static final Parcelable.Creator<ChapterTocFrame> CREATOR = new Parcelable.Creator<ChapterTocFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.ChapterTocFrame.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public final class ChapterTocFrame extends Id3Frame {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: JX */
+        /* renamed from: Kg */
         public ChapterTocFrame[] newArray(int i) {
             return new ChapterTocFrame[i];
         }

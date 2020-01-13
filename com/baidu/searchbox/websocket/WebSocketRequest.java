@@ -4,16 +4,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import kotlin.collections.n;
-import kotlin.g;
+import kotlin.b.d;
 import kotlin.jvm.a.b;
 import kotlin.jvm.internal.Ref;
 import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.p;
-import kotlin.sequences.d;
+import kotlin.jvm.internal.q;
+import kotlin.k;
+import kotlin.sequences.e;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class WebSocketRequest {
     public static final Companion Companion = new Companion(null);
     public static final String PARAM_KEY_HEADER = "header";
@@ -31,7 +31,7 @@ public final class WebSocketRequest {
     }
 
     public WebSocketRequest(String str) {
-        p.j(str, "url");
+        q.j(str, "url");
         this.url = str;
         this.method = "GET";
     }
@@ -45,7 +45,7 @@ public final class WebSocketRequest {
     }
 
     public final void setMethod(String str) {
-        p.j(str, "<set-?>");
+        q.j(str, "<set-?>");
         this.method = str;
     }
 
@@ -81,7 +81,7 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            p.dER();
+            q.dJk();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();
@@ -89,7 +89,7 @@ public final class WebSocketRequest {
         this.connectionLostTimeout = builder.getConnectionLostTimeout();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -98,8 +98,8 @@ public final class WebSocketRequest {
             this();
         }
 
-        public final WebSocketRequest build(b<? super Builder, g> bVar) {
-            p.j(bVar, "block");
+        public final WebSocketRequest build(b<? super Builder, k> bVar) {
+            q.j(bVar, "block");
             Builder builder = new Builder();
             bVar.invoke(builder);
             return builder.build();
@@ -108,24 +108,24 @@ public final class WebSocketRequest {
         /* JADX WARN: Type inference failed for: r0v12, types: [T, org.json.JSONArray] */
         /* JADX WARN: Type inference failed for: r0v15, types: [T, org.json.JSONArray] */
         public final WebSocketRequest fromJSON(JSONObject jSONObject) {
-            p.j(jSONObject, "params");
+            q.j(jSONObject, "params");
             Companion companion = WebSocketRequest.Companion;
             Builder builder = new Builder();
             builder.setUrl(jSONObject.getString("url"));
             if (jSONObject.has("method")) {
                 String string = jSONObject.getString("method");
-                p.i(string, "params.getString(PARAM_KEY_METHOD)");
+                q.i(string, "params.getString(PARAM_KEY_METHOD)");
                 builder.setMethod(string);
             }
             if (jSONObject.has(WebSocketRequest.PARAM_KEY_HEADER)) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
                 Iterator<String> keys = jSONObject2.keys();
-                p.i(keys, "headers.keys()");
+                q.i(keys, "headers.keys()");
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    p.i(next, "key");
+                    q.i(next, "key");
                     String string2 = jSONObject2.getString(next);
-                    p.i(string2, "headers.getString(key)");
+                    q.i(string2, "headers.getString(key)");
                     builder.addHeader(next, string2);
                 }
             }
@@ -136,13 +136,13 @@ public final class WebSocketRequest {
                     objectRef.element = new JSONArray();
                     ((JSONArray) objectRef.element).put("");
                 }
-                builder.setProtocols(d.b(d.c(n.h(kotlin.b.d.en(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
+                builder.setProtocols(e.b(e.c(kotlin.collections.o.h(d.eu(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
             }
             return builder.build();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder {
         private Integer connectionLostTimeout;
         private Map<String, String> headers;
@@ -163,7 +163,7 @@ public final class WebSocketRequest {
         }
 
         public final void setMethod(String str) {
-            p.j(str, "<set-?>");
+            q.j(str, "<set-?>");
             this.method = str;
         }
 
@@ -192,8 +192,8 @@ public final class WebSocketRequest {
         }
 
         public final void addHeader(String str, String str2) {
-            p.j(str, "key");
-            p.j(str2, "value");
+            q.j(str, "key");
+            q.j(str2, "value");
             Builder builder = this;
             if (builder.headers == null) {
                 builder.headers = new HashMap();

@@ -12,7 +12,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL10;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m extends Thread {
     private AtomicBoolean a;
     private SurfaceTexture b;
@@ -26,7 +26,7 @@ public class m extends Thread {
     private int i = 1;
     private boolean j = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         int a();
     }

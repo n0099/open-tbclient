@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class b {
-    private static String iPy = "tbgametype";
+    private static String iTc = "tbgametype";
 
-    public static String IO(String str) {
+    public static String IY(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
             return null;

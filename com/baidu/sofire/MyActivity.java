@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.mobstat.Config;
 import com.baidu.sofire.i.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MyActivity extends Activity {
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
     protected void attachBaseContext(Context context) {

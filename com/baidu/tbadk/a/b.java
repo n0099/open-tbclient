@@ -13,42 +13,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b cFs;
+    private static b cFE;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> avO = avO();
+        HashMap<String, a> awh = awh();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(avO);
+        this.mSwitchs.putAll(awh);
     }
 
-    public static b avM() {
-        if (cFs == null) {
+    public static b awf() {
+        if (cFE == null) {
             synchronized (b.class) {
-                if (cFs == null) {
-                    cFs = new b();
+                if (cFE == null) {
+                    cFE = new b();
                 }
             }
         }
-        return cFs;
+        return cFE;
     }
 
-    private static String avN() {
+    private static String awg() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(avN(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(awg(), 0);
     }
 
-    public synchronized a ro(String str) {
+    public synchronized a rr(String str) {
         return this.mSwitchs.get(str);
     }
 
     private String cd(String str, String str2) {
-        a ro = ro(str);
-        if (ro != null && !TextUtils.isEmpty(ro.cFr)) {
-            return ro.cFr;
+        a rr = rr(str);
+        if (rr != null && !TextUtils.isEmpty(rr.cFD)) {
+            return rr.cFD;
         }
         return str2;
     }
@@ -70,7 +70,7 @@ public class b {
         }
     }
 
-    public void I(JSONArray jSONArray) {
+    public void J(JSONArray jSONArray) {
         try {
             if (jSONArray == null) {
                 clearAll();
@@ -89,7 +89,7 @@ public class b {
                 this.mSwitchs.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
-            if (rp("cyber_player_test") && !CyberPlayerManager.isCoreLoaded(1)) {
+            if (rs("cyber_player_test") && !CyberPlayerManager.isCoreLoaded(1)) {
                 CyberPlayerManager.install(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getCuid(), null, 1, null, null, null);
             }
         } catch (Exception e) {
@@ -97,7 +97,7 @@ public class b {
         }
     }
 
-    private HashMap<String, a> avO() {
+    private HashMap<String, a> awh() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -114,7 +114,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean rp(String str) {
-        return Config.APP_VERSION_CODE.equalsIgnoreCase(avM().cd(str, ""));
+    public static boolean rs(String str) {
+        return Config.APP_VERSION_CODE.equalsIgnoreCase(awf().cd(str, ""));
     }
 }

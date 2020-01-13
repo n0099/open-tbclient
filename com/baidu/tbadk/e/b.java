@@ -8,32 +8,32 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> Oy = null;
-    protected static boolean cGe = false;
-    protected String cGb = "183322726";
-    protected boolean cGd = true;
-    protected transient List<String> cGc = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> OC = null;
+    protected static boolean cGq = false;
+    protected String cGn = "183322726";
+    protected boolean cGp = true;
+    protected transient List<String> cGo = new ArrayList(5);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void awj();
+    public abstract void awC();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void awn();
+    public abstract void awG();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void awo();
+    public abstract void awH();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void awp();
+    public abstract void awI();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void awq();
+    public abstract void awJ();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
@@ -55,29 +55,29 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (Oy == null) {
-            Oy = new WeakReference<>(tbPageContext);
+        if (OC == null) {
+            OC = new WeakReference<>(tbPageContext);
             return;
         }
-        Oy.clear();
-        Oy = null;
-        Oy = new WeakReference<>(tbPageContext);
+        OC.clear();
+        OC = null;
+        OC = new WeakReference<>(tbPageContext);
     }
 
-    public boolean awm() {
-        return cGe;
+    public boolean awF() {
+        return cGq;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void fb(boolean z) {
-        this.cGd = z;
+    public void fg(boolean z) {
+        this.cGp = z;
     }
 
     public void resetContext() {
-        if (Oy != null) {
-            Oy.get();
-            Oy.clear();
-            Oy = null;
+        if (OC != null) {
+            OC.get();
+            OC.clear();
+            OC = null;
         }
     }
 }

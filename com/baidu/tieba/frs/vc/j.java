@@ -11,96 +11,96 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.frs.FrsFragment;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class j extends com.baidu.tieba.frs.mc.j {
-    private g.c dcr;
-    private g.b dcs;
-    private g.d dct;
-    private boolean gHh;
-    private final CustomMessageListener gHi;
-    private com.baidu.tieba.frs.smartsort.a gjt;
+    private g.c dcC;
+    private g.b dcD;
+    private g.d dcE;
+    private boolean gKw;
+    private final CustomMessageListener gKx;
+    private com.baidu.tieba.frs.smartsort.a gmD;
 
     public j(FrsFragment frsFragment) {
         super(frsFragment);
-        this.gHh = false;
-        this.gHi = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH) { // from class: com.baidu.tieba.frs.vc.j.1
+        this.gKw = false;
+        this.gKx = new CustomMessageListener(CmdConfigCustom.CMD_REFRESH) { // from class: com.baidu.tieba.frs.vc.j.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && j.this.gja != null) {
-                    j.this.gja.startPullRefresh();
+                if (customResponsedMessage != null && j.this.gmj != null) {
+                    j.this.gmj.startPullRefresh();
                 }
             }
         };
-        this.dcr = new g.c() { // from class: com.baidu.tieba.frs.vc.j.2
+        this.dcC = new g.c() { // from class: com.baidu.tieba.frs.vc.j.2
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
-                if (j.this.gBu != null && j.this.gBu.isAdded() && j.this.gja != null) {
-                    j.this.gja.hi(true);
+                if (j.this.gEE != null && j.this.gEE.isAdded() && j.this.gmj != null) {
+                    j.this.gmj.hn(true);
                     if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                        j.this.gBu.refresh();
-                        j.this.gBu.kS(true);
+                        j.this.gEE.refresh();
+                        j.this.gEE.ld(true);
                     } else {
-                        j.this.gBu.bBl();
+                        j.this.gEE.bCn();
                     }
-                    TiebaStatic.log(new an("c11749").cp("fid", j.this.gBu.getFid()).cp("obj_locate", "1"));
+                    TiebaStatic.log(new an("c11749").cp("fid", j.this.gEE.getFid()).cp("obj_locate", "1"));
                 }
             }
         };
-        this.dct = new g.d() { // from class: com.baidu.tieba.frs.vc.j.3
+        this.dcE = new g.d() { // from class: com.baidu.tieba.frs.vc.j.3
             @Override // com.baidu.tbadk.core.view.g.d
             public void onListPullToRefresh(boolean z) {
-                j.this.gHh = true;
-                if (j.this.gja != null && j.this.gCF != null && j.this.gjq != null && j.this.gBu != null && j.this.gBu.isAdded()) {
-                    if (j.this.gja != null && j.this.gja.bCd() != null) {
-                        j.this.gja.bCd().bLD();
+                j.this.gKw = true;
+                if (j.this.gmj != null && j.this.gFU != null && j.this.gmA != null && j.this.gEE != null && j.this.gEE.isAdded()) {
+                    if (j.this.gmj != null && j.this.gmj.bDf() != null) {
+                        j.this.gmj.bDf().bML();
                     }
-                    j.this.gBu.kS(false);
-                    com.baidu.adp.lib.f.e.gy().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.j.3.1
+                    j.this.gEE.ld(false);
+                    com.baidu.adp.lib.f.e.gx().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.j.3.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (j.this.gja.bBU() != null && j.this.gCF != null && j.this.gja.bBU().getVisibility() != 0) {
-                                j.this.gCF.aPA();
+                            if (j.this.gmj.bCW() != null && j.this.gFU != null && j.this.gmj.bCW().getVisibility() != 0) {
+                                j.this.gFU.aPT();
                             }
                         }
                     }, 110L);
                 }
             }
         };
-        this.dcs = new g.b() { // from class: com.baidu.tieba.frs.vc.j.4
+        this.dcD = new g.b() { // from class: com.baidu.tieba.frs.vc.j.4
             @Override // com.baidu.tbadk.core.view.g.b
             public void onListPullRefreshFinished(View view, boolean z) {
-                if (j.this.gBu != null && j.this.gBu.isAdded()) {
-                    if (j.this.gHh && j.this.gBu.bBg() != null) {
-                        j.this.gBu.bBg().bIu();
-                        j.this.gHh = false;
+                if (j.this.gEE != null && j.this.gEE.isAdded()) {
+                    if (j.this.gKw && j.this.gEE.bCi() != null) {
+                        j.this.gEE.bCi().bJw();
+                        j.this.gKw = false;
                     }
-                    if (j.this.gjt != null && j.this.gBu.bBi() != null && j.this.gBu.bBi().bCf() != null && !j.this.gBu.bBi().bCf().bHO()) {
-                        j.this.gjt.bGZ();
+                    if (j.this.gmD != null && j.this.gEE.bCk() != null && j.this.gEE.bCk().bDh() != null && !j.this.gEE.bCk().bDh().bIQ()) {
+                        j.this.gmD.bIb();
                     }
-                    if (j.this.gja != null && j.this.gCF != null && j.this.gjq != null && j.this.gjt != null) {
-                        j.this.gja.bCd().a(0, 0, true, true);
-                        j.this.gBu.bBv();
-                        j.this.gBu.kS(true);
+                    if (j.this.gmj != null && j.this.gFU != null && j.this.gmA != null && j.this.gmD != null) {
+                        j.this.gmj.bDf().a(0, 0, true, true);
+                        j.this.gEE.bCx();
+                        j.this.gEE.ld(true);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
-                        if (j.this.gBu.bBi() != null) {
-                            j.this.gBu.bBi().hi(false);
+                        if (j.this.gEE.bCk() != null) {
+                            j.this.gEE.bCk().hn(false);
                         }
-                        if (!TbadkCoreApplication.isLogin() || j.this.gBu.aFx().getVisibility() != 0 || v.isEmpty(j.this.gBu.bBI().getThreadList())) {
+                        if (!TbadkCoreApplication.isLogin() || j.this.gEE.aFQ().getVisibility() != 0 || v.isEmpty(j.this.gEE.bCK().getThreadList())) {
                         }
                     }
                 }
             }
         };
-        this.gjt = frsFragment.bBc();
-        frsFragment.registerListener(this.gHi);
+        this.gmD = frsFragment.bCe();
+        frsFragment.registerListener(this.gKx);
     }
 
-    public void bIl() {
-        if (this.gja != null) {
-            this.gja.setListPullRefreshListener(this.dcr);
-            this.gja.a(this.dct);
-            this.gja.a(this.dcs);
+    public void bJn() {
+        if (this.gmj != null) {
+            this.gmj.setListPullRefreshListener(this.dcC);
+            this.gmj.a(this.dcE);
+            this.gmj.a(this.dcD);
         }
     }
 }

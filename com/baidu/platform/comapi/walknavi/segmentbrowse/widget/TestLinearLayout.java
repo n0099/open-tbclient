@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TestLinearLayout extends LinearLayout {
     public TestLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);

@@ -9,7 +9,7 @@ import com.google.zxing.common.BitArray;
 import java.util.EnumMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class UPCEANExtension2Support {
     private final int[] decodeMiddleCounters = new int[4];
     private final StringBuilder decodeRowStringBuffer = new StringBuilder();

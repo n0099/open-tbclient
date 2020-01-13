@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.y;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface h {
     void a(com.baidu.swan.apps.adaptation.b.e eVar);
 

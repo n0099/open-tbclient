@@ -9,16 +9,16 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d implements CookieManager {
-    private boolean jxe;
-    private boolean jxf;
+    private boolean jAG;
+    private boolean jAH;
 
     public d(boolean z, boolean z2) {
-        this.jxe = true;
-        this.jxf = false;
-        this.jxe = z;
-        this.jxf = z2;
+        this.jAG = true;
+        this.jAH = false;
+        this.jAG = z;
+        this.jAH = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -26,7 +26,7 @@ public class d implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.jxf || !GS(str2);
+        return this.jAH || !Hc(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -43,7 +43,7 @@ public class d implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.jxe && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.jAG && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -54,37 +54,37 @@ public class d implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return com.baidu.tbadk.data.h.dqZ;
+        return com.baidu.tbadk.data.h.drk;
     }
 
     public static void au(String str) {
-        com.baidu.tbadk.data.h.dqZ = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+        com.baidu.tbadk.data.h.drk = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
         com.baidu.tbadk.data.h.bduss = str;
-        if (PluginPackageManager.je().aY("com.baidu.tieba.pluginPublisher")) {
-            com.baidu.tbadk.data.h aKZ = com.baidu.tbadk.data.h.aKZ();
-            if (aKZ != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921429, aKZ));
+        if (PluginPackageManager.jd().aY("com.baidu.tieba.pluginPublisher")) {
+            com.baidu.tbadk.data.h aLs = com.baidu.tbadk.data.h.aLs();
+            if (aLs != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921429, aLs));
                 return;
             }
             return;
         }
-        com.baidu.tbadk.data.h.dra = true;
+        com.baidu.tbadk.data.h.drl = true;
     }
 
-    public static void cyo() {
-        com.baidu.tbadk.data.h.dqZ = "";
-        if (PluginPackageManager.je().aY("com.baidu.tieba.pluginPublisher")) {
-            com.baidu.tbadk.data.h aKY = com.baidu.tbadk.data.h.aKY();
-            if (aKY != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921429, aKY));
+    public static void czv() {
+        com.baidu.tbadk.data.h.drk = "";
+        if (PluginPackageManager.jd().aY("com.baidu.tieba.pluginPublisher")) {
+            com.baidu.tbadk.data.h aLr = com.baidu.tbadk.data.h.aLr();
+            if (aLr != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921429, aLr));
                 return;
             }
             return;
         }
-        com.baidu.tbadk.data.h.drb = true;
+        com.baidu.tbadk.data.h.drm = true;
     }
 
-    public static boolean GS(String str) {
+    public static boolean Hc(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

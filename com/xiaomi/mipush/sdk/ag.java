@@ -7,7 +7,7 @@ import com.xiaomi.push.hg;
 import com.xiaomi.push.ht;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ag implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
@@ -24,7 +24,7 @@ public final class ag implements Runnable {
         if (com.xiaomi.push.i.f(context) != null) {
             Cif cif = new Cif();
             context2 = MiPushClient.sContext;
-            cif.b(d.m71a(context2).m72a());
+            cif.b(d.m80a(context2).m81a());
             cif.c("client_info_update");
             cif.a(com.xiaomi.push.service.aj.a());
             cif.a(new HashMap());
@@ -36,11 +36,11 @@ public final class ag implements Runnable {
                 str = str + Constants.ACCEPT_TIME_SEPARATOR_SP + h;
             }
             if (!TextUtils.isEmpty(str)) {
-                cif.m402a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
+                cif.m411a().put(Constants.EXTRA_KEY_IMEI_MD5, str);
             }
             int a = com.xiaomi.push.i.a();
             if (a >= 0) {
-                cif.m402a().put("space_id", Integer.toString(a));
+                cif.m411a().put("space_id", Integer.toString(a));
             }
             context5 = MiPushClient.sContext;
             ay.a(context5).a((ay) cif, hg.Notification, false, (ht) null);

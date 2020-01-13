@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.swan.games.e.e;
 import com.baidu.swan.games.e.i;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements i {
     @Override // com.baidu.swan.games.e.i
     public com.baidu.swan.games.e.a a(String str, com.baidu.swan.games.e.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
@@ -13,16 +13,16 @@ public class b implements i {
 
     @Override // com.baidu.swan.games.e.i
     public String getUserAgent() {
-        return a.OK();
+        return a.Pg();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private static class a {
         private static String rJ;
 
-        static String OK() {
+        static String Pg() {
             if (TextUtils.isEmpty(rJ)) {
-                rJ = com.baidu.swan.apps.aq.b.OK();
+                rJ = com.baidu.swan.apps.aq.b.Pg();
             }
             return rJ;
         }

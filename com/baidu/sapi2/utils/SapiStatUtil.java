@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SapiStatUtil {
     public static final String LOGIN_STATUS_BDUSS_INVALIDATE = "2";
     public static final String LOGIN_STATUS_BDUSS_VALIDATE = "0";

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.ForumSubLabel;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LabelDataList extends ArrayList<a> {
     public void parseProtu(List<ForumSubLabel> list) {
         clear();

@@ -1,9 +1,8 @@
 package org.greenrobot.eventbus;
 
 import android.util.Log;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
-public final class BackgroundPoster implements Runnable {
+/* loaded from: classes5.dex */
+final class BackgroundPoster implements Runnable {
     private final EventBus eventBus;
     private volatile boolean executorRunning;
     private final PendingPostQueue queue = new PendingPostQueue();

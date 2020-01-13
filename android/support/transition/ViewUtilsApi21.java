@@ -8,7 +8,7 @@ import android.view.View;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RequiresApi(21)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class ViewUtilsApi21 extends ViewUtilsApi19 {
     private static final String TAG = "ViewUtilsApi21";
     private static Method sSetAnimationMatrixMethod;

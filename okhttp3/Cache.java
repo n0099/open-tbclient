@@ -37,7 +37,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Cache implements Closeable, Flushable {
     private static final int ENTRY_BODY = 1;
     private static final int ENTRY_COUNT = 2;
@@ -303,7 +303,7 @@ public final class Cache implements Closeable, Flushable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class CacheRequestImpl implements CacheRequest {
         private Sink body;
         private Sink cacheOut;
@@ -350,7 +350,7 @@ public final class Cache implements Closeable, Flushable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Entry {
         private final int code;
         @Nullable
@@ -508,7 +508,7 @@ public final class Cache implements Closeable, Flushable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class CacheResponseBody extends ResponseBody {
         private final BufferedSource bodySource;
         @Nullable

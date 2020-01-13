@@ -1,31 +1,39 @@
 package com.tb.airbnb.lottie.model;
 
-import android.content.res.Resources;
-import com.tb.airbnb.lottie.e;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public final class h extends b<JSONObject> {
-    private final com.tb.airbnb.lottie.h loadedListener;
-    private final Resources mNO;
+import android.support.annotation.Nullable;
+import android.support.annotation.RestrictTo;
+import android.support.v4.util.Pair;
+import com.baidu.android.imsdk.utils.HanziToPinyin;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
+/* loaded from: classes5.dex */
+public class h<T> {
+    @Nullable
+    T first;
+    @Nullable
+    T second;
 
-    public h(Resources resources, com.tb.airbnb.lottie.h hVar) {
-        this.mNO = resources;
-        this.loadedListener = hVar;
+    public void set(T t, T t2) {
+        this.first = t;
+        this.second = t2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public com.tb.airbnb.lottie.e doInBackground(JSONObject... jSONObjectArr) {
-        return e.a.a(this.mNO, jSONObjectArr[0]);
+    public boolean equals(Object obj) {
+        if (obj instanceof Pair) {
+            Pair pair = (Pair) obj;
+            return objectsEqual(pair.first, this.first) && objectsEqual(pair.second, this.second);
+        }
+        return false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: i */
-    public void onPostExecute(com.tb.airbnb.lottie.e eVar) {
-        this.loadedListener.onCompositionLoaded(eVar);
+    private static boolean objectsEqual(Object obj, Object obj2) {
+        return obj == obj2 || (obj != null && obj.equals(obj2));
+    }
+
+    public int hashCode() {
+        return (this.first == null ? 0 : this.first.hashCode()) ^ (this.second != null ? this.second.hashCode() : 0);
+    }
+
+    public String toString() {
+        return "Pair{" + String.valueOf(this.first) + HanziToPinyin.Token.SEPARATOR + String.valueOf(this.second) + "}";
     }
 }

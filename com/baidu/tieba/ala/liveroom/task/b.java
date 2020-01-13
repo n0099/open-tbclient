@@ -18,10 +18,10 @@ import android.widget.ImageView;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.c.f;
-import com.baidu.live.data.ak;
-import com.baidu.live.data.as;
-import com.baidu.live.data.au;
-import com.baidu.live.q.a;
+import com.baidu.live.data.ao;
+import com.baidu.live.data.aw;
+import com.baidu.live.data.ay;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -32,30 +32,30 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class b implements com.baidu.live.s.c {
-    private static b fep = null;
+public class b implements com.baidu.live.u.c {
+    private static b fhv = null;
     private long currLiveId;
-    private Dialog eVx;
-    private boolean feq = false;
-    private boolean fer = false;
+    private Dialog eXX;
+    private boolean fhw = false;
+    private boolean fhx = false;
     private Handler handler = new Handler();
     private long startTime;
 
-    public static b bnP() {
-        if (fep == null) {
+    public static b boP() {
+        if (fhv == null) {
             synchronized (b.class) {
-                if (fep == null) {
-                    fep = new b();
+                if (fhv == null) {
+                    fhv = new b();
                 }
             }
         }
-        return fep;
+        return fhv;
     }
 
-    @Override // com.baidu.live.s.c
-    public void wN() {
-        if (this.eVx != null && this.eVx.isShowing()) {
-            Context context = this.eVx.getContext();
+    @Override // com.baidu.live.u.c
+    public void xe() {
+        if (this.eXX != null && this.eXX.isShowing()) {
+            Context context = this.eXX.getContext();
             if (context != null) {
                 if (context instanceof Activity) {
                     Activity activity = (Activity) context;
@@ -67,20 +67,20 @@ public class b implements com.baidu.live.s.c {
                         return;
                     }
                 }
-                this.eVx.dismiss();
+                this.eXX.dismiss();
             } else {
                 return;
             }
         }
-        this.eVx = null;
+        this.eXX = null;
     }
 
-    @Override // com.baidu.live.s.c
+    @Override // com.baidu.live.u.c
     public void a(final Context context, final long j, long j2, String str, String str2) {
         if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
             this.currLiveId = 0L;
-            this.feq = false;
-            this.fer = false;
+            this.fhw = false;
+            this.fhx = false;
             if (!isEnable(str2)) {
                 if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
                     TbConfig.FLOWER_GUIDE_STATUS = 0;
@@ -91,7 +91,7 @@ public class b implements com.baidu.live.s.c {
             TbConfig.FLOWER_GUIDE_STATUS = 1;
             this.currLiveId = j;
             this.startTime = System.currentTimeMillis();
-            this.fer = true;
+            this.fhx = true;
             if (isDebug()) {
                 this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.b.1
                     @Override // java.lang.Runnable
@@ -113,11 +113,11 @@ public class b implements com.baidu.live.s.c {
         return false;
     }
 
-    @Override // com.baidu.live.s.c
+    @Override // com.baidu.live.u.c
     public void a(Context context, long j, int[] iArr) {
         boolean isDebug = isDebug();
-        if (this.fer && this.startTime > 0 && this.currLiveId == j) {
-            if ((!this.feq || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
+        if (this.fhx && this.startTime > 0 && this.currLiveId == j) {
+            if ((!this.fhw || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
                 long j2 = 60;
                 if (isDebug) {
                     j2 = 3;
@@ -148,7 +148,7 @@ public class b implements com.baidu.live.s.c {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                b.this.wN();
+                b.this.xe();
             }
         });
     }
@@ -164,8 +164,8 @@ public class b implements com.baidu.live.s.c {
                 return;
             }
         }
-        if (this.eVx != null && this.eVx.isShowing()) {
-            this.eVx.dismiss();
+        if (this.eXX != null && this.eXX.isShowing()) {
+            this.eXX.dismiss();
         }
         View inflate = LayoutInflater.from(context).inflate(a.h.dialog_flower_guide, (ViewGroup) null);
         final Dialog dialog = new Dialog(context, a.j.FlowerGuideDialogStyle);
@@ -180,7 +180,7 @@ public class b implements com.baidu.live.s.c {
                 if (iArr != null && iArr.length >= 2 && (iArr[0] != 0 || iArr[1] != 0)) {
                     b.this.a(findViewById, iArr);
                 } else {
-                    b.this.wN();
+                    b.this.xe();
                 }
             }
         };
@@ -217,9 +217,9 @@ public class b implements com.baidu.live.s.c {
         });
         try {
             dialog.show();
-            this.eVx = dialog;
-            this.fer = false;
-            com.baidu.live.c.oI().putInt("showtimes_flower_task_dialog", com.baidu.live.c.oI().getInt("showtimes_flower_task_dialog", 0) + 1);
+            this.eXX = dialog;
+            this.fhx = false;
+            com.baidu.live.c.oJ().putInt("showtimes_flower_task_dialog", com.baidu.live.c.oJ().getInt("showtimes_flower_task_dialog", 0) + 1);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -239,21 +239,21 @@ public class b implements com.baidu.live.s.c {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean isEnable(String str) {
-        ak akVar;
-        as asVar;
-        au auVar;
+        ao aoVar;
+        aw awVar;
+        ay ayVar;
         boolean isDebug = isDebug();
-        if ((!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin()) || !TbadkCoreApplication.isLogin() || (akVar = com.baidu.live.r.a.wA().asy) == null || (asVar = akVar.aaH) == null || (auVar = asVar.aby) == null) {
+        if ((!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin()) || !TbadkCoreApplication.isLogin() || (aoVar = com.baidu.live.s.a.wR().atk) == null || (awVar = aoVar.aaU) == null || (ayVar = awVar.abJ) == null) {
             return false;
         }
-        if (!(auVar.isShow == 1)) {
+        if (!(ayVar.isShow == 1)) {
             TbConfig.FLOWER_GUIDE_STATUS = 2;
             return false;
-        } else if (com.baidu.live.c.oI().getInt("showtimes_flower_task_dialog", 0) >= auVar.showNum && !isDebug) {
+        } else if (com.baidu.live.c.oJ().getInt("showtimes_flower_task_dialog", 0) >= ayVar.showNum && !isDebug) {
             TbConfig.FLOWER_GUIDE_STATUS = 2;
             return false;
         } else {
-            boolean z = auVar.abH == 1;
+            boolean z = ayVar.abS == 1;
             long j = TbadkCoreApplication.getInst().currentAccountFlowerNum;
             if (z) {
                 if (TbadkCoreApplication.getInst().isHaokan()) {
@@ -275,25 +275,25 @@ public class b implements com.baidu.live.s.c {
                     if (j > 0 && !isDebug) {
                         return false;
                     }
-                    this.feq = true;
+                    this.fhw = true;
                 }
             } else if (j > 0 && !isDebug) {
                 return false;
             } else {
-                this.feq = true;
+                this.fhw = true;
             }
             return true;
         }
     }
 
-    @Override // com.baidu.live.s.c
+    @Override // com.baidu.live.u.c
     public void release() {
         this.currLiveId = 0L;
-        this.feq = false;
-        this.fer = false;
+        this.fhw = false;
+        this.fhx = false;
         TbConfig.FLOWER_GUIDE_STATUS = 0;
         this.handler.removeCallbacksAndMessages(null);
-        wN();
+        xe();
     }
 
     private boolean eE(Context context) {

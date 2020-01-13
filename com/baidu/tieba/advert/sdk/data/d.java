@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static String getImei(Context context) {
         String str;
@@ -30,7 +30,7 @@ public class d {
         return Build.MODEL;
     }
 
-    public static String aWz() {
+    public static String aWT() {
         return Build.VERSION.RELEASE;
     }
 

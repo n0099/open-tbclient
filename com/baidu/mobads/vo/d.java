@@ -21,7 +21,7 @@ import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class d implements IXAdRequestInfo {
     protected Context d;
     protected Activity e;

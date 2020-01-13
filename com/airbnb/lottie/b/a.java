@@ -9,7 +9,7 @@ import android.view.View;
 import com.airbnb.lottie.model.h;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     private final AssetManager assetManager;
     @Nullable

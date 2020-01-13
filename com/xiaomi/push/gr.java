@@ -11,63 +11,63 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class gr {
 
     /* renamed from: a  reason: collision with other field name */
-    private static al f426a = new al(true);
+    private static al f424a = new al(true);
     private static volatile int a = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private static long f425a = System.currentTimeMillis();
+    private static long f423a = System.currentTimeMillis();
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Object f428a = new Object();
+    private static final Object f426a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private static List<a> f430a = Collections.synchronizedList(new ArrayList());
+    private static List<a> f428a = Collections.synchronizedList(new ArrayList());
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f429a = "";
+    private static String f427a = "";
 
     /* renamed from: a  reason: collision with other field name */
-    private static com.xiaomi.push.providers.a f427a = null;
+    private static com.xiaomi.push.providers.a f425a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public long f431a;
+        public long f429a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f432a;
+        public String f430a;
         public int b;
 
         /* renamed from: b  reason: collision with other field name */
-        public long f433b;
+        public long f431b;
 
         /* renamed from: b  reason: collision with other field name */
-        public String f434b;
+        public String f432b;
 
         public a(String str, long j, int i, int i2, String str2, long j2) {
-            this.f432a = "";
-            this.f431a = 0L;
+            this.f430a = "";
+            this.f429a = 0L;
             this.a = -1;
             this.b = -1;
-            this.f434b = "";
-            this.f433b = 0L;
-            this.f432a = str;
-            this.f431a = j;
+            this.f432b = "";
+            this.f431b = 0L;
+            this.f430a = str;
+            this.f429a = j;
             this.a = i;
             this.b = i2;
-            this.f434b = str2;
-            this.f433b = j2;
+            this.f432b = str2;
+            this.f431b = j2;
         }
 
         public boolean a(a aVar) {
-            return TextUtils.equals(aVar.f432a, this.f432a) && TextUtils.equals(aVar.f434b, this.f434b) && aVar.a == this.a && aVar.b == this.b && Math.abs(aVar.f431a - this.f431a) <= 5000;
+            return TextUtils.equals(aVar.f430a, this.f430a) && TextUtils.equals(aVar.f432b, this.f432b) && aVar.a == this.a && aVar.b == this.b && Math.abs(aVar.f429a - this.f429a) <= 5000;
         }
     }
 
@@ -88,8 +88,8 @@ public class gr {
 
     private static long a(int i, long j, boolean z, long j2, boolean z2) {
         if (z && z2) {
-            long j3 = f425a;
-            f425a = j2;
+            long j3 = f423a;
+            f423a = j2;
             if (j2 - j3 > 30000 && j > 1024) {
                 return 2 * j;
             }
@@ -98,25 +98,25 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static com.xiaomi.push.providers.a m302a(Context context) {
-        if (f427a != null) {
-            return f427a;
+    private static com.xiaomi.push.providers.a m311a(Context context) {
+        if (f425a != null) {
+            return f425a;
         }
-        f427a = new com.xiaomi.push.providers.a(context);
-        return f427a;
+        f425a = new com.xiaomi.push.providers.a(context);
+        return f425a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static synchronized String m303a(Context context) {
+    private static synchronized String m312a(Context context) {
         String str;
         synchronized (gr.class) {
-            str = !TextUtils.isEmpty(f429a) ? f429a : "";
+            str = !TextUtils.isEmpty(f427a) ? f427a : "";
         }
         return str;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m305a(Context context) {
+    public static void m314a(Context context) {
         a = b(context);
     }
 
@@ -126,12 +126,12 @@ public class gr {
         if (context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
             return;
         }
-        synchronized (f428a) {
-            isEmpty = f430a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m303a(context) : "", j));
+        synchronized (f426a) {
+            isEmpty = f428a.isEmpty();
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m312a(context) : "", j));
         }
         if (isEmpty) {
-            f426a.a(new gs(context), 5000L);
+            f424a.a(new gs(context), 5000L);
         }
     }
 
@@ -140,20 +140,20 @@ public class gr {
     }
 
     private static void a(a aVar) {
-        for (a aVar2 : f430a) {
+        for (a aVar2 : f428a) {
             if (aVar2.a(aVar)) {
-                aVar2.f433b += aVar.f433b;
+                aVar2.f431b += aVar.f431b;
                 return;
             }
         }
-        f430a.add(aVar);
+        f428a.add(aVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m306a(String str) {
+    public static synchronized void m315a(String str) {
         synchronized (gr.class) {
             if (!l.d() && !TextUtils.isEmpty(str)) {
-                f429a = str;
+                f427a = str;
             }
         }
     }
@@ -181,17 +181,17 @@ public class gr {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, List<a> list) {
         try {
-            synchronized (com.xiaomi.push.providers.a.f809a) {
-                SQLiteDatabase writableDatabase = m302a(context).getWritableDatabase();
+            synchronized (com.xiaomi.push.providers.a.f807a) {
+                SQLiteDatabase writableDatabase = m311a(context).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 for (a aVar : list) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("package_name", aVar.f432a);
-                    contentValues.put("message_ts", Long.valueOf(aVar.f431a));
+                    contentValues.put("package_name", aVar.f430a);
+                    contentValues.put("message_ts", Long.valueOf(aVar.f429a));
                     contentValues.put("network_type", Integer.valueOf(aVar.a));
-                    contentValues.put("bytes", Long.valueOf(aVar.f433b));
+                    contentValues.put("bytes", Long.valueOf(aVar.f431b));
                     contentValues.put("rcv", Integer.valueOf(aVar.b));
-                    contentValues.put("imsi", aVar.f434b);
+                    contentValues.put("imsi", aVar.f432b);
                     writableDatabase.insert("traffic", null, contentValues);
                 }
                 writableDatabase.setTransactionSuccessful();

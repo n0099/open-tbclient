@@ -35,7 +35,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.security.auth.x500.X500Principal;
 import org.apache.http.cookie.SM;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BdNetEngine extends HandlerThread implements INoProGuard {
     private static final int ALT_DNS_NAME = 2;
     private static final int ALT_IPA_NAME = 7;
@@ -71,7 +71,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     private static long mWaitTime = 10000;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         final String a;
         final int b;
@@ -302,7 +302,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         BdNetTask onNetDownloadComplete(BdNetEngine bdNetEngine, BdNetTask bdNetTask, boolean z);
 

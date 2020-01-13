@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b implements com.baidu.swan.apps.as.d.b<i.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, com.baidu.swan.apps.as.d.b<i.a>> bJT = new HashMap();
-    private final List<com.baidu.swan.apps.as.d.c<i.a, Boolean>> bJU = new ArrayList();
+    private final Map<String, com.baidu.swan.apps.as.d.b<i.a>> bKD = new HashMap();
+    private final List<com.baidu.swan.apps.as.d.c<i.a, Boolean>> bKE = new ArrayList();
 
     public b a(final com.baidu.swan.apps.as.d.b<i.a> bVar, String... strArr) {
         if (bVar != null && strArr != null && strArr.length > 0) {
@@ -21,7 +21,7 @@ public final class b implements com.baidu.swan.apps.as.d.b<i.a> {
                 /* renamed from: onCallback */
                 public void B(String str) {
                     if (!TextUtils.isEmpty(str)) {
-                        b.this.bJT.put(str, bVar);
+                        b.this.bKD.put(str, bVar);
                     }
                 }
             }, strArr);
@@ -31,7 +31,7 @@ public final class b implements com.baidu.swan.apps.as.d.b<i.a> {
 
     public b a(com.baidu.swan.apps.as.d.c<i.a, Boolean> cVar) {
         if (cVar != null) {
-            this.bJU.add(cVar);
+            this.bKE.add(cVar);
         }
         return this;
     }
@@ -44,7 +44,7 @@ public final class b implements com.baidu.swan.apps.as.d.b<i.a> {
         if (DEBUG) {
             Log.i("EventHandler", "handle: " + aVar);
         }
-        if (c(aVar) && (bVar = this.bJT.get(aVar.id)) != null) {
+        if (c(aVar) && (bVar = this.bKD.get(aVar.id)) != null) {
             bVar.B(aVar);
         }
     }
@@ -53,7 +53,7 @@ public final class b implements com.baidu.swan.apps.as.d.b<i.a> {
         if (aVar == null) {
             return false;
         }
-        for (com.baidu.swan.apps.as.d.c<i.a, Boolean> cVar : this.bJU) {
+        for (com.baidu.swan.apps.as.d.c<i.a, Boolean> cVar : this.bKE) {
             if (cVar != null && !cVar.C(aVar).booleanValue()) {
                 return false;
             }

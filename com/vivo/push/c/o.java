@@ -4,8 +4,9 @@ import android.text.TextUtils;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.model.UnvarnishedMessage;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
-final class o extends aa {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public final class o extends aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(com.vivo.push.y yVar) {
         super(yVar);

@@ -6,13 +6,13 @@ import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k {
-    public String abl;
-    public String bWT;
-    public String eBX;
-    public int eBY;
-    public int eBt;
-    public long eBu;
-    public boolean etS;
+    public String abx;
+    public String bXf;
+    public int eCE;
+    public long eCF;
+    public String eDi;
+    public int eDj;
+    public boolean evd;
     public String portrait;
     public String rank;
     public String score;
@@ -48,8 +48,8 @@ public class k {
                         this.userName = jSONObject.optString("user_name");
                         this.score = jSONObject.optString("score");
                         this.rank = jSONObject.optString("rank");
-                        this.etS = jSONObject.optInt("follow_status") != 1;
-                        this.eBX = jSONObject.optString("guard_club_id");
+                        this.evd = jSONObject.optInt("follow_status") != 1;
+                        this.eDi = jSONObject.optString("guard_club_id");
                         String str6 = "0";
                         str2 = jSONObject.optString("anchor_id");
                         try {
@@ -60,19 +60,19 @@ public class k {
                             e = e2;
                             e.printStackTrace();
                             str2 = str6;
-                            this.abl = str2;
-                            this.eBt = jSONObject.optInt("member_level");
-                            this.eBu = jSONObject.optLong("next_level_need_score");
+                            this.abx = str2;
+                            this.eCE = jSONObject.optInt("member_level");
+                            this.eCF = jSONObject.optLong("next_level_need_score");
                             this.portrait = jSONObject.optString("portrait");
-                            this.bWT = jSONObject.optString("bd_portrait");
-                            this.eBY = jSONObject.optInt("attenuat_date");
+                            this.bXf = jSONObject.optString("bd_portrait");
+                            this.eDj = jSONObject.optInt("attenuat_date");
                         }
-                        this.abl = str2;
-                        this.eBt = jSONObject.optInt("member_level");
-                        this.eBu = jSONObject.optLong("next_level_need_score");
+                        this.abx = str2;
+                        this.eCE = jSONObject.optInt("member_level");
+                        this.eCF = jSONObject.optLong("next_level_need_score");
                         this.portrait = jSONObject.optString("portrait");
-                        this.bWT = jSONObject.optString("bd_portrait");
-                        this.eBY = jSONObject.optInt("attenuat_date");
+                        this.bXf = jSONObject.optString("bd_portrait");
+                        this.eDj = jSONObject.optInt("attenuat_date");
                     }
                 } catch (Exception e3) {
                     BdLog.e(e3.getMessage());
@@ -85,8 +85,8 @@ public class k {
             this.userName = jSONObject.optString("user_name");
             this.score = jSONObject.optString("score");
             this.rank = jSONObject.optString("rank");
-            this.etS = jSONObject.optInt("follow_status") != 1;
-            this.eBX = jSONObject.optString("guard_club_id");
+            this.evd = jSONObject.optInt("follow_status") != 1;
+            this.eDi = jSONObject.optString("guard_club_id");
             String str62 = "0";
             try {
                 str2 = jSONObject.optString("anchor_id");
@@ -96,12 +96,12 @@ public class k {
             } catch (NumberFormatException e5) {
                 e = e5;
             }
-            this.abl = str2;
-            this.eBt = jSONObject.optInt("member_level");
-            this.eBu = jSONObject.optLong("next_level_need_score");
+            this.abx = str2;
+            this.eCE = jSONObject.optInt("member_level");
+            this.eCF = jSONObject.optLong("next_level_need_score");
             this.portrait = jSONObject.optString("portrait");
-            this.bWT = jSONObject.optString("bd_portrait");
-            this.eBY = jSONObject.optInt("attenuat_date");
+            this.bXf = jSONObject.optString("bd_portrait");
+            this.eDj = jSONObject.optInt("attenuat_date");
         }
     }
 }

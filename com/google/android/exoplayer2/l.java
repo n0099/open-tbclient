@@ -1,23 +1,23 @@
 package com.google.android.exoplayer2;
 
 import java.util.HashSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class l {
-    private static final HashSet<String> lUS = new HashSet<>();
-    private static String lUT = "goog.exo.core";
+    private static final HashSet<String> lYJ = new HashSet<>();
+    private static String lYK = "goog.exo.core";
 
-    public static synchronized String dqV() {
+    public static synchronized String dsh() {
         String str;
         synchronized (l.class) {
-            str = lUT;
+            str = lYK;
         }
         return str;
     }
 
-    public static synchronized void ON(String str) {
+    public static synchronized void OY(String str) {
         synchronized (l.class) {
-            if (lUS.add(str)) {
-                lUT += ", " + str;
+            if (lYJ.add(str)) {
+                lYK += ", " + str;
             }
         }
     }

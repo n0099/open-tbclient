@@ -1,9 +1,9 @@
 package kotlin.collections;
 
 import java.util.Iterator;
-/* loaded from: classes4.dex */
-public abstract class z implements Iterator<Long> {
-    public abstract long dyI();
+/* loaded from: classes5.dex */
+public abstract class z implements Iterator<Double> {
+    public abstract double nextDouble();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,8 +12,8 @@ public abstract class z implements Iterator<Long> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dEI */
-    public final Long next() {
-        return Long.valueOf(dyI());
+    /* renamed from: dIT */
+    public final Double next() {
+        return Double.valueOf(nextDouble());
     }
 }

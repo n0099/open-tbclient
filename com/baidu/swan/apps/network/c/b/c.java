@@ -3,26 +3,26 @@ package com.baidu.swan.apps.network.c.b;
 import android.util.Log;
 import com.baidu.swan.apps.runtime.e;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c extends b {
     private final boolean DEBUG;
     private final String TAG = "SwanAppPayCheckNode";
 
     @Override // com.baidu.swan.apps.network.c.b.b
     public void av(JSONObject jSONObject) {
-        e ZT;
-        com.baidu.swan.apps.setting.a aac;
+        e aaq;
+        com.baidu.swan.apps.setting.a aaz;
         if (this.DEBUG) {
             Log.d(this.TAG, "onUpdate: ");
         }
-        if (jSONObject == null || (ZT = e.ZT()) == null || (aac = ZT.aac()) == null) {
+        if (jSONObject == null || (aaq = e.aaq()) == null || (aaz = aaq.aaz()) == null) {
             return;
         }
-        aac.putString("note_data_pay_check_list", jSONObject.toString());
+        aaz.putString("note_data_pay_check_list", jSONObject.toString());
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void Wy() {
+    public void WV() {
         if (this.DEBUG) {
             Log.d(this.TAG, "onFiltered: ");
         }
@@ -36,7 +36,7 @@ public final class c extends b {
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public String Wx() {
+    public String WU() {
         return "payinfo";
     }
 }

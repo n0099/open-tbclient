@@ -15,18 +15,18 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private ByteBuffer[] bze;
-    private ByteBuffer[] bzf;
+    private ByteBuffer[] bzR;
+    private ByteBuffer[] bzS;
     private MediaCodec.BufferInfo mBufferInfo;
     private int mChannel;
     private String mFormat;
     private MediaCodec mMediaCodec;
     private int mSampleRate;
-    private long bzg = 0;
-    private ByteArrayOutputStream Jm = new ByteArrayOutputStream();
+    private long bzT = 0;
+    private ByteArrayOutputStream Js = new ByteArrayOutputStream();
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public a(String str, int i, int i2, int i3) {
@@ -81,8 +81,8 @@ public class a {
                         this.mMediaCodec = MediaCodec.createByCodecName(selectCodec.getName());
                         this.mMediaCodec.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
                         this.mMediaCodec.start();
-                        this.bze = this.mMediaCodec.getInputBuffers();
-                        this.bzf = this.mMediaCodec.getOutputBuffers();
+                        this.bzR = this.mMediaCodec.getInputBuffers();
+                        this.bzS = this.mMediaCodec.getOutputBuffers();
                         this.mBufferInfo = new MediaCodec.BufferInfo();
                         return;
                     }
@@ -154,7 +154,7 @@ public class a {
         return null;
     }
 
-    private long aj(long j) {
+    private long am(long j) {
         if (this.mSampleRate == 0) {
             return 0L;
         }
@@ -164,10 +164,10 @@ public class a {
     private byte[] n(int i, int i2, int i3, int i4) {
         int i5 = i + 7;
         byte[] bArr = new byte[i5];
-        int ff = ff(i3);
+        int fg = fg(i3);
         bArr[0] = -1;
         bArr[1] = -15;
-        bArr[2] = (byte) ((ff << 2) + ((i2 - 1) << 6) + (i4 >> 2));
+        bArr[2] = (byte) ((fg << 2) + ((i2 - 1) << 6) + (i4 >> 2));
         bArr[3] = (byte) (((i4 & 3) << 6) + (i5 >> 11));
         bArr[4] = (byte) ((i5 & 2047) >> 3);
         bArr[5] = (byte) (((i5 & 7) << 5) + 31);
@@ -175,7 +175,7 @@ public class a {
         return bArr;
     }
 
-    private int ff(int i) {
+    private int fg(int i) {
         switch (i) {
             case 7350:
                 return 12;
@@ -214,37 +214,37 @@ public class a {
             }
             int dequeueInputBuffer = this.mMediaCodec.dequeueInputBuffer(-1L);
             if (dequeueInputBuffer >= 0) {
-                ByteBuffer byteBuffer = this.bze[dequeueInputBuffer];
+                ByteBuffer byteBuffer = this.bzR[dequeueInputBuffer];
                 byteBuffer.clear();
                 byteBuffer.put(bArr);
                 byteBuffer.limit(bArr.length);
-                this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, aj(this.bzg), 0);
-                this.bzg++;
+                this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, am(this.bzT), 0);
+                this.bzT++;
             }
             int dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
             while (dequeueOutputBuffer >= 0) {
                 int i = this.mBufferInfo.size;
-                ByteBuffer byteBuffer2 = this.bzf[dequeueOutputBuffer];
+                ByteBuffer byteBuffer2 = this.bzS[dequeueOutputBuffer];
                 byteBuffer2.position(this.mBufferInfo.offset);
                 byteBuffer2.limit(this.mBufferInfo.offset + i);
                 byte[] n = n(i, 2, this.mSampleRate, this.mChannel);
                 byteBuffer2.get(n, 7, i);
                 byteBuffer2.position(this.mBufferInfo.offset);
                 try {
-                    this.Jm.write(n);
+                    this.Js.write(n);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 this.mMediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
                 dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
             }
-            bArr = this.Jm.toByteArray();
+            bArr = this.Js.toByteArray();
             try {
-                this.Jm.flush();
+                this.Js.flush();
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            this.Jm.reset();
+            this.Js.reset();
         }
         return bArr;
     }

@@ -5,110 +5,110 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.data.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class af<T extends com.baidu.tbadk.core.data.a> extends v.a {
-    private com.baidu.tieba.card.z<T> LA;
-    private q LB;
-    private ac LC;
-    private y LD;
-    private ad<T> Lx;
-    private w Ly;
-    private aj Lz;
+    private ad<T> LC;
+    private w LD;
+    private aj LE;
+    private com.baidu.tieba.card.z<T> LH;
+    private q LI;
+    private ac LJ;
+    private y LK;
     private BdUniqueId mId;
 
     public af(ad<T> adVar) {
         super(adVar.getView());
-        this.LA = null;
-        this.Lx = adVar;
+        this.LH = null;
+        this.LC = adVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.v.a
     public View getView() {
-        return this.Lx.getView();
+        return this.LC.getView();
     }
 
-    public ad<T> mT() {
-        return this.Lx;
+    public ad<T> mU() {
+        return this.LC;
     }
 
     public w ad(boolean z) {
-        if (this.Ly == null) {
-            this.Ly = new w(((TbPageContextSupport) this.Lx.getView().getContext()).getPageContext(), z);
-            this.Ly.Ky.setUniqueId(this.mId);
+        if (this.LD == null) {
+            this.LD = new w(((TbPageContextSupport) this.LC.getView().getContext()).getPageContext(), z);
+            this.LD.KE.setUniqueId(this.mId);
         }
-        this.Lx.a(this.Ly);
-        return this.Ly;
+        this.LC.a(this.LD);
+        return this.LD;
     }
 
     public aj ae(boolean z) {
-        if (this.Lz == null) {
-            this.Lz = new aj(((TbPageContextSupport) this.Lx.getView().getContext()).getPageContext(), z);
+        if (this.LE == null) {
+            this.LE = new aj(((TbPageContextSupport) this.LC.getView().getContext()).getPageContext(), z);
         }
-        this.Lx.a(this.Lz);
-        return this.Lz;
+        this.LC.a(this.LE);
+        return this.LE;
     }
 
-    public q mU() {
+    public q mV() {
         return af(true);
     }
 
     public q af(boolean z) {
-        if (this.LB == null) {
-            this.LB = new q(this.Lx.getContext());
+        if (this.LI == null) {
+            this.LI = new q(this.LC.getContext());
         }
-        this.LB.g(this.mId);
-        this.LB.aa(z);
-        this.Lx.a(this.LB);
-        return this.LB;
+        this.LI.g(this.mId);
+        this.LI.aa(z);
+        this.LC.a(this.LI);
+        return this.LI;
     }
 
-    public ac mV() {
-        if (this.LC == null) {
-            this.LC = new ac(((TbPageContextSupport) this.Lx.getView().getContext()).getPageContext());
-            this.LC.setPageId(this.mId);
+    public ac mW() {
+        if (this.LJ == null) {
+            this.LJ = new ac(((TbPageContextSupport) this.LC.getView().getContext()).getPageContext());
+            this.LJ.setPageId(this.mId);
         }
-        this.Lx.a(this.LC);
-        return this.LC;
+        this.LC.a(this.LJ);
+        return this.LJ;
     }
 
     public y aU(int i) {
-        if (this.LD == null) {
-            this.LD = new y(this.Lx.getView().getContext(), i);
-            this.LD.setPageId(this.mId);
+        if (this.LK == null) {
+            this.LK = new y(this.LC.getView().getContext(), i);
+            this.LK.setPageId(this.mId);
         }
-        this.Lx.a(this.LD);
-        return this.LD;
+        this.LC.a(this.LK);
+        return this.LK;
     }
 
     public void b(T t) {
         boolean z = false;
         if (t == null) {
-            this.Lx.getView().setVisibility(8);
+            this.LC.getView().setVisibility(8);
             return;
         }
-        this.Lx.getView().setVisibility(0);
-        if (this.Ly != null && this.Ly.Ky != null) {
-            if (!t.isSelf() && t.axz() != null) {
-                this.Ly.A(t.axz());
-                this.Ly.Ky.setVisibility(0);
+        this.LC.getView().setVisibility(0);
+        if (this.LD != null && this.LD.KE != null) {
+            if (!t.isSelf() && t.axS() != null) {
+                this.LD.A(t.axS());
+                this.LD.KE.setVisibility(0);
                 z = true;
-            } else if (this.Ly != null && this.Ly.Ky != null) {
-                this.Ly.Ky.setVisibility(8);
+            } else if (this.LD != null && this.LD.KE != null) {
+                this.LD.KE.setVisibility(8);
             }
         }
-        this.Lx.c((ad<T>) t);
-        if (this.Lz != null) {
-            this.Lz.A(t.axx());
+        this.LC.c((ad<T>) t);
+        if (this.LE != null) {
+            this.LE.A(t.axQ());
         }
-        if (this.LC != null) {
-            this.LC.ac(z);
-            this.LC.A(t.axx());
+        if (this.LJ != null) {
+            this.LJ.ac(z);
+            this.LJ.A(t.axQ());
         }
-        if (this.LB != null) {
-            this.LB.A(t.axx());
+        if (this.LI != null) {
+            this.LI.A(t.axQ());
         }
-        if (this.LD != null) {
-            this.LD.A(t.axx());
+        if (this.LK != null) {
+            this.LK.A(t.axQ());
         }
     }
 
@@ -117,6 +117,6 @@ public class af<T extends com.baidu.tbadk.core.data.a> extends v.a {
     }
 
     public void b(com.baidu.tieba.card.z<T> zVar) {
-        this.Lx.a(zVar);
+        this.LC.a(zVar);
     }
 }

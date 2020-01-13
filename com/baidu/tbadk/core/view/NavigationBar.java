@@ -6,6 +6,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -64,6 +67,9 @@ public class NavigationBar extends RelativeLayout {
     private TextView mRegisterView;
     private LinearLayout mRightBox;
     private View mRootView;
+    private int mSpecialBackgroundBackupColorId;
+    private Drawable mSpecialBackgroundDrawable;
+    private Paint mSpecialBackgroundPaint;
     private View mStatusBarView;
     public TextView mTextTitle;
     private View mUnloginView;
@@ -359,6 +365,28 @@ public class NavigationBar extends RelativeLayout {
         this.mCenterBox.layout(this.mLeftBox.getMeasuredWidth() + getPaddingLeft(), this.mCenterBox.getTop(), this.containerWidth - (this.mRightBox.getMeasuredWidth() + getPaddingRight()), this.mCenterBox.getBottom());
     }
 
+    @Override // android.view.View
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (this.mSpecialBackgroundDrawable != null) {
+            int measuredHeight = getMeasuredHeight() - ((int) ((this.mSpecialBackgroundDrawable.getIntrinsicHeight() / this.mSpecialBackgroundDrawable.getIntrinsicWidth()) * getWidth()));
+            this.mSpecialBackgroundDrawable.setBounds(0, measuredHeight, getMeasuredWidth(), getMeasuredHeight());
+            this.mSpecialBackgroundDrawable.draw(canvas);
+            if (measuredHeight > 0) {
+                if (this.mSpecialBackgroundPaint == null) {
+                    this.mSpecialBackgroundPaint = new Paint();
+                    this.mSpecialBackgroundPaint.setColor(am.getColor(this.mSpecialBackgroundBackupColorId));
+                }
+                canvas.drawRect(0.0f, 0.0f, getWidth(), measuredHeight, this.mSpecialBackgroundPaint);
+            }
+        }
+    }
+
+    public void setSpecialBackground(Drawable drawable, int i) {
+        this.mSpecialBackgroundDrawable = drawable;
+        this.mSpecialBackgroundBackupColorId = i;
+    }
+
     public TextView setCenterTextTitle(String str) {
         if (str != null) {
             this.mCenterText.setText(str);
@@ -645,9 +673,9 @@ public class NavigationBar extends RelativeLayout {
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             am.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else if (this.mIsClose) {
-            SvgManager.aDW().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aEp().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
-            SvgManager.aDW().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aEp().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -658,9 +686,9 @@ public class NavigationBar extends RelativeLayout {
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             am.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else if (this.mIsClose) {
-            SvgManager.aDW().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aEp().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, (SvgManager.SvgResourceStateType) null);
         } else {
-            SvgManager.aDW().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, i2, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aEp().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, i2, (SvgManager.SvgResourceStateType) null);
         }
     }
 

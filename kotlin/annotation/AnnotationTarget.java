@@ -1,5 +1,5 @@
 package kotlin.annotation;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum AnnotationTarget {
     CLASS,
     ANNOTATION_CLASS,

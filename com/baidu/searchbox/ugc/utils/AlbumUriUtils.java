@@ -8,7 +8,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.ugc.album.R;
 import com.baidu.searchbox.ugc.model.ImageStruct;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlbumUriUtils {
     public static Uri getUri(String str) {
         if (TextUtils.isEmpty(str)) {

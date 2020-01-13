@@ -25,7 +25,7 @@ import org.apache.http.message.BasicNameValuePair;
 public abstract class c extends BaseAdapter {
     protected Context mContext;
     protected List<ImMessageCenterShowItemData> mList = null;
-    protected boolean hnZ = false;
+    protected boolean hrC = false;
 
     protected abstract BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str);
 
@@ -58,7 +58,7 @@ public abstract class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vR */
+    /* renamed from: vW */
     public ImMessageCenterShowItemData getItem(int i) {
         if (this.mList == null || this.mList.size() == 0 || i < 0 || i >= getCount()) {
             return null;
@@ -79,12 +79,12 @@ public abstract class c extends BaseAdapter {
         }
         if (aVar == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.chat_list_item, viewGroup, false);
-            aVar = bX(view);
+            aVar = cc(view);
             view.setTag(aVar);
         }
         am.setBackgroundResource(view, R.drawable.list_selector);
         am.setBackgroundResource(aVar.mLine, R.color.cp_bg_line_e);
-        aVar.hoa.setVisibility(0);
+        aVar.hrD.setVisibility(0);
         aVar.mLine.setVisibility(0);
         ImMessageCenterShowItemData item = getItem(i);
         if (item != null) {
@@ -102,51 +102,51 @@ public abstract class c extends BaseAdapter {
 
     protected void a(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (imMessageCenterShowItemData != null) {
-            aVar.hoc.setText(imMessageCenterShowItemData.getFriendNameShow());
+            aVar.hrF.setText(imMessageCenterShowItemData.getFriendNameShow());
         }
     }
 
     protected void b(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (aVar != null) {
             if (imMessageCenterShowItemData == null) {
-                aVar.hog.setVisibility(8);
+                aVar.hrJ.setVisibility(8);
             } else if (b(imMessageCenterShowItemData)) {
                 ChatSetting groupSetting = imMessageCenterShowItemData.getGroupSetting();
                 if (groupSetting == null) {
-                    aVar.hog.setVisibility(8);
+                    aVar.hrJ.setVisibility(8);
                 } else if (!groupSetting.isAcceptNotify()) {
-                    aVar.hog.setVisibility(0);
-                    am.setImageResource(aVar.hog, R.drawable.icon_news_stop);
+                    aVar.hrJ.setVisibility(0);
+                    am.setImageResource(aVar.hrJ, R.drawable.icon_news_stop);
                 } else {
-                    aVar.hog.setVisibility(8);
+                    aVar.hrJ.setVisibility(8);
                 }
             } else {
-                aVar.hog.setVisibility(8);
+                aVar.hrJ.setVisibility(8);
             }
         }
     }
 
     protected void c(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        if (this.hnZ) {
-            aVar.hoi.setVisibility(0);
+        if (this.hrC) {
+            aVar.hrL.setVisibility(0);
             if (imMessageCenterShowItemData.isSelected()) {
-                am.setBackgroundResource(aVar.hoi, R.drawable.btn_bgb_choice_s);
-                am.setBackgroundColor(aVar.hoa, R.color.cp_bg_line_e);
+                am.setBackgroundResource(aVar.hrL, R.drawable.btn_bgb_choice_s);
+                am.setBackgroundColor(aVar.hrD, R.color.cp_bg_line_e);
                 return;
             }
-            am.setBackgroundResource(aVar.hoi, R.drawable.btn_bgb_choice_n);
-            am.setBackgroundColor(aVar.hoa, R.color.cp_bg_line_e);
+            am.setBackgroundResource(aVar.hrL, R.drawable.btn_bgb_choice_n);
+            am.setBackgroundColor(aVar.hrD, R.color.cp_bg_line_e);
             return;
         }
-        aVar.hoi.setVisibility(8);
-        aVar.hoa.setBackgroundDrawable(am.ke(R.color.cp_bg_line_e));
+        aVar.hrL.setVisibility(8);
+        aVar.hrD.setBackgroundDrawable(am.ke(R.color.cp_bg_line_e));
     }
 
     protected void d(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (TextUtils.isEmpty(imMessageCenterShowItemData.getMsgContent())) {
-            aVar.hod.setText("");
+            aVar.hrG.setText("");
         } else {
-            aVar.hod.setText(imMessageCenterShowItemData.getMsgContent());
+            aVar.hrG.setText(imMessageCenterShowItemData.getMsgContent());
         }
     }
 
@@ -158,7 +158,7 @@ public abstract class c extends BaseAdapter {
             if (imMessageCenterShowItemData.getServerTime() != 0) {
                 str = aq.getChatTimeString(date);
             }
-            aVar.hoe.setText(str);
+            aVar.hrH.setText(str);
         }
     }
 
@@ -166,59 +166,59 @@ public abstract class c extends BaseAdapter {
         int i;
         int unReadCount = imMessageCenterShowItemData.getUnReadCount();
         if (unReadCount > 0) {
-            if (d.aIw().aIz() == 0) {
+            if (d.aIQ().aIT() == 0) {
                 i = 0;
             } else {
                 BasicNameValuePair a2 = a(imMessageCenterShowItemData, unReadCount, unReadCount > 99 ? StringHelper.STRING_MORE : String.valueOf(unReadCount));
                 i = (a2 == null || a2.getName() == null || a2.getName().length() <= 0) ? unReadCount : com.baidu.adp.lib.f.b.toInt(a2.getName(), 0);
             }
-            aVar.hof.refresh(i);
-            aVar.hof.setVisibility(0);
+            aVar.hrI.refresh(i);
+            aVar.hrI.setVisibility(0);
         } else {
-            aVar.hof.setVisibility(8);
+            aVar.hrI.setVisibility(8);
         }
-        am.setViewTextColor(aVar.hoc, R.color.cp_cont_b, 1);
-        am.setViewTextColor(aVar.hod, R.color.cp_cont_d, 1);
-        am.setViewTextColor(aVar.hoe, R.color.cp_cont_d, 1);
+        am.setViewTextColor(aVar.hrF, R.color.cp_cont_b, 1);
+        am.setViewTextColor(aVar.hrG, R.color.cp_cont_d, 1);
+        am.setViewTextColor(aVar.hrH, R.color.cp_cont_d, 1);
     }
 
-    public boolean bPI() {
-        return this.hnZ;
+    public boolean bQR() {
+        return this.hrC;
     }
 
-    public void mS(boolean z) {
-        this.hnZ = z;
+    public void ne(boolean z) {
+        this.hrC = z;
     }
 
-    protected a bX(View view) {
+    protected a cc(View view) {
         a aVar = new a();
-        aVar.hoa = (ViewGroup) view.findViewById(R.id.chat_item);
-        aVar.hob = (HeadImageView) view.findViewById(R.id.chat_head);
-        aVar.hoc = (TextView) view.findViewById(R.id.chat_name);
-        aVar.hod = (TextView) view.findViewById(R.id.last_chat_content);
-        aVar.hoe = (TextView) view.findViewById(R.id.chat_time);
+        aVar.hrD = (ViewGroup) view.findViewById(R.id.chat_item);
+        aVar.hrE = (HeadImageView) view.findViewById(R.id.chat_head);
+        aVar.hrF = (TextView) view.findViewById(R.id.chat_name);
+        aVar.hrG = (TextView) view.findViewById(R.id.last_chat_content);
+        aVar.hrH = (TextView) view.findViewById(R.id.chat_time);
         aVar.mLine = view.findViewById(R.id.line);
-        aVar.hof = (MessageRedDotView) view.findViewById(R.id.new_message);
-        aVar.hog = (ImageView) view.findViewById(R.id.iv_bell);
-        aVar.hoh = (ImageView) view.findViewById(R.id.send_status);
-        aVar.hoi = (ImageView) view.findViewById(R.id.select_status);
-        aVar.hob.setPlaceHolder(1);
+        aVar.hrI = (MessageRedDotView) view.findViewById(R.id.new_message);
+        aVar.hrJ = (ImageView) view.findViewById(R.id.iv_bell);
+        aVar.hrK = (ImageView) view.findViewById(R.id.send_status);
+        aVar.hrL = (ImageView) view.findViewById(R.id.select_status);
+        aVar.hrE.setPlaceHolder(1);
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
     public class a {
-        public ViewGroup hoa = null;
-        public HeadImageView hob = null;
-        public TextView hoc = null;
-        public TextView hod = null;
-        public TextView hoe = null;
-        public MessageRedDotView hof = null;
+        public ViewGroup hrD = null;
+        public HeadImageView hrE = null;
+        public TextView hrF = null;
+        public TextView hrG = null;
+        public TextView hrH = null;
+        public MessageRedDotView hrI = null;
         public View mLine = null;
-        public ImageView hog = null;
-        public ImageView hoh = null;
-        public ImageView hoi = null;
+        public ImageView hrJ = null;
+        public ImageView hrK = null;
+        public ImageView hrL = null;
 
         protected a() {
         }
@@ -227,19 +227,19 @@ public abstract class c extends BaseAdapter {
     protected void h(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (aVar != null && imMessageCenterShowItemData != null && imMessageCenterShowItemData.getOwnerName() != null) {
             if (a(imMessageCenterShowItemData)) {
-                aVar.hoh.setVisibility(0);
+                aVar.hrK.setVisibility(0);
                 if (imMessageCenterShowItemData.getSendStatus() == 2) {
-                    am.setBackgroundResource(aVar.hoh, R.drawable.icon_send_failed_information);
+                    am.setBackgroundResource(aVar.hrK, R.drawable.icon_send_failed_information);
                     return;
                 } else if (imMessageCenterShowItemData.getSendStatus() == 1) {
-                    am.setBackgroundResource(aVar.hoh, R.drawable.icon_send_in_information);
+                    am.setBackgroundResource(aVar.hrK, R.drawable.icon_send_in_information);
                     return;
                 } else {
-                    aVar.hoh.setVisibility(8);
+                    aVar.hrK.setVisibility(8);
                     return;
                 }
             }
-            aVar.hoh.setVisibility(8);
+            aVar.hrK.setVisibility(8);
         }
     }
 }

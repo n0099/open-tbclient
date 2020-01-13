@@ -10,71 +10,71 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes2.dex */
 public class AlaChallengeWaveView extends View {
-    public static final float eQE = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds16);
-    public static final float eQF = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds24);
-    public static final float eQG = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds32);
-    private boolean dwV;
-    private float[] eQH;
-    private float eQI;
-    private int eQJ;
-    private float[] eQK;
-    private float[] eQL;
-    private float[] eQM;
-    private float[] eQN;
-    private float[] eQO;
-    private int eQP;
+    public static final float eSh = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds16);
+    public static final float eSi = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds24);
+    public static final float eSj = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.e.sdk_ds32);
+    private boolean dxd;
+    private float[] eSk;
+    private float eSl;
+    private int eSm;
+    private float[] eSn;
+    private float[] eSo;
+    private float[] eSp;
+    private float[] eSq;
+    private float[] eSr;
+    private int eSs;
     private Paint mPaint;
     private ValueAnimator mValueAnimator;
 
     public AlaChallengeWaveView(Context context) {
         super(context);
-        this.eQH = new float[]{eQE, eQF, eQG};
+        this.eSk = new float[]{eSh, eSi, eSj};
         init();
     }
 
     public AlaChallengeWaveView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eQH = new float[]{eQE, eQF, eQG};
+        this.eSk = new float[]{eSh, eSi, eSj};
         init();
     }
 
     public AlaChallengeWaveView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eQH = new float[]{eQE, eQF, eQG};
+        this.eSk = new float[]{eSh, eSi, eSj};
         init();
     }
 
     private void init() {
-        this.eQP = getContext().getResources().getDimensionPixelSize(a.e.sdk_ds12);
-        this.eQI = getContext().getResources().getDimensionPixelSize(a.e.sdk_ds8);
-        this.eQJ = getContext().getResources().getColor(a.d.ala_challenge_yellow_color);
+        this.eSs = getContext().getResources().getDimensionPixelSize(a.e.sdk_ds12);
+        this.eSl = getContext().getResources().getDimensionPixelSize(a.e.sdk_ds8);
+        this.eSm = getContext().getResources().getColor(a.d.ala_challenge_yellow_color);
         this.mPaint = new Paint();
-        this.mPaint.setColor(this.eQJ);
-        this.mPaint.setStrokeWidth(this.eQI);
+        this.mPaint.setColor(this.eSm);
+        this.mPaint.setStrokeWidth(this.eSl);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
     }
 
     public void setWaveArray(float[] fArr) {
-        this.eQL = fArr;
-        if (this.eQL != null) {
-            this.eQK = new float[this.eQL.length];
-            for (int i = 0; i < this.eQL.length; i++) {
-                this.eQK[i] = this.eQL[i];
+        this.eSo = fArr;
+        if (this.eSo != null) {
+            this.eSn = new float[this.eSo.length];
+            for (int i = 0; i < this.eSo.length; i++) {
+                this.eSn[i] = this.eSo[i];
             }
         }
     }
 
     public void setEndWaveArray(float[] fArr) {
         if (fArr != null) {
-            this.eQO = new float[fArr.length];
+            this.eSr = new float[fArr.length];
             for (int i = 0; i < fArr.length; i++) {
-                this.eQO[i] = fArr[i];
+                this.eSr[i] = fArr[i];
             }
         }
     }
@@ -90,8 +90,8 @@ public class AlaChallengeWaveView extends View {
         if (mode != 1073741824) {
             if (mode == Integer.MIN_VALUE) {
                 size = getPaddingLeft() + getPaddingRight();
-                if (this.eQK != null && this.eQK.length > 0) {
-                    size = (int) (size + (this.eQI * this.eQK.length) + ((this.eQK.length - 1) * this.eQP));
+                if (this.eSn != null && this.eSn.length > 0) {
+                    size = (int) (size + (this.eSl * this.eSn.length) + ((this.eSn.length - 1) * this.eSs));
                 }
             } else {
                 size = 0;
@@ -101,11 +101,11 @@ public class AlaChallengeWaveView extends View {
             i4 = size2;
         } else if (mode2 == Integer.MIN_VALUE) {
             int paddingTop = getPaddingTop() + getPaddingBottom();
-            if (this.eQK != null) {
+            if (this.eSn != null) {
                 i3 = 0;
-                while (i4 < this.eQK.length) {
-                    if (this.eQK[i4] > i3) {
-                        i3 = (int) this.eQK[i4];
+                while (i4 < this.eSn.length) {
+                    if (this.eSn[i4] > i3) {
+                        i3 = (int) this.eSn[i4];
                     }
                     i4++;
                 }
@@ -118,22 +118,22 @@ public class AlaChallengeWaveView extends View {
     }
 
     public void startAnimation() {
-        if (this.eQK != null) {
-            this.dwV = false;
-            this.eQN = getDifValueArray();
-            this.eQM = new float[this.eQK.length];
-            for (int i = 0; i < this.eQK.length; i++) {
-                this.eQM[i] = this.eQK[i];
+        if (this.eSn != null) {
+            this.dxd = false;
+            this.eSq = getDifValueArray();
+            this.eSp = new float[this.eSn.length];
+            for (int i = 0; i < this.eSn.length; i++) {
+                this.eSp[i] = this.eSn[i];
             }
             this.mValueAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.mValueAnimator.setDuration(300L);
             this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.AlaChallengeWaveView.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    if (!AlaChallengeWaveView.this.dwV) {
+                    if (!AlaChallengeWaveView.this.dxd) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                        for (int i2 = 0; i2 < AlaChallengeWaveView.this.eQK.length; i2++) {
-                            AlaChallengeWaveView.this.eQK[i2] = AlaChallengeWaveView.this.eQM[i2] + (AlaChallengeWaveView.this.eQN[i2] * floatValue);
+                        for (int i2 = 0; i2 < AlaChallengeWaveView.this.eSn.length; i2++) {
+                            AlaChallengeWaveView.this.eSn[i2] = AlaChallengeWaveView.this.eSp[i2] + (AlaChallengeWaveView.this.eSq[i2] * floatValue);
                         }
                         AlaChallengeWaveView.this.invalidate();
                     }
@@ -147,18 +147,18 @@ public class AlaChallengeWaveView extends View {
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     int i2 = 0;
-                    if (AlaChallengeWaveView.this.dwV) {
-                        if (AlaChallengeWaveView.this.eQO == null) {
-                            if (AlaChallengeWaveView.this.eQK != null && AlaChallengeWaveView.this.eQL != null && AlaChallengeWaveView.this.eQK.length == AlaChallengeWaveView.this.eQL.length) {
-                                while (i2 < AlaChallengeWaveView.this.eQL.length) {
-                                    AlaChallengeWaveView.this.eQK[i2] = AlaChallengeWaveView.this.eQL[i2];
+                    if (AlaChallengeWaveView.this.dxd) {
+                        if (AlaChallengeWaveView.this.eSr == null) {
+                            if (AlaChallengeWaveView.this.eSn != null && AlaChallengeWaveView.this.eSo != null && AlaChallengeWaveView.this.eSn.length == AlaChallengeWaveView.this.eSo.length) {
+                                while (i2 < AlaChallengeWaveView.this.eSo.length) {
+                                    AlaChallengeWaveView.this.eSn[i2] = AlaChallengeWaveView.this.eSo[i2];
                                     i2++;
                                 }
                             }
                         } else {
-                            AlaChallengeWaveView.this.eQK = new float[AlaChallengeWaveView.this.eQO.length];
-                            while (i2 < AlaChallengeWaveView.this.eQO.length) {
-                                AlaChallengeWaveView.this.eQK[i2] = AlaChallengeWaveView.this.eQO[i2];
+                            AlaChallengeWaveView.this.eSn = new float[AlaChallengeWaveView.this.eSr.length];
+                            while (i2 < AlaChallengeWaveView.this.eSr.length) {
+                                AlaChallengeWaveView.this.eSn[i2] = AlaChallengeWaveView.this.eSr[i2];
                                 i2++;
                             }
                         }
@@ -181,36 +181,36 @@ public class AlaChallengeWaveView extends View {
     }
 
     public void endAnimation() {
-        this.dwV = true;
+        this.dxd = true;
         if (this.mValueAnimator != null) {
             this.mValueAnimator.cancel();
         }
     }
 
     private float[] getDifValueArray() {
-        if (this.eQK == null) {
+        if (this.eSn == null) {
             return null;
         }
-        float[] fArr = new float[this.eQK.length];
-        if (this.eQH.length <= 1) {
-            for (int i = 0; i < this.eQK.length; i++) {
+        float[] fArr = new float[this.eSn.length];
+        if (this.eSk.length <= 1) {
+            for (int i = 0; i < this.eSn.length; i++) {
                 fArr[i] = 0.0f;
             }
         }
-        float[] fArr2 = new float[this.eQK.length];
-        for (int i2 = 0; i2 < this.eQK.length; i2++) {
-            for (int i3 = 0; i3 < this.eQH.length; i3++) {
-                if (this.eQK[i2] == this.eQH[i3]) {
-                    int abs = Math.abs(new Random().nextInt()) % this.eQH.length;
+        float[] fArr2 = new float[this.eSn.length];
+        for (int i2 = 0; i2 < this.eSn.length; i2++) {
+            for (int i3 = 0; i3 < this.eSk.length; i3++) {
+                if (this.eSn[i2] == this.eSk[i3]) {
+                    int abs = Math.abs(new Random().nextInt()) % this.eSk.length;
                     if (abs == i3) {
-                        abs = abs + 1 >= this.eQH.length ? 0 : abs + 1;
+                        abs = abs + 1 >= this.eSk.length ? 0 : abs + 1;
                     }
-                    fArr2[i2] = this.eQH[abs];
+                    fArr2[i2] = this.eSk[abs];
                 }
             }
         }
-        for (int i4 = 0; i4 < this.eQK.length; i4++) {
-            fArr[i4] = fArr2[i4] - this.eQK[i4];
+        for (int i4 = 0; i4 < this.eSn.length; i4++) {
+            fArr[i4] = fArr2[i4] - this.eSn[i4];
         }
         return fArr;
     }
@@ -219,15 +219,15 @@ public class AlaChallengeWaveView extends View {
     protected void onDraw(Canvas canvas) {
         float f;
         super.onDraw(canvas);
-        if (this.eQK != null) {
-            for (int i = 0; i < this.eQK.length; i++) {
+        if (this.eSn != null) {
+            for (int i = 0; i < this.eSn.length; i++) {
                 if (i == 0) {
                     f = 0.0f;
                 } else {
-                    f = (i * this.eQI) + (this.eQP * i);
+                    f = (i * this.eSl) + (this.eSs * i);
                 }
-                float height = (((getHeight() - getPaddingTop()) - getPaddingBottom()) - this.eQK[i]) / 2.0f;
-                canvas.drawRoundRect(new RectF(f, height, this.eQI + f, this.eQK[i] + height), 3.0f, 3.0f, this.mPaint);
+                float height = (((getHeight() - getPaddingTop()) - getPaddingBottom()) - this.eSn[i]) / 2.0f;
+                canvas.drawRoundRect(new RectF(f, height, this.eSl + f, this.eSn[i] + height), 3.0f, 3.0f, this.mPaint);
             }
         }
     }

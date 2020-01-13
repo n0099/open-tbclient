@@ -10,16 +10,16 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.ab;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.y.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a extends ab {
-    private final String cnF;
+    private final String cnS;
 
     abstract boolean a(@NonNull com.baidu.swan.games.t.a.b.a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(j jVar, String str, String str2) {
         super(jVar, str);
-        this.cnF = str2;
+        this.cnS = str2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,18 +29,18 @@ public abstract class a extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.core.d.e DP = f.Uf().DP();
-        if (DP == null) {
-            com.baidu.swan.apps.console.c.e(this.cnF, "fragment manager is null");
+        com.baidu.swan.apps.core.d.e El = f.UC().El();
+        if (El == null) {
+            com.baidu.swan.apps.console.c.e(this.cnS, "fragment manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.games.t.a.b.b bVar = (com.baidu.swan.games.t.a.b.b) DP.p(i.class);
+        com.baidu.swan.games.t.a.b.b bVar = (com.baidu.swan.games.t.a.b.b) El.p(i.class);
         if (bVar == null) {
-            com.baidu.swan.apps.console.c.e(this.cnF, "fragment is null");
+            com.baidu.swan.apps.console.c.e(this.cnS, "fragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return a(bVar.Ma(), unitedSchemeEntity, callbackHandler);
+        return a(bVar.Mw(), unitedSchemeEntity, callbackHandler);
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.sofire.ac;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Callback {
     public Object onBegin(Object... objArr) {
         return null;

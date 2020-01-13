@@ -10,7 +10,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class v {
     public static List<File> a(String str, String str2) {
         return a(str, str2, (String) null);

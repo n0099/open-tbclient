@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HeatMap {
     public static final Gradient DEFAULT_GRADIENT;
     public static final double DEFAULT_OPACITY = 0.6d;
@@ -41,7 +41,7 @@ public class HeatMap {
     private ExecutorService p;
     private HashSet<String> q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         private Collection<WeightedLatLng> a;
         private int b = 12;

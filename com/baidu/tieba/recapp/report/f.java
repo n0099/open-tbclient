@@ -13,23 +13,23 @@ public class f {
             return null;
         }
         b bVar = new b();
-        bVar.AK(i);
-        bVar.HE(advertAppInfo.price);
-        bVar.HC(advertAppInfo.extensionInfo);
+        bVar.AP(i);
+        bVar.HO(advertAppInfo.price);
+        bVar.HM(advertAppInfo.extensionInfo);
         if ("PB_BANNER".equals(advertAppInfo.page)) {
-            bVar.AL(-1);
+            bVar.AQ(-1);
             bVar.setPageNumber(-1);
         } else if ("NEWINDEX".equals(advertAppInfo.page)) {
-            bVar.AL(advertAppInfo.cIL);
+            bVar.AQ(advertAppInfo.cIW);
             bVar.setPageNumber(i2);
         } else {
-            bVar.AL(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
+            bVar.AQ(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
             bVar.setPageNumber(i2);
         }
-        bVar.HH(advertAppInfo.cIT);
-        bVar.HI(advertAppInfo.cIU);
-        bVar.HJ(advertAppInfo.cIV);
-        bVar.HK(advertAppInfo.page);
+        bVar.HR(advertAppInfo.cJe);
+        bVar.HS(advertAppInfo.cJf);
+        bVar.HT(advertAppInfo.cJg);
+        bVar.HU(advertAppInfo.page);
         return bVar;
     }
 
@@ -38,20 +38,20 @@ public class f {
             return null;
         }
         b bVar = new b();
-        bVar.AK(i);
-        bVar.HC(advertAppInfo.extensionInfo);
+        bVar.AP(i);
+        bVar.HM(advertAppInfo.extensionInfo);
         if ("PB_BANNER".equals(advertAppInfo.page)) {
-            bVar.AL(-1);
+            bVar.AQ(-1);
             bVar.setPageNumber(-1);
         } else if ("NEWINDEX".equals(advertAppInfo.page)) {
-            bVar.AL(advertAppInfo.cIL);
+            bVar.AQ(advertAppInfo.cIW);
             bVar.setPageNumber(i2);
         } else {
-            bVar.AL(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
+            bVar.AQ(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
             bVar.setPageNumber(i2);
         }
-        bVar.HL(str);
-        bVar.HK(advertAppInfo.page);
+        bVar.HV(str);
+        bVar.HU(advertAppInfo.page);
         return bVar;
     }
 
@@ -59,7 +59,7 @@ public class f {
         if (dVar == null) {
             return null;
         }
-        return c(dVar.ku(), i, i2);
+        return c(dVar.kv(), i, i2);
     }
 
     public static b d(AdvertAppInfo advertAppInfo, int i, int i2) {
@@ -67,20 +67,20 @@ public class f {
             return null;
         }
         b bVar = new b();
-        bVar.AK(i);
-        bVar.HE(advertAppInfo.price);
-        bVar.HC(advertAppInfo.extensionInfo);
+        bVar.AP(i);
+        bVar.HO(advertAppInfo.price);
+        bVar.HM(advertAppInfo.extensionInfo);
         if ("PB_BANNER".equals(advertAppInfo.page)) {
-            bVar.AL(-1);
+            bVar.AQ(-1);
             bVar.setPageNumber(-1);
         } else {
-            bVar.AL(advertAppInfo.cIL);
+            bVar.AQ(advertAppInfo.cIW);
             bVar.setPageNumber(i2);
         }
-        bVar.HH(advertAppInfo.cIT);
-        bVar.HI(advertAppInfo.cIU);
-        bVar.HJ(advertAppInfo.cIV);
-        bVar.HK(advertAppInfo.page);
+        bVar.HR(advertAppInfo.cJe);
+        bVar.HS(advertAppInfo.cJf);
+        bVar.HT(advertAppInfo.cJg);
+        bVar.HU(advertAppInfo.page);
         return bVar;
     }
 
@@ -90,70 +90,70 @@ public class f {
         }
         b bVar = new b();
         bVar.setDownloadStaticsData(downloadStaticsData);
-        bVar.AK(i);
+        bVar.AP(i);
         bVar.setPageNumber(i2);
         return bVar;
     }
 
     public static b X(int i, int i2, int i3) {
         b bVar = new b();
-        bVar.AK(i);
-        bVar.AL(i2);
+        bVar.AP(i);
+        bVar.AQ(i2);
         bVar.setPageNumber(i3);
         return bVar;
     }
 
     public static b c(m mVar, int i) {
-        if (mVar == null || mVar.cIh() == null) {
+        if (mVar == null || mVar.cJl() == null) {
             return null;
         }
-        AppData cIh = mVar.cIh();
+        AppData cJl = mVar.cJl();
         b bVar = new b();
-        bVar.HC(cIh.ext_info);
-        if (mVar.kbG) {
-            bVar.AL(-1);
+        bVar.HM(cJl.ext_info);
+        if (mVar.kfj) {
+            bVar.AQ(-1);
             bVar.setPageNumber(-1);
         } else {
-            bVar.AL(com.baidu.adp.lib.f.b.toInt(cIh.pos_name, 0));
+            bVar.AQ(com.baidu.adp.lib.f.b.toInt(cJl.pos_name, 0));
             bVar.setPageNumber(mVar.pageNumber);
         }
-        bVar.AK(i);
-        bVar.HE(cIh.price);
-        bVar.HH(mVar.cIT);
-        bVar.HI(mVar.cIU);
-        bVar.HJ(mVar.forumId);
-        bVar.HK(mVar.cIk());
+        bVar.AP(i);
+        bVar.HO(cJl.price);
+        bVar.HR(mVar.cJe);
+        bVar.HS(mVar.cJf);
+        bVar.HT(mVar.forumId);
+        bVar.HU(mVar.cJo());
         return bVar;
     }
 
     public static b a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4, int i5, int i6) {
         b c = c(advertAppInfo, i, i2);
-        c.AM(i3);
-        c.AN(i5);
-        c.AO(i4);
+        c.AR(i3);
+        c.AS(i5);
+        c.AT(i4);
         if (i6 != -1 && i == 32) {
-            c.AQ(i6);
+            c.AV(i6);
         }
-        c.HK(advertAppInfo.page);
+        c.HU(advertAppInfo.page);
         if (i == 2) {
-            c.HG("video");
+            c.HQ("video");
         }
         return c;
     }
 
     public static b a(com.baidu.afd.d dVar, int i, int i2, int i3, int i4, int i5, int i6) {
         b a = a(dVar, i, i2);
-        a.AM(i3);
-        a.AN(i5);
-        a.AO(i4);
+        a.AR(i3);
+        a.AS(i5);
+        a.AT(i4);
         if (i6 != -1 && i == 32) {
-            a.AQ(i6);
+            a.AV(i6);
         }
         if (dVar != null) {
-            a.HK(dVar.ku().page);
+            a.HU(dVar.kv().page);
         }
         if (i == 2) {
-            a.HG("video");
+            a.HQ("video");
         }
         return a;
     }
@@ -164,23 +164,23 @@ public class f {
 
     public static b c(String str, int i, String str2, String str3) {
         b bVar = new b();
-        bVar.AK(i);
-        bVar.HD(str2);
-        bVar.HK("HOMEPAGE");
-        bVar.HC(str);
-        bVar.HL(str3);
+        bVar.AP(i);
+        bVar.HN(str2);
+        bVar.HU("HOMEPAGE");
+        bVar.HM(str);
+        bVar.HV(str3);
         return bVar;
     }
 
     public static b a(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         b c = c(advertAppInfo, i, i2);
-        c.AM(i3);
+        c.AR(i3);
         return c;
     }
 
     public static b b(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
         b d = d(advertAppInfo, i, i2);
-        d.AM(i3);
+        d.AR(i3);
         return d;
     }
 
@@ -189,52 +189,52 @@ public class f {
             return null;
         }
         b a = a(dVar, 5, dVar.getPageNum());
-        a.AM(parseError.errorCode);
+        a.AR(parseError.errorCode);
         return a;
     }
 
     public static b o(@NonNull com.baidu.afd.videopaster.b.a aVar) {
         b bVar = new b();
-        bVar.AK(aVar.DT);
-        bVar.AL(aVar.DV);
-        bVar.HK(aVar.DU);
-        bVar.HC(aVar.extraParam);
+        bVar.AP(aVar.DY);
+        bVar.AQ(aVar.Ea);
+        bVar.HU(aVar.DZ);
+        bVar.HM(aVar.extraParam);
         return bVar;
     }
 
     public static b p(@NonNull com.baidu.afd.videopaster.b.a aVar) {
         b bVar = new b();
-        bVar.AK(aVar.DT);
-        bVar.AL(aVar.DV);
-        bVar.HK(aVar.DU);
-        bVar.HC(aVar.extraParam);
-        bVar.AM(aVar.DG);
+        bVar.AP(aVar.DY);
+        bVar.AQ(aVar.Ea);
+        bVar.HU(aVar.DZ);
+        bVar.HM(aVar.extraParam);
+        bVar.AR(aVar.DM);
         if (!TextUtils.isEmpty(aVar.tplName)) {
-            bVar.HF(aVar.tplName);
+            bVar.HP(aVar.tplName);
         }
-        bVar.AO(aVar.DH);
+        bVar.AT(aVar.DN);
         return bVar;
     }
 
     public static b q(@NonNull com.baidu.afd.videopaster.b.a aVar) {
         b bVar = new b();
-        bVar.AK(aVar.DT);
-        bVar.AL(aVar.DV);
-        bVar.HK(aVar.DU);
-        bVar.HC(aVar.extraParam);
-        bVar.AM(0);
-        bVar.AN(aVar.DX);
-        bVar.AO(aVar.DW);
-        bVar.AP(aVar.startPosition);
+        bVar.AP(aVar.DY);
+        bVar.AQ(aVar.Ea);
+        bVar.HU(aVar.DZ);
+        bVar.HM(aVar.extraParam);
+        bVar.AR(0);
+        bVar.AS(aVar.Ec);
+        bVar.AT(aVar.Eb);
+        bVar.AU(aVar.startPosition);
         return bVar;
     }
 
     public static b r(@NonNull com.baidu.afd.videopaster.b.a aVar) {
         b bVar = new b();
-        bVar.AK(aVar.DT);
-        bVar.AL(aVar.DV);
-        bVar.HK(aVar.DU);
-        bVar.HC(aVar.extraParam);
+        bVar.AP(aVar.DY);
+        bVar.AQ(aVar.Ea);
+        bVar.HU(aVar.DZ);
+        bVar.HM(aVar.extraParam);
         return bVar;
     }
 }

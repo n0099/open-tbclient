@@ -328,10 +328,11 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Blocking
         while (true) {
             try {
                 E unlinkFirst = unlinkFirst();
-                if (unlinkFirst != null) {
+                if (unlinkFirst == null) {
+                    this.notEmpty.await();
+                } else {
                     return unlinkFirst;
                 }
-                this.notEmpty.await();
             } finally {
                 reentrantLock.unlock();
             }
@@ -345,10 +346,11 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Blocking
         while (true) {
             try {
                 E unlinkLast = unlinkLast();
-                if (unlinkLast != null) {
+                if (unlinkLast == null) {
+                    this.notEmpty.await();
+                } else {
                     return unlinkLast;
                 }
-                this.notEmpty.await();
             } finally {
                 reentrantLock.unlock();
             }
@@ -364,13 +366,14 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Blocking
             try {
                 long j2 = nanos;
                 E unlinkFirst = unlinkFirst();
-                if (unlinkFirst != null) {
-                    return unlinkFirst;
-                }
-                if (j2 > 0) {
-                    nanos = this.notEmpty.awaitNanos(j2);
+                if (unlinkFirst == null) {
+                    if (j2 > 0) {
+                        nanos = this.notEmpty.awaitNanos(j2);
+                    } else {
+                        return null;
+                    }
                 } else {
-                    return null;
+                    return unlinkFirst;
                 }
             } finally {
                 reentrantLock.unlock();
@@ -387,13 +390,14 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Blocking
             try {
                 long j2 = nanos;
                 E unlinkLast = unlinkLast();
-                if (unlinkLast != null) {
-                    return unlinkLast;
-                }
-                if (j2 > 0) {
-                    nanos = this.notEmpty.awaitNanos(j2);
+                if (unlinkLast == null) {
+                    if (j2 > 0) {
+                        nanos = this.notEmpty.awaitNanos(j2);
+                    } else {
+                        return null;
+                    }
                 } else {
-                    return null;
+                    return unlinkLast;
                 }
             } finally {
                 reentrantLock.unlock();

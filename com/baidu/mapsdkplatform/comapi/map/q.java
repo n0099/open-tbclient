@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q {
     public int a;
     public String b;

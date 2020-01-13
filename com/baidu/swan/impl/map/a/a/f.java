@@ -4,12 +4,12 @@ import android.content.Context;
 import android.os.Bundle;
 import com.baidu.sapi2.activity.SlideActiviy;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.e> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = f.class.getSimpleName();
 
-    public static f apc() {
+    public static f apw() {
         return new f();
     }
 
@@ -19,20 +19,20 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.e> {
             com.baidu.swan.apps.console.c.e("map", "model is invalid");
             return false;
         }
-        com.baidu.swan.impl.map.c.a.T(a(eVar)).apk();
+        com.baidu.swan.impl.map.c.a.T(a(eVar)).apD();
         com.baidu.swan.apps.console.c.i("map", "OpenLocationAction end");
         return true;
     }
 
     private Bundle a(com.baidu.swan.apps.z.a.e eVar) {
         Bundle bundle = new Bundle();
-        bundle.putString("slaveId", eVar.bdi);
-        bundle.putDouble("latitude", eVar.buN.latitude);
-        bundle.putDouble("longitude", eVar.buN.longitude);
-        bundle.putDouble("scale", eVar.buO);
-        bundle.putString("name", eVar.bvd);
-        bundle.putString(SlideActiviy.ADDRESS_PAGE_NAME, eVar.bve);
-        bundle.putStringArrayList("ignoredApps", eVar.bvf);
+        bundle.putString("slaveId", eVar.bdW);
+        bundle.putDouble("latitude", eVar.bvB.latitude);
+        bundle.putDouble("longitude", eVar.bvB.longitude);
+        bundle.putDouble("scale", eVar.bvC);
+        bundle.putString("name", eVar.bvR);
+        bundle.putString(SlideActiviy.ADDRESS_PAGE_NAME, eVar.bvS);
+        bundle.putStringArrayList("ignoredApps", eVar.bvT);
         return bundle;
     }
 

@@ -19,7 +19,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class g {
     private static final String a = g.class.getSimpleName();
     private RoleOptions b;
@@ -38,13 +38,13 @@ public final class g {
     private long o;
     private int p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class a {
         private static final g a = new g(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends Handler {
         b(Looper looper) {
             super(looper);

@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.support.v4.app.NotificationManagerCompat;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h {
     @SuppressLint({"NewApi"})
     public static int a(Context context) {

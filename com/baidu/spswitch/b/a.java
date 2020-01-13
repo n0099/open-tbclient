@@ -16,32 +16,32 @@ import com.baidu.spswitch.emotion.fragment.EmotionClassicFragment;
 import com.baidu.spswitch.view.SPSwitchPanelLinearLayout;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a {
-    private static a aUZ;
-    private FragmentActivity aUX;
-    private EditText aUY;
+    private static a aVR;
+    private FragmentActivity aVP;
+    private EditText aVQ;
     private boolean isNightMode;
     private List<Fragment> mFragments;
 
     /* renamed from: com.baidu.spswitch.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0182a {
+    /* loaded from: classes12.dex */
+    public interface InterfaceC0184a {
         void onEmotionClick(EmotionType emotionType, int i, String str, String str2);
     }
 
     private a() {
     }
 
-    public static a DD() {
-        if (aUZ == null) {
+    public static a DZ() {
+        if (aVR == null) {
             synchronized (a.class) {
-                if (aUZ == null) {
-                    aUZ = new a();
+                if (aVR == null) {
+                    aVR = new a();
                 }
             }
         }
-        return aUZ;
+        return aVR;
     }
 
     public void a(Activity activity, ViewGroup viewGroup, View view, boolean z) {
@@ -54,19 +54,19 @@ public class a {
         if (!(activity instanceof FragmentActivity)) {
             throw new IllegalArgumentException("host activity must be fragment activity");
         }
-        this.aUX = (FragmentActivity) activity;
+        this.aVP = (FragmentActivity) activity;
         this.isNightMode = z;
-        h(viewGroup);
+        k(viewGroup);
         this.mFragments = new ArrayList();
         this.mFragments.add(new EmotionClassicFragment());
-        ((ViewPager) viewGroup.findViewById(c.C0183c.vp_emotion_type)).setAdapter(new NoHorizontalScrollerVPAdapter(getFragmentManager(), this.mFragments));
-        this.aUY = (EditText) view;
-        com.baidu.spswitch.emotion.c.bb(this.aUX.getApplicationContext()).a(this.aUY);
+        ((ViewPager) viewGroup.findViewById(c.C0185c.vp_emotion_type)).setAdapter(new NoHorizontalScrollerVPAdapter(getFragmentManager(), this.mFragments));
+        this.aVQ = (EditText) view;
+        com.baidu.spswitch.emotion.c.bb(this.aVP.getApplicationContext()).a(this.aVQ);
     }
 
-    private void h(ViewGroup viewGroup) {
-        View findViewById = viewGroup.findViewById(c.C0183c.emotion_type_placeholer);
-        View findViewById2 = viewGroup.findViewById(c.C0183c.emotion_type_layout);
+    private void k(ViewGroup viewGroup) {
+        View findViewById = viewGroup.findViewById(c.C0185c.emotion_type_placeholer);
+        View findViewById2 = viewGroup.findViewById(c.C0185c.emotion_type_layout);
         if (this.isNightMode) {
             findViewById.setBackgroundColor(-14540254);
             findViewById2.setBackgroundColor(-13421773);
@@ -76,8 +76,8 @@ public class a {
         findViewById2.setBackgroundColor(-657931);
     }
 
-    public void a(InterfaceC0182a interfaceC0182a) {
-        com.baidu.spswitch.emotion.c.bb(this.aUX.getApplicationContext()).a(interfaceC0182a);
+    public void a(InterfaceC0184a interfaceC0184a) {
+        com.baidu.spswitch.emotion.c.bb(this.aVP.getApplicationContext()).a(interfaceC0184a);
     }
 
     public boolean isNightMode() {
@@ -85,18 +85,18 @@ public class a {
     }
 
     private FragmentManager getFragmentManager() {
-        for (Fragment fragment : this.aUX.getSupportFragmentManager().getFragments()) {
+        for (Fragment fragment : this.aVP.getSupportFragmentManager().getFragments()) {
             if (fragment instanceof DialogFragment) {
                 return fragment.getChildFragmentManager();
             }
         }
-        return this.aUX.getSupportFragmentManager();
+        return this.aVP.getSupportFragmentManager();
     }
 
     public void dismiss() {
-        if (this.aUX != null) {
-            com.baidu.spswitch.emotion.c.bb(this.aUX.getApplicationContext()).dismiss();
+        if (this.aVP != null) {
+            com.baidu.spswitch.emotion.c.bb(this.aVP.getApplicationContext()).dismiss();
         }
-        aUZ = null;
+        aVR = null;
     }
 }

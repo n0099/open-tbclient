@@ -2,7 +2,7 @@ package com.baidu.searchbox.unitedscheme.utils;
 
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class UnitedSchemeConstants {
     public static final String CALL_BACK = "anotherCallBack";
     public static final String INTENT_KEY_FOR_NEXT = "nextscheme";

@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.net.Uri;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.swan.apps.as.ai;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class c {
-    protected String ctL;
-    protected boolean ctM = false;
+    protected String ctW;
+    protected boolean ctX = false;
     protected String mId;
     protected String mName;
 
@@ -18,15 +18,15 @@ public abstract class c {
     public c(String str, String str2, String str3) {
         this.mId = str;
         this.mName = str2;
-        this.ctL = str3;
+        this.ctW = str3;
     }
 
     public boolean dv(Context context) {
-        return ai.getPackageInfo(context.getApplicationContext(), this.ctL) != null;
+        return ai.getPackageInfo(context.getApplicationContext(), this.ctW) != null;
     }
 
-    public boolean apO() {
-        return this.ctM;
+    public boolean aqh() {
+        return this.ctX;
     }
 
     public String getName() {
@@ -34,8 +34,8 @@ public abstract class c {
     }
 
     public void b(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
-        if (!dv(context) && this.ctM) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + this.ctL));
+        if (!dv(context) && this.ctX) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + this.ctW));
             intent.addFlags(268435456);
             context.startActivity(intent);
             return;

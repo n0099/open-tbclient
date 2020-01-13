@@ -9,14 +9,14 @@ import com.baidu.swan.apps.scheme.actions.s;
 import com.baidu.swan.apps.scheme.actions.v;
 import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.storage.a.k;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static j a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         j jVar = new j();
         unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", jVar);
-        com.baidu.swan.apps.w.a.RL().a(jVar);
+        com.baidu.swan.apps.w.a.Sh().a(jVar);
         jVar.a(new com.baidu.swan.apps.scheme.actions.k.e(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.k.d(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.k.j(jVar));
@@ -74,9 +74,9 @@ public final class e {
         jVar.a(new com.baidu.swan.apps.o.a(jVar));
         jVar.a(new com.baidu.swan.apps.u.a(jVar));
         jVar.a(new com.baidu.swan.apps.b.a.a(jVar));
-        jVar.a(new com.baidu.swan.apps.ao.k.a.a(jVar));
-        jVar.a(new com.baidu.swan.apps.ao.k.a.b(jVar));
-        jVar.a(new com.baidu.swan.apps.ao.e.a.a(jVar));
+        jVar.a(new com.baidu.swan.apps.ao.j.a.a(jVar));
+        jVar.a(new com.baidu.swan.apps.ao.j.a.b(jVar));
+        jVar.a(new com.baidu.swan.apps.ao.d.a.a(jVar));
         jVar.a(new com.baidu.swan.apps.view.d.a(jVar));
         jVar.a(new com.baidu.swan.apps.f.b(jVar));
         jVar.a(new com.baidu.swan.apps.media.chooser.a.b(jVar));
@@ -87,7 +87,7 @@ public final class e {
         jVar.a(new com.baidu.swan.apps.textarea.a.b(jVar));
         jVar.a(new com.baidu.swan.apps.textarea.a.a(jVar));
         jVar.a(new com.baidu.swan.apps.textarea.a.c(jVar));
-        jVar.a(new com.baidu.swan.apps.ao.g.a.a(jVar));
+        jVar.a(new com.baidu.swan.apps.ao.f.a.a(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.e.d(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.e.a(jVar));
         jVar.a(new s(jVar));

@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.webkit.internal.ETAG;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SuspensionSchemeUtil {
     public static final String DEFAULT_KEY_PREFIX = "suspensionball";
     public static final String SUSPENSION_KEY = "suspensionkey";

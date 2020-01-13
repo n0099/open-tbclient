@@ -13,19 +13,19 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class g extends h {
-    private static final int mha = v.Qg("Opus");
-    private static final byte[] mhb = {79, 112, 117, 115, 72, Constants.SHORT_PING_CMD_TYPE, 97, 100};
-    private boolean mhc;
+    private static final int mkR = v.Qr("Opus");
+    private static final byte[] mkS = {79, 112, 117, 115, 72, Constants.SHORT_PING_CMD_TYPE, 97, 100};
+    private boolean mkT;
 
     public static boolean A(l lVar) {
-        if (lVar.dwV() < mhb.length) {
+        if (lVar.dyf() < mkS.length) {
             return false;
         }
-        byte[] bArr = new byte[mhb.length];
-        lVar.D(bArr, 0, mhb.length);
-        return Arrays.equals(bArr, mhb);
+        byte[] bArr = new byte[mkS.length];
+        lVar.C(bArr, 0, mkS.length);
+        return Arrays.equals(bArr, mkS);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,38 +33,38 @@ final class g extends h {
     public void reset(boolean z) {
         super.reset(z);
         if (z) {
-            this.mhc = false;
+            this.mkT = false;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.d.h
     protected long B(l lVar) {
-        return fS(at(lVar.data));
+        return fX(as(lVar.data));
     }
 
     @Override // com.google.android.exoplayer2.extractor.d.h
     protected boolean a(l lVar, long j, h.a aVar) throws IOException, InterruptedException {
-        if (!this.mhc) {
-            byte[] copyOf = Arrays.copyOf(lVar.data, lVar.dwW());
+        if (!this.mkT) {
+            byte[] copyOf = Arrays.copyOf(lVar.data, lVar.dyg());
             int i = copyOf[9] & 255;
             ArrayList arrayList = new ArrayList(3);
             arrayList.add(copyOf);
-            p(arrayList, ((copyOf[11] & 255) << 8) | (copyOf[10] & 255));
-            p(arrayList, 3840);
-            aVar.lUU = Format.a(null, "audio/opus", null, -1, -1, i, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, arrayList, null, 0, null);
-            this.mhc = true;
+            q(arrayList, ((copyOf[11] & 255) << 8) | (copyOf[10] & 255));
+            q(arrayList, 3840);
+            aVar.lYL = Format.a(null, "audio/opus", null, -1, -1, i, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, arrayList, null, 0, null);
+            this.mkT = true;
             return true;
         }
-        boolean z = lVar.readInt() == mha;
+        boolean z = lVar.readInt() == mkR;
         lVar.setPosition(0);
         return z;
     }
 
-    private void p(List<byte[]> list, int i) {
+    private void q(List<byte[]> list, int i) {
         list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong((i * 1000000000) / 48000).array());
     }
 
-    private long at(byte[] bArr) {
+    private long as(byte[] bArr) {
         int i;
         int i2;
         int i3 = bArr[0] & 255;

@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.aggregation;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface d {
-    void Py();
+    void PU();
 
     void e(List<g> list, boolean z, boolean z2);
 

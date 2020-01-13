@@ -26,7 +26,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WheelView3d extends View {
     private static final float DEFAULT_TEXT_TARGET_SKEWX = 0.5f;
     private static final float SCALE_CONTENT = 0.8f;
@@ -77,14 +77,14 @@ public class WheelView3d extends View {
     private Typeface typeface;
     private int widthMeasureSpec;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public enum ACTION {
         CLICK,
         FLING,
         DAGGLE
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public enum DividerType {
         FILL,
         WRAP

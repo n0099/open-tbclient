@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.lang.Thread;
 import java.util.jar.JarFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     protected static Thread.UncaughtExceptionHandler a;
     protected static volatile com.baidu.mobads.g.a b = null;
@@ -37,7 +37,7 @@ public class g {
     @SuppressLint({"HandlerLeak"})
     protected final Handler h = new i(this, Looper.getMainLooper());
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a(boolean z);
     }
@@ -365,7 +365,7 @@ public class g {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends Exception {
         public a(String str) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(str);
@@ -373,7 +373,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b extends Exception {
         public b(String str) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(str);

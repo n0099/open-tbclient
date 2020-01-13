@@ -27,7 +27,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class QzonePublish extends BaseApi {
     public static final String HULIAN_CALL_BACK = "hulian_call_back";
     public static final String HULIAN_EXTRA_SCENE = "hulian_extra_scene";

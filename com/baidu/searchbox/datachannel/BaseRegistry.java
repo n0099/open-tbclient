@@ -7,7 +7,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BaseRegistry {
     public static boolean registerRNReceiver(String str, BaseBroadcastReceiver baseBroadcastReceiver) {
         Context appContext = AppRuntime.getAppContext();

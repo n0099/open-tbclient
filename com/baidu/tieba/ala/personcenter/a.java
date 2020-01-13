@@ -11,10 +11,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ac;
 /* loaded from: classes2.dex */
 public class a extends b {
-    private AlaPersonCenterFragment fnS = new AlaPersonCenterFragment();
+    private AlaPersonCenterFragment frb = new AlaPersonCenterFragment();
 
     public a() {
-        aNf().frag = this.fnS;
+        aNy().frag = this.frb;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -23,7 +23,7 @@ public class a extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c aNe() {
+    public c aNx() {
         c cVar = new c();
         cVar.type = 5;
         cVar.textResId = R.string.ala_live;
@@ -32,33 +32,33 @@ public class a extends b {
     }
 
     public void a(ac acVar) {
-        if (acVar != null && acVar.sR(5)) {
+        if (acVar != null && acVar.sW(5)) {
             acVar.b(this);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator dW(Context context) {
-        this.dwU = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.dwU.setTextSize(2.0f);
-        return this.dwU;
+        this.dxc = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.dxc.setTextSize(2.0f);
+        return this.dxc;
     }
 
     public void setForumId(String str) {
-        if (this.fnS != null) {
-            this.fnS.setForumId(str);
+        if (this.frb != null) {
+            this.frb.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.fnS != null) {
-            this.fnS.setForumName(str);
+        if (this.frb != null) {
+            this.frb.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.fnS != null) {
-            this.fnS.setForumGameLabel(str);
+        if (this.frb != null) {
+            this.frb.setForumGameLabel(str);
         }
     }
 }

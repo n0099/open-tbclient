@@ -8,12 +8,12 @@ import com.baidu.mapapi.search.core.PoiChildrenInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SuggestionResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<SuggestionResult> CREATOR = new a();
     private ArrayList<SuggestionInfo> suggestionList;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class SuggestionInfo implements Parcelable {
         public static final Parcelable.Creator<SuggestionInfo> CREATOR = new b();
         public String address;

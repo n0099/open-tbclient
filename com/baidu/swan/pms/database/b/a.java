@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.database.b;
 
 import android.database.sqlite.SQLiteDatabase;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a<T> {
     void onCreate(SQLiteDatabase sQLiteDatabase);
 

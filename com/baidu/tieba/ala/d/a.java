@@ -16,17 +16,17 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.safe.ShowUtil;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes2.dex */
 public class a implements View.OnClickListener {
-    public TextView eEU;
-    public TextView eEV;
-    public TextView eEW;
+    public TextView eGe;
+    public TextView eGf;
+    public TextView eGg;
     private Context mContext;
     private AlertDialog mDialog;
     Handler handler = new Handler();
-    CustomMessageListener anV = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.d.a.1
+    CustomMessageListener aeN = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.d.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -35,7 +35,7 @@ public class a implements View.OnClickListener {
             }
         }
     };
-    private Runnable eEX = new Runnable() { // from class: com.baidu.tieba.ala.d.a.3
+    private Runnable eGh = new Runnable() { // from class: com.baidu.tieba.ala.d.a.3
         @Override // java.lang.Runnable
         public void run() {
             a.this.dismiss();
@@ -48,19 +48,19 @@ public class a implements View.OnClickListener {
         this.mContext = context;
         this.closeImg.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.eEU = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLevel);
-        this.eEV = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipNum);
-        this.eEW = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLebel);
+        this.eGe = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLevel);
+        this.eGf = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipNum);
+        this.eGg = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLebel);
     }
 
-    private void bdH() {
-        MessageManager.getInstance().registerListener(this.anV);
+    private void bec() {
+        MessageManager.getInstance().registerListener(this.aeN);
     }
 
     public void w(String str, String str2, boolean z) {
-        this.eEW.setVisibility(z ? 0 : 8);
-        this.eEU.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_level, str2));
-        this.eEV.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_flower_num, str));
+        this.eGg.setVisibility(z ? 0 : 8);
+        this.eGe.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_level, str2));
+        this.eGf.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_flower_num, str));
     }
 
     public void show() {
@@ -69,12 +69,12 @@ public class a implements View.OnClickListener {
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.d.a.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                MessageManager.getInstance().unRegisterListener(a.this.anV);
+                MessageManager.getInstance().unRegisterListener(a.this.aeN);
             }
         });
         if (this.mContext instanceof Activity) {
             ShowUtil.showDialog(this.mDialog, (Activity) this.mContext);
-            this.handler.postDelayed(this.eEX, 5000L);
+            this.handler.postDelayed(this.eGh, 5000L);
         }
         Window window = this.mDialog.getWindow();
         if (window != null) {
@@ -82,12 +82,12 @@ public class a implements View.OnClickListener {
             window.setBackgroundDrawableResource(17170445);
             window.setContentView(this.mRootView);
         }
-        bdH();
+        bec();
     }
 
     public void dismiss() {
         if (this.handler != null) {
-            this.handler.removeCallbacks(this.eEX);
+            this.handler.removeCallbacks(this.eGh);
         }
         if (this.mDialog != null && (this.mContext instanceof Activity)) {
             ShowUtil.dismissDialog(this.mDialog, (Activity) this.mContext);

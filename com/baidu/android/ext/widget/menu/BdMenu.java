@@ -15,7 +15,7 @@ import com.baidu.android.ext.widget.menu.BdMenuItem;
 import com.baidu.searchbox.skin.NightModeHelper;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BdMenu {
     protected Context mContext;
     protected View.OnKeyListener mKeyClickListener;
@@ -41,12 +41,12 @@ public abstract class BdMenu {
     private int mPopupWindowWidth = -2;
     private boolean mCurrentMode = NightModeHelper.getNightModeSwitcherState();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnMenuItemsUpdateListener {
         void onMenuItemUpdated(List<BdMenuItem> list);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnMenuSetChangedListener {
         void onMenuItemUpdated(BdMenuItem bdMenuItem);
 

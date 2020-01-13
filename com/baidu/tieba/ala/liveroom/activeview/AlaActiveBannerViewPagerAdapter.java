@@ -6,17 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.data.e;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.liveroom.activeview.b;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
-    private b.a eJR;
+    private b.a eLc;
     private List<e> mOriginDatas;
     private List<e> mDatas = new ArrayList();
-    private SimpleArrayMap<Integer, a> eJZ = new SimpleArrayMap<>();
+    private SimpleArrayMap<Integer, a> eLk = new SimpleArrayMap<>();
 
     public void setData(List<e> list) {
         this.mOriginDatas = list;
@@ -28,7 +28,7 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
         }
     }
 
-    public List<e> bfg() {
+    public List<e> bfE() {
         return this.mOriginDatas;
     }
 
@@ -53,37 +53,37 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(final ViewGroup viewGroup, int i) {
-        a aVar = this.eJZ.get(Integer.valueOf(i));
+        a aVar = this.eLk.get(Integer.valueOf(i));
         if (aVar == null) {
             View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.ala_active_view_item, (ViewGroup) null);
             aVar = new a(inflate, i);
-            this.eJZ.put(Integer.valueOf(i), aVar);
+            this.eLk.put(Integer.valueOf(i), aVar);
             inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPagerAdapter.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (AlaActiveBannerViewPagerAdapter.this.eJR != null) {
-                        AlaActiveBannerViewPagerAdapter.this.eJR.a(viewGroup, view.getTag(a.g.ala_active_view_data), ((Integer) view.getTag(a.g.ala_active_view_position)).intValue());
+                    if (AlaActiveBannerViewPagerAdapter.this.eLc != null) {
+                        AlaActiveBannerViewPagerAdapter.this.eLc.a(viewGroup, view.getTag(a.g.ala_active_view_data), ((Integer) view.getTag(a.g.ala_active_view_position)).intValue());
                     }
                 }
             });
             viewGroup.addView(aVar.getRootView(), 0);
         }
-        pz(i);
+        pA(i);
         return aVar.getRootView();
     }
 
-    public void pz(int i) {
+    public void pA(int i) {
         e eVar = this.mDatas.get(i);
-        if (this.eJR != null && eVar.Vt && this.eJR.pF(eVar.VC)) {
-            eVar.Vt = false;
+        if (this.eLc != null && eVar.VJ && this.eLc.pG(eVar.VS)) {
+            eVar.VJ = false;
         }
-        a aVar = this.eJZ.get(Integer.valueOf(i));
+        a aVar = this.eLk.get(Integer.valueOf(i));
         if (aVar != null) {
             aVar.a(eVar);
         }
     }
 
-    public e pA(int i) {
+    public e pB(int i) {
         if (this.mDatas == null || this.mDatas.size() <= i) {
             return null;
         }
@@ -91,6 +91,6 @@ public class AlaActiveBannerViewPagerAdapter extends PagerAdapter {
     }
 
     public void a(b.a aVar) {
-        this.eJR = aVar;
+        this.eLc = aVar;
     }
 }

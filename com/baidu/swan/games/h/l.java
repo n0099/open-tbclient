@@ -27,34 +27,34 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class l {
-    private static String cjG;
-    private static String cjH;
-    private static final ReadWriteLock cjD = new ReentrantReadWriteLock();
-    private static String cjE = "0123456789abcdef";
-    private static String cjF = "/aigames/sandbox/";
-    private static long cjI = 0;
+    private static String cjT;
+    private static String cjU;
+    private static final ReadWriteLock cjQ = new ReentrantReadWriteLock();
+    private static String cjR = "0123456789abcdef";
+    private static String cjS = "/aigames/sandbox/";
+    private static long cjV = 0;
 
-    public static boolean oA(String str) {
+    public static boolean oD(String str) {
         boolean z = true;
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (!((str.startsWith(new StringBuilder().append("bdfile://tmp").append(File.separator).toString()) || "bdfile://tmp".equals(str)) || (str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()) || a.USER_DATA_PATH.equals(str)) || (str.startsWith(new StringBuilder().append("bdfile://code").append(File.separator).toString()) || "bdfile://code".equals(str))) || oC(str)) {
+        if (!((str.startsWith(new StringBuilder().append("bdfile://tmp").append(File.separator).toString()) || "bdfile://tmp".equals(str)) || (str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()) || a.USER_DATA_PATH.equals(str)) || (str.startsWith(new StringBuilder().append("bdfile://code").append(File.separator).toString()) || "bdfile://code".equals(str))) || oF(str)) {
             z = false;
         }
         return z;
     }
 
-    public static boolean oB(String str) {
+    public static boolean oE(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return (str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()) || a.USER_DATA_PATH.equals(str)) && !oC(str);
+        return (str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()) || a.USER_DATA_PATH.equals(str)) && !oF(str);
     }
 
-    public static boolean oC(String str) {
+    public static boolean oF(String str) {
         boolean z = true;
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -70,7 +70,7 @@ public class l {
         return z;
     }
 
-    public static byte[] oD(String str) {
+    public static byte[] oG(String str) {
         if (str == null || str.length() < 1) {
             return null;
         }
@@ -83,7 +83,7 @@ public class l {
         return bArr;
     }
 
-    public static String oE(String str) {
+    public static String oH(String str) {
         FileInputStream fileInputStream;
         if (TextUtils.isEmpty(str)) {
             return "";
@@ -137,7 +137,7 @@ public class l {
         }
         a(jsFunction3);
         if (obj instanceof com.baidu.swan.games.h.a.b) {
-            com.baidu.swan.games.u.c.pj(((com.baidu.swan.games.h.a.b) obj).errMsg);
+            com.baidu.swan.games.u.c.pm(((com.baidu.swan.games.h.a.b) obj).errMsg);
         }
     }
 
@@ -151,7 +151,7 @@ public class l {
         a(jsFunction3);
     }
 
-    public static void bz(String str, String str2) {
+    public static void bA(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             File file = new File(str + "/tmp");
             if (!file.exists()) {
@@ -234,7 +234,7 @@ public class l {
         }
     }
 
-    public static String oF(String str) {
+    public static String oI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -252,7 +252,7 @@ public class l {
         return null;
     }
 
-    public static String oG(String str) {
+    public static String oJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -270,41 +270,41 @@ public class l {
         return null;
     }
 
-    public static String alm() {
+    public static String alF() {
         Context appContext = AppRuntime.getAppContext();
         if (appContext == null) {
             return "";
         }
         String ds = ds(appContext);
-        com.baidu.swan.apps.runtime.e ZS = com.baidu.swan.apps.runtime.e.ZS();
-        if (ZS != null) {
-            String ZU = com.baidu.swan.apps.runtime.e.ZU();
-            String version = ZS.getVersion();
+        com.baidu.swan.apps.runtime.e aap = com.baidu.swan.apps.runtime.e.aap();
+        if (aap != null) {
+            String aar = com.baidu.swan.apps.runtime.e.aar();
+            String version = aap.getVersion();
             String str = "";
-            if (ZS.aad() != null) {
-                str = ZS.aad().Eh();
+            if (aap.aaA() != null) {
+                str = aap.aaA().ED();
             }
-            String bn = com.baidu.swan.apps.w.a.Rp().bn(appContext);
+            String bn = com.baidu.swan.apps.w.a.RL().bn(appContext);
             StringBuilder append = new StringBuilder().append(ds(appContext)).append(File.separator);
             if (TextUtils.isEmpty(str)) {
                 str = bn;
             }
-            return append.append(str).append("/aigames/swancache/").append(ZU).append(File.separator).append(version).append(File.separator).append("code").toString();
+            return append.append(str).append("/aigames/swancache/").append(aar).append(File.separator).append(version).append(File.separator).append("code").toString();
         }
         return ds;
     }
 
-    public static void aln() {
+    public static void alG() {
         Context appContext = AppRuntime.getAppContext();
         if (appContext != null) {
             String dr = dr(appContext);
             String str = dr + File.separator + "swangame/anonymous/sandbox";
             if (!TextUtils.isEmpty(str)) {
-                oH(str);
+                oK(str);
             }
-            String str2 = dr + File.separator + cjH + cjF;
+            String str2 = dr + File.separator + cjU + cjS;
             if (!TextUtils.isEmpty(str2)) {
-                oH(str2);
+                oK(str2);
             }
         }
     }
@@ -315,13 +315,13 @@ public class l {
             return "";
         }
         String dr = dr(appContext);
-        if (com.baidu.swan.apps.runtime.e.ZS() != null) {
-            return dr + File.separator + "swangame/anonymous/sandbox" + File.separator + com.baidu.swan.apps.runtime.e.ZU();
+        if (com.baidu.swan.apps.runtime.e.aap() != null) {
+            return dr + File.separator + "swangame/anonymous/sandbox" + File.separator + com.baidu.swan.apps.runtime.e.aar();
         }
         return dr;
     }
 
-    public static void bA(String str, String str2) {
+    public static void bB(String str, String str2) {
         File file;
         try {
             new File(str2).mkdirs();
@@ -348,7 +348,7 @@ public class l {
                     com.baidu.swan.d.c.closeSafely(fileInputStream);
                 }
                 if (file.isDirectory()) {
-                    bA(str + "/" + list[i], str2 + "/" + list[i]);
+                    bB(str + "/" + list[i], str2 + "/" + list[i]);
                 }
             }
         } catch (Exception e) {
@@ -356,7 +356,7 @@ public class l {
         }
     }
 
-    public static boolean oH(String str) {
+    public static boolean oK(String str) {
         File[] listFiles;
         if (!str.endsWith(File.separator)) {
             str = str + File.separator;
@@ -371,7 +371,7 @@ public class l {
                         break;
                     }
                 } else {
-                    z = oH(listFiles[i].getAbsolutePath());
+                    z = oK(listFiles[i].getAbsolutePath());
                     if (!z) {
                         break;
                     }
@@ -398,10 +398,10 @@ public class l {
         if (context == null) {
             return "";
         }
-        if (TextUtils.isEmpty(cjG) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
-            cjG = externalFilesDir.getAbsolutePath();
+        if (TextUtils.isEmpty(cjT) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
+            cjT = externalFilesDir.getAbsolutePath();
         }
-        return cjG;
+        return cjT;
     }
 
     public static String ds(Context context) {
@@ -450,7 +450,7 @@ public class l {
         return arrayList;
     }
 
-    public static String[] bB(String str, String str2) throws Exception {
+    public static String[] bC(String str, String str2) throws Exception {
         String str3;
         String[] strArr = new String[2];
         if (TextUtils.isEmpty(str)) {
@@ -479,11 +479,11 @@ public class l {
                 str2 = "";
                 break;
             case 1:
-                byte[] oD = oD(str);
-                if (oD == null) {
+                byte[] oG = oG(str);
+                if (oG == null) {
                     str3 = null;
                 } else {
-                    str3 = new String(oD, "utf-8");
+                    str3 = new String(oG, "utf-8");
                 }
                 str2 = "";
                 break;
@@ -560,25 +560,25 @@ public class l {
         if (bVar2 == null || bVar == null) {
             return false;
         }
-        Map<String, Object> map2 = bVar.ciC;
-        if (bVar.ciC == null) {
+        Map<String, Object> map2 = bVar.ciP;
+        if (bVar.ciP == null) {
             return false;
         }
-        c cVar = bVar.ciA;
+        c cVar = bVar.ciN;
         JsFunction d = d(LivenessStat.TYPE_FACE_MATCH_FAIL, map2);
         JsFunction d2 = d(com.baidu.mobads.openad.c.b.COMPLETE, map2);
         JsFunction d3 = d("success", map2);
         if (!TextUtils.isEmpty(str)) {
-            bVar2.errMsg = bVar.ciB + str;
+            bVar2.errMsg = bVar.ciO + str;
             a(aVar, bVar2.errMsg);
             a(d, d2, bVar2, d3);
             return false;
         } else if (cVar == null) {
-            bVar2.errMsg = bVar.ciB + "unknown error";
+            bVar2.errMsg = bVar.ciO + "unknown error";
             a(d, d2, bVar2, d3);
             return false;
         } else {
-            bVar2.errMsg = bVar.ciB + cVar.errMsg;
+            bVar2.errMsg = bVar.ciO + cVar.errMsg;
             if (cVar.errCode != 0) {
                 a(d, d2, bVar2, d3);
                 return false;
@@ -593,39 +593,39 @@ public class l {
 
     public static b a(c cVar, String str, Map<String, Object> map) {
         b bVar = new b();
-        bVar.ciA = cVar;
-        bVar.ciB = str;
-        bVar.ciC = map;
+        bVar.ciN = cVar;
+        bVar.ciO = str;
+        bVar.ciP = map;
         return bVar;
     }
 
-    public static void aR(long j) {
-        cjD.writeLock().lock();
+    public static void aU(long j) {
+        cjQ.writeLock().lock();
         try {
             File file = new File(getBasePath() + File.separator + "record.pro");
             if (!file.exists()) {
                 file.createNewFile();
             }
-            com.baidu.swan.d.c.saveFileCommon(String.valueOf(alo() + j).getBytes(), file);
+            com.baidu.swan.d.c.saveFileCommon(String.valueOf(alH() + j).getBytes(), file);
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         } finally {
-            cjD.writeLock().unlock();
+            cjQ.writeLock().unlock();
         }
     }
 
-    public static boolean aS(long j) {
-        cjD.readLock().lock();
+    public static boolean aV(long j) {
+        cjQ.readLock().lock();
         try {
-            return alo() + j > Config.RAVEN_LOG_LIMIT;
+            return alH() + j > Config.RAVEN_LOG_LIMIT;
         } finally {
-            cjD.readLock().unlock();
+            cjQ.readLock().unlock();
         }
     }
 
-    private static long alo() {
+    private static long alH() {
         File file = new File(getBasePath() + File.separator + "record.pro");
         if (file.exists() && file.isFile()) {
             String readFileData = com.baidu.swan.d.c.readFileData(file);
@@ -835,7 +835,7 @@ public class l {
         return e(str, str2, str3, str4, false);
     }
 
-    public static String oI(String str) {
+    public static String oL(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -850,8 +850,8 @@ public class l {
     }
 
     public static void a(com.baidu.swan.games.e.a aVar, String str) {
-        if (aVar != null && aVar.akP() != null && !TextUtils.isEmpty(str)) {
-            aVar.akP().log(str);
+        if (aVar != null && aVar.ali() != null && !TextUtils.isEmpty(str)) {
+            aVar.ali().log(str);
         }
     }
 
@@ -861,7 +861,7 @@ public class l {
     /* JADX WARN: Type inference failed for: r1v1, types: [int] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
-    public static byte[] oJ(String str) {
+    public static byte[] oM(String str) {
         BufferedInputStream bufferedInputStream;
         File file = new File(str);
         if (!file.exists()) {
@@ -920,7 +920,7 @@ public class l {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1370=4] */
-    public static boolean bC(String str, String str2) {
+    public static boolean bD(String str, String str2) {
         ZipOutputStream zipOutputStream;
         try {
             try {
@@ -1004,27 +1004,27 @@ public class l {
         }
     }
 
-    public static String ov(String str) {
+    public static String oy(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
         if (str.startsWith(a.USER_DATA_PATH)) {
-            return oF(str);
+            return oI(str);
         }
         if (str.startsWith("bdfile://tmp")) {
-            return oG(str);
+            return oJ(str);
         }
         return "";
     }
 
-    public static String lO(String str) {
+    public static String lR(String str) {
         String str2;
-        switch (com.baidu.swan.apps.storage.b.lI(str)) {
+        switch (com.baidu.swan.apps.storage.b.lL(str)) {
             case BD_FILE:
-                str2 = ov(str);
+                str2 = oy(str);
                 break;
             case RELATIVE:
-                str2 = com.baidu.swan.apps.y.f.Uf().TN() + str;
+                str2 = com.baidu.swan.apps.y.f.UC().Uk() + str;
                 break;
             default:
                 str2 = str;
@@ -1033,38 +1033,38 @@ public class l {
         return TextUtils.isEmpty(str2) ? str : str2;
     }
 
-    public static boolean oK(String str) {
+    public static boolean oN(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return str.startsWith(new StringBuilder().append("bdfile://tmp").append(File.separator).toString()) || "bdfile://tmp".equals(str);
     }
 
-    public static void oL(String str) {
+    public static void oO(String str) {
         Context appContext;
-        String bm = com.baidu.swan.apps.w.a.Rp().bm(AppRuntime.getAppContext());
+        String bm = com.baidu.swan.apps.w.a.RL().bm(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(bm)) {
-            oH(bD(bm, str));
-            oH(bD(com.baidu.swan.d.d.toMd5(bm.getBytes(), false), str));
+            oK(bE(bm, str));
+            oK(bE(com.baidu.swan.d.d.toMd5(bm.getBytes(), false), str));
         }
-        String bn = com.baidu.swan.apps.w.a.Rp().bn(AppRuntime.getAppContext());
+        String bn = com.baidu.swan.apps.w.a.RL().bn(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(bn)) {
-            oH(bD(bn, str));
-            oH(bD(com.baidu.swan.d.d.toMd5(bn.replace("|", "").getBytes(), false), str));
+            oK(bE(bn, str));
+            oK(bE(com.baidu.swan.d.d.toMd5(bn.replace("|", "").getBytes(), false), str));
         }
         if (AppRuntime.getAppContext() != null) {
             String str2 = dr(appContext) + File.separator + "swangame/anonymous/sandbox" + File.separator + str;
             if (!TextUtils.isEmpty(str2)) {
-                oH(str2);
+                oK(str2);
             }
         }
     }
 
-    public static String bD(String str, String str2) {
-        return dr(AppRuntime.getAppContext()) + File.separator + str + cjF + str2;
+    public static String bE(String str, String str2) {
+        return dr(AppRuntime.getAppContext()) + File.separator + str + cjS + str2;
     }
 
-    public static String oM(String str) {
+    public static String oP(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -1079,11 +1079,11 @@ public class l {
         return "bdfile://" + str.substring(str2.length());
     }
 
-    public static long alp() {
-        return cjI;
+    public static long alI() {
+        return cjV;
     }
 
-    public static void aT(long j) {
-        cjI = j;
+    public static void aW(long j) {
+        cjV = j;
     }
 }

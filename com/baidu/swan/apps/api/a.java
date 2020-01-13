@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.swan.apps.api.a.b;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private WeakReference<Activity> mActivityRef;
@@ -33,13 +33,13 @@ public class a implements b {
 
     @Override // com.baidu.swan.apps.api.a.b
     @NonNull
-    public CallbackHandler GP() {
+    public CallbackHandler Hl() {
         return this.mCallbackHandler;
     }
 
     @Override // com.baidu.swan.apps.api.a.b
     @NonNull
-    public com.baidu.swan.apps.core.container.a GQ() {
+    public com.baidu.swan.apps.core.container.a Hm() {
         return this.mJSContainer;
     }
 
@@ -52,7 +52,7 @@ public class a implements b {
         long currentTimeMillis = System.currentTimeMillis();
         try {
             Map<String, Object> apiModules = new SwanApi$$ModulesProvider(this).getApiModules();
-            Map<String, Object> a = com.baidu.swan.apps.w.a.RL().a(this);
+            Map<String, Object> a = com.baidu.swan.apps.w.a.Sh().a(this);
             if (a != null) {
                 if (apiModules != null) {
                     apiModules.putAll(a);

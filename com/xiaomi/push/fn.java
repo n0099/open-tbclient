@@ -1,23 +1,23 @@
 package com.xiaomi.push;
 
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class fn implements Cloneable {
     public static String a = "wcc-ml-test10.bj";
     public static final String b = ae.a;
     public static String c = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f391a;
+    private int f389a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fq f392a;
+    private fq f390a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f393a = fm.f376a;
+    private boolean f391a = fm.f374a;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f394b = true;
+    private boolean f392b = true;
     private String d;
     private String e;
     private String f;
@@ -27,7 +27,7 @@ public class fn implements Cloneable {
     }
 
     public static final String a() {
-        return c != null ? c : ab.m110a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
+        return c != null ? c : ab.m119a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
     }
 
     public static final void a(String str) {
@@ -35,27 +35,27 @@ public class fn implements Cloneable {
     }
 
     private void a(Map<String, Integer> map, int i, String str, fq fqVar) {
-        this.f391a = i;
+        this.f389a = i;
         this.d = str;
-        this.f392a = fqVar;
+        this.f390a = fqVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int mo276a() {
-        return this.f391a;
+    public int mo285a() {
+        return this.f389a;
     }
 
     public void a(boolean z) {
-        this.f393a = z;
+        this.f391a = z;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m277a() {
-        return this.f393a;
+    public boolean m286a() {
+        return this.f391a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m278a() {
+    public byte[] m287a() {
         return null;
     }
 

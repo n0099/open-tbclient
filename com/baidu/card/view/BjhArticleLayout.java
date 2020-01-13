@@ -18,17 +18,17 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BjhArticleLayout extends RelativeLayout implements View.OnClickListener, m<a>, n {
-    private a JB;
-    private View.OnClickListener JC;
-    private z<a> Lb;
-    private TextView Mo;
-    private TbImageView Mp;
-    private View Mq;
-    private float Mr;
-    private float Ms;
-    private float Mt;
+    private a JH;
+    private View.OnClickListener JI;
+    private z<a> Lh;
+    private TextView Mt;
+    private TbImageView Mu;
+    private View Mv;
+    private float Mw;
+    private float Mx;
+    private float My;
     private TextView mTitle;
     private int tbds21;
     private int tbds30;
@@ -39,11 +39,11 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
 
     public BjhArticleLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Mr = l.getDimens(context, R.dimen.tbds10);
+        this.Mw = l.getDimens(context, R.dimen.tbds10);
         this.tbds21 = l.getDimens(context, R.dimen.tbds21);
-        this.Ms = l.getDimens(context, R.dimen.tbds16);
+        this.Mx = l.getDimens(context, R.dimen.tbds16);
         this.tbds30 = l.getDimens(context, R.dimen.tbds30);
-        this.Mt = l.getDimens(context, R.dimen.tbds44);
+        this.My = l.getDimens(context, R.dimen.tbds44);
         initUI();
     }
 
@@ -51,27 +51,27 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(a aVar) {
-        this.JB = aVar;
-        bj axx = aVar.axx();
-        if (axx.isShareThread && axx.cPD != null) {
-            if (axx.cPD.cKv) {
+        this.JH = aVar;
+        bj axQ = aVar.axQ();
+        if (axQ.isShareThread && axQ.cPN != null) {
+            if (axQ.cPN.cKG) {
                 setVisibility(8);
                 return;
             }
-            axx = axx.cPD.ayn();
+            axQ = axQ.cPN.ayG();
         }
-        this.mTitle.setText(axx.getTitle());
-        if (StringUtils.isNull(axx.aBE())) {
-            this.Mo.setVisibility(8);
-            this.Mp.setVisibility(8);
-            this.Mq.setVisibility(8);
+        this.mTitle.setText(axQ.getTitle());
+        if (StringUtils.isNull(axQ.aBX())) {
+            this.Mt.setVisibility(8);
+            this.Mu.setVisibility(8);
+            this.Mv.setVisibility(8);
         } else {
-            this.Mo.setVisibility(0);
-            this.Mp.setVisibility(0);
-            this.Mq.setVisibility(0);
-            this.Mp.startLoad(axx.aBE(), 10, false);
+            this.Mt.setVisibility(0);
+            this.Mu.setVisibility(0);
+            this.Mv.setVisibility(0);
+            this.Mu.startLoad(axQ.aBX(), 10, false);
         }
-        com.baidu.tieba.card.l.a(this.mTitle, axx.getId(), this.Mp.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        com.baidu.tieba.card.l.a(this.mTitle, axQ.getId(), this.Mu.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
     }
 
     private void initUI() {
@@ -80,37 +80,37 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
         setId(R.id.bjh_content);
         this.mTitle = (TextView) findViewById(R.id.title);
         this.mTitle.setOnClickListener(this);
-        this.Mo = (TextView) findViewById(R.id.icon);
-        this.Mo.setOnClickListener(this);
-        this.Mp = (TbImageView) findViewById(R.id.cover_img);
-        this.Mp.setPlaceHolder(3);
-        this.Mp.setOnClickListener(this);
-        this.Mq = findViewById(R.id.bottom_mask);
-        this.Mq.setOnClickListener(this);
-        if (this.Mp.getLayoutParams() != null) {
-            this.Mp.getLayoutParams().height = (int) (((l.getEquipmentWidth(getContext()) - (2.0f * this.Mt)) / 16.0f) * 9.0f);
+        this.Mt = (TextView) findViewById(R.id.icon);
+        this.Mt.setOnClickListener(this);
+        this.Mu = (TbImageView) findViewById(R.id.cover_img);
+        this.Mu.setPlaceHolder(3);
+        this.Mu.setOnClickListener(this);
+        this.Mv = findViewById(R.id.bottom_mask);
+        this.Mv.setOnClickListener(this);
+        if (this.Mu.getLayoutParams() != null) {
+            this.Mu.getLayoutParams().height = (int) (((l.getEquipmentWidth(getContext()) - (2.0f * this.My)) / 16.0f) * 9.0f);
         }
-        this.Mo.setTranslationY(-this.Ms);
-        this.Mp.setDrawCorner(true);
-        this.Mp.setConrers(15);
-        this.Mp.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
+        this.Mt.setTranslationY(-this.Mx);
+        this.Mu.setDrawCorner(true);
+        this.Mu.setConrers(15);
+        this.Mu.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int measuredHeight = getMeasuredHeight();
-        if (this.Mq.getLayoutParams() != null) {
-            this.Mq.getLayoutParams().height = measuredHeight;
+        if (this.Mv.getLayoutParams() != null) {
+            this.Mv.getLayoutParams().height = measuredHeight;
         }
     }
 
     public void setSubClickListener(z<a> zVar) {
-        this.Lb = zVar;
+        this.Lh = zVar;
     }
 
     public void setJumpToPbListener(View.OnClickListener onClickListener) {
-        this.JC = onClickListener;
+        this.JI = onClickListener;
     }
 
     public TextView getTitle() {
@@ -118,26 +118,26 @@ public class BjhArticleLayout extends RelativeLayout implements View.OnClickList
     }
 
     public TextView getIcon() {
-        return this.Mo;
+        return this.Mt;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.JC != null) {
-            this.JC.onClick(view);
+        if (this.JI != null) {
+            this.JI.onClick(view);
         }
-        if (this.Lb != null) {
-            this.Lb.a(view, this.JB);
+        if (this.Lh != null) {
+            this.Lh.a(view, this.JH);
         }
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.JB != null && this.JB.axx() != null) {
-            com.baidu.tieba.card.l.a(this.mTitle, this.JB.axx().getId(), this.Mp.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        if (this.JH != null && this.JH.axQ() != null) {
+            com.baidu.tieba.card.l.a(this.mTitle, this.JH.axQ().getId(), this.Mu.getVisibility() == 0 ? R.color.cp_cont_a : R.color.cp_cont_b, (int) R.color.cp_cont_d);
         }
-        am.setViewTextColor(this.Mo, (int) R.color.cp_cont_a);
-        com.baidu.tbadk.core.util.f.a.aEt().kk(0).km(R.color.cp_mask_b_alpha42).ah(this.Mr).aM(this.Mo);
-        com.baidu.tbadk.core.util.f.a.aEt().kk(0).i(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).aj(l.getDimens(getContext(), R.dimen.tbds10)).ai(l.getDimens(getContext(), R.dimen.tbds10)).al(l.getDimens(getContext(), R.dimen.tbds10)).ak(l.getDimens(getContext(), R.dimen.tbds10)).ks(128).aM(this.Mq);
+        am.setViewTextColor(this.Mt, (int) R.color.cp_cont_a);
+        com.baidu.tbadk.core.util.f.a.aEM().kk(0).km(R.color.cp_mask_b_alpha42).ag(this.Mw).aQ(this.Mt);
+        com.baidu.tbadk.core.util.f.a.aEM().kk(0).i(R.color.cp_mask_b, R.color.cp_mask_b_alpha33).ai(l.getDimens(getContext(), R.dimen.tbds10)).ah(l.getDimens(getContext(), R.dimen.tbds10)).ak(l.getDimens(getContext(), R.dimen.tbds10)).aj(l.getDimens(getContext(), R.dimen.tbds10)).ks(128).aQ(this.Mv);
     }
 }

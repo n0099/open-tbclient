@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import com.baidu.minivideo.plugin.capture.Application;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class i {
     public static void putString(String str, String str2) {
         try {

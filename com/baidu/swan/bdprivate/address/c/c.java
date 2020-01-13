@@ -6,11 +6,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static List<b> mP(String str) {
+    public static List<b> mS(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -18,7 +18,7 @@ public class c {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
             if (optJSONObject != null) {
-                return B(optJSONObject.optJSONArray("list"));
+                return C(optJSONObject.optJSONArray("list"));
             }
             return arrayList;
         } catch (JSONException e) {
@@ -30,7 +30,7 @@ public class c {
         }
     }
 
-    public static JSONArray af(List<b> list) {
+    public static JSONArray ae(List<b> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null) {
             int i = 0;
@@ -49,7 +49,7 @@ public class c {
         return jSONArray;
     }
 
-    public static List<b> B(JSONArray jSONArray) {
+    public static List<b> C(JSONArray jSONArray) {
         if (jSONArray == null) {
             return null;
         }

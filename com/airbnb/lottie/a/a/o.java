@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class o implements d, i, j, l, a.InterfaceC0010a {
     private final com.airbnb.lottie.model.layer.a fG;
     private final com.airbnb.lottie.a.b.a<Float, Float> gt;
@@ -106,9 +106,9 @@ public class o implements d, i, j, l, a.InterfaceC0010a {
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
         if (!this.gv.b(t, cVar)) {
-            if (t == com.airbnb.lottie.k.eX) {
+            if (t == com.airbnb.lottie.k.eW) {
                 this.gt.a(cVar);
-            } else if (t == com.airbnb.lottie.k.eY) {
+            } else if (t == com.airbnb.lottie.k.eX) {
                 this.gu.a(cVar);
             }
         }

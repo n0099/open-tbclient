@@ -2,7 +2,7 @@ package com.baidu.searchbox.picture.component.view;
 
 import android.graphics.PointF;
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ImageViewState implements Serializable {
     private float centerX;
     private float centerY;

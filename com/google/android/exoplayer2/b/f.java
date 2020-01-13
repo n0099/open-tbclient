@@ -2,31 +2,31 @@ package com.google.android.exoplayer2.b;
 
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.source.t;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface f {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         f b(t tVar, int... iArr);
     }
 
     boolean I(int i, long j);
 
-    Format KC(int i);
+    Format KL(int i);
 
-    int Ls(int i);
+    int LB(int i);
 
-    t duG();
+    t dvR();
 
-    int duK();
+    int dvV();
 
-    int duL();
+    int dvW();
 
-    Object duM();
+    Object dvX();
 
-    Format dvY();
+    Format dxj();
 
-    int dvZ();
+    int dxk();
 
     void f(long j, long j2, long j3);
 

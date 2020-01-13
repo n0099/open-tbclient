@@ -7,9 +7,9 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import kotlin.TypeCastException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class e<K, V> implements Map<K, V> {
-    public static final a mYI = new a(null);
+    public static final a nBb = new a(null);
 
     public abstract Set getEntries();
 
@@ -34,7 +34,7 @@ public abstract class e<K, V> implements Map<K, V> {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<K, V>");
             }
             V v = get(key);
-            if (!kotlin.jvm.internal.p.h(value, v)) {
+            if (!kotlin.jvm.internal.q.h(value, v)) {
                 return false;
             }
             if (v == null) {
@@ -88,7 +88,7 @@ public abstract class e<K, V> implements Map<K, V> {
 
     public String toString() {
         String a2;
-        a2 = n.a(entrySet(), (r14 & 1) != 0 ? ", " : ", ", (r14 & 2) != 0 ? "" : "{", (r14 & 4) != 0 ? "" : "}", (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? StringHelper.STRING_MORE : null, (r14 & 32) != 0 ? null : new AbstractMap$toString$1(this));
+        a2 = o.a(entrySet(), (r14 & 1) != 0 ? ", " : ", ", (r14 & 2) != 0 ? "" : "{", (r14 & 4) != 0 ? "" : "}", (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? StringHelper.STRING_MORE : null, (r14 & 32) != 0 ? null : new AbstractMap$toString$1(this));
         return a2;
     }
 
@@ -101,7 +101,7 @@ public abstract class e<K, V> implements Map<K, V> {
         return obj == this ? "(this Map)" : String.valueOf(obj);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private a() {
         }

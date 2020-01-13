@@ -5,51 +5,51 @@ import java.io.IOException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class JSONParser {
     public static JSONObject readJSONObject(a aVar) throws IOException {
         JSONObject jSONObject = new JSONObject();
-        aVar.dyy();
+        aVar.dzH();
         while (aVar.hasNext()) {
             try {
-                jSONObject.put(aVar.dyD(), readObject(aVar));
+                jSONObject.put(aVar.dzM(), readObject(aVar));
             } catch (JSONException e) {
                 throw new IOException(e);
             }
         }
-        aVar.dyz();
+        aVar.dzI();
         return jSONObject;
     }
 
     public static JSONArray readJSONArray(a aVar) throws IOException {
         JSONArray jSONArray = new JSONArray();
-        aVar.dyw();
+        aVar.dzF();
         while (aVar.hasNext()) {
             jSONArray.put(readObject(aVar));
         }
-        aVar.dyx();
+        aVar.dzG();
         return jSONArray;
     }
 
     private static Object readObject(a aVar) throws IOException {
-        switch (aVar.dyA()) {
+        switch (aVar.dzJ()) {
             case BEGIN_ARRAY:
                 return readJSONArray(aVar);
             case BEGIN_OBJECT:
                 return readJSONObject(aVar);
             case STRING:
-                return aVar.dyE();
+                return aVar.dzN();
             case NUMBER:
-                double dyH = aVar.dyH();
-                int i = (int) dyH;
-                if (i == dyH) {
+                double nextDouble = aVar.nextDouble();
+                int i = (int) nextDouble;
+                if (i == nextDouble) {
                     return Integer.valueOf(i);
                 }
-                return Double.valueOf(dyH);
+                return Double.valueOf(nextDouble);
             case BOOLEAN:
-                return Boolean.valueOf(aVar.dyF());
+                return Boolean.valueOf(aVar.nextBoolean());
             case NULL:
-                aVar.dyG();
+                aVar.dzO();
                 return null;
             default:
                 throw new IllegalStateException();

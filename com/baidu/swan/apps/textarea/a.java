@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.textarea;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void ga(String str);
+    void gd(String str);
 
     void y(String str, int i);
 

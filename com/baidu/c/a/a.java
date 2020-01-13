@@ -5,21 +5,21 @@ import com.baidu.adp.lib.util.h;
 import com.baidu.c.a.b.b;
 import com.baidu.c.a.b.c;
 import com.baidu.c.a.b.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static boolean Rb;
-    private static boolean Rc;
+    private static boolean Rg;
+    private static boolean Rh;
 
     public static void init(Context context) {
-        Rb = h.hu().loadLibrary("criusbase", 2);
-        Rc = h.hu().loadLibrary("crius", 2);
+        Rg = h.ht().loadLibrary("criusbase", 2);
+        Rh = h.ht().loadLibrary("crius", 2);
     }
 
     public static void a(b bVar) {
-        com.baidu.c.a.b.a.nO().b(bVar);
+        com.baidu.c.a.b.a.nP().b(bVar);
     }
 
     public static void a(c cVar) {
-        d.nP().b(cVar);
+        d.nQ().b(cVar);
     }
 }

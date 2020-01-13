@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PersonListActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MyForbiddenFansActivityConfig.class, MyForbiddenFansActivity.class);
-        bAJ();
+        bBL();
     }
 
-    public static void bAJ() {
-        com.baidu.tbadk.ala.b.avT().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
+    public static void bBL() {
+        com.baidu.tbadk.ala.b.awm().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
                 TextView dE = com.baidu.tbadk.ala.c.dE(context);

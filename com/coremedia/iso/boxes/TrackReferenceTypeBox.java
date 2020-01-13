@@ -9,12 +9,12 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TrackReferenceTypeBox extends AbstractBox {
     public static final String TYPE1 = "hint";
     public static final String TYPE2 = "cdsc";
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0719a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0773a ajc$tjp_1 = null;
     private long[] trackIds;
 
     static {

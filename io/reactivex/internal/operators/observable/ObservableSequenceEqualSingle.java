@@ -1,13 +1,13 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.d;
+import io.reactivex.c.d;
 import io.reactivex.internal.disposables.ArrayCompositeDisposable;
 import io.reactivex.t;
 import io.reactivex.u;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableSequenceEqualSingle<T> extends w<Boolean> {
     final int bufferSize;
     final d<? super T, ? super T> comparer;
@@ -21,7 +21,7 @@ public final class ObservableSequenceEqualSingle<T> extends w<Boolean> {
         equalCoordinator.subscribe();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class EqualCoordinator<T> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -6178010334400373240L;
         final y<? super Boolean> actual;
@@ -121,7 +121,7 @@ public final class ObservableSequenceEqualSingle<T> extends w<Boolean> {
                     } else {
                         if (!z3 && !z4) {
                             try {
-                                if (!this.comparer.j((T) this.v1, (T) this.v2)) {
+                                if (!this.comparer.k((T) this.v1, (T) this.v2)) {
                                     cancel(aVar2, aVar4);
                                     this.actual.onSuccess(false);
                                     return;
@@ -150,42 +150,42 @@ public final class ObservableSequenceEqualSingle<T> extends w<Boolean> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> implements u<T> {
         volatile boolean done;
         Throwable error;
         final int index;
-        final EqualCoordinator<T> mVp;
+        final EqualCoordinator<T> nxy;
         final io.reactivex.internal.queue.a<T> queue;
 
         a(EqualCoordinator<T> equalCoordinator, int i, int i2) {
-            this.mVp = equalCoordinator;
+            this.nxy = equalCoordinator;
             this.index = i;
             this.queue = new io.reactivex.internal.queue.a<>(i2);
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.mVp.setDisposable(bVar, this.index);
+            this.nxy.setDisposable(bVar, this.index);
         }
 
         @Override // io.reactivex.u
         public void onNext(T t) {
             this.queue.offer(t);
-            this.mVp.drain();
+            this.nxy.drain();
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.error = th;
             this.done = true;
-            this.mVp.drain();
+            this.nxy.drain();
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             this.done = true;
-            this.mVp.drain();
+            this.nxy.drain();
         }
     }
 }

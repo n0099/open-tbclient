@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.GameForumGuideTab.GameForumSubTab;
 import tbclient.ThreadInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static List<e> cm(List<GameForumSubTab> list) {
         if (v.isEmpty(list)) {
@@ -49,10 +49,10 @@ public class a {
             bj bjVar = new bj();
             bVar.setThreadData(bjVar);
             bjVar.a(list.get(i2));
-            bjVar.aAA();
-            if (!TextUtils.isEmpty(bjVar.aAM())) {
+            bjVar.aAT();
+            if (!TextUtils.isEmpty(bjVar.aBf())) {
                 ae aeVar = new ae();
-                aeVar.sd(bjVar.aAM());
+                aeVar.sg(bjVar.aBf());
                 linkedList.add(aeVar);
             } else {
                 linkedList.add(bVar);

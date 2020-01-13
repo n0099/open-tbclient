@@ -3,7 +3,7 @@ package com.facebook.common.internal;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class f {
     @CheckReturnValue
     public static boolean equal(@Nullable Object obj, @Nullable Object obj2) {
@@ -27,17 +27,17 @@ public final class f {
         return replaceAll.substring(lastIndexOf + 1);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class a {
         private final String className;
-        private C0640a lEa;
-        private C0640a lEb;
-        private boolean lEc;
+        private boolean lHA;
+        private C0645a lHy;
+        private C0645a lHz;
 
         private a(String str) {
-            this.lEa = new C0640a();
-            this.lEb = this.lEa;
-            this.lEc = false;
+            this.lHy = new C0645a();
+            this.lHz = this.lHy;
+            this.lHA = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -49,52 +49,52 @@ public final class f {
             return y(str, String.valueOf(z));
         }
 
-        public a bH(String str, int i) {
+        public a bI(String str, int i) {
             return y(str, String.valueOf(i));
         }
 
         public String toString() {
-            boolean z = this.lEc;
+            boolean z = this.lHA;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0640a c0640a = this.lEa.lEd; c0640a != null; c0640a = c0640a.lEd) {
-                if (!z || c0640a.value != null) {
+            for (C0645a c0645a = this.lHy.lHB; c0645a != null; c0645a = c0645a.lHB) {
+                if (!z || c0645a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0640a.name != null) {
-                        append.append(c0640a.name).append('=');
+                    if (c0645a.name != null) {
+                        append.append(c0645a.name).append('=');
                     }
-                    append.append(c0640a.value);
+                    append.append(c0645a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0640a dio() {
-            C0640a c0640a = new C0640a();
-            this.lEb.lEd = c0640a;
-            this.lEb = c0640a;
-            return c0640a;
+        private C0645a djp() {
+            C0645a c0645a = new C0645a();
+            this.lHz.lHB = c0645a;
+            this.lHz = c0645a;
+            return c0645a;
         }
 
         private a y(String str, @Nullable Object obj) {
-            C0640a dio = dio();
-            dio.value = obj;
-            dio.name = (String) g.checkNotNull(str);
+            C0645a djp = djp();
+            djp.value = obj;
+            djp.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public static final class C0640a {
-            C0640a lEd;
+        /* loaded from: classes12.dex */
+        public static final class C0645a {
+            C0645a lHB;
             @Nullable
             String name;
             @Nullable
             Object value;
 
-            private C0640a() {
+            private C0645a() {
             }
         }
     }

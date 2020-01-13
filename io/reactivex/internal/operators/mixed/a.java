@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.mixed;
 
 import io.reactivex.aa;
-import io.reactivex.b.h;
 import io.reactivex.c;
+import io.reactivex.c.h;
 import io.reactivex.e;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.operators.maybe.MaybeToObservable;
@@ -10,7 +10,7 @@ import io.reactivex.internal.operators.single.SingleToObservable;
 import io.reactivex.o;
 import io.reactivex.u;
 import java.util.concurrent.Callable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <T> boolean a(Object obj, h<? super T, ? extends e> hVar, c cVar) {

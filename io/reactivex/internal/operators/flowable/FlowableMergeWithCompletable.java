@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -8,26 +7,25 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableMergeWithCompletable<T> extends a<T, T> {
-    final e other;
+    final io.reactivex.e other;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         MergeWithSubscriber mergeWithSubscriber = new MergeWithSubscriber(cVar);
         cVar.onSubscribe(mergeWithSubscriber);
-        this.mTG.a((j) mergeWithSubscriber);
+        this.nvK.a((j) mergeWithSubscriber);
         this.other.a(mergeWithSubscriber.otherObserver);
     }
 
-    /* loaded from: classes4.dex */
-    static final class MergeWithSubscriber<T> extends AtomicInteger implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class MergeWithSubscriber<T> extends AtomicInteger implements j<T>, org.a.d {
         private static final long serialVersionUID = -4592979584110982903L;
         final org.a.c<? super T> actual;
         volatile boolean mainDone;
         volatile boolean otherDone;
-        final AtomicReference<d> mainSubscription = new AtomicReference<>();
+        final AtomicReference<org.a.d> mainSubscription = new AtomicReference<>();
         final OtherObserver otherObserver = new OtherObserver(this);
         final AtomicThrowable error = new AtomicThrowable();
         final AtomicLong requested = new AtomicLong();
@@ -37,7 +35,7 @@ public final class FlowableMergeWithCompletable<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             SubscriptionHelper.deferredSetOnce(this.mainSubscription, this.requested, dVar);
         }
 
@@ -83,7 +81,7 @@ public final class FlowableMergeWithCompletable<T> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         static final class OtherObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c {
             private static final long serialVersionUID = -2935427570954647017L;
             final MergeWithSubscriber<?> parent;

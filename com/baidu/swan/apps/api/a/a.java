@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.api.a;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
     @NonNull
-    b GR();
+    b Hn();
 
     void a(String str, com.baidu.swan.apps.api.b.b bVar);
 }

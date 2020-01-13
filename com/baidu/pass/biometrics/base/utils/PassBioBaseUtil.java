@@ -5,7 +5,7 @@ import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PassBioBaseUtil {
     public static String getVersionName(Context context) {
         try {

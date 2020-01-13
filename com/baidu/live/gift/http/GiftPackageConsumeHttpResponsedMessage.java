@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class GiftPackageConsumeHttpResponsedMessage extends JsonHttpResponsedMessage {
-    public String akT;
-    public int akU;
+    public String alG;
+    public int alH;
 
     public GiftPackageConsumeHttpResponsedMessage() {
         super(1021151);
@@ -18,8 +18,8 @@ public class GiftPackageConsumeHttpResponsedMessage extends JsonHttpResponsedMes
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.akT = optJSONObject.optString(LegoListActivityConfig.ITEM_ID);
-                this.akU = optJSONObject.optInt("balance");
+                this.alG = optJSONObject.optString(LegoListActivityConfig.ITEM_ID);
+                this.alH = optJSONObject.optInt("balance");
             }
         }
     }

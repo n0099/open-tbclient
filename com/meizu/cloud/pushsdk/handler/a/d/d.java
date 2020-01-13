@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends com.meizu.cloud.pushsdk.handler.a.a<SubAliasStatus> {
     public d(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

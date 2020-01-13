@@ -19,19 +19,19 @@ public class b {
     private static b ru = null;
     private com.baidu.adp.lib.network.http.a.a rt;
     private HashMap<String, com.baidu.adp.lib.network.http.a.a> mCache = new HashMap<>();
-    private InterfaceC0018b rv = null;
-    private int rw = 0;
+    private InterfaceC0018b rw = null;
+    private int rz = 0;
 
     /* renamed from: com.baidu.adp.lib.network.http.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0018b {
-        void o(String str, String str2);
+        void n(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b gj() {
+    public static b gi() {
         if (ru == null) {
             synchronized (b.class) {
                 if (ru == null) {
@@ -43,62 +43,62 @@ public class b {
     }
 
     public void a(InterfaceC0018b interfaceC0018b) {
-        this.rv = interfaceC0018b;
+        this.rw = interfaceC0018b;
     }
 
     public c an(String str) {
         c cVar = new c();
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.h(System.currentTimeMillis()) && aVar.gi() != null && aVar.gi().size() > 0) {
-            cVar.as(aVar.gi().get(0));
+        if (aVar != null && !aVar.h(System.currentTimeMillis()) && aVar.gh() != null && aVar.gh().size() > 0) {
+            cVar.as(aVar.gh().get(0));
         }
         return cVar;
     }
 
-    public c n(String str, String str2) {
+    public c m(String str, String str2) {
         c cVar = new c();
         if (k.isEmpty(str)) {
             return cVar;
         }
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.h(System.currentTimeMillis()) && aVar.gi() != null && aVar.gi().size() > 0) {
-            for (int i = 0; i < aVar.gi().size(); i++) {
-                if (!k.r(str2, aVar.gi().get(i))) {
-                    cVar.P(i);
-                    cVar.as(aVar.gi().get(i));
+        if (aVar != null && !aVar.h(System.currentTimeMillis()) && aVar.gh() != null && aVar.gh().size() > 0) {
+            for (int i = 0; i < aVar.gh().size(); i++) {
+                if (!k.q(str2, aVar.gh().get(i))) {
+                    cVar.L(i);
+                    cVar.as(aVar.gh().get(i));
                     return cVar;
-                } else if (i == aVar.gi().size() - 1) {
-                    cVar.P(0);
-                    cVar.as(aVar.gi().get(0));
+                } else if (i == aVar.gh().size() - 1) {
+                    cVar.L(0);
+                    cVar.as(aVar.gh().get(0));
                     return cVar;
                 }
             }
         }
         for (int i2 = 0; i2 < 3; i2++) {
-            cVar.gl();
-            cVar.N(i2);
+            cVar.gk();
+            cVar.O(i2);
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.adp.lib.network.http.a.a a2 = a(str, cVar);
             cVar.i(System.currentTimeMillis() - currentTimeMillis);
-            if (a2 != null && a2.gi() != null && a2.gi().size() > 0) {
+            if (a2 != null && a2.gh() != null && a2.gh().size() > 0) {
                 a2.g(300L);
                 this.mCache.put(str, a2);
-                for (int i3 = 0; i3 < a2.gi().size(); i3++) {
-                    if (!k.r(str2, a2.gi().get(i2))) {
-                        cVar.P(i3);
-                        cVar.as(a2.gi().get(i3));
+                for (int i3 = 0; i3 < a2.gh().size(); i3++) {
+                    if (!k.q(str2, a2.gh().get(i2))) {
+                        cVar.L(i3);
+                        cVar.as(a2.gh().get(i3));
                         return cVar;
-                    } else if (i3 == a2.gi().size() - 1) {
-                        cVar.P(0);
-                        cVar.as(a2.gi().get(0));
+                    } else if (i3 == a2.gh().size() - 1) {
+                        cVar.L(0);
+                        cVar.as(a2.gh().get(0));
                         return cVar;
                     }
                 }
                 continue;
             } else {
                 com.baidu.adp.lib.network.http.a.a aVar2 = this.mCache.get(str);
-                if (aVar2 != null && aVar2.gi() != null && aVar2.gi().size() > 0) {
-                    cVar.as(aVar2.gi().get(0));
+                if (aVar2 != null && aVar2.gh() != null && aVar2.gh().size() > 0) {
+                    cVar.as(aVar2.gh().get(0));
                     return cVar;
                 }
             }
@@ -110,21 +110,21 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (ap(str) && this.rt.gi().size() > this.rw) {
-            if (this.rv != null) {
-                InterfaceC0018b interfaceC0018b = this.rv;
-                List<String> gi = this.rt.gi();
-                int i = this.rw;
-                this.rw = i + 1;
-                interfaceC0018b.o(gi.get(i), str);
+        if (ap(str) && this.rt.gh().size() > this.rz) {
+            if (this.rw != null) {
+                InterfaceC0018b interfaceC0018b = this.rw;
+                List<String> gh = this.rt.gh();
+                int i = this.rz;
+                this.rz = i + 1;
+                interfaceC0018b.n(gh.get(i), str);
             }
             return true;
-        } else if (this.rt != null && this.rt.gi() != null && this.rt.gi().size() <= this.rw) {
-            this.rw = 0;
+        } else if (this.rt != null && this.rt.gh() != null && this.rt.gh().size() <= this.rz) {
+            this.rz = 0;
             this.rt = null;
             return false;
         } else {
-            this.rw = 0;
+            this.rz = 0;
             this.rt = null;
             a aVar = new a();
             aVar.setHost(str);
@@ -134,7 +134,7 @@ public class b {
     }
 
     private boolean ap(String str) {
-        return (this.rt == null || TextUtils.isEmpty(str) || !str.equals(this.rt.getHost()) || this.rt.gi() == null || this.rt.gi().size() == 0 || this.rt.h(System.currentTimeMillis()) || this.rt.gi().size() <= this.rw) ? false : true;
+        return (this.rt == null || TextUtils.isEmpty(str) || !str.equals(this.rt.getHost()) || this.rt.gh() == null || this.rt.gh().size() == 0 || this.rt.h(System.currentTimeMillis()) || this.rt.gh().size() <= this.rz) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -162,7 +162,7 @@ public class b {
         cVar.J(true);
         StringBuffer stringBuffer = new StringBuffer();
         try {
-            if (cVar.gk()) {
+            if (cVar.gj()) {
                 HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL("http://180.76.76.112/v2/0011/?dn=" + str).openConnection();
                 try {
                     httpURLConnection3.setDoOutput(true);
@@ -293,7 +293,7 @@ public class b {
                     }
                     com.baidu.adp.lib.network.http.a.a aVar = new com.baidu.adp.lib.network.http.a.a();
                     aVar.setStartTime(System.currentTimeMillis());
-                    cVar.gl();
+                    cVar.gk();
                     com.baidu.adp.lib.network.http.a.a am = aVar.am(stringBuffer.toString());
                     if (inputStreamReader != null) {
                         try {
@@ -381,13 +381,13 @@ public class b {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.mHost)) {
                 b.this.rt = aVarArr[0];
-                if (aVarArr[0].gi() != null && aVarArr[0].gi().size() > 0 && b.this.rv != null) {
-                    b.this.rv.o(aVarArr[0].gi().get(0), aVarArr[0].getHost());
+                if (aVarArr[0].gh() != null && aVarArr[0].gh().size() > 0 && b.this.rw != null) {
+                    b.this.rw.n(aVarArr[0].gh().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.rv != null) {
-                b.this.rv.o(null, null);
+            if (b.this.rw != null) {
+                b.this.rw.n(null, null);
             }
         }
 

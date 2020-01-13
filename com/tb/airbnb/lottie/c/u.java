@@ -1,0 +1,107 @@
+package com.tb.airbnb.lottie.c;
+
+import android.util.JsonReader;
+import android.util.Log;
+import com.baidu.mobstat.Config;
+import com.tb.airbnb.lottie.model.content.Mask;
+import java.io.IOException;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes5.dex */
+public class u {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static Mask r(JsonReader jsonReader, com.tb.airbnb.lottie.d dVar) throws IOException {
+        boolean z;
+        boolean z2;
+        com.tb.airbnb.lottie.model.a.d dVar2 = null;
+        jsonReader.beginObject();
+        com.tb.airbnb.lottie.model.a.h hVar = null;
+        Mask.MaskMode maskMode = null;
+        while (jsonReader.hasNext()) {
+            String nextName = jsonReader.nextName();
+            switch (nextName.hashCode()) {
+                case 111:
+                    if (nextName.equals(Config.OS)) {
+                        z = true;
+                        break;
+                    }
+                    z = true;
+                    break;
+                case 3588:
+                    if (nextName.equals("pt")) {
+                        z = true;
+                        break;
+                    }
+                    z = true;
+                    break;
+                case 3357091:
+                    if (nextName.equals("mode")) {
+                        z = false;
+                        break;
+                    }
+                    z = true;
+                    break;
+                default:
+                    z = true;
+                    break;
+            }
+            switch (z) {
+                case false:
+                    String nextString = jsonReader.nextString();
+                    switch (nextString.hashCode()) {
+                        case 97:
+                            if (nextString.equals(Config.APP_VERSION_CODE)) {
+                                z2 = false;
+                                break;
+                            }
+                            z2 = true;
+                            break;
+                        case 105:
+                            if (nextString.equals("i")) {
+                                z2 = true;
+                                break;
+                            }
+                            z2 = true;
+                            break;
+                        case 115:
+                            if (nextString.equals("s")) {
+                                z2 = true;
+                                break;
+                            }
+                            z2 = true;
+                            break;
+                        default:
+                            z2 = true;
+                            break;
+                    }
+                    switch (z2) {
+                        case false:
+                            maskMode = Mask.MaskMode.MaskModeAdd;
+                            continue;
+                        case true:
+                            maskMode = Mask.MaskMode.MaskModeSubtract;
+                            continue;
+                        case true:
+                            dVar.G("Animation contains intersect masks. They are not supported but will be treated like add masks.");
+                            maskMode = Mask.MaskMode.MaskModeIntersect;
+                            continue;
+                        default:
+                            Log.w("LOTTIE", "Unknown mask mode " + nextName + ". Defaulting to Add.");
+                            maskMode = Mask.MaskMode.MaskModeAdd;
+                            continue;
+                    }
+                case true:
+                    hVar = d.j(jsonReader, dVar);
+                    break;
+                case true:
+                    dVar2 = d.g(jsonReader, dVar);
+                    break;
+                default:
+                    jsonReader.skipValue();
+                    break;
+            }
+        }
+        jsonReader.endObject();
+        return new Mask(maskMode, hVar, dVar2);
+    }
+}

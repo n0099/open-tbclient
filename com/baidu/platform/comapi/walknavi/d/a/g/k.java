@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.walknavi.d.a.g;
 
 import android.os.Environment;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class k {
     private static final String a = k.class.getName();
     private static String b = Environment.getExternalStorageDirectory() + "/AR/Screenshots/";

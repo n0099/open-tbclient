@@ -1,18 +1,18 @@
 package com.baidu.g.a.b.a;
 /* loaded from: classes2.dex */
 public class c {
-    public String aCF;
-    public String aCG;
-    public String aCH;
-    public String aCK;
-    public C0067c aCM;
-    public String aCN;
-    public String aCP;
-    public String aCS;
-    public String aCT;
-    public C0067c aCU;
-    public a aCV;
-    public String aCW;
+    public String aDC;
+    public C0067c aDE;
+    public String aDF;
+    public String aDH;
+    public String aDK;
+    public String aDL;
+    public C0067c aDM;
+    public a aDN;
+    public String aDO;
+    public String aDx;
+    public String aDy;
+    public String aDz;
     public String content;
     public long msgId;
     public String name;
@@ -20,31 +20,31 @@ public class c {
     public long time;
     public String uid;
     public String type = "0";
-    public String aCI = "0";
-    public String aCJ = "1005";
-    public String aCL = "0";
-    public String aCO = "0";
-    public String aCQ = "0";
-    public String aCR = "1005";
+    public String aDA = "0";
+    public String aDB = "1005";
+    public String aDD = "0";
+    public String aDG = "0";
+    public String aDI = "0";
+    public String aDJ = "1005";
 
     /* loaded from: classes2.dex */
     public static class a {
-        public int aDe;
-        public int aDf;
-        public c aDg;
-        public long[] aDh;
-        public int aDi;
-        public String aDj;
-        public String aDk;
+        public int aDW;
+        public int aDX;
+        public c aDY;
+        public long[] aDZ;
+        public int aEa;
+        public String aEb;
+        public String aEc;
         public int feedback = 0;
-        public String aCX = "";
-        public int aCY = 0;
+        public String aDP = "";
+        public int aDQ = 0;
         public String duration = "";
-        public String aCZ = "";
-        public String aDa = "";
-        public String aDb = "";
-        public String aDc = "";
-        public String aDd = "";
+        public String aDR = "";
+        public String aDS = "";
+        public String aDT = "";
+        public String aDU = "";
+        public String aDV = "";
     }
 
     /* loaded from: classes2.dex */
@@ -56,20 +56,20 @@ public class c {
     /* renamed from: com.baidu.g.a.b.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0067c {
-        public e aDl;
-        public d aDm;
-        public f aDn;
-        public b aDo;
+        public e aEd;
+        public d aEe;
+        public f aEf;
+        public b aEg;
     }
 
     /* loaded from: classes2.dex */
     public static class d {
-        public a aDp;
-        public a aDq;
+        public a aEh;
+        public a aEi;
 
         /* loaded from: classes2.dex */
         public static class a {
-            public String aDr;
+            public String aEj;
             public int height;
             public String url;
             public int width;
@@ -83,12 +83,12 @@ public class c {
 
     /* loaded from: classes2.dex */
     public static class f {
-        public String aDr;
+        public String aEj;
         public String duration;
         public String url;
     }
 
     public String toString() {
-        return "LiveMessageBean:{" + this.aCF + "}";
+        return "LiveMessageBean:{" + this.aDx + "}";
     }
 }

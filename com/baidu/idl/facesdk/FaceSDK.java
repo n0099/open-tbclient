@@ -16,7 +16,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FaceSDK {
     private static final String VERSION = "3.0.3.0";
     private static String mApiKey = null;
@@ -34,7 +34,7 @@ public class FaceSDK {
     private static String cdnn_parsingmodel_path2 = "7_class_model";
     private static String cdnn_parsingparam_path2 = "";
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum AlignMethodType {
         SDM,
         CDNN,
@@ -42,23 +42,23 @@ public class FaceSDK {
         SDM_15PTS
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum DetectMethodType {
         BOOST
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum ImgType {
         ARGB
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum LivenessAction {
         RESET,
         ADD_ONE_FRAME
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum LivenessMethodType {
         EYE_BLINK,
         MOUTH_MOTION,
@@ -66,7 +66,7 @@ public class FaceSDK {
         ALL
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum ParsMethodType {
         NOT_USE,
         CLASS_NUM_3,

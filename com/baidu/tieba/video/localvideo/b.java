@@ -7,17 +7,17 @@ import com.baidu.tieba.R;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long kuX = BdKVCache.MILLS_1Hour;
+    private static long kyA = BdKVCache.MILLS_1Hour;
     private Context context;
-    private a kve;
+    private a kyH;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat kuZ = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat kuY = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat kyC = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat kyB = new SimpleDateFormat("HH:mm:ss");
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void ev(List<d> list);
     }
@@ -27,12 +27,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.kuZ.setTimeZone(timeZone);
-        this.kuY.setTimeZone(timeZone);
+        this.kyC.setTimeZone(timeZone);
+        this.kyB.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.kve = aVar;
+        this.kyH = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,11 +40,11 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: c */
     public List<d> doInBackground(Void... voidArr) {
-        List<d> fz = e.fz(this.context);
-        e.b("/sdcard", fz, false);
-        e.b("/sdcard/DCIM", fz, true);
-        e.ex(fz);
-        return fz;
+        List<d> fA = e.fA(this.context);
+        e.b("/sdcard", fA, false);
+        e.b("/sdcard/DCIM", fA, true);
+        e.ex(fA);
+        return fA;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,8 +53,8 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     /* renamed from: o */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.kve != null) {
-            this.kve.ev(list);
+        if (this.kyH != null) {
+            this.kyH.ev(list);
         }
     }
 }

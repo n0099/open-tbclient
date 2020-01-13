@@ -5,12 +5,12 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AlaUserAuthenVerifyInfoResponseMessage extends JsonHttpResponsedMessage {
-    public AlaUserAuthenInfoData arF;
-    public int arG;
+    public AlaUserAuthenInfoData asr;
+    public int ass;
 
     public AlaUserAuthenVerifyInfoResponseMessage() {
         super(1021046);
-        this.arG = 1;
+        this.ass = 1;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,10 +22,10 @@ public class AlaUserAuthenVerifyInfoResponseMessage extends JsonHttpResponsedMes
                 try {
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject("authen_info");
                     if (optJSONObject2 != null) {
-                        this.arF = new AlaUserAuthenInfoData();
-                        this.arF.paserJson(optJSONObject2);
+                        this.asr = new AlaUserAuthenInfoData();
+                        this.asr.paserJson(optJSONObject2);
                     }
-                    this.arG = optJSONObject.optInt("authen_switch");
+                    this.ass = optJSONObject.optInt("authen_switch");
                 } catch (Exception e) {
                 }
             }

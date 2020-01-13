@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     public static void Q(Context context, String str) {
         if (context != null && !TextUtils.isEmpty(str)) {

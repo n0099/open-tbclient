@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GodSquareActivityConfig;
 import com.baidu.tieba.godSquare.model.res.GodSquareHttpResponsedMsg;
 import com.baidu.tieba.godSquare.model.res.GodSquareSocketResponsedMsg;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GodSquareActivityStatic {
     static {
         com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.CMD_GET_HOT_GOD_CACHE, com.baidu.tieba.godSquare.model.req.a.class);

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ForumRalatedInfo extends Message {
     public static final String DEFAULT_AVATAR = "";
     public static final String DEFAULT_NAME = "";
@@ -67,7 +67,7 @@ public final class ForumRalatedInfo extends Message {
         this.leftScore = builder.leftScore;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<ForumRalatedInfo> {
         public String avatar;
         public Integer curScore;

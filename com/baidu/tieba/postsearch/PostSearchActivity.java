@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String ghc;
-    private g jwm;
-    private d jwn;
+    public String gkm;
+    private g jzO;
+    private d jzP;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -21,7 +21,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            PostSearchActivity.this.Al(i);
+            PostSearchActivity.this.Aq(i);
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -33,58 +33,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jwm = new g(this);
-        this.jwm.initView();
-        this.jwm.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.jwn = new d(this);
+        this.jzO = new g(this);
+        this.jzO.initView();
+        this.jzO.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.jzP = new d(this);
         initData();
     }
 
-    public void pL(String str) {
-        this.ghc = str;
-        this.jwm.Ar(1);
-        this.jwn.cyi();
-        this.jwm.showLoadingView();
+    public void pO(String str) {
+        this.gkm = str;
+        this.jzO.Aw(1);
+        this.jzP.czp();
+        this.jzO.showLoadingView();
     }
 
-    public void GO(String str) {
-        this.jwm.GO(str);
+    public void GY(String str) {
+        this.jzO.GY(str);
     }
 
-    public void cxS() {
-        this.jwm.aP(this.jwn.jwL);
+    public void cyZ() {
+        this.jzO.aP(this.jzP.jAn);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.bVb())) {
-            this.jwm.hideLoadingView();
-            this.jwm.cym();
+        if (i == 1 && (bVar == null || !bVar.bWk())) {
+            this.jzO.hideLoadingView();
+            this.jzO.czt();
             return;
         }
-        this.jwm.hideLoadingView();
-        this.jwm.cya();
-        this.jwm.a(i, bVar, z);
+        this.jzO.hideLoadingView();
+        this.jzO.czh();
+        this.jzO.a(i, bVar, z);
     }
 
-    public boolean cxT() {
-        return this.jwm.cxT();
+    public boolean cza() {
+        return this.jzO.cza();
     }
 
     public void hideSoftKeyPad() {
-        this.jwm.hideSoftKeyPad();
+        this.jzO.hideSoftKeyPad();
     }
 
-    public d cxU() {
-        return this.jwn;
+    public d czb() {
+        return this.jzP;
     }
 
-    public g cxV() {
-        return this.jwm;
+    public g czc() {
+        return this.jzO;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.jwm.onChangeSkinType(i);
+        this.jzO.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -93,20 +93,20 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.jwn.cyf();
+        this.jzP.czm();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.jwm != null) {
-            this.jwm.onDestroy();
+        if (this.jzO != null) {
+            this.jzO.onDestroy();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Al(int i) {
+    public void Aq(int i) {
         int i2 = 0;
         switch (i) {
             case 0:

@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class OnSubscribeAmb<T> implements d.a<T> {
-    final Iterable<? extends rx.d<? extends T>> mTB;
+    final Iterable<? extends rx.d<? extends T>> nvF;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -14,15 +14,15 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> extends rx.j<T> {
-        private final Selection<T> neb;
-        private boolean nec;
+        private final Selection<T> nNa;
+        private boolean nNb;
         private final rx.j<? super T> subscriber;
 
         a(long j, rx.j<? super T> jVar, Selection<T> selection) {
             this.subscriber = jVar;
-            this.neb = selection;
+            this.nNa = selection;
             request(j);
         }
 
@@ -53,25 +53,25 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         }
 
         private boolean isSelected() {
-            if (this.nec) {
+            if (this.nNb) {
                 return true;
             }
-            if (this.neb.get() == this) {
-                this.nec = true;
+            if (this.nNa.get() == this) {
+                this.nNb = true;
                 return true;
-            } else if (this.neb.compareAndSet(null, this)) {
-                this.neb.unsubscribeOthers(this);
-                this.nec = true;
+            } else if (this.nNa.compareAndSet(null, this)) {
+                this.nNa.unsubscribeOthers(this);
+                this.nNb = true;
                 return true;
             } else {
-                this.neb.unsubscribeLosers();
+                this.nNa.unsubscribeLosers();
                 return false;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Selection<T> extends AtomicReference<a<T>> {
         final Collection<a<T>> ambSubscribers = new ConcurrentLinkedQueue();
 
@@ -104,10 +104,10 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
                 if (aVar != null) {
                     aVar.unsubscribe();
                 }
-                OnSubscribeAmb.p(selection.ambSubscribers);
+                OnSubscribeAmb.q(selection.ambSubscribers);
             }
         }));
-        for (rx.d<? extends T> dVar : this.mTB) {
+        for (rx.d<? extends T> dVar : this.nvF) {
             if (jVar.isUnsubscribed()) {
                 break;
             }
@@ -121,7 +121,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
             dVar.a((rx.j<? super Object>) aVar);
         }
         if (jVar.isUnsubscribed()) {
-            p(selection.ambSubscribers);
+            q(selection.ambSubscribers);
         }
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.OnSubscribeAmb.2
             @Override // rx.f
@@ -144,7 +144,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         });
     }
 
-    static <T> void p(Collection<a<T>> collection) {
+    static <T> void q(Collection<a<T>> collection) {
         if (!collection.isEmpty()) {
             for (a<T> aVar : collection) {
                 aVar.unsubscribe();

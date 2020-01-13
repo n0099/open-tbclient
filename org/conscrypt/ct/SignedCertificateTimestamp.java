@@ -4,7 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SignedCertificateTimestamp {
     private final byte[] extensions;
     private final byte[] logId;
@@ -13,20 +13,20 @@ public class SignedCertificateTimestamp {
     private final long timestamp;
     private final Version version;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum Origin {
         EMBEDDED,
         TLS_EXTENSION,
         OCSP_RESPONSE
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum SignatureType {
         CERTIFICATE_TIMESTAMP,
         TREE_HASH
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum Version {
         V1
     }

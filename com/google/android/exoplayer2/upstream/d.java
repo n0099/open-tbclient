@@ -6,11 +6,11 @@ import com.google.android.exoplayer2.ParserException;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.net.URLDecoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class d implements e {
     private byte[] data;
     private g dataSpec;
-    private int mhW;
+    private int mlM;
 
     @Override // com.google.android.exoplayer2.upstream.e
     public long a(g gVar) throws IOException {
@@ -42,13 +42,13 @@ public final class d implements e {
         if (i2 == 0) {
             return 0;
         }
-        int length = this.data.length - this.mhW;
+        int length = this.data.length - this.mlM;
         if (length == 0) {
             return -1;
         }
         int min = Math.min(i2, length);
-        System.arraycopy(this.data, this.mhW, bArr, i, min);
-        this.mhW += min;
+        System.arraycopy(this.data, this.mlM, bArr, i, min);
+        this.mlM += min;
         return min;
     }
 

@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.Log;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BdLightappKernelJsCallback implements INoProGuard {
     public static final String ERROR_INFO_KEY = "error_info";
     public static final String ERROR_RESULT_KEY = "error_code";
@@ -24,7 +24,7 @@ public class BdLightappKernelJsCallback implements INoProGuard {
     private String mParam;
     private String mSuccessCallback;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onCallBack(String str, String str2);
     }

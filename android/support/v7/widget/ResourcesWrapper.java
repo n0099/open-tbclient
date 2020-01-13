@@ -16,7 +16,7 @@ import android.util.TypedValue;
 import java.io.IOException;
 import java.io.InputStream;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class ResourcesWrapper extends Resources {
     private final Resources mResources;
 

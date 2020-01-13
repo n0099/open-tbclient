@@ -24,7 +24,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.guide.b;
 import com.baidu.adp.lib.guide.c;
 import com.baidu.adp.lib.guide.d;
 import com.baidu.adp.lib.util.j;
@@ -44,6 +43,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.message.SignMessage;
+import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
@@ -58,6 +58,7 @@ import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveTabInfo;
 import com.baidu.tieba.ala.alasquare.special_forum.data.h;
 import com.baidu.tieba.ala.alasquare.special_forum.model.a;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.ConcernTabFragment;
+import com.baidu.tieba.ala.alasquare.special_forum.subtab.GameTabFragment;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.OtherSubTabFragment;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.RecommendTabFragment;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment;
@@ -69,35 +70,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class SpecialLiveFragment extends BaseFragment {
-    private AppBarLayout Cf;
-    private CustomViewPager cTN;
-    private LikeModel dfB;
-    private AlaLiveUserNotifyController ehe;
-    private AlaLiveUserNotifyManager.AlaLiveNotifyListener ehf;
-    private TextView elA;
-    private ImageView elB;
-    private ScrollHorizontalTabView elC;
-    private a elD;
-    private e elE;
-    private com.baidu.tieba.ala.alasquare.special_forum.model.a elF;
-    private List<TabData> elG;
-    private List<SpecialLiveTabInfo> elH;
-    private CustomMessageListener elI;
-    private int elJ;
-    private String elK;
-    private c elN;
-    private float elo;
-    private CollapsingToolbarLayout elp;
-    private View elq;
-    private ObservedChangeFrameLayout elr;
-    private RelativeLayout els;
-    private View elt;
-    private TextView elu;
-    private TextView elv;
-    private TextView elw;
-    private RelativeLayout elx;
-    private View ely;
-    private View elz;
+    private AppBarLayout Ck;
+    private CustomViewPager cTX;
+    private LikeModel dfN;
+    private AlaLiveUserNotifyController ehm;
+    private AlaLiveUserNotifyManager.AlaLiveNotifyListener ehn;
+    private ScrollHorizontalTabView ekt;
+    private com.baidu.tieba.ala.alasquare.special_forum.model.a emA;
+    private List<TabData> emB;
+    private List<SpecialLiveTabInfo> emC;
+    private CustomMessageListener emD;
+    private int emE;
+    private String emF;
+    private c emI;
+    private float emk;
+    private CollapsingToolbarLayout eml;
+    private View emm;
+    private ObservedChangeFrameLayout emn;
+    private RelativeLayout emo;
+    private View emp;
+    private TextView emq;
+    private TextView emr;
+    private TextView ems;
+    private RelativeLayout emt;
+    private View emu;
+    private View emv;
+    private TextView emw;
+    private ImageView emx;
+    private a emy;
+    private e emz;
     private BdUniqueId mBdUniqueId;
     private Context mContext;
     private h mData;
@@ -105,27 +106,27 @@ public class SpecialLiveFragment extends BaseFragment {
     private String mForumName;
     private View mRootView;
     private View mStatusBarView;
-    private boolean elL = true;
+    private boolean emG = true;
     private int mCurState = 1;
-    private boolean elM = false;
+    private boolean emH = false;
     private Handler mHandler = new Handler();
-    private Runnable elO = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.1
+    private Runnable emJ = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.1
         @Override // java.lang.Runnable
         public void run() {
-            if (SpecialLiveFragment.this.elE != null) {
-                SpecialLiveFragment.this.elE.baJ();
+            if (SpecialLiveFragment.this.emz != null) {
+                SpecialLiveFragment.this.emz.bbe();
             }
         }
     };
-    private CustomMessageListener cHV = new CustomMessageListener(2921414) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.12
+    private CustomMessageListener cIh = new CustomMessageListener(2921414) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.12
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            SpecialLiveFragment.this.mHandler.removeCallbacks(SpecialLiveFragment.this.elO);
-            SpecialLiveFragment.this.mHandler.postDelayed(SpecialLiveFragment.this.elO, 500L);
+            SpecialLiveFragment.this.mHandler.removeCallbacks(SpecialLiveFragment.this.emJ);
+            SpecialLiveFragment.this.mHandler.postDelayed(SpecialLiveFragment.this.emJ, 500L);
         }
     };
-    private CustomMessageListener elP = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_REFRESH) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.14
+    private CustomMessageListener emK = new CustomMessageListener(CmdConfigCustom.CMD_FORCE_REFRESH) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.14
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -135,9 +136,9 @@ public class SpecialLiveFragment extends BaseFragment {
                     if ("FrsLiveLive".equals(split[0])) {
                         SpecialLiveFragment.this.loadData(false);
                     }
-                    SpecialForumTabBaseFragment os = SpecialLiveFragment.this.elD.os(SpecialLiveFragment.this.cTN.getCurrentItem());
-                    if (os != null) {
-                        os.baE();
+                    SpecialForumTabBaseFragment ot = SpecialLiveFragment.this.emy.ot(SpecialLiveFragment.this.cTX.getCurrentItem());
+                    if (ot != null) {
+                        ot.baZ();
                     }
                 }
             }
@@ -147,19 +148,19 @@ public class SpecialLiveFragment extends BaseFragment {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && SpecialLiveFragment.this.elF != null && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            if (customResponsedMessage != null && SpecialLiveFragment.this.emA != null && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 SpecialLiveFragment.this.loadData(false);
             }
         }
     };
-    private final CustomMessageListener elQ = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.16
+    private final CustomMessageListener emL = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.16
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             t tVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof t) && (tVar = (t) customResponsedMessage.getData()) != null && SpecialLiveFragment.this.mForumId.equals(tVar.getFid())) {
                 if (tVar.isLike() == 1) {
-                    if (SpecialLiveFragment.this.bau()) {
+                    if (SpecialLiveFragment.this.baP()) {
                         SpecialLiveFragment.this.mCurState = 3;
                     } else {
                         SpecialLiveFragment.this.mCurState = 2;
@@ -167,31 +168,31 @@ public class SpecialLiveFragment extends BaseFragment {
                 } else {
                     SpecialLiveFragment.this.mCurState = 1;
                 }
-                SpecialLiveFragment.this.hL(false);
+                SpecialLiveFragment.this.hV(false);
             }
         }
     };
-    private final CustomMessageListener elR = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.17
+    private final CustomMessageListener emM = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.17
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             SignData signData;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (signData = (SignData) customResponsedMessage.getData()) != null && SpecialLiveFragment.this.mForumId.equals(signData.forumId) && signData.is_signed == 1) {
                 SpecialLiveFragment.this.mCurState = 3;
-                SpecialLiveFragment.this.hL(false);
+                SpecialLiveFragment.this.hV(false);
                 l.showToast(SpecialLiveFragment.this.getPageContext().getPageActivity(), SpecialLiveFragment.this.mContext.getString(R.string.special_sign_success_tip, Integer.valueOf(signData.sign_bonus_point)));
             }
         }
     };
-    private final CustomMessageListener elS = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_SPECIAL_CONCERN_TAB_TAB_ICON) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.18
+    private final CustomMessageListener emN = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_SPECIAL_CONCERN_TAB_TAB_ICON) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.18
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
-                if (!v.isEmpty(SpecialLiveFragment.this.elG)) {
-                    ((TabData) SpecialLiveFragment.this.elG.get(0)).extra = bool;
-                    SpecialLiveFragment.this.elC.setData(SpecialLiveFragment.this.elG);
+                if (!v.isEmpty(SpecialLiveFragment.this.emB)) {
+                    ((TabData) SpecialLiveFragment.this.emB.get(0)).extra = bool;
+                    SpecialLiveFragment.this.ekt.setData(SpecialLiveFragment.this.emB);
                     if (bool.booleanValue()) {
                         TiebaStatic.log("c12898");
                     }
@@ -222,38 +223,38 @@ public class SpecialLiveFragment extends BaseFragment {
                 this.mForumName = string;
                 StringBuilder sb = new StringBuilder();
                 sb.append(UtilHelper.getFixedBarText(string, 5, true, true) + string2);
-                this.elK = sb.toString();
+                this.emF = sb.toString();
             } else {
                 this.mForumName = this.mContext.getResources().getString(R.string.ala_ufan_bar_title);
-                this.elK = this.mForumName + string2;
+                this.emF = this.mForumName + string2;
             }
-            bas();
-            baq();
-            bar();
-            MessageManager.getInstance().registerListener(this.elI);
-            MessageManager.getInstance().registerListener(this.elQ);
-            MessageManager.getInstance().registerListener(this.elR);
-            MessageManager.getInstance().registerListener(this.elS);
-            MessageManager.getInstance().registerListener(this.elP);
+            baN();
+            baL();
+            baM();
+            MessageManager.getInstance().registerListener(this.emD);
+            MessageManager.getInstance().registerListener(this.emL);
+            MessageManager.getInstance().registerListener(this.emM);
+            MessageManager.getInstance().registerListener(this.emN);
+            MessageManager.getInstance().registerListener(this.emK);
             MessageManager.getInstance().registerListener(this.mAccountChangedListener);
-            MessageManager.getInstance().registerListener(this.cHV);
+            MessageManager.getInstance().registerListener(this.cIh);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRootView = layoutInflater.inflate(R.layout.special_live_layout, (ViewGroup) null);
-        this.Cf = (AppBarLayout) this.mRootView.findViewById(R.id.special_app_bar_layout);
-        this.elp = (CollapsingToolbarLayout) this.mRootView.findViewById(R.id.special_collapse_layout);
+        this.Ck = (AppBarLayout) this.mRootView.findViewById(R.id.special_app_bar_layout);
+        this.eml = (CollapsingToolbarLayout) this.mRootView.findViewById(R.id.special_collapse_layout);
         this.mStatusBarView = this.mRootView.findViewById(R.id.statusbar_view);
-        this.elr = (ObservedChangeFrameLayout) this.mRootView.findViewById(R.id.live_container);
+        this.emn = (ObservedChangeFrameLayout) this.mRootView.findViewById(R.id.live_container);
         this.mBdUniqueId = BdUniqueId.gen();
-        this.els = (RelativeLayout) this.mRootView.findViewById(R.id.function_container);
-        this.elt = this.mRootView.findViewById(R.id.function_bottom_space);
-        this.elu = (TextView) this.mRootView.findViewById(R.id.function_title);
-        this.elu.setText(this.elK);
-        this.elv = (TextView) this.mRootView.findViewById(R.id.function_btn);
-        this.elv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.19
+        this.emo = (RelativeLayout) this.mRootView.findViewById(R.id.function_container);
+        this.emp = this.mRootView.findViewById(R.id.function_bottom_space);
+        this.emq = (TextView) this.mRootView.findViewById(R.id.function_title);
+        this.emq.setText(this.emF);
+        this.emr = (TextView) this.mRootView.findViewById(R.id.function_btn);
+        this.emr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.19
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!j.isNetWorkAvailable()) {
@@ -264,11 +265,11 @@ public class SpecialLiveFragment extends BaseFragment {
                     bc.skipToLoginActivity(SpecialLiveFragment.this.mContext);
                 }
                 if (SpecialLiveFragment.this.mCurState == 1) {
-                    SpecialLiveFragment.this.elv.setClickable(false);
-                    SpecialLiveFragment.this.dfB.er(SpecialLiveFragment.this.mForumName, SpecialLiveFragment.this.mForumId);
+                    SpecialLiveFragment.this.emr.setClickable(false);
+                    SpecialLiveFragment.this.dfN.et(SpecialLiveFragment.this.mForumName, SpecialLiveFragment.this.mForumId);
                     TiebaStatic.log(new an("c12890"));
                 } else if (SpecialLiveFragment.this.mCurState == 2) {
-                    SpecialLiveFragment.this.elv.setClickable(false);
+                    SpecialLiveFragment.this.emr.setClickable(false);
                     ForumData forumData = new ForumData();
                     forumData.setId(SpecialLiveFragment.this.mForumId);
                     forumData.setName(SpecialLiveFragment.this.mForumName);
@@ -279,14 +280,14 @@ public class SpecialLiveFragment extends BaseFragment {
                 }
             }
         });
-        this.elw = (TextView) this.mRootView.findViewById(R.id.function_level_desc);
-        this.elx = (RelativeLayout) this.mRootView.findViewById(R.id.navigation_layout);
-        this.elz = this.mRootView.findViewById(R.id.navigation_top_space);
-        this.ely = this.mRootView.findViewById(R.id.navigation_bg);
-        this.elA = (TextView) this.mRootView.findViewById(R.id.navigation_title);
-        this.elA.setText(this.elK);
-        this.elB = (ImageView) this.mRootView.findViewById(R.id.navigation_back_img);
-        this.elB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.20
+        this.ems = (TextView) this.mRootView.findViewById(R.id.function_level_desc);
+        this.emt = (RelativeLayout) this.mRootView.findViewById(R.id.navigation_layout);
+        this.emv = this.mRootView.findViewById(R.id.navigation_top_space);
+        this.emu = this.mRootView.findViewById(R.id.navigation_bg);
+        this.emw = (TextView) this.mRootView.findViewById(R.id.navigation_title);
+        this.emw.setText(this.emF);
+        this.emx = (ImageView) this.mRootView.findViewById(R.id.navigation_back_img);
+        this.emx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.20
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
@@ -294,11 +295,11 @@ public class SpecialLiveFragment extends BaseFragment {
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
         });
-        this.elC = (ScrollHorizontalTabView) this.mRootView.findViewById(R.id.scroll_tab_view);
-        this.cTN = (CustomViewPager) this.mRootView.findViewById(R.id.special_view_pager);
+        this.ekt = (ScrollHorizontalTabView) this.mRootView.findViewById(R.id.scroll_tab_view);
+        this.cTX = (CustomViewPager) this.mRootView.findViewById(R.id.special_view_pager);
         initViewPager();
-        this.elC.setViewPager(this.cTN);
-        this.elC.setScrollTabPageListener(new ScrollHorizontalTabView.ScrollTabPageListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.2
+        this.ekt.setViewPager(this.cTX);
+        this.ekt.setScrollTabPageListener(new ScrollHorizontalTabView.ScrollTabPageListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.2
             @Override // com.baidu.ala.view.ScrollHorizontalTabView.ScrollTabPageListener
             public boolean onPrePageSelect(int i, TabData tabData) {
                 return true;
@@ -307,15 +308,15 @@ public class SpecialLiveFragment extends BaseFragment {
             @Override // com.baidu.ala.view.ScrollHorizontalTabView.ScrollTabPageListener
             public void onPageSelected(int i, TabData tabData) {
                 if (i != 0 || TbadkCoreApplication.isLogin()) {
-                    if (SpecialLiveFragment.this.elD != null) {
-                        SpecialLiveFragment.this.elD.a(i, tabData);
+                    if (SpecialLiveFragment.this.emy != null) {
+                        SpecialLiveFragment.this.emy.a(i, tabData);
                         return;
                     }
                     return;
                 }
                 bc.skipToLoginActivity(SpecialLiveFragment.this.getPageContext().getPageActivity());
-                if (SpecialLiveFragment.this.cTN != null) {
-                    SpecialLiveFragment.this.cTN.setCurrentItem(1);
+                if (SpecialLiveFragment.this.cTX != null) {
+                    SpecialLiveFragment.this.cTX.setCurrentItem(1);
                 }
             }
 
@@ -323,49 +324,49 @@ public class SpecialLiveFragment extends BaseFragment {
             public void onPageScrolled(int i, float f, int i2) {
             }
         });
-        this.Cf.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.3
+        this.Ck.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.3
             @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
                 int abs = Math.abs(i);
                 if (abs == 0) {
-                    SpecialLiveFragment.this.ely.setVisibility(8);
-                    SpecialLiveFragment.this.elA.setVisibility(8);
+                    SpecialLiveFragment.this.emu.setVisibility(8);
+                    SpecialLiveFragment.this.emw.setVisibility(8);
                 } else {
-                    SpecialLiveFragment.this.ely.setVisibility(0);
-                    SpecialLiveFragment.this.elA.setVisibility(0);
+                    SpecialLiveFragment.this.emu.setVisibility(0);
+                    SpecialLiveFragment.this.emw.setVisibility(0);
                 }
-                SpecialLiveFragment.this.hM(((float) abs) > SpecialLiveFragment.this.elo / 2.0f);
-                float abs2 = Math.abs(abs / SpecialLiveFragment.this.elo);
-                SpecialLiveFragment.this.ely.setAlpha(abs2);
-                SpecialLiveFragment.this.elA.setAlpha(abs2);
+                SpecialLiveFragment.this.hW(((float) abs) > SpecialLiveFragment.this.emk / 2.0f);
+                float abs2 = Math.abs(abs / SpecialLiveFragment.this.emk);
+                SpecialLiveFragment.this.emu.setAlpha(abs2);
+                SpecialLiveFragment.this.emw.setAlpha(abs2);
                 SpecialLiveFragment.this.i(abs, abs2);
             }
         });
-        this.elq = this.mRootView.findViewById(R.id.square_main_top_divider_line);
-        this.elr.setOnSizeChangeListener(new com.baidu.tbadk.widget.layout.e() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.4
+        this.emm = this.mRootView.findViewById(R.id.square_main_top_divider_line);
+        this.emn.setOnSizeChangeListener(new com.baidu.tbadk.widget.layout.e() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.4
             @Override // com.baidu.tbadk.widget.layout.e
             public void d(View view, int i, int i2, int i3, int i4) {
-                SpecialLiveFragment.this.elo = (SpecialLiveFragment.this.elr.getMeasuredHeight() + SpecialLiveFragment.this.els.getMeasuredHeight()) - SpecialLiveFragment.this.elx.getMeasuredHeight();
-                SpecialLiveFragment.this.elp.setMinimumHeight(SpecialLiveFragment.this.elx.getMeasuredHeight());
+                SpecialLiveFragment.this.emk = (SpecialLiveFragment.this.emn.getMeasuredHeight() + SpecialLiveFragment.this.emo.getMeasuredHeight()) - SpecialLiveFragment.this.emt.getMeasuredHeight();
+                SpecialLiveFragment.this.eml.setMinimumHeight(SpecialLiveFragment.this.emt.getMeasuredHeight());
             }
         });
-        xy();
-        this.elG = new ArrayList();
-        this.elH = new ArrayList();
-        this.elE = new e(getPageContext());
-        this.elF = new com.baidu.tieba.ala.alasquare.special_forum.model.a(getPageContext(), new a.InterfaceC0412a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.5
-            @Override // com.baidu.tieba.ala.alasquare.special_forum.model.a.InterfaceC0412a
+        xO();
+        this.emB = new ArrayList();
+        this.emC = new ArrayList();
+        this.emz = new e(getPageContext());
+        this.emA = new com.baidu.tieba.ala.alasquare.special_forum.model.a(getPageContext(), new a.InterfaceC0415a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.5
+            @Override // com.baidu.tieba.ala.alasquare.special_forum.model.a.InterfaceC0415a
             public void b(h hVar) {
                 SpecialLiveFragment.this.hideLoadingView(SpecialLiveFragment.this.mRootView);
                 SpecialLiveFragment.this.a(hVar);
             }
 
-            @Override // com.baidu.tieba.ala.alasquare.special_forum.model.a.InterfaceC0412a
-            public void aa(int i, String str) {
-                SpecialLiveFragment.this.af(i, str);
+            @Override // com.baidu.tieba.ala.alasquare.special_forum.model.a.InterfaceC0415a
+            public void ac(int i, String str) {
+                SpecialLiveFragment.this.ah(i, str);
             }
         });
-        hL(true);
+        hV(true);
         loadData(true);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return this.mRootView;
@@ -377,45 +378,45 @@ public class SpecialLiveFragment extends BaseFragment {
         this.mRootView.post(new Runnable() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.6
             @Override // java.lang.Runnable
             public void run() {
-                SpecialLiveFragment.this.ag(SpecialLiveFragment.this.getFragmentActivity());
+                SpecialLiveFragment.this.ah(SpecialLiveFragment.this.getFragmentActivity());
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData(boolean z) {
-        if (!this.elF.isLoading()) {
+        if (!this.emA.isLoading()) {
             if (z) {
                 showLoadingView(this.mRootView);
             }
-            this.elF.loadData();
+            this.emA.loadData();
         }
     }
 
-    private void baq() {
-        this.ehe = new AlaLiveUserNotifyController(getPageContext());
-        this.ehf = new AlaLiveUserNotifyManager.AlaLiveNotifyListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.7
+    private void baL() {
+        this.ehm = new AlaLiveUserNotifyController(getPageContext());
+        this.ehn = new AlaLiveUserNotifyManager.AlaLiveNotifyListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.7
             @Override // com.baidu.ala.notify.AlaLiveUserNotifyManager.AlaLiveNotifyListener
             public void onCallBack() {
                 if (SpecialLiveFragment.this.isPrimary()) {
-                    SpecialLiveFragment.this.ehe.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
+                    SpecialLiveFragment.this.ehm.showNextNotifyDialog(0, AlaLiveUserNotifyManager.getInstance().getNotifyDataList());
                 }
             }
         };
-        AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.ehf);
+        AlaLiveUserNotifyManager.getInstance().addNotifyListener(this.ehn);
     }
 
-    private void bar() {
-        this.elI = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_MODEL_TASK) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.8
+    private void baM() {
+        this.emD = new CustomMessageListener(CmdConfigCustom.CMD_SIGN_MODEL_TASK) { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 boolean z;
                 SignData signData = null;
-                SpecialLiveFragment.this.elv.setClickable(true);
+                SpecialLiveFragment.this.emr.setClickable(true);
                 if (customResponsedMessage != null && customResponsedMessage.getOrginalMessage().getTag() == SpecialLiveFragment.this.mBdUniqueId) {
                     SignMessage signMessage = (SignMessage) customResponsedMessage;
-                    if (AntiHelper.aW(signMessage.mSignErrorCode, signMessage.mSignErrorString) && signMessage.signData != null) {
+                    if (AntiHelper.bc(signMessage.mSignErrorCode, signMessage.mSignErrorString) && signMessage.signData != null) {
                         AntiHelper.a(SpecialLiveFragment.this.mContext, signMessage.signData.blockPopInfoData, (AntiHelper.a) null);
                         return;
                     }
@@ -431,8 +432,8 @@ public class SpecialLiveFragment extends BaseFragment {
                     if (z) {
                         TbadkCoreApplication.getInst().addSignedForum(SpecialLiveFragment.this.mForumName, signData.sign_bonus_point, -1);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE, signData));
-                        if (AntiHelper.aW(signMessage.mSignErrorCode, signMessage.mSignErrorString)) {
-                            AntiHelper.bj(SpecialLiveFragment.this.mContext, signMessage.mSignErrorString);
+                        if (AntiHelper.bc(signMessage.mSignErrorCode, signMessage.mSignErrorString)) {
+                            AntiHelper.bn(SpecialLiveFragment.this.mContext, signMessage.mSignErrorString);
                             return;
                         } else {
                             l.showToast(SpecialLiveFragment.this.mContext, SpecialLiveFragment.this.mContext.getString(R.string.special_sign_success_tip, Integer.valueOf(signData.sign_bonus_point)));
@@ -441,7 +442,7 @@ public class SpecialLiveFragment extends BaseFragment {
                     }
                     if (signMessage.mSignErrorCode == 160002) {
                         SpecialLiveFragment.this.mCurState = 3;
-                        SpecialLiveFragment.this.hL(false);
+                        SpecialLiveFragment.this.hV(false);
                     }
                     l.showToast(SpecialLiveFragment.this.mContext, signMessage.mSignErrorString);
                 }
@@ -449,18 +450,18 @@ public class SpecialLiveFragment extends BaseFragment {
         };
     }
 
-    private void bas() {
-        this.dfB = new LikeModel(getPageContext());
-        this.dfB.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.9
+    private void baN() {
+        this.dfN = new LikeModel(getPageContext());
+        this.dfN.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.9
             @Override // com.baidu.adp.base.d
             public void callback(Object obj) {
-                SpecialLiveFragment.this.elv.setClickable(true);
-                if (SpecialLiveFragment.this.dfB.getErrorCode() == 22) {
+                SpecialLiveFragment.this.emr.setClickable(true);
+                if (SpecialLiveFragment.this.dfN.getErrorCode() == 22) {
                     l.showToast(SpecialLiveFragment.this.mContext, (int) R.string.had_liked_forum);
-                } else if (AntiHelper.aW(SpecialLiveFragment.this.dfB.getErrorCode(), SpecialLiveFragment.this.dfB.getErrorString())) {
-                    AntiHelper.bj(SpecialLiveFragment.this.mContext, SpecialLiveFragment.this.dfB.getErrorString());
-                } else if (SpecialLiveFragment.this.dfB.getErrorCode() != 0) {
-                    l.showToast(SpecialLiveFragment.this.mContext, SpecialLiveFragment.this.dfB.getErrorString());
+                } else if (AntiHelper.bc(SpecialLiveFragment.this.dfN.getErrorCode(), SpecialLiveFragment.this.dfN.getErrorString())) {
+                    AntiHelper.bn(SpecialLiveFragment.this.mContext, SpecialLiveFragment.this.dfN.getErrorString());
+                } else if (SpecialLiveFragment.this.dfN.getErrorCode() != 0) {
+                    l.showToast(SpecialLiveFragment.this.mContext, SpecialLiveFragment.this.dfN.getErrorString());
                 } else {
                     t tVar = (t) obj;
                     if (tVar != null) {
@@ -479,21 +480,21 @@ public class SpecialLiveFragment extends BaseFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(h hVar) {
         this.mData = hVar;
-        bav();
-        bat();
-        if (!this.elM) {
-            baw();
-            if (this.cTN != null && this.cTN.getChildCount() > 1) {
-                this.cTN.setCurrentItem(1);
+        baQ();
+        baO();
+        if (!this.emH) {
+            baR();
+            if (this.cTX != null && this.cTX.getChildCount() > 1) {
+                this.cTX.setCurrentItem(1);
             }
             if (!v.isEmpty(this.mData.tabInfoList)) {
-                this.elM = true;
+                this.emH = true;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void af(int i, String str) {
+    public void ah(int i, String str) {
         if (TextUtils.isEmpty(str)) {
             showNetRefreshView(this.mRootView, this.mContext.getResources().getString(R.string.square_load_data_failed_tip), false);
         } else {
@@ -501,9 +502,9 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    private void bat() {
-        if (this.mData.emm) {
-            if (bau()) {
+    private void baO() {
+        if (this.mData.enk) {
+            if (baP()) {
                 this.mCurState = 3;
             } else {
                 this.mCurState = 2;
@@ -511,121 +512,115 @@ public class SpecialLiveFragment extends BaseFragment {
         } else {
             this.mCurState = 1;
         }
-        hL(false);
+        hV(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bau() {
-        return this.mData.emo.emu;
+    public boolean baP() {
+        return this.mData.enm.ens;
     }
 
-    private void bav() {
-        boolean c = this.elE.c(this.mData.emk);
+    private void baQ() {
+        boolean c = this.emz.c(this.mData.eni);
         if (c) {
-            this.elE.stopPlay();
-            this.elE.onDestroy();
+            this.emz.stopPlay();
+            this.emz.onDestroy();
         }
-        this.elE.a(this.mData.emk, c);
+        this.emz.a(this.mData.eni, c);
         if (c) {
-            this.elE.I(this.elr);
+            this.emz.M(this.emn);
         }
-        this.elE.startPlay();
+        this.emz.startPlay();
     }
 
-    private void baw() {
-        bax();
-        this.elC.setData(this.elG);
-        this.elD.setData(this.elH);
+    private void baR() {
+        baS();
+        this.ekt.setData(this.emB);
+        this.emy.setData(this.emC);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(int i, float f) {
-        if (this.elE != null && f != 0.0f) {
-            if (this.elJ <= i) {
-                if (this.elL && f >= 0.3f) {
-                    this.elE.hF(true);
-                    this.elE.pause();
-                    this.elL = false;
+        if (this.emz != null && f != 0.0f) {
+            if (this.emE <= i) {
+                if (this.emG && f >= 0.3f) {
+                    this.emz.hK(true);
+                    this.emz.pause();
+                    this.emG = false;
                 }
-            } else if (!this.elL && f <= 0.3f) {
-                this.elE.hF(false);
-                this.elE.resume();
-                this.elL = true;
+            } else if (!this.emG && f <= 0.3f) {
+                this.emz.hK(false);
+                this.emz.resume();
+                this.emG = true;
             }
-            this.elJ = i;
+            this.emE = i;
         }
     }
 
-    private void xy() {
+    private void xO() {
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds88);
         if (UtilHelper.canUseStyleImmersiveSticky() && this.mStatusBarView.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = this.mStatusBarView.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
             this.mStatusBarView.setLayoutParams(layoutParams);
             this.mStatusBarView.setVisibility(8);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.elz.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.emv.getLayoutParams();
             layoutParams2.height = layoutParams.height;
-            this.elz.setLayoutParams(layoutParams2);
+            this.emv.setLayoutParams(layoutParams2);
             dimensionPixelSize = layoutParams.height + dimensionPixelSize;
         } else {
             this.mStatusBarView.setVisibility(8);
         }
-        CollapsingToolbarLayout.LayoutParams layoutParams3 = (CollapsingToolbarLayout.LayoutParams) this.elx.getLayoutParams();
+        CollapsingToolbarLayout.LayoutParams layoutParams3 = (CollapsingToolbarLayout.LayoutParams) this.emt.getLayoutParams();
         layoutParams3.height = dimensionPixelSize;
-        this.elx.setLayoutParams(layoutParams3);
+        this.emt.setLayoutParams(layoutParams3);
     }
 
-    private void bax() {
-        this.elG.clear();
-        this.elH.clear();
-        this.elG.add(baA());
-        this.elG.add(baB());
-        this.elH.add(bay());
-        this.elH.add(baz());
+    private void baS() {
+        this.emB.clear();
+        this.emC.clear();
+        this.emB.add(baV());
+        this.emB.add(baW());
+        this.emC.add(baT());
+        this.emC.add(baU());
         if (!v.isEmpty(this.mData.tabInfoList)) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.mData.tabInfoList.size() && i2 < 10) {
-                    SpecialLiveTabInfo specialLiveTabInfo = this.mData.tabInfoList.get(i2);
-                    if (specialLiveTabInfo != null) {
-                        this.elH.add(specialLiveTabInfo);
-                        TabData tabData = new TabData();
-                        tabData.tabId = specialLiveTabInfo.tabId;
-                        tabData.tabName = specialLiveTabInfo.tabName;
-                        tabData.tabType = specialLiveTabInfo.tabType;
-                        this.elG.add(tabData);
-                    }
-                    i = i2 + 1;
-                } else {
-                    return;
+            boolean z = b.aDr().getInt("chushou_game_tab", 1) == 1;
+            for (int i = 0; i < this.mData.tabInfoList.size() && i < 10; i++) {
+                SpecialLiveTabInfo specialLiveTabInfo = this.mData.tabInfoList.get(i);
+                if (specialLiveTabInfo != null && (specialLiveTabInfo.tabId != 1108 || z)) {
+                    this.emC.add(specialLiveTabInfo);
+                    TabData tabData = new TabData();
+                    tabData.tabId = specialLiveTabInfo.tabId;
+                    tabData.tabName = specialLiveTabInfo.tabName;
+                    tabData.tabType = specialLiveTabInfo.tabType;
+                    this.emB.add(tabData);
                 }
             }
         }
     }
 
-    private SpecialLiveTabInfo bay() {
+    private SpecialLiveTabInfo baT() {
         SpecialLiveTabInfo specialLiveTabInfo = new SpecialLiveTabInfo();
         specialLiveTabInfo.tabId = -901;
         specialLiveTabInfo.tabName = this.mContext.getResources().getString(R.string.special_concern_tab_title);
         return specialLiveTabInfo;
     }
 
-    private SpecialLiveTabInfo baz() {
+    private SpecialLiveTabInfo baU() {
         SpecialLiveTabInfo specialLiveTabInfo = new SpecialLiveTabInfo();
         specialLiveTabInfo.tabId = -903;
         specialLiveTabInfo.tabName = this.mContext.getResources().getString(R.string.special_recommend_tab_title);
         return specialLiveTabInfo;
     }
 
-    private TabData baA() {
+    private TabData baV() {
         TabData tabData = new TabData();
         tabData.tabId = -901;
         tabData.tabName = this.mContext.getResources().getString(R.string.special_concern_tab_title);
         return tabData;
     }
 
-    private TabData baB() {
+    private TabData baW() {
         TabData tabData = new TabData();
         tabData.tabId = -903;
         tabData.tabName = this.mContext.getResources().getString(R.string.special_recommend_tab_title);
@@ -640,14 +635,14 @@ public class SpecialLiveFragment extends BaseFragment {
                 loadData(false);
                 AlaLiveUserNotifyManager.getInstance().sendGetUserNotifyRequest();
             }
-            if (this.elE != null) {
+            if (this.emz != null) {
                 if (isPrimary()) {
-                    this.elE.hF(false);
-                    this.elE.startPlay();
+                    this.emz.hK(false);
+                    this.emz.startPlay();
                     return;
                 }
-                this.elE.hF(true);
-                this.elE.pause();
+                this.emz.hK(true);
+                this.emz.pause();
             }
         }
     }
@@ -664,93 +659,93 @@ public class SpecialLiveFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.elE != null) {
-            this.elE.hF(true);
-            this.elE.stopPlay();
+        if (this.emz != null) {
+            this.emz.hK(true);
+            this.emz.stopPlay();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.elE != null) {
-            this.elE.onChangeSkinType(i);
+        if (this.emz != null) {
+            this.emz.onChangeSkinType(i);
         }
-        if (this.elC != null) {
-            am.setBackgroundResource(this.elC, R.color.cp_bg_line_d);
-            this.elC.onChangeSkinType(i);
+        if (this.ekt != null) {
+            am.setBackgroundResource(this.ekt, R.color.cp_bg_line_d);
+            this.ekt.onChangeSkinType(i);
         }
-        if (this.elD != null) {
-            this.elD.onChangeSkinType(i);
+        if (this.emy != null) {
+            this.emy.onChangeSkinType(i);
         }
-        hM(false);
+        hW(false);
         am.setBackgroundColor(this.mStatusBarView, R.color.cp_bg_line_d);
-        am.setBackgroundColor(this.ely, R.color.cp_bg_line_d);
-        am.setViewTextColor(this.elA, (int) R.color.cp_cont_b);
-        am.setBackgroundColor(this.els, R.color.cp_bg_line_d);
-        am.setBackgroundColor(this.elt, R.color.cp_bg_line_e);
-        am.setViewTextColor(this.elu, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.elw, (int) R.color.cp_cont_j);
-        am.setViewTextColor(this.elv, (int) R.color.cp_cont_g);
-        am.setBackgroundResource(this.elv, R.drawable.frs_attention_btn_bg_selector);
-        am.setBackgroundResource(this.elq, R.color.cp_bg_line_c);
+        am.setBackgroundColor(this.emu, R.color.cp_bg_line_d);
+        am.setViewTextColor(this.emw, (int) R.color.cp_cont_b);
+        am.setBackgroundColor(this.emo, R.color.cp_bg_line_d);
+        am.setBackgroundColor(this.emp, R.color.cp_bg_line_e);
+        am.setViewTextColor(this.emq, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.ems, (int) R.color.cp_cont_j);
+        am.setViewTextColor(this.emr, (int) R.color.cp_cont_g);
+        am.setBackgroundResource(this.emr, R.drawable.frs_attention_btn_bg_selector);
+        am.setBackgroundResource(this.emm, R.color.cp_bg_line_c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hL(boolean z) {
+    public void hV(boolean z) {
         Drawable drawable;
         int i = R.drawable.frs_attention_btn_bg_selector;
-        am.setBackgroundResource(this.elv, R.drawable.frs_attention_btn_bg_selector);
+        am.setBackgroundResource(this.emr, R.drawable.frs_attention_btn_bg_selector);
         int dimens = l.getDimens(this.mContext, R.dimen.ds10);
         String string = this.mContext.getResources().getString(R.string.attention);
         int i2 = R.color.cp_cont_a;
         if (this.mCurState == 1) {
             drawable = am.getDrawable(R.drawable.icon_add_follow_blue_s);
-            this.elv.setClickable(true);
+            this.emr.setClickable(true);
             if (!z) {
                 TiebaStatic.log(new an("c12889"));
             }
         } else if (this.mCurState == 2) {
             string = this.mContext.getResources().getString(R.string.sign);
             drawable = am.getDrawable(R.drawable.icon_public_sign_blue_s);
-            this.elv.setClickable(true);
+            this.emr.setClickable(true);
             if (!z) {
                 TiebaStatic.log(new an("c12891"));
             }
         } else if (this.mCurState == 3) {
             string = this.mContext.getResources().getString(R.string.signed);
-            this.elv.setClickable(false);
+            this.emr.setClickable(false);
             i = R.drawable.special_sign_btn_signed_bg;
             i2 = R.color.cp_cont_d;
             drawable = null;
         } else {
             drawable = null;
         }
-        am.setBackgroundResource(this.elv, i);
-        am.setViewTextColor(this.elv, i2);
-        this.elv.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.elv.setCompoundDrawablePadding(dimens);
-        this.elv.setText(string);
-        baC();
+        am.setBackgroundResource(this.emr, i);
+        am.setViewTextColor(this.emr, i2);
+        this.emr.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.emr.setCompoundDrawablePadding(dimens);
+        this.emr.setText(string);
+        baX();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hM(boolean z) {
-        if (this.elB != null) {
+    public void hW(boolean z) {
+        if (this.emx != null) {
             if (z) {
-                am.setNavbarIconSrc(this.elB, R.drawable.selector_topbar_return_black, R.drawable.selector_topbar_return_black, TbadkCoreApplication.getInst().getSkinType());
+                am.setNavbarIconSrc(this.emx, R.drawable.selector_topbar_return_black, R.drawable.selector_topbar_return_black, TbadkCoreApplication.getInst().getSkinType());
             } else {
-                am.setNavbarIconSrc(this.elB, R.drawable.selector_topbar_return_white, R.drawable.selector_topbar_return_white, TbadkCoreApplication.getInst().getSkinType());
+                am.setNavbarIconSrc(this.emx, R.drawable.selector_topbar_return_white, R.drawable.selector_topbar_return_white, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
 
-    private void baC() {
-        if (this.mData != null && this.mData.emn != null && this.mCurState != 1) {
-            int i = this.mData.emn.level_id;
-            String str = TextUtils.isEmpty(this.mData.emn.level_name) ? "" : HanziToPinyin.Token.SEPARATOR + this.mData.emn.level_name;
+    private void baX() {
+        if (this.mData != null && this.mData.enl != null && this.mCurState != 1) {
+            int i = this.mData.enl.level_id;
+            String str = TextUtils.isEmpty(this.mData.enl.level_name) ? "" : HanziToPinyin.Token.SEPARATOR + this.mData.enl.level_name;
             if (i >= 0) {
-                this.elw.setText("LV" + i + str);
+                this.ems.setText("LV" + i + str);
             }
         }
     }
@@ -758,54 +753,54 @@ public class SpecialLiveFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.elE != null) {
-            this.elE.onDestroy();
+        if (this.emz != null) {
+            this.emz.onDestroy();
         }
-        if (this.elQ != null) {
-            MessageManager.getInstance().unRegisterListener(this.elQ);
+        if (this.emL != null) {
+            MessageManager.getInstance().unRegisterListener(this.emL);
         }
-        if (this.elI != null) {
-            MessageManager.getInstance().unRegisterListener(this.elI);
+        if (this.emD != null) {
+            MessageManager.getInstance().unRegisterListener(this.emD);
         }
-        if (this.elR != null) {
-            MessageManager.getInstance().unRegisterListener(this.elR);
+        if (this.emM != null) {
+            MessageManager.getInstance().unRegisterListener(this.emM);
         }
-        if (this.elS != null) {
-            MessageManager.getInstance().unRegisterListener(this.elS);
+        if (this.emN != null) {
+            MessageManager.getInstance().unRegisterListener(this.emN);
         }
-        if (this.elP != null) {
-            MessageManager.getInstance().unRegisterListener(this.elP);
+        if (this.emK != null) {
+            MessageManager.getInstance().unRegisterListener(this.emK);
         }
         if (this.mAccountChangedListener != null) {
             MessageManager.getInstance().unRegisterListener(this.mAccountChangedListener);
         }
-        if (this.elF != null) {
-            this.elF.onDestroy();
+        if (this.emA != null) {
+            this.emA.onDestroy();
         }
-        if (this.ehe != null) {
-            this.ehe.onDestroy();
+        if (this.ehm != null) {
+            this.ehm.onDestroy();
         }
-        AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.ehf);
+        AlaLiveUserNotifyManager.getInstance().removeNotifyListener(this.ehn);
         hideLoadingView(this.mRootView);
-        MessageManager.getInstance().unRegisterListener(this.cHV);
+        MessageManager.getInstance().unRegisterListener(this.cIh);
     }
 
     private void initViewPager() {
-        this.elD = new a(getChildFragmentManager());
-        this.cTN.setAdapter(this.elD);
+        this.emy = new a(getChildFragmentManager());
+        this.cTX.setAdapter(this.emy);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a extends FragmentPagerAdapter {
-        private SparseArray<SpecialForumTabBaseFragment> elV;
+        private SparseArray<SpecialForumTabBaseFragment> emQ;
         private List<SpecialLiveTabInfo> mData;
 
         public a(FragmentManager fragmentManager) {
             super(fragmentManager);
             this.mData = new ArrayList();
-            this.elV = new SparseArray<>();
-            this.elV.put(0, ConcernTabFragment.ou(0));
+            this.emQ = new SparseArray<>();
+            this.emQ.put(0, ConcernTabFragment.ov(0));
         }
 
         public void setData(List<SpecialLiveTabInfo> list) {
@@ -818,18 +813,20 @@ public class SpecialLiveFragment extends BaseFragment {
 
         @Override // android.support.v4.app.FragmentPagerAdapter
         public Fragment getItem(int i) {
-            SpecialForumTabBaseFragment os = os(i);
-            if (os == null) {
+            SpecialForumTabBaseFragment ot = ot(i);
+            if (ot == null) {
                 if (i == 0) {
-                    os = ConcernTabFragment.ou(0);
+                    ot = ConcernTabFragment.ov(0);
                 } else if (i == 1) {
-                    os = RecommendTabFragment.ov(1);
+                    ot = RecommendTabFragment.ow(1);
+                } else if (i < this.mData.size() && this.mData.get(i) != null && this.mData.get(i).tabId == 1108) {
+                    ot = GameTabFragment.xp(this.mData.get(i).tabName);
                 } else {
-                    os = OtherSubTabFragment.a(i, this.mData.get(i));
+                    ot = OtherSubTabFragment.a(i, this.mData.get(i));
                 }
-                this.elV.put(i, os);
+                this.emQ.put(i, ot);
             }
-            return os;
+            return ot;
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -837,24 +834,21 @@ public class SpecialLiveFragment extends BaseFragment {
             return this.mData.size();
         }
 
-        public SpecialForumTabBaseFragment os(int i) {
-            if (i < this.elV.size()) {
-                return this.elV.get(i);
-            }
-            return null;
+        public SpecialForumTabBaseFragment ot(int i) {
+            return this.emQ.get(i);
         }
 
         public void a(int i, TabData tabData) {
-            if (i < this.elV.size()) {
-                this.elV.get(i).setPrimary(true);
+            if (this.emQ.get(i) != null) {
+                this.emQ.get(i).setPrimary(true);
             }
         }
 
         public void onChangeSkinType(int i) {
-            if (this.elV != null && this.elV.size() > 0) {
-                int size = this.elV.size();
+            if (this.emQ != null && this.emQ.size() > 0) {
+                int size = this.emQ.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    SpecialForumTabBaseFragment specialForumTabBaseFragment = this.elV.get(i2);
+                    SpecialForumTabBaseFragment specialForumTabBaseFragment = this.emQ.get(i2);
                     if (specialForumTabBaseFragment != null) {
                         specialForumTabBaseFragment.onChangeSkinType(i);
                     }
@@ -864,17 +858,17 @@ public class SpecialLiveFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ag(final Activity activity) {
+    public void ah(final Activity activity) {
         if (activity != null && !AlaSharedPrefHelper.getInstance().getBoolean(AlaSharedPrefConfig.SQUARE_GUIDE_MARK_MANAGE_TIP_SHOW, false)) {
-            if (this.elN != null) {
-                this.elN.dismiss();
+            if (this.emI != null) {
+                this.emI.dismiss();
             }
             final Handler handler = new Handler();
             final Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.10
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (SpecialLiveFragment.this.elN != null) {
-                        SpecialLiveFragment.this.elN.dismiss();
+                    if (SpecialLiveFragment.this.emI != null) {
+                        SpecialLiveFragment.this.emI.dismiss();
                     }
                 }
             };
@@ -888,12 +882,12 @@ public class SpecialLiveFragment extends BaseFragment {
                 @Override // com.baidu.adp.lib.guide.d.a
                 public void onDismiss() {
                     AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.SQUARE_GUIDE_MARK_MANAGE_TIP_SHOW, true);
-                    SpecialLiveFragment.this.elN = null;
+                    SpecialLiveFragment.this.emI = null;
                     handler.removeCallbacks(runnable);
                 }
             });
             dVar.y(activity.getWindow().getDecorView().findViewById(R.id.tabcontainer)).J(20).F(false);
-            dVar.a(new b() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.13
+            dVar.a(new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment.13
                 @Override // com.baidu.adp.lib.guide.b
                 public View getView(LayoutInflater layoutInflater) {
                     BubbleLayout bubbleLayout = (BubbleLayout) View.inflate(activity, R.layout.square_guide_tip_layout, null);
@@ -903,12 +897,12 @@ public class SpecialLiveFragment extends BaseFragment {
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.SQUARE_GUIDE_MARK_MANAGE_TIP_SHOW, true);
-                            SpecialLiveFragment.this.elN.dismiss();
+                            SpecialLiveFragment.this.emI.dismiss();
                         }
                     });
                     am.setViewTextColor(textView, (int) R.color.cp_cont_i);
-                    bubbleLayout.DL(am.getColor(R.color.cp_link_tip_a_alpha95));
-                    bubbleLayout.aQ(activity.getResources().getDimensionPixelSize(R.dimen.ds216));
+                    bubbleLayout.DR(am.getColor(R.color.cp_link_tip_a_alpha95));
+                    bubbleLayout.aP(activity.getResources().getDimensionPixelSize(R.dimen.ds216));
                     return bubbleLayout;
                 }
 
@@ -932,8 +926,8 @@ public class SpecialLiveFragment extends BaseFragment {
                     return -TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds36);
                 }
             });
-            this.elN = dVar.fI();
-            this.elN.show(activity);
+            this.emI = dVar.fI();
+            this.emI.show(activity);
             handler.postDelayed(runnable, 5000L);
         }
     }

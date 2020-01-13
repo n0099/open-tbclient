@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.message.a;
 import android.content.Context;
 import com.baidu.webkit.internal.GlobalConstants;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class b {
     protected Context a;
 

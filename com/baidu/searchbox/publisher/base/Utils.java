@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.text.DecimalFormat;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Utils {
     private static final long BYTEBIT = 1024;
     private static final int MESCPREMINUTE = 60;

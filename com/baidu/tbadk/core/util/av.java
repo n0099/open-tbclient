@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.base.a.c {
     public av(Context context) {
-        super(context, "baidu_tieba.db", 20);
+        super(context, "baidu_tieba.db", 21);
     }
 
     @Override // com.baidu.adp.base.a.c
@@ -125,7 +125,7 @@ public class av extends com.baidu.adp.base.a.c {
         if (i < 18) {
             H(sQLiteDatabase);
         }
-        if (i < 20) {
+        if (i < 21) {
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
             I(sQLiteDatabase);
         }
@@ -174,6 +174,6 @@ public class av extends com.baidu.adp.base.a.c {
     }
 
     protected void I(SQLiteDatabase sQLiteDatabase) {
-        executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists activity_mission_info(id INTEGER primary key autoincrement, activityid INTEGER, missionid INTEGER, activitysource TEXT, calltype INTEGER, tasktype INTEGER, browsetimepage TEXT, browsetime INTEGER, threadnum INTEGER, forumnum INTEGER, cleartype INTEGER, cleartime INTEGER, specificcleartime INTEGER, tid INTEGER, fid INTEGER, executingMissionList TEXT, totalLimit INTEGER, completedLimitCount INTEGER, threadtext TEXT, threadimg TEXT, threadforum INTEGER)");
+        executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists activity_mission_info(id INTEGER primary key autoincrement, activityid INTEGER, missionid INTEGER, activitysource TEXT, calltype INTEGER, tasktype INTEGER, browsetimepage TEXT, browsetime INTEGER, threadnum INTEGER, forumnum INTEGER, cleartype INTEGER, cleartime INTEGER, specificcleartime INTEGER, tid INTEGER, fid INTEGER, executingMissionList TEXT, totalLimit INTEGER, completedLimitCount INTEGER, threadtext TEXT, threadimg TEXT, threadforum INTEGER, token TEXT)");
     }
 }

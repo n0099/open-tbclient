@@ -7,7 +7,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d extends Handler {
     private WeakReference<f> mWeakRenderThread;
 
@@ -41,7 +41,7 @@ public class d extends Handler {
                     fVar.surfaceDestroyed();
                     return;
                 case 4:
-                    fVar.CI();
+                    fVar.De();
                     return;
                 case 5:
                 case 7:
@@ -55,13 +55,13 @@ public class d extends Handler {
                 default:
                     throw new IllegalStateException("Can not handle message what is: " + message.what);
                 case 6:
-                    fVar.Ap();
+                    fVar.AL();
                     return;
                 case 8:
                     fVar.stopRecording();
                     return;
                 case 9:
-                    fVar.CL();
+                    fVar.Dh();
                     fVar.startPreview();
                     return;
                 case 16:
@@ -71,7 +71,7 @@ public class d extends Handler {
                     fVar.o((byte[]) message.obj);
                     return;
                 case 19:
-                    fVar.CJ();
+                    fVar.Df();
                     return;
             }
         }

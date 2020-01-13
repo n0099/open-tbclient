@@ -28,7 +28,7 @@ import org.conscrypt.NativeRef;
 import org.conscrypt.NativeSsl;
 import org.conscrypt.SSLParametersImpl;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ConscryptEngine extends AbstractConscryptEngine implements NativeCrypto.SSLHandshakeCallbacks, SSLParametersImpl.AliasChooser, SSLParametersImpl.PSKCallbacks {
     private final ActiveSession activeSession;
     private BufferAllocator bufferAllocator;

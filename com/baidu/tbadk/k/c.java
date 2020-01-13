@@ -15,32 +15,32 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends a {
-    private LinearLayout doQ;
-    private NestedScrollView dwH;
-    protected TbImageView dwI;
-    protected TextView dwJ;
-    protected TBSpecificationBtn dwK;
-    private LinearLayout dwL;
-    private int dwM;
+    private LinearLayout dpb;
+    private NestedScrollView dwP;
+    protected TbImageView dwQ;
+    protected TextView dwR;
+    protected TBSpecificationBtn dwS;
+    private LinearLayout dwT;
+    private int dwU;
     Rect rect;
     protected TextView subTextView;
 
     public c(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(R.layout.frs_net_refresh_view_layout, (ViewGroup) null));
-        this.dwM = 0;
+        this.dwU = 0;
         this.rect = new Rect();
-        this.dwH = (NestedScrollView) this.attachedView.findViewById(R.id.scrollview);
-        this.doQ = (LinearLayout) this.attachedView.findViewById(R.id.container);
-        this.dwI = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.dwP = (NestedScrollView) this.attachedView.findViewById(R.id.scrollview);
+        this.dpb = (LinearLayout) this.attachedView.findViewById(R.id.container);
+        this.dwQ = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.subTextView = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.dwJ = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.dwL = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.dwK = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
+        this.dwR = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.dwT = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.dwS = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.dwK.setText(context.getResources().getString(R.string.refresh_view_button_text));
-        this.dwK.setTextSize(R.dimen.tbds42);
-        this.dwK.setConfig(bVar);
-        this.dwK.setOnClickListener(onClickListener);
+        this.dwS.setText(context.getResources().getString(R.string.refresh_view_button_text));
+        this.dwS.setTextSize(R.dimen.tbds42);
+        this.dwS.setConfig(bVar);
+        this.dwS.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
     }
 
@@ -55,13 +55,13 @@ public class c extends a {
 
     public void setTitle(String str) {
         if (str != null) {
-            this.dwJ.setText(str);
+            this.dwR.setText(str);
         }
     }
 
     public void setButtonText(String str) {
         if (str != null) {
-            this.dwK.setText(str);
+            this.dwS.setText(str);
         }
     }
 
@@ -76,23 +76,23 @@ public class c extends a {
     @Override // com.baidu.tbadk.k.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.dwI.setImageResource(0);
+        this.dwQ.setImageResource(0);
     }
 
     public void showRefreshButton() {
-        this.dwK.setVisibility(0);
-        this.dwJ.setVisibility(0);
+        this.dwS.setVisibility(0);
+        this.dwR.setVisibility(0);
         am.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        am.setImageResource(this.dwI, R.drawable.new_pic_emotion_08);
+        am.setImageResource(this.dwQ, R.drawable.new_pic_emotion_08);
         am.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1, skinType);
-        am.setViewTextColor(this.dwJ, R.color.cp_cont_j, 1, skinType);
+        am.setViewTextColor(this.dwR, R.color.cp_cont_j, 1, skinType);
         am.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d);
-        if (this.dwK != null) {
-            this.dwK.aFd();
+        if (this.dwS != null) {
+            this.dwS.aFw();
         }
     }
 
@@ -101,42 +101,42 @@ public class c extends a {
     }
 
     public void ml(int i) {
-        if (this.dwM <= 0) {
-            this.dwM = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+        if (this.dwU <= 0) {
+            this.dwU = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
         }
-        if (this.dwH != null) {
+        if (this.dwP != null) {
             if (i == 0) {
-                this.dwH.post(new Runnable() { // from class: com.baidu.tbadk.k.c.1
+                this.dwP.post(new Runnable() { // from class: com.baidu.tbadk.k.c.1
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.ml(-1);
                     }
                 });
             }
-            if (this.dwH.getLocalVisibleRect(this.rect)) {
+            if (this.dwP.getLocalVisibleRect(this.rect)) {
                 int i2 = this.rect.bottom;
-                int abs = Math.abs(this.doQ.getTop());
-                int abs2 = i2 - Math.abs(this.doQ.getBottom());
-                ViewGroup.LayoutParams layoutParams = this.doQ.getLayoutParams();
+                int abs = Math.abs(this.dpb.getTop());
+                int abs2 = i2 - Math.abs(this.dpb.getBottom());
+                ViewGroup.LayoutParams layoutParams = this.dpb.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                    if (abs < this.dwM) {
-                        marginLayoutParams.topMargin = this.dwM;
-                        this.doQ.setLayoutParams(marginLayoutParams);
-                    } else if (abs == this.dwM) {
-                        if (abs2 > this.dwM) {
-                            marginLayoutParams.topMargin = ((abs2 - this.dwM) / 2) + this.dwM;
-                            this.doQ.setLayoutParams(marginLayoutParams);
+                    if (abs < this.dwU) {
+                        marginLayoutParams.topMargin = this.dwU;
+                        this.dpb.setLayoutParams(marginLayoutParams);
+                    } else if (abs == this.dwU) {
+                        if (abs2 > this.dwU) {
+                            marginLayoutParams.topMargin = ((abs2 - this.dwU) / 2) + this.dwU;
+                            this.dpb.setLayoutParams(marginLayoutParams);
                         }
-                    } else if (abs > this.dwM) {
-                        if (abs2 < this.dwM) {
-                            marginLayoutParams.topMargin = this.dwM;
-                        } else if (abs2 == this.dwM) {
-                            marginLayoutParams.topMargin = this.dwM;
-                        } else if (abs2 > this.dwM) {
+                    } else if (abs > this.dwU) {
+                        if (abs2 < this.dwU) {
+                            marginLayoutParams.topMargin = this.dwU;
+                        } else if (abs2 == this.dwU) {
+                            marginLayoutParams.topMargin = this.dwU;
+                        } else if (abs2 > this.dwU) {
                             marginLayoutParams.topMargin = (abs + abs2) / 2;
                         }
-                        this.doQ.setLayoutParams(marginLayoutParams);
+                        this.dpb.setLayoutParams(marginLayoutParams);
                     }
                 }
             }

@@ -2,9 +2,9 @@ package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.aq;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
-    public static String Dn(String str) {
+    public static String Dx(String str) {
         int indexOf;
         String urlDecode = aq.getUrlDecode(str);
         if (urlDecode != null) {
@@ -17,7 +17,7 @@ public class d {
         return urlDecode;
     }
 
-    public static boolean Do(String str) {
+    public static boolean Dy(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

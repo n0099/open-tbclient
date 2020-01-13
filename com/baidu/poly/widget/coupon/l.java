@@ -21,22 +21,22 @@ import com.baidu.poly.widget.PolyFrameLayout;
 import com.baidu.poly.widget.c;
 import com.baidu.poly.widget.coupon.a;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class l extends FrameLayout {
     private boolean D;
-    private View aOB;
-    private ListView aOC;
-    private PolyFrameLayout aOD;
-    private ViewGroup aOE;
-    private h aOF;
-    private com.baidu.poly.widget.coupon.b aOG;
-    private a.C0157a aOH;
-    private com.baidu.poly.a.k.c aOI;
-    private boolean aOJ;
-    private Runnable aOK;
-    private List<a.C0157a> mData;
+    private com.baidu.poly.a.k.c aPA;
+    private boolean aPB;
+    private Runnable aPC;
+    private View aPt;
+    private ListView aPu;
+    private PolyFrameLayout aPv;
+    private ViewGroup aPw;
+    private h aPx;
+    private com.baidu.poly.widget.coupon.b aPy;
+    private a.C0159a aPz;
+    private List<a.C0159a> mData;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     class a implements Runnable {
         a() {
         }
@@ -46,108 +46,108 @@ public class l extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
             l lVar = l.this;
-            lVar.aOI = com.baidu.poly.a.k.a.a(lVar.aOD, layoutParams, "加载中", -1L);
+            lVar.aPA = com.baidu.poly.a.k.a.a(lVar.aPv, layoutParams, "加载中", -1L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements View.OnClickListener {
         b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (l.this.aOF != null) {
-                l.this.aOF.c();
+            if (l.this.aPx != null) {
+                l.this.aPx.c();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     class c implements Runnable {
         c() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            l.this.aOF.c();
+            l.this.aPx.c();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     class d implements AdapterView.OnItemClickListener {
         d() {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (((a.C0157a) l.this.mData.get(i)).aOt == 1) {
+            if (((a.C0159a) l.this.mData.get(i)).aPl == 1) {
                 return;
             }
             l lVar = l.this;
-            lVar.a((a.C0157a) lVar.mData.get(i));
+            lVar.a((a.C0159a) lVar.mData.get(i));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class e implements com.baidu.poly.a.j.a {
-        final /* synthetic */ a.C0157a aOA;
+        final /* synthetic */ a.C0159a aPs;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         class a implements View.OnClickListener {
-            final /* synthetic */ com.baidu.poly.widget.c aOy;
+            final /* synthetic */ com.baidu.poly.widget.c aPq;
 
             a(com.baidu.poly.widget.c cVar) {
-                this.aOy = cVar;
+                this.aPq = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                this.aOy.dismiss();
+                this.aPq.dismiss();
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         class b implements c.b {
             b() {
             }
 
             @Override // com.baidu.poly.widget.c.b
             public void onDismiss() {
-                l.this.aOF.b();
+                l.this.aPx.b();
             }
         }
 
-        e(a.C0157a c0157a) {
-            this.aOA = c0157a;
+        e(a.C0159a c0159a) {
+            this.aPs = c0159a;
         }
 
         @Override // com.baidu.poly.a.j.a
-        public void a(a.C0150a c0150a) {
-            l.this.aOD.a(false);
+        public void a(a.C0152a c0152a) {
+            l.this.aPv.a(false);
             l lVar = l.this;
-            lVar.removeCallbacks(lVar.aOK);
-            com.baidu.poly.a.k.a.a(l.this.aOI);
-            l.this.aOI = null;
-            if (c0150a != null) {
-                int i = c0150a.statusCode;
+            lVar.removeCallbacks(lVar.aPC);
+            com.baidu.poly.a.k.a.a(l.this.aPA);
+            l.this.aPA = null;
+            if (c0152a != null) {
+                int i = c0152a.statusCode;
                 if (i == 0) {
-                    for (a.C0157a c0157a : l.this.mData) {
-                        if (c0157a == this.aOA) {
-                            l.this.aOH = c0157a;
-                            c0157a.aOt = 1;
+                    for (a.C0159a c0159a : l.this.mData) {
+                        if (c0159a == this.aPs) {
+                            l.this.aPz = c0159a;
+                            c0159a.aPl = 1;
                         } else {
-                            c0157a.aOt = 0;
+                            c0159a.aPl = 0;
                         }
                     }
-                    l.this.aOG.notifyDataSetChanged();
-                    l.this.aOF.c();
+                    l.this.aPy.notifyDataSetChanged();
+                    l.this.aPx.c();
                 } else if (i == 1) {
                     View inflate = View.inflate(l.this.getContext(), b.f.default_pop_window, null);
                     com.baidu.poly.widget.c cVar = new com.baidu.poly.widget.c(inflate, -1, -1, true);
-                    ((TextView) inflate.findViewById(b.e.pop_tips)).setText(c0150a.message);
+                    ((TextView) inflate.findViewById(b.e.pop_tips)).setText(c0152a.message);
                     ((TextView) inflate.findViewById(b.e.pop_button)).setOnClickListener(new a(cVar));
                     cVar.a(new b());
                     cVar.showAtLocation(l.this, 0, 0, 0);
@@ -158,7 +158,7 @@ public class l extends FrameLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     class f implements Animator.AnimatorListener {
         f() {
         }
@@ -169,7 +169,7 @@ public class l extends FrameLayout {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            l.this.aOJ = false;
+            l.this.aPB = false;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -181,7 +181,7 @@ public class l extends FrameLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     class g implements Animator.AnimatorListener {
         g() {
         }
@@ -192,7 +192,7 @@ public class l extends FrameLayout {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            l.this.aOJ = false;
+            l.this.aPB = false;
             l.this.detach();
         }
 
@@ -205,9 +205,9 @@ public class l extends FrameLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface h {
-        void a(a.C0157a c0157a, com.baidu.poly.a.j.a aVar);
+        void a(a.C0159a c0159a, com.baidu.poly.a.j.a aVar);
 
         void b();
 
@@ -227,7 +227,7 @@ public class l extends FrameLayout {
             if (getParent() instanceof ViewGroup) {
                 ((ViewGroup) getParent()).removeView(this);
             }
-            h hVar = this.aOF;
+            h hVar = this.aPx;
             if (hVar != null) {
                 hVar.onDetach();
             }
@@ -237,14 +237,14 @@ public class l extends FrameLayout {
 
     public boolean onBackPressed() {
         h hVar;
-        if (!this.aOJ && this.D && (hVar = this.aOF) != null) {
+        if (!this.aPB && this.D && (hVar = this.aPx) != null) {
             hVar.c();
         }
         return true;
     }
 
     public void setListener(h hVar) {
-        this.aOF = hVar;
+        this.aPx = hVar;
     }
 
     public l(Context context, AttributeSet attributeSet) {
@@ -253,11 +253,11 @@ public class l extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.coupon_list, (ViewGroup) this, true);
-        this.aOD = (PolyFrameLayout) findViewById(b.e.root_layout);
-        this.aOE = (ViewGroup) findViewById(b.e.coupon_layout);
-        this.aOC = (ListView) findViewById(b.e.coupon_list_layout);
-        this.aOB = findViewById(b.e.back);
-        this.aOB.setOnClickListener(new b());
+        this.aPv = (PolyFrameLayout) findViewById(b.e.root_layout);
+        this.aPw = (ViewGroup) findViewById(b.e.coupon_layout);
+        this.aPu = (ListView) findViewById(b.e.coupon_list_layout);
+        this.aPt = findViewById(b.e.back);
+        this.aPt.setOnClickListener(new b());
         setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }
 
@@ -278,17 +278,17 @@ public class l extends FrameLayout {
     public l(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.D = false;
-        this.aOJ = false;
-        this.aOK = new a();
+        this.aPB = false;
+        this.aPC = new a();
         c(context);
     }
 
     public void b(View view) {
-        if (view != null && !this.aOJ && this.D) {
-            this.aOJ = true;
+        if (view != null && !this.aPB && this.D) {
+            this.aPB = true;
             AnimatorSet animatorSet = new AnimatorSet();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", view.getMeasuredWidth() * (-1), 0.0f);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aOE, "translationX", 0.0f, view.getMeasuredWidth());
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aPw, "translationX", 0.0f, view.getMeasuredWidth());
             animatorSet.setDuration(160L);
             animatorSet.playTogether(ofFloat, ofFloat2);
             animatorSet.start();
@@ -296,54 +296,54 @@ public class l extends FrameLayout {
         }
     }
 
-    public void a(List<a.C0157a> list) {
+    public void a(List<a.C0159a> list) {
         this.mData = list;
-        if (this.aOG == null) {
-            this.aOG = new com.baidu.poly.widget.coupon.b(getContext());
+        if (this.aPy == null) {
+            this.aPy = new com.baidu.poly.widget.coupon.b(getContext());
         }
-        this.aOC.setAdapter((ListAdapter) this.aOG);
-        this.aOG.b(this.mData);
-        List<a.C0157a> list2 = this.mData;
+        this.aPu.setAdapter((ListAdapter) this.aPy);
+        this.aPy.b(this.mData);
+        List<a.C0159a> list2 = this.mData;
         if (list2 != null && list2.size() > 0) {
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 >= this.mData.size()) {
                     break;
-                } else if (this.mData.get(i2).aOt == 1) {
-                    this.aOH = this.mData.get(i2);
+                } else if (this.mData.get(i2).aPl == 1) {
+                    this.aPz = this.mData.get(i2);
                     break;
                 } else {
                     i = i2 + 1;
                 }
             }
-            this.aOC.setOnItemClickListener(new d());
-        } else if (this.aOF == null || !this.D) {
+            this.aPu.setOnItemClickListener(new d());
+        } else if (this.aPx == null || !this.D) {
         } else {
             postDelayed(new c(), 100L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C0157a c0157a) {
-        if (this.aOF != null) {
-            this.aOD.a(true);
-            postDelayed(this.aOK, 500L);
-            this.aOF.a(c0157a, new e(c0157a));
+    public void a(a.C0159a c0159a) {
+        if (this.aPx != null) {
+            this.aPv.a(true);
+            postDelayed(this.aPC, 500L);
+            this.aPx.a(c0159a, new e(c0159a));
         }
     }
 
     public void a(int i) {
-        this.aOD.getLayoutParams().height = i;
+        this.aPv.getLayoutParams().height = i;
         d();
     }
 
     public void a(View view) {
-        if (view != null && !this.aOJ && this.D) {
-            this.aOJ = true;
+        if (view != null && !this.aPB && this.D) {
+            this.aPB = true;
             AnimatorSet animatorSet = new AnimatorSet();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", 0.0f, view.getMeasuredWidth() * (-1));
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aOE, "translationX", view.getMeasuredWidth(), 0.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aPw, "translationX", view.getMeasuredWidth(), 0.0f);
             animatorSet.setDuration(160L);
             animatorSet.playTogether(ofFloat, ofFloat2);
             animatorSet.start();

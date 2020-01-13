@@ -10,9 +10,9 @@ import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import java.lang.ref.WeakReference;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class k extends m {
-    private WeakReference<Bitmap> lHZ;
+    private WeakReference<Bitmap> lLx;
     @Nullable
     private final Bitmap mBitmap;
     private final Paint mBorderPaint;
@@ -32,40 +32,40 @@ public class k extends m {
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!dki()) {
+        if (!dlj()) {
             super.draw(canvas);
             return;
         }
-        dkk();
-        dkj();
+        dll();
+        dlk();
         updatePaint();
         int save = canvas.save();
-        canvas.concat(this.lIw);
+        canvas.concat(this.lLU);
         canvas.drawPath(this.mPath, this.mPaint);
         if (this.mBorderWidth > 0.0f) {
             this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-            this.mBorderPaint.setColor(e.dt(this.mBorderColor, this.mPaint.getAlpha()));
-            canvas.drawPath(this.caF, this.mBorderPaint);
+            this.mBorderPaint.setColor(e.dr(this.mBorderColor, this.mPaint.getAlpha()));
+            canvas.drawPath(this.caR, this.mBorderPaint);
         }
         canvas.restoreToCount(save);
     }
 
     private void updatePaint() {
-        if (this.lHZ == null || this.lHZ.get() != this.mBitmap) {
-            this.lHZ = new WeakReference<>(this.mBitmap);
+        if (this.lLx == null || this.lLx.get() != this.mBitmap) {
+            this.lLx = new WeakReference<>(this.mBitmap);
             this.mPaint.setShader(new BitmapShader(this.mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-            this.lIm = true;
+            this.lLK = true;
         }
-        if (this.lIm) {
-            this.mPaint.getShader().setLocalMatrix(this.lIy);
-            this.lIm = false;
+        if (this.lLK) {
+            this.mPaint.getShader().setLocalMatrix(this.mTransform);
+            this.lLK = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.facebook.drawee.drawable.m
-    public boolean dki() {
-        return super.dki() && this.mBitmap != null;
+    public boolean dlj() {
+        return super.dlj() && this.mBitmap != null;
     }
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable

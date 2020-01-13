@@ -24,22 +24,22 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Deque;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c extends com.baidu.swan.apps.process.messaging.b {
     static final boolean DEBUG = com.baidu.swan.apps.process.messaging.a.DEBUG;
-    public final SwanAppProcessInfo bEI;
-    private SwanAppCores bEJ;
-    public PrefetchEvent bEK;
-    private long bEL;
-    private boolean bEM;
-    private b bEN;
-    private final Deque<Message> bEO;
-    private a bEP;
-    private long bEQ;
+    private a bFA;
+    private long bFB;
+    public final SwanAppProcessInfo bFt;
+    private SwanAppCores bFu;
+    public PrefetchEvent bFv;
+    private long bFw;
+    private boolean bFx;
+    private b bFy;
+    private final Deque<Message> bFz;
     public String mAppId;
     private Messenger mMessenger;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void b(c cVar);
     }
@@ -49,16 +49,16 @@ public final class c extends com.baidu.swan.apps.process.messaging.b {
         super(new com.baidu.swan.apps.runtime.c());
         this.mAppId = "";
         this.mMessenger = null;
-        this.bEL = 0L;
-        this.bEM = false;
-        this.bEO = new ArrayDeque();
-        this.bEQ = -1L;
-        this.bEI = swanAppProcessInfo;
+        this.bFw = 0L;
+        this.bFx = false;
+        this.bFz = new ArrayDeque();
+        this.bFB = -1L;
+        this.bFt = swanAppProcessInfo;
     }
 
     @Override // com.baidu.swan.apps.runtime.l, com.baidu.swan.apps.runtime.h
-    public SwanAppProcessInfo Yu() {
-        return this.bEI;
+    public SwanAppProcessInfo YR() {
+        return this.bFt;
     }
 
     @Override // com.baidu.swan.apps.runtime.l, com.baidu.swan.apps.runtime.h
@@ -67,62 +67,62 @@ public final class c extends com.baidu.swan.apps.process.messaging.b {
     }
 
     @Override // com.baidu.swan.apps.runtime.l, com.baidu.swan.apps.runtime.h
-    public boolean Yv() {
-        return this.bEM;
+    public boolean YS() {
+        return this.bFx;
     }
 
     @Override // com.baidu.swan.apps.runtime.l, com.baidu.swan.apps.runtime.h
-    public boolean Yw() {
+    public boolean YT() {
         return !TextUtils.isEmpty(this.mAppId);
     }
 
     @Override // com.baidu.swan.apps.runtime.l, com.baidu.swan.apps.runtime.h
-    public SwanAppCores Yx() {
-        return this.bEJ;
+    public SwanAppCores YU() {
+        return this.bFu;
     }
 
     public c a(SwanAppCores swanAppCores) {
         if (swanAppCores != null) {
-            this.bEJ = swanAppCores;
+            this.bFu = swanAppCores;
         }
         return this;
     }
 
-    public boolean Yy() {
-        return Yz();
+    public boolean YV() {
+        return YW();
     }
 
-    public boolean Yz() {
+    public boolean YW() {
         return this.mMessenger != null;
     }
 
     public void a(a aVar) {
-        this.bEP = aVar;
+        this.bFA = aVar;
     }
 
     public void g(PrefetchEvent prefetchEvent) {
-        this.bEK = prefetchEvent;
+        this.bFv = prefetchEvent;
     }
 
-    public c YA() {
+    public c YX() {
         synchronized (c.class) {
-            YE();
+            Zb();
             this.mMessenger = null;
-            this.bEJ = null;
+            this.bFu = null;
             g(null);
-            YG();
+            Zd();
         }
         return this;
     }
 
     public c e(Context context, Bundle bundle) {
-        e.YH().kj("b4 preload: " + this.bEI);
-        this.bEL = System.currentTimeMillis();
+        e.Ze().km("b4 preload: " + this.bFt);
+        this.bFw = System.currentTimeMillis();
         if (context == null) {
-            context = com.baidu.swan.apps.w.a.Rk();
+            context = com.baidu.swan.apps.w.a.RG();
         }
-        YB();
-        Intent intent = new Intent(context, this.bEI.service);
+        YY();
+        Intent intent = new Intent(context, this.bFt.service);
         intent.putExtra("call_preload_time", System.currentTimeMillis());
         intent.setAction(SwanAppLocalService.ACTION_PERLOAD);
         intent.addCategory("android.intent.category.DEFAULT");
@@ -139,15 +139,15 @@ public final class c extends com.baidu.swan.apps.process.messaging.b {
         return this;
     }
 
-    public c YB() {
-        e.YH().kj("b4 tryPreBind: " + this.bEI);
-        Application Rk = com.baidu.swan.apps.w.a.Rk();
-        if (this.bEN == null) {
-            this.bEN = new b();
-            Intent intent = new Intent(Rk, this.bEI.service);
+    public c YY() {
+        e.Ze().km("b4 tryPreBind: " + this.bFt);
+        Application RG = com.baidu.swan.apps.w.a.RG();
+        if (this.bFy == null) {
+            this.bFy = new b();
+            Intent intent = new Intent(RG, this.bFt.service);
             intent.putExtra("call_preload_time", System.currentTimeMillis());
             try {
-                Rk.bindService(intent, this.bEN, 1);
+                RG.bindService(intent, this.bFy, 1);
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -155,33 +155,33 @@ public final class c extends com.baidu.swan.apps.process.messaging.b {
             }
         }
         if (this.mMessenger != null) {
-            YC();
+            YZ();
         }
         return this;
     }
 
-    c YC() {
+    c YZ() {
         log("flushCachedMsgs");
-        while (this.mMessenger != null && !this.bEO.isEmpty()) {
-            Message peek = this.bEO.peek();
+        while (this.mMessenger != null && !this.bFz.isEmpty()) {
+            Message peek = this.bFz.peek();
             if (peek.replyTo == null) {
-                peek.replyTo = e.YH().mMessenger;
+                peek.replyTo = e.Ze().mMessenger;
             }
             if (!I(peek)) {
                 break;
             }
-            this.bEO.poll();
+            this.bFz.poll();
         }
         return this;
     }
 
     private boolean I(Message message) {
-        if (message != null && Yy()) {
+        if (message != null && YV()) {
             try {
                 this.mMessenger.send(message);
                 return true;
             } catch (RemoteException e) {
-                Yn();
+                YK();
                 if (DEBUG) {
                     e.printStackTrace();
                 }
@@ -191,55 +191,55 @@ public final class c extends com.baidu.swan.apps.process.messaging.b {
     }
 
     public boolean J(Message message) {
-        this.bEO.offer(message);
-        YC();
+        this.bFz.offer(message);
+        YZ();
         return true;
     }
 
     public boolean e(Collection<Message> collection) {
         for (Message message : collection) {
-            this.bEO.offer(message);
+            this.bFz.offer(message);
         }
-        YC();
+        YZ();
         return true;
     }
 
-    public c kd(String str) {
+    public c kg(String str) {
         if (!TextUtils.equals(str, this.mAppId)) {
             if (TextUtils.isEmpty(str)) {
                 str = "swan_id_unknown";
             }
             this.mAppId = str;
-            e.YH().YI().b("event_puppet_load_app", this);
+            e.Ze().Zf().b("event_puppet_load_app", this);
         }
         return this;
     }
 
-    public c YD() {
-        YE();
-        e.YH().YI().b("event_puppet_unload_app", this);
+    public c Za() {
+        Zb();
+        e.Ze().Zf().b("event_puppet_unload_app", this);
         return this;
     }
 
-    public c YE() {
+    public c Zb() {
         this.mAppId = "";
         g(null);
-        this.bEQ = -1L;
+        this.bFB = -1L;
         return this;
     }
 
-    public c YF() {
-        this.bEM = true;
-        this.bEL = 0L;
-        if (this.bEP != null) {
-            this.bEP.b(this);
+    public c Zc() {
+        this.bFx = true;
+        this.bFw = 0L;
+        if (this.bFA != null) {
+            this.bFA.b(this);
         }
         return this;
     }
 
-    public c YG() {
-        this.bEM = false;
-        this.bEL = 0L;
+    public c Zd() {
+        this.bFx = false;
+        this.bFw = 0L;
         g(null);
         return this;
     }
@@ -247,10 +247,10 @@ public final class c extends com.baidu.swan.apps.process.messaging.b {
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[5];
-        objArr[0] = this.bEI.toString();
-        objArr[1] = Integer.valueOf(Yy() ? 1 : 0);
-        objArr[2] = Integer.valueOf(this.bEM ? 1 : 0);
-        objArr[3] = SimpleDateFormat.getTimeInstance(2).format(new Date(this.bEL));
+        objArr[0] = this.bFt.toString();
+        objArr[1] = Integer.valueOf(YV() ? 1 : 0);
+        objArr[2] = Integer.valueOf(this.bFx ? 1 : 0);
+        objArr[3] = SimpleDateFormat.getTimeInstance(2).format(new Date(this.bFw));
         objArr[4] = this.mAppId;
         return String.format(locale, "%s: Connected=%d Preloaded=%d TryPreload=%s Loaded=%s", objArr);
     }
@@ -260,12 +260,12 @@ public final class c extends com.baidu.swan.apps.process.messaging.b {
         a(parcelable instanceof SwanAppCores ? (SwanAppCores) parcelable : null);
         String string = bundle.getString(Constants.APP_ID);
         if (!TextUtils.isEmpty(string)) {
-            kd(string);
-            e.YH().c(string, this);
-            com.baidu.swan.apps.process.messaging.a.XY().ka(string);
-            YG();
+            kg(string);
+            e.Ze().c(string, this);
+            com.baidu.swan.apps.process.messaging.a.Yv().kd(string);
+            Zd();
         }
-        return YB();
+        return YY();
     }
 
     public c L(Bundle bundle) {
@@ -277,23 +277,23 @@ public final class c extends com.baidu.swan.apps.process.messaging.b {
         return K(bundle);
     }
 
-    public c ap(long j) {
+    public c as(long j) {
         if (j > 0) {
-            this.bEQ = j;
-            e.YH().YI().b("event_puppet_fmp_launch_finish", this);
+            this.bFB = j;
+            e.Ze().Zf().b("event_puppet_fmp_launch_finish", this);
         }
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Yn() {
+    public void YK() {
         this.mMessenger = null;
-        this.bEN = null;
-        YA();
-        e YH = e.YH();
-        YH.YI().b("event_puppet_offline", this);
-        YH.kj("onSwanClientConnDown => " + this);
-        YH.YM();
+        this.bFy = null;
+        YX();
+        e Ze = e.Ze();
+        Ze.Zf().b("event_puppet_offline", this);
+        Ze.km("onSwanClientConnDown => " + this);
+        Ze.Zj();
     }
 
     private void log(String str) {
@@ -303,7 +303,7 @@ public final class c extends com.baidu.swan.apps.process.messaging.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements ServiceConnection {
         private b() {
         }
@@ -311,15 +311,15 @@ public final class c extends com.baidu.swan.apps.process.messaging.b {
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             c.this.mMessenger = new Messenger(iBinder);
-            e YH = e.YH();
-            YH.YI().b("event_puppet_online", c.this);
-            YH.kj("on main bind to swan: " + c.this.bEI);
-            c.this.YC();
+            e Ze = e.Ze();
+            Ze.Zf().b("event_puppet_online", c.this);
+            Ze.km("on main bind to swan: " + c.this.bFt);
+            c.this.YZ();
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            c.this.Yn();
+            c.this.YK();
         }
     }
 }

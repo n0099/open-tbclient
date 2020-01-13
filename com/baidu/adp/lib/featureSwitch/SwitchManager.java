@@ -69,8 +69,8 @@ public class SwitchManager {
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
                     cVar.H(0);
-                    edit.putInt(cVar.getName() + c.ql, 0);
-                    edit.putInt(cVar.getName() + c.qm, cVar.getDefaultType());
+                    edit.putInt(cVar.getName() + c.qh, 0);
+                    edit.putInt(cVar.getName() + c.qi, cVar.getDefaultType());
                 }
             }
             edit.commit();

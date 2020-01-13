@@ -1,10 +1,10 @@
 package com.google.android.exoplayer2.ui;
 
 import android.support.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface c {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(c cVar, long j);
 

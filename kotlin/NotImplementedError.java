@@ -1,8 +1,8 @@
 package kotlin;
 
 import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.p;
-/* loaded from: classes4.dex */
+import kotlin.jvm.internal.q;
+/* loaded from: classes5.dex */
 public final class NotImplementedError extends Error {
     public NotImplementedError() {
         this(null, 1, null);
@@ -11,7 +11,7 @@ public final class NotImplementedError extends Error {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NotImplementedError(String str) {
         super(str);
-        p.j(str, "message");
+        q.j(str, "message");
     }
 
     public /* synthetic */ NotImplementedError(String str, int i, o oVar) {

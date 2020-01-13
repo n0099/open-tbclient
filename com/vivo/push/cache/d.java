@@ -7,7 +7,7 @@ import com.vivo.push.util.p;
 import com.vivo.push.util.y;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class d<T> {
     public static final byte[] a = {34, 32, 33, 37, 33, 34, 32, 33, 33, 33, 34, 41, 35, 32, 32, 32};
     public static final byte[] b = {33, 34, 35, 36, 37, 38, 39, 40, 41, 32, 38, 37, 36, 35, 34, 33};

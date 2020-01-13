@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.NetworkInterface;
 import java.util.Collections;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i {
     private static String A;
     private static String B;
@@ -99,9 +99,9 @@ public final class i {
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {
-                String cVk = cVk();
-                if (cVk != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(cVk);
+                String cWn = cWn();
+                if (cWn != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(cWn);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
@@ -117,7 +117,7 @@ public final class i {
         }
     }
 
-    private static String cVk() {
+    private static String cWn() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -211,21 +211,21 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            au(com.baidu.ubs.analytics.d.cUT().getContext());
+            au(com.baidu.ubs.analytics.d.cVW().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            au(com.baidu.ubs.analytics.d.cUT().getContext());
+            au(com.baidu.ubs.analytics.d.cVW().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            au(com.baidu.ubs.analytics.d.cUT().getContext());
+            au(com.baidu.ubs.analytics.d.cVW().getContext());
         }
         return B;
     }

@@ -6,27 +6,27 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class MultiAudioMixer {
-    private b kvG;
+    private b kzi;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
-        void Dq(int i);
+        void Dw(int i);
 
-        void T(byte[] bArr) throws IOException;
+        void S(byte[] bArr) throws IOException;
 
-        void cOt();
+        void cPw();
     }
 
     abstract byte[] c(byte[][] bArr);
 
-    public static MultiAudioMixer cOs() {
+    public static MultiAudioMixer cPv() {
         return new a();
     }
 
     public void a(b bVar) {
-        this.kvG = bVar;
+        this.kzi = bVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[ARITH, INVOKE, ARITH, IF, INVOKE, MOVE_EXCEPTION, AGET, IF, ARRAY_LENGTH, INVOKE, MOVE_EXCEPTION] complete} */
@@ -45,8 +45,8 @@ public abstract class MultiAudioMixer {
                     fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    if (this.kvG != null) {
-                        this.kvG.Dq(1);
+                    if (this.kzi != null) {
+                        this.kzi.Dw(1);
                     }
                     try {
                         int length2 = fileInputStreamArr.length;
@@ -89,8 +89,8 @@ public abstract class MultiAudioMixer {
                 }
             }
             byte[] c = c(bArr);
-            if (c != null && this.kvG != null) {
-                this.kvG.T(c);
+            if (c != null && this.kzi != null) {
+                this.kzi.S(c);
             }
             z = true;
             for (boolean z2 : zArr) {
@@ -99,12 +99,12 @@ public abstract class MultiAudioMixer {
                 }
             }
         } while (!z);
-        if (this.kvG != null) {
-            this.kvG.cOt();
+        if (this.kzi != null) {
+            this.kzi.cPw();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class AudioMixException extends IOException {
         private static final long serialVersionUID = -1344782236320621800L;
 
@@ -113,7 +113,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     private static class a extends MultiAudioMixer {
         private a() {
         }

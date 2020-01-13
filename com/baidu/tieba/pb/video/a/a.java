@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static final int gJA = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+    private static final int gMN = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
         int dimens;
@@ -48,7 +48,7 @@ public class a {
             SpannableString spannableString = new SpannableString(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             Drawable drawable = am.getDrawable(R.drawable.icon_video_pb_ad_link);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableString.setSpan(new C0570a(drawable, 0), 0, 1, 17);
+            spannableString.setSpan(new C0575a(drawable, 0), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.pb.video.a.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
@@ -62,7 +62,7 @@ public class a {
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(gJA, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(gMN, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
@@ -81,14 +81,14 @@ public class a {
         return str2;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     private static class b extends ReplacementSpan {
-        private int gJD;
-        private int gJE;
+        private int gMQ;
+        private int gMR;
 
         public b(int i, int i2) {
-            this.gJD = i;
-            this.gJE = i2;
+            this.gMQ = i;
+            this.gMR = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -106,16 +106,16 @@ public class a {
 
         private TextPaint b(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.gJD);
-            textPaint.setColor(this.gJE);
+            textPaint.setTextSize(this.gMQ);
+            textPaint.setColor(this.gMR);
             return textPaint;
         }
     }
 
     /* renamed from: com.baidu.tieba.pb.video.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    private static class C0570a extends ImageSpan {
-        public C0570a(Drawable drawable, int i) {
+    /* loaded from: classes7.dex */
+    private static class C0575a extends ImageSpan {
+        public C0575a(Drawable drawable, int i) {
             super(drawable, i);
         }
 

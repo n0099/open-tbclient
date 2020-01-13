@@ -4,17 +4,16 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SharedPrefsWrapper implements SharedPreferences {
     private static final boolean DEBUG = false;
     private static final int MAX_STRING_LENGTH = 256;
     private SharedPreferences mSp;
 
     public SharedPrefsWrapper(String str) {
-        if (!TextUtils.isEmpty(str) && !DefaultSharedPrefsWrapper.SP_FILE_DEFAULT.equals(str)) {
+        if (!TextUtils.isEmpty(str) && !"default".equals(str)) {
             this.mSp = AppRuntime.getAppContext().getSharedPreferences(str, 0);
         } else {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());

@@ -47,7 +47,7 @@ import android.widget.SpinnerAdapter;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayLayout.ActionBarVisibilityCallback {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final long FADE_IN_DURATION_MS = 200;
@@ -852,7 +852,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class ActionModeImpl extends ActionMode implements MenuBuilder.Callback {
         private final Context mActionModeContext;
         private ActionMode.Callback mCallback;
@@ -1005,7 +1005,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class TabImpl extends ActionBar.Tab {
         private ActionBar.TabListener mCallback;
         private CharSequence mContentDesc;

@@ -5,31 +5,31 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CountDownTextView extends TextView {
-    private int biF;
-    private b dYG;
-    private final Runnable dYH;
-    private boolean dYI;
+    private int bju;
+    private b dYP;
+    private final Runnable dYQ;
+    private boolean dYR;
     private Handler mHandler;
     private String mText;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
-        void bm(View view);
+        void bq(View view);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> dYc;
+        private final WeakReference<CountDownTextView> dYl;
 
         private a(CountDownTextView countDownTextView) {
-            this.dYc = new WeakReference<>(countDownTextView);
+            this.dYl = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.dYc.get();
+            CountDownTextView countDownTextView = this.dYl.get();
             if (countDownTextView != null) {
                 countDownTextView.nW(1);
             }
@@ -38,20 +38,20 @@ public class CountDownTextView extends TextView {
 
     public CountDownTextView(Context context) {
         super(context);
-        this.biF = 0;
+        this.bju = 0;
         this.mText = "";
-        this.dYG = null;
+        this.dYP = null;
         this.mHandler = new Handler();
-        this.dYI = false;
-        this.dYH = new a();
+        this.dYR = false;
+        this.dYQ = new a();
     }
 
     public void setNumTypeFromBes(boolean z) {
-        this.dYI = z;
+        this.dYR = z;
     }
 
     public void setTimeoutListener(b bVar) {
-        this.dYG = bVar;
+        this.dYP = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -63,7 +63,7 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        aWI();
+        aXc();
     }
 
     @Override // android.view.View
@@ -72,39 +72,39 @@ public class CountDownTextView extends TextView {
         if (i == 0) {
             nW(0);
         } else {
-            aWI();
+            aXc();
         }
     }
 
-    public void am(String str, int i) {
+    public void an(String str, int i) {
         this.mText = str;
         if (i > 0) {
-            this.biF = i;
+            this.bju = i;
         }
     }
 
-    private void aWI() {
+    private void aXc() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void nW(int i) {
-        this.biF -= i;
-        if (this.biF == 0) {
-            if (this.dYG != null) {
-                this.dYG.bm(this);
+        this.bju -= i;
+        if (this.bju == 0) {
+            if (this.dYP != null) {
+                this.dYP.bq(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
         }
-        if (this.biF > 0) {
-            if (this.dYI) {
-                setText(String.format("%s 0%s", this.mText, Integer.valueOf(this.biF)));
+        if (this.bju > 0) {
+            if (this.dYR) {
+                setText(String.format("%s 0%s", this.mText, Integer.valueOf(this.bju)));
             } else {
-                setText(String.format("%s %s", this.mText, Integer.valueOf(this.biF)));
+                setText(String.format("%s %s", this.mText, Integer.valueOf(this.bju)));
             }
         }
-        this.mHandler.removeCallbacks(this.dYH);
-        this.mHandler.postDelayed(this.dYH, 1000L);
+        this.mHandler.removeCallbacks(this.dYQ);
+        this.mHandler.postDelayed(this.dYQ, 1000L);
     }
 }

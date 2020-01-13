@@ -7,24 +7,24 @@ import android.widget.FrameLayout;
 import com.baidu.swan.apps.adaptation.a.af;
 import com.baidu.swan.apps.adaptation.b.d;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface c<T extends d> extends af, e<T> {
-    boolean FU();
+    boolean Gq();
 
-    PullToRefreshBaseWebView FV();
+    PullToRefreshBaseWebView Gr();
 
-    f FW();
+    f Gs();
 
-    boolean FX();
+    boolean Gt();
 
-    void FY();
+    void Gu();
 
     @Nullable
-    com.baidu.swan.apps.component.c.a FZ();
+    com.baidu.swan.apps.component.c.a Gv();
 
-    boolean Ga();
+    boolean Gw();
 
-    com.baidu.swan.apps.adaptation.b.a.d Gb();
+    com.baidu.swan.apps.adaptation.b.a.d Gx();
 
     void a(ViewGroup viewGroup, View view);
 
@@ -42,11 +42,11 @@ public interface c<T extends d> extends af, e<T> {
 
     boolean c(com.baidu.swan.apps.scheme.actions.m.d dVar);
 
-    void dE(int i);
+    void dF(int i);
 
-    boolean dF(int i);
+    boolean dG(int i);
 
-    void eJ(String str);
+    void eM(String str);
 
     void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5);
 }

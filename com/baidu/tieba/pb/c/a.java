@@ -4,12 +4,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.pb.data.f;
 import com.baidu.tieba.r.c;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static void a(BdUniqueId bdUniqueId, f fVar, PostData postData, int i, int i2) {
         String str = null;
@@ -23,7 +24,7 @@ public class a {
         if (bdUniqueId != null && fVar != null) {
             an anVar = new an("common_exp");
             a(anVar, fVar, postData, i, i2, false, str);
-            c.cHo().a(bdUniqueId, str2, anVar);
+            c.cIs().a(bdUniqueId, str2, anVar);
         }
     }
 
@@ -71,11 +72,17 @@ public class a {
         if (postData != null) {
             anVar.cp("pid", postData.getId() + "");
         }
-        if (fVar.chK() != null) {
-            anVar.Z("thread_type", fVar.chK().threadType);
+        if (fVar.ciS() != null) {
+            anVar.Z("thread_type", fVar.ciS().threadType);
+            BaijiahaoData baijiahaoData = fVar.ciS().getBaijiahaoData();
+            if (baijiahaoData != null) {
+                anVar.cp("ugc_nid", baijiahaoData.oriUgcNid);
+                anVar.cp("ugc_vid", baijiahaoData.oriUgcVid);
+                anVar.Z("ori_ugc_type", baijiahaoData.oriUgcType);
+            }
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhF);
+            anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhR);
         }
         return anVar;
     }

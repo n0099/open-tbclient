@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.util.AttributeSet;
 import com.baidu.tieba.vr.player.framework.GLTextureView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CardGLTextureView extends GLTextureView {
     private boolean isDestroyed;
 

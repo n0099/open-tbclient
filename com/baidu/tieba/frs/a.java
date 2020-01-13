@@ -7,82 +7,82 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData dhK;
+    private AntiData dhW;
     private String forumId;
-    private final ArrayList<bj> ghR;
-    private boolean ghS;
-    private b ghT;
-    private boolean ghU;
+    private final ArrayList<bj> glb;
+    private boolean glc;
+    private b gld;
+    private boolean gle;
 
     /* loaded from: classes.dex */
     public interface b {
         void H(boolean z, boolean z2);
 
-        void bAw();
+        void bBy();
 
-        void so(int i);
+        void st(int i);
     }
 
     private a() {
-        this.ghS = false;
-        this.ghR = new ArrayList<>();
+        this.glc = false;
+        this.glb = new ArrayList<>();
     }
 
-    public static a bAp() {
-        return C0492a.ghV;
+    public static a bBr() {
+        return C0496a.glf;
     }
 
-    public boolean bAq() {
-        return this.ghS;
+    public boolean bBs() {
+        return this.glc;
     }
 
     public void G(boolean z, boolean z2) {
-        this.ghS = z;
-        if (this.ghT != null) {
-            this.ghT.H(this.ghS, z2);
+        this.glc = z;
+        if (this.gld != null) {
+            this.gld.H(this.glc, z2);
         }
     }
 
-    public boolean af(bj bjVar) {
+    public boolean ag(bj bjVar) {
         if (bjVar == null) {
             return false;
         }
-        if (this.ghR.size() > 29) {
-            if (this.ghT != null) {
-                this.ghT.bAw();
+        if (this.glb.size() > 29) {
+            if (this.gld != null) {
+                this.gld.bBy();
                 return false;
             }
             return false;
         }
-        this.ghR.add(bjVar);
-        if (this.ghT != null) {
-            this.ghT.so(this.ghR.size());
+        this.glb.add(bjVar);
+        if (this.gld != null) {
+            this.gld.st(this.glb.size());
         }
         return true;
     }
 
-    public List<bj> bAr() {
-        return this.ghR;
+    public List<bj> bBt() {
+        return this.glb;
     }
 
-    public void ag(bj bjVar) {
-        this.ghR.remove(bjVar);
-        if (this.ghT != null) {
-            this.ghT.so(this.ghR.size());
+    public void ah(bj bjVar) {
+        this.glb.remove(bjVar);
+        if (this.gld != null) {
+            this.gld.st(this.glb.size());
         }
     }
 
     public void clearData() {
-        Iterator<bj> it = this.ghR.iterator();
+        Iterator<bj> it = this.glb.iterator();
         while (it.hasNext()) {
             bj next = it.next();
             if (next != null) {
-                next.fq(false);
+                next.fv(false);
             }
         }
-        this.ghR.clear();
-        if (this.ghT != null) {
-            this.ghT.so(0);
+        this.glb.clear();
+        if (this.gld != null) {
+            this.gld.st(0);
         }
     }
 
@@ -92,22 +92,22 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.ghT = bVar;
+        this.gld = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0492a {
-        private static a ghV = new a();
+    public static class C0496a {
+        private static a glf = new a();
     }
 
-    public AntiData bAs() {
-        return this.dhK;
+    public AntiData bBu() {
+        return this.dhW;
     }
 
     public void b(AntiData antiData) {
-        this.dhK = antiData;
+        this.dhW = antiData;
     }
 
     public String getForumId() {
@@ -118,17 +118,17 @@ public class a {
         this.forumId = str;
     }
 
-    public boolean bAt() {
-        return this.ghU;
+    public boolean bBv() {
+        return this.gle;
     }
 
-    public void kM(boolean z) {
-        this.ghU = z;
+    public void kX(boolean z) {
+        this.gle = z;
     }
 
     public void cg(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.isEmpty(list) && !com.baidu.tbadk.core.util.v.isEmpty(this.ghR)) {
-            Iterator<bj> it = this.ghR.iterator();
+        if (!com.baidu.tbadk.core.util.v.isEmpty(list) && !com.baidu.tbadk.core.util.v.isEmpty(this.glb)) {
+            Iterator<bj> it = this.glb.iterator();
             while (it.hasNext()) {
                 bj next = it.next();
                 int i = 0;
@@ -144,13 +144,13 @@ public class a {
                     }
                 }
             }
-            if (this.ghT != null) {
-                this.ghT.so(this.ghR.size());
+            if (this.gld != null) {
+                this.gld.st(this.glb.size());
             }
         }
     }
 
-    public boolean bAu() {
-        return this.dhK != null && this.dhK.isMultiDeleteEnable();
+    public boolean bBw() {
+        return this.dhW != null && this.dhW.isMultiDeleteEnable();
     }
 }

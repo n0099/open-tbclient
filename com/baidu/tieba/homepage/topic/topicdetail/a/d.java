@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.homepage.topic.topicdetail.b.e;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicTimelineCellCardView;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topicdetail.c.a> {
-    private List<e> has;
+    private List<e> hdV;
     private Context mContext;
 
     public d(Context context) {
@@ -25,7 +25,7 @@ public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topic
 
     public void setData(List<e> list) {
         if (!v.isEmpty(list)) {
-            this.has = list;
+            this.hdV = list;
         }
     }
 
@@ -33,9 +33,9 @@ public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topic
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(com.baidu.tieba.homepage.topic.topicdetail.c.a aVar, int i) {
-        e eVar = (e) v.getItem(this.has, i);
+        e eVar = (e) v.getItem(this.hdV, i);
         if (eVar != null) {
-            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) aVar.bMG();
+            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) aVar.bNO();
             topicTimelineCellCardView.setData(eVar);
             topicTimelineCellCardView.onChangeSkinType();
         }
@@ -43,6 +43,6 @@ public class d extends RecyclerView.Adapter<com.baidu.tieba.homepage.topic.topic
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return v.getCount(this.has);
+        return v.getCount(this.hdV);
     }
 }

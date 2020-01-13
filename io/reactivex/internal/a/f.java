@@ -1,11 +1,6 @@
 package io.reactivex.internal.a;
-/* loaded from: classes4.dex */
-public interface f<T> {
-    void clear();
-
-    boolean isEmpty();
-
-    boolean offer(T t);
-
-    T poll() throws Exception;
+/* loaded from: classes5.dex */
+public interface f<T> extends g<T> {
+    @Override // io.reactivex.internal.a.g
+    T poll();
 }

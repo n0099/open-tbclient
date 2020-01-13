@@ -6,7 +6,7 @@ import io.reactivex.m;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MaybeTimer extends k<Long> {
     final long delay;
     final v scheduler;
@@ -19,7 +19,7 @@ public final class MaybeTimer extends k<Long> {
         timerDisposable.setFuture(this.scheduler.b(timerDisposable, this.delay, this.unit));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class TimerDisposable extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, Runnable {
         private static final long serialVersionUID = 2875964065294031672L;
         final m<? super Long> actual;

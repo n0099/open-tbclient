@@ -1,45 +1,30 @@
 package com.tb.airbnb.lottie.model;
 
-import android.graphics.PointF;
-/* loaded from: classes2.dex */
+import android.support.annotation.RestrictTo;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
+/* loaded from: classes5.dex */
 public class c {
-    private final PointF hl;
-    private final PointF hm;
-    private final PointF hn;
+    private final String hw;
+    private final float hx;
+    private final String name;
+    private final String style;
 
-    public c() {
-        this.hl = new PointF();
-        this.hm = new PointF();
-        this.hn = new PointF();
+    public c(String str, String str2, String str3, float f) {
+        this.hw = str;
+        this.name = str2;
+        this.style = str3;
+        this.hx = f;
     }
 
-    public c(PointF pointF, PointF pointF2, PointF pointF3) {
-        this.hl = pointF;
-        this.hm = pointF2;
-        this.hn = pointF3;
+    public String cg() {
+        return this.hw;
     }
 
-    public void f(float f, float f2) {
-        this.hl.set(f, f2);
+    public String getName() {
+        return this.name;
     }
 
-    public PointF cd() {
-        return this.hl;
-    }
-
-    public void g(float f, float f2) {
-        this.hm.set(f, f2);
-    }
-
-    public PointF ce() {
-        return this.hm;
-    }
-
-    public void h(float f, float f2) {
-        this.hn.set(f, f2);
-    }
-
-    public PointF cf() {
-        return this.hn;
+    public String ch() {
+        return this.style;
     }
 }

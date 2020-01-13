@@ -23,7 +23,7 @@ import com.facebook.drawee.drawable.p;
 import com.facebook.drawee.generic.a;
 import com.facebook.drawee.view.DraweeView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Attacher implements View.OnTouchListener, OnScaleDragGestureListener, IAttacher {
     private static final int EDGE_BOTH = 2;
     private static final int EDGE_LEFT = 0;
@@ -54,7 +54,7 @@ public class Attacher implements View.OnTouchListener, OnScaleDragGestureListene
 
     public Attacher(DraweeView<a> draweeView) {
         this.mDraweeView = new WeakReference<>(draweeView);
-        draweeView.getHierarchy().b(p.b.lIE);
+        draweeView.getHierarchy().b(p.b.lMb);
         draweeView.setOnTouchListener(this);
         this.mScaleDragDetector = new ScaleDragDetector(draweeView.getContext(), this);
         this.mGestureDetector = new GestureDetectorCompat(draweeView.getContext(), new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.searchbox.picture.component.view.Attacher.1
@@ -416,7 +416,7 @@ public class Attacher implements View.OnTouchListener, OnScaleDragGestureListene
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class AnimatedZoomRunnable implements Runnable {
         private final float mFocalX;
         private final float mFocalY;
@@ -449,7 +449,7 @@ public class Attacher implements View.OnTouchListener, OnScaleDragGestureListene
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class FlingRunnable implements Runnable {
         private int mCurrentX;
         private int mCurrentY;

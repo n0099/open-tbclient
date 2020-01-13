@@ -2,27 +2,27 @@ package com.baidu.swan.config;
 
 import com.baidu.searchbox.http.cookie.CookieManager;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    String Sg();
+    String SC();
 
-    String Sh();
+    String SD();
 
-    String Si();
+    String SE();
 
-    String Sj();
+    String SF();
 
-    String Sk();
+    String SG();
 
-    String Sl();
+    String SH();
 
-    String Sm();
+    String SI();
 
-    String Sn();
+    String SJ();
 
-    CookieManager So();
+    CookieManager SK();
 
-    String Sr();
+    String SN();
 
     void aj(JSONObject jSONObject);
 

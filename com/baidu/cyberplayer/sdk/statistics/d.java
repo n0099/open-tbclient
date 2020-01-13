@@ -16,6 +16,7 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
+import tv.chushou.basis.http.HttpConsts;
 /* loaded from: classes.dex */
 public class d {
     private static d a;
@@ -161,7 +162,7 @@ public class d {
         this.d = str;
         new File(str).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.c = str + File.separator + "video_session_" + coreVersion + ".bak";
+        this.c = str + File.separator + "video_session_" + coreVersion + HttpConsts.FILE_BACKUP_SUFFIX;
         this.b = str + File.separator + "video_session_log_" + coreVersion + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
     }
 

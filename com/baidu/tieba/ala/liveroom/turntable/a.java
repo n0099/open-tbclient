@@ -4,13 +4,15 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.turntable.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0454a {
+    public interface InterfaceC0458a {
         void a(String str, com.baidu.tieba.ala.liveroom.turntable.lucky.c cVar);
+
+        void ax(int i, String str);
     }
 
-    void a(InterfaceC0454a interfaceC0454a);
+    void a(InterfaceC0458a interfaceC0458a);
 
     void release();
 
-    void yU(String str);
+    void zd(String str);
 }

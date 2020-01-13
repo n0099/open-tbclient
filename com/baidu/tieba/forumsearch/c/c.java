@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     private NoDataView mNoDataView;
     private int mSkinType;

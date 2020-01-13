@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LoadingLayout extends LinearLayout {
     private ImageView mPromptImg;
     private TextView mPromptTv;
@@ -41,7 +41,7 @@ public class LoadingLayout extends LinearLayout {
     public void showLoading(boolean z) {
         if (z) {
             setVisibility(0);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0185a.swanapp_album_rotate_loading);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0187a.swanapp_album_rotate_loading);
             this.mPromptImg.setImageResource(a.e.swanapp_album_progress_icon);
             this.mPromptImg.startAnimation(loadAnimation);
             return;

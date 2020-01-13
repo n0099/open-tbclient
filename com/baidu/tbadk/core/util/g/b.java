@@ -5,5 +5,5 @@ public interface b {
 
     void onSuccess(String str);
 
-    void tt(String str);
+    void tx(String str);
 }

@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.bw;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class bs extends bw.d {
     protected String a;
 

@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
     public int type = 0;
-    public int cJm = 0;
-    public int cJn = 1;
-    public int cJo = 1;
-    public int cJp = 0;
-    public int cJq = 0;
-    public int cJr = 1;
-    public int cJs = 0;
-    public int cJt = 0;
+    public int cJx = 0;
+    public int cJy = 1;
+    public int cJz = 1;
+    public int cJA = 0;
+    public int cJB = 0;
+    public int cJC = 1;
+    public int cJD = 0;
+    public int cJE = 0;
 }

@@ -13,7 +13,7 @@ import com.baidu.spswitch.b.a;
 import com.baidu.spswitch.emotion.EmotionType;
 import com.baidu.spswitch.emotion.c;
 import com.baidu.spswitch.view.SPSwitchPanelLinearLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PluginVideoPublishPresenter extends VideoBasePublishPresenter {
     public PluginVideoPublishPresenter(IPublishView iPublishView) {
         super(iPublishView);
@@ -34,8 +34,8 @@ public class PluginVideoPublishPresenter extends VideoBasePublishPresenter {
 
     @Override // com.baidu.searchbox.ugc.presenter.BasePublishPresenter
     protected void loadInnerEmotionPanel(SPSwitchPanelLinearLayout sPSwitchPanelLinearLayout, EmojiconEditText emojiconEditText) {
-        c.bb(this.mPublishView.getContext().getApplicationContext()).a(new a.InterfaceC0182a() { // from class: com.baidu.searchbox.ugc.presenter.PluginVideoPublishPresenter.1
-            @Override // com.baidu.spswitch.b.a.InterfaceC0182a
+        c.bb(this.mPublishView.getContext().getApplicationContext()).a(new a.InterfaceC0184a() { // from class: com.baidu.searchbox.ugc.presenter.PluginVideoPublishPresenter.1
+            @Override // com.baidu.spswitch.b.a.InterfaceC0184a
             public void onEmotionClick(EmotionType emotionType, int i, String str, String str2) {
                 if (!TextUtils.isEmpty(str)) {
                     UgcUBCUtils.emotionUbcStatistics(PluginVideoPublishPresenter.this.mSourceFrom, PluginVideoPublishPresenter.this.mPublishView.getContext() instanceof ForwardPublishActivity, str);

@@ -3,8 +3,8 @@ package kotlin.sequences;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.Iterator;
 import kotlin.jvm.internal.Lambda;
-import kotlin.jvm.internal.p;
-/* loaded from: classes4.dex */
+import kotlin.jvm.internal.q;
+/* loaded from: classes5.dex */
 final class SequencesKt__SequencesKt$flatten$1 extends Lambda implements kotlin.jvm.a.b<c<? extends T>, Iterator<? extends T>> {
     public static final SequencesKt__SequencesKt$flatten$1 INSTANCE = new SequencesKt__SequencesKt$flatten$1();
 
@@ -17,7 +17,7 @@ final class SequencesKt__SequencesKt$flatten$1 extends Lambda implements kotlin.
     /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.jvm.a.b
     public final Iterator<T> invoke(c<? extends T> cVar) {
-        p.j(cVar, AdvanceSetting.NETWORK_TYPE);
+        q.j(cVar, AdvanceSetting.NETWORK_TYPE);
         return cVar.iterator();
     }
 }

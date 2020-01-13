@@ -13,7 +13,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class n<T> implements Comparable<n<T>> {
     private static long p;
     private final w.a a;
@@ -32,7 +32,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     private s n;
     private b.a o;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         LOW,
         NORMAL,

@@ -3,7 +3,7 @@ package com.baidu.sofire.core;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class h {
     public String a;
     public String b;

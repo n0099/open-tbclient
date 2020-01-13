@@ -1,5 +1,5 @@
 package com.baidu.mapapi.bikenavi.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum BikeRoutePlanError {
     SERVER_UNUSUAL,
     PARSE_FAIL,

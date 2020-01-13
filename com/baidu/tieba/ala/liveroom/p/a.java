@@ -1,22 +1,11 @@
 package com.baidu.tieba.ala.liveroom.p;
 /* loaded from: classes2.dex */
-public class a {
-    public String dUb;
-    public long mUserId;
+public interface a {
+    void pause();
 
-    public a() {
-    }
+    void release();
 
-    public a(long j, String str) {
-        this.mUserId = j;
-        this.dUb = str;
-    }
+    void resume();
 
-    public long getUserId() {
-        return this.mUserId;
-    }
-
-    public String aVj() {
-        return this.dUb;
-    }
+    void yw(String str);
 }

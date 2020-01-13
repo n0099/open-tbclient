@@ -4,19 +4,19 @@ import com.google.android.exoplayer2.text.SubtitleDecoderException;
 import com.google.android.exoplayer2.util.l;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class h {
-    private static final Pattern mxN = Pattern.compile("^NOTE(( |\t).*)?$");
-    private static final Pattern mxO = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
+    private static final Pattern mBC = Pattern.compile("^NOTE(( |\t).*)?$");
+    private static final Pattern mBD = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
 
     public static void ae(l lVar) throws SubtitleDecoderException {
         String readLine = lVar.readLine();
-        if (readLine == null || !mxO.matcher(readLine).matches()) {
+        if (readLine == null || !mBD.matcher(readLine).matches()) {
             throw new SubtitleDecoderException("Expected WEBVTT. Got " + readLine);
         }
     }
 
-    public static long PL(String str) throws NumberFormatException {
+    public static long PW(String str) throws NumberFormatException {
         long j = 0;
         String[] split = str.split("\\.", 2);
         for (String str2 : split[0].split(":")) {
@@ -29,7 +29,7 @@ public final class h {
         return j2 * 1000;
     }
 
-    public static float PM(String str) throws NumberFormatException {
+    public static float PX(String str) throws NumberFormatException {
         if (!str.endsWith("%")) {
             throw new NumberFormatException("Percentages must end with %");
         }
@@ -43,14 +43,14 @@ public final class h {
             if (readLine2 == null) {
                 return null;
             }
-            if (mxN.matcher(readLine2).matches()) {
+            if (mBC.matcher(readLine2).matches()) {
                 do {
                     readLine = lVar.readLine();
                     if (readLine != null) {
                     }
                 } while (!readLine.isEmpty());
             } else {
-                Matcher matcher = f.mxC.matcher(readLine2);
+                Matcher matcher = f.mBr.matcher(readLine2);
                 if (matcher.matches()) {
                     return matcher;
                 }

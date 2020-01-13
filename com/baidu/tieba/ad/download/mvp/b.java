@@ -3,21 +3,21 @@ package com.baidu.tieba.ad.download.mvp;
 import android.support.annotation.NonNull;
 import android.view.View;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface b {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void bl(View view);
+        void bp(View view);
     }
 
     void a(@NonNull DownloadStatus downloadStatus);
 
     void a(DownloadStatus downloadStatus, int i);
 
-    void bl(View view);
+    void bp(View view);
 
-    void cG(int i);
+    void cH(int i);
 
     View getActionBar();
 

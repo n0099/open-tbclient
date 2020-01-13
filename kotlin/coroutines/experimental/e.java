@@ -1,29 +1,30 @@
 package kotlin.coroutines.experimental;
 
 import kotlin.coroutines.experimental.d;
-import kotlin.jvm.internal.p;
-/* loaded from: classes4.dex */
+import kotlin.jvm.a.m;
+import kotlin.jvm.internal.q;
+/* loaded from: classes5.dex */
 public final class e implements d {
-    public static final e mYR = new e();
+    public static final e nBn = new e();
 
     private e() {
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <E extends d.b> E a(d.c<E> cVar) {
-        p.j(cVar, "key");
+        q.j(cVar, "key");
         return null;
     }
 
     @Override // kotlin.coroutines.experimental.d
-    public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
-        p.j(cVar, "operation");
+    public <R> R fold(R r, m<? super R, ? super d.b, ? extends R> mVar) {
+        q.j(mVar, "operation");
         return r;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
-        p.j(cVar, "key");
+        q.j(cVar, "key");
         return this;
     }
 

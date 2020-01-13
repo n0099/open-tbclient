@@ -1,9 +1,9 @@
 package com.baidu.browser.core.async;
 
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
-    private static HashMap<String, a> Ii = new HashMap<>();
+    private static HashMap<String, a> In = new HashMap<>();
 
     public static synchronized a bF(String str) {
         a n;
@@ -16,13 +16,13 @@ public final class b {
     static synchronized a n(String str, int i) {
         a aVar;
         synchronized (b.class) {
-            if (!Ii.containsKey(str) || (aVar = Ii.get(str)) == null) {
+            if (!In.containsKey(str) || (aVar = In.get(str)) == null) {
                 aVar = new a(str, i);
                 try {
                     aVar.start();
                 } catch (Exception e) {
                 }
-                Ii.put(str, aVar);
+                In.put(str, aVar);
             }
         }
         return aVar;
@@ -32,7 +32,7 @@ public final class b {
         synchronized (b.class) {
             if (aVar != null) {
                 aVar.mj();
-                Ii.values().remove(aVar);
+                In.values().remove(aVar);
             }
         }
     }

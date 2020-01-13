@@ -6,7 +6,7 @@ import android.util.Pair;
 import java.util.AbstractMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface b {
     void a(int i, Activity activity, String str, String str2, String str3, String str4, String str5);
 
@@ -22,7 +22,7 @@ public interface b {
 
     void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8);
 
-    void bb(int i, String str);
+    void bh(int i, String str);
 
     void c(Context context, String str, String str2, String str3, String str4);
 }

@@ -17,14 +17,14 @@ public class ALaCharmInitialize {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.c.a)) {
                     com.baidu.live.liveroom.c.a aVar = (com.baidu.live.liveroom.c.a) customResponsedMessage.getData();
-                    if (aVar.arj != null && aVar.arj.context != null) {
-                        TbPageContext tbPageContext = (TbPageContext) IScrollableHelper.getBbPageContext(aVar.arj.context);
-                        if (aVar.arj.arl != null && aVar.arj.arl.mLiveInfo != null) {
-                            com.baidu.tieba.ala.charm.a.a xB = new com.baidu.tieba.ala.charm.a.a(tbPageContext).xA(String.valueOf(aVar.arj.arl.mLiveInfo.group_id)).xB(String.valueOf(aVar.arj.arl.mLiveInfo.live_id));
-                            if (aVar.arj.arl.VP != null) {
-                                xB.xD(String.valueOf(aVar.arj.arl.VP.charmCount)).xC(String.valueOf(String.valueOf(aVar.arj.arl.VP.userId)));
+                    if (aVar.arV != null && aVar.arV.context != null) {
+                        TbPageContext tbPageContext = (TbPageContext) IScrollableHelper.getBbPageContext(aVar.arV.context);
+                        if (aVar.arV.arX != null && aVar.arV.arX.mLiveInfo != null) {
+                            com.baidu.tieba.ala.charm.a.a xG = new com.baidu.tieba.ala.charm.a.a(tbPageContext).xF(String.valueOf(aVar.arV.arX.mLiveInfo.group_id)).xG(String.valueOf(aVar.arV.arX.mLiveInfo.live_id));
+                            if (aVar.arV.arX.Wf != null) {
+                                xG.xI(String.valueOf(aVar.arV.arX.Wf.charmCount)).xH(String.valueOf(String.valueOf(aVar.arV.arX.Wf.userId)));
                             }
-                            aVar.a(xB);
+                            aVar.a(xG);
                         }
                     }
                 }

@@ -1,5 +1,5 @@
 package com.baidu.platform.base;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum SearchType {
     POI_NEAR_BY_SEARCH,
     POI_IN_CITY_SEARCH,

@@ -11,41 +11,41 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.veloce.VeloceIpcResult;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static boolean cBG = false;
-    private static boolean cBH = false;
-    private static String cBI = "";
-    private static String cBJ = "";
-    private static HashMap<String, List<VeloceIpcResult.a>> cBK = new HashMap<>();
+    private static boolean cBR = false;
+    private static boolean cBS = false;
+    private static String cBT = "";
+    private static String cBU = "";
+    private static HashMap<String, List<VeloceIpcResult.a>> cBV = new HashMap<>();
 
-    public static boolean atJ() {
-        if (ProcessUtils.isMainProcess() && cBH) {
-            return cBG;
+    public static boolean auc() {
+        if (ProcessUtils.isMainProcess() && cBS) {
+            return cBR;
         }
         DelegateResult h = h("veloce_is_veloce", null);
         if (h != null && h.isOk()) {
-            cBH = true;
-            cBG = h.mResult.getBoolean("is_veloce", false);
+            cBS = true;
+            cBR = h.mResult.getBoolean("is_veloce", false);
         }
-        return cBG;
+        return cBR;
     }
 
-    public static String atK() {
-        if (TextUtils.isEmpty(cBI)) {
-            atL();
+    public static String aud() {
+        if (TextUtils.isEmpty(cBT)) {
+            aue();
         }
-        return cBI;
+        return cBT;
     }
 
-    private static Bundle atL() {
+    private static Bundle aue() {
         DelegateResult h = h("veloce_get_host_info", null);
         if (h == null || !h.isOk()) {
             return null;
         }
         Bundle bundle = h.mResult;
-        cBI = bundle.getString("host_package");
-        cBJ = bundle.getString("host_version");
+        cBT = bundle.getString("host_package");
+        cBU = bundle.getString("host_version");
         return bundle;
     }
 
@@ -61,14 +61,14 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 iK = null;
             } else {
-                List<VeloceIpcResult.a> list = cBK.get(str);
+                List<VeloceIpcResult.a> list = cBV.get(str);
                 if (list == null) {
                     iK = null;
                 } else {
                     for (VeloceIpcResult.a aVar : list) {
                         aVar.a(VeloceIpcResult.g(0, bundle));
                     }
-                    cBK.remove(list);
+                    cBV.remove(list);
                     iK = iK(0);
                 }
             }

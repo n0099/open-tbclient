@@ -2,23 +2,23 @@ package com.tb.airbnb.lottie.a.b;
 
 import android.graphics.Path;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class l extends a<com.tb.airbnb.lottie.model.content.h, Path> {
     private final Path gP;
-    private final com.tb.airbnb.lottie.model.content.h mNy;
+    private final com.tb.airbnb.lottie.model.content.h npE;
 
-    public l(List<com.tb.airbnb.lottie.a.a<com.tb.airbnb.lottie.model.content.h>> list) {
+    public l(List<com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.content.h>> list) {
         super(list);
-        this.mNy = new com.tb.airbnb.lottie.model.content.h();
+        this.npE = new com.tb.airbnb.lottie.model.content.h();
         this.gP = new Path();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.tb.airbnb.lottie.a.b.a
     /* renamed from: g */
-    public Path a(com.tb.airbnb.lottie.a.a<com.tb.airbnb.lottie.model.content.h> aVar, float f) {
-        this.mNy.a(aVar.kn, aVar.ko, f);
-        com.tb.airbnb.lottie.c.e.a(this.mNy, this.gP);
+    public Path a(com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.content.h> aVar, float f) {
+        this.npE.a(aVar.km, aVar.kn, f);
+        com.tb.airbnb.lottie.d.e.a(this.npE, this.gP);
         return this.gP;
     }
 }

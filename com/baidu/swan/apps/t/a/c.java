@@ -7,12 +7,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends HandlerThread {
-    private CountDownLatch bsS;
-    private File bsT;
+    private CountDownLatch btG;
+    private File btH;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         byte[] content;
         String path;
@@ -25,18 +25,18 @@ public class c extends HandlerThread {
 
     private c(String str, int i, File file, CountDownLatch countDownLatch) {
         super(str, i);
-        this.bsT = file;
-        this.bsS = countDownLatch;
+        this.btH = file;
+        this.btG = countDownLatch;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Handler Rj() {
+    public Handler RF() {
         return new Handler(getLooper()) { // from class: com.baidu.swan.apps.t.a.c.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 100) {
                     a aVar = (a) message.obj;
-                    File file = new File(c.this.bsT + aVar.path);
+                    File file = new File(c.this.btH + aVar.path);
                     try {
                         if (!file.exists()) {
                             file.getParentFile().mkdirs();
@@ -49,8 +49,8 @@ public class c extends HandlerThread {
                         e.printStackTrace();
                     }
                 } else if (message.what == 200) {
-                    if (c.this.bsS != null) {
-                        c.this.bsS.countDown();
+                    if (c.this.btG != null) {
+                        c.this.btG.countDown();
                     }
                     c.this.quit();
                 }

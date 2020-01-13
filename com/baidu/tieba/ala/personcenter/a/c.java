@@ -8,20 +8,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    private BdTypeListView efM;
-    private com.baidu.tieba.ala.personcenter.d.a fnW;
+    private BdTypeListView efW;
+    private com.baidu.tieba.ala.personcenter.d.a frf;
     private TbPageContext mPageContext;
-    private List<com.baidu.adp.widget.ListView.a> aoz = new ArrayList();
+    private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
     private List<m> mDataList = new ArrayList();
 
     public c(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, com.baidu.tieba.ala.personcenter.d.a aVar) {
         this.mPageContext = tbPageContext;
-        this.efM = bdTypeListView;
-        this.fnW = aVar;
-        uR();
+        this.efW = bdTypeListView;
+        this.frf = aVar;
+        vi();
     }
 
-    private void uR() {
+    private void vi() {
         b bVar = new b(this.mPageContext);
         f fVar = new f(this.mPageContext);
         g gVar = new g(this.mPageContext);
@@ -29,23 +29,23 @@ public class c {
         h hVar = new h(this.mPageContext);
         d dVar = new d(this.mPageContext);
         a aVar = new a(this.mPageContext);
-        i iVar = new i(this.mPageContext, this.fnW);
-        this.aoz.add(bVar);
-        this.aoz.add(fVar);
-        this.aoz.add(gVar);
-        this.aoz.add(eVar);
-        this.aoz.add(hVar);
-        this.aoz.add(dVar);
-        this.aoz.add(aVar);
-        this.aoz.add(iVar);
-        this.efM.addAdapters(this.aoz);
+        i iVar = new i(this.mPageContext, this.frf);
+        this.apl.add(bVar);
+        this.apl.add(fVar);
+        this.apl.add(gVar);
+        this.apl.add(eVar);
+        this.apl.add(hVar);
+        this.apl.add(dVar);
+        this.apl.add(aVar);
+        this.apl.add(iVar);
+        this.efW.addAdapters(this.apl);
     }
 
     public void setData(List<m> list) {
-        if (this.efM != null && !v.isEmpty(list)) {
+        if (this.efW != null && !v.isEmpty(list)) {
             this.mDataList.clear();
             this.mDataList.addAll(list);
-            this.efM.setData(this.mDataList);
+            this.efW.setData(this.mDataList);
         }
     }
 }

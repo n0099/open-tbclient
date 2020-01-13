@@ -6,30 +6,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import com.baidu.swan.apps.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ShowConfirmBarLayout extends RelativeLayout {
-    private Button bTb;
-    private a bTc;
+    private Button bTn;
+    private a bTo;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onClick(View view);
     }
 
     public ShowConfirmBarLayout(Context context) {
         super(context);
-        this.bTb = (Button) LayoutInflater.from(context).inflate(a.g.aiapps_textarea_confirm_bar, this).findViewById(a.f.confirm_button);
-        this.bTb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.textarea.ShowConfirmBarLayout.1
+        this.bTn = (Button) LayoutInflater.from(context).inflate(a.g.aiapps_textarea_confirm_bar, this).findViewById(a.f.confirm_button);
+        this.bTn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.textarea.ShowConfirmBarLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ShowConfirmBarLayout.this.bTc != null) {
-                    ShowConfirmBarLayout.this.bTc.onClick(view);
+                if (ShowConfirmBarLayout.this.bTo != null) {
+                    ShowConfirmBarLayout.this.bTo.onClick(view);
                 }
             }
         });
     }
 
     public void setOnConfirmButtonClickListener(a aVar) {
-        this.bTc = aVar;
+        this.bTo = aVar;
     }
 }

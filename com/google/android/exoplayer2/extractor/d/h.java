@@ -7,19 +7,19 @@ import com.google.android.exoplayer2.extractor.m;
 import com.google.android.exoplayer2.util.l;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class h {
-    private com.google.android.exoplayer2.extractor.g lZY;
-    private m mcf;
-    private long mgA;
-    private final d mhd = new d();
-    private f mhe;
-    private long mhf;
-    private long mhg;
-    private a mhh;
-    private long mhi;
-    private boolean mhj;
-    private boolean mhk;
+    private com.google.android.exoplayer2.extractor.g mdQ;
+    private m mfU;
+    private final d mkU = new d();
+    private f mkV;
+    private long mkW;
+    private long mkX;
+    private a mkY;
+    private long mkZ;
+    private long mkr;
+    private boolean mla;
+    private boolean mlb;
     private int sampleRate;
     private int state;
 
@@ -28,10 +28,10 @@ public abstract class h {
     protected abstract boolean a(l lVar, long j, a aVar) throws IOException, InterruptedException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
-        Format lUU;
-        f mhe;
+        Format lYL;
+        f mkV;
 
         a() {
         }
@@ -39,31 +39,31 @@ public abstract class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.google.android.exoplayer2.extractor.g gVar, m mVar) {
-        this.lZY = gVar;
-        this.mcf = mVar;
+        this.mdQ = gVar;
+        this.mfU = mVar;
         reset(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void reset(boolean z) {
         if (z) {
-            this.mhh = new a();
-            this.mhf = 0L;
+            this.mkY = new a();
+            this.mkW = 0L;
             this.state = 0;
         } else {
             this.state = 1;
         }
-        this.mgA = -1L;
-        this.mhg = 0L;
+        this.mkr = -1L;
+        this.mkX = 0L;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void O(long j, long j2) {
-        this.mhd.reset();
+        this.mkU.reset();
         if (j == 0) {
-            reset(!this.mhj);
+            reset(!this.mla);
         } else if (this.state != 0) {
-            this.mgA = this.mhe.fP(j2);
+            this.mkr = this.mkV.fU(j2);
             this.state = 2;
         }
     }
@@ -74,7 +74,7 @@ public abstract class h {
             case 0:
                 return z(fVar);
             case 1:
-                fVar.Jh((int) this.mhf);
+                fVar.Jq((int) this.mkW);
                 this.state = 2;
                 return 0;
             case 2:
@@ -87,59 +87,59 @@ public abstract class h {
     private int z(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
         boolean z = true;
         while (z) {
-            if (!this.mhd.y(fVar)) {
+            if (!this.mkU.y(fVar)) {
                 this.state = 3;
                 return -1;
             }
-            this.mhi = fVar.getPosition() - this.mhf;
-            z = a(this.mhd.dsK(), this.mhf, this.mhh);
+            this.mkZ = fVar.getPosition() - this.mkW;
+            z = a(this.mkU.dtW(), this.mkW, this.mkY);
             if (z) {
-                this.mhf = fVar.getPosition();
+                this.mkW = fVar.getPosition();
             }
         }
-        this.sampleRate = this.mhh.lUU.sampleRate;
-        if (!this.mhk) {
-            this.mcf.h(this.mhh.lUU);
-            this.mhk = true;
+        this.sampleRate = this.mkY.lYL.sampleRate;
+        if (!this.mlb) {
+            this.mfU.h(this.mkY.lYL);
+            this.mlb = true;
         }
-        if (this.mhh.mhe != null) {
-            this.mhe = this.mhh.mhe;
+        if (this.mkY.mkV != null) {
+            this.mkV = this.mkY.mkV;
         } else if (fVar.getLength() == -1) {
-            this.mhe = new b();
+            this.mkV = new b();
         } else {
-            e dsJ = this.mhd.dsJ();
-            this.mhe = new com.google.android.exoplayer2.extractor.d.a(this.mhf, fVar.getLength(), this, dsJ.mgY + dsJ.mcp, dsJ.mgT);
+            e dtV = this.mkU.dtV();
+            this.mkV = new com.google.android.exoplayer2.extractor.d.a(this.mkW, fVar.getLength(), this, dtV.mkP + dtV.mge, dtV.mkK);
         }
-        this.mhh = null;
+        this.mkY = null;
         this.state = 2;
-        this.mhd.dsL();
+        this.mkU.dtX();
         return 0;
     }
 
     private int d(com.google.android.exoplayer2.extractor.f fVar, com.google.android.exoplayer2.extractor.k kVar) throws IOException, InterruptedException {
-        long u = this.mhe.u(fVar);
+        long u = this.mkV.u(fVar);
         if (u >= 0) {
-            kVar.fIt = u;
+            kVar.fLD = u;
             return 1;
         }
         if (u < -1) {
-            fT(-(u + 2));
+            fY(-(u + 2));
         }
-        if (!this.mhj) {
-            this.lZY.a(this.mhe.dsI());
-            this.mhj = true;
+        if (!this.mla) {
+            this.mdQ.a(this.mkV.dtU());
+            this.mla = true;
         }
-        if (this.mhi > 0 || this.mhd.y(fVar)) {
-            this.mhi = 0L;
-            l dsK = this.mhd.dsK();
-            long B = B(dsK);
-            if (B >= 0 && this.mhg + B >= this.mgA) {
-                long fR = fR(this.mhg);
-                this.mcf.a(dsK, dsK.dwW());
-                this.mcf.a(fR, 1, dsK.dwW(), 0, null);
-                this.mgA = -1L;
+        if (this.mkZ > 0 || this.mkU.y(fVar)) {
+            this.mkZ = 0L;
+            l dtW = this.mkU.dtW();
+            long B = B(dtW);
+            if (B >= 0 && this.mkX + B >= this.mkr) {
+                long fW = fW(this.mkX);
+                this.mfU.a(dtW, dtW.dyg());
+                this.mfU.a(fW, 1, dtW.dyg(), 0, null);
+                this.mkr = -1L;
             }
-            this.mhg += B;
+            this.mkX += B;
             return 0;
         }
         this.state = 3;
@@ -147,22 +147,22 @@ public abstract class h {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public long fR(long j) {
+    public long fW(long j) {
         return (TimeUtils.NANOS_PER_MS * j) / this.sampleRate;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public long fS(long j) {
+    public long fX(long j) {
         return (this.sampleRate * j) / TimeUtils.NANOS_PER_MS;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void fT(long j) {
-        this.mhg = j;
+    public void fY(long j) {
+        this.mkX = j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class b implements f {
         private b() {
         }
@@ -173,12 +173,12 @@ public abstract class h {
         }
 
         @Override // com.google.android.exoplayer2.extractor.d.f
-        public long fP(long j) {
+        public long fU(long j) {
             return 0L;
         }
 
         @Override // com.google.android.exoplayer2.extractor.d.f
-        public com.google.android.exoplayer2.extractor.l dsI() {
+        public com.google.android.exoplayer2.extractor.l dtU() {
             return new l.a(-9223372036854775807L);
         }
     }

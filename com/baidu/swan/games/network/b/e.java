@@ -5,31 +5,31 @@ import android.util.Log;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a cmf;
+    private a cms;
     private final Object mLock = new Object();
-    private boolean cmc = true;
-    private List<b> cme = new ArrayList(3);
+    private boolean cmq = true;
+    private List<b> cmr = new ArrayList(3);
 
     public e(@NonNull a aVar) {
-        this.cmf = aVar;
+        this.cms = aVar;
     }
 
-    public void amm() {
+    public void amF() {
         synchronized (this.mLock) {
-            this.cmc = false;
-            amn();
+            this.cmq = false;
+            amG();
         }
     }
 
     public void onSuccess(Object obj) {
         synchronized (this.mLock) {
-            if (this.cmc) {
+            if (this.cmq) {
                 f(1, obj);
             } else {
-                this.cmf.a(new b(1, obj));
+                this.cms.a(new b(1, obj));
             }
         }
     }
@@ -40,30 +40,30 @@ public class e {
             bVar.errMsg = str2;
             bVar.statusCode = i;
             bVar.url = str;
-            if (this.cmc) {
+            if (this.cmq) {
                 f(2, bVar);
             } else {
-                this.cmf.a(new b(2, bVar));
+                this.cms.a(new b(2, bVar));
             }
         }
     }
 
     public boolean b(JSEvent jSEvent) {
         synchronized (this.mLock) {
-            if (this.cmc) {
+            if (this.cmq) {
                 f(3, jSEvent);
             } else {
-                this.cmf.a(new b(3, jSEvent));
+                this.cms.a(new b(3, jSEvent));
             }
         }
         return true;
     }
 
-    private void amn() {
-        for (b bVar : this.cme) {
-            this.cmf.a(bVar);
+    private void amG() {
+        for (b bVar : this.cmr) {
+            this.cms.a(bVar);
         }
-        this.cme.clear();
+        this.cmr.clear();
     }
 
     private void f(int i, Object obj) {
@@ -71,7 +71,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanGameResponseCache", "addToCacheList type:" + i);
             }
-            this.cme.add(new b(i, obj));
+            this.cmr.add(new b(i, obj));
         }
     }
 }

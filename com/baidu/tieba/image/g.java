@@ -4,9 +4,9 @@ import android.content.Context;
 import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g {
-    public static void aV(Context context, String str) {
+    public static void aW(Context context, String str) {
         String format;
         if (!TextUtils.isEmpty(str)) {
             try {

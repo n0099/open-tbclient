@@ -5,23 +5,23 @@ import android.graphics.Rect;
 import android.view.View;
 /* loaded from: classes.dex */
 public abstract class g {
-    protected View cUk;
-    protected com.baidu.tieba.write.a kHK;
-    protected a kHP;
+    protected View cUu;
+    protected com.baidu.tieba.write.a kLl;
+    protected a kLq;
     protected View mAnchorView;
     protected Context mContext;
     protected int mState = 4;
-    protected Rect kHU = new Rect();
-    protected Rect kHV = new Rect();
+    protected Rect kLv = new Rect();
+    protected Rect kLw = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
-        void DT(int i);
+        void CI(int i);
     }
 
-    public abstract void cRP();
+    public abstract void cSS();
 
-    public abstract void cRQ();
+    public abstract void cST();
 
     public abstract void onDestroy();
 
@@ -29,30 +29,30 @@ public abstract class g {
 
     public g(Context context, com.baidu.tieba.write.a aVar) {
         this.mContext = context;
-        this.kHK = aVar;
+        this.kLl = aVar;
     }
 
-    public void a(a aVar) {
-        this.kHP = aVar;
+    public void b(a aVar) {
+        this.kLq = aVar;
     }
 
     public void g(View view, View view2) {
         this.mAnchorView = view;
-        this.cUk = view2;
-        if (this.cUk != null) {
-            this.cUk.getGlobalVisibleRect(this.kHU);
+        this.cUu = view2;
+        if (this.cUu != null) {
+            this.cUu.getGlobalVisibleRect(this.kLv);
         }
     }
 
     public void show() {
-        cRP();
+        cSS();
     }
 
-    public void dh(boolean z) {
+    public void dm(boolean z) {
         if (z) {
             startHideAnimation();
         } else {
-            cRQ();
+            cST();
         }
     }
 }

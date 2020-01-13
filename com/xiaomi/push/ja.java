@@ -1,10 +1,10 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ja {
     public final byte a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f796a;
+    public final int f794a;
 
     public ja() {
         this((byte) 0, 0);
@@ -12,6 +12,6 @@ public final class ja {
 
     public ja(byte b, int i) {
         this.a = b;
-        this.f796a = i;
+        this.f794a = i;
     }
 }

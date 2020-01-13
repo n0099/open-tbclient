@@ -9,7 +9,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static void a(Context context) {
         a(context, (ArrayList) com.baidu.android.pushservice.a.b.a(context).a.clone());

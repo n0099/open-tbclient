@@ -6,9 +6,9 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.util.s;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface f {
-    public static final f mrr = new c();
+    public static final f mvg = new c();
 
     Pair<com.google.android.exoplayer2.extractor.e, Boolean> a(com.google.android.exoplayer2.extractor.e eVar, Uri uri, Format format, List<Format> list, DrmInitData drmInitData, s sVar);
 }

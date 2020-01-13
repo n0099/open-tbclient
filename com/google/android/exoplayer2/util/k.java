@@ -1,10 +1,10 @@
 package com.google.android.exoplayer2.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class k {
     private int bitOffset;
     private int byteOffset;
     public byte[] data;
-    private int mhl;
+    private int mlc;
 
     public k() {
     }
@@ -15,10 +15,10 @@ public final class k {
 
     public k(byte[] bArr, int i) {
         this.data = bArr;
-        this.mhl = i;
+        this.mlc = i;
     }
 
-    public void ax(byte[] bArr) {
+    public void aw(byte[] bArr) {
         G(bArr, bArr.length);
     }
 
@@ -26,18 +26,18 @@ public final class k {
         this.data = bArr;
         this.byteOffset = 0;
         this.bitOffset = 0;
-        this.mhl = i;
+        this.mlc = i;
     }
 
-    public int dwR() {
-        return ((this.mhl - this.byteOffset) * 8) - this.bitOffset;
+    public int dyb() {
+        return ((this.mlc - this.byteOffset) * 8) - this.bitOffset;
     }
 
     public int getPosition() {
         return (this.byteOffset * 8) + this.bitOffset;
     }
 
-    public int dwS() {
+    public int dyc() {
         a.checkState(this.bitOffset == 0);
         return this.byteOffset;
     }
@@ -45,20 +45,20 @@ public final class k {
     public void setPosition(int i) {
         this.byteOffset = i / 8;
         this.bitOffset = i - (this.byteOffset * 8);
-        dsN();
+        dtZ();
     }
 
-    public void dwT() {
+    public void dyd() {
         int i = this.bitOffset + 1;
         this.bitOffset = i;
         if (i == 8) {
             this.bitOffset = 0;
             this.byteOffset++;
         }
-        dsN();
+        dtZ();
     }
 
-    public void JG(int i) {
+    public void JP(int i) {
         int i2 = i / 8;
         this.byteOffset += i2;
         this.bitOffset = (i - (i2 * 8)) + this.bitOffset;
@@ -66,12 +66,12 @@ public final class k {
             this.byteOffset++;
             this.bitOffset -= 8;
         }
-        dsN();
+        dtZ();
     }
 
-    public boolean dsM() {
+    public boolean dtY() {
         boolean z = (this.data[this.byteOffset] & (128 >> this.bitOffset)) != 0;
-        dwT();
+        dyd();
         return z;
     }
 
@@ -93,11 +93,11 @@ public final class k {
             this.bitOffset = 0;
             this.byteOffset++;
         }
-        dsN();
+        dtZ();
         return i4;
     }
 
-    public void C(byte[] bArr, int i, int i2) {
+    public void B(byte[] bArr, int i, int i2) {
         int i3 = (i2 >> 3) + i;
         while (i < i3) {
             byte[] bArr2 = this.data;
@@ -124,32 +124,32 @@ public final class k {
                 this.bitOffset = 0;
                 this.byteOffset++;
             }
-            dsN();
+            dtZ();
         }
     }
 
-    public void dwU() {
+    public void dye() {
         if (this.bitOffset != 0) {
             this.bitOffset = 0;
             this.byteOffset++;
-            dsN();
+            dtZ();
         }
     }
 
-    public void D(byte[] bArr, int i, int i2) {
+    public void C(byte[] bArr, int i, int i2) {
         a.checkState(this.bitOffset == 0);
         System.arraycopy(this.data, this.byteOffset, bArr, i, i2);
         this.byteOffset += i2;
-        dsN();
+        dtZ();
     }
 
     public void skipBytes(int i) {
         a.checkState(this.bitOffset == 0);
         this.byteOffset += i;
-        dsN();
+        dtZ();
     }
 
-    private void dsN() {
-        a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mhl || (this.byteOffset == this.mhl && this.bitOffset == 0)));
+    private void dtZ() {
+        a.checkState(this.byteOffset >= 0 && (this.byteOffset < this.mlc || (this.byteOffset == this.mlc && this.bitOffset == 0)));
     }
 }

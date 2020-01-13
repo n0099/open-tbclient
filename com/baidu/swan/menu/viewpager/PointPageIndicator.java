@@ -8,49 +8,49 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PointPageIndicator extends View {
-    protected Drawable cvA;
-    protected Rect cvB;
-    protected Rect cvC;
-    private int cvD;
-    private int cvE;
-    protected Drawable cvz;
+    protected Drawable cvK;
+    protected Drawable cvL;
+    protected Rect cvM;
+    protected Rect cvN;
+    private int cvO;
+    private int cvP;
     private int mPosition;
 
     public PointPageIndicator(Context context) {
         super(context);
-        this.cvz = null;
-        this.cvA = null;
-        this.cvB = new Rect();
-        this.cvC = new Rect();
-        this.cvD = 0;
+        this.cvK = null;
+        this.cvL = null;
+        this.cvM = new Rect();
+        this.cvN = new Rect();
+        this.cvO = 0;
         this.mPosition = 0;
-        this.cvE = 0;
+        this.cvP = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cvz = null;
-        this.cvA = null;
-        this.cvB = new Rect();
-        this.cvC = new Rect();
-        this.cvD = 0;
+        this.cvK = null;
+        this.cvL = null;
+        this.cvM = new Rect();
+        this.cvN = new Rect();
+        this.cvO = 0;
         this.mPosition = 0;
-        this.cvE = 0;
+        this.cvP = 0;
         init(context);
     }
 
     public PointPageIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cvz = null;
-        this.cvA = null;
-        this.cvB = new Rect();
-        this.cvC = new Rect();
-        this.cvD = 0;
+        this.cvK = null;
+        this.cvL = null;
+        this.cvM = new Rect();
+        this.cvN = new Rect();
+        this.cvO = 0;
         this.mPosition = 0;
-        this.cvE = 0;
+        this.cvP = 0;
         init(context);
     }
 
@@ -58,15 +58,15 @@ public class PointPageIndicator extends View {
     }
 
     public PointPageIndicator ih(int i) {
-        if (this.cvE != i) {
-            this.cvE = i;
+        if (this.cvP != i) {
+            this.cvP = i;
             invalidate();
         }
         return this;
     }
 
     public PointPageIndicator ii(int i) {
-        this.cvD = i;
+        this.cvO = i;
         return this;
     }
 
@@ -76,19 +76,19 @@ public class PointPageIndicator extends View {
         return this;
     }
 
-    public PointPageIndicator an(int i, int i2) {
+    public PointPageIndicator ar(int i, int i2) {
         Resources resources = getResources();
         return b(resources.getDrawable(i), resources.getDrawable(i2));
     }
 
     public PointPageIndicator b(Drawable drawable, Drawable drawable2) {
-        this.cvz = drawable;
-        this.cvA = drawable2;
+        this.cvK = drawable;
+        this.cvL = drawable2;
         if (drawable instanceof BitmapDrawable) {
-            this.cvB.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.cvM.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
         if (drawable2 instanceof BitmapDrawable) {
-            this.cvC.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            this.cvN.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         }
         return this;
     }
@@ -97,16 +97,16 @@ public class PointPageIndicator extends View {
     protected void onDraw(Canvas canvas) {
         int width;
         super.onDraw(canvas);
-        if (this.cvE > 0) {
-            int i = this.cvE;
-            int i2 = this.cvD;
+        if (this.cvP > 0) {
+            int i = this.cvP;
+            int i2 = this.cvO;
             int height = getHeight();
             int width2 = getWidth();
             int i3 = this.mPosition;
-            Rect rect = this.cvB;
-            Rect rect2 = this.cvC;
-            Drawable drawable = this.cvz;
-            Drawable drawable2 = this.cvA;
+            Rect rect = this.cvM;
+            Rect rect2 = this.cvN;
+            Drawable drawable = this.cvK;
+            Drawable drawable2 = this.cvL;
             int width3 = (width2 - ((((i - 1) * i2) + (rect.width() * (i - 1))) + rect2.width())) / 2;
             for (int i4 = 0; i4 < i; i4++) {
                 if (i4 == i3) {

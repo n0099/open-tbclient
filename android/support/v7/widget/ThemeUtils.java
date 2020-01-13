@@ -7,7 +7,7 @@ import android.support.v4.graphics.ColorUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ThemeUtils {
     private static final ThreadLocal<TypedValue> TL_TYPED_VALUE = new ThreadLocal<>();
     static final int[] DISABLED_STATE_SET = {-16842910};

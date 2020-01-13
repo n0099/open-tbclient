@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends Exception {
     public a(String str) {
         super(str);

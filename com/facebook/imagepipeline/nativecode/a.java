@@ -3,9 +3,9 @@ package com.facebook.imagepipeline.nativecode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static final List<String> lQr = Collections.unmodifiableList(new ArrayList());
+    public static final List<String> lUd = Collections.unmodifiableList(new ArrayList());
 
     public static void load() {
         com.facebook.common.e.a.loadLibrary("imagepipeline");

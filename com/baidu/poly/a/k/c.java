@@ -10,12 +10,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.poly.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends FrameLayout {
-    private TextView aMA;
-    private Animation aMB;
-    private boolean aMC;
-    private ImageView aMz;
+    private ImageView aNr;
+    private TextView aNs;
+    private Animation aNt;
+    private boolean aNu;
 
     public c(Context context) {
         this(context, null);
@@ -33,30 +33,30 @@ public class c extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.view_toast_loading, (ViewGroup) this, true);
-        this.aMz = (ImageView) findViewById(b.e.toast_loading_view);
-        this.aMA = (TextView) findViewById(b.e.toast_text_view);
-        this.aMB = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.aNr = (ImageView) findViewById(b.e.toast_loading_view);
+        this.aNs = (TextView) findViewById(b.e.toast_text_view);
+        this.aNt = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
         setClickable(true);
     }
 
     public boolean getIsLoading() {
-        return this.aMC;
+        return this.aNu;
     }
 
     public void setLoading(boolean z) {
         Q();
-        this.aMC = z;
+        this.aNu = z;
         if (z) {
             setVisibility(0);
-            this.aMz.startAnimation(this.aMB);
+            this.aNr.startAnimation(this.aNt);
             return;
         }
-        this.aMz.clearAnimation();
+        this.aNr.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.aMA.setText(str);
+        this.aNs.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {

@@ -14,7 +14,7 @@ import com.airbnb.lottie.h;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static final Object hh = new Object();
     private final Context context;

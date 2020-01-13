@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LoadErrorCode {
     public static final String COLON = ":";
     public static final int GET_INTERN_PACKAGEINFO_FAIL = 2;
@@ -48,7 +48,7 @@ public class LoadErrorCode {
     private volatile StringBuilder mDetails;
     private volatile int mErrorCode;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Statistics {
         private static final boolean DEBUG = true;
         private static final String KEY_ERROR_CNT = "error_cnt";
@@ -67,7 +67,7 @@ public class LoadErrorCode {
         private static volatile boolean sIsUploading = false;
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class ErrorItem {
             public int mCount;
             public String mDetails;

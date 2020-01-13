@@ -8,18 +8,18 @@ import android.util.Log;
 import android.util.Pair;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.swan.apps.api.a.c {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b fL(String str) {
+    public com.baidu.swan.apps.api.b.b fO(String str) {
         if (DEBUG) {
             Log.d("Api-CheckAppInstall", "start check app install");
         }
-        Pair<com.baidu.swan.apps.api.b.b, JSONObject> ag = com.baidu.swan.apps.api.c.b.ag("Api-CheckAppInstall", str);
-        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) ag.first;
+        Pair<com.baidu.swan.apps.api.b.b, JSONObject> ah = com.baidu.swan.apps.api.c.b.ah("Api-CheckAppInstall", str);
+        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) ah.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-CheckAppInstall", "parse fail");
@@ -27,7 +27,7 @@ public class a extends com.baidu.swan.apps.api.a.c {
             }
             return bVar;
         }
-        String optString = ((JSONObject) ag.second).optString("name");
+        String optString = ((JSONObject) ah.second).optString("name");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.i("Api-CheckAppInstall", "packageName empty");
             return new com.baidu.swan.apps.api.b.b(201, "parameter error");

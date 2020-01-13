@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.base.utils.thread;
 
 import android.os.Looper;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TPRunnable implements Runnable {
     public Runnable runable;
 

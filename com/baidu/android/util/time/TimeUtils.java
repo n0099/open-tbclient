@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TimeUtils {
     private static final String MD = "MM-dd";
     private static long MSEC_OF_ONE_DAY = 86400000;

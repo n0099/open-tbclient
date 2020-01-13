@@ -11,7 +11,7 @@ import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
 import org.apache.http.HttpStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Code93Reader extends OneDReader {
     private static final int ASTERISK_ENCODING;
     static final int[] CHARACTER_ENCODINGS;

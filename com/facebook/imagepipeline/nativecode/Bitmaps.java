@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import com.facebook.common.internal.g;
 import java.nio.ByteBuffer;
 @com.facebook.common.internal.d
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Bitmaps {
     @com.facebook.common.internal.d
     private static native void nativeCopyBitmap(Bitmap bitmap, int i, Bitmap bitmap2, int i2, int i3);
@@ -26,6 +26,14 @@ public class Bitmaps {
     public static void aa(Bitmap bitmap) {
         g.checkNotNull(bitmap);
         nativePinBitmap(bitmap);
+    }
+
+    public static void c(Bitmap bitmap, Bitmap bitmap2) {
+        g.checkArgument(bitmap2.getConfig() == bitmap.getConfig());
+        g.checkArgument(bitmap.isMutable());
+        g.checkArgument(bitmap.getWidth() == bitmap2.getWidth());
+        g.checkArgument(bitmap.getHeight() == bitmap2.getHeight());
+        nativeCopyBitmap(bitmap, bitmap.getRowBytes(), bitmap2, bitmap2.getRowBytes(), bitmap.getHeight());
     }
 
     @TargetApi(19)

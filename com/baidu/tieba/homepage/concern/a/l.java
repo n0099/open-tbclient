@@ -8,7 +8,7 @@ import com.baidu.card.af;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, af<com.baidu.tieba.homepage.concern.b.a>> {
     private TbPageContext<?> mPageContext;
 
@@ -20,15 +20,15 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aI */
+    /* renamed from: aM */
     public af<com.baidu.tieba.homepage.concern.b.a> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
         aVar.c(new com.baidu.tieba.homepage.concern.view.c(this.mPageContext));
-        aVar.mR().aR(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44));
-        aVar.mR().aT(0);
-        aVar.mR().aS(0);
-        aVar.mR().aN(0);
-        return new af<>(aVar.mS());
+        aVar.mS().aR(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44));
+        aVar.mS().aT(0);
+        aVar.mS().aS(0);
+        aVar.mS().aN(0);
+        return new af<>(aVar.mT());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

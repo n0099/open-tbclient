@@ -7,13 +7,13 @@ import com.baidu.platform.comapi.walknavi.d.a.g.g;
 import java.io.File;
 import java.lang.ref.SoftReference;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static boolean a = true;
     private Context b;
     private com.baidu.platform.comapi.walknavi.d.a.a c;
     private com.baidu.platform.comapi.walknavi.d.a.f.b d;
-    private C0131b f;
+    private C0133b f;
     private a g;
     private com.baidu.platform.comapi.walknavi.d.a.a.b i;
     private com.baidu.platform.comapi.walknavi.d.a.d.b l;
@@ -24,7 +24,7 @@ public class b {
     private boolean k = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum c {
         INITIAL_STATE,
         QUERYING,
@@ -117,7 +117,7 @@ public class b {
 
     private void a(com.baidu.platform.comapi.walknavi.d.a.a.a aVar) {
         this.j = c.QUERYING;
-        this.f = new C0131b(this);
+        this.f = new C0133b(this);
         this.e = com.baidu.platform.comapi.walknavi.d.a.f.e.a(this.b, aVar, this.f);
         if (this.e == null) {
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("Http Request Occur Error! Please Check");
@@ -126,11 +126,11 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0131b implements f.a<JSONObject> {
+    /* loaded from: classes6.dex */
+    public static class C0133b implements f.a<JSONObject> {
         private SoftReference<b> a;
 
-        public C0131b(b bVar) {
+        public C0133b(b bVar) {
             this.a = new SoftReference<>(bVar);
         }
 
@@ -249,7 +249,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements com.baidu.platform.comapi.walknavi.d.a.f.a<String> {
         private SoftReference<b> a;
 

@@ -26,15 +26,15 @@ import com.baidu.tieba.publisher.a.d;
 import com.baidu.tieba.publisher.a.o;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a implements BoxAccountManager {
-    private static boolean jxm = false;
+    private static boolean jAO = false;
     private static String mUid = "";
     private static String mBduss = "";
     private static String mZid = "";
 
     public a() {
-        initData(com.baidu.tieba.publisher.b.a.cyy());
+        initData(com.baidu.tieba.publisher.b.a.czF());
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
@@ -52,14 +52,14 @@ public class a implements BoxAccountManager {
                 String bduss = currentAccountInfo.getBDUSS();
                 String id = currentAccountInfo.getID();
                 String gz = FH.gz(TbadkCoreApplication.getInst());
-                o.jxl.putBoolean("mloginState", true);
-                o.jxl.putString("mUid", id);
-                o.jxl.putString("mBduss", bduss);
-                o.jxl.putString("mZid", gz);
-                o.jxl.apply();
+                o.jAN.putBoolean("mloginState", true);
+                o.jAN.putString("mUid", id);
+                o.jAN.putString("mBduss", bduss);
+                o.jAN.putString("mZid", gz);
+                o.jAN.apply();
                 d.au(mBduss);
                 com.baidu.tieba.publisher.a.b.setZid(mZid);
-                jxm = true;
+                jAO = true;
                 return;
             }
             logout(context);
@@ -78,7 +78,7 @@ public class a implements BoxAccountManager {
     public void initData(Context context) {
         e.a(BoxAccountManager.SERVICE_REFERENCE, new b());
         o.sp = context.getSharedPreferences("account", 0);
-        o.jxl = o.sp.edit();
+        o.jAN = o.sp.edit();
         mUid = o.sp.getString("mUid", "");
         mBduss = o.sp.getString("mBduss", "");
         mZid = o.sp.getString("mZid", "");
@@ -99,10 +99,10 @@ public class a implements BoxAccountManager {
     }
 
     public void logout(Context context) {
-        jxm = false;
-        o.jxl.putBoolean("mloginState", false);
-        o.jxl.apply();
-        d.cyo();
+        jAO = false;
+        o.jAN.putBoolean("mloginState", false);
+        o.jAN.apply();
+        d.czv();
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
@@ -111,13 +111,13 @@ public class a implements BoxAccountManager {
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin() {
-        jxm = o.sp.getBoolean("mloginState", false);
-        return jxm;
+        jAO = o.sp.getBoolean("mloginState", false);
+        return jAO;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin(int i) {
-        return jxm;
+        return jAO;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager

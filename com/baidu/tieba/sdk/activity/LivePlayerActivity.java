@@ -5,13 +5,14 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import com.baidu.live.adp.base.BdBaseApplication;
+import com.baidu.live.tbadk.TbConfig;
 import com.baidu.megapp.ma.MAActivity;
 import com.baidu.tieba.ala.player.d;
 import com.baidu.tieba.sdk.d.a;
 /* loaded from: classes2.dex */
 public class LivePlayerActivity extends MAActivity {
-    private a jLd;
-    d jLe = new d() { // from class: com.baidu.tieba.sdk.activity.LivePlayerActivity.1
+    private a jOE;
+    d jOF = new d() { // from class: com.baidu.tieba.sdk.activity.LivePlayerActivity.1
         @Override // com.baidu.tieba.ala.player.d
         public void b(boolean z, boolean z2, long j) {
             LivePlayerActivity.this.finish();
@@ -20,74 +21,77 @@ public class LivePlayerActivity extends MAActivity {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        if (BdBaseApplication.getInst() == null) {
-            super.finish();
-            return;
-        }
-        com.baidu.tieba.sdk.a.d cBG = com.baidu.tieba.sdk.c.a.cBC().cBG();
-        if (cBG != null) {
-            cBG.a(this);
+        com.baidu.tieba.sdk.a.d dVar = null;
+        if (BdBaseApplication.getInst() != null && (dVar = com.baidu.tieba.sdk.c.a.cCH().cCL()) != null) {
+            dVar.a(this);
         }
         super.onCreate(bundle);
-        com.baidu.tieba.sdk.a.cBx().cBz();
-        this.jLd = com.baidu.tieba.sdk.a.cBx().a(this);
-        this.jLd.a(this.jLe);
-        if (cBG != null) {
-            cBG.b(this);
+        if (BdBaseApplication.getInst() == null) {
+            if (TbConfig.sdkInitCallback == null) {
+                super.finish();
+                return;
+            }
+            TbConfig.sdkInitCallback.initSdk();
+        }
+        com.baidu.tieba.sdk.a.cCD().cCF();
+        this.jOE = com.baidu.tieba.sdk.a.cCD().a(this);
+        this.jOE.a(this.jOF);
+        if (dVar != null) {
+            dVar.b(this);
         }
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.jLd.onStart();
-        com.baidu.tieba.sdk.a.d cBG = com.baidu.tieba.sdk.c.a.cBC().cBG();
-        if (cBG != null) {
-            cBG.e(this);
+        this.jOE.onStart();
+        com.baidu.tieba.sdk.a.d cCL = com.baidu.tieba.sdk.c.a.cCH().cCL();
+        if (cCL != null) {
+            cCL.e(this);
         }
     }
 
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        this.jLd.onResume();
-        com.baidu.tieba.sdk.a.d cBG = com.baidu.tieba.sdk.c.a.cBC().cBG();
-        if (cBG != null) {
-            cBG.c(this);
+        this.jOE.onResume();
+        com.baidu.tieba.sdk.a.d cCL = com.baidu.tieba.sdk.c.a.cCH().cCL();
+        if (cCL != null) {
+            cCL.c(this);
         }
     }
 
     @Override // android.app.Activity
     protected void onPause() {
         super.onPause();
-        this.jLd.onPause();
-        com.baidu.tieba.sdk.a.d cBG = com.baidu.tieba.sdk.c.a.cBC().cBG();
-        if (cBG != null) {
-            cBG.d(this);
+        this.jOE.onPause();
+        com.baidu.tieba.sdk.a.d cCL = com.baidu.tieba.sdk.c.a.cCH().cCL();
+        if (cCL != null) {
+            cCL.d(this);
         }
     }
 
     @Override // android.app.Activity
     protected void onStop() {
         super.onStop();
-        this.jLd.onStop();
-        com.baidu.tieba.sdk.a.d cBG = com.baidu.tieba.sdk.c.a.cBC().cBG();
-        if (cBG != null) {
-            cBG.f(this);
+        this.jOE.onStop();
+        com.baidu.tieba.sdk.a.d cCL = com.baidu.tieba.sdk.c.a.cCH().cCL();
+        if (cCL != null) {
+            cCL.f(this);
         }
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (this.jLd != null) {
-            this.jLd.onWindowFocusChanged(z);
+        if (this.jOE != null) {
+            this.jOE.onWindowFocusChanged(z);
         }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.jLd.onKeyDown(i, keyEvent)) {
+        if (this.jOE.onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -96,25 +100,27 @@ public class LivePlayerActivity extends MAActivity {
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.jLd.onActivityResult(i, i2, intent);
+        this.jOE.onActivityResult(i, i2, intent);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.jLd.onConfigurationChanged(configuration);
+        this.jOE.onConfigurationChanged(configuration);
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        com.baidu.tieba.sdk.a.d cBG = com.baidu.tieba.sdk.c.a.cBC().cBG();
-        if (cBG != null) {
-            cBG.g(this);
+        com.baidu.tieba.sdk.a.d cCL = com.baidu.tieba.sdk.c.a.cCH().cCL();
+        if (cCL != null) {
+            cCL.g(this);
         }
         super.onDestroy();
-        this.jLd.onDestroy();
-        if (cBG != null) {
-            cBG.h(this);
+        if (this.jOE != null) {
+            this.jOE.onDestroy();
+        }
+        if (cCL != null) {
+            cCL.h(this);
         }
     }
 }

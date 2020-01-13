@@ -1,9 +1,8 @@
 package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.exceptions.MissingBackpressureException;
-import io.reactivex.internal.a.f;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -11,8 +10,7 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableSwitchMap<T, R> extends a<T, R> {
     final int bufferSize;
     final boolean delayErrors;
@@ -20,14 +18,14 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        if (!c.a(this.mTG, cVar, this.mapper)) {
-            this.mTG.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
+        if (!g.a(this.nvK, cVar, this.mapper)) {
+            this.nvK.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class SwitchMapSubscriber<T, R> extends AtomicInteger implements j<T>, d {
+    /* loaded from: classes5.dex */
+    public static final class SwitchMapSubscriber<T, R> extends AtomicInteger implements j<T>, org.a.d {
         static final SwitchMapInnerSubscriber<Object, Object> CANCELLED = new SwitchMapInnerSubscriber<>(null, -1, 1);
         private static final long serialVersionUID = -3491074160481096299L;
         final org.a.c<? super R> actual;
@@ -36,7 +34,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
         final boolean delayErrors;
         volatile boolean done;
         final h<? super T, ? extends org.a.b<? extends R>> mapper;
-        d s;
+        org.a.d s;
         volatile long unique;
         final AtomicReference<SwitchMapInnerSubscriber<T, R>> active = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
@@ -54,7 +52,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -99,7 +97,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -193,18 +191,18 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
                         }
                     }
                     SwitchMapInnerSubscriber<T, R> switchMapInnerSubscriber = this.active.get();
-                    f<R> fVar = switchMapInnerSubscriber != null ? switchMapInnerSubscriber.queue : null;
-                    if (fVar != null) {
+                    io.reactivex.internal.a.g<R> gVar = switchMapInnerSubscriber != null ? switchMapInnerSubscriber.queue : null;
+                    if (gVar != null) {
                         if (switchMapInnerSubscriber.done) {
                             if (!this.delayErrors) {
                                 if (this.error.get() != null) {
                                     disposeInner();
                                     cVar.onError(this.error.terminate());
                                     return;
-                                } else if (fVar.isEmpty()) {
+                                } else if (gVar.isEmpty()) {
                                     this.active.compareAndSet(switchMapInnerSubscriber, null);
                                 }
-                            } else if (fVar.isEmpty()) {
+                            } else if (gVar.isEmpty()) {
                                 this.active.compareAndSet(switchMapInnerSubscriber, null);
                             }
                         }
@@ -218,7 +216,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
                             } else if (!this.cancelled) {
                                 boolean z3 = switchMapInnerSubscriber.done;
                                 try {
-                                    obj = fVar.poll();
+                                    obj = gVar.poll();
                                     z2 = z3;
                                 } catch (Throwable th) {
                                     io.reactivex.exceptions.a.I(th);
@@ -272,15 +270,15 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class SwitchMapInnerSubscriber<T, R> extends AtomicReference<d> implements j<R> {
+    /* loaded from: classes5.dex */
+    public static final class SwitchMapInnerSubscriber<T, R> extends AtomicReference<org.a.d> implements j<R> {
         private static final long serialVersionUID = 3837284832786408377L;
         final int bufferSize;
         volatile boolean done;
         int fusionMode;
         final long index;
         final SwitchMapSubscriber<T, R> parent;
-        volatile f<R> queue;
+        volatile io.reactivex.internal.a.g<R> queue;
 
         SwitchMapInnerSubscriber(SwitchMapSubscriber<T, R> switchMapSubscriber, long j, int i) {
             this.parent = switchMapSubscriber;
@@ -289,7 +287,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 if (dVar instanceof io.reactivex.internal.a.d) {
                     io.reactivex.internal.a.d dVar2 = (io.reactivex.internal.a.d) dVar;
@@ -335,7 +333,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
                 switchMapSubscriber.drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c

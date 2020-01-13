@@ -2,24 +2,24 @@ package com.baidu.swan.apps.ap;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
-    private a bTn = null;
-    private long bTo = 0;
-    private long bTp = 0;
-    private long bTq = 2;
+    private a bTz = null;
+    private long bTA = 0;
+    private long bTB = 0;
+    private long bTC = 2;
     private String mDesc = "";
     private final StringBuilder mDetails = new StringBuilder();
-    private boolean bTr = false;
+    private boolean bTD = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(adB()), Long.valueOf(adw()), Long.valueOf(adx()), Long.valueOf(ady()), adz()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(adU()), Long.valueOf(adP()), Long.valueOf(adQ()), Long.valueOf(adR()), adS()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(adw()), Long.valueOf(adx()), Long.valueOf(ady())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(adP()), Long.valueOf(adQ()), Long.valueOf(adR())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", adA()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", adT()));
         }
         return sb.toString();
     }
@@ -28,34 +28,34 @@ public final class a {
         return toString(-100);
     }
 
-    public a aA(long j) {
-        this.bTq = a(j, 9L, "platform");
+    public a aD(long j) {
+        this.bTC = a(j, 9L, "platform");
         return this;
     }
 
-    public long adw() {
-        return this.bTq;
+    public long adP() {
+        return this.bTC;
     }
 
-    public a aB(long j) {
-        this.bTo = a(j, 999L, "feature");
+    public a aE(long j) {
+        this.bTA = a(j, 999L, "feature");
         return this;
     }
 
-    public long adx() {
-        return this.bTo;
+    public long adQ() {
+        return this.bTA;
     }
 
-    public a aC(long j) {
-        this.bTp = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
+    public a aF(long j) {
+        this.bTB = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
         return this;
     }
 
-    public long ady() {
-        return this.bTp;
+    public long adR() {
+        return this.bTB;
     }
 
-    public a mg(String str) {
+    public a mj(String str) {
         if (str == null) {
             str = "";
         }
@@ -63,43 +63,43 @@ public final class a {
         return this;
     }
 
-    public String adz() {
+    public String adS() {
         return this.mDesc;
     }
 
-    public a mh(String str) {
+    public a mk(String str) {
         this.mDetails.append(str).append("\n");
         return this;
     }
 
-    public StringBuilder adA() {
+    public StringBuilder adT() {
         return this.mDetails;
     }
 
-    public long adB() {
-        return (adw() * 10000000) + (adx() * 10000) + (ady() * 1);
+    public long adU() {
+        return (adP() * 10000000) + (adQ() * 10000) + (adR() * 1);
     }
 
-    public a aD(long j) {
-        aA(j / 10000000);
+    public a aG(long j) {
+        aD(j / 10000000);
         long j2 = j % 10000000;
-        aB(j2 / 10000);
-        aC((j2 % 10000) / 1);
+        aE(j2 / 10000);
+        aF((j2 % 10000) / 1);
         return this;
     }
 
-    public boolean adC() {
-        return this.bTr;
+    public boolean adV() {
+        return this.bTD;
     }
 
-    public void adD() {
-        this.bTr = true;
+    public void adW() {
+        this.bTD = true;
     }
 
     private long a(long j, long j2, String str) {
         boolean z = j < 0 || j > j2;
         if (z) {
-            mh("illegalFallback " + str + "::" + String.valueOf(j));
+            mk("illegalFallback " + str + "::" + String.valueOf(j));
         }
         return z ? j2 : j;
     }

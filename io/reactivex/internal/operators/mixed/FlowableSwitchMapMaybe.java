@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.mixed;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -15,18 +15,18 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableSwitchMapMaybe<T, R> extends g<R> {
     final boolean delayErrors;
-    final g<T> mTG;
     final h<? super T, ? extends o<? extends R>> mapper;
+    final g<T> nvK;
 
     @Override // io.reactivex.g
     protected void a(c<? super R> cVar) {
-        this.mTG.a((j) new SwitchMapMaybeSubscriber(cVar, this.mapper, this.delayErrors));
+        this.nvK.a((j) new SwitchMapMaybeSubscriber(cVar, this.mapper, this.delayErrors));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class SwitchMapMaybeSubscriber<T, R> extends AtomicInteger implements j<T>, d {
         static final SwitchMapMaybeObserver<Object> INNER_DISPOSED = new SwitchMapMaybeObserver<>(null);
         private static final long serialVersionUID = -5402190102429853762L;
@@ -93,7 +93,7 @@ public final class FlowableSwitchMapMaybe<T, R> extends g<R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -133,7 +133,7 @@ public final class FlowableSwitchMapMaybe<T, R> extends g<R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         void innerComplete(SwitchMapMaybeObserver<R> switchMapMaybeObserver) {
@@ -185,7 +185,7 @@ public final class FlowableSwitchMapMaybe<T, R> extends g<R> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class SwitchMapMaybeObserver<R> extends AtomicReference<io.reactivex.disposables.b> implements m<R> {
             private static final long serialVersionUID = 8042919737683345351L;
             volatile R item;

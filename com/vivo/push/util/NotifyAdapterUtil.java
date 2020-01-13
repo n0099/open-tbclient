@@ -15,13 +15,12 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
-import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.vivo.push.model.InsideNotificationItem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NotifyAdapterUtil {
     public static final int NOTIFY_MULTITERM_STYLE = 1;
     public static final int NOTIFY_SINGLE_STYLE = 0;
@@ -52,11 +51,11 @@ public class NotifyAdapterUtil {
                 sNotificationManager = (NotificationManager) context.getSystemService("notification");
             }
             if (Build.VERSION.SDK_INT >= 26 && sNotificationManager != null) {
-                NotificationChannel notificationChannel = sNotificationManager.getNotificationChannel(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
+                NotificationChannel notificationChannel = sNotificationManager.getNotificationChannel("default");
                 if (notificationChannel != null) {
                     CharSequence name = notificationChannel.getName();
                     if (PUSH_ZH.equals(name) || PUSH_EN.equals(name)) {
-                        sNotificationManager.deleteNotificationChannel(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
+                        sNotificationManager.deleteNotificationChannel("default");
                     }
                 }
                 NotificationChannel notificationChannel2 = new NotificationChannel(PRIMARY_CHANNEL, isZh(context) ? PUSH_ZH : PUSH_EN, 4);

@@ -8,7 +8,7 @@ import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.mini.a.a.c;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwanMiniMasterJsInterface {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "___NA_SWAN_MINI___";
@@ -33,7 +33,7 @@ public class SwanMiniMasterJsInterface {
         if (DEBUG) {
             Log.v("SwanMiniRuntime", "Master == sendMessage(" + str + ", " + str2 + ")");
         }
-        this.mMiniRuntime.bR(str, str2);
+        this.mMiniRuntime.bS(str, str2);
     }
 
     @JavascriptInterface
@@ -47,13 +47,13 @@ public class SwanMiniMasterJsInterface {
                 Log.e("SwanMiniRuntime", "Master == request: null param");
             }
         } else {
-            a pN = this.mMiniRuntime.pN(this.mInstanceId);
-            if (pN == null) {
+            a pQ = this.mMiniRuntime.pQ(this.mInstanceId);
+            if (pQ == null) {
                 if (DEBUG) {
                     Log.e("SwanMiniRuntime", "Master == request: null master");
                 }
             } else {
-                com.baidu.swan.games.e.a v8Engine = pN.getV8Engine();
+                com.baidu.swan.games.e.a v8Engine = pQ.getV8Engine();
                 if (v8Engine == null) {
                     if (DEBUG) {
                         Log.e("SwanMiniRuntime", "Master == request: master type error");

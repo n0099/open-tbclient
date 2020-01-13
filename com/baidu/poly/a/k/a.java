@@ -2,22 +2,22 @@ package com.baidu.poly.a.k;
 
 import android.text.TextUtils;
 import android.view.ViewGroup;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.poly.a.k.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class RunnableC0151a implements Runnable {
-        final /* synthetic */ c aMy;
+    /* loaded from: classes10.dex */
+    public static class RunnableC0153a implements Runnable {
+        final /* synthetic */ c aNq;
 
-        RunnableC0151a(c cVar) {
-            this.aMy = cVar;
+        RunnableC0153a(c cVar) {
+            this.aNq = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.a(this.aMy);
+            a.a(this.aNq);
         }
     }
 
@@ -40,7 +40,7 @@ public class a {
         viewGroup.addView(cVar, layoutParams);
         cVar.setLoading(true);
         if (j != -1) {
-            viewGroup.postDelayed(new RunnableC0151a(cVar), j);
+            viewGroup.postDelayed(new RunnableC0153a(cVar), j);
         }
     }
 

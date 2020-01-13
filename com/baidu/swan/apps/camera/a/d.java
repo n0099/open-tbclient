@@ -14,7 +14,7 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends a {
     public d(j jVar) {
         super(jVar, "/swanAPI/camera/startRecord");
@@ -40,24 +40,24 @@ public class d extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera view is null");
             return false;
         }
-        final String lG = com.baidu.swan.apps.storage.b.lG(eVar.id);
-        if (TextUtils.isEmpty(lG)) {
+        final String lJ = com.baidu.swan.apps.storage.b.lJ(eVar.id);
+        if (TextUtils.isEmpty(lJ)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera start record cache path is empty");
             return false;
         }
-        eVar.aac().b(context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.d.1
+        eVar.aaz().b(context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
             public void B(h<b.d> hVar) {
                 int errorCode;
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                    d.this.a(context, unitedSchemeEntity, callbackHandler, eVar, bVar, view, lG);
-                } else if (hVar == null || hVar.abK() == null) {
+                    d.this.a(context, unitedSchemeEntity, callbackHandler, eVar, bVar, view, lJ);
+                } else if (hVar == null || hVar.ach() == null) {
                     com.baidu.swan.apps.console.c.e("SwanAppAction", "authorize recorder failed : result is invalid");
                 } else {
-                    String str = "authorize recorder failed : " + com.baidu.swan.apps.setting.oauth.c.fW(errorCode);
+                    String str = "authorize recorder failed : " + com.baidu.swan.apps.setting.oauth.c.fX(errorCode);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode(), str));
                     com.baidu.swan.apps.console.c.w("SwanAppAction", str);
                 }
@@ -68,14 +68,14 @@ public class d extends a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar, final com.baidu.swan.apps.camera.d.b bVar, final CameraPreview cameraPreview, final String str) {
-        eVar.aac().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.d.2
+        eVar.aaz().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
             public void B(h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     d.this.b(context, unitedSchemeEntity, callbackHandler, eVar, bVar, cameraPreview, str);
-                } else if (hVar != null && hVar.abK() != null) {
+                } else if (hVar != null && hVar.ach() != null) {
                     d.this.a(hVar.getErrorCode(), unitedSchemeEntity, callbackHandler);
                 } else {
                     com.baidu.swan.apps.console.c.e("SwanAppAction", "authorize camera failed : result is invalid");
@@ -87,19 +87,19 @@ public class d extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.runtime.e eVar, final com.baidu.swan.apps.camera.d.b bVar, final CameraPreview cameraPreview, final String str) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "handleAuthorized start");
-        if (com.baidu.swan.apps.camera.a.Ht().bD(context) && com.baidu.swan.apps.camera.a.Ht().bE(context)) {
+        if (com.baidu.swan.apps.camera.a.HP().bD(context) && com.baidu.swan.apps.camera.a.HP().bE(context)) {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "has authorize");
             a(unitedSchemeEntity, callbackHandler, eVar, cameraPreview, bVar, str);
             return;
         }
         com.baidu.swan.apps.af.a.a(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE}, 1, new com.baidu.swan.apps.af.b() { // from class: com.baidu.swan.apps.camera.a.d.3
             @Override // com.baidu.swan.apps.af.b
-            public void fl(String str2) {
+            public void fo(String str2) {
                 d.this.a(unitedSchemeEntity, callbackHandler, eVar, cameraPreview, bVar, str);
             }
 
             @Override // com.baidu.swan.apps.af.b
-            public void q(int i, String str2) {
+            public void t(int i, String str2) {
                 d.this.a(10005, unitedSchemeEntity, callbackHandler);
             }
         });
@@ -107,7 +107,7 @@ public class d extends a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        String str = "authorize camera failed : " + com.baidu.swan.apps.setting.oauth.c.fW(i);
+        String str = "authorize camera failed : " + com.baidu.swan.apps.setting.oauth.c.fX(i);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(i, str));
         com.baidu.swan.apps.console.c.w("SwanAppAction", str);
     }
@@ -124,26 +124,26 @@ public class d extends a {
         boolean z2 = false;
         final HashMap<String, String> hashMap = new HashMap<>();
         try {
-            z = cameraPreview.fU(str);
+            z = cameraPreview.fX(str);
         } catch (Exception e) {
             e = e;
         }
         try {
-            hashMap.put("tempVideoPath", com.baidu.swan.apps.storage.b.bh(cameraPreview.getVideoPath(), eVar.id));
-            hashMap.put("tempThumbPath", com.baidu.swan.apps.storage.b.bh(cameraPreview.getThumbPath(), eVar.id));
-            com.baidu.swan.apps.camera.a.Ht().a(31000, new com.baidu.swan.apps.camera.b.b() { // from class: com.baidu.swan.apps.camera.a.d.4
+            hashMap.put("tempVideoPath", com.baidu.swan.apps.storage.b.bi(cameraPreview.getVideoPath(), eVar.id));
+            hashMap.put("tempThumbPath", com.baidu.swan.apps.storage.b.bi(cameraPreview.getThumbPath(), eVar.id));
+            com.baidu.swan.apps.camera.a.HP().a(31000, new com.baidu.swan.apps.camera.b.b() { // from class: com.baidu.swan.apps.camera.a.d.4
                 @Override // com.baidu.swan.apps.camera.b.b
-                public void Hv() {
-                    cameraPreview.Hx();
-                    cameraPreview.HA();
+                public void HR() {
+                    cameraPreview.HT();
+                    cameraPreview.HW();
                     d.this.a(unitedSchemeEntity, callbackHandler, hashMap);
                     com.baidu.swan.apps.console.c.e("SwanAppCamera", "start record timeout");
                 }
 
                 @Override // com.baidu.swan.apps.camera.b.b
                 public void cancel() {
-                    cameraPreview.Hx();
-                    cameraPreview.HA();
+                    cameraPreview.HT();
+                    cameraPreview.HW();
                     d.this.a(unitedSchemeEntity, callbackHandler, hashMap);
                     com.baidu.swan.apps.console.c.e("SwanAppCamera", "start record cancel");
                 }
@@ -151,7 +151,7 @@ public class d extends a {
         } catch (Exception e2) {
             e = e2;
             z2 = z;
-            com.baidu.swan.apps.camera.a.Ht().g(bVar.bdi, bVar.baS, false);
+            com.baidu.swan.apps.camera.a.HP().g(bVar.bdW, bVar.bbK, false);
             if (DEBUG) {
                 e.printStackTrace();
             }

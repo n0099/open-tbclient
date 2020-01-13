@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class a {
     private int flags;
 
@@ -7,16 +7,16 @@ public abstract class a {
         this.flags = 0;
     }
 
-    public final boolean drS() {
-        return IZ(Integer.MIN_VALUE);
+    public final boolean dte() {
+        return Ji(Integer.MIN_VALUE);
     }
 
-    public final boolean drT() {
-        return IZ(4);
+    public final boolean dtf() {
+        return Ji(4);
     }
 
-    public final boolean drU() {
-        return IZ(1);
+    public final boolean dtg() {
+        return Ji(1);
     }
 
     public final void setFlags(int i) {
@@ -32,7 +32,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean IZ(int i) {
+    public final boolean Ji(int i) {
         return (this.flags & i) == i;
     }
 }

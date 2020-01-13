@@ -6,15 +6,15 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.a.a;
 import com.baidu.tbadk.core.data.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, n {
-    protected ad Jw;
-    private Boolean Jx = false;
-    private com.baidu.tieba.card.z<T> Jy;
-    public a Jz;
+    protected ad JC;
+    private Boolean JD = false;
+    private com.baidu.tieba.card.z<T> JE;
+    public a JF;
     protected Context mContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(com.baidu.tbadk.core.data.a aVar);
     }
@@ -27,7 +27,7 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
     }
 
     public void a(ad adVar) {
-        this.Jw = adVar;
+        this.JC = adVar;
     }
 
     public void aH(int i) {
@@ -41,15 +41,15 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
     }
 
     public com.baidu.tieba.card.z<T> mE() {
-        return this.Jy;
+        return this.JE;
     }
 
     public void setOnCardSubClickListener(com.baidu.tieba.card.z<T> zVar) {
-        this.Jy = zVar;
+        this.JE = zVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.Jw.a(i, bVar);
+        this.JC.a(i, bVar);
     }
 
     public void aJ(int i) {
@@ -69,10 +69,10 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
     }
 
     public Boolean mF() {
-        return this.Jx;
+        return this.JD;
     }
 
     public void b(Boolean bool) {
-        this.Jx = bool;
+        this.JD = bool;
     }
 }

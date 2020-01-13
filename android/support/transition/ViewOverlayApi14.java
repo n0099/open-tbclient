@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(14)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ViewOverlayApi14 implements ViewOverlayImpl {
     protected OverlayViewGroup mOverlayViewGroup;
 
@@ -79,7 +79,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class OverlayViewGroup extends ViewGroup {
         static Method sInvalidateChildInParentFastMethod;
         ArrayList<Drawable> mDrawables;
@@ -250,7 +250,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             return null;
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         static class TouchInterceptor extends View {
             TouchInterceptor(Context context) {
                 super(context);

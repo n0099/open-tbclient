@@ -3,14 +3,14 @@ package io.reactivex.subjects;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class PublishSubject<T> extends b<T> {
-    static final PublishDisposable[] mYp = new PublishDisposable[0];
-    static final PublishDisposable[] mYq = new PublishDisposable[0];
+    static final PublishDisposable[] nAB = new PublishDisposable[0];
+    static final PublishDisposable[] nAC = new PublishDisposable[0];
     Throwable error;
-    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(mYq);
+    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(nAC);
 
-    public static <T> PublishSubject<T> dEt() {
+    public static <T> PublishSubject<T> dIG() {
         return new PublishSubject<>();
     }
 
@@ -41,7 +41,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr == mYp) {
+            if (publishDisposableArr == nAB) {
                 return false;
             }
             int length = publishDisposableArr.length;
@@ -57,7 +57,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr != mYp && publishDisposableArr != mYq) {
+            if (publishDisposableArr != nAB && publishDisposableArr != nAC) {
                 int length = publishDisposableArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -73,7 +73,7 @@ public final class PublishSubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        publishDisposableArr2 = mYq;
+                        publishDisposableArr2 = nAC;
                     } else {
                         publishDisposableArr2 = new PublishDisposable[length - 1];
                         System.arraycopy(publishDisposableArr, 0, publishDisposableArr2, 0, i);
@@ -90,7 +90,7 @@ public final class PublishSubject<T> extends b<T> {
 
     @Override // io.reactivex.u
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.subscribers.get() == mYp) {
+        if (this.subscribers.get() == nAB) {
             bVar.dispose();
         }
     }
@@ -106,27 +106,27 @@ public final class PublishSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == mYp) {
-            io.reactivex.d.a.onError(th);
+        if (this.subscribers.get() == nAB) {
+            io.reactivex.e.a.onError(th);
             return;
         }
         this.error = th;
-        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(mYp)) {
+        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nAB)) {
             publishDisposable.onError(th);
         }
     }
 
     @Override // io.reactivex.u
     public void onComplete() {
-        if (this.subscribers.get() != mYp) {
-            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(mYp)) {
+        if (this.subscribers.get() != nAB) {
+            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nAB)) {
                 publishDisposable.onComplete();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class PublishDisposable<T> extends AtomicBoolean implements io.reactivex.disposables.b {
         private static final long serialVersionUID = 3562861878281475070L;
         final u<? super T> actual;
@@ -145,7 +145,7 @@ public final class PublishSubject<T> extends b<T> {
 
         public void onError(Throwable th) {
             if (get()) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             } else {
                 this.actual.onError(th);
             }

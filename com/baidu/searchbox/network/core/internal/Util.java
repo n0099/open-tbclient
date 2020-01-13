@@ -35,7 +35,7 @@ import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class Util {
     private static final Pattern VERIFY_AS_IP_ADDRESS;
     private static final Method addSuppressedExceptionMethod;

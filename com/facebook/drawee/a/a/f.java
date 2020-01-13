@@ -5,15 +5,15 @@ import com.facebook.common.b.i;
 import com.facebook.common.internal.j;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class f implements j<e> {
-    private final com.facebook.imagepipeline.d.g lFO;
-    private final Set<com.facebook.drawee.controller.c> lFR;
-    private final g lFz;
+    private final g lIX;
+    private final com.facebook.imagepipeline.d.g lJm;
+    private final Set<com.facebook.drawee.controller.c> lJp;
     private final Context mContext;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, com.facebook.imagepipeline.d.j.dmZ(), bVar);
+        this(context, com.facebook.imagepipeline.d.j.dog(), bVar);
     }
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, @Nullable b bVar) {
@@ -22,20 +22,20 @@ public class f implements j<e> {
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.lFO = jVar.dji();
-        if (bVar != null && bVar.djc() != null) {
-            this.lFz = bVar.djc();
+        this.lJm = jVar.dkj();
+        if (bVar != null && bVar.dkd() != null) {
+            this.lIX = bVar.dkd();
         } else {
-            this.lFz = new g();
+            this.lIX = new g();
         }
-        this.lFz.a(context.getResources(), com.facebook.drawee.components.a.djA(), jVar.gm(context), i.din(), this.lFO.dmn(), bVar != null ? bVar.djb() : null, bVar != null ? bVar.dje() : null);
-        this.lFR = set;
+        this.lIX.a(context.getResources(), com.facebook.drawee.components.a.dkB(), jVar.gn(context), i.djo(), this.lJm.dnu(), bVar != null ? bVar.dkc() : null, bVar != null ? bVar.dkf() : null);
+        this.lJp = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: djt */
+    /* renamed from: dku */
     public e get() {
-        return new e(this.mContext, this.lFz, this.lFO, this.lFR);
+        return new e(this.mContext, this.lIX, this.lJm, this.lJp);
     }
 }

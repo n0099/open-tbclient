@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 import okio.Buffer;
 import org.apache.http.HttpHost;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class HttpUrl {
     static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     static final String FRAGMENT_ENCODE_SET = "";
@@ -359,7 +359,7 @@ public final class HttpUrl {
         return this.url;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class Builder {
         static final String INVALID_HOST = "Invalid URL host";
         @Nullable

@@ -4,13 +4,13 @@ import android.graphics.Canvas;
 import android.graphics.Typeface;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class o extends a {
-    String bbL = "sans-serif";
-    float bbM = com.baidu.swan.apps.as.af.T(10.0f);
-    boolean bbN = false;
+    String bcB = "sans-serif";
+    float bcC = com.baidu.swan.apps.as.af.S(10.0f);
+    boolean bcD = false;
     boolean mItalic = false;
-    boolean bbO = true;
+    boolean bcE = true;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -23,9 +23,9 @@ public class o extends a {
                     } else if (str.contains("oblique")) {
                         this.mItalic = true;
                     } else if (str.contains("bold")) {
-                        this.bbN = true;
+                        this.bcD = true;
                     } else if (str.contains("normal")) {
-                        this.bbO = true;
+                        this.bcE = true;
                     } else if (Character.isDigit(str.charAt(0))) {
                         int length = str.length();
                         int i = 0;
@@ -39,9 +39,9 @@ public class o extends a {
                                 i++;
                             }
                         }
-                        this.bbM = com.baidu.swan.apps.as.af.T(Float.parseFloat(str.substring(0, i)));
+                        this.bcC = com.baidu.swan.apps.as.af.S(Float.parseFloat(str.substring(0, i)));
                     } else {
-                        this.bbL = str;
+                        this.bcB = str;
                     }
                 }
             }
@@ -55,14 +55,14 @@ public class o extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         int i = 0;
-        if (this.bbN && this.mItalic) {
+        if (this.bcD && this.mItalic) {
             i = 3;
-        } else if (this.bbN) {
+        } else if (this.bcD) {
             i = 1;
         } else if (this.mItalic) {
             i = 2;
         }
-        bVar.bbm.setTypeface(Typeface.create(this.bbL, i));
-        bVar.bbm.setTextSize(this.bbM);
+        bVar.bce.setTypeface(Typeface.create(this.bcB, i));
+        bVar.bce.setTextSize(this.bcC);
     }
 }

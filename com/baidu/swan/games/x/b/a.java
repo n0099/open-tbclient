@@ -14,13 +14,13 @@ import com.baidu.swan.pms.a.c;
 import com.baidu.swan.pms.model.g;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends j {
     private static final boolean DEBUG = b.DEBUG;
-    private String blC;
-    private b.a con;
-    private String coo;
-    private c<g> cop = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.games.x.b.a.1
+    private String bms;
+    private b.a coA;
+    private String coB;
+    private c<g> coC = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.games.x.b.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -31,7 +31,7 @@ public class a extends j {
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: c */
         public String I(g gVar) {
-            return com.baidu.swan.apps.core.pms.d.b.gS(a.this.blC);
+            return com.baidu.swan.apps.core.pms.d.b.gV(a.this.bms);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,8 +52,8 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadError: " + aVar.toString());
             }
-            a.this.es(2103);
-            com.baidu.swan.apps.core.pms.c.My().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aB(12L).aC(aVar.errorNo).mg("分包下载失败").mh(aVar.toString()));
+            a.this.et(2103);
+            com.baidu.swan.apps.core.pms.c.MU().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aE(12L).aF(aVar.errorNo).mj("分包下载失败").mk(aVar.toString()));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,9 +82,9 @@ public class a extends j {
 
     public a(String str, String str2, String str3, b.a aVar) {
         this.mAppId = str;
-        this.coo = str3;
-        this.con = aVar;
-        this.blC = a.c.aA(str, str2).getPath();
+        this.coB = str3;
+        this.coA = aVar;
+        this.bms = a.c.aB(str, str2).getPath();
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -93,21 +93,21 @@ public class a extends j {
         if (DEBUG) {
             Log.e("SwanGameSubPkgDownload", "onFetchError: " + aVar.toString());
         }
-        es(2103);
+        et(2103);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Mw() {
-        super.Mw();
+    public void MS() {
+        super.MS();
         if (DEBUG) {
             Log.i("SwanGameSubPkgDownload", "onNoPackage");
         }
-        es(2102);
+        et(2102);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<g> MF() {
-        return this.cop;
+    public c<g> Nb() {
+        return this.coC;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,59 +116,59 @@ public class a extends j {
             if (DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadFinish: 签名校验失败");
             }
-            es(2104);
-            com.baidu.swan.apps.core.pms.c.My().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aB(12L).aC(2300L).mg("分包签名校验"));
-        } else if (com.baidu.swan.apps.core.pms.d.b.e(new File(gVar.filePath), new File(this.blC, this.coo))) {
+            et(2104);
+            com.baidu.swan.apps.core.pms.c.MU().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aE(12L).aF(2300L).mj("分包签名校验"));
+        } else if (com.baidu.swan.apps.core.pms.d.b.e(new File(gVar.filePath), new File(this.bms, this.coB))) {
             if (DEBUG) {
                 Log.i("SwanGameSubPkgDownload", "onDownloadFinish: 解压成功");
             }
-            MU();
+            Nq();
             gVar.appId = this.mAppId;
-            com.baidu.swan.pms.database.a.aqM().c(gVar);
-            com.baidu.swan.apps.core.pms.c.My().a(gVar, PMSDownloadType.ALONE_SUB);
+            com.baidu.swan.pms.database.a.arf().c(gVar);
+            com.baidu.swan.apps.core.pms.c.MU().a(gVar, PMSDownloadType.ALONE_SUB);
         } else {
             if (DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadFinish: 解压失败");
             }
-            es(2105);
-            com.baidu.swan.apps.core.pms.c.My().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aB(12L).aC(2320L).mg("分包解压失败"));
+            et(2105);
+            com.baidu.swan.apps.core.pms.c.MU().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ap.a().aE(12L).aF(2320L).mj("分包解压失败"));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(g gVar) {
-        com.baidu.swan.apps.core.pms.c.My().a(gVar, new c.b() { // from class: com.baidu.swan.games.x.b.a.2
+        com.baidu.swan.apps.core.pms.c.MU().a(gVar, new c.b() { // from class: com.baidu.swan.games.x.b.a.2
             @Override // com.baidu.swan.apps.core.pms.c.b
             public void a(PMSDownloadType pMSDownloadType) {
-                a.this.MU();
+                a.this.Nq();
             }
 
             @Override // com.baidu.swan.apps.core.pms.c.b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ap.a aVar) {
-                a.this.es(2103);
+                a.this.et(2103);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void es(int i) {
-        if (this.con != null) {
-            this.con.dH(i);
+    public void et(int i) {
+        if (this.coA != null) {
+            this.coA.dI(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void MU() {
-        if (this.con != null) {
-            this.con.ani();
+    public void Nq() {
+        if (this.coA != null) {
+            this.coA.anB();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(long j, long j2) {
-        if (this.con != null) {
+        if (this.coA != null) {
             if (j2 <= 0 || j > j2) {
-                es(2114);
+                et(2114);
                 return;
             }
             int floor = (int) Math.floor((j * 100.0d) / j2);
@@ -176,7 +176,7 @@ public class a extends j {
                 if (DEBUG) {
                     Log.i("SwanGameSubPkgDownload", "callbackProgress: " + floor);
                 }
-                this.con.d(floor, j, j2);
+                this.coA.d(floor, j, j2);
             }
         }
     }

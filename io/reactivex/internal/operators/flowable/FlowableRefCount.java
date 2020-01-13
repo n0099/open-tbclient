@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -9,12 +8,11 @@ import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
-public final class FlowableRefCount<T> extends g<T> {
+/* loaded from: classes5.dex */
+public final class FlowableRefCount<T> extends io.reactivex.g<T> {
     RefConnection connection;
-    final io.reactivex.a.a<T> mUh;
     final int n;
+    final io.reactivex.b.a<T> nwr;
     final v scheduler;
     final long timeout;
     final TimeUnit unit;
@@ -40,9 +38,9 @@ public final class FlowableRefCount<T> extends g<T> {
                 refConnection.connected = true;
             }
         }
-        this.mUh.a((j) new RefCountSubscriber(cVar, this, refConnection));
+        this.nwr.a((j) new RefCountSubscriber(cVar, this, refConnection));
         if (z) {
-            this.mUh.a(refConnection);
+            this.nwr.c(refConnection);
         }
     }
 
@@ -71,8 +69,8 @@ public final class FlowableRefCount<T> extends g<T> {
                 if (refConnection.timer != null) {
                     refConnection.timer.dispose();
                 }
-                if (this.mUh instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.mUh).dispose();
+                if (this.nwr instanceof io.reactivex.disposables.b) {
+                    ((io.reactivex.disposables.b) this.nwr).dispose();
                 }
             }
         }
@@ -83,16 +81,16 @@ public final class FlowableRefCount<T> extends g<T> {
             if (refConnection.subscriberCount == 0 && refConnection == this.connection) {
                 this.connection = null;
                 DisposableHelper.dispose(refConnection);
-                if (this.mUh instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.mUh).dispose();
+                if (this.nwr instanceof io.reactivex.disposables.b) {
+                    ((io.reactivex.disposables.b) this.nwr).dispose();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class RefConnection extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.b.g<io.reactivex.disposables.b>, Runnable {
+    /* loaded from: classes5.dex */
+    public static final class RefConnection extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c.g<io.reactivex.disposables.b>, Runnable {
         private static final long serialVersionUID = -4552101107598366241L;
         boolean connected;
         final FlowableRefCount<?> parent;
@@ -109,19 +107,19 @@ public final class FlowableRefCount<T> extends g<T> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.b.g
+        @Override // io.reactivex.c.g
         public void accept(io.reactivex.disposables.b bVar) throws Exception {
             DisposableHelper.replace(this, bVar);
         }
     }
 
-    /* loaded from: classes4.dex */
-    static final class RefCountSubscriber<T> extends AtomicBoolean implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class RefCountSubscriber<T> extends AtomicBoolean implements j<T>, org.a.d {
         private static final long serialVersionUID = -7419642935409022375L;
         final org.a.c<? super T> actual;
         final RefConnection connection;
         final FlowableRefCount<T> parent;
-        d upstream;
+        org.a.d upstream;
 
         RefCountSubscriber(org.a.c<? super T> cVar, FlowableRefCount<T> flowableRefCount, RefConnection refConnection) {
             this.actual = cVar;
@@ -141,7 +139,7 @@ public final class FlowableRefCount<T> extends g<T> {
                 this.actual.onError(th);
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -166,7 +164,7 @@ public final class FlowableRefCount<T> extends g<T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.upstream, dVar)) {
                 this.upstream = dVar;
                 this.actual.onSubscribe(this);

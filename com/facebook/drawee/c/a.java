@@ -3,77 +3,77 @@ package com.facebook.drawee.c;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a {
-    InterfaceC0644a lJr;
-    final float lJs;
-    boolean lJt;
-    boolean lJu;
-    long lJv;
-    float lJw;
-    float lJx;
+    InterfaceC0649a lMO;
+    final float lMP;
+    boolean lMQ;
+    boolean lMR;
+    long lMS;
+    float lMT;
+    float lMU;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0644a {
-        boolean djL();
+    /* loaded from: classes12.dex */
+    public interface InterfaceC0649a {
+        boolean dkM();
     }
 
     public a(Context context) {
-        this.lJs = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.lMP = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
-    public static a gk(Context context) {
+    public static a gl(Context context) {
         return new a(context);
     }
 
     public void init() {
-        this.lJr = null;
+        this.lMO = null;
         reset();
     }
 
     public void reset() {
-        this.lJt = false;
-        this.lJu = false;
+        this.lMQ = false;
+        this.lMR = false;
     }
 
-    public void a(InterfaceC0644a interfaceC0644a) {
-        this.lJr = interfaceC0644a;
+    public void a(InterfaceC0649a interfaceC0649a) {
+        this.lMO = interfaceC0649a;
     }
 
-    public boolean dkO() {
-        return this.lJt;
+    public boolean dlQ() {
+        return this.lMQ;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.lJt = true;
-                this.lJu = true;
-                this.lJv = motionEvent.getEventTime();
-                this.lJw = motionEvent.getX();
-                this.lJx = motionEvent.getY();
+                this.lMQ = true;
+                this.lMR = true;
+                this.lMS = motionEvent.getEventTime();
+                this.lMT = motionEvent.getX();
+                this.lMU = motionEvent.getY();
                 break;
             case 1:
-                this.lJt = false;
-                if (Math.abs(motionEvent.getX() - this.lJw) > this.lJs || Math.abs(motionEvent.getY() - this.lJx) > this.lJs) {
-                    this.lJu = false;
+                this.lMQ = false;
+                if (Math.abs(motionEvent.getX() - this.lMT) > this.lMP || Math.abs(motionEvent.getY() - this.lMU) > this.lMP) {
+                    this.lMR = false;
                 }
-                if (this.lJu && motionEvent.getEventTime() - this.lJv <= ViewConfiguration.getLongPressTimeout() && this.lJr != null) {
-                    this.lJr.djL();
+                if (this.lMR && motionEvent.getEventTime() - this.lMS <= ViewConfiguration.getLongPressTimeout() && this.lMO != null) {
+                    this.lMO.dkM();
                 }
-                this.lJu = false;
+                this.lMR = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.lJw) > this.lJs || Math.abs(motionEvent.getY() - this.lJx) > this.lJs) {
-                    this.lJu = false;
+                if (Math.abs(motionEvent.getX() - this.lMT) > this.lMP || Math.abs(motionEvent.getY() - this.lMU) > this.lMP) {
+                    this.lMR = false;
                     break;
                 }
                 break;
             case 3:
-                this.lJt = false;
-                this.lJu = false;
+                this.lMQ = false;
+                this.lMR = false;
                 break;
         }
         return true;

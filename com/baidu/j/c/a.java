@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
     boolean aQ(Context context);
 
@@ -12,7 +12,7 @@ public interface a {
 
     void e(Activity activity, String str, com.baidu.j.a.a aVar);
 
-    void er(String str);
+    void eu(String str);
 
     void f(Activity activity, String str, com.baidu.j.a.a aVar);
 

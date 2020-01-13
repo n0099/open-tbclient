@@ -21,11 +21,11 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b {
     public static void init() {
-        bOE();
-        bOF();
+        bPN();
+        bPO();
     }
 
-    private static void bOE() {
+    private static void bPN() {
         c.b(CmdConfigSocket.CMD_UPDATE_MASK_INFO, ResponseUpdateMaskInfoMessage.class, false);
         c.b(CmdConfigSocket.CMD_MESSAGE_SYNC, ResponsePullMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         c.b(CmdConfigSocket.CMD_PUSH_MESSAGE, PushResponseMessage.class, false);
@@ -39,7 +39,7 @@ public class b {
         MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
     }
 
-    private static boolean bOF() {
+    private static boolean bPO() {
         MessageManager.getInstance().addResponsedMessageRule(new j(CmdConfigSocket.CMD_PUSH_NOTIFY) { // from class: com.baidu.tieba.im.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.a.g

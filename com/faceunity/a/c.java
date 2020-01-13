@@ -6,10 +6,10 @@ import android.media.MediaMuxer;
 import android.util.Log;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private int kso = 2;
-    private int lTa = 0;
+    private int kvR = 2;
+    private int lWR = 0;
     private boolean mIsStarted = false;
     private final MediaMuxer mMediaMuxer;
 
@@ -20,8 +20,8 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         Log.v("MediaMuxerWrapper", "start:");
-        this.lTa++;
-        if (this.kso > 0 && this.lTa == this.kso) {
+        this.lWR++;
+        if (this.kvR > 0 && this.lWR == this.kvR) {
             this.mMediaMuxer.start();
             this.mIsStarted = true;
             notifyAll();
@@ -32,9 +32,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.lTa);
-        this.lTa--;
-        if (this.kso > 0 && this.lTa <= 0) {
+        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.lWR);
+        this.lWR--;
+        if (this.kvR > 0 && this.lWR <= 0) {
             this.mMediaMuxer.stop();
             this.mMediaMuxer.release();
             this.mIsStarted = false;
@@ -49,13 +49,13 @@ public class c {
             throw new IllegalStateException("muxer already started");
         }
         addTrack = this.mMediaMuxer.addTrack(mediaFormat);
-        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.kso + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.kvR + ",trackIx=" + addTrack + ",format=" + mediaFormat);
         return addTrack;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void d(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        if (this.lTa > 0) {
+        if (this.lWR > 0) {
             this.mMediaMuxer.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.a.c;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
     public OfficialBarTipListAdapter(OfficialBarTipActivity officialBarTipActivity) {
         super(officialBarTipActivity.getPageContext().getContext());
@@ -18,7 +18,7 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.d.aIw().aIQ()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJk()) {
             str = "";
             i = 0;
         }
@@ -32,13 +32,13 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.hob.setTag(null);
-        aVar.hob.setDrawBorder(true);
-        aVar.hob.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-        aVar.hob.setPlaceHolder(1);
+        aVar.hrE.setTag(null);
+        aVar.hrE.setDrawBorder(true);
+        aVar.hrE.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        aVar.hrE.setPlaceHolder(1);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.hob.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.hob.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.hrE.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.hrE.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -54,14 +54,14 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void a(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.hoc.setText(this.mContext.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+        aVar.hrF.setText(this.mContext.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
         if (imMessageCenterShowItemData.getUserType() == 1) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) am.getDrawable(R.drawable.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.hoc.setCompoundDrawables(null, null, bitmapDrawable, null);
-            aVar.hoc.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(R.dimen.ds8)));
+            aVar.hrF.setCompoundDrawables(null, null, bitmapDrawable, null);
+            aVar.hrF.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(R.dimen.ds8)));
             return;
         }
-        aVar.hoc.setCompoundDrawables(null, null, null, null);
+        aVar.hrF.setCompoundDrawables(null, null, null, null);
     }
 }

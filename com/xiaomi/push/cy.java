@@ -10,10 +10,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class cy {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends cx {
         public a() {
             super(1);
@@ -86,7 +86,7 @@ public abstract class cy {
             try {
                 ArrayList<String> arrayList = new ArrayList<>();
                 cq cqVar = null;
-                if (z && (cqVar = cu.a().m193a(str)) != null) {
+                if (z && (cqVar = cu.a().m202a(str)) != null) {
                     arrayList = cqVar.a(str);
                 }
                 if (!arrayList.contains(str)) {
@@ -105,7 +105,7 @@ public abstract class cy {
                         }
                         e.printStackTrace();
                     }
-                    if (!cxVar.m202a(context, next, (List<ar>) arrayList2)) {
+                    if (!cxVar.m211a(context, next, (List<ar>) arrayList2)) {
                         return str2;
                     }
                     str2 = cxVar.a(context, next, (List<ar>) arrayList2);

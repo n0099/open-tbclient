@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class CodedInputStream {
     private static final int BUFFER_SIZE = 4096;
     private static final int DEFAULT_RECURSION_LIMIT = 64;

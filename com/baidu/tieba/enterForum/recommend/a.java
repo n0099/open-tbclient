@@ -1,5 +1,5 @@
 package com.baidu.tieba.enterForum.recommend;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void a(int i, com.baidu.tieba.enterForum.recommend.b.a aVar);
 

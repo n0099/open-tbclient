@@ -9,7 +9,7 @@ import com.baidu.swan.apps.t.a.a;
 import com.baidu.swan.d.c;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -53,7 +53,7 @@ public class b {
         }
         a.b q = com.baidu.swan.apps.t.a.a.q(file);
         if (q.type != -1) {
-            if (com.baidu.swan.apps.t.a.a.a(q.bsL, b, q.type).isSuccess) {
+            if (com.baidu.swan.apps.t.a.a.a(q.btz, b, q.type).isSuccess) {
                 return new com.baidu.swan.pms.b.b.b(0, "解密成功");
             }
             return new com.baidu.swan.pms.b.b.b(1011, "解密失败");
@@ -79,7 +79,7 @@ public class b {
             }
         })) != null && listFiles.length > 0) {
             for (File file : listFiles) {
-                if (file != null && b(j, file.getName()) && !com.baidu.swan.mini.a.aqw().contains(file.getAbsolutePath())) {
+                if (file != null && b(j, file.getName()) && !com.baidu.swan.mini.a.aqP().contains(file.getAbsolutePath())) {
                     if (DEBUG) {
                         Log.i("Mini-Pm", "删除低版本文件夹：" + file.getAbsolutePath());
                     }

@@ -14,10 +14,10 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private TbPageContext cQU;
-    private CustomMessageListener gDU = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
+    private TbPageContext cRe;
+    private CustomMessageListener gHj = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -28,17 +28,17 @@ public class a {
                     String optString2 = jSONObject.optString("gameName");
                     String optString3 = jSONObject.optString("gameTime");
                     String optString4 = jSONObject.optString("gameType");
-                    String string = b.aCY().getString("key_match_id_list_" + optString4, "");
+                    String string = b.aDr().getString("key_match_id_list_" + optString4, "");
                     String str = "match_id_" + optString4 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + optString;
                     String str2 = TextUtils.isEmpty(string) ? str : Constants.ACCEPT_TIME_SEPARATOR_SP + str;
                     if (TextUtils.isEmpty(string) || !string.contains(str)) {
-                        b.aCY().putString("key_match_id_list_" + optString4, string + str2);
+                        b.aDr().putString("key_match_id_list_" + optString4, string + str2);
                     }
-                    Intent intent = new Intent(a.this.cQU.getPageActivity(), AlarmReceiver.class);
+                    Intent intent = new Intent(a.this.cRe.getPageActivity(), AlarmReceiver.class);
                     intent.putExtra("KEY_MATCH_NAME", optString2);
                     intent.putExtra("KEY_MATCH_TYPE", optString4);
                     intent.putExtra("KEY_MATCH_ID", optString);
-                    PendingIntent broadcast = PendingIntent.getBroadcast(a.this.cQU.getPageActivity(), 0, intent, 0);
+                    PendingIntent broadcast = PendingIntent.getBroadcast(a.this.cRe.getPageActivity(), 0, intent, 0);
                     Calendar calendar = Calendar.getInstance();
                     long currentTimeMillis = System.currentTimeMillis();
                     calendar.setTimeInMillis(currentTimeMillis);
@@ -46,7 +46,7 @@ public class a {
                     if (j > 0) {
                         calendar.add(14, (int) j);
                     }
-                    ((AlarmManager) a.this.cQU.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
+                    ((AlarmManager) a.this.cRe.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -55,7 +55,7 @@ public class a {
     };
 
     public a(TbPageContext tbPageContext) {
-        this.cQU = tbPageContext;
-        this.cQU.registerListener(this.gDU);
+        this.cRe = tbPageContext;
+        this.cRe.registerListener(this.gHj);
     }
 }

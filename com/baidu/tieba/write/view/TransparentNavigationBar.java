@@ -6,7 +6,7 @@ import com.baidu.adp.base.e;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TransparentNavigationBar extends NavigationBar {
     public TransparentNavigationBar(Context context) {
         super(context);

@@ -14,7 +14,7 @@ import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.SapiUtils;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class B extends HttpHandlerWrap {
     final /* synthetic */ FillUsernameCallback a;
     final /* synthetic */ FillUsernameResult b;

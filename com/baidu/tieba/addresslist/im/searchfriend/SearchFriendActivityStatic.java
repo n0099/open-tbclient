@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SearchFriendActivityConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SearchFriendActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(SearchFriendActivityConfig.class, SearchFriendActivity.class);

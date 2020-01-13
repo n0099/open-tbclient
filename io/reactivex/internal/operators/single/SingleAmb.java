@@ -6,20 +6,20 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleAmb<T> extends w<T> {
-    private final Iterable<? extends aa<? extends T>> mTH;
-    private final aa<? extends T>[] mVJ;
+    private final Iterable<? extends aa<? extends T>> nvL;
+    private final aa<? extends T>[] nxS;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         int length;
-        aa<? extends T>[] aaVarArr = this.mVJ;
+        aa<? extends T>[] aaVarArr = this.nxS;
         if (aaVarArr == null) {
             aa<? extends T>[] aaVarArr2 = new aa[8];
             try {
                 int i = 0;
-                for (aa<? extends T> aaVar : this.mTH) {
+                for (aa<? extends T> aaVar : this.nvL) {
                     if (aaVar == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), yVar);
                         return;
@@ -56,7 +56,7 @@ public final class SingleAmb<T> extends w<T> {
                         yVar.onError(nullPointerException);
                         return;
                     } else {
-                        io.reactivex.d.a.onError(nullPointerException);
+                        io.reactivex.e.a.onError(nullPointerException);
                         return;
                     }
                 }
@@ -67,7 +67,7 @@ public final class SingleAmb<T> extends w<T> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class AmbSingleObserver<T> extends AtomicBoolean implements y<T> {
         private static final long serialVersionUID = -1944085461036028108L;
         final y<? super T> s;
@@ -98,7 +98,7 @@ public final class SingleAmb<T> extends w<T> {
                 this.s.onError(th);
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
     }
 }

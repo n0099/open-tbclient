@@ -1,11 +1,12 @@
 package io.reactivex.internal.operators.mixed;
 
-import io.reactivex.b.h;
 import io.reactivex.c;
+import io.reactivex.c.h;
 import io.reactivex.disposables.b;
 import io.reactivex.e;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.g;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -16,19 +17,19 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableConcatMapCompletable<T> extends io.reactivex.a {
     final ErrorMode errorMode;
-    final g<T> mTG;
     final h<? super T, ? extends e> mapper;
+    final g<T> nvK;
     final int prefetch;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
-        this.mTG.a((j) new ConcatMapCompletableObserver(cVar, this.mapper, this.errorMode, this.prefetch));
+        this.nvK.a((j) new ConcatMapCompletableObserver(cVar, this.mapper, this.errorMode, this.prefetch));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ConcatMapCompletableObserver<T> extends AtomicInteger implements b, j<T> {
         private static final long serialVersionUID = 3610901111000061034L;
         volatile boolean active;
@@ -41,7 +42,7 @@ public final class FlowableConcatMapCompletable<T> extends io.reactivex.a {
         final ConcatMapInnerObserver inner = new ConcatMapInnerObserver(this);
         final h<? super T, ? extends e> mapper;
         final int prefetch;
-        final io.reactivex.internal.a.e<T> queue;
+        final f<T> queue;
         d upstream;
 
         ConcatMapCompletableObserver(c cVar, h<? super T, ? extends e> hVar, ErrorMode errorMode, int i) {
@@ -90,7 +91,7 @@ public final class FlowableConcatMapCompletable<T> extends io.reactivex.a {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -132,7 +133,7 @@ public final class FlowableConcatMapCompletable<T> extends io.reactivex.a {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         void innerComplete() {
@@ -193,7 +194,7 @@ public final class FlowableConcatMapCompletable<T> extends io.reactivex.a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class ConcatMapInnerObserver extends AtomicReference<b> implements c {
             private static final long serialVersionUID = 5638352172918776687L;
             final ConcatMapCompletableObserver<?> parent;

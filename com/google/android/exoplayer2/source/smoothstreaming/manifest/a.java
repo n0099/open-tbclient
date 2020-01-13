@@ -7,58 +7,58 @@ import com.google.android.exoplayer2.util.u;
 import com.google.android.exoplayer2.util.v;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
-    public final int lCm;
-    public final int lCn;
-    public final long lUZ;
-    public final int mtF;
-    public final C0669a mtG;
-    public final b[] mtH;
-    public final long mtI;
-    public final boolean mtj;
+    public final int lFK;
+    public final int lFL;
+    public final long lYQ;
+    public final boolean mwX;
+    public final int mxs;
+    public final C0675a mxt;
+    public final b[] mxu;
+    public final long mxv;
 
-    public a(int i, int i2, long j, long j2, long j3, int i3, boolean z, C0669a c0669a, b[] bVarArr) {
-        this(i, i2, j2 == 0 ? -9223372036854775807L : v.h(j2, TimeUtils.NANOS_PER_MS, j), j3 == 0 ? -9223372036854775807L : v.h(j3, TimeUtils.NANOS_PER_MS, j), i3, z, c0669a, bVarArr);
+    public a(int i, int i2, long j, long j2, long j3, int i3, boolean z, C0675a c0675a, b[] bVarArr) {
+        this(i, i2, j2 == 0 ? -9223372036854775807L : v.h(j2, TimeUtils.NANOS_PER_MS, j), j3 == 0 ? -9223372036854775807L : v.h(j3, TimeUtils.NANOS_PER_MS, j), i3, z, c0675a, bVarArr);
     }
 
-    private a(int i, int i2, long j, long j2, int i3, boolean z, C0669a c0669a, b[] bVarArr) {
-        this.lCm = i;
-        this.lCn = i2;
-        this.lUZ = j;
-        this.mtI = j2;
-        this.mtF = i3;
-        this.mtj = z;
-        this.mtG = c0669a;
-        this.mtH = bVarArr;
+    private a(int i, int i2, long j, long j2, int i3, boolean z, C0675a c0675a, b[] bVarArr) {
+        this.lFK = i;
+        this.lFL = i2;
+        this.lYQ = j;
+        this.mxv = j2;
+        this.mxs = i3;
+        this.mwX = z;
+        this.mxt = c0675a;
+        this.mxu = bVarArr;
     }
 
     /* renamed from: com.google.android.exoplayer2.source.smoothstreaming.manifest.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0669a {
+    /* loaded from: classes5.dex */
+    public static class C0675a {
         public final byte[] data;
         public final UUID uuid;
 
-        public C0669a(UUID uuid, byte[] bArr) {
+        public C0675a(UUID uuid, byte[] bArr) {
             this.uuid = uuid;
             this.data = bArr;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public final String language;
         public final int maxHeight;
         public final int maxWidth;
-        public final int mbB;
-        public final int mbC;
-        public final Format[] mnT;
-        public final int mpj;
-        private final String msz;
-        private final String mtJ;
-        private final List<Long> mtK;
-        private final long[] mtL;
-        private final long mtM;
+        public final int mfq;
+        public final int mfr;
+        public final Format[] mrI;
+        public final int msY;
+        private final String mwn;
+        private final String mxw;
+        private final List<Long> mxx;
+        private final long[] mxy;
+        private final long mxz;
         public final String name;
         public final String subType;
         public final long timescale;
@@ -69,43 +69,43 @@ public class a {
         }
 
         private b(String str, String str2, int i, String str3, long j, String str4, int i2, int i3, int i4, int i5, String str5, Format[] formatArr, List<Long> list, long[] jArr, long j2) {
-            this.msz = str;
-            this.mtJ = str2;
+            this.mwn = str;
+            this.mxw = str2;
             this.type = i;
             this.subType = str3;
             this.timescale = j;
             this.name = str4;
             this.maxWidth = i2;
             this.maxHeight = i3;
-            this.mbB = i4;
-            this.mbC = i5;
+            this.mfq = i4;
+            this.mfr = i5;
             this.language = str5;
-            this.mnT = formatArr;
-            this.mtK = list;
-            this.mtL = jArr;
-            this.mtM = j2;
-            this.mpj = list.size();
+            this.mrI = formatArr;
+            this.mxx = list;
+            this.mxy = jArr;
+            this.mxz = j2;
+            this.msY = list.size();
         }
 
-        public int fH(long j) {
-            return v.a(this.mtL, j, true, true);
+        public int fM(long j) {
+            return v.a(this.mxy, j, true, true);
         }
 
-        public long KT(int i) {
-            return this.mtL[i];
+        public long Lc(int i) {
+            return this.mxy[i];
         }
 
-        public long KU(int i) {
-            return i == this.mpj + (-1) ? this.mtM : this.mtL[i + 1] - this.mtL[i];
+        public long Ld(int i) {
+            return i == this.msY + (-1) ? this.mxz : this.mxy[i + 1] - this.mxy[i];
         }
 
-        public Uri dP(int i, int i2) {
-            com.google.android.exoplayer2.util.a.checkState(this.mnT != null);
-            com.google.android.exoplayer2.util.a.checkState(this.mtK != null);
-            com.google.android.exoplayer2.util.a.checkState(i2 < this.mtK.size());
-            String num = Integer.toString(this.mnT[i].bitrate);
-            String l = this.mtK.get(i2).toString();
-            return u.fi(this.msz, this.mtJ.replace("{bitrate}", num).replace("{Bitrate}", num).replace("{start time}", l).replace("{start_time}", l));
+        public Uri dN(int i, int i2) {
+            com.google.android.exoplayer2.util.a.checkState(this.mrI != null);
+            com.google.android.exoplayer2.util.a.checkState(this.mxx != null);
+            com.google.android.exoplayer2.util.a.checkState(i2 < this.mxx.size());
+            String num = Integer.toString(this.mrI[i].bitrate);
+            String l = this.mxx.get(i2).toString();
+            return u.fk(this.mwn, this.mxw.replace("{bitrate}", num).replace("{Bitrate}", num).replace("{start time}", l).replace("{start_time}", l));
         }
     }
 }

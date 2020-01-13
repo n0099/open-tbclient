@@ -4,34 +4,34 @@ import android.media.MediaPlayer;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.ad.play.a;
 import com.baidu.tieba.recapp.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DistributeVrPlayController extends a {
-    private boolean jIV;
+    private boolean jMx;
 
     public DistributeVrPlayController(IVrPlayView iVrPlayView) {
         super(iVrPlayView);
-        this.jIV = true;
+        this.jMx = true;
     }
 
     @Override // com.baidu.tieba.recapp.a
     public void initListener() {
-        this.dVv = new a.InterfaceC0392a() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.1
-            @Override // com.baidu.tieba.ad.play.a.InterfaceC0392a
+        this.dVE = new a.InterfaceC0394a() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.1
+            @Override // com.baidu.tieba.ad.play.a.InterfaceC0394a
             public void onLoading() {
-                DistributeVrPlayController.this.jAO.loading();
+                DistributeVrPlayController.this.jEq.loading();
             }
 
-            @Override // com.baidu.tieba.ad.play.a.InterfaceC0392a
+            @Override // com.baidu.tieba.ad.play.a.InterfaceC0394a
             public void onPlay() {
-                if (DistributeVrPlayController.this.jIV) {
-                    DistributeVrPlayController.this.jIV = false;
-                    DistributeVrPlayController.this.jAO.showPanoramaPrompt();
+                if (DistributeVrPlayController.this.jMx) {
+                    DistributeVrPlayController.this.jMx = false;
+                    DistributeVrPlayController.this.jEq.showPanoramaPrompt();
                 }
-                DistributeVrPlayController.this.jAO.play();
+                DistributeVrPlayController.this.jEq.play();
                 DistributeVrPlayController.this.mStatus = 1;
             }
         };
-        this.cgg = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.2
+        this.cgt = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.2
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
                 if (mediaPlayer != null) {
@@ -39,26 +39,26 @@ public class DistributeVrPlayController extends a {
                 }
             }
         };
-        this.jAR = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.3
+        this.jEt = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.3
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
                 DistributeVrPlayController.this.stopPlay();
-                DistributeVrPlayController.this.jAO.complete();
+                DistributeVrPlayController.this.jEq.complete();
             }
         };
-        this.jAS = new a.b() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.4
+        this.jEu = new a.b() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                DistributeVrPlayController.this.jAO.loading();
+                DistributeVrPlayController.this.jEq.loading();
                 DistributeVrPlayController.this.playVideo();
                 aVar.dismiss();
             }
         };
-        this.cgi = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.5
+        this.cgv = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.5
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
                 DistributeVrPlayController.this.stopPlay();
-                DistributeVrPlayController.this.jAO.error();
+                DistributeVrPlayController.this.jEq.error();
                 return true;
             }
         };

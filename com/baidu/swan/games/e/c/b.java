@@ -8,25 +8,25 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cit;
-    private HashMap<String, c> cfN = new HashMap<>();
+    private static volatile b ciG;
+    private HashMap<String, c> cga = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
-    private com.baidu.swan.games.network.b cfP = com.baidu.swan.games.network.b.amj();
-    private String cfO = f.aiM();
+    private com.baidu.swan.games.network.b cgc = com.baidu.swan.games.network.b.amC();
+    private String cgb = f.ajf();
 
-    public static b akZ() {
-        if (cit == null) {
+    public static b als() {
+        if (ciG == null) {
             synchronized (b.class) {
-                if (cit == null) {
-                    cit = new b();
+                if (ciG == null) {
+                    ciG = new b();
                 }
             }
         }
-        return cit;
+        return ciG;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -35,18 +35,18 @@ public class b implements a {
             return;
         }
         try {
-            String nY = nY(str);
-            File file = new File(nY(str));
+            String ob = ob(str);
+            File file = new File(ob(str));
             if (file.exists() && !file.isDirectory()) {
                 if (valueCallback != null) {
-                    valueCallback.onReceiveValue(nY);
+                    valueCallback.onReceiveValue(ob);
                     return;
                 }
                 return;
             }
             synchronized (this.mObject) {
-                if (!nW(str)) {
-                    nX(str);
+                if (!nZ(str)) {
+                    oa(str);
                 }
                 b(str, valueCallback);
             }
@@ -57,16 +57,16 @@ public class b implements a {
         }
     }
 
-    private boolean nW(String str) {
-        return this.cfN.containsKey(str);
+    private boolean nZ(String str) {
+        return this.cga.containsKey(str);
     }
 
-    private void nX(String str) {
+    private void oa(String str) {
         if (DEBUG) {
             Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
         }
-        c cVar = new c(this.cfP, this.cfO, str, this);
-        this.cfN.put(str, cVar);
+        c cVar = new c(this.cgc, this.cgb, str, this);
+        this.cga.put(str, cVar);
         cVar.load();
     }
 
@@ -81,10 +81,10 @@ public class b implements a {
     }
 
     @Override // com.baidu.swan.games.e.c.a
-    public void bq(String str, String str2) {
+    public void br(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (nW(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (nZ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).onReceiveValue(str2);
@@ -92,26 +92,26 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.cfN.remove(str);
+                this.cga.remove(str);
             }
         }
     }
 
     @Override // com.baidu.swan.games.e.c.a
-    public void C(int i, String str) {
+    public void E(int i, String str) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (nW(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (nZ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).onReceiveValue("");
                 }
-                this.cfN.remove(str);
+                this.cga.remove(str);
             }
         }
     }
 
-    private String nY(String str) throws MalformedURLException {
-        return this.cfO + f.nT(str);
+    private String ob(String str) throws MalformedURLException {
+        return this.cgb + f.nW(str);
     }
 }

@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FrsAllThreadFragment extends BaseFragment implements ah {
-    private BdSwipeRefreshLayout eiv;
+    private BdSwipeRefreshLayout ejj;
     private String forumId;
-    private View gip;
-    private RecyclerView giq;
+    private View gly;
+    private RecyclerView glz;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
@@ -28,49 +28,49 @@ public class FrsAllThreadFragment extends BaseFragment implements ah {
         if (arguments != null) {
             this.forumId = arguments.getString("forum_id", "");
         }
-        bAP();
-        return this.gip;
+        bBR();
+        return this.gly;
     }
 
     public void setView(View view) {
-        this.gip = view;
-        this.giq = (RecyclerView) this.gip.findViewById(R.id.frs_lv_thread);
-        this.eiv = (BdSwipeRefreshLayout) this.gip.findViewById(R.id.frs_pull_refresh_layout);
-        bAP();
+        this.gly = view;
+        this.glz = (RecyclerView) this.gly.findViewById(R.id.frs_lv_thread);
+        this.ejj = (BdSwipeRefreshLayout) this.gly.findViewById(R.id.frs_pull_refresh_layout);
+        bBR();
     }
 
-    private void bAP() {
-        if (this.gip != null && (this.gip.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gip.getParent()).removeView(this.gip);
-            this.gip.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+    private void bBR() {
+        if (this.gly != null && (this.gly.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gly.getParent()).removeView(this.gly);
+            this.gly.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
     @Override // com.baidu.tieba.frs.ah
     public void scrollToTop() {
-        if (this.giq != null) {
-            this.giq.scrollToPosition(0);
+        if (this.glz != null) {
+            this.glz.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.ah
-    public void baE() {
-        if (this.eiv != null) {
+    public void baZ() {
+        if (this.ejj != null) {
             scrollToTop();
-            this.eiv.setRefreshing(true);
+            this.ejj.setRefreshing(true);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
         if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-            ay(2, "4");
+            aE(2, "4");
         } else {
-            ay(2, "5");
+            aE(2, "5");
         }
     }
 
-    private void ay(int i, String str) {
+    private void aE(int i, String str) {
         TiebaStatic.log(new com.baidu.tbadk.core.util.an("c13008").cp("fid", this.forumId).cp("obj_type", str).Z("obj_locate", i).cp("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 

@@ -17,14 +17,14 @@ import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrange
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushActivityConfig;
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushInfo;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
-    private View.OnClickListener aqZ;
-    private MsgSettingItemView jPd;
-    private MsgSettingItemView jPe;
-    private MsgSettingItemView jPf;
-    private TbSettingTextTipView jPg;
-    private MsgReceiveActivity jPh;
+    private View.OnClickListener arL;
+    private MsgSettingItemView jSG;
+    private MsgSettingItemView jSH;
+    private MsgSettingItemView jSI;
+    private TbSettingTextTipView jSJ;
+    private MsgReceiveActivity jSK;
     private ArrayList<OfficialAccountPushInfo> list;
     private View mBack;
     private NavigationBar mNavigationBar;
@@ -32,83 +32,83 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
 
     public f(MsgReceiveActivity msgReceiveActivity) {
         super(msgReceiveActivity.getPageContext());
-        this.aqZ = new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.f.1
+        this.arL = new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && view == f.this.jPg) {
+                if (view != null && view == f.this.jSJ) {
                     TiebaStatic.log(new an("c13287").cp("uid", TbadkCoreApplication.getCurrentAccount()));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialAccountPushActivityConfig(f.this.jPh, f.this.getList())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new OfficialAccountPushActivityConfig(f.this.jSK, f.this.getList())));
                 }
             }
         };
-        this.jPh = msgReceiveActivity;
+        this.jSK = msgReceiveActivity;
     }
 
     public void init() {
-        if (this.jPh != null) {
+        if (this.jSK != null) {
             initUI();
         }
     }
 
     private void initUI() {
-        if (this.jPh != null) {
-            this.jPh.setContentView(R.layout.msg_receive_activity);
-            this.mRootView = (ViewGroup) this.jPh.findViewById(R.id.msg_receive_root_view);
-            this.mNavigationBar = (NavigationBar) this.jPh.findViewById(R.id.navigation_bar_msg_receive);
-            this.mNavigationBar.setCenterTextTitle(this.jPh.getPageContext().getString(R.string.receive_message));
+        if (this.jSK != null) {
+            this.jSK.setContentView(R.layout.msg_receive_activity);
+            this.mRootView = (ViewGroup) this.jSK.findViewById(R.id.msg_receive_root_view);
+            this.mNavigationBar = (NavigationBar) this.jSK.findViewById(R.id.navigation_bar_msg_receive);
+            this.mNavigationBar.setCenterTextTitle(this.jSK.getPageContext().getString(R.string.receive_message));
             this.mNavigationBar.showBottomLine();
             this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.jPd = (MsgSettingItemView) this.jPh.findViewById(R.id.item_view_friend_msg);
-            this.jPd.setText(R.string.friend_msg_switch);
-            this.jPd.setOnSwitchStateChangeListener(this.jPh);
-            this.jPe = (MsgSettingItemView) this.jPh.findViewById(R.id.item_view_stranger_msg);
-            this.jPe.setText(R.string.stranger_msg_switch);
-            this.jPe.setOnSwitchStateChangeListener(this.jPh);
-            this.jPe.setLineVisibility(false);
-            cDy();
-            this.jPf = (MsgSettingItemView) this.jPh.findViewById(R.id.item_view_forum_broadcast_msg);
-            this.jPf.setText(R.string.receive_forum_broadcast_message);
-            this.jPf.setOnSwitchStateChangeListener(this.jPh);
-            this.jPf.setLineVisibility(false);
-            cDz();
-            this.jPg = (TbSettingTextTipView) this.jPh.findViewById(R.id.item_view_offical_account_push_msg);
-            this.jPg.setOnClickListener(this.aqZ);
+            this.jSG = (MsgSettingItemView) this.jSK.findViewById(R.id.item_view_friend_msg);
+            this.jSG.setText(R.string.friend_msg_switch);
+            this.jSG.setOnSwitchStateChangeListener(this.jSK);
+            this.jSH = (MsgSettingItemView) this.jSK.findViewById(R.id.item_view_stranger_msg);
+            this.jSH.setText(R.string.stranger_msg_switch);
+            this.jSH.setOnSwitchStateChangeListener(this.jSK);
+            this.jSH.setLineVisibility(false);
+            cEC();
+            this.jSI = (MsgSettingItemView) this.jSK.findViewById(R.id.item_view_forum_broadcast_msg);
+            this.jSI.setText(R.string.receive_forum_broadcast_message);
+            this.jSI.setOnSwitchStateChangeListener(this.jSK);
+            this.jSI.setLineVisibility(false);
+            cED();
+            this.jSJ = (TbSettingTextTipView) this.jSK.findViewById(R.id.item_view_offical_account_push_msg);
+            this.jSJ.setOnClickListener(this.arL);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cDy() {
-        if (this.jPd == null || this.jPe == null) {
+    private void cEC() {
+        if (this.jSG == null || this.jSH == null) {
             return;
         }
         switch (GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE) {
             case 0:
                 return;
             case 1:
-                this.jPd.getSwitchView().turnOnNoCallback();
-                this.jPd.setLineVisibility(true);
-                this.jPe.getSwitchView().turnOffNoCallback();
+                this.jSG.getSwitchView().turnOnNoCallback();
+                this.jSG.setLineVisibility(true);
+                this.jSH.getSwitchView().turnOffNoCallback();
                 return;
             default:
-                this.jPd.getSwitchView().turnOffNoCallback();
-                this.jPd.setLineVisibility(false);
-                this.jPe.setVisibility(8);
-                this.jPe.getSwitchView().turnOffNoCallback();
+                this.jSG.getSwitchView().turnOffNoCallback();
+                this.jSG.setLineVisibility(false);
+                this.jSH.setVisibility(8);
+                this.jSH.getSwitchView().turnOffNoCallback();
                 return;
         }
     }
 
-    private void cDz() {
-        if (this.jPf != null) {
-            this.jPf.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIw().aIQ());
+    private void cED() {
+        if (this.jSI != null) {
+            this.jSI.setSwitchStateNoCallback(com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().aJk());
         }
     }
 
-    public void rZ(boolean z) {
+    public void sl(boolean z) {
         if (z) {
-            this.jPe.setVisibility(0);
+            this.jSH.setVisibility(0);
         } else {
-            this.jPe.setVisibility(8);
+            this.jSH.setVisibility(8);
         }
     }
 
@@ -118,31 +118,31 @@ public class f extends com.baidu.adp.base.c<MsgReceiveActivity> {
     /* JADX WARN: Multi-variable type inference failed */
     public void onChangeSkinType(int i) {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_c, i);
-        this.mNavigationBar.onChangeSkinType(this.jPh.getPageContext(), i);
-        this.jPd.onChangeSkinType(this.jPh.getPageContext(), i);
-        this.jPe.onChangeSkinType(this.jPh.getPageContext(), i);
-        this.jPf.onChangeSkinType(this.jPh.getPageContext(), i);
-        this.jPg.onChangeSkinType(i);
+        this.mNavigationBar.onChangeSkinType(this.jSK.getPageContext(), i);
+        this.jSG.onChangeSkinType(this.jSK.getPageContext(), i);
+        this.jSH.onChangeSkinType(this.jSK.getPageContext(), i);
+        this.jSI.onChangeSkinType(this.jSK.getPageContext(), i);
+        this.jSJ.onChangeSkinType(i);
     }
 
-    public View bTQ() {
+    public View bUZ() {
         return this.mBack;
     }
 
-    public BdSwitchView cDA() {
-        return this.jPd.getSwitchView();
+    public BdSwitchView cEE() {
+        return this.jSG.getSwitchView();
     }
 
-    public BdSwitchView cDB() {
-        return this.jPe.getSwitchView();
+    public BdSwitchView cEF() {
+        return this.jSH.getSwitchView();
     }
 
-    public BdSwitchView cDC() {
-        return this.jPf.getSwitchView();
+    public BdSwitchView cEG() {
+        return this.jSI.getSwitchView();
     }
 
-    public void sa(boolean z) {
-        this.jPd.setLineVisibility(z);
+    public void sm(boolean z) {
+        this.jSG.setLineVisibility(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

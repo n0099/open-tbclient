@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.utils;
 
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MD5 {
     private static final char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 

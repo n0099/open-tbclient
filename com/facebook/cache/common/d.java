@@ -2,16 +2,16 @@ package com.facebook.cache.common;
 
 import android.net.Uri;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d implements b {
-    final List<b> lCL;
+    final List<b> lGj;
 
     public List<b> getCacheKeys() {
-        return this.lCL;
+        return this.lGj;
     }
 
     public String toString() {
-        return "MultiCacheKey:" + this.lCL.toString();
+        return "MultiCacheKey:" + this.lGj.toString();
     }
 
     public boolean equals(Object obj) {
@@ -19,20 +19,20 @@ public class d implements b {
             return true;
         }
         if (obj instanceof d) {
-            return this.lCL.equals(((d) obj).lCL);
+            return this.lGj.equals(((d) obj).lGj);
         }
         return false;
     }
 
     @Override // com.facebook.cache.common.b
     public int hashCode() {
-        return this.lCL.hashCode();
+        return this.lGj.hashCode();
     }
 
     @Override // com.facebook.cache.common.b
     public boolean z(Uri uri) {
-        for (int i = 0; i < this.lCL.size(); i++) {
-            if (this.lCL.get(i).z(uri)) {
+        for (int i = 0; i < this.lGj.size(); i++) {
+            if (this.lGj.get(i).z(uri)) {
                 return true;
             }
         }
@@ -40,7 +40,7 @@ public class d implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public String dhC() {
-        return this.lCL.get(0).dhC();
+    public String diD() {
+        return this.lGj.get(0).diD();
     }
 }

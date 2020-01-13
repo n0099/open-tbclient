@@ -10,71 +10,71 @@ import com.baidu.swan.apps.setting.oauth.OAuthException;
 import okhttp3.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends g<d> {
-    protected com.baidu.swan.apps.setting.oauth.e bMV;
-    protected boolean bOZ;
-    protected final String bPa;
+    protected com.baidu.swan.apps.setting.oauth.e bNF;
+    protected boolean bPJ;
+    protected final String bPK;
     @NonNull
-    protected final String[] bPc;
-    protected boolean bPd;
-    protected final boolean bPf;
+    protected final String[] bPM;
+    protected boolean bPN;
+    protected final boolean bPP;
     protected final Context mContext;
-    protected boolean bPe = false;
-    private boolean bPg = false;
+    protected boolean bPO = false;
+    private boolean bPQ = false;
 
     public b(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3) {
         this.mContext = context;
-        this.bPd = z;
-        this.bPc = strArr == null ? new String[0] : strArr;
-        this.bPa = str;
-        this.bOZ = z2;
-        this.bPf = z3;
+        this.bPN = z;
+        this.bPM = strArr == null ? new String[0] : strArr;
+        this.bPK = str;
+        this.bPJ = z2;
+        this.bPP = z3;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean abs() {
-        a(new C0284b());
-        return super.abs();
+    protected boolean abP() {
+        a(new C0286b());
+        return super.abP();
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean abt() {
+    protected boolean abQ() {
         String[] strArr;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", aao().id);
+            jSONObject.put("ma_id", aaL().id);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", aao().getAppKey());
+            jSONObject2.put("app_key", aaL().getAppKey());
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String Fp = com.baidu.swan.apps.w.a.Rw().Fp();
-            if (!TextUtils.isEmpty(Fp)) {
-                jSONObject2.put("host_api_key", Fp);
+            String FL = com.baidu.swan.apps.w.a.RS().FL();
+            if (!TextUtils.isEmpty(FL)) {
+                jSONObject2.put("host_api_key", FL);
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            for (String str : this.bPc) {
+            for (String str : this.bPM) {
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("permit", Boolean.toString(this.bOZ));
+                jSONObject4.put("permit", Boolean.toString(this.bPJ));
                 jSONObject3.put(str, jSONObject4);
             }
             jSONObject.put("accredits", jSONObject3);
-            if (!TextUtils.isEmpty(this.bPa)) {
-                jSONObject.put("provider_appkey", this.bPa);
+            if (!TextUtils.isEmpty(this.bPK)) {
+                jSONObject.put("provider_appkey", this.bPK);
             }
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        bb("data", jSONObject.toString());
+        bc("data", jSONObject.toString());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.w.a.Rw().f(this.mContext, gVar.abO());
+        return com.baidu.swan.apps.w.a.RS().f(this.mContext, gVar.acl());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -92,36 +92,36 @@ public class b extends g<d> {
         if (jSONObject2 != null) {
             str = jSONObject2.optString("code", "");
         }
-        return new d(this.bOZ, str);
+        return new d(this.bPJ, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.g
-    public void abL() {
-        super.abL();
-        if (this.bPg) {
+    public void aci() {
+        super.aci();
+        if (this.bPQ) {
             k(new OAuthException(10003));
-            this.bPg = false;
+            this.bPQ = false;
         }
-        if (TextUtils.isEmpty(this.bPa)) {
-            com.baidu.swan.apps.network.c.b.a.Wz();
+        if (TextUtils.isEmpty(this.bPK)) {
+            com.baidu.swan.apps.network.c.b.a.WW();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.setting.oauth.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public class C0284b extends com.baidu.swan.apps.setting.oauth.d {
-        private C0284b() {
+    /* loaded from: classes10.dex */
+    public class C0286b extends com.baidu.swan.apps.setting.oauth.d {
+        private C0286b() {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aby() throws Exception {
-            if (b.this.bPc == null || b.this.bPc.length > 1) {
-                abA();
+        protected boolean abV() throws Exception {
+            if (b.this.bPM == null || b.this.bPM.length > 1) {
+                abX();
                 return true;
             }
-            com.baidu.swan.apps.network.c.b.a.a(b.this.bPc[0], new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.setting.oauth.a.b.b.1
+            com.baidu.swan.apps.network.c.b.a.a(b.this.bPM[0], new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.setting.oauth.a.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: c */
@@ -129,17 +129,17 @@ public class b extends g<d> {
                     if (com.baidu.swan.apps.setting.oauth.b.DEBUG) {
                         Log.i("aiapps-oauth", "ListPreparation result: " + (eVar == null ? "null" : eVar));
                     }
-                    b.this.bMV = eVar;
+                    b.this.bNF = eVar;
                     if (eVar == null) {
-                        C0284b.this.l(new Exception("no such scope"));
+                        C0286b.this.l(new Exception("no such scope"));
                         return;
                     }
-                    if (eVar.abD() && !b.this.bPe) {
+                    if (eVar.aca() && !b.this.bPO) {
                         b.this.a(new c());
                     } else {
                         b.this.a(new a());
                     }
-                    C0284b.this.abA();
+                    C0286b.this.abX();
                 }
             });
             return false;
@@ -147,21 +147,21 @@ public class b extends g<d> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c extends com.baidu.swan.apps.setting.oauth.d implements com.baidu.swan.apps.a.a {
         private c() {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aby() throws Exception {
-            b.this.bPe = true;
-            if (b.this.aao().aad().isLogin(b.this.mContext)) {
+        protected boolean abV() throws Exception {
+            b.this.bPO = true;
+            if (b.this.aaL().aaA().isLogin(b.this.mContext)) {
                 com.baidu.swan.apps.setting.oauth.c.c("LoginPreparation: isLogin true", false);
-                b.this.a(new C0284b());
+                b.this.a(new C0286b());
                 return true;
             }
-            com.baidu.swan.apps.runtime.e aao = b.this.aao();
-            if (aao.GS()) {
+            com.baidu.swan.apps.runtime.e aaL = b.this.aaL();
+            if (aaL.Ho()) {
                 com.baidu.swan.apps.setting.oauth.c.c("this operation does not supported when app is invisible.", true);
                 l(new OAuthException(10004));
                 return true;
@@ -170,7 +170,7 @@ public class b extends g<d> {
                 l(new OAuthException(10004));
                 return true;
             } else {
-                aao.aad().a((Activity) b.this.mContext, null, this);
+                aaL.aaA().a((Activity) b.this.mContext, null, this);
                 return false;
             }
         }
@@ -190,21 +190,21 @@ public class b extends g<d> {
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.c("Login Preparation ok, is already login", false);
-                    b.this.a(new C0284b());
-                    abA();
+                    b.this.a(new C0286b());
+                    abX();
                     return;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends com.baidu.swan.apps.setting.oauth.d {
         public a() {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aby() throws Exception {
-            final com.baidu.swan.apps.setting.oauth.e eVar = b.this.bMV;
+        protected boolean abV() throws Exception {
+            final com.baidu.swan.apps.setting.oauth.e eVar = b.this.bNF;
             if (eVar == null) {
                 com.baidu.swan.apps.setting.oauth.c.c("Illegal ScopeInfo", true);
                 b.this.k(new OAuthException(10001));
@@ -212,18 +212,18 @@ public class b extends g<d> {
             } else if (eVar.forbidden) {
                 b.this.k(new OAuthException(10005));
                 return true;
-            } else if (b.this.bPf || !b.this.bOZ) {
+            } else if (b.this.bPP || !b.this.bPJ) {
                 return true;
             } else {
-                if (!b.this.bPd && eVar.bOA < 0) {
+                if (!b.this.bPN && eVar.bPk < 0) {
                     b.this.L(new d(false, null));
                     b.this.k(new OAuthException(10005));
                     return true;
-                } else if (eVar.bOA > 0) {
+                } else if (eVar.bPk > 0) {
                     b.this.L(new d(true, null));
                     b.this.finish();
                     return true;
-                } else if (b.this.aao().GS()) {
+                } else if (b.this.aaL().Ho()) {
                     com.baidu.swan.apps.setting.oauth.c.c("this operation does not supported when app is invisible.", true);
                     b.this.k(new OAuthException(10005));
                     return true;
@@ -236,12 +236,12 @@ public class b extends g<d> {
                         @Override // java.lang.Runnable
                         public void run() {
                             if ((b.this.mContext instanceof Activity) && !((Activity) b.this.mContext).isFinishing()) {
-                                com.baidu.swan.apps.setting.oauth.c.a(b.this.mContext, b.this.aao(), eVar, null, new com.baidu.swan.apps.setting.oauth.a() { // from class: com.baidu.swan.apps.setting.oauth.a.b.a.1.1
+                                com.baidu.swan.apps.setting.oauth.c.a(b.this.mContext, b.this.aaL(), eVar, null, new com.baidu.swan.apps.setting.oauth.a() { // from class: com.baidu.swan.apps.setting.oauth.a.b.a.1.1
                                     @Override // com.baidu.swan.apps.setting.oauth.a
                                     public void onResult(boolean z) {
-                                        b.this.bOZ = z;
-                                        b.this.bPg = !z;
-                                        a.this.abA();
+                                        b.this.bPJ = z;
+                                        b.this.bPQ = !z;
+                                        a.this.abX();
                                     }
                                 });
                             }
@@ -253,18 +253,18 @@ public class b extends g<d> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class d {
-        public final boolean bOw;
+        public final boolean bPg;
         public final String code;
 
         public d(boolean z, String str) {
             this.code = str == null ? "" : str;
-            this.bOw = z;
+            this.bPg = z;
         }
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.bOw), this.code);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.bPg), this.code);
         }
     }
 }

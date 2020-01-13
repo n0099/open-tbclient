@@ -4,57 +4,57 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel inI;
+    private MarkModel irm;
 
     public b(BaseActivity baseActivity) {
-        this.inI = null;
-        this.inI = new MarkModel(baseActivity);
+        this.irm = null;
+        this.irm = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.inI = null;
-        this.inI = new MarkModel(baseFragmentActivity);
+        this.irm = null;
+        this.irm = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void fa(boolean z) {
-        this.inI.fa(z);
+    public void ff(boolean z) {
+        this.irm.ff(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String awc() {
-        return this.inI.awc();
+    public String awv() {
+        return this.irm.awv();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0362a interfaceC0362a) {
-        this.inI.a(interfaceC0362a);
+    public void a(a.InterfaceC0364a interfaceC0364a) {
+        this.irm.a(interfaceC0364a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void awe() {
-        this.inI.awe();
+    public void awx() {
+        this.irm.awx();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void awf() {
-        this.inI.awf();
+    public void awy() {
+        this.irm.awy();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData awg() {
-        return this.inI.awg();
+    public MarkData awz() {
+        return this.irm.awz();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.inI.a(markData);
+        this.irm.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean awd() {
-        return this.inI.awd();
+    public boolean aww() {
+        return this.irm.aww();
     }
 }

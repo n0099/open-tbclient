@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static a a = null;
     private d b;

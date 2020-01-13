@@ -4,11 +4,11 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class j extends c {
     private byte[] data;
     private int limit;
-    private volatile boolean mns;
+    private volatile boolean mrh;
 
     protected abstract void z(byte[] bArr, int i) throws IOException;
 
@@ -17,47 +17,47 @@ public abstract class j extends c {
         this.data = bArr;
     }
 
-    public byte[] dut() {
+    public byte[] dvE() {
         return this.data;
     }
 
     @Override // com.google.android.exoplayer2.source.a.c
-    public long dum() {
+    public long dvx() {
         return this.limit;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void cancelLoad() {
-        this.mns = true;
+        this.mrh = true;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
-    public final boolean dtU() {
-        return this.mns;
+    public final boolean dvf() {
+        return this.mrh;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
     public final void load() throws IOException, InterruptedException {
         int i = 0;
         try {
-            this.lZr.a(this.dataSpec);
+            this.mdj.a(this.dataSpec);
             this.limit = 0;
-            while (i != -1 && !this.mns) {
-                duu();
-                i = this.lZr.read(this.data, this.limit, 16384);
+            while (i != -1 && !this.mrh) {
+                dvF();
+                i = this.mdj.read(this.data, this.limit, 16384);
                 if (i != -1) {
                     this.limit += i;
                 }
             }
-            if (!this.mns) {
+            if (!this.mrh) {
                 z(this.data, this.limit);
             }
         } finally {
-            v.a(this.lZr);
+            v.a(this.mdj);
         }
     }
 
-    private void duu() {
+    private void dvF() {
         if (this.data == null) {
             this.data = new byte[16384];
         } else if (this.data.length < this.limit + 16384) {

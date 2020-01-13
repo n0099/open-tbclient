@@ -9,7 +9,7 @@ import com.baidu.searchbox.account.params.LoginParams;
 import com.baidu.searchbox.account.params.LogoutParams;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface BoxAccountManager {
     public static final int BOX_GET_ACCOUNT_CACHE_MODE = 10;
     public static final int BOX_GET_ACCOUNT_FORCE_MODE = 12;

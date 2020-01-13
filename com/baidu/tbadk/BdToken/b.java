@@ -12,108 +12,109 @@ import org.json.JSONObject;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class b {
-    private int cCP;
-    private int cCQ;
-    private long cCR;
-    private String cCS;
-    private int cCT;
-    private long cCU;
-    private String cCV;
-    private String cCW;
-    private String cCX;
-    private String cCY;
-    private long cCZ;
     private int cDa;
-    private long cDb;
-    private int[] cDc;
-    private long cDd;
-    private volatile int cDe;
-    private volatile int cDf;
-    private boolean cDg;
-    private int cDh;
-    public boolean cDi;
-    private final ArrayList<h> cDj;
+    private int cDb;
+    private long cDc;
+    private String cDd;
+    private int cDe;
+    private long cDf;
+    private String cDg;
+    private String cDh;
+    private String cDi;
+    private String cDj;
+    private long cDk;
+    private int cDl;
+    private long cDm;
+    private int[] cDn;
+    private long cDo;
+    private volatile int cDp;
+    private volatile int cDq;
+    private boolean cDr;
+    private int cDs;
+    public boolean cDt;
+    private final ArrayList<h> cDu;
     private int mCallType;
     private long mFid;
     private String mSource;
     private volatile int mTag;
     private int mTaskType;
     private int mThreadNum;
+    private String mToken;
     public static String ACTIVITY_ID = "activityid";
-    public static String cCl = "missionid";
-    public static String cCm = "activitysource";
+    public static String cCw = "missionid";
+    public static String cCx = "activitysource";
     public static String SOURCE = "source";
-    public static String cCn = "tab";
-    public static String cCo = "calltype";
-    public static String cCp = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
-    public static String cCq = "browsetimepage";
-    public static String cCr = "browsetime";
-    public static String cCs = "threadnum";
-    public static String cCt = "forumnum";
-    public static String cCu = "cleartype";
-    public static String cCv = "cleartime";
+    public static String cCy = "tab";
+    public static String cCz = "calltype";
+    public static String cCA = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
+    public static String cCB = "browsetimepage";
+    public static String cCC = "browsetime";
+    public static String cCD = "threadnum";
+    public static String cCE = "forumnum";
+    public static String cCF = "cleartype";
+    public static String cCG = "cleartime";
     public static String TID = "tid";
     public static String FID = "fid";
-    public static String cCw = "threadtext";
-    public static String cCx = "threadimg";
-    public static String cCy = "threadforum";
-    public static String cCz = "total_limit";
-    public static int cCA = -1;
-    public static int cCB = 1;
-    public static int cCC = 2;
-    public static int cCD = 3;
-    public static int cCE = 4;
-    public static int cCF = 5;
-    public static int cCG = 6;
-    public static int cCH = 7;
-    public static int cCI = 8;
-    public static int cCJ = 9;
-    public static int cCK = -1;
-    public static int cCL = 0;
+    public static String cCH = "threadtext";
+    public static String cCI = "threadimg";
+    public static String cCJ = "threadforum";
+    public static String cCK = "total_limit";
+    public static int cCL = -1;
     public static int cCM = 1;
     public static int cCN = 2;
     public static int cCO = 3;
+    public static int cCP = 4;
+    public static int cCQ = 5;
+    public static int cCR = 6;
+    public static int cCS = 7;
+    public static int cCT = 8;
+    public static int cCU = 9;
+    public static int cCV = -1;
+    public static int cCW = 0;
+    public static int cCX = 1;
+    public static int cCY = 2;
+    public static int cCZ = 3;
 
     public void reset() {
-        this.cDj.clear();
-        this.cDe = 0;
-        this.cDf = 0;
+        this.cDu.clear();
+        this.cDp = 0;
+        this.cDq = 0;
         this.mTag = 0;
     }
 
     public void a(h hVar) {
         if (this.mTaskType == 7 && (hVar instanceof k)) {
-            if (!this.cDj.contains(hVar)) {
-                this.cDj.add(hVar);
+            if (!this.cDu.contains(hVar)) {
+                this.cDu.add(hVar);
             }
         } else if (this.mTaskType == 1 && (hVar instanceof m)) {
-            if (!this.cDj.contains(hVar)) {
-                this.cDj.add(hVar);
+            if (!this.cDu.contains(hVar)) {
+                this.cDu.add(hVar);
             }
         } else if (this.mTaskType == 2 && (hVar instanceof j)) {
-            if (!this.cDj.contains(hVar)) {
-                this.cDj.add(hVar);
+            if (!this.cDu.contains(hVar)) {
+                this.cDu.add(hVar);
             }
         } else if (this.mTaskType == 4 && (hVar instanceof i)) {
-            if (!this.cDj.contains(hVar)) {
-                this.cDj.add(hVar);
+            if (!this.cDu.contains(hVar)) {
+                this.cDu.add(hVar);
             }
-        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.cDj.contains(hVar)) {
-            this.cDj.add(hVar);
+        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.cDu.contains(hVar)) {
+            this.cDu.add(hVar);
         }
     }
 
-    public ArrayList<h> aup() {
-        return this.cDj;
+    public ArrayList<h> auI() {
+        return this.cDu;
     }
 
-    public int auq() {
+    public int auJ() {
         int i;
-        int size = this.cDj.size();
+        int size = this.cDu.size();
         int i2 = 0;
         int i3 = 0;
         while (i2 < size) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.cDj, i2);
+            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.cDu, i2);
             if (hVar instanceof k) {
                 i = ((k) hVar).getTag() == getTag() ? i3 + 1 : i3;
             } else {
@@ -141,19 +142,19 @@ public class b {
         return ((j) hVar).getFid();
     }
 
-    public void aur() {
-        int size = this.cDj.size();
+    public void auK() {
+        int size = this.cDu.size();
         for (int i = 0; i < size; i++) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.cDj, i);
+            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.cDu, i);
             if (hVar != null) {
-                hVar.eX(true);
+                hVar.fc(true);
             }
         }
     }
 
-    public boolean bg(long j) {
-        for (int i = 0; i < this.cDj.size(); i++) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.cDj, i);
+    public boolean bj(long j) {
+        for (int i = 0; i < this.cDu.size(); i++) {
+            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.cDu, i);
             if (hVar != null) {
                 long b = b(hVar);
                 if (b > 0 && b == j && hVar.aW()) {
@@ -164,7 +165,7 @@ public class b {
         return false;
     }
 
-    public void J(int i, String str) {
+    public void L(int i, String str) {
         try {
             JSONArray jSONArray = new JSONArray(str);
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -176,37 +177,37 @@ public class b {
                 if (i == 7) {
                     if (optLong > 0) {
                         k kVar = new k(this, optLong);
-                        kVar.eX(optBoolean);
-                        kVar.bl(optLong2);
+                        kVar.fc(optBoolean);
+                        kVar.bo(optLong2);
                         kVar.iS(optInt);
                         a(kVar);
                     }
                 } else if (i == 1) {
                     if (optLong > 0) {
                         m mVar = new m(this, optLong);
-                        mVar.eX(optBoolean);
-                        mVar.bl(optLong2);
+                        mVar.fc(optBoolean);
+                        mVar.bo(optLong2);
                         mVar.iS(optInt);
                         a(mVar);
                     }
                 } else if (i == 2) {
                     if (optLong > 0) {
                         j jVar = new j(this, optLong);
-                        jVar.eX(optBoolean);
-                        jVar.bl(optLong2);
+                        jVar.fc(optBoolean);
+                        jVar.bo(optLong2);
                         jVar.iS(optInt);
                         a(jVar);
                     }
                 } else if (i == 4) {
                     i iVar = new i(this);
-                    iVar.eX(optBoolean);
-                    iVar.bl(optLong2);
+                    iVar.fc(optBoolean);
+                    iVar.bo(optLong2);
                     iVar.iS(optInt);
                     a(iVar);
                 } else if (i == 8) {
                     l lVar = new l(this);
-                    lVar.eX(optBoolean);
-                    lVar.bl(optLong2);
+                    lVar.fc(optBoolean);
+                    lVar.bo(optLong2);
                     lVar.iS(optInt);
                     a(lVar);
                 }
@@ -216,15 +217,15 @@ public class b {
         }
     }
 
-    public String aus() {
+    public String auL() {
         try {
-            ArrayList<h> arrayList = this.cDj;
+            ArrayList<h> arrayList = this.cDu;
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < arrayList.size(); i++) {
                 h hVar = (h) com.baidu.tbadk.core.util.v.getItem(arrayList, i);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("i", b(hVar));
-                jSONObject.put("t", hVar.avn());
+                jSONObject.put("t", hVar.avG());
                 jSONObject.put("c", hVar.aW());
                 jSONObject.put(Config.APP_VERSION_CODE, hVar.getTag());
                 jSONArray.put(jSONObject);
@@ -237,58 +238,58 @@ public class b {
     }
 
     public b() {
-        this.cDa = cCK;
-        this.cDe = 0;
-        this.cDf = 0;
-        this.cDg = false;
-        this.cDh = 1;
+        this.cDl = cCV;
+        this.cDp = 0;
+        this.cDq = 0;
+        this.cDr = false;
+        this.cDs = 1;
         this.mTag = 0;
-        this.cDi = false;
-        this.cDj = new ArrayList<>();
+        this.cDt = false;
+        this.cDu = new ArrayList<>();
     }
 
     public b(String str) {
-        this.cDa = cCK;
-        this.cDe = 0;
-        this.cDf = 0;
-        this.cDg = false;
-        this.cDh = 1;
+        this.cDl = cCV;
+        this.cDp = 0;
+        this.cDq = 0;
+        this.cDr = false;
+        this.cDs = 1;
         this.mTag = 0;
-        this.cDi = false;
-        this.cDj = new ArrayList<>();
-        rb(str);
+        this.cDt = false;
+        this.cDu = new ArrayList<>();
+        re(str);
     }
 
-    public boolean rb(String str) {
+    public boolean re(String str) {
         if (aq.isEmpty(str)) {
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
-                this.cCP = jSONObject.optInt(ACTIVITY_ID);
-                this.cCQ = jSONObject.optInt(cCl);
-                this.cCV = jSONObject.optString(cCm);
+                this.cDa = jSONObject.optInt(ACTIVITY_ID);
+                this.cDb = jSONObject.optInt(cCw);
+                this.cDg = jSONObject.optString(cCx);
                 this.mSource = jSONObject.optString(SOURCE);
-                this.cCW = jSONObject.optString(cCn);
-                this.mCallType = jSONObject.optInt(cCo);
-                this.mTaskType = jSONObject.optInt(cCp);
-                this.cCS = jSONObject.optString(cCq);
-                this.cDc = rc(this.cCS);
-                this.cCR = jSONObject.optLong(cCr);
-                this.mThreadNum = jSONObject.optInt(cCs);
-                this.cCT = jSONObject.optInt(cCt);
-                this.cDa = jSONObject.optInt(cCu);
-                this.cDb = jSONObject.optLong(cCv);
-                this.cDd = auy();
-                this.cCU = jSONObject.optLong(TID);
+                this.cDh = jSONObject.optString(cCy);
+                this.mCallType = jSONObject.optInt(cCz);
+                this.mTaskType = jSONObject.optInt(cCA);
+                this.cDd = jSONObject.optString(cCB);
+                this.cDn = rf(this.cDd);
+                this.cDc = jSONObject.optLong(cCC);
+                this.mThreadNum = jSONObject.optInt(cCD);
+                this.cDe = jSONObject.optInt(cCE);
+                this.cDl = jSONObject.optInt(cCF);
+                this.cDm = jSONObject.optLong(cCG);
+                this.cDo = auR();
+                this.cDf = jSONObject.optLong(TID);
                 this.mFid = jSONObject.optLong(FID);
-                this.cCX = jSONObject.optString(cCw);
-                this.cCY = jSONObject.optString(cCx);
-                this.cCZ = jSONObject.optLong(cCy);
-                int optInt = jSONObject.optInt(cCz);
+                this.cDi = jSONObject.optString(cCH);
+                this.cDj = jSONObject.optString(cCI);
+                this.cDk = jSONObject.optLong(cCJ);
+                int optInt = jSONObject.optInt(cCK);
                 if (optInt > 0) {
-                    this.cDh = optInt;
+                    this.cDs = optInt;
                 }
                 return true;
             }
@@ -300,66 +301,66 @@ public class b {
     }
 
     public b(MissionInfo missionInfo) {
-        this.cDa = cCK;
-        this.cDe = 0;
-        this.cDf = 0;
-        this.cDg = false;
-        this.cDh = 1;
+        this.cDl = cCV;
+        this.cDp = 0;
+        this.cDq = 0;
+        this.cDr = false;
+        this.cDs = 1;
         this.mTag = 0;
-        this.cDi = false;
-        this.cDj = new ArrayList<>();
+        this.cDt = false;
+        this.cDu = new ArrayList<>();
         if (missionInfo != null) {
-            this.cCP = missionInfo.activityid.intValue();
-            this.cCQ = missionInfo.missionid.intValue();
+            this.cDa = missionInfo.activityid.intValue();
+            this.cDb = missionInfo.missionid.intValue();
             this.mTaskType = missionInfo.tasktype.intValue();
-            this.cDa = missionInfo.cleartype.intValue();
-            this.cDb = missionInfo.cleartime.intValue();
-            this.cDd = auy();
-            this.cCS = missionInfo.browsetimepage;
-            this.cDc = rc(this.cCS);
+            this.cDl = missionInfo.cleartype.intValue();
+            this.cDm = missionInfo.cleartime.intValue();
+            this.cDo = auR();
+            this.cDd = missionInfo.browsetimepage;
+            this.cDn = rf(this.cDd);
             if (missionInfo.threadnum.intValue() > 0) {
                 this.mThreadNum = missionInfo.threadnum.intValue();
             }
             if (missionInfo.browsetime.intValue() > 0) {
-                this.cCR = missionInfo.browsetime.intValue();
+                this.cDc = missionInfo.browsetime.intValue();
             }
             if (missionInfo.total_limit.intValue() > 0) {
-                this.cDh = missionInfo.total_limit.intValue();
+                this.cDs = missionInfo.total_limit.intValue();
             }
         }
     }
 
-    public boolean aut() {
-        return this.cCP > 0 && this.cCQ > 0 && this.mTaskType > 0 && this.cCR > 0;
+    public boolean auM() {
+        return this.cDa > 0 && this.cDb > 0 && this.mTaskType > 0 && this.cDc > 0;
     }
 
-    public synchronized int auu() {
+    public synchronized int auN() {
         int i;
-        i = this.cDf + 1;
-        this.cDf = i;
+        i = this.cDq + 1;
+        this.cDq = i;
         return i;
     }
 
-    public synchronized int auv() {
+    public synchronized int auO() {
         int i;
-        i = this.cDe + 1;
-        this.cDe = i;
+        i = this.cDp + 1;
+        this.cDp = i;
         return i;
     }
 
-    public synchronized int auw() {
+    public synchronized int auP() {
         int i;
         i = this.mTag + 1;
         this.mTag = i;
         return i;
     }
 
-    private int[] rc(String str) {
+    private int[] rf(String str) {
         if (this.mTaskType == 8) {
-            return new int[]{cCA};
+            return new int[]{cCL};
         }
         if (this.mTaskType == 7) {
-            return new int[]{cCB, cCI, cCJ};
+            return new int[]{cCM, cCT, cCU};
         }
         if (str == null) {
             return null;
@@ -375,34 +376,34 @@ public class b {
         return iArr;
     }
 
-    public boolean aux() {
-        return System.currentTimeMillis() > auK() * 1000;
+    public boolean auQ() {
+        return System.currentTimeMillis() > avd() * 1000;
     }
 
-    public long auy() {
-        if (this.cDa == cCK) {
+    public long auR() {
+        if (this.cDl == cCV) {
             return 0L;
         }
-        if (this.cDa == cCL) {
-            return (System.currentTimeMillis() / 1000) + this.cDb;
+        if (this.cDl == cCW) {
+            return (System.currentTimeMillis() / 1000) + this.cDm;
         }
-        if (this.cDa == cCM) {
-            long auz = (auz() / 1000) + this.cDb;
-            if (System.currentTimeMillis() > auz) {
-                return auz + 86400;
+        if (this.cDl == cCX) {
+            long auS = (auS() / 1000) + this.cDm;
+            if (System.currentTimeMillis() > auS) {
+                return auS + 86400;
             }
-            return auz;
-        } else if (this.cDa == cCN) {
-            return l((int) this.cDb, iL(4)) / 1000;
+            return auS;
+        } else if (this.cDl == cCY) {
+            return l((int) this.cDm, iL(4)) / 1000;
         } else {
-            if (this.cDa == cCO) {
-                return this.cDb / 1000;
+            if (this.cDl == cCZ) {
+                return this.cDm / 1000;
             }
             return 0L;
         }
     }
 
-    private long auz() {
+    private long auS() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, 0);
         calendar.set(12, 0);
@@ -412,13 +413,13 @@ public class b {
     }
 
     private long iL(int i) {
-        long auz = auz();
+        long auS = auS();
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, i);
         calendar.set(12, 0);
         calendar.set(13, 0);
         calendar.set(14, 0);
-        return calendar.getTimeInMillis() - auz;
+        return calendar.getTimeInMillis() - auS;
     }
 
     private long l(int i, long j) {
@@ -461,38 +462,38 @@ public class b {
     }
 
     public int getActivityId() {
-        return this.cCP;
+        return this.cDa;
     }
 
     public void setActivityId(int i) {
-        this.cCP = i;
+        this.cDa = i;
     }
 
-    public int auA() {
-        return this.cCQ;
+    public int auT() {
+        return this.cDb;
     }
 
     public void iM(int i) {
-        this.cCQ = i;
+        this.cDb = i;
     }
 
-    public String auB() {
-        return this.cCV;
+    public String auU() {
+        return this.cDg;
     }
 
-    public void rd(String str) {
-        this.cCV = str;
+    public void rg(String str) {
+        this.cDg = str;
     }
 
-    public String auC() {
-        return this.cCW;
+    public String auV() {
+        return this.cDh;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public int auD() {
+    public int auW() {
         return this.mCallType;
     }
 
@@ -508,25 +509,25 @@ public class b {
         this.mTaskType = i;
     }
 
-    public String auE() {
-        return this.cCS;
+    public String auX() {
+        return this.cDd;
     }
 
-    public void re(String str) {
-        this.cCS = str;
-        this.cDc = rc(str);
+    public void rh(String str) {
+        this.cDd = str;
+        this.cDn = rf(str);
     }
 
-    public int[] auF() {
+    public int[] auY() {
+        return this.cDn;
+    }
+
+    public long auZ() {
         return this.cDc;
     }
 
-    public long auG() {
-        return this.cCR;
-    }
-
-    public void bh(long j) {
-        this.cCR = j;
+    public void bk(long j) {
+        this.cDc = j;
     }
 
     public int getThreadNum() {
@@ -537,44 +538,44 @@ public class b {
         this.mThreadNum = i;
     }
 
-    public int auH() {
-        return this.cCT;
+    public int ava() {
+        return this.cDe;
     }
 
     public void iP(int i) {
-        this.cCT = i;
+        this.cDe = i;
     }
 
-    public int auI() {
-        return this.cDa;
+    public int avb() {
+        return this.cDl;
     }
 
     public void iQ(int i) {
-        this.cDa = i;
+        this.cDl = i;
     }
 
-    public long auJ() {
-        return this.cDb;
+    public long avc() {
+        return this.cDm;
     }
 
-    public void bi(long j) {
-        this.cDb = j;
+    public void bl(long j) {
+        this.cDm = j;
     }
 
-    public long auK() {
-        return this.cDd;
+    public long avd() {
+        return this.cDo;
     }
 
-    public void bj(long j) {
-        this.cDd = j;
+    public void bm(long j) {
+        this.cDo = j;
     }
 
     public long getTid() {
-        return this.cCU;
+        return this.cDf;
     }
 
     public void setTid(long j) {
-        this.cCU = j;
+        this.cDf = j;
     }
 
     public long getFid() {
@@ -585,36 +586,36 @@ public class b {
         this.mFid = j;
     }
 
-    public String auL() {
-        return this.cCX;
+    public String ave() {
+        return this.cDi;
     }
 
-    public void rf(String str) {
-        this.cCX = str;
+    public void ri(String str) {
+        this.cDi = str;
     }
 
-    public String auM() {
-        return this.cCY;
+    public String avf() {
+        return this.cDj;
     }
 
-    public void rg(String str) {
-        this.cCY = str;
+    public void rj(String str) {
+        this.cDj = str;
     }
 
-    public long auN() {
-        return this.cCZ;
+    public long avg() {
+        return this.cDk;
     }
 
-    public void bk(long j) {
-        this.cCZ = j;
+    public void bn(long j) {
+        this.cDk = j;
     }
 
-    public int auO() {
-        return this.cDh;
+    public int avh() {
+        return this.cDs;
     }
 
     public void iR(int i) {
-        this.cDh = i;
+        this.cDs = i;
     }
 
     public void iS(int i) {
@@ -625,11 +626,19 @@ public class b {
         return this.mTag;
     }
 
-    public boolean auP() {
-        return this.cDg;
+    public boolean avi() {
+        return this.cDr;
     }
 
-    public void eW(boolean z) {
-        this.cDg = z;
+    public void fb(boolean z) {
+        this.cDr = z;
+    }
+
+    public String getToken() {
+        return this.mToken;
+    }
+
+    public void setToken(String str) {
+        this.mToken = str;
     }
 }

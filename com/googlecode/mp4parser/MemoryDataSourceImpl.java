@@ -4,7 +4,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MemoryDataSourceImpl implements DataSource {
     ByteBuffer data;
 

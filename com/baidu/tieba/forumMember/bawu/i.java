@@ -1,5 +1,5 @@
 package com.baidu.tieba.forumMember.bawu;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface i {
-    int bzH();
+    int bAJ();
 }

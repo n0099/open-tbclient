@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class x {
-    private static x jsf = null;
-    private LinkedHashMap<String, Integer> jsg = new LinkedHashMap<>(150, 0.75f, true);
+    private static x jvG = null;
+    private LinkedHashMap<String, Integer> jvH = new LinkedHashMap<>(150, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.play.x.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                x.this.jsg.clear();
+                x.this.jvH.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class x {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static x cwN() {
-        if (jsf == null) {
+    public static x cxU() {
+        if (jvG == null) {
             synchronized (x.class) {
-                if (jsf == null) {
-                    jsf = new x();
+                if (jvG == null) {
+                    jvG = new x();
                 }
             }
         }
-        return jsf;
+        return jvG;
     }
 
-    public void bm(String str, int i) {
-        if (i != 0 || !this.jsg.containsKey(str)) {
-            this.jsg.put(str, Integer.valueOf(i));
+    public void bn(String str, int i) {
+        if (i != 0 || !this.jvH.containsKey(str)) {
+            this.jvH.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.jsg.remove(str);
+            this.jvH.remove(str);
         }
     }
 
-    public int GF(String str) {
-        Integer num = this.jsg.get(str);
+    public int GP(String str) {
+        Integer num = this.jvH.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class x {
     }
 
     public void clear() {
-        this.jsg.clear();
+        this.jvH.clear();
     }
 }

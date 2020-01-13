@@ -6,65 +6,65 @@ import com.facebook.common.internal.k;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
-    private final j<Boolean> lFA;
     @Nullable
-    private final ImmutableList<com.facebook.imagepipeline.f.a> lFy;
+    private final ImmutableList<com.facebook.imagepipeline.f.a> lIW;
     @Nullable
-    private final g lFz;
+    private final g lIX;
+    private final j<Boolean> lIY;
 
     private b(a aVar) {
         ImmutableList<com.facebook.imagepipeline.f.a> immutableList;
         j<Boolean> aS;
-        if (aVar.lFB == null) {
+        if (aVar.lIZ == null) {
             immutableList = null;
         } else {
-            immutableList = ImmutableList.copyOf(aVar.lFB);
+            immutableList = ImmutableList.copyOf(aVar.lIZ);
         }
-        this.lFy = immutableList;
-        if (aVar.lFA == null) {
+        this.lIW = immutableList;
+        if (aVar.lIY == null) {
             aS = k.aS(false);
         } else {
-            aS = aVar.lFA;
+            aS = aVar.lIY;
         }
-        this.lFA = aS;
-        this.lFz = aVar.lFz;
+        this.lIY = aS;
+        this.lIX = aVar.lIX;
     }
 
     @Nullable
-    public ImmutableList<com.facebook.imagepipeline.f.a> djb() {
-        return this.lFy;
+    public ImmutableList<com.facebook.imagepipeline.f.a> dkc() {
+        return this.lIW;
     }
 
     @Nullable
-    public g djc() {
-        return this.lFz;
+    public g dkd() {
+        return this.lIX;
     }
 
-    public static a djd() {
+    public static a dke() {
         return new a();
     }
 
-    public j<Boolean> dje() {
-        return this.lFA;
+    public j<Boolean> dkf() {
+        return this.lIY;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
-        private j<Boolean> lFA;
-        private List<com.facebook.imagepipeline.f.a> lFB;
-        private g lFz;
+        private g lIX;
+        private j<Boolean> lIY;
+        private List<com.facebook.imagepipeline.f.a> lIZ;
 
         public a a(com.facebook.imagepipeline.f.a aVar) {
-            if (this.lFB == null) {
-                this.lFB = new ArrayList();
+            if (this.lIZ == null) {
+                this.lIZ = new ArrayList();
             }
-            this.lFB.add(aVar);
+            this.lIZ.add(aVar);
             return this;
         }
 
-        public b djf() {
+        public b dkg() {
             return new b(this);
         }
     }

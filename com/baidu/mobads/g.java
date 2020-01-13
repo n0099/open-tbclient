@@ -1,9 +1,9 @@
 package com.baidu.mobads;
 
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
-    private static g aKf;
+    private static g aKX;
     private static HashMap<String, String> b = new HashMap<>();
 
     private g() {
@@ -12,10 +12,10 @@ public class g {
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (aKf == null) {
-                aKf = new g();
+            if (aKX == null) {
+                aKX = new g();
             }
-            gVar = aKf;
+            gVar = aKX;
         }
         return gVar;
     }

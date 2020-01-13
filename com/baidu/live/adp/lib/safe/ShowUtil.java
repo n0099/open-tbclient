@@ -9,6 +9,8 @@ import android.widget.PopupWindow;
 import com.baidu.live.adp.base.BdPageContext;
 /* loaded from: classes2.dex */
 public class ShowUtil {
+    public static int windowCount = 0;
+
     public static final boolean showDialog(Dialog dialog, BdPageContext<?> bdPageContext) {
         if (bdPageContext == null || bdPageContext.getPageActivity() == null) {
             return false;

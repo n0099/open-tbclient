@@ -7,13 +7,13 @@ import android.text.TextUtils;
 import com.baidu.live.im.n;
 /* loaded from: classes2.dex */
 public class a {
-    private static Application.ActivityLifecycleCallbacks TS;
+    private static Application.ActivityLifecycleCallbacks TV;
 
     public static void d(Application application) {
-        if (TS == null) {
-            TS = new C0073a();
+        if (TV == null) {
+            TV = new C0073a();
         }
-        application.registerActivityLifecycleCallbacks(TS);
+        application.registerActivityLifecycleCallbacks(TV);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -34,7 +34,7 @@ public class a {
     /* renamed from: com.baidu.live.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static class C0073a implements Application.ActivityLifecycleCallbacks {
-        private n TT;
+        private n TW;
 
         private C0073a() {
         }
@@ -46,10 +46,10 @@ public class a {
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             if (a.s(activity)) {
-                if (this.TT == null) {
-                    this.TT = new n();
+                if (this.TW == null) {
+                    this.TW = new n();
                 }
-                this.TT.init(String.valueOf(activity.hashCode()));
+                this.TW.init(String.valueOf(activity.hashCode()));
             }
         }
 
@@ -71,8 +71,8 @@ public class a {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
-            if (a.s(activity) && this.TT != null) {
-                this.TT.destroy(String.valueOf(activity.hashCode()));
+            if (a.s(activity) && this.TW != null) {
+                this.TW.destroy(String.valueOf(activity.hashCode()));
             }
         }
     }

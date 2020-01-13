@@ -1,16 +1,24 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.internal.a.f;
+import io.reactivex.internal.a.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.internal.schedulers.k;
+import io.reactivex.t;
 import io.reactivex.u;
 import io.reactivex.v;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableObserveOn<T> extends a<T, T> {
     final int bufferSize;
     final boolean delayError;
     final v scheduler;
+
+    public ObservableObserveOn(t<T> tVar, v vVar, boolean z, int i) {
+        super(tVar);
+        this.scheduler = vVar;
+        this.delayError = z;
+        this.bufferSize = i;
+    }
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
@@ -18,10 +26,10 @@ public final class ObservableObserveOn<T> extends a<T, T> {
             this.source.subscribe(uVar);
             return;
         }
-        this.source.subscribe(new ObserveOnObserver(uVar, this.scheduler.dDP(), this.delayError, this.bufferSize));
+        this.source.subscribe(new ObserveOnObserver(uVar, this.scheduler.dHW(), this.delayError, this.bufferSize));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ObserveOnObserver<T> extends BasicIntQueueDisposable<T> implements u<T>, Runnable {
         private static final long serialVersionUID = 6576896619930983584L;
         final u<? super T> actual;
@@ -31,7 +39,7 @@ public final class ObservableObserveOn<T> extends a<T, T> {
         volatile boolean done;
         Throwable error;
         boolean outputFused;
-        f<T> queue;
+        g<T> queue;
         io.reactivex.disposables.b s;
         int sourceMode;
         final v.c worker;
@@ -82,7 +90,7 @@ public final class ObservableObserveOn<T> extends a<T, T> {
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.error = th;
@@ -117,19 +125,19 @@ public final class ObservableObserveOn<T> extends a<T, T> {
 
         void schedule() {
             if (getAndIncrement() == 0) {
-                this.worker.C(this);
+                this.worker.D(this);
             }
         }
 
         void drainNormal() {
-            f<T> fVar = this.queue;
+            g<T> gVar = this.queue;
             u<? super T> uVar = this.actual;
             int i = 1;
-            while (!checkTerminated(this.done, fVar.isEmpty(), uVar)) {
+            while (!checkTerminated(this.done, gVar.isEmpty(), uVar)) {
                 while (true) {
                     boolean z = this.done;
                     try {
-                        Object obj = (T) fVar.poll();
+                        Object obj = (T) gVar.poll();
                         boolean z2 = obj == null;
                         if (!checkTerminated(z, z2, uVar)) {
                             if (!z2) {
@@ -146,7 +154,7 @@ public final class ObservableObserveOn<T> extends a<T, T> {
                     } catch (Throwable th) {
                         io.reactivex.exceptions.a.I(th);
                         this.s.dispose();
-                        fVar.clear();
+                        gVar.clear();
                         uVar.onError(th);
                         this.worker.dispose();
                         return;
@@ -232,17 +240,17 @@ public final class ObservableObserveOn<T> extends a<T, T> {
             return 0;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public T poll() throws Exception {
             return this.queue.poll();
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public void clear() {
             this.queue.clear();
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public boolean isEmpty() {
             return this.queue.isEmpty();
         }

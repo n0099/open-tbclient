@@ -6,63 +6,63 @@ import com.facebook.common.internal.g;
 import com.facebook.imagepipeline.g.d;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a implements com.facebook.fresco.animation.b.b {
-    private static final Class<?> lCO = a.class;
-    private final com.facebook.imagepipeline.animated.impl.c lJS;
-    private final boolean lJT;
+    private static final Class<?> lGm = a.class;
+    private final com.facebook.imagepipeline.animated.impl.c lND;
+    private final boolean lNE;
     @GuardedBy("this")
-    private final SparseArray<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> lJU = new SparseArray<>();
+    private final SparseArray<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> lNF = new SparseArray<>();
     @GuardedBy("this")
     @Nullable
-    private com.facebook.common.references.a<com.facebook.imagepipeline.g.c> lJV;
+    private com.facebook.common.references.a<com.facebook.imagepipeline.g.c> lNG;
 
     public a(com.facebook.imagepipeline.animated.impl.c cVar, boolean z) {
-        this.lJS = cVar;
-        this.lJT = z;
+        this.lND = cVar;
+        this.lNE = z;
     }
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> HG(int i) {
-        return h(this.lJS.HN(i));
+    public synchronized com.facebook.common.references.a<Bitmap> HP(int i) {
+        return h(this.lND.HW(i));
     }
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> HH(int i) {
-        return h(com.facebook.common.references.a.b((com.facebook.common.references.a) this.lJV));
+    public synchronized com.facebook.common.references.a<Bitmap> HQ(int i) {
+        return h(com.facebook.common.references.a.b((com.facebook.common.references.a) this.lNG));
     }
 
     @Override // com.facebook.fresco.animation.b.b
     @Nullable
     public synchronized com.facebook.common.references.a<Bitmap> ac(int i, int i2, int i3) {
-        return !this.lJT ? null : h(this.lJS.dlq());
+        return !this.lNE ? null : h(this.lND.dmv());
     }
 
     @Override // com.facebook.fresco.animation.b.b
-    public synchronized boolean HI(int i) {
-        return this.lJS.HI(i);
+    public synchronized boolean HR(int i) {
+        return this.lND.HR(i);
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public synchronized void clear() {
-        com.facebook.common.references.a.c(this.lJV);
-        this.lJV = null;
-        for (int i = 0; i < this.lJU.size(); i++) {
-            com.facebook.common.references.a.c(this.lJU.valueAt(i));
+        com.facebook.common.references.a.c(this.lNG);
+        this.lNG = null;
+        for (int i = 0; i < this.lNF.size(); i++) {
+            com.facebook.common.references.a.c(this.lNF.valueAt(i));
         }
-        this.lJU.clear();
+        this.lNF.clear();
     }
 
     @Override // com.facebook.fresco.animation.b.b
     public synchronized void a(int i, com.facebook.common.references.a<Bitmap> aVar, int i2) {
         g.checkNotNull(aVar);
-        HJ(i);
+        HS(i);
         com.facebook.common.references.a<com.facebook.imagepipeline.g.c> i3 = i(aVar);
         if (i3 != null) {
-            com.facebook.common.references.a.c(this.lJV);
-            this.lJV = this.lJS.b(i, i3);
+            com.facebook.common.references.a.c(this.lNG);
+            this.lNG = this.lND.b(i, i3);
         }
         com.facebook.common.references.a.c(i3);
     }
@@ -72,11 +72,11 @@ public class a implements com.facebook.fresco.animation.b.b {
         g.checkNotNull(aVar);
         com.facebook.common.references.a<com.facebook.imagepipeline.g.c> i3 = i(aVar);
         if (i3 != null) {
-            com.facebook.common.references.a<com.facebook.imagepipeline.g.c> b = this.lJS.b(i, i3);
+            com.facebook.common.references.a<com.facebook.imagepipeline.g.c> b = this.lND.b(i, i3);
             if (com.facebook.common.references.a.a(b)) {
-                com.facebook.common.references.a.c(this.lJU.get(i));
-                this.lJU.put(i, b);
-                com.facebook.common.c.a.a(lCO, "cachePreparedFrame(%d) cached. Pending frames: %s", Integer.valueOf(i), this.lJU);
+                com.facebook.common.references.a.c(this.lNF.get(i));
+                this.lNF.put(i, b);
+                com.facebook.common.c.a.a(lGm, "cachePreparedFrame(%d) cached. Pending frames: %s", Integer.valueOf(i), this.lNF);
             }
             com.facebook.common.references.a.c(i3);
         } else {
@@ -84,12 +84,12 @@ public class a implements com.facebook.fresco.animation.b.b {
         }
     }
 
-    private synchronized void HJ(int i) {
-        com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar = this.lJU.get(i);
+    private synchronized void HS(int i) {
+        com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar = this.lNF.get(i);
         if (aVar != null) {
-            this.lJU.delete(i);
+            this.lNF.delete(i);
             com.facebook.common.references.a.c(aVar);
-            com.facebook.common.c.a.a(lCO, "removePreparedReference(%d) removed. Pending frames: %s", Integer.valueOf(i), this.lJU);
+            com.facebook.common.c.a.a(lGm, "removePreparedReference(%d) removed. Pending frames: %s", Integer.valueOf(i), this.lNF);
         }
     }
 
@@ -98,7 +98,7 @@ public class a implements com.facebook.fresco.animation.b.b {
         d dVar;
         try {
             if (com.facebook.common.references.a.a(aVar) && (aVar.get() instanceof d) && (dVar = (d) aVar.get()) != null) {
-                return dVar.dnY();
+                return dVar.dpe();
             }
             return null;
         } finally {
@@ -108,6 +108,6 @@ public class a implements com.facebook.fresco.animation.b.b {
 
     @Nullable
     private static com.facebook.common.references.a<com.facebook.imagepipeline.g.c> i(com.facebook.common.references.a<Bitmap> aVar) {
-        return com.facebook.common.references.a.b(new d(aVar, com.facebook.imagepipeline.g.g.lPw, 0));
+        return com.facebook.common.references.a.b(new d(aVar, com.facebook.imagepipeline.g.g.lTi, 0));
     }
 }

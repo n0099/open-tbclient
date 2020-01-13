@@ -3,41 +3,41 @@ package com.baidu.swan.apps.w.b;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.widget.FrameLayout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface l {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void b(l lVar);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         boolean a(l lVar, int i, int i2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface c {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface d {
         void a(l lVar);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface e {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface f {
     }
 
-    void Fc();
+    void FA();
 
-    void Fe();
+    void Fy();
 
-    void Sz();
+    void SV();
 
     l a(Context context, @NonNull com.baidu.swan.apps.media.c.c cVar);
 
@@ -61,17 +61,17 @@ public interface l {
 
     void b(com.baidu.swan.apps.media.c.c cVar);
 
-    void cx(boolean z);
+    void cC(boolean z);
 
-    void cy(boolean z);
+    void cD(boolean z);
 
-    void d(boolean z, int i);
+    void e(boolean z, int i);
 
     int getCurrentPosition();
 
     int getDuration();
 
-    void hQ(String str);
+    void hT(String str);
 
     boolean isEnd();
 

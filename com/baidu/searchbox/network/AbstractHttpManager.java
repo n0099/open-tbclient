@@ -30,7 +30,7 @@ import java.net.ProxySelector;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class AbstractHttpManager {
     private static final String TAG = "HttpManager";
     private static List<Class<? extends Interceptor>> sExternalInterceptorClass;

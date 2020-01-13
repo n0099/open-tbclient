@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class dn implements dr {
     private void a(Context context, String str, String str2) {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
@@ -39,7 +39,7 @@ final class dn implements dr {
             if (TextUtils.equals("android.intent.action.PACKAGE_RESTARTED", intent.getAction())) {
                 if (ag.a(context, String.valueOf(12), 1L) && a) {
                     if (TextUtils.isEmpty(dw.a)) {
-                        dw.a += dq.f248a + ":";
+                        dw.a += dq.f246a + ":";
                     }
                     dw.a += str + "(" + currentTimeMillis + ")" + Constants.ACCEPT_TIME_SEPARATOR_SP;
                 }

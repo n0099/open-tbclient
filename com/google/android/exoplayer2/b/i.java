@@ -2,27 +2,27 @@ package com.google.android.exoplayer2.b;
 
 import com.google.android.exoplayer2.source.u;
 import com.google.android.exoplayer2.util.v;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class i {
-    public final u myK;
-    public final boolean[] myL;
-    public final g myM;
-    public final Object myN;
-    public final com.google.android.exoplayer2.u[] myO;
+    public final u mCA;
+    public final boolean[] mCB;
+    public final g mCC;
+    public final Object mCD;
+    public final com.google.android.exoplayer2.u[] mCE;
 
     public i(u uVar, boolean[] zArr, g gVar, Object obj, com.google.android.exoplayer2.u[] uVarArr) {
-        this.myK = uVar;
-        this.myL = zArr;
-        this.myM = gVar;
-        this.myN = obj;
-        this.myO = uVarArr;
+        this.mCA = uVar;
+        this.mCB = zArr;
+        this.mCC = gVar;
+        this.mCD = obj;
+        this.mCE = uVarArr;
     }
 
     public boolean a(i iVar) {
         if (iVar == null) {
             return false;
         }
-        for (int i = 0; i < this.myM.length; i++) {
+        for (int i = 0; i < this.mCC.length; i++) {
             if (!a(iVar, i)) {
                 return false;
             }
@@ -31,6 +31,6 @@ public final class i {
     }
 
     public boolean a(i iVar, int i) {
-        return iVar != null && this.myL[i] == iVar.myL[i] && v.h(this.myM.Lu(i), iVar.myM.Lu(i)) && v.h(this.myO[i], iVar.myO[i]);
+        return iVar != null && this.mCB[i] == iVar.mCB[i] && v.h(this.mCC.LD(i), iVar.mCC.LD(i)) && v.h(this.mCE[i], iVar.mCE[i]);
     }
 }

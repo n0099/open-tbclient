@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes.dex */
 public class t {
-    public static final String dSM = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String dSN = dSM + "/.tieba_video_cache";
-    public static final String oB = dSN + "/v2";
-    public static final String dSO = oB + "/";
-    public static final String dSP = oB + "/files";
-    public static final String dSQ = dSP + "/";
+    public static final String dSV = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String dSW = dSV + "/.tieba_video_cache";
+    public static final String ow = dSW + "/v2";
+    public static final String dSX = ow + "/";
+    public static final String dSY = ow + "/files";
+    public static final String dSZ = dSY + "/";
 
-    private static long wd(String str) {
+    private static long wh(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(dSQ + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(dSZ + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -27,7 +27,7 @@ public class t {
         return j;
     }
 
-    private static String we(String str) {
+    private static String wi(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -38,13 +38,13 @@ public class t {
         return substring;
     }
 
-    public static long GE(String str) {
+    public static long GO(String str) {
         try {
-            String we = we(str);
-            if (StringUtils.isNULL(we)) {
+            String wi = wi(str);
+            if (StringUtils.isNULL(wi)) {
                 return 0L;
             }
-            return wd(we);
+            return wh(wi);
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;

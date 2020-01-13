@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -9,24 +9,24 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableCombineLatest<T, R> extends q<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayError;
-    final Iterable<? extends t<? extends T>> mTH;
-    final t<? extends T>[] mUW;
+    final Iterable<? extends t<? extends T>> nvL;
+    final t<? extends T>[] nxf;
 
     @Override // io.reactivex.q
     public void a(u<? super R> uVar) {
         int length;
         t<? extends T>[] tVarArr;
         t<? extends T>[] tVarArr2;
-        t<? extends T>[] tVarArr3 = this.mUW;
+        t<? extends T>[] tVarArr3 = this.nxf;
         if (tVarArr3 == null) {
             t<? extends T>[] tVarArr4 = new q[8];
             length = 0;
-            for (t<? extends T> tVar : this.mTH) {
+            for (t<? extends T> tVar : this.nvL) {
                 if (length == tVarArr4.length) {
                     tVarArr2 = new t[(length >> 2) + length];
                     System.arraycopy(tVarArr4, 0, tVarArr2, 0, length);
@@ -49,7 +49,7 @@ public final class ObservableCombineLatest<T, R> extends q<R> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class LatestCoordinator<T, R> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = 8567835998786448817L;
         int active;
@@ -218,7 +218,7 @@ public final class ObservableCombineLatest<T, R> extends q<R> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:12:0x0015, code lost:
@@ -247,7 +247,7 @@ public final class ObservableCombineLatest<T, R> extends q<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class CombinerObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements u<T> {
         private static final long serialVersionUID = -4823716997131257941L;
         final int index;

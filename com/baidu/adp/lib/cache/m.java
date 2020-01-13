@@ -8,12 +8,12 @@ import com.baidu.live.adp.lib.cache.BdKVCache;
 /* loaded from: classes.dex */
 public class m<T> implements l.c<T> {
     protected final String nameSpace;
-    protected final k<T> pW;
+    protected final k<T> pT;
     private boolean strictMode = false;
 
     public m(String str, k<T> kVar) {
         this.nameSpace = str;
-        this.pW = kVar;
+        this.pT = kVar;
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -24,7 +24,7 @@ public class m<T> implements l.c<T> {
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.pW.get(this.nameSpace, str);
+        return this.pT.get(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -35,7 +35,7 @@ public class m<T> implements l.c<T> {
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.pW.k(this.nameSpace, str);
+        return this.pT.k(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -53,7 +53,7 @@ public class m<T> implements l.c<T> {
         if (currentTimeMillis <= System.currentTimeMillis()) {
             remove(str);
         } else {
-            this.pW.set(this.nameSpace, str, t, currentTimeMillis);
+            this.pT.set(this.nameSpace, str, t, currentTimeMillis);
         }
     }
 
@@ -70,12 +70,12 @@ public class m<T> implements l.c<T> {
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        this.pW.remove(this.nameSpace, str);
+        this.pT.remove(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
     public void a(final String str, final l.a<T> aVar) {
-        com.baidu.adp.lib.f.h.gz().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.1
+        com.baidu.adp.lib.f.h.gy().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.1
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.adp.lib.cache.l$a */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
@@ -87,7 +87,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l
     public void asyncSet(final String str, final T t, final long j) {
-        com.baidu.adp.lib.f.h.gz().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.2
+        com.baidu.adp.lib.f.h.gy().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.2
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.adp.lib.cache.m */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
@@ -104,7 +104,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l
     public void asyncRemove(final String str) {
-        com.baidu.adp.lib.f.h.gz().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.3
+        com.baidu.adp.lib.f.h.gy().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.m.3
             @Override // java.lang.Runnable
             public void run() {
                 m.this.remove(str);
@@ -119,11 +119,11 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l.c
     public k<T> fB() {
-        return this.pW;
+        return this.pT;
     }
 
     public void onCacheCreated() {
-        this.pW.startup(this.nameSpace);
+        this.pT.startup(this.nameSpace);
     }
 
     protected void releaseCacheData() {
@@ -135,7 +135,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l.c
     public void clearAndClose() {
-        this.pW.clearAndClose(this.nameSpace);
+        this.pT.clearAndClose(this.nameSpace);
         releaseCacheData();
     }
 }

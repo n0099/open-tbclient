@@ -1,7 +1,7 @@
 package kotlin.sequences;
 
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class SequencesKt__SequencesKt$flatten$3 extends Lambda implements kotlin.jvm.a.b<T, T> {
     public static final SequencesKt__SequencesKt$flatten$3 INSTANCE = new SequencesKt__SequencesKt$flatten$3();
 

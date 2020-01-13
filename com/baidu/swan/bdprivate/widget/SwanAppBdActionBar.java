@@ -21,21 +21,21 @@ import com.baidu.swan.apps.as.af;
 import com.baidu.swan.apps.res.widget.a.a;
 import com.baidu.swan.apps.res.widget.a.b;
 import com.baidu.swan.bdprivate.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwanAppBdActionBar extends RelativeLayout {
     private static final int[] VISIBILITY_FLAGS = {8, 0, 4};
-    private a.InterfaceC0266a bJI;
-    private boolean bVE;
-    private ImageView bVK;
-    private View caO;
-    private ImageView caP;
-    private ImageView caQ;
-    private ImageView caR;
-    private com.baidu.swan.apps.res.ui.a caS;
-    private b.a caT;
-    private View caU;
-    private b caV;
-    private ProgressBar caW;
+    private a.InterfaceC0268a bKs;
+    private boolean bVQ;
+    private ImageView bVW;
+    private View cba;
+    private ImageView cbb;
+    private ImageView cbc;
+    private ImageView cbd;
+    private com.baidu.swan.apps.res.ui.a cbe;
+    private b.a cbf;
+    private View cbg;
+    private b cbh;
+    private ProgressBar cbi;
     private boolean mIsLeftTitleInvalidate;
     private TextView mLeftFirstView;
     private TextView mLeftSecondView;
@@ -82,13 +82,13 @@ public class SwanAppBdActionBar extends RelativeLayout {
     private float mTitleTxtShadowRadius;
     private TextView mTitleViewCenter;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum ActionbarTemplate {
         WHITE_TITLE_TEMPLATE,
         BALCK_TITLE_TEMPLATE
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void onDoubleClick(View view);
     }
@@ -155,7 +155,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
                 this.mRightImgZone1ImageSrc = obtainStyledAttributes.getDrawable(b.i.SwanAppBdActionBar_rightImgZone1ImageSrc);
                 this.mRightImgZone1Visibility = obtainStyledAttributes.getInt(b.i.SwanAppBdActionBar_rightImgZone1Visibility, 0);
                 this.mRightImgZone2Visibility = obtainStyledAttributes.getInt(b.i.SwanAppBdActionBar_rightImgZone2Visibility, 0);
-                this.mRightTxtZone1TxtColor = obtainStyledAttributes.getColor(b.i.SwanAppBdActionBar_rightTxtZone1TxtColor, getResources().getColor(b.C0306b.aiapps_action_bar_operation_btn_txt_color));
+                this.mRightTxtZone1TxtColor = obtainStyledAttributes.getColor(b.i.SwanAppBdActionBar_rightTxtZone1TxtColor, getResources().getColor(b.C0308b.aiapps_action_bar_operation_btn_txt_color));
                 this.mRightTxtZone1TxtSize = obtainStyledAttributes.getDimension(b.i.SwanAppBdActionBar_rightTxtZone1TxtSize, -1.0f);
                 this.mRightTxtZone1TxtShadowColor = obtainStyledAttributes.getColor(b.i.SwanAppBdActionBar_rightTxtZone1TxtShadowColor, ViewCompat.MEASURED_STATE_MASK);
                 this.mRightTxtZone1TxtShadowDx = obtainStyledAttributes.getFloat(b.i.SwanAppBdActionBar_rightTxtZone1TxtShadowDx, -1.0f);
@@ -173,21 +173,21 @@ public class SwanAppBdActionBar extends RelativeLayout {
     }
 
     public void setOnMenuItemClickListener(b.a aVar) {
-        this.caT = aVar;
-        if (this.caS != null) {
-            this.caS.a(this.caT);
+        this.cbf = aVar;
+        if (this.cbe != null) {
+            this.cbe.a(this.cbf);
         }
     }
 
     public boolean toggleMenu() {
-        if (this.caS != null) {
+        if (this.cbe != null) {
             int[] iArr = new int[2];
             this.mRightMenu.getLocationInWindow(iArr);
-            int T = af.T(6.0f);
-            int height = iArr[1] + this.mRightMenu.getHeight() + af.T(4.0f);
-            this.caS.getView().getWidth();
-            this.caS.setShowAtLocation(0, (af.getDisplayWidth(getContext()) - T) - this.caS.getView().getWidth(), height);
-            this.caS.toggle();
+            int S = af.S(6.0f);
+            int height = iArr[1] + this.mRightMenu.getHeight() + af.S(4.0f);
+            this.cbe.getView().getWidth();
+            this.cbe.setShowAtLocation(0, (af.getDisplayWidth(getContext()) - S) - this.cbe.getView().getWidth(), height);
+            this.cbe.toggle();
             return true;
         }
         return false;
@@ -195,15 +195,15 @@ public class SwanAppBdActionBar extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(b.f.ai_apps_action_bar, this);
-        this.caW = (ProgressBar) findViewById(b.e.aiapps_nav_loading_progressbar);
+        this.cbi = (ProgressBar) findViewById(b.e.aiapps_nav_loading_progressbar);
         this.mLeftFirstView = (TextView) findViewById(b.e.left_first_view);
         this.mLeftFirstView.setCompoundDrawables(getDrawableFromId(b.d.aiapps_action_bar_back_selector), null, null, null);
-        this.mLeftFirstView.setTextColor(getResources().getColorStateList(b.C0306b.aiapps_action_bar_operation_btn_selector));
+        this.mLeftFirstView.setTextColor(getResources().getColorStateList(b.C0308b.aiapps_action_bar_operation_btn_selector));
         this.mTitleViewCenter = (TextView) findViewById(b.e.title_text_center);
         this.mSubTitleViewCenter = (TextView) findViewById(b.e.subtitle_text_center);
-        this.mSubTitleViewCenter.setTextColor(getResources().getColor(b.C0306b.aiapps_white_text));
+        this.mSubTitleViewCenter.setTextColor(getResources().getColor(b.C0308b.aiapps_white_text));
         this.mLeftSecondView = (TextView) findViewById(b.e.left_second_view);
-        this.mLeftSecondView.setTextColor(getResources().getColorStateList(b.C0306b.aiapps_action_bar_operation_btn_selector));
+        this.mLeftSecondView.setTextColor(getResources().getColorStateList(b.C0308b.aiapps_action_bar_operation_btn_selector));
         if (this.mTitleTxtShadowDx != -1.0f && this.mTitleTxtShadowDy != -1.0f && this.mTitleTxtShadowRadius != -1.0f) {
             this.mLeftFirstView.setShadowLayer(this.mTitleTxtShadowRadius, this.mTitleTxtShadowDx, this.mTitleTxtShadowDy, this.mTitleTxtShadowColor);
         }
@@ -216,7 +216,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
         if (this.mRightTxtZone2TxtColor != -1) {
             this.mRightTxtZone2Text.setTextColor(this.mRightTxtZone2TxtColor);
         } else {
-            this.mRightTxtZone2Text.setTextColor(getResources().getColorStateList(b.C0306b.aiapps_action_bar_operation_btn_selector));
+            this.mRightTxtZone2Text.setTextColor(getResources().getColorStateList(b.C0308b.aiapps_action_bar_operation_btn_selector));
         }
         this.mRightTxtZone1 = findViewById(b.e.titlebar_right_txtzone1);
         this.mRightTxtZone1.setVisibility(VISIBILITY_FLAGS[this.mRightTxtZone1Visibility]);
@@ -227,28 +227,28 @@ public class SwanAppBdActionBar extends RelativeLayout {
         if (this.mRightTxtZone1TxtColor != -1) {
             this.mRightTxtZone1Text.setTextColor(this.mRightTxtZone1TxtColor);
         } else {
-            this.mRightTxtZone1Text.setTextColor(getResources().getColorStateList(b.C0306b.aiapps_action_bar_operation_btn_selector));
+            this.mRightTxtZone1Text.setTextColor(getResources().getColorStateList(b.C0308b.aiapps_action_bar_operation_btn_selector));
         }
         this.mRightTxtZone1Progress = (ProgressBar) findViewById(b.e.titlebar_right_txtzone1_progress);
-        this.caP = (ImageView) findViewById(b.e.titlebar_right_imgzone2_img);
-        this.caQ = (ImageView) findViewById(b.e.new_tip_img);
+        this.cbb = (ImageView) findViewById(b.e.titlebar_right_imgzone2_img);
+        this.cbc = (ImageView) findViewById(b.e.new_tip_img);
         this.mRightImgZone2 = findViewById(b.e.titlebar_right_imgzone2);
         this.mRightImgZone2.setVisibility(VISIBILITY_FLAGS[this.mRightImgZone2Visibility]);
-        this.caR = (ImageView) findViewById(b.e.titlebar_right_imgzone1_img);
+        this.cbd = (ImageView) findViewById(b.e.titlebar_right_imgzone1_img);
         this.mRightImgZone1 = findViewById(b.e.titlebar_right_imgzone1);
         this.mRightImgZone1.setVisibility(VISIBILITY_FLAGS[this.mRightImgZone1Visibility]);
         this.mRightZones = findViewById(b.e.titlebar_right_zones);
         this.mRightZones.setVisibility(VISIBILITY_FLAGS[this.mRightZonesVisibility]);
         this.mLeftZones = findViewById(b.e.titlebar_left_zones);
         this.mRightImgZone2Notify = findViewById(b.e.titlebar_right_imgzone2_notify);
-        this.caU = findViewById(b.e.titlebar_center_zones);
+        this.cbg = findViewById(b.e.titlebar_center_zones);
         this.mRightMenu = findViewById(b.e.titlebar_right_menu);
         this.mRightMenuImageView = (ImageView) findViewById(b.e.titlebar_right_menu_img);
-        this.caO = findViewById(b.e.titlebar_right_menu_line);
-        this.bVK = (ImageView) findViewById(b.e.titlebar_right_menu_exit);
+        this.cba = findViewById(b.e.titlebar_right_menu_line);
+        this.bVW = (ImageView) findViewById(b.e.titlebar_right_menu_exit);
         setTitleAlignment(1);
         setTitle(this.mTitleText);
-        setTitleColor(b.C0306b.aiapps_black_text);
+        setTitleColor(b.C0308b.aiapps_black_text);
         setRightMenuImageSrc(b.d.aiapps_action_bar_menu_normal_selector);
         setRightImgZone2Src(b.d.aiapps_action_bar_add_2_selector);
         setRightImgZone1Src(b.d.aiapps_action_bar_add_selector);
@@ -411,10 +411,10 @@ public class SwanAppBdActionBar extends RelativeLayout {
     }
 
     public void setRightImgZone2ImgWidth(int i) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.caP.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cbb.getLayoutParams();
         layoutParams.height = i;
         layoutParams.width = i;
-        this.caP.setLayoutParams(layoutParams);
+        this.cbb.setLayoutParams(layoutParams);
     }
 
     public void setRightImgZone1OnClickListener(View.OnClickListener onClickListener) {
@@ -438,39 +438,39 @@ public class SwanAppBdActionBar extends RelativeLayout {
 
     public void setRightImgZone1Src(int i) {
         this.mRightImgZone1ImageSrcId = i;
-        this.caR.setImageDrawable(getResources().getDrawable(i));
+        this.cbd.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setRightImgZone1ImageScaleType(ImageView.ScaleType scaleType) {
-        this.caR.setScaleType(scaleType);
+        this.cbd.setScaleType(scaleType);
     }
 
     public void setRightImgZone2ImageScaleType(ImageView.ScaleType scaleType) {
-        this.caP.setScaleType(scaleType);
+        this.cbb.setScaleType(scaleType);
     }
 
     public void setRightImgZone2Enable(boolean z) {
-        this.caP.setEnabled(z);
+        this.cbb.setEnabled(z);
         this.mRightImgZone2.setEnabled(z);
     }
 
     public void setRightImgZone2Src(int i) {
         this.mRightImgZone2ImageSrcId = i;
-        this.caP.setImageDrawable(getResources().getDrawable(i));
+        this.cbb.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setRightImgZone2ImageSrc(Drawable drawable) {
         this.mRightImgZone2ImageSrc = drawable;
-        this.caP.setImageDrawable(this.mRightImgZone2ImageSrc);
+        this.cbb.setImageDrawable(this.mRightImgZone2ImageSrc);
     }
 
     public void setRightImgZone2Params(int i, int i2, int i3) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.caP.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cbb.getLayoutParams();
         layoutParams.leftMargin = i;
         layoutParams.rightMargin = i2;
         layoutParams.bottomMargin = i3;
         layoutParams.topMargin = i3;
-        this.caP.setLayoutParams(layoutParams);
+        this.cbb.setLayoutParams(layoutParams);
     }
 
     public void setRightImgZone2Visibility(int i) {
@@ -550,7 +550,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
 
     public void setRightImgZone1ImageSrc(Drawable drawable) {
         this.mRightImgZone1ImageSrc = drawable;
-        this.caR.setImageDrawable(this.mRightImgZone1ImageSrc);
+        this.cbd.setImageDrawable(this.mRightImgZone1ImageSrc);
     }
 
     public void setLeftSecondViewVisibility(int i) {
@@ -621,11 +621,11 @@ public class SwanAppBdActionBar extends RelativeLayout {
     }
 
     public void setRightExitImageSrc(int i) {
-        this.bVK.setImageDrawable(getResources().getDrawable(i));
+        this.bVW.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setRightMenuLineSrc(int i) {
-        this.caO.setBackgroundResource(i);
+        this.cba.setBackgroundResource(i);
     }
 
     public void setRightMenuBgSrc(int i) {
@@ -633,28 +633,28 @@ public class SwanAppBdActionBar extends RelativeLayout {
     }
 
     public void setOnDoubleClickListener(b bVar) {
-        this.caV = bVar;
+        this.cbh = bVar;
     }
 
-    public void setOnMenuItemsUpdateListener(a.InterfaceC0266a interfaceC0266a) {
-        this.bJI = interfaceC0266a;
+    public void setOnMenuItemsUpdateListener(a.InterfaceC0268a interfaceC0268a) {
+        this.bKs = interfaceC0268a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends GestureDetector.SimpleOnGestureListener {
         private a() {
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
-            return !SwanAppBdActionBar.this.bVE;
+            return !SwanAppBdActionBar.this.bVQ;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
         public boolean onDoubleTap(MotionEvent motionEvent) {
-            if (SwanAppBdActionBar.this.caV != null) {
-                SwanAppBdActionBar.this.caV.onDoubleClick(SwanAppBdActionBar.this);
+            if (SwanAppBdActionBar.this.cbh != null) {
+                SwanAppBdActionBar.this.cbh.onDoubleClick(SwanAppBdActionBar.this);
             }
             return super.onDoubleTap(motionEvent);
         }
@@ -672,12 +672,12 @@ public class SwanAppBdActionBar extends RelativeLayout {
 
     public void setRightExitViewVisibility(boolean z) {
         if (z) {
-            this.bVK.setVisibility(0);
-            this.caO.setVisibility(0);
+            this.bVW.setVisibility(0);
+            this.cba.setVisibility(0);
             return;
         }
-        this.bVK.setVisibility(8);
-        this.caO.setVisibility(8);
+        this.bVW.setVisibility(8);
+        this.cba.setVisibility(8);
         ((RelativeLayout.LayoutParams) this.mRightMenu.getLayoutParams()).setMargins(0, 0, af.dip2px(getContext(), 4.6f), 0);
     }
 
@@ -705,7 +705,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
     }
 
     public void setRightTipsStatus(boolean z) {
-        this.caQ.setVisibility(z ? 0 : 8);
+        this.cbc.setVisibility(z ? 0 : 8);
     }
 
     public void setLeftZonesVisibility(int i) {
@@ -717,7 +717,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
     }
 
     public void setCenterZonesVisibility(int i) {
-        this.caU.setVisibility(i);
+        this.cbg.setVisibility(i);
     }
 
     public void setRightMenuClickListner(View.OnClickListener onClickListener) {
@@ -729,7 +729,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
     }
 
     public void setRightExitOnClickListener(View.OnClickListener onClickListener) {
-        this.bVK.setOnClickListener(onClickListener);
+        this.bVW.setOnClickListener(onClickListener);
     }
 
     public int getTitleColorId() {
@@ -763,8 +763,8 @@ public class SwanAppBdActionBar extends RelativeLayout {
     }
 
     public void setActionBarCustom(boolean z) {
-        this.bVE = z;
-        int i = this.bVE ? 8 : 0;
+        this.bVQ = z;
+        int i = this.bVQ ? 8 : 0;
         setLeftZonesVisibility(i);
         setCenterZonesVisibility(i);
         setRightZonesVisibility(i);

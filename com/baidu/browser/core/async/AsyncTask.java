@@ -17,13 +17,13 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AsyncTask<Params, Progress, Result> {
-    public static final Executor HZ;
-    public static final Executor Ia;
-    private static final b Ib;
+    public static final Executor Ie;
+    public static final Executor If;
+    private static final b Ig;
     private static volatile Executor sDefaultExecutor;
-    private volatile Status Ic;
+    private volatile Status Ih;
     private final AtomicBoolean mCancelled;
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int CORE_POOL_SIZE = CPU_COUNT + 1;
@@ -39,39 +39,39 @@ public abstract class AsyncTask<Params, Progress, Result> {
     private static final BlockingQueue<Runnable> sPoolWorkQueue = new LinkedBlockingQueue(128);
     public static final Executor THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, 1, TimeUnit.SECONDS, sPoolWorkQueue, sThreadFactory);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Status {
         PENDING,
         RUNNING,
         FINISHED
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private static class a<Data> {
-        final AsyncTask Id;
+        final AsyncTask Ii;
         final Data[] mData;
     }
 
     static {
-        HZ = Build.VERSION.SDK_INT >= 11 ? new c() : Executors.newSingleThreadExecutor(sThreadFactory);
-        Ia = Executors.newFixedThreadPool(2, sThreadFactory);
-        Ib = new b(Looper.getMainLooper());
-        sDefaultExecutor = HZ;
+        Ie = Build.VERSION.SDK_INT >= 11 ? new c() : Executors.newSingleThreadExecutor(sThreadFactory);
+        If = Executors.newFixedThreadPool(2, sThreadFactory);
+        Ig = new b(Looper.getMainLooper());
+        sDefaultExecutor = Ie;
     }
 
     @TargetApi(11)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private static class c implements Executor {
-        final ArrayDeque<Runnable> Ie;
-        Runnable If;
+        final ArrayDeque<Runnable> Ij;
+        Runnable Ik;
 
         private c() {
-            this.Ie = new ArrayDeque<>();
+            this.Ij = new ArrayDeque<>();
         }
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(final Runnable runnable) {
-            this.Ie.offer(new Runnable() { // from class: com.baidu.browser.core.async.AsyncTask.c.1
+            this.Ij.offer(new Runnable() { // from class: com.baidu.browser.core.async.AsyncTask.c.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -81,15 +81,15 @@ public abstract class AsyncTask<Params, Progress, Result> {
                     }
                 }
             });
-            if (this.If == null) {
+            if (this.Ik == null) {
                 mi();
             }
         }
 
         protected synchronized void mi() {
-            this.If = this.Ie.poll();
-            if (this.If != null) {
-                AsyncTask.THREAD_POOL_EXECUTOR.execute(this.If);
+            this.Ik = this.Ij.poll();
+            if (this.Ik != null) {
+                AsyncTask.THREAD_POOL_EXECUTOR.execute(this.Ik);
             }
         }
     }
@@ -126,10 +126,10 @@ public abstract class AsyncTask<Params, Progress, Result> {
         } catch (Throwable th) {
             Log.w("AsyncTask", th);
         }
-        this.Ic = Status.FINISHED;
+        this.Ih = Status.FINISHED;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private static class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -140,10 +140,10 @@ public abstract class AsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.Id.finish(aVar.mData[0]);
+                    aVar.Ii.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.Id.onProgressUpdate(aVar.mData);
+                    aVar.Ii.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;

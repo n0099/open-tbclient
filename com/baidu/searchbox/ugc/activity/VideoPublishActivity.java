@@ -23,7 +23,6 @@ import com.baidu.searchbox.ugc.draft.DraftData;
 import com.baidu.searchbox.ugc.emoji.EmojiconEditText;
 import com.baidu.searchbox.ugc.model.HttpRequestPublishModule;
 import com.baidu.searchbox.ugc.model.PublishModels;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.searchbox.ugc.presenter.VideoBasePublishPresenter;
 import com.baidu.searchbox.ugc.provider.listener.OnVideoShareListener;
 import com.baidu.searchbox.ugc.upload.UploadManager;
@@ -42,7 +41,7 @@ import com.facebook.imagepipeline.common.d;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.lang.ref.WeakReference;
 import rx.functions.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPresenter> implements View.OnClickListener {
     private static final int INCREASE_PROGRESS_INTERVAL = 10;
     private static final int MAX_PROGRESS = 100;
@@ -125,7 +124,7 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
             this.mAddVideoImg.setVisibility(0);
         }
         ((VideoBasePublishPresenter) this.mPublishPresenter).videoTopic(this.mInput);
-        if (((VideoBasePublishPresenter) this.mPublishPresenter).mInfo != null && !TextUtils.equals(PublishType.TYPE_VIDEO_SHARE, ((VideoBasePublishPresenter) this.mPublishPresenter).mInfo.publishType)) {
+        if (((VideoBasePublishPresenter) this.mPublishPresenter).mInfo != null && !TextUtils.equals("9", ((VideoBasePublishPresenter) this.mPublishPresenter).mInfo.publishType)) {
             this.mDeleteVideoImg.setVisibility(0);
         } else {
             this.mDeleteVideoImg.setVisibility(8);
@@ -165,7 +164,7 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.searchbox.ugc.activity.VideoPublishActivity$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class AnonymousClass1 implements Runnable {
         int progress = 0;
 
@@ -209,8 +208,8 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
         if (!TextUtils.isEmpty(str)) {
             ImageRequestBuilder X = ImageRequestBuilder.X(UgcUriUtils.getUri(str));
             X.c(new d((int) (this.mVideoWidth / 2.0f), (int) (this.mVideoHeight / 2.0f)));
-            X.vg(true);
-            this.mVideoImg.setController(c.djg().uR(true).be(X.dpZ()).c(this.mVideoImg.getController()).djX());
+            X.vs(true);
+            this.mVideoImg.setController(c.dkh().vd(true).be(X.drm()).c(this.mVideoImg.getController()).dkY());
         }
     }
 
@@ -375,7 +374,7 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
     }
 
     private void backDispose(String str) {
-        if (((VideoBasePublishPresenter) this.mPublishPresenter).mInfo != null && TextUtils.equals(PublishType.TYPE_VIDEO_SHARE, ((VideoBasePublishPresenter) this.mPublishPresenter).mInfo.publishType)) {
+        if (((VideoBasePublishPresenter) this.mPublishPresenter).mInfo != null && TextUtils.equals("9", ((VideoBasePublishPresenter) this.mPublishPresenter).mInfo.publishType)) {
             OnVideoShareListener onVideoShareListener = PublisherManagerFactory.get().getOnVideoShareListener();
             if (onVideoShareListener != null) {
                 onVideoShareListener.onShareCancel();
@@ -421,7 +420,7 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class DraftOnPositiveClickListener implements DialogInterface.OnClickListener {
         private SaveDraftTask mSaveDraftTask;
         private UgcSchemeModel mUgcSchemeModel;
@@ -445,7 +444,7 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class DraftOnNegativeClickListener implements DialogInterface.OnClickListener {
         private String mDraftKey;
         private UgcSchemeModel mUgcSchemeModel;
@@ -498,7 +497,7 @@ public class VideoPublishActivity extends PublishBaseActivity<VideoBasePublishPr
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class SaveDraftTask implements Runnable {
         String inputStr;
 

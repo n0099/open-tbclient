@@ -9,8 +9,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableThrottleLatest<T> extends a<T, T> {
     final boolean emitLast;
     final v scheduler;
@@ -19,11 +18,11 @@ public final class FlowableThrottleLatest<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new ThrottleLatestSubscriber(cVar, this.timeout, this.unit, this.scheduler.dDP(), this.emitLast));
+        this.nvK.a((j) new ThrottleLatestSubscriber(cVar, this.timeout, this.unit, this.scheduler.dHW(), this.emitLast));
     }
 
-    /* loaded from: classes4.dex */
-    static final class ThrottleLatestSubscriber<T> extends AtomicInteger implements j<T>, Runnable, d {
+    /* loaded from: classes5.dex */
+    static final class ThrottleLatestSubscriber<T> extends AtomicInteger implements j<T>, Runnable, org.a.d {
         private static final long serialVersionUID = -8296689127439125014L;
         volatile boolean cancelled;
         volatile boolean done;
@@ -37,7 +36,7 @@ public final class FlowableThrottleLatest<T> extends a<T, T> {
         volatile boolean timerFired;
         boolean timerRunning;
         final TimeUnit unit;
-        d upstream;
+        org.a.d upstream;
         final v.c worker;
 
         ThrottleLatestSubscriber(org.a.c<? super T> cVar, long j, TimeUnit timeUnit, v.c cVar2, boolean z) {
@@ -49,7 +48,7 @@ public final class FlowableThrottleLatest<T> extends a<T, T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.upstream, dVar)) {
                 this.upstream = dVar;
                 this.downstream.onSubscribe(this);

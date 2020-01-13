@@ -5,14 +5,14 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AsyncHttpClient {
     private int a = 4000;
     private int b = 4000;
     private ExecutorService c = Executors.newCachedThreadPool();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a implements Runnable {
         private a() {
         }

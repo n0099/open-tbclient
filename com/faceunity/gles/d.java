@@ -3,12 +3,11 @@ package com.faceunity.gles;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
-import com.baidu.ala.recorder.video.gles.GlUtil;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static final float[] IDENTITY_MATRIX = new float[16];
 
@@ -25,7 +24,7 @@ public class d {
         int glCreateProgram = GLES20.glCreateProgram();
         checkGlError("glCreateProgram");
         if (glCreateProgram == 0) {
-            Log.e(GlUtil.TAG, "Could not create program");
+            Log.e("Grafika", "Could not create program");
         }
         GLES20.glAttachShader(glCreateProgram, loadShader2);
         checkGlError("glAttachShader");
@@ -35,8 +34,8 @@ public class d {
         int[] iArr = new int[1];
         GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
         if (iArr[0] != 1) {
-            Log.e(GlUtil.TAG, "Could not link program: ");
-            Log.e(GlUtil.TAG, GLES20.glGetProgramInfoLog(glCreateProgram));
+            Log.e("Grafika", "Could not link program: ");
+            Log.e("Grafika", GLES20.glGetProgramInfoLog(glCreateProgram));
             GLES20.glDeleteProgram(glCreateProgram);
             return 0;
         }
@@ -51,8 +50,8 @@ public class d {
         int[] iArr = new int[1];
         GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
         if (iArr[0] == 0) {
-            Log.e(GlUtil.TAG, "Could not compile shader " + i + ":");
-            Log.e(GlUtil.TAG, HanziToPinyin.Token.SEPARATOR + GLES20.glGetShaderInfoLog(glCreateShader));
+            Log.e("Grafika", "Could not compile shader " + i + ":");
+            Log.e("Grafika", HanziToPinyin.Token.SEPARATOR + GLES20.glGetShaderInfoLog(glCreateShader));
             GLES20.glDeleteShader(glCreateShader);
             return 0;
         }
@@ -63,7 +62,7 @@ public class d {
         int glGetError;
         if (GLES20.glGetError() != 0) {
             String str2 = str + ": glError 0x" + Integer.toHexString(glGetError);
-            Log.e(GlUtil.TAG, str2);
+            Log.e("Grafika", str2);
             throw new RuntimeException(str2);
         }
     }

@@ -6,48 +6,48 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> aoz = new LinkedList();
-    private b ehT;
-    private c ehU;
-    private g ehV;
-    private f ehW;
-    private d ehX;
-    private e ehY;
+    private List<com.baidu.adp.widget.ListView.a> apl = new LinkedList();
+    private b eiH;
+    private c eiI;
+    private g eiJ;
+    private f eiK;
+    private d eiL;
+    private e eiM;
     private TbPageContext mTbPageContext;
 
     public a(final TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.ehT = new b(tbPageContext);
-        this.ehU = new c(tbPageContext);
-        this.ehV = new g(tbPageContext);
-        this.ehW = new f(tbPageContext);
-        this.ehX = new d(tbPageContext);
-        this.ehY = new e(tbPageContext);
-        this.ehU.a(new o() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a.1
+        this.eiH = new b(tbPageContext);
+        this.eiI = new c(tbPageContext);
+        this.eiJ = new g(tbPageContext);
+        this.eiK = new f(tbPageContext);
+        this.eiL = new d(tbPageContext);
+        this.eiM = new e(tbPageContext);
+        this.eiI.a(new o() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a.1
             @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o
-            public void a(com.baidu.tieba.ala.alasquare.a.b bVar) {
-                if (bVar != null && bVar.axx() != null) {
-                    com.baidu.tieba.ala.alasquare.live_tab.b.b(tbPageContext.getPageActivity(), bVar.axx());
+            public void a(com.baidu.tieba.ala.alasquare.a.c cVar) {
+                if (cVar != null && cVar.axQ() != null) {
+                    com.baidu.tieba.ala.alasquare.live_tab.c.b(tbPageContext.getPageActivity(), cVar.axQ());
                 }
             }
         });
-        this.ehW.a(new o() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a.2
+        this.eiK.a(new o() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a.2
             @Override // com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o
-            public void a(com.baidu.tieba.ala.alasquare.a.b bVar) {
-                if (bVar != null && bVar.axx() != null) {
-                    com.baidu.tieba.ala.alasquare.live_tab.b.b(tbPageContext.getPageActivity(), bVar.axx());
+            public void a(com.baidu.tieba.ala.alasquare.a.c cVar) {
+                if (cVar != null && cVar.axQ() != null) {
+                    com.baidu.tieba.ala.alasquare.live_tab.c.b(tbPageContext.getPageActivity(), cVar.axQ());
                 }
             }
         });
-        this.aoz.add(this.ehT);
-        this.aoz.add(this.ehU);
-        this.aoz.add(this.ehV);
-        this.aoz.add(this.ehW);
-        this.aoz.add(this.ehX);
-        this.aoz.add(this.ehY);
+        this.apl.add(this.eiH);
+        this.apl.add(this.eiI);
+        this.apl.add(this.eiJ);
+        this.apl.add(this.eiK);
+        this.apl.add(this.eiL);
+        this.apl.add(this.eiM);
     }
 
-    public List<com.baidu.adp.widget.ListView.a> aZO() {
-        return this.aoz;
+    public List<com.baidu.adp.widget.ListView.a> ban() {
+        return this.apl;
     }
 }

@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -38,7 +38,7 @@ public class c extends b {
         JSONObject jSONObject = new JSONObject();
         if (download != null) {
             try {
-                jSONObject.put("apkId", new com.baidu.swan.b.a.b.a(download).aiq());
+                jSONObject.put("apkId", new com.baidu.swan.b.a.b.a(download).aiJ());
                 jSONObject.put("downloadId", download.getId());
                 jSONObject.put("packageName", download.getKeyByUser());
                 jSONObject.put("url", download.getUrl());

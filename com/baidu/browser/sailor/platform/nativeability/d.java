@@ -7,7 +7,7 @@ import android.util.SparseArray;
 import com.baidu.browser.sailor.lightapp.BdLightappKernelJsCallback;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public final void onReceive(Context context, Intent intent) {

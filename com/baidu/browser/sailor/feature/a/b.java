@@ -2,7 +2,7 @@ package com.baidu.browser.sailor.feature.a;
 
 import android.content.Context;
 import com.baidu.browser.sailor.BdSailorConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.baidu.browser.sailor.feature.a {
     public b(Context context) {
         super(context);

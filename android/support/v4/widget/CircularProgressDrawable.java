@@ -21,7 +21,7 @@ import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CircularProgressDrawable extends Drawable implements Animatable {
     private static final int ANIMATION_DURATION = 1332;
     private static final int ARROW_HEIGHT = 5;
@@ -52,7 +52,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface ProgressDrawableSize {
     }
 
@@ -350,7 +350,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Ring {
         Path mArrow;
         int mArrowHeight;

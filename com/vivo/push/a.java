@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     private Bundle a;
     private String b;

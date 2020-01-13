@@ -1,6 +1,6 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.internal.a.e;
+import io.reactivex.internal.a.f;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.m;
@@ -9,7 +9,7 @@ import io.reactivex.q;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableMergeWithMaybe<T> extends a<T, T> {
     final o<? extends T> other;
 
@@ -21,7 +21,7 @@ public final class ObservableMergeWithMaybe<T> extends a<T, T> {
         this.other.a(mergeWithObserver.otherObserver);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class MergeWithObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         static final int OTHER_STATE_CONSUMED_OR_EMPTY = 2;
         static final int OTHER_STATE_HAS_VALUE = 1;
@@ -30,7 +30,7 @@ public final class ObservableMergeWithMaybe<T> extends a<T, T> {
         volatile boolean disposed;
         volatile boolean mainDone;
         volatile int otherState;
-        volatile e<T> queue;
+        volatile f<T> queue;
         T singleItem;
         final AtomicReference<io.reactivex.disposables.b> mainDisposable = new AtomicReference<>();
         final OtherObserver<T> otherObserver = new OtherObserver<>(this);
@@ -68,7 +68,7 @@ public final class ObservableMergeWithMaybe<T> extends a<T, T> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u
@@ -113,7 +113,7 @@ public final class ObservableMergeWithMaybe<T> extends a<T, T> {
                 drain();
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         void otherComplete() {
@@ -121,14 +121,14 @@ public final class ObservableMergeWithMaybe<T> extends a<T, T> {
             drain();
         }
 
-        e<T> getOrCreateQueue() {
-            e<T> eVar = this.queue;
-            if (eVar == null) {
-                io.reactivex.internal.queue.a aVar = new io.reactivex.internal.queue.a(q.dDL());
+        f<T> getOrCreateQueue() {
+            f<T> fVar = this.queue;
+            if (fVar == null) {
+                io.reactivex.internal.queue.a aVar = new io.reactivex.internal.queue.a(q.dHR());
                 this.queue = aVar;
                 return aVar;
             }
-            return eVar;
+            return fVar;
         }
 
         void drain() {
@@ -156,8 +156,8 @@ public final class ObservableMergeWithMaybe<T> extends a<T, T> {
                     i2 = 2;
                 }
                 boolean z = this.mainDone;
-                e<T> eVar = this.queue;
-                Object obj = eVar != null ? (Object) eVar.poll() : (Object) null;
+                f<T> fVar = this.queue;
+                Object obj = fVar != null ? (Object) fVar.poll() : (Object) null;
                 boolean z2 = obj == null;
                 if (z && z2 && i2 == 2) {
                     this.queue = null;
@@ -176,7 +176,7 @@ public final class ObservableMergeWithMaybe<T> extends a<T, T> {
             this.queue = null;
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         static final class OtherObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements m<T> {
             private static final long serialVersionUID = -2935427570954647017L;
             final MergeWithObserver<T> parent;

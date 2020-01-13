@@ -2,7 +2,7 @@ package com.airbnb.lottie.model;
 
 import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     private final String hw;
     private final float hx;

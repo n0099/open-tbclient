@@ -11,9 +11,9 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(19)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends b {
-    private final i lLV;
+    private final i lPG;
 
     @Override // com.facebook.imagepipeline.i.b, com.facebook.imagepipeline.i.e
     public /* bridge */ /* synthetic */ com.facebook.common.references.a a(com.facebook.imagepipeline.g.e eVar, Bitmap.Config config, @Nullable Rect rect) {
@@ -31,31 +31,31 @@ public class d extends b {
     }
 
     public d(i iVar) {
-        this.lLV = iVar;
+        this.lPG = iVar;
     }
 
     @Override // com.facebook.imagepipeline.i.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, BitmapFactory.Options options) {
         PooledByteBuffer pooledByteBuffer = aVar.get();
         int size = pooledByteBuffer.size();
-        com.facebook.common.references.a<byte[]> HN = this.lLV.HN(size);
+        com.facebook.common.references.a<byte[]> HW = this.lPG.HW(size);
         try {
-            byte[] bArr = HN.get();
+            byte[] bArr = HW.get();
             pooledByteBuffer.c(0, bArr, 0, size);
             return (Bitmap) g.checkNotNull(BitmapFactory.decodeByteArray(bArr, 0, size, options), "BitmapFactory returned null");
         } finally {
-            com.facebook.common.references.a.c(HN);
+            com.facebook.common.references.a.c(HW);
         }
     }
 
     @Override // com.facebook.imagepipeline.i.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        byte[] bArr = b(aVar, i) ? null : lQw;
+        byte[] bArr = b(aVar, i) ? null : lUi;
         PooledByteBuffer pooledByteBuffer = aVar.get();
         g.checkArgument(i <= pooledByteBuffer.size());
-        com.facebook.common.references.a<byte[]> HN = this.lLV.HN(i + 2);
+        com.facebook.common.references.a<byte[]> HW = this.lPG.HW(i + 2);
         try {
-            byte[] bArr2 = HN.get();
+            byte[] bArr2 = HW.get();
             pooledByteBuffer.c(0, bArr2, 0, i);
             if (bArr != null) {
                 w(bArr2, i);
@@ -63,7 +63,7 @@ public class d extends b {
             }
             return (Bitmap) g.checkNotNull(BitmapFactory.decodeByteArray(bArr2, 0, i, options), "BitmapFactory returned null");
         } finally {
-            com.facebook.common.references.a.c(HN);
+            com.facebook.common.references.a.c(HW);
         }
     }
 

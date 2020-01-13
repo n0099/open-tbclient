@@ -21,7 +21,7 @@ public class VideoItemData implements Parcelable, b, Serializable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Dg */
+        /* renamed from: Dm */
         public VideoItemData[] newArray(int i) {
             return new VideoItemData[i];
         }
@@ -89,43 +89,43 @@ public class VideoItemData implements Parcelable, b, Serializable {
     public VideoItemData buildWithThreadData(bj bjVar) {
         if (bjVar != null) {
             this.thread_id = bjVar.getTid();
-            this.post_id = bjVar.azo();
-            if (bjVar.azV() != null) {
-                this.thumbnail_url = bjVar.azV().thumbnail_url;
-                this.video_url = bjVar.azV().video_url;
-                this.video_height = String.valueOf(bjVar.azV().video_height);
-                this.video_width = String.valueOf(bjVar.azV().video_width);
-                this.mMd5 = bjVar.azV().video_md5;
-                this.video_duration = bjVar.azV().video_duration.intValue();
-                this.play_count = bjVar.azV().play_count.intValue();
-                this.isVerticalVideo = bjVar.azV().is_vertical.intValue();
+            this.post_id = bjVar.azH();
+            if (bjVar.aAo() != null) {
+                this.thumbnail_url = bjVar.aAo().thumbnail_url;
+                this.video_url = bjVar.aAo().video_url;
+                this.video_height = String.valueOf(bjVar.aAo().video_height);
+                this.video_width = String.valueOf(bjVar.aAo().video_width);
+                this.mMd5 = bjVar.aAo().video_md5;
+                this.video_duration = bjVar.aAo().video_duration.intValue();
+                this.play_count = bjVar.aAo().play_count.intValue();
+                this.isVerticalVideo = bjVar.aAo().is_vertical.intValue();
             }
-            this.comment_num = String.valueOf(bjVar.azv());
-            this.agree_num = String.valueOf(bjVar.aAZ());
-            this.share_num = String.valueOf(bjVar.aBd());
+            this.comment_num = String.valueOf(bjVar.azO());
+            this.agree_num = String.valueOf(bjVar.aBs());
+            this.share_num = String.valueOf(bjVar.aBw());
             this.title = bjVar.getTitle();
             this.forum_id = String.valueOf(bjVar.getFid());
             this.baijiahaoData = bjVar.getBaijiahaoData();
-            this.forum_name = bjVar.azJ();
-            this.is_agreed = String.valueOf(bjVar.aBb());
-            if (bjVar.azE() != null) {
+            this.forum_name = bjVar.aAc();
+            this.is_agreed = String.valueOf(bjVar.aBu());
+            if (bjVar.azX() != null) {
                 UserItemData userItemData = new UserItemData();
-                userItemData.user_name = bjVar.azE().getUserName();
-                userItemData.name_show = bjVar.azE().getName_show();
-                userItemData.portrait = bjVar.azE().getPortrait();
-                userItemData.user_id = bjVar.azE().getUserId();
-                userItemData.is_follow = bjVar.azE().hadConcerned() ? "1" : "0";
-                if (bjVar.azE().getBaijiahaoInfo() != null) {
-                    userItemData.bjhAvatar = bjVar.azE().getBaijiahaoInfo().avatar;
+                userItemData.user_name = bjVar.azX().getUserName();
+                userItemData.name_show = bjVar.azX().getName_show();
+                userItemData.portrait = bjVar.azX().getPortrait();
+                userItemData.user_id = bjVar.azX().getUserId();
+                userItemData.is_follow = bjVar.azX().hadConcerned() ? "1" : "0";
+                if (bjVar.azX().getBaijiahaoInfo() != null) {
+                    userItemData.bjhAvatar = bjVar.azX().getBaijiahaoInfo().avatar;
                 }
                 this.author_info = userItemData;
             }
-            this.act_info = bjVar.aAz();
+            this.act_info = bjVar.aAS();
             this.mRecomAbTag = bjVar.mRecomAbTag;
             this.mRecomSource = bjVar.mRecomSource;
             this.mRecomWeight = bjVar.mRecomWeight;
             this.mRecomExtra = bjVar.mRecomExtra;
-            this.isBjhVideo = bjVar.aBC();
+            this.isBjhVideo = bjVar.aBV();
         }
         return this;
     }

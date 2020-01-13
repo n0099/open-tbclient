@@ -6,7 +6,7 @@ import com.baidu.swan.apps.setting.oauth.g;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -38,13 +38,13 @@ public class c extends g {
                 for (String str2 : list) {
                     CookieManager.getInstance().setCookie(str, str2);
                 }
-                JZ();
+                Kv();
             } catch (Exception e) {
             }
         }
     }
 
-    public void JZ() {
+    public void Kv() {
         if (com.baidu.swan.apps.as.a.hasLollipop()) {
             CookieManager.getInstance().flush();
         } else {

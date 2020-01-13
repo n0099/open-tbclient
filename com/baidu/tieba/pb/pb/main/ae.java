@@ -3,22 +3,22 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ae extends PostData {
-    public static final BdUniqueId iHh = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.as iHi;
-    public com.baidu.tbadk.core.data.as iHj;
-    public com.baidu.tbadk.core.data.as iHk;
+    public static final BdUniqueId iKL = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.as iKM;
+    public com.baidu.tbadk.core.data.as iKN;
+    public com.baidu.tbadk.core.data.as iKO;
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return iHh;
+        return iKL;
     }
 
     public boolean hasData() {
-        if (this.iHi == null || StringUtils.isNull(this.iHi.summary)) {
-            if (this.iHj == null || StringUtils.isNull(this.iHj.summary)) {
-                return (this.iHk == null || StringUtils.isNull(this.iHk.summary)) ? false : true;
+        if (this.iKM == null || StringUtils.isNull(this.iKM.summary)) {
+            if (this.iKN == null || StringUtils.isNull(this.iKN.summary)) {
+                return (this.iKO == null || StringUtils.isNull(this.iKO.summary)) ? false : true;
             }
             return true;
         }

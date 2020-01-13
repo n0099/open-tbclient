@@ -3,57 +3,57 @@ package com.baidu.swan.apps.adaptation.a;
 import android.content.Context;
 import java.util.Map;
 import okhttp3.Request;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface o {
-    String FA();
-
-    String FB();
-
-    String FC();
-
-    boolean FD();
-
-    String FE();
+    boolean FE();
 
     String FF();
 
     String FG();
 
-    boolean Fi();
+    String FH();
 
-    String Fj();
+    String FI();
 
-    String Fk();
+    void FJ();
 
-    String Fl();
+    void FK();
 
-    String Fm();
+    String FL();
 
-    void Fn();
+    String FM();
 
-    void Fo();
+    String FN();
 
-    String Fp();
+    String FO();
 
-    String Fq();
+    String FP();
 
-    String Fr();
+    String FQ();
 
-    String Fs();
+    String FR();
 
-    String Ft();
+    String FS();
 
-    String Fu();
+    String FT();
 
-    String Fv();
+    String FU();
 
-    String Fw();
+    String FV();
 
-    String Fx();
+    String FW();
 
-    String Fy();
+    String FX();
 
-    String Fz();
+    String FY();
+
+    boolean FZ();
+
+    String Ga();
+
+    String Gb();
+
+    String Gc();
 
     String bp(Context context);
 

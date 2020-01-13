@@ -5,7 +5,7 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements ParamBuilder<a> {
     protected Map<String, String> a;
 

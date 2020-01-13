@@ -7,7 +7,7 @@ import android.graphics.RectF;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes2.dex */
 public class TbViewTagDrawer {

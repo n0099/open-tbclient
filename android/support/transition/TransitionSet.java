@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TransitionSet extends Transition {
     public static final int ORDERING_SEQUENTIAL = 1;
     public static final int ORDERING_TOGETHER = 0;
@@ -349,7 +349,7 @@ public class TransitionSet extends Transition {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class TransitionSetListener extends TransitionListenerAdapter {
         TransitionSet mTransitionSet;
 
@@ -572,11 +572,11 @@ public class TransitionSet extends Transition {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.transition.Transition
     public Transition clone() {
-        TransitionSet transitionSet = (TransitionSet) super.m0clone();
+        TransitionSet transitionSet = (TransitionSet) super.m1clone();
         transitionSet.mTransitions = new ArrayList<>();
         int size = this.mTransitions.size();
         for (int i = 0; i < size; i++) {
-            transitionSet.addTransition(this.mTransitions.get(i).m0clone());
+            transitionSet.addTransition(this.mTransitions.get(i).m1clone());
         }
         return transitionSet;
     }

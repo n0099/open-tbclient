@@ -2,10 +2,10 @@ package com.baidu.swan.apps.adaptation.implementation;
 
 import android.content.Context;
 import com.baidu.swan.apps.adaptation.a.ai;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class n implements ai {
     @Override // com.baidu.swan.apps.adaptation.a.ai
-    public void Fc() {
+    public void Fy() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ai
@@ -14,7 +14,7 @@ public class n implements ai {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ai
-    public ai Fd() {
+    public ai Fz() {
         return null;
     }
 
@@ -40,7 +40,7 @@ public class n implements ai {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ai
-    public void Fe() {
+    public void FA() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ai

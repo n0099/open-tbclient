@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils;
 
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class q extends HttpHandlerWrap {
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(boolean z) {

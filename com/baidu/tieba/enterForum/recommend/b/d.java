@@ -3,18 +3,18 @@ package com.baidu.tieba.enterForum.recommend.b;
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fRL = BdUniqueId.gen();
-    private int fRM;
-    private int fRN = 0;
-    private List<c> fRO;
+    public static final BdUniqueId fUV = BdUniqueId.gen();
+    private int fUW;
+    private int fUX = 0;
+    private List<c> fUY;
     private List<b> forumList;
     private String title;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fRL;
+        return fUV;
     }
 
     public String getTitle() {
@@ -25,12 +25,12 @@ public class d extends com.baidu.tieba.card.data.b {
         this.title = str;
     }
 
-    public int bwr() {
-        return this.fRM;
+    public int bxt() {
+        return this.fUW;
     }
 
-    public void rI(int i) {
-        this.fRM = i;
+    public void rN(int i) {
+        this.fUW = i;
     }
 
     public List<b> getForumList() {
@@ -41,63 +41,63 @@ public class d extends com.baidu.tieba.card.data.b {
         this.forumList = list;
     }
 
-    public List<c> bws() {
-        return this.fRO;
+    public List<c> bxu() {
+        return this.fUY;
     }
 
     private void bR(List<c> list) {
-        this.fRO = list;
+        this.fUY = list;
     }
 
-    public List<c> bwt() {
+    public List<c> bxv() {
         if (getForumList().size() <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.fRM == 2) {
-            if (bwu() != null) {
-                arrayList.add(bwu());
+        if (this.fUW == 2) {
+            if (bxw() != null) {
+                arrayList.add(bxw());
             }
         } else {
-            c bwu = bwu();
-            c bwu2 = bwu();
-            if (bwu != null) {
-                arrayList.add(bwu);
+            c bxw = bxw();
+            c bxw2 = bxw();
+            if (bxw != null) {
+                arrayList.add(bxw);
             }
-            if (bwu2 != null) {
-                arrayList.add(bwu2);
+            if (bxw2 != null) {
+                arrayList.add(bxw2);
             }
         }
         bR(arrayList);
         return arrayList;
     }
 
-    private c bwu() {
+    private c bxw() {
         if (getForumList().size() <= 0) {
             return null;
         }
-        b bwv = bwv();
-        b bwv2 = bwv();
-        if (bwv == null && bwv2 == null) {
+        b bxx = bxx();
+        b bxx2 = bxx();
+        if (bxx == null && bxx2 == null) {
             return null;
         }
         c cVar = new c();
-        cVar.b(bwv);
-        cVar.a(bwv2);
+        cVar.b(bxx);
+        cVar.a(bxx2);
         return cVar;
     }
 
-    private b bwv() {
+    private b bxx() {
         b bVar;
-        if (this.fRN < getForumList().size()) {
-            bVar = getForumList().get(this.fRN);
-        } else if (this.fRM < getForumList().size()) {
-            this.fRN = 0;
-            bVar = getForumList().get(this.fRN);
+        if (this.fUX < getForumList().size()) {
+            bVar = getForumList().get(this.fUX);
+        } else if (this.fUW < getForumList().size()) {
+            this.fUX = 0;
+            bVar = getForumList().get(this.fUX);
         } else {
             return null;
         }
-        this.fRN++;
+        this.fUX++;
         return bVar;
     }
 }

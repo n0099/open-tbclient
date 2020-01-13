@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.walknavi.segmentbrowse.widget;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
     private static f b = new f();
     private int a;

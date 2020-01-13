@@ -5,7 +5,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DraftSPWrapper implements SharedPreferences {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final String SP_FILE_UGC_DRAFT = "draft_sp";
@@ -99,7 +99,7 @@ public class DraftSPWrapper implements SharedPreferences {
         this.mSp.edit().remove(str).apply();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     private static class Holder {
         private static final DraftSPWrapper INSTANCE = new DraftSPWrapper();
 

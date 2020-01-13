@@ -16,13 +16,13 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private b cXi;
-    private InterfaceC0366a cXj;
+    private b cXs;
+    private InterfaceC0368a cXt;
     private ArrayList<String> requestPermissionList = new ArrayList<>();
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0366a {
+    public interface InterfaceC0368a {
         void onPermissionsGranted();
     }
 
@@ -46,7 +46,7 @@ public class a {
     }
 
     public boolean startRequestPermission(Activity activity) {
-        if (!com.baidu.k.a.BD()) {
+        if (!com.baidu.k.a.BZ()) {
             onPermissionsGranted();
             return false;
         } else if (v.isEmpty(this.requestPermissionList)) {
@@ -75,7 +75,7 @@ public class a {
             return true;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.fv(false);
+        aVar.fA(false);
         aVar.jE(R.string.request_permission_default_title);
         aVar.jF(getPermissionDescriptionId(str));
         aVar.a(R.string.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
@@ -87,20 +87,20 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.cXi != null) {
-                    a.this.cXi.onDialogComfirmed(str);
+                if (a.this.cXs != null) {
+                    a.this.cXs.onDialogComfirmed(str);
                 }
             }
         }).b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.cXi != null) {
-                    a.this.cXi.onDialogCaneled(str);
+                if (a.this.cXs != null) {
+                    a.this.cXs.onDialogCaneled(str);
                 }
             }
         }).b(i.ab(activity));
-        aVar.aBW();
+        aVar.aCp();
         return false;
     }
 
@@ -136,13 +136,13 @@ public class a {
         return "android.permission.CALL_PHONE".equals(str) ? R.string.request_permission_cellphone : R.string.request_permission_default_text;
     }
 
-    public void a(InterfaceC0366a interfaceC0366a) {
-        this.cXj = interfaceC0366a;
+    public void a(InterfaceC0368a interfaceC0368a) {
+        this.cXt = interfaceC0368a;
     }
 
     public void onPermissionsGranted() {
-        if (this.cXj != null) {
-            this.cXj.onPermissionsGranted();
+        if (this.cXt != null) {
+            this.cXt.onPermissionsGranted();
         }
     }
 }

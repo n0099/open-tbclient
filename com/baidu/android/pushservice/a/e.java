@@ -11,7 +11,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class e {
     protected ArrayList<a> a = new ArrayList<>();
     protected Context b;

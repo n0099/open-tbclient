@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.data;
 import java.util.List;
 /* loaded from: classes.dex */
 public class af {
-    private List<HotTopicBussinessData> cLa;
+    private List<HotTopicBussinessData> dataList;
 
-    public void aw(List<HotTopicBussinessData> list) {
-        this.cLa = list;
+    public void av(List<HotTopicBussinessData> list) {
+        this.dataList = list;
     }
 }

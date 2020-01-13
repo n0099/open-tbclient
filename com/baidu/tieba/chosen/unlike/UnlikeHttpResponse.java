@@ -3,7 +3,7 @@ package com.baidu.tieba.chosen.unlike;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Unlike.UnlikeResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UnlikeHttpResponse extends HttpResponsedMessage {
     private long threadId;
 

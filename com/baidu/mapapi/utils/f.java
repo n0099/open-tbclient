@@ -2,7 +2,7 @@ package com.baidu.mapapi.utils;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class f implements Runnable {
     final /* synthetic */ Context a;
     final /* synthetic */ int b;

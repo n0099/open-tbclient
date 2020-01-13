@@ -8,7 +8,7 @@ import com.baidu.searchbox.net.update.CommandPostData;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class CommandListenerRegistry {
     private static final String TAG = "CommandListenerRegistry";
     private final Map<Pair<String, String>, AbstractCommandListener> mListenerMap = new HashMap();

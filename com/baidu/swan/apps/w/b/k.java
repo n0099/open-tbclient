@@ -2,14 +2,14 @@ package com.baidu.swan.apps.w.b;
 
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface k {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void Sx();
+        void ST();
 
-        void Sy();
+        void SU();
     }
 
     void a(Context context, JSONObject jSONObject, a aVar);

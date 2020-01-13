@@ -1,5 +1,5 @@
 package android.support.v4.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LongSparseArray<E> implements Cloneable {
     private static final Object DELETED = new Object();
     private boolean mGarbage;
@@ -26,7 +26,7 @@ public class LongSparseArray<E> implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public LongSparseArray<E> m3clone() {
+    public LongSparseArray<E> m4clone() {
         try {
             LongSparseArray<E> longSparseArray = (LongSparseArray) super.clone();
             try {

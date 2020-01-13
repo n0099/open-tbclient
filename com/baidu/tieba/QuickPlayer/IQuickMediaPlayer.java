@@ -9,7 +9,7 @@ import android.os.RemoteException;
 import android.view.Surface;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IQuickMediaPlayer extends IInterface {
     void forceUseSystemMediaPlayer(boolean z) throws RemoteException;
 
@@ -63,7 +63,7 @@ public interface IQuickMediaPlayer extends IInterface {
 
     void start() throws RemoteException;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static abstract class Stub extends Binder implements IQuickMediaPlayer {
         private static final String DESCRIPTOR = "com.baidu.tieba.QuickPlayer.IQuickMediaPlayer";
         static final int TRANSACTION_forceUseSystemMediaPlayer = 1;
@@ -284,7 +284,7 @@ public interface IQuickMediaPlayer extends IInterface {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes11.dex */
         private static class Proxy implements IQuickMediaPlayer {
             private IBinder mRemote;
 

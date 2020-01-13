@@ -18,39 +18,39 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ad<T extends com.baidu.tbadk.core.data.a> implements n, com.baidu.tieba.a.e {
-    private T JB;
-    private m<T> KP;
-    private ThreadCardView KQ;
-    private RelativeLayout KR;
-    private LinearLayout KS;
-    private b<T> KT;
-    private b<T> KU;
-    private List<h> KV;
-    private b<T> KW;
-    private ArrayList<d> KX;
-    private n KY;
-    private ae KZ;
-    private String La;
-    private com.baidu.tieba.card.z<T> Lb;
-    private com.baidu.card.a.a Lc;
-    private int Le;
-    private a.C0050a Lf;
+    private T JH;
+    private m<T> KU;
+    private ThreadCardView KV;
+    private RelativeLayout KW;
+    private LinearLayout KX;
+    private b<T> KY;
+    private b<T> KZ;
+    private List<h> La;
+    private b<T> Lb;
+    private ArrayList<d> Lc;
+    private n Le;
+    private ae Lf;
+    private String Lg;
+    private com.baidu.tieba.card.z<T> Lh;
+    private com.baidu.card.a.a Li;
+    private int Lj;
+    private a.C0050a Lk;
     private Context context;
     private View mBottomLine;
     private int mSkinType;
 
-    public b<T> mM() {
-        return this.KU;
-    }
-
     public b<T> mN() {
-        return this.KW;
+        return this.KZ;
     }
 
-    public List<h> mO() {
-        return this.KV;
+    public b<T> mO() {
+        return this.Lb;
+    }
+
+    public List<h> mP() {
+        return this.La;
     }
 
     private ad(a aVar) {
@@ -67,28 +67,28 @@ public class ad<T extends com.baidu.tbadk.core.data.a> implements n, com.baidu.t
 
     private ad(a aVar, boolean z, ViewGroup viewGroup, com.baidu.adp.widget.ListView.r rVar) {
         this.mSkinType = 3;
-        this.KP = null;
-        this.KY = null;
-        this.Lc = new com.baidu.card.a.a();
-        this.Le = 0;
-        this.Lf = new a.C0050a(7);
+        this.KU = null;
+        this.Le = null;
+        this.Li = new com.baidu.card.a.a();
+        this.Lj = 0;
+        this.Lk = new a.C0050a(7);
         this.context = aVar.context;
         View inflate = LayoutInflater.from(this.context).inflate(R.layout.thread_card_layout, viewGroup, false);
-        this.KQ = (ThreadCardView) inflate.findViewById(R.id.thread_card_root);
-        this.KR = (RelativeLayout) this.KQ.findViewById(R.id.card_decor_layer);
-        this.KS = (LinearLayout) this.KQ.findViewById(R.id.body_root);
-        this.mBottomLine = this.KQ.findViewById(R.id.card_bottom_line);
+        this.KV = (ThreadCardView) inflate.findViewById(R.id.thread_card_root);
+        this.KW = (RelativeLayout) this.KV.findViewById(R.id.card_decor_layer);
+        this.KX = (LinearLayout) this.KV.findViewById(R.id.body_root);
+        this.mBottomLine = this.KV.findViewById(R.id.card_bottom_line);
         if (z) {
             this.mBottomLine.setVisibility(0);
         }
-        this.KT = aVar.Lh;
-        this.KU = aVar.Li;
-        this.KV = aVar.Lj;
-        this.KW = aVar.Lk;
-        this.KX = aVar.KX;
-        this.KZ = aVar.KZ;
-        this.KQ.setParent(viewGroup);
-        this.KQ.setITypeListView(rVar);
+        this.KY = aVar.Lm;
+        this.KZ = aVar.Ln;
+        this.La = aVar.Lo;
+        this.Lb = aVar.Lp;
+        this.Lc = aVar.Lc;
+        this.Lf = aVar.Lf;
+        this.KV.setParent(viewGroup);
+        this.KV.setITypeListView(rVar);
         initUI();
         inflate.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.card.ad.1
             @Override // android.view.View.OnTouchListener
@@ -96,89 +96,89 @@ public class ad<T extends com.baidu.tbadk.core.data.a> implements n, com.baidu.t
                 switch (motionEvent.getAction()) {
                     case 0:
                     case 2:
-                        ad.this.Lf.setExtraData(true);
+                        ad.this.Lk.setExtraData(true);
                         break;
                     case 1:
                     case 3:
-                        ad.this.Lf.setExtraData(false);
+                        ad.this.Lk.setExtraData(false);
                         break;
                 }
-                ad.this.b(ad.this.Lf);
+                ad.this.b(ad.this.Lk);
                 return false;
             }
         });
     }
 
     public View getView() {
-        return this.KQ;
+        return this.KV;
     }
 
     private void initUI() {
-        if (this.KZ != null) {
-            if (this.KS.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                ((FrameLayout.LayoutParams) this.KS.getLayoutParams()).setMargins(this.KZ.Lu, this.KZ.Ls, this.KZ.Lv, this.KZ.Lt);
-                this.KS.postInvalidate();
+        if (this.Lf != null) {
+            if (this.KX.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                ((FrameLayout.LayoutParams) this.KX.getLayoutParams()).setMargins(this.Lf.Lz, this.Lf.Lx, this.Lf.LA, this.Lf.Ly);
+                this.KX.postInvalidate();
             }
-            if (this.KZ.Lo) {
-                mQ();
+            if (this.Lf.Lt) {
+                mR();
             }
-            if (this.KT != null) {
-                this.KT.a(this);
-                this.KS.addView(this.KT.getView());
-                this.KT.mD();
+            if (this.KY != null) {
+                this.KY.a(this);
+                this.KX.addView(this.KY.getView());
+                this.KY.mD();
             }
-            if (this.KU != null) {
-                this.KU.a(this);
+            if (this.KZ != null) {
+                this.KZ.a(this);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-                layoutParams.topMargin = this.KZ.Lp;
-                if (this.KV != null) {
-                    layoutParams.bottomMargin = this.KZ.Lq;
+                layoutParams.topMargin = this.Lf.Lu;
+                if (this.La != null) {
+                    layoutParams.bottomMargin = this.Lf.Lv;
                 }
-                if (this.KU.mF().booleanValue()) {
-                    layoutParams.leftMargin = -this.KZ.Lu;
-                    layoutParams.rightMargin = -this.KZ.Lv;
+                if (this.KZ.mF().booleanValue()) {
+                    layoutParams.leftMargin = -this.Lf.Lz;
+                    layoutParams.rightMargin = -this.Lf.LA;
                 }
-                this.KS.addView(this.KU.getView(), layoutParams);
-                this.KU.mD();
+                this.KX.addView(this.KZ.getView(), layoutParams);
+                this.KZ.mD();
             }
-            if (this.KV != null) {
+            if (this.La != null) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= this.KV.size()) {
+                    if (i2 >= this.La.size()) {
                         break;
                     }
-                    h hVar = this.KV.get(i2);
+                    h hVar = this.La.get(i2);
                     if (hVar != null) {
                         hVar.a(this);
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
                         layoutParams2.topMargin = hVar.getTopMargin();
                         if (hVar.mF().booleanValue()) {
-                            layoutParams2.leftMargin = -this.KZ.Lu;
-                            layoutParams2.rightMargin = -this.KZ.Lv;
+                            layoutParams2.leftMargin = -this.Lf.Lz;
+                            layoutParams2.rightMargin = -this.Lf.LA;
                         }
-                        this.KS.addView(hVar.getView(), layoutParams2);
+                        this.KX.addView(hVar.getView(), layoutParams2);
                         hVar.mD();
                     }
                     i = i2 + 1;
                 }
             }
-            if (this.KW != null) {
+            if (this.Lb != null) {
                 LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
-                layoutParams3.topMargin = this.KZ.Lr;
-                this.KW.a(this);
-                this.KS.addView(this.KW.getView(), layoutParams3);
-                this.KW.mD();
+                layoutParams3.topMargin = this.Lf.Lw;
+                this.Lb.a(this);
+                this.KX.addView(this.Lb.getView(), layoutParams3);
+                this.Lb.mD();
             }
-            if (!com.baidu.tbadk.core.util.v.isEmpty(this.KX)) {
-                Iterator<d> it = this.KX.iterator();
+            if (!com.baidu.tbadk.core.util.v.isEmpty(this.Lc)) {
+                Iterator<d> it = this.Lc.iterator();
                 while (it.hasNext()) {
                     d next = it.next();
                     if (next != null && next.mJ() != null) {
                         if (next.mG() == null) {
-                            this.KR.addView(next.mJ(), next.mI());
+                            this.KW.addView(next.mJ(), next.mI());
                         } else {
-                            this.KR.addView(next.mJ(), next.mI(), next.mG());
+                            this.KW.addView(next.mJ(), next.mI(), next.mG());
                         }
                         next.b(this);
                         next.mD();
@@ -189,102 +189,102 @@ public class ad<T extends com.baidu.tbadk.core.data.a> implements n, com.baidu.t
     }
 
     public void aM(int i) {
-        this.Le = i;
+        this.Lj = i;
     }
 
-    public int mP() {
-        return this.Le;
+    public int mQ() {
+        return this.Lj;
     }
 
     public void a(d dVar) {
         if (dVar != null && dVar.mJ() != null) {
-            this.KX.remove(dVar);
+            this.Lc.remove(dVar);
             if (dVar.mJ().getParent() != null) {
                 ((ViewGroup) dVar.mJ().getParent()).removeView(dVar.mJ());
                 dVar.mH();
                 dVar.b(null);
             }
             if (dVar.mG() == null) {
-                this.KR.addView(dVar.mJ(), dVar.mI());
+                this.KW.addView(dVar.mJ(), dVar.mI());
             } else {
-                this.KR.addView(dVar.mJ(), dVar.mI(), dVar.mG());
+                this.KW.addView(dVar.mJ(), dVar.mI(), dVar.mG());
             }
             dVar.b(this);
             dVar.mD();
-            this.KX.add(dVar);
+            this.Lc.add(dVar);
         }
     }
 
-    private void mQ() {
+    private void mR() {
         d dVar = new d();
         dVar.F(new TbImageView(this.context));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(this.context, R.dimen.ds180), com.baidu.adp.lib.util.l.getDimens(this.context, R.dimen.ds50));
         layoutParams.addRule(11);
         layoutParams.addRule(10);
-        layoutParams.topMargin = -this.KZ.Ls;
-        layoutParams.rightMargin = -this.KZ.Lv;
+        layoutParams.topMargin = -this.Lf.Lx;
+        layoutParams.rightMargin = -this.Lf.LA;
         dVar.a(layoutParams);
         dVar.setInsertIndex(-1);
-        this.KX.add(dVar);
+        this.Lc.add(dVar);
     }
 
     public void c(T t) {
-        this.JB = t;
-        if (this.KT != null) {
-            this.KT.A(t);
+        this.JH = t;
+        if (this.KY != null) {
+            this.KY.A(t);
+        }
+        if (this.KZ != null) {
+            this.KZ.A(t);
+        }
+        if (!com.baidu.tbadk.core.util.v.isEmpty(this.La)) {
+            for (h hVar : this.La) {
+                hVar.A(t);
+            }
+        }
+        if (this.Lb != null) {
+            this.Lb.A(t);
         }
         if (this.KU != null) {
             this.KU.A(t);
         }
-        if (!com.baidu.tbadk.core.util.v.isEmpty(this.KV)) {
-            for (h hVar : this.KV) {
-                hVar.A(t);
-            }
-        }
-        if (this.KW != null) {
-            this.KW.A(t);
-        }
-        if (this.KP != null) {
-            this.KP.A(t);
-        }
     }
 
     public void a(int i, a.b bVar) {
-        this.Lc.c(i, bVar);
+        this.Li.c(i, bVar);
     }
 
     public boolean b(a.C0050a c0050a) {
-        return this.Lc.b(c0050a);
+        return this.Li.b(c0050a);
     }
 
     public void setPosition(int i) {
-        if (this.KQ != null) {
-            this.KQ.setPosition(i);
+        if (this.KV != null) {
+            this.KV.setPosition(i);
         }
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        am.setBackgroundResource(this.KQ, this.KZ.Lw);
+        am.setBackgroundResource(this.KV, this.Lf.LB);
         if (i != this.mSkinType) {
             this.mSkinType = i;
             am.setBackgroundResource(this.mBottomLine, R.color.cp_bg_line_b);
-            if (this.KT != null) {
-                this.KT.onChangeSkinType(tbPageContext, i);
+            if (this.KY != null) {
+                this.KY.onChangeSkinType(tbPageContext, i);
             }
-            if (this.KU != null) {
-                this.KU.onChangeSkinType(tbPageContext, i);
+            if (this.KZ != null) {
+                this.KZ.onChangeSkinType(tbPageContext, i);
             }
-            for (h hVar : this.KV) {
+            for (h hVar : this.La) {
                 if (hVar != null) {
                     hVar.onChangeSkinType(tbPageContext, i);
                 }
             }
-            if (this.KW != null) {
-                this.KW.onChangeSkinType(tbPageContext, i);
+            if (this.Lb != null) {
+                this.Lb.onChangeSkinType(tbPageContext, i);
             }
-            if (!com.baidu.tbadk.core.util.v.isEmpty(this.KX)) {
-                Iterator<d> it = this.KX.iterator();
+            if (!com.baidu.tbadk.core.util.v.isEmpty(this.Lc)) {
+                Iterator<d> it = this.Lc.iterator();
                 while (it.hasNext()) {
                     d next = it.next();
                     if (next != null && (next instanceof n)) {
@@ -292,60 +292,60 @@ public class ad<T extends com.baidu.tbadk.core.data.a> implements n, com.baidu.t
                     }
                 }
             }
-            if (this.KY != null) {
-                this.KY.onChangeSkinType(tbPageContext, i);
+            if (this.Le != null) {
+                this.Le.onChangeSkinType(tbPageContext, i);
             }
         }
     }
 
     public void a(com.baidu.tieba.card.z<T> zVar) {
-        if (this.KT != null) {
-            this.KT.setOnCardSubClickListener(zVar);
+        if (this.KY != null) {
+            this.KY.setOnCardSubClickListener(zVar);
         }
-        if (this.KU != null) {
-            this.KU.setOnCardSubClickListener(zVar);
+        if (this.KZ != null) {
+            this.KZ.setOnCardSubClickListener(zVar);
         }
-        for (h hVar : this.KV) {
+        for (h hVar : this.La) {
             if (hVar != null) {
                 hVar.setOnCardSubClickListener(zVar);
             }
         }
-        if (this.KW != null) {
-            this.KW.setOnCardSubClickListener(zVar);
+        if (this.Lb != null) {
+            this.Lb.setOnCardSubClickListener(zVar);
         }
-        this.Lb = zVar;
+        this.Lh = zVar;
     }
 
     public void b(int i, a.b bVar) {
-        this.Lc.d(i, bVar);
+        this.Li.d(i, bVar);
     }
 
     @Override // com.baidu.tieba.a.e
     public void setPage(String str) {
-        this.La = str;
+        this.Lg = str;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        private ArrayList<d> KX;
-        private ae KZ;
-        private b Lh;
-        private b Li;
-        private List<h> Lj;
-        private b Lk;
+        private ArrayList<d> Lc;
+        private ae Lf;
+        private b Lm;
+        private b Ln;
+        private List<h> Lo;
+        private b Lp;
         private Context context;
 
         public a(Context context, boolean z) {
-            this.Lh = null;
-            this.Li = null;
-            this.Lk = null;
+            this.Lm = null;
+            this.Ln = null;
+            this.Lp = null;
             this.context = context;
-            this.KX = new ArrayList<>();
-            this.KZ = new ae();
+            this.Lc = new ArrayList<>();
+            this.Lf = new ae();
             if (!z) {
-                this.KZ.aQ(0);
+                this.Lf.aQ(0);
             }
-            this.Lj = new ArrayList();
+            this.Lo = new ArrayList();
         }
 
         public a(Context context) {
@@ -353,26 +353,26 @@ public class ad<T extends com.baidu.tbadk.core.data.a> implements n, com.baidu.t
         }
 
         public a a(b bVar) {
-            this.Lh = bVar;
+            this.Lm = bVar;
             return this;
         }
 
         public a b(b bVar) {
-            this.Lk = bVar;
+            this.Lp = bVar;
             return this;
         }
 
         public a a(h hVar) {
-            this.Lj.add(hVar);
+            this.Lo.add(hVar);
             return this;
         }
 
         public a c(b bVar) {
-            this.Li = bVar;
+            this.Ln = bVar;
             return this;
         }
 
-        public ad mS() {
+        public ad mT() {
             return new ad(this);
         }
 
@@ -380,8 +380,8 @@ public class ad<T extends com.baidu.tbadk.core.data.a> implements n, com.baidu.t
             return new ad(this, z, viewGroup, rVar);
         }
 
-        public ae mR() {
-            return this.KZ;
+        public ae mS() {
+            return this.Lf;
         }
     }
 
@@ -389,7 +389,7 @@ public class ad<T extends com.baidu.tbadk.core.data.a> implements n, com.baidu.t
         return this.context;
     }
 
-    public ae mR() {
-        return this.KZ;
+    public ae mS() {
+        return this.Lf;
     }
 }

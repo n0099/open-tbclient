@@ -36,7 +36,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BaseSSOLoginActivity extends SocialLoginBase {
     protected int businessFrom;
     private boolean isClose;

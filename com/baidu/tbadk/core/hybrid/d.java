@@ -12,28 +12,28 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class d implements h {
-    private final l cSo;
-    private final HashMap<String, Method> cSp = new HashMap<>();
+    private final l cSy;
+    private final HashMap<String, Method> cSz = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.hybrid.d */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     public d(l lVar) {
-        this.cSo = lVar;
+        this.cSy = lVar;
         s(getClass());
-        if (this.cSp.isEmpty()) {
+        if (this.cSz.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Context getContext() {
-        return this.cSo.getContext();
+        return this.cSy.getContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void sendMessage(Message<?> message) {
-        a.C0365a.sendMessage(message);
+        a.C0367a.sendMessage(message);
     }
 
     protected void n(String str, JSONObject jSONObject) {
@@ -47,19 +47,19 @@ public abstract class d implements h {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.cSo.a(m.j(str, hashMap));
+        this.cSy.a(m.j(str, hashMap));
     }
 
     @Override // com.baidu.tbadk.core.hybrid.h
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.cSp.get(str);
+        Method method = this.cSz.get(str);
         if (method != null) {
             o oVar = (o) method.getAnnotation(o.class);
             String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
             try {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                if (!oVar.aCK()) {
+                if (!oVar.aDd()) {
                     if (parameterTypes.length == 2) {
                         invoke = method.invoke(this, optString, jSONObject);
                     } else if (parameterTypes.length == 1) {
@@ -126,7 +126,7 @@ public abstract class d implements h {
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.cSo.a(m.j(optString, hashMap));
+        this.cSy.a(m.j(optString, hashMap));
     }
 
     private void s(Class<? extends d> cls) {
@@ -138,14 +138,14 @@ public abstract class d implements h {
                 if (TextUtils.isEmpty(value)) {
                     value = null;
                 }
-                if (oVar.aCK() && !Void.TYPE.equals(method.getReturnType())) {
+                if (oVar.aDd() && !Void.TYPE.equals(method.getReturnType())) {
                     throw new IllegalArgumentException("Method with async flag should return void.");
                 }
                 if (TextUtils.isEmpty(value)) {
                     value = method.getName();
                 }
                 method.setAccessible(true);
-                this.cSp.put(value, method);
+                this.cSz.put(value, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

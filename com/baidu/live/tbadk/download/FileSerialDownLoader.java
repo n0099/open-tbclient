@@ -8,7 +8,7 @@ import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.Md5;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.core.util.NetWork;
@@ -137,6 +137,46 @@ public class FileSerialDownLoader {
                 } else {
                     downloadData.setStatus(5);
                     mTaskList.add(downloadData);
+                    startQueue();
+                    return;
+                }
+            }
+        }
+    }
+
+    public void startDownLoadWithInsert(DownloadData downloadData) {
+        if (downloadData != null) {
+            if (!FileHelper.checkSD()) {
+                downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_download_fail_no_sd));
+                downloadData.setStatus(2);
+            }
+            if (downloadData.getStatus() == 2) {
+                if (downloadData.getCallback() != null) {
+                    downloadData.getCallback().onFileUpdateProgress(downloadData);
+                    return;
+                }
+                return;
+            }
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < mTaskList.size()) {
+                    try {
+                        DownloadData downloadData2 = mTaskList.get(i2);
+                        if (downloadData2 != null && downloadData2.getUrl() != null && downloadData.getUrl() != null && downloadData2.getUrl().equals(downloadData.getUrl()) && downloadData2.getId() != null && downloadData.getId() != null && downloadData2.getId().equals(downloadData.getId())) {
+                            return;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    i = i2 + 1;
+                } else {
+                    downloadData.setStatus(5);
+                    if (mTaskList.isEmpty()) {
+                        mTaskList.add(downloadData);
+                    } else {
+                        mTaskList.add(1, downloadData);
+                    }
                     startQueue();
                     return;
                 }
@@ -376,8 +416,8 @@ public class FileSerialDownLoader {
                     }
                     if (!file.exists()) {
                         this.mNetWork.setUrl(downloadDataArr[0].getUrl());
-                        this.mNetWork.downloadFile(FileHelper.getCacheFilePath(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp"), FileSerialDownLoader.this.mFileHandler, 900002, 3, new NetWork.DownloadResultCallback() { // from class: com.baidu.live.tbadk.download.FileSerialDownLoader.AsyFileDownLoadTask.1
-                            /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [471=5, 473=4, 474=4, 475=4] */
+                        this.mNetWork.downloadFile(FileHelper.getCacheFilePath(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp"), FileSerialDownLoader.this.mFileHandler, 17, 3, new NetWork.DownloadResultCallback() { // from class: com.baidu.live.tbadk.download.FileSerialDownLoader.AsyFileDownLoadTask.1
+                            /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [516=5, 518=4, 519=4, 520=4] */
                             /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x0133 */
                             /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x0135 */
                             /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:? */

@@ -12,18 +12,18 @@ import com.baidu.tieba.wallet.ITiebaPayCallback;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a implements IPayChannelBuilder {
-    private ITiebaPay hXZ = null;
+    private ITiebaPay ibE = null;
 
     @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayChannelBuilder
     public IPayChannel build() {
-        caQ();
+        cbZ();
         return new IPayChannel() { // from class: com.baidu.tieba.livesdk.h.a.1
             @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayChannel
             public void pay(HashMap<String, String> hashMap, final IPayCallback iPayCallback) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    a.this.caQ();
-                    if (a.this.hXZ != null) {
-                        a.this.hXZ.pay(hashMap.remove("channel"), hashMap, new ITiebaPayCallback() { // from class: com.baidu.tieba.livesdk.h.a.1.1
+                    a.this.cbZ();
+                    if (a.this.ibE != null) {
+                        a.this.ibE.pay(hashMap.remove("channel"), hashMap, new ITiebaPayCallback() { // from class: com.baidu.tieba.livesdk.h.a.1.1
                             @Override // com.baidu.tieba.wallet.ITiebaPayCallback
                             public void onPayResult(int i, String str) {
                                 if (iPayCallback != null) {
@@ -53,10 +53,10 @@ public class a implements IPayChannelBuilder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void caQ() {
+    public void cbZ() {
         CustomResponsedMessage runTask;
-        if (this.hXZ == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
-            this.hXZ = (ITiebaPay) runTask.getData();
+        if (this.ibE == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
+            this.ibE = (ITiebaPay) runTask.getData();
         }
     }
 }

@@ -8,10 +8,10 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class bm {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static byte[] a(int i, byte[] bArr) throws Exception {
             int i2 = i - 1;
@@ -49,7 +49,7 @@ public final class bm {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         @SuppressLint({"TrulyRandom"})
         public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {

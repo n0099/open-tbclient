@@ -15,33 +15,33 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c implements com.baidu.live.liveroom.d.a {
-    private int fcY = 1;
-    private int fcZ = -1;
-    private AlaLivePlayer fda;
-    private com.baidu.live.liveroom.d.c hYh;
+    private int fge = 1;
+    private int fgf = -1;
+    private AlaLivePlayer fgg;
+    private com.baidu.live.liveroom.d.c ibM;
     private boolean isPlaying;
     private Uri mUri;
 
     public c(Context context) {
-        if (this.fda == null) {
-            this.fda = AlaLivePlayer.createLivePlayer(context);
+        if (this.fgg == null) {
+            this.fgg = AlaLivePlayer.createLivePlayer(context);
         }
-        BdLog.e("TbLivePlayerImpl init()" + this.fda);
+        BdLog.e("TbLivePlayerImpl init()" + this.fgg);
     }
 
     @Override // com.baidu.live.liveroom.d.a
     public void d(Context context, Uri uri) {
-        if (this.fda == null) {
-            this.fda = AlaLivePlayer.createLivePlayer(context);
+        if (this.fgg == null) {
+            this.fgg = AlaLivePlayer.createLivePlayer(context);
         }
         this.mUri = uri;
-        BdLog.e("TbLivePlayerImpl=" + this.fda + "|mUri=" + this.mUri);
+        BdLog.e("TbLivePlayerImpl=" + this.fgg + "|mUri=" + this.mUri);
     }
 
     @Override // com.baidu.live.liveroom.d.a
     public void a(com.baidu.live.liveroom.d.c cVar) {
-        this.hYh = cVar;
-        this.fda.setPlayerCallback(new AlaLivePlayerCallback() { // from class: com.baidu.tieba.livesdk.i.c.1
+        this.ibM = cVar;
+        this.fgg.setPlayerCallback(new AlaLivePlayerCallback() { // from class: com.baidu.tieba.livesdk.i.c.1
             @Override // com.baidu.ala.player.AlaLivePlayerCallback
             public void onStreamChanged(int i, int i2) {
             }
@@ -60,8 +60,8 @@ public class c implements com.baidu.live.liveroom.d.a {
 
             @Override // com.baidu.ala.player.AlaLivePlayerCallback
             public void onFirstFrame(int i, int i2, int i3) {
-                if (c.this.hYh != null) {
-                    c.this.hYh.a(c.this, CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL, i);
+                if (c.this.ibM != null) {
+                    c.this.ibM.a(c.this, CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL, i);
                 }
                 BdLog.e("TbLivePlayerImpl onFirstFrame()" + i);
             }
@@ -83,19 +83,19 @@ public class c implements com.baidu.live.liveroom.d.a {
     @Override // com.baidu.live.liveroom.d.a
     public void b(int i, JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.fcZ == -1) {
-                this.fcZ = i;
+            if (this.fgf == -1) {
+                this.fgf = i;
             }
-            if (this.fda != null) {
-                this.fda.setStatConfigBeforeStart(TbadkCoreApplication.getInst().getApp().getFilesDir().getAbsolutePath() + "/live_sdk_log/", "http://c.tieba.baidu.com/ala/sys/mlog", com.baidu.live.r.a.wA().arE.Xv);
-                this.fda.setStartInfo(i, jSONObject.optString("LIVE_ID"), jSONObject.optString("SESSION_ID"), jSONObject.optString("CLIENT_IP"), jSONObject.optString("LEVEL"), jSONObject.optInt("SESSION_LINE"), TbConfig.getSubappType());
+            if (this.fgg != null) {
+                this.fgg.setStatConfigBeforeStart(TbadkCoreApplication.getInst().getApp().getFilesDir().getAbsolutePath() + "/live_sdk_log/", "http://c.tieba.baidu.com/ala/sys/mlog", com.baidu.live.s.a.wR().asq.XO);
+                this.fgg.setStartInfo(i, jSONObject.optString("LIVE_ID"), jSONObject.optString("SESSION_ID"), jSONObject.optString("CLIENT_IP"), jSONObject.optString("LEVEL"), jSONObject.optInt("SESSION_LINE"), TbConfig.getSubappType());
             }
         }
     }
 
     @Override // com.baidu.live.liveroom.d.a
     public View getPlayerView() {
-        return this.fda;
+        return this.fgg;
     }
 
     @Override // com.baidu.live.liveroom.d.a
@@ -109,38 +109,38 @@ public class c implements com.baidu.live.liveroom.d.a {
 
     @Override // com.baidu.live.liveroom.d.a
     public void setVideoScalingMode(int i) {
-        if (this.fda != null) {
-            this.fda.setRenderVideoModel(this.fcZ, 1);
+        if (this.fgg != null) {
+            this.fgg.setRenderVideoModel(this.fgf, 1);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.a
     public void start() {
-        if (this.fcZ == -1) {
-            this.fcZ = 1;
+        if (this.fgf == -1) {
+            this.fgf = 1;
         }
-        if (this.fcY == 3) {
-            this.fda.resume();
-            this.fcY = 2;
+        if (this.fge == 3) {
+            this.fgg.resume();
+            this.fge = 2;
             return;
         }
         AlaLivePlayer.AlaLivePlayerConf alaLivePlayerConf = new AlaLivePlayer.AlaLivePlayerConf();
-        alaLivePlayerConf.index = this.fcZ;
+        alaLivePlayerConf.index = this.fgf;
         alaLivePlayerConf.url = this.mUri.toString();
         alaLivePlayerConf.param = new LinearLayout.LayoutParams(-1, -1);
         ArrayList arrayList = new ArrayList();
         arrayList.add(alaLivePlayerConf);
-        this.fda.start2(arrayList);
-        this.fcY = 2;
-        BdLog.e("TbLivePlayerImpl start() mUri=" + this.mUri + "|index=" + this.fcZ);
+        this.fgg.start2(arrayList);
+        this.fge = 2;
+        BdLog.e("TbLivePlayerImpl start() mUri=" + this.mUri + "|index=" + this.fgf);
         this.isPlaying = true;
     }
 
     @Override // com.baidu.live.liveroom.d.a
     public void stop() {
-        if (this.fda != null) {
-            this.fda.stop();
-            this.fcY = 4;
+        if (this.fgg != null) {
+            this.fgg.stop();
+            this.fge = 4;
         }
         BdLog.e("TbLivePlayerImpl stop() mUri=" + this.mUri);
         this.isPlaying = false;
@@ -148,10 +148,10 @@ public class c implements com.baidu.live.liveroom.d.a {
 
     @Override // com.baidu.live.liveroom.d.a
     public void release() {
-        if (this.fda != null) {
-            this.fda.stop();
-            this.fda.destroy();
-            this.fcY = 4;
+        if (this.fgg != null) {
+            this.fgg.stop();
+            this.fgg.destroy();
+            this.fge = 4;
         }
         BdLog.e("TbLivePlayerImpl release() mUri=" + this.mUri);
         this.isPlaying = false;

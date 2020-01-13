@@ -8,7 +8,7 @@ import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ParamInterceptor implements Interceptor {
     private IAsyncRequestParamsHandler paramsHandler;
 

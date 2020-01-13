@@ -1,12 +1,12 @@
 package io.reactivex.internal.operators.observable;
 
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableScalarXMap {
     public static <T, R> boolean a(t<T> tVar, u<? super R> uVar, h<? super T, ? extends t<? extends R>> hVar) {
         if (tVar instanceof Callable) {
@@ -51,7 +51,7 @@ public final class ObservableScalarXMap {
         return false;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class ScalarDisposable<T> extends AtomicInteger implements io.reactivex.internal.a.b<T>, Runnable {
         static final int FUSED = 1;
         static final int ON_COMPLETE = 3;
@@ -66,7 +66,7 @@ public final class ObservableScalarXMap {
             this.value = t;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public boolean offer(T t) {
             throw new UnsupportedOperationException("Should not be called!");
         }
@@ -75,7 +75,7 @@ public final class ObservableScalarXMap {
             throw new UnsupportedOperationException("Should not be called!");
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public T poll() throws Exception {
             if (get() == 1) {
                 lazySet(3);
@@ -84,12 +84,12 @@ public final class ObservableScalarXMap {
             return null;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public boolean isEmpty() {
             return get() != 1;
         }
 
-        @Override // io.reactivex.internal.a.f
+        @Override // io.reactivex.internal.a.g
         public void clear() {
             lazySet(3);
         }

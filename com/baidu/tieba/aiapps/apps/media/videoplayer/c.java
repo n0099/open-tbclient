@@ -3,9 +3,9 @@ package com.baidu.tieba.aiapps.apps.media.videoplayer;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public static boolean bo(View view) {
+    public static boolean bs(View view) {
         if (view != null && view.getParent() != null && (view.getParent() instanceof ViewGroup)) {
             ViewGroup viewGroup = (ViewGroup) view.getParent();
             if (viewGroup.indexOfChild(view) != -1) {
@@ -24,7 +24,7 @@ public class c {
         if (activity == null || view == null || (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) == null) {
             return false;
         }
-        bo(view);
+        bs(view);
         viewGroup.removeView(view);
         viewGroup.addView(view);
         return true;

@@ -3,11 +3,11 @@ package com.baidu.swan.pms.c.a.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a<T> {
     protected final List<T> mQueue = new ArrayList();
 
-    public synchronized T ari() {
+    public synchronized T arB() {
         T t;
         if (this.mQueue.isEmpty()) {
             t = null;

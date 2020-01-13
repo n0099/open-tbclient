@@ -16,12 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static e hsm;
-    private a hsn;
-    private final DialogInterface.OnCancelListener hso = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.im.db.e.1
+    private static e hvP;
+    private a hvQ;
+    private final DialogInterface.OnCancelListener hvR = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.im.db.e.1
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            e.this.bRC();
+            e.this.bSL();
         }
     };
 
@@ -39,69 +39,69 @@ public class e {
         int progress;
     }
 
-    public static e bRB() {
-        if (hsm == null) {
+    public static e bSK() {
+        if (hvP == null) {
             synchronized (e.class) {
-                if (hsm == null) {
-                    hsm = new e();
+                if (hvP == null) {
+                    hvP = new e();
                 }
             }
         }
-        return hsm;
+        return hvP;
     }
 
     public void a(String str, int i, b bVar) {
         if (!TextUtils.isEmpty(str)) {
             if (1 == i) {
-                Cv(str);
+                CF(str);
             } else if (-7 == i) {
                 a(bVar);
             } else if (-8 == i) {
                 b(bVar);
             } else if (2 == i) {
-                Ct(str);
+                CD(str);
             } else if (4 == i) {
-                Cu(str);
+                CE(str);
             } else if (-3 == i) {
-                aO(str, i);
+                aP(str, i);
             } else if (-4 == i) {
-                aO(str, i);
+                aP(str, i);
             } else {
-                aO(str, i);
+                aP(str, i);
             }
         }
     }
 
-    public void Ct(String str) {
+    public void CD(String str) {
         try {
             try {
-                h.bRG().bRH();
-                aP(str, 2);
-                m.bRS().Cl(str);
-                h.bRG().bRI();
+                h.bSP().bSQ();
+                aQ(str, 2);
+                m.bTb().Cv(str);
+                h.bSP().bSR();
             } catch (Exception e) {
                 e.printStackTrace();
-                h.bRG().bRI();
+                h.bSP().bSR();
             }
         } catch (Throwable th) {
-            h.bRG().bRI();
+            h.bSP().bSR();
             throw th;
         }
     }
 
-    public void Cu(String str) {
+    public void CE(String str) {
         try {
             try {
-                h.bRG().bRH();
-                aP(str, 4);
-                l.bRQ().Cl(str);
-                h.bRG().bRI();
+                h.bSP().bSQ();
+                aQ(str, 4);
+                l.bSZ().Cv(str);
+                h.bSP().bSR();
             } catch (Exception e) {
                 e.printStackTrace();
-                h.bRG().bRI();
+                h.bSP().bSR();
             }
         } catch (Throwable th) {
-            h.bRG().bRI();
+            h.bSP().bSR();
             throw th;
         }
     }
@@ -111,7 +111,7 @@ public class e {
         int i;
         int i2;
         try {
-            h.bRG().bRH();
+            h.bSP().bSQ();
             if (v.isEmpty(list)) {
                 return;
             }
@@ -128,7 +128,7 @@ public class e {
                 i3++;
             }
             for (int i4 = 0; i4 < i3; i4++) {
-                if (bRD()) {
+                if (bSM()) {
                     return;
                 }
                 if (i4 == i3 - 1) {
@@ -143,20 +143,20 @@ public class e {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            h.bRG().bRI();
+            h.bSP().bSR();
         }
     }
 
     public void b(List<ImMessageCenterShowItemData> list, b bVar) {
         int i;
         try {
-            h.bRG().bRH();
+            h.bSP().bSQ();
             if (!v.isEmpty(list)) {
                 int size = list.size();
                 int i2 = 0;
                 int i3 = size - 1;
                 while (i3 >= 0) {
-                    if (bRD()) {
+                    if (bSM()) {
                         break;
                     }
                     ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) v.getItem(list, i3);
@@ -166,8 +166,8 @@ public class e {
                         i = i2;
                     } else {
                         String friendId = imMessageCenterShowItemData.getFriendId();
-                        aP(friendId, 4);
-                        l.bRQ().Cl(friendId);
+                        aQ(friendId, 4);
+                        l.bSZ().Cv(friendId);
                         i = i2 + 1;
                         if (bVar != null) {
                             bVar.j((i * 100) / size, friendId, 4);
@@ -180,7 +180,7 @@ public class e {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            h.bRG().bRI();
+            h.bSP().bSR();
         }
     }
 
@@ -189,18 +189,18 @@ public class e {
         int i;
         int i2;
         try {
-            h.bRG().bRH();
-            List<String> bRW = n.bRW();
-            if (v.isEmpty(bRW)) {
+            h.bSP().bSQ();
+            List<String> bTf = n.bTf();
+            if (v.isEmpty(bTf)) {
                 return;
             }
-            int size = bRW.size();
+            int size = bTf.size();
             int i3 = size / 100;
             if (size % 100 != 0) {
                 i3++;
             }
             for (int i4 = 0; i4 < i3; i4++) {
-                if (bRD()) {
+                if (bSM()) {
                     return;
                 }
                 if (i4 == i3 - 1) {
@@ -210,26 +210,26 @@ public class e {
                     i = 100 * i4;
                     i2 = i + 100;
                 }
-                a(v.subList(bRW, i, i2), bVar, ((i4 + 1) * 100) / i3);
+                a(v.subList(bTf, i, i2), bVar, ((i4 + 1) * 100) / i3);
             }
-            if (bRD()) {
+            if (bSM()) {
                 return;
             }
-            aP(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
+            aQ(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            h.bRG().bRI();
+            h.bSP().bSR();
         }
     }
 
     private void a(List<String> list, b bVar, int i) {
         if (list != null && bVar != null) {
-            n.Cz(cW(list));
+            n.CJ(cW(list));
             ArrayList arrayList = new ArrayList();
             for (String str : list) {
-                m.bRS().Cm(str);
-                if (bRD()) {
+                m.bTb().Cw(str);
+                if (bSM()) {
                     c cVar = new c();
                     cVar.id = str;
                     cVar.customGroupType = 2;
@@ -262,101 +262,101 @@ public class e {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [382=4] */
     public void b(b bVar) {
         try {
-            h.bRG().bRH();
-            l.bRQ();
-            List<String> bRR = l.bRR();
-            if (v.isEmpty(bRR)) {
+            h.bSP().bSQ();
+            l.bSZ();
+            List<String> bTa = l.bTa();
+            if (v.isEmpty(bTa)) {
                 return;
             }
-            int size = bRR.size();
+            int size = bTa.size();
             int i = 0;
-            for (String str : bRR) {
-                if (bRD()) {
+            for (String str : bTa) {
+                if (bSM()) {
                     break;
                 }
-                aP(str, 4);
-                l.bRQ().Cl(str);
+                aQ(str, 4);
+                l.bSZ().Cv(str);
                 i++;
                 if (bVar != null) {
                     bVar.j((i * 100) / size, str, 4);
                 }
             }
-            if (bRD()) {
+            if (bSM()) {
                 return;
             }
-            aP(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
+            aQ(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            h.bRG().bRI();
+            h.bSP().bSR();
         }
     }
 
-    public void aO(String str, int i) {
+    public void aP(String str, int i) {
         try {
             try {
-                h.bRG().bRH();
-                ImMessageCenterPojo aW = com.baidu.tieba.im.memorycache.b.bTW().aW(str, i);
-                aW.setIs_hidden(1);
-                aW.setUnread_count(0);
-                j.bRK().a(aW, 2);
-                h.bRG().bRI();
+                h.bSP().bSQ();
+                ImMessageCenterPojo aX = com.baidu.tieba.im.memorycache.b.bVf().aX(str, i);
+                aX.setIs_hidden(1);
+                aX.setUnread_count(0);
+                j.bST().a(aX, 2);
+                h.bSP().bSR();
             } catch (Exception e) {
                 e.printStackTrace();
-                h.bRG().bRI();
+                h.bSP().bSR();
             }
         } catch (Throwable th) {
-            h.bRG().bRI();
+            h.bSP().bSR();
             throw th;
         }
     }
 
-    public void Cv(String str) {
+    public void CF(String str) {
         try {
-            h.bRG().bRH();
-            ImMessageCenterPojo aW = com.baidu.tieba.im.memorycache.b.bTW().aW(str, 1);
-            aW.setIs_hidden(1);
-            aW.setUnread_count(0);
-            j.bRK().a(aW, 2);
-            com.baidu.tieba.im.db.c.bRz().Cm(str);
+            h.bSP().bSQ();
+            ImMessageCenterPojo aX = com.baidu.tieba.im.memorycache.b.bVf().aX(str, 1);
+            aX.setIs_hidden(1);
+            aX.setUnread_count(0);
+            j.bST().a(aX, 2);
+            com.baidu.tieba.im.db.c.bSI().Cw(str);
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
-            h.bRG().bRI();
+            h.bSP().bSR();
         }
     }
 
-    public boolean bRC() {
-        if (this.hsn != null && this.hsn.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-            this.hsn.cancel(true);
+    public boolean bSL() {
+        if (this.hvQ != null && this.hvQ.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+            this.hvQ.cancel(true);
         }
-        this.hsn = null;
+        this.hvQ = null;
         return true;
     }
 
-    public boolean bRD() {
-        return this.hsn == null || (this.hsn != null && this.hsn.isCancelled());
+    public boolean bSM() {
+        return this.hvQ == null || (this.hvQ != null && this.hvQ.isCancelled());
     }
 
     public void a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, com.baidu.tieba.im.chat.a.b bVar) {
-        this.hsn = new a(i, bVar);
-        this.hsn.setParallel(TiebaIMConfig.getParallel());
-        this.hsn.setPriority(3);
-        this.hsn.execute(imMessageCenterShowItemData);
+        this.hvQ = new a(i, bVar);
+        this.hvQ.setParallel(TiebaIMConfig.getParallel());
+        this.hvQ.setPriority(3);
+        this.hvQ.execute(imMessageCenterShowItemData);
     }
 
     public void a(List<ImMessageCenterShowItemData> list, int i, com.baidu.tieba.im.chat.a.b bVar) {
-        this.hsn = new a(i, bVar);
-        this.hsn.setParallel(TiebaIMConfig.getParallel());
-        this.hsn.setPriority(3);
-        this.hsn.execute(list);
+        this.hvQ = new a(i, bVar);
+        this.hvQ.setParallel(TiebaIMConfig.getParallel());
+        this.hvQ.setPriority(3);
+        this.hvQ.execute(list);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, c, Integer> {
-        private final com.baidu.tieba.im.chat.a.b hsq;
-        private b hsr = new b() { // from class: com.baidu.tieba.im.db.e.a.1
+        private final com.baidu.tieba.im.chat.a.b hvT;
+        private b hvU = new b() { // from class: com.baidu.tieba.im.db.e.a.1
             @Override // com.baidu.tieba.im.db.e.b
             public void j(int i, String str, int i2) {
                 if (a.this.isCancelled()) {
@@ -379,7 +379,7 @@ public class e {
 
         public a(int i, com.baidu.tieba.im.chat.a.b bVar) {
             this.mCustomGroupType = i;
-            this.hsq = bVar;
+            this.hvT = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -395,12 +395,12 @@ public class e {
                 if (obj instanceof ArrayList) {
                     List<ImMessageCenterShowItemData> list = (List) obj;
                     if (this.mCustomGroupType == 4) {
-                        e.this.b(list, this.hsr);
+                        e.this.b(list, this.hvU);
                     } else if (this.mCustomGroupType == 2) {
-                        e.this.a(list, this.hsr);
+                        e.this.a(list, this.hvU);
                     }
                 } else if (obj instanceof ImMessageCenterShowItemData) {
-                    e.this.a(((ImMessageCenterShowItemData) obj).getFriendId(), this.mCustomGroupType, this.hsr);
+                    e.this.a(((ImMessageCenterShowItemData) obj).getFriendId(), this.mCustomGroupType, this.hvU);
                 }
                 return 0;
             }
@@ -409,12 +409,12 @@ public class e {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void i(final int i, final String str, final int i2) {
-            com.baidu.adp.lib.f.e.gy().post(new Runnable() { // from class: com.baidu.tieba.im.db.e.a.2
+            com.baidu.adp.lib.f.e.gx().post(new Runnable() { // from class: com.baidu.tieba.im.db.e.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.hsq != null) {
-                        a.this.hsq.onProgressUpdate(i, str, i2);
-                        a.this.hsq.onCanceled();
+                    if (a.this.hvT != null) {
+                        a.this.hvT.onProgressUpdate(i, str, i2);
+                        a.this.hvT.onCanceled();
                     }
                 }
             });
@@ -422,16 +422,16 @@ public class e {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void cX(final List<c> list) {
-            com.baidu.adp.lib.f.e.gy().post(new Runnable() { // from class: com.baidu.tieba.im.db.e.a.3
+            com.baidu.adp.lib.f.e.gx().post(new Runnable() { // from class: com.baidu.tieba.im.db.e.a.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (list != null && a.this.hsq != null) {
+                    if (list != null && a.this.hvT != null) {
                         for (c cVar : list) {
                             if (cVar != null) {
-                                a.this.hsq.onProgressUpdate(cVar.progress, cVar.id, cVar.customGroupType);
+                                a.this.hvT.onProgressUpdate(cVar.progress, cVar.id, cVar.customGroupType);
                             }
                         }
-                        a.this.hsq.onCanceled();
+                        a.this.hvT.onCanceled();
                         list.clear();
                     }
                 }
@@ -444,11 +444,11 @@ public class e {
         /* renamed from: a */
         public void onProgressUpdate(c... cVarArr) {
             super.onProgressUpdate(cVarArr);
-            if (cVarArr != null && cVarArr.length > 0 && cVarArr[0] != null && this.hsq != null) {
+            if (cVarArr != null && cVarArr.length > 0 && cVarArr[0] != null && this.hvT != null) {
                 c cVar = cVarArr[0];
                 String str = cVar.id;
                 int i = cVar.customGroupType;
-                this.hsq.onProgressUpdate(cVar.progress, str, i);
+                this.hvT.onProgressUpdate(cVar.progress, str, i);
             }
         }
 
@@ -456,8 +456,8 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.hsq != null) {
-                this.hsq.onPreExecute();
+            if (this.hvT != null) {
+                this.hvT.onPreExecute();
             }
         }
 
@@ -466,11 +466,11 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((a) num);
-            if (this.hsq != null) {
+            if (this.hvT != null) {
                 if (isCancelled()) {
-                    this.hsq.onCanceled();
+                    this.hvT.onCanceled();
                 } else {
-                    this.hsq.onPostExecute();
+                    this.hvT.onPostExecute();
                 }
             }
         }
@@ -479,42 +479,42 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.hsq != null) {
-                this.hsq.onCanceled();
+            if (this.hvT != null) {
+                this.hvT.onCanceled();
             }
         }
     }
 
-    public void aP(String str, int i) {
-        j.bRK().aR(str, i);
+    public void aQ(String str, int i) {
+        j.bST().aS(str, i);
     }
 
-    public void aQ(String str, int i) {
-        com.baidu.tieba.im.memorycache.b.bTW().aQ(str, i);
+    public void aR(String str, int i) {
+        com.baidu.tieba.im.memorycache.b.bVf().aR(str, i);
     }
 
     public void removeByKeyMemoryChangedWithBroadcast(String str, int i) {
-        ImMessageCenterPojo aW = com.baidu.tieba.im.memorycache.b.bTW().aW(str, i);
-        if (aW != null) {
+        ImMessageCenterPojo aX = com.baidu.tieba.im.memorycache.b.bVf().aX(str, i);
+        if (aX != null) {
             if (i == 2) {
-                com.baidu.tbadk.coreExtra.messageCenter.b.aHP().tS(str);
+                com.baidu.tbadk.coreExtra.messageCenter.b.aIj().tX(str);
             } else if (i == 4) {
-                com.baidu.tbadk.coreExtra.messageCenter.b.aHP().lu(com.baidu.adp.lib.f.b.toInt(str, 0));
+                com.baidu.tbadk.coreExtra.messageCenter.b.aIj().lu(com.baidu.adp.lib.f.b.toInt(str, 0));
             } else if (i == -3) {
-                com.baidu.tbadk.coreExtra.messageCenter.b.aHP().lv(2);
+                com.baidu.tbadk.coreExtra.messageCenter.b.aIj().lv(2);
             } else if (i == -4) {
-                com.baidu.tbadk.coreExtra.messageCenter.b.aHP().lv(1);
+                com.baidu.tbadk.coreExtra.messageCenter.b.aIj().lv(1);
             } else {
-                com.baidu.tbadk.coreExtra.messageCenter.b.aHP().tR(str);
+                com.baidu.tbadk.coreExtra.messageCenter.b.aIj().tW(str);
             }
-            aW.setIs_hidden(1);
-            aW.setUnread_count(0);
+            aX.setIs_hidden(1);
+            aX.setUnread_count(0);
             if (i == 2 || i == 4 || i == -7 || i == -8) {
-                com.baidu.tieba.im.memorycache.b.bTW().aX(str, i);
+                com.baidu.tieba.im.memorycache.b.bVf().aY(str, i);
             } else if (i == 1) {
-                com.baidu.tieba.im.memorycache.b.bTW().f(str, i, false);
+                com.baidu.tieba.im.memorycache.b.bVf().f(str, i, false);
             } else {
-                com.baidu.tieba.im.memorycache.b.bTW().f(str, i, false);
+                com.baidu.tieba.im.memorycache.b.bVf().f(str, i, false);
             }
         }
     }
@@ -524,7 +524,7 @@ public class e {
         dVar.setMessage(context.getString(R.string.delete_msg_loading));
         dVar.setCanceledOnTouchOutside(false);
         dVar.setCancelable(true);
-        dVar.setOnCancelListener(this.hso);
+        dVar.setOnCancelListener(this.hvR);
         return dVar;
     }
 }

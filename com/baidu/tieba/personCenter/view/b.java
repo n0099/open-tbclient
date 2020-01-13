@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.e> {
     private int mSkinType;
 

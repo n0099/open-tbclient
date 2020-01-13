@@ -15,16 +15,16 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends a {
     private static final String[] IMG_TYPES = {MimeType.Image.JPEG, MimeType.Image.PNG, "image/gif"};
-    private String bxv;
-    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> byo = new ArrayList<>();
-    private ArrayList<MediaModel> bxi = new ArrayList<>();
+    private String byi;
+    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> bzb = new ArrayList<>();
+    private ArrayList<MediaModel> bxV = new ArrayList<>();
 
     public b(String str, d dVar) {
-        this.bym = this.byo;
-        this.bxv = str;
+        this.byZ = this.bzb;
+        this.byi = str;
         a(dVar);
     }
 
@@ -32,16 +32,16 @@ public class b extends a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public Boolean doInBackground(Void... voidArr) {
-        Va();
-        Vb();
-        n(this.byo);
+        Vx();
+        Vy();
+        n(this.bzb);
         com.baidu.swan.apps.media.chooser.model.a aVar = new com.baidu.swan.apps.media.chooser.model.a();
-        aVar.iR(com.baidu.swan.apps.media.chooser.b.d.ak(AppRuntime.getAppContext(), this.bxv));
-        aVar.byk = this.bxi;
-        this.byo.add(0, aVar);
-        Iterator<com.baidu.swan.apps.media.chooser.model.a> it = this.byo.iterator();
+        aVar.iU(com.baidu.swan.apps.media.chooser.b.d.am(AppRuntime.getAppContext(), this.byi));
+        aVar.byX = this.bxV;
+        this.bzb.add(0, aVar);
+        Iterator<com.baidu.swan.apps.media.chooser.model.a> it = this.bzb.iterator();
         while (it.hasNext()) {
-            Collections.sort(it.next().UT());
+            Collections.sort(it.next().Vq());
         }
         return true;
     }
@@ -51,9 +51,9 @@ public class b extends a {
     /* JADX WARN: Type inference failed for: r1v1, types: [android.net.Uri] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
-    private void Va() {
+    private void Vx() {
         Cursor cursor;
-        if (!TextUtils.equals(this.bxv, "video")) {
+        if (!TextUtils.equals(this.byi, "video")) {
             ?? r1 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             ContentResolver contentResolver = AppRuntime.getAppContext().getContentResolver();
             StringBuilder sb = new StringBuilder();
@@ -61,7 +61,7 @@ public class b extends a {
             sb.append(" or ");
             sb.append("mime_type").append("=?");
             String[] strArr = {IMG_TYPES[0], IMG_TYPES[1]};
-            if (c.bxW) {
+            if (c.byJ) {
                 sb.append(" or ");
                 sb.append("mime_type").append("=?");
                 strArr = IMG_TYPES;
@@ -76,9 +76,9 @@ public class b extends a {
                                 long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
                                 long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
                                 File file = new File(string);
-                                if (file.exists() && (c.bxW || !com.baidu.swan.apps.media.chooser.b.d.isGif(string))) {
+                                if (file.exists() && (c.byJ || !com.baidu.swan.apps.media.chooser.b.d.isGif(string))) {
                                     ImageModel imageModel = new ImageModel(string);
-                                    imageModel.ah(j);
+                                    imageModel.ak(j);
                                     imageModel.setSize(j2);
                                     a(file, imageModel);
                                 }
@@ -118,11 +118,11 @@ public class b extends a {
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r1v1, types: [java.io.Closeable] */
     /* JADX WARN: Type inference failed for: r1v2 */
-    private void Vb() {
+    private void Vy() {
         Cursor cursor;
         ?? r1 = "Image";
         try {
-            if (!TextUtils.equals(this.bxv, "Image")) {
+            if (!TextUtils.equals(this.byi, "Image")) {
                 try {
                     cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
                     if (cursor != null) {
@@ -137,7 +137,7 @@ public class b extends a {
                                 File file = new File(string);
                                 if (file.exists()) {
                                     VideoModel videoModel = new VideoModel(string);
-                                    videoModel.ah(j);
+                                    videoModel.ak(j);
                                     videoModel.setDuration(j2);
                                     videoModel.setSize(j3);
                                     videoModel.setWidth(i);
@@ -183,16 +183,16 @@ public class b extends a {
             path = file.getPath();
         }
         com.baidu.swan.apps.media.chooser.model.a aVar = new com.baidu.swan.apps.media.chooser.model.a();
-        aVar.iR(name);
-        aVar.iS(path);
-        int indexOf = this.byo.indexOf(aVar);
+        aVar.iU(name);
+        aVar.iV(path);
+        int indexOf = this.bzb.indexOf(aVar);
         if (indexOf >= 0) {
-            this.byo.get(indexOf).h(mediaModel);
+            this.bzb.get(indexOf).h(mediaModel);
         } else {
             aVar.h(mediaModel);
-            this.byo.add(aVar);
+            this.bzb.add(aVar);
         }
-        this.bxi.add(mediaModel);
+        this.bxV.add(mediaModel);
     }
 
     private void n(ArrayList<com.baidu.swan.apps.media.chooser.model.a> arrayList) {

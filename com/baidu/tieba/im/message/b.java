@@ -6,7 +6,7 @@ import com.baidu.tieba.im.d;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.e;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends com.baidu.adp.framework.a.a {
     public b() {
         super(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST);

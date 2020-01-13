@@ -19,14 +19,13 @@ import com.baidu.mobads.utils.e;
 import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.m;
 import com.baidu.mobads.vo.a.d;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     protected final IXAdLogger a = XAdSDKFoundationFacade.getInstance().getAdLogger();
     private Context e;
@@ -50,7 +49,7 @@ public class a {
     }
 
     public void a(Context context, com.baidu.mobads.command.a aVar) {
-        a(context, PublishType.TYPE_VIDEO_SHARE, aVar);
+        a(context, "9", aVar);
     }
 
     public void a(com.baidu.mobads.command.a aVar) {

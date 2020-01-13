@@ -3,115 +3,115 @@ package com.google.android.exoplayer2.extractor.a;
 import com.google.android.exoplayer2.ParserException;
 import java.io.IOException;
 import java.util.Stack;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class a implements b {
-    private final byte[] mal = new byte[8];
-    private final Stack<C0659a> mam = new Stack<>();
-    private final f man = new f();
-    private c mao;
-    private int maq;
-    private int mar;
-    private long mas;
+    private final byte[] mec = new byte[8];
+    private final Stack<C0665a> med = new Stack<>();
+    private final f mee = new f();
+    private c mef;
+    private int meg;
+    private int meh;
+    private long mei;
 
     @Override // com.google.android.exoplayer2.extractor.a.b
     public void a(c cVar) {
-        this.mao = cVar;
+        this.mef = cVar;
     }
 
     @Override // com.google.android.exoplayer2.extractor.a.b
     public void reset() {
-        this.maq = 0;
-        this.mam.clear();
-        this.man.reset();
+        this.meg = 0;
+        this.med.clear();
+        this.mee.reset();
     }
 
     @Override // com.google.android.exoplayer2.extractor.a.b
     public boolean g(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
-        com.google.android.exoplayer2.util.a.checkState(this.mao != null);
+        com.google.android.exoplayer2.util.a.checkState(this.mef != null);
         while (true) {
-            if (this.mam.isEmpty() || fVar.getPosition() < this.mam.peek().mat) {
-                if (this.maq == 0) {
-                    long a = this.man.a(fVar, true, false, 4);
+            if (this.med.isEmpty() || fVar.getPosition() < this.med.peek().mej) {
+                if (this.meg == 0) {
+                    long a = this.mee.a(fVar, true, false, 4);
                     if (a == -2) {
                         a = h(fVar);
                     }
                     if (a == -1) {
                         return false;
                     }
-                    this.mar = (int) a;
-                    this.maq = 1;
+                    this.meh = (int) a;
+                    this.meg = 1;
                 }
-                if (this.maq == 1) {
-                    this.mas = this.man.a(fVar, false, true, 8);
-                    this.maq = 2;
+                if (this.meg == 1) {
+                    this.mei = this.mee.a(fVar, false, true, 8);
+                    this.meg = 2;
                 }
-                int Jp = this.mao.Jp(this.mar);
-                switch (Jp) {
+                int Jy = this.mef.Jy(this.meh);
+                switch (Jy) {
                     case 0:
-                        fVar.Jh((int) this.mas);
-                        this.maq = 0;
+                        fVar.Jq((int) this.mei);
+                        this.meg = 0;
                     case 1:
                         long position = fVar.getPosition();
-                        this.mam.add(new C0659a(this.mar, this.mas + position));
-                        this.mao.k(this.mar, position, this.mas);
-                        this.maq = 0;
+                        this.med.add(new C0665a(this.meh, this.mei + position));
+                        this.mef.k(this.meh, position, this.mei);
+                        this.meg = 0;
                         return true;
                     case 2:
-                        if (this.mas > 8) {
-                            throw new ParserException("Invalid integer size: " + this.mas);
+                        if (this.mei > 8) {
+                            throw new ParserException("Invalid integer size: " + this.mei);
                         }
-                        this.mao.D(this.mar, a(fVar, (int) this.mas));
-                        this.maq = 0;
+                        this.mef.D(this.meh, a(fVar, (int) this.mei));
+                        this.meg = 0;
                         return true;
                     case 3:
-                        if (this.mas > 2147483647L) {
-                            throw new ParserException("String element size: " + this.mas);
+                        if (this.mei > 2147483647L) {
+                            throw new ParserException("String element size: " + this.mei);
                         }
-                        this.mao.bc(this.mar, c(fVar, (int) this.mas));
-                        this.maq = 0;
+                        this.mef.bi(this.meh, c(fVar, (int) this.mei));
+                        this.meg = 0;
                         return true;
                     case 4:
-                        this.mao.a(this.mar, (int) this.mas, fVar);
-                        this.maq = 0;
+                        this.mef.a(this.meh, (int) this.mei, fVar);
+                        this.meg = 0;
                         return true;
                     case 5:
-                        if (this.mas != 4 && this.mas != 8) {
-                            throw new ParserException("Invalid float size: " + this.mas);
+                        if (this.mei != 4 && this.mei != 8) {
+                            throw new ParserException("Invalid float size: " + this.mei);
                         }
-                        this.mao.d(this.mar, b(fVar, (int) this.mas));
-                        this.maq = 0;
+                        this.mef.d(this.meh, b(fVar, (int) this.mei));
+                        this.meg = 0;
                         return true;
                     default:
-                        throw new ParserException("Invalid element type " + Jp);
+                        throw new ParserException("Invalid element type " + Jy);
                 }
             } else {
-                this.mao.Jr(this.mam.pop().mar);
+                this.mef.JA(this.med.pop().meh);
                 return true;
             }
         }
     }
 
     private long h(com.google.android.exoplayer2.extractor.f fVar) throws IOException, InterruptedException {
-        fVar.dsq();
+        fVar.dtC();
         while (true) {
-            fVar.p(this.mal, 0, 4);
-            int Js = f.Js(this.mal[0]);
-            if (Js != -1 && Js <= 4) {
-                int a = (int) f.a(this.mal, Js, false);
-                if (this.mao.Jq(a)) {
-                    fVar.Jh(Js);
+            fVar.o(this.mec, 0, 4);
+            int JB = f.JB(this.mec[0]);
+            if (JB != -1 && JB <= 4) {
+                int a = (int) f.a(this.mec, JB, false);
+                if (this.mef.Jz(a)) {
+                    fVar.Jq(JB);
                     return a;
                 }
             }
-            fVar.Jh(1);
+            fVar.Jq(1);
         }
     }
 
     private long a(com.google.android.exoplayer2.extractor.f fVar, int i) throws IOException, InterruptedException {
-        fVar.readFully(this.mal, 0, i);
+        fVar.readFully(this.mec, 0, i);
         long j = 0;
         for (int i2 = 0; i2 < i; i2++) {
-            j = (j << 8) | (this.mal[i2] & 255);
+            j = (j << 8) | (this.mec[i2] & 255);
         }
         return j;
     }
@@ -134,14 +134,14 @@ final class a implements b {
     }
 
     /* renamed from: com.google.android.exoplayer2.extractor.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private static final class C0659a {
-        private final int mar;
-        private final long mat;
+    /* loaded from: classes5.dex */
+    private static final class C0665a {
+        private final int meh;
+        private final long mej;
 
-        private C0659a(int i, long j) {
-            this.mar = i;
-            this.mat = j;
+        private C0665a(int i, long j) {
+            this.meh = i;
+            this.mej = j;
         }
     }
 }

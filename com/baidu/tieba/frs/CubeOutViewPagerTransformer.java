@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CubeOutViewPagerTransformer extends BaseViewPagerTransformer {
     @Override // com.baidu.tieba.frs.BaseViewPagerTransformer
     protected void n(View view, float f) {
@@ -26,7 +26,7 @@ public class CubeOutViewPagerTransformer extends BaseViewPagerTransformer {
     }
 
     @Override // com.baidu.tieba.frs.BaseViewPagerTransformer
-    public boolean bAy() {
+    public boolean bBA() {
         return true;
     }
 

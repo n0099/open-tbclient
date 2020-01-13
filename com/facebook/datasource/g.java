@@ -1,10 +1,10 @@
 package com.facebook.datasource;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class g<T> extends AbstractDataSource<T> {
     private g() {
     }
 
-    public static <T> g<T> diZ() {
+    public static <T> g<T> dka() {
         return new g<>();
     }
 
@@ -27,7 +27,7 @@ public class g<T> extends AbstractDataSource<T> {
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
-    public boolean bl(float f) {
-        return super.bl(f);
+    public boolean bk(float f) {
+        return super.bk(f);
     }
 }

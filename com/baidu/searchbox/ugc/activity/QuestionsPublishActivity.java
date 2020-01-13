@@ -70,7 +70,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 import rx.functions.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class QuestionsPublishActivity extends BaseActivity implements View.OnClickListener, EditImageTextView.TextNumbersChangedListener {
     private static final int COVER = 1;
     public static final boolean DEBUG = AppConfig.isDebug();

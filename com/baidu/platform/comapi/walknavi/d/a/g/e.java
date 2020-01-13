@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e {
     protected static UUID a;
 

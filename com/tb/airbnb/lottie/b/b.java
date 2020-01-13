@@ -6,25 +6,23 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-import com.tb.airbnb.lottie.c;
 import com.tb.airbnb.lottie.g;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b {
+    private static final Object hh = new Object();
     private final Context context;
     private String hi;
     private final Map<String, g> hk;
     @Nullable
-    private c mNL;
-    private final Map<String, Bitmap> mNM = new HashMap();
+    private com.tb.airbnb.lottie.b npR;
 
-    public b(Drawable.Callback callback, String str, c cVar, Map<String, g> map) {
+    public b(Drawable.Callback callback, String str, com.tb.airbnb.lottie.b bVar, Map<String, g> map) {
         this.hi = str;
         if (!TextUtils.isEmpty(str) && this.hi.charAt(this.hi.length() - 1) != '/') {
             this.hi += '/';
@@ -37,62 +35,87 @@ public class b {
         }
         this.context = ((View) callback).getContext();
         this.hk = map;
-        a(cVar);
+        a(bVar);
     }
 
-    public void a(@Nullable c cVar) {
-        this.mNL = cVar;
+    public void a(@Nullable com.tb.airbnb.lottie.b bVar) {
+        this.npR = bVar;
     }
 
     @Nullable
     public Bitmap updateBitmap(String str, @Nullable Bitmap bitmap) {
-        return this.mNM.put(str, bitmap);
+        if (bitmap == null) {
+            g gVar = this.hk.get(str);
+            Bitmap bitmap2 = gVar.getBitmap();
+            gVar.setBitmap(null);
+            return bitmap2;
+        }
+        return b(str, bitmap);
     }
 
     @Nullable
     public Bitmap N(String str) {
-        Bitmap bitmap = this.mNM.get(str);
-        if (bitmap == null) {
-            g gVar = this.hk.get(str);
-            if (gVar == null) {
-                return null;
-            }
-            if (this.mNL != null) {
-                Bitmap fetchBitmap = this.mNL.fetchBitmap(gVar);
-                if (fetchBitmap != null) {
-                    this.mNM.put(str, fetchBitmap);
-                    return fetchBitmap;
-                }
+        g gVar = this.hk.get(str);
+        if (gVar == null) {
+            return null;
+        }
+        Bitmap bitmap = gVar.getBitmap();
+        if (bitmap != null) {
+            return bitmap;
+        }
+        if (this.npR != null) {
+            Bitmap fetchBitmap = this.npR.fetchBitmap(gVar);
+            if (fetchBitmap != null) {
+                b(str, fetchBitmap);
                 return fetchBitmap;
             }
+            return fetchBitmap;
+        }
+        String fileName = gVar.getFileName();
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inScaled = true;
+        options.inDensity = 160;
+        if (fileName.startsWith("data:") && fileName.indexOf("base64,") > 0) {
             try {
-                if (TextUtils.isEmpty(this.hi)) {
-                    throw new IllegalStateException("You must set an images folder before loading an image. Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
-                }
-                InputStream open = this.context.getAssets().open(this.hi + gVar.getFileName());
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inScaled = true;
-                options.inDensity = 160;
-                Bitmap decodeStream = BitmapFactory.decodeStream(open, null, options);
-                this.mNM.put(str, decodeStream);
-                return decodeStream;
-            } catch (IOException e) {
-                Log.w("LOTTIE", "Unable to open asset.", e);
+                byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
+                return b(str, BitmapFactory.decodeByteArray(decode, 0, decode.length, options));
+            } catch (IllegalArgumentException e) {
+                Log.w("LOTTIE", "data URL did not have correct base64 format.", e);
                 return null;
             }
         }
-        return bitmap;
+        try {
+            if (TextUtils.isEmpty(this.hi)) {
+                throw new IllegalStateException("You must set an images folder before loading an image. Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
+            }
+            return b(str, BitmapFactory.decodeStream(this.context.getAssets().open(this.hi + fileName), null, options));
+        } catch (IOException e2) {
+            Log.w("LOTTIE", "Unable to open asset.", e2);
+            return null;
+        }
     }
 
     public void recycleBitmaps() {
-        Iterator<Map.Entry<String, Bitmap>> it = this.mNM.entrySet().iterator();
-        while (it.hasNext()) {
-            it.next().getValue().recycle();
-            it.remove();
+        synchronized (hh) {
+            for (Map.Entry<String, g> entry : this.hk.entrySet()) {
+                g value = entry.getValue();
+                Bitmap bitmap = value.getBitmap();
+                if (bitmap != null) {
+                    bitmap.recycle();
+                    value.setBitmap(null);
+                }
+            }
         }
     }
 
     public boolean Q(Context context) {
-        return (context == null && this.context == null) || (context != null && this.context.equals(context));
+        return (context == null && this.context == null) || this.context.equals(context);
+    }
+
+    private Bitmap b(String str, @Nullable Bitmap bitmap) {
+        synchronized (hh) {
+            this.hk.get(str).setBitmap(bitmap);
+        }
+        return bitmap;
     }
 }

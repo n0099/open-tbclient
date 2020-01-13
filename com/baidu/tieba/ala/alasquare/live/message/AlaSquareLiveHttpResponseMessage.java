@@ -5,6 +5,7 @@ import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.ala.alasquare.a.b;
 import com.baidu.tieba.ala.alasquare.live.b.a;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
@@ -34,7 +35,7 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
         if (!hasError()) {
             this.functionList = new LinkedList<>();
             this.categoryList = new LinkedList<>();
-            this.categoryList.addAll(com.baidu.tieba.ala.alasquare.a.a.be(liveSquareResIdl.data.live_with_category));
+            this.categoryList.addAll(b.bd(liveSquareResIdl.data.live_with_category));
             this.functionList.addAll(liveSquareResIdl.data.function_list_info);
             this.headLiveInfo = liveSquareResIdl.data.head_live_info;
             this.isSmallFollow = liveSquareResIdl.data.is_small_follow.intValue();

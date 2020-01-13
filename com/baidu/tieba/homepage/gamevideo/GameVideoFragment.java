@@ -16,52 +16,52 @@ import com.baidu.tieba.frs.af;
 import com.baidu.tieba.homepage.gamevideo.b.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class GameVideoFragment extends BaseFragment implements af {
-    private c gUT;
+    private c gYr;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.gUT == null) {
-            this.gUT = new c(getPageContext(), getUniqueId());
+        if (this.gYr == null) {
+            this.gYr = new c(getPageContext(), getUniqueId());
         }
-        this.gUT.init();
+        this.gYr.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.gUT == null || this.gUT.getView() == null) {
+        if (this.gYr == null || this.gYr.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.gUT.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.gUT.getView().getParent()).removeView(this.gUT.getView());
+        if (this.gYr.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.gYr.getView().getParent()).removeView(this.gYr.getView());
         }
-        return this.gUT.getView();
+        return this.gYr.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.gUT != null) {
-            this.gUT.loadData();
+        if (this.gYr != null) {
+            this.gYr.loadData();
         }
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void xT() {
-        if (this.gUT != null) {
-            this.gUT.xT();
+    public void yj() {
+        if (this.gYr != null) {
+            this.gYr.yj();
         }
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void aZL() {
+    public void bah() {
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void aZM() {
+    public void bai() {
     }
 
     @Override // com.baidu.tieba.frs.af
@@ -73,15 +73,15 @@ public class GameVideoFragment extends BaseFragment implements af {
     }
 
     @Override // com.baidu.tieba.frs.af
-    public void aFd() {
+    public void aFw() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gUT != null) {
-            this.gUT.aFd();
+        if (this.gYr != null) {
+            this.gYr.aFw();
         }
     }
 
@@ -91,24 +91,24 @@ public class GameVideoFragment extends BaseFragment implements af {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.gUT != null) {
-            this.gUT.setPrimary(isPrimary());
+        if (this.gYr != null) {
+            this.gYr.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.gUT != null) {
-            this.gUT.onPause();
+        if (this.gYr != null) {
+            this.gYr.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.gUT != null) {
-            this.gUT.onDestroy();
+        if (this.gYr != null) {
+            this.gYr.onDestroy();
         }
     }
 

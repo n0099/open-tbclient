@@ -7,7 +7,7 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
     private Activity a;
     private com.baidu.platform.comapi.walknavi.g.a b;
@@ -23,10 +23,10 @@ public class d extends com.baidu.platform.comapi.walknavi.g.b.b {
     }
 
     private void a(View view) {
-        this.f = view.findViewById(R.raw.par_rain);
-        this.c = (ImageView) view.findViewById(R.raw.lottie_full_screen_refresh_1);
-        this.d = (TextView) view.findViewById(R.raw.lottie_full_screen_refresh_2);
-        this.e = view.findViewById(R.raw.lottie_full_screen_refresh);
+        this.f = view.findViewById(R.raw.lottie_use_refresh_home_n_2);
+        this.c = (ImageView) view.findViewById(R.raw.lottie_disagree_2);
+        this.d = (TextView) view.findViewById(R.raw.lottie_full_screen_refresh);
+        this.e = view.findViewById(R.raw.lottie_disagree_1);
         this.e.setVisibility(8);
     }
 

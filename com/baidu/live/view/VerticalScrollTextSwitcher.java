@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 /* loaded from: classes2.dex */
 public class VerticalScrollTextSwitcher extends TextSwitcher implements ViewSwitcher.ViewFactory {
     private int mTextColor;

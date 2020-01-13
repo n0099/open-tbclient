@@ -1,22 +1,22 @@
 package com.google.android.exoplayer2.source;
 
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface r {
-    int KA(int i);
+    int KJ(int i);
 
-    int KB(int i);
+    int KK(int i);
 
-    int bQo();
+    int bRx();
 
-    int dui();
+    int dvt();
 
-    int duj();
+    int dvu();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements r {
-        private final int[] mot;
-        private final int[] mou;
+        private final int[] msi;
+        private final int[] msj;
         private final Random random;
 
         public a(int i) {
@@ -28,49 +28,49 @@ public interface r {
         }
 
         private a(int[] iArr, Random random) {
-            this.mot = iArr;
+            this.msi = iArr;
             this.random = random;
-            this.mou = new int[iArr.length];
+            this.msj = new int[iArr.length];
             for (int i = 0; i < iArr.length; i++) {
-                this.mou[iArr[i]] = i;
+                this.msj[iArr[i]] = i;
             }
         }
 
         @Override // com.google.android.exoplayer2.source.r
-        public int bQo() {
-            return this.mot.length;
+        public int bRx() {
+            return this.msi.length;
         }
 
         @Override // com.google.android.exoplayer2.source.r
-        public int KA(int i) {
-            int i2 = this.mou[i] + 1;
-            if (i2 < this.mot.length) {
-                return this.mot[i2];
+        public int KJ(int i) {
+            int i2 = this.msj[i] + 1;
+            if (i2 < this.msi.length) {
+                return this.msi[i2];
             }
             return -1;
         }
 
         @Override // com.google.android.exoplayer2.source.r
-        public int KB(int i) {
-            int i2 = this.mou[i] - 1;
+        public int KK(int i) {
+            int i2 = this.msj[i] - 1;
             if (i2 >= 0) {
-                return this.mot[i2];
+                return this.msi[i2];
             }
             return -1;
         }
 
         @Override // com.google.android.exoplayer2.source.r
-        public int dui() {
-            if (this.mot.length > 0) {
-                return this.mot[this.mot.length - 1];
+        public int dvt() {
+            if (this.msi.length > 0) {
+                return this.msi[this.msi.length - 1];
             }
             return -1;
         }
 
         @Override // com.google.android.exoplayer2.source.r
-        public int duj() {
-            if (this.mot.length > 0) {
-                return this.mot[0];
+        public int dvu() {
+            if (this.msi.length > 0) {
+                return this.msi[0];
             }
             return -1;
         }

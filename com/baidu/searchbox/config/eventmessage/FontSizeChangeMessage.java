@@ -1,5 +1,5 @@
 package com.baidu.searchbox.config.eventmessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FontSizeChangeMessage extends CommonEventMessage {
     public static final int MSG_ON_FONT_SIZE_CHANGED = 1;
     public Object messageContent;

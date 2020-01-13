@@ -11,18 +11,18 @@ public class ThirdActivityProxy extends ActivityProxy {
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         d.a aVar = null;
         if (stringExtra != null) {
-            aVar = d.it().aM(stringExtra);
+            aVar = d.is().aM(stringExtra);
         }
-        if (aVar == null || aVar.wE == null) {
+        if (aVar == null || aVar.wI == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
-        } else if (d.it().iu() == 1) {
-            d.it().aN(stringExtra);
-            aVar.wE.stopSelf();
+        } else if (d.is().it() == 1) {
+            d.is().aN(stringExtra);
+            aVar.wI.stopSelf();
             return true;
         } else {
-            aVar.wE.onDestroy();
-            d.it().aN(stringExtra);
+            aVar.wI.onDestroy();
+            d.is().aN(stringExtra);
             return true;
         }
     }

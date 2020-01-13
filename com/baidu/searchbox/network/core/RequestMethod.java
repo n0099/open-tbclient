@@ -6,7 +6,7 @@ import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public enum RequestMethod {
     GET("GET"),
     POST("POST"),

@@ -1,7 +1,8 @@
 package com.baidu.live.tbadk.scheme;
 
+import android.content.Context;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public interface ILiveScheme {
-    void excute(Map<String, String> map, SchemeCallback schemeCallback);
+    void excute(Context context, Map<String, String> map, SchemeCallback schemeCallback);
 }

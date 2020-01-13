@@ -21,7 +21,7 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends ab {
     public f(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/navigateToProgram");
@@ -36,15 +36,15 @@ public class f extends ab {
         } else if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (eVar.GS()) {
+        } else if (eVar.Ho()) {
             if (DEBUG) {
                 Log.d("NavigateToSmartProgram", "NavigateToSmartProgram does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
             return false;
         } else {
-            String ZU = com.baidu.swan.apps.runtime.e.ZU();
-            if (TextUtils.isEmpty(ZU) || TextUtils.isEmpty(ZU.trim())) {
+            String aar = com.baidu.swan.apps.runtime.e.aar();
+            if (TextUtils.isEmpty(aar) || TextUtils.isEmpty(aar.trim())) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
@@ -53,12 +53,12 @@ public class f extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            Request g = g(ZU, optParamsAsJo);
+            Request g = g(aar, optParamsAsJo);
             if (g == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            eVar.aae().a(g, new Callback() { // from class: com.baidu.swan.apps.scheme.actions.k.f.1
+            eVar.aaB().a(g, new Callback() { // from class: com.baidu.swan.apps.scheme.actions.k.f.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
@@ -73,11 +73,11 @@ public class f extends ab {
                         } else {
                             JSONObject optJSONObject = jSONObject.optJSONObject("data");
                             if (optJSONObject != null) {
-                                Uri lc = f.this.lc(optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME));
-                                if (lc == null) {
+                                Uri lf = f.this.lf(optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME));
+                                if (lf == null) {
                                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
                                 } else {
-                                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(context, lc, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
+                                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(context, lf, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
                                 }
                             } else {
                                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(402).toString());
@@ -99,14 +99,14 @@ public class f extends ab {
     private Request g(String str, JSONObject jSONObject) {
         Request request = null;
         if (jSONObject != null && !TextUtils.isEmpty(str)) {
-            String d = com.baidu.swan.apps.model.b.d(ai.aeB());
+            String d = com.baidu.swan.apps.model.b.d(ai.aeU());
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("app_key", str);
                 jSONObject2.put("srcAppPage", d);
                 jSONObject2.put("params", jSONObject);
-                String FG = com.baidu.swan.apps.w.a.Rw().FG();
-                request = new Request.Builder().url(FG).post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
+                String Gc = com.baidu.swan.apps.w.a.RS().Gc();
+                request = new Request.Builder().url(Gc).post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
                 if (DEBUG) {
                     Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
                 }
@@ -120,7 +120,7 @@ public class f extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Uri lc(String str) {
+    public Uri lf(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

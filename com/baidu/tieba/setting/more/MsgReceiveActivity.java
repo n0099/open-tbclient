@@ -8,50 +8,50 @@ import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushInfo;
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.a {
-    private f jOX;
-    private MsgRemindModel jOY;
-    private OfficialAccountPushModel jOZ;
-    private MsgRemindModel.a jPa = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.1
+    private f jSA;
+    private MsgRemindModel jSB;
+    private OfficialAccountPushModel jSC;
+    private MsgRemindModel.a jSD = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.1
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.a
         public void h(int i, boolean z, boolean z2) {
             if (i == 8) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.jOX.cDA().turnOffNoCallback();
-                        MsgReceiveActivity.this.jOX.sa(false);
-                        MsgReceiveActivity.this.jOX.rZ(false);
+                        MsgReceiveActivity.this.jSA.cEE().turnOffNoCallback();
+                        MsgReceiveActivity.this.jSA.sm(false);
+                        MsgReceiveActivity.this.jSA.sl(false);
                         return;
                     }
-                    MsgReceiveActivity.this.jOX.cDA().turnOnNoCallback();
-                    MsgReceiveActivity.this.jOX.sa(true);
-                    MsgReceiveActivity.this.jOX.rZ(true);
+                    MsgReceiveActivity.this.jSA.cEE().turnOnNoCallback();
+                    MsgReceiveActivity.this.jSA.sm(true);
+                    MsgReceiveActivity.this.jSA.sl(true);
                 }
             } else if (i == 9) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.jOX.cDB().turnOffNoCallback();
+                        MsgReceiveActivity.this.jSA.cEF().turnOffNoCallback();
                     } else {
-                        MsgReceiveActivity.this.jOX.cDB().turnOnNoCallback();
+                        MsgReceiveActivity.this.jSA.cEF().turnOnNoCallback();
                     }
                 }
             } else if (i == 7) {
                 if (z) {
-                    com.baidu.tbadk.coreExtra.messageCenter.d.aIw().fY(z2);
+                    com.baidu.tbadk.coreExtra.messageCenter.d.aIQ().gd(z2);
                 } else if (z2) {
-                    MsgReceiveActivity.this.jOX.cDC().turnOffNoCallback();
+                    MsgReceiveActivity.this.jSA.cEG().turnOffNoCallback();
                 } else {
-                    MsgReceiveActivity.this.jOX.cDC().turnOnNoCallback();
+                    MsgReceiveActivity.this.jSA.cEG().turnOnNoCallback();
                 }
             }
         }
     };
-    private OfficialAccountPushModel.a jPb = new OfficialAccountPushModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.2
+    private OfficialAccountPushModel.a jSE = new OfficialAccountPushModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.2
         @Override // com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.a
         public void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str) {
-            if (i == OfficialAccountPushModel.NET_SUCCESS && MsgReceiveActivity.this.jOX != null) {
-                MsgReceiveActivity.this.jOX.aQ(arrayList);
+            if (i == OfficialAccountPushModel.NET_SUCCESS && MsgReceiveActivity.this.jSA != null) {
+                MsgReceiveActivity.this.jSA.aQ(arrayList);
             }
         }
     };
@@ -60,39 +60,39 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jOX = new f(this);
-        this.jOX.init();
-        this.jOY = new MsgRemindModel(this);
+        this.jSA = new f(this);
+        this.jSA.init();
+        this.jSB = new MsgRemindModel(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.jOX.bTQ()) {
+        if (view == this.jSA.bUZ()) {
             finish();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.jOX.cDA()) {
+        if (view == this.jSA.cEE()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.jOY.a(8, true, this.jPa);
-                this.jOX.sa(true);
-                this.jOX.rZ(true);
+                this.jSB.a(8, true, this.jSD);
+                this.jSA.sm(true);
+                this.jSA.sl(true);
                 return;
             }
-            this.jOY.a(8, false, this.jPa);
-            this.jOX.sa(false);
-            this.jOX.rZ(false);
-        } else if (view == this.jOX.cDB()) {
+            this.jSB.a(8, false, this.jSD);
+            this.jSA.sm(false);
+            this.jSA.sl(false);
+        } else if (view == this.jSA.cEF()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.jOY.a(9, true, this.jPa);
+                this.jSB.a(9, true, this.jSD);
             } else {
-                this.jOY.a(9, false, this.jPa);
+                this.jSB.a(9, false, this.jSD);
             }
-        } else if (view == this.jOX.cDC()) {
-            this.jOY.a(7, switchState == BdSwitchView.SwitchState.OFF, this.jPa);
+        } else if (view == this.jSA.cEG()) {
+            this.jSB.a(7, switchState == BdSwitchView.SwitchState.OFF, this.jSD);
         }
     }
 
@@ -100,25 +100,25 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jOX.onChangeSkinType(i);
+        this.jSA.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.jOZ == null) {
-            this.jOZ = new OfficialAccountPushModel(this.jPb);
+        if (this.jSC == null) {
+            this.jSC = new OfficialAccountPushModel(this.jSE);
         }
-        this.jOZ.cED();
+        this.jSC.cFH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jOZ != null) {
-            this.jOZ.onDestroy();
+        if (this.jSC != null) {
+            this.jSC.onDestroy();
         }
     }
 }

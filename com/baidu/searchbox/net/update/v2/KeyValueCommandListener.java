@@ -5,7 +5,7 @@ import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.google.gson.JsonElement;
 import org.json.JSONException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class KeyValueCommandListener extends AbstractCommandListener<JsonElement> {
     private static final String VERSION_POSTFIX = "_version";
 

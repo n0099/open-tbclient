@@ -7,70 +7,70 @@ import com.baidu.swan.apps.runtime.e;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a bPL;
-    private com.baidu.swan.apps.an.a.b bPM = new com.baidu.swan.apps.an.a.b();
-    private c bPN = new c();
+    private static a bQv;
+    private com.baidu.swan.apps.an.a.b bQw = new com.baidu.swan.apps.an.a.b();
+    private c bQx = new c();
 
     private a() {
     }
 
-    public static a abU() {
-        if (bPL == null) {
+    public static a acr() {
+        if (bQv == null) {
             synchronized (a.class) {
-                if (bPL == null) {
-                    bPL = new a();
+                if (bQv == null) {
+                    bQv = new a();
                 }
             }
         }
-        return bPL;
+        return bQv;
     }
 
     public void aW(JSONObject jSONObject) {
-        this.bPM.aY(jSONObject);
+        this.bQw.aY(jSONObject);
     }
 
-    public void lk(String str) {
-        bc(str, null);
+    public void ln(String str) {
+        bd(str, null);
     }
 
-    public void bc(String str, String str2) {
-        this.bPM.add(str, str2);
+    public void bd(String str, String str2) {
+        this.bQw.add(str, str2);
     }
 
     public void aX(JSONObject jSONObject) {
-        this.bPN.aY(jSONObject);
+        this.bQx.aY(jSONObject);
     }
 
-    public JSONObject abV() {
-        JSONObject abZ = this.bPM.abZ();
+    public JSONObject acs() {
+        JSONObject acw = this.bQw.acw();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "LaunchTraces: " + abZ);
+            Log.d("SwanStabilityTracer", "LaunchTraces: " + acw);
         }
-        return abZ;
+        return acw;
     }
 
-    public JSONObject abW() {
-        JSONObject abZ = this.bPN.abZ();
+    public JSONObject act() {
+        JSONObject acw = this.bQx.acw();
         if (DEBUG) {
-            Log.d("SwanStabilityTracer", "WhiteTraces: " + abZ);
+            Log.d("SwanStabilityTracer", "WhiteTraces: " + acw);
         }
-        return abZ;
+        return acw;
     }
 
     public void clear() {
-        this.bPM.clear();
-        this.bPN.clear();
+        this.bQw.clear();
+        this.bQx.clear();
     }
 
-    public File abX() {
-        String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + "aiapps_folder/stability/" + (e.ZU() == null ? "" : e.ZU()) + "_swan_stability_traces.log";
+    public File acu() {
+        String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + "aiapps_folder/stability/" + (e.aar() == null ? "" : e.aar()) + "_swan_stability_traces.log";
         File file = new File(str);
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(abV());
-        jSONArray.put(abW());
+        jSONArray.put(acs());
+        jSONArray.put(act());
         com.baidu.swan.apps.v.a.j(str, jSONArray.toString(), false);
         if (DEBUG) {
             Log.d("SwanStabilityTracer", "Write traces to file：" + str + "\ndata: " + jSONArray);
@@ -78,9 +78,9 @@ public final class a {
         return file;
     }
 
-    public void abY() {
-        String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + "aiapps_folder/stability/" + (e.ZU() == null ? "" : e.ZU()) + "_swan_stability_traces.log";
-        com.baidu.swan.d.c.qO(str);
+    public void acv() {
+        String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + "aiapps_folder/stability/" + (e.aar() == null ? "" : e.aar()) + "_swan_stability_traces.log";
+        com.baidu.swan.d.c.qR(str);
         if (DEBUG) {
             Log.d("SwanStabilityTracer", "Safe delete trace file：" + str);
         }

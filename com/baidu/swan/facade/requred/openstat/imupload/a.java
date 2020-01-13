@@ -3,7 +3,7 @@ package com.baidu.swan.facade.requred.openstat.imupload;
 import android.annotation.SuppressLint;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     @SuppressLint({"DefaultLocale"})
     public static String o(String str, long j) {

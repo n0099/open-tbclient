@@ -94,7 +94,7 @@ public class TbListTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.aQn();
+        return a.aQG();
     }
 
     private boolean isNotSpace(CharSequence charSequence, int i) {
@@ -149,7 +149,7 @@ public class TbListTextView extends TextView {
             return new a(true, list, list2);
         }
 
-        public static a aQn() {
+        public static a aQG() {
             return new a(false, null, null);
         }
 

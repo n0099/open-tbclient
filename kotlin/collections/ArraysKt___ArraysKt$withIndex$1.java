@@ -2,19 +2,19 @@ package kotlin.collections;
 
 import java.util.Iterator;
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 final class ArraysKt___ArraysKt$withIndex$1 extends Lambda implements kotlin.jvm.a.a<Iterator<? extends T>> {
-    final /* synthetic */ Object[] receiver$0;
+    final /* synthetic */ Object[] $this_withIndex;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     ArraysKt___ArraysKt$withIndex$1(Object[] objArr) {
         super(0);
-        this.receiver$0 = objArr;
+        this.$this_withIndex = objArr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.a
     public final Iterator<T> invoke() {
-        return kotlin.jvm.internal.h.P(this.receiver$0);
+        return kotlin.jvm.internal.h.Q(this.$this_withIndex);
     }
 }

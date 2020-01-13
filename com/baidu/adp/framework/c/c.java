@@ -3,21 +3,21 @@ package com.baidu.adp.framework.c;
 import com.baidu.live.adp.framework.MessageConfig;
 /* loaded from: classes.dex */
 public class c extends d {
-    private static c ot = null;
+    private static c oo = null;
 
     public static c fd() {
-        if (ot == null) {
+        if (oo == null) {
             synchronized (c.class) {
-                if (ot == null) {
-                    ot = new c();
+                if (oo == null) {
+                    oo = new c();
                 }
             }
         }
-        return ot;
+        return oo;
     }
 
     private c() {
-        this.ou = new e(MessageConfig.SOCKET_TIME_OUT_MS_2G, 10000, 5000);
+        this.oq = new e(MessageConfig.SOCKET_TIME_OUT_MS_2G, 10000, 5000);
         this.mRetryCount = 3;
     }
 
@@ -31,6 +31,6 @@ public class c extends d {
         if (i3 < 3000) {
             i3 = 3000;
         }
-        this.ou = new e(i, i2, i3);
+        this.oq = new e(i, i2, i3);
     }
 }

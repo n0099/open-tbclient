@@ -12,7 +12,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLDecoder;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WbUtils {
     private static final String DEFAULT_CHARSET = "UTF-8";
     private static final String WEIBO_IDENTITY_ACTION = "com.sina.weibo.action.sdkidentity";

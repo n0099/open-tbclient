@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class SpannableClickTextView extends TextView {
-    private boolean gyT;
+    private boolean gCd;
 
     public SpannableClickTextView(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.gyT) {
+        if (this.gCd) {
             return true;
         }
         return super.performClick();
@@ -36,17 +36,17 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.gyT = false;
+        this.gCd = false;
         return super.onTouchEvent(motionEvent);
     }
 
     public void setCustomMovementMethod() {
-        setMovementMethod(a.cRd());
+        setMovementMethod(a.cSg());
     }
 
     /* loaded from: classes.dex */
     private static class a extends LinkMovementMethod {
-        private static a kFo;
+        private static a kIP;
 
         private a() {
         }
@@ -69,7 +69,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).gyT = true;
+                        ((SpannableClickTextView) textView).gCd = true;
                     }
                     return true;
                 }
@@ -80,11 +80,11 @@ public class SpannableClickTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a cRd() {
-            if (kFo == null) {
-                kFo = new a();
+        public static a cSg() {
+            if (kIP == null) {
+                kIP = new a();
             }
-            return kFo;
+            return kIP;
         }
     }
 }

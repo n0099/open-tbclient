@@ -1,11 +1,11 @@
 package com.baidu.n.a;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class c {
-    public com.baidu.n.a.a.c lyi;
+    public com.baidu.n.a.a.c lBH;
 
     public c(Context context) {
-        this.lyi = new d(context).dfB();
+        this.lBH = new d(context).dgD();
     }
 }

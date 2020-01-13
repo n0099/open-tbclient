@@ -3,78 +3,78 @@ package com.google.android.exoplayer2.a;
 import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import com.google.android.exoplayer2.util.v;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public byte[] iv;
-    public byte[] lYF;
-    public int[] lYG;
-    public int[] lYH;
-    public int lYI;
-    public int lYJ;
-    public int lYK;
-    private final MediaCodec.CryptoInfo lYL;
-    private final a lYM;
+    public int mcA;
+    public int mcB;
+    public int mcC;
+    private final MediaCodec.CryptoInfo mcD;
+    private final a mcE;
+    public byte[] mcx;
+    public int[] mcy;
+    public int[] mcz;
     public int mode;
 
     public b() {
-        this.lYL = v.SDK_INT >= 16 ? drW() : null;
-        this.lYM = v.SDK_INT >= 24 ? new a(this.lYL) : null;
+        this.mcD = v.SDK_INT >= 16 ? dti() : null;
+        this.mcE = v.SDK_INT >= 24 ? new a(this.mcD) : null;
     }
 
     public void a(int i, int[] iArr, int[] iArr2, byte[] bArr, byte[] bArr2, int i2, int i3, int i4) {
-        this.lYI = i;
-        this.lYG = iArr;
-        this.lYH = iArr2;
-        this.lYF = bArr;
+        this.mcA = i;
+        this.mcy = iArr;
+        this.mcz = iArr2;
+        this.mcx = bArr;
         this.iv = bArr2;
         this.mode = i2;
-        this.lYJ = i3;
-        this.lYK = i4;
+        this.mcB = i3;
+        this.mcC = i4;
         if (v.SDK_INT >= 16) {
-            drX();
+            dtj();
         }
     }
 
     @TargetApi(16)
-    public MediaCodec.CryptoInfo drV() {
-        return this.lYL;
+    public MediaCodec.CryptoInfo dth() {
+        return this.mcD;
     }
 
     @TargetApi(16)
-    private MediaCodec.CryptoInfo drW() {
+    private MediaCodec.CryptoInfo dti() {
         return new MediaCodec.CryptoInfo();
     }
 
     @TargetApi(16)
-    private void drX() {
-        this.lYL.numSubSamples = this.lYI;
-        this.lYL.numBytesOfClearData = this.lYG;
-        this.lYL.numBytesOfEncryptedData = this.lYH;
-        this.lYL.key = this.lYF;
-        this.lYL.iv = this.iv;
-        this.lYL.mode = this.mode;
+    private void dtj() {
+        this.mcD.numSubSamples = this.mcA;
+        this.mcD.numBytesOfClearData = this.mcy;
+        this.mcD.numBytesOfEncryptedData = this.mcz;
+        this.mcD.key = this.mcx;
+        this.mcD.iv = this.iv;
+        this.mcD.mode = this.mode;
         if (v.SDK_INT < 24) {
             return;
         }
-        this.lYM.set(this.lYJ, this.lYK);
+        this.mcE.set(this.mcB, this.mcC);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(24)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
-        private final MediaCodec.CryptoInfo lYL;
-        private final MediaCodec.CryptoInfo.Pattern lYN;
+        private final MediaCodec.CryptoInfo mcD;
+        private final MediaCodec.CryptoInfo.Pattern mcF;
 
         private a(MediaCodec.CryptoInfo cryptoInfo) {
-            this.lYL = cryptoInfo;
-            this.lYN = new MediaCodec.CryptoInfo.Pattern(0, 0);
+            this.mcD = cryptoInfo;
+            this.mcF = new MediaCodec.CryptoInfo.Pattern(0, 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void set(int i, int i2) {
-            this.lYN.set(i, i2);
-            this.lYL.setPattern(this.lYN);
+            this.mcF.set(i, i2);
+            this.mcD.setPattern(this.mcF);
         }
     }
 }

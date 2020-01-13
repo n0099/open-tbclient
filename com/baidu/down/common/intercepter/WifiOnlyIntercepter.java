@@ -3,7 +3,7 @@ package com.baidu.down.common.intercepter;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WifiOnlyIntercepter implements IIntercepter<Void> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.down.common.intercepter.IIntercepter

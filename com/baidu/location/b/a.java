@@ -1,7 +1,7 @@
 package com.baidu.location.b;
 
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public int a;
     public int b;

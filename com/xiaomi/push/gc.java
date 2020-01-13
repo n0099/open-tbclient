@@ -3,13 +3,13 @@ package com.xiaomi.push;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class gc extends gd {
     private boolean a;
     private String b;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f410b;
+    private boolean f408b;
     private String c;
     private String d;
     private String e;
@@ -29,7 +29,7 @@ public class gc extends gd {
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f410b = false;
+        this.f408b = false;
     }
 
     public gc(Bundle bundle) {
@@ -41,7 +41,7 @@ public class gc extends gd {
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f410b = false;
+        this.f408b = false;
         this.b = bundle.getString("ext_msg_type");
         this.d = bundle.getString("ext_msg_lang");
         this.c = bundle.getString("ext_msg_thread");
@@ -50,7 +50,7 @@ public class gc extends gd {
         this.g = bundle.getString("ext_body_encode");
         this.h = bundle.getString("ext_msg_appid");
         this.a = bundle.getBoolean("ext_msg_trans", false);
-        this.f410b = bundle.getBoolean("ext_msg_encrypt", false);
+        this.f408b = bundle.getBoolean("ext_msg_encrypt", false);
         this.i = bundle.getString("ext_msg_seq");
         this.j = bundle.getString("ext_msg_mseq");
         this.k = bundle.getString("ext_msg_fseq");
@@ -93,7 +93,7 @@ public class gc extends gd {
         if (!TextUtils.isEmpty(this.k)) {
             a.putString("ext_msg_fseq", this.k);
         }
-        if (this.f410b) {
+        if (this.f408b) {
             a.putBoolean("ext_msg_encrypt", true);
         }
         if (!TextUtils.isEmpty(this.l)) {
@@ -146,7 +146,7 @@ public class gc extends gd {
         if (!TextUtils.isEmpty(this.b)) {
             sb.append(" type=\"").append(this.b).append("\"");
         }
-        if (this.f410b) {
+        if (this.f408b) {
             sb.append(" s=\"1\"");
         }
         sb.append(">");
@@ -165,7 +165,7 @@ public class gc extends gd {
             sb.append("<thread>").append(this.c).append("</thread>");
         }
         if (BdStatsConstant.StatsType.ERROR.equalsIgnoreCase(this.b) && (a = a()) != null) {
-            sb.append(a.m293a());
+            sb.append(a.m302a());
         }
         sb.append(o());
         sb.append("</message>");
@@ -197,7 +197,7 @@ public class gc extends gd {
     }
 
     public void b(boolean z) {
-        this.f410b = z;
+        this.f408b = z;
     }
 
     public String c() {

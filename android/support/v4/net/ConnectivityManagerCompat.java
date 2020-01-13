@@ -10,7 +10,7 @@ import android.support.annotation.RequiresPermission;
 import android.support.annotation.RestrictTo;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ConnectivityManagerCompat {
     public static final int RESTRICT_BACKGROUND_STATUS_DISABLED = 1;
     public static final int RESTRICT_BACKGROUND_STATUS_ENABLED = 3;
@@ -18,7 +18,7 @@ public final class ConnectivityManagerCompat {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface RestrictBackgroundStatus {
     }
 

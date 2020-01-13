@@ -17,7 +17,7 @@ import android.util.Log;
 import android.widget.Toast;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class ActivityUtils {
     private static final boolean DEBUG = false;
     private static final String TAG = "ActivityUtils";

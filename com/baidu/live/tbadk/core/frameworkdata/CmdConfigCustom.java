@@ -414,6 +414,7 @@ public class CmdConfigCustom {
     public static final int CMD_TOGGLE_SHOW_VIDEO_VIEW = 2016475;
     public static final int CMD_TOPIC_SWITCH_TAB_FROM_POP_WINDOW = 2001433;
     public static final int CMD_TRANSMIT_SHARE_DIALOG_DISMISS = 2001450;
+    public static final int CMD_TURN_TAB_LOC = 2921345;
     public static final int CMD_UEG_VALIDATE_TIPS = 2016554;
     public static final int CMD_UNLIKE_FORUM = 2001336;
     public static final int CMD_UNLIKE_FORUM_NAME = 2001611;

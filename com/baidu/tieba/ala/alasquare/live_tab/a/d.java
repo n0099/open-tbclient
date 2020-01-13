@@ -4,36 +4,39 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.b.i;
-import com.baidu.tieba.ala.alasquare.live_tab.view.h;
+import com.baidu.tieba.ala.alasquare.live_tab.b.k;
+import com.baidu.tieba.ala.alasquare.live_tab.view.i;
+import com.baidu.tieba.ala.alasquare.live_tab.view.j;
 /* loaded from: classes2.dex */
-public class d extends com.baidu.adp.widget.ListView.a<i, com.baidu.tieba.ala.alasquare.live_tab.view.i> {
-    private h ehn;
+public class d extends com.baidu.adp.widget.ListView.a<k, j> {
+    private i ehx;
     private TbPageContext mPageContext;
+    private int tabType;
 
-    public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), i.ehB);
+    public d(TbPageContext tbPageContext, int i) {
+        super(tbPageContext.getPageActivity(), k.ehO);
         this.mPageContext = tbPageContext;
+        this.tabType = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: w */
-    public com.baidu.tieba.ala.alasquare.live_tab.view.i b(ViewGroup viewGroup) {
-        this.ehn = new h(this.mPageContext, viewGroup);
-        return new com.baidu.tieba.ala.alasquare.live_tab.view.i(this.ehn);
+    /* renamed from: z */
+    public j b(ViewGroup viewGroup) {
+        this.ehx = new i(this.mPageContext, viewGroup, this.tabType);
+        return new j(this.ehx);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, i iVar, com.baidu.tieba.ala.alasquare.live_tab.view.i iVar2) {
-        if (iVar2 == null || iVar2.ehn == null) {
+    public View a(int i, View view, ViewGroup viewGroup, k kVar, j jVar) {
+        if (jVar == null || jVar.ehx == null) {
             return null;
         }
-        iVar2.ehn.a(iVar);
-        iVar2.ehn.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return iVar2.getView();
+        jVar.ehx.a(kVar);
+        jVar.ehx.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return jVar.getView();
     }
 }

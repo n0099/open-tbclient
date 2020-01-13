@@ -1,15 +1,15 @@
 package com.baidu.tieba.publisher.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k {
-    private static volatile j jxj;
+    private static volatile j jAL;
 
-    public static synchronized j cyt() {
+    public static synchronized j czA() {
         j jVar;
         synchronized (k.class) {
-            if (jxj == null) {
-                jxj = new j();
+            if (jAL == null) {
+                jAL = new j();
             }
-            jVar = jxj;
+            jVar = jAL;
         }
         return jVar;
     }

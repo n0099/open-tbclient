@@ -2,7 +2,7 @@ package com.baidu.swan.games.l.a;
 
 import android.util.Base64;
 import com.baidu.swan.d.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements com.baidu.swan.games.l.b.a {
     @Override // com.baidu.swan.games.l.b.a
     public byte[] h(String str, byte[] bArr) {

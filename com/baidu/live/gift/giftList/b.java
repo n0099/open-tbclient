@@ -23,8 +23,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends BdBaseModel {
-    private HttpMessageListener ajM;
-    private a ajO;
+    private HttpMessageListener akw;
+    private a aky;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -33,7 +33,7 @@ public class b extends BdBaseModel {
 
     public b(BdPageContext bdPageContext) {
         super(bdPageContext);
-        this.ajM = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.b.3
+        this.akw = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -43,15 +43,15 @@ public class b extends BdBaseModel {
                 }
             }
         };
-        this.ajM.setTag(bdPageContext.getUniqueId());
-        registerListener(this.ajM);
+        this.akw.setTag(bdPageContext.getUniqueId());
+        registerListener(this.akw);
     }
 
     public void i(final String str, final boolean z) {
         TbSingleExecutor.execute(new SingleRunnable<AlaSdkGetGiftListHttpResponseMessage>() { // from class: com.baidu.live.gift.giftList.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.tbadk.util.SingleRunnable
-            /* renamed from: sH */
+            /* renamed from: sX */
             public AlaSdkGetGiftListHttpResponseMessage doInBackground() {
                 BdKVCache<String> stringCacheWithSapce = DBKVCacheManager.getInstance().getStringCacheWithSapce(DBKVCacheManager.ALA_GIFT_LIST_CACHE_KEY);
                 if (stringCacheWithSapce == null) {
@@ -74,31 +74,31 @@ public class b extends BdBaseModel {
             @Override // com.baidu.live.tbadk.util.ISingleRunnableCallback
             /* renamed from: a */
             public void onReturnDataInUI(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
-                if (alaSdkGetGiftListHttpResponseMessage != null && !ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.sY())) {
+                if (alaSdkGetGiftListHttpResponseMessage != null && !ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.tp())) {
                     b.this.a(str, alaSdkGetGiftListHttpResponseMessage, true);
                     if (z) {
-                        b.this.dq(str);
+                        b.this.ds(str);
                         return;
                     }
                     return;
                 }
-                b.this.dq(str);
+                b.this.ds(str);
             }
         });
     }
 
-    public void dq(String str) {
+    public void ds(String str) {
         if (StringUtils.isNull(str)) {
-            str = com.baidu.live.gift.b.b.sK().sN();
+            str = com.baidu.live.gift.b.b.ta().td();
         }
         sendMessage(new e(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage, boolean z) {
-        com.baidu.live.gift.b.b.sK().f(str, alaSdkGetGiftListHttpResponseMessage.sY());
-        if (this.ajO != null) {
-            this.ajO.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.sY(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.sZ());
+        com.baidu.live.gift.b.b.ta().f(str, alaSdkGetGiftListHttpResponseMessage.tp());
+        if (this.aky != null) {
+            this.aky.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.tp(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.tq());
         }
     }
 
@@ -115,10 +115,10 @@ public class b extends BdBaseModel {
 
     public void onDestroy() {
         cancelLoadData();
-        MessageManager.getInstance().unRegisterListener(this.ajM);
+        MessageManager.getInstance().unRegisterListener(this.akw);
     }
 
     public void a(a aVar) {
-        this.ajO = aVar;
+        this.aky = aVar;
     }
 }

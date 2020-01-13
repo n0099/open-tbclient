@@ -12,7 +12,7 @@ import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends ab {
     public d(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/navigateBack");
@@ -25,7 +25,7 @@ public class d extends ab {
             Log.d("NavigateBackAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         String uuid = UUID.randomUUID().toString();
-        com.baidu.swan.apps.performance.g.jJ(uuid);
+        com.baidu.swan.apps.performance.g.jM(uuid);
         String str = unitedSchemeEntity.getParams().get("params");
         if (TextUtils.isEmpty(str)) {
             optInt = 1;
@@ -41,8 +41,8 @@ public class d extends ab {
                 return false;
             }
         }
-        com.baidu.swan.apps.core.d.e DP = com.baidu.swan.apps.y.f.Uf().DP();
-        if (DP == null) {
+        com.baidu.swan.apps.core.d.e El = com.baidu.swan.apps.y.f.UC().El();
+        if (El == null) {
             com.baidu.swan.apps.console.c.e("navigateBack", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -50,24 +50,24 @@ public class d extends ab {
         if (DEBUG) {
             Log.d("NavigateBackAction", "back delta: " + optInt);
         }
-        if (optInt >= DP.LE()) {
-            optInt = DP.LE() - 1;
+        if (optInt >= El.Ma()) {
+            optInt = El.Ma() - 1;
         }
         if (DEBUG) {
             Log.d("NavigateBackAction", "real back delta: " + optInt);
         }
-        com.baidu.swan.apps.as.d.b(DP, context);
-        DP.gJ("navigateBack").U(com.baidu.swan.apps.core.d.e.bjh, com.baidu.swan.apps.core.d.e.bjg).eh(optInt).commit();
-        com.baidu.swan.apps.performance.f.aO("route", uuid).f(new UbcFlowEvent("na_push_page_end"));
-        com.baidu.swan.apps.performance.g.v(1, uuid);
-        com.baidu.swan.apps.performance.g.jK(uuid);
-        if (!(DP.LB() instanceof com.baidu.swan.apps.core.d.d)) {
+        com.baidu.swan.apps.as.d.b(El, context);
+        El.gM("navigateBack").Y(com.baidu.swan.apps.core.d.e.bjW, com.baidu.swan.apps.core.d.e.bjV).ei(optInt).commit();
+        com.baidu.swan.apps.performance.f.aP("route", uuid).f(new UbcFlowEvent("na_push_page_end"));
+        com.baidu.swan.apps.performance.g.y(1, uuid);
+        com.baidu.swan.apps.performance.g.jN(uuid);
+        if (!(El.LX() instanceof com.baidu.swan.apps.core.d.d)) {
             com.baidu.swan.apps.console.c.e("navigateBack", "top fragment error");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) DP.LB();
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.lb(dVar != null ? dVar.Ln() : ""), 0));
+        com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) El.LX();
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.le(dVar != null ? dVar.LJ() : ""), 0));
         return true;
     }
 }

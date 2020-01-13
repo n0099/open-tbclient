@@ -1,22 +1,22 @@
 package com.baidu.tieba.tbadkCore;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public int cur_score;
-        public String jZy;
+        public String kdb;
         public int level;
         public int levelup_score;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b {
-        public boolean fUe = false;
+        public boolean fXn = false;
         public boolean isSuccess = false;
         public int errorCode = 0;
         public String errorMsg = "";
-        public long jZz = 0;
+        public long kdc = 0;
         public boolean isWifi = false;
     }
 }

@@ -22,7 +22,7 @@ public class a {
     /* loaded from: classes.dex */
     public static class C0026a {
         public String mErrMsg;
-        public boolean ze;
+        public boolean zi;
     }
 
     public static C0026a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z, String str2) {
@@ -70,7 +70,7 @@ public class a {
                         @Override // java.util.Comparator
                         public int compare(Object obj, Object obj2) {
                             if ((obj instanceof String) && (obj2 instanceof String)) {
-                                return a.C((String) obj, (String) obj2);
+                                return a.B((String) obj, (String) obj2);
                             }
                             return 0;
                         }
@@ -123,14 +123,14 @@ public class a {
                 declaredMethod.invoke(pathList, str2, null);
                 Object combineArray = combineArray(z(pathList), z(pathList2));
                 if (combineArray instanceof File[]) {
-                    Arrays.sort((File[]) combineArray, jP());
+                    Arrays.sort((File[]) combineArray, jO());
                     list = combineArray;
                 } else {
                     boolean z2 = combineArray instanceof List;
                     list = combineArray;
                     if (z2) {
                         List list4 = (List) combineArray;
-                        Collections.sort(list4, jP());
+                        Collections.sort(list4, jO());
                         list = list4;
                     }
                 }
@@ -144,14 +144,14 @@ public class a {
                 setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(y(pathList), y(pathList2)) : combineArray(y(pathList2), y(pathList)));
                 Object combineArray2 = combineArray(z(pathList), z(pathList2));
                 if (combineArray2 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray2, jP());
+                    Arrays.sort((File[]) combineArray2, jO());
                     list3 = combineArray2;
                 } else {
                     boolean z3 = combineArray2 instanceof List;
                     list3 = combineArray2;
                     if (z3) {
                         List list5 = (List) combineArray2;
-                        Collections.sort(list5, jP());
+                        Collections.sort(list5, jO());
                         list3 = list5;
                     }
                 }
@@ -165,14 +165,14 @@ public class a {
                 setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(y(pathList), y(pathList2)) : combineArray(y(pathList2), y(pathList)));
                 Object combineArray3 = combineArray(z(pathList), z(pathList2));
                 if (combineArray3 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray3, jP());
+                    Arrays.sort((File[]) combineArray3, jO());
                     list2 = combineArray3;
                 } else {
                     boolean z4 = combineArray3 instanceof List;
                     list2 = combineArray3;
                     if (z4) {
                         List list6 = (List) combineArray3;
-                        Collections.sort(list6, jP());
+                        Collections.sort(list6, jO());
                         list2 = list6;
                     }
                 }
@@ -276,7 +276,7 @@ public class a {
 
     private static C0026a a(boolean z, Throwable th) {
         C0026a c0026a = new C0026a();
-        c0026a.ze = z;
+        c0026a.zi = z;
         c0026a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0026a;
     }
@@ -313,7 +313,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> jP() {
+    private static final Comparator<File> jO() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
@@ -321,13 +321,13 @@ public class a {
                 if (file == null || file2 == null) {
                     return 0;
                 }
-                return a.C(file.getAbsolutePath(), file2.getAbsolutePath());
+                return a.B(file.getAbsolutePath(), file2.getAbsolutePath());
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int C(String str, String str2) {
+    public static final int B(String str, String str2) {
         if (str == null || str2 == null) {
             return 0;
         }

@@ -8,7 +8,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Window;
 import com.baidu.mobstat.al;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ak {
     private static volatile boolean a = true;
     private a b;
@@ -29,7 +29,7 @@ public class ak {
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a();
     }

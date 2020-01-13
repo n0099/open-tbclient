@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class a extends com.baidu.android.pushservice.h.c {
     protected Context a;
     protected l b;
@@ -17,7 +17,7 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
     private C0041a d = new C0041a();
 
     /* renamed from: com.baidu.android.pushservice.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class C0041a {
         public C0041a() {
         }

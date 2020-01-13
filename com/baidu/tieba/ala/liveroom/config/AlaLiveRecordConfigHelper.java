@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.DynamicBitRateConfig;
-import com.baidu.live.r.a;
+import com.baidu.live.s.a;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
@@ -17,10 +17,10 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class AlaLiveRecordConfigHelper {
-    private static AlaLiveRecordConfigHelper eUi;
+    private static AlaLiveRecordConfigHelper eVR;
 
-    public VideoResolution iY(boolean z) {
-        return z(a.wA().arE.Xc, z);
+    public VideoResolution jh(boolean z) {
+        return z(a.wR().asq.Xv, z);
     }
 
     public VideoResolution z(int i, boolean z) {
@@ -42,34 +42,34 @@ public class AlaLiveRecordConfigHelper {
         return VideoResolution.P540;
     }
 
-    public static AlaLiveRecordConfigHelper biV() {
-        if (eUi == null) {
+    public static AlaLiveRecordConfigHelper bjH() {
+        if (eVR == null) {
             synchronized (AlaLiveRecordConfigHelper.class) {
-                if (eUi == null) {
-                    eUi = new AlaLiveRecordConfigHelper();
+                if (eVR == null) {
+                    eVR = new AlaLiveRecordConfigHelper();
                 }
             }
         }
-        return eUi;
+        return eVR;
     }
 
     public AlaLiveVideoConfig k(int i, int i2, boolean z) {
         VideoResolution videoResolution = null;
         if (i2 == 1) {
-            videoResolution = iY(false);
+            videoResolution = jh(false);
         }
         if (videoResolution == null) {
             videoResolution = z(i, false);
         }
-        if (i2 == 1 && !a.wA().arE.Xd) {
+        if (i2 == 1 && !a.wR().asq.Xw) {
             videoResolution = VideoResolution.P360;
         }
-        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(yt(a.wA().arE.Xf), yt(a.wA().arE.Xg), a.wA().arE.increaseThreshold, a.wA().arE.decreaseThreshold, a.wA().arE.increaseCount, a.wA().arE.Xd, a.wA().arE.Xe, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
+        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(yx(a.wR().asq.Xy), yx(a.wR().asq.Xz), a.wR().asq.increaseThreshold, a.wR().asq.decreaseThreshold, a.wR().asq.increaseCount, a.wR().asq.Xw, a.wR().asq.Xx, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
         if (i2 == 1) {
             isLandscape.setPreviewWidth(720);
             isLandscape.setPreviewHeight(1280);
-            if (a.wA().arE != null) {
-                isLandscape.setSupportFaceStyle(a.wA().arE.Xk);
+            if (a.wR().asq != null) {
+                isLandscape.setSupportFaceStyle(a.wR().asq.XD);
             }
             return isLandscape;
         } else if (i2 == 2) {
@@ -81,7 +81,7 @@ public class AlaLiveRecordConfigHelper {
         }
     }
 
-    private List<DynamicBitRateConfig.DynamicBitRateItem> yt(String str) {
+    private List<DynamicBitRateConfig.DynamicBitRateItem> yx(String str) {
         JSONArray jSONArray;
         int length;
         int i;

@@ -2,7 +2,7 @@ package com.baidu.mapapi.walknavi.controllers.a;
 
 import com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener;
 import com.baidu.mapapi.walknavi.model.WalkRoutePlanError;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class c implements com.baidu.platform.comapi.wnplatform.i.a {
     final /* synthetic */ IWRoutePlanListener a;
     final /* synthetic */ a b;

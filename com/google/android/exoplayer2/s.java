@@ -2,7 +2,7 @@ package com.google.android.exoplayer2;
 
 import com.google.android.exoplayer2.g;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface s extends g.a {
     void N(long j, long j2) throws ExoPlaybackException;
 
@@ -10,25 +10,25 @@ public interface s extends g.a {
 
     void a(Format[] formatArr, com.google.android.exoplayer2.source.p pVar, long j) throws ExoPlaybackException;
 
-    boolean ati();
+    boolean atB();
 
     void disable();
 
-    t dqe();
+    t drq();
 
-    com.google.android.exoplayer2.util.h dqf();
+    com.google.android.exoplayer2.util.h drr();
 
-    com.google.android.exoplayer2.source.p dqg();
+    com.google.android.exoplayer2.source.p drs();
 
-    boolean dqh();
+    boolean drt();
 
-    void dqi();
+    void dru();
 
-    boolean dqj();
+    boolean drv();
 
-    void dqk() throws IOException;
+    void drw() throws IOException;
 
-    void fi(long j) throws ExoPlaybackException;
+    void fn(long j) throws ExoPlaybackException;
 
     int getState();
 

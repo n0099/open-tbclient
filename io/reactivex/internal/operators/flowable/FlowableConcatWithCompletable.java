@@ -1,35 +1,33 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FlowableConcatWithCompletable<T> extends a<T, T> {
-    final e other;
+    final io.reactivex.e other;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new ConcatWithSubscriber(cVar, this.other));
+        this.nvK.a((j) new ConcatWithSubscriber(cVar, this.other));
     }
 
-    /* loaded from: classes4.dex */
-    static final class ConcatWithSubscriber<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class ConcatWithSubscriber<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, j<T>, org.a.d {
         private static final long serialVersionUID = -7346385463600070225L;
         final org.a.c<? super T> actual;
         boolean inCompletable;
-        e other;
-        d upstream;
+        io.reactivex.e other;
+        org.a.d upstream;
 
-        ConcatWithSubscriber(org.a.c<? super T> cVar, e eVar) {
+        ConcatWithSubscriber(org.a.c<? super T> cVar, io.reactivex.e eVar) {
             this.actual = cVar;
             this.other = eVar;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.upstream, dVar)) {
                 this.upstream = dVar;
                 this.actual.onSubscribe(this);
@@ -59,7 +57,7 @@ public final class FlowableConcatWithCompletable<T> extends a<T, T> {
             }
             this.inCompletable = true;
             this.upstream = SubscriptionHelper.CANCELLED;
-            e eVar = this.other;
+            io.reactivex.e eVar = this.other;
             this.other = null;
             eVar.a(this);
         }

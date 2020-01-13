@@ -215,7 +215,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> ch = com.baidu.tbadk.core.c.a.aBV().ch("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        l<byte[]> ch = com.baidu.tbadk.core.c.a.aCo().ch("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             ch.setForever(PROFILE_CACHE_KEY, bArr);
         }
@@ -226,15 +226,15 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         l<String> ci;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (ci = com.baidu.tbadk.core.c.a.aBV().ci("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.jbi;
+        if (this.ucCardData != null && (ci = com.baidu.tbadk.core.c.a.aCo().ci("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<g.a> list = this.ucCardData.jeL;
             if (v.getCount(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
                     if (aVar.timeStamp > com.baidu.adp.lib.f.b.toLong(ci.get(aVar.title), 0L)) {
-                        aVar.jbj = true;
+                        aVar.jeM = true;
                     } else {
-                        aVar.jbj = false;
+                        aVar.jeM = false;
                     }
                 }
             }

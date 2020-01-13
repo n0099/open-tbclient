@@ -10,25 +10,25 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.database.SwanAppDbControl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private UriMatcher box = new UriMatcher(-1);
-    public static final String bow = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + bow);
+    private UriMatcher bpl = new UriMatcher(-1);
+    public static final String bpk = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + bpk);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
-        this.box.addURI(bow, "favorite", 0);
-        this.box.addURI(bow, "favorite_and_aps", 1);
-        this.box.addURI(bow, "history", 2);
-        this.box.addURI(bow, "history_with_app", 3);
-        this.box.addURI(bow, "favorite_with_aps_pms", 4);
-        this.box.addURI(bow, "history_with_aps_pms", 5);
+        this.bpl.addURI(bpk, "favorite", 0);
+        this.bpl.addURI(bpk, "favorite_and_aps", 1);
+        this.bpl.addURI(bpk, "history", 2);
+        this.bpl.addURI(bpk, "history_with_app", 3);
+        this.bpl.addURI(bpk, "favorite_with_aps_pms", 4);
+        this.bpl.addURI(bpk, "history_with_aps_pms", 5);
     }
 
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        switch (this.box.match(uri)) {
+        switch (this.bpl.match(uri)) {
             case 0:
                 Cursor a = SwanAppDbControl.bX(AppRuntime.getAppContext()).a(strArr, str, strArr2, str2);
                 a.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
@@ -44,9 +44,9 @@ public class b {
                 d.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
                 return d;
             case 4:
-                Cursor OA = a.OA();
-                OA.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                return OA;
+                Cursor OW = a.OW();
+                OW.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                return OW;
             case 5:
                 int i = -1;
                 try {
@@ -70,7 +70,7 @@ public class b {
 
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        switch (this.box.match(uri)) {
+        switch (this.bpl.match(uri)) {
             case 0:
                 long b = SwanAppDbControl.bX(AppRuntime.getAppContext()).b(contentValues);
                 if (b >= 0) {
@@ -83,7 +83,7 @@ public class b {
             case 2:
                 long c = SwanAppDbControl.bX(AppRuntime.getAppContext()).c(contentValues);
                 if (c >= 0) {
-                    OE();
+                    Pa();
                     return ContentUris.withAppendedId(CONTENT_URI.buildUpon().build(), c);
                 }
                 return null;
@@ -91,7 +91,7 @@ public class b {
     }
 
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        switch (this.box.match(uri)) {
+        switch (this.bpl.match(uri)) {
             case 0:
                 return SwanAppDbControl.bX(AppRuntime.getAppContext()).b(str, strArr);
             case 1:
@@ -100,7 +100,7 @@ public class b {
             case 2:
                 int c = SwanAppDbControl.bX(AppRuntime.getAppContext()).c(str, strArr);
                 if (c > 0) {
-                    OE();
+                    Pa();
                     return c;
                 }
                 return c;
@@ -108,7 +108,7 @@ public class b {
     }
 
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        switch (this.box.match(uri)) {
+        switch (this.bpl.match(uri)) {
             case 0:
                 return SwanAppDbControl.bX(AppRuntime.getAppContext()).a(contentValues, str, strArr);
             case 1:
@@ -117,7 +117,7 @@ public class b {
             case 2:
                 int b = SwanAppDbControl.bX(AppRuntime.getAppContext()).b(contentValues, str, strArr);
                 if (b > 0) {
-                    OE();
+                    Pa();
                     return b;
                 }
                 return b;
@@ -129,8 +129,8 @@ public class b {
         return null;
     }
 
-    private static void OE() {
-        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.OF(), (ContentObserver) null, false);
-        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.OG(), (ContentObserver) null, false);
+    private static void Pa() {
+        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.Pb(), (ContentObserver) null, false);
+        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.Pc(), (ContentObserver) null, false);
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class z {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String sRomName;
@@ -84,7 +84,7 @@ public class z {
             return 0;
         }
         if (Build.VERSION.SDK_INT >= 28) {
-            return aem();
+            return aeF();
         }
         if (cB(context)) {
             if (isMiui()) {
@@ -109,7 +109,7 @@ public class z {
                 return 80;
             } else {
                 if (isVivo()) {
-                    return af.T(32.0f);
+                    return af.S(32.0f);
                 }
                 return 0;
             }
@@ -118,11 +118,11 @@ public class z {
     }
 
     @RequiresApi(28)
-    private static int aem() {
+    private static int aeF() {
         int i = 0;
-        if (com.baidu.swan.apps.runtime.e.ZS() != null && com.baidu.swan.apps.runtime.e.ZS().getActivity() != null) {
+        if (com.baidu.swan.apps.runtime.e.aap() != null && com.baidu.swan.apps.runtime.e.aap().getActivity() != null) {
             try {
-                DisplayCutout displayCutout = com.baidu.swan.apps.runtime.e.ZS().getActivity().getWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
+                DisplayCutout displayCutout = com.baidu.swan.apps.runtime.e.aap().getActivity().getWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
                 if (displayCutout != null) {
                     i = displayCutout.getSafeInsetTop();
                     if (DEBUG) {

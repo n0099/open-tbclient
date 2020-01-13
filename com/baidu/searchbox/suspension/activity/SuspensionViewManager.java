@@ -2,7 +2,7 @@ package com.baidu.searchbox.suspension.activity;
 
 import android.app.Activity;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SuspensionViewManager {
     private static SuspensionViewManager sInstance;
     private HashMap<String, SuspensionViewAdapter> mSuspensionViewAdapters = new HashMap<>();

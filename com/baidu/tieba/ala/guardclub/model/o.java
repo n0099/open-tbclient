@@ -10,12 +10,12 @@ public class o extends HttpMessage {
         super(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
     }
 
-    public void xZ(String str) {
+    public void ye(String str) {
         this.id = str;
     }
 
     public void setParams() {
-        addParam("scene_from", com.baidu.live.utils.p.yu());
+        addParam("scene_from", com.baidu.live.utils.q.yN());
         addParam("guard_club_id", this.id);
         addParam("client_type", 2);
     }

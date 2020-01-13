@@ -10,7 +10,7 @@ import com.baidu.searchbox.net.update.v2.UpdateAction;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = PublishLimitUpdateListener.ACTION_UGC_LIMIT, module = "ugc")
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PublishLimitUpdateListener extends JSONObjectCommandListener {
     public static final String ACTION_UGC_LIMIT = "ugc_publish_limit";
     public static final int DEFAULT_PUBLISH_LIMIT = 200;

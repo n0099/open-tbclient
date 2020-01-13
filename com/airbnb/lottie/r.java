@@ -1,7 +1,7 @@
 package com.airbnb.lottie;
 
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class r {
     private final Map<String, String> fC;
     private boolean fD;

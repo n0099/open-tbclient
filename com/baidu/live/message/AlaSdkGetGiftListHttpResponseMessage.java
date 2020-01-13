@@ -10,9 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<com.baidu.live.data.c> agL;
-    private ArrayList<com.baidu.live.data.d> agM;
-    private ArrayList<i> akV;
+    private ArrayList<com.baidu.live.data.c> ahu;
+    private ArrayList<com.baidu.live.data.d> ahv;
+    private ArrayList<i> alI;
     private String scene_from;
 
     public AlaSdkGetGiftListHttpResponseMessage() {
@@ -32,20 +32,21 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
         if (optJSONObject != null) {
             long optLong = optJSONObject.optLong("sleep_time_span");
             if (!z) {
-                com.baidu.live.c oI = com.baidu.live.c.oI();
-                oI.putLong("ala_sdk_get_gift_list_req_time", (optLong * 1000) + System.currentTimeMillis());
+                com.baidu.live.c oJ = com.baidu.live.c.oJ();
+                oJ.putLong("ala_sdk_get_gift_list_req_time", (optLong * 1000) + System.currentTimeMillis());
             }
             this.scene_from = optJSONObject.optString("scene_from");
-            j(optJSONObject.optJSONArray("list"));
-            k(optJSONObject.optJSONArray("num_info"));
-            U(this.scene_from, jSONObject.toString());
+            if (m(optJSONObject.optJSONArray("list"))) {
+                k(optJSONObject.optJSONArray("num_info"));
+                T(this.scene_from, jSONObject.toString());
+            }
         }
     }
 
-    private void j(JSONArray jSONArray) {
+    private boolean m(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.akV = new ArrayList<>();
-            this.agL = new ArrayList<>();
+            this.alI = new ArrayList<>();
+            this.ahu = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("category_id");
@@ -62,7 +63,7 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     cVar.setCategoryName(optString);
                     cVar.e(arrayList);
                     cVar.at(z);
-                    this.agL.add(cVar);
+                    this.ahu.add(cVar);
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("gift_list");
                 if (optJSONArray2 != null) {
@@ -81,43 +82,44 @@ public class AlaSdkGetGiftListHttpResponseMessage extends JsonHttpResponsedMessa
                     iVar.setCategoryName(optString);
                     iVar.r(arrayList2);
                     iVar.at(z);
-                    this.akV.add(iVar);
+                    this.alI.add(iVar);
                 }
             }
         }
+        return (this.alI == null || this.alI.isEmpty()) ? false : true;
     }
 
     private void k(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            this.agM = new ArrayList<>();
+            this.ahv = new ArrayList<>();
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     com.baidu.live.data.d dVar = new com.baidu.live.data.d();
                     dVar.parser(optJSONObject);
-                    this.agM.add(dVar);
+                    this.ahv.add(dVar);
                 }
             }
         }
     }
 
-    private void U(String str, String str2) {
+    private void T(String str, String str2) {
         BdKVCache<String> stringCacheWithSapce;
         if (str2 != null && (stringCacheWithSapce = DBKVCacheManager.getInstance().getStringCacheWithSapce(DBKVCacheManager.ALA_GIFT_LIST_CACHE_KEY)) != null) {
-            stringCacheWithSapce.asyncSet(com.baidu.live.gift.h.f(str, 0L), str2, com.baidu.live.gift.h.aef);
+            stringCacheWithSapce.asyncSet(com.baidu.live.gift.h.f(str, 0L), str2, com.baidu.live.gift.h.aeu);
         }
     }
 
-    public ArrayList<i> sY() {
-        return this.akV;
+    public ArrayList<i> tp() {
+        return this.alI;
     }
 
     public ArrayList<com.baidu.live.data.c> getCategoryList() {
-        return this.agL;
+        return this.ahu;
     }
 
-    public ArrayList<com.baidu.live.data.d> sZ() {
-        return this.agM;
+    public ArrayList<com.baidu.live.data.d> tq() {
+        return this.ahv;
     }
 
     public String getSceneFrom() {

@@ -26,7 +26,7 @@ import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.e.c;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WalkNavigateHelper {
     private static WalkNavigateHelper d;
     private com.baidu.mapapi.walknavi.controllers.a.a a = new com.baidu.mapapi.walknavi.controllers.a.a();

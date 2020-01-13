@@ -9,7 +9,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.util.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements ServiceConnection {
     final /* synthetic */ LocationClient a;
 

@@ -5,18 +5,18 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class as {
     private static as a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f875a = 0;
+    private int f873a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f876a;
+    private Context f874a;
 
     private as(Context context) {
-        this.f876a = context.getApplicationContext();
+        this.f874a = context.getApplicationContext();
     }
 
     public static as a(Context context) {
@@ -28,25 +28,25 @@ public class as {
 
     @SuppressLint({"NewApi"})
     public int a() {
-        if (this.f875a != 0) {
-            return this.f875a;
+        if (this.f873a != 0) {
+            return this.f873a;
         }
         if (Build.VERSION.SDK_INT >= 17) {
-            this.f875a = Settings.Global.getInt(this.f876a.getContentResolver(), "device_provisioned", 0);
-            return this.f875a;
+            this.f873a = Settings.Global.getInt(this.f874a.getContentResolver(), "device_provisioned", 0);
+            return this.f873a;
         }
-        this.f875a = Settings.Secure.getInt(this.f876a.getContentResolver(), "device_provisioned", 0);
-        return this.f875a;
+        this.f873a = Settings.Secure.getInt(this.f874a.getContentResolver(), "device_provisioned", 0);
+        return this.f873a;
     }
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m505a() {
+    public Uri m514a() {
         return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m506a() {
-        return com.xiaomi.push.ab.f117a.contains("xmsf") || com.xiaomi.push.ab.f117a.contains("xiaomi") || com.xiaomi.push.ab.f117a.contains("miui");
+    public boolean m515a() {
+        return com.xiaomi.push.ab.f115a.contains("xmsf") || com.xiaomi.push.ab.f115a.contains("xiaomi") || com.xiaomi.push.ab.f115a.contains("miui");
     }
 }

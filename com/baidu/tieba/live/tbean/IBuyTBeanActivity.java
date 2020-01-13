@@ -12,7 +12,7 @@ public interface IBuyTBeanActivity {
 
     void setNetRefreshViewTopMargin(int i);
 
-    void setResult(int i, Intent intent);
+    void setResultIntent(int i, Intent intent);
 
     void showLoadingDialog(String str);
 

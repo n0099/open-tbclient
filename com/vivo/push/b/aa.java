@@ -1,7 +1,7 @@
 package com.vivo.push.b;
 
 import com.baidu.mapapi.UIMsg;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class aa extends com.vivo.push.y {
     private String a;
 

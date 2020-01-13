@@ -16,14 +16,14 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static byte[] a(byte[] bArr, String str, int i) {
-        PublicKey nh;
-        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (nh = nh(str)) == null) {
+        PublicKey nk;
+        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (nk = nk(str)) == null) {
             return null;
         }
-        return a(bArr, nh, i);
+        return a(bArr, nk, i);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0067 */
@@ -137,7 +137,7 @@ public class b {
         return bArr2;
     }
 
-    private static PublicKey nh(String str) {
+    private static PublicKey nk(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

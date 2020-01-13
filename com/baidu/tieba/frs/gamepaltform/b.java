@@ -4,14 +4,14 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b extends v.a {
-    public GameRankHorizontalLayout gvY;
-    public TextView gvZ;
+    public GameRankHorizontalLayout gzi;
+    public TextView gzj;
 
     public b(View view) {
         super(view);
-        this.gvY = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
-        this.gvZ = (TextView) view.findViewById(R.id.close_game_rank_btn);
+        this.gzi = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
+        this.gzj = (TextView) view.findViewById(R.id.close_game_rank_btn);
     }
 }

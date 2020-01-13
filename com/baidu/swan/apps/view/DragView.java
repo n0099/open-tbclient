@@ -7,9 +7,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DragView extends FrameLayout {
-    private a bVd;
+    private a bVp;
     private int mAutoCloseDistance;
     private View mChildView;
     private boolean mDragEnabled;
@@ -21,7 +21,7 @@ public class DragView extends FrameLayout {
     private int mTopMinValue;
     private ViewDragHelper mViewDragHelper;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onClose();
 
@@ -89,8 +89,8 @@ public class DragView extends FrameLayout {
             @Override // android.support.v4.widget.ViewDragHelper.Callback
             public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
                 super.onViewPositionChanged(view, i, i2, i3, i4);
-                if (DragView.this.bVd != null) {
-                    DragView.this.bVd.onClosing(i2 - DragView.this.mInitY);
+                if (DragView.this.bVp != null) {
+                    DragView.this.bVp.onClosing(i2 - DragView.this.mInitY);
                 }
             }
 
@@ -118,8 +118,8 @@ public class DragView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (this.mDragEnabled) {
             this.mViewDragHelper.processTouchEvent(motionEvent);
-            if (this.bVd != null) {
-                this.bVd.onDragViewTouchEvent(motionEvent);
+            if (this.bVp != null) {
+                this.bVp.onDragViewTouchEvent(motionEvent);
             }
             return true;
         }
@@ -160,8 +160,8 @@ public class DragView extends FrameLayout {
     public void computeScroll() {
         if (this.mViewDragHelper.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
-        } else if (this.mChildView != null && Math.abs(this.mChildView.getTop() - this.mInitY) >= this.mAutoCloseDistance && this.bVd != null) {
-            this.bVd.onClose();
+        } else if (this.mChildView != null && Math.abs(this.mChildView.getTop() - this.mInitY) >= this.mAutoCloseDistance && this.bVp != null) {
+            this.bVp.onClose();
         }
     }
 
@@ -173,7 +173,7 @@ public class DragView extends FrameLayout {
     }
 
     public void setOnCloseListener(a aVar) {
-        this.bVd = aVar;
+        this.bVp = aVar;
     }
 
     public void setTopMinValue(int i) {

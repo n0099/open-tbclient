@@ -4,28 +4,28 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes2.dex */
 public class f extends HttpMessage {
-    private int eBH;
-    private c eyC;
+    private int eCS;
+    private c ezN;
 
     public f() {
         super(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
     }
 
-    public void pf(int i) {
-        this.eBH = i;
+    public void pg(int i) {
+        this.eCS = i;
     }
 
     public void a(c cVar) {
-        this.eyC = cVar;
+        this.ezN = cVar;
     }
 
-    public c bcK() {
-        return this.eyC;
+    public c bdf() {
+        return this.ezN;
     }
 
     public void setParams() {
-        addParam("scene_from", com.baidu.live.utils.p.yu());
-        addParam("guard_club_id", this.eBH);
+        addParam("scene_from", com.baidu.live.utils.q.yN());
+        addParam("guard_club_id", this.eCS);
         addParam("client_type", 2);
     }
 }

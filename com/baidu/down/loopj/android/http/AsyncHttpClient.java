@@ -17,7 +17,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AsyncHttpClient {
     private static final boolean DEBUG = false;
     private static final int DEFAULT_MAX_CONNECTIONS = 20;

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c extends com.baidu.card.b<com.baidu.tbadk.core.data.a> {
     private NoDataView mNoDataView;
     private TbPageContext<?> mPageContext;

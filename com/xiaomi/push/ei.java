@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ei implements en {
     private void a(Activity activity, Intent intent) {
         String stringExtra = intent.getStringExtra("awake_info");

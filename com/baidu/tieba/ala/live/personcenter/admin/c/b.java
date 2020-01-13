@@ -13,21 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BdBaseModel {
-    private a eFH;
-    private HttpMessageListener eFM;
+    private a eGR;
+    private HttpMessageListener eGW;
     private List<com.baidu.tieba.ala.live.personcenter.admin.b.b> userList;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void ad(int i, String str);
+        void af(int i, String str);
 
-        void hN(boolean z);
+        void hX(boolean z);
     }
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.userList = new ArrayList();
-        this.eFM = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
+        this.eGW = new HttpMessageListener(1021078, true) { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -35,25 +35,25 @@ public class b extends BdBaseModel {
                     AlaAdminListResponseMessage alaAdminListResponseMessage = (AlaAdminListResponseMessage) httpResponsedMessage;
                     com.baidu.tieba.ala.live.personcenter.admin.message.a aVar = (com.baidu.tieba.ala.live.personcenter.admin.message.a) alaAdminListResponseMessage.getmOrginalMessage();
                     if (!alaAdminListResponseMessage.isSuccess()) {
-                        if (b.this.eFH != null) {
-                            b.this.eFH.ad(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
+                        if (b.this.eGR != null) {
+                            b.this.eGR.af(alaAdminListResponseMessage.getError(), alaAdminListResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    com.baidu.tieba.ala.live.personcenter.admin.b.a bdP = alaAdminListResponseMessage.bdP();
-                    b.this.userList = bdP.getUserList();
-                    if (b.this.eFH != null) {
-                        b.this.eFH.hN(false);
+                    com.baidu.tieba.ala.live.personcenter.admin.b.a bek = alaAdminListResponseMessage.bek();
+                    b.this.userList = bek.getUserList();
+                    if (b.this.eGR != null) {
+                        b.this.eGR.hX(false);
                     }
                 }
             }
         };
-        rG();
-        registerListener(this.eFM);
+        rT();
+        registerListener(this.eGW);
     }
 
-    private void rG() {
+    private void rT() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021078, TbConfig.SERVER_ADDRESS + "ala/perm/getAnchorAdmin");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -62,13 +62,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bdQ() {
+    public void bel() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        bdQ();
+        bel();
         return true;
     }
 
@@ -83,13 +83,13 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.eFH = aVar;
+        this.eGR = aVar;
     }
 
     public void a(com.baidu.tieba.ala.live.personcenter.admin.b.b bVar) {
         this.userList.remove(bVar);
-        if (this.eFH != null) {
-            this.eFH.hN(false);
+        if (this.eGR != null) {
+            this.eGR.hX(false);
         }
     }
 }

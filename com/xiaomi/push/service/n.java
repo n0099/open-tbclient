@@ -8,23 +8,23 @@ import com.xiaomi.push.service.al;
 import java.io.IOException;
 import java.util.Collection;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class n extends XMPushService.i {
     private XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f925a;
+    private String f923a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f926a;
+    private byte[] f924a;
     private String b;
     private String c;
 
     public n(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
         super(9);
         this.a = xMPushService;
-        this.f925a = str;
-        this.f926a = bArr;
+        this.f923a = str;
+        this.f924a = bArr;
         this.b = str2;
         this.c = str3;
     }
@@ -46,7 +46,7 @@ public class n extends XMPushService.i {
         k a = l.a((Context) this.a);
         if (a == null) {
             try {
-                kVar = l.a(this.a, this.f925a, this.b, this.c);
+                kVar = l.a(this.a, this.f923a, this.b, this.c);
             } catch (IOException e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 kVar = a;
@@ -58,22 +58,22 @@ public class n extends XMPushService.i {
                 o.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
-            Collection<al.b> m498a = al.a().m498a("5");
-            if (m498a.isEmpty()) {
+            Collection<al.b> m507a = al.a().m507a("5");
+            if (m507a.isEmpty()) {
                 next = kVar.a(this.a);
                 w.a(this.a, next);
                 al.a().a(next);
             } else {
-                next = m498a.iterator().next();
+                next = m507a.iterator().next();
             }
-            if (!this.a.m492c()) {
+            if (!this.a.m501c()) {
                 this.a.a(true);
                 return;
             }
             try {
-                if (next.f863a == al.c.binded) {
-                    w.a(this.a, this.f925a, this.f926a);
-                } else if (next.f863a == al.c.unbind) {
+                if (next.f861a == al.c.binded) {
+                    w.a(this.a, this.f923a, this.f924a);
+                } else if (next.f861a == al.c.unbind) {
                     XMPushService xMPushService = this.a;
                     XMPushService xMPushService2 = this.a;
                     xMPushService2.getClass();

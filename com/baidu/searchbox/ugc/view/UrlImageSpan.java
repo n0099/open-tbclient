@@ -11,7 +11,7 @@ import android.view.View;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.tbadk.TbConfig;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class UrlImageSpan extends ImageSpan {
     public static final int CENTER_CROP = 1;
     public static final int FIT_WIDTH = 4;
@@ -32,7 +32,7 @@ public class UrlImageSpan extends ImageSpan {
     private int vHeight;
     private int vWidth;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnClickListener {
         void onClick(UrlImageSpan urlImageSpan, String str);
     }

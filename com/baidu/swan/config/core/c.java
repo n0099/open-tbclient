@@ -1,26 +1,26 @@
 package com.baidu.swan.config.core;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public static boolean agr() {
-        return (System.currentTimeMillis() - agt()) / 1000 > ags();
+    public static boolean agK() {
+        return (System.currentTimeMillis() - agM()) / 1000 > agL();
     }
 
     public static void m(long j, long j2) {
         if (j <= 0 || j >= 259200) {
             j = 0;
         }
-        b.agq().edit().putLong("max_age", j).putLong("latest_update_time", j2).apply();
+        b.agJ().edit().putLong("max_age", j).putLong("latest_update_time", j2).apply();
     }
 
-    public static void aL(long j) {
-        b.agq().edit().putLong("latest_update_time", j).apply();
+    public static void aO(long j) {
+        b.agJ().edit().putLong("latest_update_time", j).apply();
     }
 
-    private static long ags() {
-        return b.agq().getLong("max_age", 0L);
+    private static long agL() {
+        return b.agJ().getLong("max_age", 0L);
     }
 
-    private static long agt() {
-        return b.agq().getLong("latest_update_time", 0L);
+    private static long agM() {
+        return b.agJ().getLong("latest_update_time", 0L);
     }
 }

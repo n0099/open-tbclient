@@ -8,12 +8,12 @@ import android.widget.RelativeLayout;
 import com.baidu.mobads.component.XAdView;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SplashAd {
     private static boolean d;
     private com.baidu.mobads.production.g.a a;
-    private SplashAdListener aJV;
-    private IOAdEventListener aJW;
+    private SplashAdListener aKN;
+    private IOAdEventListener aKO;
     private int b;
     private volatile String c;
     public static String RSPLASH_PATTERN = "pattern";
@@ -26,8 +26,8 @@ public class SplashAd {
     public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z) {
         this.b = 4;
         this.c = "init";
-        this.aJV = new q(this);
-        this.aJW = new r(this);
+        this.aKN = new q(this);
+        this.aKO = new r(this);
         try {
             com.baidu.mobads.a.a.l = System.currentTimeMillis();
             com.baidu.mobads.a.a.m = 0L;
@@ -40,10 +40,10 @@ public class SplashAd {
                 a(viewGroup, context);
             }
             if (splashAdListener != null) {
-                this.aJV = splashAdListener;
+                this.aKN = splashAdListener;
             }
             if (TextUtils.isEmpty(str)) {
-                this.aJV.onAdFailed("请您输入正确的广告位ID");
+                this.aKN.onAdFailed("请您输入正确的广告位ID");
                 return;
             }
             XAdView xAdView = new XAdView(context);

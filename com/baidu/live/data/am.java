@@ -1,68 +1,58 @@
 package com.baidu.live.data;
 
-import com.baidu.tieba.ala.live.walletconfig.CashierData;
+import android.text.TextUtils;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class am {
-    public long aaY;
-    public int aaZ;
-    public int aba;
-    public long abb;
-    public long abd;
-    public int abe;
-    public int abf;
-    public int abg;
-    public al abh;
-    public String abi;
-    public String call_type;
-    public String extData;
-    public String imei;
-    public String itemInfo;
-    public String mobile;
-    public String notifyUrl;
-    public String orderId;
-    public String passuid;
-    public String pay_channel;
-    public String pay_url;
-    public String service;
-    public String sign;
-    public String tag;
-    public String title;
-    public String tn;
-    public String url;
+    private String aaK;
+    private String aaL;
+    private String aaM;
+    private String aaN;
+    private String aaO;
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aaY = jSONObject.optInt(CashierData.CUSTOMER_ID);
-            this.service = jSONObject.optString("service");
-            this.orderId = jSONObject.optString(CashierData.ORDERID);
-            this.aaZ = jSONObject.optInt(CashierData.ORDER_CREATE_TIME);
-            this.aba = jSONObject.optInt(CashierData.DEVICE_TYPE);
-            this.abb = jSONObject.optLong(CashierData.PAY_AMOUNT);
-            this.abd = jSONObject.optLong(CashierData.ORIGINALAMOUNT_AMOUNT);
-            this.notifyUrl = jSONObject.optString(CashierData.NOTIFY_URL);
-            this.passuid = jSONObject.optString(CashierData.PASS_UID);
-            this.title = jSONObject.optString("title");
-            this.tn = jSONObject.optString(CashierData.TN);
-            this.url = jSONObject.optString("url");
-            this.mobile = jSONObject.optString("mobile");
-            this.itemInfo = jSONObject.optString(CashierData.ITEM_INFO);
-            this.imei = jSONObject.optString("imei");
-            this.abe = jSONObject.optInt(CashierData.SDK);
-            this.abf = jSONObject.optInt(CashierData.SDK_STYLE);
-            this.extData = jSONObject.optString(CashierData.EXT_DATA);
-            this.abg = jSONObject.optInt(CashierData.SIGN_TYPE);
-            this.tag = jSONObject.optString("tag");
-            this.sign = jSONObject.optString("sign");
-            JSONObject optJSONObject = jSONObject.optJSONObject("popup");
-            if (optJSONObject != null) {
-                this.abh = new al();
-                this.abh.parserJson(optJSONObject);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public am(String str) {
+        parserJson(str);
+    }
+
+    public boolean pX() {
+        return "1".equals(this.aaL);
+    }
+
+    public boolean pY() {
+        return "1".equals(this.aaM);
+    }
+
+    public boolean pZ() {
+        return "1".equals(this.aaO);
+    }
+
+    private void parserJson(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.aaK = jSONObject.optString("is_prettify");
+                this.aaL = jSONObject.optString("is_stickers");
+                this.aaM = jSONObject.optString("is_privilegewin");
+                this.aaN = jSONObject.optString("unused_text");
+                this.aaO = jSONObject.optString("is_wishlist", "1");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            this.pay_url = jSONObject.optString("pay_url");
-            this.call_type = jSONObject.optString("call_type");
-            this.pay_channel = jSONObject.optString("pay_channel");
-            this.abi = jSONObject.optString("real_channel");
         }
+    }
+
+    public static boolean a(ao aoVar) {
+        return TbadkCoreApplication.getInst().isTieba() || !(aoVar == null || aoVar.aaS == null || !"0".equals(aoVar.aaS.aaK));
+    }
+
+    public static boolean b(ao aoVar) {
+        return (TbadkCoreApplication.getInst().isTieba() || aoVar == null || aoVar.aaS == null || !"1".equals(aoVar.aaS.aaK)) ? false : true;
+    }
+
+    public static boolean c(ao aoVar) {
+        return (aoVar == null || aoVar.aaS == null || !"3".equals(aoVar.aaS.aaK)) ? false : true;
     }
 }

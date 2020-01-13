@@ -1,7 +1,7 @@
 package com.baidu.b.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
-    public static d ni() {
-        return com.baidu.tieba.publisher.a.c.cyn();
+    public static d nj() {
+        return com.baidu.tieba.publisher.a.c.czu();
     }
 }

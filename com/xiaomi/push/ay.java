@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ay {
     public static String a(int i) {
         Random random = new Random();
@@ -26,7 +26,7 @@ public class ay {
         }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(m127a(str));
+            messageDigest.update(m136a(str));
             return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (NoSuchAlgorithmException e) {
             return str;
@@ -134,7 +134,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m126a(String str) {
+    public static boolean m135a(String str) {
         if (str != null) {
             for (int i = 0; i < str.length(); i++) {
                 char charAt = str.charAt(i);
@@ -147,7 +147,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m127a(String str) {
+    public static byte[] m136a(String str) {
         try {
             return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -159,7 +159,7 @@ public class ay {
         if (str != null) {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                messageDigest.update(m127a(str));
+                messageDigest.update(m136a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException e) {
                 return str;
@@ -169,7 +169,7 @@ public class ay {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m128b(String str) {
+    public static boolean m137b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

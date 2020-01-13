@@ -21,16 +21,16 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroActivity> {
-    private View bGT;
-    private RelativeLayout bGx;
-    private View.OnClickListener dmK = new View.OnClickListener() { // from class: com.baidu.tieba.frs.professional.FrsProfessionIntroActivity.1
+    private View bHD;
+    private RelativeLayout bHh;
+    private View.OnClickListener dmY = new View.OnClickListener() { // from class: com.baidu.tieba.frs.professional.FrsProfessionIntroActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != FrsProfessionIntroActivity.this.mBack) {
-                if (view != FrsProfessionIntroActivity.this.gCR) {
-                    if (view == FrsProfessionIntroActivity.this.gCS) {
+                if (view != FrsProfessionIntroActivity.this.gGg) {
+                    if (view == FrsProfessionIntroActivity.this.gGh) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(FrsProfessionIntroActivity.this.getActivity()).createNormalCfg("5977226324", null, "frs")));
                         Intent intent = new Intent();
                         intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
@@ -52,18 +52,18 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
             FrsProfessionIntroActivity.this.finish();
         }
     };
-    private TextView gCR;
-    private View gCS;
-    private View gCT;
-    private View gCU;
-    private TbImageView gCV;
-    private LinearGradientView gCW;
-    private View gCX;
-    private View gCY;
-    private View gCZ;
-    private View gDa;
-    private View gDb;
-    private View gDc;
+    private TextView gGg;
+    private View gGh;
+    private View gGi;
+    private View gGj;
+    private TbImageView gGk;
+    private LinearGradientView gGl;
+    private View gGm;
+    private View gGn;
+    private View gGo;
+    private View gGp;
+    private View gGq;
+    private View gGr;
     private View mBack;
     private View mBottomView;
     private NavigationBar mNavigationBar;
@@ -73,46 +73,46 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.layout_frs_profession);
-        this.bGx = (RelativeLayout) findViewById(R.id.profession_header_container);
+        this.bHh = (RelativeLayout) findViewById(R.id.profession_header_container);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.profession_intro_navigation_bar);
-        this.gCW = (LinearGradientView) findViewById(R.id.profession_intro_background);
-        this.gCR = (TextView) findViewById(R.id.profession_intro_go_publish);
-        this.gCS = findViewById(R.id.profession_intro_got_it);
+        this.gGl = (LinearGradientView) findViewById(R.id.profession_intro_background);
+        this.gGg = (TextView) findViewById(R.id.profession_intro_go_publish);
+        this.gGh = findViewById(R.id.profession_intro_got_it);
         this.mBottomView = findViewById(R.id.bottom_view);
-        this.gCT = findViewById(R.id.profession_intro_desc);
-        this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.dmK);
+        this.gGi = findViewById(R.id.profession_intro_desc);
+        this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.dmY);
         this.mNavigationBar.setCenterTextTitle(getString(R.string.profession_intro_title));
-        this.gCV = (TbImageView) findViewById(R.id.profession_intro_content);
-        this.gCV.setDefaultBgResource(R.color.transparent);
-        this.gCV.setDefaultResource(R.drawable.pic_frs_head_default);
-        this.bGT = findViewById(R.id.profession_intro_container);
-        this.gCU = findViewById(R.id.profession_intro_top_corner);
-        this.gCX = findViewById(R.id.profession_intro_first_index);
-        this.gDb = findViewById(R.id.profession_intro_first_intro);
-        this.gCZ = findViewById(R.id.profession_intro_first_title);
-        this.gCY = findViewById(R.id.profession_intro_second_index);
-        this.gDc = findViewById(R.id.profession_intro_second_intro);
-        this.gDa = findViewById(R.id.profession_intro_second_title);
-        this.gCR.setEnabled(true);
-        this.gCR.setOnClickListener(this.dmK);
-        this.gCS.setOnClickListener(this.dmK);
-        bGW();
+        this.gGk = (TbImageView) findViewById(R.id.profession_intro_content);
+        this.gGk.setDefaultBgResource(R.color.transparent);
+        this.gGk.setDefaultResource(R.drawable.pic_frs_head_default);
+        this.bHD = findViewById(R.id.profession_intro_container);
+        this.gGj = findViewById(R.id.profession_intro_top_corner);
+        this.gGm = findViewById(R.id.profession_intro_first_index);
+        this.gGq = findViewById(R.id.profession_intro_first_intro);
+        this.gGo = findViewById(R.id.profession_intro_first_title);
+        this.gGn = findViewById(R.id.profession_intro_second_index);
+        this.gGr = findViewById(R.id.profession_intro_second_intro);
+        this.gGp = findViewById(R.id.profession_intro_second_title);
+        this.gGg.setEnabled(true);
+        this.gGg.setOnClickListener(this.dmY);
+        this.gGh.setOnClickListener(this.dmY);
+        bHY();
         String stringExtra = getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_PATTEN_BACKGROUND);
-        this.gCW.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
-        this.gCV.startLoad(stringExtra, 10, false);
+        this.gGl.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
+        this.gGk.startLoad(stringExtra, 10, false);
     }
 
-    private void bGW() {
+    private void bHY() {
         boolean z = false;
         if (UtilHelper.isMiNotchDevice()) {
             z = true;
         }
         if (z) {
             int dimens = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds690);
-            ViewGroup.LayoutParams layoutParams = this.bGx.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.bHh.getLayoutParams();
             if (layoutParams instanceof LinearLayout.LayoutParams) {
                 ((LinearLayout.LayoutParams) layoutParams).height = dimens;
-                ViewGroup.LayoutParams layoutParams2 = this.gCW.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams2 = this.gGl.getLayoutParams();
                 if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
                     ((RelativeLayout.LayoutParams) layoutParams2).height = dimens;
                 }
@@ -125,20 +125,20 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         am.setViewTextColor(this.mNavigationBar.mCenterText, (int) R.color.cp_cont_a);
-        am.setViewTextColor(this.gCT, (int) R.color.cp_cont_a);
-        am.setViewTextColor(this.gCX, (int) R.color.cp_cont_g);
-        am.setViewTextColor(this.gCZ, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.gDb, (int) R.color.cp_cont_f);
-        am.setViewTextColor(this.gCY, (int) R.color.cp_cont_g);
-        am.setViewTextColor(this.gDa, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.gDc, (int) R.color.cp_cont_f);
-        am.setViewTextColor(this.gCS, (int) R.color.cp_cont_a);
-        am.setBackgroundColor(this.bGT, R.color.cp_bg_line_d);
-        am.setBackgroundResource(this.gCU, R.drawable.bg_top_corner_white);
+        am.setViewTextColor(this.gGi, (int) R.color.cp_cont_a);
+        am.setViewTextColor(this.gGm, (int) R.color.cp_cont_g);
+        am.setViewTextColor(this.gGo, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.gGq, (int) R.color.cp_cont_f);
+        am.setViewTextColor(this.gGn, (int) R.color.cp_cont_g);
+        am.setViewTextColor(this.gGp, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.gGr, (int) R.color.cp_cont_f);
+        am.setViewTextColor(this.gGh, (int) R.color.cp_cont_a);
+        am.setBackgroundColor(this.bHD, R.color.cp_bg_line_d);
+        am.setBackgroundResource(this.gGj, R.drawable.bg_top_corner_white);
         am.setImageResource(this.mNavigationBar.getBackImageView(), R.drawable.btn_sml_back_selector_s);
-        am.setBackgroundResource(this.gCS, R.drawable.frs_profession_button_bg);
-        am.setViewTextColor(this.gCR, (int) R.color.cp_link_tip_a);
+        am.setBackgroundResource(this.gGh, R.drawable.frs_profession_button_bg);
+        am.setViewTextColor(this.gGg, (int) R.color.cp_link_tip_a);
         am.setBackgroundColor(this.mBottomView, R.color.cp_bg_line_d);
-        this.gCW.changeSkinType(i);
+        this.gGl.changeSkinType(i);
     }
 }

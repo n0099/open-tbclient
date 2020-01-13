@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.extcore.model.a;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.apps.extcore.model.b.b {
     @Override // com.baidu.swan.apps.extcore.model.b.a
     @NonNull
-    public String Pk() {
+    public String PG() {
         return "key_cur_remote_apps_extension_core_ver";
     }
 }

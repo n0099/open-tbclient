@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DistrictResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<DistrictResult> CREATOR = new a();
     public LatLng centerPt;

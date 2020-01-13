@@ -5,9 +5,9 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements a<JSONObject> {
-    private JSONArray bPO = new JSONArray();
+    private JSONArray bQy = new JSONArray();
 
     public void add(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
@@ -32,14 +32,14 @@ public class b implements a<JSONObject> {
 
     public void aY(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bPO.put(jSONObject);
+            this.bQy.put(jSONObject);
         }
     }
 
-    public JSONObject abZ() {
+    public JSONObject acw() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.bPO);
+            jSONObject.put("launchLog", this.bQy);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
@@ -49,6 +49,6 @@ public class b implements a<JSONObject> {
     }
 
     public void clear() {
-        this.bPO = new JSONArray();
+        this.bQy = new JSONArray();
     }
 }

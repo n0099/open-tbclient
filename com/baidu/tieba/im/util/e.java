@@ -128,7 +128,7 @@ public class e {
         }
     }
 
-    private static final String CY(String str) {
+    private static final String Di(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -157,7 +157,7 @@ public class e {
         return sb.toString();
     }
 
-    private static final String CZ(String str) {
+    private static final String Dj(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -180,28 +180,28 @@ public class e {
     }
 
     public static String v(ChatMessage chatMessage) {
-        return chatMessage == null ? "" : aE(chatMessage.getMsgType(), chatMessage.getContent());
+        return chatMessage == null ? "" : aK(chatMessage.getMsgType(), chatMessage.getContent());
     }
 
-    public static String aE(int i, String str) {
+    public static String aK(int i, String str) {
         int i2 = 0;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (i == 1) {
-            String CY = (str.length() <= 1 || str.charAt(0) != '[') ? null : CY(str);
-            if (TextUtils.isEmpty(CY)) {
-                CY = str;
+            String Di = (str.length() <= 1 || str.charAt(0) != '[') ? null : Di(str);
+            if (TextUtils.isEmpty(Di)) {
+                Di = str;
             }
-            if (CY == null) {
+            if (Di == null) {
                 return null;
             }
-            Matcher matcher = pattern.matcher(CY);
+            Matcher matcher = pattern.matcher(Di);
             while (matcher.find()) {
                 String group = matcher.group();
-                CY = CY.replace(group, group.replace("#(", "[").replace(")", "]"));
+                Di = Di.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return CY;
+            return Di;
         } else if (i == 2) {
             return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic);
         } else {
@@ -209,7 +209,7 @@ public class e {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_voice);
             }
             if (i == 11) {
-                return Da(str);
+                return Dk(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_reply_card);
@@ -298,7 +298,7 @@ public class e {
                         return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return CZ(str);
+                    return Dj(str);
                 } else {
                     return null;
                 }
@@ -330,7 +330,7 @@ public class e {
         return v(chatMessage);
     }
 
-    private static String Da(String str) {
+    private static String Dk(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -444,19 +444,19 @@ public class e {
 
     public static com.baidu.tieba.im.data.d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return Db(commonMsgPojo.getContent());
+            return Dl(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static com.baidu.tieba.im.data.d Db(String str) {
+    public static com.baidu.tieba.im.data.d Dl(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return Dc(jSONArray.getJSONObject(0).optString("msg_src"));
+                return Dm(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -465,13 +465,13 @@ public class e {
         }
     }
 
-    public static com.baidu.tieba.im.data.d Dc(String str) {
+    public static com.baidu.tieba.im.data.d Dm(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) == null || split.length != 2) {
             return null;
         }
         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
-        dVar.hsf = split[0];
+        dVar.hvI = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

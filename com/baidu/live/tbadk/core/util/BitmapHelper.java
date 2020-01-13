@@ -18,7 +18,7 @@ import android.util.SparseArray;
 import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.CloseUtil;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.io.ByteArrayInputStream;
@@ -326,7 +326,7 @@ public class BitmapHelper {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [508=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [508=5] */
     public static android.graphics.Bitmap loadResizedBitmap(java.lang.String r8, int r9, int r10) {
         /*
             r1 = 1
@@ -500,7 +500,7 @@ public class BitmapHelper {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [571=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [571=6] */
     public static android.graphics.Bitmap loadBitmap(java.lang.String r4, android.graphics.BitmapFactory.Options r5) {
         /*
             r1 = 0

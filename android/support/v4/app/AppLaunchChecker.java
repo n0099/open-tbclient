@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v4.content.IntentCompat;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AppLaunchChecker {
     private static final String KEY_STARTED_FROM_LAUNCHER = "startedFromLauncher";
     private static final String SHARED_PREFS_NAME = "android.support.AppLaunchChecker";

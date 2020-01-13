@@ -11,15 +11,15 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class j extends XMPushService.i {
     final /* synthetic */ i a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f919a;
+    final /* synthetic */ String f917a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ List f920a;
+    final /* synthetic */ List f918a;
     final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,8 +27,8 @@ class j extends XMPushService.i {
     public j(i iVar, int i, String str, List list, String str2) {
         super(i);
         this.a = iVar;
-        this.f919a = str;
-        this.f920a = list;
+        this.f917a = str;
+        this.f918a = list;
         this.b = str2;
     }
 
@@ -41,9 +41,9 @@ class j extends XMPushService.i {
     public void a() {
         String a;
         XMPushService xMPushService;
-        a = this.a.a(this.f919a);
-        ArrayList<Cif> a2 = be.a(this.f920a, this.f919a, a, 32768);
-        com.xiaomi.channel.commonutils.logger.b.m33a("TinyData LongConnUploader.upload pack notifications " + a2.toString() + "  ts:" + System.currentTimeMillis());
+        a = this.a.a(this.f917a);
+        ArrayList<Cif> a2 = be.a(this.f918a, this.f917a, a, 32768);
+        com.xiaomi.channel.commonutils.logger.b.m42a("TinyData LongConnUploader.upload pack notifications " + a2.toString() + "  ts:" + System.currentTimeMillis());
         if (a2 == null) {
             com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
             return;
@@ -52,22 +52,22 @@ class j extends XMPushService.i {
         while (it.hasNext()) {
             Cif next = it.next();
             next.a("uploadWay", "longXMPushService");
-            ic a3 = w.a(this.f919a, a, next, hg.Notification);
-            if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f919a, this.b)) {
-                if (a3.m387a() == null) {
+            ic a3 = w.a(this.f917a, a, next, hg.Notification);
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f917a, this.b)) {
+                if (a3.m396a() == null) {
                     ht htVar = new ht();
                     htVar.a("-1");
                     a3.a(htVar);
                 }
-                a3.m387a().b("ext_traffic_source_pkg", this.b);
+                a3.m396a().b("ext_traffic_source_pkg", this.b);
             }
             byte[] a4 = iq.a(a3);
             xMPushService = this.a.a;
-            xMPushService.a(this.f919a, a4, true);
+            xMPushService.a(this.f917a, a4, true);
         }
-        Iterator it2 = this.f920a.iterator();
+        Iterator it2 = this.f918a.iterator();
         while (it2.hasNext()) {
-            com.xiaomi.channel.commonutils.logger.b.m33a("TinyData LongConnUploader.upload uploaded by com.xiaomi.push.service.TinyDataUploader.  item" + ((hk) it2.next()).d() + "  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m42a("TinyData LongConnUploader.upload uploaded by com.xiaomi.push.service.TinyDataUploader.  item" + ((hk) it2.next()).d() + "  ts:" + System.currentTimeMillis());
         }
     }
 }

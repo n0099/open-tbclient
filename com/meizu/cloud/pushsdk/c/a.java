@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.c.e.c;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static c a;
     private static BroadcastReceiver b;

@@ -1,7 +1,6 @@
 package io.reactivex.internal.operators.flowable;
 
 import io.reactivex.exceptions.MissingBackpressureException;
-import io.reactivex.g;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.ExceptionHelper;
@@ -12,21 +11,20 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import org.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class BlockingFlowableIterable<T> implements Iterable<T> {
     final int bufferSize;
-    final g<T> mTG;
+    final io.reactivex.g<T> nvK;
 
     @Override // java.lang.Iterable
     public Iterator<T> iterator() {
         BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
-        this.mTG.a((j) blockingFlowableIterator);
+        this.nvK.a((j) blockingFlowableIterator);
         return blockingFlowableIterator;
     }
 
-    /* loaded from: classes4.dex */
-    static final class BlockingFlowableIterator<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T>, Runnable, Iterator<T> {
+    /* loaded from: classes5.dex */
+    static final class BlockingFlowableIterator<T> extends AtomicReference<org.a.d> implements io.reactivex.disposables.b, j<T>, Runnable, Iterator<T> {
         private static final long serialVersionUID = 6695226475494099826L;
         final long batchSize;
         volatile boolean done;
@@ -58,7 +56,7 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                     }
                 }
                 if (isEmpty) {
-                    io.reactivex.internal.util.c.dEj();
+                    io.reactivex.internal.util.c.dIt();
                     this.lock.lock();
                     while (!this.done && this.queue.isEmpty()) {
                         try {
@@ -95,7 +93,7 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             SubscriptionHelper.setOnce(this, dVar, this.batchSize);
         }
 

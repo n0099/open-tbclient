@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.baidu.mapsdkplatform.comapi.map.ai;
 import java.util.concurrent.locks.Lock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d implements ai {
     final /* synthetic */ BaiduMap a;
 

@@ -4,7 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.live.adp.widget.listview.BdTypeListView;
-import com.baidu.live.q.a;
+import com.baidu.live.r.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.view.TbListCommonPullView;
@@ -12,21 +12,23 @@ import com.baidu.live.tbadk.loading.LoadingView;
 import com.baidu.tieba.ala.person.hosttabpanel.c.a;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.live.liveroom.c.d {
-    private BdTypeListView aoB;
-    private LoadingView erh;
-    private TbListCommonPullView fld;
-    private com.baidu.tieba.ala.person.hosttabpanel.a.a fle;
-    private com.baidu.tieba.ala.person.hosttabpanel.c.a flf;
-    private boolean flg = false;
-    private TbListCommonPullView.ListPullRefreshListener flh = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
+    private BdTypeListView apn;
+    private LoadingView est;
+    private TbListCommonPullView fon;
+    private com.baidu.tieba.ala.person.hosttabpanel.a.a foo;
+    private com.baidu.tieba.ala.person.hosttabpanel.c.a fop;
+    private boolean foq = false;
+
+    /* renamed from: for  reason: not valid java name */
+    private TbListCommonPullView.ListPullRefreshListener f3for = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.flf != null) {
-                a.this.flf.refreshData();
+            if (a.this.fop != null) {
+                a.this.fop.refreshData();
             }
         }
     };
-    private a.InterfaceC0464a fli = new a.InterfaceC0464a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
+    private a.InterfaceC0468a fos = new a.InterfaceC0468a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
     };
     private TbPageContext mPageContext;
     private View mRootView;
@@ -38,17 +40,17 @@ public class a implements com.baidu.live.liveroom.c.d {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_new_host_tab_view, (ViewGroup) null);
-        this.aoB = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
-        this.fld = new TbListCommonPullView(this.mPageContext.getPageActivity());
-        this.fld.changeSkin(0);
-        this.fld.setSkinType(0);
-        this.fld.setListPullRefreshListener(this.flh);
-        this.aoB.setPullRefresh(this.fld);
-        this.fle = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.aoB);
+        this.apn = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
+        this.fon = new TbListCommonPullView(this.mPageContext.getPageActivity());
+        this.fon.changeSkin(0);
+        this.fon.setSkinType(0);
+        this.fon.setListPullRefreshListener(this.f3for);
+        this.apn.setPullRefresh(this.fon);
+        this.foo = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.apn);
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public View uj() {
+    public View uA() {
         return this.mRootView;
     }
 
@@ -58,12 +60,12 @@ public class a implements com.baidu.live.liveroom.c.d {
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public String uk() {
+    public String uB() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.c.d
-    public short ul() {
+    public short uC() {
         return (short) 2;
     }
 
@@ -78,19 +80,19 @@ public class a implements com.baidu.live.liveroom.c.d {
 
     @Override // com.baidu.live.liveroom.c.d
     public void onDestroy() {
-        if (this.flf != null) {
-            this.flf.onDestroy();
+        if (this.fop != null) {
+            this.fop.onDestroy();
         }
-        if (this.fle != null) {
-            this.fle.onDestroy();
-            this.fle = null;
+        if (this.foo != null) {
+            this.foo.onDestroy();
+            this.foo = null;
         }
-        if (this.erh != null) {
-            this.erh.release();
-            this.erh = null;
+        if (this.est != null) {
+            this.est.release();
+            this.est = null;
         }
-        if (this.fld != null) {
-            this.fld = null;
+        if (this.fon != null) {
+            this.fon = null;
         }
     }
 

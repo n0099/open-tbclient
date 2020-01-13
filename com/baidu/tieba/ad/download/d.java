@@ -12,29 +12,29 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d {
-    private final Map<DownloadCacheKey, com.baidu.tieba.ad.download.a.a> dVk;
+    private final Map<DownloadCacheKey, com.baidu.tieba.ad.download.a.a> dVt;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
-        private static final d dVl = new d();
+        private static final d dVu = new d();
     }
 
     private d() {
-        this.dVk = new HashMap();
+        this.dVt = new HashMap();
     }
 
-    public static d aVA() {
-        return a.dVl;
+    public static d aVT() {
+        return a.dVu;
     }
 
     public void a(@NonNull DownloadCacheKey downloadCacheKey, com.baidu.tieba.ad.download.a.d dVar) {
-        com.baidu.tieba.ad.download.a.a aVar = this.dVk.get(downloadCacheKey);
+        com.baidu.tieba.ad.download.a.a aVar = this.dVt.get(downloadCacheKey);
         if (aVar == null) {
             aVar = new com.baidu.tieba.ad.download.a.a(downloadCacheKey);
-            this.dVk.put(downloadCacheKey, aVar);
+            this.dVt.put(downloadCacheKey, aVar);
         }
         if (dVar != null) {
             aVar.a(dVar);
@@ -42,64 +42,64 @@ public class d {
     }
 
     public void b(DownloadCacheKey downloadCacheKey, com.baidu.tieba.ad.download.a.d dVar) {
-        com.baidu.tieba.ad.download.a.a aVar = this.dVk.get(downloadCacheKey);
+        com.baidu.tieba.ad.download.a.a aVar = this.dVt.get(downloadCacheKey);
         if (aVar != null) {
             aVar.b(dVar);
         }
     }
 
     public com.baidu.tieba.ad.download.a.a c(DownloadCacheKey downloadCacheKey) {
-        return this.dVk.get(downloadCacheKey);
+        return this.dVt.get(downloadCacheKey);
     }
 
     public String c(@NonNull DownloadCacheKey downloadCacheKey, @Nullable com.baidu.tieba.ad.download.a.d dVar) {
         if (dVar != null) {
             a(downloadCacheKey, dVar);
         }
-        com.baidu.tieba.ad.download.b.a.dVt.get().b(downloadCacheKey, b.aVx().b(downloadCacheKey));
+        com.baidu.tieba.ad.download.b.a.dVC.get().b(downloadCacheKey, b.aVQ().b(downloadCacheKey));
         return downloadCacheKey.mAdId;
     }
 
-    public void wz(String str) {
-        com.baidu.tieba.ad.download.b.a.dVt.get().wF(str);
+    public void wD(String str) {
+        com.baidu.tieba.ad.download.b.a.dVC.get().wJ(str);
     }
 
-    public void wA(String str) {
-        com.baidu.tieba.ad.download.b.a.dVt.get().wG(str);
+    public void wE(String str) {
+        com.baidu.tieba.ad.download.b.a.dVC.get().wK(str);
     }
 
     public boolean a(Context context, @NonNull DownloadCacheKey downloadCacheKey, String str) {
-        AdDownloadData b = b.aVx().b(downloadCacheKey);
+        AdDownloadData b = b.aVQ().b(downloadCacheKey);
         com.baidu.tieba.ad.download.a.a aVar = null;
         if (b != null) {
             if (TextUtils.isEmpty(b.pkgName())) {
-                b.setupPkgName(com.baidu.tieba.ad.download.a.aI(context, str));
+                b.setupPkgName(com.baidu.tieba.ad.download.a.aJ(context, str));
             }
             if (TextUtils.isEmpty(downloadCacheKey.mPackageName)) {
                 downloadCacheKey.mPackageName = b.pkgName();
             }
-            aVar = this.dVk.get(downloadCacheKey);
-            if (aVar != null && aVar.dVq != null && TextUtils.isEmpty(aVar.dVq.mPackageName)) {
-                aVar.dVq.mPackageName = b.pkgName();
+            aVar = this.dVt.get(downloadCacheKey);
+            if (aVar != null && aVar.dVz != null && TextUtils.isEmpty(aVar.dVz.mPackageName)) {
+                aVar.dVz.mPackageName = b.pkgName();
             }
             b.extra().setPercentAndStatus(100, DownloadStatus.STATUS_SUCCESS);
             b.extra().setDownloadPath(str);
         }
-        boolean aJ = aJ(context, str);
-        if (aJ && b != null && aVar != null) {
+        boolean aK = aK(context, str);
+        if (aK && b != null && aVar != null) {
             aVar.onSuccess(b.adId(), str);
         }
-        return aJ;
+        return aK;
     }
 
-    private static boolean aJ(Context context, String str) {
-        if (!aK(context, str)) {
+    private static boolean aK(Context context, String str) {
+        if (!aL(context, str)) {
             return false;
         }
         return com.baidu.tieba.ad.download.a.k(context, new File(str));
     }
 
-    private static boolean aK(Context context, String str) {
+    private static boolean aL(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
         }
@@ -107,29 +107,29 @@ public class d {
         return (packageManager == null ? null : packageManager.getPackageArchiveInfo(str, 1)) != null;
     }
 
-    public void aL(Context context, String str) {
+    public void aM(Context context, String str) {
         if (context != null && !TextUtils.isEmpty(str)) {
-            for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : b.aVx().wy(str).entrySet()) {
+            for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : b.aVQ().wC(str).entrySet()) {
                 AdDownloadData value = entry.getValue();
                 if (value != null) {
                     value.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
                 }
             }
-            for (com.baidu.tieba.ad.download.a.a aVar : wB(str)) {
-                if (aVar != null && aVar.aVF() != 4) {
+            for (com.baidu.tieba.ad.download.a.a aVar : wF(str)) {
+                if (aVar != null && aVar.aVY() != 4) {
                     aVar.setState(4);
-                    aVar.aVH();
+                    aVar.aWa();
                 }
             }
         }
     }
 
-    private Set<com.baidu.tieba.ad.download.a.a> wB(String str) {
-        HashSet hashSet = new HashSet(this.dVk.size());
+    private Set<com.baidu.tieba.ad.download.a.a> wF(String str) {
+        HashSet hashSet = new HashSet(this.dVt.size());
         if (TextUtils.isEmpty(str)) {
             return hashSet;
         }
-        for (Map.Entry<DownloadCacheKey, com.baidu.tieba.ad.download.a.a> entry : this.dVk.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, com.baidu.tieba.ad.download.a.a> entry : this.dVt.entrySet()) {
             if (entry.getKey() != null && entry.getKey().samePackage(str)) {
                 hashSet.add(entry.getValue());
             }
@@ -137,33 +137,33 @@ public class d {
         return hashSet;
     }
 
-    public boolean aM(Context context, String str) {
-        return com.baidu.tieba.ad.download.a.at(context, str);
+    public boolean aN(Context context, String str) {
+        return com.baidu.tieba.ad.download.a.au(context, str);
     }
 
-    public void aN(Context context, String str) {
+    public void aO(Context context, String str) {
         if (context != null && !TextUtils.isEmpty(str)) {
-            for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : b.aVx().wy(str).entrySet()) {
+            for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : b.aVQ().wC(str).entrySet()) {
                 AdDownloadData value = entry.getValue();
                 if (value != null) {
                     value.extra().setStatus(DownloadStatus.STATUS_NONE);
                 }
             }
-            for (com.baidu.tieba.ad.download.a.a aVar : wB(str)) {
-                if (aVar != null && aVar.aVF() != 0) {
+            for (com.baidu.tieba.ad.download.a.a aVar : wF(str)) {
+                if (aVar != null && aVar.aVY() != 0) {
                     aVar.setState(0);
-                    aVar.aVI();
+                    aVar.aWb();
                 }
             }
         }
     }
 
     @Nullable
-    public DownloadCacheKey wC(String str) {
+    public DownloadCacheKey wG(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (Map.Entry<DownloadCacheKey, com.baidu.tieba.ad.download.a.a> entry : this.dVk.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, com.baidu.tieba.ad.download.a.a> entry : this.dVt.entrySet()) {
             if (entry.getKey() != null && entry.getKey().sameAd(str)) {
                 return entry.getKey();
             }
@@ -172,11 +172,11 @@ public class d {
     }
 
     @Nullable
-    public DownloadCacheKey wD(String str) {
+    public DownloadCacheKey wH(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (Map.Entry<DownloadCacheKey, com.baidu.tieba.ad.download.a.a> entry : this.dVk.entrySet()) {
+        for (Map.Entry<DownloadCacheKey, com.baidu.tieba.ad.download.a.a> entry : this.dVt.entrySet()) {
             if (entry.getKey() != null && entry.getKey().sameUrl(str)) {
                 return entry.getKey();
             }
@@ -186,19 +186,19 @@ public class d {
 
     @NonNull
     public AdDownloadData d(@NonNull DownloadCacheKey downloadCacheKey) {
-        AdDownloadData b = b.aVx().b(downloadCacheKey);
+        AdDownloadData b = b.aVQ().b(downloadCacheKey);
         if (b == null) {
-            AdDownloadData aVz = new AdDownloadData.a(downloadCacheKey).aVz();
-            b.aVx().a(downloadCacheKey, aVz);
-            return aVz;
+            AdDownloadData aVS = new AdDownloadData.a(downloadCacheKey).aVS();
+            b.aVQ().a(downloadCacheKey, aVS);
+            return aVS;
         }
         return b;
     }
 
     public void a(@NonNull String str, String str2, DownloadStatus downloadStatus, String str3) {
         com.baidu.tieba.ad.download.a.a aVar;
-        DownloadCacheKey wC = wC(str);
-        if (wC != null && (aVar = this.dVk.get(wC)) != null) {
+        DownloadCacheKey wG = wG(str);
+        if (wG != null && (aVar = this.dVt.get(wG)) != null) {
             aVar.a(str2, downloadStatus, str3);
         }
     }

@@ -5,7 +5,7 @@ import android.widget.Toast;
 import com.baidu.platform.comapi.walknavi.g.b.c;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q implements com.baidu.platform.comapi.walknavi.d.c {
     final /* synthetic */ c.b a;
     final /* synthetic */ c b;

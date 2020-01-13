@@ -1,7 +1,7 @@
 package com.coremedia.iso;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Hex {
     private static final char[] DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 

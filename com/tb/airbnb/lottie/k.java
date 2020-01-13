@@ -1,11 +1,52 @@
 package com.tb.airbnb.lottie;
 
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.support.annotation.ColorInt;
-/* loaded from: classes2.dex */
-public class k extends PorterDuffColorFilter {
-    public k(@ColorInt int i) {
-        super(i, PorterDuff.Mode.SRC_ATOP);
+import android.support.annotation.Nullable;
+import java.util.Arrays;
+/* loaded from: classes5.dex */
+public final class k<V> {
+    @Nullable
+    private final Throwable exception;
+    @Nullable
+    private final V value;
+
+    public k(V v) {
+        this.value = v;
+        this.exception = null;
+    }
+
+    public k(Throwable th) {
+        this.exception = th;
+        this.value = null;
+    }
+
+    @Nullable
+    public V getValue() {
+        return this.value;
+    }
+
+    @Nullable
+    public Throwable bx() {
+        return this.exception;
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof k) {
+            k kVar = (k) obj;
+            if (getValue() == null || !getValue().equals(kVar.getValue())) {
+                if (bx() == null || kVar.bx() == null) {
+                    return false;
+                }
+                return bx().toString().equals(bx().toString());
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        return Arrays.hashCode(new Object[]{getValue(), bx()});
     }
 }

@@ -12,11 +12,11 @@ import javax.annotation.meta.When;
 @TypeQualifierNickname
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public @interface RegEx {
     When when() default When.ALWAYS;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Checker implements TypeQualifierValidator<RegEx> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // javax.annotation.meta.TypeQualifierValidator

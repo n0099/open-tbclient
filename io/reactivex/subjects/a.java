@@ -4,21 +4,21 @@ import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.internal.util.a;
 import io.reactivex.u;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
-public final class a<T> extends b<T> implements a.InterfaceC0715a<Object> {
+/* loaded from: classes5.dex */
+public final class a<T> extends b<T> implements a.InterfaceC0759a<Object> {
     volatile boolean done;
     boolean emitting;
-    final b<T> mYu;
+    final b<T> nAG;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b<T> bVar) {
-        this.mYu = bVar;
+        this.nAG = bVar;
     }
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.mYu.subscribe(uVar);
+        this.nAG.subscribe(uVar);
     }
 
     @Override // io.reactivex.u
@@ -45,7 +45,7 @@ public final class a<T> extends b<T> implements a.InterfaceC0715a<Object> {
             bVar.dispose();
             return;
         }
-        this.mYu.onSubscribe(bVar);
+        this.nAG.onSubscribe(bVar);
         emitLoop();
     }
 
@@ -64,7 +64,7 @@ public final class a<T> extends b<T> implements a.InterfaceC0715a<Object> {
                         return;
                     }
                     this.emitting = true;
-                    this.mYu.onNext(t);
+                    this.nAG.onNext(t);
                     emitLoop();
                 }
             }
@@ -75,7 +75,7 @@ public final class a<T> extends b<T> implements a.InterfaceC0715a<Object> {
     public void onError(Throwable th) {
         boolean z = true;
         if (this.done) {
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
             return;
         }
         synchronized (this) {
@@ -87,16 +87,16 @@ public final class a<T> extends b<T> implements a.InterfaceC0715a<Object> {
                         aVar = new io.reactivex.internal.util.a<>(4);
                         this.queue = aVar;
                     }
-                    aVar.bI(NotificationLite.error(th));
+                    aVar.bL(NotificationLite.error(th));
                     return;
                 }
                 z = false;
                 this.emitting = true;
             }
             if (z) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
             } else {
-                this.mYu.onError(th);
+                this.nAG.onError(th);
             }
         }
     }
@@ -117,7 +117,7 @@ public final class a<T> extends b<T> implements a.InterfaceC0715a<Object> {
                         return;
                     }
                     this.emitting = true;
-                    this.mYu.onComplete();
+                    this.nAG.onComplete();
                 }
             }
         }
@@ -138,8 +138,8 @@ public final class a<T> extends b<T> implements a.InterfaceC0715a<Object> {
         }
     }
 
-    @Override // io.reactivex.internal.util.a.InterfaceC0715a, io.reactivex.b.j
+    @Override // io.reactivex.internal.util.a.InterfaceC0759a, io.reactivex.c.j
     public boolean test(Object obj) {
-        return NotificationLite.acceptFull(obj, this.mYu);
+        return NotificationLite.acceptFull(obj, this.nAG);
     }
 }

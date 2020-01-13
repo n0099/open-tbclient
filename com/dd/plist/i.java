@@ -7,11 +7,11 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class i {
-    static final String lCx = System.getProperty("line.separator");
+    static final String lFV = System.getProperty("line.separator");
 
-    public static h eR(long j) {
+    public static h eW(long j) {
         return new h(j);
     }
 
@@ -19,11 +19,11 @@ public abstract class i {
         return new h(d);
     }
 
-    public static h uK(boolean z) {
+    public static h uV(boolean z) {
         return new h(z);
     }
 
-    public static e ae(byte[] bArr) {
+    public static e ad(byte[] bArr) {
         return new e(bArr);
     }
 
@@ -45,19 +45,19 @@ public abstract class i {
         }
         Class<?> cls = obj.getClass();
         if (Boolean.class.equals(cls)) {
-            return uK(((Boolean) obj).booleanValue());
+            return uV(((Boolean) obj).booleanValue());
         }
         if (Byte.class.equals(cls)) {
-            return eR(((Byte) obj).byteValue());
+            return eW(((Byte) obj).byteValue());
         }
         if (Short.class.equals(cls)) {
-            return eR(((Short) obj).shortValue());
+            return eW(((Short) obj).shortValue());
         }
         if (Integer.class.equals(cls)) {
-            return eR(((Integer) obj).intValue());
+            return eW(((Integer) obj).intValue());
         }
         if (Long.class.isAssignableFrom(cls)) {
-            return eR(((Long) obj).longValue());
+            return eW(((Long) obj).longValue());
         }
         if (Float.class.equals(cls)) {
             return x(((Float) obj).floatValue());
@@ -74,13 +74,13 @@ public abstract class i {
         if (cls.isArray()) {
             Class<?> componentType = cls.getComponentType();
             if (componentType.equals(Byte.TYPE)) {
-                return ae((byte[]) obj);
+                return ad((byte[]) obj);
             }
             if (componentType.equals(Boolean.TYPE)) {
                 boolean[] zArr = (boolean[]) obj;
                 d dVar = new d(zArr.length);
                 while (i < zArr.length) {
-                    dVar.j(i, uK(zArr[i]));
+                    dVar.j(i, uV(zArr[i]));
                     i++;
                 }
                 return dVar;
@@ -104,7 +104,7 @@ public abstract class i {
                 short[] sArr = (short[]) obj;
                 d dVar4 = new d(sArr.length);
                 while (i < sArr.length) {
-                    dVar4.j(i, eR(sArr[i]));
+                    dVar4.j(i, eW(sArr[i]));
                     i++;
                 }
                 return dVar4;
@@ -112,7 +112,7 @@ public abstract class i {
                 int[] iArr = (int[]) obj;
                 d dVar5 = new d(iArr.length);
                 while (i < iArr.length) {
-                    dVar5.j(i, eR(iArr[i]));
+                    dVar5.j(i, eW(iArr[i]));
                     i++;
                 }
                 return dVar5;
@@ -120,7 +120,7 @@ public abstract class i {
                 long[] jArr = (long[]) obj;
                 d dVar6 = new d(jArr.length);
                 while (i < jArr.length) {
-                    dVar6.j(i, eR(jArr[i]));
+                    dVar6.j(i, eW(jArr[i]));
                     i++;
                 }
                 return dVar6;

@@ -11,7 +11,7 @@ import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceDisplayOptions;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceQueryOptions;
 import com.baidu.mapapi.synchronization.histroytrace.OnHistoryTraceListener;
 import com.baidu.mapsdkplatform.comapi.synchronization.c.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     private static com.baidu.mapsdkplatform.comapi.synchronization.c.a b;
     private static OnHistoryTraceListener c;
@@ -24,7 +24,7 @@ public class b {
     private static final String a = b.class.getSimpleName();
     private static int g = 0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends Handler {
         private String a(HistoryTraceQueryOptions historyTraceQueryOptions) {
             String a = new f(historyTraceQueryOptions).a();

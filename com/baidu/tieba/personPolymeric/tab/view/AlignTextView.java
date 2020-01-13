@@ -8,7 +8,7 @@ import android.text.Layout;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.aq;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AlignTextView extends TextView {
     public AlignTextView(Context context) {
         super(context);

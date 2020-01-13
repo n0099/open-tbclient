@@ -20,7 +20,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LoaderManagerImpl extends LoaderManager {
     static boolean DEBUG = false;
     static final String TAG = "LoaderManager";
@@ -30,7 +30,7 @@ public class LoaderManagerImpl extends LoaderManager {
     @NonNull
     private final LoaderViewModel mLoaderViewModel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LoaderInfo<D> extends p<D> implements Loader.OnLoadCompleteListener<D> {
         @Nullable
         private final Bundle mArgs;
@@ -189,7 +189,7 @@ public class LoaderManagerImpl extends LoaderManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LoaderObserver<D> implements q<D> {
         @NonNull
         private final LoaderManager.LoaderCallbacks<D> mCallback;
@@ -237,7 +237,7 @@ public class LoaderManagerImpl extends LoaderManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LoaderViewModel extends w {
         private static final x.b FACTORY = new x.b() { // from class: android.support.v4.app.LoaderManagerImpl.LoaderViewModel.1
             @Override // android.arch.lifecycle.x.b

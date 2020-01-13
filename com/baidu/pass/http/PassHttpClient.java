@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PassHttpClient {
     private static final ThreadFactory a = new ThreadFactory() { // from class: com.baidu.pass.http.PassHttpClient.1
         private final AtomicInteger a = new AtomicInteger(1);

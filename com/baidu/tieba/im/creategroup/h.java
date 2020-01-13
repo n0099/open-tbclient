@@ -7,37 +7,37 @@ import android.widget.Button;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h implements o {
-    private CreateGroupStepActivity hqm;
-    private TbImageView hqy;
-    private Button hqz;
+    private CreateGroupStepActivity htP;
+    private TbImageView hub;
+    private Button huc;
     private int mIndex;
     private View mView;
 
     public h(CreateGroupStepActivity createGroupStepActivity, int i, int i2) {
-        this.hqm = createGroupStepActivity;
+        this.htP = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(R.layout.create_group_normal_tips, (ViewGroup) null);
-        this.hqz = (Button) this.mView.findViewById(R.id.create_group_tips_btn);
-        this.hqy = (TbImageView) this.mView.findViewById(R.id.create_group_tips_image);
+        this.huc = (Button) this.mView.findViewById(R.id.create_group_tips_btn);
+        this.hub = (TbImageView) this.mView.findViewById(R.id.create_group_tips_image);
         this.mIndex = i;
-        this.hqz.setText(String.format(createGroupStepActivity.getPageContext().getString(R.string.group_create_can_create_num), Integer.valueOf(i2)));
-        c.b(this.hqm.getPageContext().getPageActivity(), c.hqr, TbadkApplication.getInst().getSkinType() == 1);
-        c.b(this.hqm.getPageContext().getPageActivity(), c.hqu, TbadkApplication.getInst().getSkinType() == 1);
-        c.b(this.hqm.getPageContext().getPageActivity(), c.hqs, TbadkApplication.getInst().getSkinType() == 1);
+        this.huc.setText(String.format(createGroupStepActivity.getPageContext().getString(R.string.group_create_can_create_num), Integer.valueOf(i2)));
+        c.b(this.htP.getPageContext().getPageActivity(), c.htU, TbadkApplication.getInst().getSkinType() == 1);
+        c.b(this.htP.getPageContext().getPageActivity(), c.htX, TbadkApplication.getInst().getSkinType() == 1);
+        c.b(this.htP.getPageContext().getPageActivity(), c.htV, TbadkApplication.getInst().getSkinType() == 1);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void bQg() {
-        this.hqy.setBackgroundDrawable(null);
+    public void bRp() {
+        this.hub.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void bQh() {
+    public void bRq() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.hqm.getLayoutMode().setNightMode(z);
-        this.hqm.getLayoutMode().onModeChanged(this.mView);
-        this.hqy.startLoad(c.a(this.hqm.getPageContext().getPageActivity(), c.hqv, z), 29, false);
+        this.htP.getLayoutMode().setNightMode(z);
+        this.htP.getLayoutMode().onModeChanged(this.mView);
+        this.hub.startLoad(c.a(this.htP.getPageContext().getPageActivity(), c.htY, z), 29, false);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -46,22 +46,22 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int bQa() {
+    public int bRj() {
         return this.mIndex;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return this.hqm.getPageContext().getString(R.string.group_create_tips_normal);
+        return this.htP.getPageContext().getString(R.string.group_create_tips_normal);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String bQj() {
+    public String bRs() {
         return "";
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean bQk() {
+    public boolean bRt() {
         return false;
     }
 
@@ -71,11 +71,11 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean bQl() {
+    public boolean bRu() {
         return false;
     }
 
-    public Button bQq() {
-        return this.hqz;
+    public Button bRz() {
+        return this.huc;
     }
 }

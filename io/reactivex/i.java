@@ -1,5 +1,5 @@
 package io.reactivex;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface i<T> {
-    void a(h<T> hVar) throws Exception;
+    void subscribe(h<T> hVar) throws Exception;
 }

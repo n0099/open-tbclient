@@ -8,7 +8,7 @@ import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g extends c<UnRegisterStatus> {
     public g(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, aVar, scheduledExecutorService);

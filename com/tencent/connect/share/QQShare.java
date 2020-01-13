@@ -26,7 +26,7 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class QQShare extends BaseApi {
     public static final int QQ_SHARE_SUMMARY_MAX_LENGTH = 512;
     public static final int QQ_SHARE_TITLE_MAX_LENGTH = 128;

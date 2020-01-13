@@ -6,31 +6,31 @@ import java.util.NoSuchElementException;
 import kotlin.Pair;
 import kotlin.TypeCastException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class d implements kotlin.sequences.c<kotlin.b.c> {
-    private final int ayD;
+    private final int azm;
     private final int limit;
-    private final CharSequence mZD;
-    private final kotlin.jvm.a.c<CharSequence, Integer, Pair<Integer, Integer>> mZE;
+    private final CharSequence nCm;
+    private final kotlin.jvm.a.m<CharSequence, Integer, Pair<Integer, Integer>> nCn;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.c<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.jvm.a.m<? super java.lang.CharSequence, ? super java.lang.Integer, kotlin.Pair<java.lang.Integer, java.lang.Integer>> */
     /* JADX WARN: Multi-variable type inference failed */
-    public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.c<? super CharSequence, ? super Integer, Pair<Integer, Integer>> cVar) {
-        kotlin.jvm.internal.p.j(charSequence, Config.INPUT_PART);
-        kotlin.jvm.internal.p.j(cVar, "getNextMatch");
-        this.mZD = charSequence;
-        this.ayD = i;
+    public d(CharSequence charSequence, int i, int i2, kotlin.jvm.a.m<? super CharSequence, ? super Integer, Pair<Integer, Integer>> mVar) {
+        kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
+        kotlin.jvm.internal.q.j(mVar, "getNextMatch");
+        this.nCm = charSequence;
+        this.azm = i;
         this.limit = i2;
-        this.mZE = cVar;
+        this.nCn = mVar;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements Iterator<kotlin.b.c> {
-        private int mZF;
-        private int mZG;
-        private kotlin.b.c mZH;
-        private int mZI;
-        private int mZs = -1;
+        private int nBZ = -1;
+        private int nCo;
+        private int nCp;
+        private kotlin.b.c nCq;
+        private int nCr;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -39,70 +39,70 @@ public final class d implements kotlin.sequences.c<kotlin.b.c> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.mZF = kotlin.b.d.av(d.this.ayD, 0, d.this.mZD.length());
-            this.mZG = this.mZF;
+            this.nCo = kotlin.b.d.av(d.this.azm, 0, d.this.nCm.length());
+            this.nCp = this.nCo;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0025, code lost:
-            if (r7.mZI < r7.mZJ.limit) goto L13;
+            if (r6.nCr < r6.nCs.limit) goto L13;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private final void dFb() {
-            if (this.mZG >= 0) {
+        private final void dJx() {
+            if (this.nCp >= 0) {
                 if (d.this.limit > 0) {
-                    this.mZI++;
+                    this.nCr++;
                 }
-                if (this.mZG <= d.this.mZD.length()) {
-                    Pair pair = (Pair) d.this.mZE.invoke(d.this.mZD, Integer.valueOf(this.mZG));
+                if (this.nCp <= d.this.nCm.length()) {
+                    Pair pair = (Pair) d.this.nCn.invoke(d.this.nCm, Integer.valueOf(this.nCp));
                     if (pair == null) {
-                        this.mZH = new kotlin.b.c(this.mZF, l.t(d.this.mZD));
-                        this.mZG = -1;
+                        this.nCq = new kotlin.b.c(this.nCo, l.t(d.this.nCm));
+                        this.nCp = -1;
                     } else {
                         int intValue = ((Number) pair.component1()).intValue();
                         int intValue2 = ((Number) pair.component2()).intValue();
-                        this.mZH = new kotlin.b.c(this.mZF, intValue - 1);
-                        this.mZF = intValue + intValue2;
-                        this.mZG = (intValue2 == 0 ? 1 : 0) + this.mZF;
+                        this.nCq = kotlin.b.d.eu(this.nCo, intValue);
+                        this.nCo = intValue + intValue2;
+                        this.nCp = (intValue2 == 0 ? 1 : 0) + this.nCo;
                     }
-                    this.mZs = 1;
+                    this.nBZ = 1;
                     return;
                 }
-                this.mZH = new kotlin.b.c(this.mZF, l.t(d.this.mZD));
-                this.mZG = -1;
-                this.mZs = 1;
+                this.nCq = new kotlin.b.c(this.nCo, l.t(d.this.nCm));
+                this.nCp = -1;
+                this.nBZ = 1;
                 return;
             }
-            this.mZs = 0;
-            this.mZH = null;
+            this.nBZ = 0;
+            this.nCq = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: dFc */
+        /* renamed from: dJy */
         public kotlin.b.c next() {
-            if (this.mZs == -1) {
-                dFb();
+            if (this.nBZ == -1) {
+                dJx();
             }
-            if (this.mZs == 0) {
+            if (this.nBZ == 0) {
                 throw new NoSuchElementException();
             }
-            kotlin.b.c cVar = this.mZH;
+            kotlin.b.c cVar = this.nCq;
             if (cVar == null) {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.ranges.IntRange");
             }
-            this.mZH = null;
-            this.mZs = -1;
+            this.nCq = null;
+            this.nBZ = -1;
             return cVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.mZs == -1) {
-                dFb();
+            if (this.nBZ == -1) {
+                dJx();
             }
-            return this.mZs == 1;
+            return this.nBZ == 1;
         }
     }
 

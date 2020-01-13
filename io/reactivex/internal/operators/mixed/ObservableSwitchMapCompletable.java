@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.mixed;
 
-import io.reactivex.b.h;
 import io.reactivex.c;
+import io.reactivex.c.h;
 import io.reactivex.disposables.b;
 import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
@@ -10,22 +10,22 @@ import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.q;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ObservableSwitchMapCompletable<T> extends io.reactivex.a {
     final boolean delayErrors;
-    final q<T> mUU;
     final h<? super T, ? extends e> mapper;
+    final q<T> nxd;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
-        if (!a.a(this.mUU, this.mapper, cVar)) {
-            this.mUU.subscribe(new SwitchMapCompletableObserver(cVar, this.mapper, this.delayErrors));
+        if (!a.a(this.nxd, this.mapper, cVar)) {
+            this.nxd.subscribe(new SwitchMapCompletableObserver(cVar, this.mapper, this.delayErrors));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class SwitchMapCompletableObserver<T> implements b, u<T> {
-        static final SwitchMapInnerObserver mUV = new SwitchMapInnerObserver(null);
+        static final SwitchMapInnerObserver nxe = new SwitchMapInnerObserver(null);
         final boolean delayErrors;
         volatile boolean done;
         final c downstream;
@@ -56,7 +56,7 @@ public final class ObservableSwitchMapCompletable<T> extends io.reactivex.a {
                 SwitchMapInnerObserver switchMapInnerObserver2 = new SwitchMapInnerObserver(this);
                 do {
                     switchMapInnerObserver = this.inner.get();
-                    if (switchMapInnerObserver == mUV) {
+                    if (switchMapInnerObserver == nxe) {
                         return;
                     }
                 } while (!this.inner.compareAndSet(switchMapInnerObserver, switchMapInnerObserver2));
@@ -86,7 +86,7 @@ public final class ObservableSwitchMapCompletable<T> extends io.reactivex.a {
                 }
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         @Override // io.reactivex.u
@@ -103,8 +103,8 @@ public final class ObservableSwitchMapCompletable<T> extends io.reactivex.a {
         }
 
         void disposeInner() {
-            SwitchMapInnerObserver andSet = this.inner.getAndSet(mUV);
-            if (andSet != null && andSet != mUV) {
+            SwitchMapInnerObserver andSet = this.inner.getAndSet(nxe);
+            if (andSet != null && andSet != nxe) {
                 andSet.dispose();
             }
         }
@@ -117,7 +117,7 @@ public final class ObservableSwitchMapCompletable<T> extends io.reactivex.a {
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.inner.get() == mUV;
+            return this.inner.get() == nxe;
         }
 
         void a(SwitchMapInnerObserver switchMapInnerObserver, Throwable th) {
@@ -137,7 +137,7 @@ public final class ObservableSwitchMapCompletable<T> extends io.reactivex.a {
                 }
                 return;
             }
-            io.reactivex.d.a.onError(th);
+            io.reactivex.e.a.onError(th);
         }
 
         void a(SwitchMapInnerObserver switchMapInnerObserver) {
@@ -152,7 +152,7 @@ public final class ObservableSwitchMapCompletable<T> extends io.reactivex.a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class SwitchMapInnerObserver extends AtomicReference<b> implements c {
             private static final long serialVersionUID = -8003404460084760287L;
             final SwitchMapCompletableObserver<?> parent;

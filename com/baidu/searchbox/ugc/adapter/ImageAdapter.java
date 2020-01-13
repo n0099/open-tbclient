@@ -46,7 +46,7 @@ import com.facebook.imagepipeline.common.d;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ImageAdapter extends BaseAdapter {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static final int ITEM_TYPE_CAMERA = 0;
@@ -68,7 +68,7 @@ public class ImageAdapter extends BaseAdapter {
     private List<VideoInfo> mVideoList = new ArrayList();
     private boolean isShowCamera = true;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface SelectChangedListener {
         void selectChanged(int i);
     }
@@ -439,10 +439,10 @@ public class ImageAdapter extends BaseAdapter {
     private void setImageBg(Uri uri, ViewHolder viewHolder) {
         ImageRequestBuilder X = ImageRequestBuilder.X(uri);
         X.c(new d((int) (this.itemWidth / 2.0f), (int) (this.itemHeigth / 2.0f)));
-        X.vg(true);
-        X.a(b.dlR().uY(true).dlZ());
+        X.vs(true);
+        X.a(b.dmW().vk(true).dne());
         if (viewHolder.mImageIv != null) {
-            viewHolder.mImageIv.setController(com.facebook.drawee.a.a.c.djg().be(X.dpZ()).uR(false).c(viewHolder.mImageIv.getController()).djX());
+            viewHolder.mImageIv.setController(com.facebook.drawee.a.a.c.dkh().be(X.drm()).vd(false).c(viewHolder.mImageIv.getController()).dkY());
         }
     }
 
@@ -491,7 +491,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class ViewHolder {
         public SimpleDraweeView mImageIv;
         public ImageView mSelectedCb;

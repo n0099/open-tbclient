@@ -9,7 +9,7 @@ import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PrefetchEvent extends SwanAppIPCData {
     public static final Parcelable.Creator<PrefetchEvent> CREATOR = new Parcelable.Creator<PrefetchEvent>() { // from class: com.baidu.swan.apps.core.prefetch.PrefetchEvent.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class PrefetchEvent extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: et */
+        /* renamed from: eu */
         public PrefetchEvent[] newArray(int i) {
             return new PrefetchEvent[i];
         }
@@ -89,36 +89,36 @@ public class PrefetchEvent extends SwanAppIPCData {
         return new b(hashMap);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        private PrefetchEvent blP = new PrefetchEvent();
-
-        public a gT(@NonNull String str) {
-            this.blP.appId = str;
-            return this;
-        }
-
-        public a gU(@NonNull String str) {
-            this.blP.schema = str;
-            return this;
-        }
-
-        public a gV(String str) {
-            this.blP.state = str;
-            return this;
-        }
+        private PrefetchEvent bmF = new PrefetchEvent();
 
         public a gW(@NonNull String str) {
-            this.blP.scene = str;
+            this.bmF.appId = str;
             return this;
         }
 
-        public PrefetchEvent Na() {
-            return this.blP;
+        public a gX(@NonNull String str) {
+            this.bmF.schema = str;
+            return this;
+        }
+
+        public a gY(String str) {
+            this.bmF.state = str;
+            return this;
+        }
+
+        public a gZ(@NonNull String str) {
+            this.bmF.scene = str;
+            return this;
+        }
+
+        public PrefetchEvent Nw() {
+            return this.bmF;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b extends com.baidu.swan.apps.n.a.b {
         public b(@Nullable Map<String, String> map) {
             super("prefetch", map);

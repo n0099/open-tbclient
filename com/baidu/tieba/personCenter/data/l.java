@@ -1,34 +1,34 @@
 package com.baidu.tieba.personCenter.data;
 
 import tbclient.SmartApp;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class l implements c {
-    private String eqU;
-    private String hiN;
-    private Long jdl;
-    private String jdm;
-    private String jdn;
-    private Integer jdo;
+    private String hmq;
+    private Long jgO;
+    private String jgP;
+    private Integer jgQ;
     private String mAppKey;
+    private String mAvatar;
     private String mLink;
     private String mName;
+    private String mPic;
     private int mType;
 
     public l(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.jdl = smartApp.swan_app_id;
+            this.jgO = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
-            this.eqU = smartApp.avatar;
+            this.mAvatar = smartApp.avatar;
             this.mName = smartApp.name;
-            this.hiN = smartApp._abstract;
-            this.jdm = smartApp.pic;
-            this.jdn = smartApp.h5_url;
+            this.hmq = smartApp._abstract;
+            this.mPic = smartApp.pic;
+            this.jgP = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.jdo = smartApp.is_game;
+            this.jgQ = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class l implements c {
         return this.mType;
     }
 
-    public Long csI() {
-        return this.jdl;
+    public Long ctP() {
+        return this.jgO;
     }
 
     public String getAppKey() {
@@ -46,7 +46,7 @@ public class l implements c {
     }
 
     public String getAvatar() {
-        return this.eqU;
+        return this.mAvatar;
     }
 
     public String getName() {
@@ -54,14 +54,14 @@ public class l implements c {
     }
 
     public String getH5Url() {
-        return this.jdn;
+        return this.jgP;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer csJ() {
-        return this.jdo;
+    public Integer ctQ() {
+        return this.jgQ;
     }
 }

@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class q {
-    private Map<String, p> aeN;
-    private Map<String, Integer> aeO;
+    private Map<String, p> afw;
+    private Map<String, Integer> afx;
     private List<i> mDatas;
 
-    public static q rk() {
-        return a.aeP;
+    public static q rw() {
+        return a.afy;
     }
 
     public void s(List<i> list) {
@@ -25,7 +25,7 @@ public class q {
         if (list != null) {
             this.mDatas.addAll(list);
         }
-        rn();
+        rz();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913122));
     }
 
@@ -33,46 +33,46 @@ public class q {
         return this.mDatas;
     }
 
-    public Map<String, p> rl() {
-        return this.aeN;
+    public Map<String, p> rx() {
+        return this.afw;
     }
 
-    public Map<String, Integer> rm() {
-        return this.aeO;
+    public Map<String, Integer> ry() {
+        return this.afx;
     }
 
     public void release() {
         if (this.mDatas != null) {
             this.mDatas.clear();
         }
-        if (this.aeN != null) {
-            this.aeN.clear();
+        if (this.afw != null) {
+            this.afw.clear();
         }
-        if (this.aeO != null) {
-            this.aeO.clear();
+        if (this.afx != null) {
+            this.afx.clear();
         }
     }
 
-    private void rn() {
+    private void rz() {
         g.a.C0079a c0079a;
-        if (this.aeN == null) {
-            this.aeN = new HashMap();
+        if (this.afw == null) {
+            this.afw = new HashMap();
         }
-        this.aeN.clear();
-        if (this.aeO == null) {
-            this.aeO = new HashMap();
+        this.afw.clear();
+        if (this.afx == null) {
+            this.afx = new HashMap();
         }
-        this.aeO.clear();
+        this.afx.clear();
         if (this.mDatas != null && this.mDatas.size() > 0) {
             for (i iVar : this.mDatas) {
-                List<g> qQ = iVar.qQ();
-                if (qQ != null && !qQ.isEmpty()) {
-                    for (g gVar : qQ) {
-                        if (gVar.adR != null && (c0079a = gVar.adR.aeb) != null && c0079a.key == 10 && c0079a.aed != null) {
-                            String optString = c0079a.aed.optString("id");
-                            if (this.aeN.get(optString) == null) {
-                                this.aeN.put(optString, new p(gVar.qx(), gVar.adR.adX, gVar.adK));
-                                this.aeO.put(optString, Integer.valueOf(gVar.adR.adY));
+                List<g> qX = iVar.qX();
+                if (qX != null && !qX.isEmpty()) {
+                    for (g gVar : qX) {
+                        if (gVar.aeg != null && (c0079a = gVar.aeg.aeq) != null && c0079a.key == 10 && c0079a.aes != null) {
+                            String optString = c0079a.aes.optString("id");
+                            if (this.afw.get(optString) == null) {
+                                this.afw.put(optString, new p(gVar.qE(), gVar.aeg.aem, gVar.adZ));
+                                this.afx.put(optString, Integer.valueOf(gVar.aeg.aen));
                             }
                         }
                     }
@@ -86,6 +86,6 @@ public class q {
 
     /* loaded from: classes2.dex */
     private static class a {
-        private static final q aeP = new q();
+        private static final q afy = new q();
     }
 }

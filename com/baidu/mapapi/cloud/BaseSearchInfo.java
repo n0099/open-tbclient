@@ -2,7 +2,7 @@ package com.baidu.mapapi.cloud;
 
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseSearchInfo {
     String a;
     public String ak;

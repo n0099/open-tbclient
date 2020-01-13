@@ -15,7 +15,7 @@ import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class WebViewFactoryProvider extends Observable {
     public static final String SETTING_AD_BLOCK = "ADBlock";
     public static final String SETTING_DEBUG = "Debug";
@@ -54,7 +54,7 @@ public abstract class WebViewFactoryProvider extends Observable {
     public static final Boolean SETTING_NO_IMAGE_MODE_VALUE = new Boolean(false);
     public static final Boolean SETTING_NA2_WEB_VALUE = new Boolean(false);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface SettingsStatics {
         boolean canUseFreeFlow();
 
@@ -365,7 +365,7 @@ public abstract class WebViewFactoryProvider extends Observable {
         boolean useCronet();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Statics {
         int AdBlockInit(String str, boolean z);
 

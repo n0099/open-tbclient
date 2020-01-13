@@ -17,16 +17,16 @@ import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopic
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicThreadMessage;
 import com.baidu.tieba.message.RequestBlessMessage;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TopicDetailModel extends BdBaseModel {
-    private com.baidu.adp.framework.listener.a gXw;
-    private com.baidu.tieba.homepage.topic.topicdetail.a haN;
-    private com.baidu.tieba.homepage.topic.topicdetail.b.a haO;
+    private com.baidu.adp.framework.listener.a haU;
+    private com.baidu.tieba.homepage.topic.topicdetail.a heq;
+    private com.baidu.tieba.homepage.topic.topicdetail.b.a her;
     private TbPageContext<?> mPageContext;
 
     public TopicDetailModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gXw = new com.baidu.adp.framework.listener.a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.1
+        this.haU = new com.baidu.adp.framework.listener.a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long j;
@@ -45,8 +45,8 @@ public class TopicDetailModel extends BdBaseModel {
                     if (j == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) {
                         j = ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue();
                     }
-                    if (j != 0 && TopicDetailModel.this.haO != null && TopicDetailModel.this.haO.hau != null && TopicDetailModel.this.haO.hau.haz != null && TopicDetailModel.this.haO.hau.haz.pkId == j) {
-                        TopicDetailModel.this.haO.hau.haz.userPkId = j2;
+                    if (j != 0 && TopicDetailModel.this.her != null && TopicDetailModel.this.her.hdX != null && TopicDetailModel.this.her.hdX.hec != null && TopicDetailModel.this.her.hdX.hec.pkId == j) {
+                        TopicDetailModel.this.her.hdX.hec.userPkId = j2;
                     }
                 }
             }
@@ -55,21 +55,21 @@ public class TopicDetailModel extends BdBaseModel {
         registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_DETAIL, 309629) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.haN != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.heq != null) {
                     if (responsedMessage instanceof ResponseHttpGetTopicDetailMessage) {
-                        TopicDetailModel.this.haO = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                        TopicDetailModel.this.her = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
                     }
                     if (responsedMessage instanceof ResponseSocketGetTopicDetailMessage) {
-                        TopicDetailModel.this.haO = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                        TopicDetailModel.this.her = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
                     }
-                    TopicDetailModel.this.haN.a(responsedMessage.getError(), TopicDetailModel.this.haO);
+                    TopicDetailModel.this.heq.a(responsedMessage.getError(), TopicDetailModel.this.her);
                 }
             }
         });
         registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_THREAD, 309631) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.3
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.haN != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.heq != null) {
                     List<m> list = null;
                     boolean z = false;
                     if (responsedMessage instanceof ResponseHttpGetTopicThreadMessage) {
@@ -80,21 +80,21 @@ public class TopicDetailModel extends BdBaseModel {
                         list = ((ResponseSocketGetTopicThreadMessage) responsedMessage).getDataList();
                         z = ((ResponseSocketGetTopicThreadMessage) responsedMessage).getHasMore();
                     }
-                    TopicDetailModel.this.haN.a(responsedMessage.getError(), z, list);
+                    TopicDetailModel.this.heq.a(responsedMessage.getError(), z, list);
                 }
             }
         });
-        registerListener(this.gXw);
+        registerListener(this.haU);
     }
 
     public void a(com.baidu.tieba.homepage.topic.topicdetail.a aVar) {
-        this.haN = aVar;
+        this.heq = aVar;
     }
 
-    public void dA(long j) {
+    public void dF(long j) {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.haN != null) {
-                this.haN.a(-1, null);
+            if (this.heq != null) {
+                this.heq.a(-1, null);
                 return;
             }
             return;
@@ -108,8 +108,8 @@ public class TopicDetailModel extends BdBaseModel {
 
     public void c(long j, long j2, long j3) {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.haN != null) {
-                this.haN.a(-1, false, null);
+            if (this.heq != null) {
+                this.heq.a(-1, false, null);
                 return;
             }
             return;

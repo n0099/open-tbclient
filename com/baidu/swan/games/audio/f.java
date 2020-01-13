@@ -4,6 +4,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.games.h.l;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
@@ -11,33 +12,33 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f {
-    private static final HashMap<String, String> cfG = new HashMap<>();
+    private static final HashMap<String, String> cfT = new HashMap<>();
 
     static {
-        cfG.put("494433", ".mp3");
-        cfG.put("524946", ".wav");
+        cfT.put("494433", ".mp3");
+        cfT.put("524946", ".wav");
     }
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.bvC = gVar.bvC;
-        dVar.bvK = gVar.autoplay;
-        dVar.bvL = gVar.loop;
+        dVar.bwp = gVar.bwp;
+        dVar.bwx = gVar.autoplay;
+        dVar.bwy = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.cfD = gVar.startTime;
-        dVar.bvM = gVar.obeyMuteSwitch;
+        dVar.cfQ = gVar.startTime;
+        dVar.bwz = gVar.obeyMuteSwitch;
         dVar.mVolume = gVar.volume;
-        dVar.bvH = aiL().toString();
+        dVar.bwu = aje().toString();
         return dVar;
     }
 
-    public static JSONObject aiL() {
+    public static JSONObject aje() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
-            jSONObject.put("onPlay", "play");
+            jSONObject.put("onPlay", AlaStaticKeys.ALA_STATIC_VALUE_PLAY);
             jSONObject.put("onEnded", "ended");
             jSONObject.put(MissionEvent.MESSAGE_PAUSE, "pause");
             jSONObject.put("onSeeking", "seeking");
@@ -55,32 +56,32 @@ public class f {
         return jSONObject;
     }
 
-    public static boolean ac(float f) {
+    public static boolean ab(float f) {
         return f <= 1.0f && f >= 0.0f;
     }
 
-    public static String nT(String str) throws MalformedURLException {
+    public static String nW(String str) throws MalformedURLException {
         int lastIndexOf = str.lastIndexOf(46);
         String str2 = "";
         if (lastIndexOf != -1) {
             str2 = str.substring(lastIndexOf, str.length());
         }
-        return "/" + com.baidu.swan.apps.runtime.e.ZU() + "/" + String.valueOf(str.hashCode() + str2);
+        return "/" + com.baidu.swan.apps.runtime.e.aar() + "/" + String.valueOf(str.hashCode() + str2);
     }
 
-    public static String aiM() {
-        String aiO = aiO();
-        if (!isExternalStorageWritable() || TextUtils.isEmpty(aiO)) {
+    public static String ajf() {
+        String ajh = ajh();
+        if (!isExternalStorageWritable() || TextUtils.isEmpty(ajh)) {
             return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return aiO;
+        return ajh;
     }
 
-    public static String aiN() {
+    public static String ajg() {
         return File.separator + "bdata" + File.separator;
     }
 
-    private static String aiO() {
+    private static String ajh() {
         String str = l.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
@@ -94,7 +95,7 @@ public class f {
         return "mounted".equals(Environment.getExternalStorageState());
     }
 
-    public static String x(byte[] bArr) {
+    public static String w(byte[] bArr) {
         if (bArr == null || 3 > bArr.length) {
             return "";
         }
@@ -102,7 +103,7 @@ public class f {
         for (int i = 0; i < 3; i++) {
             bArr2[i] = bArr[i];
         }
-        return cfG.get(bytesToHexString(bArr2));
+        return cfT.get(bytesToHexString(bArr2));
     }
 
     private static String bytesToHexString(byte[] bArr) {

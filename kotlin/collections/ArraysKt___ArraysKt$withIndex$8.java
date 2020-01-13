@@ -1,19 +1,19 @@
 package kotlin.collections;
 
 import kotlin.jvm.internal.Lambda;
-/* loaded from: classes4.dex */
-final class ArraysKt___ArraysKt$withIndex$8 extends Lambda implements kotlin.jvm.a.a<k> {
-    final /* synthetic */ boolean[] receiver$0;
+/* loaded from: classes5.dex */
+final class ArraysKt___ArraysKt$withIndex$8 extends Lambda implements kotlin.jvm.a.a<l> {
+    final /* synthetic */ boolean[] $this_withIndex;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     ArraysKt___ArraysKt$withIndex$8(boolean[] zArr) {
         super(0);
-        this.receiver$0 = zArr;
+        this.$this_withIndex = zArr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.a
-    public final k invoke() {
-        return kotlin.jvm.internal.i.c(this.receiver$0);
+    public final l invoke() {
+        return kotlin.jvm.internal.i.c(this.$this_withIndex);
     }
 }

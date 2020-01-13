@@ -2,46 +2,46 @@ package com.google.android.exoplayer2.source;
 
 import android.util.Pair;
 import com.google.android.exoplayer2.x;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 abstract class a extends x {
-    private final int mma;
-    private final r mmb;
+    private final int mpP;
+    private final r mpQ;
 
-    protected abstract int Kk(int i);
+    protected abstract int Kt(int i);
 
-    protected abstract int Kl(int i);
+    protected abstract int Ku(int i);
 
-    protected abstract x Km(int i);
+    protected abstract x Kv(int i);
 
-    protected abstract int Kn(int i);
+    protected abstract int Kw(int i);
 
-    protected abstract int Ko(int i);
+    protected abstract int Kx(int i);
 
-    protected abstract Object Kp(int i);
+    protected abstract Object Ky(int i);
 
-    protected abstract int bv(Object obj);
+    protected abstract int bw(Object obj);
 
     public a(r rVar) {
-        this.mmb = rVar;
-        this.mma = rVar.bQo();
+        this.mpQ = rVar;
+        this.mpP = rVar.bRx();
     }
 
     @Override // com.google.android.exoplayer2.x
     public int p(int i, int i2, boolean z) {
-        int Kl = Kl(i);
-        int Ko = Ko(Kl);
-        int p = Km(Kl).p(i - Ko, i2 == 2 ? 0 : i2, z);
+        int Ku = Ku(i);
+        int Kx = Kx(Ku);
+        int p = Kv(Ku).p(i - Kx, i2 == 2 ? 0 : i2, z);
         if (p != -1) {
-            return p + Ko;
+            return p + Kx;
         }
-        int ac = ac(Kl, z);
-        while (ac != -1 && Km(ac).isEmpty()) {
+        int ac = ac(Ku, z);
+        while (ac != -1 && Kv(ac).isEmpty()) {
             ac = ac(ac, z);
         }
         if (ac != -1) {
-            return Km(ac).vo(z) + Ko(ac);
+            return Kv(ac).vA(z) + Kx(ac);
         } else if (i2 == 2) {
-            return vo(z);
+            return vA(z);
         } else {
             return -1;
         }
@@ -49,99 +49,99 @@ abstract class a extends x {
 
     @Override // com.google.android.exoplayer2.x
     public int q(int i, int i2, boolean z) {
-        int Kl = Kl(i);
-        int Ko = Ko(Kl);
-        int q = Km(Kl).q(i - Ko, i2 == 2 ? 0 : i2, z);
+        int Ku = Ku(i);
+        int Kx = Kx(Ku);
+        int q = Kv(Ku).q(i - Kx, i2 == 2 ? 0 : i2, z);
         if (q != -1) {
-            return q + Ko;
+            return q + Kx;
         }
-        int ad = ad(Kl, z);
-        while (ad != -1 && Km(ad).isEmpty()) {
+        int ad = ad(Ku, z);
+        while (ad != -1 && Kv(ad).isEmpty()) {
             ad = ad(ad, z);
         }
         if (ad != -1) {
-            return Km(ad).vn(z) + Ko(ad);
+            return Kv(ad).vz(z) + Kx(ad);
         } else if (i2 == 2) {
-            return vn(z);
+            return vz(z);
         } else {
             return -1;
         }
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int vn(boolean z) {
-        if (this.mma == 0) {
+    public int vz(boolean z) {
+        if (this.mpP == 0) {
             return -1;
         }
-        int dui = z ? this.mmb.dui() : this.mma - 1;
-        while (Km(dui).isEmpty()) {
-            dui = ad(dui, z);
-            if (dui == -1) {
+        int dvt = z ? this.mpQ.dvt() : this.mpP - 1;
+        while (Kv(dvt).isEmpty()) {
+            dvt = ad(dvt, z);
+            if (dvt == -1) {
                 return -1;
             }
         }
-        return Km(dui).vn(z) + Ko(dui);
+        return Kv(dvt).vz(z) + Kx(dvt);
     }
 
     @Override // com.google.android.exoplayer2.x
-    public int vo(boolean z) {
-        if (this.mma == 0) {
+    public int vA(boolean z) {
+        if (this.mpP == 0) {
             return -1;
         }
-        int duj = z ? this.mmb.duj() : 0;
-        while (Km(duj).isEmpty()) {
-            duj = ac(duj, z);
-            if (duj == -1) {
+        int dvu = z ? this.mpQ.dvu() : 0;
+        while (Kv(dvu).isEmpty()) {
+            dvu = ac(dvu, z);
+            if (dvu == -1) {
                 return -1;
             }
         }
-        return Km(duj).vo(z) + Ko(duj);
+        return Kv(dvu).vA(z) + Kx(dvu);
     }
 
     @Override // com.google.android.exoplayer2.x
     public final x.b a(int i, x.b bVar, boolean z, long j) {
-        int Kl = Kl(i);
-        int Ko = Ko(Kl);
-        int Kn = Kn(Kl);
-        Km(Kl).a(i - Ko, bVar, z, j);
-        bVar.lVP += Kn;
-        bVar.lVQ += Kn;
+        int Ku = Ku(i);
+        int Kx = Kx(Ku);
+        int Kw = Kw(Ku);
+        Kv(Ku).a(i - Kx, bVar, z, j);
+        bVar.lZE += Kw;
+        bVar.lZF += Kw;
         return bVar;
     }
 
     @Override // com.google.android.exoplayer2.x
     public final x.a a(int i, x.a aVar, boolean z) {
-        int Kk = Kk(i);
-        int Ko = Ko(Kk);
-        Km(Kk).a(i - Kn(Kk), aVar, z);
-        aVar.windowIndex = Ko + aVar.windowIndex;
+        int Kt = Kt(i);
+        int Kx = Kx(Kt);
+        Kv(Kt).a(i - Kw(Kt), aVar, z);
+        aVar.windowIndex = Kx + aVar.windowIndex;
         if (z) {
-            aVar.lUF = Pair.create(Kp(Kk), aVar.lUF);
+            aVar.lYw = Pair.create(Ky(Kt), aVar.lYw);
         }
         return aVar;
     }
 
     @Override // com.google.android.exoplayer2.x
-    public final int bt(Object obj) {
-        int bt;
+    public final int bu(Object obj) {
+        int bu;
         if (obj instanceof Pair) {
             Pair pair = (Pair) obj;
             Object obj2 = pair.first;
             Object obj3 = pair.second;
-            int bv = bv(obj2);
-            if (bv == -1 || (bt = Km(bv).bt(obj3)) == -1) {
+            int bw = bw(obj2);
+            if (bw == -1 || (bu = Kv(bw).bu(obj3)) == -1) {
                 return -1;
             }
-            return Kn(bv) + bt;
+            return Kw(bw) + bu;
         }
         return -1;
     }
 
     private int ac(int i, boolean z) {
         if (z) {
-            return this.mmb.KA(i);
+            return this.mpQ.KJ(i);
         }
-        if (i < this.mma - 1) {
+        if (i < this.mpP - 1) {
             return i + 1;
         }
         return -1;
@@ -149,7 +149,7 @@ abstract class a extends x {
 
     private int ad(int i, boolean z) {
         if (z) {
-            return this.mmb.KB(i);
+            return this.mpQ.KK(i);
         }
         if (i > 0) {
             return i - 1;

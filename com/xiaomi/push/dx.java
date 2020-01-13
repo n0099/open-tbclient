@@ -9,21 +9,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class dx extends ai.a {
     protected int a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f250a;
+    protected Context f248a;
 
     public dx(Context context, int i) {
         this.a = i;
-        this.f250a = context;
+        this.f248a = context;
     }
 
     public static void a(Context context, ho hoVar) {
-        dk m209a = dl.a().m209a();
-        String a = m209a == null ? "" : m209a.a();
+        dk m218a = dl.a().m218a();
+        String a = m218a == null ? "" : m218a.a();
         if (TextUtils.isEmpty(a) || TextUtils.isEmpty(hoVar.a())) {
             return;
         }
@@ -47,7 +47,7 @@ public abstract class dx extends ai.a {
         synchronized (dq.a) {
             try {
                 File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                y.m554a(file);
+                y.m563a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -134,17 +134,17 @@ public abstract class dx extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract hi mo143a();
+    public abstract hi mo152a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract String mo143a();
+    public abstract String mo152a();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo143a() {
-        return ag.a(this.f250a, String.valueOf(mo143a()), this.a);
+    public boolean mo152a() {
+        return ag.a(this.f248a, String.valueOf(mo152a()), this.a);
     }
 
     protected boolean b() {
@@ -153,21 +153,21 @@ public abstract class dx extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (mo143a()) {
-            dk m209a = dl.a().m209a();
-            String a = m209a == null ? "" : m209a.a();
+        if (mo152a()) {
+            dk m218a = dl.a().m218a();
+            String a = m218a == null ? "" : m218a.a();
             if (TextUtils.isEmpty(a) || !b()) {
                 return;
             }
-            String mo143a = mo143a();
-            if (TextUtils.isEmpty(mo143a)) {
+            String mo152a = mo152a();
+            if (TextUtils.isEmpty(mo152a)) {
                 return;
             }
             ho hoVar = new ho();
-            hoVar.a(mo143a);
+            hoVar.a(mo152a);
             hoVar.a(System.currentTimeMillis());
-            hoVar.a(mo143a());
-            a(this.f250a, hoVar, a);
+            hoVar.a(mo152a());
+            a(this.f248a, hoVar, a);
         }
     }
 }

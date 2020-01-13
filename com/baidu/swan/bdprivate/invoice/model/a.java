@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements c {
-    public List<InvoiceInfo> bZr;
+    public List<InvoiceInfo> bZD;
 
     @Override // com.baidu.swan.bdprivate.invoice.model.c
     public void bg(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("list")) != null) {
-            this.bZr = new ArrayList();
+            this.bZD = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 InvoiceInfo invoiceInfo = new InvoiceInfo();
                 invoiceInfo.bg(optJSONObject);
-                this.bZr.add(invoiceInfo);
+                this.bZD.add(invoiceInfo);
             }
         }
     }

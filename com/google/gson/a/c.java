@@ -8,9 +8,9 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.METHOD})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public @interface c {
-    String[] dye() default {};
+    String[] dzn() default {};
 
     String value();
 }

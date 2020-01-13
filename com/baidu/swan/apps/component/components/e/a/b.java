@@ -16,7 +16,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.swan.apps.scheme.actions.b {
     public b(j jVar) {
         super(jVar, "/swanAPI/coverimage");
@@ -43,15 +43,15 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         bVar.a(new com.baidu.swan.apps.component.components.e.b.a() { // from class: com.baidu.swan.apps.component.components.e.a.b.1
             @Override // com.baidu.swan.apps.component.components.e.b.a
             public void a(int i, View view, @Nullable Object obj) {
-                c cVar = (c) bVar.HV();
+                c cVar = (c) bVar.Ir();
                 switch (i) {
                     case 0:
                     case 1:
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", "loadState");
-                            jSONObject.put("parentId", cVar.bdj);
-                            jSONObject.put("viewId", cVar.bdh);
+                            jSONObject.put("parentId", cVar.bdX);
+                            jSONObject.put("viewId", cVar.bdV);
                             jSONObject.put("loadState", i == 1 ? "finish" : BdStatsConstant.StatsType.ERROR);
                         } catch (JSONException e) {
                             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", "loadState callback error", e);
@@ -63,12 +63,12 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
                 }
             }
         });
-        com.baidu.swan.apps.component.b.c HS = bVar.HS();
-        boolean isSuccess = HS.isSuccess();
+        com.baidu.swan.apps.component.b.c Io = bVar.Io();
+        boolean isSuccess = Io.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, HS.msg);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Io.msg);
         }
         return isSuccess;
     }
@@ -86,7 +86,7 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.b.b bVar = (com.baidu.swan.apps.component.components.e.b.b) com.baidu.swan.apps.component.container.a.d(l);
         if (bVar == null) {
-            String str2 = "can't find imageCoverView component:#" + l.bdh;
+            String str2 = "can't find imageCoverView component:#" + l.bdV;
             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -114,18 +114,18 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.b.b bVar = (com.baidu.swan.apps.component.components.e.b.b) com.baidu.swan.apps.component.container.a.d(l);
         if (bVar == null) {
-            String str2 = "can't find imageCoverView component:#" + l.bdh;
+            String str2 = "can't find imageCoverView component:#" + l.bdV;
             com.baidu.swan.apps.console.c.e("Component-Action-ImageCover", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
         }
-        com.baidu.swan.apps.component.b.c HU = bVar.HU();
-        boolean isSuccess = HU.isSuccess();
+        com.baidu.swan.apps.component.b.c Iq = bVar.Iq();
+        boolean isSuccess = Iq.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return isSuccess;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, HU.msg);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Iq.msg);
         return isSuccess;
     }
 

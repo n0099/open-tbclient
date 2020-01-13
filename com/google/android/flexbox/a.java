@@ -4,9 +4,9 @@ import android.view.View;
 import java.util.List;
 /* loaded from: classes4.dex */
 interface a {
-    View LQ(int i);
+    View LZ(int i);
 
-    View LR(int i);
+    View Ma(int i);
 
     void a(View view, int i, int i2, b bVar);
 
@@ -16,9 +16,9 @@ interface a {
 
     int an(int i, int i2, int i3);
 
-    int dg(View view);
+    int dq(View view);
 
-    boolean dxN();
+    boolean dyX();
 
     int g(View view, int i, int i2);
 

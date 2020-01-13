@@ -13,7 +13,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class OpenSSLECKeyFactory extends KeyFactorySpi {
     @Override // java.security.KeyFactorySpi
     protected PublicKey engineGeneratePublic(KeySpec keySpec) throws InvalidKeySpecException {

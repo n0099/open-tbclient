@@ -6,53 +6,53 @@ import com.baidu.live.adp.base.BdBaseView;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes2.dex */
 public class a extends BdBaseView<BaseFragmentActivity> {
-    private Fragment[] alo;
-    private String axf;
-    private String axg;
-    private AlbumActivity axh;
-    private String[] axi;
-    private ImageListFragment axj;
-    private AlbumImageBrowseFragment axk;
+    private Fragment[] amb;
+    private String axO;
+    private String axP;
+    private AlbumActivity axQ;
+    private String[] axR;
+    private ImageListFragment axS;
+    private AlbumImageBrowseFragment axT;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.axf = "tag_image";
-        this.axg = "tag_b_image";
-        this.axh = albumActivity;
+        this.axO = "tag_image";
+        this.axP = "tag_b_image";
+        this.axQ = albumActivity;
     }
 
-    public void xI() {
-        this.alo = new Fragment[2];
-        this.axi = new String[2];
-        this.axj = new ImageListFragment();
-        this.alo[0] = this.axj;
-        this.axi[0] = this.axf;
-        this.axk = new AlbumImageBrowseFragment();
-        this.alo[1] = this.axk;
-        this.axi[1] = this.axg;
+    public void xY() {
+        this.amb = new Fragment[2];
+        this.axR = new String[2];
+        this.axS = new ImageListFragment();
+        this.amb[0] = this.axS;
+        this.axR[0] = this.axO;
+        this.axT = new AlbumImageBrowseFragment();
+        this.amb[1] = this.axT;
+        this.axR[1] = this.axP;
     }
 
-    public Fragment cw(int i) {
+    public Fragment cx(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.alo[i];
+        return this.amb[i];
     }
 
-    public String cx(int i) {
+    public String cy(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.axi[i];
+        return this.axR[i];
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.alo.length) {
-                if (this.alo[i3] != null && (this.alo[i3] instanceof ImageListFragment)) {
-                    ((ImageListFragment) this.alo[i3]).onChangeSkinType(i);
+            if (i3 < this.amb.length) {
+                if (this.amb[i3] != null && (this.amb[i3] instanceof ImageListFragment)) {
+                    ((ImageListFragment) this.amb[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -61,57 +61,57 @@ public class a extends BdBaseView<BaseFragmentActivity> {
         }
     }
 
-    public View xJ() {
-        if (this.axj == null) {
+    public View xZ() {
+        if (this.axS == null) {
             return null;
         }
-        return this.axj.xR();
+        return this.axS.yh();
     }
 
-    public View xK() {
-        if (this.axj == null) {
+    public View ya() {
+        if (this.axS == null) {
             return null;
         }
-        return this.axj.yg();
+        return this.axS.yw();
     }
 
-    public View xL() {
-        if (this.axk == null) {
+    public View yb() {
+        if (this.axT == null) {
             return null;
         }
-        return this.axk.xR();
+        return this.axT.yh();
     }
 
-    public View xM() {
-        if (this.axk == null) {
+    public View yc() {
+        if (this.axT == null) {
             return null;
         }
-        return this.axk.xS();
+        return this.axT.yi();
     }
 
-    public View xN() {
-        if (this.axk == null) {
+    public View yd() {
+        if (this.axT == null) {
             return null;
         }
-        return this.axk.xN();
+        return this.axT.yd();
     }
 
-    public View xO() {
-        if (this.axj == null) {
+    public View ye() {
+        if (this.axS == null) {
             return null;
         }
-        return this.axj.xN();
+        return this.axS.yd();
     }
 
     public void onDestroy() {
     }
 
-    public void bh(boolean z) {
-        if (this.axk != null) {
-            this.axk.bh(z);
+    public void bl(boolean z) {
+        if (this.axT != null) {
+            this.axT.bl(z);
         }
-        if (this.axj != null) {
-            this.axj.bh(z);
+        if (this.axS != null) {
+            this.axS.bl(z);
         }
     }
 }

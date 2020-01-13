@@ -6,16 +6,16 @@ import java.util.List;
 import tbclient.GetAddressList.DataRes;
 import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private List<e> dXR;
-    private List<e> dXS;
+    private List<e> dYa;
+    private List<e> dYb;
 
     public List<e> getAddressList() {
-        if (this.dXR == null) {
-            this.dXR = new ArrayList();
+        if (this.dYa == null) {
+            this.dYa = new ArrayList();
         }
-        return this.dXR;
+        return this.dYa;
     }
 
     public boolean a(DataRes dataRes) {
@@ -23,7 +23,7 @@ public class a {
         if (dataRes == null || dataRes.robots_list == null) {
             z = false;
         } else {
-            this.dXS = new ArrayList();
+            this.dYb = new ArrayList();
             boolean z2 = false;
             for (robotsList robotslist : dataRes.robots_list) {
                 if (TextUtils.isEmpty(robotslist.key)) {
@@ -31,13 +31,13 @@ public class a {
                 } else {
                     e eVar = new e();
                     eVar.a(robotslist);
-                    this.dXS.add(eVar);
+                    this.dYb.add(eVar);
                 }
             }
             z = z2;
         }
         if (dataRes != null && dataRes.address_list != null) {
-            this.dXR = new ArrayList();
+            this.dYa = new ArrayList();
             boolean z3 = z;
             for (listData listdata : dataRes.address_list) {
                 if (TextUtils.isEmpty(listdata.key)) {
@@ -47,14 +47,14 @@ public class a {
                     eVar2.a(listdata);
                     if (eVar2.getContacts() != null) {
                         for (com.baidu.tbadk.coreExtra.relationship.a aVar : eVar2.getContacts()) {
-                            if (a(this.dXS, aVar)) {
+                            if (a(this.dYb, aVar)) {
                                 aVar.setUserType(1);
                             } else {
                                 aVar.setUserType(0);
                             }
                         }
                     }
-                    this.dXR.add(eVar2);
+                    this.dYa.add(eVar2);
                 }
             }
             return z3;

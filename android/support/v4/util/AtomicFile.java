@@ -8,14 +8,15 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+import tv.chushou.basis.http.HttpConsts;
+/* loaded from: classes5.dex */
 public class AtomicFile {
     private final File mBackupName;
     private final File mBaseName;
 
     public AtomicFile(@NonNull File file) {
         this.mBaseName = file;
-        this.mBackupName = new File(file.getPath() + ".bak");
+        this.mBackupName = new File(file.getPath() + HttpConsts.FILE_BACKUP_SUFFIX);
     }
 
     @NonNull

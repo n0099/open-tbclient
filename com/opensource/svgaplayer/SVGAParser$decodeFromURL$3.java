@@ -3,10 +3,11 @@ package com.opensource.svgaplayer;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.opensource.svgaplayer.d;
 import kotlin.jvm.internal.Lambda;
-import kotlin.jvm.internal.p;
+import kotlin.jvm.internal.q;
+import kotlin.k;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
-public final class SVGAParser$decodeFromURL$3 extends Lambda implements kotlin.jvm.a.b<Exception, kotlin.g> {
+/* loaded from: classes.dex */
+public final class SVGAParser$decodeFromURL$3 extends Lambda implements kotlin.jvm.a.b<Exception, k> {
     final /* synthetic */ d.c $callback;
     final /* synthetic */ d this$0;
 
@@ -21,14 +22,14 @@ public final class SVGAParser$decodeFromURL$3 extends Lambda implements kotlin.j
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.a.b
-    public /* bridge */ /* synthetic */ kotlin.g invoke(Exception exc) {
+    public /* bridge */ /* synthetic */ k invoke(Exception exc) {
         invoke2(exc);
-        return kotlin.g.mYA;
+        return k.nAT;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(Exception exc) {
-        p.j(exc, AdvanceSetting.NETWORK_TYPE);
+        q.j(exc, AdvanceSetting.NETWORK_TYPE);
         this.this$0.a(exc, this.$callback);
     }
 }

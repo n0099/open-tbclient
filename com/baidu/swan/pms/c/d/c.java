@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends f {
-    private String cxP;
-    private int cxQ;
-    private long cxR;
-    private String cxS;
-    private String cxT;
-    private int cxU;
+    private String cya;
+    private int cyb;
+    private long cyc;
+    private String cyd;
+    private String cye;
+    private int cyf;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.cxQ = -1;
-        this.cxR = -1L;
-        this.cxU = -1;
-        this.cxP = str;
+        this.cyb = -1;
+        this.cyc = -1L;
+        this.cyf = -1;
+        this.cya = str;
     }
 
     public c is(int i) {
-        this.cxU = i;
+        this.cyf = i;
         return this;
     }
 
-    public int arD() {
-        return this.cxU;
+    public int arW() {
+        return this.cyf;
     }
 
-    public c qe(String str) {
-        this.cxS = str;
+    public c qh(String str) {
+        this.cyd = str;
         return this;
     }
 
     public c it(int i) {
-        this.cxQ = i;
+        this.cyb = i;
         return this;
     }
 
-    public c be(long j) {
-        this.cxR = j;
+    public c bh(long j) {
+        this.cyc = j;
         return this;
     }
 
-    public c qf(String str) {
-        this.cxT = str;
+    public c qi(String str) {
+        this.cye = str;
         return this;
     }
 
-    public c qg(String str) {
+    public c qj(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.cxP;
+        return this.cya;
     }
 
-    public int arB() {
-        return this.cxQ;
+    public int arU() {
+        return this.cyb;
     }
 
-    public long arC() {
-        return this.cxR;
+    public long arV() {
+        return this.cyc;
     }
 
-    public String arE() {
-        return this.cxS;
+    public String arX() {
+        return this.cyd;
     }
 
-    public String arF() {
-        return this.cxT;
+    public String arY() {
+        return this.cye;
     }
 
     public String getPath() {

@@ -1,7 +1,7 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.b.h;
+import io.reactivex.c.h;
 import io.reactivex.disposables.b;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.DisposableHelper;
@@ -9,7 +9,7 @@ import io.reactivex.internal.observers.c;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleResumeNext<T> extends w<T> {
     final h<? super Throwable, ? extends aa<? extends T>> nextFunction;
     final aa<? extends T> source;
@@ -19,7 +19,7 @@ public final class SingleResumeNext<T> extends w<T> {
         this.source.a(new ResumeMainSingleObserver(yVar, this.nextFunction));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     static final class ResumeMainSingleObserver<T> extends AtomicReference<b> implements b, y<T> {
         private static final long serialVersionUID = -5314538511045349925L;
         final y<? super T> actual;

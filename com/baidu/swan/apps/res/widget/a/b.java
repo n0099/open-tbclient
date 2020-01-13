@@ -2,10 +2,10 @@ package com.baidu.swan.apps.res.widget.a;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    protected a bJK;
-    private com.baidu.swan.apps.res.widget.a.a bJL;
+    protected a bKu;
+    private com.baidu.swan.apps.res.widget.a.a bKv;
     protected Context mContext;
     protected Drawable mIconDrawable;
     protected final int mId;
@@ -17,7 +17,7 @@ public class b {
     protected long mDismissDelayTime = 0;
     protected int mIconResId = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void c(b bVar);
     }
@@ -31,7 +31,7 @@ public class b {
     }
 
     public void d(com.baidu.swan.apps.res.widget.a.a aVar) {
-        this.bJL = aVar;
+        this.bKv = aVar;
     }
 
     public int getItemId() {
@@ -71,11 +71,11 @@ public class b {
         return this.mDismissDelayTime;
     }
 
-    public a ZI() {
-        return this.bJK;
+    public a aaf() {
+        return this.bKu;
     }
 
     public void b(a aVar) {
-        this.bJK = aVar;
+        this.bKu = aVar;
     }
 }

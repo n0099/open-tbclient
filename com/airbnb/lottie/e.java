@@ -11,51 +11,51 @@ import com.airbnb.lottie.model.layer.Layer;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e {
     private Rect bounds;
-    private final o dV = new o();
-    private final HashSet<String> dW = new HashSet<>();
-    private Map<String, List<Layer>> dX;
-    private Map<String, com.airbnb.lottie.model.c> dY;
-    private SparseArrayCompat<com.airbnb.lottie.model.d> dZ;
-    private LongSparseArray<Layer> eb;
-    private List<Layer> ec;
+    private final o dU = new o();
+    private final HashSet<String> dV = new HashSet<>();
+    private Map<String, List<Layer>> dW;
+    private Map<String, com.airbnb.lottie.model.c> dX;
+    private SparseArrayCompat<com.airbnb.lottie.model.d> dY;
+    private LongSparseArray<Layer> dZ;
+    private List<Layer> eb;
+    private float ec;
     private float ed;
-    private float ee;
     private float frameRate;
     private Map<String, h> images;
 
     public void a(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, h> map2, SparseArrayCompat<com.airbnb.lottie.model.d> sparseArrayCompat, Map<String, com.airbnb.lottie.model.c> map3) {
         this.bounds = rect;
-        this.ed = f;
-        this.ee = f2;
+        this.ec = f;
+        this.ed = f2;
         this.frameRate = f3;
-        this.ec = list;
-        this.eb = longSparseArray;
-        this.dX = map;
+        this.eb = list;
+        this.dZ = longSparseArray;
+        this.dW = map;
         this.images = map2;
-        this.dZ = sparseArrayCompat;
-        this.dY = map3;
+        this.dY = sparseArrayCompat;
+        this.dX = map3;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void G(String str) {
         Log.w("LOTTIE", str);
-        this.dW.add(str);
+        this.dV.add(str);
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.dV.setEnabled(z);
+        this.dU.setEnabled(z);
     }
 
     public o getPerformanceTracker() {
-        return this.dV;
+        return this.dU;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Layer f(long j) {
-        return this.eb.get(j);
+        return this.dZ.get(j);
     }
 
     public Rect be() {
@@ -68,12 +68,12 @@ public class e {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public float bg() {
-        return this.ed;
+        return this.ec;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public float bh() {
-        return this.ee;
+        return this.ed;
     }
 
     public float bi() {
@@ -81,21 +81,21 @@ public class e {
     }
 
     public List<Layer> bj() {
-        return this.ec;
+        return this.eb;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public List<Layer> H(String str) {
-        return this.dX.get(str);
+        return this.dW.get(str);
     }
 
     public SparseArrayCompat<com.airbnb.lottie.model.d> bk() {
-        return this.dZ;
+        return this.dY;
     }
 
     public Map<String, com.airbnb.lottie.model.c> bl() {
-        return this.dY;
+        return this.dX;
     }
 
     public Map<String, h> bm() {
@@ -103,19 +103,19 @@ public class e {
     }
 
     public float bn() {
-        return this.ee - this.ed;
+        return this.ed - this.ec;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder("LottieComposition:\n");
-        for (Layer layer : this.ec) {
+        for (Layer layer : this.eb) {
             sb.append(layer.toString("\t"));
         }
         return sb.toString();
     }
 
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         @Deprecated
         public static com.airbnb.lottie.a a(Context context, String str, n nVar) {
@@ -125,14 +125,14 @@ public class e {
         }
 
         /* renamed from: com.airbnb.lottie.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         private static final class C0011a implements com.airbnb.lottie.a, i<e> {
             private boolean cancelled;
-            private final n ef;
+            private final n ee;
 
             private C0011a(n nVar) {
                 this.cancelled = false;
-                this.ef = nVar;
+                this.ee = nVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -140,7 +140,7 @@ public class e {
             /* renamed from: a */
             public void onResult(e eVar) {
                 if (!this.cancelled) {
-                    this.ef.onCompositionLoaded(eVar);
+                    this.ee.onCompositionLoaded(eVar);
                 }
             }
         }

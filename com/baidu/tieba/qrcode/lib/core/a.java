@@ -12,7 +12,7 @@ import android.os.Build;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static final int fl(Context context) {
         Point fm = fm(context);

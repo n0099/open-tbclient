@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import com.baidu.searchbox.ugc.R;
 import com.baidu.searchbox.ugc.utils.ResourceUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class EmojiAdapter extends ArrayAdapter<Emojicon> {
     public EmojiAdapter(Context context, Emojicon[] emojiconArr) {
         super(context, R.layout.ugc_bd_im_emojicon_item, emojiconArr);
@@ -33,7 +33,7 @@ public class EmojiAdapter extends ArrayAdapter<Emojicon> {
         return view;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     class ViewHolder {
         TextView icon;
 

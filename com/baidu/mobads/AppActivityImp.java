@@ -27,7 +27,7 @@ import java.lang.reflect.Method;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AppActivityImp {
     public static final String EXTRA_AD_INSTANCE_INFO = "EXTRA_DATA_STRING_AD";
     public static final String EXTRA_COMMAND_EXTRA_INFO = "EXTRA_DATA_STRING_COM";
@@ -35,7 +35,7 @@ public class AppActivityImp {
     public static final String EXTRA_LANDINGPAGE_EXTRA_INFO = "EXTRA_DATA_STRING";
     private static Class<?> d;
     private Activity a;
-    private Method[] aJH = null;
+    private Method[] aKz = null;
     private Object c;
     private static boolean b = false;
     private static AtomicBoolean f = new AtomicBoolean(false);
@@ -59,12 +59,12 @@ public class AppActivityImp {
         return f.get();
     }
 
-    private Method eq(String str) {
+    private Method et(String str) {
         Method[] methodArr;
-        if (this.aJH == null) {
+        if (this.aKz == null) {
             return null;
         }
-        for (Method method : this.aJH) {
+        for (Method method : this.aKz) {
             if (method.getName().equals(str)) {
                 method.setAccessible(true);
                 return method;
@@ -81,12 +81,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method eq = eq(str);
-            if (eq != null) {
+            Method et = et(str);
+            if (et != null) {
                 if (objArr == null || objArr.length == 0) {
-                    eq.invoke(null, new Object[0]);
+                    et.invoke(null, new Object[0]);
                 } else {
-                    eq.invoke(null, objArr);
+                    et.invoke(null, objArr);
                 }
             }
         } catch (Exception e) {
@@ -102,12 +102,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method eq = eq(str);
-            if (eq != null) {
+            Method et = et(str);
+            if (et != null) {
                 if (objArr == null || objArr.length == 0) {
-                    eq.invoke(this.c, new Object[0]);
+                    et.invoke(this.c, new Object[0]);
                 } else {
-                    eq.invoke(this.c, objArr);
+                    et.invoke(this.c, objArr);
                 }
             }
         } catch (Exception e) {
@@ -123,12 +123,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method eq = eq(str);
-            if (eq != null) {
+            Method et = et(str);
+            if (et != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return ((Boolean) eq.invoke(this.c, new Object[0])).booleanValue();
+                    return ((Boolean) et.invoke(this.c, new Object[0])).booleanValue();
                 }
-                return ((Boolean) eq.invoke(this.c, objArr)).booleanValue();
+                return ((Boolean) et.invoke(this.c, objArr)).booleanValue();
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -144,12 +144,12 @@ public class AppActivityImp {
             objArr2[1] = Integer.valueOf(objArr != null ? objArr.length : 0);
             objArr2[2] = objArr;
             a.d(objArr2);
-            Method eq = eq(str);
-            if (eq != null) {
+            Method et = et(str);
+            if (et != null) {
                 if (objArr == null || objArr.length == 0) {
-                    return eq.invoke(this.c, new Object[0]);
+                    return et.invoke(this.c, new Object[0]);
                 }
-                return eq.invoke(this.c, objArr);
+                return et.invoke(this.c, objArr);
             }
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().d(e);
@@ -218,7 +218,7 @@ public class AppActivityImp {
             } else {
                 d = loadLocalApk("com.baidu.mobads.container.landingpage.App2Activity");
             }
-            this.aJH = d.getDeclaredMethods();
+            this.aKz = d.getDeclaredMethods();
             this.c = d.getConstructor(Activity.class).newInstance(this.a);
             invokeRemoteStatic("canLpShowWhenLocked", Boolean.valueOf(b));
             com.baidu.mobads.utils.m.a().d("com.baidu.mobads.container.landingpage.App2Activity", d, this.c);

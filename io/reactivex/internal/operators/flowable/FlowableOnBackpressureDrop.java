@@ -1,39 +1,37 @@
 package io.reactivex.internal.operators.flowable;
 
 import com.google.android.exoplayer2.Format;
-import io.reactivex.b.g;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
-import org.a.d;
-/* loaded from: classes4.dex */
-public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements g<T> {
-    final g<? super T> onDrop;
+/* loaded from: classes5.dex */
+public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements io.reactivex.c.g<T> {
+    final io.reactivex.c.g<? super T> onDrop;
 
-    @Override // io.reactivex.b.g
+    @Override // io.reactivex.c.g
     public void accept(T t) {
     }
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.mTG.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
+        this.nvK.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
     }
 
-    /* loaded from: classes4.dex */
-    static final class BackpressureDropSubscriber<T> extends AtomicLong implements j<T>, d {
+    /* loaded from: classes5.dex */
+    static final class BackpressureDropSubscriber<T> extends AtomicLong implements j<T>, org.a.d {
         private static final long serialVersionUID = -6246093802440953054L;
         final org.a.c<? super T> actual;
         boolean done;
-        final g<? super T> onDrop;
-        d s;
+        final io.reactivex.c.g<? super T> onDrop;
+        org.a.d s;
 
-        BackpressureDropSubscriber(org.a.c<? super T> cVar, g<? super T> gVar) {
+        BackpressureDropSubscriber(org.a.c<? super T> cVar, io.reactivex.c.g<? super T> gVar) {
             this.actual = cVar;
             this.onDrop = gVar;
         }
 
         @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(d dVar) {
+        public void onSubscribe(org.a.d dVar) {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
@@ -62,7 +60,7 @@ public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements g<T>
         @Override // org.a.c
         public void onError(Throwable th) {
             if (this.done) {
-                io.reactivex.d.a.onError(th);
+                io.reactivex.e.a.onError(th);
                 return;
             }
             this.done = true;

@@ -1,5 +1,5 @@
 package com.baidu.swan.pms.model;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends e {
-    public int cwY;
+    public int cxj;
 }

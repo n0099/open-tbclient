@@ -2,7 +2,7 @@ package com.baidu.browser.core.util;
 
 import android.os.Environment;
 import android.os.StatFs;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     private static String[] sFiledsSysMemInfo = {"MemTotal:", "MemFree:", "Buffers:", "Cached:", "Active:", "Inactive:", "Dirty:"};
 

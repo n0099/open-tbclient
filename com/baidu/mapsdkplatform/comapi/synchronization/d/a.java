@@ -2,7 +2,7 @@ package com.baidu.mapsdkplatform.comapi.synchronization.d;
 
 import android.util.Log;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     private static boolean a = true;
 

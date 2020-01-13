@@ -1,5 +1,5 @@
 package kotlin.jvm.internal;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface l extends kotlin.reflect.d {
-    Class<?> dEP();
+    Class<?> dJi();
 }

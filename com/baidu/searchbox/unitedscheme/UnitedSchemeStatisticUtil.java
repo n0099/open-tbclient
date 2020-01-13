@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UnitedSchemeStatisticUtil {
     private static final String UBC_KEY_SCHEME_INVALID = "326";
     private static final String UBC_KEY_SCHEME_INVOKE = "327";

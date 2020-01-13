@@ -6,10 +6,10 @@ import android.graphics.Rect;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ao extends a {
-    private float bci = -1.0f;
-    private float bcj = 0.0f;
+    private float bcX = -1.0f;
+    private float bcY = 0.0f;
     private float mStrokeWidth = 1.0f;
     private String mText;
     private int mX;
@@ -20,12 +20,12 @@ public class ao extends a {
         try {
             if (jSONArray.length() > 2) {
                 this.mText = jSONArray.optString(0);
-                this.mX = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(1));
-                this.mY = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(2));
+                this.mX = com.baidu.swan.apps.as.af.S((float) jSONArray.optDouble(1));
+                this.mY = com.baidu.swan.apps.as.af.S((float) jSONArray.optDouble(2));
                 if (jSONArray.length() > 3) {
-                    this.bci = com.baidu.swan.apps.as.af.T((float) jSONArray.optDouble(3));
+                    this.bcX = com.baidu.swan.apps.as.af.S((float) jSONArray.optDouble(3));
                 }
-                this.mStrokeWidth = com.baidu.swan.apps.as.af.T(1.0f);
+                this.mStrokeWidth = com.baidu.swan.apps.as.af.S(1.0f);
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
@@ -39,8 +39,8 @@ public class ao extends a {
         float f;
         Rect rect;
         if (!TextUtils.isEmpty(this.mText)) {
-            TextPaint textPaint = bVar.bbm;
-            int i = bVar.bbr;
+            TextPaint textPaint = bVar.bce;
+            int i = bVar.bcj;
             Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
             float f2 = fontMetrics.top + this.mY;
             float f3 = fontMetrics.ascent + this.mY;
@@ -59,12 +59,12 @@ public class ao extends a {
                     f = this.mY;
                     break;
             }
-            if (this.bcj == 0.0d) {
+            if (this.bcY == 0.0d) {
                 textPaint.getTextBounds(this.mText, 0, this.mText.length(), new Rect());
-                if (this.bci == -1.0f || rect.width() <= this.bci) {
-                    this.bcj = 1.0f;
+                if (this.bcX == -1.0f || rect.width() <= this.bcX) {
+                    this.bcY = 1.0f;
                 } else {
-                    this.bcj = this.bci / rect.width();
+                    this.bcY = this.bcX / rect.width();
                 }
             }
             canvas.save();
@@ -74,7 +74,7 @@ public class ao extends a {
             textPaint.setStrokeWidth(this.mStrokeWidth);
             textPaint.setColor(bVar.mStrokeColor);
             bVar.a(textPaint);
-            canvas.scale(this.bcj, 1.0f);
+            canvas.scale(this.bcY, 1.0f);
             canvas.drawText(this.mText, this.mX, f, textPaint);
             textPaint.setStyle(Paint.Style.FILL);
             textPaint.setAlpha(alpha);

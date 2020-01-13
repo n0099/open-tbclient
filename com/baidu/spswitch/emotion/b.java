@@ -14,22 +14,22 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
-    private static b aUp;
+    private static b aVh;
     private static Context mContext;
-    private HashMap<String, a> aUq = new HashMap<>();
-    private List<String> aUr = new ArrayList();
+    private HashMap<String, a> aVi = new HashMap<>();
+    private List<String> aVj = new ArrayList();
 
     public static b aY(Context context) {
-        if (aUp == null) {
+        if (aVh == null) {
             synchronized (c.class) {
-                if (aUp == null) {
-                    aUp = new b(context.getApplicationContext());
+                if (aVh == null) {
+                    aVh = new b(context.getApplicationContext());
                 }
             }
         }
-        return aUp;
+        return aVh;
     }
 
     private b(Context context) {
@@ -49,16 +49,16 @@ public class b {
                         JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
                         String optString = jSONObject.optString("id");
                         String optString2 = jSONObject.optString("text");
-                        this.aUq.put(optString2, new a(optString, optString2, Integer.valueOf(eH(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
+                        this.aVi.put(optString2, new a(optString, optString2, Integer.valueOf(eK(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
                     }
                 }
                 JSONArray optJSONArray3 = optJSONObject.optJSONArray("panel_emoticons");
                 if (optJSONArray3 != null) {
                     int length2 = optJSONArray3.length();
                     for (int i2 = 0; i2 < length2; i2++) {
-                        String eG = eG((String) optJSONArray3.get(i2));
-                        if (!TextUtils.isEmpty(eG)) {
-                            this.aUr.add(eG);
+                        String eJ = eJ((String) optJSONArray3.get(i2));
+                        if (!TextUtils.isEmpty(eJ)) {
+                            this.aVj.add(eJ);
                         }
                     }
                 }
@@ -68,9 +68,9 @@ public class b {
         }
     }
 
-    private String eG(String str) {
+    private String eJ(String str) {
         String str2 = "";
-        for (Map.Entry<String, a> entry : this.aUq.entrySet()) {
+        for (Map.Entry<String, a> entry : this.aVi.entrySet()) {
             str2 = entry.getKey();
             if (str.equals(entry.getValue().id)) {
                 break;
@@ -79,7 +79,7 @@ public class b {
         return str2;
     }
 
-    private int eH(String str) {
+    private int eK(String str) {
         if (str == null) {
             return 0;
         }
@@ -150,9 +150,9 @@ public class b {
         Integer num;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                a aVar = this.aUq.get(str);
+                a aVar = this.aVi.get(str);
                 if (aVar != null) {
-                    num = aVar.aUt;
+                    num = aVar.aVl;
                     break;
                 }
             default:
@@ -169,30 +169,30 @@ public class b {
         a aVar = null;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                aVar = this.aUq.get(str);
+                aVar = this.aVi.get(str);
                 break;
         }
         return aVar == null ? "" : aVar.id;
     }
 
     public boolean a(EmotionType emotionType) {
-        return emotionType == EmotionType.EMOTION_CLASSIC_TYPE && this.aUq.size() > 0 && this.aUr.size() > 0;
+        return emotionType == EmotionType.EMOTION_CLASSIC_TYPE && this.aVi.size() > 0 && this.aVj.size() > 0;
     }
 
-    public List Dy() {
-        return this.aUr;
+    public List DU() {
+        return this.aVj;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
-        public Integer aUt;
+        public Integer aVl;
         public String id;
         public String text;
 
         public a(String str, String str2, Integer num) {
             this.id = str;
             this.text = str2;
-            this.aUt = num;
+            this.aVl = num;
         }
     }
 }

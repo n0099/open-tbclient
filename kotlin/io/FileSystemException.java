@@ -3,8 +3,8 @@ package kotlin.io;
 import java.io.File;
 import java.io.IOException;
 import kotlin.jvm.internal.o;
-import kotlin.jvm.internal.p;
-/* loaded from: classes4.dex */
+import kotlin.jvm.internal.q;
+/* loaded from: classes5.dex */
 public class FileSystemException extends IOException {
     private final File file;
     private final File other;
@@ -33,7 +33,7 @@ public class FileSystemException extends IOException {
     public FileSystemException(File file, File file2, String str) {
         super(r0);
         String b;
-        p.j(file, "file");
+        q.j(file, "file");
         b = c.b(file, file2, str);
         this.file = file;
         this.other = file2;

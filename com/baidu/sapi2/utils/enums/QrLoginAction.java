@@ -2,7 +2,7 @@ package com.baidu.sapi2.utils.enums;
 
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public enum QrLoginAction {
     NOTICE(LogConfig.KEY_NOTICE),
     LOGIN("login"),

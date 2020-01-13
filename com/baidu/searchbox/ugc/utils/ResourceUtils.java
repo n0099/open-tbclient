@@ -3,7 +3,7 @@ package com.baidu.searchbox.ugc.utils;
 import android.content.Context;
 import android.content.res.Resources;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ResourceUtils {
     private static Context sContext = AppRuntime.getAppContext();
     private static Resources sResources = sContext.getResources();

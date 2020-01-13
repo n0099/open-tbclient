@@ -4,12 +4,12 @@ import android.os.Bundle;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c extends d {
-    public final e bJW = new e(this, "");
+    public final e bKG = new e(this, "");
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppProcessInfo Yu() {
+    public SwanAppProcessInfo YR() {
         return SwanAppProcessInfo.current();
     }
 
@@ -19,33 +19,33 @@ public final class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean Yw() {
+    public boolean YT() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean Yv() {
+    public boolean YS() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppCores Yx() {
+    public SwanAppCores YU() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public int DH() {
+    public int Ed() {
         return -1;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.process.messaging.client.a ZL() {
+    public com.baidu.swan.apps.process.messaging.client.a aai() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public e ZM() {
-        return this.bJW;
+    public e aaj() {
+        return this.bKG;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -58,7 +58,7 @@ public final class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void ZN() {
+    public void aak() {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -70,7 +70,7 @@ public final class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppActivity ZO() {
+    public SwanAppActivity aal() {
         return null;
     }
 }

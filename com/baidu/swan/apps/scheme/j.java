@@ -28,13 +28,13 @@ import com.baidu.swan.apps.storage.a.o;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class j extends UnitedSchemeBaseDispatcher {
     private static final String TAG = j.class.getSimpleName();
-    protected final Map<String, ab> bLU = new HashMap();
+    protected final Map<String, ab> bME = new HashMap();
 
     public j() {
-        aaW();
+        abt();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -67,7 +67,7 @@ public class j extends UnitedSchemeBaseDispatcher {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str2 + " @ " + str3);
                     return false;
                 }
-                ab abVar = this.bLU.get(str2);
+                ab abVar = this.bME.get(str2);
                 if (abVar != null) {
                     if (unitedSchemeEntity.isOnlyVerify()) {
                         return true;
@@ -86,8 +86,8 @@ public class j extends UnitedSchemeBaseDispatcher {
         return null;
     }
 
-    protected void aaW() {
-        this.bLU.clear();
+    protected void abt() {
+        this.bME.clear();
         a(new u(this));
         a(new com.baidu.swan.apps.network.i(this));
         a(new ae(this));
@@ -118,8 +118,8 @@ public class j extends UnitedSchemeBaseDispatcher {
         a(new ad(this));
         a(new r(this));
         a(new q(this));
-        a(new com.baidu.swan.apps.ao.f.a.a(this));
-        a(new com.baidu.swan.apps.ao.f.a.b(this));
+        a(new com.baidu.swan.apps.ao.e.a.a(this));
+        a(new com.baidu.swan.apps.ao.e.a.b(this));
         a(new com.baidu.swan.apps.ao.a.a.a(this));
         a(new com.baidu.swan.apps.ao.a.a.b(this));
         a(new com.baidu.swan.apps.media.b.a.a(this));
@@ -138,15 +138,15 @@ public class j extends UnitedSchemeBaseDispatcher {
         a(new com.baidu.swan.apps.scheme.actions.e.c(this));
         a(new com.baidu.swan.apps.scheme.actions.d.a.b(this));
         a(new com.baidu.swan.apps.scheme.actions.d.a.a(this));
-        a(new com.baidu.swan.apps.ao.h.a.a(this));
-        a(new com.baidu.swan.apps.ao.h.a.b(this));
+        a(new com.baidu.swan.apps.ao.g.a.a(this));
+        a(new com.baidu.swan.apps.ao.g.a.b(this));
         a(new com.baidu.swan.apps.ao.c.a.c(this));
         a(new com.baidu.swan.apps.ao.c.a.a(this));
         a(new com.baidu.swan.apps.ao.b.a(this));
-        a(new com.baidu.swan.apps.ao.j.a(this));
+        a(new com.baidu.swan.apps.ao.i.a(this));
         a(new com.baidu.swan.apps.ao.b.b(this));
         a(new com.baidu.swan.apps.ao.b.c(this));
-        a(new com.baidu.swan.apps.ao.i.a(this));
+        a(new com.baidu.swan.apps.ao.h.a(this));
         a(new com.baidu.swan.apps.c.a.a.a(this));
         a(new com.baidu.swan.apps.setting.a.h(this));
         a(new com.baidu.swan.apps.r.b.d(this));
@@ -154,6 +154,6 @@ public class j extends UnitedSchemeBaseDispatcher {
     }
 
     public void a(ab abVar) {
-        this.bLU.put(abVar.name, abVar);
+        this.bME.put(abVar.name, abVar);
     }
 }

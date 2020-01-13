@@ -1,5 +1,5 @@
 package com.baidu.down.statistic;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ConfigSpeedStat {
     public static final int CFG_ENABLE_DEFAULT = 1;
     public static final long CFG_MIN_INTERVAL_DEFAULT = 7200;

@@ -8,7 +8,7 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class bb implements ServiceConnection {
     final /* synthetic */ ay a;
 
@@ -23,25 +23,25 @@ public class bb implements ServiceConnection {
         List list2;
         Messenger messenger;
         synchronized (this.a) {
-            this.a.f54a = new Messenger(iBinder);
+            this.a.f52a = new Messenger(iBinder);
             this.a.c = false;
-            list = this.a.f57a;
+            list = this.a.f55a;
             for (Message message : list) {
                 try {
-                    messenger = this.a.f54a;
+                    messenger = this.a.f52a;
                     messenger.send(message);
                 } catch (RemoteException e) {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
             }
-            list2 = this.a.f57a;
+            list2 = this.a.f55a;
             list2.clear();
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.a.f54a = null;
+        this.a.f52a = null;
         this.a.c = false;
     }
 }

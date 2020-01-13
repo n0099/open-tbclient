@@ -4,90 +4,90 @@ import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.fsg.base.restnet.beans.StatusCode;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 class b {
-    int iZF;
-    int iZG;
-    int iZH;
-    int iZL;
-    private int iZq;
-    private int iZr;
-    private byte[] iZs;
-    private int iZt;
-    private int iZu;
-    private int iZv;
-    int iZw;
-    int iZy;
-    int iZx = 12;
-    int iZz = 4096;
-    int[] iZA = new int[StatusCode.ERROR_NOT_LOGIN];
-    int[] iZB = new int[StatusCode.ERROR_NOT_LOGIN];
-    int iZC = StatusCode.ERROR_NOT_LOGIN;
-    int iZD = 0;
-    boolean iZE = false;
-    int iZI = 0;
-    int iZJ = 0;
-    int[] iZK = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, ResponseCode.PROTOCOL_EXP, 2047, 4095, 8191, 16383, 32767, 65535};
-    byte[] iZM = new byte[256];
+    private int jcT;
+    private int jcU;
+    private byte[] jcV;
+    private int jcW;
+    private int jcX;
+    private int jcY;
+    int jcZ;
+    int jdb;
+    int jdi;
+    int jdj;
+    int jdk;
+    int jdo;
+    int jda = 12;
+    int jdc = 4096;
+    int[] jdd = new int[StatusCode.ERROR_NOT_LOGIN];
+    int[] jde = new int[StatusCode.ERROR_NOT_LOGIN];
+    int jdf = StatusCode.ERROR_NOT_LOGIN;
+    int jdg = 0;
+    boolean jdh = false;
+    int jdl = 0;
+    int jdm = 0;
+    int[] jdn = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, ResponseCode.PROTOCOL_EXP, 2047, 4095, 8191, 16383, 32767, 65535};
+    byte[] jdp = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.iZq = i;
-        this.iZr = i2;
-        this.iZs = bArr;
-        this.iZt = Math.max(2, i3);
+        this.jcT = i;
+        this.jcU = i2;
+        this.jcV = bArr;
+        this.jcW = Math.max(2, i3);
     }
 
     void a(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.iZM;
-        int i = this.iZL;
-        this.iZL = i + 1;
+        byte[] bArr = this.jdp;
+        int i = this.jdo;
+        this.jdo = i + 1;
         bArr[i] = b;
-        if (this.iZL >= 254) {
+        if (this.jdo >= 254) {
             d(outputStream);
         }
     }
 
     void c(OutputStream outputStream) throws IOException {
-        zu(this.iZC);
-        this.iZD = this.iZG + 2;
-        this.iZE = true;
-        b(this.iZG, outputStream);
+        zz(this.jdf);
+        this.jdg = this.jdj + 2;
+        this.jdh = true;
+        b(this.jdj, outputStream);
     }
 
-    void zu(int i) {
+    void zz(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.iZA[i2] = -1;
+            this.jdd[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.iZF = i;
-        this.iZE = false;
-        this.iZw = this.iZF;
-        this.iZy = zv(this.iZw);
-        this.iZG = 1 << (i - 1);
-        this.iZH = this.iZG + 1;
-        this.iZD = this.iZG + 2;
-        this.iZL = 0;
-        int crY = crY();
-        for (int i3 = this.iZC; i3 < 65536; i3 *= 2) {
+        this.jdi = i;
+        this.jdh = false;
+        this.jcZ = this.jdi;
+        this.jdb = zA(this.jcZ);
+        this.jdj = 1 << (i - 1);
+        this.jdk = this.jdj + 1;
+        this.jdg = this.jdj + 2;
+        this.jdo = 0;
+        int ctf = ctf();
+        for (int i3 = this.jdf; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.iZC;
-        zu(i5);
-        b(this.iZG, outputStream);
+        int i5 = this.jdf;
+        zz(i5);
+        b(this.jdj, outputStream);
         while (true) {
-            int crY2 = crY();
-            if (crY2 != -1) {
-                int i6 = (crY2 << this.iZx) + crY;
-                int i7 = (crY2 << i4) ^ crY;
-                if (this.iZA[i7] == i6) {
-                    crY = this.iZB[i7];
+            int ctf2 = ctf();
+            if (ctf2 != -1) {
+                int i6 = (ctf2 << this.jda) + ctf;
+                int i7 = (ctf2 << i4) ^ ctf;
+                if (this.jdd[i7] == i6) {
+                    ctf = this.jde[i7];
                 } else {
-                    if (this.iZA[i7] >= 0) {
+                    if (this.jdd[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -97,28 +97,28 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.iZA[i7] == i6) {
-                                crY = this.iZB[i7];
+                            if (this.jdd[i7] == i6) {
+                                ctf = this.jde[i7];
                                 break;
                             }
-                        } while (this.iZA[i7] >= 0);
+                        } while (this.jdd[i7] >= 0);
                     }
-                    b(crY, outputStream);
-                    if (this.iZD < this.iZz) {
-                        int[] iArr = this.iZB;
-                        int i9 = this.iZD;
-                        this.iZD = i9 + 1;
+                    b(ctf, outputStream);
+                    if (this.jdg < this.jdc) {
+                        int[] iArr = this.jde;
+                        int i9 = this.jdg;
+                        this.jdg = i9 + 1;
                         iArr[i7] = i9;
-                        this.iZA[i7] = i6;
-                        crY = crY2;
+                        this.jdd[i7] = i6;
+                        ctf = ctf2;
                     } else {
                         c(outputStream);
-                        crY = crY2;
+                        ctf = ctf2;
                     }
                 }
             } else {
-                b(crY, outputStream);
-                b(this.iZH, outputStream);
+                b(ctf, outputStream);
+                b(this.jdk, outputStream);
                 return;
             }
         }
@@ -126,69 +126,69 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.iZt);
-        this.iZu = this.iZq * this.iZr;
-        this.iZv = 0;
-        a(this.iZt + 1, outputStream);
+        outputStream.write(this.jcW);
+        this.jcX = this.jcT * this.jcU;
+        this.jcY = 0;
+        a(this.jcW + 1, outputStream);
         outputStream.write(0);
     }
 
     void d(OutputStream outputStream) throws IOException {
-        if (this.iZL > 0) {
-            outputStream.write(this.iZL);
-            outputStream.write(this.iZM, 0, this.iZL);
-            this.iZL = 0;
+        if (this.jdo > 0) {
+            outputStream.write(this.jdo);
+            outputStream.write(this.jdp, 0, this.jdo);
+            this.jdo = 0;
         }
     }
 
-    final int zv(int i) {
+    final int zA(int i) {
         return (1 << i) - 1;
     }
 
-    private int crY() {
-        if (this.iZu == 0) {
+    private int ctf() {
+        if (this.jcX == 0) {
             return -1;
         }
-        this.iZu--;
-        byte[] bArr = this.iZs;
-        int i = this.iZv;
-        this.iZv = i + 1;
+        this.jcX--;
+        byte[] bArr = this.jcV;
+        int i = this.jcY;
+        this.jcY = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.iZI &= this.iZK[this.iZJ];
-        if (this.iZJ > 0) {
-            this.iZI |= i << this.iZJ;
+        this.jdl &= this.jdn[this.jdm];
+        if (this.jdm > 0) {
+            this.jdl |= i << this.jdm;
         } else {
-            this.iZI = i;
+            this.jdl = i;
         }
-        this.iZJ += this.iZw;
-        while (this.iZJ >= 8) {
-            a((byte) (this.iZI & 255), outputStream);
-            this.iZI >>= 8;
-            this.iZJ -= 8;
+        this.jdm += this.jcZ;
+        while (this.jdm >= 8) {
+            a((byte) (this.jdl & 255), outputStream);
+            this.jdl >>= 8;
+            this.jdm -= 8;
         }
-        if (this.iZD > this.iZy || this.iZE) {
-            if (this.iZE) {
-                int i2 = this.iZF;
-                this.iZw = i2;
-                this.iZy = zv(i2);
-                this.iZE = false;
+        if (this.jdg > this.jdb || this.jdh) {
+            if (this.jdh) {
+                int i2 = this.jdi;
+                this.jcZ = i2;
+                this.jdb = zA(i2);
+                this.jdh = false;
             } else {
-                this.iZw++;
-                if (this.iZw == this.iZx) {
-                    this.iZy = this.iZz;
+                this.jcZ++;
+                if (this.jcZ == this.jda) {
+                    this.jdb = this.jdc;
                 } else {
-                    this.iZy = zv(this.iZw);
+                    this.jdb = zA(this.jcZ);
                 }
             }
         }
-        if (i == this.iZH) {
-            while (this.iZJ > 0) {
-                a((byte) (this.iZI & 255), outputStream);
-                this.iZI >>= 8;
-                this.iZJ -= 8;
+        if (i == this.jdk) {
+            while (this.jdm > 0) {
+                a((byte) (this.jdl & 255), outputStream);
+                this.jdl >>= 8;
+                this.jdm -= 8;
             }
             d(outputStream);
         }
