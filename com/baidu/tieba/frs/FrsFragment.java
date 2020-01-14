@@ -539,7 +539,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                     FrsFragment.this.gmj.sJ(i);
                     FrsFragment.gmp = (System.nanoTime() - this.startTime) / TimeUtils.NANOS_PER_MS;
                     if (bVar != null) {
-                        FrsFragment.gmq = bVar.kdc;
+                        FrsFragment.gmq = bVar.kdh;
                     }
                 } else {
                     return;
@@ -731,11 +731,11 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                 FrsFragment.this.gmB.bJx();
             }
             if (FrsFragment.this.gmy == null) {
-                if (FrsFragment.this.gmj.bDf() != null && !FrsFragment.this.gmj.bCL() && FrsFragment.this.gmj.bDf().cxl() != null && (FrsFragment.this.gmj.bDf().cxl().getTag() instanceof com.baidu.card.af)) {
-                    FrsFragment.this.gmy = (com.baidu.card.af) FrsFragment.this.gmj.bDf().cxl().getTag();
+                if (FrsFragment.this.gmj.bDf() != null && !FrsFragment.this.gmj.bCL() && FrsFragment.this.gmj.bDf().cxn() != null && (FrsFragment.this.gmj.bDf().cxn().getTag() instanceof com.baidu.card.af)) {
+                    FrsFragment.this.gmy = (com.baidu.card.af) FrsFragment.this.gmj.bDf().cxn().getTag();
                 }
-            } else if (i == 0 && FrsFragment.this.gmj.bDf() != null && !FrsFragment.this.gmj.bCL() && FrsFragment.this.gmj.bDf().cxl() != null && (FrsFragment.this.gmj.bDf().cxl().getTag() instanceof com.baidu.card.af)) {
-                FrsFragment.this.gmy = (com.baidu.card.af) FrsFragment.this.gmj.bDf().cxl().getTag();
+            } else if (i == 0 && FrsFragment.this.gmj.bDf() != null && !FrsFragment.this.gmj.bCL() && FrsFragment.this.gmj.bDf().cxn() != null && (FrsFragment.this.gmj.bDf().cxn().getTag() instanceof com.baidu.card.af)) {
+                FrsFragment.this.gmy = (com.baidu.card.af) FrsFragment.this.gmj.bDf().cxn().getTag();
             }
             if (i == 1) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921418));
@@ -829,8 +829,8 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent)) {
                 KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
                 if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24) {
-                    if (FrsFragment.this.gmy == null && FrsFragment.this.gmj.bDf() != null && !FrsFragment.this.gmj.bCL() && FrsFragment.this.gmj.bDf().cxl() != null && (FrsFragment.this.gmj.bDf().cxl().getTag() instanceof com.baidu.card.af)) {
-                        FrsFragment.this.gmy = (com.baidu.card.af) FrsFragment.this.gmj.bDf().cxl().getTag();
+                    if (FrsFragment.this.gmy == null && FrsFragment.this.gmj.bDf() != null && !FrsFragment.this.gmj.bCL() && FrsFragment.this.gmj.bDf().cxn() != null && (FrsFragment.this.gmj.bDf().cxn().getTag() instanceof com.baidu.card.af)) {
+                        FrsFragment.this.gmy = (com.baidu.card.af) FrsFragment.this.gmj.bDf().cxn().getTag();
                     }
                     if (FrsFragment.this.gmy != null && FrsFragment.this.gmy.mU() != null) {
                         FrsFragment.this.gmy.mU().b(new a.C0050a(3));
@@ -1117,7 +1117,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
         }
         FrsViewData bCK = bCK();
         com.baidu.tbadk.core.data.t tVar = null;
-        if (bCK.getStar() != null && !StringUtils.isNull(bCK.getStar().cIH())) {
+        if (bCK.getStar() != null && !StringUtils.isNull(bCK.getStar().cIJ())) {
             tVar = new com.baidu.tbadk.core.data.t();
         } else if (bCK.getActivityHeadData() != null && com.baidu.tbadk.core.util.v.getCount(bCK.getActivityHeadData().ayh()) >= 1) {
             tVar = bCK.getActivityHeadData().ayh().get(0);
@@ -1432,7 +1432,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
     }
 
     public void la(boolean z) {
-        com.baidu.tieba.r.c.cIs().b(getUniqueId(), z);
+        com.baidu.tieba.r.c.cIu().b(getUniqueId(), z);
     }
 
     public void bCx() {
@@ -1478,7 +1478,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tieba.r.c.cIs().w(getUniqueId());
+        com.baidu.tieba.r.c.cIu().w(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -1526,7 +1526,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
             ai(intent);
         }
         this.dzt = this.beginTime - this.fSK;
-        this.gmf = new com.baidu.tieba.tbadkCore.data.f("frs", com.baidu.tieba.tbadkCore.data.f.keM);
+        this.gmf = new com.baidu.tieba.tbadkCore.data.f("frs", com.baidu.tieba.tbadkCore.data.f.keR);
         if (this.gmz == null) {
             this.gmz = new FrsModelController(this, this.gnw);
             this.gmz.a(this.gni);
@@ -1915,7 +1915,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        com.baidu.tieba.r.c.cIs().x(getUniqueId());
+        com.baidu.tieba.r.c.cIu().x(getUniqueId());
         MessageManager.getInstance().unRegisterListener(this.gnE);
         gmm = null;
         if (this.gmi != null) {
@@ -1969,7 +1969,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
         if (this.gmX != null) {
             this.gmX.onDestroy();
         }
-        com.baidu.tieba.recapp.d.a.cBK().cBM();
+        com.baidu.tieba.recapp.d.a.cBM().cBO();
         com.baidu.tieba.frs.f.j.bIz();
         if (this.gmB != null) {
             this.gmB.a((FrsTabViewController.a) null);

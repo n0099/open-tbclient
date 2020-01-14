@@ -62,9 +62,9 @@ public class b {
                     b.this.gvT = false;
                     if (b.this.gvR != 7) {
                         aa.aPY();
-                        e.cKz();
+                        e.cKB();
                     } else {
-                        e.cKy();
+                        e.cKA();
                     }
                     if (b.this.gnW.bCf() != null && b.this.gnW.bCk() != null) {
                         b.this.gnW.bCf().tH(wVar.gpO);
@@ -119,9 +119,9 @@ public class b {
                         bVar.dismiss();
                         if (b.this.gvR != 7) {
                             aa.aPY();
-                            e.cKz();
+                            e.cKB();
                         } else {
-                            e.cKy();
+                            e.cKA();
                         }
                         if (b.this.gnW.bCf() != null && b.this.gnW.bCk() != null) {
                             b.this.gnW.bCf().tH(wVar.gpO);

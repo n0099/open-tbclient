@@ -21,12 +21,12 @@ import java.util.Iterator;
 /* loaded from: classes9.dex */
 public class ShareStatic {
     static {
-        cFJ();
-        cFK();
         cFL();
+        cFM();
+        cFN();
     }
 
-    private static void cFJ() {
+    private static void cFL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.1
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -38,7 +38,7 @@ public class ShareStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cFK() {
+    private static void cFM() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new CustomMessageTask.CustomRunnable<ShareDialogConfig>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
@@ -84,7 +84,7 @@ public class ShareStatic {
                             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                             while (it.hasNext()) {
                                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                                bVar.a(bVar.cE(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), bVar.cFZ(), (View.OnClickListener) ((Pair) next.second).second);
+                                bVar.a(bVar.cE(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), bVar.cGb(), (View.OnClickListener) ((Pair) next.second).second);
                             }
                         }
                         bVar.b(data.getFrom());
@@ -112,13 +112,13 @@ public class ShareStatic {
             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = shareDialogConfig.textViewList.iterator();
             while (it.hasNext()) {
                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                aVar.a(aVar.cE(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.cFZ(), (View.OnClickListener) ((Pair) next.second).second);
+                aVar.a(aVar.cE(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.cGb(), (View.OnClickListener) ((Pair) next.second).second);
             }
         }
         aVar.show();
     }
 
-    private static void cFL() {
+    private static void cFN() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016567, new CustomMessageTask.CustomRunnable<ShareItem>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareItem> customMessage) {

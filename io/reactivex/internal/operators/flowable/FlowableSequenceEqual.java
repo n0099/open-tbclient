@@ -11,8 +11,8 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
     final io.reactivex.c.d<? super T, ? super T> comparer;
-    final org.a.b<? extends T> nwy;
-    final org.a.b<? extends T> nwz;
+    final org.a.b<? extends T> nwD;
+    final org.a.b<? extends T> nwE;
     final int prefetch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,7 +27,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
     public void a(org.a.c<? super Boolean> cVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(cVar, this.prefetch, this.comparer);
         cVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.nwy, this.nwz);
+        equalCoordinator.subscribe(this.nwD, this.nwE);
     }
 
     /* loaded from: classes5.dex */

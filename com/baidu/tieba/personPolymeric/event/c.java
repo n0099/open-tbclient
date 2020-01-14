@@ -49,11 +49,11 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes9.dex */
 public class c extends a {
-    private f jna;
+    private f jnf;
 
     public c(TbPageContext tbPageContext, f fVar) {
         super(tbPageContext);
-        this.jna = fVar;
+        this.jnf = fVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0151, code lost:
@@ -88,7 +88,7 @@ public class c extends a {
                         nVar.gn(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(nVar);
-                        this.jna.cvr().a((m) nVar, (List<m>) arrayList, 0);
+                        this.jnf.cvt().a((m) nVar, (List<m>) arrayList, 0);
                         return;
                     }
                     return;
@@ -112,9 +112,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.jna != null && this.jna.cvq() != null) {
+                    if (this.jnf != null && this.jnf.cvs() != null) {
                         TiebaStatic.log("c12207");
-                        this.jna.cvq().cvw();
+                        this.jnf.cvs().cvy();
                         return;
                     }
                     return;
@@ -204,7 +204,7 @@ public class c extends a {
                     return;
                 case 16:
                     zS(7);
-                    com.baidu.tieba.o.a.cCk().g(7, false, this.isHost);
+                    com.baidu.tieba.o.a.cCm().g(7, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 17:
@@ -213,7 +213,7 @@ public class c extends a {
                     return;
                 case 20:
                     zS(2);
-                    com.baidu.tieba.o.a.cCk().g(3, false, this.isHost);
+                    com.baidu.tieba.o.a.cCm().g(3, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_COLLECTION_CLICK));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_EDITMARK, new IntentConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -231,7 +231,7 @@ public class c extends a {
                     return;
                 case 24:
                     zS(3);
-                    com.baidu.tieba.o.a.cCk().g(4, false, this.isHost);
+                    com.baidu.tieba.o.a.cCm().g(4, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLEAR_ADDRESSLIST_TIP));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddressListActivityConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -249,7 +249,7 @@ public class c extends a {
                     return;
                 case 30:
                     zS(1);
-                    com.baidu.tieba.o.a.cCk().g(8, false, this.isHost);
+                    com.baidu.tieba.o.a.cCm().g(8, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MessageCenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 31:
@@ -259,7 +259,7 @@ public class c extends a {
                 case 32:
                     if (bc.checkUpIsLogin(this.mPageContext.getPageActivity())) {
                         zS(4);
-                        com.baidu.tieba.o.a.cCk().g(1, false, this.isHost);
+                        com.baidu.tieba.o.a.cCm().g(1, false, this.isHost);
                         if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
                             return;
@@ -309,8 +309,8 @@ public class c extends a {
                         nVar2.gn(false);
                         ArrayList arrayList2 = new ArrayList();
                         arrayList2.add(nVar2);
-                        if (this.jna.cvr() != null) {
-                            this.jna.cvr().a((m) nVar2, (List<m>) arrayList2, 0, true);
+                        if (this.jnf.cvt() != null) {
+                            this.jnf.cvt().a((m) nVar2, (List<m>) arrayList2, 0, true);
                             return;
                         }
                         return;

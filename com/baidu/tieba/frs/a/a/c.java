@@ -83,11 +83,11 @@ public class c extends v.a {
 
     public void a(x xVar) {
         if (xVar != null) {
-            bl cIT = xVar.cIT();
-            bo cIU = xVar.cIU();
-            this.top_code = cIT;
-            this.news_info = cIU;
-            if (xVar.cIS()) {
+            bl cIV = xVar.cIV();
+            bo cIW = xVar.cIW();
+            this.top_code = cIV;
+            this.news_info = cIW;
+            if (xVar.cIU()) {
                 this.gxi.setVisibility(0);
             } else {
                 this.gxi.setVisibility(8);
@@ -103,10 +103,10 @@ public class c extends v.a {
                 this.gxf.setVisibility(0);
                 this.gxa.startLoad(this.top_code.ayq(), 10, false);
                 this.gxb.setText(this.top_code.getSummary());
-                if (StringUtils.isNull(cIT.aCe())) {
+                if (StringUtils.isNull(cIV.aCe())) {
                     this.gxe.setVisibility(8);
                 } else {
-                    this.gxe.setText(cIT.aCe());
+                    this.gxe.setText(cIV.aCe());
                     this.gxe.setVisibility(0);
                 }
                 int aCb = this.top_code.aCb();
@@ -120,7 +120,7 @@ public class c extends v.a {
                         this.gxc.setText(spannableString);
                         this.gxc.setVisibility(0);
                     }
-                    if (cIT.aCd() <= 0) {
+                    if (cIV.aCd() <= 0) {
                         this.gxd.setVisibility(8);
                     } else {
                         String str2 = this.cRe.getResources().getString(R.string.u9_worth) + this.top_code.aCd();
@@ -131,16 +131,16 @@ public class c extends v.a {
                     }
                 } else {
                     this.gxd.setVisibility(8);
-                    this.gxc.setText(cIT.getSubTitle());
+                    this.gxc.setText(cIV.getSubTitle());
                     this.gxc.setVisibility(0);
                 }
             }
-            if (this.news_info == null || StringUtils.isNull(cIU.getSummary())) {
+            if (this.news_info == null || StringUtils.isNull(cIW.getSummary())) {
                 this.gwZ.setVisibility(8);
                 return;
             }
             this.gwZ.setVisibility(0);
-            this.gxg.setText(cIU.getSummary());
+            this.gxg.setText(cIW.getSummary());
         }
     }
 

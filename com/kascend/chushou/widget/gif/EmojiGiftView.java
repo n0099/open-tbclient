@@ -12,7 +12,7 @@ import com.kascend.chushou.a;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 /* loaded from: classes4.dex */
 public class EmojiGiftView extends FrameLayout {
-    private FrescoThumbnailView nat;
+    private FrescoThumbnailView nay;
 
     public EmojiGiftView(@NonNull Context context) {
         super(context);
@@ -31,18 +31,18 @@ public class EmojiGiftView extends FrameLayout {
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(a.h.widget_emoji_gift, (ViewGroup) this, true);
-        this.nat = (FrescoThumbnailView) findViewById(a.f.iv_emoji_gift_icon);
-        this.nat.setAnim(true);
+        this.nay = (FrescoThumbnailView) findViewById(a.f.iv_emoji_gift_icon);
+        this.nay.setAnim(true);
         RoundingParams roundingParams = new RoundingParams();
         roundingParams.a(RoundingParams.RoundingMethod.OVERLAY_COLOR);
         roundingParams.HL(tv.chushou.widget.a.c.getColor(a.c.kas_white));
         roundingParams.bq(2.0f);
-        this.nat.getHierarchy().a(roundingParams);
+        this.nay.getHierarchy().a(roundingParams);
     }
 
     public void g(String str, int i, int i2, int i3) {
-        if (this.nat != null) {
-            this.nat.h(str, i, i2, i3);
+        if (this.nay != null) {
+            this.nay.h(str, i, i2, i3);
         }
     }
 }

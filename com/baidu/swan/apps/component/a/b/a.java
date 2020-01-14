@@ -72,19 +72,19 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
             String str = m.bdy;
             if (!TextUtils.isEmpty(str) && (ga = ga(str)) != null) {
                 c.d("Component-SimpleDrawee", "Image Uri:" + ga);
-                e b = com.facebook.drawee.a.a.c.dkh().c(v.getController());
+                e b = com.facebook.drawee.a.a.c.dkj().c(v.getController());
                 if (bVar != null) {
                     b.c(bVar);
                 }
                 b.J(ga);
-                com.facebook.drawee.controller.a dkU = b.dkY();
+                com.facebook.drawee.controller.a dkW = b.dla();
                 RoundingParams roundingParams = new RoundingParams();
                 roundingParams.bp(m.bdH);
-                com.facebook.drawee.generic.a dlI = new com.facebook.drawee.generic.b(v.getResources()).dlI();
-                dlI.a(roundingParams);
-                dlI.b(p.b.lLZ);
-                v.setHierarchy(dlI);
-                v.setController(dkU);
+                com.facebook.drawee.generic.a dlK = new com.facebook.drawee.generic.b(v.getResources()).dlK();
+                dlK.a(roundingParams);
+                dlK.b(p.b.lMe);
+                v.setHierarchy(dlK);
+                v.setController(dkW);
             }
         }
     }

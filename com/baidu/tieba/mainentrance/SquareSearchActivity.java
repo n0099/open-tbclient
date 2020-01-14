@@ -693,7 +693,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                 h.gy().submitTask(new Runnable() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivity.18.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.tbadkCore.util.a.cKs();
+                        com.baidu.tieba.tbadkCore.util.a.cKu();
                     }
                 });
                 if (SquareSearchActivity.this.idn == null || SquareSearchActivity.this.idn.size() < 2) {

@@ -13,9 +13,9 @@ import com.baidu.tieba.recapp.widget.CountDownTextView;
 public class c extends e {
     private TextView bXF;
     private HeadImageView gRP;
-    private TextView jKY;
-    private CountDownTextView jLe;
-    private boolean jLf;
+    private TextView jLd;
+    private CountDownTextView jLj;
+    private boolean jLk;
 
     public c(View view, String str) {
         super(view, str);
@@ -29,58 +29,58 @@ public class c extends e {
         this.gRP.setDefaultBgResource(R.color.cp_bg_line_e);
         this.gRP.setIsRound(true);
         this.bXF = (TextView) AW(R.id.user_name);
-        this.jLe = (CountDownTextView) AW(R.id.count_down_text);
-        this.jKY = (TextView) AW(R.id.action);
+        this.jLj = (CountDownTextView) AW(R.id.count_down_text);
+        this.jLd = (TextView) AW(R.id.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(final AdCard.f fVar) {
         super.a(fVar);
-        this.gRP.startLoad(fVar.jGw, 10, false);
+        this.gRP.startLoad(fVar.jGB, 10, false);
         this.bXF.setText(fVar.userName);
-        this.jKY.setText(fVar.buttonText);
+        this.jLd.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 s.be(c.this.mRootView.getContext(), fVar.scheme);
-                if (c.this.jLi != null) {
-                    c.this.jLi.AP(302);
-                    com.baidu.tieba.recapp.report.c.cBP().a(c.this.jLi);
+                if (c.this.jLn != null) {
+                    c.this.jLn.AP(302);
+                    com.baidu.tieba.recapp.report.c.cBR().a(c.this.jLn);
                 }
-                if (c.this.jLk != null) {
-                    com.baidu.tieba.lego.card.b.c.a(c.this.jLk);
+                if (c.this.jLp != null) {
+                    com.baidu.tieba.lego.card.b.c.a(c.this.jLp);
                 }
                 c.this.sb(false);
             }
         });
-        this.jLe.update(fVar.count);
+        this.jLj.update(fVar.count);
         onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void cBW() {
-        super.cBW();
-        this.jLe.startCountDown();
+    public void cBY() {
+        super.cBY();
+        this.jLj.startCountDown();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void setTimeoutListener(CountDownTextView.b bVar) {
         super.setTimeoutListener(bVar);
-        this.jLe.setTimeoutListener(bVar);
+        this.jLj.setTimeoutListener(bVar);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void onChangeSkinType() {
         am.setViewTextColor(this.bXF, R.color.cp_cont_a, 1);
-        am.setViewTextColor(this.jKY, R.color.cp_cont_a, 1);
-        am.setBackgroundResource(this.jKY, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
+        am.setViewTextColor(this.jLd, R.color.cp_cont_a, 1);
+        am.setBackgroundResource(this.jLd, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void sb(boolean z) {
-        this.jLf = z;
-        if (this.jLe != null) {
-            this.jLe.setEnableTimeoutListener(this.jLf);
+        this.jLk = z;
+        if (this.jLj != null) {
+            this.jLj.setEnableTimeoutListener(this.jLk);
         }
     }
 }

@@ -20,7 +20,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
     final int bufferSize;
     final boolean delayError;
     final h<? super T, ? extends K> keySelector;
-    final h<? super io.reactivex.c.g<Object>, ? extends Map<K, Object>> nwj;
+    final h<? super io.reactivex.c.g<Object>, ? extends Map<K, Object>> nwo;
     final h<? super T, ? extends V> valueSelector;
 
     @Override // io.reactivex.g
@@ -28,14 +28,14 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
         ConcurrentLinkedQueue concurrentLinkedQueue;
         Map<K, Object> apply;
         try {
-            if (this.nwj == null) {
+            if (this.nwo == null) {
                 concurrentLinkedQueue = null;
                 apply = new ConcurrentHashMap<>();
             } else {
                 concurrentLinkedQueue = new ConcurrentLinkedQueue();
-                apply = this.nwj.apply(new a(concurrentLinkedQueue));
+                apply = this.nwo.apply(new a(concurrentLinkedQueue));
             }
-            this.nvK.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError, apply, concurrentLinkedQueue));
+            this.nvP.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError, apply, concurrentLinkedQueue));
         } catch (Exception e) {
             io.reactivex.exceptions.a.I(e);
             cVar.onSubscribe(EmptyComponent.INSTANCE);
@@ -364,7 +364,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class b<K, T> extends io.reactivex.b.b<K, T> {
-        final State<T, K> nwk;
+        final State<T, K> nwp;
 
         public static <T, K> b<K, T> a(K k, int i, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
             return new b<>(k, new State(i, groupBySubscriber, k, z));
@@ -372,24 +372,24 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
         protected b(K k, State<T, K> state) {
             super(k);
-            this.nwk = state;
+            this.nwp = state;
         }
 
         @Override // io.reactivex.g
         protected void a(org.a.c<? super T> cVar) {
-            this.nwk.subscribe(cVar);
+            this.nwp.subscribe(cVar);
         }
 
         public void onNext(T t) {
-            this.nwk.onNext(t);
+            this.nwp.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.nwk.onError(th);
+            this.nwp.onError(th);
         }
 
         public void onComplete() {
-            this.nwk.onComplete();
+            this.nwp.onComplete();
         }
     }
 

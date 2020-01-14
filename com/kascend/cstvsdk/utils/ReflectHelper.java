@@ -12,7 +12,7 @@ public class ReflectHelper {
     protected Class<?> a;
     private Field c;
     private Method d;
-    private Constructor njB;
+    private Constructor njG;
 
     /* loaded from: classes4.dex */
     public static class ReflectedException extends Exception {
@@ -57,7 +57,7 @@ public class ReflectHelper {
         try {
             this.c = QR(str);
             this.c.setAccessible(true);
-            this.njB = null;
+            this.njG = null;
             this.d = null;
             return this;
         } catch (Throwable th) {

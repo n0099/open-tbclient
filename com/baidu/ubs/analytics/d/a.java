@@ -3,10 +3,10 @@ package com.baidu.ubs.analytics.d;
 import android.os.Environment;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final String kVN = Environment.getExternalStorageDirectory().getPath();
-    static final String kVO = kVN + "/baidu/ab/crash/";
-    static final String kVP = kVN + "/baidu/ab/sdklog/";
-    public static final String kVQ = kVN + "/baidu/ab/sdkupdata/" + cWw() + "/";
+    private static final String kVS = Environment.getExternalStorageDirectory().getPath();
+    static final String kVT = kVS + "/baidu/ab/crash/";
+    static final String kVU = kVS + "/baidu/ab/sdklog/";
+    public static final String kVV = kVS + "/baidu/ab/sdkupdata/" + cWy() + "/";
     private static int aU = EnumC0636a.aV;
 
     /* JADX WARN: $VALUES field not found */
@@ -20,7 +20,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean cWv() {
+    public static boolean cWx() {
         return aU == EnumC0636a.aV;
     }
 
@@ -28,7 +28,7 @@ public final class a {
         return "0.4.0";
     }
 
-    private static int cWw() {
+    private static int cWy() {
         try {
             String[] split = "0.4.0".split("\\.");
             if (split.length > 2) {

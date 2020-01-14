@@ -8,12 +8,12 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class FlowableGenerate<T, S> extends io.reactivex.g<T> {
     final io.reactivex.c.g<? super S> disposeState;
     final io.reactivex.c.c<S, io.reactivex.f<T>, S> generator;
-    final Callable<S> nwi;
+    final Callable<S> nwn;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            cVar.onSubscribe(new GeneratorSubscription(cVar, this.generator, this.disposeState, this.nwi.call()));
+            cVar.onSubscribe(new GeneratorSubscription(cVar, this.generator, this.disposeState, this.nwn.call()));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.I(th);
             EmptySubscription.error(th, cVar);

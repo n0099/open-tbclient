@@ -882,7 +882,7 @@ public final class R {
         public static final int collapseActionView = 0x7f0f01fe;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f962common = 0x7f0f01b8;
+        public static final int f963common = 0x7f0f01b8;
         public static final int container = 0x7f0f03af;
         public static final int contentPanel = 0x7f0f026e;
         public static final int coordinator = 0x7f0f0eba;

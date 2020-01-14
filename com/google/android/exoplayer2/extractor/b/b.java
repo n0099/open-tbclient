@@ -20,28 +20,28 @@ import java.io.IOException;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class b implements e {
-    public static final h mdK = new h() { // from class: com.google.android.exoplayer2.extractor.b.b.1
+    public static final h mdP = new h() { // from class: com.google.android.exoplayer2.extractor.b.b.1
         @Override // com.google.android.exoplayer2.extractor.h
-        public e[] dtE() {
+        public e[] dtG() {
             return new e[]{new b()};
         }
     };
-    private static final int mfO = v.Qr("Xing");
-    private static final int mfP = v.Qr("Info");
-    private static final int mfQ = v.Qr("VBRI");
+    private static final int mfT = v.Qr("Xing");
+    private static final int mfU = v.Qr("Info");
+    private static final int mfV = v.Qr("VBRI");
     private final int flags;
-    private final l mdM;
-    private g mdQ;
+    private final l mdR;
+    private g mdV;
     private Metadata metadata;
-    private final long mfR;
-    private final j mfS;
-    private final i mfT;
-    private m mfU;
-    private int mfV;
-    private a mfW;
-    private long mfX;
-    private long mfY;
-    private int mfZ;
+    private final long mfW;
+    private final j mfX;
+    private final i mfY;
+    private m mfZ;
+    private int mga;
+    private a mgb;
+    private long mgc;
+    private long mgd;
+    private int mge;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
@@ -59,11 +59,11 @@ public final class b implements e {
 
     public b(int i, long j) {
         this.flags = i;
-        this.mfR = j;
-        this.mdM = new l(10);
-        this.mfS = new j();
-        this.mfT = new i();
-        this.mfX = -9223372036854775807L;
+        this.mfW = j;
+        this.mdR = new l(10);
+        this.mfX = new j();
+        this.mfY = new i();
+        this.mgc = -9223372036854775807L;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
@@ -73,17 +73,17 @@ public final class b implements e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void a(g gVar) {
-        this.mdQ = gVar;
-        this.mfU = this.mdQ.dH(0, 1);
-        this.mdQ.dtF();
+        this.mdV = gVar;
+        this.mfZ = this.mdV.dH(0, 1);
+        this.mdV.dtH();
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void O(long j, long j2) {
-        this.mfV = 0;
-        this.mfX = -9223372036854775807L;
-        this.mfY = 0L;
-        this.mfZ = 0;
+        this.mga = 0;
+        this.mgc = -9223372036854775807L;
+        this.mgd = 0L;
+        this.mge = 0;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
@@ -92,55 +92,55 @@ public final class b implements e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public int a(f fVar, k kVar) throws IOException, InterruptedException {
-        if (this.mfV == 0) {
+        if (this.mga == 0) {
             try {
                 a(fVar, false);
             } catch (EOFException e) {
                 return -1;
             }
         }
-        if (this.mfW == null) {
-            this.mfW = l(fVar);
-            if (this.mfW == null || (!this.mfW.dtB() && (this.flags & 1) != 0)) {
-                this.mfW = m(fVar);
+        if (this.mgb == null) {
+            this.mgb = l(fVar);
+            if (this.mgb == null || (!this.mgb.dtD() && (this.flags & 1) != 0)) {
+                this.mgb = m(fVar);
             }
-            this.mdQ.a(this.mfW);
-            this.mfU.h(Format.a((String) null, this.mfS.mimeType, (String) null, -1, 4096, this.mfS.channels, this.mfS.sampleRate, -1, this.mfT.encoderDelay, this.mfT.encoderPadding, (List<byte[]>) null, (DrmInitData) null, 0, (String) null, (this.flags & 2) != 0 ? null : this.metadata));
+            this.mdV.a(this.mgb);
+            this.mfZ.h(Format.a((String) null, this.mfX.mimeType, (String) null, -1, 4096, this.mfX.channels, this.mfX.sampleRate, -1, this.mfY.encoderDelay, this.mfY.encoderPadding, (List<byte[]>) null, (DrmInitData) null, 0, (String) null, (this.flags & 2) != 0 ? null : this.metadata));
         }
         return j(fVar);
     }
 
     private int j(f fVar) throws IOException, InterruptedException {
-        if (this.mfZ == 0) {
-            fVar.dtC();
-            if (!fVar.e(this.mdM.data, 0, 4, true)) {
+        if (this.mge == 0) {
+            fVar.dtE();
+            if (!fVar.e(this.mdR.data, 0, 4, true)) {
                 return -1;
             }
-            this.mdM.setPosition(0);
-            int readInt = this.mdM.readInt();
-            if (!E(readInt, this.mfV) || j.Jx(readInt) == -1) {
+            this.mdR.setPosition(0);
+            int readInt = this.mdR.readInt();
+            if (!E(readInt, this.mga) || j.Jx(readInt) == -1) {
                 fVar.Jq(1);
-                this.mfV = 0;
+                this.mga = 0;
                 return 0;
             }
-            j.a(readInt, this.mfS);
-            if (this.mfX == -9223372036854775807L) {
-                this.mfX = this.mfW.fP(fVar.getPosition());
-                if (this.mfR != -9223372036854775807L) {
-                    this.mfX = (this.mfR - this.mfW.fP(0L)) + this.mfX;
+            j.a(readInt, this.mfX);
+            if (this.mgc == -9223372036854775807L) {
+                this.mgc = this.mgb.fP(fVar.getPosition());
+                if (this.mfW != -9223372036854775807L) {
+                    this.mgc = (this.mfW - this.mgb.fP(0L)) + this.mgc;
                 }
             }
-            this.mfZ = this.mfS.frameSize;
+            this.mge = this.mfX.frameSize;
         }
-        int a2 = this.mfU.a(fVar, this.mfZ, true);
+        int a2 = this.mfZ.a(fVar, this.mge, true);
         if (a2 == -1) {
             return -1;
         }
-        this.mfZ -= a2;
-        if (this.mfZ <= 0) {
-            this.mfU.a(((this.mfY * TimeUtils.NANOS_PER_MS) / this.mfS.sampleRate) + this.mfX, 1, this.mfS.frameSize, 0, null);
-            this.mfY += this.mfS.samplesPerFrame;
-            this.mfZ = 0;
+        this.mge -= a2;
+        if (this.mge <= 0) {
+            this.mfZ.a(((this.mgd * TimeUtils.NANOS_PER_MS) / this.mfX.sampleRate) + this.mgc, 1, this.mfX.frameSize, 0, null);
+            this.mgd += this.mfX.samplesPerFrame;
+            this.mge = 0;
             return 0;
         }
         return 0;
@@ -153,14 +153,14 @@ public final class b implements e {
         int i4;
         int Jx;
         int i5 = z ? 16384 : 131072;
-        fVar.dtC();
+        fVar.dtE();
         if (fVar.getPosition() == 0) {
             k(fVar);
-            int dtD = (int) fVar.dtD();
+            int dtF = (int) fVar.dtF();
             if (!z) {
-                fVar.Jq(dtD);
+                fVar.Jq(dtF);
             }
-            i2 = dtD;
+            i2 = dtF;
             i3 = 0;
             i4 = 0;
             i = 0;
@@ -171,11 +171,11 @@ public final class b implements e {
             i4 = 0;
         }
         while (true) {
-            if (!fVar.e(this.mdM.data, 0, 4, i4 > 0)) {
+            if (!fVar.e(this.mdR.data, 0, 4, i4 > 0)) {
                 break;
             }
-            this.mdM.setPosition(0);
-            int readInt = this.mdM.readInt();
+            this.mdR.setPosition(0);
+            int readInt = this.mdR.readInt();
             if ((i3 != 0 && !E(readInt, i3)) || (Jx = j.Jx(readInt)) == -1) {
                 int i6 = i + 1;
                 if (i == i5) {
@@ -184,7 +184,7 @@ public final class b implements e {
                     }
                     throw new ParserException("Searched too many bytes.");
                 } else if (z) {
-                    fVar.dtC();
+                    fVar.dtE();
                     fVar.Jr(i2 + i6);
                     i = i6;
                     i4 = 0;
@@ -198,7 +198,7 @@ public final class b implements e {
             } else {
                 i4++;
                 if (i4 == 1) {
-                    j.a(readInt, this.mfS);
+                    j.a(readInt, this.mfX);
                     i3 = readInt;
                 } else if (i4 == 4) {
                     break;
@@ -209,35 +209,35 @@ public final class b implements e {
         if (z) {
             fVar.Jq(i2 + i);
         } else {
-            fVar.dtC();
+            fVar.dtE();
         }
-        this.mfV = i3;
+        this.mga = i3;
         return true;
     }
 
     private void k(f fVar) throws IOException, InterruptedException {
         int i = 0;
         while (true) {
-            fVar.o(this.mdM.data, 0, 10);
-            this.mdM.setPosition(0);
-            if (this.mdM.dyj() == com.google.android.exoplayer2.metadata.id3.a.mlE) {
-                this.mdM.skipBytes(3);
-                int dyp = this.mdM.dyp();
-                int i2 = dyp + 10;
+            fVar.o(this.mdR.data, 0, 10);
+            this.mdR.setPosition(0);
+            if (this.mdR.dyl() == com.google.android.exoplayer2.metadata.id3.a.mlJ) {
+                this.mdR.skipBytes(3);
+                int dyr = this.mdR.dyr();
+                int i2 = dyr + 10;
                 if (this.metadata == null) {
                     byte[] bArr = new byte[i2];
-                    System.arraycopy(this.mdM.data, 0, bArr, 0, 10);
-                    fVar.o(bArr, 10, dyp);
-                    this.metadata = new com.google.android.exoplayer2.metadata.id3.a((this.flags & 2) != 0 ? i.mdv : null).x(bArr, i2);
+                    System.arraycopy(this.mdR.data, 0, bArr, 0, 10);
+                    fVar.o(bArr, 10, dyr);
+                    this.metadata = new com.google.android.exoplayer2.metadata.id3.a((this.flags & 2) != 0 ? i.mdA : null).x(bArr, i2);
                     if (this.metadata != null) {
-                        this.mfT.c(this.metadata);
+                        this.mfY.c(this.metadata);
                     }
                 } else {
-                    fVar.Jr(dyp);
+                    fVar.Jr(dyr);
                 }
                 i += i2;
             } else {
-                fVar.dtC();
+                fVar.dtE();
                 fVar.Jr(i);
                 return;
             }
@@ -245,39 +245,39 @@ public final class b implements e {
     }
 
     private a l(f fVar) throws IOException, InterruptedException {
-        l lVar = new l(this.mfS.frameSize);
-        fVar.o(lVar.data, 0, this.mfS.frameSize);
-        int i = (this.mfS.version & 1) != 0 ? this.mfS.channels != 1 ? 36 : 21 : this.mfS.channels != 1 ? 21 : 13;
+        l lVar = new l(this.mfX.frameSize);
+        fVar.o(lVar.data, 0, this.mfX.frameSize);
+        int i = (this.mfX.version & 1) != 0 ? this.mfX.channels != 1 ? 36 : 21 : this.mfX.channels != 1 ? 21 : 13;
         int c = c(lVar, i);
-        if (c == mfO || c == mfP) {
-            d b = d.b(this.mfS, lVar, fVar.getPosition(), fVar.getLength());
-            if (b != null && !this.mfT.dtG()) {
-                fVar.dtC();
+        if (c == mfT || c == mfU) {
+            d b = d.b(this.mfX, lVar, fVar.getPosition(), fVar.getLength());
+            if (b != null && !this.mfY.dtI()) {
+                fVar.dtE();
                 fVar.Jr(i + 141);
-                fVar.o(this.mdM.data, 0, 3);
-                this.mdM.setPosition(0);
-                this.mfT.Jw(this.mdM.dyj());
+                fVar.o(this.mdR.data, 0, 3);
+                this.mdR.setPosition(0);
+                this.mfY.Jw(this.mdR.dyl());
             }
-            fVar.Jq(this.mfS.frameSize);
-            if (b != null && !b.dtB() && c == mfP) {
+            fVar.Jq(this.mfX.frameSize);
+            if (b != null && !b.dtD() && c == mfU) {
                 return m(fVar);
             }
             return b;
-        } else if (c == mfQ) {
-            c a2 = c.a(this.mfS, lVar, fVar.getPosition(), fVar.getLength());
-            fVar.Jq(this.mfS.frameSize);
+        } else if (c == mfV) {
+            c a2 = c.a(this.mfX, lVar, fVar.getPosition(), fVar.getLength());
+            fVar.Jq(this.mfX.frameSize);
             return a2;
         } else {
-            fVar.dtC();
+            fVar.dtE();
             return null;
         }
     }
 
     private a m(f fVar) throws IOException, InterruptedException {
-        fVar.o(this.mdM.data, 0, 4);
-        this.mdM.setPosition(0);
-        j.a(this.mdM.readInt(), this.mfS);
-        return new com.google.android.exoplayer2.extractor.b.a(fVar.getPosition(), this.mfS.bitrate, fVar.getLength());
+        fVar.o(this.mdR.data, 0, 4);
+        this.mdR.setPosition(0);
+        j.a(this.mdR.readInt(), this.mfX);
+        return new com.google.android.exoplayer2.extractor.b.a(fVar.getPosition(), this.mfX.bitrate, fVar.getLength());
     }
 
     private static boolean E(int i, long j) {
@@ -285,17 +285,17 @@ public final class b implements e {
     }
 
     private static int c(l lVar, int i) {
-        if (lVar.dyg() >= i + 4) {
+        if (lVar.dyi() >= i + 4) {
             lVar.setPosition(i);
             int readInt = lVar.readInt();
-            if (readInt == mfO || readInt == mfP) {
+            if (readInt == mfT || readInt == mfU) {
                 return readInt;
             }
         }
-        if (lVar.dyg() >= 40) {
+        if (lVar.dyi() >= 40) {
             lVar.setPosition(36);
-            if (lVar.readInt() == mfQ) {
-                return mfQ;
+            if (lVar.readInt() == mfV) {
+                return mfV;
             }
         }
         return 0;

@@ -28,48 +28,48 @@ import java.util.Locale;
 /* loaded from: classes5.dex */
 public class PlaybackControlView extends FrameLayout {
     @Deprecated
-    public static final b mDp;
+    public static final b mDu;
     private final TextView ebq;
     private final TextView ebs;
-    private final x.b laT;
-    private final x.a laU;
-    private final StringBuilder mCZ;
+    private final x.b laY;
+    private final x.a laZ;
     private final View mDA;
-    private final com.google.android.exoplayer2.ui.c mDB;
-    private final Drawable mDC;
-    private final Drawable mDD;
-    private final Drawable mDE;
-    private final String mDF;
-    private final String mDG;
-    private final String mDH;
-    private r mDI;
-    private com.google.android.exoplayer2.c mDJ;
-    private d mDK;
-    private boolean mDL;
-    private boolean mDM;
-    private boolean mDN;
-    private int mDO;
-    private int mDP;
-    private int mDQ;
-    private int mDR;
+    private final View mDB;
+    private final View mDC;
+    private final View mDD;
+    private final ImageView mDE;
+    private final View mDF;
+    private final com.google.android.exoplayer2.ui.c mDG;
+    private final Drawable mDH;
+    private final Drawable mDI;
+    private final Drawable mDJ;
+    private final String mDK;
+    private final String mDL;
+    private final String mDM;
+    private r mDN;
+    private com.google.android.exoplayer2.c mDO;
+    private d mDP;
+    private boolean mDQ;
+    private boolean mDR;
     private boolean mDS;
-    private long mDT;
-    private long[] mDU;
-    private boolean[] mDV;
-    private final Runnable mDW;
-    private final Runnable mDX;
-    private final Formatter mDa;
-    private boolean mDi;
-    private long[] mDm;
-    private boolean[] mDn;
-    private final a mDq;
-    private final View mDr;
-    private final View mDs;
-    private final View mDt;
-    private final View mDu;
-    private final View mDv;
+    private int mDT;
+    private int mDU;
+    private int mDV;
+    private int mDW;
+    private boolean mDX;
+    private long mDY;
+    private long[] mDZ;
+    private final StringBuilder mDf;
+    private final Formatter mDg;
+    private boolean mDn;
+    private long[] mDr;
+    private boolean[] mDs;
+    private final a mDv;
     private final View mDw;
-    private final ImageView mDz;
+    private final View mDz;
+    private boolean[] mEa;
+    private final Runnable mEb;
+    private final Runnable mEc;
 
     @Deprecated
     /* loaded from: classes5.dex */
@@ -83,7 +83,7 @@ public class PlaybackControlView extends FrameLayout {
 
     static {
         l.OY("goog.exo.ui");
-        mDp = new c();
+        mDu = new c();
     }
 
     /* loaded from: classes5.dex */
@@ -106,94 +106,94 @@ public class PlaybackControlView extends FrameLayout {
 
     public PlaybackControlView(Context context, AttributeSet attributeSet, int i, AttributeSet attributeSet2) {
         super(context, attributeSet, i);
-        this.mDW = new Runnable() { // from class: com.google.android.exoplayer2.ui.PlaybackControlView.1
+        this.mEb = new Runnable() { // from class: com.google.android.exoplayer2.ui.PlaybackControlView.1
             @Override // java.lang.Runnable
             public void run() {
                 PlaybackControlView.this.afo();
             }
         };
-        this.mDX = new Runnable() { // from class: com.google.android.exoplayer2.ui.PlaybackControlView.2
+        this.mEc = new Runnable() { // from class: com.google.android.exoplayer2.ui.PlaybackControlView.2
             @Override // java.lang.Runnable
             public void run() {
                 PlaybackControlView.this.hide();
             }
         };
         int i2 = a.d.exo_playback_control_view;
-        this.mDO = 5000;
-        this.mDP = BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
-        this.mDQ = 5000;
-        this.mDR = 0;
-        this.mDS = false;
+        this.mDT = 5000;
+        this.mDU = BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+        this.mDV = 5000;
+        this.mDW = 0;
+        this.mDX = false;
         if (attributeSet2 != null) {
             TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet2, a.f.PlaybackControlView, 0, 0);
             try {
-                this.mDO = obtainStyledAttributes.getInt(a.f.PlaybackControlView_rewind_increment, this.mDO);
-                this.mDP = obtainStyledAttributes.getInt(a.f.PlaybackControlView_fastforward_increment, this.mDP);
-                this.mDQ = obtainStyledAttributes.getInt(a.f.PlaybackControlView_show_timeout, this.mDQ);
+                this.mDT = obtainStyledAttributes.getInt(a.f.PlaybackControlView_rewind_increment, this.mDT);
+                this.mDU = obtainStyledAttributes.getInt(a.f.PlaybackControlView_fastforward_increment, this.mDU);
+                this.mDV = obtainStyledAttributes.getInt(a.f.PlaybackControlView_show_timeout, this.mDV);
                 i2 = obtainStyledAttributes.getResourceId(a.f.PlaybackControlView_controller_layout_id, i2);
-                this.mDR = b(obtainStyledAttributes, this.mDR);
-                this.mDS = obtainStyledAttributes.getBoolean(a.f.PlaybackControlView_show_shuffle_button, this.mDS);
+                this.mDW = b(obtainStyledAttributes, this.mDW);
+                this.mDX = obtainStyledAttributes.getBoolean(a.f.PlaybackControlView_show_shuffle_button, this.mDX);
             } finally {
                 obtainStyledAttributes.recycle();
             }
         }
-        this.laU = new x.a();
-        this.laT = new x.b();
-        this.mCZ = new StringBuilder();
-        this.mDa = new Formatter(this.mCZ, Locale.getDefault());
-        this.mDm = new long[0];
-        this.mDn = new boolean[0];
-        this.mDU = new long[0];
-        this.mDV = new boolean[0];
-        this.mDq = new a();
-        this.mDJ = new com.google.android.exoplayer2.d();
+        this.laZ = new x.a();
+        this.laY = new x.b();
+        this.mDf = new StringBuilder();
+        this.mDg = new Formatter(this.mDf, Locale.getDefault());
+        this.mDr = new long[0];
+        this.mDs = new boolean[0];
+        this.mDZ = new long[0];
+        this.mEa = new boolean[0];
+        this.mDv = new a();
+        this.mDO = new com.google.android.exoplayer2.d();
         LayoutInflater.from(context).inflate(i2, this);
         setDescendantFocusability(262144);
         this.ebs = (TextView) findViewById(a.c.exo_duration);
         this.ebq = (TextView) findViewById(a.c.exo_position);
-        this.mDB = (com.google.android.exoplayer2.ui.c) findViewById(a.c.exo_progress);
-        if (this.mDB != null) {
-            this.mDB.a(this.mDq);
+        this.mDG = (com.google.android.exoplayer2.ui.c) findViewById(a.c.exo_progress);
+        if (this.mDG != null) {
+            this.mDG.a(this.mDv);
         }
-        this.mDt = findViewById(a.c.exo_play);
-        if (this.mDt != null) {
-            this.mDt.setOnClickListener(this.mDq);
-        }
-        this.mDu = findViewById(a.c.exo_pause);
-        if (this.mDu != null) {
-            this.mDu.setOnClickListener(this.mDq);
-        }
-        this.mDr = findViewById(a.c.exo_prev);
-        if (this.mDr != null) {
-            this.mDr.setOnClickListener(this.mDq);
-        }
-        this.mDs = findViewById(a.c.exo_next);
-        if (this.mDs != null) {
-            this.mDs.setOnClickListener(this.mDq);
-        }
-        this.mDw = findViewById(a.c.exo_rew);
-        if (this.mDw != null) {
-            this.mDw.setOnClickListener(this.mDq);
-        }
-        this.mDv = findViewById(a.c.exo_ffwd);
-        if (this.mDv != null) {
-            this.mDv.setOnClickListener(this.mDq);
-        }
-        this.mDz = (ImageView) findViewById(a.c.exo_repeat_toggle);
-        if (this.mDz != null) {
-            this.mDz.setOnClickListener(this.mDq);
-        }
-        this.mDA = findViewById(a.c.exo_shuffle);
+        this.mDA = findViewById(a.c.exo_play);
         if (this.mDA != null) {
-            this.mDA.setOnClickListener(this.mDq);
+            this.mDA.setOnClickListener(this.mDv);
+        }
+        this.mDB = findViewById(a.c.exo_pause);
+        if (this.mDB != null) {
+            this.mDB.setOnClickListener(this.mDv);
+        }
+        this.mDw = findViewById(a.c.exo_prev);
+        if (this.mDw != null) {
+            this.mDw.setOnClickListener(this.mDv);
+        }
+        this.mDz = findViewById(a.c.exo_next);
+        if (this.mDz != null) {
+            this.mDz.setOnClickListener(this.mDv);
+        }
+        this.mDD = findViewById(a.c.exo_rew);
+        if (this.mDD != null) {
+            this.mDD.setOnClickListener(this.mDv);
+        }
+        this.mDC = findViewById(a.c.exo_ffwd);
+        if (this.mDC != null) {
+            this.mDC.setOnClickListener(this.mDv);
+        }
+        this.mDE = (ImageView) findViewById(a.c.exo_repeat_toggle);
+        if (this.mDE != null) {
+            this.mDE.setOnClickListener(this.mDv);
+        }
+        this.mDF = findViewById(a.c.exo_shuffle);
+        if (this.mDF != null) {
+            this.mDF.setOnClickListener(this.mDv);
         }
         Resources resources = context.getResources();
-        this.mDC = resources.getDrawable(a.b.exo_controls_repeat_off);
-        this.mDD = resources.getDrawable(a.b.exo_controls_repeat_one);
-        this.mDE = resources.getDrawable(a.b.exo_controls_repeat_all);
-        this.mDF = resources.getString(a.e.exo_controls_repeat_off_description);
-        this.mDG = resources.getString(a.e.exo_controls_repeat_one_description);
-        this.mDH = resources.getString(a.e.exo_controls_repeat_all_description);
+        this.mDH = resources.getDrawable(a.b.exo_controls_repeat_off);
+        this.mDI = resources.getDrawable(a.b.exo_controls_repeat_one);
+        this.mDJ = resources.getDrawable(a.b.exo_controls_repeat_all);
+        this.mDK = resources.getString(a.e.exo_controls_repeat_off_description);
+        this.mDL = resources.getString(a.e.exo_controls_repeat_one_description);
+        this.mDM = resources.getString(a.e.exo_controls_repeat_all_description);
     }
 
     private static int b(TypedArray typedArray, int i) {
@@ -201,116 +201,116 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     public r getPlayer() {
-        return this.mDI;
+        return this.mDN;
     }
 
     public void setPlayer(r rVar) {
-        if (this.mDI != rVar) {
-            if (this.mDI != null) {
-                this.mDI.b(this.mDq);
+        if (this.mDN != rVar) {
+            if (this.mDN != null) {
+                this.mDN.b(this.mDv);
             }
-            this.mDI = rVar;
+            this.mDN = rVar;
             if (rVar != null) {
-                rVar.a(this.mDq);
+                rVar.a(this.mDv);
             }
             updateAll();
         }
     }
 
     public void setShowMultiWindowTimeBar(boolean z) {
-        this.mDM = z;
-        dxw();
+        this.mDR = z;
+        dxy();
     }
 
     public void setExtraAdGroupMarkers(@Nullable long[] jArr, @Nullable boolean[] zArr) {
         if (jArr == null) {
-            this.mDU = new long[0];
-            this.mDV = new boolean[0];
+            this.mDZ = new long[0];
+            this.mEa = new boolean[0];
         } else {
             com.google.android.exoplayer2.util.a.checkArgument(jArr.length == zArr.length);
-            this.mDU = jArr;
-            this.mDV = zArr;
+            this.mDZ = jArr;
+            this.mEa = zArr;
         }
         afo();
     }
 
     public void setVisibilityListener(d dVar) {
-        this.mDK = dVar;
+        this.mDP = dVar;
     }
 
     public void setControlDispatcher(@Nullable com.google.android.exoplayer2.c cVar) {
         if (cVar == null) {
             cVar = new com.google.android.exoplayer2.d();
         }
-        this.mDJ = cVar;
+        this.mDO = cVar;
     }
 
     public void setRewindIncrementMs(int i) {
-        this.mDO = i;
-        dxt();
+        this.mDT = i;
+        dxv();
     }
 
     public void setFastForwardIncrementMs(int i) {
-        this.mDP = i;
-        dxt();
+        this.mDU = i;
+        dxv();
     }
 
     public int getShowTimeoutMs() {
-        return this.mDQ;
+        return this.mDV;
     }
 
     public void setShowTimeoutMs(int i) {
-        this.mDQ = i;
+        this.mDV = i;
     }
 
     public int getRepeatToggleModes() {
-        return this.mDR;
+        return this.mDW;
     }
 
     public void setRepeatToggleModes(int i) {
-        this.mDR = i;
-        if (this.mDI != null) {
-            int repeatMode = this.mDI.getRepeatMode();
+        this.mDW = i;
+        if (this.mDN != null) {
+            int repeatMode = this.mDN.getRepeatMode();
             if (i == 0 && repeatMode != 0) {
-                this.mDJ.a(this.mDI, 0);
+                this.mDO.a(this.mDN, 0);
             } else if (i == 1 && repeatMode == 2) {
-                this.mDJ.a(this.mDI, 1);
+                this.mDO.a(this.mDN, 1);
             } else if (i == 2 && repeatMode == 1) {
-                this.mDJ.a(this.mDI, 2);
+                this.mDO.a(this.mDN, 2);
             }
         }
     }
 
     public boolean getShowShuffleButton() {
-        return this.mDS;
+        return this.mDX;
     }
 
     public void setShowShuffleButton(boolean z) {
-        this.mDS = z;
-        dxv();
+        this.mDX = z;
+        dxx();
     }
 
     public void show() {
         if (!isVisible()) {
             setVisibility(0);
-            if (this.mDK != null) {
-                this.mDK.LJ(getVisibility());
+            if (this.mDP != null) {
+                this.mDP.LJ(getVisibility());
             }
             updateAll();
-            dxx();
+            dxz();
         }
-        dxr();
+        dxt();
     }
 
     public void hide() {
         if (isVisible()) {
             setVisibility(8);
-            if (this.mDK != null) {
-                this.mDK.LJ(getVisibility());
+            if (this.mDP != null) {
+                this.mDP.LJ(getVisibility());
             }
-            removeCallbacks(this.mDW);
-            removeCallbacks(this.mDX);
-            this.mDT = -9223372036854775807L;
+            removeCallbacks(this.mEb);
+            removeCallbacks(this.mEc);
+            this.mDY = -9223372036854775807L;
         }
     }
 
@@ -319,131 +319,131 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dxr() {
-        removeCallbacks(this.mDX);
-        if (this.mDQ > 0) {
-            this.mDT = SystemClock.uptimeMillis() + this.mDQ;
-            if (this.mDL) {
-                postDelayed(this.mDX, this.mDQ);
+    public void dxt() {
+        removeCallbacks(this.mEc);
+        if (this.mDV > 0) {
+            this.mDY = SystemClock.uptimeMillis() + this.mDV;
+            if (this.mDQ) {
+                postDelayed(this.mEc, this.mDV);
                 return;
             }
             return;
         }
-        this.mDT = -9223372036854775807L;
+        this.mDY = -9223372036854775807L;
     }
 
     private void updateAll() {
-        dxs();
-        dxt();
         dxu();
         dxv();
+        dxw();
+        dxx();
         afo();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dxs() {
+    public void dxu() {
         boolean z;
         boolean z2 = true;
-        if (isVisible() && this.mDL) {
-            boolean z3 = this.mDI != null && this.mDI.drD();
-            if (this.mDt != null) {
-                boolean z4 = false | (z3 && this.mDt.isFocused());
-                this.mDt.setVisibility(z3 ? 8 : 0);
+        if (isVisible() && this.mDQ) {
+            boolean z3 = this.mDN != null && this.mDN.drF();
+            if (this.mDA != null) {
+                boolean z4 = false | (z3 && this.mDA.isFocused());
+                this.mDA.setVisibility(z3 ? 8 : 0);
                 z = z4;
             } else {
                 z = false;
             }
-            if (this.mDu != null) {
-                if (z3 || !this.mDu.isFocused()) {
+            if (this.mDB != null) {
+                if (z3 || !this.mDB.isFocused()) {
                     z2 = false;
                 }
                 z |= z2;
-                this.mDu.setVisibility(z3 ? 0 : 8);
+                this.mDB.setVisibility(z3 ? 0 : 8);
             }
             if (z) {
-                dxx();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dxt() {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4 = true;
-        if (isVisible() && this.mDL) {
-            x drO = this.mDI != null ? this.mDI.drO() : null;
-            if (!((drO == null || drO.isEmpty()) ? false : true) || this.mDI.drL()) {
-                z = false;
-                z2 = false;
-                z3 = false;
-            } else {
-                drO.a(this.mDI.drH(), this.laT);
-                z3 = this.laT.lZD;
-                z2 = (!z3 && this.laT.isDynamic && this.mDI.drJ() == -1) ? false : true;
-                z = this.laT.isDynamic || this.mDI.drI() != -1;
-            }
-            a(z2, this.mDr);
-            a(z, this.mDs);
-            a(this.mDP > 0 && z3, this.mDv);
-            if (this.mDO <= 0 || !z3) {
-                z4 = false;
-            }
-            a(z4, this.mDw);
-            if (this.mDB != null) {
-                this.mDB.setEnabled(z3);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dxu() {
-        if (isVisible() && this.mDL && this.mDz != null) {
-            if (this.mDR == 0) {
-                this.mDz.setVisibility(8);
-            } else if (this.mDI == null) {
-                a(false, (View) this.mDz);
-            } else {
-                a(true, (View) this.mDz);
-                switch (this.mDI.getRepeatMode()) {
-                    case 0:
-                        this.mDz.setImageDrawable(this.mDC);
-                        this.mDz.setContentDescription(this.mDF);
-                        break;
-                    case 1:
-                        this.mDz.setImageDrawable(this.mDD);
-                        this.mDz.setContentDescription(this.mDG);
-                        break;
-                    case 2:
-                        this.mDz.setImageDrawable(this.mDE);
-                        this.mDz.setContentDescription(this.mDH);
-                        break;
-                }
-                this.mDz.setVisibility(0);
+                dxz();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dxv() {
-        if (isVisible() && this.mDL && this.mDA != null) {
-            if (!this.mDS) {
-                this.mDA.setVisibility(8);
-            } else if (this.mDI == null) {
-                a(false, this.mDA);
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4 = true;
+        if (isVisible() && this.mDQ) {
+            x drQ = this.mDN != null ? this.mDN.drQ() : null;
+            if (!((drQ == null || drQ.isEmpty()) ? false : true) || this.mDN.drN()) {
+                z = false;
+                z2 = false;
+                z3 = false;
             } else {
-                this.mDA.setAlpha(this.mDI.drE() ? 1.0f : 0.3f);
-                this.mDA.setEnabled(true);
-                this.mDA.setVisibility(0);
+                drQ.a(this.mDN.drJ(), this.laY);
+                z3 = this.laY.lZI;
+                z2 = (!z3 && this.laY.isDynamic && this.mDN.drL() == -1) ? false : true;
+                z = this.laY.isDynamic || this.mDN.drK() != -1;
+            }
+            a(z2, this.mDw);
+            a(z, this.mDz);
+            a(this.mDU > 0 && z3, this.mDC);
+            if (this.mDT <= 0 || !z3) {
+                z4 = false;
+            }
+            a(z4, this.mDD);
+            if (this.mDG != null) {
+                this.mDG.setEnabled(z3);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dxw() {
-        if (this.mDI != null) {
-            this.mDN = this.mDM && a(this.mDI.drO(), this.laT);
+        if (isVisible() && this.mDQ && this.mDE != null) {
+            if (this.mDW == 0) {
+                this.mDE.setVisibility(8);
+            } else if (this.mDN == null) {
+                a(false, (View) this.mDE);
+            } else {
+                a(true, (View) this.mDE);
+                switch (this.mDN.getRepeatMode()) {
+                    case 0:
+                        this.mDE.setImageDrawable(this.mDH);
+                        this.mDE.setContentDescription(this.mDK);
+                        break;
+                    case 1:
+                        this.mDE.setImageDrawable(this.mDI);
+                        this.mDE.setContentDescription(this.mDL);
+                        break;
+                    case 2:
+                        this.mDE.setImageDrawable(this.mDJ);
+                        this.mDE.setContentDescription(this.mDM);
+                        break;
+                }
+                this.mDE.setVisibility(0);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void dxx() {
+        if (isVisible() && this.mDQ && this.mDF != null) {
+            if (!this.mDX) {
+                this.mDF.setVisibility(8);
+            } else if (this.mDN == null) {
+                a(false, this.mDF);
+            } else {
+                this.mDF.setAlpha(this.mDN.drG() ? 1.0f : 0.3f);
+                this.mDF.setEnabled(true);
+                this.mDF.setVisibility(0);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void dxy() {
+        if (this.mDN != null) {
+            this.mDS = this.mDR && a(this.mDN.drQ(), this.laY);
         }
     }
 
@@ -451,98 +451,98 @@ public class PlaybackControlView extends FrameLayout {
     public void afo() {
         long j;
         long bufferedPosition;
-        if (isVisible() && this.mDL) {
+        if (isVisible() && this.mDQ) {
             long j2 = 0;
             long j3 = 0;
             long j4 = 0;
-            if (this.mDI != null) {
+            if (this.mDN != null) {
                 long j5 = 0;
                 long j6 = 0;
                 int i = 0;
-                x drO = this.mDI.drO();
-                if (!drO.isEmpty()) {
-                    int drH = this.mDI.drH();
-                    int i2 = this.mDN ? 0 : drH;
-                    int dsl = this.mDN ? drO.dsl() - 1 : drH;
+                x drQ = this.mDN.drQ();
+                if (!drQ.isEmpty()) {
+                    int drJ = this.mDN.drJ();
+                    int i2 = this.mDS ? 0 : drJ;
+                    int dsn = this.mDS ? drQ.dsn() - 1 : drJ;
                     int i3 = i2;
                     while (true) {
-                        if (i3 > dsl) {
+                        if (i3 > dsn) {
                             break;
                         }
-                        if (i3 == drH) {
+                        if (i3 == drJ) {
                             j5 = j6;
                         }
-                        drO.a(i3, this.laT);
-                        if (this.laT.lYQ == -9223372036854775807L) {
-                            com.google.android.exoplayer2.util.a.checkState(!this.mDN);
+                        drQ.a(i3, this.laY);
+                        if (this.laY.lYV == -9223372036854775807L) {
+                            com.google.android.exoplayer2.util.a.checkState(!this.mDS);
                         } else {
-                            for (int i4 = this.laT.lZE; i4 <= this.laT.lZF; i4++) {
-                                drO.a(i4, this.laU);
-                                int dsr = this.laU.dsr();
-                                for (int i5 = 0; i5 < dsr; i5++) {
-                                    long IU = this.laU.IU(i5);
+                            for (int i4 = this.laY.lZJ; i4 <= this.laY.lZK; i4++) {
+                                drQ.a(i4, this.laZ);
+                                int dst = this.laZ.dst();
+                                for (int i5 = 0; i5 < dst; i5++) {
+                                    long IU = this.laZ.IU(i5);
                                     if (IU == Long.MIN_VALUE) {
-                                        if (this.laU.lYQ != -9223372036854775807L) {
-                                            IU = this.laU.lYQ;
+                                        if (this.laZ.lYV != -9223372036854775807L) {
+                                            IU = this.laZ.lYV;
                                         }
                                     }
-                                    long dsq = this.laU.dsq() + IU;
-                                    if (dsq >= 0 && dsq <= this.laT.lYQ) {
-                                        if (i == this.mDm.length) {
-                                            int length = this.mDm.length == 0 ? 1 : this.mDm.length * 2;
-                                            this.mDm = Arrays.copyOf(this.mDm, length);
-                                            this.mDn = Arrays.copyOf(this.mDn, length);
+                                    long dss = this.laZ.dss() + IU;
+                                    if (dss >= 0 && dss <= this.laY.lYV) {
+                                        if (i == this.mDr.length) {
+                                            int length = this.mDr.length == 0 ? 1 : this.mDr.length * 2;
+                                            this.mDr = Arrays.copyOf(this.mDr, length);
+                                            this.mDs = Arrays.copyOf(this.mDs, length);
                                         }
-                                        this.mDm[i] = com.google.android.exoplayer2.b.fp(dsq + j6);
-                                        this.mDn[i] = this.laU.IW(i5);
+                                        this.mDr[i] = com.google.android.exoplayer2.b.fp(dss + j6);
+                                        this.mDs[i] = this.laZ.IW(i5);
                                         i++;
                                     }
                                 }
                             }
-                            j6 += this.laT.lYQ;
+                            j6 += this.laY.lYV;
                             i3++;
                         }
                     }
                 }
                 long fp = com.google.android.exoplayer2.b.fp(j6);
                 long fp2 = com.google.android.exoplayer2.b.fp(j5);
-                if (this.mDI.drL()) {
-                    bufferedPosition = fp2 + this.mDI.drM();
+                if (this.mDN.drN()) {
+                    bufferedPosition = fp2 + this.mDN.drO();
                     j2 = bufferedPosition;
                 } else {
-                    j2 = this.mDI.getCurrentPosition() + fp2;
-                    bufferedPosition = fp2 + this.mDI.getBufferedPosition();
+                    j2 = this.mDN.getCurrentPosition() + fp2;
+                    bufferedPosition = fp2 + this.mDN.getBufferedPosition();
                 }
-                if (this.mDB != null) {
-                    int length2 = this.mDU.length;
+                if (this.mDG != null) {
+                    int length2 = this.mDZ.length;
                     int i6 = i + length2;
-                    if (i6 > this.mDm.length) {
-                        this.mDm = Arrays.copyOf(this.mDm, i6);
-                        this.mDn = Arrays.copyOf(this.mDn, i6);
+                    if (i6 > this.mDr.length) {
+                        this.mDr = Arrays.copyOf(this.mDr, i6);
+                        this.mDs = Arrays.copyOf(this.mDs, i6);
                     }
-                    System.arraycopy(this.mDU, 0, this.mDm, i, length2);
-                    System.arraycopy(this.mDV, 0, this.mDn, i, length2);
-                    this.mDB.setAdGroupTimesMs(this.mDm, this.mDn, i6);
+                    System.arraycopy(this.mDZ, 0, this.mDr, i, length2);
+                    System.arraycopy(this.mEa, 0, this.mDs, i, length2);
+                    this.mDG.setAdGroupTimesMs(this.mDr, this.mDs, i6);
                 }
                 j3 = bufferedPosition;
                 j4 = fp;
             }
             if (this.ebs != null) {
-                this.ebs.setText(v.a(this.mCZ, this.mDa, j4));
+                this.ebs.setText(v.a(this.mDf, this.mDg, j4));
             }
-            if (this.ebq != null && !this.mDi) {
-                this.ebq.setText(v.a(this.mCZ, this.mDa, j2));
+            if (this.ebq != null && !this.mDn) {
+                this.ebq.setText(v.a(this.mDf, this.mDg, j2));
             }
-            if (this.mDB != null) {
-                this.mDB.setPosition(j2);
-                this.mDB.setBufferedPosition(j3);
-                this.mDB.setDuration(j4);
+            if (this.mDG != null) {
+                this.mDG.setPosition(j2);
+                this.mDG.setBufferedPosition(j3);
+                this.mDG.setDuration(j4);
             }
-            removeCallbacks(this.mDW);
-            int cYx = this.mDI == null ? 1 : this.mDI.cYx();
-            if (cYx != 1 && cYx != 4) {
-                if (this.mDI.drD() && cYx == 3) {
-                    float f = this.mDI.drF().speed;
+            removeCallbacks(this.mEb);
+            int cYz = this.mDN == null ? 1 : this.mDN.cYz();
+            if (cYz != 1 && cYz != 4) {
+                if (this.mDN.drF() && cYz == 3) {
+                    float f = this.mDN.drH().speed;
                     if (f <= 0.1f) {
                         j = 1000;
                     } else if (f <= 5.0f) {
@@ -560,17 +560,17 @@ public class PlaybackControlView extends FrameLayout {
                 } else {
                     j = 1000;
                 }
-                postDelayed(this.mDW, j);
+                postDelayed(this.mEb, j);
             }
         }
     }
 
-    private void dxx() {
-        boolean z = this.mDI != null && this.mDI.drD();
-        if (!z && this.mDt != null) {
-            this.mDt.requestFocus();
-        } else if (z && this.mDu != null) {
-            this.mDu.requestFocus();
+    private void dxz() {
+        boolean z = this.mDN != null && this.mDN.drF();
+        if (!z && this.mDA != null) {
+            this.mDA.requestFocus();
+        } else if (z && this.mDB != null) {
+            this.mDB.requestFocus();
         }
     }
 
@@ -584,12 +584,12 @@ public class PlaybackControlView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void previous() {
-        x drO = this.mDI.drO();
-        if (!drO.isEmpty()) {
-            drO.a(this.mDI.drH(), this.laT);
-            int drJ = this.mDI.drJ();
-            if (drJ != -1 && (this.mDI.getCurrentPosition() <= 3000 || (this.laT.isDynamic && !this.laT.lZD))) {
-                B(drJ, -9223372036854775807L);
+        x drQ = this.mDN.drQ();
+        if (!drQ.isEmpty()) {
+            drQ.a(this.mDN.drJ(), this.laY);
+            int drL = this.mDN.drL();
+            if (drL != -1 && (this.mDN.getCurrentPosition() <= 3000 || (this.laY.isDynamic && !this.laY.lZI))) {
+                B(drL, -9223372036854775807L);
             } else {
                 seekTo(0L);
             }
@@ -598,30 +598,30 @@ public class PlaybackControlView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void next() {
-        x drO = this.mDI.drO();
-        if (!drO.isEmpty()) {
-            int drH = this.mDI.drH();
-            int drI = this.mDI.drI();
-            if (drI != -1) {
-                B(drI, -9223372036854775807L);
-            } else if (drO.a(drH, this.laT, false).isDynamic) {
-                B(drH, -9223372036854775807L);
+        x drQ = this.mDN.drQ();
+        if (!drQ.isEmpty()) {
+            int drJ = this.mDN.drJ();
+            int drK = this.mDN.drK();
+            if (drK != -1) {
+                B(drK, -9223372036854775807L);
+            } else if (drQ.a(drJ, this.laY, false).isDynamic) {
+                B(drJ, -9223372036854775807L);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void rewind() {
-        if (this.mDO > 0) {
-            seekTo(Math.max(this.mDI.getCurrentPosition() - this.mDO, 0L));
+        if (this.mDT > 0) {
+            seekTo(Math.max(this.mDN.getCurrentPosition() - this.mDT, 0L));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fastForward() {
-        if (this.mDP > 0) {
-            long duration = this.mDI.getDuration();
-            long currentPosition = this.mDI.getCurrentPosition() + this.mDP;
+        if (this.mDU > 0) {
+            long duration = this.mDN.getDuration();
+            long currentPosition = this.mDN.getCurrentPosition() + this.mDU;
             if (duration != -9223372036854775807L) {
                 currentPosition = Math.min(currentPosition, duration);
             }
@@ -630,50 +630,50 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     private void seekTo(long j) {
-        B(this.mDI.drH(), j);
+        B(this.mDN.drJ(), j);
     }
 
     private void B(int i, long j) {
-        if (!this.mDJ.a(this.mDI, i, j)) {
+        if (!this.mDO.a(this.mDN, i, j)) {
             afo();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gG(long j) {
-        int drH;
-        x drO = this.mDI.drO();
-        if (this.mDN && !drO.isEmpty()) {
-            int dsl = drO.dsl();
-            drH = 0;
+        int drJ;
+        x drQ = this.mDN.drQ();
+        if (this.mDS && !drQ.isEmpty()) {
+            int dsn = drQ.dsn();
+            drJ = 0;
             while (true) {
-                long dsn = drO.a(drH, this.laT).dsn();
-                if (j < dsn) {
+                long dsp = drQ.a(drJ, this.laY).dsp();
+                if (j < dsp) {
                     break;
-                } else if (drH == dsl - 1) {
-                    j = dsn;
+                } else if (drJ == dsn - 1) {
+                    j = dsp;
                     break;
                 } else {
-                    j -= dsn;
-                    drH++;
+                    j -= dsp;
+                    drJ++;
                 }
             }
         } else {
-            drH = this.mDI.drH();
+            drJ = this.mDN.drJ();
         }
-        B(drH, j);
+        B(drJ, j);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.mDL = true;
-        if (this.mDT != -9223372036854775807L) {
-            long uptimeMillis = this.mDT - SystemClock.uptimeMillis();
+        this.mDQ = true;
+        if (this.mDY != -9223372036854775807L) {
+            long uptimeMillis = this.mDY - SystemClock.uptimeMillis();
             if (uptimeMillis <= 0) {
                 hide();
             } else {
-                postDelayed(this.mDX, uptimeMillis);
+                postDelayed(this.mEc, uptimeMillis);
             }
         }
         updateAll();
@@ -682,9 +682,9 @@ public class PlaybackControlView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.mDL = false;
-        removeCallbacks(this.mDW);
-        removeCallbacks(this.mDX);
+        this.mDQ = false;
+        removeCallbacks(this.mEb);
+        removeCallbacks(this.mEc);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -694,7 +694,7 @@ public class PlaybackControlView extends FrameLayout {
 
     public boolean b(KeyEvent keyEvent) {
         int keyCode = keyEvent.getKeyCode();
-        if (this.mDI == null || !LI(keyCode)) {
+        if (this.mDN == null || !LI(keyCode)) {
             return false;
         }
         if (keyEvent.getAction() == 0) {
@@ -707,7 +707,7 @@ public class PlaybackControlView extends FrameLayout {
             } else if (keyEvent.getRepeatCount() == 0) {
                 switch (keyCode) {
                     case 85:
-                        this.mDJ.a(this.mDI, this.mDI.drD() ? false : true);
+                        this.mDO.a(this.mDN, this.mDN.drF() ? false : true);
                         return true;
                     case 87:
                         next();
@@ -716,10 +716,10 @@ public class PlaybackControlView extends FrameLayout {
                         previous();
                         return true;
                     case 126:
-                        this.mDJ.a(this.mDI, true);
+                        this.mDO.a(this.mDN, true);
                         return true;
                     case 127:
-                        this.mDJ.a(this.mDI, false);
+                        this.mDO.a(this.mDN, false);
                         return true;
                     default:
                         return true;
@@ -737,12 +737,12 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     private static boolean a(x xVar, x.b bVar) {
-        if (xVar.dsl() > 100) {
+        if (xVar.dsn() > 100) {
             return false;
         }
-        int dsl = xVar.dsl();
-        for (int i = 0; i < dsl; i++) {
-            if (xVar.a(i, bVar).lYQ == -9223372036854775807L) {
+        int dsn = xVar.dsn();
+        for (int i = 0; i < dsn; i++) {
+            if (xVar.a(i, bVar).lYV == -9223372036854775807L) {
                 return false;
             }
         }
@@ -756,81 +756,81 @@ public class PlaybackControlView extends FrameLayout {
 
         @Override // com.google.android.exoplayer2.ui.c.a
         public void a(com.google.android.exoplayer2.ui.c cVar, long j) {
-            PlaybackControlView.this.removeCallbacks(PlaybackControlView.this.mDX);
-            PlaybackControlView.this.mDi = true;
+            PlaybackControlView.this.removeCallbacks(PlaybackControlView.this.mEc);
+            PlaybackControlView.this.mDn = true;
         }
 
         @Override // com.google.android.exoplayer2.ui.c.a
         public void b(com.google.android.exoplayer2.ui.c cVar, long j) {
             if (PlaybackControlView.this.ebq != null) {
-                PlaybackControlView.this.ebq.setText(v.a(PlaybackControlView.this.mCZ, PlaybackControlView.this.mDa, j));
+                PlaybackControlView.this.ebq.setText(v.a(PlaybackControlView.this.mDf, PlaybackControlView.this.mDg, j));
             }
         }
 
         @Override // com.google.android.exoplayer2.ui.c.a
         public void a(com.google.android.exoplayer2.ui.c cVar, long j, boolean z) {
-            PlaybackControlView.this.mDi = false;
-            if (!z && PlaybackControlView.this.mDI != null) {
+            PlaybackControlView.this.mDn = false;
+            if (!z && PlaybackControlView.this.mDN != null) {
                 PlaybackControlView.this.gG(j);
             }
-            PlaybackControlView.this.dxr();
+            PlaybackControlView.this.dxt();
         }
 
         @Override // com.google.android.exoplayer2.r.a, com.google.android.exoplayer2.r.b
         public void z(boolean z, int i) {
-            PlaybackControlView.this.dxs();
+            PlaybackControlView.this.dxu();
             PlaybackControlView.this.afo();
         }
 
         @Override // com.google.android.exoplayer2.r.a, com.google.android.exoplayer2.r.b
         public void onRepeatModeChanged(int i) {
-            PlaybackControlView.this.dxu();
-            PlaybackControlView.this.dxt();
+            PlaybackControlView.this.dxw();
+            PlaybackControlView.this.dxv();
         }
 
         @Override // com.google.android.exoplayer2.r.a, com.google.android.exoplayer2.r.b
         public void ua(boolean z) {
+            PlaybackControlView.this.dxx();
             PlaybackControlView.this.dxv();
-            PlaybackControlView.this.dxt();
         }
 
         @Override // com.google.android.exoplayer2.r.a, com.google.android.exoplayer2.r.b
         public void EO(int i) {
-            PlaybackControlView.this.dxt();
+            PlaybackControlView.this.dxv();
             PlaybackControlView.this.afo();
         }
 
         @Override // com.google.android.exoplayer2.r.a, com.google.android.exoplayer2.r.b
         public void a(x xVar, Object obj) {
-            PlaybackControlView.this.dxt();
-            PlaybackControlView.this.dxw();
+            PlaybackControlView.this.dxv();
+            PlaybackControlView.this.dxy();
             PlaybackControlView.this.afo();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (PlaybackControlView.this.mDI != null) {
-                if (PlaybackControlView.this.mDs == view) {
+            if (PlaybackControlView.this.mDN != null) {
+                if (PlaybackControlView.this.mDz == view) {
                     PlaybackControlView.this.next();
-                } else if (PlaybackControlView.this.mDr == view) {
-                    PlaybackControlView.this.previous();
-                } else if (PlaybackControlView.this.mDv == view) {
-                    PlaybackControlView.this.fastForward();
                 } else if (PlaybackControlView.this.mDw == view) {
+                    PlaybackControlView.this.previous();
+                } else if (PlaybackControlView.this.mDC == view) {
+                    PlaybackControlView.this.fastForward();
+                } else if (PlaybackControlView.this.mDD == view) {
                     PlaybackControlView.this.rewind();
-                } else if (PlaybackControlView.this.mDt == view) {
-                    PlaybackControlView.this.mDJ.a(PlaybackControlView.this.mDI, true);
-                } else if (PlaybackControlView.this.mDu == view) {
-                    PlaybackControlView.this.mDJ.a(PlaybackControlView.this.mDI, false);
-                } else if (PlaybackControlView.this.mDz != view) {
-                    if (PlaybackControlView.this.mDA == view) {
-                        PlaybackControlView.this.mDJ.b(PlaybackControlView.this.mDI, PlaybackControlView.this.mDI.drE() ? false : true);
+                } else if (PlaybackControlView.this.mDA == view) {
+                    PlaybackControlView.this.mDO.a(PlaybackControlView.this.mDN, true);
+                } else if (PlaybackControlView.this.mDB == view) {
+                    PlaybackControlView.this.mDO.a(PlaybackControlView.this.mDN, false);
+                } else if (PlaybackControlView.this.mDE != view) {
+                    if (PlaybackControlView.this.mDF == view) {
+                        PlaybackControlView.this.mDO.b(PlaybackControlView.this.mDN, PlaybackControlView.this.mDN.drG() ? false : true);
                     }
                 } else {
-                    PlaybackControlView.this.mDJ.a(PlaybackControlView.this.mDI, o.dU(PlaybackControlView.this.mDI.getRepeatMode(), PlaybackControlView.this.mDR));
+                    PlaybackControlView.this.mDO.a(PlaybackControlView.this.mDN, o.dU(PlaybackControlView.this.mDN.getRepeatMode(), PlaybackControlView.this.mDW));
                 }
             }
-            PlaybackControlView.this.dxr();
+            PlaybackControlView.this.dxt();
         }
     }
 }

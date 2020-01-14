@@ -15,15 +15,15 @@ import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class LocationInfoWithDelView extends LinearLayout implements View.OnClickListener {
     private ImageView fVh;
-    private LocationInfoView kNw;
-    private a kNx;
+    private LocationInfoView kNB;
+    private a kNC;
     private int mSkinType;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cTv();
+        void cTx();
 
-        void cTw();
+        void cTy();
     }
 
     public LocationInfoWithDelView(Context context) {
@@ -42,10 +42,10 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
         setPadding(dimensionPixelSize, 0, 0, 0);
         setGravity(16);
         setOnClickListener(this);
-        this.kNw = new LocationInfoView(getContext());
-        this.kNw.setMaxEms(4);
-        this.kNw.setPadding(0, 0, 0, 0);
-        addView(this.kNw, new LinearLayout.LayoutParams(-2, -2));
+        this.kNB = new LocationInfoView(getContext());
+        this.kNB.setMaxEms(4);
+        this.kNB.setPadding(0, 0, 0, 0);
+        addView(this.kNB, new LinearLayout.LayoutParams(-2, -2));
         this.fVh = new ImageView(getContext());
         this.fVh.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.fVh.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
@@ -56,7 +56,7 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
     }
 
     public void onChangeSkinType(int i) {
-        this.kNw.onChangeSkinType(i);
+        this.kNB.onChangeSkinType(i);
         if (this.mSkinType != i) {
             am.c(this, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds26), R.color.cp_bg_line_j, R.color.cp_bg_line_j_alpha50);
             SvgManager.aEp().a(this.fVh, R.drawable.icon_pure_close12_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
@@ -70,7 +70,7 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
                 int indexOf = str.indexOf("·");
                 str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
             }
-            this.kNw.setState(i, str);
+            this.kNB.setState(i, str);
             setVisibility(0);
             return;
         }
@@ -82,16 +82,16 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
     }
 
     public void setLocationClickListener(a aVar) {
-        this.kNx = aVar;
+        this.kNC = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.kNx != null) {
+        if (this.kNC != null) {
             if (view == this.fVh) {
-                this.kNx.cTw();
+                this.kNC.cTy();
             } else if (view == this) {
-                this.kNx.cTv();
+                this.kNC.cTx();
             }
         }
     }

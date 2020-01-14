@@ -30,7 +30,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class d implements q {
     private static int cVo = 2097152;
     private final com.baidu.tbadk.core.util.a.a cVj;
-    private com.baidu.tieba.recapp.download.http.c jFO = new com.baidu.tieba.recapp.download.http.c();
+    private com.baidu.tieba.recapp.download.http.c jFT = new com.baidu.tieba.recapp.download.http.c();
     private Context mContext = TbadkCoreApplication.getInst().getApp();
 
     public d(com.baidu.tbadk.core.util.a.a aVar) {
@@ -125,13 +125,13 @@ public class d implements q {
 
     @Override // com.baidu.tbadk.core.util.q
     public void cancelNetConnect() {
-        this.jFO.cancel();
+        this.jFT.cancel();
     }
 
     @Override // com.baidu.tbadk.core.util.q
     public void setCancel() {
-        if (this.jFO != null) {
-            this.jFO.setCancel();
+        if (this.jFT != null) {
+            this.jFT.setCancel();
         }
     }
 
@@ -215,21 +215,21 @@ public class d implements q {
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.jFO.isCanceled()) {
+            if (this.jFT.isCanceled()) {
                 return null;
             }
-            if (this.jFO.b(this.cVj.aEu().aEx().mUrl, this.cVj.aEu().aEx().mPostData, this.cVj.aEu().aEx().mRequestGzip, 5, -1, aDX()) == null) {
+            if (this.jFT.b(this.cVj.aEu().aEx().mUrl, this.cVj.aEu().aEx().mPostData, this.cVj.aEu().aEx().mRequestGzip, 5, -1, aDX()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g cBj = this.jFO.cBj();
-            if (cBj == null) {
+            com.baidu.tieba.recapp.download.http.g cBl = this.jFT.cBl();
+            if (cBl == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i cBl = cBj.cBl();
-            if (cBj == null || cBj.fZ() == null || cBj.fZ().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i cBn = cBl.cBn();
+            if (cBl == null || cBl.fZ() == null || cBl.fZ().size() > 0) {
             }
-            this.cVj.aEv().mNetErrorCode = cBl.responseCode;
-            this.cVj.aEv().mHeader = cBl.rp;
+            this.cVj.aEv().mNetErrorCode = cBn.responseCode;
+            this.cVj.aEv().mHeader = cBn.rp;
             if (this.cVj.aEv().mNetErrorCode != 200) {
                 if (this.cVj.aEw().cWJ != null && !TextUtils.isEmpty(this.cVj.aEw().cWJ.exception)) {
                     this.cVj.aEv().mException = this.cVj.aEw().cWJ.exception;
@@ -238,10 +238,10 @@ public class d implements q {
                 }
                 TiebaStatic.net(this.cVj);
                 return null;
-            } else if (this.jFO.isCanceled()) {
+            } else if (this.jFT.isCanceled()) {
                 return null;
             } else {
-                str = new String(cBl.retBytes, "utf-8");
+                str = new String(cBn.retBytes, "utf-8");
                 try {
                     if (this.cVj.aEu().aEx().mIsBaiduServer && this.cVj.aEu().aEx().mIsJson) {
                         tc(str);
@@ -379,19 +379,19 @@ public class d implements q {
             e = e5;
             iVar = null;
         }
-        if (this.jFO.isCanceled()) {
+        if (this.jFT.isCanceled()) {
             throw new BdHttpCancelException();
         }
         long j = new Date().getTime();
-        this.jFO.b(str, z, 5, 100, -1, -1, aDX());
-        com.baidu.tieba.recapp.download.http.g cBj = this.jFO.cBj();
-        if (cBj == null) {
+        this.jFT.b(str, z, 5, 100, -1, -1, aDX());
+        com.baidu.tieba.recapp.download.http.g cBl = this.jFT.cBl();
+        if (cBl == null) {
             return null;
         }
-        iVar = cBj.cBl();
-        if (cBj != null) {
+        iVar = cBl.cBn();
+        if (cBl != null) {
             try {
-                if (cBj.fZ() == null || cBj.fZ().size() > 0) {
+                if (cBl.fZ() == null || cBl.fZ().size() > 0) {
                 }
             } catch (BdHttpCancelException e6) {
                 iVar2 = iVar;
@@ -561,21 +561,21 @@ public class d implements q {
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.jFO.isCanceled()) {
+            if (this.jFT.isCanceled()) {
                 return null;
             }
-            if (this.jFO.b(this.cVj.aEu().aEx().mUrl, this.cVj.aEu().aEx().mPostData, this.cVj.aEu().aEx().mRequestGzip, 5, -1, aDX()) == null) {
+            if (this.jFT.b(this.cVj.aEu().aEx().mUrl, this.cVj.aEu().aEx().mPostData, this.cVj.aEu().aEx().mRequestGzip, 5, -1, aDX()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g cBj = this.jFO.cBj();
-            if (cBj == null) {
+            com.baidu.tieba.recapp.download.http.g cBl = this.jFT.cBl();
+            if (cBl == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i cBl = cBj.cBl();
-            if (cBj == null || cBj.fZ() == null || cBj.fZ().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i cBn = cBl.cBn();
+            if (cBl == null || cBl.fZ() == null || cBl.fZ().size() > 0) {
             }
-            this.cVj.aEv().mNetErrorCode = cBl.responseCode;
-            this.cVj.aEv().mHeader = cBl.rp;
+            this.cVj.aEv().mNetErrorCode = cBn.responseCode;
+            this.cVj.aEv().mHeader = cBn.rp;
             if (this.cVj.aEv().mNetErrorCode != 200) {
                 if (this.cVj.aEw().cWJ != null && !TextUtils.isEmpty(this.cVj.aEw().cWJ.exception)) {
                     this.cVj.aEv().mException = this.cVj.aEw().cWJ.exception;
@@ -584,10 +584,10 @@ public class d implements q {
                 }
                 TiebaStatic.net(this.cVj);
                 return null;
-            } else if (this.jFO.isCanceled()) {
+            } else if (this.jFT.isCanceled()) {
                 return null;
             } else {
-                str = new String(cBl.retBytes, "utf-8");
+                str = new String(cBn.retBytes, "utf-8");
                 try {
                     if (this.cVj.aEu().aEx().mIsBaiduServer && this.cVj.aEu().aEx().mIsJson) {
                         tc(str);
@@ -671,10 +671,10 @@ public class d implements q {
     @Override // com.baidu.tbadk.core.util.q
     public boolean downloadFile(String str, final Handler handler, final int i, int i2, int i3, boolean z) {
         try {
-            if (this.jFO.isCanceled()) {
+            if (this.jFT.isCanceled()) {
                 return false;
             }
-            return this.jFO.a(this.cVj.aEu().aEx().mUrl, (z ? new File(str) : m.CreateFileIfNotFound(str)).getAbsolutePath(), false, i2, i3, -1, -1, aDX(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.d.1
+            return this.jFT.a(this.cVj.aEu().aEx().mUrl, (z ? new File(str) : m.CreateFileIfNotFound(str)).getAbsolutePath(), false, i2, i3, -1, -1, aDX(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.d.1
                 int cVq = 0;
                 int cVr = 0;
                 int cVs = 0;

@@ -13,15 +13,15 @@ final class d {
     private int gMR;
     private String hz;
     private int italic;
-    private boolean mAJ;
-    private boolean mAK;
-    private int mAL;
-    private int mAM;
-    private Layout.Alignment mAO;
-    private String mBl;
-    private String mBm;
-    private List<String> mBn;
-    private String mBo;
+    private boolean mAO;
+    private boolean mAP;
+    private int mAQ;
+    private int mAR;
+    private Layout.Alignment mAT;
+    private String mBq;
+    private String mBr;
+    private List<String> mBs;
+    private String mBt;
     private int underline;
 
     public d() {
@@ -29,46 +29,46 @@ final class d {
     }
 
     public void reset() {
-        this.mBl = "";
-        this.mBm = "";
-        this.mBn = Collections.emptyList();
-        this.mBo = "";
+        this.mBq = "";
+        this.mBr = "";
+        this.mBs = Collections.emptyList();
+        this.mBt = "";
         this.hz = null;
-        this.mAJ = false;
-        this.mAK = false;
-        this.mAL = -1;
+        this.mAO = false;
+        this.mAP = false;
+        this.mAQ = -1;
         this.underline = -1;
         this.bold = -1;
         this.italic = -1;
-        this.mAM = -1;
-        this.mAO = null;
+        this.mAR = -1;
+        this.mAT = null;
     }
 
     public void PP(String str) {
-        this.mBl = str;
+        this.mBq = str;
     }
 
     public void PQ(String str) {
-        this.mBm = str;
+        this.mBr = str;
     }
 
     public void S(String[] strArr) {
-        this.mBn = Arrays.asList(strArr);
+        this.mBs = Arrays.asList(strArr);
     }
 
     public void PR(String str) {
-        this.mBo = str;
+        this.mBt = str;
     }
 
     public int a(String str, String str2, String[] strArr, String str3) {
-        if (this.mBl.isEmpty() && this.mBm.isEmpty() && this.mBn.isEmpty() && this.mBo.isEmpty()) {
+        if (this.mBq.isEmpty() && this.mBr.isEmpty() && this.mBs.isEmpty() && this.mBt.isEmpty()) {
             return str2.isEmpty() ? 1 : 0;
         }
-        int b = b(b(b(0, this.mBl, str, 1073741824), this.mBm, str2, 2), this.mBo, str3, 4);
-        if (b == -1 || !Arrays.asList(strArr).containsAll(this.mBn)) {
+        int b = b(b(b(0, this.mBq, str, 1073741824), this.mBr, str2, 2), this.mBt, str3, 4);
+        if (b == -1 || !Arrays.asList(strArr).containsAll(this.mBs)) {
             return 0;
         }
-        return (this.mBn.size() * 4) + b;
+        return (this.mBs.size() * 4) + b;
     }
 
     public int getStyle() {
@@ -78,11 +78,11 @@ final class d {
         return (this.bold == 1 ? 1 : 0) | (this.italic == 1 ? 2 : 0);
     }
 
-    public boolean dwX() {
-        return this.mAL == 1;
+    public boolean dwZ() {
+        return this.mAQ == 1;
     }
 
-    public boolean dwY() {
+    public boolean dxa() {
         return this.underline == 1;
     }
 
@@ -101,7 +101,7 @@ final class d {
         return this;
     }
 
-    public String dwZ() {
+    public String dxb() {
         return this.hz;
     }
 
@@ -111,7 +111,7 @@ final class d {
     }
 
     public int getFontColor() {
-        if (!this.mAJ) {
+        if (!this.mAO) {
             throw new IllegalStateException("Font color not defined");
         }
         return this.gMR;
@@ -119,16 +119,16 @@ final class d {
 
     public d Lw(int i) {
         this.gMR = i;
-        this.mAJ = true;
+        this.mAO = true;
         return this;
     }
 
-    public boolean dxa() {
-        return this.mAJ;
+    public boolean dxc() {
+        return this.mAO;
     }
 
     public int getBackgroundColor() {
-        if (!this.mAK) {
+        if (!this.mAP) {
             throw new IllegalStateException("Background color not defined.");
         }
         return this.backgroundColor;
@@ -136,23 +136,23 @@ final class d {
 
     public d Lx(int i) {
         this.backgroundColor = i;
-        this.mAK = true;
+        this.mAP = true;
         return this;
     }
 
-    public boolean dxb() {
-        return this.mAK;
+    public boolean dxd() {
+        return this.mAP;
     }
 
-    public Layout.Alignment dxc() {
-        return this.mAO;
+    public Layout.Alignment dxe() {
+        return this.mAT;
     }
 
-    public int dxd() {
-        return this.mAM;
+    public int dxf() {
+        return this.mAR;
     }
 
-    public float dxe() {
+    public float dxg() {
         return this.Ro;
     }
 

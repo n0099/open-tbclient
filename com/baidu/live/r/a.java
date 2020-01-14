@@ -2814,7 +2814,7 @@ public final class a {
         public static final int combo_text_icon = 2131691146;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f969common = 2131689912;
+        public static final int f970common = 2131689912;
         public static final int confirm = 2131693590;
         public static final int confirm_btn_root = 2131697314;
         public static final int container = 2131690415;

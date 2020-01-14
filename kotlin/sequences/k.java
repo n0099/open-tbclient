@@ -4,8 +4,8 @@ import java.util.Iterator;
 import kotlin.jvm.internal.q;
 /* loaded from: classes5.dex */
 public final class k<T, R> implements c<R> {
-    private final c<T> nBW;
-    private final kotlin.jvm.a.b<T, R> nCk;
+    private final c<T> nCb;
+    private final kotlin.jvm.a.b<T, R> nCp;
 
     /* loaded from: classes5.dex */
     public static final class a implements Iterator<R> {
@@ -18,12 +18,12 @@ public final class k<T, R> implements c<R> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.iterator = k.this.nBW.iterator();
+            this.iterator = k.this.nCb.iterator();
         }
 
         @Override // java.util.Iterator
         public R next() {
-            return (R) k.this.nCk.invoke(this.iterator.next());
+            return (R) k.this.nCp.invoke(this.iterator.next());
         }
 
         @Override // java.util.Iterator
@@ -38,8 +38,8 @@ public final class k<T, R> implements c<R> {
     public k(c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
         q.j(cVar, "sequence");
         q.j(bVar, "transformer");
-        this.nBW = cVar;
-        this.nCk = bVar;
+        this.nCb = cVar;
+        this.nCp = bVar;
     }
 
     @Override // kotlin.sequences.c

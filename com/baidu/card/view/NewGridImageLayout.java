@@ -216,7 +216,7 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
             if (voiceModel != null) {
                 this.Nw.wQ(voiceModel.voice_status.intValue());
             }
-            this.Nw.cKI();
+            this.Nw.cKK();
             this.Nz = true;
         }
     }

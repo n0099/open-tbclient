@@ -534,7 +534,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                 this.cZe.hasAgree = true;
                                 this.cZe.agreeNum++;
                                 fG(true);
-                                com.baidu.tieba.n.a.cAA().B(getTbPageContext());
+                                com.baidu.tieba.n.a.cAC().B(getTbPageContext());
                                 if (this.cZj != null) {
                                     this.cZj.cJA = 0;
                                     i2 = 0;
@@ -546,7 +546,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                             this.cZe.hasAgree = true;
                             this.cZe.agreeNum++;
                             fG(true);
-                            com.baidu.tieba.n.a.cAA().B(getTbPageContext());
+                            com.baidu.tieba.n.a.cAC().B(getTbPageContext());
                             if (this.cZj != null) {
                                 this.cZj.cJA = 0;
                             }

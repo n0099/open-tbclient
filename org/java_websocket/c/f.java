@@ -7,7 +7,7 @@ public interface f {
 
     boolean Sm(String str);
 
-    Iterator<String> dMp();
+    Iterator<String> dMr();
 
     byte[] getContent();
 }

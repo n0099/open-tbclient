@@ -8,22 +8,22 @@ import tv.chushou.zues.widget.kpswitch.b.e;
 /* loaded from: classes4.dex */
 public class b implements tv.chushou.zues.widget.kpswitch.a {
     private int mMinHeight;
-    private final View nYk;
-    private boolean nYn;
+    private final View nYp;
+    private boolean nYs;
     private boolean aVK = false;
-    private boolean nYo = true;
-    private final int[] nYp = new int[2];
-    private boolean nYq = false;
+    private boolean nYt = true;
+    private final int[] nYu = new int[2];
+    private boolean nYv = false;
 
     public b(View view, AttributeSet attributeSet) {
-        this.nYn = false;
+        this.nYs = false;
         this.mMinHeight = 0;
-        this.nYk = view;
+        this.nYp = view;
         if (attributeSet != null) {
             TypedArray typedArray = null;
             try {
                 typedArray = view.getContext().obtainStyledAttributes(attributeSet, b.i.KPSwitchPanelLayout);
-                this.nYn = typedArray.getBoolean(b.i.KPSwitchPanelLayout_ignore_recommend_height, false);
+                this.nYs = typedArray.getBoolean(b.i.KPSwitchPanelLayout_ignore_recommend_height, false);
                 this.mMinHeight = (int) typedArray.getDimension(b.i.KPSwitchPanelLayout_min_height, 0.0f);
             } finally {
                 if (typedArray != null) {
@@ -37,30 +37,30 @@ public class b implements tv.chushou.zues.widget.kpswitch.a {
         if (i == 0) {
             this.aVK = false;
         }
-        if (i == this.nYk.getVisibility()) {
+        if (i == this.nYp.getVisibility()) {
             return true;
         }
-        return dPw() && i == 0;
+        return dPy() && i == 0;
     }
 
     public int[] S(int i, int i2) {
         if (this.aVK) {
-            this.nYk.setVisibility(8);
+            this.nYp.setVisibility(8);
             i = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
             i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
         }
-        this.nYp[0] = i;
-        this.nYp[1] = i2;
-        return this.nYp;
+        this.nYu[0] = i;
+        this.nYu[1] = i2;
+        return this.nYu;
     }
 
     public void xe(boolean z) {
-        this.nYq = z;
+        this.nYv = z;
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dPw() {
-        return this.nYq;
+    public boolean dPy() {
+        return this.nYv;
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
@@ -79,16 +79,16 @@ public class b implements tv.chushou.zues.widget.kpswitch.a {
     }
 
     public void Ou(int i) {
-        if (!this.nYn) {
+        if (!this.nYs) {
             if (i < this.mMinHeight) {
                 i = this.mMinHeight;
             }
-            e.f(this.nYk, i);
+            e.f(this.nYp, i);
         }
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.nYn = z;
+        this.nYs = z;
     }
 
     public void setMinHeight(int i) {
@@ -96,11 +96,11 @@ public class b implements tv.chushou.zues.widget.kpswitch.a {
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dPx() {
-        return this.nYo;
+    public boolean dPz() {
+        return this.nYt;
     }
 
     public void setPanelEnabled(boolean z) {
-        this.nYo = z;
+        this.nYt = z;
     }
 }

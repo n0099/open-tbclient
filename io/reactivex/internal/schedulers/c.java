@@ -9,17 +9,17 @@ import java.util.concurrent.atomic.AtomicReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public final class c implements io.reactivex.disposables.b, Callable<Void> {
-    static final FutureTask<Void> nyE = new FutureTask<>(Functions.nvp, null);
-    final Runnable nyA;
-    final ExecutorService nyD;
+    static final FutureTask<Void> nyJ = new FutureTask<>(Functions.nvu, null);
+    final Runnable nyF;
+    final ExecutorService nyI;
     Thread runner;
-    final AtomicReference<Future<?>> nyC = new AtomicReference<>();
-    final AtomicReference<Future<?>> nyB = new AtomicReference<>();
+    final AtomicReference<Future<?>> nyH = new AtomicReference<>();
+    final AtomicReference<Future<?>> nyG = new AtomicReference<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Runnable runnable, ExecutorService executorService) {
-        this.nyA = runnable;
-        this.nyD = executorService;
+        this.nyF = runnable;
+        this.nyI = executorService;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,8 +27,8 @@ public final class c implements io.reactivex.disposables.b, Callable<Void> {
     public Void call() throws Exception {
         this.runner = Thread.currentThread();
         try {
-            this.nyA.run();
-            b(this.nyD.submit(this));
+            this.nyF.run();
+            b(this.nyI.submit(this));
             this.runner = null;
         } catch (Throwable th) {
             this.runner = null;
@@ -39,41 +39,41 @@ public final class c implements io.reactivex.disposables.b, Callable<Void> {
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
-        Future<?> andSet = this.nyC.getAndSet(nyE);
-        if (andSet != null && andSet != nyE) {
+        Future<?> andSet = this.nyH.getAndSet(nyJ);
+        if (andSet != null && andSet != nyJ) {
             andSet.cancel(this.runner != Thread.currentThread());
         }
-        Future<?> andSet2 = this.nyB.getAndSet(nyE);
-        if (andSet2 != null && andSet2 != nyE) {
+        Future<?> andSet2 = this.nyG.getAndSet(nyJ);
+        if (andSet2 != null && andSet2 != nyJ) {
             andSet2.cancel(this.runner != Thread.currentThread());
         }
     }
 
     @Override // io.reactivex.disposables.b
     public boolean isDisposed() {
-        return this.nyC.get() == nyE;
+        return this.nyH.get() == nyJ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Future<?> future) {
         Future<?> future2;
         do {
-            future2 = this.nyC.get();
-            if (future2 == nyE) {
+            future2 = this.nyH.get();
+            if (future2 == nyJ) {
                 future.cancel(this.runner != Thread.currentThread());
                 return;
             }
-        } while (!this.nyC.compareAndSet(future2, future));
+        } while (!this.nyH.compareAndSet(future2, future));
     }
 
     void b(Future<?> future) {
         Future<?> future2;
         do {
-            future2 = this.nyB.get();
-            if (future2 == nyE) {
+            future2 = this.nyG.get();
+            if (future2 == nyJ) {
                 future.cancel(this.runner != Thread.currentThread());
                 return;
             }
-        } while (!this.nyB.compareAndSet(future2, future));
+        } while (!this.nyG.compareAndSet(future2, future));
     }
 }

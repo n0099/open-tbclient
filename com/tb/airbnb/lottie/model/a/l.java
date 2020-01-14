@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes5.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e nqa;
-    private final m<PointF, PointF> nqb;
-    private final g nqc;
-    private final b nqd;
-    private final d nqe;
+    private final e nqf;
+    private final m<PointF, PointF> nqg;
+    private final g nqh;
+    private final b nqi;
+    private final d nqj;
     @Nullable
-    private final b nqf;
+    private final b nqk;
     @Nullable
-    private final b nqg;
+    private final b nql;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.nqa = eVar;
-        this.nqb = mVar;
-        this.nqc = gVar;
-        this.nqd = bVar;
-        this.nqe = dVar;
-        this.nqf = bVar2;
-        this.nqg = bVar3;
+        this.nqf = eVar;
+        this.nqg = mVar;
+        this.nqh = gVar;
+        this.nqi = bVar;
+        this.nqj = dVar;
+        this.nqk = bVar2;
+        this.nql = bVar3;
     }
 
-    public e dFG() {
-        return this.nqa;
-    }
-
-    public m<PointF, PointF> dFH() {
-        return this.nqb;
-    }
-
-    public g dFI() {
-        return this.nqc;
-    }
-
-    public b dFJ() {
-        return this.nqd;
-    }
-
-    public d dFK() {
-        return this.nqe;
-    }
-
-    @Nullable
-    public b dFL() {
+    public e dFI() {
         return this.nqf;
     }
 
-    @Nullable
-    public b dFM() {
+    public m<PointF, PointF> dFJ() {
         return this.nqg;
     }
 
-    public o dFN() {
+    public g dFK() {
+        return this.nqh;
+    }
+
+    public b dFL() {
+        return this.nqi;
+    }
+
+    public d dFM() {
+        return this.nqj;
+    }
+
+    @Nullable
+    public b dFN() {
+        return this.nqk;
+    }
+
+    @Nullable
+    public b dFO() {
+        return this.nql;
+    }
+
+    public o dFP() {
         return new o(this);
     }
 

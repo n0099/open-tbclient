@@ -22,7 +22,7 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
     private View d;
     private boolean e;
     private boolean f;
-    private a njn;
+    private a njs;
 
     public PaoGuideView(Context context) {
         super(context);
@@ -46,7 +46,7 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
         this.b = null;
         this.e = false;
         this.f = false;
-        this.njn = null;
+        this.njs = null;
         this.c = null;
         this.d = null;
     }
@@ -70,10 +70,10 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
             this.c = LayoutInflater.from(context).inflate(a.h.web_guide_view, (ViewGroup) null, false);
         }
         removeAllViews();
-        this.njn = new a();
+        this.njs = new a();
         Bundle bundle = new Bundle();
-        bundle.putString("mH5Url", (tv.chushou.common.a.dOH() + "play-help/bang-guide.htm?") + "roomId=" + str);
-        this.njn.setArguments(bundle);
+        bundle.putString("mH5Url", (tv.chushou.common.a.dOJ() + "play-help/bang-guide.htm?") + "roomId=" + str);
+        this.njs.setArguments(bundle);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, -1);
         layoutParams.addRule(11);
         this.d.setOnClickListener(this);
@@ -83,13 +83,13 @@ public class PaoGuideView extends RelativeLayout implements View.OnClickListener
         addView(this.d, layoutParams2);
         addView(this.c, layoutParams);
         FragmentTransaction beginTransaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(a.f.guide_fragment, this.njn);
+        beginTransaction.add(a.f.guide_fragment, this.njs);
         beginTransaction.commitAllowingStateLoss();
     }
 
     public void c() {
-        if (this.njn != null && this.njn.isAdded()) {
-            this.njn.a();
+        if (this.njs != null && this.njs.isAdded()) {
+            this.njs.a();
         }
     }
 

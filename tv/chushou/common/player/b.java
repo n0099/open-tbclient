@@ -5,10 +5,6 @@ public interface b {
 
     void ME(int i);
 
-    void dBj();
-
-    void dBk();
-
     void dBl();
 
     void dBm();
@@ -22,4 +18,8 @@ public interface b {
     void dBq();
 
     void dBr();
+
+    void dBs();
+
+    void dBt();
 }

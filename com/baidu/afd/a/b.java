@@ -80,7 +80,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
             }
             com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(kv, i2, i);
             c.HQ(str2);
-            com.baidu.tieba.recapp.report.c.cBP().a(c);
+            com.baidu.tieba.recapp.report.c.cBR().a(c);
             com.baidu.tieba.lego.card.b.c.a(dVar);
         }
     }

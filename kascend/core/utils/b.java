@@ -1,43 +1,43 @@
 package kascend.core.utils;
 /* loaded from: classes4.dex */
 public class b {
-    private static final byte[] nAP = new byte[128];
-    private static final char[] nAQ = new char[64];
+    private static final byte[] nAU = new byte[128];
+    private static final char[] nAV = new char[64];
 
     static {
         int i = 0;
         for (int i2 = 0; i2 < 128; i2++) {
-            nAP[i2] = -1;
+            nAU[i2] = -1;
         }
         for (int i3 = 90; i3 >= 65; i3--) {
-            nAP[i3] = (byte) (i3 - 65);
+            nAU[i3] = (byte) (i3 - 65);
         }
         for (int i4 = 122; i4 >= 97; i4--) {
-            nAP[i4] = (byte) ((i4 - 97) + 26);
+            nAU[i4] = (byte) ((i4 - 97) + 26);
         }
         for (int i5 = 57; i5 >= 48; i5--) {
-            nAP[i5] = (byte) ((i5 - 48) + 52);
+            nAU[i5] = (byte) ((i5 - 48) + 52);
         }
-        nAP[43] = 62;
-        nAP[47] = 63;
+        nAU[43] = 62;
+        nAU[47] = 63;
         for (int i6 = 0; i6 <= 25; i6++) {
-            nAQ[i6] = (char) (i6 + 65);
+            nAV[i6] = (char) (i6 + 65);
         }
         int i7 = 26;
         int i8 = 0;
         while (i7 <= 51) {
-            nAQ[i7] = (char) (i8 + 97);
+            nAV[i7] = (char) (i8 + 97);
             i7++;
             i8++;
         }
         int i9 = 52;
         while (i9 <= 61) {
-            nAQ[i9] = (char) (i + 48);
+            nAV[i9] = (char) (i + 48);
             i9++;
             i++;
         }
-        nAQ[62] = '+';
-        nAQ[63] = '/';
+        nAV[62] = '+';
+        nAV[63] = '/';
     }
 
     public static byte[] decode(String str) throws Exception {
@@ -80,10 +80,10 @@ public class b {
                 if (!r(c4)) {
                     return null;
                 }
-                byte b = nAP[c];
-                byte b2 = nAP[c2];
-                byte b3 = nAP[c3];
-                byte b4 = nAP[c4];
+                byte b = nAU[c];
+                byte b2 = nAU[c2];
+                byte b3 = nAU[c3];
+                byte b4 = nAU[c4];
                 int i8 = i3 + 1;
                 bArr[i3] = (byte) ((b << 2) | (b2 >> 4));
                 int i9 = i8 + 1;
@@ -98,8 +98,8 @@ public class b {
                 int i11 = i10 + 1;
                 char c6 = charArray[i10];
                 if (r(c6)) {
-                    byte b5 = nAP[c5];
-                    byte b6 = nAP[c6];
+                    byte b5 = nAU[c5];
+                    byte b6 = nAU[c6];
                     int i12 = i11 + 1;
                     char c7 = charArray[i11];
                     int i13 = i12 + 1;
@@ -116,7 +116,7 @@ public class b {
                         } else if (q(c7) || !q(c8)) {
                             return null;
                         } else {
-                            byte b7 = nAP[c7];
+                            byte b7 = nAU[c7];
                             if ((b7 & 3) == 0) {
                                 byte[] bArr3 = new byte[(i4 * 3) + 2];
                                 System.arraycopy(bArr, 0, bArr3, 0, i4 * 3);
@@ -127,8 +127,8 @@ public class b {
                             return null;
                         }
                     }
-                    byte b8 = nAP[c7];
-                    byte b9 = nAP[c8];
+                    byte b8 = nAU[c7];
+                    byte b9 = nAU[c8];
                     int i14 = i3 + 1;
                     bArr[i3] = (byte) ((b5 << 2) | (b6 >> 4));
                     int i15 = i14 + 1;
@@ -173,6 +173,6 @@ public class b {
     }
 
     private static boolean r(char c) {
-        return c < 128 && nAP[c] != -1;
+        return c < 128 && nAU[c] != -1;
     }
 }

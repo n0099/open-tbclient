@@ -23,14 +23,14 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
     private TbPageContext cRe;
     private boolean ejJ;
     private BaseFragmentActivity gpB;
-    private com.baidu.tieba.personPolymeric.c.a jmI;
-    private PersonPolymericModel jmu;
-    private f jna;
-    private p jnb;
-    private e jnc;
-    private PersonPostModel jnd;
-    private a jne;
-    PersonPostModel.b jnf;
+    private com.baidu.tieba.personPolymeric.c.a jmN;
+    private PersonPolymericModel jmz;
+    private f jnf;
+    private p jng;
+    private e jnh;
+    private PersonPostModel jni;
+    private a jnj;
+    PersonPostModel.b jnk;
     private List<com.baidu.tieba.person.data.e> mList;
     private int mSex;
     private int mSkinType;
@@ -46,35 +46,35 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
         this.ejJ = true;
         this.mSex = 1;
         this.mSkinType = 3;
-        this.jne = new a() { // from class: com.baidu.tieba.personPolymeric.b.j.1
+        this.jnj = new a() { // from class: com.baidu.tieba.personPolymeric.b.j.1
         };
-        this.jnf = new PersonPostModel.b() { // from class: com.baidu.tieba.personPolymeric.b.j.2
+        this.jnk = new PersonPostModel.b() { // from class: com.baidu.tieba.personPolymeric.b.j.2
             @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.b
             public void a(PersonPostModel personPostModel, boolean z2) {
-                j.this.jnb.bIj();
+                j.this.jng.bIj();
                 if (personPostModel != null) {
                     l.showToast(j.this.cRe.getContext(), personPostModel.getErrorString());
                 } else {
                     l.showToast(j.this.cRe.getContext(), j.this.cRe.getString(R.string.data_load_error));
                 }
                 if (z2) {
-                    j.this.jnb.aO(null);
-                    j.this.jnc.bbc();
+                    j.this.jng.aO(null);
+                    j.this.jnh.bbc();
                 }
             }
         };
         this.gpB = baseFragment.getBaseFragmentActivity();
         this.cRe = this.gpB.getPageContext();
         this.mUserId = j;
-        this.jna = fVar;
+        this.jnf = fVar;
         this.Mm = bdUniqueId;
         this.mView = fVar.mRootView;
-        this.jnd = new PersonPostModel(this.cRe, bdUniqueId, null, this.mIsHost, PersonPostModel.FROM_PERSON_POLYMERIC);
-        this.jnb = new p(baseFragment, fVar, bdUniqueId, z, this.mUserId);
-        this.jnb.a(this);
+        this.jni = new PersonPostModel(this.cRe, bdUniqueId, null, this.mIsHost, PersonPostModel.FROM_PERSON_POLYMERIC);
+        this.jng = new p(baseFragment, fVar, bdUniqueId, z, this.mUserId);
+        this.jng.a(this);
         resetData();
-        this.jmu = this.jna.cvs();
-        this.jnc = this.jna.cvt();
+        this.jmz = this.jnf.cvu();
+        this.jnh = this.jnf.cvv();
         this.mList = new ArrayList(2);
         this.mList.add(new com.baidu.tieba.person.data.e());
         this.mList.add(new com.baidu.tieba.person.data.e());
@@ -82,45 +82,45 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
 
     @Override // com.baidu.tieba.model.a
     public void refreshData() {
-        if (this.jna != null) {
-            this.jna.refreshData();
+        if (this.jnf != null) {
+            this.jnf.refreshData();
         }
     }
 
     @Override // com.baidu.tieba.model.a
     public void loadData() {
-        if (this.jna != null) {
-            this.jna.loadData();
+        if (this.jnf != null) {
+            this.jnf.loadData();
         }
     }
 
     @Override // com.baidu.tieba.model.a
     public void resetData() {
-        this.jnd.resetThreadPn();
-        if (this.jmu != null) {
-            this.jmu.resetData();
+        this.jni.resetThreadPn();
+        if (this.jmz != null) {
+            this.jmz.resetData();
         }
     }
 
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
         boolean z;
-        this.jmI = aVar;
-        this.jnb.bIj();
+        this.jmN = aVar;
+        this.jng.bIj();
         this.gpB.hideLoadingView(this.mView);
         if (aVar == null) {
-            this.jnc.an(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
-            this.jnc.bbc();
-            this.jnc.zR(8);
+            this.jnh.an(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+            this.jnh.bbc();
+            this.jnh.zR(8);
             return;
         }
-        this.jnc.baf();
+        this.jnh.baf();
         if (aVar.bBu() != null && aVar.getUserData() != null && aVar.getUserData().getBaijiahaoInfo() != null && ((aVar.bBu().getHide_stat() == 1 && aVar.bBu().getBlock_stat() == 1) || (aVar.bBu().getHide_stat() == 1 && aVar.bBu().getBlock_stat() == 2))) {
-            this.jnc.rl(this.mIsHost);
-            this.jnc.zR(8);
+            this.jnh.rl(this.mIsHost);
+            this.jnh.zR(8);
             return;
         }
-        this.jnc.zR(0);
-        aVar.cvF();
+        this.jnh.zR(0);
+        aVar.cvH();
         if (aVar.bOU() != null) {
             z = aVar.bOU().size() >= 20;
         } else {
@@ -137,29 +137,29 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
         com.baidu.tieba.person.data.e eVar = this.mList.get(0);
         eVar.aN(aVar.bOU());
         eVar.rb(z);
-        this.jnb.a(aVar, z, a(aVar));
+        this.jng.a(aVar, z, a(aVar));
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.jnb != null) {
-                this.jnb.onChangeSkinType(i);
+            if (this.jng != null) {
+                this.jng.onChangeSkinType(i);
             }
             this.mSkinType = i;
         }
     }
 
     public boolean onBackPressed() {
-        if (this.jnb != null) {
-            return this.jnb.onBackPressed();
+        if (this.jng != null) {
+            return this.jng.onBackPressed();
         }
         return false;
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.Mm);
-        if (this.jnb != null) {
-            this.jnb.onDestory();
+        if (this.jng != null) {
+            this.jng.onDestory();
         }
     }
 
@@ -186,22 +186,22 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public void cvk() {
-        if (this.jnb != null) {
-            this.jnb.cvk();
+    public void cvm() {
+        if (this.jng != null) {
+            this.jng.cvm();
         }
     }
 
     public void rp(boolean z) {
-        this.jnb.rp(z);
+        this.jng.rp(z);
     }
 
     public void a(com.baidu.tieba.view.e eVar) {
-        this.jnb.setOnViewResponseListener(eVar);
+        this.jng.setOnViewResponseListener(eVar);
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public p cvl() {
-        return this.jnb;
+    public p cvn() {
+        return this.jng;
     }
 }

@@ -14,7 +14,7 @@ public class PraiseModel extends BdBaseModel {
     private static final String dXG = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
     private static TbHttpMessageTask task = new TbHttpMessageTask(1001600, dXG);
     private final HttpMessageListener dXH;
-    private a kes;
+    private a kex;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -30,7 +30,7 @@ public class PraiseModel extends BdBaseModel {
 
     public PraiseModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.kes = null;
+        this.kex = null;
         this.dXH = new HttpMessageListener(1001600) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -38,22 +38,22 @@ public class PraiseModel extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                        if (PraiseModel.this.kes != null) {
-                            PraiseModel.this.kes.onLoadFailed(statusCode, null);
+                        if (PraiseModel.this.kex != null) {
+                            PraiseModel.this.kex.onLoadFailed(statusCode, null);
                             return;
                         }
                         return;
                     }
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        PraiseModel.this.kes.wW(praiseResponseMessage.getErrMsg());
-                    } else if (PraiseModel.this.kes != null) {
-                        PraiseModel.this.kes.onLoadFailed(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                        PraiseModel.this.kex.wW(praiseResponseMessage.getErrMsg());
+                    } else if (PraiseModel.this.kex != null) {
+                        PraiseModel.this.kex.onLoadFailed(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }
                 }
             }
         };
-        this.kes = aVar;
+        this.kex = aVar;
     }
 
     public void registerListener() {

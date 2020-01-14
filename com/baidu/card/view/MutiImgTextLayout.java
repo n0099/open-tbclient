@@ -88,7 +88,7 @@ public class MutiImgTextLayout extends LinearLayout implements m<a> {
         if (voiceModel != null) {
             this.Nw.wQ(voiceModel.voice_status.intValue());
         }
-        this.Nw.cKI();
+        this.Nw.cKK();
         this.Nz = true;
     }
 

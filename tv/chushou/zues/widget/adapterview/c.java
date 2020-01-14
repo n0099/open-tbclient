@@ -3,5 +3,5 @@ package tv.chushou.zues.widget.adapterview;
 public interface c {
     void Ok(int i);
 
-    boolean dPh();
+    boolean dPj();
 }

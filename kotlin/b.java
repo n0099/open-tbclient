@@ -7,6 +7,6 @@ public class b {
     public static final void addSuppressed(Throwable th, Throwable th2) {
         q.j(th, "receiver$0");
         q.j(th2, com.baidu.fsg.base.statistics.b.k);
-        kotlin.internal.b.nBv.addSuppressed(th, th2);
+        kotlin.internal.b.nBA.addSuppressed(th, th2);
     }
 }

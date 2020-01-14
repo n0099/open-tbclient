@@ -16,71 +16,71 @@ import java.io.File;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class a {
-    private c jya;
-    private int jyb = 0;
-    private int jyc = 0;
+    private c jyf;
+    private int jyg = 0;
+    private int jyh = 0;
     private Handler mHandler = new Handler();
 
     public a(c cVar) {
-        this.jya = cVar;
+        this.jyf = cVar;
     }
 
     public boolean a(g gVar, int i, int i2, int i3, Uri uri) {
-        if (this.jya == null) {
+        if (this.jyf == null) {
             return false;
         }
         if (i == -300) {
-            if (this.jyc == 0) {
-                this.jyc++;
-                this.mHandler.postDelayed(new b(this.jya, gVar, i, i2, i3, 3, cym()), 200L);
-            } else if (this.jyc == 1) {
-                this.jyc++;
-                this.mHandler.postDelayed(new b(this.jya, gVar, i, i2, i3, 4, cym()), 200L);
+            if (this.jyh == 0) {
+                this.jyh++;
+                this.mHandler.postDelayed(new b(this.jyf, gVar, i, i2, i3, 3, cyo()), 200L);
+            } else if (this.jyh == 1) {
+                this.jyh++;
+                this.mHandler.postDelayed(new b(this.jyf, gVar, i, i2, i3, 4, cyo()), 200L);
             } else {
                 return false;
             }
             return true;
         }
-        this.jyb++;
-        if (this.jyb <= 2) {
-            if (!a(gVar, i, i2, i3, uri, cym())) {
+        this.jyg++;
+        if (this.jyg <= 2) {
+            if (!a(gVar, i, i2, i3, uri, cyo())) {
                 if (i == -200) {
-                    this.mHandler.postDelayed(new b(this.jya, gVar, i, i2, i3, this.jyb % 2 == 1 ? 7 : 17, cym()), 200L);
-                    this.jyb = 2;
+                    this.mHandler.postDelayed(new b(this.jyf, gVar, i, i2, i3, this.jyg % 2 == 1 ? 7 : 17, cyo()), 200L);
+                    this.jyg = 2;
                 } else {
-                    this.mHandler.postDelayed(new b(this.jya, gVar, i, i2, i3, this.jyb % 2 == 1 ? 8 : 18, cym()), 200L);
-                    this.jyb = 4;
+                    this.mHandler.postDelayed(new b(this.jyf, gVar, i, i2, i3, this.jyg % 2 == 1 ? 8 : 18, cyo()), 200L);
+                    this.jyg = 4;
                     return false;
                 }
             }
             return true;
-        } else if (this.jyb <= 4) {
+        } else if (this.jyg <= 4) {
             if (i == -200) {
-                this.mHandler.postDelayed(new b(this.jya, gVar, i, i2, i3, this.jyb % 2 == 1 ? 1 : 11, cym()), 200L);
+                this.mHandler.postDelayed(new b(this.jyf, gVar, i, i2, i3, this.jyg % 2 == 1 ? 1 : 11, cyo()), 200L);
                 return true;
             }
             return false;
-        } else if (this.jyb <= 6 && i == -200) {
-            this.mHandler.postDelayed(new b(this.jya, gVar, i, i2, i3, this.jyb % 2 == 1 ? 2 : 12, cym()), 200L);
+        } else if (this.jyg <= 6 && i == -200) {
+            this.mHandler.postDelayed(new b(this.jyf, gVar, i, i2, i3, this.jyg % 2 == 1 ? 2 : 12, cyo()), 200L);
             return true;
         } else {
             return false;
         }
     }
 
-    private int cym() {
-        return (this.jyc * 100) + this.jyb;
+    private int cyo() {
+        return (this.jyh * 100) + this.jyg;
     }
 
     private boolean a(g gVar, int i, int i2, int i3, Uri uri, int i4) {
-        if (!cyn() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost()) || uri.toString().contains("127.0.0.1") || !uri.toString().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
+        if (!cyp() || i == -100 || uri == null || TextUtils.isEmpty(uri.getHost()) || uri.toString().contains("127.0.0.1") || !uri.toString().contains(HttpHost.DEFAULT_SCHEME_NAME)) {
             return false;
         }
-        com.baidu.adp.lib.network.http.a.b.gi().a(new C0580a(this.mHandler, this.jya, i, uri, gVar, i2, i3, i4));
+        com.baidu.adp.lib.network.http.a.b.gi().a(new C0580a(this.mHandler, this.jyf, i, uri, gVar, i2, i3, i4));
         return com.baidu.adp.lib.network.http.a.b.gi().ao(uri.getHost());
     }
 
-    private boolean cyn() {
+    private boolean cyp() {
         return (SwitchManager.getInstance().findType(VideoHttpDnsSwitch.HTTP_DNS_SWITCH_KEY) == 0 || !j.isNetWorkAvailable() || CustomPlayerSwitch.getSwitchStatus() == 0) ? false : true;
     }
 
@@ -89,22 +89,22 @@ public class a {
     /* loaded from: classes.dex */
     public static class C0580a implements b.InterfaceC0018b {
         private int eCy;
-        private c jya;
-        private g jyd;
-        private int jye;
-        private int jyf;
+        private c jyf;
+        private g jyi;
+        private int jyj;
+        private int jyk;
         private Handler mHandler;
         private Uri mUri;
         private int what;
 
         public C0580a(Handler handler, c cVar, int i, Uri uri, g gVar, int i2, int i3, int i4) {
             this.mHandler = handler;
-            this.jya = cVar;
+            this.jyf = cVar;
             this.mUri = uri;
-            this.jyd = gVar;
-            this.jye = i;
+            this.jyi = gVar;
+            this.jyj = i;
             this.what = i2;
-            this.jyf = i3;
+            this.jyk = i3;
             this.eCy = i4;
         }
 
@@ -113,24 +113,24 @@ public class a {
             try {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || this.mUri == null || !str2.equals(this.mUri.getHost())) {
                     if (this.mHandler != null) {
-                        this.mHandler.postDelayed(new b(this.jya, this.jyd, this.jye, this.what, this.jyf, this.eCy % 2 == 1 ? 5 : 15, this.eCy), 200L);
+                        this.mHandler.postDelayed(new b(this.jyf, this.jyi, this.jyj, this.what, this.jyk, this.eCy % 2 == 1 ? 5 : 15, this.eCy), 200L);
                     }
                 } else if (this.mHandler != null) {
-                    this.mHandler.postDelayed(new b(this.jya, this.jyd, this.jye, this.what, this.jyf, str, this.eCy % 2 == 1 ? 0 : 10, this.eCy), 200L);
+                    this.mHandler.postDelayed(new b(this.jyf, this.jyi, this.jyj, this.what, this.jyk, str, this.eCy % 2 == 1 ? 0 : 10, this.eCy), 200L);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
                 if (this.mHandler != null) {
-                    this.mHandler.postDelayed(new b(this.jya, this.jyd, this.jye, this.what, this.jyf, this.eCy % 2 == 1 ? 6 : 16, this.eCy), 200L);
+                    this.mHandler.postDelayed(new b(this.jyf, this.jyi, this.jyj, this.what, this.jyk, this.eCy % 2 == 1 ? 6 : 16, this.eCy), 200L);
                 }
             }
         }
     }
 
-    public boolean cyo() {
-        boolean z = this.jyb > 0 || this.jyc > 0;
-        this.jyb = 0;
-        this.jyc = 0;
+    public boolean cyq() {
+        boolean z = this.jyg > 0 || this.jyh > 0;
+        this.jyg = 0;
+        this.jyh = 0;
         return z;
     }
 
@@ -139,30 +139,30 @@ public class a {
     public static class b implements Runnable {
         private final int eCy;
         private final String ip;
-        private c jya;
-        private final g jyd;
-        private final int jye;
-        private final int jyf;
+        private c jyf;
+        private final g jyi;
+        private final int jyj;
+        private final int jyk;
         private final int type;
         private final int what;
 
         public b(c cVar, g gVar, int i, int i2, int i3, int i4, int i5) {
-            this.jya = cVar;
-            this.jyd = gVar;
-            this.jye = i;
+            this.jyf = cVar;
+            this.jyi = gVar;
+            this.jyj = i;
             this.what = i2;
-            this.jyf = i3;
+            this.jyk = i3;
             this.type = i4;
             this.eCy = i5;
             this.ip = "";
         }
 
         public b(c cVar, g gVar, int i, int i2, int i3, String str, int i4, int i5) {
-            this.jya = cVar;
-            this.jyd = gVar;
-            this.jye = i;
+            this.jyf = cVar;
+            this.jyi = gVar;
+            this.jyj = i;
             this.what = i2;
-            this.jyf = i3;
+            this.jyk = i3;
             this.ip = str;
             this.type = i4;
             this.eCy = i5;
@@ -170,13 +170,13 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.jya != null) {
+            if (this.jyf != null) {
                 if (this.type == 1 || this.type == 5 || this.type == 3 || this.type == 6 || this.type == 7 || this.type == 11 || this.type == 15 || this.type == 16 || this.type == 17) {
-                    this.jya.a(this.jyd, this.jye, this.what, this.jyf, this.eCy, this.type);
+                    this.jyf.a(this.jyi, this.jyj, this.what, this.jyk, this.eCy, this.type);
                 } else if (this.type == 2 || this.type == 4 || this.type == 8 || this.type == 12 || this.type == 18) {
-                    this.jya.b(this.jyd, this.jye, this.what, this.jyf, this.eCy, this.type);
+                    this.jyf.b(this.jyi, this.jyj, this.what, this.jyk, this.eCy, this.type);
                 } else if (this.type == 0 || this.type == 10) {
-                    this.jya.a(this.jyd, this.jye, this.what, this.jyf, this.ip, this.eCy, this.type);
+                    this.jyf.a(this.jyi, this.jyj, this.what, this.jyk, this.ip, this.eCy, this.type);
                 }
             }
         }

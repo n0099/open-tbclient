@@ -31,9 +31,9 @@ public class a extends b {
     private boolean h = false;
     private boolean i = true;
     private List<FanItem> j = new ArrayList();
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> mYX;
-    public SwipRefreshRecyclerView neN;
-    public EmptyLoadingView neO;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> mZc;
+    public SwipRefreshRecyclerView neS;
+    public EmptyLoadingView neT;
 
     @Override // com.kascend.chushou.view.base.b, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -55,14 +55,14 @@ public class a extends b {
         if (this.a == 2) {
             inflate.setBackgroundResource(0);
         }
-        this.neN = (SwipRefreshRecyclerView) inflate.findViewById(a.f.lv_list);
-        this.neN.setUpDefault();
-        this.neO = (EmptyLoadingView) inflate.findViewById(a.f.emptyview);
-        this.mYX = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.j, a.h.list_micperson_item, new d() { // from class: com.kascend.chushou.view.c.a.1
+        this.neS = (SwipRefreshRecyclerView) inflate.findViewById(a.f.lv_list);
+        this.neS.setUpDefault();
+        this.neT = (EmptyLoadingView) inflate.findViewById(a.f.emptyview);
+        this.mZc = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.j, a.h.list_micperson_item, new d() { // from class: com.kascend.chushou.view.c.a.1
             @Override // tv.chushou.zues.widget.adapterview.d
             public void onItemClick(View view, int i) {
                 if (a.this.mContext != null && a.this.j != null && i >= 0 && i < a.this.j.size()) {
-                    com.kascend.chushou.d.a.a(a.this.mContext, e.M("_fromView", "53"), a.this.f, ((FanItem) a.this.j.get(i - a.this.neN.getHeaderViewCount())).mUserId, a.this.e, false);
+                    com.kascend.chushou.d.a.a(a.this.mContext, e.M("_fromView", "53"), a.this.f, ((FanItem) a.this.j.get(i - a.this.neS.getHeaderViewCount())).mUserId, a.this.e, false);
                 }
             }
         }) { // from class: com.kascend.chushou.view.c.a.2
@@ -72,7 +72,7 @@ public class a extends b {
                 FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) view$OnLongClickListenerC0805a.Ol(a.f.iv_avatar);
                 frescoThumbnailView.setAnim(false);
                 view$OnLongClickListenerC0805a.s(a.f.iv_avatar);
-                frescoThumbnailView.bV(fanItem.mAvatar, c.dOT());
+                frescoThumbnailView.bV(fanItem.mAvatar, c.dOV());
                 TextView textView = (TextView) view$OnLongClickListenerC0805a.Ol(a.f.tv_nickname);
                 FrescoThumbnailView frescoThumbnailView2 = (FrescoThumbnailView) view$OnLongClickListenerC0805a.Ol(a.f.iv_user_level_icon);
                 if (h.isEmpty(fanItem.mLevelMedal)) {
@@ -115,16 +115,16 @@ public class a extends b {
                 }
             }
         };
-        this.neN.setAdapter(this.mYX);
-        this.g = LayoutInflater.from(this.mContext).inflate(a.h.view_fan_list_header, (ViewGroup) this.neN, false);
+        this.neS.setAdapter(this.mZc);
+        this.g = LayoutInflater.from(this.mContext).inflate(a.h.view_fan_list_header, (ViewGroup) this.neS, false);
         this.d = (TextView) this.g.findViewById(a.f.tv_contact_count);
-        this.neN.setPullToRefreshEnabled(false);
+        this.neS.setPullToRefreshEnabled(false);
         return inflate;
     }
 
     @Override // com.kascend.chushou.view.base.b
     protected void initData() {
-        this.mYX.notifyDataSetChanged();
+        this.mZc.notifyDataSetChanged();
     }
 
     @Override // com.kascend.chushou.view.base.b
@@ -132,35 +132,35 @@ public class a extends b {
         switch (i) {
             case 1:
                 if (!this.h && this.i) {
-                    this.neN.setVisibility(8);
-                    this.neO.MX(1);
+                    this.neS.setVisibility(8);
+                    this.neT.MX(1);
                     return;
                 }
                 return;
             case 2:
                 if (this.h) {
-                    this.neN.completeRefresh();
+                    this.neS.completeRefresh();
                     this.h = false;
                 }
                 this.i = false;
-                this.neN.setVisibility(0);
-                this.neO.setVisibility(8);
-                this.neN.dPl();
+                this.neS.setVisibility(0);
+                this.neT.setVisibility(8);
+                this.neS.dPn();
                 return;
             case 3:
             case 4:
             case 5:
             case 6:
-                this.neN.setVisibility(8);
-                this.neO.setVisibility(0);
-                this.neO.MX(i);
+                this.neS.setVisibility(8);
+                this.neT.setVisibility(0);
+                this.neT.MX(i);
                 return;
             case 7:
                 g.M(this.mContext, a.i.str_nomoredata);
-                this.neN.setHasMoreItems(false);
+                this.neS.setHasMoreItems(false);
                 return;
             case 8:
-                this.neN.setHasMoreItems(true);
+                this.neS.setHasMoreItems(true);
                 return;
             default:
                 return;
@@ -170,8 +170,8 @@ public class a extends b {
     public void a(ArrayList<FanItem> arrayList) {
         this.j.clear();
         this.j.addAll(arrayList);
-        if (this.mYX != null) {
-            this.mYX.notifyDataSetChanged();
+        if (this.mZc != null) {
+            this.mZc.notifyDataSetChanged();
         }
     }
 }

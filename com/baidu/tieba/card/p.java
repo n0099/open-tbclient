@@ -388,7 +388,7 @@ public class p extends a<CardPersonDynamicThreadData> {
             if (voiceModel != null) {
                 this.Nw.wQ(voiceModel.voice_status.intValue());
             }
-            this.Nw.cKI();
+            this.Nw.cKK();
         } else {
             this.Nw.setVisibility(8);
             kl(false);

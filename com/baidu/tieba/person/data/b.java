@@ -5,21 +5,21 @@ import tbclient.BookInfo;
 public class b {
     public int cJX;
     public String cKj;
-    public String jeV;
-    public String jeW;
-    public long jeX;
-    public int jeY;
+    public String jfa;
+    public String jfb;
+    public long jfc;
+    public int jfd;
     public long updateTime;
 
     public void a(BookInfo bookInfo) {
         if (bookInfo != null) {
             this.cKj = bookInfo.book_id;
-            this.jeV = bookInfo.title;
-            this.jeW = bookInfo.cover;
+            this.jfa = bookInfo.title;
+            this.jfb = bookInfo.cover;
             this.updateTime = bookInfo.update_time.intValue();
             this.cJX = bookInfo.book_type.intValue();
-            this.jeX = bookInfo.forum_id.longValue();
-            this.jeY = bookInfo.total_chapter.intValue();
+            this.jfc = bookInfo.forum_id.longValue();
+            this.jfd = bookInfo.total_chapter.intValue();
         }
     }
 }

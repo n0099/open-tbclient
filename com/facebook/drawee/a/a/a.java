@@ -6,12 +6,12 @@ import android.graphics.drawable.Drawable;
 import com.facebook.drawee.drawable.i;
 /* loaded from: classes12.dex */
 public class a implements com.facebook.imagepipeline.f.a {
-    private final com.facebook.imagepipeline.f.a lIV;
+    private final com.facebook.imagepipeline.f.a lJa;
     private final Resources mResources;
 
     public a(Resources resources, com.facebook.imagepipeline.f.a aVar) {
         this.mResources = resources;
-        this.lIV = aVar;
+        this.lJa = aVar;
     }
 
     @Override // com.facebook.imagepipeline.f.a
@@ -23,23 +23,23 @@ public class a implements com.facebook.imagepipeline.f.a {
     public Drawable b(com.facebook.imagepipeline.g.c cVar) {
         if (cVar instanceof com.facebook.imagepipeline.g.d) {
             com.facebook.imagepipeline.g.d dVar = (com.facebook.imagepipeline.g.d) cVar;
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mResources, dVar.dpb());
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mResources, dVar.dpd());
             if (a(dVar) || b(dVar)) {
-                return new i(bitmapDrawable, dVar.dpf(), dVar.dpg());
+                return new i(bitmapDrawable, dVar.dph(), dVar.dpi());
             }
             return bitmapDrawable;
-        } else if (this.lIV != null && this.lIV.a(cVar)) {
-            return this.lIV.b(cVar);
+        } else if (this.lJa != null && this.lJa.a(cVar)) {
+            return this.lJa.b(cVar);
         } else {
             return null;
         }
     }
 
     private static boolean a(com.facebook.imagepipeline.g.d dVar) {
-        return (dVar.dpf() == 0 || dVar.dpf() == -1) ? false : true;
+        return (dVar.dph() == 0 || dVar.dph() == -1) ? false : true;
     }
 
     private static boolean b(com.facebook.imagepipeline.g.d dVar) {
-        return (dVar.dpg() == 1 || dVar.dpg() == 0) ? false : true;
+        return (dVar.dpi() == 1 || dVar.dpi() == 0) ? false : true;
     }
 }

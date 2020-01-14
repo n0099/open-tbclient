@@ -15,11 +15,11 @@ public interface a extends View.OnClickListener, QuickVideoView.b, g.a, g.b, g.e
 
     void c(y yVar);
 
-    boolean csy();
+    boolean csA();
 
-    View cwU();
+    View cwW();
 
-    u cxB();
+    u cxD();
 
     int getCurrentPosition();
 

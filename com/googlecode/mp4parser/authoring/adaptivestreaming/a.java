@@ -5,6 +5,6 @@ class a {
     String codecPrivateData;
     String fourCC;
     int height;
-    int mnB;
+    int mnG;
     int width;
 }

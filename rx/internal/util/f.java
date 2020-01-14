@@ -4,22 +4,22 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 /* loaded from: classes5.dex */
 public final class f {
-    private static final int nRy = dNo();
-    private static final boolean nRz;
+    private static final int nRD = dNq();
+    private static final boolean nRE;
 
     static {
-        nRz = nRy != 0;
+        nRE = nRD != 0;
     }
 
     public static boolean isAndroid() {
-        return nRz;
+        return nRE;
     }
 
-    public static int dNn() {
-        return nRy;
+    public static int dNp() {
+        return nRD;
     }
 
-    private static int dNo() {
+    private static int dNq() {
         try {
             return ((Integer) Class.forName("android.os.Build$VERSION", true, getSystemClassLoader()).getField("SDK_INT").get(null)).intValue();
         } catch (Exception e) {

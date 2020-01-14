@@ -76,7 +76,7 @@ public class b implements EnterForumAdView.a {
         @Override // com.baidu.tbadk.core.view.g.c
         public void onListPullRefresh(boolean z) {
             if (!b.this.fXy) {
-                com.baidu.tieba.r.c.cIs().z(b.this.fXd.getUniqueId());
+                com.baidu.tieba.r.c.cIu().z(b.this.fXd.getUniqueId());
                 if (b.this.fXp != null) {
                     b.this.fXp.onListPullRefresh(z);
                 }

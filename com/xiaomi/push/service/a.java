@@ -11,24 +11,24 @@ public class a {
     private static volatile a a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f838a;
+    private Context f839a;
     private volatile String e;
     private volatile String f;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Object f839a = new Object();
+    private final Object f840a = new Object();
     private final Object b = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private final String f840a = "mipush_region";
+    private final String f841a = "mipush_region";
 
     /* renamed from: b  reason: collision with other field name */
-    private final String f841b = "mipush_country_code";
+    private final String f842b = "mipush_country_code";
     private final String c = "mipush_region.lock";
     private final String d = "mipush_country_code.lock";
 
     public a(Context context) {
-        this.f838a = context;
+        this.f839a = context;
     }
 
     public static a a(Context context) {
@@ -181,7 +181,7 @@ public class a {
 
     public String a() {
         if (TextUtils.isEmpty(this.e)) {
-            this.e = a(this.f838a, "mipush_region", "mipush_region.lock", this.f839a);
+            this.e = a(this.f839a, "mipush_region", "mipush_region.lock", this.f840a);
         }
         return this.e;
     }
@@ -191,12 +191,12 @@ public class a {
             return;
         }
         this.e = str;
-        a(this.f838a, this.e, "mipush_region", "mipush_region.lock", this.f839a);
+        a(this.f839a, this.e, "mipush_region", "mipush_region.lock", this.f840a);
     }
 
     public String b() {
         if (TextUtils.isEmpty(this.f)) {
-            this.f = a(this.f838a, "mipush_country_code", "mipush_country_code.lock", this.b);
+            this.f = a(this.f839a, "mipush_country_code", "mipush_country_code.lock", this.b);
         }
         return this.f;
     }
@@ -206,6 +206,6 @@ public class a {
             return;
         }
         this.f = str;
-        a(this.f838a, this.f, "mipush_country_code", "mipush_country_code.lock", this.b);
+        a(this.f839a, this.f, "mipush_country_code", "mipush_country_code.lock", this.b);
     }
 }

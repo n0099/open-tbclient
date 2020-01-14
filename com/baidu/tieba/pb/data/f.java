@@ -136,14 +136,14 @@ public class f {
                 PostData postData = (PostData) v.getItem(this.izS, i);
                 if (postData != null && postData.azX() != null && !aq.isEmpty(postData.azX().getUserId()) && aq.equals(userId, postData.azX().getUserId())) {
                     if (aq.isEmpty(str)) {
-                        str = postData.cJE();
+                        str = postData.cJG();
                     }
-                    String cJC = aq.isEmpty(str2) ? postData.cJC() : str2;
-                    if (!aq.isEmpty(str) && !aq.isEmpty(cJC)) {
-                        str2 = cJC;
+                    String cJE = aq.isEmpty(str2) ? postData.cJE() : str2;
+                    if (!aq.isEmpty(str) && !aq.isEmpty(cJE)) {
+                        str2 = cJE;
                         break;
                     }
-                    str2 = cJC;
+                    str2 = cJE;
                 }
                 i++;
                 str = str;
@@ -285,7 +285,7 @@ public class f {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                com.baidu.tieba.recapp.d.a.cBK().HK(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.cBM().HK(dataRes.asp_shown_info);
                 List<User> list = dataRes.user_list;
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
@@ -347,26 +347,26 @@ public class f {
                     }
                 }
                 this.efE.js(this.efE.azO() > 0 ? this.efE.azO() - 1 : 0);
-                List<AppData> cAT = r.cAV().cAT();
-                if (cAT != null) {
-                    cAT.clear();
+                List<AppData> cAV = r.cAX().cAV();
+                if (cAV != null) {
+                    cAV.clear();
                 }
                 this.iAg = null;
                 if (dataRes.banner_list != null) {
                     for (App app : dataRes.banner_list.app) {
                         com.baidu.tieba.tbadkCore.data.m mVar = new com.baidu.tieba.tbadkCore.data.m();
                         mVar.d(app);
-                        AppData cJl = mVar.cJl();
-                        if (!this.iAf.contains(mVar) && cJl.goods != null && (!StringUtils.isNull(cJl.goods.user_name) || !StringUtils.isNull(cJl.goods.lego_card))) {
+                        AppData cJn = mVar.cJn();
+                        if (!this.iAf.contains(mVar) && cJn.goods != null && (!StringUtils.isNull(cJn.goods.user_name) || !StringUtils.isNull(cJn.goods.lego_card))) {
                             this.iAf.add(mVar);
-                            if (cAT != null) {
-                                cAT.add(mVar.cJl());
+                            if (cAV != null) {
+                                cAV.add(mVar.cJn());
                             }
                         }
                     }
                     c(dataRes);
                 }
-                r.cAV().cAU();
+                r.cAX().cAW();
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
                     currentAccountObj.setIsSelectTail(this.userData.getIsSelectTail());
@@ -463,15 +463,15 @@ public class f {
                     postData.a(post, context);
                     postData.a(ciS().azI());
                     this.iAs.add(postData.getId());
-                    if (postData.cJx() == 1 && this.efE.aAI()) {
+                    if (postData.cJz() == 1 && this.efE.aAI()) {
                         if (ciY()) {
                             postData.setPostType(0);
                         } else {
                             postData.setPostType(this.efE.aAH());
                         }
-                    } else if (postData.cJx() == 1 && this.efE.aBd()) {
+                    } else if (postData.cJz() == 1 && this.efE.aBd()) {
                         postData.setPostType(41);
-                    } else if (postData.cJx() == 1 && this.efE != null && this.efE.aAX()) {
+                    } else if (postData.cJz() == 1 && this.efE != null && this.efE.aAX()) {
                         postData.setPostType(0);
                         postData.aRJ();
                         if (this.efE.azV() == null || this.efE.azV().size() == 0) {
@@ -490,7 +490,7 @@ public class f {
                         }
                         this.iAl = postData;
                     }
-                    if (postData.cJx() == 1 && this.efE != null && this.efE.isShareThread) {
+                    if (postData.cJz() == 1 && this.efE != null && this.efE.isShareThread) {
                         postData.g(this.efE.cPN);
                     }
                     this.izS.add(postData);
@@ -557,12 +557,12 @@ public class f {
         List<String> se;
         App app = dataRes.banner_list.pb_banner_ad;
         com.baidu.tieba.tbadkCore.data.m mVar = new com.baidu.tieba.tbadkCore.data.m();
-        mVar.kfj = true;
+        mVar.kfo = true;
         mVar.d(app);
-        AppData cJl = mVar.cJl();
-        if (cJl.goods != null) {
-            if (v.isEmpty(cJl.goods.thread_pic_list) && (se = AdvertAppInfo.a.se(cJl.goods.lego_card)) != null && cJl.goods.thread_pic_list != null) {
-                cJl.goods.thread_pic_list.addAll(se);
+        AppData cJn = mVar.cJn();
+        if (cJn.goods != null) {
+            if (v.isEmpty(cJn.goods.thread_pic_list) && (se = AdvertAppInfo.a.se(cJn.goods.lego_card)) != null && cJn.goods.thread_pic_list != null) {
+                cJn.goods.thread_pic_list.addAll(se);
             }
             this.iAg = mVar;
         }
@@ -618,8 +618,8 @@ public class f {
     }
 
     public void cji() {
-        if (this.iAg.cJl() != null) {
-            this.iAg.cJl().legoCard = null;
+        if (this.iAg.cJn() != null) {
+            this.iAg.cJn().legoCard = null;
         }
         this.iAg = null;
     }

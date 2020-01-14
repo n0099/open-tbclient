@@ -16,12 +16,12 @@ import java.util.List;
 public class a {
     private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
     private BdTypeListView efW;
-    private com.baidu.tieba.personCenter.a.c jfD;
-    private d jfU;
-    private com.baidu.tieba.personCenter.a.a jfV;
-    private com.baidu.tieba.personCenter.a.b jfW;
-    private f jfX;
-    private e jfY;
+    private com.baidu.tieba.personCenter.a.c jfI;
+    private d jfZ;
+    private com.baidu.tieba.personCenter.a.a jga;
+    private com.baidu.tieba.personCenter.a.b jgb;
+    private f jgc;
+    private e jgd;
 
     public a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.efW = bdTypeListView;
@@ -29,18 +29,18 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.jfU = new d(tbPageContext, h.jgG);
-        this.jfV = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.d.jgm);
-        this.jfW = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.e.jgn);
-        this.jfX = new f(tbPageContext, m.jgR);
-        this.jfD = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.jgF);
-        this.jfY = new e(tbPageContext, j.jgM);
-        this.apl.add(this.jfU);
-        this.apl.add(this.jfV);
-        this.apl.add(this.jfW);
-        this.apl.add(this.jfX);
-        this.apl.add(this.jfD);
-        this.apl.add(this.jfY);
+        this.jfZ = new d(tbPageContext, h.jgL);
+        this.jga = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.d.jgr);
+        this.jgb = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.e.jgs);
+        this.jgc = new f(tbPageContext, m.jgW);
+        this.jfI = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.jgK);
+        this.jgd = new e(tbPageContext, j.jgR);
+        this.apl.add(this.jfZ);
+        this.apl.add(this.jga);
+        this.apl.add(this.jgb);
+        this.apl.add(this.jgc);
+        this.apl.add(this.jfI);
+        this.apl.add(this.jgd);
         bdTypeListView.addAdapters(this.apl);
     }
 
@@ -50,11 +50,11 @@ public class a {
         }
     }
 
-    public void ctG() {
-        this.jfV.ctG();
+    public void ctI() {
+        this.jga.ctI();
     }
 
-    public void ctH() {
-        this.jfV.destroy();
+    public void ctJ() {
+        this.jga.destroy();
     }
 }

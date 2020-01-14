@@ -44,33 +44,33 @@ final class d {
         if (eVar.getStyle() != -1) {
             spannableStringBuilder.setSpan(new StyleSpan(eVar.getStyle()), i, i2, 33);
         }
-        if (eVar.dwX()) {
+        if (eVar.dwZ()) {
             spannableStringBuilder.setSpan(new StrikethroughSpan(), i, i2, 33);
         }
-        if (eVar.dwY()) {
+        if (eVar.dxa()) {
             spannableStringBuilder.setSpan(new UnderlineSpan(), i, i2, 33);
         }
-        if (eVar.dxa()) {
+        if (eVar.dxc()) {
             spannableStringBuilder.setSpan(new ForegroundColorSpan(eVar.getFontColor()), i, i2, 33);
         }
-        if (eVar.dxb()) {
+        if (eVar.dxd()) {
             spannableStringBuilder.setSpan(new BackgroundColorSpan(eVar.getBackgroundColor()), i, i2, 33);
         }
-        if (eVar.dwZ() != null) {
-            spannableStringBuilder.setSpan(new TypefaceSpan(eVar.dwZ()), i, i2, 33);
+        if (eVar.dxb() != null) {
+            spannableStringBuilder.setSpan(new TypefaceSpan(eVar.dxb()), i, i2, 33);
         }
-        if (eVar.dxc() != null) {
-            spannableStringBuilder.setSpan(new AlignmentSpan.Standard(eVar.dxc()), i, i2, 33);
+        if (eVar.dxe() != null) {
+            spannableStringBuilder.setSpan(new AlignmentSpan.Standard(eVar.dxe()), i, i2, 33);
         }
-        switch (eVar.dxd()) {
+        switch (eVar.dxf()) {
             case 1:
-                spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) eVar.dxe(), true), i, i2, 33);
+                spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) eVar.dxg(), true), i, i2, 33);
                 return;
             case 2:
-                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dxe()), i, i2, 33);
+                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dxg()), i, i2, 33);
                 return;
             case 3:
-                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dxe() / 100.0f), i, i2, 33);
+                spannableStringBuilder.setSpan(new RelativeSizeSpan(eVar.dxg() / 100.0f), i, i2, 33);
                 return;
             default:
                 return;

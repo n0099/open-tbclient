@@ -6,13 +6,13 @@ class fu extends XMPushService.i {
     final /* synthetic */ long a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ ft f396a;
+    final /* synthetic */ ft f397a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fu(ft ftVar, int i, long j) {
         super(i);
-        this.f396a = ftVar;
+        this.f397a = ftVar;
         this.a = j;
     }
 
@@ -24,9 +24,9 @@ class fu extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         Thread.yield();
-        if (!this.f396a.c() || this.f396a.a(this.a)) {
+        if (!this.f397a.c() || this.f397a.a(this.a)) {
             return;
         }
-        this.f396a.b.a(22, (Exception) null);
+        this.f397a.b.a(22, (Exception) null);
     }
 }

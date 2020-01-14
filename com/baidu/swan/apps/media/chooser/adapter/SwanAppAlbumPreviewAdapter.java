@@ -122,9 +122,9 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         ImageRequestBuilder X = ImageRequestBuilder.X(path.startsWith(HttpHost.DEFAULT_SCHEME_NAME) ? Uri.parse(path) : Uri.fromFile(new File(mediaModel.getPath())));
         X.c(new d(af.getDisplayWidth(this.mContext), af.getDisplayHeight(this.mContext), 10240.0f));
         X.vs(true);
-        com.facebook.drawee.controller.a dkU = com.facebook.drawee.a.a.c.dkh().vd(com.baidu.swan.apps.media.chooser.b.c.byJ).be(X.drm()).c(a2).c(aVar.byw.getController()).dkY();
+        com.facebook.drawee.controller.a dkW = com.facebook.drawee.a.a.c.dkj().vd(com.baidu.swan.apps.media.chooser.b.c.byJ).be(X.dro()).c(a2).c(aVar.byw.getController()).dla();
         aVar.byw.setVisibility(0);
-        aVar.byw.setController(dkU);
+        aVar.byw.setController(dkW);
         if (!(mediaModel instanceof ImageModel)) {
             return;
         }
@@ -302,20 +302,20 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 if (obj instanceof com.facebook.imagepipeline.g.d) {
                     hugePhotoDraweeView.setIsDynamicBitmap(false);
                     hugePhotoDraweeView.setZoomEnabled(true);
-                    Bitmap dpb = ((com.facebook.imagepipeline.g.d) obj).dpb();
+                    Bitmap dpd = ((com.facebook.imagepipeline.g.d) obj).dpd();
                     SwanAppAlbumPreviewAdapter.this.maxTextureSize = q.getMaxTextureSize();
-                    com.baidu.swan.apps.media.image.b i = com.baidu.swan.apps.media.image.b.i(dpb);
-                    if (dpb.getWidth() >= SwanAppAlbumPreviewAdapter.this.maxTextureSize[0] || dpb.getHeight() >= SwanAppAlbumPreviewAdapter.this.maxTextureSize[0]) {
+                    com.baidu.swan.apps.media.image.b i = com.baidu.swan.apps.media.image.b.i(dpd);
+                    if (dpd.getWidth() >= SwanAppAlbumPreviewAdapter.this.maxTextureSize[0] || dpd.getHeight() >= SwanAppAlbumPreviewAdapter.this.maxTextureSize[0]) {
                         i.Vz();
                     } else {
                         i.VA();
                     }
                     hugePhotoDraweeView.setImage(i);
-                    SwanAppAlbumPreviewAdapter.this.a(hugePhotoDraweeView, dpb);
+                    SwanAppAlbumPreviewAdapter.this.a(hugePhotoDraweeView, dpd);
                 } else if (obj instanceof com.facebook.imagepipeline.g.a) {
                     hugePhotoDraweeView.setIsDynamicBitmap(true);
                     hugePhotoDraweeView.setZoomEnabled(false);
-                    hugePhotoDraweeView.getHierarchy().b(p.b.lMb);
+                    hugePhotoDraweeView.getHierarchy().b(p.b.lMg);
                 }
             }
 

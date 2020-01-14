@@ -15,10 +15,10 @@ import tbclient.User;
 /* loaded from: classes9.dex */
 public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     private boolean isHost = false;
-    private com.baidu.tieba.personPolymeric.tab.view.a jph;
-    private User jpj;
-    private b jpq;
-    private com.baidu.tieba.personPolymeric.c.a jpr;
+    private com.baidu.tieba.personPolymeric.tab.view.a jpm;
+    private User jpo;
+    private b jpv;
+    private com.baidu.tieba.personPolymeric.c.a jpw;
     private long mUserId;
 
     public static PersonCenterMainTabFragment h(long j, boolean z) {
@@ -40,9 +40,9 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.person_center_common_tab_layout, viewGroup, false);
-        this.jph = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
-        this.jpq = new b(getPageContext(), this.isHost);
-        this.jph.addHeaderView(this.jpq.getView());
+        this.jpm = new com.baidu.tieba.personPolymeric.tab.view.a(getPageContext(), inflate, this);
+        this.jpv = new b(getPageContext(), this.isHost);
+        this.jpm.addHeaderView(this.jpv.getView());
         return inflate;
     }
 
@@ -60,10 +60,10 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     public void d(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (aVar != null && this.jph != null && isAdded()) {
+        if (aVar != null && this.jpm != null && isAdded()) {
             f(aVar);
         } else if (aVar != null) {
-            this.jpr = aVar;
+            this.jpw = aVar;
         }
     }
 
@@ -83,24 +83,24 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     }
 
     public void scrollToTop() {
-        if (this.jph != null && isAdded()) {
-            this.jph.scrollToTop();
+        if (this.jpm != null && isAdded()) {
+            this.jpm.scrollToTop();
         }
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void b(User user) {
-        this.jpj = user;
+        this.jpo = user;
     }
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jph != null) {
-            this.jph.onChangeSkinType(i);
+        if (this.jpm != null) {
+            this.jpm.onChangeSkinType(i);
         }
-        if (this.jpq != null) {
-            this.jpq.onChangeSkinType(i);
+        if (this.jpv != null) {
+            this.jpv.onChangeSkinType(i);
         }
     }
 
@@ -114,21 +114,21 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.jph != null && this.jpq != null && this.jpr != null) {
-            f(this.jpr);
-            this.jpr = null;
+        if (this.jpm != null && this.jpv != null && this.jpw != null) {
+            f(this.jpw);
+            this.jpw = null;
         }
     }
 
     private void f(com.baidu.tieba.personPolymeric.c.a aVar) {
-        if (this.jph != null && this.jpq != null && aVar != null) {
+        if (this.jpm != null && this.jpv != null && aVar != null) {
             List<m> u = com.baidu.tieba.personPolymeric.tab.b.a.u(aVar.getNewestThreadList(), aVar.bOU());
             if (!v.isEmpty(u)) {
-                this.jph.cwj();
+                this.jpm.cwl();
             }
-            this.jph.dY(u);
-            this.jpq.b(aVar);
-            this.jpq.ag(v.isEmpty(u), isHost());
+            this.jpm.dY(u);
+            this.jpv.b(aVar);
+            this.jpv.ag(v.isEmpty(u), isHost());
         }
     }
 }

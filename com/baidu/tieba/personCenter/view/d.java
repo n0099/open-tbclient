@@ -18,30 +18,30 @@ import java.util.List;
 public class d extends com.baidu.tieba.card.a<j> {
     private BdBaseViewPager dgo;
     private TbTabLayout gKC;
-    private List<com.baidu.tieba.personCenter.data.c> jhq;
-    private List<PersonCenterSmartAppPageView> jhr;
-    private View jhs;
-    private a jht;
-    private PersonCenterSmartAppPageView jhu;
+    private List<com.baidu.tieba.personCenter.data.c> jhv;
+    private List<PersonCenterSmartAppPageView> jhw;
+    private View jhx;
+    private a jhy;
+    private PersonCenterSmartAppPageView jhz;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         View view = getView();
         this.dgo = (BdBaseViewPager) view.findViewById(R.id.vp_person_center_smart_app_banner);
         this.gKC = (TbTabLayout) view.findViewById(R.id.tl_person_center_smart_app_banner);
-        this.jhs = view.findViewById(R.id.blank_view_below_person_center_smart_app_banner);
+        this.jhx = view.findViewById(R.id.blank_view_below_person_center_smart_app_banner);
         this.gKC.setTabMode(1);
-        this.jhr = new ArrayList();
-        this.jht = new a(this.jhr);
-        this.dgo.setAdapter(this.jht);
+        this.jhw = new ArrayList();
+        this.jhy = new a(this.jhw);
+        this.dgo.setAdapter(this.jhy);
         this.gKC.setupWithViewPager(this.dgo);
-        this.jhs.setVisibility(8);
+        this.jhx.setVisibility(8);
         onChangeSkinType(getTbPageContext(), this.mSkinType);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.jhr) {
+        for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.jhw) {
             if (personCenterSmartAppPageView != null) {
                 personCenterSmartAppPageView.onChangeSkinType();
             }
@@ -49,7 +49,7 @@ public class d extends com.baidu.tieba.card.a<j> {
         am.setBackgroundColor(getView(), R.color.cp_bg_line_e);
         this.gKC.setSelectedTabIndicatorColor(am.getColor(R.color.cp_indicator_b));
         this.gKC.setBackgroundDrawable(am.ay(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds3), am.getColor(R.color.cp_indicator_a)));
-        am.setBackgroundColor(this.jhs, R.color.cp_bg_line_c);
+        am.setBackgroundColor(this.jhx, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -65,36 +65,36 @@ public class d extends com.baidu.tieba.card.a<j> {
             return;
         }
         setVisibility(0);
-        this.jhr.clear();
-        this.jhq = jVar.getData();
-        this.jhu = new PersonCenterSmartAppPageView(getContext());
-        this.jhr.add(this.jhu);
-        int min = Math.min(7, this.jhq.size());
+        this.jhw.clear();
+        this.jhv = jVar.getData();
+        this.jhz = new PersonCenterSmartAppPageView(getContext());
+        this.jhw.add(this.jhz);
+        int min = Math.min(7, this.jhv.size());
         for (int i = 0; i < min; i++) {
-            a((com.baidu.tieba.personCenter.data.c) v.getItem(this.jhq, i));
+            a((com.baidu.tieba.personCenter.data.c) v.getItem(this.jhv, i));
         }
-        if (this.jhq.isEmpty()) {
+        if (this.jhv.isEmpty()) {
             setVisibility(8);
         } else {
             a(new k());
         }
-        if (this.jhr.size() <= 1) {
+        if (this.jhw.size() <= 1) {
             this.gKC.setVisibility(8);
         } else {
             this.gKC.setVisibility(0);
         }
-        this.jht.dT(this.jhr);
+        this.jhy.dT(this.jhw);
         onChangeSkinType(getTbPageContext(), this.mSkinType);
     }
 
     private void a(com.baidu.tieba.personCenter.data.c cVar) {
-        if (this.jhu.ctS()) {
-            this.jhu.c(cVar);
+        if (this.jhz.ctU()) {
+            this.jhz.c(cVar);
             return;
         }
-        this.jhu = new PersonCenterSmartAppPageView(getContext());
-        this.jhr.add(this.jhu);
-        this.jhu.c(cVar);
+        this.jhz = new PersonCenterSmartAppPageView(getContext());
+        this.jhw.add(this.jhz);
+        this.jhz.c(cVar);
     }
 
     @Override // android.view.View.OnClickListener

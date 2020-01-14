@@ -3,7 +3,7 @@ package kotlin.coroutines;
 import kotlin.coroutines.c;
 /* loaded from: classes5.dex */
 public interface b extends c.b {
-    public static final a nBh = a.nBi;
+    public static final a nBm = a.nBn;
 
     <T> kotlin.coroutines.a<T> a(kotlin.coroutines.a<? super T> aVar);
 
@@ -11,7 +11,7 @@ public interface b extends c.b {
 
     /* loaded from: classes5.dex */
     public static final class a implements c.InterfaceC0762c<b> {
-        static final /* synthetic */ a nBi = new a();
+        static final /* synthetic */ a nBn = new a();
 
         private a() {
         }

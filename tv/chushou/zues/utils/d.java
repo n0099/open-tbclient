@@ -12,8 +12,8 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class d {
     private static Gson gson = new GsonBuilder().disableHtmlEscaping().setLenient().create();
-    private static final Map<String, String> nVJ = Collections.unmodifiableMap(new HashMap());
-    private static final Type nVK = new com.google.gson.b.a<Map<String, String>>() { // from class: tv.chushou.zues.utils.d.1
+    private static final Map<String, String> nVO = Collections.unmodifiableMap(new HashMap());
+    private static final Type nVP = new com.google.gson.b.a<Map<String, String>>() { // from class: tv.chushou.zues.utils.d.1
     }.getType();
 
     @Nullable
@@ -21,7 +21,7 @@ public class d {
         try {
             return (T) gson.fromJson(str, (Class<Object>) cls);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dOO().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dOQ().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -31,7 +31,7 @@ public class d {
         try {
             return (T) gson.fromJson(str, type);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dOO().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dOQ().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -41,7 +41,7 @@ public class d {
         try {
             return gson.toJson(obj);
         } catch (Exception e) {
-            tv.chushou.a.a.c.a.dOO().e("JsonUtils", "", e);
+            tv.chushou.a.a.c.a.dOQ().e("JsonUtils", "", e);
             return null;
         }
     }
@@ -49,9 +49,9 @@ public class d {
     @NonNull
     public static Map<String, String> SJ(String str) {
         if (TextUtils.isEmpty(str)) {
-            return nVJ;
+            return nVO;
         }
-        Map<String, String> map = (Map) c(str, nVK);
-        return map == null ? nVJ : map;
+        Map<String, String> map = (Map) c(str, nVP);
+        return map == null ? nVO : map;
     }
 }

@@ -3,10 +3,10 @@ package com.google.android.exoplayer2.source.dash.manifest;
 import java.util.Locale;
 /* loaded from: classes5.dex */
 public final class j {
-    private final String[] muI;
-    private final int[] muJ;
-    private final String[] muK;
-    private final int muL;
+    private final String[] muN;
+    private final int[] muO;
+    private final String[] muP;
+    private final int muQ;
 
     public static j Pv(String str) {
         String[] strArr = new String[5];
@@ -16,27 +16,27 @@ public final class j {
     }
 
     private j(String[] strArr, int[] iArr, String[] strArr2, int i) {
-        this.muI = strArr;
-        this.muJ = iArr;
-        this.muK = strArr2;
-        this.muL = i;
+        this.muN = strArr;
+        this.muO = iArr;
+        this.muP = strArr2;
+        this.muQ = i;
     }
 
     public String a(String str, int i, int i2, long j) {
         StringBuilder sb = new StringBuilder();
-        for (int i3 = 0; i3 < this.muL; i3++) {
-            sb.append(this.muI[i3]);
-            if (this.muJ[i3] == 1) {
+        for (int i3 = 0; i3 < this.muQ; i3++) {
+            sb.append(this.muN[i3]);
+            if (this.muO[i3] == 1) {
                 sb.append(str);
-            } else if (this.muJ[i3] == 2) {
-                sb.append(String.format(Locale.US, this.muK[i3], Integer.valueOf(i)));
-            } else if (this.muJ[i3] == 3) {
-                sb.append(String.format(Locale.US, this.muK[i3], Integer.valueOf(i2)));
-            } else if (this.muJ[i3] == 4) {
-                sb.append(String.format(Locale.US, this.muK[i3], Long.valueOf(j)));
+            } else if (this.muO[i3] == 2) {
+                sb.append(String.format(Locale.US, this.muP[i3], Integer.valueOf(i)));
+            } else if (this.muO[i3] == 3) {
+                sb.append(String.format(Locale.US, this.muP[i3], Integer.valueOf(i2)));
+            } else if (this.muO[i3] == 4) {
+                sb.append(String.format(Locale.US, this.muP[i3], Long.valueOf(j)));
             }
         }
-        sb.append(this.muI[this.muL]);
+        sb.append(this.muN[this.muQ]);
         return sb.toString();
     }
 

@@ -8,7 +8,7 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public final class b {
     public final List<byte[]> initializationData;
-    public final int meb;
+    public final int meg;
 
     public static b ai(l lVar) throws ParserException {
         try {
@@ -40,8 +40,8 @@ public final class b {
                 int i7 = i6;
                 for (int i8 = 0; i8 < readUnsignedShort3; i8++) {
                     int readUnsignedShort4 = lVar.readUnsignedShort();
-                    System.arraycopy(j.mGo, 0, bArr, i7, j.mGo.length);
-                    int length = i7 + j.mGo.length;
+                    System.arraycopy(j.mGt, 0, bArr, i7, j.mGt.length);
+                    int length = i7 + j.mGt.length;
                     System.arraycopy(lVar.data, lVar.getPosition(), bArr, length, readUnsignedShort4);
                     i7 = length + readUnsignedShort4;
                     lVar.skipBytes(readUnsignedShort4);
@@ -57,6 +57,6 @@ public final class b {
 
     private b(List<byte[]> list, int i) {
         this.initializationData = list;
-        this.meb = i;
+        this.meg = i;
     }
 }

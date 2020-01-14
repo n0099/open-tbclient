@@ -174,7 +174,7 @@ public class n {
                     TbConfig.FORCE_UPDATE = true;
                 }
                 com.baidu.tbadk.core.sharedPref.b.aDr().putInt("force_update_auto_play_video", optInt2);
-                com.baidu.tieba.play.s.cxM();
+                com.baidu.tieba.play.s.cxO();
                 CustomPlayerSwitch.setSwitchStatus(SwitchManager.getInstance().findType(CustomPlayerSwitch.CUSTOM_PLAYER_SWITCH));
                 this.dic = jSONObject.optInt("is_pushservice_open", 1) == 1;
                 TbadkCoreApplication.getInst().setIsPushServiceOpen(this.dic);

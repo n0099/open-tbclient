@@ -14,7 +14,7 @@ public abstract class a {
     protected TextView b;
     protected Context c;
     protected List<c> a = new ArrayList();
-    protected com.kascend.chushou.c.b mOl = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.a.1
+    protected com.kascend.chushou.c.b mOq = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.a.1
         @Override // com.kascend.chushou.c.b
         public void a() {
         }

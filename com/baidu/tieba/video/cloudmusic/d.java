@@ -14,7 +14,7 @@ public interface d {
 
         void c(CloudMusicData.MusicTagList musicTagList);
 
-        void czp();
+        void czr();
     }
 
     /* loaded from: classes8.dex */
@@ -29,7 +29,7 @@ public interface d {
 
         void b(CloudMusicData.MusicTagList musicTagList);
 
-        void cNQ();
+        void cNS();
 
         void ti(boolean z);
 

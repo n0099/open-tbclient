@@ -10,12 +10,12 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
 public final class CompletableConcatIterable extends a {
-    final Iterable<? extends e> nvF;
+    final Iterable<? extends e> nvK;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
         try {
-            ConcatInnerObserver concatInnerObserver = new ConcatInnerObserver(cVar, (Iterator) io.reactivex.internal.functions.a.h(this.nvF.iterator(), "The iterator returned is null"));
+            ConcatInnerObserver concatInnerObserver = new ConcatInnerObserver(cVar, (Iterator) io.reactivex.internal.functions.a.h(this.nvK.iterator(), "The iterator returned is null"));
             cVar.onSubscribe(concatInnerObserver.sd);
             concatInnerObserver.next();
         } catch (Throwable th) {

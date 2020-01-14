@@ -17,43 +17,43 @@ public class j extends AsyncTask<String, Integer, Integer> {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f88a;
+    private Context f89a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f89a;
+    private SharedPreferences f90a;
 
     /* renamed from: a  reason: collision with other field name */
-    private c f90a;
+    private c f91a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ce f91a;
+    private ce f92a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f92a;
+    private String f93a;
     private String b;
 
     public j(Context context, SharedPreferences sharedPreferences, String str, int i, String str2, c cVar) {
-        this.f88a = context;
-        this.f90a = cVar;
-        this.f92a = str;
-        this.f89a = sharedPreferences;
+        this.f89a = context;
+        this.f91a = cVar;
+        this.f93a = str;
+        this.f90a = sharedPreferences;
         this.b = str2;
     }
 
     private int a(File file) {
-        h hVar = (h) this.f91a;
+        h hVar = (h) this.f92a;
         String str = hVar.b;
         if (str == null) {
             return -1;
         }
-        int a = b.a(this.f88a, file, str, hVar);
+        int a = b.a(this.f89a, file, str, hVar);
         d.a("下载广告 imgUrl: " + str + " 结果： " + a);
         if (isCancelled() || a != 0) {
             if (isCancelled()) {
                 d.a("asynctask 被cancel");
                 return a;
             }
-            d.a("网络类型改变，中断下载: " + f.a(this.f88a) + HanziToPinyin.Token.SEPARATOR + a);
+            d.a("网络类型改变，中断下载: " + f.a(this.f89a) + HanziToPinyin.Token.SEPARATOR + a);
             return a;
         }
         return a;
@@ -68,8 +68,8 @@ public class j extends AsyncTask<String, Integer, Integer> {
                 return a;
             }
             int c = c(jSONObject);
-            if (this.f91a != null) {
-                k.a("广告获取最终结果： " + c + " 类型: " + this.f91a.a);
+            if (this.f92a != null) {
+                k.a("广告获取最终结果： " + c + " 类型: " + this.f92a.a);
                 return c;
             }
             return c;
@@ -108,7 +108,7 @@ public class j extends AsyncTask<String, Integer, Integer> {
                 break;
         }
         ceVar.d = this.a;
-        ceVar.h = this.f92a;
+        ceVar.h = this.f93a;
         return ceVar;
     }
 
@@ -133,23 +133,23 @@ public class j extends AsyncTask<String, Integer, Integer> {
     }
 
     private boolean a(int i, int i2) {
-        synchronized (this.f89a) {
+        synchronized (this.f90a) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.f89a.getLong(LogBuilder.KEY_START_TIME, 0L);
+            long j = this.f90a.getLong(LogBuilder.KEY_START_TIME, 0L);
             if (j == 0) {
-                this.f89a.edit().putLong(LogBuilder.KEY_START_TIME, currentTimeMillis).commit();
+                this.f90a.edit().putLong(LogBuilder.KEY_START_TIME, currentTimeMillis).commit();
                 return true;
             } else if (currentTimeMillis - j > 86400000) {
-                this.f89a.edit().putLong(LogBuilder.KEY_START_TIME, 0L).commit();
-                this.f89a.edit().putInt("notifycount", 0).commit();
-                this.f89a.edit().putInt("bubblecount", 0).commit();
+                this.f90a.edit().putLong(LogBuilder.KEY_START_TIME, 0L).commit();
+                this.f90a.edit().putInt("notifycount", 0).commit();
+                this.f90a.edit().putInt("bubblecount", 0).commit();
                 return true;
             } else {
                 if (i2 == 2) {
-                    if (this.f89a.getInt("notifycount", 0) < i) {
+                    if (this.f90a.getInt("notifycount", 0) < i) {
                         return true;
                     }
-                } else if (i2 == 1 && this.f89a.getInt("bubblecount", 0) < i * 4) {
+                } else if (i2 == 1 && this.f90a.getInt("bubblecount", 0) < i * 4) {
                     return true;
                 }
                 d.b("超过了每天接受广告的上限");
@@ -170,7 +170,7 @@ public class j extends AsyncTask<String, Integer, Integer> {
         try {
             Method method = Class.forName("miui.util.NotificationFilterHelper").getMethod("canSendNotifications", Context.class, String.class);
             k.a(this.b);
-            z = !((Boolean) method.invoke(null, this.f88a, this.b)).booleanValue();
+            z = !((Boolean) method.invoke(null, this.f89a, this.b)).booleanValue();
         } catch (Exception e) {
             Log.d("NotifyAdsDownloader", "reflect errors!");
             e.printStackTrace();
@@ -187,8 +187,8 @@ public class j extends AsyncTask<String, Integer, Integer> {
         try {
             if (!z2 && (b != 2 || !z)) {
                 k.a("使用主广告 ");
-                this.f91a = a(b);
-                this.f91a.a(jSONObject);
+                this.f92a = a(b);
+                this.f92a.a(jSONObject);
                 return 0;
             }
             k.a("使用候选广告 ");
@@ -206,8 +206,8 @@ public class j extends AsyncTask<String, Integer, Integer> {
             if (a != 0) {
                 return a;
             }
-            this.f91a = a(b2);
-            this.f91a.a(jSONObject2);
+            this.f92a = a(b2);
+            this.f92a.a(jSONObject2);
             return 0;
         } catch (JSONException e2) {
             return -1;
@@ -219,13 +219,13 @@ public class j extends AsyncTask<String, Integer, Integer> {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public Integer doInBackground(String... strArr) {
-        int a = a(this.f92a);
+        int a = a(this.f93a);
         if (a != 0) {
             d.a("广告解析失败 " + a);
             return Integer.valueOf(a);
         }
-        if (this.f91a.a == 2) {
-            a = a(this.f88a.getDir("comxiaomimiuipushadssdk", 0));
+        if (this.f92a.a == 2) {
+            a = a(this.f89a.getDir("comxiaomimiuipushadssdk", 0));
         }
         return Integer.valueOf(a);
     }
@@ -236,9 +236,9 @@ public class j extends AsyncTask<String, Integer, Integer> {
     /* renamed from: a */
     public void onPostExecute(Integer num) {
         super.onPostExecute(num);
-        if (this.f90a != null) {
+        if (this.f91a != null) {
             d.a("下载 post 的结果是: " + num);
-            this.f90a.a(num.intValue(), this.f91a, this);
+            this.f91a.a(num.intValue(), this.f92a, this);
         }
     }
 

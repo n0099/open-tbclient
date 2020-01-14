@@ -6,9 +6,9 @@ import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 /* loaded from: classes12.dex */
 public class b extends g implements Runnable {
-    private boolean lLg;
-    float lLh;
-    private boolean lLi;
+    private boolean lLl;
+    float lLm;
+    private boolean lLn;
     private int mInterval;
 
     public b(Drawable drawable, int i) {
@@ -17,10 +17,10 @@ public class b extends g implements Runnable {
 
     public b(Drawable drawable, int i, boolean z) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.lLh = 0.0f;
-        this.lLi = false;
+        this.lLm = 0.0f;
+        this.lLn = false;
         this.mInterval = i;
-        this.lLg = z;
+        this.lLl = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -29,31 +29,31 @@ public class b extends g implements Runnable {
         Rect bounds = getBounds();
         int i = bounds.right - bounds.left;
         int i2 = bounds.bottom - bounds.top;
-        float f = this.lLh;
-        if (!this.lLg) {
-            f = 360.0f - this.lLh;
+        float f = this.lLm;
+        if (!this.lLl) {
+            f = 360.0f - this.lLm;
         }
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
-        dlb();
+        dld();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.lLi = false;
-        this.lLh += dlc();
+        this.lLn = false;
+        this.lLm += dle();
         invalidateSelf();
     }
 
-    private void dlb() {
-        if (!this.lLi) {
-            this.lLi = true;
+    private void dld() {
+        if (!this.lLn) {
+            this.lLn = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }
 
-    private int dlc() {
+    private int dle() {
         return (int) ((20.0f / this.mInterval) * 360.0f);
     }
 }

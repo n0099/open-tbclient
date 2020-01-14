@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class e<E extends g> extends ProtoAdapter<E> {
-    private Method noA;
+    private Method noF;
     private final Class<E> type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,14 +17,14 @@ public final class e<E extends g> extends ProtoAdapter<E> {
         this.type = cls;
     }
 
-    private Method dFj() {
-        Method method = this.noA;
+    private Method dFl() {
+        Method method = this.noF;
         if (method != null) {
             return method;
         }
         try {
             Method method2 = this.type.getMethod("fromValue", Integer.TYPE);
-            this.noA = method2;
+            this.noF = method2;
             return method2;
         } catch (NoSuchMethodException e) {
             throw new AssertionError(e);
@@ -51,7 +51,7 @@ public final class e<E extends g> extends ProtoAdapter<E> {
     public E decode(c cVar) throws IOException {
         int readVarint32 = cVar.readVarint32();
         try {
-            E e = (E) dFj().invoke(null, Integer.valueOf(readVarint32));
+            E e = (E) dFl().invoke(null, Integer.valueOf(readVarint32));
             if (e == null) {
                 throw new ProtoAdapter.EnumConstantNotFoundException(readVarint32, this.type);
             }

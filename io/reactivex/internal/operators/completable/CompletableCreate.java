@@ -10,14 +10,14 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class CompletableCreate extends a {
-    final d nvG;
+    final d nvL;
 
     @Override // io.reactivex.a
     protected void b(c cVar) {
         Emitter emitter = new Emitter(cVar);
         cVar.onSubscribe(emitter);
         try {
-            this.nvG.a(emitter);
+            this.nvL.a(emitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.I(th);
             emitter.onError(th);

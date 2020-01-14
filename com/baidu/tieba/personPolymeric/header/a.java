@@ -27,8 +27,8 @@ import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes9.dex */
 public class a {
     private View cuI;
-    private TbImageView joc;
-    private int jod;
+    private TbImageView joh;
+    private int joi;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.header.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -45,7 +45,7 @@ public class a {
                         i = -1;
                     }
                     if (i == -1 || userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.joc.getContext())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.joh.getContext())));
                         return;
                     }
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
@@ -55,10 +55,10 @@ public class a {
                         } else if (bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
                             i2 = 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.joc.getContext(), i, i2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.joh.getContext(), i, i2)));
                     }
                     i2 = 0;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.joc.getContext(), i, i2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.joh.getContext(), i, i2)));
                 }
             }
         }
@@ -69,9 +69,9 @@ public class a {
 
     public a(TbPageContext tbPageContext, TbImageView tbImageView, View view, boolean z) {
         this.mPageContext = tbPageContext;
-        this.joc = tbImageView;
+        this.joh = tbImageView;
         this.mIsHost = z;
-        this.joc.setDefaultBgResource(R.drawable.bg_pic_mine);
+        this.joh.setDefaultBgResource(R.drawable.bg_pic_mine);
         this.cuI = view;
         this.cuI.setOnClickListener(this.mClickListener);
     }
@@ -88,7 +88,7 @@ public class a {
                     public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                         super.onLoaded((AnonymousClass1) aVar, str, i);
                         if (aVar != null) {
-                            aVar.drawImageTo(a.this.joc);
+                            aVar.drawImageTo(a.this.joh);
                         }
                     }
 
@@ -109,33 +109,33 @@ public class a {
     }
 
     public void zT(int i) {
-        this.jod = i;
-        ViewGroup.LayoutParams layoutParams = this.joc.getLayoutParams();
+        this.joi = i;
+        ViewGroup.LayoutParams layoutParams = this.joh.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.height = this.jod;
-            this.joc.setLayoutParams(layoutParams);
+            layoutParams.height = this.joi;
+            this.joh.setLayoutParams(layoutParams);
         }
     }
 
     public void k(double d) {
-        int i = (int) (this.jod + (PullRefreshFrameLayout.jsk * d));
-        ViewGroup.LayoutParams layoutParams = this.joc.getLayoutParams();
+        int i = (int) (this.joi + (PullRefreshFrameLayout.jsp * d));
+        ViewGroup.LayoutParams layoutParams = this.joh.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.joc.setLayoutParams(layoutParams);
+            this.joh.setLayoutParams(layoutParams);
         }
     }
 
     public void zU(int i) {
-        ViewGroup.LayoutParams layoutParams = this.joc.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.joh.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.joc.setLayoutParams(layoutParams);
+            this.joh.setLayoutParams(layoutParams);
         }
     }
 
-    public int cvJ() {
-        ViewGroup.LayoutParams layoutParams = this.joc.getLayoutParams();
+    public int cvL() {
+        ViewGroup.LayoutParams layoutParams = this.joh.getLayoutParams();
         if (layoutParams != null) {
             return layoutParams.height;
         }

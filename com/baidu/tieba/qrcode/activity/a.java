@@ -3,9 +3,9 @@ package com.baidu.tieba.qrcode.activity;
 public interface a {
     void Hg(String str);
 
-    void czW();
+    void cAa();
 
-    void czX();
+    void cAb();
 
     void czY();
 

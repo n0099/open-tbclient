@@ -8,23 +8,23 @@ import java.util.List;
 public class r implements b, a.InterfaceC0730a {
     private final List<a.InterfaceC0730a> listeners = new ArrayList();
     private final String name;
-    private final ShapeTrimPath.Type npw;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> npx;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> npy;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> npz;
+    private final ShapeTrimPath.Type npB;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> npC;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> npD;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> npE;
 
     public r(com.tb.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.npw = shapeTrimPath.dFu();
-        this.npx = shapeTrimPath.dGn().dFE();
-        this.npy = shapeTrimPath.dGm().dFE();
-        this.npz = shapeTrimPath.dGi().dFE();
-        aVar.a(this.npx);
-        aVar.a(this.npy);
-        aVar.a(this.npz);
-        this.npx.b(this);
-        this.npy.b(this);
-        this.npz.b(this);
+        this.npB = shapeTrimPath.dFw();
+        this.npC = shapeTrimPath.dGp().dFG();
+        this.npD = shapeTrimPath.dGo().dFG();
+        this.npE = shapeTrimPath.dGk().dFG();
+        aVar.a(this.npC);
+        aVar.a(this.npD);
+        aVar.a(this.npE);
+        this.npC.b(this);
+        this.npD.b(this);
+        this.npE.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0730a
@@ -56,19 +56,19 @@ public class r implements b, a.InterfaceC0730a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type dFu() {
-        return this.npw;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dFv() {
-        return this.npx;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dFw() {
-        return this.npy;
+    public ShapeTrimPath.Type dFw() {
+        return this.npB;
     }
 
     public com.tb.airbnb.lottie.a.b.a<?, Float> dFx() {
-        return this.npz;
+        return this.npC;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dFy() {
+        return this.npD;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dFz() {
+        return this.npE;
     }
 }

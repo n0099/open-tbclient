@@ -78,7 +78,7 @@ public class c {
             @Override // com.baidu.tbadk.util.ab
             /* renamed from: aWv */
             public List<String> doInBackground() {
-                return com.baidu.tieba.tbadkCore.util.a.cKq();
+                return com.baidu.tieba.tbadkCore.util.a.cKs();
             }
         }, new l<List<String>>() { // from class: com.baidu.tieba.mainentrance.a.c.5
             /* JADX DEBUG: Method merged with bridge method */
@@ -220,7 +220,7 @@ public class c {
             ac.a(new ab() { // from class: com.baidu.tieba.mainentrance.a.c.a.3
                 @Override // com.baidu.tbadk.util.ab
                 public Object doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.cKs();
+                    com.baidu.tieba.tbadkCore.util.a.cKu();
                     return null;
                 }
             }, new l() { // from class: com.baidu.tieba.mainentrance.a.c.a.4

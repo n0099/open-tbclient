@@ -2,29 +2,29 @@ package kotlin.jvm.internal;
 /* loaded from: classes5.dex */
 public final class s implements l {
     private final String hjA;
-    private final Class<?> nBG;
+    private final Class<?> nBL;
 
     public s(Class<?> cls, String str) {
         q.j(cls, "jClass");
         q.j(str, "moduleName");
-        this.nBG = cls;
+        this.nBL = cls;
         this.hjA = str;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> dJi() {
-        return this.nBG;
+    public Class<?> dJk() {
+        return this.nBL;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof s) && q.h(dJi(), ((s) obj).dJi());
+        return (obj instanceof s) && q.h(dJk(), ((s) obj).dJk());
     }
 
     public int hashCode() {
-        return dJi().hashCode();
+        return dJk().hashCode();
     }
 
     public String toString() {
-        return dJi().toString() + " (Kotlin reflection is not available)";
+        return dJk().toString() + " (Kotlin reflection is not available)";
     }
 }

@@ -416,7 +416,7 @@ public class FrsTopView extends LinearLayout {
                 str = bjVar.cPX.id;
                 str2 = valueOf;
             }
-            if (bjVar.aAt() > 0 && com.baidu.tieba.tbadkCore.util.e.cKA()) {
+            if (bjVar.aAt() > 0 && com.baidu.tieba.tbadkCore.util.e.cKC()) {
                 createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createHistoryCfg(bjVar.getTid(), String.valueOf(bjVar.aAt()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createFromThreadCfg(bjVar, this.mForumName, "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);

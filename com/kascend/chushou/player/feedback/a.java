@@ -8,14 +8,14 @@ import tv.chushou.zues.utils.h;
 public class a {
     public long b;
     private List<FlingObj> c;
-    public FlingObj mXD = new FlingObj();
+    public FlingObj mXI = new FlingObj();
 
     public void a() {
-        if (this.mXD != null && !h.isEmpty(this.mXD.roomId)) {
+        if (this.mXI != null && !h.isEmpty(this.mXI.roomId)) {
             if (this.c == null) {
                 this.c = new ArrayList();
             }
-            this.c.add(this.mXD.copy());
+            this.c.add(this.mXI.copy());
         }
     }
 

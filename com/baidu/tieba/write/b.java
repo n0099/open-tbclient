@@ -12,20 +12,20 @@ import tbclient.SimpleForum;
 /* loaded from: classes11.dex */
 public class b implements com.baidu.tieba.c.a {
     private a.InterfaceC0481a fTB;
-    private com.baidu.tieba.write.transmit.model.a kKG;
-    private List<SimpleForum> kKH;
-    private boolean kKI;
+    private com.baidu.tieba.write.transmit.model.a kKL;
+    private List<SimpleForum> kKM;
+    private boolean kKN;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> eei = new ArrayList<>();
-    private a.InterfaceC0626a kKJ = new a.InterfaceC0626a() { // from class: com.baidu.tieba.write.b.1
+    private a.InterfaceC0626a kKO = new a.InterfaceC0626a() { // from class: com.baidu.tieba.write.b.1
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0626a
         public void onError() {
-            b.this.cSJ();
+            b.this.cSL();
         }
 
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0626a
         public void b(List<SimpleForum> list, int i) {
-            b.this.kKH = list;
+            b.this.kKM = list;
             b.this.mPrivateThread = i;
             b.this.buK();
         }
@@ -33,16 +33,16 @@ public class b implements com.baidu.tieba.c.a {
 
     public b() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.kKG = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.kKG.a(this.kKJ);
-        this.kKG.setRequestId(gen);
+        this.kKL = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.kKL.a(this.kKO);
+        this.kKL.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void buK() {
         this.eei.clear();
-        if (v.getCount(this.kKH) > 0) {
-            for (SimpleForum simpleForum : this.kKH) {
+        if (v.getCount(this.kKM) > 0) {
+            for (SimpleForum simpleForum : this.kKM) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
                     this.eei.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar));
                 }
@@ -54,22 +54,22 @@ public class b implements com.baidu.tieba.c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSJ() {
-        if (!this.kKI) {
+    public void cSL() {
+        if (!this.kKN) {
             if (this.fTB != null) {
                 this.fTB.a(null, false, 2, 0);
             }
-            this.kKI = true;
+            this.kKN = true;
         }
     }
 
     @Override // com.baidu.tieba.c.a
     public void buz() {
-        if (this.fTB != null && this.kKG != null) {
-            this.kKI = false;
-            this.kKG.setThreadTitle(null);
-            this.kKG.setThreadContent(null);
-            this.kKG.loadData();
+        if (this.fTB != null && this.kKL != null) {
+            this.kKN = false;
+            this.kKL.setThreadTitle(null);
+            this.kKL.setThreadContent(null);
+            this.kKL.loadData();
         }
     }
 

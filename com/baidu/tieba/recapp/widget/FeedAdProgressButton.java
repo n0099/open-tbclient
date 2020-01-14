@@ -20,13 +20,13 @@ import com.baidu.tieba.R;
 @SuppressLint({"DrawAllocation"})
 /* loaded from: classes11.dex */
 public class FeedAdProgressButton extends View implements a {
-    private int jNc;
-    private int jNd;
-    private int jNe;
-    private int jNf;
-    private int jNg;
-    private RectF jNh;
-    private Shader jNi;
+    private int jNh;
+    private int jNi;
+    private int jNj;
+    private int jNk;
+    private int jNl;
+    private RectF jNm;
+    private Shader jNn;
     private int mForegroundColor;
     private Paint mForegroundPaint;
     private int mMax;
@@ -40,15 +40,15 @@ public class FeedAdProgressButton extends View implements a {
 
     public FeedAdProgressButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jNc = R.color.cp_btn_a;
-        this.jNd = R.color.cp_link_tip_a;
-        this.jNe = R.color.cp_link_tip_a;
-        this.jNf = R.drawable.ad_download_progress_button_bg;
+        this.jNh = R.color.cp_btn_a;
+        this.jNi = R.color.cp_link_tip_a;
+        this.jNj = R.color.cp_link_tip_a;
+        this.jNk = R.drawable.ad_download_progress_button_bg;
         this.mProgress = 0;
-        this.mTextColor = am.getColor(this.jNc);
-        this.jNg = am.getColor(this.jNd);
+        this.mTextColor = am.getColor(this.jNh);
+        this.jNl = am.getColor(this.jNi);
         this.mTextSize = 10.0f;
-        this.mForegroundColor = am.getColor(this.jNe);
+        this.mForegroundColor = am.getColor(this.jNj);
         this.mMax = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
@@ -57,15 +57,15 @@ public class FeedAdProgressButton extends View implements a {
 
     public FeedAdProgressButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jNc = R.color.cp_btn_a;
-        this.jNd = R.color.cp_link_tip_a;
-        this.jNe = R.color.cp_link_tip_a;
-        this.jNf = R.drawable.ad_download_progress_button_bg;
+        this.jNh = R.color.cp_btn_a;
+        this.jNi = R.color.cp_link_tip_a;
+        this.jNj = R.color.cp_link_tip_a;
+        this.jNk = R.drawable.ad_download_progress_button_bg;
         this.mProgress = 0;
-        this.mTextColor = am.getColor(this.jNc);
-        this.jNg = am.getColor(this.jNd);
+        this.mTextColor = am.getColor(this.jNh);
+        this.jNl = am.getColor(this.jNi);
         this.mTextSize = 10.0f;
-        this.mForegroundColor = am.getColor(this.jNe);
+        this.mForegroundColor = am.getColor(this.jNj);
         this.mMax = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
@@ -80,14 +80,14 @@ public class FeedAdProgressButton extends View implements a {
         this.strokeWidth = getResources().getDimensionPixelSize(R.dimen.ds1);
         this.mForegroundColor = obtainStyledAttributes.getInteger(0, color2);
         this.mTextColor = obtainStyledAttributes.getColor(1, color);
-        this.jNg = obtainStyledAttributes.getColor(2, color);
+        this.jNl = obtainStyledAttributes.getColor(2, color);
         this.mMax = obtainStyledAttributes.getInteger(3, this.mMax);
         this.mProgress = obtainStyledAttributes.getInteger(4, 0);
         this.mText = obtainStyledAttributes.getString(6);
         this.mTextSize = obtainStyledAttributes.getDimension(5, (int) getResources().getDimension(R.dimen.fontsize24));
         this.mRadius = obtainStyledAttributes.getDimensionPixelSize(7, dimensionPixelSize);
         obtainStyledAttributes.recycle();
-        this.jNh = new RectF();
+        this.jNm = new RectF();
         lB();
     }
 
@@ -105,7 +105,7 @@ public class FeedAdProgressButton extends View implements a {
             this.mTextPaint.setAntiAlias(true);
             this.mTextPaint.setTextSize(this.mTextSize);
         }
-        int i = this.mProgress > 0 ? this.mTextColor : this.jNg;
+        int i = this.mProgress > 0 ? this.mTextColor : this.jNl;
         if (i != this.mTextPaint.getColor()) {
             this.mTextPaint.setColor(i);
         }
@@ -125,17 +125,17 @@ public class FeedAdProgressButton extends View implements a {
     }
 
     private void t(Canvas canvas) {
-        if (this.jNh == null) {
-            this.jNh = new RectF();
+        if (this.jNm == null) {
+            this.jNm = new RectF();
         }
-        this.jNh.left = this.strokeWidth;
-        this.jNh.top = this.strokeWidth;
-        this.jNh.right = getMeasuredWidth() - this.strokeWidth;
-        this.jNh.bottom = getMeasuredHeight() - this.strokeWidth;
+        this.jNm.left = this.strokeWidth;
+        this.jNm.top = this.strokeWidth;
+        this.jNm.right = getMeasuredWidth() - this.strokeWidth;
+        this.jNm.bottom = getMeasuredHeight() - this.strokeWidth;
         float f = this.mProgress / (this.mMax + 0.0f);
-        this.jNi = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.mForegroundColor, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
-        this.mForegroundPaint.setShader(this.jNi);
-        canvas.drawRoundRect(this.jNh, this.mRadius, this.mRadius, this.mForegroundPaint);
+        this.jNn = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.mForegroundColor, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
+        this.mForegroundPaint.setShader(this.jNn);
+        canvas.drawRoundRect(this.jNm, this.mRadius, this.mRadius, this.mForegroundPaint);
     }
 
     public void setMax(int i) {
@@ -169,7 +169,7 @@ public class FeedAdProgressButton extends View implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonTextColor(int i) {
-        this.jNg = i;
+        this.jNl = i;
         this.mTextColor = i;
         postInvalidate();
     }
@@ -196,27 +196,27 @@ public class FeedAdProgressButton extends View implements a {
     }
 
     public void setTextColorInitSkin(@ColorRes int i) {
-        this.jNd = i;
+        this.jNi = i;
     }
 
     public void setBackgroundSkin(@DrawableRes int i) {
-        this.jNf = i;
+        this.jNk = i;
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void onChangeSkinType() {
-        am.setBackgroundResource(this, this.jNf);
-        this.mTextColor = am.getColor(this.jNc);
-        this.jNg = am.getColor(this.jNd);
-        this.mForegroundColor = am.getColor(this.jNe);
+        am.setBackgroundResource(this, this.jNk);
+        this.mTextColor = am.getColor(this.jNh);
+        this.jNl = am.getColor(this.jNi);
+        this.mForegroundColor = am.getColor(this.jNj);
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void bFO() {
-        am.setBackgroundResource(this, this.jNf);
-        this.mTextColor = am.getColor(this.jNc);
-        this.jNg = am.getColor(this.jNd);
-        this.mForegroundColor = am.getColor(this.jNe);
+        am.setBackgroundResource(this, this.jNk);
+        this.mTextColor = am.getColor(this.jNh);
+        this.jNl = am.getColor(this.jNi);
+        this.mForegroundColor = am.getColor(this.jNj);
         postInvalidate();
     }
 }

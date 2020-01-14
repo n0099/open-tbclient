@@ -27,15 +27,15 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.card.z
         public void a(View view, g gVar) {
-            PersonCenterMoreActivity.this.jfB = gVar;
-            if (PersonCenterMoreActivity.this.jfB != null && !PersonCenterMoreActivity.this.blA()) {
-                PersonCenterMoreActivity.this.Go(PersonCenterMoreActivity.this.jfB.cHN);
+            PersonCenterMoreActivity.this.jfG = gVar;
+            if (PersonCenterMoreActivity.this.jfG != null && !PersonCenterMoreActivity.this.blA()) {
+                PersonCenterMoreActivity.this.Go(PersonCenterMoreActivity.this.jfG.cHN);
             }
         }
     };
-    private Bundle jfA;
-    private g jfB;
-    private b jfz;
+    private b jfE;
+    private Bundle jfF;
+    private g jfG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -43,11 +43,11 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         super.onCreate(bundle);
         Intent intent = getIntent();
         if (intent != null) {
-            this.jfA = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.jfF = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(R.layout.person_center_more_layout);
-        this.jfz = new b(getPageContext(), this.jfA, this.eJh);
-        this.jfz.initView();
+        this.jfE = new b(getPageContext(), this.jfF, this.eJh);
+        this.jfE.initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -62,7 +62,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            Go(this.jfB.cHN);
+            Go(this.jfG.cHN);
         }
     }
 
@@ -99,8 +99,8 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jfz != null) {
-            this.jfz.onChangeSkinType();
+        if (this.jfE != null) {
+            this.jfE.onChangeSkinType();
         }
     }
 }

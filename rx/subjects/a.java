@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes5.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] nzY = new Object[0];
-    private final SubjectSubscriptionManager<T> nST;
+    private static final Object[] nAd = new Object[0];
+    private final SubjectSubscriptionManager<T> nSY;
 
-    public static <T> a<T> dNZ() {
+    public static <T> a<T> dOb() {
         return e(null, false);
     }
 
@@ -32,25 +32,25 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.nST = subjectSubscriptionManager;
+        this.nSY = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.nST.getLatest() == null || this.nST.active) {
-            Object dMS = NotificationLite.dMS();
-            for (SubjectSubscriptionManager.b<T> bVar : this.nST.terminate(dMS)) {
-                bVar.cn(dMS);
+        if (this.nSY.getLatest() == null || this.nSY.active) {
+            Object dMU = NotificationLite.dMU();
+            for (SubjectSubscriptionManager.b<T> bVar : this.nSY.terminate(dMU)) {
+                bVar.cn(dMU);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.nST.getLatest() == null || this.nST.active) {
+        if (this.nSY.getLatest() == null || this.nSY.active) {
             Object error = NotificationLite.error(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.nST.terminate(error)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.nSY.terminate(error)) {
                 try {
                     bVar.cn(error);
                 } catch (Throwable th2) {
@@ -66,9 +66,9 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.nST.getLatest() == null || this.nST.active) {
+        if (this.nSY.getLatest() == null || this.nSY.active) {
             Object next = NotificationLite.next(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.nST.next(next)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.nSY.next(next)) {
                 bVar.cn(next);
             }
         }

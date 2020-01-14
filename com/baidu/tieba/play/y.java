@@ -8,14 +8,14 @@ public class y {
     public String OG;
     public String cKN;
     public String fKa;
-    public String jvJ;
-    public String jvK;
-    public String jvL;
-    public int jvM;
-    public String jvN;
     public String jvO;
     public String jvP;
     public String jvQ;
+    public int jvR;
+    public String jvS;
+    public String jvT;
+    public String jvU;
+    public String jvV;
     public String mAbTag;
     public String mExtra;
     public String mFloor;
@@ -45,19 +45,19 @@ public class y {
             } else {
                 anVar.Z("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.jvJ)) {
-                anVar.cp("obj_param1", this.jvJ);
+            if (!StringUtils.isNull(this.jvO)) {
+                anVar.cp("obj_param1", this.jvO);
             } else {
                 anVar.Z("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.jvK)) {
-                anVar.cp(TiebaInitialize.Params.OBJ_PARAM2, this.jvK);
+            if (!StringUtils.isNull(this.jvP)) {
+                anVar.cp(TiebaInitialize.Params.OBJ_PARAM2, this.jvP);
             }
-            if (!StringUtils.isNull(this.jvL)) {
-                anVar.cp(TiebaInitialize.Params.OBJ_PARAM3, this.jvL);
+            if (!StringUtils.isNull(this.jvQ)) {
+                anVar.cp(TiebaInitialize.Params.OBJ_PARAM3, this.jvQ);
             }
-            if (this.jvM > 0) {
-                anVar.Z("obj_param5", this.jvM);
+            if (this.jvR > 0) {
+                anVar.Z("obj_param5", this.jvR);
             }
             if (!StringUtils.isNull(this.cKN)) {
                 anVar.cp("obj_id", this.cKN);
@@ -67,22 +67,22 @@ public class y {
             } else {
                 anVar.Z(TiebaInitialize.Params.AB_TAG, 0);
             }
-            if (!StringUtils.isNull(this.jvO)) {
-                anVar.cp("topic_type", this.jvO);
+            if (!StringUtils.isNull(this.jvT)) {
+                anVar.cp("topic_type", this.jvT);
             }
             if (!StringUtils.isNull(this.mExtra)) {
                 anVar.cp("extra", this.mExtra);
             } else {
                 anVar.Z("extra", 0);
             }
-            if (!StringUtils.isNull(this.jvP)) {
-                anVar.cp("is_vertical", this.jvP);
+            if (!StringUtils.isNull(this.jvU)) {
+                anVar.cp("is_vertical", this.jvU);
             }
             if (!StringUtils.isNull(this.mFloor)) {
                 anVar.cp("obj_floor", this.mFloor);
             }
-            if (!StringUtils.isNull(this.jvQ)) {
-                anVar.cp("resource_id", this.jvQ);
+            if (!StringUtils.isNull(this.jvV)) {
+                anVar.cp("resource_id", this.jvV);
             }
             anVar.cp("obj_param4", StringUtils.isNull(this.mNid) ? "" : this.mNid);
             anVar.cp("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
@@ -90,7 +90,7 @@ public class y {
         return anVar;
     }
 
-    public y cxV() {
+    public y cxX() {
         y yVar = new y();
         yVar.mLocate = this.mLocate;
         yVar.mType = this.mType;
@@ -98,15 +98,15 @@ public class y {
         yVar.fKa = this.fKa;
         yVar.mUid = this.mUid;
         yVar.mSource = this.mSource;
-        yVar.jvJ = this.jvJ;
-        yVar.jvK = this.jvK;
-        yVar.jvL = this.jvL;
+        yVar.jvO = this.jvO;
+        yVar.jvP = this.jvP;
+        yVar.jvQ = this.jvQ;
         yVar.cKN = this.cKN;
         yVar.mAbTag = this.mAbTag;
-        yVar.jvN = this.jvN;
-        yVar.jvO = this.jvO;
+        yVar.jvS = this.jvS;
+        yVar.jvT = this.jvT;
         yVar.mFloor = this.mFloor;
-        yVar.jvQ = this.jvQ;
+        yVar.jvV = this.jvV;
         yVar.mNid = this.mNid;
         yVar.mVid = this.mVid;
         return yVar;

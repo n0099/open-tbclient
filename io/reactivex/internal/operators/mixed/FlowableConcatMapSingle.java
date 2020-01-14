@@ -22,12 +22,12 @@ import org.a.d;
 public final class FlowableConcatMapSingle<T, R> extends g<R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends aa<? extends R>> mapper;
-    final g<T> nvK;
+    final g<T> nvP;
     final int prefetch;
 
     @Override // io.reactivex.g
     protected void a(c<? super R> cVar) {
-        this.nvK.a((j) new ConcatMapSingleSubscriber(cVar, this.mapper, this.prefetch, this.errorMode));
+        this.nvP.a((j) new ConcatMapSingleSubscriber(cVar, this.mapper, this.prefetch, this.errorMode));
     }
 
     /* loaded from: classes5.dex */

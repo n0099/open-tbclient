@@ -20,7 +20,7 @@ public abstract class ContinuationImpl extends BaseContinuationImpl {
     public kotlin.coroutines.c getContext() {
         kotlin.coroutines.c cVar = this._context;
         if (cVar == null) {
-            q.dJk();
+            q.dJm();
         }
         return cVar;
     }
@@ -28,7 +28,7 @@ public abstract class ContinuationImpl extends BaseContinuationImpl {
     public final kotlin.coroutines.a<Object> intercepted() {
         ContinuationImpl continuationImpl = this.intercepted;
         if (continuationImpl == null) {
-            kotlin.coroutines.b bVar = (kotlin.coroutines.b) getContext().get(kotlin.coroutines.b.nBh);
+            kotlin.coroutines.b bVar = (kotlin.coroutines.b) getContext().get(kotlin.coroutines.b.nBm);
             if (bVar == null || (continuationImpl = bVar.a(this)) == null) {
                 continuationImpl = this;
             }
@@ -41,12 +41,12 @@ public abstract class ContinuationImpl extends BaseContinuationImpl {
     protected void releaseIntercepted() {
         kotlin.coroutines.a<?> aVar = this.intercepted;
         if (aVar != null && aVar != this) {
-            c.b bVar = getContext().get(kotlin.coroutines.b.nBh);
+            c.b bVar = getContext().get(kotlin.coroutines.b.nBm);
             if (bVar == null) {
-                q.dJk();
+                q.dJm();
             }
             ((kotlin.coroutines.b) bVar).b(aVar);
         }
-        this.intercepted = a.nBo;
+        this.intercepted = a.nBt;
     }
 }

@@ -22,9 +22,9 @@ public class PbChudianProcessBar extends RelativeLayout {
     private MediaController.MediaPlayerControl dVO;
     private SeekBar ebr;
     private Formatter hnS;
-    private TextView jbV;
-    private TextView jbW;
-    private StringBuilder jbX;
+    private TextView jca;
+    private TextView jcb;
+    private StringBuilder jcc;
     private Handler mHandler;
     private View mRootView;
     private boolean mShowing;
@@ -97,13 +97,13 @@ public class PbChudianProcessBar extends RelativeLayout {
 
     private void init(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.chudian_process_bar, (ViewGroup) this, true);
-        this.jbV = (TextView) this.mRootView.findViewById(R.id.textview_cur_time);
-        this.jbW = (TextView) this.mRootView.findViewById(R.id.textview_duration);
+        this.jca = (TextView) this.mRootView.findViewById(R.id.textview_cur_time);
+        this.jcb = (TextView) this.mRootView.findViewById(R.id.textview_duration);
         this.ebr = (SeekBar) this.mRootView.findViewById(R.id.chudian_seek_bar);
         this.ebr.setEnabled(false);
         this.ebr.setThumb(null);
-        this.jbX = new StringBuilder();
-        this.hnS = new Formatter(this.jbX, Locale.getDefault());
+        this.jcc = new StringBuilder();
+        this.hnS = new Formatter(this.jcc, Locale.getDefault());
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
@@ -114,11 +114,11 @@ public class PbChudianProcessBar extends RelativeLayout {
         this.mShowing = false;
         this.mHandler.removeMessages(1);
         this.ebr.setProgress(0);
-        this.jbV.setText(eu(j));
-        this.jbW.setText(eu(j2));
+        this.jca.setText(eu(j));
+        this.jcb.setText(eu(j2));
     }
 
-    public void csN() {
+    public void csP() {
         if (this.dVO != null) {
             this.dVN = ((this.dVO.getDuration() / 200) / 50) * 50;
             if (this.dVN < 50) {
@@ -143,18 +143,18 @@ public class PbChudianProcessBar extends RelativeLayout {
             }
             this.dVO.getBufferPercentage();
         }
-        if (this.jbV != null && duration > 0) {
-            this.jbV.setText(eu(currentPosition));
+        if (this.jca != null && duration > 0) {
+            this.jca.setText(eu(currentPosition));
         }
-        if (this.jbW != null) {
-            this.jbW.setText(eu(duration));
+        if (this.jcb != null) {
+            this.jcb.setText(eu(duration));
             return currentPosition;
         }
         return currentPosition;
     }
 
     private String eu(long j) {
-        this.jbX.setLength(0);
+        this.jcc.setLength(0);
         long seconds = TimeUnit.MILLISECONDS.toSeconds(j);
         long seconds2 = seconds % TimeUnit.MINUTES.toSeconds(1L);
         long seconds3 = (seconds / TimeUnit.MINUTES.toSeconds(1L)) % TimeUnit.HOURS.toMinutes(1L);

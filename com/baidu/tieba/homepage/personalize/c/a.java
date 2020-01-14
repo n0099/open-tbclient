@@ -27,7 +27,7 @@ public class a {
                     a2.delete("thread_type");
                     a2.Z("thread_type", bjVar.getThreadType());
                 }
-                c.cIs().a(bdUniqueId, a, a2);
+                c.cIu().a(bdUniqueId, a, a2);
             }
         }
     }
@@ -51,7 +51,7 @@ public class a {
                     a.delete("thread_type");
                     a.Z("thread_type", bjVar.getThreadType());
                 }
-                c.cIs().b(bdUniqueId, a);
+                c.cIu().b(bdUniqueId, a);
             }
         }
     }

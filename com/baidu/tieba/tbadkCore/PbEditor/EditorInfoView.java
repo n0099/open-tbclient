@@ -8,8 +8,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
     private int MH;
-    protected int ken;
-    protected int keo;
+    protected int kes;
+    protected int ket;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -22,9 +22,9 @@ public class EditorInfoView extends TextView {
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.MH = 3;
-        this.ken = (int) context.getResources().getDimension(R.dimen.ds18);
-        this.keo = (int) context.getResources().getDimension(R.dimen.ds6);
-        setPadding(this.ken, this.keo, this.ken, this.keo);
+        this.kes = (int) context.getResources().getDimension(R.dimen.ds18);
+        this.ket = (int) context.getResources().getDimension(R.dimen.ds6);
+        setPadding(this.kes, this.ket, this.kes, this.ket);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(R.dimen.ds24));

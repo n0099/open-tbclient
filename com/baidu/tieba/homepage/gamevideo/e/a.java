@@ -81,7 +81,7 @@ public class a {
         if (cVar != null && (af = cVar.af("c13488", true)) != null) {
             if (cVar.axQ() != null) {
                 bj axQ = cVar.axQ();
-                af.Z("obj_name", axQ.aBx() != null && (axQ.aBx().cJz() != null || axQ.aBx().aRH() != null) ? 1 : 0);
+                af.Z("obj_name", axQ.aBx() != null && (axQ.aBx().cJB() != null || axQ.aBx().aRH() != null) ? 1 : 0);
                 if (axQ.azX() != null) {
                     af.Z(TiebaInitialize.Params.AB_TYPE, axQ.azX().hadConcerned() ? 1 : 0);
                 }

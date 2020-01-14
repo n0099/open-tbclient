@@ -351,7 +351,7 @@ public class j implements i {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        com.baidu.tieba.t.e.cNp().e(jSONObject, j.this.ioi ? false : true);
+                        com.baidu.tieba.t.e.cNr().e(jSONObject, j.this.ioi ? false : true);
                         if (j.this.iom != null) {
                             j.this.iom.clear();
                             return null;
@@ -471,7 +471,7 @@ public class j implements i {
         }
         int size = this.inW.size();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(this.inW.get(i).cyp());
+            jSONArray.put(this.inW.get(i).cyr());
         }
         return jSONArray;
     }

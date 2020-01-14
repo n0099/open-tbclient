@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.SmartApp;
 /* loaded from: classes9.dex */
 public class h extends RecyclerView.Adapter<a> {
-    private View.OnLongClickListener jla;
+    private View.OnLongClickListener jlf;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
@@ -49,7 +49,7 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void c(View.OnLongClickListener onLongClickListener) {
-        this.jla = onLongClickListener;
+        this.jlf = onLongClickListener;
     }
 
     private SmartApp zN(int i) {
@@ -78,7 +78,7 @@ public class h extends RecyclerView.Adapter<a> {
         if (aVar != null && (zN = zN(i)) != null) {
             aVar.c(zN);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.jla);
+            aVar.setOnLongClickListener(this.jlf);
             aVar.onChangeSkinType();
         }
     }
@@ -91,7 +91,7 @@ public class h extends RecyclerView.Adapter<a> {
     /* loaded from: classes9.dex */
     public static class a extends RecyclerView.ViewHolder {
         private HeadImageView hOM;
-        private SmartApp jlb;
+        private SmartApp jlg;
         private TextView mName;
         private View mRootView;
 
@@ -105,7 +105,7 @@ public class h extends RecyclerView.Adapter<a> {
         }
 
         public void c(SmartApp smartApp) {
-            this.jlb = smartApp;
+            this.jlg = smartApp;
             this.mRootView.setTag(smartApp);
             if (!aq.isEmpty(smartApp.avatar)) {
                 this.hOM.setPlaceHolder(1);

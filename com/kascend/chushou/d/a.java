@@ -19,7 +19,7 @@ public class a {
     public static void a(Context context, String str, String str2, String str3, String str4, JSONObject jSONObject) {
         boolean z;
         String str5;
-        com.kascend.chushou.player.b dAV;
+        com.kascend.chushou.player.b dAX;
         boolean z2 = false;
         a(context);
         VideoPlayer videoPlayer = null;
@@ -31,16 +31,16 @@ public class a {
             if (videoPlayer instanceof VideoPlayer) {
                 z = true;
                 VideoPlayer videoPlayer2 = videoPlayer;
-                if (tv.chushou.zues.utils.h.isEmpty(str) && (dAV = videoPlayer2.dAV()) != null) {
-                    str = dAV.a;
+                if (tv.chushou.zues.utils.h.isEmpty(str) && (dAX = videoPlayer2.dAX()) != null) {
+                    str = dAX.a;
                 }
-                z2 = videoPlayer2.dBh();
+                z2 = videoPlayer2.dBj();
                 str5 = str;
             } else {
                 z = false;
                 str5 = str;
             }
-            com.kascend.chushou.view.b.b.a.neA.a(str2, str5, str3, z, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
+            com.kascend.chushou.view.b.b.a.neF.a(str2, str5, str3, z, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
         }
     }
 
@@ -48,7 +48,7 @@ public class a {
         boolean z2;
         boolean z3;
         String str4;
-        com.kascend.chushou.player.b dAV;
+        com.kascend.chushou.player.b dAX;
         if (!tv.chushou.zues.utils.h.isEmpty(str2)) {
             if (!tv.chushou.zues.utils.h.isEmpty(str3) && str3.equals(str2)) {
                 z = false;
@@ -67,17 +67,17 @@ public class a {
                 if (videoPlayer instanceof VideoPlayer) {
                     z3 = true;
                     VideoPlayer videoPlayer2 = videoPlayer;
-                    if (tv.chushou.zues.utils.h.isEmpty(str) && (dAV = videoPlayer2.dAV()) != null) {
-                        str = dAV.a;
+                    if (tv.chushou.zues.utils.h.isEmpty(str) && (dAX = videoPlayer2.dAX()) != null) {
+                        str = dAX.a;
                     }
-                    z2 = videoPlayer2.dBh();
+                    z2 = videoPlayer2.dBj();
                     str4 = str;
                 } else {
                     z2 = false;
                     z3 = false;
                     str4 = str;
                 }
-                com.kascend.chushou.view.b.b.a.neA.a(str2, str4, null, z3, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
+                com.kascend.chushou.view.b.b.a.neF.a(str2, str4, null, z3, z2).show(videoPlayer.getSupportFragmentManager(), "UserCardDialog");
             }
         }
     }
@@ -134,10 +134,10 @@ public class a {
     }
 
     public static void b(Context context, String str) {
-        com.kascend.cstvsdk.utils.a.njD.a(context);
+        com.kascend.cstvsdk.utils.a.njI.a(context);
     }
 
     public static void c(Context context, String str) {
-        com.kascend.cstvsdk.utils.a.njD.c(context);
+        com.kascend.cstvsdk.utils.a.njI.c(context);
     }
 }

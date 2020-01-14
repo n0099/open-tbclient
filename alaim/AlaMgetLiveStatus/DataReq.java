@@ -12,7 +12,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 1)
 
     /* renamed from: common  reason: collision with root package name */
-    public final CommonReq f959common;
+    public final CommonReq f960common;
     @ProtoField(label = Message.Label.REPEATED, tag = 2, type = Message.Datatype.INT64)
     public final List<Long> live_ids;
     public static final List<Long> DEFAULT_LIVE_IDS = Collections.emptyList();
@@ -21,7 +21,7 @@ public final class DataReq extends Message {
     private DataReq(Builder builder, boolean z) {
         super(builder);
         if (z) {
-            this.f959common = builder.f960common;
+            this.f960common = builder.f961common;
             if (builder.live_ids == null) {
                 this.live_ids = DEFAULT_LIVE_IDS;
             } else {
@@ -35,7 +35,7 @@ public final class DataReq extends Message {
                 return;
             }
         }
-        this.f959common = builder.f960common;
+        this.f960common = builder.f961common;
         this.live_ids = immutableCopyOf(builder.live_ids);
         this.audience_count = builder.audience_count;
     }
@@ -45,7 +45,7 @@ public final class DataReq extends Message {
         public Long audience_count;
 
         /* renamed from: common  reason: collision with root package name */
-        public CommonReq f960common;
+        public CommonReq f961common;
         public List<Long> live_ids;
 
         public Builder() {
@@ -54,7 +54,7 @@ public final class DataReq extends Message {
         public Builder(DataReq dataReq) {
             super(dataReq);
             if (dataReq != null) {
-                this.f960common = dataReq.f959common;
+                this.f961common = dataReq.f960common;
                 this.live_ids = DataReq.copyOf(dataReq.live_ids);
                 this.audience_count = dataReq.audience_count;
             }

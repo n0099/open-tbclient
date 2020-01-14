@@ -54,7 +54,7 @@ public class q implements af {
     /* JADX WARN: Multi-variable type inference failed */
     public void a(FrsFragment frsFragment, com.baidu.adp.widget.ListView.r rVar) {
         this.gnW = frsFragment;
-        this.guZ = com.baidu.tieba.frs.c.bBC().a(frsFragment.getPageContext(), com.baidu.tieba.tbadkCore.u.kek, this.gnW.getUniqueId(), false);
+        this.guZ = com.baidu.tieba.frs.c.bBC().a(frsFragment.getPageContext(), com.baidu.tieba.tbadkCore.u.kep, this.gnW.getUniqueId(), false);
         this.gva = new w(frsFragment.getTbPageContext(), bj.cNj, this.gnW.getUniqueId());
         this.gva.a(rVar);
         this.gvb = new l(frsFragment.getTbPageContext(), bj.cNk, this.gnW.getUniqueId());
@@ -95,7 +95,7 @@ public class q implements af {
         oVar.a(rVar);
         n nVar = new n(frsFragment.getPageContext(), bj.cNE, this.gnW.getUniqueId());
         nVar.a(rVar);
-        this.guY = new ac(frsFragment.getPageContext(), com.baidu.tieba.tbadkCore.n.kec, this.gnW.getUniqueId());
+        this.guY = new ac(frsFragment.getPageContext(), com.baidu.tieba.tbadkCore.n.keh, this.gnW.getUniqueId());
         this.gvi = new s(frsFragment.getPageContext(), bj.cNu, this.gnW.getUniqueId());
         this.gvi.a(rVar);
         com.baidu.adp.widget.ListView.a<? extends bi, ? extends v.a> a = com.baidu.tieba.frs.c.bBC().a(frsFragment.getPageContext(), this.gnW.getUniqueId(), true);

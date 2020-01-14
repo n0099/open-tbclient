@@ -34,9 +34,9 @@ public final class CSTVSdk {
         q.j(sdkConfig, "config");
         if (!initialized) {
             synchronized (this) {
-                com.kascend.cstvsdk.utils.a.njD.a(sdkConfig);
+                com.kascend.cstvsdk.utils.a.njI.a(sdkConfig);
                 initialized = true;
-                k kVar = k.nAT;
+                k kVar = k.nAY;
             }
         }
     }
@@ -48,7 +48,7 @@ public final class CSTVSdk {
     }
 
     public final void onLoginStatusChanged(int i) {
-        tv.chushou.basis.d.b.dOD().d(TAG, "onLoginStatusChanged: " + i);
+        tv.chushou.basis.d.b.dOF().d(TAG, "onLoginStatusChanged: " + i);
         if (i == 2) {
             LoginManager.Instance().openLogout(null);
         } else if (i == 1) {
@@ -68,16 +68,16 @@ public final class CSTVSdk {
         @Override // com.kascend.cstvsdk.interfaces.SimpleCallback
         public void onSuccess() {
             Application application;
-            if (com.kascend.cstvsdk.utils.a.njD.b() && CSTVSdk.INSTANCE.getInitialized()) {
+            if (com.kascend.cstvsdk.utils.a.njI.b() && CSTVSdk.INSTANCE.getInitialized()) {
                 Activity e = com.kascend.chushou.d.b.e();
                 if (e != null) {
                     application = e;
                 } else {
-                    Application dOC = tv.chushou.basis.d.b.dOC();
-                    q.i(dOC, "Router.application()");
-                    application = dOC;
+                    Application dOE = tv.chushou.basis.d.b.dOE();
+                    q.i(dOE, "Router.application()");
+                    application = dOE;
                 }
-                com.kascend.cstvsdk.utils.a.njD.b(application);
+                com.kascend.cstvsdk.utils.a.njI.b(application);
             }
         }
 
@@ -94,7 +94,7 @@ public final class CSTVSdk {
             }
             String str4 = str2;
             if (!(str4 == null || str4.length() == 0)) {
-                com.kascend.cstvsdk.utils.a.njD.a(context, str, str2);
+                com.kascend.cstvsdk.utils.a.njI.a(context, str, str2);
             }
         }
     }

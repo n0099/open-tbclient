@@ -15,8 +15,8 @@ public class BubbleLayout extends FrameLayout {
     private float Vc;
     private float Ve;
     private int Vj;
-    private ArrowDirection kIB;
-    private a kIC;
+    private ArrowDirection kIG;
+    private a kIH;
     private int mStrokeColor;
     private float mStrokeWidth;
 
@@ -38,7 +38,7 @@ public class BubbleLayout extends FrameLayout {
         this.Vj = obtainStyledAttributes.getColor(3, -1);
         this.mStrokeWidth = obtainStyledAttributes.getDimension(4, Vg);
         this.mStrokeColor = obtainStyledAttributes.getColor(6, -7829368);
-        this.kIB = ArrowDirection.fromInt(obtainStyledAttributes.getInt(5, ArrowDirection.LEFT.getValue()));
+        this.kIG = ArrowDirection.fromInt(obtainStyledAttributes.getInt(5, ArrowDirection.LEFT.getValue()));
         obtainStyledAttributes.recycle();
         initPadding();
     }
@@ -51,15 +51,15 @@ public class BubbleLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.kIC != null) {
-            this.kIC.draw(canvas);
+        if (this.kIH != null) {
+            this.kIH.draw(canvas);
         }
         super.dispatchDraw(canvas);
     }
 
     private void f(int i, int i2, int i3, int i4) {
         if (i2 >= i && i4 >= i3) {
-            this.kIC = new a(new RectF(i, i3, i2, i4), this.Va, this.Vb, this.Vc, this.Ve, this.mStrokeWidth, this.mStrokeColor, this.Vj, this.kIB);
+            this.kIH = new a(new RectF(i, i3, i2, i4), this.Va, this.Vb, this.Vc, this.Ve, this.mStrokeWidth, this.mStrokeColor, this.Vj, this.kIG);
         }
     }
 
@@ -68,7 +68,7 @@ public class BubbleLayout extends FrameLayout {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        switch (this.kIB) {
+        switch (this.kIG) {
             case LEFT:
                 paddingLeft = (int) (paddingLeft + this.Va);
                 break;
@@ -96,7 +96,7 @@ public class BubbleLayout extends FrameLayout {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        switch (this.kIB) {
+        switch (this.kIG) {
             case LEFT:
                 paddingLeft = (int) (paddingLeft - this.Va);
                 break;
@@ -137,7 +137,7 @@ public class BubbleLayout extends FrameLayout {
     }
 
     public ArrowDirection getArrowDirection() {
-        return this.kIB;
+        return this.kIG;
     }
 
     public float getArrowWidth() {

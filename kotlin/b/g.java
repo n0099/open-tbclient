@@ -3,11 +3,11 @@ package kotlin.b;
 /* loaded from: classes5.dex */
 public class g extends f {
     public static final a et(int i, int i2) {
-        return a.nBS.au(i, i2, -1);
+        return a.nBX.au(i, i2, -1);
     }
 
     public static final c eu(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? c.nBV.dJw() : new c(i, i2 - 1);
+        return i2 <= Integer.MIN_VALUE ? c.nCa.dJy() : new c(i, i2 - 1);
     }
 
     public static final int ev(int i, int i2) {

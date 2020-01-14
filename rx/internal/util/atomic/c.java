@@ -33,7 +33,7 @@ public final class c<E> extends a<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<E> atomicReferenceArray = this.nRK;
+        AtomicReferenceArray<E> atomicReferenceArray = this.nRP;
         int i = this.mask;
         long j = this.producerIndex.get();
         int calcElementOffset = calcElementOffset(j, i);
@@ -54,7 +54,7 @@ public final class c<E> extends a<E> {
     public E poll() {
         long j = this.consumerIndex.get();
         int calcElementOffset = calcElementOffset(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.nRK;
+        AtomicReferenceArray<E> atomicReferenceArray = this.nRP;
         E b = b(atomicReferenceArray, calcElementOffset);
         if (b == null) {
             return null;
@@ -71,20 +71,20 @@ public final class c<E> extends a<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dIl = dIl();
+        long dIn = dIn();
         while (true) {
-            long dIk = dIk();
-            long dIl2 = dIl();
-            if (dIl == dIl2) {
-                return (int) (dIk - dIl2);
+            long dIm = dIm();
+            long dIn2 = dIn();
+            if (dIn == dIn2) {
+                return (int) (dIm - dIn2);
             }
-            dIl = dIl2;
+            dIn = dIn2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dIk() == dIl();
+        return dIm() == dIn();
     }
 
     private void soProducerIndex(long j) {
@@ -95,11 +95,11 @@ public final class c<E> extends a<E> {
         this.consumerIndex.lazySet(j);
     }
 
-    private long dIl() {
+    private long dIn() {
         return this.consumerIndex.get();
     }
 
-    private long dIk() {
+    private long dIm() {
         return this.producerIndex.get();
     }
 }

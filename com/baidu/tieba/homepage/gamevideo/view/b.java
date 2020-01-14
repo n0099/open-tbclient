@@ -355,10 +355,10 @@ public class b {
     }
 
     public af bMM() {
-        if (this.goz == null || this.goz.cxl() == null || !(this.goz.cxl().getTag() instanceof af)) {
+        if (this.goz == null || this.goz.cxn() == null || !(this.goz.cxn().getTag() instanceof af)) {
             return null;
         }
-        return (af) this.goz.cxl().getTag();
+        return (af) this.goz.cxn().getTag();
     }
 
     public List<com.baidu.adp.widget.ListView.m> getDataList() {

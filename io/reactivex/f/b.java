@@ -13,7 +13,7 @@ public final class b<T> {
         this.unit = (TimeUnit) io.reactivex.internal.functions.a.h(timeUnit, "unit is null");
     }
 
-    public T dIF() {
+    public T dIH() {
         return this.value;
     }
 

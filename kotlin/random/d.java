@@ -4,9 +4,9 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.q;
 /* loaded from: classes5.dex */
 public abstract class d {
-    public static final b nBO = new b(null);
-    private static final d nBM = kotlin.internal.b.nBv.dJg();
-    public static final a nBN = a.nBP;
+    public static final b nBT = new b(null);
+    private static final d nBR = kotlin.internal.b.nBA.dJi();
+    public static final a nBS = a.nBU;
 
     public abstract int ND(int i);
 
@@ -115,67 +115,67 @@ public abstract class d {
 
         @Override // kotlin.random.d
         public int ND(int i) {
-            return d.nBM.ND(i);
+            return d.nBR.ND(i);
         }
 
         @Override // kotlin.random.d
         public int nextInt() {
-            return d.nBM.nextInt();
+            return d.nBR.nextInt();
         }
 
         @Override // kotlin.random.d
         public int nextInt(int i) {
-            return d.nBM.nextInt(i);
+            return d.nBR.nextInt(i);
         }
 
         @Override // kotlin.random.d
         public int eq(int i, int i2) {
-            return d.nBM.eq(i, i2);
+            return d.nBR.eq(i, i2);
         }
 
         @Override // kotlin.random.d
         public long nextLong() {
-            return d.nBM.nextLong();
+            return d.nBR.nextLong();
         }
 
         @Override // kotlin.random.d
         public boolean nextBoolean() {
-            return d.nBM.nextBoolean();
+            return d.nBR.nextBoolean();
         }
 
         @Override // kotlin.random.d
         public double nextDouble() {
-            return d.nBM.nextDouble();
+            return d.nBR.nextDouble();
         }
 
         @Override // kotlin.random.d
         public float nextFloat() {
-            return d.nBM.nextFloat();
+            return d.nBR.nextFloat();
         }
 
         @Override // kotlin.random.d
         public byte[] aF(byte[] bArr) {
             q.j(bArr, "array");
-            return d.nBM.aF(bArr);
+            return d.nBR.aF(bArr);
         }
 
         @Override // kotlin.random.d
         public byte[] F(byte[] bArr, int i, int i2) {
             q.j(bArr, "array");
-            return d.nBM.F(bArr, i, i2);
+            return d.nBR.F(bArr, i, i2);
         }
     }
 
     /* loaded from: classes5.dex */
     public static final class a extends d {
-        public static final a nBP = new a();
+        public static final a nBU = new a();
 
         private a() {
         }
 
         @Override // kotlin.random.d
         public int ND(int i) {
-            return d.nBO.ND(i);
+            return d.nBT.ND(i);
         }
     }
 }

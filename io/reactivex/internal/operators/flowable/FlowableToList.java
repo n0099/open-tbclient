@@ -9,12 +9,12 @@ import java.util.Collection;
 import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
 public final class FlowableToList<T, U extends Collection<? super T>> extends a<T, U> {
-    final Callable<U> nwD;
+    final Callable<U> nwI;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
         try {
-            this.nvK.a((j) new ToListSubscriber(cVar, (Collection) io.reactivex.internal.functions.a.h(this.nwD.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
+            this.nvP.a((j) new ToListSubscriber(cVar, (Collection) io.reactivex.internal.functions.a.h(this.nwI.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.I(th);
             EmptySubscription.error(th, cVar);

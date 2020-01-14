@@ -18,9 +18,9 @@ import com.baidu.tieba.pb.pb.main.ao;
 import org.apache.http.HttpHost;
 /* loaded from: classes7.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
-    private HeadImageView iZp;
-    private PbVideoFullscreenLikeBtn iZq;
-    private ao iZr;
+    private HeadImageView iZu;
+    private PbVideoFullscreenLikeBtn iZv;
+    private ao iZw;
     private BdUniqueId uniqueId;
 
     public PbVideoFullscreenAttentionLayout(Context context) {
@@ -40,13 +40,13 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
 
     private void init(Context context) {
         inflate(context, R.layout.pb_video_attention, this);
-        this.iZp = (HeadImageView) findViewById(R.id.attention_img);
-        this.iZq = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
-        this.iZp.setIsRound(true);
-        this.iZp.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
-        this.iZp.setBorderColor(context.getResources().getColor(R.color.cp_border_b));
-        this.iZp.setAutoChangeStyle(false);
-        this.iZq.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
+        this.iZu = (HeadImageView) findViewById(R.id.attention_img);
+        this.iZv = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
+        this.iZu.setIsRound(true);
+        this.iZu.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
+        this.iZu.setBorderColor(context.getResources().getColor(R.color.cp_border_b));
+        this.iZu.setAutoChangeStyle(false);
+        this.iZv.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -54,25 +54,25 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     }
 
     public void setOnClickEvent(View.OnClickListener onClickListener) {
-        this.iZq.setOnclickEvent(onClickListener);
+        this.iZv.setOnclickEvent(onClickListener);
     }
 
     public void setData(bj bjVar) {
         if (bjVar != null && bjVar.azX() != null) {
             String sX = o.sX(bjVar.azX().getAvater());
             if (sX.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.iZp.startLoad(sX, 10, false);
+                this.iZu.startLoad(sX, 10, false);
             } else {
-                this.iZp.startLoad(sX, 25, false);
+                this.iZu.startLoad(sX, 25, false);
             }
             if (bjVar.azX().getBaijiahaoInfo() != null && bjVar.azX().getBaijiahaoInfo().auth_id.intValue() > 0) {
-                this.iZp.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(bjVar.azX().getBaijiahaoInfo().auth_id.intValue(), 1));
-                this.iZp.setShowV(true);
-                this.iZp.setGodIconWidth(R.dimen.tbds31);
+                this.iZu.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(bjVar.azX().getBaijiahaoInfo().auth_id.intValue(), 1));
+                this.iZu.setShowV(true);
+                this.iZu.setGodIconWidth(R.dimen.tbds31);
             } else {
-                this.iZp.setBjhAuthIconRes(0);
-                this.iZp.setIsBigV(bjVar.azX().isBigV());
-                this.iZp.setShowV(bjVar.azX().isBigV());
+                this.iZu.setBjhAuthIconRes(0);
+                this.iZu.setIsBigV(bjVar.azX().isBigV());
+                this.iZu.setShowV(bjVar.azX().isBigV());
             }
             aP(bjVar);
         }
@@ -82,19 +82,19 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         if (bjVar != null && bjVar.azX() != null) {
             String str = bjVar.tid;
             int aQ = aQ(bjVar);
-            if (this.iZr == null) {
+            if (this.iZw == null) {
                 if (getContext() instanceof PbActivity) {
-                    this.iZr = new ao(((PbActivity) getContext()).getPageContext(), this.iZq, -1);
-                    this.iZr.sn("11");
-                    this.iZr.j(this.uniqueId);
+                    this.iZw = new ao(((PbActivity) getContext()).getPageContext(), this.iZv, -1);
+                    this.iZw.sn("11");
+                    this.iZw.j(this.uniqueId);
                 } else {
                     return;
                 }
             }
-            this.iZr.a(bjVar.azX());
-            this.iZr.setTid(str);
-            this.iZr.iMi = true;
-            this.iZr.yW(aQ);
+            this.iZw.a(bjVar.azX());
+            this.iZw.setTid(str);
+            this.iZw.iMi = true;
+            this.iZw.yW(aQ);
         }
     }
 
@@ -108,7 +108,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         return 1;
     }
 
-    public boolean csB() {
-        return (this.iZr == null || this.iZr.aGe() == null || !this.iZr.aGe().getIsLike()) ? false : true;
+    public boolean csD() {
+        return (this.iZw == null || this.iZw.aGe() == null || !this.iZw.aGe().getIsLike()) ? false : true;
     }
 }

@@ -19,28 +19,28 @@ public class d extends BaseAdapter {
     private boolean eHK;
     private View.OnClickListener ipu;
     private View.OnClickListener iqa;
-    private PersonFriendActivity jkI;
+    private PersonFriendActivity jkN;
     private int mPageType;
     private ArrayList<UserData> cRO = null;
     private boolean mHasMore = false;
-    private boolean jkJ = false;
+    private boolean jkO = false;
     private boolean eHI = false;
-    private ArrayList<ProgressBar> jkK = new ArrayList<>();
+    private ArrayList<ProgressBar> jkP = new ArrayList<>();
 
-    public void cvd() {
-        if (this.jkK != null) {
+    public void cvf() {
+        if (this.jkP != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.jkK.size()) {
+                if (i2 < this.jkP.size()) {
                     try {
-                        this.jkK.get(i2).setVisibility(8);
+                        this.jkP.get(i2).setVisibility(8);
                     } catch (Exception e) {
                         BdLog.e(e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
-                    this.jkK.clear();
+                    this.jkP.clear();
                     return;
                 }
             }
@@ -59,16 +59,16 @@ public class d extends BaseAdapter {
     }
 
     public void rk(boolean z) {
-        this.jkJ = z;
+        this.jkO = z;
     }
 
     public d(PersonFriendActivity personFriendActivity, boolean z, int i, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.jkI = null;
+        this.jkN = null;
         this.eHK = true;
         this.mPageType = 0;
         this.iqa = null;
         this.ipu = null;
-        this.jkI = personFriendActivity;
+        this.jkN = personFriendActivity;
         this.eHK = z;
         this.mPageType = i;
         this.iqa = onClickListener;
@@ -118,7 +118,7 @@ public class d extends BaseAdapter {
             if (view == null) {
                 a aVar2 = new a();
                 if (getItemViewType(i) == 0) {
-                    View inflate = LayoutInflater.from(this.jkI.getPageContext().getPageActivity()).inflate(R.layout.person_list_item_friend, (ViewGroup) null);
+                    View inflate = LayoutInflater.from(this.jkN.getPageContext().getPageActivity()).inflate(R.layout.person_list_item_friend, (ViewGroup) null);
                     aVar2.gpg = (HeadImageView) inflate.findViewById(R.id.photo);
                     aVar2.gpg.setIsRound(false);
                     aVar2.gpg.setAutoChangeStyle(true);
@@ -126,16 +126,16 @@ public class d extends BaseAdapter {
                     aVar2.mName = (TextView) inflate.findViewById(R.id.name);
                     aVar2.eHM = (TextView) inflate.findViewById(R.id.at_list_nodata);
                     aVar2.etb = (TextView) inflate.findViewById(R.id.intro);
-                    aVar2.jkL = (ImageView) inflate.findViewById(R.id.chat);
+                    aVar2.jkQ = (ImageView) inflate.findViewById(R.id.chat);
                     aVar2.hFO = (ImageView) inflate.findViewById(R.id.diver_buttom_px);
-                    aVar2.jkL.setOnClickListener(this.iqa);
+                    aVar2.jkQ.setOnClickListener(this.iqa);
                     view2 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.jkI.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+                    View inflate2 = LayoutInflater.from(this.jkN.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
                     aVar2.mName = (TextView) inflate2.findViewById(R.id.pb_more_text);
                     inflate2.setOnClickListener(this.ipu);
                     aVar2.mProgress = (ProgressBar) inflate2.findViewById(R.id.progress);
-                    this.jkK.add(aVar2.mProgress);
+                    this.jkP.add(aVar2.mProgress);
                     view2 = inflate2;
                 }
                 view2.setTag(aVar2);
@@ -147,14 +147,14 @@ public class d extends BaseAdapter {
             if (getItemViewType(i) == 0) {
                 if (this.eHI) {
                     aVar.eIO.setVisibility(8);
-                    aVar.jkL.setVisibility(8);
+                    aVar.jkQ.setVisibility(8);
                     aVar.eHM.setVisibility(8);
                     aVar.hFO.setVisibility(8);
                 } else {
                     if (!this.eHK && this.mPageType == 0) {
-                        aVar.jkL.setVisibility(8);
+                        aVar.jkQ.setVisibility(8);
                     } else {
-                        aVar.jkL.setVisibility(0);
+                        aVar.jkQ.setVisibility(0);
                     }
                     aVar.eIO.setVisibility(0);
                     aVar.eIO.setTag(Integer.valueOf(i));
@@ -165,10 +165,10 @@ public class d extends BaseAdapter {
                     aVar.gpg.startLoad(portrait, 12, false);
                     aVar.mName.setText(this.cRO.get(i).getName_show());
                     aVar.etb.setText(this.cRO.get(i).getIntro());
-                    aVar.jkL.setTag(Integer.valueOf(i));
+                    aVar.jkQ.setTag(Integer.valueOf(i));
                 }
             } else {
-                aVar.mName.setText(this.jkI.getPageContext().getString(R.string.loading));
+                aVar.mName.setText(this.jkN.getPageContext().getString(R.string.loading));
                 aVar.mProgress.setVisibility(0);
             }
             bX(view);
@@ -177,8 +177,8 @@ public class d extends BaseAdapter {
     }
 
     private void bX(View view) {
-        this.jkI.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.jkI.getLayoutMode().onModeChanged(view);
+        this.jkN.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.jkN.getLayoutMode().onModeChanged(view);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -209,7 +209,7 @@ public class d extends BaseAdapter {
         TextView etb;
         HeadImageView gpg;
         ImageView hFO;
-        ImageView jkL;
+        ImageView jkQ;
         TextView mName;
         ProgressBar mProgress;
 

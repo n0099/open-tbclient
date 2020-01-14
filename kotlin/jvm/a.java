@@ -10,7 +10,7 @@ public final class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [61=10] */
     public static final <T> Class<T> a(c<T> cVar) {
         q.j(cVar, "receiver$0");
-        Class<T> cls = (Class<T>) ((l) cVar).dJi();
+        Class<T> cls = (Class<T>) ((l) cVar).dJk();
         if (cls.isPrimitive()) {
             String name = cls.getName();
             if (name != null) {

@@ -89,7 +89,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
                     kVar.giN.setVisibility(8);
                     kVar.giO.setVisibility(0);
                     kVar.giO.setText(R.string.mydegree);
-                    am.setImageResource(kVar.ghK, BitmapHelper.getSmallGradeResourceIdNew(bAT.cHc()));
+                    am.setImageResource(kVar.ghK, BitmapHelper.getSmallGradeResourceIdNew(bAT.cHe()));
                     if (StringUtils.isNull(bAT.getLevelName())) {
                         kVar.ghL.setVisibility(8);
                     } else {
@@ -138,8 +138,8 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
             am.setViewTextColor(kVar.giT, R.color.cp_cont_b, 1);
             am.setBackgroundResource(kVar.giU, R.drawable.forum_member_exp_progress);
             am.setBackgroundColor(kVar.giV, R.color.cp_bg_line_c);
-            if (this.fka != bAT.cHc() || this.giJ != bAT.getCurScore()) {
-                this.fka = bAT.cHc();
+            if (this.fka != bAT.cHe() || this.giJ != bAT.getCurScore()) {
+                this.fka = bAT.cHe();
                 this.giJ = bAT.getCurScore();
                 kVar.giU.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, sl(this.fka)));
                 float f = 0.0f;

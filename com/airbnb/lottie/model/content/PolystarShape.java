@@ -9,7 +9,7 @@ public class PolystarShape implements b {
     private final com.airbnb.lottie.model.a.b hN;
 
     /* renamed from: io  reason: collision with root package name */
-    private final com.airbnb.lottie.model.a.b f961io;
+    private final com.airbnb.lottie.model.a.b f962io;
     private final com.airbnb.lottie.model.a.b iq;
     private final com.airbnb.lottie.model.a.b ir;
     private final com.airbnb.lottie.model.a.b iu;
@@ -41,7 +41,7 @@ public class PolystarShape implements b {
     public PolystarShape(String str, Type type, com.airbnb.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3, com.airbnb.lottie.model.a.b bVar4, com.airbnb.lottie.model.a.b bVar5, com.airbnb.lottie.model.a.b bVar6) {
         this.name = str;
         this.gk = type;
-        this.f961io = bVar;
+        this.f962io = bVar;
         this.hL = mVar;
         this.hN = bVar2;
         this.iq = bVar3;
@@ -59,7 +59,7 @@ public class PolystarShape implements b {
     }
 
     public com.airbnb.lottie.model.a.b cN() {
-        return this.f961io;
+        return this.f962io;
     }
 
     public m<PointF, PointF> cp() {

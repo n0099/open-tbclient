@@ -67,7 +67,7 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
                         }
                         jVar = null;
                     }
-                    if (jVar != null && jVar.cIC() == 2) {
+                    if (jVar != null && jVar.cIE() == 2) {
                         if (!StringUtils.isNull(jVar.getUrl())) {
                             String url = jVar.getUrl();
                             if ((url.contains("nohead:url") || url.contains("booktown")) && !TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
@@ -75,11 +75,11 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
                                 return;
                             }
                             ba.aEt().b(e.this.mPageContext, new String[]{url});
-                            a.C0604a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", jVar.cID(), e.this.mForumId, e.this.mForumName, null);
+                            a.C0604a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", jVar.cIF(), e.this.mForumId, e.this.mForumName, null);
                             b2.ev(TiebaInitialize.Params.OBJ_URL, jVar.getUrl());
                             b2.save();
                         }
-                    } else if (jVar != null && jVar.cIC() == 3) {
+                    } else if (jVar != null && jVar.cIE() == 3) {
                         new an("c13442").cp("forum_id", e.this.mForumId).aEm();
                         if (e.this.mPageContext != null && !TextUtils.isEmpty(e.this.mForumId)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(e.this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(e.this.mForumId, 0L), 1)));
@@ -288,14 +288,14 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
                     cVar.titleText.setText(a2 + "：" + jVar.getTitle());
                     cVar.Ei.startLoad(this.imageUrl, 10, false);
                 }
-                if (jVar.cIB() != 0) {
+                if (jVar.cID() != 0) {
                     cVar.gPm.setVisibility(0);
-                    if (jVar.cIB() == -1) {
+                    if (jVar.cID() == -1) {
                         cVar.gPm.setText(this.mContext.getString(R.string.no_rank));
-                    } else if (jVar.cIB() > 999) {
+                    } else if (jVar.cID() > 999) {
                         cVar.gPm.setText(this.mContext.getString(R.string.rang_orer_thousand));
                     } else {
-                        cVar.gPm.setText(this.mContext.getString(R.string.rang_identify) + String.valueOf(jVar.cIB()));
+                        cVar.gPm.setText(this.mContext.getString(R.string.rang_identify) + String.valueOf(jVar.cID()));
                     }
                     if (!StringUtils.isNull(jVar.getTitle())) {
                         cVar.titleText.setText(jVar.getTitle());
@@ -309,8 +309,8 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
                 if (this.gPj != null) {
                     cVar.cqd.setOnClickListener(this.gPj);
                 }
-                if (this.gNX != null && this.gNX.add(jVar.cID())) {
-                    a.C0604a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", jVar.cID(), this.mForumId, this.mForumName, null);
+                if (this.gNX != null && this.gNX.add(jVar.cIF())) {
+                    a.C0604a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", jVar.cIF(), this.mForumId, this.mForumName, null);
                     b2.ev(TiebaInitialize.Params.OBJ_URL, jVar.getUrl());
                     b2.save();
                 }
@@ -323,14 +323,14 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
         bVar.titleText.setText(jVar.getTitle());
         bVar.gPl.setText(a2);
         bVar.gPl.setTextColor(this.gPh);
-        if (jVar.cIB() != 0) {
+        if (jVar.cID() != 0) {
             bVar.gPm.setVisibility(0);
-            if (jVar.cIB() == -1) {
+            if (jVar.cID() == -1) {
                 bVar.gPm.setText(this.mContext.getString(R.string.no_rank));
-            } else if (jVar.cIB() > 999) {
+            } else if (jVar.cID() > 999) {
                 bVar.gPm.setText(this.mContext.getString(R.string.rang_orer_thousand));
             } else {
-                bVar.gPm.setText(this.mContext.getString(R.string.rang_identify) + String.valueOf(jVar.cIB()));
+                bVar.gPm.setText(this.mContext.getString(R.string.rang_identify) + String.valueOf(jVar.cID()));
             }
             if (!StringUtils.isNull(jVar.getTitle())) {
                 bVar.titleText.setText(jVar.getTitle());
@@ -343,21 +343,21 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
         if (this.gPj != null) {
             bVar.cqd.setOnClickListener(this.gPj);
         }
-        if (this.gNX != null && this.gNX.add(jVar.cID())) {
-            a.C0604a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", jVar.cID(), this.mForumId, this.mForumName, null);
+        if (this.gNX != null && this.gNX.add(jVar.cIF())) {
+            a.C0604a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", jVar.cIF(), this.mForumId, this.mForumName, null);
             b2.ev(TiebaInitialize.Params.OBJ_URL, jVar.getUrl());
             b2.save();
         }
     }
 
     private String a(j jVar) {
-        if (TextUtils.isEmpty(jVar.cIE()) || jVar.cIE().trim().length() == 0) {
-            if (jVar.cIA() == 1) {
+        if (TextUtils.isEmpty(jVar.cIG()) || jVar.cIG().trim().length() == 0) {
+            if (jVar.cIC() == 1) {
                 return TbadkCoreApplication.getInst().getString(R.string.thread_recruit);
             }
             return TbadkCoreApplication.getInst().getString(R.string.top_announcement);
         }
-        return jVar.cIE();
+        return jVar.cIG();
     }
 
     public TbPageContext getTbPageContext() {

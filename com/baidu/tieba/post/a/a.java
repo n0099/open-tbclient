@@ -18,9 +18,9 @@ public class a {
     private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
     private ArrayList<m> eei = new ArrayList<>();
     private BdTypeListView efW;
-    public i jlv;
-    public j jzJ;
-    private b jzK;
+    public i jlA;
+    public j jzO;
+    private b jzP;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.efW = bdTypeListView;
@@ -28,12 +28,12 @@ public class a {
     }
 
     private void s(TbPageContext<?> tbPageContext) {
-        this.jlv = new i(tbPageContext);
-        this.jzJ = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.jnU);
-        this.jzK = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.jzJ.a(this.jzK);
-        this.apl.add(this.jlv);
-        this.apl.add(this.jzJ);
+        this.jlA = new i(tbPageContext);
+        this.jzO = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.jnZ);
+        this.jzP = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.jzO.a(this.jzP);
+        this.apl.add(this.jlA);
+        this.apl.add(this.jzO);
         this.efW.addAdapters(this.apl);
     }
 

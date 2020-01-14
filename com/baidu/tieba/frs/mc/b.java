@@ -59,15 +59,15 @@ public class b extends j {
                     if (!StringUtils.isNULL(tVar.getLevelName())) {
                         bCK.getForum().setLevelName(tVar.getLevelName());
                     }
-                    if (tVar.cHc() >= 0) {
-                        bCK.getForum().setUser_level(tVar.cHc());
+                    if (tVar.cHe() >= 0) {
+                        bCK.getForum().setUser_level(tVar.cHe());
                     }
                     if (z) {
                         this.gmA.a(bCK, false);
                         TbadkCoreApplication.getInst().addLikeForum(this.gEE.getForumName());
                         return;
                     }
-                    com.baidu.tieba.tbadkCore.d.cIt().aA(this.gEE.getForumName(), false);
+                    com.baidu.tieba.tbadkCore.d.cIv().aA(this.gEE.getForumName(), false);
                     bCK.getForum().setLike(0);
                     this.gmA.bJi();
                     TbadkCoreApplication.getInst().delLikeForum(this.gEE.getForumName());

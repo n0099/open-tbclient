@@ -18,7 +18,7 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
     protected void a(org.a.c<? super T> cVar) {
         MergeWithObserver mergeWithObserver = new MergeWithObserver(cVar);
         cVar.onSubscribe(mergeWithObserver);
-        this.nvK.a((j) mergeWithObserver);
+        this.nvP.a((j) mergeWithObserver);
         this.other.a(mergeWithObserver.otherObserver);
     }
 
@@ -39,7 +39,7 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
         final OtherObserver<T> otherObserver = new OtherObserver<>(this);
         final AtomicThrowable error = new AtomicThrowable();
         final AtomicLong requested = new AtomicLong();
-        final int prefetch = io.reactivex.g.dHR();
+        final int prefetch = io.reactivex.g.dHT();
         final int limit = this.prefetch - (this.prefetch >> 2);
 
         MergeWithObserver(org.a.c<? super T> cVar) {
@@ -159,7 +159,7 @@ public final class FlowableMergeWithMaybe<T> extends a<T, T> {
         io.reactivex.internal.a.f<T> getOrCreateQueue() {
             io.reactivex.internal.a.f<T> fVar = this.queue;
             if (fVar == null) {
-                SpscArrayQueue spscArrayQueue = new SpscArrayQueue(io.reactivex.g.dHR());
+                SpscArrayQueue spscArrayQueue = new SpscArrayQueue(io.reactivex.g.dHT());
                 this.queue = spscArrayQueue;
                 return spscArrayQueue;
             }

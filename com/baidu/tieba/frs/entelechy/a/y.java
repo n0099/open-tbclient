@@ -138,11 +138,11 @@ public class y extends com.baidu.tieba.frs.h<bi, com.baidu.card.a<bj>> implement
         yVar.fKa = this.gun.gHn;
         yVar.OG = bjVar.getTid();
         yVar.mSource = bjVar.mRecomSource;
-        yVar.jvJ = bjVar.cPt;
-        yVar.jvK = bjVar.mRecomWeight;
+        yVar.jvO = bjVar.cPt;
+        yVar.jvP = bjVar.mRecomWeight;
         yVar.mAbTag = bjVar.mRecomAbTag;
         if (bjVar.aAo() != null) {
-            yVar.jvN = bjVar.aAo().video_md5;
+            yVar.jvS = bjVar.aAo().video_md5;
         }
         return yVar;
     }

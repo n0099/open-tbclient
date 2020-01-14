@@ -24,9 +24,9 @@ public class b extends PopupWindow {
     private ViewGroup azh;
     private View.OnClickListener dXX;
     private View fWZ;
-    private a kNO;
-    private TextView kNP;
-    private TextView kNQ;
+    private a kNT;
+    private TextView kNU;
+    private TextView kNV;
     private Context mContext;
     private View mLine;
     private final View.OnClickListener mOnClickListener;
@@ -42,12 +42,12 @@ public class b extends PopupWindow {
         this.dXX = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == b.this.kNP) {
-                    if (b.this.kNO != null) {
-                        b.this.kNO.onItemClick(1);
+                if (view == b.this.kNU) {
+                    if (b.this.kNT != null) {
+                        b.this.kNT.onItemClick(1);
                     }
-                } else if (view == b.this.kNQ && b.this.kNO != null) {
-                    b.this.kNO.onItemClick(0);
+                } else if (view == b.this.kNV && b.this.kNT != null) {
+                    b.this.kNT.onItemClick(0);
                 }
                 b.this.yA();
             }
@@ -83,28 +83,28 @@ public class b extends PopupWindow {
 
     private void bxM() {
         this.fWZ = LayoutInflater.from(this.mContext).inflate(R.layout.layout_profession_select, (ViewGroup) null);
-        this.kNP = (TextView) this.fWZ.findViewById(R.id.profession_select_title_profession);
+        this.kNU = (TextView) this.fWZ.findViewById(R.id.profession_select_title_profession);
         this.mLine = this.fWZ.findViewById(R.id.profession_select_line);
-        this.kNQ = (TextView) this.fWZ.findViewById(R.id.profession_select_title_all);
-        this.kNP.setOnClickListener(this.dXX);
-        this.kNQ.setOnClickListener(this.dXX);
+        this.kNV = (TextView) this.fWZ.findViewById(R.id.profession_select_title_all);
+        this.kNU.setOnClickListener(this.dXX);
+        this.kNV.setOnClickListener(this.dXX);
     }
 
     public void setData(List<com.baidu.tieba.write.b.a> list, int i) {
         if (list != null) {
             View bxL = bxL();
             for (com.baidu.tieba.write.b.a aVar : list) {
-                if (aVar.kNN == 1) {
-                    this.kNP.setText(aVar.kNM);
+                if (aVar.kNS == 1) {
+                    this.kNU.setText(aVar.kNR);
                 } else {
-                    this.kNQ.setText(aVar.kNM);
+                    this.kNV.setText(aVar.kNR);
                 }
                 if (i == 1) {
-                    am.setViewTextColor(this.kNP, (int) R.color.common_color_10140);
-                    am.setViewTextColor(this.kNQ, (int) R.color.cp_cont_j);
+                    am.setViewTextColor(this.kNU, (int) R.color.common_color_10140);
+                    am.setViewTextColor(this.kNV, (int) R.color.cp_cont_j);
                 } else {
-                    am.setViewTextColor(this.kNQ, (int) R.color.common_color_10140);
-                    am.setViewTextColor(this.kNP, (int) R.color.cp_cont_j);
+                    am.setViewTextColor(this.kNV, (int) R.color.common_color_10140);
+                    am.setViewTextColor(this.kNU, (int) R.color.cp_cont_j);
                 }
             }
             setContentView(bxL);
@@ -112,7 +112,7 @@ public class b extends PopupWindow {
     }
 
     public void a(a aVar) {
-        this.kNO = aVar;
+        this.kNT = aVar;
     }
 
     public void R(View view) {

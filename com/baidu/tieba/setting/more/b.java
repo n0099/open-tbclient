@@ -13,63 +13,63 @@ import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.adp.base.c<AdSettingActivity> {
     private ImageView gxl;
-    private AdSettingActivity jRe;
-    private MsgSettingItemView jRf;
-    private TextView jRg;
-    private View jRh;
-    private View jRi;
-    private TextView jRj;
-    private TextView jRk;
+    private AdSettingActivity jRj;
+    private MsgSettingItemView jRk;
     private TextView jRl;
+    private View jRm;
+    private View jRn;
+    private TextView jRo;
+    private TextView jRp;
+    private TextView jRq;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public b(AdSettingActivity adSettingActivity) {
         super(adSettingActivity.getPageContext());
-        this.jRe = adSettingActivity;
+        this.jRj = adSettingActivity;
         aKt();
     }
 
     private void aKt() {
-        this.jRe.setContentView(R.layout.ad_setting_activity);
-        this.mNavigationBar = (NavigationBar) this.jRe.findViewById(R.id.view_navigation_bar);
+        this.jRj.setContentView(R.layout.ad_setting_activity);
+        this.mNavigationBar = (NavigationBar) this.jRj.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.jRe.getPageContext().getString(R.string.ad_control_setting));
-        this.jRf = (MsgSettingItemView) this.jRe.findViewById(R.id.memberAdSetting);
-        this.jRf.setLineVisibility(false);
-        this.jRg = (TextView) this.jRe.findViewById(R.id.memberAdTips);
-        this.jRh = this.jRe.findViewById(R.id.privacyContainer);
-        this.jRi = this.jRe.findViewById(R.id.privacyItem);
-        this.jRl = (TextView) this.jRe.findViewById(R.id.privacyControlText);
-        this.jRj = (TextView) this.jRe.findViewById(R.id.privacyControlTipsSmall);
-        this.jRj = (TextView) this.jRe.findViewById(R.id.privacyControlTipsSmall);
-        this.jRk = (TextView) this.jRe.findViewById(R.id.privacyControlTips);
-        this.gxl = (ImageView) this.jRe.findViewById(R.id.arrow);
-        this.mParent = this.jRe.findViewById(R.id.parent);
-        this.jRi.setOnClickListener(this.jRe);
-        cDK();
+        this.mNavigationBar.setTitleText(this.jRj.getPageContext().getString(R.string.ad_control_setting));
+        this.jRk = (MsgSettingItemView) this.jRj.findViewById(R.id.memberAdSetting);
+        this.jRk.setLineVisibility(false);
+        this.jRl = (TextView) this.jRj.findViewById(R.id.memberAdTips);
+        this.jRm = this.jRj.findViewById(R.id.privacyContainer);
+        this.jRn = this.jRj.findViewById(R.id.privacyItem);
+        this.jRq = (TextView) this.jRj.findViewById(R.id.privacyControlText);
+        this.jRo = (TextView) this.jRj.findViewById(R.id.privacyControlTipsSmall);
+        this.jRo = (TextView) this.jRj.findViewById(R.id.privacyControlTipsSmall);
+        this.jRp = (TextView) this.jRj.findViewById(R.id.privacyControlTips);
+        this.gxl = (ImageView) this.jRj.findViewById(R.id.arrow);
+        this.mParent = this.jRj.findViewById(R.id.parent);
+        this.jRn.setOnClickListener(this.jRj);
+        cDM();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        this.jRe.getLayoutMode().setNightMode(i == 1);
-        this.jRe.getLayoutMode().onModeChanged(this.mParent);
+        this.jRj.getLayoutMode().setNightMode(i == 1);
+        this.jRj.getLayoutMode().onModeChanged(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.setViewTextColor(this.jRg, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.jRk, (int) R.color.cp_cont_b);
         am.setViewTextColor(this.jRl, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.jRj, (int) R.color.cp_cont_c);
-        am.setBackgroundColor(this.jRg, R.color.cp_bg_line_d);
+        am.setViewTextColor(this.jRp, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.jRq, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.jRo, (int) R.color.cp_cont_c);
+        am.setBackgroundColor(this.jRl, R.color.cp_bg_line_d);
         SvgManager.aEp().a(this.gxl, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        am.setBackgroundColor(this.jRh, R.color.cp_bg_line_d);
-        am.setBackgroundResource(this.jRi, R.drawable.setting_item_selector);
+        am.setBackgroundColor(this.jRm, R.color.cp_bg_line_d);
+        am.setBackgroundResource(this.jRn, R.drawable.setting_item_selector);
     }
 
-    private void cDK() {
+    private void cDM() {
         int i;
         int i2 = 0;
-        this.jRf.setText(R.string.member_ad_setting_text);
-        this.jRf.setOnSwitchStateChangeListener(this.jRe);
+        this.jRk.setText(R.string.member_ad_setting_text);
+        this.jRk.setOnSwitchStateChangeListener(this.jRj);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
             i = currentAccountObj.getMemberCloseAdIsOpen();
@@ -78,27 +78,27 @@ public class b extends com.baidu.adp.base.c<AdSettingActivity> {
             i = 0;
         }
         if (i == 0) {
-            this.jRf.setVisibility(8);
-            this.jRg.setVisibility(8);
+            this.jRk.setVisibility(8);
+            this.jRl.setVisibility(8);
         } else if (i2 == 0) {
-            this.jRf.turnOffNoCallback();
+            this.jRk.turnOffNoCallback();
         } else {
-            this.jRf.turnOnNoCallback();
+            this.jRk.turnOnNoCallback();
         }
         if (TextUtils.isEmpty(com.baidu.tbadk.core.sharedPref.b.aDr().getString("sync_ad_privacy_url", ""))) {
-            this.jRh.setVisibility(8);
+            this.jRm.setVisibility(8);
         }
     }
 
-    public View cDL() {
-        return this.jRi;
+    public View cDN() {
+        return this.jRn;
     }
 
-    public void cDM() {
-        this.jRf.turnOffNoCallback();
+    public void cDO() {
+        this.jRk.turnOffNoCallback();
     }
 
-    public void cDN() {
-        this.jRf.turnOnNoCallback();
+    public void cDP() {
+        this.jRk.turnOnNoCallback();
     }
 }

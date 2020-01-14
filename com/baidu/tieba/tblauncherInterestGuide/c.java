@@ -63,8 +63,8 @@ public class c extends BaseAdapter {
             aVar.ayw = (ImageView) view.findViewById(R.id.select_icon);
             aVar.ayx = (RelativeLayout) view.findViewById(R.id.lay_select);
             aVar.textView = (TextView) view.findViewById(R.id.tv_fname);
-            aVar.kmv = (FrameLayout) view.findViewById(R.id.pic_layout);
-            aVar.kmv.setOnClickListener(this.dbS);
+            aVar.kmA = (FrameLayout) view.findViewById(R.id.pic_layout);
+            aVar.kmA.setOnClickListener(this.dbS);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -72,13 +72,13 @@ public class c extends BaseAdapter {
         aVar.fZf.setTag(null);
         aVar.ayx.setTag(null);
         aVar.textView.setText("");
-        aVar.kmv.setTag(null);
+        aVar.kmA.setTag(null);
         Object item = getItem(i);
         if (item != null && (item instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
             d(aVar.ayw, card.getIs_like() == 1);
             aVar.ayx.setTag(card);
-            aVar.kmv.setTag(card);
+            aVar.kmA.setTag(card);
             aVar.fZf.setTag(card.getIcon_url());
             aVar.fZf.startLoad(card.getIcon_url(), 21, false);
             aVar.textView.setText(card.getFname());
@@ -99,7 +99,7 @@ public class c extends BaseAdapter {
         ImageView ayw;
         RelativeLayout ayx;
         TbImageView fZf;
-        FrameLayout kmv;
+        FrameLayout kmA;
         TextView textView;
 
         private a() {

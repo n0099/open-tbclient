@@ -8,7 +8,7 @@ public class au {
     private int d = -666;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f875a = new byte[256];
+    private byte[] f876a = new byte[256];
     private int c = 0;
     private int b = 0;
 
@@ -24,29 +24,29 @@ public class au {
     private void a(int i, byte[] bArr, boolean z) {
         int length = bArr.length;
         for (int i2 = 0; i2 < 256; i2++) {
-            this.f875a[i2] = (byte) i2;
+            this.f876a[i2] = (byte) i2;
         }
         this.c = 0;
         this.b = 0;
         while (this.b < i) {
-            this.c = ((this.c + a(this.f875a[this.b])) + a(bArr[this.b % length])) % 256;
-            a(this.f875a, this.b, this.c);
+            this.c = ((this.c + a(this.f876a[this.b])) + a(bArr[this.b % length])) % 256;
+            a(this.f876a, this.b, this.c);
             this.b++;
         }
         if (i != 256) {
-            this.d = ((this.c + a(this.f875a[i])) + a(bArr[i % length])) % 256;
+            this.d = ((this.c + a(this.f876a[i])) + a(bArr[i % length])) % 256;
         }
         if (z) {
             StringBuilder sb = new StringBuilder();
             sb.append("S_").append(i - 1).append(":");
             for (int i3 = 0; i3 <= i; i3++) {
-                sb.append(HanziToPinyin.Token.SEPARATOR).append(a(this.f875a[i3]));
+                sb.append(HanziToPinyin.Token.SEPARATOR).append(a(this.f876a[i3]));
             }
             sb.append("   j_").append(i - 1).append(ETAG.EQUAL).append(this.c);
             sb.append("   j_").append(i).append(ETAG.EQUAL).append(this.d);
-            sb.append("   S_").append(i - 1).append("[j_").append(i - 1).append("]=").append(a(this.f875a[this.c]));
-            sb.append("   S_").append(i - 1).append("[j_").append(i).append("]=").append(a(this.f875a[this.d]));
-            if (this.f875a[1] != 0) {
+            sb.append("   S_").append(i - 1).append("[j_").append(i - 1).append("]=").append(a(this.f876a[this.c]));
+            sb.append("   S_").append(i - 1).append("[j_").append(i).append("]=").append(a(this.f876a[this.d]));
+            if (this.f876a[1] != 0) {
                 sb.append("   S[1]!=0");
             }
             com.xiaomi.channel.commonutils.logger.b.m42a(sb.toString());
@@ -117,8 +117,8 @@ public class au {
     /* renamed from: a  reason: collision with other method in class */
     byte m516a() {
         this.b = (this.b + 1) % 256;
-        this.c = (this.c + a(this.f875a[this.b])) % 256;
-        a(this.f875a, this.b, this.c);
-        return this.f875a[(a(this.f875a[this.b]) + a(this.f875a[this.c])) % 256];
+        this.c = (this.c + a(this.f876a[this.b])) % 256;
+        a(this.f876a, this.b, this.c);
+        return this.f876a[(a(this.f876a[this.b]) + a(this.f876a[this.c])) % 256];
     }
 }

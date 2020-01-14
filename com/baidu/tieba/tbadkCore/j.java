@@ -7,11 +7,11 @@ import com.baidu.tieba.R;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes6.dex */
 public class j implements com.baidu.adp.widget.ListView.m {
-    public static final String kdy = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
+    public static final String kdD = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
     private int iAx;
     private String icon;
-    private int kdA;
-    private String kdz;
+    private String kdE;
+    private int kdF;
     private String obj_id;
     private int time;
     private String title;
@@ -19,15 +19,15 @@ public class j implements com.baidu.adp.widget.ListView.m {
     private String url;
     private int weight;
 
-    public int cIA() {
-        return this.kdA;
+    public int cIC() {
+        return this.kdF;
     }
 
     public void Cg(int i) {
-        this.kdA = i;
+        this.kdF = i;
     }
 
-    public int cIB() {
+    public int cID() {
         return this.iAx;
     }
 
@@ -51,7 +51,7 @@ public class j implements com.baidu.adp.widget.ListView.m {
         this.title = str;
     }
 
-    public int cIC() {
+    public int cIE() {
         return this.type;
     }
 
@@ -71,12 +71,12 @@ public class j implements com.baidu.adp.widget.ListView.m {
         this.time = i;
     }
 
-    public String cID() {
+    public String cIF() {
         return this.obj_id;
     }
 
-    public String cIE() {
-        return this.kdz;
+    public String cIG() {
+        return this.kdE;
     }
 
     public void a(StarEnter starEnter) {
@@ -88,11 +88,11 @@ public class j implements com.baidu.adp.widget.ListView.m {
         setWeight(starEnter.weight.intValue());
         Ch(starEnter.rank_num.intValue());
         Cg(starEnter.bazhu_mark.intValue());
-        if (StringUtils.isNull(this.title) && this.kdA == 1) {
-            this.title = kdy;
+        if (StringUtils.isNull(this.title) && this.kdF == 1) {
+            this.title = kdD;
         }
         this.obj_id = starEnter.obj_id;
-        this.kdz = starEnter.text;
+        this.kdE = starEnter.text;
     }
 
     @Override // com.baidu.adp.widget.ListView.m

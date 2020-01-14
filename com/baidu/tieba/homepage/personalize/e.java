@@ -143,7 +143,7 @@ public class e {
                 e.this.haC.aOK();
                 r.btA().hU(true);
                 com.baidu.tieba.a.d.aVo().cm("page_recommend", "show_");
-                com.baidu.tieba.r.c.cIs().b(e.this.haJ, false);
+                com.baidu.tieba.r.c.cIu().b(e.this.haJ, false);
                 this.hbb = false;
                 if (e.this.goz != null && e.this.gZy && !e.this.mIsBackground) {
                     e.this.goz.a(e.this.gnN, e.this.efM, e.this.gos, 1);
@@ -651,7 +651,7 @@ public class e {
         if (this.haD) {
             if (this.gUT != null && !this.gUT.aFC()) {
                 if (this.gTb) {
-                    com.baidu.tieba.r.c.cIs().b(this.haJ, false);
+                    com.baidu.tieba.r.c.cIu().b(this.haJ, false);
                     if (mH(false)) {
                         bU(3, this.haz);
                     } else if (this.haE > 0) {
@@ -732,7 +732,7 @@ public class e {
         if (this.haD && this.gUT != null && this.gUT.aFC()) {
             int i2 = this.haz;
             if (this.gTb) {
-                com.baidu.tieba.r.c.cIs().b(this.haJ, false);
+                com.baidu.tieba.r.c.cIu().b(this.haJ, false);
                 if (mH(false)) {
                     i = 3;
                 } else {
@@ -930,7 +930,7 @@ public class e {
             hashSet.addAll(hashSet2);
             com.baidu.tieba.recapp.report.a.b("NEWINDEX", hashSet);
             if (hashSet2.size() > 0) {
-                com.baidu.tieba.r.c.cIs().b(this.haJ, com.baidu.tieba.r.a.b(PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_fill", true, hashSet2.size()));
+                com.baidu.tieba.r.c.cIu().b(this.haJ, com.baidu.tieba.r.a.b(PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_fill", true, hashSet2.size()));
             }
         }
     }
@@ -1413,7 +1413,7 @@ public class e {
 
     public void bNm() {
         this.gmf = new com.baidu.tieba.tbadkCore.data.f("new_index", null);
-        this.gmf.cIZ();
+        this.gmf.cJb();
     }
 
     public void a(int i, List<com.baidu.adp.widget.ListView.m> list, int i2) {
@@ -1421,10 +1421,10 @@ public class e {
         int i4;
         if (this.gmf != null) {
             if (i == 0) {
-                this.gmf.cIZ();
+                this.gmf.cJb();
             }
             if (list != null && !list.isEmpty()) {
-                int[] iArr = com.baidu.tieba.tbadkCore.data.f.keO;
+                int[] iArr = com.baidu.tieba.tbadkCore.data.f.keT;
                 int i5 = 0;
                 int i6 = 0;
                 int i7 = 0;
@@ -1664,9 +1664,9 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public af bMM() {
-        if (this.goz == null || this.goz.cxl() == null || !(this.goz.cxl().getTag() instanceof af)) {
+        if (this.goz == null || this.goz.cxn() == null || !(this.goz.cxn().getTag() instanceof af)) {
             return null;
         }
-        return (af) this.goz.cxl().getTag();
+        return (af) this.goz.cxn().getTag();
     }
 }

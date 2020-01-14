@@ -13,22 +13,22 @@ import com.baidu.tieba.play.y;
 /* loaded from: classes.dex */
 public class a {
     private bj cNb;
-    private y juC;
-    private boolean juL;
-    private long juQ;
+    private y juH;
+    private boolean juQ;
+    private long juV;
     private long videoSize;
     private long gsy = 0;
     private long mStartTime = 0;
-    private String juD = "1";
-    private k jvR = new k();
+    private String juI = "1";
+    private k jvW = new k();
 
-    public void cxW() {
-        this.jvR.cfo();
+    public void cxY() {
+        this.jvW.cfo();
     }
 
     public void eB(long j) {
-        this.juQ = j;
-        this.jvR.cfp();
+        this.juV = j;
+        this.jvW.cfp();
     }
 
     public void onStart() {
@@ -36,12 +36,12 @@ public class a {
             this.gsy = (System.currentTimeMillis() - this.mStartTime) + this.gsy;
         }
         this.mStartTime = System.currentTimeMillis();
-        this.juL = true;
-        this.jvR.cfq();
+        this.juQ = true;
+        this.jvW.cfq();
     }
 
     public void a(TbCyberVideoView tbCyberVideoView) {
-        this.jvR.a(this.juC == null ? "" : this.juC.OG, this.videoSize, this.juQ, tbCyberVideoView);
+        this.jvW.a(this.juH == null ? "" : this.juH.OG, this.videoSize, this.juV, tbCyberVideoView);
     }
 
     public void onPause() {
@@ -49,7 +49,7 @@ public class a {
             this.gsy = (System.currentTimeMillis() - this.mStartTime) + this.gsy;
             this.mStartTime = 0L;
         }
-        this.juL = false;
+        this.juQ = false;
     }
 
     public void onStop() {
@@ -57,10 +57,10 @@ public class a {
             this.gsy = (System.currentTimeMillis() - this.mStartTime) + this.gsy;
             this.mStartTime = 0L;
         }
-        cxz();
+        cxB();
         this.gsy = 0L;
         this.mStartTime = 0L;
-        this.juL = false;
+        this.juQ = false;
     }
 
     public void onComplete() {
@@ -71,30 +71,30 @@ public class a {
     }
 
     public void h(n nVar) {
-        this.cNb = nVar.cxB().axQ();
-        this.juC = nVar.cxE();
+        this.cNb = nVar.cxD().axQ();
+        this.juH = nVar.cxG();
     }
 
     public void setPageTypeForPerfStat(String str) {
-        this.jvR.setPageTypeForPerfStat(str);
+        this.jvW.setPageTypeForPerfStat(str);
     }
 
     public void setVideoSize(long j) {
         this.videoSize = j;
     }
 
-    private void cxz() {
+    private void cxB() {
         if (this.gsy >= 0 && this.gsy < 86400000) {
             if (this.gsy > 0) {
                 an anVar = new an(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
                 anVar.s("obj_duration", this.gsy);
-                anVar.cp("obj_type", this.juD);
-                anVar.s("playduration", this.juQ);
+                anVar.cp("obj_type", this.juI);
+                anVar.s("playduration", this.juV);
                 if (!aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     anVar.cp("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.juC != null) {
-                    this.juC.d(anVar);
+                if (this.juH != null) {
+                    this.juH.d(anVar);
                 }
                 if (!anVar.te("obj_param5") && this.cNb != null) {
                     if (this.cNb.getBaijiahaoData() != null) {
@@ -108,9 +108,9 @@ public class a {
                     }
                 }
                 TiebaStatic.log(anVar);
-                l.a(this.gsy, this.juD, this.juC, "", this.juQ);
-            } else if (this.juL) {
-                l.a(this.gsy, this.juD, this.juC, "", this.juQ);
+                l.a(this.gsy, this.juI, this.juH, "", this.juV);
+            } else if (this.juQ) {
+                l.a(this.gsy, this.juI, this.juH, "", this.juV);
             }
         }
     }

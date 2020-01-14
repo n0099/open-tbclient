@@ -1,9 +1,8 @@
 package com.baidu.platform.comapi.walknavi.d.a.d.a;
 
 import com.baidu.platform.comapi.walknavi.d.a.d.a.c;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public final class d implements c.b {
+final class d implements c.b {
     final /* synthetic */ c.InterfaceC0134c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

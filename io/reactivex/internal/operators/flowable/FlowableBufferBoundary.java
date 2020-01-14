@@ -22,7 +22,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
     protected void a(org.a.c<? super U> cVar) {
         BufferBoundarySubscriber bufferBoundarySubscriber = new BufferBoundarySubscriber(cVar, this.bufferOpen, this.bufferClose, this.bufferSupplier);
         cVar.onSubscribe(bufferBoundarySubscriber);
-        this.nvK.a((j) bufferBoundarySubscriber);
+        this.nvP.a((j) bufferBoundarySubscriber);
     }
 
     /* loaded from: classes5.dex */
@@ -36,7 +36,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         volatile boolean done;
         long emitted;
         long index;
-        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dHR());
+        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dHT());
         final io.reactivex.disposables.a subscribers = new io.reactivex.disposables.a();
         final AtomicLong requested = new AtomicLong();
         final AtomicReference<org.a.d> upstream = new AtomicReference<>();

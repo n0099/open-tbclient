@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes4.dex */
 public class e {
-    public static int nYJ = 0;
+    public static int nYO = 0;
 
     public static boolean f(View view, int i) {
         if (view.isInEditMode()) {
@@ -15,9 +15,9 @@ public class e {
         }
         tv.chushou.zues.utils.e.d("ViewUtil", String.format("refresh Height %d %d", Integer.valueOf(view.getHeight()), Integer.valueOf(i)));
         if (view.getHeight() != i) {
-            nYJ = i;
+            nYO = i;
             if (Math.abs(view.getHeight() - i) != tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(view.getContext())) {
-                int i2 = nYJ;
+                int i2 = nYO;
                 ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
                 if (layoutParams == null) {
                     view.setLayoutParams(new ViewGroup.LayoutParams(-1, i2));

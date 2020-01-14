@@ -57,8 +57,8 @@ public class d extends j {
                         FrsViewData bCK = d.this.gEE.bCK();
                         bCK.removeThread(str);
                         d.this.gmj.a(bCK.getThreadList(), bCK);
-                        if (com.baidu.tieba.tbadkCore.d.cIt() != null) {
-                            com.baidu.tieba.tbadkCore.d.cIt().aA(d.this.gEE.getForumName(), false);
+                        if (com.baidu.tieba.tbadkCore.d.cIv() != null) {
+                            com.baidu.tieba.tbadkCore.d.cIv().aA(d.this.gEE.getForumName(), false);
                         }
                     }
                 }
@@ -75,7 +75,7 @@ public class d extends j {
                     String str = eVar.threadId;
                     String str2 = eVar.forumId;
                     String str3 = eVar.forumName;
-                    if (eVar.kia == 4) {
+                    if (eVar.kig == 4) {
                         FrsViewData bCK = d.this.gEE.bCK();
                         bj threadDataById = bCK.getThreadDataById(str);
                         bCK.removeThreadData(threadDataById);
@@ -88,7 +88,7 @@ public class d extends j {
                         d.this.gmA.i(bCK);
                     }
                     if (TextUtils.equals(d.this.gEE.getForumName(), str3)) {
-                        com.baidu.tieba.tbadkCore.d.cIt().aA(d.this.gEE.getForumName(), false);
+                        com.baidu.tieba.tbadkCore.d.cIv().aA(d.this.gEE.getForumName(), false);
                     }
                 }
             }

@@ -24,7 +24,7 @@ public final class SVGAParser$decodeFromURL$3 extends Lambda implements kotlin.j
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ k invoke(Exception exc) {
         invoke2(exc);
-        return k.nAT;
+        return k.nAY;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */

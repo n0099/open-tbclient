@@ -7,22 +7,22 @@ import com.baidu.ubs.analytics.d;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class a {
-    private static boolean kUQ = false;
+    private static boolean kUV = false;
 
     public static void KV(String str) {
-        if (kUQ) {
-            e.cWg().KV(str);
+        if (kUV) {
+            e.cWi().KV(str);
         }
     }
 
     public static void KW(String str) {
-        if (kUQ) {
-            e.cWg().KW(str);
+        if (kUV) {
+            e.cWi().KW(str);
         }
     }
 
     public static void a(String str, String str2, String str3, Map<String, String> map) {
-        if (kUQ && str != null) {
+        if (kUV && str != null) {
             j.b(str, str2, str3, map);
         }
     }
@@ -34,10 +34,10 @@ public class a {
     }
 
     public static SampleResult KX(String str) {
-        return kUQ ? d.a.kUY.KY(str) : SampleResult.OTHERE;
+        return kUV ? d.a.kVd.KY(str) : SampleResult.OTHERE;
     }
 
     public static void tT(boolean z) {
-        kUQ = z;
+        kUV = z;
     }
 }

@@ -9,12 +9,12 @@ import java.nio.ByteBuffer;
 import org.apache.http.HttpStatus;
 /* loaded from: classes5.dex */
 public final class a {
-    private static final int[] lZI = {1, 2, 3, 6};
-    private static final int[] lZJ = {StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K};
-    private static final int[] lZK = {24000, 22050, 16000};
-    private static final int[] lZL = {2, 1, 2, 3, 3, 4, 4, 5};
-    private static final int[] lZM = {32, 40, 48, 56, 64, 80, 96, 112, 128, 160, DownloadConstants.STATUS_RUNNING, 224, 256, 320, 384, 448, 512, 576, 640};
-    private static final int[] lZN = {69, 87, 104, 121, 139, 174, 208, 243, 278, 348, HttpStatus.SC_EXPECTATION_FAILED, 487, 557, 696, 835, 975, 1114, 1253, 1393};
+    private static final int[] lZN = {1, 2, 3, 6};
+    private static final int[] lZO = {StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K};
+    private static final int[] lZP = {24000, 22050, 16000};
+    private static final int[] lZQ = {2, 1, 2, 3, 3, 4, 4, 5};
+    private static final int[] lZR = {32, 40, 48, 56, 64, 80, 96, 112, 128, 160, DownloadConstants.STATUS_RUNNING, 224, 256, 320, 384, 448, 512, 576, 640};
+    private static final int[] lZS = {69, 87, 104, 121, 139, 174, 208, 243, 278, 348, HttpStatus.SC_EXPECTATION_FAILED, 487, 557, 696, 835, 975, 1114, 1253, 1393};
 
     /* renamed from: com.google.android.exoplayer2.audio.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
@@ -37,9 +37,9 @@ public final class a {
     }
 
     public static Format a(l lVar, String str, String str2, DrmInitData drmInitData) {
-        int i = lZJ[(lVar.readUnsignedByte() & DownloadConstants.STATUS_RUNNING) >> 6];
+        int i = lZO[(lVar.readUnsignedByte() & DownloadConstants.STATUS_RUNNING) >> 6];
         int readUnsignedByte = lVar.readUnsignedByte();
-        int i2 = lZL[(readUnsignedByte & 56) >> 3];
+        int i2 = lZQ[(readUnsignedByte & 56) >> 3];
         if ((readUnsignedByte & 4) != 0) {
             i2++;
         }
@@ -48,9 +48,9 @@ public final class a {
 
     public static Format b(l lVar, String str, String str2, DrmInitData drmInitData) {
         lVar.skipBytes(2);
-        int i = lZJ[(lVar.readUnsignedByte() & DownloadConstants.STATUS_RUNNING) >> 6];
+        int i = lZO[(lVar.readUnsignedByte() & DownloadConstants.STATUS_RUNNING) >> 6];
         int readUnsignedByte = lVar.readUnsignedByte();
-        int i2 = lZL[(readUnsignedByte & 14) >> 1];
+        int i2 = lZQ[(readUnsignedByte & 14) >> 1];
         if ((readUnsignedByte & 1) != 0) {
             i2++;
         }
@@ -77,11 +77,11 @@ public final class a {
             dF = (kVar.readBits(11) + 1) * 2;
             int readBits2 = kVar.readBits(2);
             if (readBits2 == 3) {
-                i4 = lZK[kVar.readBits(2)];
+                i4 = lZP[kVar.readBits(2)];
                 i3 = 6;
             } else {
-                i3 = lZI[kVar.readBits(2)];
-                i4 = lZJ[readBits2];
+                i3 = lZN[kVar.readBits(2)];
+                i4 = lZO[readBits2];
             }
             i2 = i3 * 256;
             readBits = kVar.readBits(3);
@@ -103,11 +103,11 @@ public final class a {
             if (readBits == 2) {
                 kVar.JP(2);
             }
-            i = lZJ[readBits3];
+            i = lZO[readBits3];
             i2 = 1536;
             str = "audio/ac3";
         }
-        return new C0662a(str, i5, (kVar.dtY() ? 1 : 0) + lZL[readBits], i, dF, i2);
+        return new C0662a(str, i5, (kVar.dua() ? 1 : 0) + lZQ[readBits], i, dF, i2);
     }
 
     public static int al(byte[] bArr) {
@@ -117,24 +117,24 @@ public final class a {
         return dF((bArr[4] & 192) >> 6, bArr[4] & 63);
     }
 
-    public static int dsv() {
+    public static int dsx() {
         return 1536;
     }
 
     public static int h(ByteBuffer byteBuffer) {
-        return (((byteBuffer.get(byteBuffer.position() + 4) & 192) >> 6) == 3 ? 6 : lZI[(byteBuffer.get(byteBuffer.position() + 4) & 48) >> 4]) * 256;
+        return (((byteBuffer.get(byteBuffer.position() + 4) & 192) >> 6) == 3 ? 6 : lZN[(byteBuffer.get(byteBuffer.position() + 4) & 48) >> 4]) * 256;
     }
 
     private static int dF(int i, int i2) {
         int i3 = i2 / 2;
-        if (i < 0 || i >= lZJ.length || i2 < 0 || i3 >= lZN.length) {
+        if (i < 0 || i >= lZO.length || i2 < 0 || i3 >= lZS.length) {
             return -1;
         }
-        int i4 = lZJ[i];
+        int i4 = lZO[i];
         if (i4 == 44100) {
-            return (lZN[i3] + (i2 % 2)) * 2;
+            return (lZS[i3] + (i2 % 2)) * 2;
         }
-        int i5 = lZM[i3];
+        int i5 = lZR[i3];
         if (i4 == 32000) {
             return i5 * 6;
         }

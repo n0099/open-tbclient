@@ -81,7 +81,7 @@ public final class R {
     public static final class id {
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f968common = 0x7f0f01b8;
+        public static final int f969common = 0x7f0f01b8;
         public static final int pull_content = 0x7f0f1d68;
         public static final int pull_image = 0x7f0f0af5;
         public static final int pull_root = 0x7f0f1d66;

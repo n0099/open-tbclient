@@ -29,7 +29,7 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile boolean lGi = false;
+    private static volatile boolean lGn = false;
 
     /* renamed from: tv.chushou.zues.widget.fresco.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -39,7 +39,7 @@ public class a {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void dCO();
+        void dCQ();
 
         void finish();
     }
@@ -52,17 +52,17 @@ public class a {
             public void a(com.facebook.common.memory.b bVar) {
                 bVar.a(MemoryTrimType.OnSystemLowMemoryWhileAppInForeground);
             }
-        }).dnR());
-        lGi = true;
+        }).dnT());
+        lGn = true;
         e.d("ImageLoader", "initialize imageloader");
     }
 
     public static void resume() {
-        com.facebook.drawee.a.a.c.dkj().resume();
+        com.facebook.drawee.a.a.c.dkl().resume();
     }
 
     public static void pause() {
-        com.facebook.drawee.a.a.c.dkj().pause();
+        com.facebook.drawee.a.a.c.dkl().pause();
     }
 
     public static File ac(Uri uri) {
@@ -70,13 +70,13 @@ public class a {
         if (uri == null) {
             return null;
         }
-        com.facebook.cache.common.b c = j.dmI().c(ImageRequest.V(uri), null);
-        if (com.facebook.imagepipeline.d.j.dog().don().g(c)) {
-            com.facebook.a.a d2 = com.facebook.imagepipeline.d.j.dog().don().d(c);
+        com.facebook.cache.common.b c = j.dmK().c(ImageRequest.V(uri), null);
+        if (com.facebook.imagepipeline.d.j.doi().dop().g(c)) {
+            com.facebook.a.a d2 = com.facebook.imagepipeline.d.j.doi().dop().d(c);
             if (d2 != null) {
                 return ((com.facebook.a.b) d2).getFile();
             }
-        } else if (com.facebook.imagepipeline.d.j.dog().dos().g(c) && (d = com.facebook.imagepipeline.d.j.dog().dos().d(c)) != null) {
+        } else if (com.facebook.imagepipeline.d.j.doi().dou().g(c) && (d = com.facebook.imagepipeline.d.j.doi().dou().d(c)) != null) {
             return ((com.facebook.a.b) d).getFile();
         }
         return null;
@@ -213,7 +213,7 @@ public class a {
                 hVar.onNext(Boolean.valueOf(z));
                 hVar.onComplete();
             }
-        }, BackpressureStrategy.BUFFER).b(io.reactivex.f.a.dIB()).a(io.reactivex.a.b.a.dHX()).a(new io.reactivex.c.g<Boolean>() { // from class: tv.chushou.zues.widget.fresco.a.2
+        }, BackpressureStrategy.BUFFER).b(io.reactivex.f.a.dID()).a(io.reactivex.a.b.a.dHZ()).a(new io.reactivex.c.g<Boolean>() { // from class: tv.chushou.zues.widget.fresco.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: s */
@@ -221,7 +221,7 @@ public class a {
                 if (bool.booleanValue()) {
                     Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
                     intent.setData(Uri.fromFile(file));
-                    h.dOC().sendBroadcast(intent);
+                    h.dOE().sendBroadcast(intent);
                     if (interfaceC0807a != null) {
                         interfaceC0807a.onComplete(true, file.getAbsolutePath());
                     }
@@ -242,7 +242,7 @@ public class a {
     }
 
     public static com.facebook.datasource.b<Void> a(String str, Context context, final b bVar) {
-        com.facebook.datasource.b<Void> a = com.facebook.drawee.a.a.c.dkj().a(ImageRequestBuilder.X(Uri.parse(str)).drm(), context, Priority.HIGH);
+        com.facebook.datasource.b<Void> a = com.facebook.drawee.a.a.c.dkl().a(ImageRequestBuilder.X(Uri.parse(str)).dro(), context, Priority.HIGH);
         a.a(new com.facebook.datasource.a<Void>() { // from class: tv.chushou.zues.widget.fresco.a.5
             @Override // com.facebook.datasource.a
             protected void onNewResultImpl(com.facebook.datasource.b<Void> bVar2) {
@@ -251,9 +251,9 @@ public class a {
 
             @Override // com.facebook.datasource.a
             protected void onFailureImpl(com.facebook.datasource.b<Void> bVar2) {
-                b.this.dCO();
+                b.this.dCQ();
             }
-        }, com.facebook.common.b.a.djj());
+        }, com.facebook.common.b.a.djl());
         return a;
     }
 

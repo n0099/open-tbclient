@@ -7,13 +7,13 @@ public interface b extends tv.chushou.basis.d.a {
 
     String OM();
 
-    String dCV();
+    String dCX();
 
-    String dCW();
+    String dCY();
 
-    Map<String, String> dCX();
+    Map<String, String> dCZ();
 
-    Map<String, String> dCY();
+    Map<String, String> dDa();
 
     String getAppKey();
 

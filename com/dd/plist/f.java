@@ -6,22 +6,22 @@ import java.util.Date;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class f extends i {
-    private static final SimpleDateFormat lFP = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-    private static final SimpleDateFormat lFQ = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z");
+    private static final SimpleDateFormat lFU = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+    private static final SimpleDateFormat lFV = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z");
     private Date date;
 
     static {
-        lFP.setTimeZone(TimeZone.getTimeZone("GMT"));
-        lFQ.setTimeZone(TimeZone.getTimeZone("GMT"));
+        lFU.setTimeZone(TimeZone.getTimeZone("GMT"));
+        lFV.setTimeZone(TimeZone.getTimeZone("GMT"));
     }
 
     private static synchronized Date Os(String str) throws ParseException {
         Date parse;
         synchronized (f.class) {
             try {
-                parse = lFP.parse(str);
+                parse = lFU.parse(str);
             } catch (ParseException e) {
-                parse = lFQ.parse(str);
+                parse = lFV.parse(str);
             }
         }
         return parse;

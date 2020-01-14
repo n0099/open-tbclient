@@ -257,7 +257,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             int i = this.fVu;
             f fVar = this.fVk;
             if (this.fVk != null && i >= 0 && (a = com.baidu.tieba.r.a.a(true, "a065", "common_click", i + 1, i + 1, false, (String) null, String.valueOf(fVar.testId), 0)) != null) {
-                com.baidu.tieba.r.c.cIs().b(this.mPageId, a);
+                com.baidu.tieba.r.c.cIu().b(this.mPageId, a);
             }
             if (!this.fVl) {
                 String string = com.baidu.tbadk.core.sharedPref.b.aDr().getString("enter_forum_test_id_list", "");

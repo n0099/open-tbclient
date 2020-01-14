@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes8.dex */
 class b {
-    private float kzI;
-    private int kzJ;
-    private i kzK;
+    private float kzN;
+    private int kzO;
+    private i kzP;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.kzK = iVar;
+        this.kzP = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.kzK == null || !this.kzK.isRecording()) {
+        if (this.kzP == null || !this.kzP.isRecording()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.kzI) / 10.0f);
+                        int i = (int) ((spacing - this.kzN) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.kzJ;
+                            int i2 = i + this.kzO;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.kzI = spacing;
+                            this.kzN = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.kzI = spacing(motionEvent);
+                    this.kzN = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.kzJ = i;
+                this.kzO = i;
             }
         }
     }

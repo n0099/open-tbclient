@@ -7,8 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String ktj;
-    private a ktk;
+    private String kto;
+    private a ktp;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,8 +22,8 @@ public class c extends BdAsyncTask<String, String, Integer> {
     }
 
     public c(String str, a aVar) {
-        this.ktj = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.ktk = aVar;
+        this.kto = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.ktp = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.ktj);
+            x xVar = new x(this.kto);
             xVar.aDU().aEu().mIsNeedAddCommenParam = false;
             xVar.aDU().aEu().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.getNetData())).optJSONArray("result");
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.ktk != null && num != null) {
+        if (this.ktp != null && num != null) {
             if (num.intValue() == -1) {
-                this.ktk.onError(null);
+                this.ktp.onError(null);
             } else if (num.intValue() == 1) {
-                this.ktk.bZj();
+                this.ktp.bZj();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.ktk.bZk();
+                this.ktp.bZk();
             } else {
-                this.ktk.bZl();
+                this.ktp.bZl();
             }
         }
     }

@@ -14,19 +14,19 @@ public interface s extends g.a {
 
     void disable();
 
-    t drq();
+    t drs();
 
-    com.google.android.exoplayer2.util.h drr();
+    com.google.android.exoplayer2.util.h drt();
 
-    com.google.android.exoplayer2.source.p drs();
-
-    boolean drt();
-
-    void dru();
+    com.google.android.exoplayer2.source.p dru();
 
     boolean drv();
 
-    void drw() throws IOException;
+    void drw();
+
+    boolean drx();
+
+    void dry() throws IOException;
 
     void fn(long j) throws ExoPlaybackException;
 

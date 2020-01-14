@@ -74,12 +74,12 @@ public class a {
         return packageInfo != null;
     }
 
-    public static boolean dOY() {
-        Application dOC = h.dOC();
-        if (dOC == null) {
+    public static boolean dPa() {
+        Application dOE = h.dOE();
+        if (dOE == null) {
             return false;
         }
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dOC.getSystemService("connectivity")).getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = ((ConnectivityManager) dOE.getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
     }
 
@@ -100,7 +100,7 @@ public class a {
         return networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED;
     }
 
-    public static boolean dOZ() {
+    public static boolean dPb() {
         FileInputStream fileInputStream;
         boolean z = false;
         try {

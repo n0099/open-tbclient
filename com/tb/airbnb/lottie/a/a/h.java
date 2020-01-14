@@ -16,34 +16,34 @@ public class h extends a {
     private final RectF gb;
     private final int gf;
     private final String name;
-    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> npe;
-    private final GradientType npf;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> npg;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> nph;
+    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> npj;
+    private final GradientType npk;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> npl;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> npm;
 
     public h(com.tb.airbnb.lottie.f fVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.e eVar) {
-        super(fVar, aVar, eVar.dFU().toPaintCap(), eVar.dFV().toPaintJoin(), eVar.cI(), eVar.dFK(), eVar.dFT(), eVar.cG(), eVar.dFW());
+        super(fVar, aVar, eVar.dFW().toPaintCap(), eVar.dFX().toPaintJoin(), eVar.cI(), eVar.dFM(), eVar.dFV(), eVar.cG(), eVar.dFY());
         this.fX = new LongSparseArray<>();
         this.fY = new LongSparseArray<>();
         this.gb = new RectF();
         this.name = eVar.getName();
-        this.npf = eVar.dFP();
+        this.npk = eVar.dFR();
         this.gf = (int) (fVar.getComposition().bf() / 32.0f);
-        this.npe = eVar.dFQ().dFE();
-        this.npe.b(this);
-        aVar.a(this.npe);
-        this.npg = eVar.dFR().dFE();
-        this.npg.b(this);
-        aVar.a(this.npg);
-        this.nph = eVar.dFS().dFE();
-        this.nph.b(this);
-        aVar.a(this.nph);
+        this.npj = eVar.dFS().dFG();
+        this.npj.b(this);
+        aVar.a(this.npj);
+        this.npl = eVar.dFT().dFG();
+        this.npl.b(this);
+        aVar.a(this.npl);
+        this.npm = eVar.dFU().dFG();
+        this.npm.b(this);
+        aVar.a(this.npm);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.a, com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         a(this.gb, matrix);
-        if (this.npf == GradientType.Linear) {
+        if (this.npk == GradientType.Linear) {
             this.paint.setShader(bG());
         } else {
             this.paint.setShader(bH());
@@ -60,9 +60,9 @@ public class h extends a {
         int bI = bI();
         LinearGradient linearGradient = this.fX.get(bI);
         if (linearGradient == null) {
-            PointF value = this.npg.getValue();
-            PointF value2 = this.nph.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.npe.getValue();
+            PointF value = this.npl.getValue();
+            PointF value2 = this.npm.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.npj.getValue();
             LinearGradient linearGradient2 = new LinearGradient((int) (this.gb.left + (this.gb.width() / 2.0f) + value.x), (int) (value.y + this.gb.top + (this.gb.height() / 2.0f)), (int) (this.gb.left + (this.gb.width() / 2.0f) + value2.x), (int) (this.gb.top + (this.gb.height() / 2.0f) + value2.y), value3.getColors(), value3.cx(), Shader.TileMode.CLAMP);
             this.fX.put(bI, linearGradient2);
             return linearGradient2;
@@ -74,9 +74,9 @@ public class h extends a {
         int bI = bI();
         RadialGradient radialGradient = this.fY.get(bI);
         if (radialGradient == null) {
-            PointF value = this.npg.getValue();
-            PointF value2 = this.nph.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.npe.getValue();
+            PointF value = this.npl.getValue();
+            PointF value2 = this.npm.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.npj.getValue();
             int[] colors = value3.getColors();
             float[] cx = value3.cx();
             int width = (int) (this.gb.left + (this.gb.width() / 2.0f) + value.x);
@@ -90,9 +90,9 @@ public class h extends a {
     }
 
     private int bI() {
-        int round = Math.round(this.npg.getProgress() * this.gf);
-        int round2 = Math.round(this.nph.getProgress() * this.gf);
-        int round3 = Math.round(this.npe.getProgress() * this.gf);
+        int round = Math.round(this.npl.getProgress() * this.gf);
+        int round2 = Math.round(this.npm.getProgress() * this.gf);
+        int round3 = Math.round(this.npj.getProgress() * this.gf);
         int i = 17;
         if (round != 0) {
             i = round * 527;

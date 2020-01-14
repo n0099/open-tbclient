@@ -19,10 +19,10 @@ public class PagerView extends ViewGroup {
     private float e;
     private float f;
     private int k;
-    private OverScroller nhX;
-    private ViewConfiguration nhY;
-    private VelocityTracker nhZ;
-    private a nia;
+    private OverScroller nic;
+    private ViewConfiguration nie;
+    private VelocityTracker nif;
+    private a nig;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -35,12 +35,12 @@ public class PagerView extends ViewGroup {
 
     public PagerView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nhZ = VelocityTracker.obtain();
+        this.nif = VelocityTracker.obtain();
         this.k = 0;
-        this.nhX = new OverScroller(context);
-        this.nhY = ViewConfiguration.get(context);
-        this.f = this.nhY.getScaledMaximumFlingVelocity();
-        this.e = this.nhY.getScaledMinimumFlingVelocity();
+        this.nic = new OverScroller(context);
+        this.nie = ViewConfiguration.get(context);
+        this.f = this.nie.getScaledMaximumFlingVelocity();
+        this.e = this.nie.getScaledMinimumFlingVelocity();
     }
 
     @Override // android.view.View
@@ -65,9 +65,9 @@ public class PagerView extends ViewGroup {
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getActionMasked() == 0) {
-            this.nhZ.clear();
+            this.nif.clear();
         }
-        this.nhZ.addMovement(motionEvent);
+        this.nif.addMovement(motionEvent);
         switch (motionEvent.getActionMasked()) {
             case 0:
                 this.d = false;
@@ -84,7 +84,7 @@ public class PagerView extends ViewGroup {
                     return false;
                 }
                 int childCount = getChildCount();
-                if (Math.abs(x) > this.nhY.getScaledPagingTouchSlop() * 1.5f) {
+                if (Math.abs(x) > this.nie.getScaledPagingTouchSlop() * 1.5f) {
                     if ((x <= 0.0f || this.k >= childCount - 1) && (x >= 0.0f || this.k <= 0)) {
                         return false;
                     }
@@ -135,9 +135,9 @@ public class PagerView extends ViewGroup {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         float f = 0.0f;
         if (motionEvent.getActionMasked() == 0) {
-            this.nhZ.clear();
+            this.nif.clear();
         }
-        this.nhZ.addMovement(motionEvent);
+        this.nif.addMovement(motionEvent);
         int childCount = getChildCount();
         switch (motionEvent.getActionMasked()) {
             case 0:
@@ -157,8 +157,8 @@ public class PagerView extends ViewGroup {
                 return false;
             case 1:
                 if (childCount > 1) {
-                    this.nhZ.computeCurrentVelocity(1000, this.f);
-                    float xVelocity = this.nhZ.getXVelocity();
+                    this.nif.computeCurrentVelocity(1000, this.f);
+                    float xVelocity = this.nif.getXVelocity();
                     int scrollX = getScrollX();
                     int width = scrollX / getWidth();
                     if (width + 1 >= childCount) {
@@ -171,7 +171,7 @@ public class PagerView extends ViewGroup {
                     } else if (xVelocity < 0.0f) {
                         width++;
                     }
-                    this.nhX.startScroll(getScrollX(), 0, (getWidth() * width) - scrollX, 0);
+                    this.nic.startScroll(getScrollX(), 0, (getWidth() * width) - scrollX, 0);
                     ViewCompat.postInvalidateOnAnimation(this);
                     return true;
                 }
@@ -204,22 +204,22 @@ public class PagerView extends ViewGroup {
         }
         if (getChildCount() > 1 && this.k != i2) {
             if (z) {
-                this.nhX.startScroll(getScrollX(), 0, (i2 * getWidth()) - getScrollX(), 0);
+                this.nic.startScroll(getScrollX(), 0, (i2 * getWidth()) - getScrollX(), 0);
                 invalidate();
                 return;
             }
             this.k = i2;
             scrollTo(this.k * getWidth(), 0);
-            if (this.nia != null) {
-                this.nia.a(i2);
+            if (this.nig != null) {
+                this.nig.a(i2);
             }
         }
     }
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.nhX.computeScrollOffset()) {
-            scrollTo(this.nhX.getCurrX(), this.nhX.getCurrY());
+        if (this.nic.computeScrollOffset()) {
+            scrollTo(this.nic.getCurrX(), this.nic.getCurrY());
             ViewCompat.postInvalidateOnAnimation(this);
             return;
         }
@@ -227,13 +227,13 @@ public class PagerView extends ViewGroup {
         int scrollX2 = getScrollX() % getWidth();
         if (scrollX != this.k && scrollX2 == 0) {
             this.k = scrollX;
-            if (this.nia != null) {
-                this.nia.a(scrollX);
+            if (this.nig != null) {
+                this.nig.a(scrollX);
             }
         }
     }
 
     public void setOnPageChangedListener(a aVar) {
-        this.nia = aVar;
+        this.nig = aVar;
     }
 }

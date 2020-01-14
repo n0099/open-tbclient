@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 public class b extends c<UserMuteListActivity> {
     private BdListView Ao;
     private NoNetworkView fSu;
-    private a jUh;
+    private a jUm;
     private BaseActivity<UserMuteListActivity> mActivity;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
@@ -24,7 +24,7 @@ public class b extends c<UserMuteListActivity> {
     public b(BaseActivity<UserMuteListActivity> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
         this.mActivity = baseActivity;
-        this.jUh = aVar;
+        this.jUm = aVar;
         initUI();
     }
 
@@ -59,7 +59,7 @@ public class b extends c<UserMuteListActivity> {
         this.mNoDataView.setTextOption(NoDataViewFactory.d.kQ(R.string.user_mute_list_no_data_text));
     }
 
-    public void cFG() {
+    public void cFI() {
         this.Ao.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.kQ(R.string.refresh_view_title_text));

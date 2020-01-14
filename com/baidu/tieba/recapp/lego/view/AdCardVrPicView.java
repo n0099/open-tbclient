@@ -8,7 +8,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes11.dex */
 public class AdCardVrPicView extends AdCardBaseView {
-    private VrPicView jHQ;
+    private VrPicView jHV;
 
     public AdCardVrPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -21,28 +21,28 @@ public class AdCardVrPicView extends AdCardBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void cN(View view) {
-        this.jHQ = (VrPicView) view.findViewById(R.id.vr_pic_view);
+        this.jHV = (VrPicView) view.findViewById(R.id.vr_pic_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard.threadPicList != null && adCard.threadPicList.length >= 1) {
             String str = adCard.threadPicList[0].pic;
-            this.jGH.setVisibility(0);
+            this.jGM.setVisibility(0);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
             advertAppInfo.cJb.width = this.mMaxWidth;
             advertAppInfo.cJb.height = (this.mMaxWidth * this.mImageHeight) / this.mImageWidth;
             advertAppInfo.cJb.cJm = str;
-            this.jHQ.a(this.cRe, advertAppInfo);
-            ViewGroup.LayoutParams layoutParams = this.jHQ.getLayoutParams();
+            this.jHV.a(this.cRe, advertAppInfo);
+            ViewGroup.LayoutParams layoutParams = this.jHV.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.width = advertAppInfo.cJb.width;
                 layoutParams.height = advertAppInfo.cJb.height;
             }
-            this.jHQ.setLayoutParams(layoutParams);
+            this.jHV.setLayoutParams(layoutParams);
             return;
         }
-        this.jGH.setVisibility(8);
+        this.jGM.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView

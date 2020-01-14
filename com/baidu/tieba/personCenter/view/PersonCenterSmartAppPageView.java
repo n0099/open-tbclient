@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class PersonCenterSmartAppPageView extends LinearLayout {
-    private List<PersonCenterSmartAppItemView> jhy;
-    private int jhz;
+    private List<PersonCenterSmartAppItemView> jhD;
+    private int jhE;
     private List<com.baidu.tieba.personCenter.data.c> mDataList;
 
     public PersonCenterSmartAppPageView(Context context) {
@@ -24,38 +24,38 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
 
     public PersonCenterSmartAppPageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jhz = 4;
+        this.jhE = 4;
         ViewPager.LayoutParams layoutParams = new ViewPager.LayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
         setLayoutParams(layoutParams);
         setOrientation(0);
         this.mDataList = new ArrayList();
-        this.jhy = new ArrayList();
-        for (int i2 = 0; i2 < this.jhz; i2++) {
+        this.jhD = new ArrayList();
+        for (int i2 = 0; i2 < this.jhE; i2++) {
             PersonCenterSmartAppItemView personCenterSmartAppItemView = new PersonCenterSmartAppItemView(getContext());
             addView(personCenterSmartAppItemView, new LinearLayout.LayoutParams(0, -1, 1.0f));
             personCenterSmartAppItemView.setVisibility(4);
-            this.jhy.add(personCenterSmartAppItemView);
+            this.jhD.add(personCenterSmartAppItemView);
         }
         onChangeSkinType();
     }
 
     public void c(com.baidu.tieba.personCenter.data.c cVar) {
-        if (cVar != null && this.mDataList.size() != this.jhz) {
+        if (cVar != null && this.mDataList.size() != this.jhE) {
             this.mDataList.add(cVar);
-            PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) v.getItem(this.jhy, this.mDataList.size() - 1);
+            PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) v.getItem(this.jhD, this.mDataList.size() - 1);
             personCenterSmartAppItemView.b(cVar);
             personCenterSmartAppItemView.setVisibility(0);
         }
     }
 
-    public boolean ctS() {
-        return this.mDataList.size() < this.jhz;
+    public boolean ctU() {
+        return this.mDataList.size() < this.jhE;
     }
 
     public void onChangeSkinType() {
-        for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.jhy) {
+        for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.jhD) {
             if (personCenterSmartAppItemView != null) {
                 personCenterSmartAppItemView.onChangeSkinType();
             }

@@ -4,10 +4,10 @@ import com.tb.airbnb.lottie.a.a.r;
 /* loaded from: classes5.dex */
 public class ShapeTrimPath implements b {
     private final String name;
-    private final Type npw;
-    private final com.tb.airbnb.lottie.model.a.b nqC;
-    private final com.tb.airbnb.lottie.model.a.b nqF;
-    private final com.tb.airbnb.lottie.model.a.b nqG;
+    private final Type npB;
+    private final com.tb.airbnb.lottie.model.a.b nqH;
+    private final com.tb.airbnb.lottie.model.a.b nqK;
+    private final com.tb.airbnb.lottie.model.a.b nqL;
 
     /* loaded from: classes5.dex */
     public enum Type {
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.npw = type;
-        this.nqF = bVar;
-        this.nqG = bVar2;
-        this.nqC = bVar3;
+        this.npB = type;
+        this.nqK = bVar;
+        this.nqL = bVar2;
+        this.nqH = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dFu() {
-        return this.npw;
+    public Type dFw() {
+        return this.npB;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dGm() {
-        return this.nqG;
+    public com.tb.airbnb.lottie.model.a.b dGo() {
+        return this.nqL;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dGn() {
-        return this.nqF;
+    public com.tb.airbnb.lottie.model.a.b dGp() {
+        return this.nqK;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dGi() {
-        return this.nqC;
+    public com.tb.airbnb.lottie.model.a.b dGk() {
+        return this.nqH;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.nqF + ", end: " + this.nqG + ", offset: " + this.nqC + "}";
+        return "Trim Path: {start: " + this.nqK + ", end: " + this.nqL + ", offset: " + this.nqH + "}";
     }
 }

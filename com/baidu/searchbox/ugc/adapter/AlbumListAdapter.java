@@ -79,9 +79,9 @@ public class AlbumListAdapter extends BaseAdapter {
                     ImageRequestBuilder X = ImageRequestBuilder.X(imageGroup.images.get(0).contentUri);
                     X.c(new d((int) (dp2px / 2.0f), (int) (dp2px2 / 2.0f)));
                     X.vs(true);
-                    a dkU = c.dkh().vd(false).be(X.drm()).c(viewHolder.img.getController()).dkY();
+                    a dkW = c.dkj().vd(false).be(X.dro()).c(viewHolder.img.getController()).dla();
                     if (viewHolder.img != null) {
-                        viewHolder.img.setController(dkU);
+                        viewHolder.img.setController(dkW);
                     }
                 }
             }

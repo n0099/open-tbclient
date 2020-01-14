@@ -14,7 +14,7 @@ public class h extends n<com.tb.airbnb.lottie.model.content.h, Path> {
     }
 
     @Override // com.tb.airbnb.lottie.model.a.m
-    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.h, Path> dFE() {
+    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.h, Path> dFG() {
         return new com.tb.airbnb.lottie.a.b.l(this.gD);
     }
 }

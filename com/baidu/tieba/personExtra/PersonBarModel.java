@@ -13,7 +13,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PersonBarModel extends BdBaseModel {
     private static final String dXG = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
     private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, dXG);
-    private int jiS;
+    private int jiX;
     private b mData;
     private String mId;
     private boolean mIsHost;
@@ -47,14 +47,14 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void setCurrentPageIndex(int i) {
-        this.jiS = i;
+        this.jiX = i;
     }
 
-    public b cuD() {
+    public b cuF() {
         return this.mData;
     }
 
-    public void cuB() {
+    public void cuD() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
@@ -82,7 +82,7 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void Gy(String str) {
-        if (this.jiS == 1 && this.mIsHost) {
+        if (this.jiX == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();

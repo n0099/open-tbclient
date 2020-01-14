@@ -24,7 +24,7 @@ final class CombinedContext$writeReplace$1 extends Lambda implements m<k, c.b, k
     @Override // kotlin.jvm.a.m
     public /* bridge */ /* synthetic */ k invoke(k kVar, c.b bVar) {
         invoke2(kVar, bVar);
-        return k.nAT;
+        return k.nAY;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */

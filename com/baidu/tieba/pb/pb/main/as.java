@@ -27,13 +27,13 @@ public class as {
             if (a != null) {
                 this.iOz.tD(true);
                 this.iOB.setText(a);
-                if (z && this.iOz.cSL() >= 0) {
+                if (z && this.iOz.cSN() >= 0) {
                     this.iOB.requestFocus();
-                    this.iOB.setSelection(this.iOz.cSL());
+                    this.iOB.setSelection(this.iOz.cSN());
                 } else {
                     this.iOB.setSelection(selectionEnd);
                 }
-                this.iOz.tC(this.iOz.cSL() >= 0);
+                this.iOz.tC(this.iOz.cSN() >= 0);
             }
         }
     }
@@ -45,13 +45,13 @@ public class as {
             if (a != null) {
                 this.iOA.tD(true);
                 this.heP.setText(a);
-                if (z && this.iOA.cSL() >= 0) {
+                if (z && this.iOA.cSN() >= 0) {
                     this.heP.requestFocus();
-                    this.heP.setSelection(this.iOA.cSL());
+                    this.heP.setSelection(this.iOA.cSN());
                 } else {
                     this.heP.setSelection(selectionEnd);
                 }
-                this.iOA.tC(this.iOA.cSL() >= 0);
+                this.iOA.tC(this.iOA.cSN() >= 0);
             }
         }
     }
@@ -72,7 +72,7 @@ public class as {
         if (postWriteCallBackData != null) {
             this.iOz.aV(postWriteCallBackData.getSensitiveWords());
             this.iOz.Kx(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.isEmpty(this.iOz.cSK())) {
+            if (!com.baidu.tbadk.core.util.v.isEmpty(this.iOz.cSM())) {
                 qt(true);
                 this.iHZ = postWriteCallBackData;
             }
@@ -83,7 +83,7 @@ public class as {
         if (postWriteCallBackData != null) {
             this.iOA.aV(postWriteCallBackData.getSensitiveWords());
             this.iOA.Kx(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.isEmpty(this.iOA.cSK())) {
+            if (!com.baidu.tbadk.core.util.v.isEmpty(this.iOA.cSM())) {
                 qu(true);
             }
         }
@@ -105,10 +105,10 @@ public class as {
     public void onChangeSkinType() {
         this.iOz.onChangeSkinType();
         this.iOA.onChangeSkinType();
-        if (this.iOz.cSM()) {
+        if (this.iOz.cSO()) {
             qt(false);
         }
-        if (this.iOA.cSM()) {
+        if (this.iOA.cSO()) {
             qu(false);
         }
     }

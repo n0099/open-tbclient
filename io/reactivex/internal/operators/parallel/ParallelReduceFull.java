@@ -12,14 +12,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes5.dex */
 public final class ParallelReduceFull<T> extends g<T> {
-    final a<? extends T> nxM;
+    final a<? extends T> nxR;
     final c<T, T, T> reducer;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.nxM.dIg(), this.reducer);
+        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.nxR.dIi(), this.reducer);
         cVar.onSubscribe(parallelReduceFullMainSubscriber);
-        this.nxM.a(parallelReduceFullMainSubscriber.subscribers);
+        this.nxR.a(parallelReduceFullMainSubscriber.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -8,9 +8,9 @@ import android.widget.RelativeLayout;
 public class ExpandViewRelativeLayout extends RelativeLayout {
     private float Bn;
     private float ayM;
-    private a kvd;
-    private boolean kve;
-    private boolean kvf;
+    private a kvi;
+    private boolean kvj;
+    private boolean kvk;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -18,13 +18,13 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
 
         void c(float f, float f2, int i);
 
-        void cOb();
+        void cOd();
 
         boolean d(float f, float f2, int i);
     }
 
     public void setScrollCallBack(a aVar) {
-        this.kvd = aVar;
+        this.kvi = aVar;
     }
 
     public ExpandViewRelativeLayout(Context context) {
@@ -43,7 +43,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     private void init(Context context) {
-        this.kvf = true;
+        this.kvk = true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -52,8 +52,8 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
             case 0:
                 this.ayM = motionEvent.getY();
                 this.Bn = motionEvent.getY();
-                if (this.kvd != null) {
-                    this.kvd.aN(motionEvent.getY());
+                if (this.kvi != null) {
+                    this.kvi.aN(motionEvent.getY());
                     break;
                 }
                 break;
@@ -65,16 +65,16 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.kvd != null) {
-                    this.kve = this.kvd.d(0.0f, motionEvent.getY(), 0);
-                    return this.kve;
+                if (this.kvi != null) {
+                    this.kvj = this.kvi.d(0.0f, motionEvent.getY(), 0);
+                    return this.kvj;
                 }
                 break;
             case 2:
-                if (this.kvd != null) {
+                if (this.kvi != null) {
                     this.ayM = motionEvent.getY();
-                    this.kve = this.kvd.d(motionEvent.getY() - this.ayM, motionEvent.getY(), motionEvent.getY() - this.Bn > 0.0f ? 1 : 2);
-                    return this.kve;
+                    this.kvj = this.kvi.d(motionEvent.getY() - this.ayM, motionEvent.getY(), motionEvent.getY() - this.Bn > 0.0f ? 1 : 2);
+                    return this.kvj;
                 }
                 break;
         }
@@ -83,7 +83,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.kvf) {
+        if (this.kvk) {
             super.onLayout(z, i, i2, i3, i4);
         }
     }
@@ -92,17 +92,17 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 1:
-                this.kve = false;
-                if (this.kvd != null) {
-                    this.kvd.cOb();
+                this.kvj = false;
+                if (this.kvi != null) {
+                    this.kvi.cOd();
                     break;
                 }
                 break;
             case 2:
                 float y = motionEvent.getY() - this.ayM;
                 int i = motionEvent.getY() - this.Bn > 0.0f ? 1 : 2;
-                if (this.kve && this.kvd != null) {
-                    this.kvd.c(motionEvent.getY(), y, i);
+                if (this.kvj && this.kvi != null) {
+                    this.kvi.c(motionEvent.getY(), y, i);
                     return true;
                 }
                 break;
@@ -111,7 +111,7 @@ public class ExpandViewRelativeLayout extends RelativeLayout {
     }
 
     public void setIsCanLayout(boolean z) {
-        this.kvf = z;
+        this.kvk = z;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent

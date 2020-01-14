@@ -33,10 +33,10 @@ import com.baidu.tieba.tbadkCore.w;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class b implements View.OnClickListener {
-    private ShareGridLayout ksP;
-    private a ksQ;
-    private boolean ksR = false;
-    private CustomMessageListener ksS = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.transmitShare.b.1
+    private ShareGridLayout ksU;
+    private a ksV;
+    private boolean ksW = false;
+    private CustomMessageListener ksX = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.transmitShare.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -51,26 +51,26 @@ public class b implements View.OnClickListener {
     private ShareItem mShareItem;
     private static final int fcP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds156);
     private static final int fcQ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds234);
-    private static final int jUW = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-    private static final int jUX = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds36);
-    private static final int jUY = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+    private static final int jVb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+    private static final int jVc = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds36);
+    private static final int jVd = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
     private static final int dmx = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
 
     public b(Context context) {
         this.mContext = context;
-        MessageManager.getInstance().registerListener(this.ksS);
+        MessageManager.getInstance().registerListener(this.ksX);
     }
 
-    public ShareGridLayout cNf() {
-        if (this.ksP == null) {
+    public ShareGridLayout cNh() {
+        if (this.ksU == null) {
             initView();
         }
-        return this.ksP;
+        return this.ksU;
     }
 
     private void initView() {
-        this.ksP = new ShareGridLayout(this.mContext);
-        this.ksP.setItemParams(fcP, fcQ);
+        this.ksU = new ShareGridLayout(this.mContext);
+        this.ksU.setItemParams(fcP, fcQ);
     }
 
     private void a(com.baidu.tbadk.core.util.e.a aVar, int i, int i2) {
@@ -84,9 +84,9 @@ public class b implements View.OnClickListener {
             if (aVar instanceof com.baidu.tbadk.core.util.e.c) {
                 com.baidu.tbadk.core.util.f.a.aEM().kk(1).kl(R.color.cp_bg_line_i).aQ(imageView);
             }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(jUW, jUW);
-            layoutParams.topMargin = jUX;
-            layoutParams.bottomMargin = jUY;
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(jVb, jVb);
+            layoutParams.topMargin = jVc;
+            layoutParams.bottomMargin = jVd;
             layoutParams.gravity = 1;
             linearLayout.addView(imageView, layoutParams);
             TextView textView = new TextView(this.mContext);
@@ -98,7 +98,7 @@ public class b implements View.OnClickListener {
             imageView.setImageDrawable(aVar.getDrawable());
             am.setViewTextColor(textView, (int) R.color.cp_cont_f);
             linearLayout.setOnClickListener(this);
-            this.ksP.addView(linearLayout, new ViewGroup.LayoutParams(fcP, fcQ));
+            this.ksU.addView(linearLayout, new ViewGroup.LayoutParams(fcP, fcQ));
         }
     }
 
@@ -106,9 +106,9 @@ public class b implements View.OnClickListener {
         this.mShareItem = shareDialogConfig.shareItem;
         this.mForumList = shareDialogConfig.mForumList;
         this.mPrivateThread = shareDialogConfig.mPrivateThread;
-        this.ksP.removeAllViews();
-        this.ksR = shareDialogConfig.mShowMoreForumShare;
-        if (this.ksR) {
+        this.ksU.removeAllViews();
+        this.ksW = shareDialogConfig.mShowMoreForumShare;
+        if (this.ksW) {
             a(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_wechat40_svg), R.string.share_weixin, 4);
             a(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_circle40_svg), R.string.share_weixin_timeline, 3);
             a(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qq40_svg), R.string.share_qq_friends, 9);
@@ -132,13 +132,13 @@ public class b implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.ksQ = aVar;
+        this.ksV = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ksQ != null) {
-            this.ksQ.cT(view);
+        if (this.ksV != null) {
+            this.ksV.cT(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
@@ -227,7 +227,7 @@ public class b implements View.OnClickListener {
             a("1", (TransmitForumData) null, this.mPrivateThread);
             Df(11);
         } else if (i == 13) {
-            cNg();
+            cNi();
             Df(13);
         }
     }
@@ -236,10 +236,10 @@ public class b implements View.OnClickListener {
         return i == 4 || i == 3 || i == 9 || i == 5 || i == 7 || i == 10;
     }
 
-    private void cNg() {
+    private void cNi() {
         SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, RequestResponseCode.REQUEST_SELECT_FORUM);
         selectForumActivityConfig.setForumList(this.mForumList);
-        if (this.ksR) {
+        if (this.ksW) {
             selectForumActivityConfig.setFrom(4);
             selectForumActivityConfig.setMoreForumImg(this.mShareItem.imageUrl);
             selectForumActivityConfig.setMoreForumUrl(this.mShareItem.linkUrl);
@@ -270,7 +270,7 @@ public class b implements View.OnClickListener {
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.ksS);
+        MessageManager.getInstance().unRegisterListener(this.ksX);
     }
 
     private void h(String str, Object... objArr) {

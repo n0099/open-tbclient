@@ -406,10 +406,10 @@ public class b extends com.baidu.tieba.frs.view.b {
             return false;
         }
         final FrsViewData frsViewData = this.gKI;
-        if (frsViewData.getStar() != null && !StringUtils.isNull(frsViewData.getStar().cIH())) {
+        if (frsViewData.getStar() != null && !StringUtils.isNull(frsViewData.getStar().cIJ())) {
             tVar = new t();
             tVar.setLinkUrl("");
-            tVar.setImageUrl(frsViewData.getStar().cIH());
+            tVar.setImageUrl(frsViewData.getStar().cIJ());
         } else {
             tVar = (frsViewData.getActivityHeadData() == null || v.getCount(frsViewData.getActivityHeadData().ayh()) < 1) ? null : frsViewData.getActivityHeadData().ayh().get(0);
         }
@@ -425,7 +425,7 @@ public class b extends com.baidu.tieba.frs.view.b {
                     if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
                         anVar.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhR);
                     }
-                    com.baidu.tieba.r.c.cIs().a(this.gnW.getUniqueId(), com.baidu.tieba.r.a.a("", frsViewData.getActivityHeadData().ayi(), "", null), anVar2);
+                    com.baidu.tieba.r.c.cIu().a(this.gnW.getUniqueId(), com.baidu.tieba.r.a.a("", frsViewData.getActivityHeadData().ayi(), "", null), anVar2);
                 }
                 this.gNv.startLoad(tVar.getImageUrl(), 10, false);
                 if (!TextUtils.isEmpty(tVar.getLinkUrl())) {
@@ -445,7 +445,7 @@ public class b extends com.baidu.tieba.frs.view.b {
                                     if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
                                         anVar3.cp(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dhR);
                                     }
-                                    com.baidu.tieba.r.c.cIs().b(b.this.gnW.getUniqueId(), anVar4);
+                                    com.baidu.tieba.r.c.cIu().b(b.this.gnW.getUniqueId(), anVar4);
                                 }
                                 ba.aEt().a(b.this.cRe, new String[]{tVar.getLinkUrl()}, true);
                             }

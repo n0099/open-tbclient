@@ -125,14 +125,14 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
         if ((this.gro.getTag() instanceof TextView) && iVar2 != null) {
             String title = iVar2.getTitle();
-            if (iVar2.cIy()) {
+            if (iVar2.cIA()) {
                 title = getContext().getString(R.string.frs_top_ad_lz_reply, title);
             }
             ((TextView) this.gro.getTag()).setText(title);
         }
         if ((this.grp.getTag() instanceof TextView) && iVar != null) {
             String title2 = iVar.getTitle();
-            ((TextView) this.grp.getTag()).setText(iVar.cIy() ? getContext().getString(R.string.frs_top_ad_lz_reply, title2) : title2);
+            ((TextView) this.grp.getTag()).setText(iVar.cIA() ? getContext().getString(R.string.frs_top_ad_lz_reply, title2) : title2);
         }
     }
 

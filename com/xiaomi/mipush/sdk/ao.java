@@ -10,15 +10,15 @@ public class ao {
     private static volatile ao a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f39a;
+    private Context f40a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<ab> f40a = new ArrayList();
+    private List<ab> f41a = new ArrayList();
 
     private ao(Context context) {
-        this.f39a = context.getApplicationContext();
-        if (this.f39a == null) {
-            this.f39a = context;
+        this.f40a = context.getApplicationContext();
+        if (this.f40a == null) {
+            this.f40a = context;
         }
     }
 
@@ -35,11 +35,11 @@ public class ao {
 
     public int a(String str) {
         int i;
-        synchronized (this.f40a) {
+        synchronized (this.f41a) {
             ab abVar = new ab();
-            abVar.f35a = str;
-            if (this.f40a.contains(abVar)) {
-                for (ab abVar2 : this.f40a) {
+            abVar.f36a = str;
+            if (this.f41a.contains(abVar)) {
+                for (ab abVar2 : this.f41a) {
                     if (abVar2.equals(abVar)) {
                         i = abVar2.a;
                         break;
@@ -52,45 +52,45 @@ public class ao {
     }
 
     public synchronized String a(bd bdVar) {
-        return this.f39a.getSharedPreferences("mipush_extra", 0).getString(bdVar.name(), "");
+        return this.f40a.getSharedPreferences("mipush_extra", 0).getString(bdVar.name(), "");
     }
 
     public synchronized void a(bd bdVar, String str) {
-        SharedPreferences sharedPreferences = this.f39a.getSharedPreferences("mipush_extra", 0);
+        SharedPreferences sharedPreferences = this.f40a.getSharedPreferences("mipush_extra", 0);
         sharedPreferences.edit().putString(bdVar.name(), str).commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m57a(String str) {
-        synchronized (this.f40a) {
+        synchronized (this.f41a) {
             ab abVar = new ab();
             abVar.a = 0;
-            abVar.f35a = str;
-            if (this.f40a.contains(abVar)) {
-                this.f40a.remove(abVar);
+            abVar.f36a = str;
+            if (this.f41a.contains(abVar)) {
+                this.f41a.remove(abVar);
             }
-            this.f40a.add(abVar);
+            this.f41a.add(abVar);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public boolean m58a(String str) {
         boolean z;
-        synchronized (this.f40a) {
+        synchronized (this.f41a) {
             ab abVar = new ab();
-            abVar.f35a = str;
-            z = this.f40a.contains(abVar);
+            abVar.f36a = str;
+            z = this.f41a.contains(abVar);
         }
         return z;
     }
 
     public void b(String str) {
         ab abVar;
-        synchronized (this.f40a) {
+        synchronized (this.f41a) {
             ab abVar2 = new ab();
-            abVar2.f35a = str;
-            if (this.f40a.contains(abVar2)) {
-                Iterator<ab> it = this.f40a.iterator();
+            abVar2.f36a = str;
+            if (this.f41a.contains(abVar2)) {
+                Iterator<ab> it = this.f41a.iterator();
                 while (it.hasNext()) {
                     abVar = it.next();
                     if (abVar2.equals(abVar)) {
@@ -100,17 +100,17 @@ public class ao {
             }
             abVar = abVar2;
             abVar.a++;
-            this.f40a.remove(abVar);
-            this.f40a.add(abVar);
+            this.f41a.remove(abVar);
+            this.f41a.add(abVar);
         }
     }
 
     public void c(String str) {
-        synchronized (this.f40a) {
+        synchronized (this.f41a) {
             ab abVar = new ab();
-            abVar.f35a = str;
-            if (this.f40a.contains(abVar)) {
-                this.f40a.remove(abVar);
+            abVar.f36a = str;
+            if (this.f41a.contains(abVar)) {
+                this.f41a.remove(abVar);
             }
         }
     }

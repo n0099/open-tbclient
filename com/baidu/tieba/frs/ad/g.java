@@ -103,15 +103,15 @@ public class g {
             this.gry = hVar;
             this.mTitleView.setText(this.gry.getTitle());
             if (hVar.getType() == 3) {
-                this.grB.setText(this.mContext.getString(R.string.frs_top_ad_download_num, Integer.valueOf(this.gry.cIw())));
+                this.grB.setText(this.mContext.getString(R.string.frs_top_ad_download_num, Integer.valueOf(this.gry.cIy())));
             } else if (hVar.getType() == 1) {
-                this.grB.setText(this.mContext.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.gry.cIw())));
+                this.grB.setText(this.mContext.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.gry.cIy())));
             } else if (hVar.getType() == 2) {
-                this.grB.setText(this.mContext.getString(R.string.frs_top_ad_appointment_num, Integer.valueOf(this.gry.cIw())));
+                this.grB.setText(this.mContext.getString(R.string.frs_top_ad_appointment_num, Integer.valueOf(this.gry.cIy())));
             }
             this.grv.startLoad(this.gry.avB(), 10, false);
             if (this.grC != null) {
-                this.grC.bf(this.gry.cIx());
+                this.grC.bf(this.gry.cIz());
             }
         }
     }

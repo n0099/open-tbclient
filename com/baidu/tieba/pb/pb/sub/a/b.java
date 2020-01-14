@@ -30,7 +30,7 @@ public class b extends a<PostData, l> {
     private com.baidu.adp.lib.d.b<TbImageView> grj;
     private TbRichTextView.c iDS;
     private boolean iDa;
-    private String iVe;
+    private String iVj;
     private View.OnLongClickListener mOnLongClickListener;
 
     public b(NewSubPbActivity newSubPbActivity, BdUniqueId bdUniqueId) {
@@ -47,7 +47,7 @@ public class b extends a<PostData, l> {
             @Override // com.baidu.adp.lib.d.c
             /* renamed from: bEy */
             public ConstrainImageLayout makeObject() {
-                return new ConstrainImageLayout(b.this.iVd.getPageContext().getPageActivity());
+                return new ConstrainImageLayout(b.this.iVi.getPageContext().getPageActivity());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class b extends a<PostData, l> {
             @Override // com.baidu.adp.lib.d.c
             /* renamed from: aFP */
             public TbImageView makeObject() {
-                TbImageView tbImageView = new TbImageView(b.this.iVd.getPageContext().getPageActivity());
+                TbImageView tbImageView = new TbImageView(b.this.iVi.getPageContext().getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(am.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
@@ -108,7 +108,7 @@ public class b extends a<PostData, l> {
             }
         }, 12, 0);
         if (newSubPbActivity != null && newSubPbActivity.cpW() != null) {
-            this.WJ = newSubPbActivity.cpW().cqL();
+            this.WJ = newSubPbActivity.cpW().cqM();
         }
     }
 
@@ -117,7 +117,7 @@ public class b extends a<PostData, l> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bF */
     public l b(ViewGroup viewGroup) {
-        l lVar = new l(this.iVd.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_floor_item_layout, viewGroup, false), this.WJ);
+        l lVar = new l(this.iVi.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_floor_item_layout, viewGroup, false), this.WJ);
         lVar.pF(true);
         lVar.iEh.setConstrainLayoutPool(this.gri);
         lVar.iEh.setImageViewPool(this.grj);
@@ -182,7 +182,7 @@ public class b extends a<PostData, l> {
 
     private void b(l lVar, PostData postData) {
         if (lVar != null && lVar.iDY != null) {
-            if (aq.equals(this.iVe, postData.getId())) {
+            if (aq.equals(this.iVj, postData.getId())) {
                 am.setBackgroundColor(lVar.iDY, R.color.cp_other_g);
             } else {
                 am.setBackgroundColor(lVar.iDY, R.color.cp_bg_line_e);
@@ -193,10 +193,10 @@ public class b extends a<PostData, l> {
     private void a(l lVar, PostData postData, View view, int i) {
         if (lVar != null && postData != null) {
             lVar.mPosition = i;
-            com.baidu.tieba.pb.pb.b.a(lVar, postData, view, i, this.iVd, this.Kn);
+            com.baidu.tieba.pb.pb.b.a(lVar, postData, view, i, this.iVi, this.Kn);
             com.baidu.tieba.pb.pb.b.a(lVar, postData, this.Kn, i);
-            com.baidu.tieba.pb.pb.b.a(this.iVd, lVar, postData, view, this.iDa, this.mIsFromCDN, i != 0, this.iDS);
-            com.baidu.tieba.pb.pb.b.a(this.iVd, lVar, postData, this.Kn);
+            com.baidu.tieba.pb.pb.b.a(this.iVi, lVar, postData, view, this.iDa, this.mIsFromCDN, i != 0, this.iDS);
+            com.baidu.tieba.pb.pb.b.a(this.iVi, lVar, postData, this.Kn);
             com.baidu.tieba.pb.pb.b.a(lVar, postData);
             com.baidu.tieba.pb.pb.b.a(lVar, postData, this.iDa);
             i(lVar, postData);
@@ -205,7 +205,7 @@ public class b extends a<PostData, l> {
 
     private void i(l lVar, PostData postData) {
         if (lVar != null && postData != null) {
-            lVar.iEz.setVisibility(postData.kgg ? 0 : 8);
+            lVar.iEz.setVisibility(postData.kgl ? 0 : 8);
         }
     }
 
@@ -216,8 +216,8 @@ public class b extends a<PostData, l> {
 
     private void b(l lVar) {
         lVar.iDY.setOnLongClickListener(this.mOnLongClickListener);
-        if (this.iVd != null && this.iVd.getPageContext().getOrignalPage() != 0) {
-            com.baidu.tieba.pb.pb.main.b.a cjQ = this.iVd.cjQ();
+        if (this.iVi != null && this.iVi.getPageContext().getOrignalPage() != 0) {
+            com.baidu.tieba.pb.pb.main.b.a cjQ = this.iVi.cjQ();
             if (cjQ != null) {
                 lVar.ftZ.setOnClickListener(cjQ.gOU);
                 lVar.iEf.setOnClickListener(cjQ.gOU);
@@ -251,6 +251,6 @@ public class b extends a<PostData, l> {
     }
 
     public void Gf(String str) {
-        this.iVe = str;
+        this.iVj = str;
     }
 }

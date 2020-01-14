@@ -18,10 +18,10 @@ public final class FlowableSubscribeOn<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
-        v.c dHW = this.scheduler.dHW();
-        SubscribeOnSubscriber subscribeOnSubscriber = new SubscribeOnSubscriber(cVar, dHW, this.nvK, this.nonScheduledRequests);
+        v.c dHY = this.scheduler.dHY();
+        SubscribeOnSubscriber subscribeOnSubscriber = new SubscribeOnSubscriber(cVar, dHY, this.nvP, this.nonScheduledRequests);
         cVar.onSubscribe(subscribeOnSubscriber);
-        dHW.D(subscribeOnSubscriber);
+        dHY.D(subscribeOnSubscriber);
     }
 
     /* loaded from: classes5.dex */

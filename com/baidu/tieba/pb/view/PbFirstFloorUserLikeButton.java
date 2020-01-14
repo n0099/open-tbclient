@@ -12,7 +12,7 @@ import com.baidu.tieba.R;
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
     protected String dfI;
     protected String dfJ;
-    private AlphaAnimation jab;
+    private AlphaAnimation jag;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -64,11 +64,11 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
             this.dfk = Boolean.valueOf(z);
             if (getVisibility() != 8) {
                 if (z) {
-                    if (this.jab == null) {
-                        this.jab = new AlphaAnimation(1.0f, 0.0f);
-                        this.jab.setDuration(500L);
-                        this.jab.setFillAfter(true);
-                        this.jab.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
+                    if (this.jag == null) {
+                        this.jag = new AlphaAnimation(1.0f, 0.0f);
+                        this.jag.setDuration(500L);
+                        this.jag.setFillAfter(true);
+                        this.jag.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
                             @Override // android.view.animation.Animation.AnimationListener
                             public void onAnimationStart(Animation animation) {
                             }
@@ -84,10 +84,10 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements co
                             }
                         });
                     } else {
-                        this.jab.cancel();
+                        this.jag.cancel();
                     }
                     if (isShown()) {
-                        startAnimation(this.jab);
+                        startAnimation(this.jag);
                         return;
                     } else {
                         setVisibility(8);

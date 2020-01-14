@@ -29,30 +29,30 @@ import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public final class d implements p.a<c> {
-    private static final Pattern mwo = Pattern.compile("AVERAGE-BANDWIDTH=(\\d+)\\b");
-    private static final Pattern mwp = Pattern.compile("[^-]BANDWIDTH=(\\d+)\\b");
-    private static final Pattern mwq = Pattern.compile("CODECS=\"(.+?)\"");
-    private static final Pattern mwr = Pattern.compile("RESOLUTION=(\\d+x\\d+)");
-    private static final Pattern mws = Pattern.compile("FRAME-RATE=([\\d\\.]+)\\b");
-    private static final Pattern mwt = Pattern.compile("#EXT-X-TARGETDURATION:(\\d+)\\b");
-    private static final Pattern mwu = Pattern.compile("#EXT-X-VERSION:(\\d+)\\b");
-    private static final Pattern mwv = Pattern.compile("#EXT-X-PLAYLIST-TYPE:(.+)\\b");
-    private static final Pattern mww = Pattern.compile("#EXT-X-MEDIA-SEQUENCE:(\\d+)\\b");
-    private static final Pattern mwx = Pattern.compile("#EXTINF:([\\d\\.]+)\\b");
-    private static final Pattern mwy = Pattern.compile("TIME-OFFSET=(-?[\\d\\.]+)\\b");
-    private static final Pattern mwz = Pattern.compile("#EXT-X-BYTERANGE:(\\d+(?:@\\d+)?)\\b");
-    private static final Pattern mwA = Pattern.compile("BYTERANGE=\"(\\d+(?:@\\d+)?)\\b\"");
-    private static final Pattern mwB = Pattern.compile("METHOD=(NONE|AES-128|SAMPLE-AES)");
-    private static final Pattern mwC = Pattern.compile("KEYFORMAT=\"(.+?)\"");
-    private static final Pattern mwD = Pattern.compile("URI=\"(.+?)\"");
-    private static final Pattern mwE = Pattern.compile("IV=([^,.*]+)");
-    private static final Pattern mwF = Pattern.compile("TYPE=(AUDIO|VIDEO|SUBTITLES|CLOSED-CAPTIONS)");
-    private static final Pattern mwG = Pattern.compile("LANGUAGE=\"(.+?)\"");
-    private static final Pattern mwH = Pattern.compile("NAME=\"(.+?)\"");
-    private static final Pattern mwI = Pattern.compile("INSTREAM-ID=\"((?:CC|SERVICE)\\d+)\"");
-    private static final Pattern mwJ = PB("AUTOSELECT");
-    private static final Pattern mwK = PB("DEFAULT");
-    private static final Pattern mwL = PB("FORCED");
+    private static final Pattern mwt = Pattern.compile("AVERAGE-BANDWIDTH=(\\d+)\\b");
+    private static final Pattern mwu = Pattern.compile("[^-]BANDWIDTH=(\\d+)\\b");
+    private static final Pattern mwv = Pattern.compile("CODECS=\"(.+?)\"");
+    private static final Pattern mww = Pattern.compile("RESOLUTION=(\\d+x\\d+)");
+    private static final Pattern mwx = Pattern.compile("FRAME-RATE=([\\d\\.]+)\\b");
+    private static final Pattern mwy = Pattern.compile("#EXT-X-TARGETDURATION:(\\d+)\\b");
+    private static final Pattern mwz = Pattern.compile("#EXT-X-VERSION:(\\d+)\\b");
+    private static final Pattern mwA = Pattern.compile("#EXT-X-PLAYLIST-TYPE:(.+)\\b");
+    private static final Pattern mwB = Pattern.compile("#EXT-X-MEDIA-SEQUENCE:(\\d+)\\b");
+    private static final Pattern mwC = Pattern.compile("#EXTINF:([\\d\\.]+)\\b");
+    private static final Pattern mwD = Pattern.compile("TIME-OFFSET=(-?[\\d\\.]+)\\b");
+    private static final Pattern mwE = Pattern.compile("#EXT-X-BYTERANGE:(\\d+(?:@\\d+)?)\\b");
+    private static final Pattern mwF = Pattern.compile("BYTERANGE=\"(\\d+(?:@\\d+)?)\\b\"");
+    private static final Pattern mwG = Pattern.compile("METHOD=(NONE|AES-128|SAMPLE-AES)");
+    private static final Pattern mwH = Pattern.compile("KEYFORMAT=\"(.+?)\"");
+    private static final Pattern mwI = Pattern.compile("URI=\"(.+?)\"");
+    private static final Pattern mwJ = Pattern.compile("IV=([^,.*]+)");
+    private static final Pattern mwK = Pattern.compile("TYPE=(AUDIO|VIDEO|SUBTITLES|CLOSED-CAPTIONS)");
+    private static final Pattern mwL = Pattern.compile("LANGUAGE=\"(.+?)\"");
+    private static final Pattern mwM = Pattern.compile("NAME=\"(.+?)\"");
+    private static final Pattern mwN = Pattern.compile("INSTREAM-ID=\"((?:CC|SERVICE)\\d+)\"");
+    private static final Pattern mwO = PB("AUTOSELECT");
+    private static final Pattern mwP = PB("DEFAULT");
+    private static final Pattern mwQ = PB("FORCED");
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [156=4] */
     /* JADX DEBUG: Method merged with bridge method */
@@ -143,10 +143,10 @@ public final class d implements p.a<c> {
             }
             if (next.startsWith("#EXT-X-MEDIA")) {
                 int PA = PA(next);
-                String c = c(next, mwD);
-                String d = d(next, mwH);
-                String c2 = c(next, mwG);
-                String d2 = d(next, mwF);
+                String c = c(next, mwI);
+                String d = d(next, mwM);
+                String c2 = c(next, mwL);
+                String d2 = d(next, mwK);
                 char c3 = 65535;
                 switch (d2.hashCode()) {
                     case -959297733:
@@ -187,7 +187,7 @@ public final class d implements p.a<c> {
                         format = format2;
                         break;
                     case 2:
-                        String d3 = d(next, mwI);
+                        String d3 = d(next, mwN);
                         if (d3.startsWith("CC")) {
                             str2 = "application/cea-608";
                             parseInt = Integer.parseInt(d3.substring(2));
@@ -209,13 +209,13 @@ public final class d implements p.a<c> {
                 format2 = format;
             } else if (next.startsWith("#EXT-X-STREAM-INF")) {
                 boolean contains = z | next.contains("CLOSED-CAPTIONS=NONE");
-                int a3 = a(next, mwp);
-                String c4 = c(next, mwo);
+                int a3 = a(next, mwu);
+                String c4 = c(next, mwt);
                 if (c4 != null) {
                     a3 = Integer.parseInt(c4);
                 }
-                String c5 = c(next, mwq);
-                String c6 = c(next, mwr);
+                String c5 = c(next, mwv);
+                String c6 = c(next, mww);
                 if (c6 != null) {
                     String[] split = c6.split(Config.EVENT_HEAT_X);
                     int parseInt2 = Integer.parseInt(split[0]);
@@ -231,7 +231,7 @@ public final class d implements p.a<c> {
                     i2 = -1;
                 }
                 float f = -1.0f;
-                String c7 = c(next, mws);
+                String c7 = c(next, mwx);
                 if (c7 != null) {
                     f = Float.parseFloat(c7);
                 }
@@ -246,7 +246,7 @@ public final class d implements p.a<c> {
     }
 
     private static int PA(String str) {
-        return (a(str, mwK, false) ? 1 : 0) | (a(str, mwL, false) ? 2 : 0) | (a(str, mwJ, false) ? 4 : 0);
+        return (a(str, mwP, false) ? 1 : 0) | (a(str, mwQ, false) ? 2 : 0) | (a(str, mwO, false) ? 4 : 0);
     }
 
     private static b b(a aVar, String str) throws IOException {
@@ -280,7 +280,7 @@ public final class d implements p.a<c> {
                 arrayList2.add(next);
             }
             if (next.startsWith("#EXT-X-PLAYLIST-TYPE")) {
-                String d = d(next, mwv);
+                String d = d(next, mwA);
                 if ("VOD".equals(d)) {
                     i = 1;
                 } else {
@@ -288,10 +288,10 @@ public final class d implements p.a<c> {
                 }
                 i3 = i;
             } else if (next.startsWith("#EXT-X-START")) {
-                j4 = (long) (b(next, mwy) * 1000000.0d);
+                j4 = (long) (b(next, mwD) * 1000000.0d);
             } else if (next.startsWith("#EXT-X-MAP")) {
-                String d2 = d(next, mwD);
-                String c = c(next, mwA);
+                String d2 = d(next, mwI);
+                String c = c(next, mwF);
                 if (c != null) {
                     String[] split = c.split("@");
                     j2 = Long.parseLong(split[0]);
@@ -304,25 +304,25 @@ public final class d implements p.a<c> {
                 j7 = 0;
                 aVar2 = aVar3;
             } else if (next.startsWith("#EXT-X-TARGETDURATION")) {
-                j3 = a(next, mwt) * TimeUtils.NANOS_PER_MS;
+                j3 = a(next, mwy) * TimeUtils.NANOS_PER_MS;
             } else if (next.startsWith("#EXT-X-MEDIA-SEQUENCE")) {
-                int a2 = a(next, mww);
+                int a2 = a(next, mwB);
                 i7 = a2;
                 i2 = a2;
             } else if (next.startsWith("#EXT-X-VERSION")) {
-                i6 = a(next, mwu);
+                i6 = a(next, mwz);
             } else if (next.startsWith("#EXTINF")) {
-                j5 = (long) (b(next, mwx) * 1000000.0d);
+                j5 = (long) (b(next, mwC) * 1000000.0d);
             } else if (next.startsWith("#EXT-X-KEY")) {
-                String d3 = d(next, mwB);
-                String c2 = c(next, mwC);
+                String d3 = d(next, mwG);
+                String c2 = c(next, mwH);
                 String str4 = null;
                 String str5 = null;
                 if (!"NONE".equals(d3)) {
-                    str5 = c(next, mwE);
+                    str5 = c(next, mwJ);
                     if (HTTP.IDENTITY_CODING.equals(c2) || c2 == null) {
                         if ("AES-128".equals(d3)) {
-                            str4 = d(next, mwD);
+                            str4 = d(next, mwI);
                         }
                     } else {
                         DrmInitData.SchemeData fj = fj(next, c2);
@@ -334,7 +334,7 @@ public final class d implements p.a<c> {
                 str3 = str5;
                 str2 = str4;
             } else if (next.startsWith("#EXT-X-BYTERANGE")) {
-                String[] split2 = d(next, mwz).split("@");
+                String[] split2 = d(next, mwE).split("@");
                 j2 = Long.parseLong(split2[0]);
                 j7 = split2.length > 1 ? Long.parseLong(split2[1]) : j7;
             } else if (next.startsWith("#EXT-X-DISCONTINUITY-SEQUENCE")) {
@@ -372,11 +372,11 @@ public final class d implements p.a<c> {
 
     private static DrmInitData.SchemeData fj(String str, String str2) throws ParserException {
         if ("urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed".equals(str2)) {
-            String d = d(str, mwD);
-            return new DrmInitData.SchemeData(com.google.android.exoplayer2.b.lXv, MimeType.Video.MP4, Base64.decode(d.substring(d.indexOf(44)), 0));
+            String d = d(str, mwI);
+            return new DrmInitData.SchemeData(com.google.android.exoplayer2.b.lXA, MimeType.Video.MP4, Base64.decode(d.substring(d.indexOf(44)), 0));
         } else if ("com.widevine".equals(str2)) {
             try {
-                return new DrmInitData.SchemeData(com.google.android.exoplayer2.b.lXv, "hls", str.getBytes("UTF-8"));
+                return new DrmInitData.SchemeData(com.google.android.exoplayer2.b.lXA, "hls", str.getBytes("UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 throw new ParserException(e);
             }
@@ -424,39 +424,39 @@ public final class d implements p.a<c> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        private final BufferedReader mwM;
-        private final Queue<String> mwN;
-        private String mwO;
+        private final BufferedReader mwR;
+        private final Queue<String> mwS;
+        private String mwT;
 
         public a(Queue<String> queue, BufferedReader bufferedReader) {
-            this.mwN = queue;
-            this.mwM = bufferedReader;
+            this.mwS = queue;
+            this.mwR = bufferedReader;
         }
 
         public boolean hasNext() throws IOException {
-            if (this.mwO != null) {
+            if (this.mwT != null) {
                 return true;
             }
-            if (!this.mwN.isEmpty()) {
-                this.mwO = this.mwN.poll();
+            if (!this.mwS.isEmpty()) {
+                this.mwT = this.mwS.poll();
                 return true;
             }
             do {
-                String readLine = this.mwM.readLine();
-                this.mwO = readLine;
+                String readLine = this.mwR.readLine();
+                this.mwT = readLine;
                 if (readLine != null) {
-                    this.mwO = this.mwO.trim();
+                    this.mwT = this.mwT.trim();
                 } else {
                     return false;
                 }
-            } while (this.mwO.isEmpty());
+            } while (this.mwT.isEmpty());
             return true;
         }
 
         public String next() throws IOException {
             if (hasNext()) {
-                String str = this.mwO;
-                this.mwO = null;
+                String str = this.mwT;
+                this.mwT = null;
                 return str;
             }
             return null;

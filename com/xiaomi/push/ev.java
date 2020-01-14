@@ -11,10 +11,10 @@ public class ev {
     private static volatile ev a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f327a;
+    private Context f328a;
 
     private ev(Context context) {
-        this.f327a = context;
+        this.f328a = context;
     }
 
     public static ev a(Context context) {
@@ -30,9 +30,9 @@ public class ev {
 
     private void a(com.xiaomi.clientreport.data.a aVar) {
         if (aVar instanceof PerfClientReport) {
-            ClientReportClient.reportPerf(this.f327a, (PerfClientReport) aVar);
+            ClientReportClient.reportPerf(this.f328a, (PerfClientReport) aVar);
         } else if (aVar instanceof EventClientReport) {
-            ClientReportClient.reportEvent(this.f327a, (EventClientReport) aVar);
+            ClientReportClient.reportEvent(this.f328a, (EventClientReport) aVar);
         }
     }
 
@@ -40,7 +40,7 @@ public class ev {
         if (i < 0 || j2 < 0 || j <= 0) {
             return;
         }
-        PerfClientReport a2 = eu.a(this.f327a, i, j, j2);
+        PerfClientReport a2 = eu.a(this.f328a, i, j, j2);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_6_19");
         a(a2);
@@ -71,7 +71,7 @@ public class ev {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return;
         }
-        EventClientReport a2 = eu.a(this.f327a, str2, str3, i, j, str4);
+        EventClientReport a2 = eu.a(this.f328a, str2, str3, i, j, str4);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_6_19");
         a(a2);

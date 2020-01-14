@@ -226,7 +226,7 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     }
 
     private Fragment Fw(String str) {
-        return "video_pb_fragment_tag".equals(str) ? VideoPbFragment.crg() : PbFragment.ckT();
+        return "video_pb_fragment_tag".equals(str) ? VideoPbFragment.cri() : PbFragment.ckT();
     }
 
     public PbModel ckc() {

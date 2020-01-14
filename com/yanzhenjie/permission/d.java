@@ -9,17 +9,17 @@ import java.util.List;
 @RequiresApi(api = 23)
 /* loaded from: classes5.dex */
 class d implements PermissionActivity.a, h, i {
-    private static final com.yanzhenjie.permission.a.a nry = new com.yanzhenjie.permission.a.b();
+    private static final com.yanzhenjie.permission.a.a nrD = new com.yanzhenjie.permission.a.b();
     private String[] Ip;
-    private a nrA;
-    private a nrB;
-    private g nrC;
-    private String[] nrD;
-    private com.yanzhenjie.permission.b.b nrz;
+    private com.yanzhenjie.permission.b.b nrE;
+    private a nrF;
+    private a nrG;
+    private g nrH;
+    private String[] nrI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.yanzhenjie.permission.b.b bVar) {
-        this.nrz = bVar;
+        this.nrE = bVar;
     }
 
     @Override // com.yanzhenjie.permission.h
@@ -32,78 +32,78 @@ class d implements PermissionActivity.a, h, i {
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(g gVar) {
-        this.nrC = gVar;
+        this.nrH = gVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(a aVar) {
-        this.nrA = aVar;
+        this.nrF = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h b(a aVar) {
-        this.nrB = aVar;
+        this.nrG = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     public void start() {
-        List<String> a = a(nry, this.nrz, this.Ip);
-        this.nrD = (String[]) a.toArray(new String[a.size()]);
-        if (this.nrD.length > 0) {
-            List<String> b = b(this.nrz, this.nrD);
-            if (b.size() > 0 && this.nrC != null) {
-                this.nrC.showRationale(this.nrz.getContext(), b, this);
+        List<String> a = a(nrD, this.nrE, this.Ip);
+        this.nrI = (String[]) a.toArray(new String[a.size()]);
+        if (this.nrI.length > 0) {
+            List<String> b = b(this.nrE, this.nrI);
+            if (b.size() > 0 && this.nrH != null) {
+                this.nrH.showRationale(this.nrE.getContext(), b, this);
                 return;
             } else {
                 execute();
                 return;
             }
         }
-        dGM();
+        dGO();
     }
 
     @Override // com.yanzhenjie.permission.i
     @RequiresApi(api = 23)
     public void execute() {
-        PermissionActivity.a(this.nrz.getContext(), this.nrD, this);
+        PermissionActivity.a(this.nrE.getContext(), this.nrI, this);
     }
 
     @Override // com.yanzhenjie.permission.i
     public void cancel() {
-        W(this.nrD);
+        W(this.nrI);
     }
 
     @Override // com.yanzhenjie.permission.PermissionActivity.a
     public void W(@NonNull String[] strArr) {
-        List<String> a = a(nry, this.nrz, strArr);
+        List<String> a = a(nrD, this.nrE, strArr);
         if (a.isEmpty()) {
-            dGM();
+            dGO();
         } else {
             fx(a);
         }
     }
 
-    private void dGM() {
-        if (this.nrA != null) {
+    private void dGO() {
+        if (this.nrF != null) {
             List<String> asList = Arrays.asList(this.Ip);
             try {
-                this.nrA.onAction(asList);
+                this.nrF.onAction(asList);
             } catch (Exception e) {
-                if (this.nrB != null) {
-                    this.nrB.onAction(asList);
+                if (this.nrG != null) {
+                    this.nrG.onAction(asList);
                 }
             }
         }
     }
 
     private void fx(@NonNull List<String> list) {
-        if (this.nrB != null) {
-            this.nrB.onAction(list);
+        if (this.nrG != null) {
+            this.nrG.onAction(list);
         }
     }
 

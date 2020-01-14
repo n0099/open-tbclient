@@ -156,7 +156,7 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         if (mVar instanceof u) {
             return true;
         }
-        if ((!(mVar instanceof bj) || ((bj) mVar).azS() != 2) && mVar.getType() != n.kec) {
+        if ((!(mVar instanceof bj) || ((bj) mVar).azS() != 2) && mVar.getType() != n.keh) {
             return false;
         }
         return true;

@@ -5,44 +5,44 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
 /* loaded from: classes10.dex */
 public class j implements f {
-    private static j lQw = null;
+    private static j lQB = null;
 
     protected j() {
     }
 
-    public static synchronized j dmI() {
+    public static synchronized j dmK() {
         j jVar;
         synchronized (j.class) {
-            if (lQw == null) {
-                lQw = new j();
+            if (lQB == null) {
+                lQB = new j();
             }
-            jVar = lQw;
+            jVar = lQB;
         }
         return jVar;
     }
 
     @Override // com.facebook.imagepipeline.c.f
     public com.facebook.cache.common.b a(ImageRequest imageRequest, Object obj) {
-        return new c(K(imageRequest.dra()).toString(), imageRequest.drc(), imageRequest.drd(), imageRequest.dre(), null, null, obj);
+        return new c(K(imageRequest.drc()).toString(), imageRequest.dre(), imageRequest.drf(), imageRequest.drg(), null, null, obj);
     }
 
     @Override // com.facebook.imagepipeline.c.f
     public com.facebook.cache.common.b b(ImageRequest imageRequest, Object obj) {
         com.facebook.cache.common.b bVar;
         String str = null;
-        com.facebook.imagepipeline.request.b drj = imageRequest.drj();
-        if (drj != null) {
-            bVar = drj.dqg();
-            str = drj.getClass().getName();
+        com.facebook.imagepipeline.request.b drl = imageRequest.drl();
+        if (drl != null) {
+            bVar = drl.dqi();
+            str = drl.getClass().getName();
         } else {
             bVar = null;
         }
-        return new c(K(imageRequest.dra()).toString(), imageRequest.drc(), imageRequest.drd(), imageRequest.dre(), bVar, str, obj);
+        return new c(K(imageRequest.drc()).toString(), imageRequest.dre(), imageRequest.drf(), imageRequest.drg(), bVar, str, obj);
     }
 
     @Override // com.facebook.imagepipeline.c.f
     public com.facebook.cache.common.b c(ImageRequest imageRequest, @Nullable Object obj) {
-        return a(imageRequest, imageRequest.dra(), obj);
+        return a(imageRequest, imageRequest.drc(), obj);
     }
 
     @Override // com.facebook.imagepipeline.c.f

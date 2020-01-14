@@ -61,34 +61,34 @@ public class a {
         private final boolean cLk;
         private final an hUl;
         private final String key;
-        private final String kgI;
-        private final String kgJ;
-        private final String kgK;
+        private final String kgN;
+        private final String kgO;
+        private final String kgP;
         private final String page;
 
         private C0604a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.kgI = str2;
+            this.kgN = str2;
             this.page = str3;
-            this.kgJ = str4;
-            this.kgK = str5;
+            this.kgO = str4;
+            this.kgP = str5;
             this.cLk = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.hUl = cJQ();
+            this.hUl = cJS();
         }
 
-        private an cJQ() {
+        private an cJS() {
             an anVar = new an(this.key);
-            if (!StringUtils.isNull(this.kgI)) {
-                anVar = anVar.cp("line", this.kgI);
+            if (!StringUtils.isNull(this.kgN)) {
+                anVar = anVar.cp("line", this.kgN);
             }
             if (!StringUtils.isNull(this.page)) {
                 anVar = anVar.cp("page", this.page);
             }
-            if (!StringUtils.isNull(this.kgJ)) {
-                anVar = anVar.cp("locate", this.kgJ);
+            if (!StringUtils.isNull(this.kgO)) {
+                anVar = anVar.cp("locate", this.kgO);
             }
-            if (!StringUtils.isNull(this.kgK)) {
-                return anVar.cp("task", this.kgK);
+            if (!StringUtils.isNull(this.kgP)) {
+                return anVar.cp("task", this.kgP);
             }
             return anVar;
         }

@@ -27,10 +27,10 @@ public enum hi {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f459a;
+    private final int f460a;
 
     hi(int i) {
-        this.f459a = i;
+        this.f460a = i;
     }
 
     public static hi a(int i) {
@@ -87,6 +87,6 @@ public enum hi {
     }
 
     public int a() {
-        return this.f459a;
+        return this.f460a;
     }
 }

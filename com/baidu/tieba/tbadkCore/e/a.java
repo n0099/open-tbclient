@@ -23,7 +23,7 @@ public class a {
         }
     }
 
-    public void cKb() {
+    public void cKd() {
         this.fSm.clear();
     }
 

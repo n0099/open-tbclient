@@ -12,17 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
-    private List<String> iXu;
+    private List<String> iXz;
     private ArrayList<BaseFragment> mFragments;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.iXu == null) {
-            this.iXu = new ArrayList();
+        if (this.iXz == null) {
+            this.iXz = new ArrayList();
         }
-        this.iXu.clear();
-        this.iXu.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-        this.iXu.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+        this.iXz.clear();
+        this.iXz.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+        this.iXz.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         if (this.mFragments == null) {
             this.mFragments = new ArrayList<>();
         }
@@ -53,13 +53,13 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        if (this.iXu == null || i < 0 || i >= this.iXu.size()) {
+        if (this.iXz == null || i < 0 || i >= this.iXz.size()) {
             return null;
         }
-        return this.iXu.get(i);
+        return this.iXz.get(i);
     }
 
-    public ArrayList<BaseFragment> crG() {
+    public ArrayList<BaseFragment> crI() {
         return this.mFragments;
     }
 }

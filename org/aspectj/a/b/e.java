@@ -12,7 +12,7 @@ public class e extends a implements org.aspectj.lang.reflect.c {
         this.returnType = cls2;
     }
 
-    public Class dLK() {
+    public Class dLM() {
         if (this.returnType == null) {
             this.returnType = NP(6);
         }
@@ -22,18 +22,18 @@ public class e extends a implements org.aspectj.lang.reflect.c {
     @Override // org.aspectj.a.b.f
     protected String b(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(hVar.NR(dLL()));
-        if (hVar.nJk) {
-            stringBuffer.append(hVar.O(dLK()));
+        stringBuffer.append(hVar.NR(dLN()));
+        if (hVar.nJp) {
+            stringBuffer.append(hVar.O(dLM()));
         }
-        if (hVar.nJk) {
+        if (hVar.nJp) {
             stringBuffer.append(HanziToPinyin.Token.SEPARATOR);
         }
-        stringBuffer.append(hVar.k(dLM(), dLN()));
+        stringBuffer.append(hVar.k(dLO(), dLP()));
         stringBuffer.append(".");
         stringBuffer.append(getName());
-        hVar.b(stringBuffer, dLG());
-        hVar.c(stringBuffer, dLH());
+        hVar.b(stringBuffer, dLI());
+        hVar.c(stringBuffer, dLJ());
         return stringBuffer.toString();
     }
 }

@@ -23,11 +23,11 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu.tbadk.core.view.userLike.b {
     private Animation.AnimationListener ayY;
-    private boolean iZZ;
-    private TextView jqA;
-    private HeadPendantView jqB;
-    private View jqC;
-    private View jqD;
+    private boolean jae;
+    private TextView jqF;
+    private HeadPendantView jqG;
+    private View jqH;
+    private View jqI;
 
     public LikeButtonWithHeadPortrait(Context context) {
         super(context);
@@ -38,7 +38,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                LikeButtonWithHeadPortrait.this.cwl();
+                LikeButtonWithHeadPortrait.this.cwn();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -57,7 +57,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                LikeButtonWithHeadPortrait.this.cwl();
+                LikeButtonWithHeadPortrait.this.cwn();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -76,7 +76,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                LikeButtonWithHeadPortrait.this.cwl();
+                LikeButtonWithHeadPortrait.this.cwn();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -88,45 +88,45 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.view_like_button_with_head_portrait, this);
-        this.jqB = (HeadPendantView) findViewById(R.id.head_img);
-        this.jqB.getHeadView().setIsRound(true);
-        this.jqA = (TextView) findViewById(R.id.btn_like);
-        this.jqC = findViewById(R.id.view_background);
-        this.jqD = findViewById(R.id.right_circular_view);
+        this.jqG = (HeadPendantView) findViewById(R.id.head_img);
+        this.jqG.getHeadView().setIsRound(true);
+        this.jqF = (TextView) findViewById(R.id.btn_like);
+        this.jqH = findViewById(R.id.view_background);
+        this.jqI = findViewById(R.id.right_circular_view);
     }
 
     public void fN(boolean z) {
-        this.iZZ = z;
-        if (getWidth() != 0 && this.jqB.getWidth() != 0) {
+        this.jae = z;
+        if (getWidth() != 0 && this.jqG.getWidth() != 0) {
             if (z) {
-                TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, (getWidth() / 2) - (this.jqB.getWidth() / 2), 0.0f, 0.0f);
+                TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, (getWidth() / 2) - (this.jqG.getWidth() / 2), 0.0f, 0.0f);
                 translateAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
                 translateAnimation.setDuration(300L);
                 translateAnimation.setFillAfter(true);
                 translateAnimation.setAnimationListener(this.ayY);
                 translateAnimation.setStartOffset(150L);
-                this.jqB.startAnimation(translateAnimation);
-                TranslateAnimation translateAnimation2 = new TranslateAnimation(0.0f, -((getWidth() / 2) - (this.jqB.getWidth() / 2)), 0.0f, 0.0f);
+                this.jqG.startAnimation(translateAnimation);
+                TranslateAnimation translateAnimation2 = new TranslateAnimation(0.0f, -((getWidth() / 2) - (this.jqG.getWidth() / 2)), 0.0f, 0.0f);
                 translateAnimation2.setInterpolator(new AccelerateDecelerateInterpolator());
                 translateAnimation2.setDuration(300L);
                 translateAnimation2.setFillAfter(true);
                 translateAnimation2.setStartOffset(150L);
-                this.jqD.startAnimation(translateAnimation2);
+                this.jqI.startAnimation(translateAnimation2);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation.setDuration(150L);
                 alphaAnimation.setFillAfter(true);
-                this.jqA.startAnimation(alphaAnimation);
-                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, this.jqB.getWidth() / getWidth(), 1.0f, 1.0f, 1, 0.5f, 1, 0.5f);
+                this.jqF.startAnimation(alphaAnimation);
+                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, this.jqG.getWidth() / getWidth(), 1.0f, 1.0f, 1, 0.5f, 1, 0.5f);
                 scaleAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
                 scaleAnimation.setDuration(300L);
                 scaleAnimation.setFillAfter(true);
                 scaleAnimation.setStartOffset(150L);
-                this.jqC.startAnimation(scaleAnimation);
+                this.jqH.startAnimation(scaleAnimation);
                 setClickable(false);
                 return;
             }
-            this.jqA.setVisibility(0);
-            this.jqC.setVisibility(0);
+            this.jqF.setVisibility(0);
+            this.jqH.setVisibility(0);
             setClickable(true);
         }
     }
@@ -148,7 +148,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void ba(View view) {
         TiebaStatic.log(new an("c12503").cp("obj_locate", "4"));
-        if (!this.iZZ) {
+        if (!this.jae) {
             Context context = getContext();
             if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.m.a)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
@@ -165,13 +165,13 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
         setOnClickListener(onClickListener);
     }
 
-    public void cwl() {
-        this.jqB.clearAnimation();
-        this.jqA.clearAnimation();
-        this.jqC.clearAnimation();
-        this.jqD.clearAnimation();
-        this.jqA.setVisibility(8);
-        this.jqC.setVisibility(8);
-        this.jqD.setVisibility(8);
+    public void cwn() {
+        this.jqG.clearAnimation();
+        this.jqF.clearAnimation();
+        this.jqH.clearAnimation();
+        this.jqI.clearAnimation();
+        this.jqF.setVisibility(8);
+        this.jqH.setVisibility(8);
+        this.jqI.setVisibility(8);
     }
 }

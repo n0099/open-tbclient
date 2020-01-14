@@ -16,6 +16,6 @@ public class e extends f<Integer> {
         if (aVar.km == null || aVar.kn == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        return (this.npA == null || (num = (Integer) this.npA.b(aVar.ec, aVar.kp.floatValue(), aVar.km, aVar.kn, f, bS(), getProgress())) == null) ? Integer.valueOf(com.tb.airbnb.lottie.d.e.lerp(aVar.km.intValue(), aVar.kn.intValue(), f)) : num;
+        return (this.npF == null || (num = (Integer) this.npF.b(aVar.ec, aVar.kp.floatValue(), aVar.km, aVar.kn, f, bS(), getProgress())) == null) ? Integer.valueOf(com.tb.airbnb.lottie.d.e.lerp(aVar.km.intValue(), aVar.kn.intValue(), f)) : num;
     }
 }

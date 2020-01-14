@@ -7,27 +7,27 @@ import java.util.regex.Matcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public final class j implements i {
-    private final CharSequence nCm;
-    private final g nCu;
-    private final Matcher nCv;
+    private final Matcher nCA;
+    private final CharSequence nCr;
+    private final g nCz;
 
     public j(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.q.j(matcher, "matcher");
         kotlin.jvm.internal.q.j(charSequence, Config.INPUT_PART);
-        this.nCv = matcher;
-        this.nCm = charSequence;
-        this.nCu = new a();
+        this.nCA = matcher;
+        this.nCr = charSequence;
+        this.nCz = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final MatchResult dJB() {
-        return this.nCv;
+    public final MatchResult dJD() {
+        return this.nCA;
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.c dJz() {
+    public kotlin.b.c dJB() {
         kotlin.b.c a2;
-        a2 = k.a(dJB());
+        a2 = k.a(dJD());
         return a2;
     }
 
@@ -51,7 +51,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.dJB().groupCount() + 1;
+            return j.this.dJD().groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -66,9 +66,9 @@ public final class j implements i {
 
         public f NF(int i) {
             kotlin.b.c a;
-            a = k.a(j.this.dJB(), i);
-            if (a.dJt().intValue() >= 0) {
-                String group = j.this.dJB().group(i);
+            a = k.a(j.this.dJD(), i);
+            if (a.dJv().intValue() >= 0) {
+                String group = j.this.dJD().group(i);
                 kotlin.jvm.internal.q.i(group, "matchResult.group(index)");
                 return new f(group, a);
             }
@@ -77,13 +77,13 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i dJA() {
+    public i dJC() {
         i a2;
-        int end = (dJB().end() == dJB().start() ? 1 : 0) + dJB().end();
-        if (end <= this.nCm.length()) {
-            Matcher matcher = this.nCv.pattern().matcher(this.nCm);
+        int end = (dJD().end() == dJD().start() ? 1 : 0) + dJD().end();
+        if (end <= this.nCr.length()) {
+            Matcher matcher = this.nCA.pattern().matcher(this.nCr);
             kotlin.jvm.internal.q.i(matcher, "matcher.pattern().matcher(input)");
-            a2 = k.a(matcher, end, this.nCm);
+            a2 = k.a(matcher, end, this.nCr);
             return a2;
         }
         return null;

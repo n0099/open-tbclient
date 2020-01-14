@@ -59,7 +59,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.d.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (bc.checkUpIsLogin(d.this.gnW.getPageContext().getPageActivity()) && !d.this.fSG.cNi() && !d.this.bDW()) {
+            if (bc.checkUpIsLogin(d.this.gnW.getPageContext().getPageActivity()) && !d.this.fSG.cNk() && !d.this.bDW()) {
                 if (d.this.gJL != null) {
                     d.this.gJL.bJC();
                 }
@@ -363,7 +363,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
 
     @Override // com.baidu.tieba.frs.entelechy.b.d
     public boolean bFJ() {
-        return (this.fSG.cNi() || bDW()) ? false : true;
+        return (this.fSG.cNk() || bDW()) ? false : true;
     }
 
     public void b(OvalActionButton ovalActionButton) {

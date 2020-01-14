@@ -8,11 +8,11 @@ final class ah implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String[] f37a;
+    final /* synthetic */ String[] f38a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(String[] strArr, Context context) {
-        this.f37a = strArr;
+        this.f38a = strArr;
         this.a = context;
     }
 
@@ -21,7 +21,7 @@ final class ah implements Runnable {
         String[] strArr;
         PackageInfo packageInfo;
         try {
-            for (String str : this.f37a) {
+            for (String str : this.f38a) {
                 if (!TextUtils.isEmpty(str) && (packageInfo = this.a.getPackageManager().getPackageInfo(str, 4)) != null) {
                     MiPushClient.awakePushServiceByPackageInfo(this.a, packageInfo);
                 }

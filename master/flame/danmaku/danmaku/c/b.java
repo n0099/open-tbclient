@@ -9,18 +9,18 @@ import master.flame.danmaku.danmaku.model.m;
 public class b {
     public static boolean a(m mVar, d dVar, d dVar2, long j, long j2) {
         int type = dVar.getType();
-        if (type == dVar2.getType() && !dVar.dKs()) {
-            long dKB = dVar2.dKB() - dVar.dKB();
-            if (dKB <= 0) {
+        if (type == dVar2.getType() && !dVar.dKu()) {
+            long dKD = dVar2.dKD() - dVar.dKD();
+            if (dKD <= 0) {
                 return true;
             }
-            if (Math.abs(dKB) >= j || dVar.isTimeOut() || dVar2.isTimeOut()) {
+            if (Math.abs(dKD) >= j || dVar.isTimeOut() || dVar2.isTimeOut()) {
                 return false;
             }
             if (type == 5 || type == 4) {
                 return true;
             }
-            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.dKB() + dVar.getDuration());
+            return a(mVar, dVar, dVar2, j2) || a(mVar, dVar, dVar2, dVar.dKD() + dVar.getDuration());
         }
         return false;
     }
@@ -51,12 +51,12 @@ public class b {
         if (eVar == null) {
             eVar = new e();
         }
-        eVar.e((int) Math.ceil(dVar.nED), (int) Math.ceil(dVar.nEE), mVar.getDensityDpi(), false);
+        eVar.e((int) Math.ceil(dVar.nEI), (int) Math.ceil(dVar.nEJ), mVar.getDensityDpi(), false);
         f fVar = eVar.get();
         if (fVar != null) {
-            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.lEJ, 0.0f, 0.0f, true);
+            ((master.flame.danmaku.danmaku.model.b) mVar).a(dVar, fVar.lEO, 0.0f, 0.0f, true);
             if (mVar.isHardwareAccelerated()) {
-                fVar.O(mVar.getWidth(), mVar.getHeight(), mVar.dKP(), mVar.dKQ());
+                fVar.O(mVar.getWidth(), mVar.getHeight(), mVar.dKR(), mVar.dKS());
             }
         }
         return eVar;
@@ -123,7 +123,7 @@ public class b {
         if (!TextUtils.isEmpty(charSequence) && charSequence.toString().contains("/n")) {
             String[] split = String.valueOf(dVar.text).split("/n", -1);
             if (split.length > 1) {
-                dVar.nEy = split;
+                dVar.nED = split;
             }
         }
     }

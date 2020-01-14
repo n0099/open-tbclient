@@ -24,16 +24,16 @@ public class h extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
     private boolean Nj;
     public BdUniqueId dxg;
     private int fpl;
-    private int jlR;
-    private int jlS;
+    private int jlW;
+    private int jlX;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.Nj = true;
-        this.jlR = 0;
-        this.jlS = 0;
+        this.jlW = 0;
+        this.jlX = 0;
         this.fpl = 0;
         this.JE = new z<k>() { // from class: com.baidu.tieba.personPolymeric.a.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -57,8 +57,8 @@ public class h extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
         eVar.setPageUniqueId(this.dxg);
         eVar.aI(1024);
         eVar.aI(32768);
-        if (this.jlR > 0) {
-            eVar.aH(this.jlR);
+        if (this.jlW > 0) {
+            eVar.aH(this.jlW);
         }
         eVar.Y(false);
         eVar.Z(false);
@@ -84,7 +84,7 @@ public class h extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
         mT.aM(4);
         af<k> afVar = new af<>(mT);
         afVar.setPageId(this.dxg);
-        afVar.aU(this.jlS);
+        afVar.aU(this.jlX);
         a(new s() { // from class: com.baidu.tieba.personPolymeric.a.a.h.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -128,7 +128,7 @@ public class h extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
     }
 
     public void zQ(int i) {
-        this.jlR = i;
+        this.jlW = i;
     }
 
     public void setTabType(int i) {
@@ -140,6 +140,6 @@ public class h extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
     }
 
     public void zP(int i) {
-        this.jlS = i;
+        this.jlX = i;
     }
 }

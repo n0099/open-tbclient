@@ -4,19 +4,19 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class j extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.m {
-    public static BdUniqueId jgM = BdUniqueId.gen();
-    private List<c> jgN;
+    public static BdUniqueId jgR = BdUniqueId.gen();
+    private List<c> jgS;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return jgM;
+        return jgR;
     }
 
     public void setData(List<c> list) {
-        this.jgN = list;
+        this.jgS = list;
     }
 
     public List<c> getData() {
-        return this.jgN;
+        return this.jgS;
     }
 }

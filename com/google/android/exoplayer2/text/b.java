@@ -6,16 +6,16 @@ import android.text.Layout;
 /* loaded from: classes5.dex */
 public class b {
     public final Bitmap bitmap;
-    public final int mxK;
-    public final Layout.Alignment mxN;
-    public final float mxO;
     public final int mxP;
-    public final int mxQ;
-    public final float mxR;
-    public final int mxS;
+    public final Layout.Alignment mxS;
     public final float mxT;
-    public final float mxU;
-    public final boolean mxV;
+    public final int mxU;
+    public final int mxV;
+    public final float mxW;
+    public final int mxX;
+    public final float mxY;
+    public final float mxZ;
+    public final boolean mya;
     public final CharSequence text;
 
     public b(Bitmap bitmap, float f, int i, float f2, int i2, float f3, float f4) {
@@ -36,16 +36,16 @@ public class b {
 
     private b(CharSequence charSequence, Layout.Alignment alignment, Bitmap bitmap, float f, int i, int i2, float f2, int i3, float f3, float f4, boolean z, int i4) {
         this.text = charSequence;
-        this.mxN = alignment;
+        this.mxS = alignment;
         this.bitmap = bitmap;
-        this.mxO = f;
-        this.mxP = i;
-        this.mxQ = i2;
-        this.mxR = f2;
-        this.mxS = i3;
-        this.mxT = f3;
-        this.mxU = f4;
-        this.mxV = z;
-        this.mxK = i4;
+        this.mxT = f;
+        this.mxU = i;
+        this.mxV = i2;
+        this.mxW = f2;
+        this.mxX = i3;
+        this.mxY = f3;
+        this.mxZ = f4;
+        this.mya = z;
+        this.mxP = i4;
     }
 }

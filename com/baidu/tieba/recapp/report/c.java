@@ -17,43 +17,43 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
 public class c {
-    private static c jKL;
-    private CustomMessageListener jKN = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.c.1
+    private static c jKQ;
+    private CustomMessageListener jKS = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && c.this.jKM != null) {
-                c.this.jKM.cBR();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && c.this.jKR != null) {
+                c.this.jKR.cBT();
             }
         }
     };
-    private d jKM = new g();
+    private d jKR = new g();
 
-    public static c cBP() {
-        if (jKL == null) {
+    public static c cBR() {
+        if (jKQ == null) {
             synchronized (c.class) {
-                if (jKL == null) {
-                    jKL = new c();
+                if (jKQ == null) {
+                    jKQ = new c();
                 }
             }
         }
-        return jKL;
+        return jKQ;
     }
 
-    private boolean cBQ() {
+    private boolean cBS() {
         return SwitchManager.getInstance().findType(AdUploadSwitch.KEY) != 0;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.jKN);
+        MessageManager.getInstance().registerListener(this.jKS);
     }
 
     public void a(b bVar) {
-        if (cBQ() && bVar != null && this.jKM != null) {
+        if (cBS() && bVar != null && this.jKR != null) {
             if (j.isNetWorkAvailable()) {
-                this.jKM.b(bVar);
+                this.jKR.b(bVar);
             } else {
-                this.jKM.c(bVar);
+                this.jKR.c(bVar);
             }
         }
     }

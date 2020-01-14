@@ -8,18 +8,18 @@ import com.baidu.live.view.web.d;
 import com.baidu.live.view.web.e;
 /* loaded from: classes2.dex */
 public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> implements e {
-    private d jOD;
+    private d jOI;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jOD = new d(this, this, getIntent());
+        this.jOI = new d(this, this, getIntent());
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.jOD == null || !this.jOD.onKeyDown(i, keyEvent)) {
+        if (this.jOI == null || !this.jOI.onKeyDown(i, keyEvent)) {
             return super.onKeyDown(i, keyEvent);
         }
         return true;
@@ -29,8 +29,8 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jOD != null) {
-            this.jOD.onDestroy();
+        if (this.jOI != null) {
+            this.jOI.onDestroy();
         }
     }
 
@@ -38,8 +38,8 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.jOD != null) {
-            this.jOD.onActivityResult(i, i2, intent);
+        if (this.jOI != null) {
+            this.jOI.onActivityResult(i, i2, intent);
         }
     }
 

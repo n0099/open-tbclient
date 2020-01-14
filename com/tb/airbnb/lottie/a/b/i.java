@@ -9,7 +9,7 @@ public class i extends f<PointF> {
     private final PointF gK;
     private final float[] gL;
     private PathMeasure gN;
-    private h npD;
+    private h npI;
 
     public i(List<? extends com.tb.airbnb.lottie.e.a<PointF>> list) {
         super(list);
@@ -30,10 +30,10 @@ public class i extends f<PointF> {
         if (bF == null) {
             return aVar.km;
         }
-        if (this.npA == null || (pointF = (PointF) this.npA.b(hVar.ec, hVar.kp.floatValue(), hVar.km, hVar.kn, bS(), f, getProgress())) == null) {
-            if (this.npD != hVar) {
+        if (this.npF == null || (pointF = (PointF) this.npF.b(hVar.ec, hVar.kp.floatValue(), hVar.km, hVar.kn, bS(), f, getProgress())) == null) {
+            if (this.npI != hVar) {
                 this.gN = new PathMeasure(bF, false);
-                this.npD = hVar;
+                this.npI = hVar;
             }
             this.gN.getPosTan(this.gN.getLength() * f, this.gL, null);
             this.gK.set(this.gL[0], this.gL[1]);

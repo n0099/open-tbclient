@@ -20,14 +20,14 @@ import java.util.List;
 public class b extends BaseAdapter {
     private String ayb;
     private int ayc;
-    private AlbumActivity kMa;
+    private AlbumActivity kMf;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.kMa = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.kMa.getPageContext().getPageActivity());
-        this.ayc = l.getEquipmentWidth(this.kMa.getPageContext().getPageActivity()) / 2;
+        this.kMf = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.kMf.getPageContext().getPageActivity());
+        this.ayc = l.getEquipmentWidth(this.kMf.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<com.baidu.tbadk.album.a> list, String str) {
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(R.layout.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.kMf = (TbImageView) view.findViewById(R.id.item_head);
+            aVar.kMk = (TbImageView) view.findViewById(R.id.item_head);
             aVar.aye = (TextView) view.findViewById(R.id.item_name);
             aVar.ayf = (ImageView) view.findViewById(R.id.item_arrow);
-            aVar.kMf.setGifIconSupport(false);
-            aVar.kMf.setLongIconSupport(false);
+            aVar.kMk.setGifIconSupport(false);
+            aVar.kMk.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -86,9 +86,9 @@ public class b extends BaseAdapter {
             }
             MediaFileInfo awp = item.awp();
             if (awp instanceof VideoFileInfo) {
-                aVar.kMf.startLoad(((VideoFileInfo) awp).videoPath, 37, false);
+                aVar.kMk.startLoad(((VideoFileInfo) awp).videoPath, 37, false);
             } else if (awp instanceof ImageFileInfo) {
-                aVar.kMf.startLoad(((ImageFileInfo) awp).getFilePath(), 35, false);
+                aVar.kMk.startLoad(((ImageFileInfo) awp).getFilePath(), 35, false);
             }
             am.setViewTextColor(aVar.aye, (int) R.color.cp_cont_b);
             am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
@@ -100,7 +100,7 @@ public class b extends BaseAdapter {
     private class a {
         TextView aye;
         ImageView ayf;
-        TbImageView kMf;
+        TbImageView kMk;
 
         private a() {
         }

@@ -54,7 +54,7 @@ public class d extends m<PostData, a> {
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.kfN) {
+                if (postData.kfS) {
                     Drawable drawable = am.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                     this.iBv.setCompoundDrawables(null, null, drawable, null);

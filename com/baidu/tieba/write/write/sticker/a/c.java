@@ -5,9 +5,9 @@ import android.graphics.Bitmap;
 public interface c {
     boolean N(Bitmap bitmap);
 
-    void cUl();
-
-    void cUm();
-
     void cUn();
+
+    void cUo();
+
+    void cUp();
 }

@@ -82,7 +82,7 @@ public class PersonalizeFragment extends BaseFragment implements VoiceManager.c,
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tieba.r.c.cIs().w(getUniqueId());
+        com.baidu.tieba.r.c.cIu().w(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -172,7 +172,7 @@ public class PersonalizeFragment extends BaseFragment implements VoiceManager.c,
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        com.baidu.tieba.r.c.cIs().b(getUniqueId(), false);
+        com.baidu.tieba.r.c.cIu().b(getUniqueId(), false);
         if (this.gmi != null) {
             this.gmi.onStop(getPageContext());
         }
@@ -184,7 +184,7 @@ public class PersonalizeFragment extends BaseFragment implements VoiceManager.c,
         if (this.gmi != null) {
             this.gmi.onDestory(getPageContext());
         }
-        com.baidu.tieba.r.c.cIs().x(getUniqueId());
+        com.baidu.tieba.r.c.cIu().x(getUniqueId());
         MessageManager.getInstance().unRegisterListener(this.gZN);
         MessageManager.getInstance().unRegisterListener(this.gZO);
         MessageManager.getInstance().unRegisterListener(this.gnu);

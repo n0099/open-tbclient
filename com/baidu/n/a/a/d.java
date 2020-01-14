@@ -3,11 +3,11 @@ package com.baidu.n.a.a;
 import android.content.Context;
 /* loaded from: classes5.dex */
 public abstract class d implements c {
-    protected boolean lBS;
-    protected boolean lBp;
-    protected String lBr;
-    protected String lBs;
-    protected String lBt;
+    protected boolean lBX;
+    protected boolean lBu;
+    protected String lBw;
+    protected String lBx;
+    protected String lBy;
     protected Context mCtx;
     protected int mStatusCode = -200;
 
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.n.a.a.c
-    public boolean dgy() {
-        return this.lBp;
+    public boolean dgA() {
+        return this.lBu;
     }
 
     @Override // com.baidu.n.a.a.c
     public boolean isSupport() {
-        return this.lBS;
-    }
-
-    @Override // com.baidu.n.a.a.c
-    public String dgJ() {
-        return this.lBr;
-    }
-
-    @Override // com.baidu.n.a.a.c
-    public String dgK() {
-        return this.lBs;
+        return this.lBX;
     }
 
     @Override // com.baidu.n.a.a.c
     public String dgL() {
-        return this.lBt;
+        return this.lBw;
+    }
+
+    @Override // com.baidu.n.a.a.c
+    public String dgM() {
+        return this.lBx;
+    }
+
+    @Override // com.baidu.n.a.a.c
+    public String dgN() {
+        return this.lBy;
     }
 
     @Override // com.baidu.n.a.a.c
@@ -49,27 +49,27 @@ public abstract class d implements c {
 
     @Override // com.baidu.n.a.a.c
     public void uS(boolean z) {
-        this.lBp = z;
+        this.lBu = z;
     }
 
     @Override // com.baidu.n.a.a.c
     public void uT(boolean z) {
-        this.lBS = z;
+        this.lBX = z;
     }
 
     @Override // com.baidu.n.a.a.c
     public void Nw(String str) {
-        this.lBr = str;
+        this.lBw = str;
     }
 
     @Override // com.baidu.n.a.a.c
     public void Nx(String str) {
-        this.lBs = str;
+        this.lBx = str;
     }
 
     @Override // com.baidu.n.a.a.c
     public void Ny(String str) {
-        this.lBt = str;
+        this.lBy = str;
     }
 
     @Override // com.baidu.n.a.a.c

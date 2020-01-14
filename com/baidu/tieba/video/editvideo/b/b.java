@@ -7,14 +7,14 @@ import java.io.File;
 @TargetApi(18)
 /* loaded from: classes8.dex */
 public class b {
-    private a kvG;
-    private String kvH;
-    private f kvI;
-    private d kvJ;
-    private e kvK;
-    private volatile boolean kvL;
-    private volatile boolean kvM;
-    private volatile boolean kvN;
+    private a kvL;
+    private String kvM;
+    private f kvN;
+    private d kvO;
+    private e kvP;
+    private volatile boolean kvQ;
+    private volatile boolean kvR;
+    private volatile boolean kvS;
     private Context mContext;
     private String mFilterName;
     private boolean mIsRunning = false;
@@ -31,17 +31,17 @@ public class b {
 
     public b(Context context, String str, String str2, String str3) {
         this.mContext = context;
-        this.kvH = str;
+        this.kvM = str;
         this.mOutputPath = str2;
         this.mFilterName = str3;
     }
 
-    public void cOo() {
+    public void cOq() {
         if (!this.mIsRunning) {
             this.mIsRunning = true;
-            this.kvL = false;
-            this.kvM = false;
-            this.kvN = false;
+            this.kvQ = false;
+            this.kvR = false;
+            this.kvS = false;
             try {
                 File file = new File(new File(this.mOutputPath).getParent());
                 if (!file.exists()) {
@@ -49,60 +49,60 @@ public class b {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                if (this.kvG != null) {
-                    this.kvG.onGenFilterVideoFail(222, com.baidu.tieba.j.a.r(e));
+                if (this.kvL != null) {
+                    this.kvL.onGenFilterVideoFail(222, com.baidu.tieba.j.a.r(e));
                 }
             }
             try {
-                this.kvK = new e(this.mOutputPath);
-                this.kvI = new f(this.mContext, this.kvH, this.mFilterName, this.kvK, this.kvG) { // from class: com.baidu.tieba.video.editvideo.b.b.1
+                this.kvP = new e(this.mOutputPath);
+                this.kvN = new f(this.mContext, this.kvM, this.mFilterName, this.kvP, this.kvL) { // from class: com.baidu.tieba.video.editvideo.b.b.1
                     @Override // com.baidu.tieba.video.editvideo.b.f
                     public void onPostExecute() {
-                        b.this.kvL = true;
-                        b.this.cOq();
+                        b.this.kvQ = true;
+                        b.this.cOs();
                     }
                 };
-                this.kvI.start();
-                this.kvJ = new d(this.mContext, this.kvH, this.kvK, this.kvG) { // from class: com.baidu.tieba.video.editvideo.b.b.2
+                this.kvN.start();
+                this.kvO = new d(this.mContext, this.kvM, this.kvP, this.kvL) { // from class: com.baidu.tieba.video.editvideo.b.b.2
                     @Override // com.baidu.tieba.video.editvideo.b.d
                     public void onPostExecute() {
-                        b.this.kvM = true;
-                        b.this.cOq();
+                        b.this.kvR = true;
+                        b.this.cOs();
                     }
                 };
-                this.kvJ.start();
+                this.kvO.start();
             } catch (Exception e2) {
             }
         }
     }
 
-    public void cOp() {
-        if (this.kvI != null) {
-            this.kvI.interrupt();
-            this.kvI = null;
+    public void cOr() {
+        if (this.kvN != null) {
+            this.kvN.interrupt();
+            this.kvN = null;
         }
-        if (this.kvJ != null) {
-            this.kvJ.interrupt();
-            this.kvJ = null;
+        if (this.kvO != null) {
+            this.kvO.interrupt();
+            this.kvO = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cOq() {
-        if (this.kvL && this.kvM && !this.kvN) {
-            this.kvK.stop();
-            this.kvN = true;
-            cOr();
+    public void cOs() {
+        if (this.kvQ && this.kvR && !this.kvS) {
+            this.kvP.stop();
+            this.kvS = true;
+            cOt();
         }
     }
 
-    private void cOr() {
-        if (this.kvG != null) {
+    private void cOt() {
+        if (this.kvL != null) {
             File file = new File(this.mOutputPath);
             if (file.exists() && file.length() > 0) {
-                this.kvG.onGenFilterVideoSuccess(this.mOutputPath);
+                this.kvL.onGenFilterVideoSuccess(this.mOutputPath);
             } else {
-                this.kvG.onGenFilterVideoFail(SapiAccountManager.VERSION_CODE, "Err empty outputFile");
+                this.kvL.onGenFilterVideoFail(SapiAccountManager.VERSION_CODE, "Err empty outputFile");
             }
         }
         this.mIsRunning = false;
@@ -113,6 +113,6 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.kvG = aVar;
+        this.kvL = aVar;
     }
 }

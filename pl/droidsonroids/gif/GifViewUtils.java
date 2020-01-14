@@ -15,8 +15,9 @@ import com.baidu.searchbox.account.data.UserAccountActionItem;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
-final class GifViewUtils {
+public final class GifViewUtils {
     static final String ANDROID_NS = "http://schemas.android.com/apk/res/android";
     static final List<String> SUPPORTED_RESOURCE_TYPE_NAMES = Arrays.asList("raw", "drawable", "mipmap");
 

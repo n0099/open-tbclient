@@ -6,75 +6,75 @@ import com.google.android.exoplayer2.util.v;
 /* loaded from: classes5.dex */
 public final class b {
     public byte[] iv;
-    public int mcA;
-    public int mcB;
-    public int mcC;
-    private final MediaCodec.CryptoInfo mcD;
-    private final a mcE;
-    public byte[] mcx;
-    public int[] mcy;
-    public int[] mcz;
+    public byte[] mcC;
+    public int[] mcD;
+    public int[] mcE;
+    public int mcF;
+    public int mcG;
+    public int mcH;
+    private final MediaCodec.CryptoInfo mcI;
+    private final a mcJ;
     public int mode;
 
     public b() {
-        this.mcD = v.SDK_INT >= 16 ? dti() : null;
-        this.mcE = v.SDK_INT >= 24 ? new a(this.mcD) : null;
+        this.mcI = v.SDK_INT >= 16 ? dtk() : null;
+        this.mcJ = v.SDK_INT >= 24 ? new a(this.mcI) : null;
     }
 
     public void a(int i, int[] iArr, int[] iArr2, byte[] bArr, byte[] bArr2, int i2, int i3, int i4) {
-        this.mcA = i;
-        this.mcy = iArr;
-        this.mcz = iArr2;
-        this.mcx = bArr;
+        this.mcF = i;
+        this.mcD = iArr;
+        this.mcE = iArr2;
+        this.mcC = bArr;
         this.iv = bArr2;
         this.mode = i2;
-        this.mcB = i3;
-        this.mcC = i4;
+        this.mcG = i3;
+        this.mcH = i4;
         if (v.SDK_INT >= 16) {
-            dtj();
+            dtl();
         }
     }
 
     @TargetApi(16)
-    public MediaCodec.CryptoInfo dth() {
-        return this.mcD;
+    public MediaCodec.CryptoInfo dtj() {
+        return this.mcI;
     }
 
     @TargetApi(16)
-    private MediaCodec.CryptoInfo dti() {
+    private MediaCodec.CryptoInfo dtk() {
         return new MediaCodec.CryptoInfo();
     }
 
     @TargetApi(16)
-    private void dtj() {
-        this.mcD.numSubSamples = this.mcA;
-        this.mcD.numBytesOfClearData = this.mcy;
-        this.mcD.numBytesOfEncryptedData = this.mcz;
-        this.mcD.key = this.mcx;
-        this.mcD.iv = this.iv;
-        this.mcD.mode = this.mode;
+    private void dtl() {
+        this.mcI.numSubSamples = this.mcF;
+        this.mcI.numBytesOfClearData = this.mcD;
+        this.mcI.numBytesOfEncryptedData = this.mcE;
+        this.mcI.key = this.mcC;
+        this.mcI.iv = this.iv;
+        this.mcI.mode = this.mode;
         if (v.SDK_INT < 24) {
             return;
         }
-        this.mcE.set(this.mcB, this.mcC);
+        this.mcJ.set(this.mcG, this.mcH);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(24)
     /* loaded from: classes5.dex */
     public static final class a {
-        private final MediaCodec.CryptoInfo mcD;
-        private final MediaCodec.CryptoInfo.Pattern mcF;
+        private final MediaCodec.CryptoInfo mcI;
+        private final MediaCodec.CryptoInfo.Pattern mcK;
 
         private a(MediaCodec.CryptoInfo cryptoInfo) {
-            this.mcD = cryptoInfo;
-            this.mcF = new MediaCodec.CryptoInfo.Pattern(0, 0);
+            this.mcI = cryptoInfo;
+            this.mcK = new MediaCodec.CryptoInfo.Pattern(0, 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void set(int i, int i2) {
-            this.mcF.set(i, i2);
-            this.mcD.setPattern(this.mcF);
+            this.mcK.set(i, i2);
+            this.mcI.setPattern(this.mcK);
         }
     }
 }

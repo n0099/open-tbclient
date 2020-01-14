@@ -224,14 +224,14 @@ public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             if (lVar.axQ() != null) {
                 yVar.fKa = String.valueOf(lVar.axQ().getFid());
                 if (lVar.axQ().aAo() != null) {
-                    yVar.jvN = lVar.axQ().aAo().video_md5;
-                    yVar.jvP = String.valueOf(lVar.axQ().aAo().is_vertical);
+                    yVar.jvS = lVar.axQ().aAo().video_md5;
+                    yVar.jvU = String.valueOf(lVar.axQ().aAo().is_vertical);
                 }
             }
             yVar.cKN = lVar.getExtra();
             yVar.mSource = lVar.getSource();
             yVar.mAbTag = lVar.btL();
-            yVar.jvK = lVar.getWeight();
+            yVar.jvP = lVar.getWeight();
             yVar.mUid = TbadkCoreApplication.getCurrentAccount();
             yVar.mFloor = String.valueOf(lVar.btK());
             if (lVar.axQ() != null && lVar.axQ().getBaijiahaoData() != null) {

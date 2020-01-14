@@ -15,10 +15,10 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
     private final String Tm;
-    private final long kiF;
-    private final int kiG;
-    private final int kiH;
-    private e kiI;
+    private final long kiK;
+    private final int kiL;
+    private final int kiM;
+    private e kiN;
     protected final String mFileName;
 
     public abstract d c(ArrayList<Integer> arrayList, String str, int i);
@@ -29,20 +29,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.kiH = i2;
-        this.kiF = j;
+        this.kiM = i2;
+        this.kiK = j;
         this.Tm = str2;
-        this.kiG = i;
+        this.kiL = i;
     }
 
     public void a(e eVar) {
-        this.kiI = eVar;
+        this.kiN = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void notifyProgress(int i) {
-        if (this.kiI != null) {
-            this.kiI.aL(i / 100.0f);
+        if (this.kiN != null) {
+            this.kiN.aL(i / 100.0f);
         }
     }
 
@@ -59,9 +59,9 @@ public abstract class a {
         } else {
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             xVar.addPostData("chunk_no", String.valueOf(i));
-            xVar.addPostData("chunk_sum", String.valueOf(this.kiH));
+            xVar.addPostData("chunk_sum", String.valueOf(this.kiM));
             xVar.addPostData("chunk_size", String.valueOf(a.length));
-            xVar.addPostData("video_size", String.valueOf(this.kiF));
+            xVar.addPostData("video_size", String.valueOf(this.kiK));
             xVar.addPostData("video_md5", this.Tm);
             xVar.addPostData(PublishLimitUpdateListener.KEY_VIDEO_LEN, String.valueOf(j));
             xVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
@@ -94,15 +94,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.kiH) {
-            i2 = (int) (this.kiF - ((i - 1) * this.kiG));
+        if (i == this.kiM) {
+            i2 = (int) (this.kiK - ((i - 1) * this.kiL));
         } else {
-            i2 = this.kiG;
+            i2 = this.kiL;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.kiG);
+                randomAccessFile.seek((i - 1) * this.kiL);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {

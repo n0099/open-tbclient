@@ -10,12 +10,12 @@ public final class w implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ boolean f80a;
+    final /* synthetic */ boolean f81a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(Context context, boolean z) {
         this.a = context;
-        this.f80a = z;
+        this.f81a = z;
     }
 
     @Override // java.lang.Runnable
@@ -26,7 +26,7 @@ public final class w implements Runnable {
         File file = null;
         try {
             a = ak.a(this.a, "");
-            absolutePath = this.f80a ? this.a.getFilesDir().getAbsolutePath() : this.a.getExternalFilesDir(null).getAbsolutePath() + dh.f238a;
+            absolutePath = this.f81a ? this.a.getFilesDir().getAbsolutePath() : this.a.getExternalFilesDir(null).getAbsolutePath() + dh.f239a;
             logFile = Logger.getLogFile(absolutePath);
         } catch (Throwable th) {
             th = th;
@@ -39,7 +39,7 @@ public final class w implements Runnable {
         try {
             com.xiaomi.push.y.a(file2, logFile);
             if (file2.exists()) {
-                com.xiaomi.push.as.a((this.f80a ? "https://api.xmpush.xiaomi.com/upload/xmsf_log?file=" : "https://api.xmpush.xiaomi.com/upload/app_log?file=") + file2.getName(), a, file2, "file");
+                com.xiaomi.push.as.a((this.f81a ? "https://api.xmpush.xiaomi.com/upload/xmsf_log?file=" : "https://api.xmpush.xiaomi.com/upload/app_log?file=") + file2.getName(), a, file2, "file");
             } else {
                 com.xiaomi.channel.commonutils.logger.b.m42a("zip log file failed");
             }

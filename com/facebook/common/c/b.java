@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes12.dex */
 public class b implements c {
-    public static final b lHG = new b();
-    private String lHH = "unknown";
-    private int lHI = 5;
+    public static final b lHL = new b();
+    private String lHM = "unknown";
+    private int lHN = 5;
 
-    public static b dju() {
-        return lHG;
+    public static b djw() {
+        return lHL;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.lHI <= i;
+        return this.lHN <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -70,8 +70,8 @@ public class b implements c {
     }
 
     private String OC(String str) {
-        if (this.lHH != null) {
-            return this.lHH + ":" + str;
+        if (this.lHM != null) {
+            return this.lHM + ":" + str;
         }
         return str;
     }

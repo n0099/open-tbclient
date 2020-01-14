@@ -5,9 +5,9 @@ public interface a {
 
     void DR();
 
-    boolean dPw();
+    boolean dPy();
 
-    boolean dPx();
+    boolean dPz();
 
     boolean isVisible();
 }

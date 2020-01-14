@@ -5,9 +5,9 @@ import com.google.android.exoplayer2.drm.b;
 @TargetApi(16)
 /* loaded from: classes5.dex */
 public interface DrmSession<T extends b> {
-    DrmSessionException dty();
+    DrmSessionException dtA();
 
-    T dtz();
+    T dtB();
 
     int getState();
 

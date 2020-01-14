@@ -18,18 +18,18 @@ import com.baidu.tieba.video.record.VideoEffectLayout;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class d extends BaseAdapter implements View.OnClickListener {
-    private String kzL;
-    private int kzM = -1;
-    private VideoEffectLayout.a kzN;
+    private String kzQ;
+    private int kzR = -1;
+    private VideoEffectLayout.a kzS;
     private List<e> mList;
 
     public void b(List<e> list, String str) {
         this.mList = list;
-        this.kzL = str;
+        this.kzQ = str;
     }
 
     public void setListener(VideoEffectLayout.a aVar) {
-        this.kzN = aVar;
+        this.kzS = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -78,13 +78,13 @@ public class d extends BaseAdapter implements View.OnClickListener {
     }
 
     private void a(a aVar, View view, ViewGroup viewGroup) {
-        aVar.kvz = (TbImageView) view.findViewById(R.id.iv_effect);
-        aVar.kvz.setIsRound(true);
-        aVar.kvz.setDrawerType(1);
-        aVar.kvz.setDefaultBgResource(R.color.transparent);
-        aVar.kvz.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(viewGroup.getContext(), R.dimen.ds4));
-        aVar.kvz.setConrers(15);
-        aVar.kvz.setBorderColor(am.getColor(R.color.cp_link_tip_a));
+        aVar.kvE = (TbImageView) view.findViewById(R.id.iv_effect);
+        aVar.kvE.setIsRound(true);
+        aVar.kvE.setDrawerType(1);
+        aVar.kvE.setDefaultBgResource(R.color.transparent);
+        aVar.kvE.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(viewGroup.getContext(), R.dimen.ds4));
+        aVar.kvE.setConrers(15);
+        aVar.kvE.setBorderColor(am.getColor(R.color.cp_link_tip_a));
         aVar.mTvName = (TextView) view.findViewById(R.id.tv_name);
     }
 
@@ -106,8 +106,8 @@ public class d extends BaseAdapter implements View.OnClickListener {
                     view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_effect, (ViewGroup) null);
                     a(aVar2, view, viewGroup);
                     aVar2.mProgressBar = (ProgressBar) view.findViewById(R.id.iv_loading);
-                    aVar2.kvz.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
-                    aVar2.kvz.setDefaultResource(R.drawable.bg_video_cloudmusic);
+                    aVar2.kvE.setDefaultErrorResource(R.drawable.bg_video_cloudmusic);
+                    aVar2.kvE.setDefaultResource(R.drawable.bg_video_cloudmusic);
                     am.setViewTextColor(aVar2.mTvName, (int) R.color.cp_cont_a);
                     break;
                 case 2:
@@ -124,46 +124,46 @@ public class d extends BaseAdapter implements View.OnClickListener {
         if (this.mList != null && i >= 0 && i <= this.mList.size() - 1 && (eVar = this.mList.get(i)) != null) {
             switch (getItemViewType(i)) {
                 case 0:
-                    aVar.kvz.startLoad(String.valueOf(eVar.cPD()), 24, false);
-                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.kzL)) {
-                        aVar.kvz.setDrawBorder(true);
+                    aVar.kvE.startLoad(String.valueOf(eVar.cPF()), 24, false);
+                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.kzQ)) {
+                        aVar.kvE.setDrawBorder(true);
                         break;
                     } else {
-                        aVar.kvz.setDrawBorder(false);
+                        aVar.kvE.setDrawBorder(false);
                         break;
                     }
                 case 1:
                     MusicData musicData = (MusicData) eVar.getValue();
                     if (musicData.editMusicType == 0) {
-                        aVar.kvz.startLoad(musicData.img, 10, false);
+                        aVar.kvE.startLoad(musicData.img, 10, false);
                     } else {
-                        aVar.kvz.startLoad(String.valueOf(eVar.cPD()), 24, false);
+                        aVar.kvE.startLoad(String.valueOf(eVar.cPF()), 24, false);
                     }
-                    if (this.kzM != i) {
+                    if (this.kzR != i) {
                         aVar.mProgressBar.setVisibility(4);
                     } else if (aVar.mProgressBar.getVisibility() == 0) {
-                        aVar.kvz.setDrawBorder(false);
+                        aVar.kvE.setDrawBorder(false);
                     }
-                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.kzL)) {
-                        aVar.kvz.setDrawBorder(true);
+                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.kzQ)) {
+                        aVar.kvE.setDrawBorder(true);
                         break;
                     } else {
-                        aVar.kvz.setDrawBorder(false);
+                        aVar.kvE.setDrawBorder(false);
                         break;
                     }
                     break;
                 case 2:
-                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.kzL)) {
-                        aVar.kvz.setBackgroundResource(R.drawable.bg_beauty_item_choosed);
+                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.kzQ)) {
+                        aVar.kvE.setBackgroundResource(R.drawable.bg_beauty_item_choosed);
                         break;
                     } else {
-                        aVar.kvz.setBackgroundResource(R.drawable.bg_beauty_item);
+                        aVar.kvE.setBackgroundResource(R.drawable.bg_beauty_item);
                         break;
                     }
             }
-            aVar.kvz.setTag(eVar);
-            aVar.kvz.setTag(R.id.record_video_effect_holder, aVar);
-            aVar.kvz.setOnClickListener(this);
+            aVar.kvE.setTag(eVar);
+            aVar.kvE.setTag(R.id.record_video_effect_holder, aVar);
+            aVar.kvE.setOnClickListener(this);
             aVar.mTvName.setText(eVar.getName());
             aVar.position = i;
         }
@@ -180,40 +180,40 @@ public class d extends BaseAdapter implements View.OnClickListener {
                 anVar.Z("obj_locate", this.mList.indexOf(eVar) + 1);
                 anVar.Z("obj_source", 1);
                 TiebaStatic.log(anVar);
-                if (view.getResources().getString(R.string.music_cloud).equals(eVar.getName()) && this.kzN != null) {
-                    this.kzN.a(eVar, view.getTag(R.id.record_video_effect_holder));
-                    this.kzM = this.mList.indexOf(eVar);
-                    this.kzL = eVar.getName();
+                if (view.getResources().getString(R.string.music_cloud).equals(eVar.getName()) && this.kzS != null) {
+                    this.kzS.a(eVar, view.getTag(R.id.record_video_effect_holder));
+                    this.kzR = this.mList.indexOf(eVar);
+                    this.kzQ = eVar.getName();
                 }
-                if (TextUtils.isEmpty(eVar.getName()) || !eVar.getName().equals(this.kzL)) {
+                if (TextUtils.isEmpty(eVar.getName()) || !eVar.getName().equals(this.kzQ)) {
                     if (!eVar.getName().equals(view.getResources().getString(R.string.music_cloud))) {
-                        this.kzM = this.mList.indexOf(eVar);
+                        this.kzR = this.mList.indexOf(eVar);
                     }
                 } else {
                     return;
                 }
             } else {
-                this.kzM = this.mList.indexOf(eVar);
+                this.kzR = this.mList.indexOf(eVar);
             }
-            this.kzL = eVar.getName();
+            this.kzQ = eVar.getName();
             notifyDataSetChanged();
-            if (this.kzN != null) {
-                this.kzN.a(eVar, view.getTag(R.id.record_video_effect_holder));
+            if (this.kzS != null) {
+                this.kzS.a(eVar, view.getTag(R.id.record_video_effect_holder));
             }
         }
     }
 
-    public void cPB() {
+    public void cPD() {
         if (getItem(0) != null && getItem(0).getType() == 3) {
-            this.kzM = 0;
-            this.kzL = TbadkCoreApplication.getInst().getString(R.string.music_normal);
+            this.kzR = 0;
+            this.kzQ = TbadkCoreApplication.getInst().getString(R.string.music_normal);
         }
     }
 
-    public void cPC() {
+    public void cPE() {
         if (getItem(0) != null && getItem(0).getType() == 3) {
-            this.kzM = 1;
-            this.kzL = TbadkCoreApplication.getInst().getString(R.string.music_cloud);
+            this.kzR = 1;
+            this.kzQ = TbadkCoreApplication.getInst().getString(R.string.music_cloud);
             notifyDataSetChanged();
         }
     }
@@ -221,7 +221,7 @@ public class d extends BaseAdapter implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes8.dex */
     public class a {
-        TbImageView kvz;
+        TbImageView kvE;
         ProgressBar mProgressBar;
         TextView mTvName;
         int position;

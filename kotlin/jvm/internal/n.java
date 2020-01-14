@@ -7,18 +7,18 @@ import java.util.Iterator;
 import kotlin.TypeCastException;
 /* loaded from: classes5.dex */
 public final class n {
-    private static final Object[] nBH = new Object[0];
+    private static final Object[] nBM = new Object[0];
 
     public static final Object[] n(Collection<?> collection) {
         Object[] objArr;
         q.j(collection, "collection");
         int size = collection.size();
         if (size == 0) {
-            return nBH;
+            return nBM;
         }
         Iterator<?> it = collection.iterator();
         if (!it.hasNext()) {
-            return nBH;
+            return nBM;
         }
         Object[] objArr2 = new Object[size];
         int i = 0;

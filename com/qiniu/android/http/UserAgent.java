@@ -10,26 +10,26 @@ import java.util.Locale;
 import java.util.Random;
 /* loaded from: classes4.dex */
 public final class UserAgent {
-    private static UserAgent nmT = new UserAgent();
-    public final String id = dEL();
+    private static UserAgent nmY = new UserAgent();
+    public final String id = dEN();
     public final String ua = Rd(this.id);
 
     private UserAgent() {
     }
 
-    public static UserAgent dEK() {
-        return nmT;
+    public static UserAgent dEM() {
+        return nmY;
     }
 
-    private static String dEL() {
+    private static String dEN() {
         return System.currentTimeMillis() + "" + new Random().nextInt(999);
     }
 
     static String Rd(String str) {
-        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", dEM(), dEN(), str);
+        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", dEO(), dEP(), str);
     }
 
-    private static String dEM() {
+    private static String dEO() {
         try {
             String str = Build.VERSION.RELEASE;
             if (str == null) {
@@ -41,7 +41,7 @@ public final class UserAgent {
         }
     }
 
-    private static String dEN() {
+    private static String dEP() {
         try {
             String trim = Build.MODEL.trim();
             String fp = fp(Build.MANUFACTURER.trim(), trim);

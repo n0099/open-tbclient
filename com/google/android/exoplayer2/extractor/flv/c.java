@@ -8,15 +8,15 @@ import java.util.Date;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 final class c extends TagPayloadReader {
-    private long lYQ;
+    private long lYV;
 
     public c(m mVar) {
         super(mVar);
-        this.lYQ = -9223372036854775807L;
+        this.lYV = -9223372036854775807L;
     }
 
-    public long dso() {
-        return this.lYQ;
+    public long dsq() {
+        return this.lYV;
     }
 
     @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
@@ -34,7 +34,7 @@ final class c extends TagPayloadReader {
             if (h.containsKey("duration")) {
                 double doubleValue = ((Double) h.get("duration")).doubleValue();
                 if (doubleValue > 0.0d) {
-                    this.lYQ = (long) (doubleValue * 1000000.0d);
+                    this.lYV = (long) (doubleValue * 1000000.0d);
                 }
             }
         }
@@ -60,9 +60,9 @@ final class c extends TagPayloadReader {
     }
 
     private static ArrayList<Object> f(l lVar) {
-        int dyq = lVar.dyq();
-        ArrayList<Object> arrayList = new ArrayList<>(dyq);
-        for (int i = 0; i < dyq; i++) {
+        int dys = lVar.dys();
+        ArrayList<Object> arrayList = new ArrayList<>(dys);
+        for (int i = 0; i < dys; i++) {
             arrayList.add(b(lVar, b(lVar)));
         }
         return arrayList;
@@ -82,9 +82,9 @@ final class c extends TagPayloadReader {
     }
 
     private static HashMap<String, Object> h(l lVar) {
-        int dyq = lVar.dyq();
-        HashMap<String, Object> hashMap = new HashMap<>(dyq);
-        for (int i = 0; i < dyq; i++) {
+        int dys = lVar.dys();
+        HashMap<String, Object> hashMap = new HashMap<>(dys);
+        for (int i = 0; i < dys; i++) {
             hashMap.put(e(lVar), b(lVar, b(lVar)));
         }
         return hashMap;

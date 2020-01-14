@@ -19,8 +19,8 @@ public class a {
             }
         }
     };
-    private long kGg;
-    private aa kGh;
+    private long kGl;
+    private aa kGm;
     private long mInterval;
     private long mStartTime;
 
@@ -30,11 +30,11 @@ public class a {
 
     private void init() {
         GJ();
-        this.kGg = com.baidu.tbadk.core.sharedPref.b.aDr().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
+        this.kGl = com.baidu.tbadk.core.sharedPref.b.aDr().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
         MessageManager.getInstance().registerListener(this.cHC);
     }
 
-    public boolean cRO() {
+    public boolean cRQ() {
         if (this.mStartTime == 0 || this.bDL == 0 || this.mInterval == 0) {
             return false;
         }
@@ -47,22 +47,22 @@ public class a {
     }
 
     private boolean p(Date date) {
-        return date != null && date.getTime() - this.kGg >= this.mInterval;
+        return date != null && date.getTime() - this.kGl >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void GJ() {
-        if (this.kGh == null) {
-            this.kGh = new aa();
+        if (this.kGm == null) {
+            this.kGm = new aa();
         }
-        this.kGh.parseJson(com.baidu.tbadk.core.sharedPref.b.aDr().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
-        this.mStartTime = this.kGh.aHn();
-        this.bDL = this.kGh.aHo();
-        this.mInterval = this.kGh.aHp();
+        this.kGm.parseJson(com.baidu.tbadk.core.sharedPref.b.aDr().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
+        this.mStartTime = this.kGm.aHn();
+        this.bDL = this.kGm.aHo();
+        this.mInterval = this.kGm.aHp();
     }
 
     public void eK(long j) {
-        this.kGg = j;
+        this.kGl = j;
         com.baidu.tbadk.core.sharedPref.b.aDr().putLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, j);
     }
 }

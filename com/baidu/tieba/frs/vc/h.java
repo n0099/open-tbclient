@@ -467,7 +467,7 @@ public class h extends com.baidu.adp.base.c<BaseFragmentActivity> {
 
     public void BA(String str) {
         if (this.gEE.bCf() != null && this.gEE.bCf().bHC() != null) {
-            com.baidu.tieba.tbadkCore.d.cIt().aA(com.baidu.tieba.tbadkCore.d.cIt().e("1~" + str, this.gEE.bCf().bHC().getSortType(), this.gEE.bCf().bHC().getIsGood(), this.gEE.bCf().bHC().getCategoryId()), false);
+            com.baidu.tieba.tbadkCore.d.cIv().aA(com.baidu.tieba.tbadkCore.d.cIv().e("1~" + str, this.gEE.bCf().bHC().getSortType(), this.gEE.bCf().bHC().getIsGood(), this.gEE.bCf().bHC().getCategoryId()), false);
         }
     }
 
@@ -486,7 +486,7 @@ public class h extends com.baidu.adp.base.c<BaseFragmentActivity> {
 
     public static boolean l(FrsViewData frsViewData) {
         if (frsViewData != null) {
-            return ((frsViewData.getStar() == null || frsViewData.getStar().cIG() != 1) && frsViewData.getHeadSdkData() == null && (frsViewData.getActivityHeadData() == null || v.isEmpty(frsViewData.getActivityHeadData().ayh())) && ((frsViewData.getForum() == null || frsViewData.getForum().getFrsBannerData() == null || frsViewData.getForum().getFrsBannerData().getType() != 2) && (frsViewData.getHeadlineImgInfoData() == null || StringUtils.isNull(frsViewData.getHeadlineImgInfoData().ayq(), true)))) ? false : true;
+            return ((frsViewData.getStar() == null || frsViewData.getStar().cII() != 1) && frsViewData.getHeadSdkData() == null && (frsViewData.getActivityHeadData() == null || v.isEmpty(frsViewData.getActivityHeadData().ayh())) && ((frsViewData.getForum() == null || frsViewData.getForum().getFrsBannerData() == null || frsViewData.getForum().getFrsBannerData().getType() != 2) && (frsViewData.getHeadlineImgInfoData() == null || StringUtils.isNull(frsViewData.getHeadlineImgInfoData().ayq(), true)))) ? false : true;
         }
         return false;
     }

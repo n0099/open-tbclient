@@ -5,8 +5,8 @@ import io.reactivex.u;
 /* loaded from: classes5.dex */
 public class a<T> {
     final int capacity;
-    final Object[] nzs;
-    Object[] nzt;
+    final Object[] nzx;
+    Object[] nzy;
     int offset;
 
     /* renamed from: io.reactivex.internal.util.a$a  reason: collision with other inner class name */
@@ -18,8 +18,8 @@ public class a<T> {
 
     public a(int i) {
         this.capacity = i;
-        this.nzs = new Object[i + 1];
-        this.nzt = this.nzs;
+        this.nzx = new Object[i + 1];
+        this.nzy = this.nzx;
     }
 
     public void add(T t) {
@@ -27,16 +27,16 @@ public class a<T> {
         int i2 = this.offset;
         if (i2 == i) {
             Object[] objArr = new Object[i + 1];
-            this.nzt[i] = objArr;
-            this.nzt = objArr;
+            this.nzy[i] = objArr;
+            this.nzy = objArr;
             i2 = 0;
         }
-        this.nzt[i2] = t;
+        this.nzy[i2] = t;
         this.offset = i2 + 1;
     }
 
     public void bL(T t) {
-        this.nzs[0] = t;
+        this.nzx[0] = t;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x000e, code lost:
@@ -46,7 +46,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(InterfaceC0759a<? super T> interfaceC0759a) {
-        Object[] objArr = this.nzs;
+        Object[] objArr = this.nzx;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -67,7 +67,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(org.a.c<? super U> cVar) {
-        Object[] objArr = this.nzs;
+        Object[] objArr = this.nzx;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -89,7 +89,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean d(u<? super U> uVar) {
-        Object[] objArr = this.nzs;
+        Object[] objArr = this.nzx;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {

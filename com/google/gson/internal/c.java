@@ -12,17 +12,17 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class c implements TypeAdapterFactory, Cloneable {
-    public static final c mJD = new c();
-    private boolean mJH;
-    private double mJE = -1.0d;
-    private int mJF = 136;
-    private boolean mJG = true;
-    private List<ExclusionStrategy> mJI = Collections.emptyList();
-    private List<ExclusionStrategy> mJJ = Collections.emptyList();
+    public static final c mJI = new c();
+    private boolean mJM;
+    private double mJJ = -1.0d;
+    private int mJK = 136;
+    private boolean mJL = true;
+    private List<ExclusionStrategy> mJN = Collections.emptyList();
+    private List<ExclusionStrategy> mJO = Collections.emptyList();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: dzp */
+    /* renamed from: dzr */
     public c clone() {
         try {
             return (c) super.clone();
@@ -33,40 +33,40 @@ public final class c implements TypeAdapterFactory, Cloneable {
 
     public c y(double d) {
         c clone = clone();
-        clone.mJE = d;
+        clone.mJJ = d;
         return clone;
     }
 
     public c p(int... iArr) {
         c clone = clone();
-        clone.mJF = 0;
+        clone.mJK = 0;
         for (int i : iArr) {
-            clone.mJF = i | clone.mJF;
+            clone.mJK = i | clone.mJK;
         }
         return clone;
     }
 
-    public c dzq() {
+    public c dzs() {
         c clone = clone();
-        clone.mJG = false;
+        clone.mJL = false;
         return clone;
     }
 
-    public c dzr() {
+    public c dzt() {
         c clone = clone();
-        clone.mJH = true;
+        clone.mJM = true;
         return clone;
     }
 
     public c a(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
         c clone = clone();
         if (z) {
-            clone.mJI = new ArrayList(this.mJI);
-            clone.mJI.add(exclusionStrategy);
+            clone.mJN = new ArrayList(this.mJN);
+            clone.mJN.add(exclusionStrategy);
         }
         if (z2) {
-            clone.mJJ = new ArrayList(this.mJJ);
-            clone.mJJ.add(exclusionStrategy);
+            clone.mJO = new ArrayList(this.mJO);
+            clone.mJO.add(exclusionStrategy);
         }
         return clone;
     }
@@ -90,22 +90,22 @@ public final class c implements TypeAdapterFactory, Cloneable {
             @Override // com.google.gson.TypeAdapter
             public T read(com.google.gson.stream.a aVar2) throws IOException {
                 if (z) {
-                    aVar2.dzP();
+                    aVar2.dzR();
                     return null;
                 }
-                return dzs().read(aVar2);
+                return dzu().read(aVar2);
             }
 
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, T t) throws IOException {
                 if (z2) {
-                    bVar.dzY();
+                    bVar.dAa();
                 } else {
-                    dzs().write(bVar, t);
+                    dzu().write(bVar, t);
                 }
             }
 
-            private TypeAdapter<T> dzs() {
+            private TypeAdapter<T> dzu() {
                 TypeAdapter<T> typeAdapter = this.delegate;
                 if (typeAdapter != 0) {
                     return typeAdapter;
@@ -119,13 +119,13 @@ public final class c implements TypeAdapterFactory, Cloneable {
 
     public boolean a(Field field, boolean z) {
         com.google.gson.a.a aVar;
-        if ((this.mJF & field.getModifiers()) != 0) {
+        if ((this.mJK & field.getModifiers()) != 0) {
             return true;
         }
-        if ((this.mJE == -1.0d || a((com.google.gson.a.d) field.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) field.getAnnotation(com.google.gson.a.e.class))) && !field.isSynthetic()) {
-            if (!this.mJH || ((aVar = (com.google.gson.a.a) field.getAnnotation(com.google.gson.a.a.class)) != null && (!z ? !aVar.dzl() : !aVar.dzk()))) {
-                if ((this.mJG || !G(field.getType())) && !F(field.getType())) {
-                    List<ExclusionStrategy> list = z ? this.mJI : this.mJJ;
+        if ((this.mJJ == -1.0d || a((com.google.gson.a.d) field.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) field.getAnnotation(com.google.gson.a.e.class))) && !field.isSynthetic()) {
+            if (!this.mJM || ((aVar = (com.google.gson.a.a) field.getAnnotation(com.google.gson.a.a.class)) != null && (!z ? !aVar.dzn() : !aVar.dzm()))) {
+                if ((this.mJL || !G(field.getType())) && !F(field.getType())) {
+                    List<ExclusionStrategy> list = z ? this.mJN : this.mJO;
                     if (!list.isEmpty()) {
                         FieldAttributes fieldAttributes = new FieldAttributes(field);
                         for (ExclusionStrategy exclusionStrategy : list) {
@@ -144,8 +144,8 @@ public final class c implements TypeAdapterFactory, Cloneable {
     }
 
     private boolean E(Class<?> cls) {
-        if (this.mJE == -1.0d || a((com.google.gson.a.d) cls.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) cls.getAnnotation(com.google.gson.a.e.class))) {
-            return (!this.mJG && G(cls)) || F(cls);
+        if (this.mJJ == -1.0d || a((com.google.gson.a.d) cls.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) cls.getAnnotation(com.google.gson.a.e.class))) {
+            return (!this.mJL && G(cls)) || F(cls);
         }
         return true;
     }
@@ -155,7 +155,7 @@ public final class c implements TypeAdapterFactory, Cloneable {
     }
 
     private boolean c(Class<?> cls, boolean z) {
-        for (ExclusionStrategy exclusionStrategy : z ? this.mJI : this.mJJ) {
+        for (ExclusionStrategy exclusionStrategy : z ? this.mJN : this.mJO) {
             if (exclusionStrategy.shouldSkipClass(cls)) {
                 return true;
             }
@@ -180,10 +180,10 @@ public final class c implements TypeAdapterFactory, Cloneable {
     }
 
     private boolean a(com.google.gson.a.d dVar) {
-        return dVar == null || dVar.dzo() <= this.mJE;
+        return dVar == null || dVar.dzq() <= this.mJJ;
     }
 
     private boolean a(com.google.gson.a.e eVar) {
-        return eVar == null || eVar.dzo() > this.mJE;
+        return eVar == null || eVar.dzq() > this.mJJ;
     }
 }

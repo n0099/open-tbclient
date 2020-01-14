@@ -27,11 +27,11 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 /* loaded from: classes5.dex */
 public class SsManifestParser implements p.a<com.google.android.exoplayer2.source.smoothstreaming.manifest.a> {
-    private final XmlPullParserFactory muj;
+    private final XmlPullParserFactory muo;
 
     public SsManifestParser() {
         try {
-            this.muj = XmlPullParserFactory.newInstance();
+            this.muo = XmlPullParserFactory.newInstance();
         } catch (XmlPullParserException e2) {
             throw new RuntimeException("Couldn't create XmlPullParserFactory instance", e2);
         }
@@ -42,7 +42,7 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
     /* renamed from: e */
     public com.google.android.exoplayer2.source.smoothstreaming.manifest.a b(Uri uri, InputStream inputStream) throws IOException {
         try {
-            XmlPullParser newPullParser = this.muj.newPullParser();
+            XmlPullParser newPullParser = this.muo.newPullParser();
             newPullParser.setInput(inputStream, null);
             return (com.google.android.exoplayer2.source.smoothstreaming.manifest.a) new d(null, uri.toString()).m(newPullParser);
         } catch (XmlPullParserException e2) {
@@ -60,16 +60,16 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static abstract class a {
-        private final String mwn;
-        private final a mxA;
-        private final List<Pair<String, Object>> mxB = new LinkedList();
+        private final String mws;
+        private final a mxF;
+        private final List<Pair<String, Object>> mxG = new LinkedList();
         private final String tag;
 
-        protected abstract Object dwt();
+        protected abstract Object dwv();
 
         public a(a aVar, String str, String str2) {
-            this.mxA = aVar;
-            this.mwn = str;
+            this.mxF = aVar;
+            this.mws = str;
             this.tag = str2;
         }
 
@@ -95,7 +95,7 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
                             n(xmlPullParser);
                             break;
                         } else {
-                            a a = a(this, name, this.mwn);
+                            a a = a(this, name, this.mws);
                             if (a != null) {
                                 bx(a.m(xmlPullParser));
                                 break;
@@ -116,7 +116,7 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
                             if (PD(name2)) {
                                 break;
                             } else {
-                                return dwt();
+                                return dwv();
                             }
                         }
                     case 4:
@@ -144,24 +144,24 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
         }
 
         protected final void D(String str, Object obj) {
-            this.mxB.add(Pair.create(str, obj));
+            this.mxG.add(Pair.create(str, obj));
         }
 
         protected final Object PC(String str) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.mxB.size()) {
-                    Pair<String, Object> pair = this.mxB.get(i2);
+                if (i2 < this.mxG.size()) {
+                    Pair<String, Object> pair = this.mxG.get(i2);
                     if (!((String) pair.first).equals(str)) {
                         i = i2 + 1;
                     } else {
                         return pair.second;
                     }
-                } else if (this.mxA == null) {
+                } else if (this.mxF == null) {
                     return null;
                 } else {
-                    return this.mxA.PC(str);
+                    return this.mxF.PC(str);
                 }
             }
         }
@@ -251,65 +251,65 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
     /* loaded from: classes5.dex */
     public static class d extends a {
         private long duration;
-        private int lFK;
-        private int lFL;
-        private boolean mwX;
-        private final List<a.b> mxE;
-        private long mxF;
-        private int mxs;
-        private a.C0675a mxt;
+        private int lFP;
+        private int lFQ;
+        private final List<a.b> mxJ;
+        private long mxK;
+        private boolean mxc;
+        private int mxx;
+        private a.C0675a mxy;
         private long timescale;
 
         public d(a aVar, String str) {
             super(aVar, str, "SmoothStreamingMedia");
-            this.mxs = -1;
-            this.mxt = null;
-            this.mxE = new LinkedList();
+            this.mxx = -1;
+            this.mxy = null;
+            this.mxJ = new LinkedList();
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
         public void n(XmlPullParser xmlPullParser) throws ParserException {
-            this.lFK = e(xmlPullParser, "MajorVersion");
-            this.lFL = e(xmlPullParser, "MinorVersion");
+            this.lFP = e(xmlPullParser, "MajorVersion");
+            this.lFQ = e(xmlPullParser, "MinorVersion");
             this.timescale = d(xmlPullParser, "TimeScale", 10000000L);
             this.duration = f(xmlPullParser, "Duration");
-            this.mxF = d(xmlPullParser, "DVRWindowLength", 0L);
-            this.mxs = a(xmlPullParser, "LookaheadCount", -1);
-            this.mwX = a(xmlPullParser, "IsLive", false);
+            this.mxK = d(xmlPullParser, "DVRWindowLength", 0L);
+            this.mxx = a(xmlPullParser, "LookaheadCount", -1);
+            this.mxc = a(xmlPullParser, "IsLive", false);
             D("TimeScale", Long.valueOf(this.timescale));
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
         public void bx(Object obj) {
             if (obj instanceof a.b) {
-                this.mxE.add((a.b) obj);
+                this.mxJ.add((a.b) obj);
             } else if (obj instanceof a.C0675a) {
-                com.google.android.exoplayer2.util.a.checkState(this.mxt == null);
-                this.mxt = (a.C0675a) obj;
+                com.google.android.exoplayer2.util.a.checkState(this.mxy == null);
+                this.mxy = (a.C0675a) obj;
             }
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public Object dwt() {
-            a.b[] bVarArr = new a.b[this.mxE.size()];
-            this.mxE.toArray(bVarArr);
-            if (this.mxt != null) {
-                DrmInitData drmInitData = new DrmInitData(new DrmInitData.SchemeData(this.mxt.uuid, MimeType.Video.MP4, this.mxt.data));
+        public Object dwv() {
+            a.b[] bVarArr = new a.b[this.mxJ.size()];
+            this.mxJ.toArray(bVarArr);
+            if (this.mxy != null) {
+                DrmInitData drmInitData = new DrmInitData(new DrmInitData.SchemeData(this.mxy.uuid, MimeType.Video.MP4, this.mxy.data));
                 for (a.b bVar : bVarArr) {
-                    for (int i = 0; i < bVar.mrI.length; i++) {
-                        bVar.mrI[i] = bVar.mrI[i].a(drmInitData);
+                    for (int i = 0; i < bVar.mrN.length; i++) {
+                        bVar.mrN[i] = bVar.mrN[i].a(drmInitData);
                     }
                 }
             }
-            return new com.google.android.exoplayer2.source.smoothstreaming.manifest.a(this.lFK, this.lFL, this.timescale, this.duration, this.mxF, this.mxs, this.mwX, this.mxt, bVarArr);
+            return new com.google.android.exoplayer2.source.smoothstreaming.manifest.a(this.lFP, this.lFQ, this.timescale, this.duration, this.mxK, this.mxx, this.mxc, this.mxy, bVarArr);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class b extends a {
-        private boolean mxC;
-        private byte[] mxD;
+        private boolean mxH;
+        private byte[] mxI;
         private UUID uuid;
 
         public b(a aVar, String str) {
@@ -324,28 +324,28 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
         public void n(XmlPullParser xmlPullParser) {
             if ("ProtectionHeader".equals(xmlPullParser.getName())) {
-                this.mxC = true;
+                this.mxH = true;
                 this.uuid = UUID.fromString(PE(xmlPullParser.getAttributeValue(null, "SystemID")));
             }
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
         public void o(XmlPullParser xmlPullParser) {
-            if (this.mxC) {
-                this.mxD = Base64.decode(xmlPullParser.getText(), 0);
+            if (this.mxH) {
+                this.mxI = Base64.decode(xmlPullParser.getText(), 0);
             }
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
         public void p(XmlPullParser xmlPullParser) {
             if ("ProtectionHeader".equals(xmlPullParser.getName())) {
-                this.mxC = false;
+                this.mxH = false;
             }
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public Object dwt() {
-            return new a.C0675a(this.uuid, h.a(this.uuid, this.mxD));
+        public Object dwv() {
+            return new a.C0675a(this.uuid, h.a(this.uuid, this.mxI));
         }
 
         private static String PE(String str) {
@@ -362,12 +362,12 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
         private String language;
         private int maxHeight;
         private int maxWidth;
-        private int mfq;
-        private int mfr;
-        private final String mwn;
-        private final List<Format> mxG;
-        private ArrayList<Long> mxH;
-        private long mxI;
+        private int mfv;
+        private int mfw;
+        private final String mws;
+        private final List<Format> mxL;
+        private ArrayList<Long> mxM;
+        private long mxN;
         private String name;
         private String subType;
         private long timescale;
@@ -376,8 +376,8 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
 
         public e(a aVar, String str) {
             super(aVar, str, "StreamIndex");
-            this.mwn = str;
-            this.mxG = new LinkedList();
+            this.mws = str;
+            this.mxL = new LinkedList();
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
@@ -395,27 +395,27 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
         }
 
         private void q(XmlPullParser xmlPullParser) throws ParserException {
-            int size = this.mxH.size();
+            int size = this.mxM.size();
             long d = d(xmlPullParser, "t", -9223372036854775807L);
             if (d == -9223372036854775807L) {
                 if (size == 0) {
                     d = 0;
-                } else if (this.mxI != -1) {
-                    d = this.mxH.get(size - 1).longValue() + this.mxI;
+                } else if (this.mxN != -1) {
+                    d = this.mxM.get(size - 1).longValue() + this.mxN;
                 } else {
                     throw new ParserException("Unable to infer start time");
                 }
             }
             int i = size + 1;
-            this.mxH.add(Long.valueOf(d));
-            this.mxI = d(xmlPullParser, "d", -9223372036854775807L);
+            this.mxM.add(Long.valueOf(d));
+            this.mxN = d(xmlPullParser, "d", -9223372036854775807L);
             long d2 = d(xmlPullParser, "r", 1L);
-            if (d2 > 1 && this.mxI == -9223372036854775807L) {
+            if (d2 > 1 && this.mxN == -9223372036854775807L) {
                 throw new ParserException("Repeated chunk with unspecified duration");
             }
             for (int i2 = 1; i2 < d2; i2++) {
                 i++;
-                this.mxH.add(Long.valueOf((this.mxI * i2) + d));
+                this.mxM.add(Long.valueOf((this.mxN * i2) + d));
             }
         }
 
@@ -431,15 +431,15 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
             this.url = d(xmlPullParser, "Url");
             this.maxWidth = a(xmlPullParser, "MaxWidth", -1);
             this.maxHeight = a(xmlPullParser, "MaxHeight", -1);
-            this.mfq = a(xmlPullParser, "DisplayWidth", -1);
-            this.mfr = a(xmlPullParser, "DisplayHeight", -1);
+            this.mfv = a(xmlPullParser, "DisplayWidth", -1);
+            this.mfw = a(xmlPullParser, "DisplayHeight", -1);
             this.language = xmlPullParser.getAttributeValue(null, "Language");
             D("Language", this.language);
             this.timescale = a(xmlPullParser, "TimeScale", -1);
             if (this.timescale == -1) {
                 this.timescale = ((Long) PC("TimeScale")).longValue();
             }
-            this.mxH = new ArrayList<>();
+            this.mxM = new ArrayList<>();
         }
 
         private int s(XmlPullParser xmlPullParser) throws ParserException {
@@ -462,22 +462,22 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
         public void bx(Object obj) {
             if (obj instanceof Format) {
-                this.mxG.add((Format) obj);
+                this.mxL.add((Format) obj);
             }
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public Object dwt() {
-            Format[] formatArr = new Format[this.mxG.size()];
-            this.mxG.toArray(formatArr);
-            return new a.b(this.mwn, this.url, this.type, this.subType, this.timescale, this.name, this.maxWidth, this.maxHeight, this.mfq, this.mfr, this.language, formatArr, this.mxH, this.mxI);
+        public Object dwv() {
+            Format[] formatArr = new Format[this.mxL.size()];
+            this.mxL.toArray(formatArr);
+            return new a.b(this.mws, this.url, this.type, this.subType, this.timescale, this.name, this.maxWidth, this.maxHeight, this.mfv, this.mfw, this.language, formatArr, this.mxM, this.mxN);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class c extends a {
-        private Format lYL;
+        private Format lYQ;
 
         public c(a aVar, String str) {
             super(aVar, str, "QualityLevel");
@@ -490,7 +490,7 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
             int e = e(xmlPullParser, "Bitrate");
             String PG = PG(d(xmlPullParser, "FourCC"));
             if (intValue == 2) {
-                this.lYL = Format.a(attributeValue, MimeType.Video.MP4, PG, (String) null, e, e(xmlPullParser, "MaxWidth"), e(xmlPullParser, "MaxHeight"), -1.0f, PF(xmlPullParser.getAttributeValue(null, "CodecPrivateData")), 0);
+                this.lYQ = Format.a(attributeValue, MimeType.Video.MP4, PG, (String) null, e, e(xmlPullParser, "MaxWidth"), e(xmlPullParser, "MaxHeight"), -1.0f, PF(xmlPullParser.getAttributeValue(null, "CodecPrivateData")), 0);
             } else if (intValue == 1) {
                 if (PG == null) {
                     PG = "audio/mp4a-latm";
@@ -501,17 +501,17 @@ public class SsManifestParser implements p.a<com.google.android.exoplayer2.sourc
                 if (PF.isEmpty() && "audio/mp4a-latm".equals(PG)) {
                     PF = Collections.singletonList(com.google.android.exoplayer2.util.c.dT(e3, e2));
                 }
-                this.lYL = Format.a(attributeValue, MimeType.Audio.M4A, PG, (String) null, e, e2, e3, PF, 0, (String) PC("Language"));
+                this.lYQ = Format.a(attributeValue, MimeType.Audio.M4A, PG, (String) null, e, e2, e3, PF, 0, (String) PC("Language"));
             } else if (intValue == 3) {
-                this.lYL = Format.b(attributeValue, "application/mp4", PG, null, e, 0, (String) PC("Language"));
+                this.lYQ = Format.b(attributeValue, "application/mp4", PG, null, e, 0, (String) PC("Language"));
             } else {
-                this.lYL = Format.c(attributeValue, "application/mp4", PG, null, e, 0, null);
+                this.lYQ = Format.c(attributeValue, "application/mp4", PG, null, e, 0, null);
             }
         }
 
         @Override // com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestParser.a
-        public Object dwt() {
-            return this.lYL;
+        public Object dwv() {
+            return this.lYQ;
         }
 
         private static List<byte[]> PF(String str) {

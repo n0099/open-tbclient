@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class PersonIntroductionActivity extends BaseActivity {
     private ImageView flK;
-    private TextView joe;
+    private TextView joj;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.header.PersonIntroductionActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -44,8 +44,8 @@ public class PersonIntroductionActivity extends BaseActivity {
         this.flK = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.view_topbar_icon, (View.OnClickListener) null);
         this.flK.setOnClickListener(this.mClickListener);
         am.setImageResource(this.flK, R.drawable.selector_topbar_return_black);
-        this.joe = (TextView) findViewById(R.id.person_intro);
-        this.joe.setText(getIntent().getStringExtra("person_introduction"));
+        this.joj = (TextView) findViewById(R.id.person_intro);
+        this.joj.setText(getIntent().getStringExtra("person_introduction"));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,7 +53,7 @@ public class PersonIntroductionActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.setViewTextColor(this.joe, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.joj, R.color.cp_cont_b, 1, i);
         am.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d, i);
     }
 }

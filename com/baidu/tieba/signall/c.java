@@ -21,137 +21,137 @@ public class c {
     private BlockPopInfoData blockPopInfoData;
     private String content;
     private String jWA;
-    private boolean jWB;
-    private int jWC;
-    private int jWD;
+    private String jWB;
+    private String jWC;
+    private String jWD;
     private int jWE;
-    private int jWF;
-    private String jWG;
-    private String jWH;
-    private String jWI;
-    private String jWJ;
+    private String jWF;
+    private boolean jWG;
+    private int jWH;
+    private int jWI;
+    private int jWJ;
     private int jWK;
     private String jWL;
-    private int jWM;
-    private boolean jWN;
-    private int jWO;
+    private String jWM;
+    private String jWN;
+    private String jWO;
     private int jWP;
-    private int jWV;
-    private String jWv;
-    private String jWw;
-    private String jWx;
-    private String jWy;
-    private int jWz;
+    private String jWQ;
+    private int jWR;
+    private boolean jWS;
+    private int jWT;
+    private int jWU;
+    private int jXa;
     private int level;
     private String title;
     private int valid;
-    private String jWu = "0";
-    private ArrayList<d> jWQ = new ArrayList<>();
-    private ArrayList<d> jWR = new ArrayList<>();
-    private ArrayList<d> jWS = new ArrayList<>();
-    private HashMap<String, d> jWT = new HashMap<>();
-    private a jWU = new a();
-    private f jWW = new f();
-    private k jWX = new k();
+    private String jWz = "0";
+    private ArrayList<d> jWV = new ArrayList<>();
+    private ArrayList<d> jWW = new ArrayList<>();
+    private ArrayList<d> jWX = new ArrayList<>();
+    private HashMap<String, d> jWY = new HashMap<>();
+    private a jWZ = new a();
+    private f jXb = new f();
+    private k jXc = new k();
 
-    public boolean cGE() {
-        return (this.jWW == null || StringUtils.isNull(this.jWW.jXq)) ? false : true;
+    public boolean cGG() {
+        return (this.jXb == null || StringUtils.isNull(this.jXb.jXv)) ? false : true;
     }
 
     public String aPw() {
-        return this.jWW.cIU;
-    }
-
-    public String cGF() {
-        return this.jWW.jXq;
-    }
-
-    public String cGG() {
-        return this.jWX.jYK;
+        return this.jXb.cIU;
     }
 
     public String cGH() {
-        return this.jWX.link;
+        return this.jXb.jXv;
+    }
+
+    public String cGI() {
+        return this.jXc.jYP;
+    }
+
+    public String cGJ() {
+        return this.jXc.link;
     }
 
     public int getLevel() {
         return this.level;
     }
 
-    public boolean cGI() {
-        return !StringUtils.isNull(this.jWu) && this.jWu.equals("1");
-    }
-
-    public String cGJ() {
-        return this.jWv;
-    }
-
-    public String cqP() {
-        return this.aaC;
-    }
-
-    public String cGK() {
-        return this.jWw;
+    public boolean cGK() {
+        return !StringUtils.isNull(this.jWz) && this.jWz.equals("1");
     }
 
     public String cGL() {
-        return this.jWx;
-    }
-
-    public String cGM() {
-        return this.jWy;
-    }
-
-    public int cGN() {
-        return this.jWz;
-    }
-
-    public String cGO() {
         return this.jWA;
     }
 
-    public ArrayList<d> cGP() {
-        return this.jWQ;
+    public String cqR() {
+        return this.aaC;
     }
 
-    public a cGQ() {
-        return this.jWU;
-    }
-
-    public ArrayList<d> cGR() {
-        return this.jWR;
-    }
-
-    public ArrayList<d> cGS() {
-        return this.jWS;
-    }
-
-    public boolean cGT() {
+    public String cGM() {
         return this.jWB;
     }
 
-    public String cGU() {
-        return this.jWL;
+    public String cGN() {
+        return this.jWC;
+    }
+
+    public String cGO() {
+        return this.jWD;
+    }
+
+    public int cGP() {
+        return this.jWE;
+    }
+
+    public String cGQ() {
+        return this.jWF;
+    }
+
+    public ArrayList<d> cGR() {
+        return this.jWV;
+    }
+
+    public a cGS() {
+        return this.jWZ;
+    }
+
+    public ArrayList<d> cGT() {
+        return this.jWW;
+    }
+
+    public ArrayList<d> cGU() {
+        return this.jWX;
+    }
+
+    public boolean cGV() {
+        return this.jWG;
+    }
+
+    public String cGW() {
+        return this.jWQ;
     }
 
     public String getContent() {
         return this.content;
     }
 
-    public int cGV() {
-        return this.jWM;
-    }
-
-    public boolean cGW() {
-        return this.jWN;
-    }
-
     public int cGX() {
-        return this.jWO;
+        return this.jWR;
     }
 
-    public int cGY() {
-        return this.jWP;
+    public boolean cGY() {
+        return this.jWS;
+    }
+
+    public int cGZ() {
+        return this.jWT;
+    }
+
+    public int cHa() {
+        return this.jWU;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -160,7 +160,7 @@ public class c {
 
     public void b(SignData signData) {
         d dVar;
-        if (signData != null && (dVar = this.jWT.get(signData.forumId)) != null) {
+        if (signData != null && (dVar = this.jWY.get(signData.forumId)) != null) {
             dVar.BX(1);
             dVar.BY(signData.count_sign_num);
             dVar.Ca(signData.sign_bonus_point);
@@ -168,96 +168,96 @@ public class c {
             dVar.sw(false);
             dVar.sx(false);
             a(dVar);
-            cGZ();
+            cHb();
             su(true);
         }
     }
 
     private void a(d dVar) {
-        if (dVar.cHc() >= this.level) {
-            this.jWE++;
-            this.jWF--;
+        if (dVar.cHe() >= this.level) {
+            this.jWJ++;
+            this.jWK--;
         } else {
-            this.jWC++;
-            this.jWD--;
+            this.jWH++;
+            this.jWI--;
         }
-        this.jWT.remove(String.valueOf(dVar.getForumId()));
-        this.jWS.remove(dVar);
-        if (dVar.cHd() + dVar.cHh() >= dVar.cHe()) {
-            dVar.BZ(dVar.cHc() + 1);
+        this.jWY.remove(String.valueOf(dVar.getForumId()));
+        this.jWX.remove(dVar);
+        if (dVar.cHf() + dVar.cHj() >= dVar.cHg()) {
+            dVar.BZ(dVar.cHe() + 1);
             dVar.sy(true);
-            if (dVar.cHc() == this.level) {
-                this.jWE++;
-                this.jWC--;
+            if (dVar.cHe() == this.level) {
+                this.jWJ++;
+                this.jWH--;
             }
         }
-        this.jWR.add(dVar);
-        TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.cHh(), -1);
+        this.jWW.add(dVar);
+        TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.cHj(), -1);
     }
 
-    private void cGZ() {
-        if (this.jWB) {
-            if (this.jWF + this.jWD <= 0) {
-                this.jWN = true;
+    private void cHb() {
+        if (this.jWG) {
+            if (this.jWK + this.jWI <= 0) {
+                this.jWS = true;
             } else {
-                this.jWN = false;
+                this.jWS = false;
             }
-        } else if (this.jWF <= 0) {
-            this.jWN = true;
+        } else if (this.jWK <= 0) {
+            this.jWS = true;
         } else {
-            this.jWN = false;
+            this.jWS = false;
         }
     }
 
     public void a(h hVar) {
-        this.jWO = 0;
-        this.jWP = 0;
-        ArrayList<i> cHr = hVar.cHr();
-        int size = cHr.size();
+        this.jWT = 0;
+        this.jWU = 0;
+        ArrayList<i> cHt = hVar.cHt();
+        int size = cHt.size();
         for (int i = 0; i < size; i++) {
-            i iVar = cHr.get(i);
-            d dVar = this.jWT.get(iVar.getForumId() + "");
+            i iVar = cHt.get(i);
+            d dVar = this.jWY.get(iVar.getForumId() + "");
             if (dVar != null) {
-                if (iVar.cHu() != 0) {
-                    this.jWO++;
+                if (iVar.cHw() != 0) {
+                    this.jWT++;
                     dVar.BX(1);
-                    dVar.BY(iVar.cHv());
+                    dVar.BY(iVar.cHx());
                     dVar.Ca(iVar.getCurScore());
                     dVar.sv(true);
                     dVar.sw(false);
                     dVar.sx(false);
                     a(dVar);
                 } else {
-                    this.jWP++;
+                    this.jWU++;
                     dVar.sv(false);
                     dVar.sw(true);
                     dVar.sx(false);
-                    dVar.setErrorMsg(iVar.cGQ().getUserMsg());
+                    dVar.setErrorMsg(iVar.cGS().getUserMsg());
                 }
             }
         }
-        cGZ();
+        cHb();
         su(true);
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
-            this.jWU.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
+            this.jWZ.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
             this.level = jSONObject.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 7);
-            this.jWu = jSONObject.optString("sign_new");
+            this.jWz = jSONObject.optString("sign_new");
             this.title = jSONObject.optString("title");
-            this.jWv = jSONObject.optString("text_pre");
+            this.jWA = jSONObject.optString("text_pre");
             this.aaC = jSONObject.optString("text_color");
-            this.jWw = jSONObject.optString("text_mid");
-            this.jWx = jSONObject.optString("text_suf");
-            this.jWy = jSONObject.optString("num_notice");
-            this.jWz = jSONObject.optInt("show_dialog");
-            this.jWA = jSONObject.optString("sign_notice");
+            this.jWB = jSONObject.optString("text_mid");
+            this.jWC = jSONObject.optString("text_suf");
+            this.jWD = jSONObject.optString("num_notice");
+            this.jWE = jSONObject.optInt("show_dialog");
+            this.jWF = jSONObject.optString("sign_notice");
             this.valid = jSONObject.optInt(UpdateConstants.VALID_KEY, 0);
-            this.jWV = jSONObject.optInt("sign_max_num", 50);
-            this.jWK = jSONObject.optInt("can_use", 0);
+            this.jXa = jSONObject.optInt("sign_max_num", 50);
+            this.jWP = jSONObject.optInt("can_use", 0);
             this.content = jSONObject.optString("content");
-            this.jWL = jSONObject.optString("button_content");
+            this.jWQ = jSONObject.optString("button_content");
             JSONObject optJSONObject = jSONObject.optJSONObject("anti_info");
             if (optJSONObject != null) {
                 this.blockPopInfoData = new BlockPopInfoData();
@@ -268,68 +268,68 @@ public class c {
                 this.blockPopInfoData.appeal_status = optJSONObject.optInt("appeal_status");
                 this.blockPopInfoData.appeal_msg = optJSONObject.optString("appeal_msg");
             }
-            if (this.jWK == 1) {
-                this.jWB = true;
+            if (this.jWP == 1) {
+                this.jWG = true;
             } else {
-                this.jWB = false;
+                this.jWG = false;
             }
-            this.jWH = this.level + this.title;
-            this.jWG = "1-" + (this.level - 1) + TbadkApplication.getInst().getContext().getString(R.string.sign_all_forum_tip);
-            j.jYA = this.jWV;
+            this.jWM = this.level + this.title;
+            this.jWL = "1-" + (this.level - 1) + TbadkApplication.getInst().getContext().getString(R.string.sign_all_forum_tip);
+            j.jYF = this.jXa;
             JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
             if (optJSONArray != null) {
-                int min = Math.min(optJSONArray.length(), j.jYA);
+                int min = Math.min(optJSONArray.length(), j.jYF);
                 for (int i = 0; i < min; i++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                     if (jSONObject2 != null) {
                         d dVar = new d();
                         dVar.parserJson(jSONObject2);
-                        if (dVar.cHa() == 0) {
+                        if (dVar.cHc() == 0) {
                             if (this.valid == 0) {
-                                if (this.jWB) {
+                                if (this.jWG) {
                                     dVar.sw(true);
-                                } else if (dVar.cHc() > this.level) {
+                                } else if (dVar.cHe() > this.level) {
                                     dVar.sw(true);
                                 }
                             }
-                            if (dVar.cHc() >= this.level) {
-                                this.jWF++;
+                            if (dVar.cHe() >= this.level) {
+                                this.jWK++;
                             } else {
-                                this.jWD++;
+                                this.jWI++;
                             }
-                            this.jWS.add(dVar);
-                            this.jWT.put(dVar.getForumId() + "", dVar);
+                            this.jWX.add(dVar);
+                            this.jWY.put(dVar.getForumId() + "", dVar);
                         } else {
-                            if (dVar.cHc() >= this.level) {
-                                this.jWE++;
+                            if (dVar.cHe() >= this.level) {
+                                this.jWJ++;
                             } else {
-                                this.jWC++;
+                                this.jWH++;
                             }
-                            this.jWR.add(dVar);
-                            TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.cHh(), -1);
+                            this.jWW.add(dVar);
+                            TbadkApplication.getInst().addSignedForum(dVar.getForumName(), dVar.cHj(), -1);
                         }
-                        this.jWQ.add(dVar);
-                        Collections.sort(this.jWQ, new Comparator<d>() { // from class: com.baidu.tieba.signall.c.1
+                        this.jWV.add(dVar);
+                        Collections.sort(this.jWV, new Comparator<d>() { // from class: com.baidu.tieba.signall.c.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // java.util.Comparator
                             /* renamed from: a */
                             public int compare(d dVar2, d dVar3) {
-                                return dVar3.cHc() - dVar2.cHc();
+                                return dVar3.cHe() - dVar2.cHe();
                             }
                         });
                     }
                 }
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("advert");
-            if (this.jWW == null) {
-                this.jWW = new f();
+            if (this.jXb == null) {
+                this.jXb = new f();
             }
-            this.jWW.parserJson(optJSONObject2);
+            this.jXb.parserJson(optJSONObject2);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("wefan");
-            if (this.jWX == null) {
-                this.jWX = new k();
+            if (this.jXc == null) {
+                this.jXc = new k();
             }
-            this.jWX.parserJson(optJSONObject3);
+            this.jXc.parserJson(optJSONObject3);
             su(false);
         }
     }
@@ -337,53 +337,53 @@ public class c {
     private void su(boolean z) {
         if (z) {
             ArrayList arrayList = new ArrayList();
-            Iterator<d> it = this.jWQ.iterator();
+            Iterator<d> it = this.jWV.iterator();
             while (it.hasNext()) {
                 d next = it.next();
                 if (next instanceof b) {
                     arrayList.add(next);
                 }
             }
-            this.jWQ.removeAll(arrayList);
+            this.jWV.removeAll(arrayList);
         }
-        if (this.jWF + this.jWE > 0) {
-            if (this.jWE > 0) {
-                this.jWJ = TbadkApplication.getInst().getContext().getString(R.string.signallforum_res, Integer.valueOf(this.jWE), Integer.valueOf(this.jWF));
+        if (this.jWK + this.jWJ > 0) {
+            if (this.jWJ > 0) {
+                this.jWO = TbadkApplication.getInst().getContext().getString(R.string.signallforum_res, Integer.valueOf(this.jWJ), Integer.valueOf(this.jWK));
             } else {
-                this.jWJ = TbadkApplication.getInst().getContext().getString(R.string.signallforum_count, Integer.valueOf(this.jWF + this.jWE));
+                this.jWO = TbadkApplication.getInst().getContext().getString(R.string.signallforum_count, Integer.valueOf(this.jWK + this.jWJ));
             }
-            if (this.jWQ.size() > 0) {
-                this.jWQ.add(0, new b(this.jWH, this.jWJ));
+            if (this.jWV.size() > 0) {
+                this.jWV.add(0, new b(this.jWM, this.jWO));
             }
         }
-        if (this.jWD + this.jWC > 0) {
-            if (this.jWC > 0) {
-                this.jWI = TbadkApplication.getInst().getContext().getString(R.string.signallforum_res, Integer.valueOf(this.jWC), Integer.valueOf(this.jWD));
+        if (this.jWI + this.jWH > 0) {
+            if (this.jWH > 0) {
+                this.jWN = TbadkApplication.getInst().getContext().getString(R.string.signallforum_res, Integer.valueOf(this.jWH), Integer.valueOf(this.jWI));
             } else {
-                this.jWI = TbadkApplication.getInst().getContext().getString(R.string.signallforum_count, Integer.valueOf(this.jWD + this.jWC));
+                this.jWN = TbadkApplication.getInst().getContext().getString(R.string.signallforum_count, Integer.valueOf(this.jWI + this.jWH));
             }
-            if (this.jWF + this.jWE > 0) {
-                if (this.jWQ.size() > this.jWF + this.jWE + 1) {
-                    this.jWQ.add(this.jWF + this.jWE + 1, new b(this.jWG, this.jWI));
+            if (this.jWK + this.jWJ > 0) {
+                if (this.jWV.size() > this.jWK + this.jWJ + 1) {
+                    this.jWV.add(this.jWK + this.jWJ + 1, new b(this.jWL, this.jWN));
                 }
-            } else if (this.jWQ.size() > 0) {
-                this.jWQ.add(0, new b(this.jWG, this.jWI));
+            } else if (this.jWV.size() > 0) {
+                this.jWV.add(0, new b(this.jWL, this.jWN));
             }
         }
-        if (this.jWQ.size() <= 0) {
-            this.jWM = 3;
-        } else if (this.jWB) {
-            if (this.valid == 1 && this.jWS.size() > 0) {
-                this.jWM = 0;
+        if (this.jWV.size() <= 0) {
+            this.jWR = 3;
+        } else if (this.jWG) {
+            if (this.valid == 1 && this.jWX.size() > 0) {
+                this.jWR = 0;
             } else {
-                this.jWM = 2;
+                this.jWR = 2;
             }
-        } else if (this.valid == 1 && this.jWF > 0) {
-            this.jWM = 0;
-        } else if (this.jWF + this.jWE > 0) {
-            this.jWM = 2;
-        } else if (this.jWF + this.jWE <= 0) {
-            this.jWM = 3;
+        } else if (this.valid == 1 && this.jWK > 0) {
+            this.jWR = 0;
+        } else if (this.jWK + this.jWJ > 0) {
+            this.jWR = 2;
+        } else if (this.jWK + this.jWJ <= 0) {
+            this.jWR = 3;
         }
     }
 }

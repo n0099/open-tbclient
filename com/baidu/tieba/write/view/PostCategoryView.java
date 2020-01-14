@@ -25,30 +25,30 @@ public class PostCategoryView extends TextView {
     private LinearLayout fZy;
     private View gIa;
     private TabMenuPopView gIl;
-    private boolean kQu;
-    private LinearLayout kQv;
-    private Drawable kQw;
-    private Drawable kQx;
+    private LinearLayout kQA;
+    private Drawable kQB;
+    private Drawable kQC;
+    private boolean kQz;
     private Context mContext;
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        this.kQu = false;
-        this.kQw = am.getDrawable(R.drawable.icon_title_down);
-        this.kQw.setBounds(0, 0, this.kQw.getIntrinsicWidth(), this.kQw.getIntrinsicHeight());
-        this.kQx = am.getDrawable(R.drawable.icon_title_up);
-        this.kQx.setBounds(0, 0, this.kQx.getIntrinsicWidth(), this.kQw.getIntrinsicHeight());
-        setCompoundDrawables(null, null, this.kQw, null);
+        this.kQz = false;
+        this.kQB = am.getDrawable(R.drawable.icon_title_down);
+        this.kQB.setBounds(0, 0, this.kQB.getIntrinsicWidth(), this.kQB.getIntrinsicHeight());
+        this.kQC = am.getDrawable(R.drawable.icon_title_up);
+        this.kQC.setBounds(0, 0, this.kQC.getIntrinsicWidth(), this.kQB.getIntrinsicHeight());
+        setCompoundDrawables(null, null, this.kQB, null);
         setPadding(0, 0, l.getDimens(getContext(), R.dimen.ds50), 0);
         this.fZy = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.pop_category, (ViewGroup) null);
-        this.kQv = (LinearLayout) this.fZy.findViewById(R.id.pop_category_layout);
-        this.gIl = (TabMenuPopView) this.kQv.findViewById(R.id.pop_category_view);
+        this.kQA = (LinearLayout) this.fZy.findViewById(R.id.pop_category_layout);
+        this.gIl = (TabMenuPopView) this.kQA.findViewById(R.id.pop_category_view);
         this.gIa = this.fZy.findViewById(R.id.pop_category_grav);
         this.gIa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PostCategoryView.this.cUf();
+                PostCategoryView.this.cUh();
             }
         });
     }
@@ -65,10 +65,10 @@ public class PostCategoryView extends TextView {
         this.gIl.setOnItemClickCallBack(aVar);
     }
 
-    public void cUe() {
-        if (this.kQu) {
-            setCompoundDrawables(null, null, this.kQw, null);
-            this.kQu = false;
+    public void cUg() {
+        if (this.kQz) {
+            setCompoundDrawables(null, null, this.kQB, null);
+            this.kQz = false;
         } else {
             a(this);
             if (this.cGX != null) {
@@ -76,8 +76,8 @@ public class PostCategoryView extends TextView {
                 this.cGX.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
                 this.cGX.setHeight(-1);
                 this.cGX.showWindowInCustomPosition(0, 0);
-                setCompoundDrawables(null, null, this.kQx, null);
-                this.kQu = true;
+                setCompoundDrawables(null, null, this.kQC, null);
+                this.kQz = true;
             }
         }
         invalidate();
@@ -101,7 +101,7 @@ public class PostCategoryView extends TextView {
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     if (postCategoryView != null) {
-                        postCategoryView.cUe();
+                        postCategoryView.cUg();
                     }
                 }
             });
@@ -111,15 +111,15 @@ public class PostCategoryView extends TextView {
     public void aFw() {
         am.setBackgroundColor(this, R.color.cp_bg_line_d);
         am.setViewTextColor(this, R.color.cp_cont_b, 1);
-        if (this.kQv != null) {
-            am.setBackgroundColor(this.kQv, R.color.cp_bg_line_d);
+        if (this.kQA != null) {
+            am.setBackgroundColor(this.kQA, R.color.cp_bg_line_d);
         }
         if (this.gIl != null) {
             this.gIl.aFw();
         }
     }
 
-    public void cUf() {
+    public void cUh() {
         if (this.cGX != null) {
             this.cGX.dismiss();
         }

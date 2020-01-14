@@ -16,15 +16,15 @@ public final class UnicastProcessor<T> extends a<T> {
     final boolean delayError;
     volatile boolean done;
     Throwable error;
-    final AtomicReference<Runnable> nAn;
-    final BasicIntQueueSubscription<T> nAo;
-    boolean nAp;
+    final AtomicReference<Runnable> nAs;
+    final BasicIntQueueSubscription<T> nAt;
+    boolean nAu;
     final AtomicBoolean once;
     final io.reactivex.internal.queue.a<T> queue;
     final AtomicLong requested;
 
-    public static <T> UnicastProcessor<T> dIz() {
-        return new UnicastProcessor<>(dHR());
+    public static <T> UnicastProcessor<T> dIB() {
+        return new UnicastProcessor<>(dHT());
     }
 
     public static <T> UnicastProcessor<T> Nz(int i) {
@@ -46,16 +46,16 @@ public final class UnicastProcessor<T> extends a<T> {
 
     UnicastProcessor(int i, Runnable runnable, boolean z) {
         this.queue = new io.reactivex.internal.queue.a<>(io.reactivex.internal.functions.a.bk(i, "capacityHint"));
-        this.nAn = new AtomicReference<>(runnable);
+        this.nAs = new AtomicReference<>(runnable);
         this.delayError = z;
         this.actual = new AtomicReference<>();
         this.once = new AtomicBoolean();
-        this.nAo = new UnicastQueueSubscription();
+        this.nAt = new UnicastQueueSubscription();
         this.requested = new AtomicLong();
     }
 
     void doTerminate() {
-        Runnable andSet = this.nAn.getAndSet(null);
+        Runnable andSet = this.nAs.getAndSet(null);
         if (andSet != null) {
             andSet.run();
         }
@@ -92,7 +92,7 @@ public final class UnicastProcessor<T> extends a<T> {
                 if (j != 0 && j2 != Format.OFFSET_SAMPLE_RELATIVE) {
                     this.requested.addAndGet(-j);
                 }
-                i = this.nAo.addAndGet(-i2);
+                i = this.nAt.addAndGet(-i2);
                 if (i == 0) {
                     return;
                 }
@@ -126,7 +126,7 @@ public final class UnicastProcessor<T> extends a<T> {
                     return;
                 }
             }
-            i = this.nAo.addAndGet(-i);
+            i = this.nAt.addAndGet(-i);
             if (i == 0) {
                 return;
             }
@@ -136,18 +136,18 @@ public final class UnicastProcessor<T> extends a<T> {
     }
 
     void drain() {
-        if (this.nAo.getAndIncrement() == 0) {
+        if (this.nAt.getAndIncrement() == 0) {
             int i = 1;
             c<? super T> cVar = this.actual.get();
             while (cVar == null) {
-                i = this.nAo.addAndGet(-i);
+                i = this.nAt.addAndGet(-i);
                 if (i != 0) {
                     cVar = this.actual.get();
                 } else {
                     return;
                 }
             }
-            if (this.nAp) {
+            if (this.nAu) {
                 d(cVar);
             } else {
                 c(cVar);
@@ -224,7 +224,7 @@ public final class UnicastProcessor<T> extends a<T> {
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         if (!this.once.get() && this.once.compareAndSet(false, true)) {
-            cVar.onSubscribe(this.nAo);
+            cVar.onSubscribe(this.nAt);
             this.actual.set(cVar);
             if (this.cancelled) {
                 this.actual.lazySet(null);
@@ -262,7 +262,7 @@ public final class UnicastProcessor<T> extends a<T> {
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
             if ((i & 2) != 0) {
-                UnicastProcessor.this.nAp = true;
+                UnicastProcessor.this.nAu = true;
                 return 2;
             }
             return 0;
@@ -281,7 +281,7 @@ public final class UnicastProcessor<T> extends a<T> {
             if (!UnicastProcessor.this.cancelled) {
                 UnicastProcessor.this.cancelled = true;
                 UnicastProcessor.this.doTerminate();
-                if (!UnicastProcessor.this.nAp && UnicastProcessor.this.nAo.getAndIncrement() == 0) {
+                if (!UnicastProcessor.this.nAu && UnicastProcessor.this.nAt.getAndIncrement() == 0) {
                     UnicastProcessor.this.queue.clear();
                     UnicastProcessor.this.actual.lazySet(null);
                 }

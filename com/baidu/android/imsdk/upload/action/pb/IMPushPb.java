@@ -2796,7 +2796,7 @@ public final class IMPushPb {
         private int bitField0;
 
         /* renamed from: common  reason: collision with root package name */
-        private Common f964common;
+        private Common f965common;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private MetaData metadata;
@@ -2856,11 +2856,11 @@ public final class IMPushPb {
                                 z2 = z5;
                                 break;
                             case 330:
-                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.f964common.toBuilder() : null;
-                                this.f964common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
+                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.f965common.toBuilder() : null;
+                                this.f965common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
-                                    builder2.mergeFrom(this.f964common);
-                                    this.f964common = builder2.buildPartial();
+                                    builder2.mergeFrom(this.f965common);
+                                    this.f965common = builder2.buildPartial();
                                 }
                                 this.bitField0 |= 2;
                                 z3 = z4;
@@ -2956,7 +2956,7 @@ public final class IMPushPb {
         }
 
         public Common getCommon() {
-            return this.f964common;
+            return this.f965common;
         }
 
         public boolean hasSdkName() {
@@ -3008,7 +3008,7 @@ public final class IMPushPb {
 
         private void initFields() {
             this.metadata = MetaData.getDefaultInstance();
-            this.f964common = Common.getDefaultInstance();
+            this.f965common = Common.getDefaultInstance();
             this.sdkName = "";
             this.sdkVersion = 0L;
             this.actions = Collections.emptyList();
@@ -3038,7 +3038,7 @@ public final class IMPushPb {
                 codedOutputStream.writeMessage(25, this.metadata);
             }
             if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeMessage(41, this.f964common);
+                codedOutputStream.writeMessage(41, this.f965common);
             }
             if ((this.bitField0 & 4) == 4) {
                 codedOutputStream.writeBytes(130, getSdkNameBytes());
@@ -3065,7 +3065,7 @@ public final class IMPushPb {
             if (i2 == -1) {
                 int computeMessageSize = (this.bitField0 & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata) + 0 : 0;
                 if ((this.bitField0 & 2) == 2) {
-                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f964common);
+                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f965common);
                 }
                 if ((this.bitField0 & 4) == 4) {
                     computeMessageSize += CodedOutputStream.computeBytesSize(130, getSdkNameBytes());
@@ -3118,7 +3118,7 @@ public final class IMPushPb {
             private MetaData metadata = MetaData.getDefaultInstance();
 
             /* renamed from: common  reason: collision with root package name */
-            private Common f965common = Common.getDefaultInstance();
+            private Common f966common = Common.getDefaultInstance();
             private Object sdkName = "";
             private List<Action> actions = Collections.emptyList();
 
@@ -3140,7 +3140,7 @@ public final class IMPushPb {
                 super.clear();
                 this.metadata = MetaData.getDefaultInstance();
                 this.bitField0 &= -2;
-                this.f965common = Common.getDefaultInstance();
+                this.f966common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 this.sdkName = "";
                 this.bitField0 &= -5;
@@ -3183,7 +3183,7 @@ public final class IMPushPb {
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                pushImClient.f964common = this.f965common;
+                pushImClient.f965common = this.f966common;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
@@ -3297,23 +3297,23 @@ public final class IMPushPb {
             }
 
             public Common getCommon() {
-                return this.f965common;
+                return this.f966common;
             }
 
             public Builder setCommon(Common common2) {
                 if (common2 == null) {
                     throw new NullPointerException();
                 }
-                this.f965common = common2;
+                this.f966common = common2;
                 this.bitField0 |= 2;
                 return this;
             }
 
             public Builder mergeCommon(Common common2) {
-                if ((this.bitField0 & 2) == 2 && this.f965common != Common.getDefaultInstance()) {
-                    this.f965common = Common.newBuilder(this.f965common).mergeFrom(common2).buildPartial();
+                if ((this.bitField0 & 2) == 2 && this.f966common != Common.getDefaultInstance()) {
+                    this.f966common = Common.newBuilder(this.f966common).mergeFrom(common2).buildPartial();
                 } else {
-                    this.f965common = common2;
+                    this.f966common = common2;
                 }
                 this.bitField0 |= 2;
                 return this;

@@ -7,7 +7,7 @@ import android.os.SystemClock;
 public class COSPushHelper {
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f21a = false;
+    private static volatile boolean f22a = false;
     private static long a = 0;
 
     public static void convertMessage(Intent intent) {
@@ -25,7 +25,7 @@ public class COSPushHelper {
     }
 
     public static boolean getNeedRegister() {
-        return f21a;
+        return f22a;
     }
 
     public static boolean hasNetwork(Context context) {
@@ -48,7 +48,7 @@ public class COSPushHelper {
 
     public static synchronized void setNeedRegister(boolean z) {
         synchronized (COSPushHelper.class) {
-            f21a = z;
+            f22a = z;
         }
     }
 

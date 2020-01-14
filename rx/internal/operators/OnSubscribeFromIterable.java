@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 /* loaded from: classes5.dex */
 public final class OnSubscribeFromIterable<T> implements d.a<T> {
-    final Iterable<? extends T> nNs;
+    final Iterable<? extends T> nNx;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -17,12 +17,12 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
         if (iterable == null) {
             throw new NullPointerException("iterable must not be null");
         }
-        this.nNs = iterable;
+        this.nNx = iterable;
     }
 
     public void call(rx.j<? super T> jVar) {
         try {
-            Iterator<? extends T> it = this.nNs.iterator();
+            Iterator<? extends T> it = this.nNx.iterator();
             boolean hasNext = it.hasNext();
             if (!jVar.isUnsubscribed()) {
                 if (!hasNext) {

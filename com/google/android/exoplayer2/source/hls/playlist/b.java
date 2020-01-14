@@ -7,30 +7,30 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public final class b extends c {
     public final DrmInitData drmInitData;
-    public final long lYQ;
-    public final long msx;
-    public final int mvW;
-    public final long mvX;
-    public final boolean mvY;
-    public final int mvZ;
-    public final int mwa;
-    public final long mwb;
-    public final boolean mwc;
+    public final long lYV;
+    public final long msC;
+    public final int mwb;
+    public final long mwc;
     public final boolean mwd;
-    public final boolean mwe;
-    public final a mwf;
-    public final List<a> mwg;
+    public final int mwe;
+    public final int mwf;
+    public final long mwg;
+    public final boolean mwh;
+    public final boolean mwi;
+    public final boolean mwj;
+    public final a mwk;
+    public final List<a> mwl;
     public final int version;
 
     /* loaded from: classes5.dex */
     public static final class a implements Comparable<Long> {
-        public final long lYQ;
-        public final int mwh;
-        public final long mwi;
-        public final String mwj;
-        public final String mwk;
-        public final long mwl;
-        public final long mwm;
+        public final long lYV;
+        public final int mwm;
+        public final long mwn;
+        public final String mwo;
+        public final String mwp;
+        public final long mwq;
+        public final long mwr;
         public final String url;
 
         public a(String str, long j, long j2) {
@@ -39,76 +39,76 @@ public final class b extends c {
 
         public a(String str, long j, int i, long j2, String str2, String str3, long j3, long j4) {
             this.url = str;
-            this.lYQ = j;
-            this.mwh = i;
-            this.mwi = j2;
-            this.mwj = str2;
-            this.mwk = str3;
-            this.mwl = j3;
-            this.mwm = j4;
+            this.lYV = j;
+            this.mwm = i;
+            this.mwn = j2;
+            this.mwo = str2;
+            this.mwp = str3;
+            this.mwq = j3;
+            this.mwr = j4;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         /* renamed from: g */
         public int compareTo(@NonNull Long l) {
-            if (this.mwi > l.longValue()) {
+            if (this.mwn > l.longValue()) {
                 return 1;
             }
-            return this.mwi < l.longValue() ? -1 : 0;
+            return this.mwn < l.longValue() ? -1 : 0;
         }
     }
 
     public b(int i, String str, List<String> list, long j, long j2, boolean z, int i2, int i3, int i4, long j3, boolean z2, boolean z3, boolean z4, DrmInitData drmInitData, a aVar, List<a> list2) {
         super(str, list);
-        this.mvW = i;
-        this.msx = j2;
-        this.mvY = z;
-        this.mvZ = i2;
-        this.mwa = i3;
+        this.mwb = i;
+        this.msC = j2;
+        this.mwd = z;
+        this.mwe = i2;
+        this.mwf = i3;
         this.version = i4;
-        this.mwb = j3;
-        this.mwc = z2;
-        this.mwd = z3;
-        this.mwe = z4;
+        this.mwg = j3;
+        this.mwh = z2;
+        this.mwi = z3;
+        this.mwj = z4;
         this.drmInitData = drmInitData;
-        this.mwf = aVar;
-        this.mwg = Collections.unmodifiableList(list2);
+        this.mwk = aVar;
+        this.mwl = Collections.unmodifiableList(list2);
         if (!list2.isEmpty()) {
             a aVar2 = list2.get(list2.size() - 1);
-            this.lYQ = aVar2.lYQ + aVar2.mwi;
+            this.lYV = aVar2.lYV + aVar2.mwn;
         } else {
-            this.lYQ = 0L;
+            this.lYV = 0L;
         }
         if (j == -9223372036854775807L) {
             j = -9223372036854775807L;
         } else if (j < 0) {
-            j += this.lYQ;
+            j += this.lYV;
         }
-        this.mvX = j;
+        this.mwc = j;
     }
 
     public boolean c(b bVar) {
-        if (bVar == null || this.mwa > bVar.mwa) {
+        if (bVar == null || this.mwf > bVar.mwf) {
             return true;
         }
-        if (this.mwa >= bVar.mwa) {
-            int size = this.mwg.size();
-            int size2 = bVar.mwg.size();
-            return size > size2 || (size == size2 && this.mwd && !bVar.mwd);
+        if (this.mwf >= bVar.mwf) {
+            int size = this.mwl.size();
+            int size2 = bVar.mwl.size();
+            return size > size2 || (size == size2 && this.mwi && !bVar.mwi);
         }
         return false;
     }
 
-    public long dwg() {
-        return this.msx + this.lYQ;
+    public long dwi() {
+        return this.msC + this.lYV;
     }
 
     public b D(long j, int i) {
-        return new b(this.mvW, this.mwn, this.tags, this.mvX, j, true, i, this.mwa, this.version, this.mwb, this.mwc, this.mwd, this.mwe, this.drmInitData, this.mwf, this.mwg);
+        return new b(this.mwb, this.mws, this.tags, this.mwc, j, true, i, this.mwf, this.version, this.mwg, this.mwh, this.mwi, this.mwj, this.drmInitData, this.mwk, this.mwl);
     }
 
-    public b dwh() {
-        return this.mwd ? this : new b(this.mvW, this.mwn, this.tags, this.mvX, this.msx, this.mvY, this.mvZ, this.mwa, this.version, this.mwb, this.mwc, true, this.mwe, this.drmInitData, this.mwf, this.mwg);
+    public b dwj() {
+        return this.mwi ? this : new b(this.mwb, this.mws, this.tags, this.mwc, this.msC, this.mwd, this.mwe, this.mwf, this.version, this.mwg, this.mwh, true, this.mwj, this.drmInitData, this.mwk, this.mwl);
     }
 }

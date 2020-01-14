@@ -12,7 +12,7 @@ public final class a implements tv.chushou.basis.d.a.b.b {
     private final String c = "5.5.6";
     private final HashMap<String, String> d = new HashMap<>();
     private final String e = "Android ChushouTV SDK/" + this.c;
-    public static final C0703a ndR = new C0703a(null);
+    public static final C0703a ndW = new C0703a(null);
     private static final int[] f = new int[3];
 
     @Override // tv.chushou.basis.d.a
@@ -27,23 +27,23 @@ public final class a implements tv.chushou.basis.d.a.b.b {
     }
 
     @Override // tv.chushou.basis.d.a.b.b
-    public String dCV() {
+    public String dCX() {
         String string;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dOE().T(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dOG().T(tv.chushou.basis.d.a.a.a.class);
         return (aVar == null || (string = aVar.getString("xappkey", "")) == null) ? "" : string;
     }
 
     @Override // tv.chushou.basis.d.a.b.b
-    public String dCW() {
+    public String dCY() {
         String string;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dOE().T(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dOG().T(tv.chushou.basis.d.a.a.a.class);
         return (aVar == null || (string = aVar.getString("xsecret", "")) == null) ? "" : string;
     }
 
     @Override // tv.chushou.basis.d.a.b.b
     public String OM() {
         String string;
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dOE().T(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dOG().T(tv.chushou.basis.d.a.a.a.class);
         return (aVar == null || (string = aVar.getString("xappkey", "")) == null) ? "" : string;
     }
 
@@ -54,7 +54,7 @@ public final class a implements tv.chushou.basis.d.a.b.b {
 
     @Override // tv.chushou.basis.d.a.b.b
     public String getToken() {
-        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dOE().T(tv.chushou.basis.d.a.a.a.class);
+        tv.chushou.basis.d.a.a.a aVar = (tv.chushou.basis.d.a.a.a) tv.chushou.basis.d.b.dOG().T(tv.chushou.basis.d.a.a.a.class);
         if (aVar != null) {
             return aVar.getString("token", "");
         }
@@ -63,33 +63,33 @@ public final class a implements tv.chushou.basis.d.a.b.b {
 
     @Override // tv.chushou.basis.d.a.b.b
     public boolean MT(int i) {
-        int length = ndR.a().length;
+        int length = ndW.a().length;
         int i2 = 0;
         while (true) {
             if (i2 >= length) {
                 i2 = -1;
                 break;
-            } else if (i == ndR.a()[i2]) {
+            } else if (i == ndW.a()[i2]) {
                 break;
             } else {
                 i2++;
             }
         }
         if (i2 != -1) {
-            a(ndR.a()[i2]);
+            a(ndW.a()[i2]);
             return true;
         }
         return false;
     }
 
     @Override // tv.chushou.basis.d.a.b.b
-    public Map<String, String> dCX() {
+    public Map<String, String> dCZ() {
         return this.d;
     }
 
     @Override // tv.chushou.basis.d.a.b.b
-    public Map<String, String> dCY() {
-        return com.kascend.cstvsdk.utils.a.njD.a();
+    public Map<String, String> dDa() {
+        return com.kascend.cstvsdk.utils.a.njI.a();
     }
 
     @Override // tv.chushou.basis.d.a.b.b
@@ -102,16 +102,16 @@ public final class a implements tv.chushou.basis.d.a.b.b {
         Application e = com.kascend.chushou.d.b.e();
         if (i == 1801) {
             if (e instanceof FragmentActivity) {
-                tv.chushou.basis.d.b.dOD().d(null, "1801");
+                tv.chushou.basis.d.b.dOF().d(null, "1801");
             }
         } else if (i == 401) {
             if (e == null) {
-                e = tv.chushou.basis.d.b.dOC();
+                e = tv.chushou.basis.d.b.dOE();
             }
             com.kascend.chushou.d.e.b(e, (String) null);
-        } else if (i != 602 || (cVar = (tv.chushou.basis.d.a.b.c) tv.chushou.basis.d.b.dOE().T(tv.chushou.basis.d.a.b.c.class)) == null) {
+        } else if (i != 602 || (cVar = (tv.chushou.basis.d.a.b.c) tv.chushou.basis.d.b.dOG().T(tv.chushou.basis.d.a.b.c.class)) == null) {
         } else {
-            cVar.dDb();
+            cVar.dDd();
         }
     }
 
@@ -132,8 +132,8 @@ public final class a implements tv.chushou.basis.d.a.b.b {
     }
 
     static {
-        ndR.a()[0] = 401;
-        ndR.a()[1] = 1801;
-        ndR.a()[2] = 602;
+        ndW.a()[0] = 401;
+        ndW.a()[1] = 1801;
+        ndW.a()[2] = 602;
     }
 }

@@ -7,8 +7,8 @@ public class o {
     private String apk;
     private long bDL;
     private String dUk;
-    private String kgw;
-    private List<String> kgx;
+    private String kgB;
+    private List<String> kgC;
     private long mStartTime;
     private int mType;
 
@@ -17,8 +17,8 @@ public class o {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
             this.bDL = redpacketRain.end_time.longValue() * 1000;
             this.dUk = redpacketRain.jump_url;
-            this.kgw = redpacketRain.float_url;
-            this.kgx = redpacketRain.dynamic_img;
+            this.kgB = redpacketRain.float_url;
+            this.kgC = redpacketRain.dynamic_img;
             this.apk = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
@@ -36,15 +36,15 @@ public class o {
         return this.dUk;
     }
 
-    public String cJL() {
-        return this.kgw;
-    }
-
-    public List<String> cJM() {
-        return this.kgx;
-    }
-
     public String cJN() {
+        return this.kgB;
+    }
+
+    public List<String> cJO() {
+        return this.kgC;
+    }
+
+    public String cJP() {
         return this.apk;
     }
 
@@ -61,11 +61,11 @@ public class o {
     }
 
     public void IP(String str) {
-        this.kgw = str;
+        this.kgB = str;
     }
 
     public void ei(List<String> list) {
-        this.kgx = list;
+        this.kgC = list;
     }
 
     public void IQ(String str) {

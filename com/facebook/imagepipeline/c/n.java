@@ -5,10 +5,6 @@ public interface n {
 
     void b(h<?, ?> hVar);
 
-    void dmJ();
-
-    void dmK();
-
     void dmL();
 
     void dmM();
@@ -20,6 +16,10 @@ public interface n {
     void dmP();
 
     void dmQ();
+
+    void dmR();
+
+    void dmS();
 
     void p(com.facebook.cache.common.b bVar);
 

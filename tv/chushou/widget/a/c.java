@@ -13,35 +13,35 @@ import java.lang.ref.SoftReference;
 import tv.chushou.widget.a.b;
 /* loaded from: classes4.dex */
 public class c {
-    private static volatile Resources nVm;
-    private static SoftReference<tv.chushou.widget.a.a.a> nVn;
+    private static volatile Resources nVr;
+    private static SoftReference<tv.chushou.widget.a.a.a> nVs;
 
     public static void d(Resources resources) {
-        nVm = resources;
+        nVr = resources;
     }
 
     public static Resources getResources() {
-        return nVm;
+        return nVr;
     }
 
     public static String getString(@StringRes int i) {
-        return nVm.getString(i);
+        return nVr.getString(i);
     }
 
     public static String getString(@StringRes int i, Object... objArr) {
-        return nVm.getString(i, objArr);
+        return nVr.getString(i, objArr);
     }
 
     public static int getColor(@ColorRes int i) {
-        return nVm.getColor(i);
+        return nVr.getColor(i);
     }
 
     public static Drawable getDrawable(@DrawableRes int i) {
-        return nVm.getDrawable(i);
+        return nVr.getDrawable(i);
     }
 
     public static int Ob(@DimenRes int i) {
-        return nVm.getDimensionPixelSize(i);
+        return nVr.getDimensionPixelSize(i);
     }
 
     public static int S(float f) {
@@ -63,17 +63,17 @@ public class c {
     }
 
     @DrawableRes
-    public static int dOT() {
+    public static int dOV() {
         return b.C0797b.commonres_placeholder_bg;
     }
 
     @NonNull
-    public static Drawable dOU() {
-        if (nVn != null && nVn.get() != null) {
-            return nVn.get().getConstantState().newDrawable();
+    public static Drawable dOW() {
+        if (nVs != null && nVs.get() != null) {
+            return nVs.get().getConstantState().newDrawable();
         }
         tv.chushou.widget.a.a.a aVar = new tv.chushou.widget.a.a.a(BitmapFactory.decodeResource(getResources(), b.c.commonres_placeholder_icon), getColor(b.C0797b.commonres_placeholder_bg));
-        nVn = new SoftReference<>(aVar);
+        nVs = new SoftReference<>(aVar);
         return aVar;
     }
 }

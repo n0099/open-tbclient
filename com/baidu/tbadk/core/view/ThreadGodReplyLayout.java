@@ -229,7 +229,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         this.dej = postData;
         setVisibility(0);
         a(postData);
-        a(a(postData.cJz()));
+        a(a(postData.cJB()));
         b(postData);
         c(postData);
         if ((this.mImageList != null && this.mImageList.size() > 0) || (this.dek != null && this.dek.aSx() != null)) {
@@ -362,13 +362,13 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.deh.setVisibility(8);
             return;
         }
-        TbRichText cJz = postData.cJz();
-        if (cJz == null || cJz.aRz() == null) {
+        TbRichText cJB = postData.cJB();
+        if (cJB == null || cJB.aRz() == null) {
             this.deg.setVisibility(8);
             this.deh.setVisibility(8);
             return;
         }
-        Iterator<TbRichTextData> it = cJz.aRz().iterator();
+        Iterator<TbRichTextData> it = cJB.aRz().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null) {

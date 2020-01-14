@@ -24,15 +24,15 @@ public class Layer {
     private final float ju;
     private final int jv;
     private final int jw;
-    private final l nqD;
-    private final LayerType nqO;
+    private final l nqI;
+    private final LayerType nqT;
     @Nullable
-    private final j nqP;
+    private final j nqU;
     @Nullable
-    private final k nqQ;
+    private final k nqV;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b nqR;
-    private final MatteType nqS;
+    private final com.tb.airbnb.lottie.model.a.b nqW;
+    private final MatteType nqX;
     private final List<com.tb.airbnb.lottie.model.content.b> shapes;
 
     /* loaded from: classes5.dex */
@@ -59,11 +59,11 @@ public class Layer {
         this.composition = dVar;
         this.jm = str;
         this.jn = j;
-        this.nqO = layerType;
+        this.nqT = layerType;
         this.jp = j2;
         this.jq = str2;
         this.gJ = list2;
-        this.nqD = lVar;
+        this.nqI = lVar;
         this.jr = i;
         this.js = i2;
         this.jt = i3;
@@ -71,11 +71,11 @@ public class Layer {
         this.ec = f2;
         this.jv = i4;
         this.jw = i5;
-        this.nqP = jVar;
-        this.nqQ = kVar;
+        this.nqU = jVar;
+        this.nqV = kVar;
         this.jA = list3;
-        this.nqS = matteType;
-        this.nqR = bVar;
+        this.nqX = matteType;
+        this.nqW = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,13 +128,13 @@ public class Layer {
         return this.gJ;
     }
 
-    public LayerType dGp() {
-        return this.nqO;
+    public LayerType dGr() {
+        return this.nqT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public MatteType dGq() {
-        return this.nqS;
+    public MatteType dGs() {
+        return this.nqX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -149,8 +149,8 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l dGj() {
-        return this.nqD;
+    public l dGl() {
+        return this.nqI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -170,20 +170,20 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public j dGr() {
-        return this.nqP;
+    public j dGt() {
+        return this.nqU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public k dGs() {
-        return this.nqQ;
+    public k dGu() {
+        return this.nqV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public com.tb.airbnb.lottie.model.a.b dGt() {
-        return this.nqR;
+    public com.tb.airbnb.lottie.model.a.b dGv() {
+        return this.nqW;
     }
 
     public String toString() {

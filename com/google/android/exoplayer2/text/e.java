@@ -5,7 +5,7 @@ import java.util.List;
 public interface e {
     long Lf(int i);
 
-    int dww();
+    int dwy();
 
     int gy(long j);
 

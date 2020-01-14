@@ -25,10 +25,10 @@ public class g {
     private RadioButton gyW;
     private RadioButton gyX;
     private RadioButton gyY;
-    private d kIa;
-    private b kIb;
-    private e kIc;
-    private LinearLayout kId;
+    private d kIf;
+    private b kIg;
+    private e kIh;
+    private LinearLayout kIi;
     private List<a> mItems;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.g.1
         @Override // android.view.View.OnClickListener
@@ -64,8 +64,8 @@ public class g {
                 g.this.gyX.setChecked(true);
                 g.this.mScore = 5;
             }
-            if (g.this.kIc != null) {
-                g.this.kIc.AG(g.this.mScore);
+            if (g.this.kIh != null) {
+                g.this.kIh.AG(g.this.mScore);
             }
         }
     };
@@ -112,7 +112,7 @@ public class g {
             this.gyX.setOnClickListener(this.mOnClickListener);
             this.gyY = (RadioButton) this.view.findViewById(R.id.comment_grade_5);
             this.gyY.setOnClickListener(this.mOnClickListener);
-            this.kId = (LinearLayout) this.view.findViewById(R.id.comment_grade);
+            this.kIi = (LinearLayout) this.view.findViewById(R.id.comment_grade);
         }
     }
 
@@ -179,11 +179,11 @@ public class g {
     }
 
     public void DN(int i) {
-        this.kId.setVisibility(i);
+        this.kIi.setVisibility(i);
     }
 
     public void F(int i, int i2, int i3, int i4) {
-        this.kId.setPadding(i, i2, i3, i4);
+        this.kIi.setPadding(i, i2, i3, i4);
     }
 
     public void setTitlePadding(int i, int i2, int i3, int i4) {
@@ -194,8 +194,8 @@ public class g {
         this.cGN.setTextSize(0, l.getDimens(this.cRG, i));
     }
 
-    public d cSb() {
-        return this.kIa;
+    public d cSd() {
+        return this.kIf;
     }
 
     public void az(List<a> list) {
@@ -219,11 +219,11 @@ public class g {
     }
 
     public void a(b bVar) {
-        this.kIb = bVar;
+        this.kIg = bVar;
     }
 
     public void a(e eVar) {
-        this.kIc = eVar;
+        this.kIh = eVar;
     }
 
     public void DO(int i) {
@@ -236,7 +236,7 @@ public class g {
         am.setBackgroundColor(this.cRJ, R.color.cp_bg_line_c);
         am.setBackgroundResource(this.cRK, R.drawable.bg_bottom_up_list_dialog_item);
         am.setViewTextColor(this.cRK, (int) R.color.cp_cont_f);
-        am.setBackgroundResource(this.kId, R.drawable.bg_bottom_up_list_dialog_item);
+        am.setBackgroundResource(this.kIi, R.drawable.bg_bottom_up_list_dialog_item);
         if (this.mItems != null) {
             for (a aVar : this.mItems) {
                 aVar.onChangeSkinType();
@@ -250,11 +250,11 @@ public class g {
         } else {
             this.cGN.setVisibility(8);
         }
-        if (this.kIb != null) {
+        if (this.kIg != null) {
             this.cRK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.g.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    g.this.kIb.onClick();
+                    g.this.kIg.onClick();
                 }
             });
         }
@@ -265,8 +265,8 @@ public class g {
     /* loaded from: classes.dex */
     public static class a {
         private View cRr;
-        private g kIf;
-        private c kIg;
+        private g kIk;
+        private c kIl;
         private String mText;
         private TextView mTextView;
         private View mView;
@@ -277,11 +277,11 @@ public class g {
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.g.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.kIg != null) {
-                    a.this.kIg.onClick();
+                if (a.this.kIl != null) {
+                    a.this.kIl.onClick();
                 }
-                if (a.this.kIf != null && a.this.kIf.cSb() != null) {
-                    a.this.kIf.cSb().onItemClick(a.this.mId);
+                if (a.this.kIk != null && a.this.kIk.cSd() != null) {
+                    a.this.kIk.cSd().onItemClick(a.this.mId);
                 }
             }
         };
@@ -289,7 +289,7 @@ public class g {
 
         public a(String str, g gVar) {
             this.mText = str;
-            this.kIf = gVar;
+            this.kIk = gVar;
             initView();
             initListener();
         }
@@ -299,7 +299,7 @@ public class g {
         }
 
         public void a(c cVar) {
-            this.kIg = cVar;
+            this.kIl = cVar;
             initListener();
         }
 
@@ -310,8 +310,8 @@ public class g {
         }
 
         private void initView() {
-            if (this.kIf != null && this.kIf.getContext() != null) {
-                this.mView = LayoutInflater.from(this.kIf.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.kIf.aCD(), false);
+            if (this.kIk != null && this.kIk.getContext() != null) {
+                this.mView = LayoutInflater.from(this.kIk.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.kIk.aCD(), false);
                 this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
                 this.mTextView.setText(this.mText);
                 this.mTextView.setGravity(this.cRt);

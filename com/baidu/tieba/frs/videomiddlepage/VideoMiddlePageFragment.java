@@ -94,7 +94,7 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
                     if (VideoMiddlePageFragment.this.ehd != null) {
                         VideoMiddlePageFragment.this.ehd.setVisibility(8);
                     }
-                    if (j.isMobileNet() && !com.baidu.tieba.video.g.cNI().cNJ()) {
+                    if (j.isMobileNet() && !com.baidu.tieba.video.g.cNK().cNL()) {
                         if (VideoMiddlePageFragment.this.gMp == null || !VideoMiddlePageFragment.this.gMp.kC()) {
                             if (VideoMiddlePageFragment.this.gMp != null && VideoMiddlePageFragment.this.gMp.bJG()) {
                                 VideoMiddlePageFragment.this.getPageContext().showToast((int) R.string.video_mobile_play_tips);
@@ -132,7 +132,7 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
                         VideoMiddlePageFragment.this.gLS.aZN();
                     }
                     VideoMiddlePageFragment.this.c(bdTypeRecyclerView);
-                    com.baidu.tieba.r.c.cIs().b(VideoMiddlePageFragment.this.getUniqueId(), true);
+                    com.baidu.tieba.r.c.cIu().b(VideoMiddlePageFragment.this.getUniqueId(), true);
                 } else if (i == 1) {
                     VideoMiddlePageFragment.this.mBackImageView.setAlpha(1.0f);
                 }
@@ -174,7 +174,7 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tieba.r.c.cIs().w(getUniqueId());
+        com.baidu.tieba.r.c.cIu().w(getUniqueId());
         this.gLS = new h(this);
         Intent intent = getPageContext().getPageActivity().getIntent();
         if (intent != null) {
@@ -290,13 +290,13 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        com.baidu.tieba.r.c.cIs().b(getUniqueId(), false);
+        com.baidu.tieba.r.c.cIu().b(getUniqueId(), false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.r.c.cIs().x(getUniqueId());
+        com.baidu.tieba.r.c.cIu().x(getUniqueId());
         if (this.gLS != null) {
             this.gLS.bER();
         }
@@ -525,7 +525,7 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.core.util.g.c
     public boolean videoNeedPreload() {
-        return j.isWifiNet() || com.baidu.tieba.video.g.cNI().cNJ();
+        return j.isWifiNet() || com.baidu.tieba.video.g.cNK().cNL();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.core.util.g.c

@@ -8,28 +8,28 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class o {
     private List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
-    private com.baidu.tieba.person.a.a jeR;
-    private f jlN;
-    private l jlO;
-    private g jlP;
+    private com.baidu.tieba.person.a.a jeW;
+    private f jlS;
+    private l jlT;
+    private g jlU;
 
     public o(TbPageContext tbPageContext, HTypeListView hTypeListView) {
-        this.jlN = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.o.joa);
-        this.jlO = new l(tbPageContext);
-        this.jlP = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.jnS);
-        this.jeR = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.jeE);
-        this.apl.add(this.jlN);
-        this.apl.add(this.jlO);
-        this.apl.add(this.jlP);
-        this.apl.add(this.jeR);
+        this.jlS = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.o.jof);
+        this.jlT = new l(tbPageContext);
+        this.jlU = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.jnX);
+        this.jeW = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.jeJ);
+        this.apl.add(this.jlS);
+        this.apl.add(this.jlT);
+        this.apl.add(this.jlU);
+        this.apl.add(this.jeW);
         hTypeListView.addAdapters(this.apl);
     }
 
     public void W(View.OnClickListener onClickListener) {
-        this.jlN.setOnClickListener(onClickListener);
+        this.jlS.setOnClickListener(onClickListener);
     }
 
     public void X(View.OnClickListener onClickListener) {
-        this.jlP.setOnClickListener(onClickListener);
+        this.jlU.setOnClickListener(onClickListener);
     }
 }

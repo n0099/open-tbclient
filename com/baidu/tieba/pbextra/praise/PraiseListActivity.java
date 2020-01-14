@@ -18,8 +18,8 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener, d.a {
     public int pageType = 0;
-    private e jed = null;
-    private d jee = null;
+    private e jei = null;
+    private d jej = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -29,62 +29,62 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (bundle != null) {
             this.pageType = bundle.getInt("list_type", 0);
             boolean z2 = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
-            this.jee = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString("post_desc"), bundle.getBoolean("is_from_pb", true), this);
-            this.jee.zC(bundle.getInt("KeyIntentPraiseId"));
+            this.jej = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString("post_desc"), bundle.getBoolean("is_from_pb", true), this);
+            this.jej.zC(bundle.getInt("KeyIntentPraiseId"));
             z = z2;
         } else if (getIntent() != null) {
             this.pageType = getIntent().getIntExtra("list_type", 0);
             boolean booleanExtra = getIntent().getBooleanExtra(PraiseListActivityConfig.IS_AUTHOR, false);
-            this.jee = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra("post_desc"), getIntent().getBooleanExtra("is_from_pb", true), this);
+            this.jej = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra("post_desc"), getIntent().getBooleanExtra("is_from_pb", true), this);
             z = booleanExtra;
         } else {
             z = false;
         }
-        if (this.jee == null) {
-            this.jee = new d();
+        if (this.jej == null) {
+            this.jej = new d();
         }
-        this.jee.setIsAuthor(z);
-        this.jed = new e(this, this.jee.cts());
-        this.jed.ra(false);
-        this.jee.zE(this.pageType);
+        this.jej.setIsAuthor(z);
+        this.jei = new e(this, this.jej.ctu());
+        this.jei.ra(false);
+        this.jej.zE(this.pageType);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.jee.g(bundle, "is_from_pb");
-        this.jee.h(bundle, "thread_id");
-        this.jee.i(bundle, "post_id");
-        this.jee.j(bundle, "post_desc");
-        this.jee.k(bundle, "KeyIntentPraiseId");
+        this.jej.g(bundle, "is_from_pb");
+        this.jej.h(bundle, "thread_id");
+        this.jej.i(bundle, "post_id");
+        this.jej.j(bundle, "post_desc");
+        this.jej.k(bundle, "KeyIntentPraiseId");
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jed.ctv()) {
-            ctr();
-            if (this.jee.cpV()) {
+        if (view == this.jei.ctx()) {
+            ctt();
+            if (this.jej.cpV()) {
                 finish();
                 return;
             }
-            s.a(CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.jee.getThreadId(), null, "praise_list"));
-        } else if (view == this.jed.ctw() && !this.jed.isLoading()) {
-            this.jed.ra(true);
-            this.jee.zE(this.pageType);
+            s.a(CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.jej.getThreadId(), null, "praise_list"));
+        } else if (view == this.jei.cty() && !this.jei.isLoading()) {
+            this.jei.ra(true);
+            this.jej.zE(this.pageType);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        a zD = this.jee.zD(i);
+        a zD = this.jej.zD(i);
         if (zD != null) {
             s.a(CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), zD.getUserId(), zD.getShowName(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
-    private void ctr() {
-        if (this.jee != null) {
-            this.jee.unRegister();
+    private void ctt() {
+        if (this.jej != null) {
+            this.jej.unRegister();
         }
     }
 
@@ -93,28 +93,28 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (k.isEmpty(str)) {
             str = getResources().getString(R.string.neterror);
         }
-        this.jed.ctu();
-        this.jed.bm(str, this.pageType);
+        this.jei.ctw();
+        this.jei.bm(str, this.pageType);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.jed.bTP();
+        this.jei.bTP();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        ctr();
+        ctt();
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.jed.a(getLayoutMode(), i);
+        this.jei.a(getLayoutMode(), i);
     }
 
     public void changSkinType(View view) {
@@ -124,6 +124,6 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
 
     @Override // com.baidu.tieba.pbextra.praise.d.a
     public void a(int i, List<a> list, int i2, int i3) {
-        this.jed.b(i, list, i2, i3);
+        this.jei.b(i, list, i2, i3);
     }
 }

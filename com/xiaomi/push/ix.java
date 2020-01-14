@@ -7,24 +7,24 @@ public class ix {
     private jc a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final jj f782a;
+    private final jj f783a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final ByteArrayOutputStream f783a;
+    private final ByteArrayOutputStream f784a;
 
     public ix() {
         this(new iy.a());
     }
 
     public ix(je jeVar) {
-        this.f783a = new ByteArrayOutputStream();
-        this.f782a = new jj(this.f783a);
-        this.a = jeVar.a(this.f782a);
+        this.f784a = new ByteArrayOutputStream();
+        this.f783a = new jj(this.f784a);
+        this.a = jeVar.a(this.f783a);
     }
 
     public byte[] a(ir irVar) {
-        this.f783a.reset();
+        this.f784a.reset();
         irVar.b(this.a);
-        return this.f783a.toByteArray();
+        return this.f784a.toByteArray();
     }
 }

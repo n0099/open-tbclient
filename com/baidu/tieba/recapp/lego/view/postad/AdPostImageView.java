@@ -18,8 +18,8 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class AdPostImageView extends AdPostBaseView {
     private ConstrainImageGroup fHq;
-    private b<TbImageView> jKe;
-    private b<ConstrainImageLayout> jKf;
+    private b<TbImageView> jKj;
+    private b<ConstrainImageLayout> jKk;
 
     public AdPostImageView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -39,23 +39,23 @@ public class AdPostImageView extends AdPostBaseView {
         this.fHq.setChildClickListener(this.fHv);
         this.fHq.setImageMargin(dimensionPixelSize);
         this.fHq.setImageProcessor(fVar);
-        this.fHq.setImageViewPool(this.jKe);
-        this.fHq.setConstrainLayoutPool(this.jKf);
+        this.fHq.setImageViewPool(this.jKj);
+        this.fHq.setConstrainLayoutPool(this.jKk);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView
     protected void a(AdPost adPost) {
         if (adPost != null && adPost.getAdvertAppInfo() != null) {
             boolean isShowImages = i.axy().isShowImages();
-            if (adPost.feedData.cBm().size() == 0 || !isShowImages) {
+            if (adPost.feedData.cBo().size() == 0 || !isShowImages) {
                 this.fHq.setVisibility(8);
                 return;
             }
             this.fHq.setVisibility(0);
-            List<String> cBm = adPost.feedData.cBm();
-            if (!v.isEmpty(cBm)) {
+            List<String> cBo = adPost.feedData.cBo();
+            if (!v.isEmpty(cBo)) {
                 LinkedList linkedList = new LinkedList();
-                for (String str : cBm) {
+                for (String str : cBo) {
                     MediaData mediaData = new MediaData();
                     mediaData.setPic(str);
                     mediaData.setThumbnails_url(str);
@@ -76,10 +76,10 @@ public class AdPostImageView extends AdPostBaseView {
     }
 
     public void setConstrainLayoutPool(b<ConstrainImageLayout> bVar) {
-        this.jKf = bVar;
+        this.jKk = bVar;
     }
 
     public void setConstrainImagePool(b<TbImageView> bVar) {
-        this.jKe = bVar;
+        this.jKj = bVar;
     }
 }

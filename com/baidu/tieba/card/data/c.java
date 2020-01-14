@@ -119,8 +119,8 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
             cp.cp(TiebaInitialize.Params.AB_TAG, btL());
             cp.Z("is_vertical", btN().intValue());
         }
-        if (axQ.aBx() != null && axQ.aBx().cJz() != null && axQ.aBx().cJz().aRz() != null && axQ.aBx().cJz().aRz().size() > 0) {
-            cp.Z(TiebaInitialize.Params.OBJ_TO, axQ.aBx().kfT ? 2 : 1);
+        if (axQ.aBx() != null && axQ.aBx().cJB() != null && axQ.aBx().cJB().aRz() != null && axQ.aBx().cJB().aRz().size() > 0) {
+            cp.Z(TiebaInitialize.Params.OBJ_TO, axQ.aBx().kfY ? 2 : 1);
         }
         return cp;
     }

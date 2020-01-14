@@ -130,7 +130,7 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            int GP = com.baidu.tieba.play.x.cxU().GP(this.mVideoUrl);
+            int GP = com.baidu.tieba.play.x.cxW().GP(this.mVideoUrl);
             if (GP <= 100 || this.fGR.getDuration() <= GP) {
                 GP = 100;
             }
@@ -149,12 +149,12 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
             yVar.mUid = TbadkCoreApplication.getCurrentAccount();
             yVar.mSource = this.fGT.cNb.mRecomSource;
             yVar.mAbTag = this.fGT.cNb.mRecomAbTag;
-            yVar.jvJ = this.fGT.cNb.mRecomAbTag;
-            yVar.jvK = this.fGT.cNb.mRecomWeight;
-            yVar.jvL = "";
+            yVar.jvO = this.fGT.cNb.mRecomAbTag;
+            yVar.jvP = this.fGT.cNb.mRecomWeight;
+            yVar.jvQ = "";
             yVar.cKN = this.fGT.getExtra();
             if (this.fGT.cNb.aAo() != null) {
-                yVar.jvN = this.fGT.cNb.aAo().video_md5;
+                yVar.jvS = this.fGT.cNb.aAo().video_md5;
             }
             com.baidu.tieba.play.l.a(this.fGT.cNb.aAo().video_md5, "", "1", yVar);
         }
@@ -682,7 +682,7 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                     if (this.fGT != null && this.fGT.axQ() != null && this.fGT.axQ().cPL > 0) {
                         this.fGY.setVisibility(0);
                     }
-                    this.dHV.cxQ();
+                    this.dHV.cxS();
                     this.dHU.setVisibility(8);
                     this.dHT.setVisibility(8);
                     if (this.fGT != null && this.fGT.cNb != null && this.fGT.cNb.aAo() != null) {
@@ -694,7 +694,7 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                     this.dHS.setVisibility(8);
                     this.dHR.startAnimation(this.aHs);
                     this.dHW.setVisibility(8);
-                    this.dHV.cxR();
+                    this.dHV.cxT();
                     this.dHU.setVisibility(0);
                     this.dHT.setVisibility(0);
                     com.baidu.adp.lib.f.e.gx().postDelayed(this.dIc, 2000L);
@@ -705,7 +705,7 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                     this.dHR.setVisibility(0);
                     this.dHW.setVisibility(0);
                     this.fGS.setVisibility(0);
-                    this.dHV.cxR();
+                    this.dHV.cxT();
                     this.dHU.setVisibility(8);
                     this.dHT.setVisibility(8);
                 }
@@ -837,8 +837,8 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                 if (StringUtils.isNull(this.fGT.cNb.aAo().video_url)) {
                     o(true, 4);
                 }
-                if (this.egU != null && this.egU.cxB() != null) {
-                    this.egU.cxB().ai(this.fGT.cNb);
+                if (this.egU != null && this.egU.cxD() != null) {
+                    this.egU.cxD().ai(this.fGT.cNb);
                 }
             } else {
                 this.dHP.setVisibility(8);

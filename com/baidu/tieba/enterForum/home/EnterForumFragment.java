@@ -131,7 +131,7 @@ public class EnterForumFragment extends BaseFragment {
                 if (this.fSs != null) {
                     refreshImage(this.fSs.getView());
                 }
-                com.baidu.tieba.r.c.cIs().b(getUniqueId(), false);
+                com.baidu.tieba.r.c.cIu().b(getUniqueId(), false);
             } else if (TbSingleton.getInstance().isShowNewYearSkin() && UtilHelper.canUseStyleImmersiveSticky()) {
                 if (TbadkCoreApplication.getInst().getSkinType() == 4 || TbadkCoreApplication.getInst().getSkinType() == 1) {
                     z = true;
@@ -171,7 +171,7 @@ public class EnterForumFragment extends BaseFragment {
         View inflate = layoutInflater.inflate(R.layout.fragment_enter_forum, viewGroup, false);
         bI(inflate);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.r.c.cIs().w(getUniqueId());
+        com.baidu.tieba.r.c.cIu().w(getUniqueId());
         return inflate;
     }
 
@@ -182,12 +182,12 @@ public class EnterForumFragment extends BaseFragment {
         registerListener(this.cDL);
         registerListener(this.fSz);
         registerListener(this.fSA);
-        com.baidu.tieba.r.c.cIs().w(getUniqueId());
+        com.baidu.tieba.r.c.cIu().w(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        com.baidu.tieba.r.c.cIs().x(getUniqueId());
+        com.baidu.tieba.r.c.cIu().x(getUniqueId());
         super.onDestroyView();
     }
 
@@ -200,7 +200,7 @@ public class EnterForumFragment extends BaseFragment {
         MessageManager.getInstance().unRegisterListener(this.fSz);
         MessageManager.getInstance().unRegisterListener(this.fSA);
         MessageManager.getInstance().unRegisterListener(this.cDL);
-        com.baidu.tieba.r.c.cIs().x(getUniqueId());
+        com.baidu.tieba.r.c.cIu().x(getUniqueId());
         super.onDestroy();
     }
 

@@ -8,7 +8,7 @@ public final class c {
         return new RunnableDisposable(runnable);
     }
 
-    public static b dHZ() {
+    public static b dIb() {
         return EmptyDisposable.INSTANCE;
     }
 }

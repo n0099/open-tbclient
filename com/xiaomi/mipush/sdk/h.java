@@ -20,12 +20,12 @@ public class h extends ag.a {
         Context context;
         boolean z;
         Context context2;
-        context = this.a.f71a;
+        context = this.a.f72a;
         boolean a = com.xiaomi.push.service.ag.a(context).a(hl.AggregatePushSwitch.a(), true);
-        z = this.a.f74a;
+        z = this.a.f75a;
         if (z != a) {
-            this.a.f74a = a;
-            context2 = this.a.f71a;
+            this.a.f75a = a;
+            context2 = this.a.f72a;
             j.b(context2);
         }
     }

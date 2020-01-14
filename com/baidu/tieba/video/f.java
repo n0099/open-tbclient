@@ -24,30 +24,30 @@ public class f {
     private View dWx;
     private ImageView gvG;
     private PostWriteCallBackData iHZ;
-    private View ktQ;
-    private TextView ktR;
-    private boolean ktS;
-    private TextView ktT;
-    private SendVideoSuccessShareModel ktU = new SendVideoSuccessShareModel();
+    private View ktV;
+    private TextView ktW;
+    private boolean ktX;
+    private TextView ktY;
+    private SendVideoSuccessShareModel ktZ = new SendVideoSuccessShareModel();
     private Context mContext;
 
     public f(Context context, ViewGroup viewGroup) {
         this.mContext = context;
         this.dWx = viewGroup;
         if (this.mContext != null && this.dWx != null) {
-            this.ktQ = LayoutInflater.from(context).inflate(R.layout.send_video_success_tip, (ViewGroup) null);
-            this.ktR = (TextView) this.ktQ.findViewById(R.id.success_tip);
-            this.gvG = (ImageView) this.ktQ.findViewById(R.id.video_activity_btn);
-            this.ktT = (TextView) this.ktQ.findViewById(R.id.video_share_btn);
+            this.ktV = LayoutInflater.from(context).inflate(R.layout.send_video_success_tip, (ViewGroup) null);
+            this.ktW = (TextView) this.ktV.findViewById(R.id.success_tip);
+            this.gvG = (ImageView) this.ktV.findViewById(R.id.video_activity_btn);
+            this.ktY = (TextView) this.ktV.findViewById(R.id.video_share_btn);
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, l.getDimens(context, R.dimen.ds128));
-            if (this.ktQ.getParent() == null) {
-                viewGroup.addView(this.ktQ, layoutParams);
+            if (this.ktV.getParent() == null) {
+                viewGroup.addView(this.ktV, layoutParams);
             }
-            this.ktQ.setVisibility(8);
-            this.ktQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.f.1
+            this.ktV.setVisibility(8);
+            this.ktV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.f.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (f.this.ktS) {
+                    if (f.this.ktX) {
                         f.this.hideTip();
                         if (f.this.iHZ != null && !StringUtils.isNull(f.this.iHZ.buildVideoFakeOnWallUrl())) {
                             com.baidu.tbadk.browser.a.startWebActivity(f.this.mContext, (String) null, f.this.iHZ.buildVideoFakeOnWallUrl());
@@ -55,13 +55,13 @@ public class f {
                     }
                 }
             });
-            this.ktT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.f.2
+            this.ktY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.f.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     f.this.hideTip();
                     if (f.this.iHZ != null && !StringUtils.isNull(f.this.iHZ.getVideoid())) {
-                        f.this.ktU.JD(f.this.iHZ.getVideoid());
-                        f.this.ktU.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.video.f.2.1
+                        f.this.ktZ.JD(f.this.iHZ.getVideoid());
+                        f.this.ktZ.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.video.f.2.1
                             @Override // com.baidu.adp.base.d
                             public void callback(Object obj) {
                                 ShareItem shareItem = new ShareItem();
@@ -80,39 +80,39 @@ public class f {
     public void h(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             this.iHZ = postWriteCallBackData;
-            this.ktS = postWriteCallBackData.mVideoTitleData != null;
-            if (this.ktQ != null && this.ktR != null && this.gvG != null && this.ktT != null) {
-                am.setBackgroundColor(this.ktQ, R.color.cp_link_tip_a);
-                am.setViewTextColor(this.ktR, (int) R.color.cp_cont_a);
+            this.ktX = postWriteCallBackData.mVideoTitleData != null;
+            if (this.ktV != null && this.ktW != null && this.gvG != null && this.ktY != null) {
+                am.setBackgroundColor(this.ktV, R.color.cp_link_tip_a);
+                am.setViewTextColor(this.ktW, (int) R.color.cp_cont_a);
                 am.setImageResource(this.gvG, R.drawable.icon_arrow_more_white);
-                am.setBackgroundResource(this.ktT, R.drawable.immediately_share_background);
-                this.ktQ.setVisibility(0);
-                this.ktQ.postDelayed(new Runnable() { // from class: com.baidu.tieba.video.f.3
+                am.setBackgroundResource(this.ktY, R.drawable.immediately_share_background);
+                this.ktV.setVisibility(0);
+                this.ktV.postDelayed(new Runnable() { // from class: com.baidu.tieba.video.f.3
                     @Override // java.lang.Runnable
                     public void run() {
                         f.this.hideTip();
                     }
                 }, 5000L);
-                if (this.ktS) {
-                    this.ktR.setText(R.string.video_activity_tip);
+                if (this.ktX) {
+                    this.ktW.setText(R.string.video_activity_tip);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-                    this.ktR.setText(postWriteCallBackData.getErrorString());
+                    this.ktW.setText(postWriteCallBackData.getErrorString());
                 } else {
-                    this.ktQ.setVisibility(8);
+                    this.ktV.setVisibility(8);
                 }
             }
         }
     }
 
     public void hideTip() {
-        if (this.ktQ != null) {
-            this.ktQ.setVisibility(8);
+        if (this.ktV != null) {
+            this.ktV.setVisibility(8);
         }
     }
 
     public void bER() {
-        if (this.ktU != null) {
-            this.ktU.cancelLoadData();
+        if (this.ktZ != null) {
+            this.ktZ.cancelLoadData();
         }
     }
 }

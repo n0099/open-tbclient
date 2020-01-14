@@ -7,24 +7,24 @@ import java.util.LinkedList;
 /* loaded from: classes5.dex */
 public abstract class g<I extends e, O extends f, E extends Exception> implements c<I, O, E> {
     private E exception;
-    private int mcL;
-    private final Thread mcS;
-    private final I[] mcV;
-    private final O[] mcW;
-    private int mcX;
-    private int mcY;
-    private I mcZ;
-    private boolean mda;
+    private int mcQ;
+    private final Thread mcX;
+    private final I[] mda;
+    private final O[] mdb;
+    private int mdc;
+    private int mdd;
+    private I mde;
+    private boolean mdf;
     private boolean released;
     private final Object lock = new Object();
-    private final LinkedList<I> mcT = new LinkedList<>();
-    private final LinkedList<O> mcU = new LinkedList<>();
+    private final LinkedList<I> mcY = new LinkedList<>();
+    private final LinkedList<O> mcZ = new LinkedList<>();
 
     protected abstract E a(I i, O o, boolean z);
 
-    protected abstract I dtw();
+    protected abstract I dty();
 
-    protected abstract O dtx();
+    protected abstract O dtz();
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.android.exoplayer2.a.g<I extends com.google.android.exoplayer2.a.e, O extends com.google.android.exoplayer2.a.f, E extends java.lang.Exception> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -35,74 +35,74 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(I[] iArr, O[] oArr) {
-        this.mcV = iArr;
-        this.mcX = iArr.length;
-        for (int i = 0; i < this.mcX; i++) {
-            this.mcV[i] = dtw();
+        this.mda = iArr;
+        this.mdc = iArr.length;
+        for (int i = 0; i < this.mdc; i++) {
+            this.mda[i] = dty();
         }
-        this.mcW = oArr;
-        this.mcY = oArr.length;
-        for (int i2 = 0; i2 < this.mcY; i2++) {
-            this.mcW[i2] = dtx();
+        this.mdb = oArr;
+        this.mdd = oArr.length;
+        for (int i2 = 0; i2 < this.mdd; i2++) {
+            this.mdb[i2] = dtz();
         }
-        this.mcS = new Thread() { // from class: com.google.android.exoplayer2.a.g.1
+        this.mcX = new Thread() { // from class: com.google.android.exoplayer2.a.g.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 g.this.run();
             }
         };
-        this.mcS.start();
+        this.mcX.start();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void Jl(int i) {
-        com.google.android.exoplayer2.util.a.checkState(this.mcX == this.mcV.length);
-        for (I i2 : this.mcV) {
+        com.google.android.exoplayer2.util.a.checkState(this.mdc == this.mda.length);
+        for (I i2 : this.mda) {
             i2.Jj(i);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.a.c
-    /* renamed from: dtr */
-    public final I dtk() throws Exception {
+    /* renamed from: dtt */
+    public final I dtm() throws Exception {
         I i;
         I i2;
         synchronized (this.lock) {
-            dtt();
-            com.google.android.exoplayer2.util.a.checkState(this.mcZ == null);
-            if (this.mcX == 0) {
+            dtv();
+            com.google.android.exoplayer2.util.a.checkState(this.mde == null);
+            if (this.mdc == 0) {
                 i = null;
             } else {
-                I[] iArr = this.mcV;
-                int i3 = this.mcX - 1;
-                this.mcX = i3;
+                I[] iArr = this.mda;
+                int i3 = this.mdc - 1;
+                this.mdc = i3;
                 i = iArr[i3];
             }
-            this.mcZ = i;
-            i2 = this.mcZ;
+            this.mde = i;
+            i2 = this.mde;
         }
         return i2;
     }
 
     public final void a(I i) throws Exception {
         synchronized (this.lock) {
-            dtt();
-            com.google.android.exoplayer2.util.a.checkArgument(i == this.mcZ);
-            this.mcT.addLast(i);
-            dtu();
-            this.mcZ = null;
+            dtv();
+            com.google.android.exoplayer2.util.a.checkArgument(i == this.mde);
+            this.mcY.addLast(i);
+            dtw();
+            this.mde = null;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.a.c
-    /* renamed from: dts */
-    public final O dtl() throws Exception {
+    /* renamed from: dtu */
+    public final O dtn() throws Exception {
         O removeFirst;
         synchronized (this.lock) {
-            dtt();
-            removeFirst = this.mcU.isEmpty() ? null : this.mcU.removeFirst();
+            dtv();
+            removeFirst = this.mcZ.isEmpty() ? null : this.mcZ.removeFirst();
         }
         return removeFirst;
     }
@@ -111,24 +111,24 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
     public void a(O o) {
         synchronized (this.lock) {
             b((g<I, O, E>) o);
-            dtu();
+            dtw();
         }
     }
 
     @Override // com.google.android.exoplayer2.a.c
     public final void flush() {
         synchronized (this.lock) {
-            this.mda = true;
-            this.mcL = 0;
-            if (this.mcZ != null) {
-                b((g<I, O, E>) this.mcZ);
-                this.mcZ = null;
+            this.mdf = true;
+            this.mcQ = 0;
+            if (this.mde != null) {
+                b((g<I, O, E>) this.mde);
+                this.mde = null;
             }
-            while (!this.mcT.isEmpty()) {
-                b((g<I, O, E>) this.mcT.removeFirst());
+            while (!this.mcY.isEmpty()) {
+                b((g<I, O, E>) this.mcY.removeFirst());
             }
-            while (!this.mcU.isEmpty()) {
-                b((g<I, O, E>) this.mcU.removeFirst());
+            while (!this.mcZ.isEmpty()) {
+                b((g<I, O, E>) this.mcZ.removeFirst());
             }
         }
     }
@@ -140,20 +140,20 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
             this.lock.notify();
         }
         try {
-            this.mcS.join();
+            this.mcX.join();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
     }
 
-    private void dtt() throws Exception {
+    private void dtv() throws Exception {
         if (this.exception != null) {
             throw this.exception;
         }
     }
 
-    private void dtu() {
-        if (dtv()) {
+    private void dtw() {
+        if (dtx()) {
             this.lock.notify();
         }
     }
@@ -170,23 +170,23 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
 
     private boolean auu() throws InterruptedException {
         synchronized (this.lock) {
-            while (!this.released && !dtv()) {
+            while (!this.released && !dtx()) {
                 this.lock.wait();
             }
             if (this.released) {
                 return false;
             }
-            I removeFirst = this.mcT.removeFirst();
-            O[] oArr = this.mcW;
-            int i = this.mcY - 1;
-            this.mcY = i;
+            I removeFirst = this.mcY.removeFirst();
+            O[] oArr = this.mdb;
+            int i = this.mdd - 1;
+            this.mdd = i;
             O o = oArr[i];
-            boolean z = this.mda;
-            this.mda = false;
-            if (removeFirst.dtf()) {
+            boolean z = this.mdf;
+            this.mdf = false;
+            if (removeFirst.dth()) {
                 o.aH(4);
             } else {
-                if (removeFirst.dte()) {
+                if (removeFirst.dtg()) {
                     o.aH(Integer.MIN_VALUE);
                 }
                 this.exception = a(removeFirst, o, z);
@@ -197,15 +197,15 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
                 }
             }
             synchronized (this.lock) {
-                if (this.mda) {
+                if (this.mdf) {
                     b((g<I, O, E>) o);
-                } else if (o.dte()) {
-                    this.mcL++;
+                } else if (o.dtg()) {
+                    this.mcQ++;
                     b((g<I, O, E>) o);
                 } else {
-                    o.mcL = this.mcL;
-                    this.mcL = 0;
-                    this.mcU.addLast(o);
+                    o.mcQ = this.mcQ;
+                    this.mcQ = 0;
+                    this.mcZ.addLast(o);
                 }
                 b((g<I, O, E>) removeFirst);
             }
@@ -213,23 +213,23 @@ public abstract class g<I extends e, O extends f, E extends Exception> implement
         }
     }
 
-    private boolean dtv() {
-        return !this.mcT.isEmpty() && this.mcY > 0;
+    private boolean dtx() {
+        return !this.mcY.isEmpty() && this.mdd > 0;
     }
 
     private void b(I i) {
         i.clear();
-        I[] iArr = this.mcV;
-        int i2 = this.mcX;
-        this.mcX = i2 + 1;
+        I[] iArr = this.mda;
+        int i2 = this.mdc;
+        this.mdc = i2 + 1;
         iArr[i2] = i;
     }
 
     private void b(O o) {
         o.clear();
-        O[] oArr = this.mcW;
-        int i = this.mcY;
-        this.mcY = i + 1;
+        O[] oArr = this.mdb;
+        int i = this.mdd;
+        this.mdd = i + 1;
         oArr[i] = o;
     }
 }

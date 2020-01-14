@@ -31,36 +31,36 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     private NoNetworkView ehd;
     private com.baidu.tbadk.k.h eiA;
     private BdRecyclerView fAm;
-    private TextView jkS;
-    private h jkT;
-    private i jkU;
-    private j jkV;
+    private TextView jkX;
+    private h jkY;
+    private i jkZ;
+    private j jla;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
-    private i.a jkW = new i.a() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.1
+    private i.a jlb = new i.a() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.1
         @Override // com.baidu.tieba.personExtra.i.a
         public void a(boolean z, a aVar) {
             if (!z || aVar == null) {
                 SmartAppBrowseHistoryActivity.this.rj(true);
                 SmartAppBrowseHistoryActivity.this.zM(0);
-            } else if (SmartAppBrowseHistoryActivity.this.jkT != null) {
-                SmartAppBrowseHistoryActivity.this.rj(v.isEmpty(aVar.cup()));
-                SmartAppBrowseHistoryActivity.this.zM(v.getCount(aVar.cup()));
-                SmartAppBrowseHistoryActivity.this.jkT.av(aVar.cup());
-                SmartAppBrowseHistoryActivity.this.jkT.notifyDataSetChanged();
+            } else if (SmartAppBrowseHistoryActivity.this.jkY != null) {
+                SmartAppBrowseHistoryActivity.this.rj(v.isEmpty(aVar.cur()));
+                SmartAppBrowseHistoryActivity.this.zM(v.getCount(aVar.cur()));
+                SmartAppBrowseHistoryActivity.this.jkY.av(aVar.cur());
+                SmartAppBrowseHistoryActivity.this.jkY.notifyDataSetChanged();
             }
         }
     };
-    private j.a jkX = new j.a() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.2
+    private j.a jlc = new j.a() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.2
         @Override // com.baidu.tieba.personExtra.j.a
         public void GB(String str) {
-            if (SmartAppBrowseHistoryActivity.this.jkT != null) {
-                SmartAppBrowseHistoryActivity.this.jkT.GC(str);
-                if (SmartAppBrowseHistoryActivity.this.jkT.getItemCount() == 0) {
+            if (SmartAppBrowseHistoryActivity.this.jkY != null) {
+                SmartAppBrowseHistoryActivity.this.jkY.GC(str);
+                if (SmartAppBrowseHistoryActivity.this.jkY.getItemCount() == 0) {
                     SmartAppBrowseHistoryActivity.this.rj(true);
                 }
-                SmartAppBrowseHistoryActivity.this.zM(SmartAppBrowseHistoryActivity.this.jkT.getItemCount());
-                SmartAppBrowseHistoryActivity.this.jkT.notifyDataSetChanged();
+                SmartAppBrowseHistoryActivity.this.zM(SmartAppBrowseHistoryActivity.this.jkY.getItemCount());
+                SmartAppBrowseHistoryActivity.this.jkY.notifyDataSetChanged();
             }
         }
     };
@@ -85,8 +85,8 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                 anVar.cp("obj_name", smartApp.name);
                 anVar.Z("obj_param1", smartApp.is_game.intValue());
                 TiebaStatic.log(anVar);
-                if (SmartAppBrowseHistoryActivity.this.jkT != null) {
-                    SmartAppBrowseHistoryActivity.this.jkT.b(smartApp);
+                if (SmartAppBrowseHistoryActivity.this.jkY != null) {
+                    SmartAppBrowseHistoryActivity.this.jkY.b(smartApp);
                 }
             }
         }
@@ -96,13 +96,13 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         public boolean onLongClick(View view) {
             if (view.getTag() instanceof SmartApp) {
                 SmartApp smartApp = (SmartApp) view.getTag();
-                if (SmartAppBrowseHistoryActivity.this.jkV == null) {
-                    SmartAppBrowseHistoryActivity.this.jkV = new j(SmartAppBrowseHistoryActivity.this.getPageContext());
-                    SmartAppBrowseHistoryActivity.this.jkV.create();
-                    SmartAppBrowseHistoryActivity.this.jkV.a(SmartAppBrowseHistoryActivity.this.jkX);
+                if (SmartAppBrowseHistoryActivity.this.jla == null) {
+                    SmartAppBrowseHistoryActivity.this.jla = new j(SmartAppBrowseHistoryActivity.this.getPageContext());
+                    SmartAppBrowseHistoryActivity.this.jla.create();
+                    SmartAppBrowseHistoryActivity.this.jla.a(SmartAppBrowseHistoryActivity.this.jlc);
                 }
-                SmartAppBrowseHistoryActivity.this.jkV.c(smartApp);
-                SmartAppBrowseHistoryActivity.this.jkV.show();
+                SmartAppBrowseHistoryActivity.this.jla.c(smartApp);
+                SmartAppBrowseHistoryActivity.this.jla.show();
                 return true;
             }
             return false;
@@ -121,7 +121,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             }
         }
     };
-    private View.OnClickListener jkY = new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.6
+    private View.OnClickListener jld = new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.6
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!k.isFastDoubleClick() && com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
@@ -135,7 +135,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initView();
-        cvg();
+        cvi();
     }
 
     private void initView() {
@@ -144,23 +144,23 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.history_smart_app));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.ehd = (NoNetworkView) findViewById(R.id.smart_app_browse_history_no_network_view);
-        this.mNoDataView = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cr(null, getString(R.string.no_history_now)), NoDataViewFactory.b.a(new NoDataViewFactory.a(getResources().getString(R.string.refresh), this.jkY)));
+        this.mNoDataView = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cr(null, getString(R.string.no_history_now)), NoDataViewFactory.b.a(new NoDataViewFactory.a(getResources().getString(R.string.refresh), this.jld)));
         this.mNoDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         this.css = (FrameLayout) findViewById(R.id.smart_app_browse_history_list_container);
         this.fAm = (BdRecyclerView) findViewById(R.id.smart_app_browse_history_list);
         this.fAm.setLayoutManager(new LinearLayoutManager(this));
-        this.jkT = new h(getActivity());
-        this.jkT.V(this.mOnItemClickListener);
-        this.jkT.c(this.mOnLongClickListener);
-        this.fAm.setAdapter(this.jkT);
-        this.jkS = new TextView(getActivity());
-        this.jkS.setLayoutParams(new RecyclerView.LayoutParams(-1, l.getDimens(getActivity(), R.dimen.tbds182)));
-        this.jkS.setGravity(17);
-        this.jkS.setText(R.string.list_has_no_more);
-        this.jkS.setTextSize(0, l.getDimens(getActivity(), R.dimen.tbds33));
+        this.jkY = new h(getActivity());
+        this.jkY.V(this.mOnItemClickListener);
+        this.jkY.c(this.mOnLongClickListener);
+        this.fAm.setAdapter(this.jkY);
+        this.jkX = new TextView(getActivity());
+        this.jkX.setLayoutParams(new RecyclerView.LayoutParams(-1, l.getDimens(getActivity(), R.dimen.tbds182)));
+        this.jkX.setGravity(17);
+        this.jkX.setText(R.string.list_has_no_more);
+        this.jkX.setTextSize(0, l.getDimens(getActivity(), R.dimen.tbds33));
     }
 
-    private void cvg() {
+    private void cvi() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
             loadData();
             return;
@@ -182,8 +182,8 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         if (this.mNoDataView != null) {
             this.mNoDataView.e(getPageContext());
         }
-        if (this.jkT != null) {
-            this.jkT.notifyDataSetChanged();
+        if (this.jkY != null) {
+            this.jkY.notifyDataSetChanged();
         }
     }
 
@@ -197,11 +197,11 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        if (this.jkU == null) {
-            this.jkU = new i();
-            this.jkU.a(this.jkW);
+        if (this.jkZ == null) {
+            this.jkZ = new i();
+            this.jkZ.a(this.jlb);
         }
-        this.jkU.bfI();
+        this.jkZ.bfI();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -225,11 +225,11 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void zM(int i) {
         if (l.getDimens(getActivity(), R.dimen.tbds177) * i >= l.getEquipmentHeight(getActivity()) - this.mNavigationBar.getHeight()) {
-            this.fAm.removeFooterView(this.jkS);
-            this.fAm.addFooterView(this.jkS);
+            this.fAm.removeFooterView(this.jkX);
+            this.fAm.addFooterView(this.jkX);
             return;
         }
-        this.fAm.removeFooterView(this.jkS);
+        this.fAm.removeFooterView(this.jkX);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -245,13 +245,13 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             am.setBackgroundResource(this.mNoDataView, R.color.cp_bg_line_d);
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
-        if (this.jkS != null) {
-            am.setBackgroundResource(this.jkS, R.color.cp_bg_line_d);
-            am.setViewTextColor(this.jkS, (int) R.color.cp_cont_d);
+        if (this.jkX != null) {
+            am.setBackgroundResource(this.jkX, R.color.cp_bg_line_d);
+            am.setViewTextColor(this.jkX, (int) R.color.cp_cont_d);
         }
         am.setBackgroundColor(this.fAm, R.color.cp_bg_line_d);
-        if (this.jkT != null) {
-            this.jkT.notifyDataSetChanged();
+        if (this.jkY != null) {
+            this.jkY.notifyDataSetChanged();
         }
     }
 }

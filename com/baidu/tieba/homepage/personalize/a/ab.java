@@ -200,13 +200,13 @@ public class ab {
             AdvertAppInfo.cIQ.set(false);
             return;
         }
-        this.hcm = com.baidu.tieba.recapp.r.cAV().c(this.mPageContext, AdvertAppInfo.cIH);
-        this.hcn = com.baidu.tieba.recapp.r.cAV().c(this.mPageContext, AdvertAppInfo.cIK);
-        this.hco = com.baidu.tieba.recapp.r.cAV().c(this.mPageContext, AdvertAppInfo.cIL);
-        this.hcp = com.baidu.tieba.recapp.r.cAV().c(this.mPageContext, AdvertAppInfo.cIM);
-        this.hcq = com.baidu.tieba.recapp.r.cAV().c(this.mPageContext, AdvertAppInfo.cIN);
-        this.hcr = com.baidu.tieba.recapp.r.cAV().c(this.mPageContext, AdvertAppInfo.cIO);
-        this.hcs = com.baidu.tieba.recapp.r.cAV().c(this.mPageContext, AdvertAppInfo.cIP);
+        this.hcm = com.baidu.tieba.recapp.r.cAX().c(this.mPageContext, AdvertAppInfo.cIH);
+        this.hcn = com.baidu.tieba.recapp.r.cAX().c(this.mPageContext, AdvertAppInfo.cIK);
+        this.hco = com.baidu.tieba.recapp.r.cAX().c(this.mPageContext, AdvertAppInfo.cIL);
+        this.hcp = com.baidu.tieba.recapp.r.cAX().c(this.mPageContext, AdvertAppInfo.cIM);
+        this.hcq = com.baidu.tieba.recapp.r.cAX().c(this.mPageContext, AdvertAppInfo.cIN);
+        this.hcr = com.baidu.tieba.recapp.r.cAX().c(this.mPageContext, AdvertAppInfo.cIO);
+        this.hcs = com.baidu.tieba.recapp.r.cAX().c(this.mPageContext, AdvertAppInfo.cIP);
         this.gUi.add(this.hcm);
         this.gUi.add(this.hcn);
         this.gUi.add(this.hco);
@@ -432,13 +432,13 @@ public class ab {
     public boolean bNv() {
         if (this.gDJ == null || this.gDJ.size() <= 0) {
             this.gDJ = new ArrayList();
-            ArrayList<BdUniqueId> cIK = com.baidu.tieba.tbadkCore.s.cIK();
-            if (cIK == null || cIK.size() <= 0) {
+            ArrayList<BdUniqueId> cIM = com.baidu.tieba.tbadkCore.s.cIM();
+            if (cIM == null || cIM.size() <= 0) {
                 return false;
             }
-            int size = cIK.size();
+            int size = cIM.size();
             for (int i = 0; i < size; i++) {
-                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.cbH().a(this.mPageContext, cIK.get(i), 2);
+                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.cbH().a(this.mPageContext, cIM.get(i), 2);
                 if (this.hct) {
                     a.setBusinessType(3);
                 }

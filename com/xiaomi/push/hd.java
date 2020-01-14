@@ -48,7 +48,7 @@ public class hd {
     }
 
     private static void a(Context context, hk hkVar) {
-        if (hkVar.f467a) {
+        if (hkVar.f468a) {
             hkVar.a("push_sdk_channel");
         }
         if (TextUtils.isEmpty(hkVar.d())) {

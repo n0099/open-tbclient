@@ -17,9 +17,9 @@ public class ar implements eo {
         Cif cif = new Cif();
         cif.b(ek.a(context).m253a());
         cif.d(ek.a(context).b());
-        cif.c(hq.AwakeAppResponse.f492a);
+        cif.c(hq.AwakeAppResponse.f493a);
         cif.a(aj.a());
-        cif.f632a = hashMap;
+        cif.f633a = hashMap;
         byte[] a = iq.a(w.a(cif.c(), cif.b(), cif, hg.Notification));
         if (!(context instanceof XMPushService)) {
             com.xiaomi.channel.commonutils.logger.b.m42a("MoleInfo : context is not correct in pushLayer " + cif.a());

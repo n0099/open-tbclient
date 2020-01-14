@@ -3,19 +3,19 @@ package com.google.android.exoplayer2.source;
 import com.google.android.exoplayer2.Format;
 /* loaded from: classes5.dex */
 public final class e implements q {
-    private final q[] mqs;
+    private final q[] mqx;
 
     public e(q[] qVarArr) {
-        this.mqs = qVarArr;
+        this.mqx = qVarArr;
     }
 
     @Override // com.google.android.exoplayer2.source.q
-    public final long duT() {
+    public final long duV() {
         long j = Long.MAX_VALUE;
-        for (q qVar : this.mqs) {
-            long duT = qVar.duT();
-            if (duT != Long.MIN_VALUE) {
-                j = Math.min(j, duT);
+        for (q qVar : this.mqx) {
+            long duV = qVar.duV();
+            if (duV != Long.MIN_VALUE) {
+                j = Math.min(j, duV);
             }
         }
         if (j == Format.OFFSET_SAMPLE_RELATIVE) {
@@ -25,12 +25,12 @@ public final class e implements q {
     }
 
     @Override // com.google.android.exoplayer2.source.q
-    public final long duU() {
+    public final long duW() {
         long j = Long.MAX_VALUE;
-        for (q qVar : this.mqs) {
-            long duU = qVar.duU();
-            if (duU != Long.MIN_VALUE) {
-                j = Math.min(j, duU);
+        for (q qVar : this.mqx) {
+            long duW = qVar.duW();
+            if (duW != Long.MIN_VALUE) {
+                j = Math.min(j, duW);
             }
         }
         if (j == Format.OFFSET_SAMPLE_RELATIVE) {
@@ -45,15 +45,15 @@ public final class e implements q {
         boolean z;
         boolean z2 = false;
         do {
-            long duU = duU();
-            if (duU == Long.MIN_VALUE) {
+            long duW = duW();
+            if (duW == Long.MIN_VALUE) {
                 break;
             }
             z = false;
-            for (q qVar : this.mqs) {
-                long duU2 = qVar.duU();
-                boolean z3 = duU2 != Long.MIN_VALUE && duU2 <= j;
-                if (duU2 == duU || z3) {
+            for (q qVar : this.mqx) {
+                long duW2 = qVar.duW();
+                boolean z3 = duW2 != Long.MIN_VALUE && duW2 <= j;
+                if (duW2 == duW || z3) {
                     z |= qVar.gf(j);
                 }
             }

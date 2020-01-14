@@ -270,14 +270,14 @@ public class b {
         String str;
         if (bVar != null) {
             String tid = this.iCZ.ciS().getTid();
-            com.baidu.tieba.r.c.cIs().a(this.iCe.getUniqueId(), com.baidu.tieba.r.a.a(tid, str, "", null) + "_dialog", com.baidu.tieba.r.a.a(this.iCZ.ciS(), PageStayDurationConstants.PageName.PB, "common_exp", bVar.locate, true, bVar.izy.izz + "", "", 19));
+            com.baidu.tieba.r.c.cIu().a(this.iCe.getUniqueId(), com.baidu.tieba.r.a.a(tid, str, "", null) + "_dialog", com.baidu.tieba.r.a.a(this.iCZ.ciS(), PageStayDurationConstants.PageName.PB, "common_exp", bVar.locate, true, bVar.izy.izz + "", "", 19));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.pb.data.b bVar) {
         if (bVar != null) {
-            com.baidu.tieba.r.c.cIs().b(this.iCe.getUniqueId(), com.baidu.tieba.r.a.a(this.iCZ.ciS(), PageStayDurationConstants.PageName.PB, "common_click", 1, bVar.locate, true, bVar.izy.izz + "", "", 19));
+            com.baidu.tieba.r.c.cIu().b(this.iCe.getUniqueId(), com.baidu.tieba.r.a.a(this.iCZ.ciS(), PageStayDurationConstants.PageName.PB, "common_click", 1, bVar.locate, true, bVar.izy.izz + "", "", 19));
         }
     }
 
@@ -292,7 +292,7 @@ public class b {
 
     public void onDestroy() {
         if (this.dfN != null) {
-            this.dfN.cIM();
+            this.dfN.cIO();
         }
         if (this.iOQ != null) {
             this.iOQ.dismiss();

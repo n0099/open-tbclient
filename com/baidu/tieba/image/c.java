@@ -22,19 +22,19 @@ public class c {
 
     public void bYD() {
         Dw("click");
-        com.baidu.tieba.recapp.report.c.cBP().a(com.baidu.tieba.recapp.report.f.c(this.hOV, 2, 0));
+        com.baidu.tieba.recapp.report.c.cBR().a(com.baidu.tieba.recapp.report.f.c(this.hOV, 2, 0));
     }
 
     public void bYE() {
         Dw("click");
         com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.hOV, 2, 0);
         c.HV("title");
-        com.baidu.tieba.recapp.report.c.cBP().a(c);
+        com.baidu.tieba.recapp.report.c.cBR().a(c);
     }
 
     public void bYF() {
         Dw("show");
-        com.baidu.tieba.recapp.report.c.cBP().a(com.baidu.tieba.recapp.report.f.c(this.hOV, 3, 0));
+        com.baidu.tieba.recapp.report.c.cBR().a(com.baidu.tieba.recapp.report.f.c(this.hOV, 3, 0));
     }
 
     public void bYG() {

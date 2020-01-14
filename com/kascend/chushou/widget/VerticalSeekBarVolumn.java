@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import android.widget.SeekBar;
 /* loaded from: classes4.dex */
 public class VerticalSeekBarVolumn extends AppCompatSeekBar {
-    private a ngH;
+    private a ngM;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -33,18 +33,18 @@ public class VerticalSeekBarVolumn extends AppCompatSeekBar {
     }
 
     public void setOnSeekBarChangeListener(a aVar) {
-        this.ngH = aVar;
+        this.ngM = aVar;
     }
 
     void a() {
-        if (this.ngH != null) {
-            this.ngH.a(this);
+        if (this.ngM != null) {
+            this.ngM.a(this);
         }
     }
 
     void b() {
-        if (this.ngH != null) {
-            this.ngH.b(this);
+        if (this.ngM != null) {
+            this.ngM.b(this);
         }
     }
 
@@ -109,8 +109,8 @@ public class VerticalSeekBarVolumn extends AppCompatSeekBar {
     @Override // android.widget.ProgressBar
     public void setProgress(int i) {
         super.setProgress(i);
-        if (this.ngH != null) {
-            this.ngH.a(this, getProgress(), true);
+        if (this.ngM != null) {
+            this.ngM.a(this, getProgress(), true);
         }
     }
 

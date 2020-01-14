@@ -9,25 +9,25 @@ import tv.chushou.basis.http.Http;
 import tv.chushou.basis.http.model.RequestTag;
 /* loaded from: classes4.dex */
 public final class a {
-    private c.a ndS;
+    private c.a ndX;
 
     public final void a(String str, String str2, File file, c.a aVar) {
-        this.ndS = aVar;
+        this.ndX = aVar;
         if (str == null || file == null) {
-            c.a aVar2 = this.ndS;
+            c.a aVar2 = this.ndX;
             if (aVar2 != null) {
                 aVar2.onFailure(-1, "", null);
                 return;
             }
             return;
         }
-        c.a aVar3 = this.ndS;
+        c.a aVar3 = this.ndX;
         if (aVar3 != null) {
             aVar3.onStart();
         }
-        Http http = (Http) tv.chushou.basis.d.b.dOE().T(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dOG().T(Http.class);
         if (http == null) {
-            c.a aVar4 = this.ndS;
+            c.a aVar4 = this.ndX;
             if (aVar4 != null) {
                 aVar4.onFailure(-1, "", null);
                 return;
@@ -36,7 +36,7 @@ public final class a {
         }
         HashMap hashMap = new HashMap();
         hashMap.put("type", str);
-        http.getAsync(tv.chushou.common.a.dOF(), "api/upload/up-token.htm?", hashMap, RequestTag.normal(), new C0704a(str, str2, file));
+        http.getAsync(tv.chushou.common.a.dOH(), "api/upload/up-token.htm?", hashMap, RequestTag.normal(), new C0704a(str, str2, file));
     }
 
     /* renamed from: com.kascend.chushou.toolkit.c.a.a$a  reason: collision with other inner class name */
@@ -62,7 +62,7 @@ public final class a {
         public void onSuccess(Http.Resp resp) {
             String optString;
             if ((resp != null ? resp.respJson : null) == null) {
-                c.a aVar = a.this.ndS;
+                c.a aVar = a.this.ndX;
                 if (aVar != null) {
                     aVar.onFailure(-1, "", null);
                     return;
@@ -81,7 +81,7 @@ public final class a {
                     return;
                 }
             }
-            c.a aVar2 = a.this.ndS;
+            c.a aVar2 = a.this.ndX;
             if (aVar2 != null) {
                 aVar2.onFailure(optInt, str, null);
             }
@@ -89,7 +89,7 @@ public final class a {
 
         @Override // tv.chushou.basis.d.a.c.a
         public void onFailure(int i, String str, Throwable th) {
-            c.a aVar = a.this.ndS;
+            c.a aVar = a.this.ndX;
             if (aVar != null) {
                 aVar.onFailure(i, str, th);
             }
@@ -115,14 +115,14 @@ public final class a {
             }
             String str3 = str2;
             if (str3 == null || str3.length() == 0) {
-                c.a aVar = a.this.ndS;
+                c.a aVar = a.this.ndX;
                 if (aVar != null) {
                     aVar.onFailure(-1, "", null);
                     return;
                 }
                 return;
             }
-            c.a aVar2 = a.this.ndS;
+            c.a aVar2 = a.this.ndX;
             if (aVar2 != null) {
                 aVar2.onSuccess(this.b);
             }
@@ -130,7 +130,7 @@ public final class a {
 
         @Override // tv.chushou.basis.d.a.c.a
         public void onFailure(int i, String str, Throwable th) {
-            c.a aVar = a.this.ndS;
+            c.a aVar = a.this.ndX;
             if (aVar != null) {
                 aVar.onFailure(i, str, th);
             }
@@ -138,7 +138,7 @@ public final class a {
 
         @Override // tv.chushou.basis.d.a.a.c.a
         public void onProgress(int i) {
-            c.a aVar = a.this.ndS;
+            c.a aVar = a.this.ndX;
             if (aVar != null) {
                 aVar.onProgress(i);
             }
@@ -151,7 +151,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void a(File file, String str, String str2) {
-        com.kascend.chushou.toolkit.c.a.b.ndW.dCZ().a(file, str, str2, new b(str));
+        com.kascend.chushou.toolkit.c.a.b.neb.dDb().a(file, str, str2, new b(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -3,14 +3,14 @@ package com.baidu.tieba.square.square;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class d extends com.baidu.tieba.square.data.a {
-    private e kbb;
+    private e kbg;
 
-    public e cIc() {
-        return this.kbb;
+    public e cIe() {
+        return this.kbg;
     }
 
     public void b(e eVar) {
-        this.kbb = eVar;
+        this.kbg = eVar;
         setErrorMsg(null);
     }
 

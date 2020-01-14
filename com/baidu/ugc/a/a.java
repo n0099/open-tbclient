@@ -7,5 +7,5 @@ public interface a {
 
     InputStream Km(String str);
 
-    c cRk();
+    c cRm();
 }

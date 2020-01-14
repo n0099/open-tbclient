@@ -3,7 +3,7 @@ package com.facebook.cache.common;
 import android.net.Uri;
 /* loaded from: classes12.dex */
 public interface b {
-    String diD();
+    String diF();
 
     int hashCode();
 

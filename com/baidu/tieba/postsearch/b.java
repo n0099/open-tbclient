@@ -8,15 +8,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class b {
-    public List<a> jzR = new ArrayList();
+    public List<a> jzW = new ArrayList();
     public ap ghs = new ap();
 
     /* loaded from: classes9.dex */
     public static class a {
         public String content;
         public String fname;
-        public int jzS;
-        public int jzT;
+        public int jzX;
+        public int jzY;
         public String name;
         public String name_show;
         public long pid;
@@ -27,7 +27,7 @@ public class b {
     }
 
     public boolean bWk() {
-        return (this.jzR == null || this.jzR.size() == 0) ? false : true;
+        return (this.jzW == null || this.jzW.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
@@ -40,7 +40,7 @@ public class b {
                 this.ghs.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.jzR.clear();
+                    this.jzW.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -64,12 +64,12 @@ public class b {
                                 aVar.content = optString4;
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
-                                aVar.jzS = optInt;
-                                aVar.jzT = optInt2;
+                                aVar.jzX = optInt;
+                                aVar.jzY = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.jzR.add(aVar);
+                                this.jzW.add(aVar);
                             }
                         }
                     }

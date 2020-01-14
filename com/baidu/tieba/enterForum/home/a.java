@@ -874,7 +874,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                 ba.aEt().b(this.dWt.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
                 return true;
             case 15:
-                if (this.fSG.cNh() || !(aNS instanceof f)) {
+                if (this.fSG.cNj() || !(aNS instanceof f)) {
                     return true;
                 }
                 ba.aEt().b(this.dWt.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/editinfo?fid=" + ((f) aNS).getId() + "&nomenu=1"});

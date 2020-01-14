@@ -52,12 +52,12 @@ public class s {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.cBb().a(advertAppInfo.cIV, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Hz(advertAppInfo.cIV).intValue(), null, true, false, true, advertAppInfo.cJb.userPortrait, downloadStaticsData, advertAppInfo.cJb.userName);
+        com.baidu.tieba.recapp.download.e.cBd().a(advertAppInfo.cIV, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.Hz(advertAppInfo.cIV).intValue(), null, true, false, true, advertAppInfo.cJb.userPortrait, downloadStaticsData, advertAppInfo.cJb.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.cBb().z(advertAppInfo.apkUrl, advertAppInfo.cIV, true);
+        com.baidu.tieba.recapp.download.e.cBd().z(advertAppInfo.apkUrl, advertAppInfo.cIV, true);
     }
 
     public static final void bd(Context context, String str) {
@@ -169,11 +169,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.cAV().sendFRS(z, str, str2, str3, list, str4);
+        r.cAX().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.cAV().a(z, str, str2, str3, str4, list, str5);
+        r.cAX().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int b(TbPageContext tbPageContext, String str, String str2) {
@@ -232,15 +232,15 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h cAS = r.cAV().cAS();
-        if (cAS == null) {
+        h cAU = r.cAX().cAU();
+        if (cAU == null) {
             return false;
         }
-        if (cAS.wy(str)) {
-            cAS.a(tbPageContext.getPageActivity(), strArr, true);
+        if (cAU.wy(str)) {
+            cAU.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return cAS.c(tbPageContext.getPageActivity(), strArr);
+        return cAU.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int be(Context context, String str) {
@@ -259,14 +259,14 @@ public class s {
 
     private static boolean bf(Context context, String str) {
         String[] strArr = {str};
-        h cAS = r.cAV().cAS();
-        if (cAS == null) {
+        h cAU = r.cAX().cAU();
+        if (cAU == null) {
             return false;
         }
-        if (cAS.wy(str)) {
-            cAS.a(context, strArr, true);
+        if (cAU.wy(str)) {
+            cAU.a(context, strArr, true);
             return true;
         }
-        return cAS.c(context, strArr);
+        return cAU.c(context, strArr);
     }
 }

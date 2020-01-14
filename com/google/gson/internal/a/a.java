@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public final class a<E> extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory mKv = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
+    public static final TypeAdapterFactory mKA = new TypeAdapterFactory() { // from class: com.google.gson.internal.a.a.1
         @Override // com.google.gson.TypeAdapterFactory
         public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
             Type type = aVar.getType();
@@ -23,28 +23,28 @@ public final class a<E> extends TypeAdapter<Object> {
             return new a(gson, gson.getAdapter(com.google.gson.b.a.get(h)), C$Gson$Types.f(h));
         }
     };
-    private final Class<E> mKw;
-    private final TypeAdapter<E> mKx;
+    private final Class<E> mKB;
+    private final TypeAdapter<E> mKC;
 
     public a(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
-        this.mKx = new m(gson, typeAdapter, cls);
-        this.mKw = cls;
+        this.mKC = new m(gson, typeAdapter, cls);
+        this.mKB = cls;
     }
 
     @Override // com.google.gson.TypeAdapter
     public Object read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.dzJ() == JsonToken.NULL) {
-            aVar.dzO();
+        if (aVar.dzL() == JsonToken.NULL) {
+            aVar.dzQ();
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        aVar.dzF();
+        aVar.dzH();
         while (aVar.hasNext()) {
-            arrayList.add(this.mKx.read(aVar));
+            arrayList.add(this.mKC.read(aVar));
         }
-        aVar.dzG();
+        aVar.dzI();
         int size = arrayList.size();
-        Object newInstance = Array.newInstance((Class<?>) this.mKw, size);
+        Object newInstance = Array.newInstance((Class<?>) this.mKB, size);
         for (int i = 0; i < size; i++) {
             Array.set(newInstance, i, arrayList.get(i));
         }
@@ -56,14 +56,14 @@ public final class a<E> extends TypeAdapter<Object> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.dzY();
+            bVar.dAa();
             return;
         }
-        bVar.dzU();
+        bVar.dzW();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.mKx.write(bVar, Array.get(obj, i));
+            this.mKC.write(bVar, Array.get(obj, i));
         }
-        bVar.dzV();
+        bVar.dzX();
     }
 }

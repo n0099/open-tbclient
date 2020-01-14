@@ -71,7 +71,7 @@ public class a implements ImagePagerAdapter.a {
                         a.this.hOV.cIR = 3;
                         a.this.bYs();
                     } else if (i == 2) {
-                        if (com.baidu.tieba.recapp.download.e.cBb().uH(a.this.hOV.cIV)) {
+                        if (com.baidu.tieba.recapp.download.e.cBd().uH(a.this.hOV.cIV)) {
                             w.bd(a.this.cRe.getPageActivity(), a.this.hOV.cIV);
                             return;
                         }
@@ -93,7 +93,7 @@ public class a implements ImagePagerAdapter.a {
                         a.this.hOY.bYD();
                     }
                     com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(a.this.hOV));
-                    r.cAV().cAS().a(a.this.cRe.getPageActivity(), new String[]{a.this.hOV.cIU}, true);
+                    r.cAX().cAU().a(a.this.cRe.getPageActivity(), new String[]{a.this.hOV.cIU}, true);
                 }
             }
         }
@@ -220,10 +220,10 @@ public class a implements ImagePagerAdapter.a {
             if (StringUtils.isNull(str)) {
                 str = this.cRe.getString(R.string.app_name);
             }
-            if (com.baidu.tieba.recapp.download.e.cBb().uH(this.hOV.cIV)) {
+            if (com.baidu.tieba.recapp.download.e.cBd().uH(this.hOV.cIV)) {
                 this.hOV.cIR = 2;
-            } else if (com.baidu.tieba.recapp.download.e.cBb().eg(this.hOV.cIV, str)) {
-                if (com.baidu.tieba.recapp.download.e.cBb().uF(this.hOV.cIV)) {
+            } else if (com.baidu.tieba.recapp.download.e.cBd().eg(this.hOV.cIV, str)) {
+                if (com.baidu.tieba.recapp.download.e.cBd().uF(this.hOV.cIV)) {
                     this.hOV.cIR = 1;
                 } else {
                     this.hOV.cIR = 3;

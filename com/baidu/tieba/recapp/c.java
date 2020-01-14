@@ -26,7 +26,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes11.dex */
 public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
-    private static final Pattern jEN = Pattern.compile("(/p/){1}(\\d+)");
+    private static final Pattern jES = Pattern.compile("(/p/){1}(\\d+)");
     private y dmW;
     private BannerView gDv = null;
     private boolean gDx = false;
@@ -41,8 +41,8 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
             c.this.bHf();
         }
     };
-    private com.baidu.tieba.InjectPlugin.a.c jEL;
-    private a.InterfaceC0390a jEM;
+    private com.baidu.tieba.InjectPlugin.a.c jEQ;
+    private a.InterfaceC0390a jER;
     private String mForumId;
     private String mForumName;
     private TbPageContext mPageContext;
@@ -51,9 +51,9 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     @Override // com.baidu.tieba.InjectPlugin.a.a
     /* renamed from: b */
     public void init(com.baidu.tieba.InjectPlugin.a.c cVar) {
-        this.jEL = cVar;
-        if (this.jEL != null && (this.jEL.aTh() instanceof TbPageContext)) {
-            this.mPageContext = (TbPageContext) this.jEL.aTh();
+        this.jEQ = cVar;
+        if (this.jEQ != null && (this.jEQ.aTh() instanceof TbPageContext)) {
+            this.mPageContext = (TbPageContext) this.jEQ.aTh();
         }
     }
 
@@ -74,12 +74,12 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
     public void a(a.InterfaceC0390a interfaceC0390a) {
-        this.jEM = interfaceC0390a;
+        this.jER = interfaceC0390a;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.FrsBannerAd.a
     public void aTc() {
-        if (this.mPageContext != null && this.jEM != null) {
+        if (this.mPageContext != null && this.jER != null) {
             if (this.dmW == null) {
                 bHf();
             } else if (!this.dmW.isValid()) {
@@ -103,7 +103,7 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                                     }
                                     if (c.this.gDv != null && c.this.gDv.aKc() && !c.this.gDx) {
                                         c.this.gDx = true;
-                                        c.this.jEM.a(c.this.jEL, c.this.gDv);
+                                        c.this.jER.a(c.this.jEQ, c.this.gDv);
                                     }
                                 }
                             }
@@ -119,7 +119,7 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                         return;
                     }
                 } else {
-                    this.jEM.a(this.jEL, this.gDv);
+                    this.jER.a(this.jEQ, this.gDv);
                 }
                 this.gDv.setBannerData(this.dmW);
                 this.gDv.reset();
@@ -132,9 +132,9 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bHf() {
-        if (this.gDv != null && this.jEM != null) {
+        if (this.gDv != null && this.jER != null) {
             this.gDx = false;
-            this.jEM.b(this.jEL, this.gDv);
+            this.jER.b(this.jEQ, this.gDv);
             this.gDv = null;
         }
     }
@@ -149,7 +149,7 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                 ef(ayi, value);
             } else if (this.dmW.ayr() == 2) {
                 if (value.contains("tieba.baidu.com")) {
-                    Matcher matcher = jEN.matcher(value);
+                    Matcher matcher = jES.matcher(value);
                     if (matcher.find()) {
                         try {
                             PbActivityConfig createNormalCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(matcher.group(2), null, "frs_banner");
@@ -176,7 +176,7 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                             break;
                     }
                 } else {
-                    r.cAV().cAS().c(this.mPageContext.getPageActivity(), new String[]{value});
+                    r.cAX().cAU().c(this.mPageContext.getPageActivity(), new String[]{value});
                     if (!StringUtils.isNull(value) && value.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
                         TiebaStatic.eventStat(this.mPageContext.getPageActivity(), "frs_banner", "click", 1, "ref_id", CommonStatisticKey.REF_TYPE_FRS_AD, "ref_type", "603");
                     }

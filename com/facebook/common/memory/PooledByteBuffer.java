@@ -7,7 +7,7 @@ public interface PooledByteBuffer extends Closeable {
 
     int c(int i, byte[] bArr, int i2, int i3);
 
-    long djy();
+    long djA();
 
     boolean isClosed();
 

@@ -32,16 +32,16 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private com.baidu.adp.lib.d.b<GifView> dIi;
     public BdUniqueId dxg;
     private int fpl;
-    private int jlR;
-    private int jlS;
+    private int jlW;
+    private int jlX;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.Nj = true;
-        this.jlR = 0;
-        this.jlS = 0;
+        this.jlW = 0;
+        this.jlX = 0;
         this.fpl = 0;
         this.dIh = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.personPolymeric.a.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -212,8 +212,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         eVar.setPageUniqueId(this.dxg);
         eVar.aI(1024);
         eVar.aI(32768);
-        if (this.jlR > 0) {
-            eVar.aH(this.jlR);
+        if (this.jlW > 0) {
+            eVar.aH(this.jlW);
         }
         eVar.Y(false);
         eVar.Z(false);
@@ -242,7 +242,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         mT.aM(4);
         af afVar = new af(mT);
         afVar.setPageId(this.dxg);
-        afVar.aU(this.jlS);
+        afVar.aU(this.jlX);
         a(new s() { // from class: com.baidu.tieba.personPolymeric.a.a.c.4
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -286,7 +286,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void zQ(int i) {
-        this.jlR = i;
+        this.jlW = i;
     }
 
     private void bNs() {
@@ -302,6 +302,6 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void zP(int i) {
-        this.jlS = i;
+        this.jlX = i;
     }
 }

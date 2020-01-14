@@ -8,7 +8,7 @@ public interface b {
     com.facebook.common.references.a<Bitmap> a(Bitmap bitmap, f fVar);
 
     @Nullable
-    com.facebook.cache.common.b dqg();
+    com.facebook.cache.common.b dqi();
 
     String getName();
 }

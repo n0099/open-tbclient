@@ -13,6 +13,6 @@ public class m implements l {
 
     @Override // com.baidu.tieba.j.l
     public h cfr() {
-        return com.baidu.tieba.post.j.cyJ();
+        return com.baidu.tieba.post.j.cyL();
     }
 }

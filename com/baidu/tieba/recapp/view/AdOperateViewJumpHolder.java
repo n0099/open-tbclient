@@ -17,9 +17,9 @@ import java.util.HashMap;
 public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
     private static final String TAG = AdOperateViewJumpHolder.class.getSimpleName();
     private TextView aqn;
-    private TextView jLC;
-    private ImageView jLD;
-    private Button jLH;
+    private TextView jLH;
+    private ImageView jLI;
+    private Button jLM;
     private View mRootView;
     private TextView mTitleTextView;
 
@@ -32,10 +32,10 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
     private void init() {
         this.mTitleTextView = (TextView) this.mRootView.findViewById(R.id.ad_operate_title);
         this.aqn = (TextView) this.mRootView.findViewById(R.id.ad_operate_content);
-        this.jLC = (TextView) this.mRootView.findViewById(R.id.ad_operate_tag_name);
-        this.jLD = (ImageView) this.mRootView.findViewById(R.id.ad_operate_divider);
-        this.jLH = (Button) this.mRootView.findViewById(R.id.ad_operate_action);
-        if (this.jLB == 2) {
+        this.jLH = (TextView) this.mRootView.findViewById(R.id.ad_operate_tag_name);
+        this.jLI = (ImageView) this.mRootView.findViewById(R.id.ad_operate_divider);
+        this.jLM = (Button) this.mRootView.findViewById(R.id.ad_operate_action);
+        if (this.jLG == 2) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -54,7 +54,7 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
                     }
                 }
             });
-            this.jLH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.2
+            this.jLM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     AdPost adPost = (AdPost) AdOperateViewJumpHolder.this.getTag();
@@ -73,10 +73,10 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e);
         am.setViewTextColor(this.mTitleTextView, R.color.cp_cont_j, 1);
         am.setViewTextColor(this.aqn, R.color.cp_cont_j, 1);
-        am.setViewTextColor(this.jLC, R.color.cp_cont_f, 1);
-        am.setViewTextColor(this.jLH, R.color.cp_link_tip_a, 3);
-        am.setImageResource(this.jLD, R.drawable.ad_divider);
-        am.setBackgroundResource(this.jLH, R.drawable.feed_ad_progress_button_bg);
+        am.setViewTextColor(this.jLH, R.color.cp_cont_f, 1);
+        am.setViewTextColor(this.jLM, R.color.cp_link_tip_a, 3);
+        am.setImageResource(this.jLI, R.drawable.ad_divider);
+        am.setBackgroundResource(this.jLM, R.drawable.feed_ad_progress_button_bg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,24 +86,24 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
         if (adPost != null && isOperateValid(adPost.adData)) {
             PostAdBaseData.a aVar = adPost.adData;
             this.mTitleTextView.setText(aVar.DC);
-            if (StringUtils.isNull(aVar.jGD)) {
+            if (StringUtils.isNull(aVar.jGI)) {
                 this.aqn.setVisibility(8);
             } else {
                 this.aqn.setVisibility(0);
-                this.aqn.setText(aVar.jGD);
+                this.aqn.setText(aVar.jGI);
             }
-            this.jLC.setText(StringUtils.isNull(aVar.tagName) ? getResources().getString(R.string.advert_label) : aVar.tagName);
+            this.jLH.setText(StringUtils.isNull(aVar.tagName) ? getResources().getString(R.string.advert_label) : aVar.tagName);
             if (StringUtils.isNull(aVar.buttonText)) {
-                if (this.jLB == 2) {
-                    this.jLH.setText(getResources().getString(R.string.check_immediately));
-                } else if (this.jLB == 1) {
-                    this.jLH.setText(getResources().getString(R.string.download));
+                if (this.jLG == 2) {
+                    this.jLM.setText(getResources().getString(R.string.check_immediately));
+                } else if (this.jLG == 1) {
+                    this.jLM.setText(getResources().getString(R.string.download));
                 } else {
-                    this.jLH.setText(getResources().getString(R.string.check_immediately));
-                    Log.e(TAG, "invalid operate type: " + this.jLB);
+                    this.jLM.setText(getResources().getString(R.string.check_immediately));
+                    Log.e(TAG, "invalid operate type: " + this.jLG);
                 }
             } else {
-                this.jLH.setText(aVar.buttonText);
+                this.jLM.setText(aVar.buttonText);
             }
             onChangeSkinType();
         }

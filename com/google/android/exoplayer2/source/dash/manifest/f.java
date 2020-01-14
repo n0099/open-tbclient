@@ -6,21 +6,21 @@ import com.google.android.exoplayer2.util.u;
 public final class f {
     private int hashCode;
     public final long length;
-    private final String muq;
+    private final String muv;
     public final long start;
 
     public f(String str, long j, long j2) {
-        this.muq = str == null ? "" : str;
+        this.muv = str == null ? "" : str;
         this.start = j;
         this.length = j2;
     }
 
     public Uri Pt(String str) {
-        return u.fk(str, this.muq);
+        return u.fk(str, this.muv);
     }
 
     public String Pu(String str) {
-        return u.fl(str, this.muq);
+        return u.fl(str, this.muv);
     }
 
     public f a(f fVar, String str) {
@@ -38,7 +38,7 @@ public final class f {
 
     public int hashCode() {
         if (this.hashCode == 0) {
-            this.hashCode = ((((((int) this.start) + 527) * 31) + ((int) this.length)) * 31) + this.muq.hashCode();
+            this.hashCode = ((((((int) this.start) + 527) * 31) + ((int) this.length)) * 31) + this.muv.hashCode();
         }
         return this.hashCode;
     }
@@ -51,6 +51,6 @@ public final class f {
             return false;
         }
         f fVar = (f) obj;
-        return this.start == fVar.start && this.length == fVar.length && this.muq.equals(fVar.muq);
+        return this.start == fVar.start && this.length == fVar.length && this.muv.equals(fVar.muv);
     }
 }

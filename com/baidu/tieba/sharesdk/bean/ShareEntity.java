@@ -105,7 +105,7 @@ public class ShareEntity implements Parcelable {
         this.localFile = str;
     }
 
-    public String cFM() {
+    public String cFO() {
         return this.localFile;
     }
 
@@ -125,7 +125,7 @@ public class ShareEntity implements Parcelable {
         this.location = location;
     }
 
-    public int cFN() {
+    public int cFP() {
         return this.shareTo;
     }
 
@@ -133,7 +133,7 @@ public class ShareEntity implements Parcelable {
         this.shareTo = i;
     }
 
-    public int cFO() {
+    public int cFQ() {
         return this.shareType;
     }
 
@@ -149,7 +149,7 @@ public class ShareEntity implements Parcelable {
         this.fName = str;
     }
 
-    public String cFP() {
+    public String cFR() {
         return this.fName;
     }
 
@@ -157,7 +157,7 @@ public class ShareEntity implements Parcelable {
         this.typeShareToSmallApp = i;
     }
 
-    public int cFQ() {
+    public int cFS() {
         return this.typeShareToSmallApp;
     }
 
@@ -165,7 +165,7 @@ public class ShareEntity implements Parcelable {
         this.shareType = i;
     }
 
-    public boolean cFR() {
+    public boolean cFT() {
         return this.shareType != 0 && (this.shareTo == 8 || this.shareTo == 4 || this.shareTo == 3 || this.shareTo == 2);
     }
 

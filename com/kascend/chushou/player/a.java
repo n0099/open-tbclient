@@ -10,7 +10,7 @@ import java.util.List;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes4.dex */
 public class a {
-    private C0684a mPp = new C0684a();
+    private C0684a mPu = new C0684a();
     private LinkedList<ChatInfo> a = new LinkedList<>();
     private LinkedList<ChatInfo> b = new LinkedList<>();
 
@@ -38,7 +38,7 @@ public class a {
             synchronized (this.a) {
                 c(arrayList);
                 this.a.addAll(arrayList);
-                Collections.sort(this.a, this.mPp);
+                Collections.sort(this.a, this.mPu);
             }
         }
     }
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    public ChatInfo dBs() {
+    public ChatInfo dBu() {
         if (this.a != null) {
             synchronized (this.a) {
                 if (this.a.size() > 0) {
@@ -101,7 +101,7 @@ public class a {
         }
     }
 
-    public ChatInfo dBt() {
+    public ChatInfo dBv() {
         if (this.b != null) {
             synchronized (this.b) {
                 if (this.b.size() > 0) {

@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.c.p;
 import com.facebook.imagepipeline.d.h;
 /* loaded from: classes10.dex */
 public class i {
-    private final boolean lRQ;
-    private final b.a lRR;
-    private final boolean lRS;
-    private final com.facebook.common.g.b lRT;
-    private final boolean lRU;
     private final boolean lRV;
-    private final int lRW;
-    private final int lRX;
-    private boolean lRY;
+    private final b.a lRW;
+    private final boolean lRX;
+    private final com.facebook.common.g.b lRY;
     private final boolean lRZ;
-    private final com.facebook.common.internal.j<Boolean> lRq;
-    private final c lSa;
+    private final com.facebook.common.internal.j<Boolean> lRv;
+    private final boolean lSa;
+    private final int lSb;
+    private final int lSc;
+    private boolean lSd;
+    private final boolean lSe;
+    private final c lSf;
 
     /* loaded from: classes10.dex */
     public interface c {
@@ -26,93 +26,93 @@ public class i {
     }
 
     private i(a aVar) {
-        this.lRQ = aVar.lRQ;
-        this.lRR = aVar.lRR;
-        this.lRS = aVar.lRS;
-        this.lRT = aVar.lRT;
-        this.lRU = aVar.lRU;
         this.lRV = aVar.lRV;
         this.lRW = aVar.lRW;
         this.lRX = aVar.lRX;
         this.lRY = aVar.lRY;
         this.lRZ = aVar.lRZ;
-        if (aVar.lSa == null) {
-            this.lSa = new b();
+        this.lSa = aVar.lSa;
+        this.lSb = aVar.lSb;
+        this.lSc = aVar.lSc;
+        this.lSd = aVar.lSd;
+        this.lSe = aVar.lSe;
+        if (aVar.lSf == null) {
+            this.lSf = new b();
         } else {
-            this.lSa = aVar.lSa;
+            this.lSf = aVar.lSf;
         }
-        this.lRq = aVar.lRq;
-    }
-
-    public boolean dnT() {
-        return this.lRU;
-    }
-
-    public boolean dnU() {
-        return this.lRQ;
+        this.lRv = aVar.lRv;
     }
 
     public boolean dnV() {
-        return this.lRS;
-    }
-
-    public b.a dnW() {
-        return this.lRR;
-    }
-
-    public com.facebook.common.g.b dnX() {
-        return this.lRT;
-    }
-
-    public boolean dnY() {
-        return this.lRV;
-    }
-
-    public int dnZ() {
-        return this.lRW;
-    }
-
-    public int doa() {
-        return this.lRX;
-    }
-
-    public boolean dob() {
         return this.lRZ;
     }
 
-    public c doc() {
-        return this.lSa;
+    public boolean dnW() {
+        return this.lRV;
     }
 
-    public boolean dod() {
+    public boolean dnX() {
+        return this.lRX;
+    }
+
+    public b.a dnY() {
+        return this.lRW;
+    }
+
+    public com.facebook.common.g.b dnZ() {
         return this.lRY;
     }
 
-    public com.facebook.common.internal.j<Boolean> doe() {
-        return this.lRq;
+    public boolean doa() {
+        return this.lSa;
+    }
+
+    public int dob() {
+        return this.lSb;
+    }
+
+    public int doc() {
+        return this.lSc;
+    }
+
+    public boolean dod() {
+        return this.lSe;
+    }
+
+    public c doe() {
+        return this.lSf;
+    }
+
+    public boolean dof() {
+        return this.lSd;
+    }
+
+    public com.facebook.common.internal.j<Boolean> dog() {
+        return this.lRv;
     }
 
     /* loaded from: classes10.dex */
     public static class a {
-        private b.a lRR;
-        private com.facebook.common.g.b lRT;
-        public com.facebook.common.internal.j<Boolean> lRq;
-        private c lSa;
-        private final h.a lSb;
-        private boolean lRQ = false;
-        private boolean lRS = false;
-        private boolean lRU = false;
+        private b.a lRW;
+        private com.facebook.common.g.b lRY;
+        public com.facebook.common.internal.j<Boolean> lRv;
+        private c lSf;
+        private final h.a lSg;
         private boolean lRV = false;
-        private int lRW = 0;
-        private int lRX = 0;
-        public boolean lRY = false;
+        private boolean lRX = false;
         private boolean lRZ = false;
+        private boolean lSa = false;
+        private int lSb = 0;
+        private int lSc = 0;
+        public boolean lSd = false;
+        private boolean lSe = false;
 
         public a(h.a aVar) {
-            this.lSb = aVar;
+            this.lSg = aVar;
         }
 
-        public i dof() {
+        public i doh() {
             return new i(this);
         }
     }

@@ -7,7 +7,7 @@ import tv.chushou.zues.widget.kpswitch.a;
 import tv.chushou.zues.widget.kpswitch.b;
 /* loaded from: classes4.dex */
 public class KPSwitchPanelFrameLayout extends FrameLayout implements a, b {
-    private tv.chushou.zues.widget.kpswitch.a.b nYL;
+    private tv.chushou.zues.widget.kpswitch.a.b nYQ;
 
     public KPSwitchPanelFrameLayout(Context context) {
         super(context);
@@ -25,30 +25,30 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements a, b {
     }
 
     private void init(AttributeSet attributeSet) {
-        this.nYL = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
+        this.nYQ = new tv.chushou.zues.widget.kpswitch.a.b(this, attributeSet);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.nYL.dx(i)) {
+        if (!this.nYQ.dx(i)) {
             super.setVisibility(i);
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        int[] S = this.nYL.S(i, i2);
+        int[] S = this.nYQ.S(i, i2);
         super.onMeasure(S[0], S[1]);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dPw() {
-        return this.nYL.dPw();
+    public boolean dPy() {
+        return this.nYQ.dPy();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public boolean isVisible() {
-        return this.nYL.isVisible();
+        return this.nYQ.isVisible();
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
@@ -58,29 +58,29 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements a, b {
 
     @Override // tv.chushou.zues.widget.kpswitch.a
     public void DR() {
-        this.nYL.DR();
+        this.nYQ.DR();
     }
 
     public void setIgnoreRecommendHeight(boolean z) {
-        this.nYL.setIgnoreRecommendHeight(z);
+        this.nYQ.setIgnoreRecommendHeight(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
     public void dv(int i) {
-        this.nYL.Ou(i);
+        this.nYQ.Ou(i);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
     public void wf(boolean z) {
-        this.nYL.xe(z);
+        this.nYQ.xe(z);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.a
-    public boolean dPx() {
-        return this.nYL.dPx();
+    public boolean dPz() {
+        return this.nYQ.dPz();
     }
 
     public void setPanelEnabled(boolean z) {
-        this.nYL.setPanelEnabled(z);
+        this.nYQ.setPanelEnabled(z);
     }
 }

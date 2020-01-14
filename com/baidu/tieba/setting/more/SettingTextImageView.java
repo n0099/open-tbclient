@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 public class SettingTextImageView extends FrameLayout {
     private LinearLayout dpb;
     private ImageView dpf;
-    private HeadImageView jTA;
+    private HeadImageView jTF;
     private Context mContext;
     private TextView textView;
 
@@ -41,18 +41,18 @@ public class SettingTextImageView extends FrameLayout {
         setBackgroundDrawable(am.ke(R.color.cp_bg_line_e));
         am.setViewTextColor(this.textView, R.color.cp_cont_b, 1);
         SvgManager.aEp().a(this.dpf, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
-        this.jTA.invalidate();
+        this.jTF.invalidate();
     }
 
-    public void cFz() {
-        if (this.jTA != null) {
-            this.jTA.setVisibility(8);
+    public void cFB() {
+        if (this.jTF != null) {
+            this.jTF.setVisibility(8);
         }
     }
 
-    public void cFA() {
-        if (this.jTA != null) {
-            this.jTA.setVisibility(0);
+    public void cFC() {
+        if (this.jTF != null) {
+            this.jTF.setVisibility(0);
         }
     }
 
@@ -62,9 +62,9 @@ public class SettingTextImageView extends FrameLayout {
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.jTA.startLoad(str, 26, false);
+            this.jTF.startLoad(str, 26, false);
         } else {
-            this.jTA.startLoad(str, 12, false);
+            this.jTF.startLoad(str, 12, false);
         }
     }
 
@@ -75,7 +75,7 @@ public class SettingTextImageView extends FrameLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
         this.dpb = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.jTA = (HeadImageView) findViewById(R.id.icon);
+        this.jTF = (HeadImageView) findViewById(R.id.icon);
         this.dpf = (ImageView) findViewById(R.id.arrow);
     }
 

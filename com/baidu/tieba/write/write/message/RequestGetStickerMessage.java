@@ -10,20 +10,20 @@ import tbclient.CommonReq;
 public class RequestGetStickerMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f982common;
+    private CommonReq f983common;
 
     public RequestGetStickerMessage() {
         super(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST);
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f982common = commonReq;
+        this.f983common = commonReq;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f956common = this.f982common;
+        builder.f957common = this.f983common;
         if (z) {
             t.a(builder, true);
         }

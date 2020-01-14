@@ -11,13 +11,13 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a implements e.a {
     private String OG;
-    private i jtO;
-    private String jud;
+    private i jtT;
+    private String jui;
 
     public a(String str, String str2, i iVar) {
         this.OG = str;
-        this.jud = str2;
-        this.jtO = iVar;
+        this.jui = str2;
+        this.jtT = iVar;
     }
 
     @Override // com.baidu.tieba.j.e.a
@@ -29,10 +29,10 @@ public class a implements e.a {
             TiebaStatic.log(anVar);
             HttpMessage httpMessage = new HttpMessage(1003388);
             httpMessage.addParam("thread_id", this.OG);
-            httpMessage.addParam("video_url", this.jud);
+            httpMessage.addParam("video_url", this.jui);
             MessageManager.getInstance().sendMessage(httpMessage);
-            if (this.jtO != null) {
-                this.jtO.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.1
+            if (this.jtT != null) {
+                this.jtT.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.1
                     @Override // com.baidu.tieba.j.b
                     public void cZ(JSONObject jSONObject) throws JSONException {
                     }
@@ -57,8 +57,8 @@ public class a implements e.a {
         anVar.Z("obj_param1", z ? 1 : 0);
         anVar.cp("tid", this.OG);
         TiebaStatic.log(anVar);
-        if (this.jtO != null) {
-            this.jtO.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.2
+        if (this.jtT != null) {
+            this.jtT.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.2
                 @Override // com.baidu.tieba.j.b
                 public void cZ(JSONObject jSONObject) throws JSONException {
                 }

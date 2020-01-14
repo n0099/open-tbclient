@@ -21,50 +21,50 @@ public class b {
     public String a;
     public ArrayList<PlayUrl> f;
     public String h;
-    private PlayUrl mQc;
-    public ListItem mQh;
-    public ListItem mQi;
-    public ListItem mQj;
-    public ListItem mQk;
-    public ListItem mQl;
+    private PlayUrl mQh;
     public ListItem mQm;
     public ListItem mQn;
     public ListItem mQo;
-    public TrumpetPocket mQs;
+    public ListItem mQp;
+    public ListItem mQq;
+    public ListItem mQr;
+    public ListItem mQs;
+    public ListItem mQt;
+    public TrumpetPocket mQx;
     public List<ListItem> t;
     private final String z = "PlayerViewHelper";
     private boolean A = false;
-    private FullRoomInfo mQd = null;
+    private FullRoomInfo mQi = null;
     public int b = 0;
     public int c = 0;
     public boolean d = false;
     public boolean e = false;
     private ArrayList<ChatInfo> D = null;
-    private HashMap<String, com.kascend.chushou.player.ui.h5.c.a> mQf = null;
+    private HashMap<String, com.kascend.chushou.player.ui.h5.c.a> mQk = null;
     private boolean H = true;
-    public IconConfig mQp = new IconConfig();
-    public final Map<String, SkinConfig.SkinRes> mQt = new HashMap();
+    public IconConfig mQu = new IconConfig();
+    public final Map<String, SkinConfig.SkinRes> mQy = new HashMap();
     public List<tv.chushou.zues.widget.gift.a.a> i = new ArrayList();
     public List<GeneralTabGift> j = new ArrayList();
-    a mQe = new a();
+    a mQj = new a();
     private List<ListItem> F = new ArrayList();
-    private List<ListItem> mQg = new ArrayList();
+    private List<ListItem> mQl = new ArrayList();
     public List<ListItem> s = new ArrayList();
-    public List<ListItem> mQq = new ArrayList();
-    public List<g.a> mQr = new ArrayList();
+    public List<ListItem> mQv = new ArrayList();
+    public List<g.a> mQw = new ArrayList();
 
     public b(String str) {
         this.a = str;
     }
 
     public void a() {
-        this.mQt.clear();
+        this.mQy.clear();
     }
 
     public void b() {
-        if (this.mQe != null) {
-            this.mQe.a();
-            this.mQe = null;
+        if (this.mQj != null) {
+            this.mQj.a();
+            this.mQj = null;
         }
         if (this.f != null) {
             this.f.clear();
@@ -74,13 +74,13 @@ public class b {
             this.D.clear();
             this.D = null;
         }
-        if (this.mQd != null) {
-            this.mQd.release();
-            this.mQd = null;
+        if (this.mQi != null) {
+            this.mQi.release();
+            this.mQi = null;
         }
-        if (this.mQf != null) {
-            this.mQf.clear();
-            this.mQf = null;
+        if (this.mQk != null) {
+            this.mQk.clear();
+            this.mQk = null;
         }
         if (this.i != null) {
             this.i.clear();
@@ -123,44 +123,44 @@ public class b {
     }
 
     public void a(FullRoomInfo fullRoomInfo) {
-        this.mQd = fullRoomInfo;
+        this.mQi = fullRoomInfo;
     }
 
     public void a(com.kascend.chushou.player.ui.h5.c.a aVar) {
-        if (this.mQf == null) {
-            this.mQf = new HashMap<>();
+        if (this.mQk == null) {
+            this.mQk = new HashMap<>();
         }
         if (aVar != null) {
-            this.mQf.put(aVar.p, aVar);
+            this.mQk.put(aVar.p, aVar);
         }
     }
 
     public HashMap e() {
-        return this.mQf;
+        return this.mQk;
     }
 
     public void a(String str) {
-        if (this.mQf != null && this.mQf.containsKey(str)) {
-            this.mQf.remove(str);
+        if (this.mQk != null && this.mQk.containsKey(str)) {
+            this.mQk.remove(str);
         }
     }
 
     public void f() {
-        if (this.mQf != null) {
-            this.mQf.clear();
+        if (this.mQk != null) {
+            this.mQk.clear();
         }
     }
 
-    public FullRoomInfo dBu() {
-        return this.mQd;
+    public FullRoomInfo dBw() {
+        return this.mQi;
     }
 
     public void a(PlayUrl playUrl) {
-        this.mQc = playUrl;
+        this.mQh = playUrl;
     }
 
-    public PlayUrl dBv() {
-        return this.mQc;
+    public PlayUrl dBx() {
+        return this.mQh;
     }
 
     public List<ListItem> i() {
@@ -168,22 +168,22 @@ public class b {
     }
 
     public List<ListItem> j() {
-        return this.mQg;
+        return this.mQl;
     }
 
     public b fr(List<ListItem> list) {
         this.F = list;
-        this.mQg.clear();
+        this.mQl.clear();
         if (list != null) {
-            this.mQg.addAll(list);
+            this.mQl.addAll(list);
         }
         return this;
     }
 
     @Nullable
-    public RoomInfo dBw() {
-        if (this.mQd != null) {
-            return this.mQd.mRoominfo;
+    public RoomInfo dBy() {
+        if (this.mQi != null) {
+            return this.mQi.mRoominfo;
         }
         return null;
     }
@@ -197,11 +197,11 @@ public class b {
     }
 
     public boolean m() {
-        return (this.mQd == null || this.mQd.mRoominfo == null || !this.mQd.mRoominfo.mIsSubscribed) ? false : true;
+        return (this.mQi == null || this.mQi.mRoominfo == null || !this.mQi.mRoominfo.mIsSubscribed) ? false : true;
     }
 
     public String b(String str) {
-        SkinConfig.SkinRes skinRes = this.mQt.get(str);
+        SkinConfig.SkinRes skinRes = this.mQy.get(str);
         if (skinRes != null) {
             return skinRes.image;
         }

@@ -12,13 +12,13 @@ public interface AudioProcessor {
 
     int dsA();
 
-    void dsB();
+    int dsB();
 
-    ByteBuffer dsC();
+    int dsC();
 
-    int dsy();
+    void dsD();
 
-    int dsz();
+    ByteBuffer dsE();
 
     void flush();
 

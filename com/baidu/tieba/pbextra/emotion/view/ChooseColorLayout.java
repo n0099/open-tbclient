@@ -9,12 +9,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes7.dex */
 public class ChooseColorLayout extends LinearLayout {
     public View.OnClickListener dmY;
-    private int jdA;
-    private int jdB;
-    private int jdC;
-    private int jdD;
-    private a jdE;
-    private int[] jdz;
+    private int[] jdE;
+    private int jdF;
+    private int jdG;
+    private int jdH;
+    private int jdI;
+    private a jdJ;
     private int mPadding;
     private int mWidth;
 
@@ -37,16 +37,16 @@ public class ChooseColorLayout extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue;
-                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.jdD) {
-                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.jdD);
+                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.jdI) {
+                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.jdI);
                     if (childAt instanceof ChooseColorView) {
                         ((ChooseColorView) childAt).setIsChooseView(false);
                     }
-                    ChooseColorLayout.this.jdD = intValue;
-                    ChooseColorLayout.this.jdC = ((ChooseColorView) view).getChooseColor();
+                    ChooseColorLayout.this.jdI = intValue;
+                    ChooseColorLayout.this.jdH = ((ChooseColorView) view).getChooseColor();
                     ((ChooseColorView) view).setIsChooseView(true);
-                    if (ChooseColorLayout.this.jdE != null) {
-                        ChooseColorLayout.this.jdE.zw(ChooseColorLayout.this.jdC);
+                    if (ChooseColorLayout.this.jdJ != null) {
+                        ChooseColorLayout.this.jdJ.zw(ChooseColorLayout.this.jdH);
                     }
                 }
             }
@@ -56,21 +56,21 @@ public class ChooseColorLayout extends LinearLayout {
 
     private void init() {
         this.mWidth = l.getEquipmentWidth(getContext());
-        this.jdz = getResources().getIntArray(R.array.choose_colors);
+        this.jdE = getResources().getIntArray(R.array.choose_colors);
         this.mPadding = getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.jdA = (this.mWidth - (this.mPadding * 2)) / 8;
-        this.jdB = (this.jdA - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.jdA, this.jdA);
+        this.jdF = (this.mWidth - (this.mPadding * 2)) / 8;
+        this.jdG = (this.jdF - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.jdF, this.jdF);
         layoutParams.gravity = 17;
-        for (int i = 0; i < this.jdz.length; i++) {
+        for (int i = 0; i < this.jdE.length; i++) {
             ChooseColorView chooseColorView = new ChooseColorView(getContext());
-            chooseColorView.setChooseColor(this.jdz[i]);
+            chooseColorView.setChooseColor(this.jdE[i]);
             chooseColorView.setTag(Integer.valueOf(i));
-            chooseColorView.setRadius(this.jdB);
+            chooseColorView.setRadius(this.jdG);
             if (i == 0) {
                 chooseColorView.setIsChooseView(true);
-                this.jdC = this.jdz[i];
-                this.jdD = i;
+                this.jdH = this.jdE[i];
+                this.jdI = i;
             }
             chooseColorView.setOnClickListener(this.dmY);
             addView(chooseColorView, layoutParams);
@@ -79,10 +79,10 @@ public class ChooseColorLayout extends LinearLayout {
     }
 
     public int getCurrentChooseColor() {
-        return this.jdC;
+        return this.jdH;
     }
 
     public void setOnChooseColorChangeListener(a aVar) {
-        this.jdE = aVar;
+        this.jdJ = aVar;
     }
 }

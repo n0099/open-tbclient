@@ -11,8 +11,8 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes8.dex */
 public class a {
     private boolean aHc;
-    private c lWL;
-    private int lWM;
+    private c lWQ;
+    private int lWR;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
 
@@ -28,9 +28,9 @@ public class a {
         }
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
-        this.lWM = -1;
+        this.lWR = -1;
         this.aHc = false;
-        this.lWL = cVar;
+        this.lWQ = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    public void dro() throws Exception {
+    public void drq() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -78,12 +78,12 @@ public class a {
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.lWM = this.lWL.i(outputFormat);
-                    if (!this.lWL.start()) {
-                        synchronized (this.lWL) {
-                            while (!this.lWL.isStarted()) {
+                    this.lWR = this.lWQ.i(outputFormat);
+                    if (!this.lWQ.start()) {
+                        synchronized (this.lWQ) {
+                            while (!this.lWQ.isStarted()) {
                                 try {
-                                    this.lWL.wait(100L);
+                                    this.lWQ.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -107,7 +107,7 @@ public class a {
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.lWL.d(this.lWM, byteBuffer, this.mBufferInfo);
+                        this.lWQ.d(this.lWR, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -127,9 +127,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.lWL != null) {
-                this.lWL.stop();
-                this.lWL = null;
+            if (this.lWQ != null) {
+                this.lWQ.stop();
+                this.lWQ = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

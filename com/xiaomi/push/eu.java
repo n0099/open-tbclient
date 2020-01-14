@@ -14,7 +14,7 @@ public class eu {
     private static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, hq> f326a = null;
+    private static Map<String, hq> f327a = null;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -105,17 +105,17 @@ public class eu {
     /* renamed from: a  reason: collision with other method in class */
     public static hq m254a(String str) {
         hq[] values;
-        if (f326a == null) {
+        if (f327a == null) {
             synchronized (hq.class) {
-                if (f326a == null) {
-                    f326a = new HashMap();
+                if (f327a == null) {
+                    f327a = new HashMap();
                     for (hq hqVar : hq.values()) {
-                        f326a.put(hqVar.f492a.toLowerCase(), hqVar);
+                        f327a.put(hqVar.f493a.toLowerCase(), hqVar);
                     }
                 }
             }
         }
-        hq hqVar2 = f326a.get(str.toLowerCase());
+        hq hqVar2 = f327a.get(str.toLowerCase());
         return hqVar2 != null ? hqVar2 : hq.Invalid;
     }
 

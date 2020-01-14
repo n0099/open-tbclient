@@ -13,27 +13,27 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class b {
-    public static final p.b lMo = p.b.lMe;
-    public static final p.b lMp = p.b.lMf;
-    private p.b lMA;
+    public static final p.b lMt = p.b.lMj;
+    public static final p.b lMu = p.b.lMk;
+    private Drawable lMA;
     private p.b lMB;
-    private Matrix lMC;
-    private PointF lMD;
-    private ColorFilter lME;
-    private List<Drawable> lMF;
-    private Drawable lMG;
-    private RoundingParams lMk;
-    private int lMq;
-    private boolean lMr;
-    private float lMs;
-    private Drawable lMt;
+    private Drawable lMC;
+    private p.b lMD;
+    private Drawable lME;
+    private p.b lMF;
+    private p.b lMG;
+    private Matrix lMH;
+    private PointF lMI;
+    private ColorFilter lMJ;
+    private List<Drawable> lMK;
+    private Drawable lML;
+    private RoundingParams lMp;
+    private int lMv;
+    private boolean lMw;
+    private float lMx;
+    private Drawable lMy;
     @Nullable
-    private p.b lMu;
-    private Drawable lMv;
-    private p.b lMw;
-    private Drawable lMx;
-    private p.b lMy;
-    private Drawable lMz;
+    private p.b lMz;
     private Drawable mBackground;
     private Resources mResources;
 
@@ -43,25 +43,25 @@ public class b {
     }
 
     private void init() {
-        this.lMq = 150;
-        this.lMr = true;
-        this.lMs = 0.0f;
-        this.lMt = null;
-        this.lMu = lMo;
-        this.lMv = null;
-        this.lMw = lMo;
-        this.lMx = null;
-        this.lMy = lMo;
-        this.lMz = null;
-        this.lMA = lMo;
-        this.lMB = lMp;
+        this.lMv = 150;
+        this.lMw = true;
+        this.lMx = 0.0f;
+        this.lMy = null;
+        this.lMz = lMt;
+        this.lMA = null;
+        this.lMB = lMt;
         this.lMC = null;
-        this.lMD = null;
+        this.lMD = lMt;
         this.lME = null;
+        this.lMF = lMt;
+        this.lMG = lMu;
+        this.lMH = null;
+        this.lMI = null;
+        this.lMJ = null;
         this.mBackground = null;
-        this.lMF = null;
-        this.lMG = null;
-        this.lMk = null;
+        this.lMK = null;
+        this.lML = null;
+        this.lMp = null;
     }
 
     public Resources getResources() {
@@ -69,131 +69,131 @@ public class b {
     }
 
     public b HI(int i) {
-        this.lMq = i;
+        this.lMv = i;
         return this;
     }
 
-    public int dls() {
-        return this.lMq;
+    public int dlu() {
+        return this.lMv;
     }
 
-    public boolean dlt() {
-        return this.lMr;
+    public boolean dlv() {
+        return this.lMw;
     }
 
     public b bo(float f) {
-        this.lMs = f;
+        this.lMx = f;
         return this;
     }
 
-    public float dlu() {
-        return this.lMs;
+    public float dlw() {
+        return this.lMx;
     }
 
     public b r(@Nullable Drawable drawable) {
-        this.lMt = drawable;
+        this.lMy = drawable;
         return this;
     }
 
     public b HJ(int i) {
-        this.lMt = this.mResources.getDrawable(i);
-        return this;
-    }
-
-    @Nullable
-    public Drawable dlv() {
-        return this.lMt;
-    }
-
-    public b c(@Nullable p.b bVar) {
-        this.lMu = bVar;
-        return this;
-    }
-
-    @Nullable
-    public p.b dlw() {
-        return this.lMu;
-    }
-
-    public b s(@Nullable Drawable drawable) {
-        this.lMv = drawable;
+        this.lMy = this.mResources.getDrawable(i);
         return this;
     }
 
     @Nullable
     public Drawable dlx() {
-        return this.lMv;
+        return this.lMy;
     }
 
-    public b d(@Nullable p.b bVar) {
-        this.lMw = bVar;
+    public b c(@Nullable p.b bVar) {
+        this.lMz = bVar;
         return this;
     }
 
     @Nullable
     public p.b dly() {
-        return this.lMw;
+        return this.lMz;
     }
 
-    public b t(@Nullable Drawable drawable) {
-        this.lMx = drawable;
+    public b s(@Nullable Drawable drawable) {
+        this.lMA = drawable;
         return this;
     }
 
     @Nullable
     public Drawable dlz() {
-        return this.lMx;
+        return this.lMA;
     }
 
-    public b e(@Nullable p.b bVar) {
-        this.lMy = bVar;
+    public b d(@Nullable p.b bVar) {
+        this.lMB = bVar;
         return this;
     }
 
     @Nullable
     public p.b dlA() {
-        return this.lMy;
+        return this.lMB;
     }
 
-    public b u(@Nullable Drawable drawable) {
-        this.lMz = drawable;
+    public b t(@Nullable Drawable drawable) {
+        this.lMC = drawable;
         return this;
     }
 
     @Nullable
     public Drawable dlB() {
-        return this.lMz;
+        return this.lMC;
     }
 
-    public b f(@Nullable p.b bVar) {
-        this.lMA = bVar;
+    public b e(@Nullable p.b bVar) {
+        this.lMD = bVar;
         return this;
     }
 
     @Nullable
     public p.b dlC() {
-        return this.lMA;
+        return this.lMD;
     }
 
-    public b g(@Nullable p.b bVar) {
-        this.lMB = bVar;
-        this.lMC = null;
+    public b u(@Nullable Drawable drawable) {
+        this.lME = drawable;
         return this;
     }
 
     @Nullable
-    public p.b dlD() {
-        return this.lMB;
-    }
-
-    @Nullable
-    public PointF dlE() {
-        return this.lMD;
-    }
-
-    @Nullable
-    public ColorFilter dlF() {
+    public Drawable dlD() {
         return this.lME;
+    }
+
+    public b f(@Nullable p.b bVar) {
+        this.lMF = bVar;
+        return this;
+    }
+
+    @Nullable
+    public p.b dlE() {
+        return this.lMF;
+    }
+
+    public b g(@Nullable p.b bVar) {
+        this.lMG = bVar;
+        this.lMH = null;
+        return this;
+    }
+
+    @Nullable
+    public p.b dlF() {
+        return this.lMG;
+    }
+
+    @Nullable
+    public PointF dlG() {
+        return this.lMI;
+    }
+
+    @Nullable
+    public ColorFilter dlH() {
+        return this.lMJ;
     }
 
     public b v(@Nullable Drawable drawable) {
@@ -208,53 +208,53 @@ public class b {
 
     public b w(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.lMF = null;
+            this.lMK = null;
         } else {
-            this.lMF = Arrays.asList(drawable);
+            this.lMK = Arrays.asList(drawable);
         }
         return this;
     }
 
     @Nullable
-    public List<Drawable> dlG() {
-        return this.lMF;
+    public List<Drawable> dlI() {
+        return this.lMK;
     }
 
     public b x(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.lMG = null;
+            this.lML = null;
         } else {
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842919}, drawable);
-            this.lMG = stateListDrawable;
+            this.lML = stateListDrawable;
         }
         return this;
     }
 
     @Nullable
-    public Drawable dlH() {
-        return this.lMG;
+    public Drawable dlJ() {
+        return this.lML;
     }
 
     public b b(@Nullable RoundingParams roundingParams) {
-        this.lMk = roundingParams;
+        this.lMp = roundingParams;
         return this;
     }
 
     @Nullable
-    public RoundingParams dlr() {
-        return this.lMk;
+    public RoundingParams dlt() {
+        return this.lMp;
     }
 
     private void validate() {
-        if (this.lMF != null) {
-            for (Drawable drawable : this.lMF) {
+        if (this.lMK != null) {
+            for (Drawable drawable : this.lMK) {
                 g.checkNotNull(drawable);
             }
         }
     }
 
-    public a dlI() {
+    public a dlK() {
         validate();
         return new a(this);
     }

@@ -24,9 +24,9 @@ public class a extends ce {
     public String toString() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", this.f180a);
+            jSONObject.put("id", this.f181a);
             jSONObject.put("showType", this.a);
-            jSONObject.put("lastShowTime", this.f182b);
+            jSONObject.put("lastShowTime", this.f183b);
             jSONObject.put("content", this.a);
             return jSONObject.toString();
         } catch (Exception e) {

@@ -26,22 +26,22 @@ import java.util.List;
 public class a {
     private BdTypeRecyclerView gqN;
     private f iDs;
-    private DetailInfoFragment iXX;
-    private List<m> iXY;
-    private c iXZ;
-    private com.baidu.tieba.pb.pb.main.adapter.c iYa;
-    private b iYb;
-    private g iYc;
+    private DetailInfoFragment iYc;
+    private List<m> iYd;
+    private c iYe;
+    private com.baidu.tieba.pb.pb.main.adapter.c iYf;
+    private b iYg;
+    private g iYh;
     private final List<com.baidu.adp.widget.ListView.a> apl = new ArrayList();
-    private View.OnClickListener iYd = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.a.a.1
+    private View.OnClickListener iYi = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.a.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.thread_info_commont_container) {
                 if (a.this.iDs == null || a.this.iDs.ciS() == null || a.this.iDs.ciS().azO() == 0) {
-                    a.this.iXX.clL().clc();
-                    a.this.iXX.clL().qO(false);
+                    a.this.iYc.clL().clc();
+                    a.this.iYc.clL().qO(false);
                 } else {
-                    ((e) y.b(a.this.iXX.clM()).l(e.class)).setCurrentTab(VideoPbFragment.iWQ);
+                    ((e) y.b(a.this.iYc.clM()).l(e.class)).setCurrentTab(VideoPbFragment.iWV);
                 }
                 String str = "";
                 if (a.this.iDs != null) {
@@ -49,28 +49,28 @@ public class a {
                 }
                 TiebaStatic.log(new an("c12942").Z("obj_type", 1).Z("obj_locate", 4).cp("tid", str));
             } else if (view.getId() == R.id.share_num_container) {
-                a.this.iXX.clL().crf();
+                a.this.iYc.clL().crh();
             }
         }
     };
 
     public a(DetailInfoFragment detailInfoFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.iXX = detailInfoFragment;
+        this.iYc = detailInfoFragment;
         this.gqN = bdTypeRecyclerView;
         a(detailInfoFragment, bdTypeRecyclerView);
     }
 
     private void a(DetailInfoFragment detailInfoFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.iXZ = new c(detailInfoFragment.clL(), PostData.kfl);
-        this.iYa = new com.baidu.tieba.pb.pb.main.adapter.c(detailInfoFragment.clL(), l.iAO);
-        this.iYa.setOnClickListener(this.iYd);
-        this.iYb = new b(detailInfoFragment.getContext(), p.TYPE);
-        this.iYc = new g(detailInfoFragment.clL(), com.baidu.tbadk.core.data.l.cJQ);
-        this.iYc.pD(true);
-        this.apl.add(this.iXZ);
-        this.apl.add(this.iYa);
-        this.apl.add(this.iYb);
-        this.apl.add(this.iYc);
+        this.iYe = new c(detailInfoFragment.clL(), PostData.kfq);
+        this.iYf = new com.baidu.tieba.pb.pb.main.adapter.c(detailInfoFragment.clL(), l.iAO);
+        this.iYf.setOnClickListener(this.iYi);
+        this.iYg = new b(detailInfoFragment.getContext(), p.TYPE);
+        this.iYh = new g(detailInfoFragment.clL(), com.baidu.tbadk.core.data.l.cJQ);
+        this.iYh.pD(true);
+        this.apl.add(this.iYe);
+        this.apl.add(this.iYf);
+        this.apl.add(this.iYg);
+        this.apl.add(this.iYh);
         bdTypeRecyclerView.addAdapters(this.apl);
     }
 
@@ -80,8 +80,8 @@ public class a {
             if (this.gqN != null) {
                 this.gqN.setVisibility(0);
             }
-            this.iXZ.setPbData(fVar);
-            this.iYc.setPbData(fVar);
+            this.iYe.setPbData(fVar);
+            this.iYh.setPbData(fVar);
             this.gqN.setData(H(fVar));
         }
     }
@@ -91,7 +91,7 @@ public class a {
         if (fVar == null) {
             return null;
         }
-        this.iXY = new ArrayList();
+        this.iYd = new ArrayList();
         Iterator<PostData> it = fVar.ciU().iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -99,7 +99,7 @@ public class a {
                 break;
             }
             PostData next = it.next();
-            if ((next instanceof PostData) && next.cJx() == 1) {
+            if ((next instanceof PostData) && next.cJz() == 1) {
                 postData = next;
                 break;
             }
@@ -108,14 +108,14 @@ public class a {
             postData = fVar.ciZ();
         }
         if (postData != null) {
-            this.iXY.add(postData);
+            this.iYd.add(postData);
         }
         l lVar = new l();
         lVar.Np = fVar.ciS();
         lVar.ps(true);
         lVar.iAQ = true;
-        this.iXY.add(lVar);
-        if (fVar.getForum() != null && !StringUtils.isNull(fVar.getForum().getName()) && (!TextUtils.equals(fVar.getForum().getName(), this.iXX.ckc().cjS()) || !this.iXX.ckc().cme())) {
+        this.iYd.add(lVar);
+        if (fVar.getForum() != null && !StringUtils.isNull(fVar.getForum().getName()) && (!TextUtils.equals(fVar.getForum().getName(), this.iYc.ckc().cjS()) || !this.iYc.ckc().cme())) {
             p pVar = new p();
             bj bjVar = new bj();
             bjVar.tid = fVar.getThreadId();
@@ -128,16 +128,16 @@ public class a {
             bfVar.forumId = fVar.getForumId();
             bjVar.a(bfVar);
             pVar.cNb = bjVar;
-            this.iXY.add(pVar);
+            this.iYd.add(pVar);
             lVar.ps(false);
             lVar.iAQ = false;
         }
         if (fVar.cjr() != null) {
             for (com.baidu.tbadk.core.data.l lVar2 : fVar.cjr()) {
-                this.iXY.add(lVar2);
+                this.iYd.add(lVar2);
             }
         }
-        return this.iXY;
+        return this.iYd;
     }
 
     public void notifyDataSetChanged() {
@@ -146,9 +146,9 @@ public class a {
         }
     }
 
-    public void crX() {
-        if (this.iXZ != null) {
-            this.iXZ.notifyDataSetChanged();
+    public void crZ() {
+        if (this.iYe != null) {
+            this.iYe.notifyDataSetChanged();
         }
     }
 }

@@ -18,7 +18,7 @@ interface a {
 
     int dq(View view);
 
-    boolean dyX();
+    boolean dyZ();
 
     int g(View view, int i, int i2);
 

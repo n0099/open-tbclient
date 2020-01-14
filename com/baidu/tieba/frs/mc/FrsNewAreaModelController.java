@@ -187,7 +187,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
             bVar.isSuccess = !mvcSocketResponsedMessage.hasError();
             bVar.errorCode = mvcSocketResponsedMessage.getError();
             bVar.errorMsg = mvcSocketResponsedMessage.getErrorString();
-            bVar.kdc = mvcSocketResponsedMessage.getDownSize();
+            bVar.kdh = mvcSocketResponsedMessage.getDownSize();
             this.gDG = bVar;
             FrsRequestData frsRequestData2 = null;
             com.baidu.tieba.tbadkCore.l data = mvcSocketResponsedMessage.getData();
@@ -232,7 +232,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
             bVar.isSuccess = !mvcHttpResponsedMessage.hasError();
             bVar.errorCode = mvcHttpResponsedMessage.getError();
             bVar.errorMsg = mvcHttpResponsedMessage.getErrorString();
-            bVar.kdc = mvcHttpResponsedMessage.getDownSize();
+            bVar.kdh = mvcHttpResponsedMessage.getDownSize();
             this.gDG = bVar;
             FrsRequestData frsRequestData2 = null;
             com.baidu.tieba.tbadkCore.l data = mvcHttpResponsedMessage.getData();
@@ -335,9 +335,9 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
         }
         com.baidu.tieba.frs.f.g.aE("503~" + str + this.gmb, this.gEZ);
         if (7 == i) {
-            com.baidu.tieba.tbadkCore.util.e.cKy();
+            com.baidu.tieba.tbadkCore.util.e.cKA();
         } else {
-            com.baidu.tieba.tbadkCore.util.e.cKz();
+            com.baidu.tieba.tbadkCore.util.e.cKB();
         }
     }
 

@@ -74,8 +74,8 @@ public class w extends com.baidu.tieba.frs.h<bi, com.baidu.card.af<bj>> implemen
                         com.baidu.tieba.frs.d.c.bIf().a(com.baidu.tieba.frs.d.d.gun, bjVar, 5);
                     } else if (view instanceof ThreadGodReplyLayout) {
                         int i = 6;
-                        if (bjVar.aBx() != null && bjVar.aBx().cJz() != null && bjVar.aBx().cJz().aRz() != null && bjVar.aBx().cJz().aRz().size() > 0) {
-                            i = bjVar.aBx().kfT ? 9 : 8;
+                        if (bjVar.aBx() != null && bjVar.aBx().cJB() != null && bjVar.aBx().cJB().aRz() != null && bjVar.aBx().cJB().aRz().size() > 0) {
+                            i = bjVar.aBx().kfY ? 9 : 8;
                         }
                         com.baidu.tieba.frs.d.c.bIf().a(com.baidu.tieba.frs.d.d.gun, bjVar, i);
                     } else {

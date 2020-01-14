@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class c {
-    private static c knl;
-    private a knm = cMg();
+    private static c knq;
+    private a knr = cMi();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,47 +19,47 @@ public class c {
         void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient);
     }
 
-    private boolean cMf() {
+    private boolean cMh() {
         return com.baidu.tbadk.core.sharedPref.b.aDr().getInt("pref_key_stat_sdk_enable", 1) != 0;
     }
 
     private c() {
     }
 
-    private a cMg() {
+    private a cMi() {
         CustomResponsedMessage runTask;
-        if (!cMf() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+        if (!cMh() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static c cMh() {
-        if (knl == null) {
+    public static c cMj() {
+        if (knq == null) {
             synchronized (c.class) {
-                if (knl == null) {
-                    knl = new c();
+                if (knq == null) {
+                    knq = new c();
                 }
             }
         }
-        return knl;
+        return knq;
     }
 
     public void autoTrace(Context context) {
-        if (!aTM() && this.knm != null) {
-            this.knm.autoTrace(context);
+        if (!aTM() && this.knr != null) {
+            this.knr.autoTrace(context);
         }
     }
 
     public void setAppChannel(Context context, String str, boolean z) {
-        if (!aTM() && this.knm != null) {
-            this.knm.setAppChannel(context, str, z);
+        if (!aTM() && this.knr != null) {
+            this.knr.setAppChannel(context, str, z);
         }
     }
 
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        if (!aTM() && this.knm != null) {
-            this.knm.trackWebView(context, webView, webChromeClient);
+        if (!aTM() && this.knr != null) {
+            this.knr.trackWebView(context, webView, webChromeClient);
         }
     }
 

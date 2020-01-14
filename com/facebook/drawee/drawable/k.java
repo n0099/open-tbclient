@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class k extends m {
-    private WeakReference<Bitmap> lLx;
+    private WeakReference<Bitmap> lLC;
     @Nullable
     private final Bitmap mBitmap;
     private final Paint mBorderPaint;
@@ -32,15 +32,15 @@ public class k extends m {
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!dlj()) {
+        if (!dll()) {
             super.draw(canvas);
             return;
         }
-        dll();
-        dlk();
+        dln();
+        dlm();
         updatePaint();
         int save = canvas.save();
-        canvas.concat(this.lLU);
+        canvas.concat(this.lLZ);
         canvas.drawPath(this.mPath, this.mPaint);
         if (this.mBorderWidth > 0.0f) {
             this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
@@ -51,21 +51,21 @@ public class k extends m {
     }
 
     private void updatePaint() {
-        if (this.lLx == null || this.lLx.get() != this.mBitmap) {
-            this.lLx = new WeakReference<>(this.mBitmap);
+        if (this.lLC == null || this.lLC.get() != this.mBitmap) {
+            this.lLC = new WeakReference<>(this.mBitmap);
             this.mPaint.setShader(new BitmapShader(this.mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-            this.lLK = true;
+            this.lLP = true;
         }
-        if (this.lLK) {
+        if (this.lLP) {
             this.mPaint.getShader().setLocalMatrix(this.mTransform);
-            this.lLK = false;
+            this.lLP = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.facebook.drawee.drawable.m
-    public boolean dlj() {
-        return super.dlj() && this.mBitmap != null;
+    public boolean dll() {
+        return super.dll() && this.mBitmap != null;
     }
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable

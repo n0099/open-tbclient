@@ -8,18 +8,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 final class a {
-    private static final Pattern mBd = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
-    private final l mBe = new l();
-    private final StringBuilder mBf = new StringBuilder();
+    private static final Pattern mBj = Pattern.compile("\\[voice=\"([^\"]*)\"\\]");
+    private final l mBk = new l();
+    private final StringBuilder mBl = new StringBuilder();
 
     public d W(l lVar) {
-        this.mBf.setLength(0);
+        this.mBl.setLength(0);
         int position = lVar.getPosition();
         aa(lVar);
-        this.mBe.G(lVar.data, lVar.getPosition());
-        this.mBe.setPosition(position);
-        String a = a(this.mBe, this.mBf);
-        if (a == null || !"{".equals(b(this.mBe, this.mBf))) {
+        this.mBk.G(lVar.data, lVar.getPosition());
+        this.mBk.setPosition(position);
+        String a = a(this.mBk, this.mBl);
+        if (a == null || !"{".equals(b(this.mBk, this.mBl))) {
             return null;
         }
         d dVar = new d();
@@ -27,12 +27,12 @@ final class a {
         boolean z = false;
         String str = null;
         while (!z) {
-            int position2 = this.mBe.getPosition();
-            str = b(this.mBe, this.mBf);
+            int position2 = this.mBk.getPosition();
+            str = b(this.mBk, this.mBl);
             z = str == null || "}".equals(str);
             if (!z) {
-                this.mBe.setPosition(position2);
-                a(this.mBe, dVar, this.mBf);
+                this.mBk.setPosition(position2);
+                a(this.mBk, dVar, this.mBl);
             }
         }
         if ("}".equals(str)) {
@@ -43,7 +43,7 @@ final class a {
 
     private static String a(l lVar, StringBuilder sb) {
         Y(lVar);
-        if (lVar.dyf() >= 5 && "::cue".equals(lVar.LP(5))) {
+        if (lVar.dyh() >= 5 && "::cue".equals(lVar.LP(5))) {
             int position = lVar.getPosition();
             String b = b(lVar, sb);
             if (b != null) {
@@ -65,10 +65,10 @@ final class a {
 
     private static String X(l lVar) {
         int position = lVar.getPosition();
-        int dyg = lVar.dyg();
+        int dyi = lVar.dyi();
         int i = position;
         boolean z = false;
-        while (i < dyg && !z) {
+        while (i < dyi && !z) {
             int i2 = i + 1;
             z = ((char) lVar.data[i]) == ')';
             i = i2;
@@ -115,14 +115,14 @@ final class a {
 
     static void Y(l lVar) {
         boolean z = true;
-        while (lVar.dyf() > 0 && z) {
+        while (lVar.dyh() > 0 && z) {
             z = Z(lVar) || ab(lVar);
         }
     }
 
     static String b(l lVar, StringBuilder sb) {
         Y(lVar);
-        if (lVar.dyf() == 0) {
+        if (lVar.dyh() == 0) {
             return null;
         }
         String d = d(lVar, sb);
@@ -173,23 +173,23 @@ final class a {
 
     private static boolean ab(l lVar) {
         int position = lVar.getPosition();
-        int dyg = lVar.dyg();
+        int dyi = lVar.dyi();
         byte[] bArr = lVar.data;
-        if (position + 2 <= dyg) {
+        if (position + 2 <= dyi) {
             int i = position + 1;
             if (bArr[position] == 47) {
                 int i2 = i + 1;
                 if (bArr[i] == 42) {
                     while (true) {
                         int i3 = i2;
-                        if (i3 + 1 < dyg) {
+                        if (i3 + 1 < dyi) {
                             i2 = i3 + 1;
                             if (((char) bArr[i3]) == '*' && ((char) bArr[i2]) == '/') {
-                                dyg = i2 + 1;
-                                i2 = dyg;
+                                dyi = i2 + 1;
+                                i2 = dyi;
                             }
                         } else {
-                            lVar.skipBytes(dyg - lVar.getPosition());
+                            lVar.skipBytes(dyi - lVar.getPosition());
                             return true;
                         }
                     }
@@ -203,8 +203,8 @@ final class a {
         boolean z = false;
         sb.setLength(0);
         int position = lVar.getPosition();
-        int dyg = lVar.dyg();
-        while (position < dyg && !z) {
+        int dyi = lVar.dyi();
+        while (position < dyi && !z) {
             char c = (char) lVar.data[position];
             if ((c >= 'A' && c <= 'Z') || ((c >= 'a' && c <= 'z') || ((c >= '0' && c <= '9') || c == '#' || c == '-' || c == '.' || c == '_'))) {
                 position++;
@@ -221,7 +221,7 @@ final class a {
         if (!"".equals(str)) {
             int indexOf = str.indexOf(91);
             if (indexOf != -1) {
-                Matcher matcher = mBd.matcher(str.substring(indexOf));
+                Matcher matcher = mBj.matcher(str.substring(indexOf));
                 if (matcher.matches()) {
                     dVar.PR(matcher.group(1));
                 }

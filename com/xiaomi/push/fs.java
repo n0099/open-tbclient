@@ -16,7 +16,7 @@ public final class fs {
     private static int d = 330000;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Vector<String> f393a = new Vector<>();
+    private static Vector<String> f394a = new Vector<>();
 
     static {
         a = 5000;
@@ -41,7 +41,7 @@ public final class fs {
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
                                     b = a(newPullParser, b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f393a.add(newPullParser.nextText());
+                                    f394a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();

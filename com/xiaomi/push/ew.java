@@ -9,10 +9,10 @@ import com.xiaomi.push.service.XMJobService;
 public final class ew {
 
     /* renamed from: a  reason: collision with other field name */
-    private static a f328a;
+    private static a f329a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String f329a = XMJobService.class.getCanonicalName();
+    private static final String f330a = XMJobService.class.getCanonicalName();
     private static int a = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,8 +28,8 @@ public final class ew {
 
     public static synchronized void a() {
         synchronized (ew.class) {
-            if (f328a != null) {
-                f328a.a();
+            if (f329a != null) {
+                f329a.a();
             }
         }
     }
@@ -40,7 +40,7 @@ public final class ew {
         boolean z2 = true;
         Context applicationContext = context.getApplicationContext();
         if ("com.xiaomi.xmsf".equals(applicationContext.getPackageName())) {
-            f328a = new ex(applicationContext);
+            f329a = new ex(applicationContext);
             return;
         }
         try {
@@ -52,11 +52,11 @@ public final class ew {
                 while (i < length) {
                     ServiceInfo serviceInfo = serviceInfoArr[i];
                     if ("android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                        if (f329a.equals(serviceInfo.name)) {
+                        if (f330a.equals(serviceInfo.name)) {
                             z = true;
                         } else {
                             try {
-                                if (f329a.equals(Class.forName(serviceInfo.name).getSuperclass().getCanonicalName())) {
+                                if (f330a.equals(Class.forName(serviceInfo.name).getSuperclass().getCanonicalName())) {
                                     z = true;
                                 }
                             } catch (Exception e2) {
@@ -69,7 +69,7 @@ public final class ew {
                     }
                     boolean z3 = z;
                     try {
-                        if (f329a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
+                        if (f330a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
                             break;
                         }
                         i++;
@@ -82,7 +82,7 @@ public final class ew {
                         }
                         if (Build.VERSION.SDK_INT < 21) {
                         }
-                        f328a = new ex(applicationContext);
+                        f329a = new ex(applicationContext);
                     }
                 }
             }
@@ -92,11 +92,11 @@ public final class ew {
             e = e4;
         }
         if (z2 && t.m560a(applicationContext)) {
-            throw new RuntimeException("Should export service: " + f329a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
+            throw new RuntimeException("Should export service: " + f330a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
         }
         if (Build.VERSION.SDK_INT < 21) {
         }
-        f328a = new ex(applicationContext);
+        f329a = new ex(applicationContext);
     }
 
     public static synchronized void a(Context context, int i) {
@@ -111,17 +111,17 @@ public final class ew {
             }
             if (i2 != a && a == 2) {
                 a();
-                f328a = new ez(context);
+                f329a = new ez(context);
             }
         }
     }
 
     public static synchronized void a(boolean z) {
         synchronized (ew.class) {
-            if (f328a == null) {
+            if (f329a == null) {
                 com.xiaomi.channel.commonutils.logger.b.m42a("timer is not initialized");
             } else {
-                f328a.a(z);
+                f329a.a(z);
             }
         }
     }
@@ -130,7 +130,7 @@ public final class ew {
     public static synchronized boolean m258a() {
         boolean m259a;
         synchronized (ew.class) {
-            m259a = f328a == null ? false : f328a.m259a();
+            m259a = f329a == null ? false : f329a.m259a();
         }
         return m259a;
     }

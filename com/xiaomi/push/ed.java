@@ -10,21 +10,21 @@ public final class ed {
     public static final class a extends e {
 
         /* renamed from: a  reason: collision with other field name */
-        private boolean f252a;
+        private boolean f253a;
 
         /* renamed from: b  reason: collision with other field name */
-        private boolean f253b;
+        private boolean f254b;
         private boolean d;
         private boolean e;
         private int a = 0;
 
         /* renamed from: c  reason: collision with other field name */
-        private boolean f254c = false;
+        private boolean f255c = false;
         private int b = 0;
         private boolean f = false;
 
         /* renamed from: a  reason: collision with other field name */
-        private List<String> f251a = Collections.emptyList();
+        private List<String> f252a = Collections.emptyList();
         private int c = -1;
 
         public static a a(byte[] bArr) {
@@ -44,7 +44,7 @@ public final class ed {
         }
 
         public a a(int i) {
-            this.f252a = true;
+            this.f253a = true;
             this.a = i;
             return this;
         }
@@ -87,22 +87,22 @@ public final class ed {
             if (str == null) {
                 throw new NullPointerException();
             }
-            if (this.f251a.isEmpty()) {
-                this.f251a = new ArrayList();
+            if (this.f252a.isEmpty()) {
+                this.f252a = new ArrayList();
             }
-            this.f251a.add(str);
+            this.f252a.add(str);
             return this;
         }
 
         public a a(boolean z) {
-            this.f253b = true;
-            this.f254c = z;
+            this.f254b = true;
+            this.f255c = z;
             return this;
         }
 
         @Override // com.xiaomi.push.e
         public List<String> a() {
-            return this.f251a;
+            return this.f252a;
         }
 
         @Override // com.xiaomi.push.e
@@ -126,7 +126,7 @@ public final class ed {
 
         @Override // com.xiaomi.push.e
         public boolean a() {
-            return this.f252a;
+            return this.f253a;
         }
 
         @Override // com.xiaomi.push.e
@@ -162,7 +162,7 @@ public final class ed {
 
         @Override // com.xiaomi.push.e
         public boolean b() {
-            return this.f254c;
+            return this.f255c;
         }
 
         public int c() {
@@ -171,7 +171,7 @@ public final class ed {
 
         /* renamed from: c  reason: collision with other method in class */
         public boolean m224c() {
-            return this.f253b;
+            return this.f254b;
         }
 
         public int d() {
@@ -184,7 +184,7 @@ public final class ed {
         }
 
         public int e() {
-            return this.f251a.size();
+            return this.f252a.size();
         }
 
         /* renamed from: e  reason: collision with other method in class */

@@ -7,10 +7,10 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public class c {
     private byte[] bytes;
-    private int lFK;
-    private int lFL;
-    private int lFM;
-    private int[] lFN;
+    private int lFP;
+    private int lFQ;
+    private int lFR;
+    private int[] lFS;
 
     protected c() {
     }
@@ -25,27 +25,27 @@ public class c {
         if (!str.startsWith("bplist")) {
             throw new IllegalArgumentException("The given data is no binary property list. Wrong magic bytes: " + str);
         }
-        this.lFK = str.charAt(6) - '0';
-        this.lFL = str.charAt(7) - '0';
-        if (this.lFK > 0) {
-            throw new IllegalArgumentException("Unsupported binary property list format: v" + this.lFK + "." + this.lFL + ". Version 1.0 and later are not yet supported.");
+        this.lFP = str.charAt(6) - '0';
+        this.lFQ = str.charAt(7) - '0';
+        if (this.lFP > 0) {
+            throw new IllegalArgumentException("Unsupported binary property list format: v" + this.lFP + "." + this.lFQ + ". Version 1.0 and later are not yet supported.");
         }
         byte[] h = h(this.bytes, this.bytes.length - 32, this.bytes.length);
         int l = (int) l(h, 6, 7);
-        this.lFM = (int) l(h, 7, 8);
+        this.lFR = (int) l(h, 7, 8);
         int l2 = (int) l(h, 8, 16);
         int l3 = (int) l(h, 16, 24);
         int l4 = (int) l(h, 24, 32);
-        this.lFN = new int[l2];
+        this.lFS = new int[l2];
         for (int i = 0; i < l2; i++) {
-            this.lFN[i] = (int) aa(h(this.bytes, (i * l) + l4, ((i + 1) * l) + l4));
+            this.lFS[i] = (int) aa(h(this.bytes, (i * l) + l4, ((i + 1) * l) + l4));
         }
         return Hg(l3);
     }
 
     private i Hg(int i) throws PropertyListFormatException, UnsupportedEncodingException {
         int i2 = 0;
-        int i3 = this.lFN[i];
+        int i3 = this.lFS[i];
         byte b = this.bytes[i3];
         int i4 = (b & 240) >> 4;
         int i5 = b & 15;
@@ -113,7 +113,7 @@ public class c {
                 int i14 = dp5[1];
                 d dVar = new d(i13);
                 while (i2 < i13) {
-                    dVar.j(i2, Hg((int) aa(h(this.bytes, i3 + i14 + (this.lFM * i2), i3 + i14 + ((i2 + 1) * this.lFM)))));
+                    dVar.j(i2, Hg((int) aa(h(this.bytes, i3 + i14 + (this.lFR * i2), i3 + i14 + ((i2 + 1) * this.lFR)))));
                     i2++;
                 }
                 return dVar;
@@ -123,7 +123,7 @@ public class c {
                 int i16 = dp6[1];
                 j jVar = new j(true);
                 while (i2 < i15) {
-                    jVar.a(Hg((int) aa(h(this.bytes, i3 + i16 + (this.lFM * i2), i3 + i16 + ((i2 + 1) * this.lFM)))));
+                    jVar.a(Hg((int) aa(h(this.bytes, i3 + i16 + (this.lFR * i2), i3 + i16 + ((i2 + 1) * this.lFR)))));
                     i2++;
                 }
                 return jVar;
@@ -133,7 +133,7 @@ public class c {
                 int i18 = dp7[1];
                 j jVar2 = new j();
                 while (i2 < i17) {
-                    jVar2.a(Hg((int) aa(h(this.bytes, i3 + i18 + (this.lFM * i2), i3 + i18 + ((i2 + 1) * this.lFM)))));
+                    jVar2.a(Hg((int) aa(h(this.bytes, i3 + i18 + (this.lFR * i2), i3 + i18 + ((i2 + 1) * this.lFR)))));
                     i2++;
                 }
                 return jVar2;
@@ -143,8 +143,8 @@ public class c {
                 int i20 = dp8[1];
                 g gVar = new g();
                 while (i2 < i19) {
-                    i Hg = Hg((int) aa(h(this.bytes, i3 + i20 + (this.lFM * i2), i3 + i20 + ((i2 + 1) * this.lFM))));
-                    gVar.put(Hg.toString(), Hg((int) aa(h(this.bytes, i3 + i20 + (this.lFM * i19) + (this.lFM * i2), i3 + i20 + (this.lFM * i19) + ((i2 + 1) * this.lFM)))));
+                    i Hg = Hg((int) aa(h(this.bytes, i3 + i20 + (this.lFR * i2), i3 + i20 + ((i2 + 1) * this.lFR))));
+                    gVar.put(Hg.toString(), Hg((int) aa(h(this.bytes, i3 + i20 + (this.lFR * i19) + (this.lFR * i2), i3 + i20 + (this.lFR * i19) + ((i2 + 1) * this.lFR)))));
                     i2++;
                 }
                 return gVar;

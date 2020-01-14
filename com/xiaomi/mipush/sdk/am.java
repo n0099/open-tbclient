@@ -16,15 +16,15 @@ public class am implements Runnable {
     public void run() {
         ScheduledFuture scheduledFuture;
         ScheduledFuture scheduledFuture2;
-        if (this.a.f31a.size() != 0) {
+        if (this.a.f32a.size() != 0) {
             this.a.b();
             return;
         }
-        scheduledFuture = this.a.f32a;
+        scheduledFuture = this.a.f33a;
         if (scheduledFuture != null) {
-            scheduledFuture2 = this.a.f32a;
+            scheduledFuture2 = this.a.f33a;
             scheduledFuture2.cancel(false);
-            this.a.f32a = null;
+            this.a.f33a = null;
         }
     }
 }

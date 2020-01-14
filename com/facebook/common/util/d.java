@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import org.apache.http.HttpHost;
 /* loaded from: classes12.dex */
 public class d {
-    private static final Uri lIp = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
+    private static final Uri lIu = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo");
 
     @Nullable
     public static URL A(@Nullable Uri uri) {
@@ -39,7 +39,7 @@ public class d {
     }
 
     public static boolean C(Uri uri) {
-        return isLocalContentUri(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(lIp.getPath());
+        return isLocalContentUri(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(lIu.getPath());
     }
 
     public static boolean D(Uri uri) {

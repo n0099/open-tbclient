@@ -14,24 +14,24 @@ public class ey implements ew.a {
     JobScheduler a;
 
     /* renamed from: a  reason: collision with other field name */
-    Context f332a;
+    Context f333a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f333a = false;
+    private boolean f334a = false;
 
     ey(Context context) {
-        this.f332a = context;
+        this.f333a = context;
         this.a = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
     @Override // com.xiaomi.push.ew.a
     public void a() {
-        this.f333a = false;
+        this.f334a = false;
         this.a.cancel(1);
     }
 
     void a(long j) {
-        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f332a.getPackageName(), XMJobService.class.getName()));
+        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f333a.getPackageName(), XMJobService.class.getName()));
         builder.setMinimumLatency(j);
         builder.setOverrideDeadline(j);
         builder.setRequiredNetworkType(1);
@@ -42,19 +42,19 @@ public class ey implements ew.a {
 
     @Override // com.xiaomi.push.ew.a
     public void a(boolean z) {
-        if (z || this.f333a) {
+        if (z || this.f334a) {
             long b = fs.b();
             if (z) {
                 a();
                 b -= SystemClock.elapsedRealtime() % b;
             }
-            this.f333a = true;
+            this.f334a = true;
             a(b);
         }
     }
 
     @Override // com.xiaomi.push.ew.a
     public boolean a() {
-        return this.f333a;
+        return this.f334a;
     }
 }

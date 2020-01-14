@@ -4,47 +4,47 @@ import java.util.Random;
 import kotlin.jvm.internal.q;
 /* loaded from: classes5.dex */
 public abstract class a extends d {
-    public abstract Random dJo();
+    public abstract Random dJq();
 
     @Override // kotlin.random.d
     public int ND(int i) {
-        return e.er(dJo().nextInt(), i);
+        return e.er(dJq().nextInt(), i);
     }
 
     @Override // kotlin.random.d
     public int nextInt() {
-        return dJo().nextInt();
+        return dJq().nextInt();
     }
 
     @Override // kotlin.random.d
     public int nextInt(int i) {
-        return dJo().nextInt(i);
+        return dJq().nextInt(i);
     }
 
     @Override // kotlin.random.d
     public long nextLong() {
-        return dJo().nextLong();
+        return dJq().nextLong();
     }
 
     @Override // kotlin.random.d
     public boolean nextBoolean() {
-        return dJo().nextBoolean();
+        return dJq().nextBoolean();
     }
 
     @Override // kotlin.random.d
     public double nextDouble() {
-        return dJo().nextDouble();
+        return dJq().nextDouble();
     }
 
     @Override // kotlin.random.d
     public float nextFloat() {
-        return dJo().nextFloat();
+        return dJq().nextFloat();
     }
 
     @Override // kotlin.random.d
     public byte[] aF(byte[] bArr) {
         q.j(bArr, "array");
-        dJo().nextBytes(bArr);
+        dJq().nextBytes(bArr);
         return bArr;
     }
 }

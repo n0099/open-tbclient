@@ -9,36 +9,36 @@ import com.google.android.exoplayer2.m;
 import java.util.Arrays;
 /* loaded from: classes5.dex */
 public final class e extends com.google.android.exoplayer2.a implements Handler.Callback {
-    private final m moI;
-    private final Handler mpA;
-    private final c mpB;
-    private final Metadata[] mpC;
-    private final long[] mpD;
-    private int mpE;
-    private int mpF;
-    private a mpG;
-    private boolean mpi;
-    private final b mpy;
-    private final d mpz;
+    private final m moN;
+    private final b mpD;
+    private final d mpE;
+    private final Handler mpF;
+    private final c mpG;
+    private final Metadata[] mpH;
+    private final long[] mpI;
+    private int mpJ;
+    private int mpK;
+    private a mpL;
+    private boolean mpn;
 
     public e(d dVar, Looper looper) {
-        this(dVar, looper, b.mpx);
+        this(dVar, looper, b.mpC);
     }
 
     public e(d dVar, Looper looper, b bVar) {
         super(4);
-        this.mpz = (d) com.google.android.exoplayer2.util.a.checkNotNull(dVar);
-        this.mpA = looper == null ? null : new Handler(looper, this);
-        this.mpy = (b) com.google.android.exoplayer2.util.a.checkNotNull(bVar);
-        this.moI = new m();
-        this.mpB = new c();
-        this.mpC = new Metadata[5];
-        this.mpD = new long[5];
+        this.mpE = (d) com.google.android.exoplayer2.util.a.checkNotNull(dVar);
+        this.mpF = looper == null ? null : new Handler(looper, this);
+        this.mpD = (b) com.google.android.exoplayer2.util.a.checkNotNull(bVar);
+        this.moN = new m();
+        this.mpG = new c();
+        this.mpH = new Metadata[5];
+        this.mpI = new long[5];
     }
 
     @Override // com.google.android.exoplayer2.t
     public int e(Format format) {
-        if (this.mpy.i(format)) {
+        if (this.mpD.i(format)) {
             return a((com.google.android.exoplayer2.drm.a<?>) null, format.drmInitData) ? 4 : 2;
         }
         return 0;
@@ -47,53 +47,53 @@ public final class e extends com.google.android.exoplayer2.a implements Handler.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.android.exoplayer2.a
     public void a(Format[] formatArr, long j) throws ExoPlaybackException {
-        this.mpG = this.mpy.j(formatArr[0]);
+        this.mpL = this.mpD.j(formatArr[0]);
     }
 
     @Override // com.google.android.exoplayer2.a
     protected void j(long j, boolean z) {
-        duP();
-        this.mpi = false;
+        duR();
+        this.mpn = false;
     }
 
     @Override // com.google.android.exoplayer2.s
     public void N(long j, long j2) throws ExoPlaybackException {
-        if (!this.mpi && this.mpF < 5) {
-            this.mpB.clear();
-            if (a(this.moI, (com.google.android.exoplayer2.a.e) this.mpB, false) == -4) {
-                if (this.mpB.dtf()) {
-                    this.mpi = true;
-                } else if (!this.mpB.dte()) {
-                    this.mpB.subsampleOffsetUs = this.moI.lYL.subsampleOffsetUs;
-                    this.mpB.dtq();
+        if (!this.mpn && this.mpK < 5) {
+            this.mpG.clear();
+            if (a(this.moN, (com.google.android.exoplayer2.a.e) this.mpG, false) == -4) {
+                if (this.mpG.dth()) {
+                    this.mpn = true;
+                } else if (!this.mpG.dtg()) {
+                    this.mpG.subsampleOffsetUs = this.moN.lYQ.subsampleOffsetUs;
+                    this.mpG.dts();
                     try {
-                        int i = (this.mpE + this.mpF) % 5;
-                        this.mpC[i] = this.mpG.a(this.mpB);
-                        this.mpD[i] = this.mpB.mcQ;
-                        this.mpF++;
+                        int i = (this.mpJ + this.mpK) % 5;
+                        this.mpH[i] = this.mpL.a(this.mpG);
+                        this.mpI[i] = this.mpG.mcV;
+                        this.mpK++;
                     } catch (MetadataDecoderException e) {
                         throw ExoPlaybackException.createForRenderer(e, getIndex());
                     }
                 }
             }
         }
-        if (this.mpF > 0 && this.mpD[this.mpE] <= j) {
-            d(this.mpC[this.mpE]);
-            this.mpC[this.mpE] = null;
-            this.mpE = (this.mpE + 1) % 5;
-            this.mpF--;
+        if (this.mpK > 0 && this.mpI[this.mpJ] <= j) {
+            d(this.mpH[this.mpJ]);
+            this.mpH[this.mpJ] = null;
+            this.mpJ = (this.mpJ + 1) % 5;
+            this.mpK--;
         }
     }
 
     @Override // com.google.android.exoplayer2.a
-    protected void dry() {
-        duP();
-        this.mpG = null;
+    protected void drA() {
+        duR();
+        this.mpL = null;
     }
 
     @Override // com.google.android.exoplayer2.s
     public boolean atB() {
-        return this.mpi;
+        return this.mpn;
     }
 
     @Override // com.google.android.exoplayer2.s
@@ -102,17 +102,17 @@ public final class e extends com.google.android.exoplayer2.a implements Handler.
     }
 
     private void d(Metadata metadata) {
-        if (this.mpA != null) {
-            this.mpA.obtainMessage(0, metadata).sendToTarget();
+        if (this.mpF != null) {
+            this.mpF.obtainMessage(0, metadata).sendToTarget();
         } else {
             e(metadata);
         }
     }
 
-    private void duP() {
-        Arrays.fill(this.mpC, (Object) null);
-        this.mpE = 0;
-        this.mpF = 0;
+    private void duR() {
+        Arrays.fill(this.mpH, (Object) null);
+        this.mpJ = 0;
+        this.mpK = 0;
     }
 
     @Override // android.os.Handler.Callback
@@ -127,6 +127,6 @@ public final class e extends com.google.android.exoplayer2.a implements Handler.
     }
 
     private void e(Metadata metadata) {
-        this.mpz.a(metadata);
+        this.mpE.a(metadata);
     }
 }

@@ -9,15 +9,15 @@ public class p {
 
     /* loaded from: classes12.dex */
     public interface b {
-        public static final b lLZ = j.lMi;
-        public static final b lMa = i.lMi;
-        public static final b lMb = g.lMi;
-        public static final b lMc = h.lMi;
-        public static final b lMd = c.lMi;
-        public static final b lMe = e.lMi;
-        public static final b lMf = d.lMi;
-        public static final b lMg = k.lMi;
-        public static final b lMh = f.lMi;
+        public static final b lMe = j.lMn;
+        public static final b lMf = i.lMn;
+        public static final b lMg = g.lMn;
+        public static final b lMh = h.lMn;
+        public static final b lMi = c.lMn;
+        public static final b lMj = e.lMn;
+        public static final b lMk = d.lMn;
+        public static final b lMl = k.lMn;
+        public static final b lMm = f.lMn;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -40,8 +40,8 @@ public class p {
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
-            int dla = aVar.dla();
-            for (int i2 = 0; i2 < dla; i2++) {
+            int dlc = aVar.dlc();
+            for (int i2 = 0; i2 < dlc; i2++) {
                 o p = p(aVar.getDrawable(i2));
                 if (p != null) {
                     return p;
@@ -64,7 +64,7 @@ public class p {
 
     /* loaded from: classes12.dex */
     private static class j extends a {
-        public static final b lMi = new j();
+        public static final b lMn = new j();
 
         private j() {
         }
@@ -82,7 +82,7 @@ public class p {
 
     /* loaded from: classes12.dex */
     private static class i extends a {
-        public static final b lMi = new i();
+        public static final b lMn = new i();
 
         private i() {
         }
@@ -101,7 +101,7 @@ public class p {
 
     /* loaded from: classes12.dex */
     private static class f extends a {
-        public static final b lMi = new f();
+        public static final b lMn = new f();
 
         private f() {
         }
@@ -120,7 +120,7 @@ public class p {
 
     /* loaded from: classes12.dex */
     private static class g extends a {
-        public static final b lMi = new g();
+        public static final b lMn = new g();
 
         private g() {
         }
@@ -140,7 +140,7 @@ public class p {
 
     /* loaded from: classes12.dex */
     private static class h extends a {
-        public static final b lMi = new h();
+        public static final b lMn = new h();
 
         private h() {
         }
@@ -160,7 +160,7 @@ public class p {
 
     /* loaded from: classes12.dex */
     private static class c extends a {
-        public static final b lMi = new c();
+        public static final b lMn = new c();
 
         private c() {
         }
@@ -177,7 +177,7 @@ public class p {
 
     /* loaded from: classes12.dex */
     private static class e extends a {
-        public static final b lMi = new e();
+        public static final b lMn = new e();
 
         private e() {
         }
@@ -197,7 +197,7 @@ public class p {
 
     /* loaded from: classes12.dex */
     private static class d extends a {
-        public static final b lMi = new d();
+        public static final b lMn = new d();
 
         private d() {
         }
@@ -225,7 +225,7 @@ public class p {
 
     /* loaded from: classes12.dex */
     private static class k extends a {
-        public static final b lMi = new k();
+        public static final b lMn = new k();
 
         private k() {
         }

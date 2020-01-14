@@ -9,13 +9,13 @@ public class he {
     private static he a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Context f452a;
+    private final Context f453a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, hf> f453a = new HashMap();
+    private Map<String, hf> f454a = new HashMap();
 
     private he(Context context) {
-        this.f452a = context;
+        this.f453a = context;
     }
 
     public static he a(Context context) {
@@ -48,11 +48,11 @@ public class he {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public hf a() {
-        hf hfVar = this.f453a.get("UPLOADER_PUSH_CHANNEL");
+        hf hfVar = this.f454a.get("UPLOADER_PUSH_CHANNEL");
         if (hfVar != null) {
             return hfVar;
         }
-        hf hfVar2 = this.f453a.get("UPLOADER_HTTP");
+        hf hfVar2 = this.f454a.get("UPLOADER_HTTP");
         if (hfVar2 == null) {
             return null;
         }
@@ -61,7 +61,7 @@ public class he {
 
     /* renamed from: a  reason: collision with other method in class */
     Map<String, hf> m326a() {
-        return this.f453a;
+        return this.f454a;
     }
 
     public void a(hf hfVar, String str) {
@@ -85,12 +85,12 @@ public class he {
                 hkVar.f(com.xiaomi.push.service.be.a());
             }
             hkVar.g(str);
-            com.xiaomi.push.service.bf.a(this.f452a, hkVar);
+            com.xiaomi.push.service.bf.a(this.f453a, hkVar);
             return true;
         }
     }
 
     public boolean a(String str, String str2, long j, String str3) {
-        return a(this.f452a.getPackageName(), this.f452a.getPackageName(), str, str2, j, str3);
+        return a(this.f453a.getPackageName(), this.f453a.getPackageName(), str, str2, j, str3);
     }
 }

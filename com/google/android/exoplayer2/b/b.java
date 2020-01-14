@@ -9,51 +9,51 @@ import java.util.Comparator;
 public abstract class b implements f {
     private int hashCode;
     protected final int length;
-    protected final t mBQ;
-    protected final int[] mBR;
-    private final long[] mBS;
-    private final Format[] mrI;
+    protected final t mBV;
+    protected final int[] mBW;
+    private final long[] mBX;
+    private final Format[] mrN;
 
     public b(t tVar, int... iArr) {
         com.google.android.exoplayer2.util.a.checkState(iArr.length > 0);
-        this.mBQ = (t) com.google.android.exoplayer2.util.a.checkNotNull(tVar);
+        this.mBV = (t) com.google.android.exoplayer2.util.a.checkNotNull(tVar);
         this.length = iArr.length;
-        this.mrI = new Format[this.length];
+        this.mrN = new Format[this.length];
         for (int i = 0; i < iArr.length; i++) {
-            this.mrI[i] = tVar.KL(iArr[i]);
+            this.mrN[i] = tVar.KL(iArr[i]);
         }
-        Arrays.sort(this.mrI, new a());
-        this.mBR = new int[this.length];
+        Arrays.sort(this.mrN, new a());
+        this.mBW = new int[this.length];
         for (int i2 = 0; i2 < this.length; i2++) {
-            this.mBR[i2] = tVar.m(this.mrI[i2]);
+            this.mBW[i2] = tVar.m(this.mrN[i2]);
         }
-        this.mBS = new long[this.length];
+        this.mBX = new long[this.length];
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final t dvR() {
-        return this.mBQ;
+    public final t dvT() {
+        return this.mBV;
     }
 
     @Override // com.google.android.exoplayer2.b.f
     public final int length() {
-        return this.mBR.length;
+        return this.mBW.length;
     }
 
     @Override // com.google.android.exoplayer2.b.f
     public final Format KL(int i) {
-        return this.mrI[i];
+        return this.mrN[i];
     }
 
     @Override // com.google.android.exoplayer2.b.f
     public final int LB(int i) {
-        return this.mBR[i];
+        return this.mBW[i];
     }
 
     @Override // com.google.android.exoplayer2.b.f
     public final int m(Format format) {
         for (int i = 0; i < this.length; i++) {
-            if (this.mrI[i] == format) {
+            if (this.mrN[i] == format) {
                 return i;
             }
         }
@@ -63,7 +63,7 @@ public abstract class b implements f {
     @Override // com.google.android.exoplayer2.b.f
     public final int indexOf(int i) {
         for (int i2 = 0; i2 < this.length; i2++) {
-            if (this.mBR[i2] == i) {
+            if (this.mBW[i2] == i) {
                 return i2;
             }
         }
@@ -71,13 +71,13 @@ public abstract class b implements f {
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final Format dxj() {
-        return this.mrI[dvV()];
+    public final Format dxl() {
+        return this.mrN[dvX()];
     }
 
     @Override // com.google.android.exoplayer2.b.f
-    public final int dxk() {
-        return this.mBR[dvV()];
+    public final int dxm() {
+        return this.mBW[dvX()];
     }
 
     @Override // com.google.android.exoplayer2.b.f
@@ -90,7 +90,7 @@ public abstract class b implements f {
             i2++;
         }
         if (J) {
-            this.mBS[i] = Math.max(this.mBS[i], elapsedRealtime + j);
+            this.mBX[i] = Math.max(this.mBX[i], elapsedRealtime + j);
             return true;
         }
         return false;
@@ -98,12 +98,12 @@ public abstract class b implements f {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final boolean J(int i, long j) {
-        return this.mBS[i] > j;
+        return this.mBX[i] > j;
     }
 
     public int hashCode() {
         if (this.hashCode == 0) {
-            this.hashCode = (System.identityHashCode(this.mBQ) * 31) + Arrays.hashCode(this.mBR);
+            this.hashCode = (System.identityHashCode(this.mBV) * 31) + Arrays.hashCode(this.mBW);
         }
         return this.hashCode;
     }
@@ -116,7 +116,7 @@ public abstract class b implements f {
             return false;
         }
         b bVar = (b) obj;
-        return this.mBQ == bVar.mBQ && Arrays.equals(this.mBR, bVar.mBR);
+        return this.mBV == bVar.mBV && Arrays.equals(this.mBW, bVar.mBW);
     }
 
     /* loaded from: classes5.dex */

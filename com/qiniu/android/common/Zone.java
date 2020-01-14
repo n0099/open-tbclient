@@ -30,12 +30,12 @@ public abstract class Zone {
             }
             while (true) {
                 int i2 = i;
-                if (i2 >= zoneInfo.nmo.size()) {
+                if (i2 >= zoneInfo.nmt.size()) {
                     str2 = null;
                     break;
                 }
-                str5 = zoneInfo.nmo.get(i2);
-                long longValue = zoneInfo.nmp.get(str5).longValue();
+                str5 = zoneInfo.nmt.get(i2);
+                long longValue = zoneInfo.nmu.get(str5).longValue();
                 if (longValue == 0 || longValue <= System.currentTimeMillis() / 1000) {
                     break;
                 }
@@ -43,13 +43,13 @@ public abstract class Zone {
             }
             str2 = str5;
             if (str2 != null) {
-                zoneInfo.nmp.put(str2, 0L);
+                zoneInfo.nmu.put(str2, 0L);
                 str3 = str2;
             } else {
-                for (String str6 : zoneInfo.nmo) {
-                    zoneInfo.nmp.put(str6, 0L);
+                for (String str6 : zoneInfo.nmt) {
+                    zoneInfo.nmu.put(str6, 0L);
                 }
-                str3 = zoneInfo.nmo.size() > 0 ? zoneInfo.nmo.get(0) : str2;
+                str3 = zoneInfo.nmt.size() > 0 ? zoneInfo.nmt.get(0) : str2;
             }
             if (str3 == null) {
                 str4 = null;

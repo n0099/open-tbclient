@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes5.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> nMC = new AtomicReference<>();
-    private final g nSJ;
-    private final g nSK;
-    private final g nSL;
+    private static final AtomicReference<Schedulers> nMH = new AtomicReference<>();
+    private final g nSO;
+    private final g nSP;
+    private final g nSQ;
 
-    private static Schedulers dNV() {
+    private static Schedulers dNX() {
         Schedulers schedulers;
         while (true) {
-            schedulers = nMC.get();
+            schedulers = nMH.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (nMC.compareAndSet(null, schedulers)) {
+                if (nMH.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.dNX();
+                schedulers.dNZ();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g dNM = f.dNH().dNM();
-        g dNQ = dNM.dNQ();
-        if (dNQ != null) {
-            this.nSJ = dNQ;
-        } else {
-            this.nSJ = rx.c.g.dNN();
-        }
-        g dNR = dNM.dNR();
-        if (dNR != null) {
-            this.nSK = dNR;
-        } else {
-            this.nSK = rx.c.g.dNO();
-        }
-        g dNS = dNM.dNS();
+        rx.c.g dNO = f.dNJ().dNO();
+        g dNS = dNO.dNS();
         if (dNS != null) {
-            this.nSL = dNS;
+            this.nSO = dNS;
         } else {
-            this.nSL = rx.c.g.dNP();
+            this.nSO = rx.c.g.dNP();
+        }
+        g dNT = dNO.dNT();
+        if (dNT != null) {
+            this.nSP = dNT;
+        } else {
+            this.nSP = rx.c.g.dNQ();
+        }
+        g dNU = dNO.dNU();
+        if (dNU != null) {
+            this.nSQ = dNU;
+        } else {
+            this.nSQ = rx.c.g.dNR();
         }
     }
 
     public static g immediate() {
-        return e.nQQ;
+        return e.nQV;
     }
 
     public static g trampoline() {
-        return j.nRo;
+        return j.nRt;
     }
 
     public static g newThread() {
-        return c.k(dNV().nSL);
+        return c.k(dNX().nSQ);
     }
 
     public static g computation() {
-        return c.i(dNV().nSJ);
+        return c.i(dNX().nSO);
     }
 
     public static g io() {
-        return c.j(dNV().nSK);
+        return c.j(dNX().nSP);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = nMC.getAndSet(null);
+        Schedulers andSet = nMH.getAndSet(null);
         if (andSet != null) {
-            andSet.dNX();
+            andSet.dNZ();
         }
     }
 
     public static void start() {
-        Schedulers dNV = dNV();
-        dNV.dNW();
-        synchronized (dNV) {
-            d.nQO.start();
+        Schedulers dNX = dNX();
+        dNX.dNY();
+        synchronized (dNX) {
+            d.nQT.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers dNV = dNV();
-        dNV.dNX();
-        synchronized (dNV) {
-            d.nQO.shutdown();
+        Schedulers dNX = dNX();
+        dNX.dNZ();
+        synchronized (dNX) {
+            d.nQT.shutdown();
         }
     }
 
-    synchronized void dNW() {
-        if (this.nSJ instanceof h) {
-            ((h) this.nSJ).start();
+    synchronized void dNY() {
+        if (this.nSO instanceof h) {
+            ((h) this.nSO).start();
         }
-        if (this.nSK instanceof h) {
-            ((h) this.nSK).start();
+        if (this.nSP instanceof h) {
+            ((h) this.nSP).start();
         }
-        if (this.nSL instanceof h) {
-            ((h) this.nSL).start();
+        if (this.nSQ instanceof h) {
+            ((h) this.nSQ).start();
         }
     }
 
-    synchronized void dNX() {
-        if (this.nSJ instanceof h) {
-            ((h) this.nSJ).shutdown();
+    synchronized void dNZ() {
+        if (this.nSO instanceof h) {
+            ((h) this.nSO).shutdown();
         }
-        if (this.nSK instanceof h) {
-            ((h) this.nSK).shutdown();
+        if (this.nSP instanceof h) {
+            ((h) this.nSP).shutdown();
         }
-        if (this.nSL instanceof h) {
-            ((h) this.nSL).shutdown();
+        if (this.nSQ instanceof h) {
+            ((h) this.nSQ).shutdown();
         }
     }
 }

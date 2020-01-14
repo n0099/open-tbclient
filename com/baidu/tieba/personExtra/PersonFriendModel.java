@@ -44,11 +44,11 @@ public class PersonFriendModel extends BdBaseModel {
         this.mData = auVar;
     }
 
-    public au cve() {
+    public au cvg() {
         return this.mData;
     }
 
-    public void cuB() {
+    public void cuD() {
         super.sendMessage(new PersonFriendByUidLocalMessage());
     }
 

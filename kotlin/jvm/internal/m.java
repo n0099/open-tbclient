@@ -5,25 +5,25 @@ import java.util.List;
 import kotlin.jvm.KotlinReflectionNotSupportedError;
 /* loaded from: classes5.dex */
 public final class m implements l, kotlin.reflect.c<Object> {
-    private final Class<?> nBG;
+    private final Class<?> nBL;
 
     public m(Class<?> cls) {
         q.j(cls, "jClass");
-        this.nBG = cls;
+        this.nBL = cls;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> dJi() {
-        return this.nBG;
+    public Class<?> dJk() {
+        return this.nBL;
     }
 
     @Override // kotlin.reflect.a
     public List<Annotation> getAnnotations() {
-        dJj();
+        dJl();
         throw null;
     }
 
-    private final Void dJj() {
+    private final Void dJl() {
         throw new KotlinReflectionNotSupportedError();
     }
 
@@ -36,6 +36,6 @@ public final class m implements l, kotlin.reflect.c<Object> {
     }
 
     public String toString() {
-        return dJi().toString() + " (Kotlin reflection is not available)";
+        return dJk().toString() + " (Kotlin reflection is not available)";
     }
 }

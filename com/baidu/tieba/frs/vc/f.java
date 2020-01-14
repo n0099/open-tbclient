@@ -83,7 +83,7 @@ public class f {
                     }
                     tVar.setLike(1);
                     bCK.updateLikeData(tVar);
-                    bCK.setLikeFeedForumDataList(tVar.cIF());
+                    bCK.setLikeFeedForumDataList(tVar.cIH());
                     if (bCh != null) {
                         bCh.a(bCK, f.this.gJW);
                     }
@@ -151,7 +151,7 @@ public class f {
 
     public void ags() {
         if (this.dfN != null) {
-            this.dfN.cIM();
+            this.dfN.cIO();
         }
     }
 

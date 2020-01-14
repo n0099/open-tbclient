@@ -37,7 +37,7 @@ public class ax {
 
     public void b(com.baidu.tieba.play.y yVar) {
         if (yVar != null) {
-            yVar.jvJ = this.cMm;
+            yVar.jvO = this.cMm;
             yVar.mSource = this.cMn;
             yVar.mAbTag = this.cMo;
             yVar.mExtra = this.cMp;

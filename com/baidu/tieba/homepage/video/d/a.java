@@ -152,10 +152,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public af bMM() {
-        if (this.goz == null || this.goz.cxl() == null || !(this.goz.cxl().getTag() instanceof af)) {
+        if (this.goz == null || this.goz.cxn() == null || !(this.goz.cxn().getTag() instanceof af)) {
             return null;
         }
-        return (af) this.goz.cxl().getTag();
+        return (af) this.goz.cxn().getTag();
     }
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, NEGFeedBackView.a aVar) {

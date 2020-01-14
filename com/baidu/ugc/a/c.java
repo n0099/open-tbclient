@@ -15,15 +15,15 @@ public interface c {
 
     void a(Context context, String str, RequestOptions requestOptions, ImageView imageView);
 
-    String cRc();
-
-    String cRg();
-
-    void cRh();
+    String cRe();
 
     String cRi();
 
     void cRj();
+
+    String cRk();
+
+    void cRl();
 
     void e(Context context, int i, String str);
 

@@ -12,7 +12,7 @@ public final class FlowableRetryBiPredicate<T> extends a<T, T> {
     public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RetryBiSubscriber(cVar, this.predicate, subscriptionArbiter, this.nvK).subscribeNext();
+        new RetryBiSubscriber(cVar, this.predicate, subscriptionArbiter, this.nvP).subscribeNext();
     }
 
     /* loaded from: classes5.dex */

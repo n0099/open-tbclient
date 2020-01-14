@@ -30,8 +30,8 @@ public class VideoPlatformStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.t.e.cNp().cNk();
-            com.baidu.tieba.t.b.cNj().cNk();
+            com.baidu.tieba.t.e.cNr().cNm();
+            com.baidu.tieba.t.b.cNl().cNm();
         }
     };
 

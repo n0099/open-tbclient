@@ -16,15 +16,15 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static final Float DEFAULT_ALPHA = Float.valueOf(0.0f);
     public static final String DEFAULT_CLIPPATH = "";
     private static final long serialVersionUID = 0;
-    @WireField(dFl = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(dFn = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float alpha;
-    @WireField(dFl = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
+    @WireField(dFn = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
     public final String clipPath;
-    @WireField(dFl = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
+    @WireField(dFn = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
     public final Layout layout;
-    @WireField(dFl = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", dFm = WireField.Label.REPEATED, tag = 5)
+    @WireField(dFn = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", dFo = WireField.Label.REPEATED, tag = 5)
     public final List<ShapeEntity> shapes;
-    @WireField(dFl = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
+    @WireField(dFn = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
     public FrameEntity(Float f, Layout layout, Transform transform, String str, List<ShapeEntity> list) {
@@ -102,7 +102,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         public Float alpha;
         public String clipPath;
         public Layout layout;
-        public List<ShapeEntity> shapes = a.dFo();
+        public List<ShapeEntity> shapes = a.dFq();
         public Transform transform;
 
         public Builder alpha(Float f) {
@@ -175,11 +175,11 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public FrameEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dFd = cVar.dFd();
+            long dFf = cVar.dFf();
             while (true) {
-                int dFe = cVar.dFe();
-                if (dFe != -1) {
-                    switch (dFe) {
+                int dFg = cVar.dFg();
+                if (dFg != -1) {
+                    switch (dFg) {
                         case 1:
                             builder.alpha(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -196,12 +196,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                             builder.shapes.add(ShapeEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dFf = cVar.dFf();
-                            builder.addUnknownField(dFe, dFf, dFf.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dFh = cVar.dFh();
+                            builder.addUnknownField(dFg, dFh, dFh.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.hb(dFd);
+                    cVar.hb(dFf);
                     return builder.build();
                 }
             }

@@ -11,7 +11,7 @@ public interface s {
 
     void a(BasePool basePool);
 
-    void dpM();
+    void dpO();
 
-    void dpN();
+    void dpP();
 }

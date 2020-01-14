@@ -13,18 +13,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 final class n implements com.google.android.exoplayer2.extractor.e {
-    private static final Pattern mvQ = Pattern.compile("LOCAL:([^,]+)");
-    private static final Pattern mvR = Pattern.compile("MPEGTS:(\\d+)");
+    private static final Pattern mvV = Pattern.compile("LOCAL:([^,]+)");
+    private static final Pattern mvW = Pattern.compile("MPEGTS:(\\d+)");
     private final String language;
-    private final s miE;
-    private com.google.android.exoplayer2.extractor.g mkC;
-    private final com.google.android.exoplayer2.util.l mvS = new com.google.android.exoplayer2.util.l();
-    private byte[] mvT = new byte[1024];
+    private final s miJ;
+    private com.google.android.exoplayer2.extractor.g mkH;
+    private final com.google.android.exoplayer2.util.l mvX = new com.google.android.exoplayer2.util.l();
+    private byte[] mvY = new byte[1024];
     private int sampleSize;
 
     public n(String str, s sVar) {
         this.language = str;
-        this.miE = sVar;
+        this.miJ = sVar;
     }
 
     @Override // com.google.android.exoplayer2.extractor.e
@@ -34,7 +34,7 @@ final class n implements com.google.android.exoplayer2.extractor.e {
 
     @Override // com.google.android.exoplayer2.extractor.e
     public void a(com.google.android.exoplayer2.extractor.g gVar) {
-        this.mkC = gVar;
+        this.mkH = gVar;
         gVar.a(new l.a(-9223372036854775807L));
     }
 
@@ -50,22 +50,22 @@ final class n implements com.google.android.exoplayer2.extractor.e {
     @Override // com.google.android.exoplayer2.extractor.e
     public int a(com.google.android.exoplayer2.extractor.f fVar, com.google.android.exoplayer2.extractor.k kVar) throws IOException, InterruptedException {
         int length = (int) fVar.getLength();
-        if (this.sampleSize == this.mvT.length) {
-            this.mvT = Arrays.copyOf(this.mvT, ((length != -1 ? length : this.mvT.length) * 3) / 2);
+        if (this.sampleSize == this.mvY.length) {
+            this.mvY = Arrays.copyOf(this.mvY, ((length != -1 ? length : this.mvY.length) * 3) / 2);
         }
-        int read = fVar.read(this.mvT, this.sampleSize, this.mvT.length - this.sampleSize);
+        int read = fVar.read(this.mvY, this.sampleSize, this.mvY.length - this.sampleSize);
         if (read != -1) {
             this.sampleSize = read + this.sampleSize;
             if (length == -1 || this.sampleSize != length) {
                 return 0;
             }
         }
-        dwf();
+        dwh();
         return -1;
     }
 
-    private void dwf() throws ParserException {
-        com.google.android.exoplayer2.util.l lVar = new com.google.android.exoplayer2.util.l(this.mvT);
+    private void dwh() throws ParserException {
+        com.google.android.exoplayer2.util.l lVar = new com.google.android.exoplayer2.util.l(this.mvY);
         try {
             com.google.android.exoplayer2.text.g.h.ae(lVar);
             long j = 0;
@@ -74,11 +74,11 @@ final class n implements com.google.android.exoplayer2.extractor.e {
                 String readLine = lVar.readLine();
                 if (!TextUtils.isEmpty(readLine)) {
                     if (readLine.startsWith("X-TIMESTAMP-MAP")) {
-                        Matcher matcher = mvQ.matcher(readLine);
+                        Matcher matcher = mvV.matcher(readLine);
                         if (!matcher.find()) {
                             throw new ParserException("X-TIMESTAMP-MAP doesn't contain local timestamp: " + readLine);
                         }
-                        Matcher matcher2 = mvR.matcher(readLine);
+                        Matcher matcher2 = mvW.matcher(readLine);
                         if (!matcher2.find()) {
                             throw new ParserException("X-TIMESTAMP-MAP doesn't contain media timestamp: " + readLine);
                         }
@@ -92,10 +92,10 @@ final class n implements com.google.android.exoplayer2.extractor.e {
                         return;
                     }
                     long PW = com.google.android.exoplayer2.text.g.h.PW(af.group(1));
-                    long gK = this.miE.gK(s.gN((j + PW) - j2));
+                    long gK = this.miJ.gK(s.gN((j + PW) - j2));
                     com.google.android.exoplayer2.extractor.m gw = gw(gK - PW);
-                    this.mvS.G(this.mvT, this.sampleSize);
-                    gw.a(this.mvS, this.sampleSize);
+                    this.mvX.G(this.mvY, this.sampleSize);
+                    gw.a(this.mvX, this.sampleSize);
                     gw.a(gK, 1, this.sampleSize, 0, null);
                     return;
                 }
@@ -106,9 +106,9 @@ final class n implements com.google.android.exoplayer2.extractor.e {
     }
 
     private com.google.android.exoplayer2.extractor.m gw(long j) {
-        com.google.android.exoplayer2.extractor.m dH = this.mkC.dH(0, 3);
+        com.google.android.exoplayer2.extractor.m dH = this.mkH.dH(0, 3);
         dH.h(Format.a((String) null, "text/vtt", (String) null, -1, 0, this.language, (DrmInitData) null, j));
-        this.mkC.dtF();
+        this.mkH.dtH();
         return dH;
     }
 }

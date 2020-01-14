@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class j {
-    private static j mOu = null;
-    private final LruCache<String, VideoPlayInfo> mOt = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
+    private static j mOz = null;
+    private final LruCache<String, VideoPlayInfo> mOy = new LruCache<String, VideoPlayInfo>(50) { // from class: com.kascend.chushou.d.j.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -30,39 +30,39 @@ public class j {
         }
     };
 
-    public static j dAP() {
-        if (mOu == null) {
+    public static j dAR() {
+        if (mOz == null) {
             synchronized (j.class) {
-                if (mOu == null) {
-                    mOu = new j();
+                if (mOz == null) {
+                    mOz = new j();
                 }
             }
         }
-        return mOu;
+        return mOz;
     }
 
     private j() {
     }
 
     public VideoPlayInfo N(String str, long j) {
-        return a(this.mOt, str, j);
+        return a(this.mOy, str, j);
     }
 
     public void a(String str) {
-        this.mOt.remove(str);
+        this.mOy.remove(str);
     }
 
     public void a(String str, List<PlayUrl> list) {
-        a(this.mOt, str, list);
+        a(this.mOy, str, list);
     }
 
     public void a(final String str, final String str2) {
         if (O(str, KeepJobService.JOB_CHECK_PERIODIC) == null) {
-            com.kascend.chushou.player.c.a.dBA().a(str, str2, new a.InterfaceC0687a() { // from class: com.kascend.chushou.d.j.3
+            com.kascend.chushou.player.c.a.dBC().a(str, str2, new a.InterfaceC0687a() { // from class: com.kascend.chushou.d.j.3
                 @Override // com.kascend.chushou.player.c.a.InterfaceC0687a
                 public void a(ParserRet parserRet) {
                     if (parserRet.mRc == 0 && parserRet.mData != null) {
-                        j.dAP().a(str + str2, (ArrayList) parserRet.mData);
+                        j.dAR().a(str + str2, (ArrayList) parserRet.mData);
                     }
                 }
             });

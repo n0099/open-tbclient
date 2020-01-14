@@ -25,86 +25,86 @@ public interface e {
         @Nullable
         private final Handler handler;
         @Nullable
-        private final e mIr;
+        private final e mIx;
 
         public a(@Nullable Handler handler, @Nullable e eVar) {
             this.handler = eVar != null ? (Handler) com.google.android.exoplayer2.util.a.checkNotNull(handler) : null;
-            this.mIr = eVar;
+            this.mIx = eVar;
         }
 
         public void e(final com.google.android.exoplayer2.a.d dVar) {
-            if (this.mIr != null) {
+            if (this.mIx != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.video.e.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.mIr.c(dVar);
+                        a.this.mIx.c(dVar);
                     }
                 });
             }
         }
 
         public void f(final String str, final long j, final long j2) {
-            if (this.mIr != null) {
+            if (this.mIx != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.video.e.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.mIr.e(str, j, j2);
+                        a.this.mIx.e(str, j, j2);
                     }
                 });
             }
         }
 
         public void f(final Format format) {
-            if (this.mIr != null) {
+            if (this.mIx != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.video.e.a.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.mIr.b(format);
+                        a.this.mIx.b(format);
                     }
                 });
             }
         }
 
         public void K(final int i, final long j) {
-            if (this.mIr != null) {
+            if (this.mIx != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.video.e.a.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.mIr.A(i, j);
+                        a.this.mIx.A(i, j);
                     }
                 });
             }
         }
 
         public void c(final int i, final int i2, final int i3, final float f) {
-            if (this.mIr != null) {
+            if (this.mIx != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.video.e.a.5
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.mIr.b(i, i2, i3, f);
+                        a.this.mIx.b(i, i2, i3, f);
                     }
                 });
             }
         }
 
         public void f(final Surface surface) {
-            if (this.mIr != null) {
+            if (this.mIx != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.video.e.a.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.mIr.d(surface);
+                        a.this.mIx.d(surface);
                     }
                 });
             }
         }
 
         public void f(final com.google.android.exoplayer2.a.d dVar) {
-            if (this.mIr != null) {
+            if (this.mIx != null) {
                 this.handler.post(new Runnable() { // from class: com.google.android.exoplayer2.video.e.a.7
                     @Override // java.lang.Runnable
                     public void run() {
-                        dVar.dtm();
-                        a.this.mIr.d(dVar);
+                        dVar.dto();
+                        a.this.mIx.d(dVar);
                     }
                 });
             }

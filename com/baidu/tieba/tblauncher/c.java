@@ -30,10 +30,10 @@ public class c {
         public void run() {
             if (c.this.mTabHost != null && c.this.gLi != null && c.this.gLi.getContentView() != null) {
                 FragmentTabWidget fragmentTabWidget = c.this.mTabHost.getFragmentTabWidget();
-                int equipmentWidth = l.getEquipmentWidth(c.this.klJ.getActivity());
-                int dimens = l.getDimens(c.this.klJ.getActivity(), R.dimen.ds278);
+                int equipmentWidth = l.getEquipmentWidth(c.this.klO.getActivity());
+                int dimens = l.getDimens(c.this.klO.getActivity(), R.dimen.ds278);
                 c.this.gLi.getContentView().measure(0, 0);
-                g.showPopupWindowAsDropDown(c.this.gLi, fragmentTabWidget, (equipmentWidth - l.getDimens(c.this.klJ.getActivity(), R.dimen.ds430)) / 2, -dimens);
+                g.showPopupWindowAsDropDown(c.this.gLi, fragmentTabWidget, (equipmentWidth - l.getDimens(c.this.klO.getActivity(), R.dimen.ds430)) / 2, -dimens);
                 com.baidu.tbadk.core.sharedPref.b.aDr().putLong(SharedPrefConfig.HOME_TOPIC_TIP, c.this.hev);
                 e.gx().postDelayed(c.this.gLl, 5000L);
                 TiebaStatic.log(new an("c13016").Z("obj_locate", 1));
@@ -50,7 +50,7 @@ public class c {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             c.this.bJC();
-            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.klJ, 9, String.valueOf(0), "", null, null, 0, null, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, null, 0);
+            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.klO, 9, String.valueOf(0), "", null, null, 0, null, RequestResponseCode.REQUEST_WRITE_NEW, false, false, null, false, false, null, null, null, 0);
             if (!StringUtils.isNull(c.this.mTopicName)) {
                 writeActivityConfig.setTitle(c.this.mTopicName, true);
             }
@@ -60,31 +60,31 @@ public class c {
     };
     private long hev;
     private TextView hlj;
-    private MainTabActivity klJ;
-    private View klK;
-    private TextView klL;
+    private MainTabActivity klO;
+    private View klP;
+    private TextView klQ;
     private FragmentTabHost mTabHost;
     private String mTopicName;
 
     public c(MainTabActivity mainTabActivity) {
-        this.klJ = mainTabActivity;
-        this.mTabHost = (FragmentTabHost) this.klJ.findViewById(R.id.tab_host);
+        this.klO = mainTabActivity;
+        this.mTabHost = (FragmentTabHost) this.klO.findViewById(R.id.tab_host);
     }
 
     public void h(String str, String str2, long j) {
         if (com.baidu.tbadk.core.sharedPref.b.aDr().getLong(SharedPrefConfig.HOME_TOPIC_TIP, 0L) != j && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             this.mTopicName = str2;
             this.hev = j;
-            if (this.klK == null) {
-                this.klK = LayoutInflater.from(this.klJ.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
-                this.hlj = (TextView) this.klK.findViewById(R.id.tips);
-                this.klL = (TextView) this.klK.findViewById(R.id.tips_content);
-                this.klK.setOnClickListener(this.gLm);
+            if (this.klP == null) {
+                this.klP = LayoutInflater.from(this.klO.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
+                this.hlj = (TextView) this.klP.findViewById(R.id.tips);
+                this.klQ = (TextView) this.klP.findViewById(R.id.tips_content);
+                this.klP.setOnClickListener(this.gLm);
             }
             this.hlj.setText(aq.cutHotTopicShow(str, 24, StringHelper.STRING_MORE));
-            this.klL.setText(R.string.topic_join);
+            this.klQ.setText(R.string.topic_join);
             if (this.gLi == null) {
-                this.gLi = new PopupWindow(this.klK, -2, -2);
+                this.gLi = new PopupWindow(this.klP, -2, -2);
             } else {
                 bJC();
             }

@@ -5,15 +5,15 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes5.dex */
 final class b implements e {
-    public static final b mBc = new b();
-    private final List<com.google.android.exoplayer2.text.b> myt;
+    public static final b mBi = new b();
+    private final List<com.google.android.exoplayer2.text.b> myy;
 
     public b(com.google.android.exoplayer2.text.b bVar) {
-        this.myt = Collections.singletonList(bVar);
+        this.myy = Collections.singletonList(bVar);
     }
 
     private b() {
-        this.myt = Collections.emptyList();
+        this.myy = Collections.emptyList();
     }
 
     @Override // com.google.android.exoplayer2.text.e
@@ -22,7 +22,7 @@ final class b implements e {
     }
 
     @Override // com.google.android.exoplayer2.text.e
-    public int dww() {
+    public int dwy() {
         return 1;
     }
 
@@ -34,6 +34,6 @@ final class b implements e {
 
     @Override // com.google.android.exoplayer2.text.e
     public List<com.google.android.exoplayer2.text.b> gz(long j) {
-        return j >= 0 ? this.myt : Collections.emptyList();
+        return j >= 0 ? this.myy : Collections.emptyList();
     }
 }

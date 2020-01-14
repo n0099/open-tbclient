@@ -19,17 +19,17 @@ import java.util.Iterator;
 public class b {
     private TbPageContext cRe;
     private int fpl;
-    private com.baidu.tieba.personPolymeric.tab.fragments.a jpc;
-    private final CustomMessageListener jpd = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
+    private com.baidu.tieba.personPolymeric.tab.fragments.a jph;
+    private final CustomMessageListener jpi = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bj) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.jpc != null && b.this.jpc.cwh()) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bj) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.jph != null && b.this.jph.cwj()) {
                 b.this.aR((bj) customResponsedMessage.getData());
             }
         }
     };
-    private final CustomMessageListener jpe = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
+    private final CustomMessageListener jpj = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,7 +38,7 @@ public class b {
             }
         }
     };
-    private final CustomMessageListener jpf = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
+    private final CustomMessageListener jpk = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -52,14 +52,14 @@ public class b {
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId, com.baidu.tieba.personPolymeric.tab.fragments.a aVar, int i) {
         this.cRe = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.jpc = aVar;
+        this.jph = aVar;
         this.fpl = i;
-        this.jpd.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.jpd);
-        this.jpe.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.jpe);
-        this.jpf.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.jpf);
+        this.jpi.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.jpi);
+        this.jpj.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.jpj);
+        this.jpk.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.jpk);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -93,18 +93,18 @@ public class b {
     public void a(boolean z, bj bjVar) {
         bj i;
         boolean z2 = false;
-        if (bjVar != null && this.jpc != null && !v.isEmpty(this.jpc.cdi()) && this.jpc.cwg() != null && this.jpc.cwg().cwi() != null) {
+        if (bjVar != null && this.jph != null && !v.isEmpty(this.jph.cdi()) && this.jph.cwi() != null && this.jph.cwi().cwk() != null) {
             int i2 = 0;
             while (true) {
-                if (i2 >= this.jpc.cdi().size()) {
+                if (i2 >= this.jph.cdi().size()) {
                     break;
                 }
-                m mVar = this.jpc.cdi().get(i2);
+                m mVar = this.jph.cdi().get(i2);
                 if (mVar != null && (i = com.baidu.tieba.personPolymeric.tab.b.a.i(mVar)) != null && !StringUtils.isNull(i.tid) && i.tid.equals(bjVar.tid)) {
                     i.isPrivacy = z;
                     m aS = com.baidu.tieba.personPolymeric.tab.b.a.aS(i);
                     if (aS != null) {
-                        this.jpc.cdi().set(i2, aS);
+                        this.jph.cdi().set(i2, aS);
                         z2 = true;
                         break;
                     }
@@ -112,7 +112,7 @@ public class b {
                 i2++;
             }
             if (z2) {
-                this.jpc.cwg().dY(this.jpc.cdi());
+                this.jph.cwi().dY(this.jph.cdi());
             }
         }
     }
@@ -121,8 +121,8 @@ public class b {
     public void GI(String str) {
         boolean z;
         bj i;
-        if (!StringUtils.isNull(str) && this.jpc != null && !v.isEmpty(this.jpc.cdi()) && this.jpc.cwg() != null && this.jpc.cwg().cwi() != null) {
-            Iterator<m> it = this.jpc.cdi().iterator();
+        if (!StringUtils.isNull(str) && this.jph != null && !v.isEmpty(this.jph.cdi()) && this.jph.cwi() != null && this.jph.cwi().cwk() != null) {
+            Iterator<m> it = this.jph.cdi().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -136,7 +136,7 @@ public class b {
                 }
             }
             if (z) {
-                this.jpc.cwg().dY(this.jpc.cdi());
+                this.jph.cwi().dY(this.jph.cdi());
             }
         }
     }
@@ -145,8 +145,8 @@ public class b {
     public void removeThread(String str) {
         boolean z;
         bj i;
-        if (!StringUtils.isNull(str) && this.jpc != null && !v.isEmpty(this.jpc.cdi()) && this.jpc.cwg() != null && this.jpc.cwg().cwi() != null) {
-            Iterator<m> it = this.jpc.cdi().iterator();
+        if (!StringUtils.isNull(str) && this.jph != null && !v.isEmpty(this.jph.cdi()) && this.jph.cwi() != null && this.jph.cwi().cwk() != null) {
+            Iterator<m> it = this.jph.cdi().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -160,7 +160,7 @@ public class b {
                 }
             }
             if (z) {
-                this.jpc.cwg().dY(this.jpc.cdi());
+                this.jph.cwi().dY(this.jph.cdi());
             }
         }
     }

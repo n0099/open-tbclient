@@ -16,16 +16,16 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(21)
 /* loaded from: classes10.dex */
 public class a implements e {
-    private static final Class<?> lGm = a.class;
-    private static final byte[] lUh = {-1, -39};
-    private final com.facebook.imagepipeline.memory.c lPB;
-    final Pools.SynchronizedPool<ByteBuffer> lUg;
+    private static final Class<?> lGr = a.class;
+    private static final byte[] lUm = {-1, -39};
+    private final com.facebook.imagepipeline.memory.c lPG;
+    final Pools.SynchronizedPool<ByteBuffer> lUl;
 
     public a(com.facebook.imagepipeline.memory.c cVar, int i, Pools.SynchronizedPool synchronizedPool) {
-        this.lPB = cVar;
-        this.lUg = synchronizedPool;
+        this.lPG = cVar;
+        this.lUl = synchronizedPool;
         for (int i2 = 0; i2 < i; i2++) {
-            this.lUg.release(ByteBuffer.allocate(16384));
+            this.lUl.release(ByteBuffer.allocate(16384));
         }
     }
 
@@ -50,7 +50,7 @@ public class a implements e {
         InputStream inputStream = eVar.getInputStream();
         g.checkNotNull(inputStream);
         InputStream aVar = eVar.getSize() > i ? new com.facebook.common.f.a(inputStream, i) : inputStream;
-        InputStream bVar = !Ii ? new com.facebook.common.f.b(aVar, lUh) : aVar;
+        InputStream bVar = !Ii ? new com.facebook.common.f.b(aVar, lUm) : aVar;
         boolean z = a.inPreferredConfig != Bitmap.Config.ARGB_8888;
         try {
             return a(bVar, a, rect);
@@ -87,12 +87,12 @@ public class a implements e {
             i = i4;
             i2 = i3;
         }
-        Bitmap bitmap2 = this.lPB.get(com.facebook.d.a.e(i2, i, options.inPreferredConfig));
+        Bitmap bitmap2 = this.lPG.get(com.facebook.d.a.e(i2, i, options.inPreferredConfig));
         if (bitmap2 == null) {
             throw new NullPointerException("BitmapPool.get returned null");
         }
         options.inBitmap = bitmap2;
-        ByteBuffer acquire = this.lUg.acquire();
+        ByteBuffer acquire = this.lUl.acquire();
         ByteBuffer allocate = acquire == null ? ByteBuffer.allocate(16384) : acquire;
         try {
             try {
@@ -112,20 +112,20 @@ public class a implements e {
                                         bitmap = decodeRegion;
                                     }
                                 } catch (IOException e) {
-                                    com.facebook.common.c.a.d(lGm, "Could not decode region %s, decoding full bitmap instead.", rect);
+                                    com.facebook.common.c.a.d(lGr, "Could not decode region %s, decoding full bitmap instead.", rect);
                                     if (bitmapRegionDecoder != null) {
                                         bitmapRegionDecoder.recycle();
                                         bitmap = null;
                                         if (bitmap == null) {
                                         }
-                                        this.lUg.release(allocate);
+                                        this.lUl.release(allocate);
                                         if (bitmap2 == bitmap) {
                                         }
                                     }
                                     bitmap = null;
                                     if (bitmap == null) {
                                     }
-                                    this.lUg.release(allocate);
+                                    this.lUl.release(allocate);
                                     if (bitmap2 == bitmap) {
                                     }
                                 }
@@ -148,41 +148,41 @@ public class a implements e {
                         if (bitmap == null) {
                             bitmap = BitmapFactory.decodeStream(inputStream, null, options);
                         }
-                        this.lUg.release(allocate);
+                        this.lUl.release(allocate);
                         if (bitmap2 == bitmap) {
-                            this.lPB.release(bitmap2);
+                            this.lPG.release(bitmap2);
                             bitmap.recycle();
                             throw new IllegalStateException();
                         }
-                        return com.facebook.common.references.a.a(bitmap, this.lPB);
+                        return com.facebook.common.references.a.a(bitmap, this.lPG);
                     }
                     bitmap = null;
                     if (bitmap == null) {
                     }
-                    this.lUg.release(allocate);
+                    this.lUl.release(allocate);
                     if (bitmap2 == bitmap) {
                     }
                 } catch (RuntimeException e3) {
-                    this.lPB.release(bitmap2);
+                    this.lPG.release(bitmap2);
                     throw e3;
                 }
             } catch (IllegalArgumentException e4) {
-                this.lPB.release(bitmap2);
+                this.lPG.release(bitmap2);
                 try {
                     inputStream.reset();
                     Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
                     if (decodeStream == null) {
                         throw e4;
                     }
-                    com.facebook.common.references.a<Bitmap> a = com.facebook.common.references.a.a(decodeStream, com.facebook.imagepipeline.b.g.dmz());
-                    this.lUg.release(allocate);
+                    com.facebook.common.references.a<Bitmap> a = com.facebook.common.references.a.a(decodeStream, com.facebook.imagepipeline.b.g.dmB());
+                    this.lUl.release(allocate);
                     return a;
                 } catch (IOException e5) {
                     throw e4;
                 }
             }
         } catch (Throwable th3) {
-            this.lUg.release(allocate);
+            this.lUl.release(allocate);
             throw th3;
         }
     }

@@ -8,7 +8,7 @@ public class a implements com.baidu.tieba.sdk.a.a {
     private c ibr = new c() { // from class: com.baidu.tieba.livesdk.a.a.1
         @Override // com.baidu.g.a.a.c
         public void onLoginStatusChanged(boolean z, boolean z2) {
-            com.baidu.tieba.sdk.a.cCD().cCE();
+            com.baidu.tieba.sdk.a.cCF().cCG();
         }
     };
 

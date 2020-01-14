@@ -159,14 +159,14 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: private */
     public void d(bj bjVar, int i) {
         if (bjVar != null && bjVar.aAJ() != null) {
-            com.baidu.tieba.r.c.cIs().b(this.dxg, com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_click", 1, i, bjVar.aAJ().id));
+            com.baidu.tieba.r.c.cIu().b(this.dxg, com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_click", 1, i, bjVar.aAJ().id));
         }
     }
 
     private void e(bj bjVar, int i) {
         if (bjVar != null && bjVar.aAJ() != null) {
             String str = bjVar.aAJ().id;
-            com.baidu.tieba.r.c.cIs().a(this.dxg, com.baidu.tieba.r.a.a(bjVar.getTid(), "", str, null), com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_exp", i, str));
+            com.baidu.tieba.r.c.cIu().a(this.dxg, com.baidu.tieba.r.a.a(bjVar.getTid(), "", str, null), com.baidu.tieba.r.a.a(bjVar, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE, "common_exp", i, str));
         }
     }
 }

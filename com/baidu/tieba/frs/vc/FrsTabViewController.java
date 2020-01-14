@@ -305,9 +305,9 @@ public class FrsTabViewController implements TbTabLayout.b, m {
                                         if (next.tab_type == frsTabInfo.tab_type) {
                                             com.baidu.tieba.frs.f.g.aE("503~" + str + str2, next.tab_id.intValue());
                                             if (7 == Bw) {
-                                                com.baidu.tieba.tbadkCore.util.e.cKy();
+                                                com.baidu.tieba.tbadkCore.util.e.cKA();
                                             } else {
-                                                com.baidu.tieba.tbadkCore.util.e.cKz();
+                                                com.baidu.tieba.tbadkCore.util.e.cKB();
                                             }
                                         }
                                     }

@@ -54,7 +54,7 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
     }
 
     protected void bNG() {
-        this.fGO = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) cwU());
+        this.fGO = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) cwW());
         this.fGO.a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.c.1
             @Override // com.baidu.afd.videopaster.d.a
             public void kW() {
@@ -77,7 +77,7 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
         a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.c.2
             @Override // com.baidu.tieba.play.operableVideoView.d.a
             public void bW(int i, int i2) {
-                if (!c.this.cyl()) {
+                if (!c.this.cyn()) {
                     if (i2 >= i) {
                         if (c.this.fGO.a(false, false, "NEWINDEX")) {
                         }

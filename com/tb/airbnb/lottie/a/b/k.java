@@ -17,7 +17,7 @@ public class k extends f<com.tb.airbnb.lottie.e.d> {
         }
         com.tb.airbnb.lottie.e.d dVar2 = aVar.km;
         com.tb.airbnb.lottie.e.d dVar3 = aVar.kn;
-        if (this.npA != null && (dVar = (com.tb.airbnb.lottie.e.d) this.npA.b(aVar.ec, aVar.kp.floatValue(), dVar2, dVar3, f, bS(), getProgress())) != null) {
+        if (this.npF != null && (dVar = (com.tb.airbnb.lottie.e.d) this.npF.b(aVar.ec, aVar.kp.floatValue(), dVar2, dVar3, f, bS(), getProgress())) != null) {
             return dVar;
         }
         return new com.tb.airbnb.lottie.e.d(com.tb.airbnb.lottie.d.e.lerp(dVar2.getScaleX(), dVar3.getScaleX(), f), com.tb.airbnb.lottie.d.e.lerp(dVar2.getScaleY(), dVar3.getScaleY(), f));

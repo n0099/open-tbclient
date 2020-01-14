@@ -70,47 +70,47 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     private TextView k;
     private TextView l;
     private TextView m;
-    private TextView mXs;
-    private TextView mXu;
-    private io.reactivex.disposables.a mZv;
+    private TextView mXx;
+    private TextView mXz;
+    private io.reactivex.disposables.a mZA;
     private String n;
-    private TextView ncG;
-    private List<GeneralGift> niA;
-    private ImageView niB;
-    private View niC;
-    private FrameLayout niD;
-    private EmptyLoadingView niE;
-    private f niF;
-    private RelativeLayout niG;
-    private MicMemberInfo niH;
-    private RelativeLayout niI;
-    private FrescoThumbnailView niJ;
-    private TextView niK;
-    private TextView niL;
-    private TextView niM;
-    private a niN;
-    private FoodView.a niO;
-    public FullRoomInfo nif;
-    private GeneralGift nig;
-    private FoodView nih;
-    private FoodView nii;
-    private FoodView nij;
-    private FrescoThumbnailView nik;
-    private FrescoThumbnailView nil;
-    private PagerView nim;
-    private LinearLayout nin;
-    private c nio;
-    private List<GeneralTabGift> nip;
-    private List<GeneralTabGift> niq;
-    private com.kascend.chushou.view.b.c nir;
-    private ImageView nis;
-    private TextView nit;
-    private com.kascend.chushou.widget.gifts.b niu;
-    private View niv;
-    private RippleButton niw;
-    private long nix;
-    private io.reactivex.disposables.b niy;
-    private b niz;
+    private TextView ncL;
+    private View niA;
+    private RippleButton niB;
+    private long niC;
+    private io.reactivex.disposables.b niD;
+    private b niE;
+    private List<GeneralGift> niF;
+    private ImageView niG;
+    private View niH;
+    private FrameLayout niI;
+    private EmptyLoadingView niJ;
+    private f niK;
+    private RelativeLayout niL;
+    private MicMemberInfo niM;
+    private RelativeLayout niN;
+    private FrescoThumbnailView niO;
+    private TextView niP;
+    private TextView niQ;
+    private TextView niR;
+    private a niS;
+    private FoodView.a niT;
+    public FullRoomInfo nik;
+    private GeneralGift nil;
+    private FoodView nim;
+    private FoodView nin;
+    private FoodView nio;
+    private FrescoThumbnailView nip;
+    private FrescoThumbnailView niq;
+    private PagerView nir;
+    private LinearLayout nis;
+    private c nit;
+    private List<GeneralTabGift> niu;
+    private List<GeneralTabGift> niv;
+    private com.kascend.chushou.view.b.c niw;
+    private ImageView nix;
+    private TextView niy;
+    private com.kascend.chushou.widget.gifts.b niz;
     private View o;
     private int p;
     private int r;
@@ -136,8 +136,8 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     }
 
     static /* synthetic */ long W(RoomSendGiftView roomSendGiftView) {
-        long j = roomSendGiftView.nix;
-        roomSendGiftView.nix = j - 1;
+        long j = roomSendGiftView.niC;
+        roomSendGiftView.niC = j - 1;
         return j;
     }
 
@@ -152,29 +152,29 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     public RoomSendGiftView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.p = -1;
-        this.nig = null;
+        this.nil = null;
         this.B = true;
         this.C = true;
-        this.niq = new ArrayList();
+        this.niv = new ArrayList();
         this.F = new HashMap<>();
-        this.mZv = new io.reactivex.disposables.a();
-        this.nir = null;
-        this.nix = 0L;
-        this.niA = new ArrayList();
+        this.mZA = new io.reactivex.disposables.a();
+        this.niw = null;
+        this.niC = 0L;
+        this.niF = new ArrayList();
         this.U = false;
-        this.niO = new FoodView.a() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.12
+        this.niT = new FoodView.a() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.12
             @Override // com.kascend.chushou.player.ui.food.FoodView.a
             public boolean a() {
                 int i2;
-                if (RoomSendGiftView.this.niG != null && RoomSendGiftView.this.e != null && (!(RoomSendGiftView.this.e instanceof VideoPlayer) || !((VideoPlayer) RoomSendGiftView.this.e).isFinishing())) {
-                    if ((RoomSendGiftView.this.nii != null && RoomSendGiftView.this.nii.getVisibility() == 0) || (RoomSendGiftView.this.nij != null && RoomSendGiftView.this.nij.getVisibility() == 0)) {
+                if (RoomSendGiftView.this.niL != null && RoomSendGiftView.this.e != null && (!(RoomSendGiftView.this.e instanceof VideoPlayer) || !((VideoPlayer) RoomSendGiftView.this.e).isFinishing())) {
+                    if ((RoomSendGiftView.this.nin != null && RoomSendGiftView.this.nin.getVisibility() == 0) || (RoomSendGiftView.this.nio != null && RoomSendGiftView.this.nio.getVisibility() == 0)) {
                         i2 = tv.chushou.zues.utils.a.dip2px(RoomSendGiftView.this.e, 32.0f);
                     } else {
                         i2 = 0;
                     }
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) RoomSendGiftView.this.niG.getLayoutParams();
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) RoomSendGiftView.this.niL.getLayoutParams();
                     layoutParams.height = i2 + tv.chushou.zues.utils.a.dip2px(RoomSendGiftView.this.e, 10.0f);
-                    RoomSendGiftView.this.niG.setLayoutParams(layoutParams);
+                    RoomSendGiftView.this.niL.setLayoutParams(layoutParams);
                 }
                 return true;
             }
@@ -183,7 +183,7 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     }
 
     public void setOnGiftSendListener(c cVar) {
-        this.nio = cVar;
+        this.nit = cVar;
     }
 
     public void setContext(Context context) {
@@ -198,17 +198,17 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
         if (!this.i) {
             this.i = true;
             this.b = this.f.findViewById(a.f.content);
-            this.niG = (RelativeLayout) this.f.findViewById(a.f.ll_gift_ad);
-            this.nih = (FoodView) this.f.findViewById(a.f.iv_gift_ad);
-            this.nii = (FoodView) this.f.findViewById(a.f.ad_left);
-            this.nij = (FoodView) this.f.findViewById(a.f.ad_right);
-            this.nik = (FrescoThumbnailView) this.f.findViewById(a.f.iv_gift_top_icon_two);
-            this.nil = (FrescoThumbnailView) this.f.findViewById(a.f.iv_gift_top_icon_one);
-            this.nil.setOnClickListener(this);
-            this.nik.setOnClickListener(this);
-            this.nin = (LinearLayout) this.f.findViewById(a.f.ll_tab_contain);
-            this.nim = (PagerView) this.f.findViewById(a.f.rl_gift_contain);
-            this.nim.setOnPageChangedListener(this);
+            this.niL = (RelativeLayout) this.f.findViewById(a.f.ll_gift_ad);
+            this.nim = (FoodView) this.f.findViewById(a.f.iv_gift_ad);
+            this.nin = (FoodView) this.f.findViewById(a.f.ad_left);
+            this.nio = (FoodView) this.f.findViewById(a.f.ad_right);
+            this.nip = (FrescoThumbnailView) this.f.findViewById(a.f.iv_gift_top_icon_two);
+            this.niq = (FrescoThumbnailView) this.f.findViewById(a.f.iv_gift_top_icon_one);
+            this.niq.setOnClickListener(this);
+            this.nip.setOnClickListener(this);
+            this.nis = (LinearLayout) this.f.findViewById(a.f.ll_tab_contain);
+            this.nir = (PagerView) this.f.findViewById(a.f.rl_gift_contain);
+            this.nir.setOnPageChangedListener(this);
             this.j = (TextView) this.f.findViewById(a.f.tvMyChuShouBi);
             this.k = (TextView) this.f.findViewById(a.f.tv_noble_coin);
             this.k.setOnClickListener(this);
@@ -219,40 +219,40 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
             this.Q = (LinearLayout) this.f.findViewById(a.f.ll_btn_support_batch);
             this.P.setOnClickListener(this);
             this.m.setOnClickListener(this);
-            this.nis = (ImageView) this.f.findViewById(a.f.iv_arrow);
-            this.nit = (TextView) this.f.findViewById(a.f.tv_gift_count);
-            this.niv = this.f.findViewById(a.f.rl_gift_count);
-            this.niv.setOnClickListener(this);
-            this.ncG = (TextView) this.f.findViewById(a.f.tv_second);
-            this.niw = (RippleButton) this.f.findViewById(a.f.btn_combo);
-            this.niw.setOnClickListener(this);
+            this.nix = (ImageView) this.f.findViewById(a.f.iv_arrow);
+            this.niy = (TextView) this.f.findViewById(a.f.tv_gift_count);
+            this.niA = this.f.findViewById(a.f.rl_gift_count);
+            this.niA.setOnClickListener(this);
+            this.ncL = (TextView) this.f.findViewById(a.f.tv_second);
+            this.niB = (RippleButton) this.f.findViewById(a.f.btn_combo);
+            this.niB.setOnClickListener(this);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
             this.aQb = this.f.findViewById(a.f.ll_emoji_search);
-            this.niC = this.f.findViewById(a.f.rl_gift_emoji_search_edit_bar);
-            this.mXs = (TextView) this.f.findViewById(a.f.btn_search);
-            this.niB = (ImageView) this.f.findViewById(a.f.iv_emoji_delete);
-            this.mXu = (TextView) this.f.findViewById(a.f.tv_emoji_search);
-            this.mXs.setOnClickListener(this);
-            this.mXu.setOnClickListener(this);
-            this.niC.setOnClickListener(this);
-            this.niB.setOnClickListener(this);
-            this.mXu.addTextChangedListener(new tv.chushou.zues.toolkit.c.b() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.1
+            this.niH = this.f.findViewById(a.f.rl_gift_emoji_search_edit_bar);
+            this.mXx = (TextView) this.f.findViewById(a.f.btn_search);
+            this.niG = (ImageView) this.f.findViewById(a.f.iv_emoji_delete);
+            this.mXz = (TextView) this.f.findViewById(a.f.tv_emoji_search);
+            this.mXx.setOnClickListener(this);
+            this.mXz.setOnClickListener(this);
+            this.niH.setOnClickListener(this);
+            this.niG.setOnClickListener(this);
+            this.mXz.addTextChangedListener(new tv.chushou.zues.toolkit.c.b() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.1
                 @Override // tv.chushou.zues.toolkit.c.b, android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
                     super.afterTextChanged(editable);
-                    RoomSendGiftView.this.mXs.setEnabled(editable.length() > 0);
-                    RoomSendGiftView.this.niB.setVisibility(editable.length() <= 0 ? 8 : 0);
+                    RoomSendGiftView.this.mXx.setEnabled(editable.length() > 0);
+                    RoomSendGiftView.this.niG.setVisibility(editable.length() <= 0 ? 8 : 0);
                 }
             });
-            this.niD = (FrameLayout) this.f.findViewById(a.f.fl_emoji_container);
-            this.niE = (EmptyLoadingView) this.f.findViewById(a.f.empty_search);
-            this.niI = (RelativeLayout) this.f.findViewById(a.f.rl_mic_user);
-            this.niJ = (FrescoThumbnailView) this.f.findViewById(a.f.ftv_mic_avatar);
-            this.niK = (TextView) this.f.findViewById(a.f.tv_mic_order);
-            this.niL = (TextView) this.f.findViewById(a.f.tv_mic_nickname);
-            this.niM = (TextView) this.f.findViewById(a.f.tv_mic_user_info);
-            this.niM.setOnClickListener(this);
+            this.niI = (FrameLayout) this.f.findViewById(a.f.fl_emoji_container);
+            this.niJ = (EmptyLoadingView) this.f.findViewById(a.f.empty_search);
+            this.niN = (RelativeLayout) this.f.findViewById(a.f.rl_mic_user);
+            this.niO = (FrescoThumbnailView) this.f.findViewById(a.f.ftv_mic_avatar);
+            this.niP = (TextView) this.f.findViewById(a.f.tv_mic_order);
+            this.niQ = (TextView) this.f.findViewById(a.f.tv_mic_nickname);
+            this.niR = (TextView) this.f.findViewById(a.f.tv_mic_user_info);
+            this.niR.setOnClickListener(this);
             addView(this.f, layoutParams);
         }
     }
@@ -260,16 +260,16 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     public void a(ListItem listItem, ListItem listItem2, ListItem listItem3, boolean z) {
         int i;
         int i2;
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.niG.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.niL.getLayoutParams();
         if (listItem != null) {
-            int a2 = a(listItem, this.nih, z);
-            if (!this.nih.isShown()) {
-                if (this.nih.a(listItem, this.niO, false)) {
+            int a2 = a(listItem, this.nim, z);
+            if (!this.nim.isShown()) {
+                if (this.nim.a(listItem, this.niT, false)) {
                     int dip2px = a2 - tv.chushou.zues.utils.a.dip2px(this.e, 10.0f);
-                    this.nih.setVisibility(0);
+                    this.nim.setVisibility(0);
                     i = dip2px;
                 } else {
-                    this.nih.setVisibility(8);
+                    this.nim.setVisibility(8);
                     i = 0;
                 }
             } else {
@@ -281,29 +281,29 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
         int dip2px2 = tv.chushou.zues.utils.a.dip2px(this.e, 36.0f);
         int dip2px3 = tv.chushou.zues.utils.a.dip2px(this.e, 4.0f);
         if (listItem2 != null && !h.isEmpty(listItem2.mCover)) {
-            this.nii.a(listItem2, (FoodView.a) null, true, (String) null, dip2px2);
+            this.nin.a(listItem2, (FoodView.a) null, true, (String) null, dip2px2);
             i = Math.max(i, dip2px2 - dip2px3);
         } else {
-            this.nii.setVisibility(8);
+            this.nin.setVisibility(8);
         }
         if (listItem3 != null && !h.isEmpty(listItem3.mCover)) {
-            this.nij.a(listItem3, (FoodView.a) null, true, (String) null, dip2px2);
+            this.nio.a(listItem3, (FoodView.a) null, true, (String) null, dip2px2);
             i2 = Math.max(i, dip2px2 - dip2px3);
         } else {
-            this.nij.setVisibility(8);
+            this.nio.setVisibility(8);
             i2 = i;
         }
         layoutParams.height = i2 + tv.chushou.zues.utils.a.dip2px(this.e, 10.0f);
-        this.niG.setLayoutParams(layoutParams);
+        this.niL.setLayoutParams(layoutParams);
     }
 
     private int a(ListItem listItem, View view, boolean z) {
         int a2;
         Point he = tv.chushou.zues.utils.a.he(this.e);
         if (z) {
-            a2 = com.kascend.chushou.a.a.dAE().a(listItem, view, he.x, (he.x * 106) / 720, (he.x * 77) / 720);
+            a2 = com.kascend.chushou.a.a.dAG().a(listItem, view, he.x, (he.x * 106) / 720, (he.x * 77) / 720);
         } else {
-            a2 = com.kascend.chushou.a.a.dAE().a(listItem, view, he.x, (he.x * 106) / 1280, (he.x * 77) / 1280);
+            a2 = com.kascend.chushou.a.a.dAG().a(listItem, view, he.x, (he.x * 106) / 1280, (he.x * 77) / 1280);
         }
         if (a2 == 0) {
             if (z) {
@@ -316,16 +316,16 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
 
     @Override // com.kascend.chushou.widget.menu.KasBaseMenuView
     public void setMicMemberInfo(MicMemberInfo micMemberInfo) {
-        if (this.niI != null) {
-            this.niH = micMemberInfo;
+        if (this.niN != null) {
+            this.niM = micMemberInfo;
             if (micMemberInfo == null) {
-                this.niI.setVisibility(8);
+                this.niN.setVisibility(8);
                 return;
             }
-            this.niI.setVisibility(0);
-            this.niJ.i(micMemberInfo.avatar, com.kascend.chushou.view.a.a(micMemberInfo.gender), b.a.small, b.a.small);
-            this.niK.setText(getContext().getString(a.i.str_send_to_order, Integer.valueOf(micMemberInfo.order)));
-            this.niL.setText(micMemberInfo.nickname);
+            this.niN.setVisibility(0);
+            this.niO.i(micMemberInfo.avatar, com.kascend.chushou.view.a.a(micMemberInfo.gender), b.a.small, b.a.small);
+            this.niP.setText(getContext().getString(a.i.str_send_to_order, Integer.valueOf(micMemberInfo.order)));
+            this.niQ.setText(micMemberInfo.nickname);
         }
     }
 
@@ -336,41 +336,41 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     public void setGiftTopIcon(List<ListItem> list) {
         if (!h.isEmpty(list)) {
             if (list.size() == 1) {
-                this.nik.setVisibility(8);
+                this.nip.setVisibility(8);
                 ListItem listItem = list.get(0);
                 if (!h.isEmpty(listItem.mCover)) {
-                    this.nil.setTag(listItem);
-                    this.nil.setAnim(true);
-                    this.nil.a(listItem.mCover, 0, 0, 0, 1);
+                    this.niq.setTag(listItem);
+                    this.niq.setAnim(true);
+                    this.niq.a(listItem.mCover, 0, 0, 0, 1);
                 }
-                this.nil.setVisibility(0);
+                this.niq.setVisibility(0);
                 return;
             }
             ListItem listItem2 = list.get(0);
             if (!h.isEmpty(listItem2.mCover)) {
-                this.nil.setTag(listItem2);
-                this.nil.setAnim(true);
-                this.nil.a(listItem2.mCover, 0, 0, 0, 1);
+                this.niq.setTag(listItem2);
+                this.niq.setAnim(true);
+                this.niq.a(listItem2.mCover, 0, 0, 0, 1);
             }
-            this.nil.setVisibility(0);
+            this.niq.setVisibility(0);
             ListItem listItem3 = list.get(1);
             if (!h.isEmpty(listItem3.mCover)) {
-                this.nik.setTag(listItem3);
-                this.nik.setAnim(true);
-                this.nik.a(listItem3.mCover, 0, 0, 0, 1);
+                this.nip.setTag(listItem3);
+                this.nip.setAnim(true);
+                this.nip.a(listItem3.mCover, 0, 0, 0, 1);
             }
-            this.nik.setVisibility(0);
+            this.nip.setVisibility(0);
             return;
         }
-        this.nil.setVisibility(8);
-        this.nik.setVisibility(8);
+        this.niq.setVisibility(8);
+        this.nip.setVisibility(8);
     }
 
     public void a(boolean z, boolean z2) {
-        if (!h.isEmpty(this.nip)) {
+        if (!h.isEmpty(this.niu)) {
             this.B = z2;
             this.C = z;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.nim.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.nir.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.aQb.getLayoutParams();
             if (this.B) {
                 layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.e, 170.0f);
@@ -379,9 +379,9 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                 layoutParams.height = tv.chushou.zues.utils.a.dip2px(this.e, 95.0f);
                 layoutParams2.height = tv.chushou.zues.utils.a.dip2px(this.e, 129.0f);
             }
-            this.nim.setLayoutParams(layoutParams);
+            this.nir.setLayoutParams(layoutParams);
             this.aQb.setLayoutParams(layoutParams2);
-            if (!(this.niD.getChildAt(0) instanceof f)) {
+            if (!(this.niI.getChildAt(0) instanceof f)) {
                 f.a aVar = new f.a() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.13
                     @Override // com.kascend.chushou.widget.gifts.f.a
                     public void a(View view, Object obj, int i, int i2) {
@@ -394,12 +394,12 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                     }
                 };
                 if (this.B || this.C) {
-                    this.niF = new f(this.e, 0, aVar, this.n, 5);
+                    this.niK = new f(this.e, 0, aVar, this.n, 5);
                 } else {
-                    this.niF = new f(this.e, 0, aVar, this.n, 8);
+                    this.niK = new f(this.e, 0, aVar, this.n, 8);
                 }
-                this.niF.setSearchPresenter(new com.kascend.chushou.widget.gifts.c(this.n));
-                this.niD.addView(this.niF, 0);
+                this.niK.setSearchPresenter(new com.kascend.chushou.widget.gifts.c(this.n));
+                this.niI.addView(this.niK, 0);
             }
             f();
         }
@@ -413,7 +413,7 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
         VerticalRoomGiftView verticalRoomGiftView;
         VerticalRoomGiftView verticalRoomGiftView2;
         TextView textView;
-        if (!h.isEmpty(this.nip)) {
+        if (!h.isEmpty(this.niu)) {
             if (this.c == null) {
                 this.c = new ArrayList<>();
             }
@@ -421,16 +421,16 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                 this.d = new ArrayList<>();
             }
             int size = this.c.size();
-            int size2 = size - this.nip.size();
+            int size2 = size - this.niu.size();
             for (int i2 = 0; i2 < size2; i2++) {
-                this.nim.removeView(this.c.get((size - 1) - i2));
-                this.nin.removeView(this.d.get((size - 1) - i2));
+                this.nir.removeView(this.c.get((size - 1) - i2));
+                this.nis.removeView(this.d.get((size - 1) - i2));
             }
             for (int i3 = 0; i3 < size2; i3++) {
                 this.c.remove((size - 1) - i3);
                 this.d.remove((size - 1) - i3);
             }
-            for (final int i4 = 0; i4 < this.nip.size(); i4++) {
+            for (final int i4 = 0; i4 < this.niu.size(); i4++) {
                 if (i4 < this.c.size()) {
                     verticalRoomGiftView2 = this.c.get(i4);
                     textView = this.d.get(i4);
@@ -442,20 +442,20 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                     } else {
                         verticalRoomGiftView = new VerticalRoomGiftView(this.e, 8);
                     }
-                    TextView dDs = dDs();
+                    TextView dDu = dDu();
                     this.c.add(verticalRoomGiftView);
-                    this.nim.addView(verticalRoomGiftView);
-                    this.d.add(dDs);
-                    this.nin.addView(dDs);
+                    this.nir.addView(verticalRoomGiftView);
+                    this.d.add(dDu);
+                    this.nis.addView(dDu);
                     verticalRoomGiftView2 = verticalRoomGiftView;
-                    textView = dDs;
+                    textView = dDu;
                 }
-                GeneralTabGift generalTabGift = this.nip.get(i4);
+                GeneralTabGift generalTabGift = this.niu.get(i4);
                 verticalRoomGiftView2.setViewListener(new BaseGiftView.a() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.14
                     @Override // com.kascend.chushou.widget.gifts.BaseGiftView.a
                     public void a(int i5) {
-                        if (RoomSendGiftView.this.nip != null && i5 < RoomSendGiftView.this.nip.size()) {
-                            RoomSendGiftView.this.nip.remove(i5);
+                        if (RoomSendGiftView.this.niu != null && i5 < RoomSendGiftView.this.niu.size()) {
+                            RoomSendGiftView.this.niu.remove(i5);
                             RoomSendGiftView.this.f();
                         }
                     }
@@ -471,14 +471,14 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                         }
                         RoomSendGiftView.this.o = view;
                         RoomSendGiftView.this.p = i5;
-                        RoomSendGiftView.this.nig = (GeneralGift) obj;
+                        RoomSendGiftView.this.nil = (GeneralGift) obj;
                         GiftPanelStatus giftPanelStatus = (GiftPanelStatus) RoomSendGiftView.this.F.get(str);
                         if (giftPanelStatus == null) {
                             giftPanelStatus = new GiftPanelStatus();
                         }
                         giftPanelStatus.mGeneralGiftSelectPos = RoomSendGiftView.this.p;
                         giftPanelStatus.mGeneralGiftView = RoomSendGiftView.this.o;
-                        giftPanelStatus.mSelectGiftObj = RoomSendGiftView.this.nig;
+                        giftPanelStatus.mSelectGiftObj = RoomSendGiftView.this.nil;
                         giftPanelStatus.mGiftTabName = str;
                         RoomSendGiftView.this.F.put(str, giftPanelStatus);
                     }
@@ -509,8 +509,8 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
             }
             if (!h.isEmpty(this.s)) {
                 i = 0;
-                while (i < this.nip.size()) {
-                    if (this.s.equals(this.nip.get(i).mName)) {
+                while (i < this.niu.size()) {
+                    if (this.s.equals(this.niu.get(i).mName)) {
                         break;
                     }
                     i++;
@@ -518,8 +518,8 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
             }
             i = 0;
             b(i);
-            if (this.nim != null) {
-                this.nim.a(i, false);
+            if (this.nir != null) {
+                this.nir.a(i, false);
             }
         }
     }
@@ -529,13 +529,13 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
         ListItem listItem = new ListItem();
         switch (generalGift.mType) {
             case 94:
-                if (this.niz != null) {
+                if (this.niE != null) {
                     ConfigDetail configDetail = new ConfigDetail();
                     configDetail.mType = "94";
                     configDetail.mUrl = generalGift.mUrl;
                     configDetail.mLandscape = generalGift.mLandscape;
                     configDetail.mPortrait = generalGift.mPortrait;
-                    this.niz.b(configDetail);
+                    this.niE.b(configDetail);
                     return;
                 }
                 return;
@@ -553,7 +553,7 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
         com.kascend.chushou.d.e.a(getContext(), listItem, (JSONObject) null);
     }
 
-    private TextView dDs() {
+    private TextView dDu() {
         TextView textView = new TextView(this.e);
         textView.setId(a.f.gift_tab);
         textView.setGravity(17);
@@ -577,12 +577,12 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                     b(baseGiftView.getCurObj());
                 }
                 this.r = i2;
-                if (!h.isEmpty(this.nip) && i2 < this.nip.size()) {
-                    this.s = this.nip.get(i2).mName;
+                if (!h.isEmpty(this.niu) && i2 < this.niu.size()) {
+                    this.s = this.niu.get(i2).mName;
                 }
                 this.o = baseGiftView.getCurGiftView();
                 this.p = baseGiftView.getCurSelectPos();
-                this.nig = baseGiftView.getCurObj();
+                this.nil = baseGiftView.getCurObj();
             }
         }
         for (int i3 = 0; i3 < this.d.size(); i3++) {
@@ -604,12 +604,12 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                         b(baseGiftView.getCurObj());
                     }
                     this.r = i;
-                    if (!h.isEmpty(this.nip) && i < this.nip.size()) {
-                        this.s = this.nip.get(i).mName;
+                    if (!h.isEmpty(this.niu) && i < this.niu.size()) {
+                        this.s = this.niu.get(i).mName;
                     }
                     this.o = baseGiftView.getCurGiftView();
                     this.p = baseGiftView.getCurSelectPos();
-                    this.nig = baseGiftView.getCurObj();
+                    this.nil = baseGiftView.getCurObj();
                 }
             }
             for (int i2 = 0; i2 < this.d.size(); i2++) {
@@ -620,8 +620,8 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                     textView.setTextColor(this.e.getResources().getColor(a.c.download_content_color));
                 }
             }
-            if (this.nim != null) {
-                this.nim.a(this.r, true);
+            if (this.nir != null) {
+                this.nir.a(this.r, true);
             }
         }
     }
@@ -639,12 +639,12 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     }
 
     public void b() {
-        String e = com.kascend.chushou.d.h.dAK().e();
-        String f = com.kascend.chushou.d.h.dAK().f();
-        final int g = com.kascend.chushou.d.h.dAK().g();
+        String e = com.kascend.chushou.d.h.dAM().e();
+        String f = com.kascend.chushou.d.h.dAM().f();
+        final int g = com.kascend.chushou.d.h.dAM().g();
         if (LoginManager.Instance().islogined()) {
             a(e, f, g);
-            com.kascend.chushou.c.c.dAG().c(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.2
+            com.kascend.chushou.c.c.dAI().c(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.2
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -652,35 +652,35 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                 @Override // com.kascend.chushou.c.b
                 public void a(String str, JSONObject jSONObject) {
                     if (RoomSendGiftView.this.e != null && !((VideoPlayer) RoomSendGiftView.this.e).isFinishing()) {
-                        RoomSendGiftView.this.a(com.kascend.chushou.d.h.dAK().e(), com.kascend.chushou.d.h.dAK().f(), g);
+                        RoomSendGiftView.this.a(com.kascend.chushou.d.h.dAM().e(), com.kascend.chushou.d.h.dAM().f(), g);
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
                             List<GeneralTabGift> a2 = com.kascend.chushou.c.f.a(optJSONObject);
-                            if (RoomSendGiftView.this.nif != null && !h.isEmpty(a2)) {
-                                RoomSendGiftView.this.niq.clear();
-                                RoomSendGiftView.this.niq.addAll(a2);
-                                RxExecutor.post(RoomSendGiftView.this.mZv, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.2.1
+                            if (RoomSendGiftView.this.nik != null && !h.isEmpty(a2)) {
+                                RoomSendGiftView.this.niv.clear();
+                                RoomSendGiftView.this.niv.addAll(a2);
+                                RxExecutor.post(RoomSendGiftView.this.mZA, EventThread.MAIN_THREAD, new Runnable() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.2.1
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         if (RoomSendGiftView.this.e != null) {
                                             synchronized (RoomSendGiftView.class) {
-                                                RoomSendGiftView.this.nif.mGeneralTabGifts.clear();
-                                                RoomSendGiftView.this.nif.mGeneralTabGifts.addAll(RoomSendGiftView.this.niq);
-                                                if (RoomSendGiftView.this.nip == null) {
-                                                    RoomSendGiftView.this.nip = new ArrayList();
+                                                RoomSendGiftView.this.nik.mGeneralTabGifts.clear();
+                                                RoomSendGiftView.this.nik.mGeneralTabGifts.addAll(RoomSendGiftView.this.niv);
+                                                if (RoomSendGiftView.this.niu == null) {
+                                                    RoomSendGiftView.this.niu = new ArrayList();
                                                 }
-                                                RoomSendGiftView.this.nip.clear();
-                                                RoomSendGiftView.this.nip.addAll(RoomSendGiftView.this.niq);
+                                                RoomSendGiftView.this.niu.clear();
+                                                RoomSendGiftView.this.niu.addAll(RoomSendGiftView.this.niv);
                                                 RoomSendGiftView.this.U = true;
-                                                if (!h.isEmpty(RoomSendGiftView.this.niA)) {
-                                                    Iterator it = RoomSendGiftView.this.nip.iterator();
+                                                if (!h.isEmpty(RoomSendGiftView.this.niF)) {
+                                                    Iterator it = RoomSendGiftView.this.niu.iterator();
                                                     while (true) {
                                                         if (!it.hasNext()) {
                                                             break;
                                                         }
                                                         GeneralTabGift generalTabGift = (GeneralTabGift) it.next();
                                                         if (generalTabGift.mFrequentlyUsedTab) {
-                                                            generalTabGift.mGeneralGifts.addAll(RoomSendGiftView.this.niA);
+                                                            generalTabGift.mGeneralGifts.addAll(RoomSendGiftView.this.niF);
                                                             break;
                                                         }
                                                     }
@@ -712,23 +712,23 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     @Override // com.kascend.chushou.widget.menu.KasBaseMenuView
     protected void d() {
         h();
-        this.niA.clear();
+        this.niF.clear();
         this.U = false;
         b();
         getCommonlyGift();
     }
 
     private void getCommonlyGift() {
-        List<Integer> dAO = com.kascend.chushou.d.h.dAK().dAO();
-        if (!h.isEmpty(dAO)) {
+        List<Integer> dAQ = com.kascend.chushou.d.h.dAM().dAQ();
+        if (!h.isEmpty(dAQ)) {
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < dAO.size(); i++) {
-                sb.append(dAO.get(i));
-                if (i != dAO.size() - 1) {
+            for (int i = 0; i < dAQ.size(); i++) {
+                sb.append(dAQ.get(i));
+                if (i != dAQ.size() - 1) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
             }
-            com.kascend.chushou.c.c.dAG().d(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.3
+            com.kascend.chushou.c.c.dAI().d(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.3
                 @Override // com.kascend.chushou.c.b
                 public void a() {
                 }
@@ -740,7 +740,7 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                         List<GeneralGift> a2 = com.kascend.chushou.c.f.a(jSONObject, RoomSendGiftView.this.b.getResources().getString(a.i.str_commonly));
                         if (!h.isEmpty(a2)) {
                             if (!RoomSendGiftView.this.U) {
-                                RoomSendGiftView.this.niA.addAll(a2);
+                                RoomSendGiftView.this.niF.addAll(a2);
                             } else {
                                 if (RoomSendGiftView.this.c != null) {
                                     Iterator<BaseGiftView> it = RoomSendGiftView.this.c.iterator();
@@ -755,7 +755,7 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                                 verticalRoomGiftView = null;
                                 if (verticalRoomGiftView != null) {
                                     int tabIndex = verticalRoomGiftView.getTabIndex();
-                                    GeneralTabGift generalTabGift = (GeneralTabGift) RoomSendGiftView.this.nip.get(tabIndex);
+                                    GeneralTabGift generalTabGift = (GeneralTabGift) RoomSendGiftView.this.niu.get(tabIndex);
                                     generalTabGift.mGeneralGifts.addAll(a2);
                                     verticalRoomGiftView.a((ArrayList) generalTabGift.mGeneralGifts, h.isEmpty(RoomSendGiftView.this.n) ? "" : RoomSendGiftView.this.n, tabIndex, true);
                                 }
@@ -766,10 +766,10 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                                     arrayList.add(Integer.valueOf(generalGift.mId));
                                 }
                             }
-                            com.kascend.chushou.d.h.dAK().b(arrayList);
+                            com.kascend.chushou.d.h.dAM().b(arrayList);
                             return;
                         }
-                        com.kascend.chushou.d.h.dAK().b(new ArrayList());
+                        com.kascend.chushou.d.h.dAM().b(new ArrayList());
                     }
                 }
 
@@ -786,20 +786,20 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
             tv.chushou.zues.a.a.post(new com.kascend.chushou.widget.gifts.a.a(this.n, false));
             return;
         }
-        if (this.niF != null) {
-            this.niF.a();
+        if (this.niK != null) {
+            this.niK.a();
             c(2);
-            this.mXu.setText("");
+            this.mXz.setText("");
         }
         k();
-        if (this.nih != null) {
-            this.nih.a();
+        if (this.nim != null) {
+            this.nim.a();
         }
-        if (this.nii != null) {
-            this.nii.a();
+        if (this.nin != null) {
+            this.nin.a();
         }
-        if (this.nij != null) {
-            this.nij.a();
+        if (this.nio != null) {
+            this.nio.a();
         }
         super.e();
         a();
@@ -810,9 +810,9 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
 
     public void a(FullRoomInfo fullRoomInfo) {
         if (fullRoomInfo != null) {
-            this.nif = fullRoomInfo;
+            this.nik = fullRoomInfo;
             if (fullRoomInfo.mRoominfo != null) {
-                this.nip = fullRoomInfo.mGeneralTabGifts;
+                this.niu = fullRoomInfo.mGeneralTabGifts;
                 this.n = fullRoomInfo.mRoominfo.mRoomID;
             }
         }
@@ -821,11 +821,11 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2, GeneralGift generalGift, GeneralGift generalGift2) {
         boolean z;
-        if (generalGift != null && !h.isEmpty(this.nip)) {
+        if (generalGift != null && !h.isEmpty(this.niu)) {
             int i3 = 0;
             boolean z2 = false;
-            while (i3 < this.nip.size()) {
-                GeneralTabGift generalTabGift = this.nip.get(i3);
+            while (i3 < this.niu.size()) {
+                GeneralTabGift generalTabGift = this.niu.get(i3);
                 int i4 = 0;
                 while (true) {
                     if (i4 >= generalTabGift.mGeneralGifts.size()) {
@@ -859,28 +859,28 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
 
     private void i() {
         j();
-        if (this.nig != null) {
+        if (this.nil != null) {
             String str = null;
             if (this.e instanceof VideoPlayer) {
-                str = com.kascend.chushou.d.e.a(((VideoPlayer) this.e).dAV().h, "_fromView", com.tencent.connect.common.Constants.VIA_REPORT_TYPE_START_WAP, "_fromPos", "11");
+                str = com.kascend.chushou.d.e.a(((VideoPlayer) this.e).dAX().h, "_fromView", com.tencent.connect.common.Constants.VIA_REPORT_TYPE_START_WAP, "_fromPos", "11");
             }
             if (com.kascend.chushou.d.e.c(this.e, str)) {
                 int i = this.p;
-                GeneralGift generalGift = this.nig;
+                GeneralGift generalGift = this.nil;
                 View view = this.o;
                 if (i >= 0 && generalGift != null && view != null) {
-                    if (this.nio != null) {
-                        this.nio.a(view, generalGift.mIcon);
+                    if (this.nit != null) {
+                        this.nit.a(view, generalGift.mIcon);
                     }
                     String str2 = null;
                     if (this.e instanceof VideoPlayer) {
-                        str2 = ((VideoPlayer) this.e).dAV().h;
+                        str2 = ((VideoPlayer) this.e).dAX().h;
                     }
-                    if (this.nif != null && this.nif.mRoominfo != null) {
+                    if (this.nik != null && this.nik.mRoominfo != null) {
                         if (generalGift.mType == 2) {
                             long j = 1;
                             if (generalGift.mSupportBatch) {
-                                j = h.parseLong(this.nit.getText().toString());
+                                j = h.parseLong(this.niy.getText().toString());
                             }
                             if (j < 1) {
                                 j = 1;
@@ -895,8 +895,8 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                                     JSONObject optJSONObject;
                                     GeneralGift generalGift2;
                                     if (RoomSendGiftView.this.e != null && !((VideoPlayer) RoomSendGiftView.this.e).isFinishing() && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                                        if (RoomSendGiftView.this.niN != null) {
-                                            RoomSendGiftView.this.niN.B();
+                                        if (RoomSendGiftView.this.niS != null) {
+                                            RoomSendGiftView.this.niS.B();
                                         }
                                         GeneralGift dM = com.kascend.chushou.c.f.dM(optJSONObject.optJSONObject("generalGift"));
                                         int optInt = jSONObject.optInt("pos");
@@ -922,24 +922,24 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                                     }
                                 }
                             };
-                            if (this.niH != null && this.niI.getVisibility() == 0) {
-                                com.kascend.chushou.c.c.dAG().a(bVar, String.valueOf(generalGift.mActionType), String.valueOf(generalGift.mId), this.nif.mRoominfo.mRoomID, this.niH.uid, this.niH.micRoomId, str2, this.r, this.p, this.nig, j);
+                            if (this.niM != null && this.niN.getVisibility() == 0) {
+                                com.kascend.chushou.c.c.dAI().a(bVar, String.valueOf(generalGift.mActionType), String.valueOf(generalGift.mId), this.nik.mRoominfo.mRoomID, this.niM.uid, this.niM.micRoomId, str2, this.r, this.p, this.nil, j);
                             } else {
-                                com.kascend.chushou.c.c.dAG().a(bVar, String.valueOf(generalGift.mActionType), String.valueOf(generalGift.mId), this.nif.mRoominfo.mRoomID, str2, this.r, this.p, this.nig, j);
+                                com.kascend.chushou.c.c.dAI().a(bVar, String.valueOf(generalGift.mActionType), String.valueOf(generalGift.mId), this.nik.mRoominfo.mRoomID, str2, this.r, this.p, this.nil, j);
                             }
-                            com.kascend.chushou.toolkit.a.a.j("type", "4", "_clickPos", "29", "giftId", Integer.valueOf(generalGift.mId), "roomId", this.nif.mRoominfo.mRoomID);
+                            com.kascend.chushou.toolkit.a.a.j("type", "4", "_clickPos", "29", "giftId", Integer.valueOf(generalGift.mId), "roomId", this.nik.mRoominfo.mRoomID);
                             return;
                         }
                         int i2 = generalGift.mPoint;
                         long j2 = 1;
                         if (generalGift.mSupportBatch) {
-                            j2 = h.parseLong(this.nit.getText().toString());
+                            j2 = h.parseLong(this.niy.getText().toString());
                         }
                         if (j2 < 1) {
                             j2 = 1;
                         }
                         a(i2, String.valueOf(generalGift.mId), str2, j2, this.V);
-                        com.kascend.chushou.toolkit.a.a.j("type", "4", "_clickPos", "29", "giftId", Integer.valueOf(generalGift.mId), "roomId", this.nif.mRoominfo.mRoomID);
+                        com.kascend.chushou.toolkit.a.a.j("type", "4", "_clickPos", "29", "giftId", Integer.valueOf(generalGift.mId), "roomId", this.nik.mRoominfo.mRoomID);
                     }
                 }
             }
@@ -949,15 +949,15 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     private void j() {
         BaseGiftView baseGiftView;
         if (this.aQb.getVisibility() == 0) {
-            this.o = this.niF.b;
-            this.p = this.niF.d;
-            this.nig = this.niF.mOk;
+            this.o = this.niK.b;
+            this.p = this.niK.d;
+            this.nil = this.niK.mOp;
             this.V = true;
         } else if (this.c != null && this.r < this.c.size() && (baseGiftView = this.c.get(this.r)) != null) {
             baseGiftView.a();
             this.o = baseGiftView.getCurGiftView();
             this.p = baseGiftView.getCurSelectPos();
-            this.nig = baseGiftView.getCurObj();
+            this.nil = baseGiftView.getCurObj();
             this.V = baseGiftView.b();
         }
     }
@@ -972,15 +972,15 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
             public void callSuccess(String str3, JSONObject jSONObject) {
                 JSONObject optJSONObject;
                 if (RoomSendGiftView.this.e != null && !((VideoPlayer) RoomSendGiftView.this.e).isFinishing()) {
-                    if (RoomSendGiftView.this.niN != null) {
-                        RoomSendGiftView.this.niN.A();
+                    if (RoomSendGiftView.this.niS != null) {
+                        RoomSendGiftView.this.niS.A();
                     }
-                    RoomSendGiftView.this.a(com.kascend.chushou.d.h.dAK().e(), com.kascend.chushou.d.h.dAK().f(), com.kascend.chushou.d.h.dAK().g());
-                    if (RoomSendGiftView.this.nir != null && RoomSendGiftView.this.nir.getDialog().isShowing()) {
-                        RoomSendGiftView.this.nir.dismissAllowingStateLoss();
+                    RoomSendGiftView.this.a(com.kascend.chushou.d.h.dAM().e(), com.kascend.chushou.d.h.dAM().f(), com.kascend.chushou.d.h.dAM().g());
+                    if (RoomSendGiftView.this.niw != null && RoomSendGiftView.this.niw.getDialog().isShowing()) {
+                        RoomSendGiftView.this.niw.dismissAllowingStateLoss();
                     }
                     if (z) {
-                        com.kascend.chushou.d.h.dAK().c(h.parseInt(str));
+                        com.kascend.chushou.d.h.dAM().c(h.parseInt(str));
                     }
                     JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
                     if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("h5Tips")) != null) {
@@ -1009,14 +1009,14 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                                 str5 = "";
                             }
                         }
-                        if (!RoomSendGiftView.this.C || TextUtils.isEmpty(str5) || RoomSendGiftView.this.nip == null) {
+                        if (!RoomSendGiftView.this.C || TextUtils.isEmpty(str5) || RoomSendGiftView.this.niu == null) {
                             g.c(RoomSendGiftView.this.e, RoomSendGiftView.this.e.getString(a.i.no_loyal_fans));
                             return;
                         }
                         int i3 = 0;
                         boolean z3 = false;
-                        while (i3 < RoomSendGiftView.this.nip.size()) {
-                            GeneralTabGift generalTabGift = (GeneralTabGift) RoomSendGiftView.this.nip.get(i3);
+                        while (i3 < RoomSendGiftView.this.niu.size()) {
+                            GeneralTabGift generalTabGift = (GeneralTabGift) RoomSendGiftView.this.niu.get(i3);
                             int i4 = 0;
                             while (true) {
                                 if (i4 >= generalTabGift.mGeneralGifts.size()) {
@@ -1026,10 +1026,10 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                                     i4++;
                                 } else {
                                     GeneralGift generalGift = generalTabGift.mGeneralGifts.get(i4);
-                                    if (RoomSendGiftView.this.nir == null || RoomSendGiftView.this.nir.getDialog() == null || !RoomSendGiftView.this.nir.getDialog().isShowing()) {
-                                        RoomSendGiftView.this.nir = com.kascend.chushou.view.b.c.d(String.valueOf(generalGift.mId), generalGift.mPoint, generalGift.mIcon, RoomSendGiftView.this.nif.mRoominfo.mRoomID);
-                                        RoomSendGiftView.this.nir.a((c.a) RoomSendGiftView.this);
-                                        RoomSendGiftView.this.nir.show(((VideoPlayer) RoomSendGiftView.this.e).getSupportFragmentManager(), "SendLoyalFansDialog");
+                                    if (RoomSendGiftView.this.niw == null || RoomSendGiftView.this.niw.getDialog() == null || !RoomSendGiftView.this.niw.getDialog().isShowing()) {
+                                        RoomSendGiftView.this.niw = com.kascend.chushou.view.b.c.d(String.valueOf(generalGift.mId), generalGift.mPoint, generalGift.mIcon, RoomSendGiftView.this.nik.mRoominfo.mRoomID);
+                                        RoomSendGiftView.this.niw.a((c.a) RoomSendGiftView.this);
+                                        RoomSendGiftView.this.niw.show(((VideoPlayer) RoomSendGiftView.this.e).getSupportFragmentManager(), "SendLoyalFansDialog");
                                         RoomSendGiftView.this.e();
                                     }
                                     z2 = true;
@@ -1057,10 +1057,10 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                 }
             }
         };
-        if (this.niH != null && this.niI.getVisibility() == 0) {
-            com.kascend.chushou.c.c.dAG().a(jsonCallbackWrapper, this.niH.uid, str, this.niH.micRoomId, str2, j);
+        if (this.niM != null && this.niN.getVisibility() == 0) {
+            com.kascend.chushou.c.c.dAI().a(jsonCallbackWrapper, this.niM.uid, str, this.niM.micRoomId, str2, j);
         } else {
-            com.kascend.chushou.c.c.dAG().a(jsonCallbackWrapper, this.nif.mRoominfo.mRoomID, str, str2, j);
+            com.kascend.chushou.c.c.dAI().a(jsonCallbackWrapper, this.nik.mRoominfo.mRoomID, str, str2, j);
         }
     }
 
@@ -1069,7 +1069,7 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
         if (!TextUtils.isEmpty(str) && com.kascend.chushou.d.e.c(this.e, null)) {
             String str2 = "";
             if (this.e instanceof VideoPlayer) {
-                str2 = ((VideoPlayer) this.e).dAV().h;
+                str2 = ((VideoPlayer) this.e).dAX().h;
             }
             a(i, str, str2, 1L, false);
         }
@@ -1079,7 +1079,7 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         if (getContext() instanceof a) {
-            this.niN = (a) getContext();
+            this.niS = (a) getContext();
         }
         tv.chushou.zues.a.a.register(this);
     }
@@ -1087,17 +1087,17 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kascend.chushou.widget.menu.KasBaseMenuView, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        this.niN = null;
-        this.mZv.dispose();
+        this.niS = null;
+        this.mZA.dispose();
         super.onDetachedFromWindow();
         this.j = null;
         this.k = null;
         this.l = null;
         this.m = null;
-        this.nif = null;
-        this.nio = null;
+        this.nik = null;
+        this.nit = null;
         this.b = null;
-        this.nim = null;
+        this.nir = null;
         if (this.c != null) {
             this.c.clear();
             this.c = null;
@@ -1106,18 +1106,18 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
             this.d.clear();
             this.d = null;
         }
-        this.nig = null;
+        this.nil = null;
         this.p = -1;
         this.o = null;
         this.r = 0;
         this.s = null;
         this.F.clear();
-        if (this.niq != null) {
-            this.niq.clear();
-            this.niq = null;
+        if (this.niv != null) {
+            this.niv.clear();
+            this.niv = null;
         }
-        if (this.niy != null) {
-            this.niy.dispose();
+        if (this.niD != null) {
+            this.niD.dispose();
         }
         tv.chushou.zues.a.a.cq(this);
     }
@@ -1127,19 +1127,19 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
         JSONObject M = com.kascend.chushou.d.e.M("_fromView", com.tencent.connect.common.Constants.VIA_ACT_TYPE_NINETEEN);
         int id = view.getId();
         if (id == a.f.iv_gift_top_icon_two) {
-            if (this.e != null && this.nik != null && this.nik.getTag() != null && (this.nik.getTag() instanceof ListItem)) {
-                com.kascend.chushou.d.e.a(this.e, (ListItem) this.nik.getTag(), M);
+            if (this.e != null && this.nip != null && this.nip.getTag() != null && (this.nip.getTag() instanceof ListItem)) {
+                com.kascend.chushou.d.e.a(this.e, (ListItem) this.nip.getTag(), M);
             }
         } else if (id == a.f.iv_gift_top_icon_one) {
-            if (this.e != null && this.nil != null && this.nil.getTag() != null && (this.nil.getTag() instanceof ListItem)) {
-                com.kascend.chushou.d.e.a(this.e, (ListItem) this.nil.getTag(), M);
+            if (this.e != null && this.niq != null && this.niq.getTag() != null && (this.niq.getTag() instanceof ListItem)) {
+                com.kascend.chushou.d.e.a(this.e, (ListItem) this.niq.getTag(), M);
             }
         } else if (id == a.f.recharge) {
             HashMap hashMap = new HashMap();
             hashMap.put("_fromView", com.tencent.connect.common.Constants.VIA_REPORT_TYPE_START_WAP);
             hashMap.put("_fromPos", "33");
-            if (this.nif != null && this.nif.mRoominfo != null) {
-                hashMap.put("roomId", this.nif.mRoominfo.mRoomID);
+            if (this.nik != null && this.nik.mRoominfo != null) {
+                hashMap.put("roomId", this.nik.mRoominfo.mRoomID);
             }
             com.kascend.chushou.d.a.c(this.e, tv.chushou.zues.utils.d.toJson(hashMap));
         } else if (id == a.f.gift_tab) {
@@ -1149,46 +1149,46 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
         } else if (id == a.f.tv_noble_coin) {
             com.kascend.chushou.d.e.a(this.e, com.kascend.chushou.c.c.a(47));
         } else if (id == a.f.rl_gift_count) {
-            if (this.niu == null) {
-                this.niu = new com.kascend.chushou.widget.gifts.b(getContext(), this);
-                this.niu.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.6
+            if (this.niz == null) {
+                this.niz = new com.kascend.chushou.widget.gifts.b(getContext(), this);
+                this.niz.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.6
                     @Override // android.widget.PopupWindow.OnDismissListener
                     public void onDismiss() {
-                        RoomSendGiftView.this.nis.setImageResource(a.e.icon_arrow_red_up);
+                        RoomSendGiftView.this.nix.setImageResource(a.e.icon_arrow_red_up);
                     }
                 });
             }
             int[] iArr = new int[2];
-            this.niv.getLocationOnScreen(iArr);
-            this.nis.setImageResource(a.e.icon_arrow_red_down);
-            this.niu.showAtLocation(this.niv, 0, iArr[0] + ((this.niv.getWidth() - this.niu.getWidth()) / 2), (iArr[1] - this.niu.getHeight()) + 20);
+            this.niA.getLocationOnScreen(iArr);
+            this.nix.setImageResource(a.e.icon_arrow_red_down);
+            this.niz.showAtLocation(this.niA, 0, iArr[0] + ((this.niA.getWidth() - this.niz.getWidth()) / 2), (iArr[1] - this.niz.getHeight()) + 20);
         } else if (id == a.f.btn_present_single || id == a.f.btn_present) {
-            if (this.niw.getVisibility() != 0) {
+            if (this.niB.getVisibility() != 0) {
                 j();
-                if (this.nig != null && this.nig.mComboExpiryTime != 0) {
-                    a(this.nig.mComboExpiryTime);
+                if (this.nil != null && this.nil.mComboExpiryTime != 0) {
+                    a(this.nil.mComboExpiryTime);
                     m();
                 }
             }
             i();
         } else if (id == a.f.btn_combo) {
-            a(this.nig.mComboExpiryTime);
+            a(this.nil.mComboExpiryTime);
             i();
         } else if (id == a.f.tv_emoji_search || id == a.f.rl_gift_emoji_search_edit_bar) {
-            if (this.niz != null) {
+            if (this.niE != null) {
                 setVisibility(8);
-                this.niz.a(true, false);
+                this.niE.a(true, false);
             }
         } else if (id == a.f.iv_emoji_delete) {
-            if (this.niz != null) {
+            if (this.niE != null) {
                 setVisibility(8);
-                this.niz.a(true, true);
+                this.niE.a(true, true);
             }
         } else if (id == a.f.btn_search) {
-            a(this.mXu.getText().toString());
+            a(this.mXz.getText().toString());
         } else if (id == a.f.tv_mic_user_info) {
-            if (this.niH != null) {
-                com.kascend.chushou.d.a.a(this.e, (JSONObject) null, this.n, this.niH.uid, LoginManager.Instance().getUserInfo() != null ? String.valueOf(LoginManager.Instance().getUserInfo().mUserID) : "", false);
+            if (this.niM != null) {
+                com.kascend.chushou.d.a.a(this.e, (JSONObject) null, this.n, this.niM.uid, LoginManager.Instance().getUserInfo() != null ? String.valueOf(LoginManager.Instance().getUserInfo().mUserID) : "", false);
             }
         } else {
             super.onClick(view);
@@ -1197,7 +1197,7 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(GeneralGift generalGift) {
-        this.nit.setText(a.i.str_one);
+        this.niy.setText(a.i.str_one);
         k();
         if (generalGift != null) {
             if (generalGift.mSupportBatch) {
@@ -1221,19 +1221,19 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     }
 
     private void a(long j) {
-        this.nix = 10 * j;
-        this.ncG.setText(String.valueOf(this.nix));
-        if (this.niy != null) {
-            this.niy.dispose();
+        this.niC = 10 * j;
+        this.ncL.setText(String.valueOf(this.niC));
+        if (this.niD != null) {
+            this.niD.dispose();
         }
-        this.niy = io.reactivex.g.a(0L, this.nix, 100L, 100L, TimeUnit.MILLISECONDS).a(io.reactivex.a.b.a.dHX()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.7
+        this.niD = io.reactivex.g.a(0L, this.niC, 100L, 100L, TimeUnit.MILLISECONDS).a(io.reactivex.a.b.a.dHZ()).b(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // io.reactivex.c.g
             /* renamed from: a */
             public void accept(Long l) throws Exception {
                 RoomSendGiftView.W(RoomSendGiftView.this);
-                if (RoomSendGiftView.this.nix > 0) {
-                    RoomSendGiftView.this.ncG.setText(String.valueOf(RoomSendGiftView.this.nix));
+                if (RoomSendGiftView.this.niC > 0) {
+                    RoomSendGiftView.this.ncL.setText(String.valueOf(RoomSendGiftView.this.niC));
                 } else {
                     RoomSendGiftView.this.l();
                 }
@@ -1242,9 +1242,9 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     }
 
     private void k() {
-        if (this.niw != null && this.niw.getVisibility() == 0) {
-            if (this.niy != null) {
-                this.niy.dispose();
+        if (this.niB != null && this.niB.getVisibility() == 0) {
+            if (this.niD != null) {
+                this.niD.dispose();
             }
             l();
         }
@@ -1252,12 +1252,12 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l() {
-        this.niw.startAnimation(AnimationUtils.loadAnimation(getContext(), a.C0682a.anim_bottom_right_out));
-        this.niw.postDelayed(new Runnable() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.8
+        this.niB.startAnimation(AnimationUtils.loadAnimation(getContext(), a.C0682a.anim_bottom_right_out));
+        this.niB.postDelayed(new Runnable() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.8
             @Override // java.lang.Runnable
             public void run() {
-                if (RoomSendGiftView.this.niw != null) {
-                    RoomSendGiftView.this.niw.setVisibility(8);
+                if (RoomSendGiftView.this.niB != null) {
+                    RoomSendGiftView.this.niB.setVisibility(8);
                 }
             }
         }, 200L);
@@ -1265,8 +1265,8 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
 
     private void m() {
         Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0682a.anim_bottom_right_in);
-        this.niw.setVisibility(0);
-        this.niw.startAnimation(loadAnimation);
+        this.niB.setVisibility(0);
+        this.niB.startAnimation(loadAnimation);
     }
 
     @Override // com.kascend.chushou.widget.gifts.b.a
@@ -1277,7 +1277,7 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
                 aVar.a(new a.InterfaceC0716a() { // from class: com.kascend.chushou.widget.gifts.RoomSendGiftView.9
                     @Override // com.kascend.chushou.widget.gifts.a.InterfaceC0716a
                     public void a(int i2) {
-                        RoomSendGiftView.this.nit.setText(String.valueOf(i2));
+                        RoomSendGiftView.this.niy.setText(String.valueOf(i2));
                     }
 
                     @Override // com.kascend.chushou.widget.gifts.a.InterfaceC0716a
@@ -1294,19 +1294,19 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
 
                 @Override // com.kascend.chushou.widget.gifts.a.InterfaceC0716a
                 public void b(int i2) {
-                    RoomSendGiftView.this.nit.setText(String.valueOf(i2));
+                    RoomSendGiftView.this.niy.setText(String.valueOf(i2));
                 }
             });
             int[] iArr = new int[2];
-            this.niv.getLocationOnScreen(iArr);
-            aVar.showAtLocation(this.niv, 0, iArr[0], iArr[1] - tv.chushou.zues.utils.a.dip2px(getContext(), 152.13333f));
+            this.niA.getLocationOnScreen(iArr);
+            aVar.showAtLocation(this.niA, 0, iArr[0], iArr[1] - tv.chushou.zues.utils.a.dip2px(getContext(), 152.13333f));
             return;
         }
-        this.nit.setText(String.valueOf(i));
+        this.niy.setText(String.valueOf(i));
     }
 
     public void setOnGiftClickListener(b bVar) {
-        this.niz = bVar;
+        this.niE = bVar;
     }
 
     @Subscribe
@@ -1341,16 +1341,16 @@ public class RoomSendGiftView extends KasBaseMenuView implements View.OnClickLis
     }
 
     private void c(int i) {
-        this.niE.MX(i);
+        this.niJ.MX(i);
     }
 
     public void a(String str) {
-        if (this.niF != null) {
-            this.niF.a(str);
+        if (this.niK != null) {
+            this.niK.a(str);
         }
     }
 
     public void setEmojiSearchText(String str) {
-        this.mXu.setText(str);
+        this.mXz.setText(str);
     }
 }

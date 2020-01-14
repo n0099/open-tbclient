@@ -8,7 +8,7 @@ import com.baidu.tieba.personPolymeric.view.l;
 import tbclient.User;
 /* loaded from: classes9.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
-    private l jps;
+    private l jpx;
 
     public abstract void b(User user);
 
@@ -20,30 +20,30 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        if (this.jps == null) {
-            this.jps = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-            this.jps.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
-            this.jps.setSubText(null);
-            this.jps.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
-            this.jps.showRefreshButton();
-            this.jps.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if (this.jpx == null) {
+            this.jpx = new l(getPageContext().getPageActivity(), getNetRefreshListener());
+            this.jpx.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+            this.jpx.setSubText(null);
+            this.jpx.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+            this.jpx.showRefreshButton();
+            this.jpx.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
-        this.jps.onChangeSkinType();
-        this.jps.attachView(view, z);
+        this.jpx.onChangeSkinType();
+        this.jpx.attachView(view, z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
-        if (this.jps != null) {
-            this.jps.dettachView(view);
+        if (this.jpx != null) {
+            this.jpx.dettachView(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jps != null) {
-            this.jps.onChangeSkinType();
+        if (this.jpx != null) {
+            this.jpx.onChangeSkinType();
         }
     }
 }

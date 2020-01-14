@@ -22,7 +22,7 @@ public class g {
                 return null;
             }
             PostData postData = fVar.ciU().get(0);
-            if (postData.cJx() != 1) {
+            if (postData.cJz() != 1) {
                 return a(fVar);
             }
             return postData;
@@ -82,13 +82,13 @@ public class g {
     }
 
     public static void a(PostData postData, PbActivity.a aVar) {
-        if (postData != null && postData.cJz() != null && postData.cJz().aRz() != null && aVar != null && aVar.iCC != null && aVar.iCD != null && postData.cJz().aRz().size() != 0) {
+        if (postData != null && postData.cJB() != null && postData.cJB().aRz() != null && aVar != null && aVar.iCC != null && aVar.iCD != null && postData.cJB().aRz().size() != 0) {
             String str = (String) v.getItem(aVar.iCC, aVar.index);
             if (!StringUtils.isNull(str)) {
                 aVar.iCC = new ArrayList<>();
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = aVar.iCD;
                 aVar.iCD = new ConcurrentHashMap<>();
-                Iterator<TbRichTextData> it = postData.cJz().aRz().iterator();
+                Iterator<TbRichTextData> it = postData.cJB().aRz().iterator();
                 while (it.hasNext()) {
                     TbRichTextData next = it.next();
                     if (next != null && next.getType() == 8) {

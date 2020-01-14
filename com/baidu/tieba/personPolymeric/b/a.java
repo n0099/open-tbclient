@@ -7,7 +7,7 @@ public interface a {
 
     void GE(String str);
 
-    void cvk();
+    void cvm();
 
-    p cvl();
+    p cvn();
 }

@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes7.dex */
 public class a extends com.baidu.adp.widget.ListView.b {
-    private BaseFragment iZR;
-    private InterfaceC0577a iZS;
-    private TBSpecificationBtn iZT;
-    private View.OnClickListener iZU = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.a.1
+    private BaseFragment iZW;
+    private InterfaceC0577a iZX;
+    private TBSpecificationBtn iZY;
+    private View.OnClickListener iZZ = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            bc.skipToLoginActivity(a.this.iZR.getContext());
-            if (a.this.iZS != null) {
-                a.this.iZS.pL(true);
+            bc.skipToLoginActivity(a.this.iZW.getContext());
+            if (a.this.iZX != null) {
+                a.this.iZX.pL(true);
             }
         }
     };
@@ -30,21 +30,21 @@ public class a extends com.baidu.adp.widget.ListView.b {
     }
 
     public a(BaseFragment baseFragment, InterfaceC0577a interfaceC0577a) {
-        this.iZR = baseFragment;
-        this.iZS = interfaceC0577a;
+        this.iZW = baseFragment;
+        this.iZX = interfaceC0577a;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
     public View createView() {
-        this.mView = LayoutInflater.from(this.iZR.getContext()).inflate(R.layout.login_see_more_layout, (ViewGroup) null);
-        this.iZT = (TBSpecificationBtn) this.mView.findViewById(R.id.login_button);
+        this.mView = LayoutInflater.from(this.iZW.getContext()).inflate(R.layout.login_see_more_layout, (ViewGroup) null);
+        this.iZY = (TBSpecificationBtn) this.mView.findViewById(R.id.login_button);
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-        if (this.iZR != null && this.iZR.getContext() != null) {
-            this.iZT.setText(this.iZR.getContext().getResources().getString(R.string.login_see_more));
+        if (this.iZW != null && this.iZW.getContext() != null) {
+            this.iZY.setText(this.iZW.getContext().getResources().getString(R.string.login_see_more));
         }
-        this.iZT.setTextSize(R.dimen.tbds42);
-        this.iZT.setConfig(bVar);
-        this.iZT.setOnClickListener(this.iZU);
+        this.iZY.setTextSize(R.dimen.tbds42);
+        this.iZY.setConfig(bVar);
+        this.iZY.setOnClickListener(this.iZZ);
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
         return this.mView;
     }
@@ -58,9 +58,9 @@ public class a extends com.baidu.adp.widget.ListView.b {
     }
 
     public void changeSkin(int i) {
-        com.baidu.tbadk.q.a.a(this.iZR.getPageContext(), this.mView);
-        if (this.iZT != null) {
-            this.iZT.aFw();
+        com.baidu.tbadk.q.a.a(this.iZW.getPageContext(), this.mView);
+        if (this.iZY != null) {
+            this.iZY.aFw();
         }
     }
 }

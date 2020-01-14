@@ -11,14 +11,14 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes12.dex */
 public class d implements CookieManager {
-    private boolean jAG;
-    private boolean jAH;
+    private boolean jAL;
+    private boolean jAM;
 
     public d(boolean z, boolean z2) {
-        this.jAG = true;
-        this.jAH = false;
-        this.jAG = z;
-        this.jAH = z2;
+        this.jAL = true;
+        this.jAM = false;
+        this.jAL = z;
+        this.jAM = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -26,7 +26,7 @@ public class d implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.jAH || !Hc(str2);
+        return this.jAM || !Hc(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -43,7 +43,7 @@ public class d implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.jAG && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.jAL && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -71,7 +71,7 @@ public class d implements CookieManager {
         com.baidu.tbadk.data.h.drl = true;
     }
 
-    public static void czv() {
+    public static void czx() {
         com.baidu.tbadk.data.h.drk = "";
         if (PluginPackageManager.jd().aY("com.baidu.tieba.pluginPublisher")) {
             com.baidu.tbadk.data.h aLr = com.baidu.tbadk.data.h.aLr();

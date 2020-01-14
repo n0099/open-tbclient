@@ -6,12 +6,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public final class h {
-    private static final Pattern mBC = Pattern.compile("^NOTE(( |\t).*)?$");
-    private static final Pattern mBD = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
+    private static final Pattern mBH = Pattern.compile("^NOTE(( |\t).*)?$");
+    private static final Pattern mBI = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
 
     public static void ae(l lVar) throws SubtitleDecoderException {
         String readLine = lVar.readLine();
-        if (readLine == null || !mBD.matcher(readLine).matches()) {
+        if (readLine == null || !mBI.matcher(readLine).matches()) {
             throw new SubtitleDecoderException("Expected WEBVTT. Got " + readLine);
         }
     }
@@ -43,14 +43,14 @@ public final class h {
             if (readLine2 == null) {
                 return null;
             }
-            if (mBC.matcher(readLine2).matches()) {
+            if (mBH.matcher(readLine2).matches()) {
                 do {
                     readLine = lVar.readLine();
                     if (readLine != null) {
                     }
                 } while (!readLine.isEmpty());
             } else {
-                Matcher matcher = f.mBr.matcher(readLine2);
+                Matcher matcher = f.mBw.matcher(readLine2);
                 if (matcher.matches()) {
                     return matcher;
                 }

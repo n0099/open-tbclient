@@ -246,21 +246,21 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 anVar.Z("obj_locate", i);
                 anVar.Z(TiebaInitialize.Params.OBJ_PARAM2, 1);
                 TiebaStatic.log(anVar);
-                this.grY.jvJ = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
+                this.grY.jvO = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
                 this.grY.mLocate = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
-                this.grY.jvL = "1";
-                this.grZ.jvJ = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
+                this.grY.jvQ = "1";
+                this.grZ.jvO = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
                 this.grZ.mLocate = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
-                this.grZ.jvL = "1";
+                this.grZ.jvQ = "1";
             } else {
-                this.grY.jvL = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
+                this.grY.jvQ = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
                 this.grY.mLocate = "12";
-                this.grZ.jvL = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
+                this.grZ.jvQ = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
                 this.grZ.mLocate = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
             }
             if (gVar.gsw != null) {
-                this.grY.jvN = gVar.gsw.videoMd5;
-                this.grZ.jvN = gVar.gsw.videoMd5;
+                this.grY.jvS = gVar.gsw.videoMd5;
+                this.grZ.jvS = gVar.gsw.videoMd5;
             }
             this.egU.setVideoStatsData(this.grY);
             this.grV.getVideoView().setBusiness(this.egU);
@@ -449,7 +449,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         if (this.grV != null && this.grI != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.mPageContext.getPageActivity().getWindow().getDecorView();
             if (this.gsa) {
-                this.grV.cwJ();
+                this.grV.cwL();
             }
             if (configuration.orientation == 2) {
                 this.isFullScreen = true;
@@ -520,7 +520,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         } else if (view == this.grN) {
             if (this.grW != null && this.grW.gsw != null) {
                 this.grL.setVisibility(8);
-                this.grV.cwM();
+                this.grV.cwO();
                 this.grV.dZ(this.grW.gsw.videoUrl, this.grW.threadId);
                 AS("2");
             }

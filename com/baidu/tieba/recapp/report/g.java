@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g implements d {
-    private TbHttpMessageTask jKR;
-    private HttpMessageListener jKQ = new HttpMessageListener(1003062) { // from class: com.baidu.tieba.recapp.report.g.1
+    private TbHttpMessageTask jKW;
+    private HttpMessageListener jKV = new HttpMessageListener(1003062) { // from class: com.baidu.tieba.recapp.report.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -28,18 +28,18 @@ public class g implements d {
             }
         }
     };
-    private ArrayList<b> jKS = new ArrayList<>();
+    private ArrayList<b> jKX = new ArrayList<>();
 
     public g() {
         bpY();
-        MessageManager.getInstance().registerListener(this.jKQ);
+        MessageManager.getInstance().registerListener(this.jKV);
     }
 
     private void bpY() {
-        this.jKR = new TbHttpMessageTask(1003062, "https://als.baidu.com/clog/clog");
-        this.jKR.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.jKR.setIsNeedAddCommenParam(true);
-        this.jKR.setResponsedClass(JsonHttpResponsedMessage.class);
+        this.jKW = new TbHttpMessageTask(1003062, "https://als.baidu.com/clog/clog");
+        this.jKW.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.jKW.setIsNeedAddCommenParam(true);
+        this.jKW.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -47,16 +47,16 @@ public class g implements d {
         if (bVar != null) {
             com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
             if (!(adAdSense == null || adAdSense.aGM())) {
-                this.jKR.setUrl("http://als.baidu.com/clog/clog");
+                this.jKW.setUrl("http://als.baidu.com/clog/clog");
             }
             d(bVar);
-            cBS();
+            cBU();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.d
-    public void cBR() {
-        cBS();
+    public void cBT() {
+        cBU();
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -66,10 +66,10 @@ public class g implements d {
         }
     }
 
-    private void cBS() {
-        if (v.getCount(this.jKS) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.jKS), this.jKR);
-            this.jKS.clear();
+    private void cBU() {
+        if (v.getCount(this.jKX) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.jKX), this.jKW);
+            this.jKX.clear();
         }
     }
 
@@ -86,10 +86,10 @@ public class g implements d {
 
     private void d(b bVar) {
         if (bVar != null) {
-            if (v.getCount(this.jKS) >= 20) {
-                this.jKS.remove(0);
+            if (v.getCount(this.jKX) >= 20) {
+                this.jKX.remove(0);
             }
-            this.jKS.add(bVar);
+            this.jKX.add(bVar);
         }
     }
 }

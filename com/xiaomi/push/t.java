@@ -9,7 +9,7 @@ public class t {
     private static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f947a = null;
+    private static String f948a = null;
 
     public static int a() {
         try {
@@ -32,8 +32,8 @@ public class t {
     public static synchronized String m557a() {
         String str;
         synchronized (t.class) {
-            if (f947a != null) {
-                str = f947a;
+            if (f948a != null) {
+                str = f948a;
             } else {
                 String str2 = Build.VERSION.INCREMENTAL;
                 if (a() <= 0) {
@@ -50,7 +50,7 @@ public class t {
                 } else {
                     str = str2;
                 }
-                f947a = str;
+                f948a = str;
             }
         }
         return str;
@@ -85,8 +85,8 @@ public class t {
     }
 
     private static String b() {
-        f947a = s.a("ro.build.version.emui", "");
-        return f947a;
+        f948a = s.a("ro.build.version.emui", "");
+        return f948a;
     }
 
     /* renamed from: b  reason: collision with other method in class */
@@ -105,16 +105,16 @@ public class t {
     private static String c() {
         String a2 = s.a("ro.build.version.opporom", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("ColorOS_")) {
-            f947a = "ColorOS_" + a2;
+            f948a = "ColorOS_" + a2;
         }
-        return f947a;
+        return f948a;
     }
 
     private static String d() {
         String a2 = s.a("ro.vivo.os.version", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("FuntouchOS_")) {
-            f947a = "FuntouchOS_" + a2;
+            f948a = "FuntouchOS_" + a2;
         }
-        return f947a;
+        return f948a;
     }
 }

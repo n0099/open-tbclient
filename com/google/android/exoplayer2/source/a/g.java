@@ -9,5 +9,5 @@ public interface g {
 
     void b(c cVar);
 
-    void duX() throws IOException;
+    void duZ() throws IOException;
 }

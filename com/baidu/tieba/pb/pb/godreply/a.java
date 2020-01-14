@@ -213,7 +213,7 @@ public class a implements com.baidu.tbadk.m.a {
 
     private void a(BdTypeListView bdTypeListView) {
         if (this.iBA == null) {
-            this.iBA = new k(this.iBw, PostData.kfm);
+            this.iBA = new k(this.iBw, PostData.kfr);
             this.iBA.setDuiEnabled(false);
             ArrayList arrayList = new ArrayList(1);
             arrayList.add(this.iBA);

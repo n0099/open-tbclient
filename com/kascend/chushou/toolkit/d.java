@@ -9,8 +9,8 @@ public class d {
     private long e;
     private long f;
     private int g;
-    private final tv.chushou.zues.c ndZ;
-    private final a nea;
+    private final tv.chushou.zues.c nee;
+    private final a nef;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -20,11 +20,11 @@ public class d {
     public d(long j, a aVar, tv.chushou.zues.c cVar) {
         this.a = j;
         this.e = j;
-        this.nea = aVar;
+        this.nef = aVar;
         if (cVar == null) {
-            this.ndZ = new tv.chushou.zues.c(Looper.getMainLooper());
+            this.nee = new tv.chushou.zues.c(Looper.getMainLooper());
         } else {
-            this.ndZ = cVar;
+            this.nee = cVar;
         }
         this.d = new Runnable() { // from class: com.kascend.chushou.toolkit.d.1
             @Override // java.lang.Runnable
@@ -37,13 +37,13 @@ public class d {
 
     public void a() {
         this.f = SystemClock.uptimeMillis();
-        this.ndZ.d(this.d, this.e);
+        this.nee.d(this.d, this.e);
         this.g = 1;
     }
 
     public void b() {
         if (this.g != 3) {
-            this.ndZ.removeCallbacks(this.d);
+            this.nee.removeCallbacks(this.d);
             this.e -= SystemClock.uptimeMillis() - this.f;
             this.f = 0L;
             this.g = 2;
@@ -58,16 +58,16 @@ public class d {
     }
 
     public void d() {
-        this.ndZ.removeCallbacks(this.d);
+        this.nee.removeCallbacks(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.ndZ.removeCallbacks(this.d);
+        this.nee.removeCallbacks(this.d);
         this.e = this.a;
         this.g = 3;
-        if (this.nea != null) {
-            this.nea.a();
+        if (this.nef != null) {
+            this.nef.a();
         }
     }
 }

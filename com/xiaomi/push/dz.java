@@ -28,7 +28,7 @@ public class dz extends dx {
         if (this.a) {
             try {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) this.f248a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                ((WindowManager) this.f249a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 return displayMetrics.heightPixels + Constants.ACCEPT_TIME_SEPARATOR_SP + displayMetrics.widthPixels;
             } catch (Throwable th) {
                 return "";
@@ -62,7 +62,7 @@ public class dz extends dx {
     private String e() {
         if (this.d) {
             try {
-                return Settings.Secure.getString(this.f248a.getContentResolver(), "android_id");
+                return Settings.Secure.getString(this.f249a.getContentResolver(), "android_id");
             } catch (Throwable th) {
                 return "";
             }
@@ -73,7 +73,7 @@ public class dz extends dx {
     private String f() {
         if (this.e) {
             try {
-                return ((TelephonyManager) this.f248a.getSystemService("phone")).getSimOperator();
+                return ((TelephonyManager) this.f249a.getSystemService("phone")).getSimOperator();
             } catch (Throwable th) {
                 return "";
             }

@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes4.dex */
 public class a {
-    public static View nYu = null;
+    public static View nYz = null;
 
     /* renamed from: tv.chushou.zues.widget.kpswitch.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -59,7 +59,7 @@ public class a {
         boolean z = true;
         boolean z2 = view2.getVisibility() != 0;
         if (!z2) {
-            if (nYu == null || nYu == view) {
+            if (nYz == null || nYz == view) {
                 h(view2, view3);
                 z = z2;
             }
@@ -67,7 +67,7 @@ public class a {
             dI(view2);
             z = z2;
         }
-        nYu = view;
+        nYz = view;
         return z;
     }
 

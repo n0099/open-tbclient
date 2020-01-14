@@ -7,12 +7,12 @@ import kotlin.jvm.internal.q;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> nCb;
-    private final kotlin.jvm.a.b<T, T> nCc;
+    private final kotlin.jvm.a.a<T> nCg;
+    private final kotlin.jvm.a.b<T, T> nCh;
 
     /* loaded from: classes5.dex */
     public static final class a implements Iterator<T> {
-        private int nBZ = -2;
+        private int nCe = -2;
         private T nextItem;
 
         @Override // java.util.Iterator
@@ -24,44 +24,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void dJx() {
+        private final void dJz() {
             T t;
-            if (this.nBZ == -2) {
-                t = (T) b.this.nCb.invoke();
+            if (this.nCe == -2) {
+                t = (T) b.this.nCg.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.nCc;
+                kotlin.jvm.a.b bVar = b.this.nCh;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    q.dJk();
+                    q.dJm();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.nBZ = this.nextItem == null ? 0 : 1;
+            this.nCe = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.nBZ < 0) {
-                dJx();
+            if (this.nCe < 0) {
+                dJz();
             }
-            if (this.nBZ == 0) {
+            if (this.nCe == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.nBZ = -1;
+            this.nCe = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.nBZ < 0) {
-                dJx();
+            if (this.nCe < 0) {
+                dJz();
             }
-            return this.nBZ == 1;
+            return this.nCe == 1;
         }
     }
 
@@ -71,8 +71,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         q.j(aVar, "getInitialValue");
         q.j(bVar, "getNextValue");
-        this.nCb = aVar;
-        this.nCc = bVar;
+        this.nCg = aVar;
+        this.nCh = bVar;
     }
 
     @Override // kotlin.sequences.c

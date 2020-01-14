@@ -6,8 +6,8 @@ import kascend.core.KSDevice;
 /* loaded from: classes4.dex */
 public abstract class a {
     protected Context context;
-    protected a nAK;
-    protected KSDevice nAL;
+    protected a nAP;
+    protected KSDevice nAQ;
 
     public abstract void RR(String str);
 
@@ -18,32 +18,32 @@ public abstract class a {
     }
 
     public void a(a aVar) {
-        this.nAK = aVar;
+        this.nAP = aVar;
     }
 
     public void a(KSDevice kSDevice) {
-        this.nAL = kSDevice;
+        this.nAQ = kSDevice;
     }
 
-    public String dIJ() {
+    public String dIL() {
         String ds = getDS();
         if (TextUtils.isEmpty(ds)) {
-            if (this.nAK == null) {
-                return dIK();
+            if (this.nAP == null) {
+                return dIM();
             }
-            return this.nAK.dIJ();
+            return this.nAP.dIL();
         }
         return ds;
     }
 
     public void RQ(String str) {
         RR(str);
-        if (this.nAK != null) {
-            this.nAK.RR(str);
+        if (this.nAP != null) {
+            this.nAP.RR(str);
         }
     }
 
-    public String dIK() {
-        return this.nAL != null ? this.nAL.getDeviceId() : "";
+    public String dIM() {
+        return this.nAQ != null ? this.nAQ.getDeviceId() : "";
     }
 }

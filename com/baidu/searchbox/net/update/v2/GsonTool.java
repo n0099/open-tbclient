@@ -58,26 +58,26 @@ public class GsonTool implements ICommandStatistics<ActionData> {
         this.mReceiveTimeStamp = String.valueOf(System.currentTimeMillis());
         this.mCommandFrom = i;
         a aVar = new a(reader);
-        aVar.dzH();
+        aVar.dzJ();
         while (aVar.hasNext()) {
-            String dzM = aVar.dzM();
-            if (dzM.equals("data")) {
+            String dzO = aVar.dzO();
+            if (dzO.equals("data")) {
                 readData(aVar, jSONObject);
-            } else if (dzM.equals("errno")) {
-                this.mErrorCode = aVar.dzN();
+            } else if (dzO.equals("errno")) {
+                this.mErrorCode = aVar.dzP();
                 if (!this.mErrorCode.equals("0")) {
                     throw new IOException("error no is not 0");
                 }
-            } else if (dzM.equals("timestamp")) {
-                this.mTimeStamp = aVar.dzN();
+            } else if (dzO.equals("timestamp")) {
+                this.mTimeStamp = aVar.dzP();
                 if (i == 0) {
                     DateTimeUtil.setDeltaTime(this.mTimeStamp);
                 }
             } else {
-                aVar.dzP();
+                aVar.dzR();
             }
         }
-        aVar.dzI();
+        aVar.dzK();
         doStatistics();
     }
 
@@ -90,18 +90,18 @@ public class GsonTool implements ICommandStatistics<ActionData> {
 
     private void readData(a aVar, JSONObject jSONObject) throws IOException {
         boolean z;
-        aVar.dzH();
+        aVar.dzJ();
         Gson gson = new Gson();
         while (aVar.hasNext()) {
-            String dzM = aVar.dzM();
-            aVar.dzH();
+            String dzO = aVar.dzO();
+            aVar.dzJ();
             while (aVar.hasNext()) {
-                String dzM2 = aVar.dzM();
+                String dzO2 = aVar.dzO();
                 this.mTotalCount++;
                 if (DEBUG) {
-                    Log.d(TAG, "read action " + dzM + HanziToPinyin.Token.SEPARATOR + dzM2);
+                    Log.d(TAG, "read action " + dzO + HanziToPinyin.Token.SEPARATOR + dzO2);
                 }
-                AbstractCommandListener commandListener = this.mCommandListenerRegistry.getCommandListener(dzM, dzM2);
+                AbstractCommandListener commandListener = this.mCommandListenerRegistry.getCommandListener(dzO, dzO2);
                 if (commandListener == null) {
                     commandListener = new NoneCommandListener();
                     z = false;
@@ -114,49 +114,49 @@ public class GsonTool implements ICommandStatistics<ActionData> {
                         typeAdapter = gson.getAdapter(com.google.gson.b.a.get(commandListener.getDataType()));
                     } catch (Exception e) {
                         e.printStackTrace();
-                        collectInfo(dzM + "/" + dzM2, (ActionData) null, false);
+                        collectInfo(dzO + "/" + dzO2, (ActionData) null, false);
                     }
                 }
                 ActionData createDataObject = commandListener.createDataObject();
                 boolean readAction = readAction(aVar, createDataObject, typeAdapter);
                 if (readAction) {
                     synchronized (GsonTool.class) {
-                        if (!dispatchCheck(AppRuntime.getAppContext(), dzM, dzM2, commandListener, createDataObject, jSONObject)) {
+                        if (!dispatchCheck(AppRuntime.getAppContext(), dzO, dzO2, commandListener, createDataObject, jSONObject)) {
                             if (DEBUG) {
                                 Log.d(TAG, "data from imsdk is not newest");
                             }
-                            collectInfo(dzM + "/" + dzM2, createDataObject, false);
+                            collectInfo(dzO + "/" + dzO2, createDataObject, false);
                             this.mVersionFilterCount++;
                         } else {
-                            commandListener.executeCommand(AppRuntime.getAppContext(), dzM, dzM2, createDataObject);
+                            commandListener.executeCommand(AppRuntime.getAppContext(), dzO, dzO2, createDataObject);
                         }
                     }
                 } else if (DEBUG) {
-                    Log.d(TAG, "read action " + dzM + HanziToPinyin.Token.SEPARATOR + dzM2 + " fail");
+                    Log.d(TAG, "read action " + dzO + HanziToPinyin.Token.SEPARATOR + dzO2 + " fail");
                 }
-                collectInfo(dzM + "/" + dzM2, createDataObject, z && readAction);
+                collectInfo(dzO + "/" + dzO2, createDataObject, z && readAction);
             }
-            aVar.dzI();
+            aVar.dzK();
         }
-        aVar.dzI();
+        aVar.dzK();
     }
 
     /* JADX WARN: Type inference failed for: r1v3, types: [T, java.lang.Object] */
     private boolean readAction(a aVar, ActionData actionData, TypeAdapter typeAdapter) throws IOException {
         String path = aVar.getPath();
         try {
-            aVar.dzH();
+            aVar.dzJ();
             while (aVar.hasNext()) {
-                String dzM = aVar.dzM();
-                if (dzM.equals("data")) {
+                String dzO = aVar.dzO();
+                if (dzO.equals("data")) {
                     actionData.data = typeAdapter.read(aVar);
-                } else if (dzM.equals("version")) {
-                    actionData.version = aVar.dzN();
+                } else if (dzO.equals("version")) {
+                    actionData.version = aVar.dzP();
                 } else {
-                    aVar.dzP();
+                    aVar.dzR();
                 }
             }
-            aVar.dzI();
+            aVar.dzK();
             return true;
         } catch (Exception e) {
             skipErrorAction(aVar, path);
@@ -166,21 +166,21 @@ public class GsonTool implements ICommandStatistics<ActionData> {
 
     private void skipErrorAction(a aVar, String str) throws IOException {
         if (aVar.getPath().equals(str)) {
-            aVar.dzP();
+            aVar.dzR();
             return;
         }
-        aVar.dzP();
+        aVar.dzR();
         do {
-            switch (aVar.dzJ()) {
+            switch (aVar.dzL()) {
                 case END_OBJECT:
-                    aVar.dzI();
+                    aVar.dzK();
                     break;
                 case END_ARRAY:
-                    aVar.dzG();
+                    aVar.dzI();
                     break;
                 default:
-                    aVar.dzP();
-                    aVar.dzP();
+                    aVar.dzR();
+                    aVar.dzR();
                     break;
             }
         } while (!aVar.getPath().equals(str));

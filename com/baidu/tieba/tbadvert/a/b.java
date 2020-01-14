@@ -6,7 +6,7 @@ public class b {
     public int cOH;
     public long endTime;
     public int id;
-    public String kjD;
+    public String kjI;
     public String linkUrl;
     public long showTime = 3000;
     public int showType;
@@ -21,12 +21,12 @@ public class b {
             this.endTime = jSONObject.optLong("end_time", 0L);
             this.showType = jSONObject.optInt("show_type", 0);
             this.cOH = jSONObject.optInt("show_status", 0);
-            this.kjD = jSONObject.optString("resource_url");
+            this.kjI = jSONObject.optString("resource_url");
             this.linkUrl = jSONObject.optString("link_url");
         }
     }
 
-    public boolean cKX() {
+    public boolean cKZ() {
         return this.showType == 1;
     }
 

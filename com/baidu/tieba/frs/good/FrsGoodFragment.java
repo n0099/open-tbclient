@@ -315,7 +315,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
         @Override // com.baidu.tbadk.core.view.g.b
         public void onListPullRefreshFinished(View view, boolean z) {
             if (z) {
-                com.baidu.tieba.r.c.cIs().b(FrsGoodFragment.this.getUniqueId(), false);
+                com.baidu.tieba.r.c.cIu().b(FrsGoodFragment.this.getUniqueId(), false);
             }
         }
     };
@@ -328,7 +328,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
             }
             if (i == 0) {
                 r.btA().kn(true);
-                com.baidu.tieba.r.c.cIs().b(FrsGoodFragment.this.getUniqueId(), true);
+                com.baidu.tieba.r.c.cIu().b(FrsGoodFragment.this.getUniqueId(), true);
             }
         }
 
@@ -509,7 +509,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
         this.beginTime = System.currentTimeMillis();
         this.dzt = this.beginTime - this.fSK;
         super.onCreate(bundle);
-        com.baidu.tieba.r.c.cIs().w(getUniqueId());
+        com.baidu.tieba.r.c.cIu().w(getUniqueId());
         this.gDg = new FrsGoodModelController(this);
         if (arguments != null) {
             this.gDg.ad(arguments);
@@ -603,7 +603,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
             this.gDi.onDestroy();
         }
         MessageManager.getInstance().unRegisterListener(this.gpd);
-        com.baidu.tieba.r.c.cIs().x(getUniqueId());
+        com.baidu.tieba.r.c.cIu().x(getUniqueId());
         r.btA().kn(false);
         super.onDestroy();
         this.gDg.ags();
@@ -804,7 +804,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
     public void onStop() {
         super.onStop();
         r.btA().kn(false);
-        com.baidu.tieba.r.c.cIs().b(getUniqueId(), false);
+        com.baidu.tieba.r.c.cIu().b(getUniqueId(), false);
         if (this.glJ != null && this.glJ.getForum() != null) {
             com.baidu.tbadk.distribute.a.aLJ().a(getPageContext().getPageActivity(), "frs", this.glJ.getForum().getId(), 0L);
         }

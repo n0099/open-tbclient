@@ -12,11 +12,11 @@ public interface b {
 
     void d(Framedata framedata);
 
-    String dMe();
+    String dMg();
 
-    String dMf();
+    String dMh();
 
-    b dMg();
+    b dMi();
 
     void e(Framedata framedata) throws InvalidDataException;
 

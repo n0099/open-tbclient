@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes8.dex */
 public class b implements c.a {
-    private final CloudMusicModel kuC;
-    private final c.b kuD;
+    private final CloudMusicModel kuH;
+    private final c.b kuI;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.kuC = cloudMusicModel;
-        this.kuD = bVar;
+        this.kuH = cloudMusicModel;
+        this.kuI = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void cNT() {
-        this.kuD.th(true);
-        this.kuC.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+    public void cNV() {
+        this.kuI.th(true);
+        this.kuH.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void aA(CloudMusicData cloudMusicData) {
-                b.this.kuD.th(false);
+                b.this.kuI.th(false);
                 if (cloudMusicData != null) {
-                    b.this.kuD.ti(false);
+                    b.this.kuI.ti(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.kuD.ti(true);
+                        b.this.kuI.ti(true);
                         return;
                     } else {
-                        b.this.kuD.a(cloudMusicData);
+                        b.this.kuI.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.kuD.ti(true);
+                b.this.kuI.ti(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
     public void bER() {
-        this.kuC.cancelLoadData();
+        this.kuH.cancelLoadData();
     }
 }

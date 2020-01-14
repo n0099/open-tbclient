@@ -3,11 +3,11 @@ package com.facebook.imagepipeline.nativecode;
 import android.os.Build;
 /* loaded from: classes12.dex */
 public class b {
-    private static boolean lGi;
+    private static boolean lGn;
 
-    public static synchronized void diA() {
+    public static synchronized void diC() {
         synchronized (b.class) {
-            if (!lGi) {
+            if (!lGn) {
                 if (Build.VERSION.SDK_INT <= 16) {
                     try {
                         com.facebook.common.e.a.loadLibrary("fb_jpegturbo");
@@ -15,7 +15,7 @@ public class b {
                     }
                 }
                 com.facebook.common.e.a.loadLibrary("static-webp");
-                lGi = true;
+                lGn = true;
             }
         }
     }

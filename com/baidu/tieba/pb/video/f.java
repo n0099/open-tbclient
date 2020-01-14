@@ -23,21 +23,21 @@ public class f {
     private View.OnClickListener dXX = new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.f.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == f.this.iVJ || view == f.this.iVK || view == f.this.iVN) {
+            if (view == f.this.iVO || view == f.this.iVP || view == f.this.iVS) {
                 f.this.cG(view);
             }
         }
     };
     private View hXc;
-    private HeadImageView iVJ;
-    private TextView iVK;
-    private RelativeLayout iVL;
-    private TextView iVM;
-    private ImageView iVN;
-    private PbVideoFullUserInfoLikeButton iVO;
-    private e iVP;
-    private View.OnClickListener iVQ;
-    private LinearLayout iVR;
+    private HeadImageView iVO;
+    private TextView iVP;
+    private RelativeLayout iVQ;
+    private TextView iVR;
+    private ImageView iVS;
+    private PbVideoFullUserInfoLikeButton iVT;
+    private e iVU;
+    private View.OnClickListener iVV;
+    private LinearLayout iVW;
 
     public f(TbPageContext tbPageContext, FrameLayout frameLayout) {
         this.cRe = tbPageContext;
@@ -54,36 +54,36 @@ public class f {
     }
 
     private void initView() {
-        this.iVL = (RelativeLayout) this.hXc.findViewById(R.id.pbVideoFullUserInfoPanel);
-        this.iVJ = (HeadImageView) this.hXc.findViewById(R.id.pbVideoFullPhoto);
-        this.iVJ.setOnClickListener(this.dXX);
-        this.iVR = (LinearLayout) this.hXc.findViewById(R.id.pbVideoFullNameLayout);
-        am.setBackgroundResource(this.iVR, R.drawable.video_author_bg);
-        this.iVK = (TextView) this.hXc.findViewById(R.id.pbVideoFullUserName);
-        this.iVK.setOnClickListener(this.dXX);
-        this.iVM = (TextView) this.hXc.findViewById(R.id.pbVideoFullAttention);
-        this.iVM.setOnClickListener(this.dXX);
-        this.iVN = (ImageView) this.hXc.findViewById(R.id.pbVideoFullChannelIcon);
-        this.iVO = (PbVideoFullUserInfoLikeButton) this.hXc.findViewById(R.id.pbVideoFullLikeButton);
-        this.iVO.setTextSize(0, l.getDimens(this.cRe.getPageActivity(), R.dimen.tbds30));
-        this.iVP = new e(this.cRe, this.iVO);
-        this.iVJ.setRadius(l.getDimens(this.cRe.getPageActivity(), R.dimen.ds40));
+        this.iVQ = (RelativeLayout) this.hXc.findViewById(R.id.pbVideoFullUserInfoPanel);
+        this.iVO = (HeadImageView) this.hXc.findViewById(R.id.pbVideoFullPhoto);
+        this.iVO.setOnClickListener(this.dXX);
+        this.iVW = (LinearLayout) this.hXc.findViewById(R.id.pbVideoFullNameLayout);
+        am.setBackgroundResource(this.iVW, R.drawable.video_author_bg);
+        this.iVP = (TextView) this.hXc.findViewById(R.id.pbVideoFullUserName);
+        this.iVP.setOnClickListener(this.dXX);
+        this.iVR = (TextView) this.hXc.findViewById(R.id.pbVideoFullAttention);
+        this.iVR.setOnClickListener(this.dXX);
+        this.iVS = (ImageView) this.hXc.findViewById(R.id.pbVideoFullChannelIcon);
+        this.iVT = (PbVideoFullUserInfoLikeButton) this.hXc.findViewById(R.id.pbVideoFullLikeButton);
+        this.iVT.setTextSize(0, l.getDimens(this.cRe.getPageActivity(), R.dimen.tbds30));
+        this.iVU = new e(this.cRe, this.iVT);
+        this.iVO.setRadius(l.getDimens(this.cRe.getPageActivity(), R.dimen.ds40));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cG(View view) {
-        if (this.iVQ != null) {
-            this.iVQ.onClick(view);
+        if (this.iVV != null) {
+            this.iVV.onClick(view);
         }
     }
 
     public void a(PostData postData, bj bjVar, com.baidu.tieba.pb.data.l lVar) {
-        this.iVO.setVisibility(0);
-        this.iVM.setVisibility(8);
+        this.iVT.setVisibility(0);
+        this.iVR.setVisibility(8);
         t(postData);
         if (aF(bjVar)) {
-            this.iVM.setVisibility(8);
-            this.iVO.setVisibility(8);
+            this.iVR.setVisibility(8);
+            this.iVT.setVisibility(8);
         }
     }
 
@@ -95,39 +95,39 @@ public class f {
     }
 
     private void t(PostData postData) {
-        this.iVN.setVisibility(8);
-        this.iVJ.setUserId(postData.azX().getUserId());
-        this.iVJ.setUserName(postData.azX().getUserName());
-        this.iVJ.setIsBigV(postData.azX().isBigV());
-        this.iVK.setText(postData.azX().getName_show());
-        this.iVK.setTag(postData.azX().getUserId());
-        this.iVJ.startLoad(postData.azX().getAvater(), 28, false);
-        this.iVP.a(postData.azX());
+        this.iVS.setVisibility(8);
+        this.iVO.setUserId(postData.azX().getUserId());
+        this.iVO.setUserName(postData.azX().getUserName());
+        this.iVO.setIsBigV(postData.azX().isBigV());
+        this.iVP.setText(postData.azX().getName_show());
+        this.iVP.setTag(postData.azX().getUserId());
+        this.iVO.startLoad(postData.azX().getAvater(), 28, false);
+        this.iVU.a(postData.azX());
     }
 
     public void aF(float f) {
-        this.iVL.setAlpha(f);
+        this.iVQ.setAlpha(f);
     }
 
-    public View cqQ() {
-        return this.iVL;
+    public View cqS() {
+        return this.iVQ;
     }
 
     public void onChangeSkin(int i) {
-        if (this.iVO != null) {
-            this.iVO.onChangeSkinType(i);
+        if (this.iVT != null) {
+            this.iVT.onChangeSkinType(i);
         }
-        am.setViewTextColor(this.iVM, (int) R.color.cp_cont_a);
-        if (this.iVK != null) {
-            am.setViewTextColor(this.iVK, (int) R.color.cp_cont_a);
+        am.setViewTextColor(this.iVR, (int) R.color.cp_cont_a);
+        if (this.iVP != null) {
+            am.setViewTextColor(this.iVP, (int) R.color.cp_cont_a);
         }
-        if (this.iVN != null) {
-            am.setBackgroundResource(this.iVN, R.drawable.icon_weiba);
+        if (this.iVS != null) {
+            am.setBackgroundResource(this.iVS, R.drawable.icon_weiba);
         }
     }
 
     public void R(View.OnClickListener onClickListener) {
-        this.iVQ = onClickListener;
+        this.iVV = onClickListener;
     }
 
     public void onDestroy() {

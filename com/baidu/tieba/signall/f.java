@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class f {
     public String cIU;
-    public String jXq;
+    public String jXv;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -15,7 +15,7 @@ public class f {
             return;
         }
         try {
-            this.jXq = jSONObject.optString("banner_pic");
+            this.jXv = jSONObject.optString("banner_pic");
             this.cIU = jSONObject.optString("banner_url");
         } catch (Exception e) {
             BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, TiebaInitialize.LogFields.REASON, e.toString());
